@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Agent ID to leave the meeting. Optional. If not specified, defaults to the agent mapped to the current RAM account.
     shared_ptr<string> userId_ {};
   };
 

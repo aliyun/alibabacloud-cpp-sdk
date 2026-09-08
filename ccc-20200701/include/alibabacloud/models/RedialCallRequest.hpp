@@ -103,14 +103,23 @@ namespace Models
 
 
   protected:
+    // Callee number.
     shared_ptr<string> callee_ {};
+    // Caller number.
     shared_ptr<string> caller_ {};
+    // Unique ID provided by the agent endpoint to identify an agent Workbench.
     shared_ptr<string> deviceId_ {};
+    // Instance ID of the call center.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Call job ID. The job ID of the previous call used for redialing.
     shared_ptr<string> jobId_ {};
+    // Per-call data. It must not exceed 128 bytes and is primarily used for extension purposes. Ordinary customers do not need to pay attention to it.
     shared_ptr<string> tags_ {};
+    // Timeout. If the call is not answered within the time specified by this parameter, it is automatically disconnected.
     shared_ptr<int32_t> timeoutSeconds_ {};
+    // User ID of the agent.
     shared_ptr<string> userId_ {};
   };
 

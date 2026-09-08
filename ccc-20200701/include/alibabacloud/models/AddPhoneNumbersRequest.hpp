@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // ID of the IVR contact flow to attach. This parameter is valid only when the number usage includes inbound calls. It is optional and defaults to empty.
     shared_ptr<string> contactFlowId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Number group ID. You can view number grouping information in the Cloud Contact Center console. This parameter is optional and defaults to empty.
     shared_ptr<string> numberGroupId_ {};
+    // List of phone numbers to add.
     shared_ptr<string> numberList_ {};
+    // Usage of the phone number. Note: If the provided number is a 400 number, the usage must be set to Inbound.
+    // 
     // This parameter is required.
     shared_ptr<string> usage_ {};
   };

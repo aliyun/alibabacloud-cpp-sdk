@@ -193,17 +193,29 @@ namespace Models
 
 
       protected:
+        // Break status code, which can be either system-defined or customer-defined. System-defined break codes include: Warm-up (temporary break state after an agent goes online but before becoming idle), RingingTimeout (break caused by agent ringing timeout), and RejectCall (break caused by agent rejecting a call). Customer-defined status codes have no restrictions, and customers can define them according to their business needs.
         shared_ptr<string> breakCode_ {};
+        // Device ID, which is the identity ID of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
         shared_ptr<string> deviceId_ {};
+        // [responses_200_schema_properties_Data_properties_UserContext_properties_Mobile_description]The agent\\"s personal phone number.
         shared_ptr<string> extension_ {};
+        // The UNIX timestamp in milliseconds indicating when the last heartbeat was received from the agent.
         shared_ptr<int64_t> heartbeat_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // [responses_200_schema_properties_Data_properties_CallContext_properties_ChannelContexts_items_properties_SkillGroupId_type]string
         shared_ptr<string> jobId_ {};
+        // The agent\\"s personal phone number.
         shared_ptr<string> mobile_ {};
+        // Indicates whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // [responses_200_schema_properties_Data_properties_CallContext_properties_ChannelContexts_items_properties_ChannelId_type]string
         shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+        // Agent ID.
         shared_ptr<string> userId_ {};
+        // [responses_200_schema_properties_Data_properties_CallContext_properties_CallType_description]Call type.
         shared_ptr<string> userState_ {};
+        // [responses_200_schema_properties_Data_properties_CallContext_properties_ChannelContexts_items_properties_Index_type]integer
         shared_ptr<string> workMode_ {};
       };
 
@@ -380,19 +392,33 @@ namespace Models
 
 
         protected:
+          // The call type of the channel.
           shared_ptr<string> callType_ {};
+          // Channel flags.
           shared_ptr<string> channelFlags_ {};
+          // The channel ID.
           shared_ptr<string> channelId_ {};
+          // [parameters_JobId_schema_description]The call ID.
           shared_ptr<string> channelState_ {};
+          // Called party of the call channel.
           shared_ptr<string> destination_ {};
+          // An auto-incremented ID assigned by the system. Customers do not need to concern themselves with this value.
           shared_ptr<int32_t> index_ {};
+          // The call ID.
           shared_ptr<string> jobId_ {};
+          // The originator of the channel.
           shared_ptr<string> originator_ {};
+          // [parameters_JobId_in]query
           shared_ptr<string> releaseInitiator_ {};
+          // The reason for releasing the channel. This indicates why the current channel was disconnected. The value corresponds to a response code defined in the SIP protocol. Customers should refer to the SIP protocol to analyze the disconnection reason.
           shared_ptr<string> releaseReason_ {};
+          // The skill group associated with this call. In inbound scenarios, the skill group is specified by the queue routed through IVR. In outbound scenarios, the skill group is the first one the agent signs into.
           shared_ptr<string> skillGroupId_ {};
+          // The UNIX timestamp of the most recent status change of the channel, in milliseconds.
           shared_ptr<int64_t> timestamp_ {};
+          // The extension number of the agent associated with the channel.
           shared_ptr<string> userExtension_ {};
+          // The agent ID associated with the channel. This field is empty if the channel belongs to a customer.
           shared_ptr<string> userId_ {};
         };
 
@@ -429,9 +455,13 @@ namespace Models
 
 
       protected:
+        // Call type.
         shared_ptr<string> callType_ {};
+        // List of call channels.
         shared_ptr<vector<CallContext::ChannelContexts>> channelContexts_ {};
+        // [responses_200_schema_properties_Data_properties_CallContext_properties_ChannelContexts_items_properties_ChannelFlags_enumValueTitles_MONITORING]Monitoring
         shared_ptr<string> instanceId_ {};
+        // Call ID.
         shared_ptr<string> jobId_ {};
       };
 
@@ -456,7 +486,9 @@ namespace Models
 
 
     protected:
+      // [responses_200_schema_properties_Data_properties_CallContext_properties_ChannelContexts_items_properties_ReleaseReason_type]string
       shared_ptr<Data::CallContext> callContext_ {};
+      // [responses_200_schema_properties_Data_properties_UserContext_properties_OutboundScenario_description]Indicates whether the agent is in outbound-only mode.
       shared_ptr<Data::UserContext> userContext_ {};
     };
 
@@ -509,11 +541,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // [responses_200_schema_properties_Data_properties_UserContext_properties_Heartbeat_description]The UNIX timestamp in milliseconds indicating when the last heartbeat was received from the agent.
     shared_ptr<UnmuteCallResponseBody::Data> data_ {};
+    // [responses_200_schema_properties_Data_properties_UserContext_properties_UserId_type]string
     shared_ptr<int32_t> httpStatusCode_ {};
+    // [responses_200_schema_properties_Data_properties_UserContext_properties_InstanceId_type]string
     shared_ptr<string> message_ {};
+    // [responses_200_schema_properties_Data_properties_UserContext_properties_BreakCode_enumValueTitles_RejectCall]Break caused by agent rejecting a call
     shared_ptr<vector<string>> params_ {};
+    // [responses_200_schema_properties_Data_properties_UserContext_properties_DeviceId_type]string
     shared_ptr<string> requestId_ {};
   };
 

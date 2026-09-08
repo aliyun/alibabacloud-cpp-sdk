@@ -252,26 +252,47 @@ namespace Models
 
 
     protected:
+      // Agent data push server URL. After a successful connection, the server pushes agent status data to the agent Workbench.
       shared_ptr<string> agentServerUrl_ {};
+      // Agent profile picture URL.
       shared_ptr<string> avatarUrl_ {};
+      // Chat session application ID.
       shared_ptr<string> chatAppId_ {};
+      // Chat session application key.
       shared_ptr<string> chatAppKey_ {};
+      // Chat Device ID.
       shared_ptr<string> chatDeviceId_ {};
+      // Chat session logon token.
       shared_ptr<string> chatLoginToken_ {};
+      // Chat session server URL.
       shared_ptr<string> chatServerUrl_ {};
+      // Chat session Device ID.
       shared_ptr<string> chatUserId_ {};
+      // SIP device extension number. This field is required when using a SIP phone.
       shared_ptr<string> deviceExt_ {};
+      // If the agent has registered an SIP phone, this parameter is the Device ID of the SIP phone device; otherwise, it is empty.
       shared_ptr<string> deviceId_ {};
+      // SIP device status.
       shared_ptr<string> deviceState_ {};
+      // Agent display name.
       shared_ptr<string> displayName_ {};
+      // Agent extension number.
       shared_ptr<string> extension_ {};
+      // Agent nickname
       shared_ptr<string> nickname_ {};
+      // Signature information generated using an asymmetric key encryption algorithm. This information is required for authentication when registering with the SIP server.
       shared_ptr<string> signature_ {};
+      // Signature information generated using an asymmetric key encryption algorithm. This information is required for authentication when registering with the SIP server.
       shared_ptr<string> signature2_ {};
+      // SIP registration server URL. The agent must register with the server as an SIP user to perform transactional processing (TP) operations.
       shared_ptr<string> sipServerUrl_ {};
+      // Agent ID.
       shared_ptr<string> userId_ {};
+      // Signature data used to generate signature information. Because this signature mechanism does not support Chinese characters, UserKey2 is currently used for signing instead.
       shared_ptr<string> userKey_ {};
+      // Signature data used to generate signature information. UserKey2 was added because UserKey does not support Chinese characters in signatures.
       shared_ptr<string> userKey2_ {};
+      // Work mode.
       shared_ptr<string> workMode_ {};
     };
 
@@ -324,11 +345,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Logon information data.
     shared_ptr<GetLoginDetailsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

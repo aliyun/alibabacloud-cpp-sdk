@@ -96,9 +96,13 @@ namespace Models
 
 
     protected:
+      // The notification content.
       shared_ptr<string> content_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The notification key.
       shared_ptr<string> notificationKey_ {};
+      // The message type.
       shared_ptr<string> notificationType_ {};
     };
 
@@ -151,11 +155,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<vector<ListNotificationRecordsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A list of invalid parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

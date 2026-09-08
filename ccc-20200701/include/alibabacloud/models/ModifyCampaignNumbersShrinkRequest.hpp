@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The campaign ID.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // The ID of the number collection.
     shared_ptr<string> instGroupId_ {};
+    // The ID of the Cloud Call Center (CCC) instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The list of numbers.
     shared_ptr<string> numberListShrink_ {};
   };
 

@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // ID of the Cloud Contact Center instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Call ID. Provide this field only for masked numbers (containing \\*). Do not provide it for unmasked numbers.
     shared_ptr<string> jobId_ {};
+    // Phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> number_ {};
   };

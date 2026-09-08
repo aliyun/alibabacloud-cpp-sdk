@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of personal outbound numbers to delete. You can obtain the current list of personal outbound numbers associated with the agent by invoking ListPersonalNumbersOfUser.
+    // 
     // This parameter is required.
     shared_ptr<string> numberList_ {};
+    // Agent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

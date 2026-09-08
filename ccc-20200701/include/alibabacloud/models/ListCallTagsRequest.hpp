@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Paging ordinal number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

@@ -84,15 +84,25 @@ namespace Models
 
 
   protected:
+    // The channel ID of the call to which DTMF tones are to be sent.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // DTMF key information, which refers to the keys on a dial pad, including 0–9, \\*, and #.
+    // 
     // This parameter is required.
     shared_ptr<string> dtmf_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The agent ID that sends DTMF.
     shared_ptr<string> userId_ {};
   };
 

@@ -106,8 +106,11 @@ namespace Models
 
 
       protected:
+        // City of number registration.
         shared_ptr<string> city_ {};
+        // Number
         shared_ptr<string> number_ {};
+        // Province of number registration.
         shared_ptr<string> province_ {};
       };
 
@@ -158,8 +161,11 @@ namespace Models
 
 
       protected:
+        // City of number registration.
         shared_ptr<string> city_ {};
+        // Number
         shared_ptr<string> number_ {};
+        // Province of number registration.
         shared_ptr<string> province_ {};
       };
 
@@ -184,7 +190,9 @@ namespace Models
 
 
     protected:
+      // Callee number.
       shared_ptr<Data::Callee> callee_ {};
+      // Caller number.
       shared_ptr<Data::Caller> caller_ {};
     };
 
@@ -228,10 +236,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<vector<PickOutboundNumbersResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

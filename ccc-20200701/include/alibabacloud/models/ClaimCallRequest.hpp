@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // A JSON string that lists the agents and their corresponding skill groups eligible to claim the call.
     shared_ptr<string> candidateUserListJson_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the call.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The ID of the skill group that the call is assigned to.
     shared_ptr<string> skillGroupId_ {};
+    // A unique business identifier for scheduling purposes. Subsequent event notifications include this identifier.
     shared_ptr<string> tags_ {};
+    // The ID of the agent claiming the call.
     shared_ptr<string> userId_ {};
   };
 

@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // Agent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
+    // End time, formatted as a UNIX timestamp in milliseconds. This parameter is optional. The default value is the current time. If Interval is Daily, the maximum interval between StartTime and EndTime is 180 days. If Interval is Hourly, the maximum interval is 10 days. Time precision for statistics is at the hour level, rounded down to the next full hour, using an open interval. For example, if the start time is 11:12:20 and the end time is 11:45:50, the aligned input time range becomes [11:00:00, 12:00:00), meaning greater than or equal to 11:00:00 and less than 12:00:00.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Segment statistics type. Optional. Default value is Daily (aggregated by Day).
     shared_ptr<string> interval_ {};
+    // Media type. The default value is Audio. Other valid values include Chat and Video.
     shared_ptr<string> mediaType_ {};
+    // Start time, formatted as a UNIX timestamp in milliseconds. This parameter is optional. The default value is 00:00:00 of the current day. Time precision for statistics is at the hour level, rounded down to the previous full hour, using a closed interval.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -108,11 +108,17 @@ namespace Models
 
 
     protected:
+      // The agent ID. If you specify this parameter, the system routes the call to the specified agent. If you leave this parameter empty, the system routes the call to an idle agent in the skill group.
       shared_ptr<string> agentId_ {};
+      // The caller number. If you specify this parameter, the system preferentially uses the specified number to initiate a call. If you leave this parameter empty, the system automatically selects a number to initiate a call.
       shared_ptr<string> caller_ {};
+      // Custom variables in the format of a JSON object. The object can contain up to 10 properties, and the name and value of each property are custom.
       shared_ptr<string> customVariables_ {};
+      // The masked callee number. If this parameter is not empty, the callee number will be masked. You can define the masking rule and specify the masked callee number. In some cases, you can only view the masked callee number instead of the real one.
       shared_ptr<string> maskedCallee_ {};
+      // The phone number of the contact.
       shared_ptr<string> phoneNumber_ {};
+      // The business ID, which is a custom ID from your business system, used for integration purposes.
       shared_ptr<string> referenceId_ {};
     };
 
@@ -142,10 +148,15 @@ namespace Models
 
 
   protected:
+    // The predictive campaign ID.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The list of cases to be added.
     shared_ptr<vector<AppendCasesRequest::Body>> body_ {};
   };
 

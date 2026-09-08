@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Skill group ID list.
     shared_ptr<string> skillGroupIdList_ {};
   };
 

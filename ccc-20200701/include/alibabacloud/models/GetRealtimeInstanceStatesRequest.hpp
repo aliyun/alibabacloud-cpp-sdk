@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Media type. The default is audio (AUDIO).
     shared_ptr<string> mediaType_ {};
   };
 

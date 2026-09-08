@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // Indicates whether the number is active. This parameter is optional. The default value is empty, which means no filtering is applied.
     shared_ptr<bool> active_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The paging ordinal number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Performs fuzzy matching based on the number. This parameter is optional and defaults to empty. An empty value indicates no filtering.
     shared_ptr<string> searchPattern_ {};
+    // Usage of the number. This parameter is optional. The default value is empty, which means no filtering is applied.
     shared_ptr<string> usage_ {};
   };
 

@@ -105,10 +105,15 @@ namespace Models
 
 
     protected:
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The name of the config item. A name can be system-defined or custom. You can customize the value of a system-defined item. You can also create custom items with custom names and values.
       shared_ptr<string> name_ {};
+      // The ID of the object to which the config item applies.
       shared_ptr<string> objectId_ {};
+      // The type of the object to which the config item applies.
       shared_ptr<string> objectType_ {};
+      // The value of the config item.
       shared_ptr<string> value_ {};
     };
 
@@ -161,11 +166,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The list of config items.
     shared_ptr<vector<ListConfigItemsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The list of dynamic response parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A list of skill group IDs to disassociate, formatted as a JSON array string, where each array element is a skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> skillGroupIdList_ {};
+    // Agent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

@@ -233,21 +233,45 @@ namespace Models
 
 
       protected:
+        // Agent ID.
         shared_ptr<string> agentId_ {};
+        // Agent name.
         shared_ptr<string> agentName_ {};
+        // Break code.
+        // 
+        // **Enumeration values:**
+        // 
+        // - RingingTimeout: Break caused by agent ringing timeout.
+        // 
+        // - RejectCall: Break caused by agent call rejection.
+        // 
+        // - Warm-up: Temporary break state after the agent is published and before becoming idle.
         shared_ptr<string> breakCode_ {};
+        // Call type.
         shared_ptr<string> callType_ {};
+        // Used in specific three-party scenarios, primarily for listener, coaching, and consultation. In three-party scenarios, it represents the third party—for example, the agent being monitored or coached in a listener or coaching scenario, or the agent or external number to which a call is transferred in a consultation scenario.
         shared_ptr<string> counterParty_ {};
+        // Duration of the current status, in seconds.
         shared_ptr<int64_t> duration_ {};
+        // The agent\\"s extension number.
         shared_ptr<string> extension_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // The agent\\"s personal phone number.
         shared_ptr<string> mobile_ {};
+        // Whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // List of skill group IDs that the agent has signed into.
         shared_ptr<vector<string>> skillGroupIdList_ {};
+        // List of skill group names that the agent has signed into.
         shared_ptr<vector<string>> skillGroupNameList_ {};
+        // Agent status.
         shared_ptr<string> state_ {};
+        // Sub-status. In some scenarios, the agent\\"s status cannot be fully represented by the State field alone, so a sub-status is required for clarification. For example, when an agent is being monitored, State=Talking and StateCode=Monitoring.
         shared_ptr<string> stateCode_ {};
+        // Time when the status started.
         shared_ptr<int64_t> stateTime_ {};
+        // Work mode.
         shared_ptr<string> workMode_ {};
       };
 
@@ -284,9 +308,13 @@ namespace Models
 
 
     protected:
+      // List of real-time agent status data.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -330,10 +358,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListRealtimeAgentStatesResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

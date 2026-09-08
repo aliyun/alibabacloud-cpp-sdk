@@ -143,12 +143,27 @@ namespace Models
 
 
       protected:
+        // Message content
         shared_ptr<string> content_ {};
+        // Call ID
         shared_ptr<string> jobId_ {};
+        // Sender profile picture URL
         shared_ptr<string> senderAvatarUrl_ {};
+        // Sender user ID
         shared_ptr<string> senderId_ {};
+        // Sender name
         shared_ptr<string> senderName_ {};
+        // Sender type
+        // 
+        // Valid values:
+        // 
+        // - **ADMIN**: system
+        // 
+        // - **CUSTOMER**: visitor
+        // 
+        // - **AGENT**: agent
         shared_ptr<string> senderType_ {};
+        // UNIX timestamp
         shared_ptr<int64_t> timestamp_ {};
       };
 
@@ -171,7 +186,9 @@ namespace Models
 
 
     protected:
+      // Message list
       shared_ptr<vector<Data::Messages>> messages_ {};
+      // Token for the next page
       shared_ptr<string> nextPageToken_ {};
     };
 
@@ -215,11 +232,15 @@ namespace Models
 
 
   protected:
+    // Response code
     shared_ptr<string> code_ {};
+    // Data
     shared_ptr<ListVisitorChatMessagesResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
-    // Id of the request
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

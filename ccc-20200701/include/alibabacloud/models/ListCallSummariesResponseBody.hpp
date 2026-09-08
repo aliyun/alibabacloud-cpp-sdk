@@ -114,11 +114,17 @@ namespace Models
 
 
     protected:
+      // Call ID.
       shared_ptr<string> contactId_ {};
+      // Summary information.
       shared_ptr<string> context_ {};
+      // Creation time.
       shared_ptr<int64_t> createdTime_ {};
+      // Creator.
       shared_ptr<string> creator_ {};
+      // Editor.
       shared_ptr<string> editor_ {};
+      // Summary ID.
       shared_ptr<string> ticketId_ {};
     };
 
@@ -171,11 +177,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<vector<ListCallSummariesResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Error message.
     shared_ptr<string> message_ {};
+    // List of error parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

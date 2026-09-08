@@ -404,40 +404,75 @@ namespace Models
 
 
       protected:
+        // An additional broker number, which may be used in double-call scenarios.
         shared_ptr<string> additionalBroker_ {};
+        // A list of agent IDs, with multiple values separated by commas.
         shared_ptr<string> agentIds_ {};
+        // List of agent names involved in the call, separated by commas.
         shared_ptr<string> agentNames_ {};
+        // The intermediary number.
         shared_ptr<string> broker_ {};
+        // Call duration. For inbound calls, timing starts when the call enters IVR. For outbound calls, timing starts when the call is connected. The unit is seconds.
         shared_ptr<string> callDuration_ {};
+        // The Call-Id field in the underlying SIP protocol. If you need to obtain the call ID from the number provider side, you can retrieve it from this field.
         shared_ptr<string> callIds_ {};
+        // Called number.
         shared_ptr<string> calledNumber_ {};
+        // The callee\\"s location.
         shared_ptr<string> calleeLocation_ {};
+        // Caller location.
         shared_ptr<string> callerLocation_ {};
+        // Calling number.
         shared_ptr<string> callingNumber_ {};
+        // Reason for call termination.
         shared_ptr<string> contactDisposition_ {};
+        // Call ID.
         shared_ptr<string> contactId_ {};
+        // Call type.
         shared_ptr<string> contactType_ {};
+        // Dial-up duration, in seconds.
         shared_ptr<int64_t> dialingTime_ {};
+        // Reason for failure to connect.
         shared_ptr<string> earlyMediaState_ {};
+        // The time when the call was established. If the call was not established, this value is empty. The format is a Unix timestamp in milliseconds.
         shared_ptr<int64_t> establishedTime_ {};
+        // The hold duration, in seconds.
         shared_ptr<int64_t> heldTime_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // IVR duration, in seconds. This is the time interval from when the IVR starts until the call enters the agent queue (or the customer hangs up).
         shared_ptr<int64_t> ivrTime_ {};
+        // The queue duration, in seconds, measured from when the customer entered the agent queue until the agent started ringing (or the customer abandoned the call, the queue timed out, or the queue overflowed).
         shared_ptr<int64_t> queueTime_ {};
+        // Recording duration, in seconds.
         shared_ptr<int64_t> recordingDuration_ {};
+        // Indicates whether the recording has been generated. Returns false if the call was not established.
         shared_ptr<bool> recordingReady_ {};
+        // The party that ended the call.
         shared_ptr<string> releaseInitiator_ {};
+        // Hang-up reason for the channel, indicating why the current channel was disconnected. The value is derived from response codes defined in the SIP protocol. Customers should refer to the SIP protocol to analyze the hang-up reason.
         shared_ptr<string> releaseReason_ {};
+        // The call end time, formatted as a Unix timestamp in milliseconds.
         shared_ptr<int64_t> releaseTime_ {};
+        // Ring duration, which is the time from when the agent\\"s phone starts ringing until the agent answers (or the customer hangs up), in seconds.
         shared_ptr<int64_t> ringTime_ {};
+        // The satisfaction description, corresponding to the configuration of the satisfaction module in the satisfaction IVR. This is defined by the customer.
         shared_ptr<string> satisfactionDescription_ {};
+        // Satisfaction rating, represented as a single-digit numeric value entered by the customer.
         shared_ptr<int32_t> satisfactionIndex_ {};
+        // The channel used for the satisfaction survey.
         shared_ptr<string> satisfactionSurveyChannel_ {};
+        // Indicates whether a satisfaction survey was initiated.
         shared_ptr<bool> satisfactionSurveyOffered_ {};
+        // The IDs of the skill groups to which the agents participating in the call belong. Multiple skill group IDs are separated by commas.
         shared_ptr<string> skillGroupIds_ {};
+        // The names of the skill groups to which the agents participating in the call belong. Multiple skill group names are separated by commas.
         shared_ptr<string> skillGroupNames_ {};
+        // Call start time. For inbound calls, timing starts when the call enters IVR. For outbound calls, timing starts from dial-up. The format is a Unix string in milliseconds.
         shared_ptr<int64_t> startTime_ {};
+        // Talk time, in seconds.
         shared_ptr<int64_t> talkTime_ {};
+        // The customer\\"s waiting duration, which equals QueueTime plus RingTime. If the customer abandons the call during waiting, the value is 0. The unit is seconds.
         shared_ptr<int64_t> waitTime_ {};
       };
 
@@ -474,9 +509,13 @@ namespace Models
 
 
     protected:
+      // List of call records.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count. A real numeric value is returned only when PageNumber is 1; otherwise, 0 is returned.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -520,10 +559,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListCallDetailRecordsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

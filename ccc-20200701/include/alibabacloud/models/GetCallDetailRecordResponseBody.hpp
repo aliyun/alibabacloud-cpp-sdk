@@ -180,7 +180,9 @@ namespace Models
 
 
         protected:
+          // The event type.
           shared_ptr<string> event_ {};
+          // The time when the event occurred. The value is a UNIX timestamp, in milliseconds.
           shared_ptr<int64_t> eventTime_ {};
         };
 
@@ -224,10 +226,15 @@ namespace Models
 
 
       protected:
+        // The sequence of events.
         shared_ptr<vector<QueueEvents::EventSequence>> eventSequence_ {};
+        // The contact flow ID.
         shared_ptr<string> flowId_ {};
+        // The queue ID. If the call is routed to a skill group, this is the skill group ID. If the call is routed to an agent, this is the agent ID.
         shared_ptr<string> queueId_ {};
+        // The queue name.
         shared_ptr<string> queueName_ {};
+        // The queue type.
         shared_ptr<int32_t> queueType_ {};
       };
 
@@ -292,7 +299,9 @@ namespace Models
 
 
         protected:
+          // The event type.
           shared_ptr<string> event_ {};
+          // The time when the event occurred. The value is a UNIX timestamp, in milliseconds.
           shared_ptr<int64_t> eventTime_ {};
         };
 
@@ -322,8 +331,11 @@ namespace Models
 
 
       protected:
+        // The sequence of events.
         shared_ptr<vector<IvrEvents::EventSequence>> eventSequence_ {};
+        // The ID of the IVR contact flow.
         shared_ptr<string> flowId_ {};
+        // The type of the contact flow.
         shared_ptr<string> flowType_ {};
       };
 
@@ -386,7 +398,9 @@ namespace Models
 
 
         protected:
+          // The event type.
           shared_ptr<string> event_ {};
+          // The time when the event occurred. The value is a UNIX timestamp, in milliseconds.
           shared_ptr<int64_t> eventTime_ {};
         };
 
@@ -409,7 +423,9 @@ namespace Models
 
 
       protected:
+        // The customer ID. This is usually the customer\\"s phone number.
         shared_ptr<string> customerId_ {};
+        // The sequence of events.
         shared_ptr<vector<CustomerEvents::EventSequence>> eventSequence_ {};
       };
 
@@ -815,8 +831,11 @@ namespace Models
 
 
         protected:
+          // The event duration, in seconds.
           shared_ptr<int64_t> duration_ {};
+          // The event type.
           shared_ptr<string> event_ {};
+          // The time when the event occurred. The value is a UNIX timestamp, in milliseconds.
           shared_ptr<int64_t> eventTime_ {};
         };
 
@@ -853,9 +872,13 @@ namespace Models
 
 
       protected:
+        // The agent ID.
         shared_ptr<string> agentId_ {};
+        // The agent name.
         shared_ptr<string> agentName_ {};
+        // The sequence of events.
         shared_ptr<vector<AgentEvents::EventSequence>> eventSequence_ {};
+        // The skill group ID.
         shared_ptr<string> skillGroupId_ {};
       };
 
@@ -1087,35 +1110,62 @@ namespace Models
 
 
     protected:
+      // The list of agent events.
       shared_ptr<vector<Data::AgentEvents>> agentEvents_ {};
+      // The IDs of the agents who are involved in the call. Multiple IDs are separated by commas.
       shared_ptr<string> agentIds_ {};
+      // The names of the agents who are involved in the call. Multiple names are separated by commas.
       shared_ptr<string> agentNames_ {};
       shared_ptr<Data::AnalyticsReport> analyticsReport_ {};
       shared_ptr<bool> analyticsReportReady_ {};
+      // The call duration, in seconds.
       shared_ptr<int64_t> callDuration_ {};
+      // The called number.
       shared_ptr<string> calledNumber_ {};
+      // The location of the called number.
       shared_ptr<string> calleeLocation_ {};
+      // The location of the calling number.
       shared_ptr<string> callerLocation_ {};
+      // The calling number.
       shared_ptr<string> callingNumber_ {};
+      // The reason why the call ended. Note: The \\`Voicemail\\`, \\`QueuingFailed\\`, \\`QueuingTimeout\\`, \\`QueuingOverflow\\`, and \\`IVRException\\` reasons are returned only if you configure the hang-up reason node. If you do not configure this node and the IVR flow does not include a module to transfer the call to an agent, the default reason is \\`AbandonedInIVR\\`.
       shared_ptr<string> contactDisposition_ {};
+      // The call ID.
       shared_ptr<string> contactId_ {};
+      // The call type.
       shared_ptr<string> contactType_ {};
+      // The list of customer events.
       shared_ptr<vector<Data::CustomerEvents>> customerEvents_ {};
+      // The state of the early media. An exception occurred during the early media phase, which is when the customer is being called. An exception at this stage can cause the call to fail. This parameter provides possible reasons for the connection failure based on an analysis of the early media state.
       shared_ptr<string> earlyMediaState_ {};
+      // The time when the call was connected. This parameter is empty if the call was not connected. The value is a UNIX timestamp, in milliseconds.
       shared_ptr<int64_t> establishedTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The list of IVR events.
       shared_ptr<vector<Data::IvrEvents>> ivrEvents_ {};
       shared_ptr<string> outsideNumberReleaseReason_ {};
+      // The list of queue events.
       shared_ptr<vector<Data::QueueEvents>> queueEvents_ {};
+      // Indicates whether the recording was generated. A value of \\`false\\` is returned if the call was not connected.
       shared_ptr<bool> recordingReady_ {};
+      // The release initiator.
       shared_ptr<string> releaseInitiator_ {};
+      // The reason why the call ended. The value is usually the SIP code followed by a text description.
       shared_ptr<string> releaseReason_ {};
+      // The time when the call ended. This is the time when the last party of the call hangs up. The value is a UNIX timestamp, in milliseconds.
       shared_ptr<int64_t> releaseTime_ {};
+      // The satisfaction score. The value and its meaning are defined by you.
       shared_ptr<int32_t> satisfaction_ {};
+      // The channel through which the satisfaction survey was initiated.
       shared_ptr<string> satisfactionSurveyChannel_ {};
+      // Indicates whether a satisfaction survey was initiated.
       shared_ptr<bool> satisfactionSurveyOffered_ {};
+      // The IDs of the skill groups to which the agents involved in the call belong. Multiple IDs are separated by commas.
       shared_ptr<string> skillGroupIds_ {};
+      // The names of the skill groups to which the agents involved in the call belong. Multiple names are separated by commas.
       shared_ptr<string> skillGroupNames_ {};
+      // The time when the call started. For an inbound call, this is the time when the call enters the IVR. For an outbound call, this is the time when the call is initiated. The value is a UNIX timestamp, in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -1159,10 +1209,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<GetCallDetailRecordResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

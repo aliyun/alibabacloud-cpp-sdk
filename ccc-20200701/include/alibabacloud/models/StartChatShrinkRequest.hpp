@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // The ID of the web service channel.
     shared_ptr<string> accessChannelId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The channel token for the web service.
     shared_ptr<string> token_ {};
+    // The information about chat members.
+    // 
     // This parameter is required.
     shared_ptr<string> userListShrink_ {};
   };

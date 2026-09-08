@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The file name of the predictive outbound calling Activity list. The name must consist of uppercase and lowercase English letters, and the file format must be CSV.
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // Processing comments.
+    // 
     // This parameter is required.
     shared_ptr<string> comment_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Node ID.
     shared_ptr<string> taskId_ {};
+    // Ticket ID.
     shared_ptr<string> ticketId_ {};
   };
 

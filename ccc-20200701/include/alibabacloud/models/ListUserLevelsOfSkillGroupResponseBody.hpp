@@ -165,14 +165,23 @@ namespace Models
 
 
       protected:
+        // Agent display name.
         shared_ptr<string> displayName_ {};
+        // Agent logon name.
         shared_ptr<string> loginName_ {};
+        // The user\\"s Resource Access Management (RAM) account.
         shared_ptr<string> ramId_ {};
+        // Role ID, in the format: role\\@instance ID.
         shared_ptr<string> roleId_ {};
+        // Role name.
         shared_ptr<string> roleName_ {};
+        // Skill group ID.
         shared_ptr<string> skillGroupId_ {};
+        // Skill group Name.
         shared_ptr<string> skillGroupName_ {};
+        // Agent skill Level.
         shared_ptr<int32_t> skillLevel_ {};
+        // Agent ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -209,9 +218,13 @@ namespace Models
 
 
     protected:
+      // List of skill levels.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -255,10 +268,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListUserLevelsOfSkillGroupResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

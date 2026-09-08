@@ -241,22 +241,39 @@ namespace Models
 
 
       protected:
+        // The average waiting time, in seconds.
         shared_ptr<int64_t> averageWaitingTime_ {};
+        // Number of agents in break status.
         shared_ptr<int64_t> breakingAgents_ {};
+        // The number of agents on calls in the inbound scenario.
         shared_ptr<int64_t> inboundTalkingAgents_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Number of logged-in agents.
         shared_ptr<int64_t> loggedInAgents_ {};
+        // Maximum waiting duration.
         shared_ptr<int64_t> longestCall_ {};
+        // The number of agents who are idle and in outbound-only status.
         shared_ptr<int64_t> outboundScenarioReadyAgents_ {};
+        // Number of agents on outbound calls.
         shared_ptr<int64_t> outboundTalkingAgents_ {};
+        // The number of idle agents.
         shared_ptr<int64_t> readyAgents_ {};
+        // The skill group ID.
         shared_ptr<string> skillGroupId_ {};
+        // Skill group name.
         shared_ptr<string> skillGroupName_ {};
+        // The number of agents on calls.
         shared_ptr<int64_t> talkingAgents_ {};
+        // Number of calls currently in the queue.
         shared_ptr<int64_t> waitingCalls_ {};
+        // The number of calls with a waiting duration of less than 10 seconds.
         shared_ptr<int64_t> waitingCallsLevel10_ {};
+        // Number of calls with waiting duration less than 20 seconds.
         shared_ptr<int64_t> waitingCallsLevel20_ {};
+        // The number of calls with a waiting duration of less than 30 seconds.
         shared_ptr<int64_t> waitingCallsLevel30_ {};
+        // The number of agents in post-processing.
         shared_ptr<int64_t> workingAgents_ {};
       };
 
@@ -293,9 +310,13 @@ namespace Models
 
 
     protected:
+      // List of skill group status data.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -346,11 +367,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListSkillGroupStatesResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

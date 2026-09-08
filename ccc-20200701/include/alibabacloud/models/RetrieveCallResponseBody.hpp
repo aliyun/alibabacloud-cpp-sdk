@@ -202,18 +202,31 @@ namespace Models
 
 
       protected:
+        // Break status code, which can be either System-defined or Custom-defined. System-defined break codes include: Warm-up (temporary break state after an agent is published and before becoming idle), RingingTimeout (break caused by agent ringing timeout), and RejectCall (break caused by agent rejecting a call). There are no restrictions on Custom-defined status codes; customers can define them according to their business needs.
         shared_ptr<string> breakCode_ {};
+        // Device ID, the identity ID of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device is allowed to register at a time.
         shared_ptr<string> deviceId_ {};
+        // The agent\\"s extension number.
         shared_ptr<string> extension_ {};
+        // The time when the last heartbeat from the agent was received, in UNIX timestamp format, in milliseconds.
         shared_ptr<int64_t> heartbeat_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Call ID.
         shared_ptr<string> jobId_ {};
+        // The agent\\"s personal phone number.
         shared_ptr<string> mobile_ {};
+        // Indicates whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // The time when the agent was most recently reserved. Being reserved means an incoming call will be assigned to this agent shortly. The value is in UNIX timestamp format, in milliseconds.
         shared_ptr<int64_t> reserved_ {};
+        // List of skill group IDs that the agent has signed into.
         shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+        // Agent ID.
         shared_ptr<string> userId_ {};
+        // Agent status.
         shared_ptr<string> userState_ {};
+        // Work mode.
         shared_ptr<string> workMode_ {};
       };
 
@@ -372,17 +385,29 @@ namespace Models
 
 
         protected:
+          // The call type of the channel.
           shared_ptr<string> callType_ {};
+          // The channel ID.
           shared_ptr<string> channelId_ {};
+          // The status of the call channel.
           shared_ptr<string> channelState_ {};
+          // Callee of the call channel.
           shared_ptr<string> destination_ {};
+          // The call ID.
           shared_ptr<string> jobId_ {};
+          // The calling party of the voice channel.
           shared_ptr<string> originator_ {};
+          // The party that initiated the release of the call channel, indicating who first terminated the call.
           shared_ptr<string> releaseInitiator_ {};
+          // The release reason of the call channel, indicating why the current call channel was released. The value is derived from the response codes defined in the SIP protocol. Customers can refer to the SIP protocol to analyze the release reason.
           shared_ptr<string> releaseReason_ {};
+          // The skill group ID associated with the channel. In inbound scenarios, the associated skill group ID is determined by the skill group configured in the IVR transfer-to-agent module. In outbound scenarios, the associated skill group ID is the ID of the first skill group the agent signed into.
           shared_ptr<string> skillGroupId_ {};
+          // The UNIX timestamp of the most recent status change of the channel, in milliseconds.
           shared_ptr<int64_t> timestamp_ {};
+          // The extension number of the agent associated with the channel.
           shared_ptr<string> userExtension_ {};
+          // The agent ID associated with the voice channel. This field is empty for Customer channels.
           shared_ptr<string> userId_ {};
         };
 
@@ -419,9 +444,13 @@ namespace Models
 
 
       protected:
+        // Call type.
         shared_ptr<string> callType_ {};
+        // List of call channels.
         shared_ptr<vector<CallContext::ChannelContexts>> channelContexts_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Call ID.
         shared_ptr<string> jobId_ {};
       };
 
@@ -446,7 +475,9 @@ namespace Models
 
 
     protected:
+      // Call context environment.
       shared_ptr<Data::CallContext> callContext_ {};
+      // Agent context environment.
       shared_ptr<Data::UserContext> userContext_ {};
     };
 
@@ -499,11 +530,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<RetrieveCallResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

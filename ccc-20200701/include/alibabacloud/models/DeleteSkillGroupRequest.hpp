@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Whether to force delete. If the skill group is associated with a number or agent, you must enable the force delete flag to successfully delete it.
     shared_ptr<bool> force_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> skillGroupId_ {};
   };

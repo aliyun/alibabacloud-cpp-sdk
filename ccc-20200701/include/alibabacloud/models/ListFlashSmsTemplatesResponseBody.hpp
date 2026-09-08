@@ -88,7 +88,9 @@ namespace Models
 
     protected:
       shared_ptr<string> templateDetails_ {};
+      // Template ID.
       shared_ptr<string> templateId_ {};
+      // Template name.
       shared_ptr<string> templateName_ {};
     };
 
@@ -141,11 +143,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<vector<ListFlashSmsTemplatesResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of error parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

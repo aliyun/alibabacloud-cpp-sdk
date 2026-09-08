@@ -174,15 +174,25 @@ namespace Models
 
 
       protected:
+        // Audio file name.
         shared_ptr<string> audioFileName_ {};
+        // Audio resource ID, which is the UUID of the audio file.
         shared_ptr<string> audioResourceId_ {};
+        // Audio content threat review result.
         shared_ptr<string> auditResult_ {};
+        // The creation time of the audio resource.
         shared_ptr<string> createdTime_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Display name of the audio resource.
         shared_ptr<string> name_ {};
+        // The key of the audio resource file in OSS.
         shared_ptr<string> ossFileKey_ {};
+        // The status of the audio file.
         shared_ptr<string> status_ {};
+        // Last modified time of the audio resource.
         shared_ptr<string> updatedTime_ {};
+        // The usage of the audio file. The default value is General (used in scenarios such as IVR). Other optional values include HoldMusic (hold music during call waiting).
         shared_ptr<string> usage_ {};
       };
 
@@ -219,9 +229,13 @@ namespace Models
 
 
     protected:
+      // The list of audio files.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // The paging size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -265,10 +279,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListAudioFilesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

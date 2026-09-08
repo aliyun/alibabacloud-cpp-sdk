@@ -121,18 +121,37 @@ namespace Models
 
 
   protected:
+    // The endpoint for MQ. The service endpoint for webhook.
+    // 
     // This parameter is required.
     shared_ptr<string> accessPoint_ {};
+    // Leave blank.
     shared_ptr<int64_t> aliyunUid_ {};
+    // For MQ, enter the topic name. For webhook, enter Topic_Webhook.
     shared_ptr<string> defaultTopic_ {};
+    // The message subscription checklist.
+    // 
     // This parameter is required.
     shared_ptr<string> eventSubscriptionsJson_ {};
+    // The ID of the Cloud Contact Center instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The MQ instance ID. Specify this only when MqType is rocketmq4 or rocketmq5.
     shared_ptr<string> mqInstanceId_ {};
+    // The message push type.
+    // 
+    // - rocketmq4
+    // 
+    // - rocketmq5
+    // 
+    // - webhook
     shared_ptr<string> mqType_ {};
+    // The MQ password. Specify this only when MqType is rocketmq5.
     shared_ptr<string> password_ {};
+    // For Message Queue (MQ), enter the Group ID. For webhook, enter PID_Webhook.
     shared_ptr<string> producerId_ {};
+    // The MQ username. Specify this only when MqType is rocketmq5.
     shared_ptr<string> username_ {};
   };
 

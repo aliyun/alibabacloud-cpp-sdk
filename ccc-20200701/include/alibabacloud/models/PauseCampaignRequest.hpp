@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The predictive outbound calling Activity ID.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the agent being monitored.
+    // 
     // This parameter is required.
     shared_ptr<string> monitoredUserId_ {};
+    // The timeout period for the listening operation, in seconds. If the listening operation does not succeed within the specified time, it is canceled. Normally, the listening operation succeeds immediately. The timeout setting is provided to handle abnormal scenarios. This field is optional and defaults to 30 seconds.
     shared_ptr<int32_t> timeoutSeconds_ {};
+    // Agent ID.
     shared_ptr<string> userId_ {};
   };
 

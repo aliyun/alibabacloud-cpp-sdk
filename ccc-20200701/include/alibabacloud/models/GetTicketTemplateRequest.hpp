@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Template ID.
     shared_ptr<string> templateId_ {};
+    // Template version.
     shared_ptr<string> templateVersion_ {};
   };
 

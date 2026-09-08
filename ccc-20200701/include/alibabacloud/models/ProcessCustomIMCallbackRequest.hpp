@@ -103,18 +103,31 @@ namespace Models
 
 
   protected:
+    // The channel ID.
+    // 
     // This parameter is required.
     shared_ptr<string> accessChannelId_ {};
+    // The session ID.
+    // 
     // This parameter is required.
     shared_ptr<string> conversationId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The message content.
+    // 
     // This parameter is required.
     shared_ptr<string> messageContent_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The profile picture ID.
     shared_ptr<string> senderAvatarMediaId_ {};
+    // The user ID of the message sender.
+    // 
     // This parameter is required.
     shared_ptr<string> senderId_ {};
+    // The name of the sender.
     shared_ptr<string> senderName_ {};
   };
 

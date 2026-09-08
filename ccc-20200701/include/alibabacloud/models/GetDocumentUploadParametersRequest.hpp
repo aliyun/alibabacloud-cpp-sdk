@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // File name.
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

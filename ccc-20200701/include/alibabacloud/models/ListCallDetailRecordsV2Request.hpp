@@ -278,35 +278,179 @@ namespace Models
 
 
   protected:
+    // The list of visitor channel types.
+    // 
+    // Valid values:
+    // 
+    // Web: web page.
+    // 
+    // DingTalkServiceWindow: DingTalk service window.
+    // 
+    // AliMe: chatbot.
+    // 
+    // DingTalkRobot: DingTalk chatbot.
     shared_ptr<string> accessChannelTypeList_ {};
+    // The ID of the agent.
     shared_ptr<string> agentId_ {};
+    // Indicates whether the AI post-call analytics report is ready.
     shared_ptr<bool> analyticsReportReady_ {};
+    // The intermediate number. The number must be an available outbound number under the instance. In a back-to-back call, this number is used to call the caller and the callee sequentially.
     shared_ptr<string> broker_ {};
+    // The called number.
     shared_ptr<string> calledNumber_ {};
+    // The calling number.
     shared_ptr<string> callingNumber_ {};
+    // Filters results by hangup cause.
+    // 
+    // Valid values:
+    // 
+    // AbandonedInQueue: Abandoned while queuing.
+    // 
+    // NoAnswer: Customer did not answer.
+    // 
+    // QueuingTimeout: Queuing timed out.
+    // 
+    // Voicemail: Transferred to voice mail.
+    // 
+    // QueuingFailed: Transfer to agent failed.
+    // 
+    // QueuingOverflow: Queue overflow.
+    // 
+    // AbandonedInVoiceNavigator: Abandoned during intelligent navigation.
+    // 
+    // Success: Ended normally.
+    // 
+    // IVRException: IVR exception.
+    // 
+    // AbandonedInRing: Abandoned while ringing.
+    // 
+    // AbandonedInIVR: Abandoned in IVR.
+    // 
+    // Reject: Customer rejected the call.
+    // 
+    // ForwardToOutsideNumber: Forwarded to an external number.
     shared_ptr<string> contactDispositionList_ {};
+    // The list of call IDs.
     shared_ptr<string> contactIdList_ {};
+    // Filters results by call type.
+    // 
+    // Valid values:
+    // 
+    // OUTBOUND: outbound call.
+    // 
+    // BACK2BACK: back-to-back call.
+    // 
+    // PRIVACY_DIAL: encrypted call.
+    // 
+    // INTERNAL: internal call.
+    // 
+    // PREDICTIVE: predictive outbound call.
+    // 
+    // INBOUND: inbound call.
+    // 
+    // CONFERENCE: conference call.
     shared_ptr<string> contactTypeList_ {};
+    // Filters results by the reason for unanswered calls.
+    // 
+    // Valid values:
+    // 
+    // NoAnswer: No answer.
+    // 
+    // OutOfService: Out of service.
+    // 
+    // NotExist: Number does not exist.
+    // 
+    // Restricted: Call restricted.
+    // 
+    // Busy: Line busy.
+    // 
+    // NotConnected: Cannot be connected.
+    // 
+    // PowerOff: Phone powered off.
     shared_ptr<string> earlyMediaStateList_ {};
+    // The end time of the historical data to retrieve. The default value is the current time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // The ID of the first agent who participated in the call.
     shared_ptr<string> firstAgentId_ {};
+    // The instance ID of the call center.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The media type.
+    // 
+    // Valid values:
+    // 
+    // AUDIO: voice call.
+    // 
+    // VIDEO: video call.
+    // 
+    // CHAT: message.
+    // 
+    // ALL: all types.
     shared_ptr<string> mediaType_ {};
+    // The phone number.
     shared_ptr<string> number_ {};
+    // The field by which to sort the results. This parameter is optional. Default value: startTime (call start time).
+    // 
+    // Valid values:
+    // 
+    // startTime: call start time.
     shared_ptr<string> orderByField_ {};
+    // The page number. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The party that hung up.
     shared_ptr<string> releaseInitiatorList_ {};
+    // The hangup reason.
     shared_ptr<string> releaseReasonList_ {};
+    // Filters results by satisfaction description. The description content is defined by the customer.
     shared_ptr<string> satisfactionDescriptionList_ {};
+    // Filters results by satisfaction rating. Separate multiple satisfaction ratings with commas (,).
+    // 
+    // Valid values:
+    // 
+    // -2: Not sent.
+    // 
+    // -1: Not rated.
+    // 
+    // Other positive numbers: custom satisfaction rating values.
     shared_ptr<string> satisfactionRateList_ {};
+    // The satisfaction survey channel.
+    // 
+    // Valid values:
+    // 
+    // IVR: voice-based satisfaction survey.
+    // 
+    // SMS: SMS-based satisfaction survey.
+    // 
+    // CHAT: message-based satisfaction survey.
     shared_ptr<string> satisfactionSurveyChannel_ {};
+    // The custom query text that follows the Lucene query syntax.
+    // 
+    // The following table describes the supported query fields and query types:
+    // 
+    // accessChannelUserId: the visitor ID. Supports exact match and fuzzy match.
+    // 
+    // accessChannelName: the channel name. Supports exact match and fuzzy match.
+    // 
+    // text: the session text. Supports fuzzy match.
     shared_ptr<string> searchPattern_ {};
+    // The list of skill group IDs to which the agent belongs.
     shared_ptr<string> skillGroupIdList_ {};
+    // The sort order. Default value: DESC.
+    // 
+    // Valid values:
+    // 
+    // ASC: ascending order.
+    // 
+    // DESC: descending order.
     shared_ptr<string> sortOrder_ {};
+    // The start time of the historical data to retrieve. The default value is 00:00 of the current day. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

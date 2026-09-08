@@ -120,8 +120,11 @@ namespace Models
 
 
       protected:
+        // Indicates whether the push is disabled.
         shared_ptr<bool> disabled_ {};
+        // The event name.
         shared_ptr<string> name_ {};
+        // The event topic.
         shared_ptr<string> topic_ {};
       };
 
@@ -187,13 +190,27 @@ namespace Models
 
 
     protected:
+      // The endpoint for MQ. The service endpoint for webhook.
       shared_ptr<string> accessPoint_ {};
+      // The event checklist.
       shared_ptr<vector<Data::EventList>> eventList_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The MQ instance ID. Specify this only when MqType is rocketmq4 or rocketmq5.
       shared_ptr<string> mqInstanceId_ {};
+      // The message push type.
+      // 
+      // - rocketmq4
+      // 
+      // - rocketmq5
+      // 
+      // - webhook
       shared_ptr<string> mqType_ {};
+      // For MQ, enter the Group ID. For webhook, enter PID_Webhook.
       shared_ptr<string> producerId_ {};
+      // For MQ, enter the topic name. For webhook, enter Topic_Webhook.
       shared_ptr<string> topic_ {};
+      // The MQ username. Specify this only when MqType is rocketmq5.
       shared_ptr<string> username_ {};
     };
 
@@ -246,11 +263,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<UpdateSubscriptionResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The list of invalid parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

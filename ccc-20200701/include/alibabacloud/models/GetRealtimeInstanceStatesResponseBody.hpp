@@ -115,7 +115,9 @@ namespace Models
 
 
       protected:
+        // Break code.
         shared_ptr<string> breakCode_ {};
+        // Break count.
         shared_ptr<int64_t> count_ {};
       };
 
@@ -202,16 +204,27 @@ namespace Models
 
 
     protected:
+      // List of distributions of break code counts.
       shared_ptr<vector<Data::BreakCodeDetailList>> breakCodeDetailList_ {};
+      // Number of agents on break.
       shared_ptr<int64_t> breakingAgents_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Number of calls interacting within IVR.
       shared_ptr<int64_t> interactiveCalls_ {};
+      // Number of logged-in agents (including agents in ready, on break, on call, or other non-unpublished statuses).
       shared_ptr<int64_t> loggedInAgents_ {};
+      // Maximum queue waiting time among currently queued incoming calls.
       shared_ptr<int64_t> longestWaitingTime_ {};
+      // Number of agents in ready status.
       shared_ptr<int64_t> readyAgents_ {};
+      // Number of agents on calls.
       shared_ptr<int64_t> talkingAgents_ {};
+      // Total number of agents.
       shared_ptr<int64_t> totalAgents_ {};
+      // Number of incoming calls currently queued.
       shared_ptr<int64_t> waitingCalls_ {};
+      // Number of agents in post-processing status.
       shared_ptr<int64_t> workingAgents_ {};
     };
 
@@ -255,10 +268,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetRealtimeInstanceStatesResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

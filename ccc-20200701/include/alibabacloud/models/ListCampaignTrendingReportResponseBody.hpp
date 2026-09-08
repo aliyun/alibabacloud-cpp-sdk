@@ -195,20 +195,35 @@ namespace Models
 
 
     protected:
+      // Number of agents on break.
       shared_ptr<int64_t> breakAgents_ {};
+      // Number of agents in break status.
       shared_ptr<int64_t> breakingAgents_ {};
+      // The concurrent call volume, which refers to the number of simultaneous outbound calls.
       shared_ptr<int64_t> concurrency_ {};
+      // The timestamp for segmented statistics, formatted as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> datetime_ {};
+      // The number of published agents.
       shared_ptr<int64_t> loggedInAgents_ {};
+      // The number of agents in outbound-only mode who are on a break.
       shared_ptr<int64_t> outboundScenarioBreakingAgents_ {};
+      // Number of agents in idle status under outbound-only mode.
       shared_ptr<int64_t> outboundScenarioReadyAgents_ {};
+      // The number of agents in outbound-only mode who are currently on a call.
       shared_ptr<int64_t> outboundScenarioTalkingAgents_ {};
+      // Number of agents in post-processing status under outbound-only mode.
       shared_ptr<int64_t> outboundScenarioWorkingAgents_ {};
+      // Number of idle agents.
       shared_ptr<int64_t> readyAgents_ {};
+      // Time of the statistical data point, formatted as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> statsTime_ {};
+      // Deprecated. Refer to TalkAgents.
       shared_ptr<int64_t> talkAgents_ {};
+      // The number of agents in a call.
       shared_ptr<int64_t> talkingAgents_ {};
+      // Deprecated. Refer to WorkingAgents.
       shared_ptr<int64_t> workAgents_ {};
+      // Number of agents in post-processing status.
       shared_ptr<int64_t> workingAgents_ {};
     };
 
@@ -252,10 +267,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // List of statistical data points.
     shared_ptr<vector<ListCampaignTrendingReportResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

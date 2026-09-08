@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number associated with the inbound call tag.
+    // 
     // This parameter is required.
     shared_ptr<string> number_ {};
   };

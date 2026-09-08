@@ -144,7 +144,9 @@ namespace Models
 
 
         protected:
+          // Break status code
           shared_ptr<string> breakCode_ {};
+          // The number of times the break status occurred
           shared_ptr<int64_t> count_ {};
         };
 
@@ -246,18 +248,31 @@ namespace Models
 
 
       protected:
+        // Break statistics.
         shared_ptr<vector<List::BreakCodeDetailList>> breakCodeDetailList_ {};
+        // Number of agents currently on break.
         shared_ptr<int64_t> breakingAgents_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Number of agents currently logged in.
         shared_ptr<int64_t> loggedInAgents_ {};
+        // Current maximum queue waiting time, in seconds.
         shared_ptr<int64_t> longestWaitingTime_ {};
+        // Number of agents in outbound-only mode and in an idle status.
         shared_ptr<int64_t> outboundScenarioReadyAgents_ {};
+        // Number of agents currently idle.
         shared_ptr<int64_t> readyAgents_ {};
+        // Skill group ID.
         shared_ptr<string> skillGroupId_ {};
+        // Skill group name.
         shared_ptr<string> skillGroupName_ {};
+        // Number of agents currently on a call.
         shared_ptr<int64_t> talkingAgents_ {};
+        // Total number of agents.
         shared_ptr<int64_t> totalAgents_ {};
+        // Number of calls currently in the queue.
         shared_ptr<int64_t> waitingCalls_ {};
+        // Number of agents currently in post-processing.
         shared_ptr<int64_t> workingAgents_ {};
       };
 
@@ -294,9 +309,13 @@ namespace Models
 
 
     protected:
+      // List of real-time skill group status data.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -340,10 +359,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListRealtimeSkillGroupStatesResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

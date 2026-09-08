@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Chat Device ID.
     shared_ptr<string> chatDeviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Agent ID. This parameter is optional. If not specified, the agent mapped to the current RAM account is used by default.
     shared_ptr<string> userId_ {};
   };
 

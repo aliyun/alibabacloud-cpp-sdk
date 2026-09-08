@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The custom device ID. No specific format is required.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The password used to authenticate the SIP device during registration. Keep this password secure.
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // The agent ID.
     shared_ptr<string> userId_ {};
   };
 

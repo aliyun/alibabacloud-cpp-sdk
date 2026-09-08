@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number, ranging from 1 to 100.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
+    // List of skill group IDs.
     shared_ptr<string> skillGroupIds_ {};
   };
 

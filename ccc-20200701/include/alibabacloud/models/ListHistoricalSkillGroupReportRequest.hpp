@@ -94,15 +94,25 @@ namespace Models
 
 
   protected:
+    // End time of the historical data to retrieve, formatted as a UNIX timestamp in milliseconds. This parameter is optional. The default value is the current time. The time precision for statistics is hourly, rounded down to the previous hour, and uses an open interval. For example, if the start time is 11:12:20 and the end time is 11:45:50, the aligned input time range becomes [11:00:00, 12:00:00), meaning greater than or equal to 11:00:00 and less than 12:00:00.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Media type. The default value is Audio. Other valid values include Chat and Video.
     shared_ptr<string> mediaType_ {};
+    // Page number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // List of skill group IDs to query, provided as a JSON array string. Each array element is a skill group ID. This parameter is optional. The default value is empty, which means all skill groups in the current page are queried.
     shared_ptr<string> skillGroupIdList_ {};
+    // Start time of the historical data to retrieve, formatted as a UNIX timestamp in milliseconds. This parameter is optional. The default value is 00:00:00 of the current day. The earliest allowed value is 180 days before the current time. The time precision for statistics is hourly, rounded down to the previous hour, and uses a closed interval.
     shared_ptr<int64_t> startTime_ {};
   };
 

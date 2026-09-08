@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // Device ID. This parameter is meaningless and can be filled in with any value.
     shared_ptr<string> deviceId_ {};
+    // 实例 ID。
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The agent ID that is forcibly disconnected.
+    // 
     // This parameter is required.
     shared_ptr<string> interceptedUserId_ {};
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // 强拆超时时间，经过指定的时间强拆仍未成功，则取消强拆，正常情况下，强拆操作会马上成功，设置超时时间是为了防止异常发生，此字段选填，默认 30，单位秒。
     shared_ptr<int32_t> timeoutSeconds_ {};
+    // 发起强拆的坐席。
     shared_ptr<string> userId_ {};
   };
 

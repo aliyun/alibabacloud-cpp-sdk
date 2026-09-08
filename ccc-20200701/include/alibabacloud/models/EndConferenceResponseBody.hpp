@@ -185,16 +185,27 @@ namespace Models
 
 
       protected:
+        // Break code, which can be either System-defined or Custom-defined. System-defined break codes include: Warm-up (temporary break state after agent is published and before becoming idle), RingingTimeout (break caused by agent ringing timeout), and RejectCall (break caused by agent call rejection). There are no restrictions on Custom-defined break codes; Customers can define them as needed for their business.
         shared_ptr<string> breakCode_ {};
+        // Device ID, which is the identity ID of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
         shared_ptr<string> deviceId_ {};
+        // The status of the SIP phone device. If the SIP phone is not registered, the status is UNREGISTERED (unregistered). If the SIP phone is registered but offline, the status is OFFLINE (offline). If the SIP phone is registered and online, the status is ONLINE (online).
         shared_ptr<string> deviceState_ {};
+        // Agent extension number.
         shared_ptr<string> extension_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Call ID.
         shared_ptr<string> jobId_ {};
+        // Indicates whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // List of skill group IDs that the agent has signed into.
         shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+        // Agent ID.
         shared_ptr<string> userId_ {};
+        // Agent status.
         shared_ptr<string> userState_ {};
+        // Work mode.
         shared_ptr<string> workMode_ {};
       };
 
@@ -341,16 +352,27 @@ namespace Models
 
 
         protected:
+          // The call type of the channel.
           shared_ptr<string> callType_ {};
+          // The channel ID.
           shared_ptr<string> channelId_ {};
+          // The status of the voice channel.
           shared_ptr<string> channelState_ {};
+          // The called party of the call channel.
           shared_ptr<string> destination_ {};
+          // Call ID.
           shared_ptr<string> jobId_ {};
+          // The calling party of the voice channel.
           shared_ptr<string> originator_ {};
+          // The party that initiated the hang-up of the voice channel.
           shared_ptr<string> releaseInitiator_ {};
+          // The hang-up reason for the voice channel, indicating why the current voice channel was disconnected. The value comes from the response codes defined in the SIP protocol. Customers can refer to the SIP protocol to analyze the hang-up reason.
           shared_ptr<string> releaseReason_ {};
+          // The UNIX timestamp of the most recent status change of the channel, in milliseconds.
           shared_ptr<int64_t> timestamp_ {};
+          // The extension number of the agent associated with the channel.
           shared_ptr<string> userExtension_ {};
+          // The agent ID associated with the voice channel. This field is empty for customer voice channels.
           shared_ptr<string> userId_ {};
         };
 
@@ -380,8 +402,11 @@ namespace Models
 
 
       protected:
+        // List of call channels.
         shared_ptr<vector<CallContext::ChannelContexts>> channelContexts_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Call ID.
         shared_ptr<string> jobId_ {};
       };
 
@@ -413,8 +438,11 @@ namespace Models
 
 
     protected:
+      // Call context environment.
       shared_ptr<Data::CallContext> callContext_ {};
+      // System auto-increment ID. Customers do not need to be concerned about this.
       shared_ptr<int64_t> contextId_ {};
+      // Agent context environment.
       shared_ptr<Data::UserContext> userContext_ {};
     };
 
@@ -467,11 +495,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<EndConferenceResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

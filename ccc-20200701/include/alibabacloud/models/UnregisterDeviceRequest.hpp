@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Agent ID.
     shared_ptr<string> userId_ {};
   };
 

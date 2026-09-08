@@ -153,13 +153,19 @@ namespace Models
 
 
       protected:
+        // The time when the schema was created.
         shared_ptr<string> createdTime_ {};
+        // Indicates whether the schema is deleted.
         shared_ptr<bool> deleted_ {};
+        // The description.
         shared_ptr<string> description_ {};
-        // schame id
+        // The schema ID.
         shared_ptr<string> id_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The list of fields.
         shared_ptr<map<string, DataSchemaPropertiesValue>> properties_ {};
+        // The time when the schema was last updated.
         shared_ptr<string> updatedTime_ {};
       };
 
@@ -198,10 +204,13 @@ namespace Models
 
 
     protected:
+      // The list of documents.
       shared_ptr<vector<Darabonba::Json>> documents_ {};
+      // The token for the next page of results.
       shared_ptr<string> nextPageToken_ {};
-      // scheme
+      // The schema.
       shared_ptr<Data::Schema> schema_ {};
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -254,11 +263,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListDocumentsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The response parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

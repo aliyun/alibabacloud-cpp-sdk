@@ -128,13 +128,19 @@ namespace Models
 
 
     protected:
+      // The time when the schema was created.
       shared_ptr<string> createdTime_ {};
+      // Indicates whether the schema is deleted.
       shared_ptr<bool> deleted_ {};
+      // The description.
       shared_ptr<string> description_ {};
-      // schema id
+      // The ID of the schema.
       shared_ptr<string> id_ {};
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The list of fields.
       shared_ptr<map<string, DataPropertiesValue>> properties_ {};
+      // The time when the schema was last modified.
       shared_ptr<string> updatedTime_ {};
     };
 
@@ -187,11 +193,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetSchemaResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The response parameters.
     shared_ptr<vector<string>> params_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

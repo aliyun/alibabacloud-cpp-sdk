@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The ID of the assignee.
+    // 
     // This parameter is required.
     shared_ptr<string> assignee_ {};
+    // Comments.
     shared_ptr<string> comment_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The node ID.
     shared_ptr<string> taskId_ {};
+    // The ticket ID.
     shared_ptr<string> ticketId_ {};
   };
 

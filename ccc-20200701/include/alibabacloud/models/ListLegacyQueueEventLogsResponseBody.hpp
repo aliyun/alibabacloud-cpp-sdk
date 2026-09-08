@@ -185,16 +185,27 @@ namespace Models
 
 
       protected:
+        // Call ID.
         shared_ptr<string> acid_ {};
+        // Calling party
         shared_ptr<string> ani_ {};
+        // Agent ID.
         shared_ptr<string> answerPhone_ {};
+        // Acknowledgement duration, in seconds.
         shared_ptr<int64_t> answerTime_ {};
+        // Hang-up reason.
         shared_ptr<string> cause_ {};
+        // Dialed number.
         shared_ptr<string> dnis_ {};
+        // Primary key
         shared_ptr<int64_t> id_ {};
+        // Queue duration, in seconds.
         shared_ptr<int64_t> queueTime_ {};
+        // Statistics date.
         shared_ptr<string> statisticDate_ {};
+        // Tenant ID.
         shared_ptr<string> tenantId_ {};
+        // Queue name.
         shared_ptr<string> vq_ {};
       };
 
@@ -231,9 +242,13 @@ namespace Models
 
 
     protected:
+      // List of queue event logs.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 1000.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 1000.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -284,11 +299,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListLegacyQueueEventLogsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the invocation succeeded.
     shared_ptr<bool> success_ {};
   };
 

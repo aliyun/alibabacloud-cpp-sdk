@@ -130,13 +130,21 @@ namespace Models
 
 
     protected:
+      // Abandon rate, calculated as: number of abandoned calls divided by total calls.
       shared_ptr<float> abandonRate_ {};
+      // Deprecated. Refer to AbandonRate instead.
       shared_ptr<float> abandonedRate_ {};
+      // Answer rate, in %.
       shared_ptr<float> answerRate_ {};
+      // Number of abandoned calls.
       shared_ptr<int64_t> callsAbandoned_ {};
+      // Number of connected calls.
       shared_ptr<int64_t> callsConnected_ {};
+      // Number of calls dialed, including retries.
       shared_ptr<int64_t> callsDialed_ {};
+      // Deprecated. Refer to AnswerRate instead.
       shared_ptr<float> connectedRate_ {};
+      // Agent occupancy rate, calculated as: (total talk duration + total post-processing duration) divided by total agent online duration. Total agent online duration refers to the sum of online durations of all agents in the skill group associated with this activity.
       shared_ptr<float> occupancyRate_ {};
     };
 
@@ -180,10 +188,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetHistoricalCampaignReportResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

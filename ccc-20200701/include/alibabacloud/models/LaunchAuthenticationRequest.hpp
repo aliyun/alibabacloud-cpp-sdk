@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // The contact flow ID for the IVR identity verification flow.
+    // 
     // This parameter is required.
     shared_ptr<string> contactFlowId_ {};
+    // Variables passed to the contact flow. This parameter is optional. The configured variables can be retrieved and used within the IVR flow. The format is a JSON string representing a collection of key-value pairs.
     shared_ptr<string> contactFlowVariables_ {};
+    // Device ID. This parameter is meaningless and can be filled in with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The agent ID that initiates identity verification.
     shared_ptr<string> userId_ {};
   };
 

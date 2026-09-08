@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // If an agent has already signed in to some skill groups, setting this parameter to true allows the agent to sign in to additional skill groups.
     shared_ptr<bool> additivity_ {};
+    // Chat device ID.
     shared_ptr<string> chatDeviceId_ {};
+    // Voice device ID. When multiple voice devices are active, use this parameter to specify one of them, such as a browser Web Real-Time Communication (WebRTC) endpoint or a SIP phone.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of skill group IDs to sign in to, formatted as a JSON array string, where each array element is a skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> signedSkillGroupIdList_ {};
+    // Agent ID. If not specified, the agent mapped to the current Resource Access Management (RAM) user is used by default.
     shared_ptr<string> userId_ {};
   };
 

@@ -133,13 +133,21 @@ namespace Models
 
 
     protected:
+      // Call ID from the registration signaling initiated by the device.
       shared_ptr<string> callId_ {};
+      // Device address information.
       shared_ptr<string> contact_ {};
+      // Device ID, which is the identity ID of a browser Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
       shared_ptr<string> deviceId_ {};
+      // Device type.
       shared_ptr<string> deviceType_ {};
+      // Device registration expiration time, in UNIX timestamp format with millisecond precision. If the device does not re-register after expiration, it will go offline.
       shared_ptr<int64_t> expires_ {};
+      // Agent extension number.
       shared_ptr<string> extension_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Agent ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -192,11 +200,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Device list.
     shared_ptr<vector<ListDevicesResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

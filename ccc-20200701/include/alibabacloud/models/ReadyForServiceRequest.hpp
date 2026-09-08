@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to enter outbound-only mode after being published. This parameter is optional and defaults to false.
     shared_ptr<bool> outboundScenario_ {};
+    // Agent ID. If not specified, it defaults to the agent mapped to the current RAM account.
     shared_ptr<string> userId_ {};
   };
 

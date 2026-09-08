@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the Cloud Connect Center instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Specifies whether to set the agent\\"s status to invisible.
     shared_ptr<bool> invisible_ {};
+    // The ID of the agent.
     shared_ptr<string> userId_ {};
   };
 

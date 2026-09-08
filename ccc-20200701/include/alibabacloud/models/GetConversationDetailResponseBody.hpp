@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The offset of the sentence start time relative to the session start time, in milliseconds.
       shared_ptr<int32_t> begin_ {};
+      // The offset of the sentence end time relative to the session start time, in milliseconds.
       shared_ptr<int32_t> end_ {};
+      // Is finished.
       shared_ptr<bool> finished_ {};
+      // The ARN of the role. The system uses this identifier internally to identify the role. This parameter does not require management.
       shared_ptr<string> identity_ {};
+      // Role.
       shared_ptr<string> role_ {};
+      // Conversation text content.
       shared_ptr<string> words_ {};
     };
 
@@ -160,10 +166,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of conversations.
     shared_ptr<vector<GetConversationDetailResponseBody::Phrases>> phrases_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

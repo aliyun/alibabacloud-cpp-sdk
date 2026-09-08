@@ -84,15 +84,30 @@ namespace Models
 
 
   protected:
+    // Predictive outbound dialing activity ID.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The paging ordinal number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // Filters by phone number. Fuzzy Matching is not supported. This parameter is not Required and defaults to empty.
     shared_ptr<string> phoneNumber_ {};
+    // Pending (to be dialed)<br>
+    // Executing (dialing in progress)<br>
+    // Connected (contact succeeded)<br>
+    // Failed (contact failed)<br>
+    // Aborted (call stopped or canceled)<br>
+    // Forbidden (call prohibited by rule, such as blacklist)
     shared_ptr<string> state_ {};
   };
 

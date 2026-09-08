@@ -121,17 +121,29 @@ namespace Models
 
 
   protected:
+    // Callee number. For internal calls, specify the target agent\\"s extension number in this field. For outbound calls, specify the customer\\"s phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> callee_ {};
+    // Caller number. This parameter is invalid for internal calls. For outbound calls, specify an outbound number available to the current agent. Ensure that the number supports outbound calling and that the agent has permission to use it. Permission can be granted in two ways: either by attaching the number to the skill group the agent signed into, or by setting the number as the agent\\"s personal outbound number.
     shared_ptr<string> caller_ {};
+    // Device ID. This field is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Flash SMS configuration
     shared_ptr<string> flashSmsVariables_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The desensitized callee number. If this field is not empty, it indicates that the callee number must be desensitized. The desensitization rule is defined by the customer. You only need to enter the desensitized callee number here. Using a desensitized callee number means that in certain scenarios, you will see the desensitized callee number and cannot view the real callee number.
     shared_ptr<string> maskedCallee_ {};
+    // Media type. The default value is AUDIO. Other valid values include VIDEO.
     shared_ptr<string> mediaType_ {};
+    // Ingest endpoint data. The customer does not need to concern themselves with this.
     shared_ptr<string> tags_ {};
+    // Timeout. If the call is not answered within the time specified by this parameter, the system automatically hangs up. Valid values range from 30 to 300 seconds.
     shared_ptr<int32_t> timeoutSeconds_ {};
+    // Agent ID initiating the outbound call. This field is optional. If not specified, the system uses the agent mapped to the current RAM user by default.
     shared_ptr<string> userId_ {};
   };
 

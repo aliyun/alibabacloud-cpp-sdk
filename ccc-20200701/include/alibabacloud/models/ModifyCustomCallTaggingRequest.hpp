@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // A list of number tag names. You must provide the complete list of number tags to be modified, and ensure that these number tags have already been created.
     shared_ptr<string> callTagNameList_ {};
+    // The new description for the inbound number mark. This parameter is optional. The default value is empty, which indicates that the description will not be modified.
     shared_ptr<string> description_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The number associated with the inbound number mark. The system matches the inbound number mark to be modified based on this number.
+    // 
     // This parameter is required.
     shared_ptr<string> number_ {};
   };

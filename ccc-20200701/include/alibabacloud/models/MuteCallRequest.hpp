@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The ID of the voice channel to be muted. This parameter is optional and defaults to empty. If it is empty, the voice channel of the agent corresponding to UserId will be muted.
     shared_ptr<string> channelId_ {};
+    // Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The agent ID to be muted.
     shared_ptr<string> userId_ {};
   };
 

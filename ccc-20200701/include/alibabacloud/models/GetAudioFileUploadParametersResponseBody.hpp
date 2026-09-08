@@ -111,11 +111,17 @@ namespace Models
 
 
     protected:
+      // AccessKey ID used for signing.
       shared_ptr<string> accessKeyId_ {};
+      // Expiration time.
       shared_ptr<int32_t> expireTime_ {};
+      // Key of the OSS file.
       shared_ptr<string> filePath_ {};
+      // Endpoint domain name of OSS.
       shared_ptr<string> host_ {};
+      // Signature policy.
       shared_ptr<string> policy_ {};
+      // Signature information of the temporary credential for file upload, used to authenticate the upload request.
       shared_ptr<string> signature_ {};
     };
 
@@ -159,10 +165,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetAudioFileUploadParametersResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -283,26 +283,47 @@ namespace Models
 
 
       protected:
+        // Indicates whether the field is an array.
         shared_ptr<bool> array_ {};
+        // The extended properties.
         shared_ptr<string> attributes_ {};
+        // The time when the field was created.
         shared_ptr<int64_t> createdTime_ {};
+        // The user who created the field.
         shared_ptr<string> creator_ {};
+        // The data type.
         shared_ptr<string> dataType_ {};
+        // The description of the field.
         shared_ptr<string> description_ {};
+        // Indicates whether the field is disabled.
         shared_ptr<bool> disabled_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
+        // The display order in the list.
         shared_ptr<int32_t> displayOrder_ {};
+        // The type of the editor.
         shared_ptr<string> editorType_ {};
+        // The maximum length.
         shared_ptr<int32_t> maxLength_ {};
+        // The maximum value of the number.
         shared_ptr<double> maximum_ {};
+        // The minimum length.
         shared_ptr<int32_t> minLength_ {};
+        // The minimum value of the number.
         shared_ptr<double> minimum_ {};
+        // The name of the field.
         shared_ptr<string> name_ {};
+        // The validation rule that is specified by a regular expression.
         shared_ptr<string> pattern_ {};
+        // The error message that is returned when the regular expression fails to pass the validation.
         shared_ptr<string> patternErrorMessage_ {};
+        // Indicates whether the field is read-only.
         shared_ptr<bool> readOnly_ {};
+        // Indicates whether the field is required.
         shared_ptr<bool> required_ {};
+        // Indicates whether the field is a system field.
         shared_ptr<bool> system_ {};
+        // The time when the field was last updated.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -361,12 +382,23 @@ namespace Models
 
 
     protected:
+      // The ID of the summary category.
       shared_ptr<string> categoryId_ {};
+      // The user who edited the template.
       shared_ptr<string> editor_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The name of the template.
       shared_ptr<string> name_ {};
+      // The list of template fields.
       shared_ptr<vector<Data::PropertyList>> propertyList_ {};
+      // The status code.
+      // 
+      // - Enabled: The template is enabled.
+      // 
+      // - Disabled: The template is disabled.
       shared_ptr<string> state_ {};
+      // The template ID.
       shared_ptr<string> templateId_ {};
     };
 
@@ -419,11 +451,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<GetSummaryTemplateResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The list of error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

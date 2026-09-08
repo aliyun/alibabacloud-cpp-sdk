@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Number of rows.
     shared_ptr<int64_t> rowCount_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
+    // Time when the record was generated, in Unix timestamp format, in milliseconds.
     shared_ptr<int64_t> timeStamp_ {};
   };
 

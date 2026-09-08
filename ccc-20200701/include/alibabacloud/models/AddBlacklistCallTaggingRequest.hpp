@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The ID of the Cloud Contact Center instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The call ID. If the phone number is encrypted and contains asterisks (\\*), specify the JobId. This parameter is not required for unencrypted numbers.
     shared_ptr<string> jobId_ {};
+    // The phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> number_ {};
   };

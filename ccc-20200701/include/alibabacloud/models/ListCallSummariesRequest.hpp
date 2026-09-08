@@ -51,7 +51,10 @@ namespace Models
 
 
   protected:
+    // List of call IDs.
     shared_ptr<vector<string>> contactIdList_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

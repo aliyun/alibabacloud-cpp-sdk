@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number of the results to return. Valid values: 1 to 1,000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries to return on each page. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The keyword to use for a fuzzy search based on the RAM user\\"s logon name or display name. This parameter is optional. If you leave this parameter empty, no filtering is applied.
     shared_ptr<string> searchPattern_ {};
   };
 

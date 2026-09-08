@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // End UNIX timestamp. The default value is the current time. The format is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Media type. The default value is Audio. Other valid values include Chat and Video.
     shared_ptr<string> mediaType_ {};
+    // Start UNIX timestamp. The default value is the start time of the current day. The earliest allowed time is 180 days before the current time. The interval between the start time and end time cannot exceed 7 days. The format is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

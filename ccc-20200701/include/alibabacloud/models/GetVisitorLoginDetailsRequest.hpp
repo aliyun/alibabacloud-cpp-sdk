@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // Chat device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> chatDeviceId_ {};
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Channel token for network services.
     shared_ptr<string> token_ {};
+    // Visitor ID.
+    // 
     // This parameter is required.
     shared_ptr<string> visitorId_ {};
   };

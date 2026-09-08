@@ -94,9 +94,13 @@ namespace Models
 
 
     protected:
+      // Contact ID.
       shared_ptr<string> contactId_ {};
+      // Is the recording file existing?
       shared_ptr<string> exists_ {};
+      // The recording\\"s restored state. Values are Completed or Progressing.
       shared_ptr<string> status_ {};
+      // Storage class of the recording file.
       shared_ptr<string> storageType_ {};
     };
 
@@ -140,10 +144,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<vector<RestoreArchivedRecordingsResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

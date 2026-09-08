@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Agent extension number. This parameter is optional. You must specify either UserId or Extension.
     shared_ptr<string> extension_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Agent ID. This parameter is optional. You must specify either UserId or Extension.
     shared_ptr<string> userId_ {};
   };
 

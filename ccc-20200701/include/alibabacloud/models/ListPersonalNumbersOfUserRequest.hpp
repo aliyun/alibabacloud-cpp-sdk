@@ -84,15 +84,26 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether the phone numbers are associated with the agent. If true, the API queries the list of personal outbound phone numbers associated with the UserId. If false, it queries the list of personal outbound phone numbers that can be associated with but are not currently associated with the UserId. This parameter is typically used together with the AddPersonalNumbersToUser API.
+    // 
     // This parameter is required.
     shared_ptr<bool> isMember_ {};
+    // Page number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Fuzzy matching based on phone number. Optional. Default value is empty if not specified.
     shared_ptr<string> searchPattern_ {};
+    // Agent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

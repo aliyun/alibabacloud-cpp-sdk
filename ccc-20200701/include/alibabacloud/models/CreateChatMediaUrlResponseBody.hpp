@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // Media ID.
       shared_ptr<string> mediaId_ {};
+      // File URL.
       shared_ptr<string> url_ {};
     };
 
@@ -131,11 +133,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<CreateChatMediaUrlResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

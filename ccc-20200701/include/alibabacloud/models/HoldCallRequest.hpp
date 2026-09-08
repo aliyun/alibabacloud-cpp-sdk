@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // Channel ID to be held.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // A unique ID provided by the agent endpoint to represent an agent workbench. An agent can have multiple workbenches of different types, such as browser, iOS, or Android, but only one can be active at a time.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Call job ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Name of the hold music. This parameter is optional and defaults to empty.
     shared_ptr<string> music_ {};
+    // Agent ID.
     shared_ptr<string> userId_ {};
   };
 

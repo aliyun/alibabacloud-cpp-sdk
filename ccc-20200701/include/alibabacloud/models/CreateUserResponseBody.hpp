@@ -142,14 +142,23 @@ namespace Models
 
 
     protected:
+      // The URL of the agent\\"s profile picture.
       shared_ptr<string> avatarUrl_ {};
+      // The display name of the agent.
       shared_ptr<string> displayName_ {};
+      // The email address.
       shared_ptr<string> email_ {};
+      // The agent\\"s extension number.
       shared_ptr<string> extension_ {};
+      // The logon name of the agent.
       shared_ptr<string> loginName_ {};
+      // The personal phone number of the agent.
       shared_ptr<string> mobile_ {};
+      // The agent\\"s nickname.
       shared_ptr<string> nickname_ {};
+      // The agent ID.
       shared_ptr<string> userId_ {};
+      // The work mode.
       shared_ptr<string> workMode_ {};
     };
 
@@ -202,11 +211,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<CreateUserResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The response parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

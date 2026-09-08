@@ -103,15 +103,25 @@ namespace Models
 
 
   protected:
+    // Callable time, supports multiple time segments.
     shared_ptr<string> callableTime_ {};
+    // Predictive outbound campaign ID.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // Contact stream ID.
     shared_ptr<string> contactFlowId_ {};
+    // End time, in Unix timestamp format, in milliseconds.
     shared_ptr<string> endTime_ {};
+    // Cloud Contact Center instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Predictive outbound campaign name.
     shared_ptr<string> name_ {};
+    // Start time, in Unix timestamp format, in milliseconds.
     shared_ptr<string> startTime_ {};
+    // Policy parameters.
     shared_ptr<string> strategyParameters_ {};
   };
 

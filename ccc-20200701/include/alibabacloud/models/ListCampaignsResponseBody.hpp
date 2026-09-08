@@ -268,25 +268,45 @@ namespace Models
 
 
       protected:
+        // The actual end time of the predictive dialing campaign. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> actualEndTime_ {};
+        // The actual start time of the predictive dialing campaign. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> actualStartTime_ {};
+        // The ID of the predictive dialing campaign.
         shared_ptr<string> campaignId_ {};
+        // The number of aborted cases in the predictive dialing campaign. An aborted case indicates that the call to the contact was canceled.
         shared_ptr<int64_t> casesAborted_ {};
+        // The number of connected cases in the predictive dialing campaign.
         shared_ptr<int64_t> casesConnected_ {};
+        // The number of uncompleted cases in the predictive dialing campaign. An uncompleted case indicates that the call was not connected and the maximum number of retry attempts was not reached.
         shared_ptr<int64_t> casesUncompleted_ {};
+        // The completion rate. This parameter is deprecated. You can calculate the completion rate by using the formula (TotalCases - CasesUnCompleted) / TotalCases.
         shared_ptr<float> completionRate_ {};
+        // The ID of the IVR contact flow associated with the phone number.
         shared_ptr<string> contactFlowId_ {};
+        // The maximum number of attempts for the predictive dialing campaign. This value specifies the maximum number of redial attempts when a call to a number fails.
         shared_ptr<int64_t> maxAttemptCount_ {};
+        // The minimum redial interval for the predictive dialing campaign. This value specifies the minimum interval between redial attempts after a failure. Unit: seconds.
         shared_ptr<int64_t> minAttemptInterval_ {};
+        // The name of the predictive dialing campaign.
         shared_ptr<string> name_ {};
+        // The planned end time of the predictive dialing campaign. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> planedEndTime_ {};
+        // The planned start time of the predictive dialing campaign. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> planedStartTime_ {};
+        // The ID of the associated skill group.
         shared_ptr<string> queueId_ {};
+        // The name of the skill group.
         shared_ptr<string> queueName_ {};
+        // Indicates whether the campaign is a simulated campaign.
         shared_ptr<bool> simulation_ {};
+        // The state of the predictive dialing campaign.
         shared_ptr<string> state_ {};
+        // The strategy parameters of the predictive dialing campaign. Example for the PID strategy: {"abandonRate":"5","historicalConnectedRate":"35"}. Example for the PACING strategy: {"ratio":1}. abandonRate specifies the expected call abandon rate. historicalConnectedRate specifies the historical reference connection rate. ratio specifies the fixed dialing ratio.
         shared_ptr<string> strategyParameters_ {};
+        // The strategy mode of the predictive dialing campaign.
         shared_ptr<string> strategyType_ {};
+        // The total number of phone numbers.
         shared_ptr<int64_t> totalCases_ {};
       };
 
@@ -323,9 +343,13 @@ namespace Models
 
 
     protected:
+      // The list of predictive dialing campaigns.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number. Valid values: 1 to 100.
       shared_ptr<int64_t> pageNumber_ {};
+      // The page size. Valid values: 1 to 100.
       shared_ptr<int64_t> pageSize_ {};
+      // The total count.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -376,11 +400,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListCampaignsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

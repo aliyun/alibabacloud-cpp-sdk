@@ -167,23 +167,41 @@ namespace Models
 
 
   protected:
+    // Assignee ID.
     shared_ptr<string> assignee_ {};
+    // Assignee type.
     shared_ptr<string> assigneeType_ {};
+    // Ticket category ID.
     shared_ptr<string> categoryId_ {};
+    // Creator.
     shared_ptr<string> creator_ {};
+    // Customer ID. The Cloud Contact Center customer profile ID.
     shared_ptr<string> customerId_ {};
+    // End time. Filter by ticket creation time.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A list of contact IDs.
     shared_ptr<string> jobIdList_ {};
+    // Paging ordinal number. Range: 1-100.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
+    // Paging size. Range: 1-100.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // Participant ID.
     shared_ptr<string> participant_ {};
+    // Start time. Filter by ticket creation time.
     shared_ptr<int64_t> startTime_ {};
+    // Ticket state.
     shared_ptr<string> state_ {};
+    // Ticket ID.
     shared_ptr<string> ticketId_ {};
+    // Ticket title.
     shared_ptr<string> title_ {};
   };
 

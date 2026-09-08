@@ -167,14 +167,23 @@ namespace Models
 
 
       protected:
+        // Agent ID.
         shared_ptr<string> agentId_ {};
+        // Agent name.
         shared_ptr<string> agentName_ {};
+        // Break code.
         shared_ptr<string> breakCode_ {};
+        // Agent extension number.
         shared_ptr<string> dn_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Agent logon name.
         shared_ptr<string> loginName_ {};
+        // Indicates whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // Agent status.
         shared_ptr<string> state_ {};
+        // Duration of the agent status.
         shared_ptr<string> stateDuration_ {};
       };
 
@@ -211,9 +220,13 @@ namespace Models
 
 
     protected:
+      // List.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 300.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -264,11 +277,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListAgentStatesResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
   };
 

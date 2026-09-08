@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // Agent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
+    // End UNIX timestamp. The default value is the current time. The time difference between EndTime and StartTime must not exceed 7 days. The format is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Start UNIX timestamp. The default value is the start time of the current day. The earliest allowed value is 180 days before the current date. The format is a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

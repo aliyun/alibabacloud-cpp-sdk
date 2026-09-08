@@ -101,7 +101,9 @@ namespace Models
 
 
       protected:
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The name of the number tag.
         shared_ptr<string> tagName_ {};
       };
 
@@ -138,9 +140,13 @@ namespace Models
 
 
     protected:
+      // The list of number tags.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // The page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -184,10 +190,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListCallTagsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

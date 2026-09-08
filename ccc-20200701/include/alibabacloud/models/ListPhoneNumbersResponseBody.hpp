@@ -162,9 +162,13 @@ namespace Models
 
 
         protected:
+          // The display name of the skill group.
           shared_ptr<string> displayName_ {};
+          // The instance ID.
           shared_ptr<string> instanceId_ {};
+          // The name of the skill group.
           shared_ptr<string> name_ {};
+          // The skill group ID.
           shared_ptr<string> skillGroupId_ {};
         };
 
@@ -266,18 +270,31 @@ namespace Models
 
 
       protected:
+        // Indicates whether the number is active.
         shared_ptr<bool> active_ {};
+        // The city where the number is registered.
         shared_ptr<string> city_ {};
+        // The IVR contact flow ID associated with the phone number.
         shared_ptr<string> contactFlowId_ {};
+        // Name of the IVR contact flow associated with the number.
         shared_ptr<string> contactFlowName_ {};
+        // The number creation time, which is the time when the number was associated with the instance, in Unix timestamp format with millisecond precision.
         shared_ptr<string> createTime_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // Number.
         shared_ptr<string> number_ {};
+        // Number provider name.
         shared_ptr<string> provider_ {};
+        // The province where the number is registered.
         shared_ptr<string> province_ {};
+        // The list of skill groups associated with the number.
         shared_ptr<vector<List::SkillGroups>> skillGroups_ {};
+        // Business tags for the number, primarily used for labeling and extended business purposes. Ordinary customers do not need to concern themselves with this.
         shared_ptr<string> tags_ {};
+        // The usage of the phone number.
         shared_ptr<string> usage_ {};
+        // Agent ID. If this parameter is not empty, the number is dedicated to the agent.
         shared_ptr<string> userId_ {};
       };
 
@@ -314,9 +331,13 @@ namespace Models
 
 
     protected:
+      // The phone number list.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // The page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -360,10 +381,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListPhoneNumbersResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

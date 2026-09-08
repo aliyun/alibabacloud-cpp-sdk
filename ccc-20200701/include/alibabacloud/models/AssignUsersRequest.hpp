@@ -85,13 +85,22 @@ namespace Models
 
   protected:
     shared_ptr<bool> async_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A JSON array of RAM user IDs to import, formatted as a string.
+    // 
     // This parameter is required.
     shared_ptr<string> ramIdList_ {};
+    // The ID of the role to assign to the users in the instance. After the RAM users are imported, they are assigned this role. Valid roles are Administrator, Teamleader, and Agent.
+    // 
     // This parameter is required.
     shared_ptr<string> roleId_ {};
+    // A JSON array of skill objects, provided as a string. Each object specifies a skillGroupId and a skillLevel from 1 to 10. A lower skillLevel value indicates higher proficiency and greater call-handling capacity.
     shared_ptr<string> skillLevelList_ {};
+    // The work mode for the agents.
+    // 
     // This parameter is required.
     shared_ptr<string> workMode_ {};
   };

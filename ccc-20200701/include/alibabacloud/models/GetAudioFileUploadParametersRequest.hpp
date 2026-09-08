@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Audio file name.
+    // 
     // This parameter is required.
     shared_ptr<string> audioFileName_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

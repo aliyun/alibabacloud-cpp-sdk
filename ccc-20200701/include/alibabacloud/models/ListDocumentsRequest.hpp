@@ -80,7 +80,13 @@ namespace Models
 
 
     protected:
+      // The sorting order. Valid values:
+      // 
+      // - ASC (default): ascending order.
+      // 
+      // - DESC: descending order.
       shared_ptr<string> order_ {};
+      // The field name.
       shared_ptr<string> propertyName_ {};
     };
 
@@ -139,16 +145,23 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The token for the next page of results.
     shared_ptr<string> nextPageToken_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // schema id
+    // The schema ID.
     // 
     // This parameter is required.
     shared_ptr<string> schemaId_ {};
+    // The search conditional expression.
     shared_ptr<string> searchPattern_ {};
+    // The custom sorting value.
     shared_ptr<vector<ListDocumentsRequest::Sorts>> sorts_ {};
   };
 

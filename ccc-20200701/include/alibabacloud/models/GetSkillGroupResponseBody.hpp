@@ -111,11 +111,17 @@ namespace Models
 
 
     protected:
+      // Description of the skill group.
       shared_ptr<string> description_ {};
+      // Display name of the skill group.
       shared_ptr<string> displayName_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Media type. The default value is AUDIO. Other valid values include CHAT and VIDEO.
       shared_ptr<string> mediaType_ {};
+      // Name of the skill group.
       shared_ptr<string> name_ {};
+      // Skill group ID, in the format: skill group name\\@instance ID.
       shared_ptr<string> skillGroupId_ {};
     };
 
@@ -159,10 +165,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetSkillGroupResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

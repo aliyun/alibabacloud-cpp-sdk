@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the contact flow.
+    // 
     // This parameter is required.
     shared_ptr<string> contactFlowId_ {};
     shared_ptr<bool> force_ {};
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

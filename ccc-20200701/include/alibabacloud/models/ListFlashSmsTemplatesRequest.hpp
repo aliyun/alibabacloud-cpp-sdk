@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Flash SMS configuration ID.
     shared_ptr<string> applicationId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Flash SMS provider ID.
     shared_ptr<string> providerId_ {};
   };
 

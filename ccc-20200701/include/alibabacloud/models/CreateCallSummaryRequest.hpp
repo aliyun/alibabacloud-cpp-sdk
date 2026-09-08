@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // The ID of the session.
     shared_ptr<string> contactId_ {};
+    // Summary information
     shared_ptr<string> context_ {};
+    // Customer ID
     shared_ptr<string> customerId_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // Channel ID of the call to hang up. This parameter is optional. If not specified, it defaults to the channel where the agent corresponding to the UserId is located.
     shared_ptr<string> channelId_ {};
+    // Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Agent ID. If not specified, the agent mapped to the current Resource Access Management (RAM) user is used by default.
     shared_ptr<string> userId_ {};
   };
 

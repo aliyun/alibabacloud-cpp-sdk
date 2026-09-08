@@ -66,6 +66,7 @@ namespace Models
       class List : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const List& obj) { 
+          DARABONBA_PTR_TO_JSON(AccessChannelId, accessChannelId_);
           DARABONBA_PTR_TO_JSON(AccessChannelName, accessChannelName_);
           DARABONBA_PTR_TO_JSON(AccessChannelType, accessChannelType_);
           DARABONBA_PTR_TO_JSON(AccessChannelUserId, accessChannelUserId_);
@@ -129,6 +130,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(WaitTime, waitTime_);
         };
         friend void from_json(const Darabonba::Json& j, List& obj) { 
+          DARABONBA_PTR_FROM_JSON(AccessChannelId, accessChannelId_);
           DARABONBA_PTR_FROM_JSON(AccessChannelName, accessChannelName_);
           DARABONBA_PTR_FROM_JSON(AccessChannelType, accessChannelType_);
           DARABONBA_PTR_FROM_JSON(AccessChannelUserId, accessChannelUserId_);
@@ -230,6 +232,7 @@ namespace Models
 
 
         protected:
+          // The keywords.
           shared_ptr<string> keywords_ {};
         };
 
@@ -307,8 +310,14 @@ namespace Models
 
 
           protected:
+            // Indicates whether the call was successful.
+            // 
+            // - **true**: Successful.
+            // - **false**: Failed.
             shared_ptr<bool> success_ {};
+            // The task ID.
             shared_ptr<string> taskId_ {};
+            // The to-do items.
             shared_ptr<vector<string>> tasks_ {};
           };
 
@@ -368,9 +377,16 @@ namespace Models
 
 
           protected:
+            // The detailed remark of the satisfaction analysis.
             shared_ptr<string> remark_ {};
+            // The satisfaction description.
             shared_ptr<string> satisfactionDescription_ {};
+            // Indicates whether the call was successful.
+            // 
+            // - **true**: Successful.
+            // - **false**: Failed.
             shared_ptr<bool> success_ {};
+            // The task ID.
             shared_ptr<string> taskId_ {};
           };
 
@@ -439,10 +455,18 @@ namespace Models
 
 
           protected:
+            // The problem description.
             shared_ptr<string> problem_ {};
+            // The Solutions.
             shared_ptr<string> solution_ {};
+            // Indicates whether the problem is resolved.
             shared_ptr<bool> solved_ {};
+            // Indicates whether the call was successful.
+            // 
+            // - **true**: Successful.
+            // - **false**: Failed.
             shared_ptr<bool> success_ {};
+            // The task ID.
             shared_ptr<string> taskId_ {};
           };
 
@@ -511,10 +535,18 @@ namespace Models
 
 
           protected:
+            // The confidence level.
             shared_ptr<int32_t> confidence_ {};
+            // The detailed remark of the emotion analysis.
             shared_ptr<string> remark_ {};
+            // Indicates whether the call was successful.
+            // 
+            // - **true**: Successful.
+            // - **false**: Failed.
             shared_ptr<bool> success_ {};
+            // The task ID.
             shared_ptr<string> taskId_ {};
+            // The emotion type.
             shared_ptr<string> type_ {};
           };
 
@@ -557,25 +589,37 @@ namespace Models
 
 
         protected:
+          // The emotion analysis.
           shared_ptr<AnalyticsReport::Emotion> emotion_ {};
+          // The problem resolution status.
           shared_ptr<AnalyticsReport::ProblemSolving> problemSolving_ {};
+          // The satisfaction analysis.
           shared_ptr<AnalyticsReport::Satisfaction> satisfaction_ {};
+          // The to-do list.
           shared_ptr<AnalyticsReport::TodoList> todoList_ {};
         };
 
-        virtual bool empty() const override { return this->accessChannelName_ == nullptr
-        && this->accessChannelType_ == nullptr && this->accessChannelUserId_ == nullptr && this->accessChannelUserName_ == nullptr && this->additionalBroker_ == nullptr && this->agentIds_ == nullptr
-        && this->agentNames_ == nullptr && this->analyticsReport_ == nullptr && this->analyticsReportReady_ == nullptr && this->broker_ == nullptr && this->callDuration_ == nullptr
-        && this->callIds_ == nullptr && this->calledNumber_ == nullptr && this->calleeLocation_ == nullptr && this->callerLocation_ == nullptr && this->callingNumber_ == nullptr
-        && this->clientAppName_ == nullptr && this->clientIpAddress_ == nullptr && this->clientLocation_ == nullptr && this->clientUserAgent_ == nullptr && this->contactDisposition_ == nullptr
-        && this->contactId_ == nullptr && this->contactType_ == nullptr && this->dialingTime_ == nullptr && this->earlyMediaState_ == nullptr && this->earlyMediaText_ == nullptr
-        && this->establishedTime_ == nullptr && this->firstResponseTime_ == nullptr && this->heldTime_ == nullptr && this->instanceId_ == nullptr && this->ivrTime_ == nullptr
-        && this->mediaType_ == nullptr && this->messagesSent_ == nullptr && this->messagesSentByAgent_ == nullptr && this->messagesSentByCustomer_ == nullptr && this->offSiteAgentIds_ == nullptr
-        && this->offsiteAgentDestinationNumbers_ == nullptr && this->offsiteAgentOriginatorNumbers_ == nullptr && this->offsiteAgentReleaseReason_ == nullptr && this->outsideNumberDestinationNumber_ == nullptr && this->outsideNumberReleaseReason_ == nullptr
-        && this->queueTime_ == nullptr && this->recordingDuration_ == nullptr && this->recordingReady_ == nullptr && this->releaseInitiator_ == nullptr && this->releaseReason_ == nullptr
-        && this->releaseTime_ == nullptr && this->ringTime_ == nullptr && this->satisfactionDescription_ == nullptr && this->satisfactionIndex_ == nullptr && this->satisfactionSurveyChannel_ == nullptr
-        && this->satisfactionSurveyOffered_ == nullptr && this->skillGroupIds_ == nullptr && this->skillGroupNames_ == nullptr && this->startTime_ == nullptr && this->summaryIndex_ == nullptr
-        && this->talkTime_ == nullptr && this->transferCount_ == nullptr && this->voicebotDestinationNumber_ == nullptr && this->voicebotOriginatorNumber_ == nullptr && this->waitTime_ == nullptr; };
+        virtual bool empty() const override { return this->accessChannelId_ == nullptr
+        && this->accessChannelName_ == nullptr && this->accessChannelType_ == nullptr && this->accessChannelUserId_ == nullptr && this->accessChannelUserName_ == nullptr && this->additionalBroker_ == nullptr
+        && this->agentIds_ == nullptr && this->agentNames_ == nullptr && this->analyticsReport_ == nullptr && this->analyticsReportReady_ == nullptr && this->broker_ == nullptr
+        && this->callDuration_ == nullptr && this->callIds_ == nullptr && this->calledNumber_ == nullptr && this->calleeLocation_ == nullptr && this->callerLocation_ == nullptr
+        && this->callingNumber_ == nullptr && this->clientAppName_ == nullptr && this->clientIpAddress_ == nullptr && this->clientLocation_ == nullptr && this->clientUserAgent_ == nullptr
+        && this->contactDisposition_ == nullptr && this->contactId_ == nullptr && this->contactType_ == nullptr && this->dialingTime_ == nullptr && this->earlyMediaState_ == nullptr
+        && this->earlyMediaText_ == nullptr && this->establishedTime_ == nullptr && this->firstResponseTime_ == nullptr && this->heldTime_ == nullptr && this->instanceId_ == nullptr
+        && this->ivrTime_ == nullptr && this->mediaType_ == nullptr && this->messagesSent_ == nullptr && this->messagesSentByAgent_ == nullptr && this->messagesSentByCustomer_ == nullptr
+        && this->offSiteAgentIds_ == nullptr && this->offsiteAgentDestinationNumbers_ == nullptr && this->offsiteAgentOriginatorNumbers_ == nullptr && this->offsiteAgentReleaseReason_ == nullptr && this->outsideNumberDestinationNumber_ == nullptr
+        && this->outsideNumberReleaseReason_ == nullptr && this->queueTime_ == nullptr && this->recordingDuration_ == nullptr && this->recordingReady_ == nullptr && this->releaseInitiator_ == nullptr
+        && this->releaseReason_ == nullptr && this->releaseTime_ == nullptr && this->ringTime_ == nullptr && this->satisfactionDescription_ == nullptr && this->satisfactionIndex_ == nullptr
+        && this->satisfactionSurveyChannel_ == nullptr && this->satisfactionSurveyOffered_ == nullptr && this->skillGroupIds_ == nullptr && this->skillGroupNames_ == nullptr && this->startTime_ == nullptr
+        && this->summaryIndex_ == nullptr && this->talkTime_ == nullptr && this->transferCount_ == nullptr && this->voicebotDestinationNumber_ == nullptr && this->voicebotOriginatorNumber_ == nullptr
+        && this->waitTime_ == nullptr; };
+        // accessChannelId Field Functions 
+        bool hasAccessChannelId() const { return this->accessChannelId_ != nullptr;};
+        void deleteAccessChannelId() { this->accessChannelId_ = nullptr;};
+        inline string getAccessChannelId() const { DARABONBA_PTR_GET_DEFAULT(accessChannelId_, "") };
+        inline List& setAccessChannelId(string accessChannelId) { DARABONBA_PTR_SET_VALUE(accessChannelId_, accessChannelId) };
+
+
         // accessChannelName Field Functions 
         bool hasAccessChannelName() const { return this->accessChannelName_ != nullptr;};
         void deleteAccessChannelName() { this->accessChannelName_ = nullptr;};
@@ -1008,66 +1052,140 @@ namespace Models
 
 
       protected:
+        // The channel ID.
+        shared_ptr<string> accessChannelId_ {};
+        // The channel name. This parameter has a value only when MediaType is CHAT.
         shared_ptr<string> accessChannelName_ {};
+        // The channel type. This parameter has a value only when MediaType is CHAT.
         shared_ptr<string> accessChannelType_ {};
+        // The visitor ID. This parameter has a value only when MediaType is CHAT.
         shared_ptr<string> accessChannelUserId_ {};
+        // The visitor name. This parameter has a value only when MediaType is CHAT.
         shared_ptr<string> accessChannelUserName_ {};
+        // The additional intermediate number, which may be used in dual-call scenarios.
         shared_ptr<string> additionalBroker_ {};
+        // The list of agent IDs. Multiple values are separated by commas.
         shared_ptr<string> agentIds_ {};
+        // The list of agent names involved in the call. Multiple agents are separated by commas.
         shared_ptr<string> agentNames_ {};
+        // The post-call analytics report.
         shared_ptr<List::AnalyticsReport> analyticsReport_ {};
+        // Indicates whether the AI post-call analytics report is complete.
         shared_ptr<bool> analyticsReportReady_ {};
+        // The intermediate number.
         shared_ptr<string> broker_ {};
+        // The call duration. For inbound calls, timing starts when the call enters the IVR. For outbound calls, timing starts when the call is connected. Unit: seconds.
         shared_ptr<string> callDuration_ {};
+        // The list of SIP CallIds.
         shared_ptr<string> callIds_ {};
+        // The called number.
         shared_ptr<string> calledNumber_ {};
+        // The location of the callee.
         shared_ptr<string> calleeLocation_ {};
+        // The location of the caller.
         shared_ptr<string> callerLocation_ {};
+        // The calling number.
         shared_ptr<string> callingNumber_ {};
+        // The visitor client application name. This parameter has a value only when MediaType is CHAT.
         shared_ptr<string> clientAppName_ {};
+        // The visitor client IP address. This parameter has a value only when MediaType is CHAT.
         shared_ptr<string> clientIpAddress_ {};
+        // The visitor client location. This parameter has a value only when MediaType is CHAT.
         shared_ptr<string> clientLocation_ {};
+        // The visitor client user agent information. This parameter has a value only when MediaType is CHAT.
         shared_ptr<string> clientUserAgent_ {};
+        // The call end reason. For the enumeration list, refer to the ContactDispositionList query parameter.
         shared_ptr<string> contactDisposition_ {};
+        // The call ID.
         shared_ptr<string> contactId_ {};
+        // The call type. For the enumeration list, refer to the ContactTypeList query parameter.
         shared_ptr<string> contactType_ {};
+        // The dialing duration. Unit: seconds.
         shared_ptr<int64_t> dialingTime_ {};
+        // The early media state.
         shared_ptr<string> earlyMediaState_ {};
+        // The early media text.
         shared_ptr<string> earlyMediaText_ {};
+        // The time when the call was established. If the call was not established, this value is empty. The value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> establishedTime_ {};
+        // The time taken for the agent to first respond to the customer message. This parameter has a value only when MediaType is CHAT.
         shared_ptr<int64_t> firstResponseTime_ {};
+        // The hold time. Unit: seconds.
         shared_ptr<int64_t> heldTime_ {};
+        // The call center instance ID.
         shared_ptr<string> instanceId_ {};
+        // The IVR duration, which is the time from when the call enters the IVR to when it starts entering the manual service queue (or the customer abandons the call). Unit: seconds.
         shared_ptr<int64_t> ivrTime_ {};
+        // The media type.
+        // 
+        // Valid values:
+        // 
+        // - AUDIO: Voice.
+        // - CHAT: Message.
+        // - VIDEO: Video.
         shared_ptr<string> mediaType_ {};
+        // The total number of messages. This parameter has a value only when MediaType is CHAT.
         shared_ptr<int64_t> messagesSent_ {};
+        // The total number of messages sent by the agent. This parameter has a value only when MediaType is CHAT.
         shared_ptr<int64_t> messagesSentByAgent_ {};
+        // The total number of messages sent by the customer. This parameter has a value only when MediaType is CHAT.
         shared_ptr<int64_t> messagesSentByCustomer_ {};
+        // The list of off-site agent IDs involved in the call. Multiple agents are separated by commas.
         shared_ptr<string> offSiteAgentIds_ {};
+        // The off-site agent number that is called when the assigned agent is an off-site agent.
         shared_ptr<string> offsiteAgentDestinationNumbers_ {};
+        // The number that initiates the call to the off-site agent when the assigned agent is an off-site agent.
         shared_ptr<string> offsiteAgentOriginatorNumbers_ {};
+        // The hangup reason of the last assigned offsite agent.
         shared_ptr<string> offsiteAgentReleaseReason_ {};
+        // The called number when the call is transferred to an outside line.
         shared_ptr<string> outsideNumberDestinationNumber_ {};
+        // The hangup reason when the call is transferred to an outside line.
         shared_ptr<string> outsideNumberReleaseReason_ {};
+        // The queue duration, which is the time from when the call enters the manual service queue to when the agent starts ringing (or the customer abandons the call, the queue times out, or the queue overflows). Unit: seconds.
         shared_ptr<int64_t> queueTime_ {};
+        // The recording duration. Unit: seconds.
         shared_ptr<int64_t> recordingDuration_ {};
+        // Indicates whether the recording has been generated. If the call was not established, false is returned.
         shared_ptr<bool> recordingReady_ {};
+        // The party that hung up.
+        // 
+        // Valid values:
+        // 
+        // - agent: The agent.
+        // - customer: The customer.
         shared_ptr<string> releaseInitiator_ {};
+        // The hangup reason of the call channel, indicating why the current call channel was hung up. The value is a response code defined in the SIP protocol. Refer to the SIP protocol to analyze the hangup reason.
         shared_ptr<string> releaseReason_ {};
+        // The time when the call ended, in Unix timestamp format. Unit: milliseconds.
         shared_ptr<int64_t> releaseTime_ {};
+        // The ringing duration, which is the time from when the agent starts ringing to when the agent answers (or the customer abandons the call). Unit: seconds.
         shared_ptr<int64_t> ringTime_ {};
+        // The satisfaction description, which corresponds to the configuration of the satisfaction module in the satisfaction IVR and is defined by the customer.
         shared_ptr<string> satisfactionDescription_ {};
+        // The satisfaction rating, which is the value of the satisfaction key digit (a single digit).
         shared_ptr<int32_t> satisfactionIndex_ {};
+        // The satisfaction survey channel.
         shared_ptr<string> satisfactionSurveyChannel_ {};
+        // Indicates whether a satisfaction survey was sent.
         shared_ptr<bool> satisfactionSurveyOffered_ {};
+        // The skill group IDs of the agents who participated in the call. Multiple skill groups are separated by commas.
         shared_ptr<string> skillGroupIds_ {};
+        // The skill group names of the agents who participated in the call. Multiple skill groups are separated by commas.
         shared_ptr<string> skillGroupNames_ {};
+        // The time when the call started. For inbound calls, this is counted from when the call enters the IVR. For outbound calls, this is counted from when dialing begins. The value is in Unix timestamp format. Unit: milliseconds.
         shared_ptr<int64_t> startTime_ {};
+        // The summary index.
         shared_ptr<List::SummaryIndex> summaryIndex_ {};
+        // The talk time. Unit: seconds.
         shared_ptr<int64_t> talkTime_ {};
+        // The number of transfers.
         shared_ptr<int64_t> transferCount_ {};
+        // The outbound called number carried when the call is transferred from an intelligent outbound call.
         shared_ptr<string> voicebotDestinationNumber_ {};
+        // The outbound caller number carried when the call is transferred from an intelligent outbound call.
         shared_ptr<string> voicebotOriginatorNumber_ {};
+        // The customer wait time, which equals QueueTime + RingTime. If the customer abandons the call during the waiting period, the value is 0. Unit: seconds.
         shared_ptr<int64_t> waitTime_ {};
       };
 
@@ -1104,9 +1222,13 @@ namespace Models
 
 
     protected:
+      // The list of call records.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -1150,10 +1272,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListCallDetailRecordsV2ResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

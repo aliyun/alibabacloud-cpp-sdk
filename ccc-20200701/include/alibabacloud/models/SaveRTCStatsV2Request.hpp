@@ -84,16 +84,28 @@ namespace Models
 
 
   protected:
+    // Call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> callId_ {};
+    // General information.
+    // 
     // This parameter is required.
     shared_ptr<string> generalInfo_ {};
+    // Access point address.
+    // 
     // This parameter is required.
     shared_ptr<string> googAddress_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Content of the receiver report.
+    // 
     // This parameter is required.
     shared_ptr<string> receiverReport_ {};
+    // Content of the sender report.
+    // 
     // This parameter is required.
     shared_ptr<string> senderReport_ {};
   };

@@ -99,10 +99,15 @@ namespace Models
 
 
     protected:
+      // The caller number. If this field is specified, the corresponding contact will be called using this number instead of a randomly selected one.
       shared_ptr<string> caller_ {};
+      // Customer-defined custom variables in JSON object format. The object can contain up to 10 properties, and both the name and value of each property are defined by the customer.
       shared_ptr<string> customVariables_ {};
+      // The desensitized callee number. If this field is not empty, it indicates that the callee number must be desensitized. The desensitization rule is defined by the customer, and only the desensitized callee number needs to be provided here. Using a desensitized callee number means that in certain scenarios, the displayed callee number will be the desensitized version, and the real callee number cannot be viewed.
       shared_ptr<string> maskedCallee_ {};
+      // The contact\\"s phone number.
       shared_ptr<string> phoneNumber_ {};
+      // The business ID, which is an identifier from the customer\\"s operational system used in integration scenarios.
       shared_ptr<string> referenceId_ {};
     };
 
@@ -132,9 +137,14 @@ namespace Models
 
 
   protected:
+    // The predictive outbound call activity ID.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // The list of outbound call cases.
     shared_ptr<vector<AddCasesRequest::CaseList>> caseList_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

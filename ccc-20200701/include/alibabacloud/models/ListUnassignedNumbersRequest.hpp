@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // Page number for paging, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Performs Fuzzy Matching based on the number. This parameter is optional and defaults to empty. An empty value indicates no filtering.
     shared_ptr<string> searchPattern_ {};
   };
 

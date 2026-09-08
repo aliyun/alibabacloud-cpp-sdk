@@ -84,13 +84,21 @@ namespace Models
 
 
   protected:
+    // The city.
     shared_ptr<string> city_ {};
+    // The enterprise name.
     shared_ptr<string> corpName_ {};
+    // The list of numbers.
+    // 
     // This parameter is required.
     shared_ptr<string> numberList_ {};
+    // The line information.
+    // 
     // This parameter is required.
     shared_ptr<string> provider_ {};
+    // The province.
     shared_ptr<string> province_ {};
+    // The business tags.
     shared_ptr<string> tagList_ {};
   };
 

@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // Agent ID being coached.
+    // 
     // This parameter is required.
     shared_ptr<string> coachedUserId_ {};
+    // Device ID. This field is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Coaching timeout. If the coaching session is not established within the specified time, the coaching operation is canceled. This field is optional and defaults to 30 seconds.
     shared_ptr<int32_t> timeoutSeconds_ {};
+    // Agent ID initiating the coaching.
     shared_ptr<string> userId_ {};
   };
 

@@ -165,14 +165,23 @@ namespace Models
 
 
       protected:
+        // The called number.
         shared_ptr<string> callee_ {};
+        // The calling number.
         shared_ptr<string> caller_ {};
+        // The start time of the call.
         shared_ptr<int64_t> cdrStartTime_ {};
+        // The call ID.
         shared_ptr<string> contactId_ {};
+        // The duration of the voicemail message in seconds.
         shared_ptr<int64_t> duration_ {};
+        // The ID of the CC instance.
         shared_ptr<string> instanceId_ {};
+        // The name of the voicemail.
         shared_ptr<string> name_ {};
+        // The duration of the voicemail message in seconds.
         shared_ptr<int64_t> recordingDuration_ {};
+        // The start time of the voicemail.
         shared_ptr<string> startTime_ {};
       };
 
@@ -209,9 +218,13 @@ namespace Models
 
 
     protected:
+      // The list of voicemail records.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries. This parameter is returned only when \\`PageNumber\\` is set to 1. For other values of \\`PageNumber\\`, this parameter returns 0.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -255,10 +268,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListVoicemailsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

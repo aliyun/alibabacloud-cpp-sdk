@@ -99,7 +99,9 @@ namespace Models
 
 
       protected:
+        // Maximum number of agents logged on simultaneously during this time range.
         shared_ptr<int64_t> maxLoggedInAgents_ {};
+        // The start time of the segment statistics, in UNIX timestamp format, in milliseconds.
         shared_ptr<int64_t> statsTime_ {};
       };
 
@@ -150,8 +152,11 @@ namespace Models
 
 
       protected:
+        // Number of answered outbound calls.
         shared_ptr<int64_t> callsAnswered_ {};
+        // Start time of the segment, in UNIX timestamp format, in milliseconds.
         shared_ptr<int64_t> statsTime_ {};
+        // Total number of outbound calls.
         shared_ptr<int64_t> totalCalls_ {};
       };
 
@@ -239,12 +244,19 @@ namespace Models
 
 
       protected:
+        // Number of calls abandoned in the IVR, meaning calls that were abandoned during the IVR flow after entering it.
         shared_ptr<int64_t> callsAbandonedInIVR_ {};
+        // Number of calls abandoned in the queue, meaning calls that were abandoned while waiting in the skill group queue after entering it.
         shared_ptr<int64_t> callsAbandonedInQueue_ {};
+        // Number of calls abandoned during ringing.
         shared_ptr<int64_t> callsAbandonedInRing_ {};
+        // Number of calls answered by agents. If a single call is distributed to multiple agents, it is counted as one call.
         shared_ptr<int64_t> callsHandled_ {};
+        // Number of calls that entered the queue. If a single call enters the queue multiple times, it is counted as one call.
         shared_ptr<int64_t> callsQueued_ {};
+        // The start time of the segment statistics, in UNIX timestamp format, in milliseconds.
         shared_ptr<int64_t> statsTime_ {};
+        // Total number of incoming calls.
         shared_ptr<int64_t> totalCalls_ {};
       };
 
@@ -278,8 +290,11 @@ namespace Models
 
 
     protected:
+      // Inbound metrics.
       shared_ptr<vector<Data::Inbound>> inbound_ {};
+      // Outbound metrics.
       shared_ptr<vector<Data::Outbound>> outbound_ {};
+      // Overall metrics.
       shared_ptr<vector<Data::Overall>> overall_ {};
     };
 
@@ -323,10 +338,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetInstanceTrendingReportResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

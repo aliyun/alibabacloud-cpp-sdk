@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The media type. The default value is AUDIO. Other valid values include CHAT and VIDEO.
     shared_ptr<string> mediaType_ {};
+    // The page number for paging, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The page size for paging, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Perform fuzzy matching based on the skill group name or display name. This parameter is optional and defaults to empty, which means no filtering is applied.
     shared_ptr<string> searchPattern_ {};
   };
 

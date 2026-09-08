@@ -57,12 +57,15 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // media id
+    // Media ID.
     // 
     // This parameter is required.
     shared_ptr<string> mediaId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

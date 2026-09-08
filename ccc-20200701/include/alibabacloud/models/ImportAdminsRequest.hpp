@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A list of UIDs for Alibaba Cloud RAM accounts. The value must be a string-encoded JSON array. The array supports up to 20 UIDs.
+    // 
     // This parameter is required.
     shared_ptr<string> ramIdList_ {};
   };

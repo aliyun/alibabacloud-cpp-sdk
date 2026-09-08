@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Content to update.
     shared_ptr<string> context_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Summary ID.
+    // 
     // This parameter is required.
     shared_ptr<string> ticketId_ {};
   };

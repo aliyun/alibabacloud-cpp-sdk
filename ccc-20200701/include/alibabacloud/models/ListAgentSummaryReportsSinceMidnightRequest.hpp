@@ -75,11 +75,19 @@ namespace Models
 
 
   protected:
+    // Filter by a list of agent IDs, with up to 100 IDs.
+    // 
+    // > If the agent ID list is not empty, the system directly queries based on the provided agent ID list. In this case, the pageSize and pageNumber parameters are invalid, and the data is returned directly. For example, if the request parameter is pageNumber = 3, the response parameter will also be pageNumber = 3.
     shared_ptr<string> agentIds_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number, ranging from 1 to 100. Optional. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100. Optional. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Filter by skill group ID.
     shared_ptr<string> skillGroupId_ {};
   };
 

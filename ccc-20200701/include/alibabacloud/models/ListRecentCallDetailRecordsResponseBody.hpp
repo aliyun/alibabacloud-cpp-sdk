@@ -183,16 +183,27 @@ namespace Models
 
 
       protected:
+        // List of agent IDs. Multiple values are separated by commas.
         shared_ptr<string> agentIds_ {};
+        // Call duration in seconds.
         shared_ptr<string> callDuration_ {};
+        // Called number.
         shared_ptr<string> calledNumber_ {};
+        // Calling number.
         shared_ptr<string> callingNumber_ {};
+        // The reason the call ended.
         shared_ptr<string> contactDisposition_ {};
+        // Call ID.
         shared_ptr<string> contactId_ {};
+        // Call type.
         shared_ptr<string> contactType_ {};
+        // Call duration in seconds.
         shared_ptr<int64_t> duration_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Skill groups to which the agent participating in the call belongs. Multiple skill groups are separated by commas.
         shared_ptr<string> skillGroupIds_ {};
+        // Call start time. For inbound calls, it starts when the call enters IVR. For outbound calls, it starts when the call is answered. The format is a Unix timestamp string in milliseconds.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -229,9 +240,13 @@ namespace Models
 
 
     protected:
+      // List of call records.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count. The actual total is returned only when PageNumber is 1; otherwise, it is 0.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -275,10 +290,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListRecentCallDetailRecordsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

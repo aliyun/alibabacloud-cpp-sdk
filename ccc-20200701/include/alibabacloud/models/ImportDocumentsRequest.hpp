@@ -66,12 +66,17 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The key of the OSS file.
+    // 
     // This parameter is required.
     shared_ptr<string> ossFileKey_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // schema id
+    // The schema ID.
     // 
     // This parameter is required.
     shared_ptr<string> schemaId_ {};

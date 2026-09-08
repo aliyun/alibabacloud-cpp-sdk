@@ -93,9 +93,35 @@ namespace Models
 
 
     protected:
+      // Agent session concurrent configuration.
+      // 
+      // - AllowExceedingLimitWhenTransferring: Allow exceeding the limit when transferring. When transferring sessions to other agents, exceeding the recipient\\"s limit is allowed, but the total cannot exceed 30.
+      // 
+      // - AllowExceedingLimitWhenClaiming: Allow exceeding the limit when claiming. When an agent actively claims sessions from the queue, exceeding the limit is allowed, but the total cannot exceed 30.
+      // 
+      // - ConcurrencyLimit: The number of network business sessions an agent can process simultaneously.
+      // 
+      // - Enabled: Enable this configuration.
       shared_ptr<string> agentConcurrencySettings_ {};
+      // Session configuration.
+      // 
+      // - IdleChatTimeoutSeconds: Automatic session end time. If no customer response is received within a specific period, the system ends the session. Unit: seconds.
       shared_ptr<string> chatSettings_ {};
+      // Agent session allocation configuration.
+      // 
+      // - AgentRingTimeoutSeconds: Agent processing timeout limit.
+      // 
+      // - MaxNumberOfConversationsAgentCanMiss: The maximum number of consecutive unanswered sessions an agent can miss.
+      // 
+      // - PostAgentMissingConversionsAction: After an agent misses more than the set number of consecutive responses, the system sets the agent\\"s status, such as Break, Invisible, or Nothing (remain unchanged).
+      // 
+      // - Enabled: Enable.
       shared_ptr<string> distributionSettings_ {};
+      // Call distribution type.
+      // 
+      // - Automatic distribution (Automatic).
+      // 
+      // - Manual distribution (Manual).
       shared_ptr<string> routingType_ {};
     };
 
@@ -139,10 +165,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetChatRoutingProfileResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

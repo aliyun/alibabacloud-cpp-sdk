@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // Filter by a list of number tag names. This parameter is optional and defaults to empty, which means no filtering is applied. The format is a JSON array string, where each array element is a number tag name.
     shared_ptr<string> callTagNameList_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Perform fuzzy matching based on number or description. This parameter is optional and defaults to empty. An empty value indicates no filtering.
     shared_ptr<string> searchPattern_ {};
   };
 

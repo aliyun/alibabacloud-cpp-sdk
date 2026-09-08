@@ -60,7 +60,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 废弃预测式外呼活动
+ * @summary Invoke AbortCampaign to stop the predictive outbound calling Activity corresponding to the specified Activity ID under the specified instance.
  *
  * @param request AbortCampaignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -95,7 +95,7 @@ AbortCampaignResponse Client::abortCampaignWithOptions(const AbortCampaignReques
 }
 
 /**
- * @summary 废弃预测式外呼活动
+ * @summary Invoke AbortCampaign to stop the predictive outbound calling Activity corresponding to the specified Activity ID under the specified instance.
  *
  * @param request AbortCampaignRequest
  * @return AbortCampaignResponse
@@ -106,6 +106,8 @@ AbortCampaignResponse Client::abortCampaign(const AbortCampaignRequest &request)
 }
 
 /**
+ * @summary Call this operation to accept a chat.
+ *
  * @param request AcceptChatRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AcceptChatResponse
@@ -139,6 +141,8 @@ AcceptChatResponse Client::acceptChatWithOptions(const AcceptChatRequest &reques
 }
 
 /**
+ * @summary Call this operation to accept a chat.
+ *
  * @param request AcceptChatRequest
  * @return AcceptChatResponse
  */
@@ -148,7 +152,7 @@ AcceptChatResponse Client::acceptChat(const AcceptChatRequest &request) {
 }
 
 /**
- * @summary 编辑呼入控制号码
+ * @summary Adds a blacklist tag to a specified phone number. You can use this feature with your Interactive Voice Response (IVR) settings to block frequent harassing calls.
  *
  * @param request AddBlacklistCallTaggingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -187,7 +191,7 @@ AddBlacklistCallTaggingResponse Client::addBlacklistCallTaggingWithOptions(const
 }
 
 /**
- * @summary 编辑呼入控制号码
+ * @summary Adds a blacklist tag to a specified phone number. You can use this feature with your Interactive Voice Response (IVR) settings to block frequent harassing calls.
  *
  * @param request AddBlacklistCallTaggingRequest
  * @return AddBlacklistCallTaggingResponse
@@ -198,7 +202,7 @@ AddBlacklistCallTaggingResponse Client::addBlacklistCallTagging(const AddBlackli
 }
 
 /**
- * @summary 追加联系人
+ * @summary Invoke AddCases to add an outbound call list to a predictive dialing activity identified by a specified ID under a specified instance.
  *
  * @param tmpReq AddCasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -243,7 +247,7 @@ AddCasesResponse Client::addCasesWithOptions(const AddCasesRequest &tmpReq, cons
 }
 
 /**
- * @summary 追加联系人
+ * @summary Invoke AddCases to add an outbound call list to a predictive dialing activity identified by a specified ID under a specified instance.
  *
  * @param request AddCasesRequest
  * @return AddCasesResponse
@@ -254,6 +258,8 @@ AddCasesResponse Client::addCases(const AddCasesRequest &request) {
 }
 
 /**
+ * @summary You can use the AddFeedback API to evaluate and rate AI features.
+ *
  * @param request AddFeedbackRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddFeedbackResponse
@@ -299,6 +305,8 @@ AddFeedbackResponse Client::addFeedbackWithOptions(const AddFeedbackRequest &req
 }
 
 /**
+ * @summary You can use the AddFeedback API to evaluate and rate AI features.
+ *
  * @param request AddFeedbackRequest
  * @return AddFeedbackResponse
  */
@@ -308,7 +316,7 @@ AddFeedbackResponse Client::addFeedback(const AddFeedbackRequest &request) {
 }
 
 /**
- * @summary 技能组添加号码
+ * @summary Adds one or more phone numbers to a skill group by calling AddNumbersToSkillGroup.
  *
  * @param request AddNumbersToSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -351,7 +359,7 @@ AddNumbersToSkillGroupResponse Client::addNumbersToSkillGroupWithOptions(const A
 }
 
 /**
- * @summary 技能组添加号码
+ * @summary Adds one or more phone numbers to a skill group by calling AddNumbersToSkillGroup.
  *
  * @param request AddNumbersToSkillGroupRequest
  * @return AddNumbersToSkillGroupResponse
@@ -362,7 +370,7 @@ AddNumbersToSkillGroupResponse Client::addNumbersToSkillGroup(const AddNumbersTo
 }
 
 /**
- * @summary 增加个人号码
+ * @summary You can invoke AddPersonalNumbersToUser to add one or more personal outbound numbers to a specified agent under a specified instance.
  *
  * @param request AddPersonalNumbersToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -401,7 +409,7 @@ AddPersonalNumbersToUserResponse Client::addPersonalNumbersToUserWithOptions(con
 }
 
 /**
- * @summary 增加个人号码
+ * @summary You can invoke AddPersonalNumbersToUser to add one or more personal outbound numbers to a specified agent under a specified instance.
  *
  * @param request AddPersonalNumbersToUserRequest
  * @return AddPersonalNumbersToUserResponse
@@ -412,7 +420,7 @@ AddPersonalNumbersToUserResponse Client::addPersonalNumbersToUser(const AddPerso
 }
 
 /**
- * @summary 技能组添加号码
+ * @summary You can invoke AddPhoneNumberToSkillGroups to associate a phone number with one or more skill groups under a specified instance.
  *
  * @param request AddPhoneNumberToSkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -451,7 +459,7 @@ AddPhoneNumberToSkillGroupsResponse Client::addPhoneNumberToSkillGroupsWithOptio
 }
 
 /**
- * @summary 技能组添加号码
+ * @summary You can invoke AddPhoneNumberToSkillGroups to associate a phone number with one or more skill groups under a specified instance.
  *
  * @param request AddPhoneNumberToSkillGroupsRequest
  * @return AddPhoneNumberToSkillGroupsResponse
@@ -462,7 +470,7 @@ AddPhoneNumberToSkillGroupsResponse Client::addPhoneNumberToSkillGroups(const Ad
 }
 
 /**
- * @summary 添加号码
+ * @summary You can invoke AddPhoneNumbers to add one or more phone numbers to a specified instance.
  *
  * @param request AddPhoneNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -509,7 +517,7 @@ AddPhoneNumbersResponse Client::addPhoneNumbersWithOptions(const AddPhoneNumbers
 }
 
 /**
- * @summary 添加号码
+ * @summary You can invoke AddPhoneNumbers to add one or more phone numbers to a specified instance.
  *
  * @param request AddPhoneNumbersRequest
  * @return AddPhoneNumbersResponse
@@ -576,7 +584,7 @@ AddSchemaPropertyResponse Client::addSchemaProperty(const AddSchemaPropertyReque
 }
 
 /**
- * @summary 技能组添加用户
+ * @summary You can invoke AddSkillGroupsToUser to add one or more skill groups to a specified agent under a specified instance.
  *
  * @param request AddSkillGroupsToUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -615,7 +623,7 @@ AddSkillGroupsToUserResponse Client::addSkillGroupsToUserWithOptions(const AddSk
 }
 
 /**
- * @summary 技能组添加用户
+ * @summary You can invoke AddSkillGroupsToUser to add one or more skill groups to a specified agent under a specified instance.
  *
  * @param request AddSkillGroupsToUserRequest
  * @return AddSkillGroupsToUserResponse
@@ -626,6 +634,8 @@ AddSkillGroupsToUserResponse Client::addSkillGroupsToUser(const AddSkillGroupsTo
 }
 
 /**
+ * @summary Use AddTicketTask to add a signature and assign an assignee.
+ *
  * @param request AddTicketTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddTicketTaskResponse
@@ -675,6 +685,8 @@ AddTicketTaskResponse Client::addTicketTaskWithOptions(const AddTicketTaskReques
 }
 
 /**
+ * @summary Use AddTicketTask to add a signature and assign an assignee.
+ *
  * @param request AddTicketTaskRequest
  * @return AddTicketTaskResponse
  */
@@ -684,7 +696,7 @@ AddTicketTaskResponse Client::addTicketTask(const AddTicketTaskRequest &request)
 }
 
 /**
- * @summary 技能组添加用户
+ * @summary You can invoke AddUsersToSkillGroup to add one or more agents to the same skill group.
  *
  * @param request AddUsersToSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -723,7 +735,7 @@ AddUsersToSkillGroupResponse Client::addUsersToSkillGroupWithOptions(const AddUs
 }
 
 /**
- * @summary 技能组添加用户
+ * @summary You can invoke AddUsersToSkillGroup to add one or more agents to the same skill group.
  *
  * @param request AddUsersToSkillGroupRequest
  * @return AddUsersToSkillGroupResponse
@@ -734,7 +746,9 @@ AddUsersToSkillGroupResponse Client::addUsersToSkillGroup(const AddUsersToSkillG
 }
 
 /**
- * @summary 分析对话
+ * @summary Analyze the specified text-based conversation content and extract summary-related information, such as the title, keywords, summary, and other specified details.
+ *
+ * @description This API can be used for both online chat sessions and voice sessions. When used for voice sessions, the real-time speech-to-text transcription feature must be enabled.
  *
  * @param request AnalyzeConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -777,7 +791,9 @@ AnalyzeConversationResponse Client::analyzeConversationWithOptions(const Analyze
 }
 
 /**
- * @summary 分析对话
+ * @summary Analyze the specified text-based conversation content and extract summary-related information, such as the title, keywords, summary, and other specified details.
+ *
+ * @description This API can be used for both online chat sessions and voice sessions. When used for voice sessions, the real-time speech-to-text transcription feature must be enabled.
  *
  * @param request AnalyzeConversationRequest
  * @return AnalyzeConversationResponse
@@ -788,7 +804,7 @@ AnalyzeConversationResponse Client::analyzeConversation(const AnalyzeConversatio
 }
 
 /**
- * @summary 接电话
+ * @summary You can invoke AnswerCall to answer the call associated with a specified call ID under a specified instance.
  *
  * @param request AnswerCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -831,7 +847,7 @@ AnswerCallResponse Client::answerCallWithOptions(const AnswerCallRequest &reques
 }
 
 /**
- * @summary 接电话
+ * @summary You can invoke AnswerCall to answer the call associated with a specified call ID under a specified instance.
  *
  * @param request AnswerCallRequest
  * @return AnswerCallResponse
@@ -842,7 +858,7 @@ AnswerCallResponse Client::answerCall(const AnswerCallRequest &request) {
 }
 
 /**
- * @summary 追加联系人
+ * @summary Adds cases to a predictive campaign in a specified instance.
  *
  * @param tmpReq AppendCasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -889,7 +905,7 @@ AppendCasesResponse Client::appendCasesWithOptions(const AppendCasesRequest &tmp
 }
 
 /**
- * @summary 追加联系人
+ * @summary Adds cases to a predictive campaign in a specified instance.
  *
  * @param request AppendCasesRequest
  * @return AppendCasesResponse
@@ -902,7 +918,9 @@ AppendCasesResponse Client::appendCases(const AppendCasesRequest &request) {
 /**
  * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
  *
- * @summary 导入坐席
+ * @summary Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+ *
+ * @description Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
  *
  * @param request AssignUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -955,7 +973,9 @@ AssignUsersResponse Client::assignUsersWithOptions(const AssignUsersRequest &req
 /**
  * @deprecated OpenAPI AssignUsers is deprecated, please use CCC::2020-07-01::ImportRamUsers instead.
  *
- * @summary 导入坐席
+ * @summary Call AssignUsers to import one or more RAM users into a specified instance. After the import, the RAM users become agents in the instance.
+ *
+ * @description Accounts with RAM permissions can view all RAM users under an Alibaba Cloud account in the RAM console. You can access the RAM console at https\\://ram.console.aliyun.com/users.
  *
  * @param request AssignUsersRequest
  * @return AssignUsersResponse
@@ -966,7 +986,7 @@ AssignUsersResponse Client::assignUsers(const AssignUsersRequest &request) {
 }
 
 /**
- * @summary BargeInCall
+ * @summary You can invoke BargeInCall to forcibly insert into an ongoing call associated with a specified call ID under a specified instance. After the forced insertion succeeds, the original two-party call becomes a three-party conference call.
  *
  * @param request BargeInCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1017,7 +1037,7 @@ BargeInCallResponse Client::bargeInCallWithOptions(const BargeInCallRequest &req
 }
 
 /**
- * @summary BargeInCall
+ * @summary You can invoke BargeInCall to forcibly insert into an ongoing call associated with a specified call ID under a specified instance. After the forced insertion succeeds, the original two-party call becomes a three-party conference call.
  *
  * @param request BargeInCallRequest
  * @return BargeInCallResponse
@@ -1028,7 +1048,7 @@ BargeInCallResponse Client::bargeInCall(const BargeInCallRequest &request) {
 }
 
 /**
- * @summary 盲转
+ * @summary Directly transfer a call to another agent, a skill group queue, or an external number. Direct transfer is also known as blind transfer or single-step transfer.
  *
  * @param request BlindTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1123,7 +1143,7 @@ BlindTransferResponse Client::blindTransferWithOptions(const BlindTransferReques
 }
 
 /**
- * @summary 盲转
+ * @summary Directly transfer a call to another agent, a skill group queue, or an external number. Direct transfer is also known as blind transfer or single-step transfer.
  *
  * @param request BlindTransferRequest
  * @return BlindTransferResponse
@@ -1208,7 +1228,7 @@ BridgeRtcCallResponse Client::bridgeRtcCall(const BridgeRtcCallRequest &request)
 }
 
 /**
- * @summary 关注转-取消
+ * @summary You can invoke the CancelAttendedTransfer API to cancel an attended transfer. You can call this API at any time after initiating the attended transfer and before completing it, even if the transferee has already answered the call.
  *
  * @param request CancelAttendedTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1251,7 +1271,7 @@ CancelAttendedTransferResponse Client::cancelAttendedTransferWithOptions(const C
 }
 
 /**
- * @summary 关注转-取消
+ * @summary You can invoke the CancelAttendedTransfer API to cancel an attended transfer. You can call this API at any time after initiating the attended transfer and before completing it, even if the transferee has already answered the call.
  *
  * @param request CancelAttendedTransferRequest
  * @return CancelAttendedTransferResponse
@@ -1262,7 +1282,7 @@ CancelAttendedTransferResponse Client::cancelAttendedTransfer(const CancelAttend
 }
 
 /**
- * @summary 修改隐身状态(等同于仅外呼场景)
+ * @summary Changes an agent\\"s status to invisible. This is equivalent to the outbound-only mode.
  *
  * @param request ChangeVisibilityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1301,7 +1321,7 @@ ChangeVisibilityResponse Client::changeVisibilityWithOptions(const ChangeVisibil
 }
 
 /**
- * @summary 修改隐身状态(等同于仅外呼场景)
+ * @summary Changes an agent\\"s status to invisible. This is equivalent to the outbound-only mode.
  *
  * @param request ChangeVisibilityRequest
  * @return ChangeVisibilityResponse
@@ -1312,7 +1332,7 @@ ChangeVisibilityResponse Client::changeVisibility(const ChangeVisibilityRequest 
 }
 
 /**
- * @summary 修改坐席工作模式
+ * @summary You can invoke ChangeWorkMode to change the agent\\"s work mode.
  *
  * @param request ChangeWorkModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1363,7 +1383,7 @@ ChangeWorkModeResponse Client::changeWorkModeWithOptions(const ChangeWorkModeReq
 }
 
 /**
- * @summary 修改坐席工作模式
+ * @summary You can invoke ChangeWorkMode to change the agent\\"s work mode.
  *
  * @param request ChangeWorkModeRequest
  * @return ChangeWorkModeResponse
@@ -1374,7 +1394,7 @@ ChangeWorkModeResponse Client::changeWorkMode(const ChangeWorkModeRequest &reque
 }
 
 /**
- * @summary 认领电话
+ * @summary Call the `ClaimCall` API to assign a call to an agent.
  *
  * @param request ClaimCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1425,7 +1445,7 @@ ClaimCallResponse Client::claimCallWithOptions(const ClaimCallRequest &request, 
 }
 
 /**
- * @summary 认领电话
+ * @summary Call the `ClaimCall` API to assign a call to an agent.
  *
  * @param request ClaimCallRequest
  * @return ClaimCallResponse
@@ -1436,6 +1456,8 @@ ClaimCallResponse Client::claimCall(const ClaimCallRequest &request) {
 }
 
 /**
+ * @summary You can call ClaimChat to claim the chat for a specified Job ID in a specified instance.
+ *
  * @param request ClaimChatRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ClaimChatResponse
@@ -1473,6 +1495,8 @@ ClaimChatResponse Client::claimChatWithOptions(const ClaimChatRequest &request, 
 }
 
 /**
+ * @summary You can call ClaimChat to claim the chat for a specified Job ID in a specified instance.
+ *
  * @param request ClaimChatRequest
  * @return ClaimChatResponse
  */
@@ -1482,7 +1506,7 @@ ClaimChatResponse Client::claimChat(const ClaimChatRequest &request) {
 }
 
 /**
- * @summary 辅导
+ * @summary You can invoke CoachCall to coach a specified agent in a specified call (identified by a call ID) under a specified instance. During the coaching session, the coached agent can hear the coach\\"s voice, but the customer cannot hear the coach\\"s voice.
  *
  * @param request CoachCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1533,7 +1557,7 @@ CoachCallResponse Client::coachCallWithOptions(const CoachCallRequest &request, 
 }
 
 /**
- * @summary 辅导
+ * @summary You can invoke CoachCall to coach a specified agent in a specified call (identified by a call ID) under a specified instance. During the coaching session, the coached agent can hear the coach\\"s voice, but the customer cannot hear the coach\\"s voice.
  *
  * @param request CoachCallRequest
  * @return CoachCallResponse
@@ -1544,7 +1568,7 @@ CoachCallResponse Client::coachCall(const CoachCallRequest &request) {
 }
 
 /**
- * @summary 提交ivr流程
+ * @summary Commits a contact flow.
  *
  * @param request CommitContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1591,7 +1615,7 @@ CommitContactFlowResponse Client::commitContactFlowWithOptions(const CommitConta
 }
 
 /**
- * @summary 提交ivr流程
+ * @summary Commits a contact flow.
  *
  * @param request CommitContactFlowRequest
  * @return CommitContactFlowResponse
@@ -1602,7 +1626,7 @@ CommitContactFlowResponse Client::commitContactFlow(const CommitContactFlowReque
 }
 
 /**
- * @summary 关注转-完成
+ * @summary You can invoke CompleteAttendedTransfer to complete a consultative transfer.
  *
  * @param request CompleteAttendedTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1645,7 +1669,7 @@ CompleteAttendedTransferResponse Client::completeAttendedTransferWithOptions(con
 }
 
 /**
- * @summary 关注转-完成
+ * @summary You can invoke CompleteAttendedTransfer to complete a consultative transfer.
  *
  * @param request CompleteAttendedTransferRequest
  * @return CompleteAttendedTransferResponse
@@ -1656,7 +1680,7 @@ CompleteAttendedTransferResponse Client::completeAttendedTransfer(const Complete
 }
 
 /**
- * @summary 创建媒体文件
+ * @summary You can invoke CreateAudioFile to create an audio resource under a specified instance. The created audio resource can be used in the instance, such as selecting the audio file for playback during IVR.
  *
  * @param request CreateAudioFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1703,7 +1727,7 @@ CreateAudioFileResponse Client::createAudioFileWithOptions(const CreateAudioFile
 }
 
 /**
- * @summary 创建媒体文件
+ * @summary You can invoke CreateAudioFile to create an audio resource under a specified instance. The created audio resource can be used in the instance, such as selecting the audio file for playback during IVR.
  *
  * @param request CreateAudioFileRequest
  * @return CreateAudioFileResponse
@@ -1714,7 +1738,7 @@ CreateAudioFileResponse Client::createAudioFile(const CreateAudioFileRequest &re
 }
 
 /**
- * @summary 创建会话小结
+ * @summary Use the CreateCallSummary operation to create a call summary.
  *
  * @param request CreateCallSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1757,7 +1781,7 @@ CreateCallSummaryResponse Client::createCallSummaryWithOptions(const CreateCallS
 }
 
 /**
- * @summary 创建会话小结
+ * @summary Use the CreateCallSummary operation to create a call summary.
  *
  * @param request CreateCallSummaryRequest
  * @return CreateCallSummaryResponse
@@ -1768,7 +1792,7 @@ CreateCallSummaryResponse Client::createCallSummary(const CreateCallSummaryReque
 }
 
 /**
- * @summary 批量创建号码标签
+ * @summary You can invoke CreateCallTags to create multiple call tags under a specified instance.
  *
  * @param request CreateCallTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1803,7 +1827,7 @@ CreateCallTagsResponse Client::createCallTagsWithOptions(const CreateCallTagsReq
 }
 
 /**
- * @summary 批量创建号码标签
+ * @summary You can invoke CreateCallTags to create multiple call tags under a specified instance.
  *
  * @param request CreateCallTagsRequest
  * @return CreateCallTagsResponse
@@ -1814,7 +1838,7 @@ CreateCallTagsResponse Client::createCallTags(const CreateCallTagsRequest &reque
 }
 
 /**
- * @summary 创建预测式外呼活动
+ * @summary You can invoke CreateCampaign to create a predictive outbound calling activity under a specified instance.
  *
  * @param tmpReq CreateCampaignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1927,7 +1951,7 @@ CreateCampaignResponse Client::createCampaignWithOptions(const CreateCampaignReq
 }
 
 /**
- * @summary 创建预测式外呼活动
+ * @summary You can invoke CreateCampaign to create a predictive outbound calling activity under a specified instance.
  *
  * @param request CreateCampaignRequest
  * @return CreateCampaignResponse
@@ -1984,7 +2008,7 @@ CreateChatMediaUrlResponse Client::createChatMediaUrl(const CreateChatMediaUrlRe
 }
 
 /**
- * @summary 创建ivr流程
+ * @summary Creates an IVR flow.
  *
  * @param request CreateContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2031,7 +2055,7 @@ CreateContactFlowResponse Client::createContactFlowWithOptions(const CreateConta
 }
 
 /**
- * @summary 创建ivr流程
+ * @summary Creates an IVR flow.
  *
  * @param request CreateContactFlowRequest
  * @return CreateContactFlowResponse
@@ -2044,7 +2068,7 @@ CreateContactFlowResponse Client::createContactFlow(const CreateContactFlowReque
 /**
  * @deprecated OpenAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead.
  *
- * @summary 创建呼入控制号码
+ * @summary You can invoke CreateCustomCallTagging to create one or more inbound number tags under a specified instance.
  *
  * @param request CreateCustomCallTaggingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2081,7 +2105,7 @@ CreateCustomCallTaggingResponse Client::createCustomCallTaggingWithOptions(const
 /**
  * @deprecated OpenAPI CreateCustomCallTagging is deprecated, please use CCC::2020-07-01::CreateCustomCallTaggings instead.
  *
- * @summary 创建呼入控制号码
+ * @summary You can invoke CreateCustomCallTagging to create one or more inbound number tags under a specified instance.
  *
  * @param request CreateCustomCallTaggingRequest
  * @return CreateCustomCallTaggingResponse
@@ -2092,7 +2116,7 @@ CreateCustomCallTaggingResponse Client::createCustomCallTagging(const CreateCust
 }
 
 /**
- * @summary 创建实例
+ * @summary Invoke CreateInstance to create a Cloud Contact Center instance.
  *
  * @param request CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2139,7 +2163,7 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 }
 
 /**
- * @summary 创建实例
+ * @summary Invoke CreateInstance to create a Cloud Contact Center instance.
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -2210,7 +2234,7 @@ CreateSchemaResponse Client::createSchema(const CreateSchemaRequest &request) {
 }
 
 /**
- * @summary 创建技能组
+ * @summary You can call CreateSkillGroup to create a skill group under a specified instance.
  *
  * @param request CreateSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2257,7 +2281,7 @@ CreateSkillGroupResponse Client::createSkillGroupWithOptions(const CreateSkillGr
 }
 
 /**
- * @summary 创建技能组
+ * @summary You can call CreateSkillGroup to create a skill group under a specified instance.
  *
  * @param request CreateSkillGroupRequest
  * @return CreateSkillGroupResponse
@@ -2268,6 +2292,8 @@ CreateSkillGroupResponse Client::createSkillGroup(const CreateSkillGroupRequest 
 }
 
 /**
+ * @summary Use CreateTicket to create a ticket.
+ *
  * @param request CreateTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateTicketResponse
@@ -2321,6 +2347,8 @@ CreateTicketResponse Client::createTicketWithOptions(const CreateTicketRequest &
 }
 
 /**
+ * @summary Use CreateTicket to create a ticket.
+ *
  * @param request CreateTicketRequest
  * @return CreateTicketResponse
  */
@@ -2330,7 +2358,9 @@ CreateTicketResponse Client::createTicket(const CreateTicketRequest &request) {
 }
 
 /**
- * @summary 创建坐席
+ * @summary Call the CreateUser operation to create a new agent in a specified instance.
+ *
+ * @description Creating an agent is equivalent to creating a Resource Access Management (RAM) sub-account. Agents in Cloud Contact Center are mapped to RAM sub-accounts. Therefore, the parameters for creating an agent are similar to those for creating a RAM account. For example, LoginName is the logon name for the RAM account. Email is the email address associated with the RAM account. This email address receives an email containing the initial logon password for the RAM account.
  *
  * @param request CreateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2409,7 +2439,9 @@ CreateUserResponse Client::createUserWithOptions(const CreateUserRequest &reques
 }
 
 /**
- * @summary 创建坐席
+ * @summary Call the CreateUser operation to create a new agent in a specified instance.
+ *
+ * @description Creating an agent is equivalent to creating a Resource Access Management (RAM) sub-account. Agents in Cloud Contact Center are mapped to RAM sub-accounts. Therefore, the parameters for creating an agent are similar to those for creating a RAM account. For example, LoginName is the logon name for the RAM account. Email is the email address associated with the RAM account. This email address receives an email containing the initial logon password for the RAM account.
  *
  * @param request CreateUserRequest
  * @return CreateUserResponse
@@ -2420,7 +2452,7 @@ CreateUserResponse Client::createUser(const CreateUserRequest &request) {
 }
 
 /**
- * @summary 删除语音文件
+ * @summary You can invoke DeleteAudioFile to delete the audio file associated with a specified audio resource ID under a specified instance.
  *
  * @param request DeleteAudioFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2455,7 +2487,7 @@ DeleteAudioFileResponse Client::deleteAudioFileWithOptions(const DeleteAudioFile
 }
 
 /**
- * @summary 删除语音文件
+ * @summary You can invoke DeleteAudioFile to delete the audio file associated with a specified audio resource ID under a specified instance.
  *
  * @param request DeleteAudioFileRequest
  * @return DeleteAudioFileResponse
@@ -2466,7 +2498,7 @@ DeleteAudioFileResponse Client::deleteAudioFile(const DeleteAudioFileRequest &re
 }
 
 /**
- * @summary 删除号码标签
+ * @summary You can invoke DeleteCallTag to delete a phone number tag under a specified instance.
  *
  * @param request DeleteCallTagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2501,7 +2533,7 @@ DeleteCallTagResponse Client::deleteCallTagWithOptions(const DeleteCallTagReques
 }
 
 /**
- * @summary 删除号码标签
+ * @summary You can invoke DeleteCallTag to delete a phone number tag under a specified instance.
  *
  * @param request DeleteCallTagRequest
  * @return DeleteCallTagResponse
@@ -2512,7 +2544,7 @@ DeleteCallTagResponse Client::deleteCallTag(const DeleteCallTagRequest &request)
 }
 
 /**
- * @summary 删除ivr流程
+ * @summary Deletes the specified contact flow.
  *
  * @param request DeleteContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2551,7 +2583,7 @@ DeleteContactFlowResponse Client::deleteContactFlowWithOptions(const DeleteConta
 }
 
 /**
- * @summary 删除ivr流程
+ * @summary Deletes the specified contact flow.
  *
  * @param request DeleteContactFlowRequest
  * @return DeleteContactFlowResponse
@@ -2562,7 +2594,7 @@ DeleteContactFlowResponse Client::deleteContactFlow(const DeleteContactFlowReque
 }
 
 /**
- * @summary 删除呼入控制号码
+ * @summary You can invoke DeleteCustomCallTagging to delete the inbound number tag associated with a specified number under a specified instance.
  *
  * @param request DeleteCustomCallTaggingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2597,7 +2629,7 @@ DeleteCustomCallTaggingResponse Client::deleteCustomCallTaggingWithOptions(const
 }
 
 /**
- * @summary 删除呼入控制号码
+ * @summary You can invoke DeleteCustomCallTagging to delete the inbound number tag associated with a specified number under a specified instance.
  *
  * @param request DeleteCustomCallTaggingRequest
  * @return DeleteCustomCallTaggingResponse
@@ -2848,7 +2880,7 @@ DeleteSchemaPropertyResponse Client::deleteSchemaProperty(const DeleteSchemaProp
 }
 
 /**
- * @summary 删除技能组
+ * @summary Invoke DeleteSkillGroup to delete the skill group associated with the specified skill group ID under the specified instance.
  *
  * @param request DeleteSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2887,7 +2919,7 @@ DeleteSkillGroupResponse Client::deleteSkillGroupWithOptions(const DeleteSkillGr
 }
 
 /**
- * @summary 删除技能组
+ * @summary Invoke DeleteSkillGroup to delete the skill group associated with the specified skill group ID under the specified instance.
  *
  * @param request DeleteSkillGroupRequest
  * @return DeleteSkillGroupResponse
@@ -2898,6 +2930,8 @@ DeleteSkillGroupResponse Client::deleteSkillGroup(const DeleteSkillGroupRequest 
 }
 
 /**
+ * @summary Deletes a specified ticket.
+ *
  * @param request DeleteTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteTicketResponse
@@ -2931,6 +2965,8 @@ DeleteTicketResponse Client::deleteTicketWithOptions(const DeleteTicketRequest &
 }
 
 /**
+ * @summary Deletes a specified ticket.
+ *
  * @param request DeleteTicketRequest
  * @return DeleteTicketResponse
  */
@@ -2940,6 +2976,8 @@ DeleteTicketResponse Client::deleteTicket(const DeleteTicketRequest &request) {
 }
 
 /**
+ * @summary Deletes a specified ticket template.
+ *
  * @param request DeleteTicketTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteTicketTemplateResponse
@@ -2973,6 +3011,8 @@ DeleteTicketTemplateResponse Client::deleteTicketTemplateWithOptions(const Delet
 }
 
 /**
+ * @summary Deletes a specified ticket template.
+ *
  * @param request DeleteTicketTemplateRequest
  * @return DeleteTicketTemplateResponse
  */
@@ -3032,6 +3072,8 @@ DisableSchemaPropertyResponse Client::disableSchemaProperty(const DisableSchemaP
 }
 
 /**
+ * @summary Use the DisableTicketTemplate operation to disable a ticket template. A disabled template cannot be selected when you create a new ticket.
+ *
  * @param request DisableTicketTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DisableTicketTemplateResponse
@@ -3065,6 +3107,8 @@ DisableTicketTemplateResponse Client::disableTicketTemplateWithOptions(const Dis
 }
 
 /**
+ * @summary Use the DisableTicketTemplate operation to disable a ticket template. A disabled template cannot be selected when you create a new ticket.
+ *
  * @param request DisableTicketTemplateRequest
  * @return DisableTicketTemplateResponse
  */
@@ -3074,7 +3118,7 @@ DisableTicketTemplateResponse Client::disableTicketTemplate(const DisableTicketT
 }
 
 /**
- * @summary 废弃当前IVR流程
+ * @summary Revoke contact flow editing and discard the associated draft.
  *
  * @param request DiscardEditingContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3113,7 +3157,7 @@ DiscardEditingContactFlowResponse Client::discardEditingContactFlowWithOptions(c
 }
 
 /**
- * @summary 废弃当前IVR流程
+ * @summary Revoke contact flow editing and discard the associated draft.
  *
  * @param request DiscardEditingContactFlowRequest
  * @return DiscardEditingContactFlowResponse
@@ -3174,6 +3218,8 @@ EnableSchemaPropertyResponse Client::enableSchemaProperty(const EnableSchemaProp
 }
 
 /**
+ * @summary The EnableTicketTemplate operation publishes a ticket template. Published ticket templates can be used to create tickets.
+ *
  * @param request EnableTicketTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return EnableTicketTemplateResponse
@@ -3207,6 +3253,8 @@ EnableTicketTemplateResponse Client::enableTicketTemplateWithOptions(const Enabl
 }
 
 /**
+ * @summary The EnableTicketTemplate operation publishes a ticket template. Published ticket templates can be used to create tickets.
+ *
  * @param request EnableTicketTemplateRequest
  * @return EnableTicketTemplateResponse
  */
@@ -3216,7 +3264,7 @@ EnableTicketTemplateResponse Client::enableTicketTemplate(const EnableTicketTemp
 }
 
 /**
- * @summary 结束会议
+ * @summary You can invoke EndConference to make the specified agent exit the call associated with the specified call ID under the specified instance. The call must be in a conference state.
  *
  * @param request EndConferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3255,7 +3303,7 @@ EndConferenceResponse Client::endConferenceWithOptions(const EndConferenceReques
 }
 
 /**
- * @summary 结束会议
+ * @summary You can invoke EndConference to make the specified agent exit the call associated with the specified call ID under the specified instance. The call must be in a conference state.
  *
  * @param request EndConferenceRequest
  * @return EndConferenceResponse
@@ -3314,7 +3362,7 @@ ExportContactFlowResponse Client::exportContactFlow(const ExportContactFlowReque
 /**
  * @deprecated OpenAPI ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead.
  *
- * @summary 导出全部呼入号码标签
+ * @summary You can invoke ExportCustomCallTagging to export all inbound number tags under a specified instance.
  *
  * @param request ExportCustomCallTaggingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3347,7 +3395,7 @@ ExportCustomCallTaggingResponse Client::exportCustomCallTaggingWithOptions(const
 /**
  * @deprecated OpenAPI ExportCustomCallTagging is deprecated, please use CCC::2020-07-01::ExportCustomCallTaggings instead.
  *
- * @summary 导出全部呼入号码标签
+ * @summary You can invoke ExportCustomCallTagging to export all inbound number tags under a specified instance.
  *
  * @param request ExportCustomCallTaggingRequest
  * @return ExportCustomCallTaggingResponse
@@ -3358,7 +3406,7 @@ ExportCustomCallTaggingResponse Client::exportCustomCallTagging(const ExportCust
 }
 
 /**
- * @summary 导出黑名单号码
+ * @summary The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
  *
  * @param request ExportDoNotCallNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3397,7 +3445,7 @@ ExportDoNotCallNumbersResponse Client::exportDoNotCallNumbersWithOptions(const E
 }
 
 /**
- * @summary 导出黑名单号码
+ * @summary The ExportDoNotCallNumbers operation exports a filtered list of do-not-call numbers from a specified instance.
  *
  * @param request ExportDoNotCallNumbersRequest
  * @return ExportDoNotCallNumbersResponse
@@ -3408,6 +3456,8 @@ ExportDoNotCallNumbersResponse Client::exportDoNotCallNumbers(const ExportDoNotC
 }
 
 /**
+ * @summary Use the FinishTicketTask operation to process tickets.
+ *
  * @param request FinishTicketTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return FinishTicketTaskResponse
@@ -3449,6 +3499,8 @@ FinishTicketTaskResponse Client::finishTicketTaskWithOptions(const FinishTicketT
 }
 
 /**
+ * @summary Use the FinishTicketTask operation to process tickets.
+ *
  * @param request FinishTicketTaskRequest
  * @return FinishTicketTaskResponse
  */
@@ -3496,7 +3548,7 @@ GetAccessChannelOfStagingResponse Client::getAccessChannelOfStaging(const GetAcc
 }
 
 /**
- * @summary 获取音频文件
+ * @summary Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
  *
  * @param request GetAudioFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3531,7 +3583,7 @@ GetAudioFileResponse Client::getAudioFileWithOptions(const GetAudioFileRequest &
 }
 
 /**
- * @summary 获取音频文件
+ * @summary Invoke GetAudioFile to obtain the audio file information corresponding to a specified audio resource ID under a specified instance.
  *
  * @param request GetAudioFileRequest
  * @return GetAudioFileResponse
@@ -3542,7 +3594,7 @@ GetAudioFileResponse Client::getAudioFile(const GetAudioFileRequest &request) {
 }
 
 /**
- * @summary 获取录音文件下载链接
+ * @summary Invoke GetAudioFileDownloadUrl to obtain the OSS download link for a specified audio resource under a specified instance.
  *
  * @param request GetAudioFileDownloadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3577,7 +3629,7 @@ GetAudioFileDownloadUrlResponse Client::getAudioFileDownloadUrlWithOptions(const
 }
 
 /**
- * @summary 获取录音文件下载链接
+ * @summary Invoke GetAudioFileDownloadUrl to obtain the OSS download link for a specified audio resource under a specified instance.
  *
  * @param request GetAudioFileDownloadUrlRequest
  * @return GetAudioFileDownloadUrlResponse
@@ -3588,7 +3640,7 @@ GetAudioFileDownloadUrlResponse Client::getAudioFileDownloadUrl(const GetAudioFi
 }
 
 /**
- * @summary 获取录音文件上传参数
+ * @summary Invoke the GetAudioFileUploadParameters API to obtain audio file upload parameters. Before creating an audio file, you must first call this API to retrieve the upload parameters and then call CreateAudioFile to create the audio file. This API is typically invoked by the default public cloud CRM system provided by Cloud Contact Center. It is not recommended for integration customers to call this API directly, because file upload must be performed through a Page operation first; only after the upload is complete can the GetAudioFileUploadParameters API be called.
  *
  * @param request GetAudioFileUploadParametersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3623,7 +3675,7 @@ GetAudioFileUploadParametersResponse Client::getAudioFileUploadParametersWithOpt
 }
 
 /**
- * @summary 获取录音文件上传参数
+ * @summary Invoke the GetAudioFileUploadParameters API to obtain audio file upload parameters. Before creating an audio file, you must first call this API to retrieve the upload parameters and then call CreateAudioFile to create the audio file. This API is typically invoked by the default public cloud CRM system provided by Cloud Contact Center. It is not recommended for integration customers to call this API directly, because file upload must be performed through a Page operation first; only after the upload is complete can the GetAudioFileUploadParameters API be called.
  *
  * @param request GetAudioFileUploadParametersRequest
  * @return GetAudioFileUploadParametersResponse
@@ -3634,7 +3686,7 @@ GetAudioFileUploadParametersResponse Client::getAudioFileUploadParameters(const 
 }
 
 /**
- * @summary 通话记录详情
+ * @summary You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
  *
  * @param request GetCallDetailRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3669,7 +3721,7 @@ GetCallDetailRecordResponse Client::getCallDetailRecordWithOptions(const GetCall
 }
 
 /**
- * @summary 通话记录详情
+ * @summary You can invoke the GetCallDetailRecord operation to retrieve call details for a specific call ID within a specific instance.
  *
  * @param request GetCallDetailRecordRequest
  * @return GetCallDetailRecordResponse
@@ -3680,7 +3732,7 @@ GetCallDetailRecordResponse Client::getCallDetailRecord(const GetCallDetailRecor
 }
 
 /**
- * @summary 获取预测式外呼活动信息
+ * @summary Gets a predictive outbound campaign by its ID from a specified instance.
  *
  * @param request GetCampaignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3715,7 +3767,7 @@ GetCampaignResponse Client::getCampaignWithOptions(const GetCampaignRequest &req
 }
 
 /**
- * @summary 获取预测式外呼活动信息
+ * @summary Gets a predictive outbound campaign by its ID from a specified instance.
  *
  * @param request GetCampaignRequest
  * @return GetCampaignResponse
@@ -3726,7 +3778,7 @@ GetCampaignResponse Client::getCampaign(const GetCampaignRequest &request) {
 }
 
 /**
- * @summary 获取预测试外呼号码配置文件上传链接
+ * @summary Invoke GetCaseFileUploadUrl to obtain the OSS upload parameters for a predictive outbound calling list file under a specified instance. When creating a predictive outbound calling Activity by importing a file, you must first invoke this API to retrieve the file upload parameters and then invoke the CreateCampaign API.
  *
  * @param request GetCaseFileUploadUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3761,7 +3813,7 @@ GetCaseFileUploadUrlResponse Client::getCaseFileUploadUrlWithOptions(const GetCa
 }
 
 /**
- * @summary 获取预测试外呼号码配置文件上传链接
+ * @summary Invoke GetCaseFileUploadUrl to obtain the OSS upload parameters for a predictive outbound calling list file under a specified instance. When creating a predictive outbound calling Activity by importing a file, you must first invoke this API to retrieve the file upload parameters and then invoke the CreateCampaign API.
  *
  * @param request GetCaseFileUploadUrlRequest
  * @return GetCaseFileUploadUrlResponse
@@ -3818,6 +3870,8 @@ GetChatMediaUrlResponse Client::getChatMediaUrl(const GetChatMediaUrlRequest &re
 }
 
 /**
+ * @summary Use GetChatRoutingProfile to retrieve the chat routing configuration.
+ *
  * @param request GetChatRoutingProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetChatRoutingProfileResponse
@@ -3847,6 +3901,8 @@ GetChatRoutingProfileResponse Client::getChatRoutingProfileWithOptions(const Get
 }
 
 /**
+ * @summary Use GetChatRoutingProfile to retrieve the chat routing configuration.
+ *
  * @param request GetChatRoutingProfileRequest
  * @return GetChatRoutingProfileResponse
  */
@@ -3856,7 +3912,7 @@ GetChatRoutingProfileResponse Client::getChatRoutingProfile(const GetChatRouting
 }
 
 /**
- * @summary 获取ivr流程信息
+ * @summary Retrieve a specified contact flow.
  *
  * @param request GetContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3895,7 +3951,7 @@ GetContactFlowResponse Client::getContactFlowWithOptions(const GetContactFlowReq
 }
 
 /**
- * @summary 获取ivr流程信息
+ * @summary Retrieve a specified contact flow.
  *
  * @param request GetContactFlowRequest
  * @return GetContactFlowResponse
@@ -3906,7 +3962,7 @@ GetContactFlowResponse Client::getContactFlow(const GetContactFlowRequest &reque
 }
 
 /**
- * @summary 获取通话文本信息
+ * @summary Call GetConversationDetail to obtain the conversation details for the call corresponding to the specified contact ID within the specified instance. The instance and skill group must have quality inspection push enabled to obtain these details.
  *
  * @param request GetConversationDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3945,7 +4001,7 @@ GetConversationDetailResponse Client::getConversationDetailWithOptions(const Get
 }
 
 /**
- * @summary 获取通话文本信息
+ * @summary Call GetConversationDetail to obtain the conversation details for the call corresponding to the specified contact ID within the specified instance. The instance and skill group must have quality inspection push enabled to obtain these details.
  *
  * @param request GetConversationDetailRequest
  * @return GetConversationDetailResponse
@@ -4002,7 +4058,7 @@ GetDataChannelCredentialsResponse Client::getDataChannelCredentials(const GetDat
 }
 
 /**
- * @summary 获取黑名单文件上传地址
+ * @summary Invoke GetDoNotCallFileUploadParameters to obtain the upload parameters for a do-not-call file. When importing prohibited outbound call numbers through a file, you must first invoke this API to upload the do-not-call number file to the public OSS space of Cloud Contact Center, and then invoke ImportDoNotCallNumbers to execute the import.
  *
  * @param request GetDoNotCallFileUploadParametersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4037,7 +4093,7 @@ GetDoNotCallFileUploadParametersResponse Client::getDoNotCallFileUploadParameter
 }
 
 /**
- * @summary 获取黑名单文件上传地址
+ * @summary Invoke GetDoNotCallFileUploadParameters to obtain the upload parameters for a do-not-call file. When importing prohibited outbound call numbers through a file, you must first invoke this API to upload the do-not-call number file to the public OSS space of Cloud Contact Center, and then invoke ImportDoNotCallNumbers to execute the import.
  *
  * @param request GetDoNotCallFileUploadParametersRequest
  * @return GetDoNotCallFileUploadParametersResponse
@@ -4094,7 +4150,7 @@ GetDocumentUploadParametersResponse Client::getDocumentUploadParameters(const Ge
 }
 
 /**
- * @summary 获取早媒体音频
+ * @summary Retrieve early-media audio recordings for a call in a specified Cloud Contact Center instance.
  *
  * @param request GetEarlyMediaRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4129,7 +4185,7 @@ GetEarlyMediaRecordingResponse Client::getEarlyMediaRecordingWithOptions(const G
 }
 
 /**
- * @summary 获取早媒体音频
+ * @summary Retrieve early-media audio recordings for a call in a specified Cloud Contact Center instance.
  *
  * @param request GetEarlyMediaRecordingRequest
  * @return GetEarlyMediaRecordingResponse
@@ -4140,7 +4196,7 @@ GetEarlyMediaRecordingResponse Client::getEarlyMediaRecording(const GetEarlyMedi
 }
 
 /**
- * @summary 统计呼入号码信息
+ * @summary Invoke GetHistoricalCallerReport to retrieve the historical inbound call report for a specified calling number under a specified instance.
  *
  * @param request GetHistoricalCallerReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4183,7 +4239,7 @@ GetHistoricalCallerReportResponse Client::getHistoricalCallerReportWithOptions(c
 }
 
 /**
- * @summary 统计呼入号码信息
+ * @summary Invoke GetHistoricalCallerReport to retrieve the historical inbound call report for a specified calling number under a specified instance.
  *
  * @param request GetHistoricalCallerReportRequest
  * @return GetHistoricalCallerReportResponse
@@ -4194,7 +4250,7 @@ GetHistoricalCallerReportResponse Client::getHistoricalCallerReport(const GetHis
 }
 
 /**
- * @summary 获取预测式外呼活动历史报表
+ * @summary You can invoke the GetHistoricalCampaignReport API to retrieve the historical data report of a predictive outbound calling activity corresponding to a specified ID under a specified instance.
  *
  * @param request GetHistoricalCampaignReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4221,7 +4277,7 @@ GetHistoricalCampaignReportResponse Client::getHistoricalCampaignReportWithOptio
 }
 
 /**
- * @summary 获取预测式外呼活动历史报表
+ * @summary You can invoke the GetHistoricalCampaignReport API to retrieve the historical data report of a predictive outbound calling activity corresponding to a specified ID under a specified instance.
  *
  * @param request GetHistoricalCampaignReportRequest
  * @return GetHistoricalCampaignReportResponse
@@ -4232,7 +4288,7 @@ GetHistoricalCampaignReportResponse Client::getHistoricalCampaignReport(const Ge
 }
 
 /**
- * @summary 统计实例呼叫数据
+ * @summary You can invoke GetHistoricalInstanceReport to obtain the historical data report for a specified instance.
  *
  * @param request GetHistoricalInstanceReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4275,7 +4331,7 @@ GetHistoricalInstanceReportResponse Client::getHistoricalInstanceReportWithOptio
 }
 
 /**
- * @summary 统计实例呼叫数据
+ * @summary You can invoke GetHistoricalInstanceReport to obtain the historical data report for a specified instance.
  *
  * @param request GetHistoricalInstanceReportRequest
  * @return GetHistoricalInstanceReportResponse
@@ -4286,7 +4342,7 @@ GetHistoricalInstanceReportResponse Client::getHistoricalInstanceReport(const Ge
 }
 
 /**
- * @summary 获取实例信息
+ * @summary Retrieves the details of a Cloud Contact Center instance.
  *
  * @param request GetInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4317,7 +4373,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
 }
 
 /**
- * @summary 获取实例信息
+ * @summary Retrieves the details of a Cloud Contact Center instance.
  *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse
@@ -4328,7 +4384,7 @@ GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
 }
 
 /**
- * @summary 统计实例呼叫信息
+ * @summary You can call GetInstanceTrendingReport to retrieve the trend report for a specified instance.
  *
  * @param request GetInstanceTrendingReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4371,7 +4427,7 @@ GetInstanceTrendingReportResponse Client::getInstanceTrendingReportWithOptions(c
 }
 
 /**
- * @summary 统计实例呼叫信息
+ * @summary You can call GetInstanceTrendingReport to retrieve the trend report for a specified instance.
  *
  * @param request GetInstanceTrendingReportRequest
  * @return GetInstanceTrendingReportResponse
@@ -4382,7 +4438,7 @@ GetInstanceTrendingReportResponse Client::getInstanceTrendingReport(const GetIns
 }
 
 /**
- * @summary 获取IVR轨迹小结
+ * @summary Retrieve the IVR tracking summary.
  *
  * @param request GetIvrTrackingSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4417,7 +4473,7 @@ GetIvrTrackingSummaryResponse Client::getIvrTrackingSummaryWithOptions(const Get
 }
 
 /**
- * @summary 获取IVR轨迹小结
+ * @summary Retrieve the IVR tracking summary.
  *
  * @param request GetIvrTrackingSummaryRequest
  * @return GetIvrTrackingSummaryResponse
@@ -4428,7 +4484,7 @@ GetIvrTrackingSummaryResponse Client::getIvrTrackingSummary(const GetIvrTracking
 }
 
 /**
- * @summary 获取登录信息
+ * @summary Invoke GetLoginDetails to obtain the agent\\"s logon information, including basic agent information, server address information, authentication information, and more. This API can only be invoked by the agent themselves; administrators are not permitted to invoke it on behalf of others.
  *
  * @param request GetLoginDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4467,7 +4523,7 @@ GetLoginDetailsResponse Client::getLoginDetailsWithOptions(const GetLoginDetails
 }
 
 /**
- * @summary 获取登录信息
+ * @summary Invoke GetLoginDetails to obtain the agent\\"s logon information, including basic agent information, server address information, authentication information, and more. This API can only be invoked by the agent themselves; administrators are not permitted to invoke it on behalf of others.
  *
  * @param request GetLoginDetailsRequest
  * @return GetLoginDetailsResponse
@@ -4478,7 +4534,7 @@ GetLoginDetailsResponse Client::getLoginDetails(const GetLoginDetailsRequest &re
 }
 
 /**
- * @summary 获取通话对应的录音, 用于播放和下载
+ * @summary You can invoke GetMonoRecording to obtain the single-track recording of a specified call under a specified instance. A single-track recording contains only one audio track, with both the agent-side and customer-side recordings merged into the same track in WAV format.
  *
  * @param request GetMonoRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4517,7 +4573,7 @@ GetMonoRecordingResponse Client::getMonoRecordingWithOptions(const GetMonoRecord
 }
 
 /**
- * @summary 获取通话对应的录音, 用于播放和下载
+ * @summary You can invoke GetMonoRecording to obtain the single-track recording of a specified call under a specified instance. A single-track recording contains only one audio track, with both the agent-side and customer-side recordings merged into the same track in WAV format.
  *
  * @param request GetMonoRecordingRequest
  * @return GetMonoRecordingResponse
@@ -4528,7 +4584,7 @@ GetMonoRecordingResponse Client::getMonoRecording(const GetMonoRecordingRequest 
 }
 
 /**
- * @summary 获取通话对应的录音, 用于分轨或者质检
+ * @summary You can invoke GetMultiChannelRecording to obtain the multi-track recording of a specified call under a specified instance. In the multi-track recording, the agent\\"s and customer\\"s audio are distributed across different sound channels. During each playback, only one sound channel can be played, meaning you can hear only one party\\"s voice. The format is MKV.
  *
  * @param request GetMultiChannelRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4563,7 +4619,7 @@ GetMultiChannelRecordingResponse Client::getMultiChannelRecordingWithOptions(con
 }
 
 /**
- * @summary 获取通话对应的录音, 用于分轨或者质检
+ * @summary You can invoke GetMultiChannelRecording to obtain the multi-track recording of a specified call under a specified instance. In the multi-track recording, the agent\\"s and customer\\"s audio are distributed across different sound channels. During each playback, only one sound channel can be played, meaning you can hear only one party\\"s voice. The format is MKV.
  *
  * @param request GetMultiChannelRecordingRequest
  * @return GetMultiChannelRecordingResponse
@@ -4574,7 +4630,7 @@ GetMultiChannelRecordingResponse Client::getMultiChannelRecording(const GetMulti
 }
 
 /**
- * @summary 查询号码归属地
+ * @summary Invoke the GetNumberLocation API to obtain number location information.
  *
  * @param request GetNumberLocationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4609,7 +4665,7 @@ GetNumberLocationResponse Client::getNumberLocationWithOptions(const GetNumberLo
 }
 
 /**
- * @summary 查询号码归属地
+ * @summary Invoke the GetNumberLocation API to obtain number location information.
  *
  * @param request GetNumberLocationRequest
  * @return GetNumberLocationResponse
@@ -4620,7 +4676,7 @@ GetNumberLocationResponse Client::getNumberLocation(const GetNumberLocationReque
 }
 
 /**
- * @summary 获取预测式外呼实时状态
+ * @summary You can invoke GetRealtimeCampaignStats to retrieve real-time agent status data for a predictive outbound calling Activity with a specified ID under a specified instance.
  *
  * @param request GetRealtimeCampaignStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4647,7 +4703,7 @@ GetRealtimeCampaignStatsResponse Client::getRealtimeCampaignStatsWithOptions(con
 }
 
 /**
- * @summary 获取预测式外呼实时状态
+ * @summary You can invoke GetRealtimeCampaignStats to retrieve real-time agent status data for a predictive outbound calling Activity with a specified ID under a specified instance.
  *
  * @param request GetRealtimeCampaignStatsRequest
  * @return GetRealtimeCampaignStatsResponse
@@ -4658,7 +4714,7 @@ GetRealtimeCampaignStatsResponse Client::getRealtimeCampaignStats(const GetRealt
 }
 
 /**
- * @summary 实时查询实例状态信息
+ * @summary You can invoke GetRealtimeInstanceStates to obtain the real-time status of a specified instance.
  *
  * @param request GetRealtimeInstanceStatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4693,7 +4749,7 @@ GetRealtimeInstanceStatesResponse Client::getRealtimeInstanceStatesWithOptions(c
 }
 
 /**
- * @summary 实时查询实例状态信息
+ * @summary You can invoke GetRealtimeInstanceStates to obtain the real-time status of a specified instance.
  *
  * @param request GetRealtimeInstanceStatesRequest
  * @return GetRealtimeInstanceStatesResponse
@@ -4750,7 +4806,7 @@ GetSchemaResponse Client::getSchema(const GetSchemaRequest &request) {
 }
 
 /**
- * @summary 查询技能组
+ * @summary You can invoke GetSkillGroup to obtain information about the skill group corresponding to a specified skill group ID under a specified instance.
  *
  * @param request GetSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4785,7 +4841,7 @@ GetSkillGroupResponse Client::getSkillGroupWithOptions(const GetSkillGroupReques
 }
 
 /**
- * @summary 查询技能组
+ * @summary You can invoke GetSkillGroup to obtain information about the skill group corresponding to a specified skill group ID under a specified instance.
  *
  * @param request GetSkillGroupRequest
  * @return GetSkillGroupResponse
@@ -4796,6 +4852,8 @@ GetSkillGroupResponse Client::getSkillGroup(const GetSkillGroupRequest &request)
 }
 
 /**
+ * @summary Retrieves the content of a session summary template.
+ *
  * @param request GetSummaryTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSummaryTemplateResponse
@@ -4829,6 +4887,8 @@ GetSummaryTemplateResponse Client::getSummaryTemplateWithOptions(const GetSummar
 }
 
 /**
+ * @summary Retrieves the content of a session summary template.
+ *
  * @param request GetSummaryTemplateRequest
  * @return GetSummaryTemplateResponse
  */
@@ -4838,6 +4898,8 @@ GetSummaryTemplateResponse Client::getSummaryTemplate(const GetSummaryTemplateRe
 }
 
 /**
+ * @summary Retrieves information about a specific ticket.
+ *
  * @param request GetTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTicketResponse
@@ -4871,6 +4933,8 @@ GetTicketResponse Client::getTicketWithOptions(const GetTicketRequest &request, 
 }
 
 /**
+ * @summary Retrieves information about a specific ticket.
+ *
  * @param request GetTicketRequest
  * @return GetTicketResponse
  */
@@ -4880,6 +4944,8 @@ GetTicketResponse Client::getTicket(const GetTicketRequest &request) {
 }
 
 /**
+ * @summary You can call GetTicketSummaryReport to retrieve a summary of ticket statuses.
+ *
  * @param request GetTicketSummaryReportRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTicketSummaryReportResponse
@@ -4949,6 +5015,8 @@ GetTicketSummaryReportResponse Client::getTicketSummaryReportWithOptions(const G
 }
 
 /**
+ * @summary You can call GetTicketSummaryReport to retrieve a summary of ticket statuses.
+ *
  * @param request GetTicketSummaryReportRequest
  * @return GetTicketSummaryReportResponse
  */
@@ -4958,7 +5026,7 @@ GetTicketSummaryReportResponse Client::getTicketSummaryReport(const GetTicketSum
 }
 
 /**
- * @summary 获取工单模版
+ * @summary Call GetTicketTemplate to retrieve ticket template definitions.
  *
  * @param request GetTicketTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4997,7 +5065,7 @@ GetTicketTemplateResponse Client::getTicketTemplateWithOptions(const GetTicketTe
 }
 
 /**
- * @summary 获取工单模版
+ * @summary Call GetTicketTemplate to retrieve ticket template definitions.
  *
  * @param request GetTicketTemplateRequest
  * @return GetTicketTemplateResponse
@@ -5008,7 +5076,7 @@ GetTicketTemplateResponse Client::getTicketTemplate(const GetTicketTemplateReque
 }
 
 /**
- * @summary 获取TURN服务的临时用户名和密码
+ * @summary Call GetTurnCredentials to get the connection credentials for a Cloud Contact Center Point of Presence (PoP). These credentials include a username and password for authentication. Connecting to Cloud Contact Center through a PoP improves network quality and stability.
  *
  * @param request GetTurnCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5043,7 +5111,7 @@ GetTurnCredentialsResponse Client::getTurnCredentialsWithOptions(const GetTurnCr
 }
 
 /**
- * @summary 获取TURN服务的临时用户名和密码
+ * @summary Call GetTurnCredentials to get the connection credentials for a Cloud Contact Center Point of Presence (PoP). These credentials include a username and password for authentication. Connecting to Cloud Contact Center through a PoP improves network quality and stability.
  *
  * @param request GetTurnCredentialsRequest
  * @return GetTurnCredentialsResponse
@@ -5054,7 +5122,7 @@ GetTurnCredentialsResponse Client::getTurnCredentials(const GetTurnCredentialsRe
 }
 
 /**
- * @summary 获取可用的TURN服务器列表
+ * @summary Call GetTurnServerList to get a list of front-end access points for Alibaba Cloud Contact Center. Connecting through these access points improves network quality and stability.
  *
  * @param request GetTurnServerListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5085,7 +5153,7 @@ GetTurnServerListResponse Client::getTurnServerListWithOptions(const GetTurnServ
 }
 
 /**
- * @summary 获取可用的TURN服务器列表
+ * @summary Call GetTurnServerList to get a list of front-end access points for Alibaba Cloud Contact Center. Connecting through these access points improves network quality and stability.
  *
  * @param request GetTurnServerListRequest
  * @return GetTurnServerListResponse
@@ -5096,7 +5164,7 @@ GetTurnServerListResponse Client::getTurnServerList(const GetTurnServerListReque
 }
 
 /**
- * @summary 获取质检参数
+ * @summary Obtain the parameters related to offline quality inspection audio files. Normally, if the Customer has configured the quality inspection feature in Cloud Contact Center, the audio files requiring offline quality inspection and their corresponding parameters are automatically passed to Intelligent Quality Inspection. You only need to invoke this API to obtain the parameters for pushing quality inspection recordings when the Customer has not configured the quality inspection feature in Cloud Contact Center and wishes to manually push Cloud Contact Center call recordings to the quality inspection system.
  *
  * @param request GetUploadAudioDataParamsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5123,7 +5191,7 @@ GetUploadAudioDataParamsResponse Client::getUploadAudioDataParamsWithOptions(con
 }
 
 /**
- * @summary 获取质检参数
+ * @summary Obtain the parameters related to offline quality inspection audio files. Normally, if the Customer has configured the quality inspection feature in Cloud Contact Center, the audio files requiring offline quality inspection and their corresponding parameters are automatically passed to Intelligent Quality Inspection. You only need to invoke this API to obtain the parameters for pushing quality inspection recordings when the Customer has not configured the quality inspection feature in Cloud Contact Center and wishes to manually push Cloud Contact Center call recordings to the quality inspection system.
  *
  * @param request GetUploadAudioDataParamsRequest
  * @return GetUploadAudioDataParamsResponse
@@ -5134,7 +5202,7 @@ GetUploadAudioDataParamsResponse Client::getUploadAudioDataParams(const GetUploa
 }
 
 /**
- * @summary 查询坐席
+ * @summary You can invoke GetUser to obtain the agent information corresponding to a specified agent ID under a specified instance.
  *
  * @param request GetUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5173,7 +5241,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
 }
 
 /**
- * @summary 查询坐席
+ * @summary You can invoke GetUser to obtain the agent information corresponding to a specified agent ID under a specified instance.
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -5222,6 +5290,8 @@ GetVideoResponse Client::getVideo(const GetVideoRequest &request) {
 }
 
 /**
+ * @summary Call GetVisitorLoginDetails to retrieve login, server address, and authentication information for network service visitors.
+ *
  * @param request GetVisitorLoginDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetVisitorLoginDetailsResponse
@@ -5263,6 +5333,8 @@ GetVisitorLoginDetailsResponse Client::getVisitorLoginDetailsWithOptions(const G
 }
 
 /**
+ * @summary Call GetVisitorLoginDetails to retrieve login, server address, and authentication information for network service visitors.
+ *
  * @param request GetVisitorLoginDetailsRequest
  * @return GetVisitorLoginDetailsResponse
  */
@@ -5272,7 +5344,7 @@ GetVisitorLoginDetailsResponse Client::getVisitorLoginDetails(const GetVisitorLo
 }
 
 /**
- * @summary 获取语音邮箱录音, 用于播放和下载
+ * @summary You can invoke GetVoicemailRecording to obtain the voicemail recording of a specified call under a specified instance. The recording is single-track and in WAV format.
  *
  * @param request GetVoicemailRecordingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5307,7 +5379,7 @@ GetVoicemailRecordingResponse Client::getVoicemailRecordingWithOptions(const Get
 }
 
 /**
- * @summary 获取语音邮箱录音, 用于播放和下载
+ * @summary You can invoke GetVoicemailRecording to obtain the voicemail recording of a specified call under a specified instance. The recording is single-track and in WAV format.
  *
  * @param request GetVoicemailRecordingRequest
  * @return GetVoicemailRecordingResponse
@@ -5318,7 +5390,7 @@ GetVoicemailRecordingResponse Client::getVoicemailRecording(const GetVoicemailRe
 }
 
 /**
- * @summary 保持通话
+ * @summary You can invoke HoldCall to hold the call associated with a specified call ID under a specified instance. After the call is held, it will be temporarily suspended, and the held party will hear hold music.
  *
  * @param request HoldCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5369,7 +5441,7 @@ HoldCallResponse Client::holdCallWithOptions(const HoldCallRequest &request, con
 }
 
 /**
- * @summary 保持通话
+ * @summary You can invoke HoldCall to hold the call associated with a specified call ID under a specified instance. After the call is held, it will be temporarily suspended, and the held party will hear hold music.
  *
  * @param request HoldCallRequest
  * @return HoldCallResponse
@@ -5380,7 +5452,7 @@ HoldCallResponse Client::holdCall(const HoldCallRequest &request) {
 }
 
 /**
- * @summary 导入管理员
+ * @summary Imports one or more admins to a specified instance. The caller must have the `AliyunCCCFullAccess` permission, which you can grant in the RAM console.
  *
  * @param request ImportAdminsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5415,7 +5487,7 @@ ImportAdminsResponse Client::importAdminsWithOptions(const ImportAdminsRequest &
 }
 
 /**
- * @summary 导入管理员
+ * @summary Imports one or more admins to a specified instance. The caller must have the `AliyunCCCFullAccess` permission, which you can grant in the RAM console.
  *
  * @param request ImportAdminsRequest
  * @return ImportAdminsResponse
@@ -5472,7 +5544,7 @@ ImportContactFlowResponse Client::importContactFlow(const ImportContactFlowReque
 }
 
 /**
- * @summary 导入自有线路号码
+ * @summary Imports your organization’s telephone line numbers. Before performing the first import, contact Cloud Contact Center technical support to add the numbers to the allowlist.
  *
  * @param request ImportCorpNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5523,7 +5595,7 @@ ImportCorpNumbersResponse Client::importCorpNumbersWithOptions(const ImportCorpN
 }
 
 /**
- * @summary 导入自有线路号码
+ * @summary Imports your organization’s telephone line numbers. Before performing the first import, contact Cloud Contact Center technical support to add the numbers to the allowlist.
  *
  * @param request ImportCorpNumbersRequest
  * @return ImportCorpNumbersResponse
@@ -5536,7 +5608,7 @@ ImportCorpNumbersResponse Client::importCorpNumbers(const ImportCorpNumbersReque
 /**
  * @deprecated OpenAPI ImportCustomCallTagging is deprecated, please use CCC::2020-07-01::ImportCustomCallTaggings instead.
  *
- * @summary 文件导入呼入控制号码
+ * @summary You can invoke ImportCustomCallTagging to import multiple inbound number tags into a specified instance.
  *
  * @param request ImportCustomCallTaggingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5573,7 +5645,7 @@ ImportCustomCallTaggingResponse Client::importCustomCallTaggingWithOptions(const
 /**
  * @deprecated OpenAPI ImportCustomCallTagging is deprecated, please use CCC::2020-07-01::ImportCustomCallTaggings instead.
  *
- * @summary 文件导入呼入控制号码
+ * @summary You can invoke ImportCustomCallTagging to import multiple inbound number tags into a specified instance.
  *
  * @param request ImportCustomCallTaggingRequest
  * @return ImportCustomCallTaggingResponse
@@ -5584,7 +5656,7 @@ ImportCustomCallTaggingResponse Client::importCustomCallTagging(const ImportCust
 }
 
 /**
- * @summary 添加黑名单号码
+ * @summary Imports one or more do-not-call numbers to a specified instance. You can import numbers by manual entry or file upload.
  *
  * @param request ImportDoNotCallNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5627,7 +5699,7 @@ ImportDoNotCallNumbersResponse Client::importDoNotCallNumbersWithOptions(const I
 }
 
 /**
- * @summary 添加黑名单号码
+ * @summary Imports one or more do-not-call numbers to a specified instance. You can import numbers by manual entry or file upload.
  *
  * @param request ImportDoNotCallNumbersRequest
  * @return ImportDoNotCallNumbersResponse
@@ -5688,7 +5760,7 @@ ImportDocumentsResponse Client::importDocuments(const ImportDocumentsRequest &re
 }
 
 /**
- * @summary 导入ram用户
+ * @summary Import existing RAM users as contact center agents.
  *
  * @param request ImportRamUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5735,7 +5807,7 @@ ImportRamUsersResponse Client::importRamUsersWithOptions(const ImportRamUsersReq
 }
 
 /**
- * @summary 导入ram用户
+ * @summary Import existing RAM users as contact center agents.
  *
  * @param request ImportRamUsersRequest
  * @return ImportRamUsersResponse
@@ -5746,7 +5818,7 @@ ImportRamUsersResponse Client::importRamUsers(const ImportRamUsersRequest &reque
 }
 
 /**
- * @summary 关注转-发起
+ * @summary Consultation transfer refers to transferring a call to another agent, a skill group queue, or an external number. It is also known as follow transfer or two-step transfer.
  *
  * @param request InitiateAttendedTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5833,7 +5905,7 @@ InitiateAttendedTransferResponse Client::initiateAttendedTransferWithOptions(con
 }
 
 /**
- * @summary 关注转-发起
+ * @summary Consultation transfer refers to transferring a call to another agent, a skill group queue, or an external number. It is also known as follow transfer or two-step transfer.
  *
  * @param request InitiateAttendedTransferRequest
  * @return InitiateAttendedTransferResponse
@@ -5844,7 +5916,7 @@ InitiateAttendedTransferResponse Client::initiateAttendedTransfer(const Initiate
 }
 
 /**
- * @summary 打断通话
+ * @summary You can invoke InterceptCall to forcibly disconnect the call associated with a specified call ID under a given instance. The call must be in the listener state, and the forced disconnection must be initiated by the listener. After the forced disconnection succeeds, the agent who was originally talking with the customer will be disconnected, and the agent who initiated the forced disconnection will replace the original agent and continue the conversation with the customer.
  *
  * @param request InterceptCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5895,7 +5967,7 @@ InterceptCallResponse Client::interceptCallWithOptions(const InterceptCallReques
 }
 
 /**
- * @summary 打断通话
+ * @summary You can invoke InterceptCall to forcibly disconnect the call associated with a specified call ID under a given instance. The call must be in the listener state, and the forced disconnection must be initiated by the listener. After the forced disconnection succeeds, the agent who was originally talking with the customer will be disconnected, and the agent who initiated the forced disconnection will replace the original agent and continue the conversation with the customer.
  *
  * @param request InterceptCallRequest
  * @return InterceptCallResponse
@@ -5906,7 +5978,7 @@ InterceptCallResponse Client::interceptCall(const InterceptCallRequest &request)
 }
 
 /**
- * @summary 发起IVR认证流程
+ * @summary You can invoke LaunchAuthentication to temporarily transfer a call into a specified IVR flow. After invoking this API, the call enters an IVR interaction phase, which is commonly used for identity verification operations.
  *
  * @param request LaunchAuthenticationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5957,7 +6029,7 @@ LaunchAuthenticationResponse Client::launchAuthenticationWithOptions(const Launc
 }
 
 /**
- * @summary 发起IVR认证流程
+ * @summary You can invoke LaunchAuthentication to temporarily transfer a call into a specified IVR flow. After invoking this API, the call enters an IVR interaction phase, which is commonly used for identity verification operations.
  *
  * @param request LaunchAuthenticationRequest
  * @return LaunchAuthenticationResponse
@@ -5968,7 +6040,7 @@ LaunchAuthenticationResponse Client::launchAuthentication(const LaunchAuthentica
 }
 
 /**
- * @summary 发起话后满意度调查IVR流程
+ * @summary Invoke LaunchSurvey to send a satisfaction survey. This operation causes the agent to hang up. If it is a voice-based satisfaction survey, the customer enters the IVR satisfaction survey flow after the agent hangs up and completes the satisfaction collection within the IVR flow. If it is an SMS-based satisfaction survey, the call ends and the customer receives a satisfaction survey text message.
  *
  * @param request LaunchSurveyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6035,7 +6107,7 @@ LaunchSurveyResponse Client::launchSurveyWithOptions(const LaunchSurveyRequest &
 }
 
 /**
- * @summary 发起话后满意度调查IVR流程
+ * @summary Invoke LaunchSurvey to send a satisfaction survey. This operation causes the agent to hang up. If it is a voice-based satisfaction survey, the customer enters the IVR satisfaction survey flow after the agent hangs up and completes the satisfaction collection within the IVR flow. If it is an SMS-based satisfaction survey, the call ends and the customer receives a satisfaction survey text message.
  *
  * @param request LaunchSurveyRequest
  * @return LaunchSurveyResponse
@@ -6046,7 +6118,7 @@ LaunchSurveyResponse Client::launchSurvey(const LaunchSurveyRequest &request) {
 }
 
 /**
- * @summary 获取坐席状态记录列表
+ * @summary Invoke ListAgentStateLogs to obtain the status log list of a specified agent under a specified instance. Note that this API will soon expire. Use the override API ListRealtimeAgentStates instead.
  *
  * @param request ListAgentStateLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6089,7 +6161,7 @@ ListAgentStateLogsResponse Client::listAgentStateLogsWithOptions(const ListAgent
 }
 
 /**
- * @summary 获取坐席状态记录列表
+ * @summary Invoke ListAgentStateLogs to obtain the status log list of a specified agent under a specified instance. Note that this API will soon expire. Use the override API ListRealtimeAgentStates instead.
  *
  * @param request ListAgentStateLogsRequest
  * @return ListAgentStateLogsResponse
@@ -6102,7 +6174,7 @@ ListAgentStateLogsResponse Client::listAgentStateLogs(const ListAgentStateLogsRe
 /**
  * @deprecated OpenAPI ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead.
  *
- * @summary ListAgentStates for ACC
+ * @summary You can invoke the ListAgentStates API to retrieve a list of agent statuses under a specified instance, filtered by specified conditions. This API is available only to specific Users. Other Customers are not recommended to invoke it.
  *
  * @param request ListAgentStatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6159,7 +6231,7 @@ ListAgentStatesResponse Client::listAgentStatesWithOptions(const ListAgentStates
 /**
  * @deprecated OpenAPI ListAgentStates is deprecated, please use CCC::2020-07-01::ListRealtimeAgentStates instead.
  *
- * @summary ListAgentStates for ACC
+ * @summary You can invoke the ListAgentStates API to retrieve a list of agent statuses under a specified instance, filtered by specified conditions. This API is available only to specific Users. Other Customers are not recommended to invoke it.
  *
  * @param request ListAgentStatesRequest
  * @return ListAgentStatesResponse
@@ -6172,7 +6244,7 @@ ListAgentStatesResponse Client::listAgentStates(const ListAgentStatesRequest &re
 /**
  * @deprecated OpenAPI ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead.
  *
- * @summary ListAgentSummaryReportsSinceMidnight for acc
+ * @summary You can invoke the ListAgentSummaryReportsSinceMidnight API to retrieve agent historical data reports under a specified instance, filtered by given conditions. The statistics cover data from 00:00 of the current day up to the current time. This API is available only to specific users; other customers are not recommended to invoke it.
  *
  * @param request ListAgentSummaryReportsSinceMidnightRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6201,7 +6273,7 @@ ListAgentSummaryReportsSinceMidnightResponse Client::listAgentSummaryReportsSinc
 /**
  * @deprecated OpenAPI ListAgentSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalAgentReport instead.
  *
- * @summary ListAgentSummaryReportsSinceMidnight for acc
+ * @summary You can invoke the ListAgentSummaryReportsSinceMidnight API to retrieve agent historical data reports under a specified instance, filtered by given conditions. The statistics cover data from 00:00 of the current day up to the current time. This API is available only to specific users; other customers are not recommended to invoke it.
  *
  * @param request ListAgentSummaryReportsSinceMidnightRequest
  * @return ListAgentSummaryReportsSinceMidnightResponse
@@ -6212,7 +6284,7 @@ ListAgentSummaryReportsSinceMidnightResponse Client::listAgentSummaryReportsSinc
 }
 
 /**
- * @summary 获取预测式外呼呼叫记录
+ * @summary You can invoke ListAttempts to obtain the list of contact dialing records for a specified predictive outbound calling Activity under a specified instance.
  *
  * @param request ListAttemptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6239,7 +6311,7 @@ ListAttemptsResponse Client::listAttemptsWithOptions(const ListAttemptsRequest &
 }
 
 /**
- * @summary 获取预测式外呼呼叫记录
+ * @summary You can invoke ListAttempts to obtain the list of contact dialing records for a specified predictive outbound calling Activity under a specified instance.
  *
  * @param request ListAttemptsRequest
  * @return ListAttemptsResponse
@@ -6250,7 +6322,7 @@ ListAttemptsResponse Client::listAttempts(const ListAttemptsRequest &request) {
 }
 
 /**
- * @summary 获取音频文件列表
+ * @summary Invoke ListAudioFiles to obtain the list of audio files under a specified instance.
  *
  * @param request ListAudioFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6297,7 +6369,7 @@ ListAudioFilesResponse Client::listAudioFilesWithOptions(const ListAudioFilesReq
 }
 
 /**
- * @summary 获取音频文件列表
+ * @summary Invoke ListAudioFiles to obtain the list of audio files under a specified instance.
  *
  * @param request ListAudioFilesRequest
  * @return ListAudioFilesResponse
@@ -6308,7 +6380,7 @@ ListAudioFilesResponse Client::listAudioFiles(const ListAudioFilesRequest &reque
 }
 
 /**
- * @summary 编辑呼入控制号码
+ * @summary Queries the blacklist tag status of specified numbers in a batch.
  *
  * @param request ListBlacklistCallTaggingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6343,7 +6415,7 @@ ListBlacklistCallTaggingsResponse Client::listBlacklistCallTaggingsWithOptions(c
 }
 
 /**
- * @summary 编辑呼入控制号码
+ * @summary Queries the blacklist tag status of specified numbers in a batch.
  *
  * @param request ListBlacklistCallTaggingsRequest
  * @return ListBlacklistCallTaggingsResponse
@@ -6354,7 +6426,7 @@ ListBlacklistCallTaggingsResponse Client::listBlacklistCallTaggings(const ListBl
 }
 
 /**
- * @summary 坐席工作台坐席调用转接使用
+ * @summary You can invoke ListBriefSkillGroups to obtain the list of skill group summary information under a specified instance.
  *
  * @param request ListBriefSkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6401,7 +6473,7 @@ ListBriefSkillGroupsResponse Client::listBriefSkillGroupsWithOptions(const ListB
 }
 
 /**
- * @summary 坐席工作台坐席调用转接使用
+ * @summary You can invoke ListBriefSkillGroups to obtain the list of skill group summary information under a specified instance.
  *
  * @param request ListBriefSkillGroupsRequest
  * @return ListBriefSkillGroupsResponse
@@ -6412,7 +6484,9 @@ ListBriefSkillGroupsResponse Client::listBriefSkillGroups(const ListBriefSkillGr
 }
 
 /**
- * @summary 获取通话详情
+ * @summary You can invoke ListCallDetailRecords to obtain a list of call details filtered by specified search conditions under a specified instance. This API is no longer iteratively updated. We recommend that you use the ListCallDetailRecordsV2 API instead.
+ *
+ * @description To ensure query efficiency, the TotalCount field in the response data is populated only when the first page is queried. For other pages, this field returns 0.
  *
  * @param request ListCallDetailRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6523,7 +6597,9 @@ ListCallDetailRecordsResponse Client::listCallDetailRecordsWithOptions(const Lis
 }
 
 /**
- * @summary 获取通话详情
+ * @summary You can invoke ListCallDetailRecords to obtain a list of call details filtered by specified search conditions under a specified instance. This API is no longer iteratively updated. We recommend that you use the ListCallDetailRecordsV2 API instead.
+ *
+ * @description To ensure query efficiency, the TotalCount field in the response data is populated only when the first page is queried. For other pages, this field returns 0.
  *
  * @param request ListCallDetailRecordsRequest
  * @return ListCallDetailRecordsResponse
@@ -6534,7 +6610,9 @@ ListCallDetailRecordsResponse Client::listCallDetailRecords(const ListCallDetail
 }
 
 /**
- * @summary 通话记录列表
+ * @summary Retrieves a list of call detail records that match the specified filter criteria for a specified instance.
+ *
+ * @description ListCallDetailRecordsV2 is used to override the ListCallDetailRecords operation. New fields and query conditions will undergo continuous optimization in ListCallDetailRecordsV2. To ensure query efficiency, the TotalCount field in the response is populated only when you query the first page. For other pages, the value 0 is returned.
  *
  * @param request ListCallDetailRecordsV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -6669,7 +6747,9 @@ ListCallDetailRecordsV2Response Client::listCallDetailRecordsV2WithOptions(const
 }
 
 /**
- * @summary 通话记录列表
+ * @summary Retrieves a list of call detail records that match the specified filter criteria for a specified instance.
+ *
+ * @description ListCallDetailRecordsV2 is used to override the ListCallDetailRecords operation. New fields and query conditions will undergo continuous optimization in ListCallDetailRecordsV2. To ensure query efficiency, the TotalCount field in the response is populated only when you query the first page. For other pages, the value 0 is returned.
  *
  * @param request ListCallDetailRecordsV2Request
  * @return ListCallDetailRecordsV2Response
@@ -6680,6 +6760,8 @@ ListCallDetailRecordsV2Response Client::listCallDetailRecordsV2(const ListCallDe
 }
 
 /**
+ * @summary Use the ListCallSummaries operation to retrieve call summaries.
+ *
  * @param tmpReq ListCallSummariesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCallSummariesResponse
@@ -6719,6 +6801,8 @@ ListCallSummariesResponse Client::listCallSummariesWithOptions(const ListCallSum
 }
 
 /**
+ * @summary Use the ListCallSummaries operation to retrieve call summaries.
+ *
  * @param request ListCallSummariesRequest
  * @return ListCallSummariesResponse
  */
@@ -6728,7 +6812,7 @@ ListCallSummariesResponse Client::listCallSummaries(const ListCallSummariesReque
 }
 
 /**
- * @summary 列出号码标签
+ * @summary You can invoke ListCallTags to obtain all number tags under a specified instance.
  *
  * @param request ListCallTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6767,7 +6851,7 @@ ListCallTagsResponse Client::listCallTagsWithOptions(const ListCallTagsRequest &
 }
 
 /**
- * @summary 列出号码标签
+ * @summary You can invoke ListCallTags to obtain all number tags under a specified instance.
  *
  * @param request ListCallTagsRequest
  * @return ListCallTagsResponse
@@ -6778,7 +6862,7 @@ ListCallTagsResponse Client::listCallTags(const ListCallTagsRequest &request) {
 }
 
 /**
- * @summary 获取预测式外呼活动趋势报表
+ * @summary Obtain the trend report of the predictive outbound calling activity with the specified ID under the specified instance.
  *
  * @param request ListCampaignTrendingReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6805,7 +6889,7 @@ ListCampaignTrendingReportResponse Client::listCampaignTrendingReportWithOptions
 }
 
 /**
- * @summary 获取预测式外呼活动趋势报表
+ * @summary Obtain the trend report of the predictive outbound calling activity with the specified ID under the specified instance.
  *
  * @param request ListCampaignTrendingReportRequest
  * @return ListCampaignTrendingReportResponse
@@ -6816,7 +6900,7 @@ ListCampaignTrendingReportResponse Client::listCampaignTrendingReport(const List
 }
 
 /**
- * @summary 获取预测式外呼活动列表
+ * @summary Calls ListCampaigns to obtain the list of predictive dialing campaigns under a specified instance.
  *
  * @param request ListCampaignsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6883,7 +6967,7 @@ ListCampaignsResponse Client::listCampaignsWithOptions(const ListCampaignsReques
 }
 
 /**
- * @summary 获取预测式外呼活动列表
+ * @summary Calls ListCampaigns to obtain the list of predictive dialing campaigns under a specified instance.
  *
  * @param request ListCampaignsRequest
  * @return ListCampaignsResponse
@@ -6894,7 +6978,7 @@ ListCampaignsResponse Client::listCampaigns(const ListCampaignsRequest &request)
 }
 
 /**
- * @summary 获取预测式外呼活动的联系人呼叫详情
+ * @summary Invoke ListCases to obtain the execution details list of the outbound contact list for the predictive dialing Activity corresponding to the specified ID under the specified instance.
  *
  * @param request ListCasesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6945,7 +7029,7 @@ ListCasesResponse Client::listCasesWithOptions(const ListCasesRequest &request, 
 }
 
 /**
- * @summary 获取预测式外呼活动的联系人呼叫详情
+ * @summary Invoke ListCases to obtain the execution details list of the outbound contact list for the predictive dialing Activity corresponding to the specified ID under the specified instance.
  *
  * @param request ListCasesRequest
  * @return ListCasesResponse
@@ -6956,6 +7040,8 @@ ListCasesResponse Client::listCases(const ListCasesRequest &request) {
 }
 
 /**
+ * @summary You can use ListCategories to retrieve category information.
+ *
  * @param request ListCategoriesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCategoriesResponse
@@ -6993,6 +7079,8 @@ ListCategoriesResponse Client::listCategoriesWithOptions(const ListCategoriesReq
 }
 
 /**
+ * @summary You can use ListCategories to retrieve category information.
+ *
  * @param request ListCategoriesRequest
  * @return ListCategoriesResponse
  */
@@ -7002,6 +7090,8 @@ ListCategoriesResponse Client::listCategories(const ListCategoriesRequest &reque
 }
 
 /**
+ * @summary Retrieves the ticket field types that are defined for an instance.
+ *
  * @param request ListCommonTicketFieldsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListCommonTicketFieldsResponse
@@ -7031,6 +7121,8 @@ ListCommonTicketFieldsResponse Client::listCommonTicketFieldsWithOptions(const L
 }
 
 /**
+ * @summary Retrieves the ticket field types that are defined for an instance.
+ *
  * @param request ListCommonTicketFieldsRequest
  * @return ListCommonTicketFieldsResponse
  */
@@ -7040,7 +7132,7 @@ ListCommonTicketFieldsResponse Client::listCommonTicketFields(const ListCommonTi
 }
 
 /**
- * @summary 列表查询系统配置
+ * @summary Retrieves the config items for a specified instance.
  *
  * @param request ListConfigItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7079,7 +7171,7 @@ ListConfigItemsResponse Client::listConfigItemsWithOptions(const ListConfigItems
 }
 
 /**
- * @summary 列表查询系统配置
+ * @summary Retrieves the config items for a specified instance.
  *
  * @param request ListConfigItemsRequest
  * @return ListConfigItemsResponse
@@ -7090,7 +7182,7 @@ ListConfigItemsResponse Client::listConfigItems(const ListConfigItemsRequest &re
 }
 
 /**
- * @summary 列表查询ivr流程
+ * @summary Call ListContactFlows to retrieve the IVR contact flows for a specified instance.
  *
  * @param request ListContactFlowsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7145,7 +7237,7 @@ ListContactFlowsResponse Client::listContactFlowsWithOptions(const ListContactFl
 }
 
 /**
- * @summary 列表查询ivr流程
+ * @summary Call ListContactFlows to retrieve the IVR contact flows for a specified instance.
  *
  * @param request ListContactFlowsRequest
  * @return ListContactFlowsResponse
@@ -7158,7 +7250,7 @@ ListContactFlowsResponse Client::listContactFlows(const ListContactFlowsRequest 
 /**
  * @deprecated OpenAPI ListCustomCallTagging is deprecated, please use CCC::2020-07-01::ListCustomCallTaggings instead.
  *
- * @summary 列出呼入控制号码
+ * @summary You can invoke ListCustomCallTagging to obtain the list of inbound number marks under a specified instance.
  *
  * @param request ListCustomCallTaggingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7207,7 +7299,7 @@ ListCustomCallTaggingResponse Client::listCustomCallTaggingWithOptions(const Lis
 /**
  * @deprecated OpenAPI ListCustomCallTagging is deprecated, please use CCC::2020-07-01::ListCustomCallTaggings instead.
  *
- * @summary 列出呼入控制号码
+ * @summary You can invoke ListCustomCallTagging to obtain the list of inbound number marks under a specified instance.
  *
  * @param request ListCustomCallTaggingRequest
  * @return ListCustomCallTaggingResponse
@@ -7218,7 +7310,7 @@ ListCustomCallTaggingResponse Client::listCustomCallTagging(const ListCustomCall
 }
 
 /**
- * @summary 列表查询可用设备
+ * @summary Obtain the device list of a specified agent under a specified instance.
  *
  * @param request ListDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7253,7 +7345,7 @@ ListDevicesResponse Client::listDevicesWithOptions(const ListDevicesRequest &req
 }
 
 /**
- * @summary 列表查询可用设备
+ * @summary Obtain the device list of a specified agent under a specified instance.
  *
  * @param request ListDevicesRequest
  * @return ListDevicesResponse
@@ -7264,7 +7356,7 @@ ListDevicesResponse Client::listDevices(const ListDevicesRequest &request) {
 }
 
 /**
- * @summary 查询黑名单号码
+ * @summary Retrieves the list of prohibited outbound call numbers under a specified instance, filtered by specified search conditions.
  *
  * @param request ListDoNotCallNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7311,7 +7403,7 @@ ListDoNotCallNumbersResponse Client::listDoNotCallNumbersWithOptions(const ListD
 }
 
 /**
- * @summary 查询黑名单号码
+ * @summary Retrieves the list of prohibited outbound call numbers under a specified instance, filtered by specified search conditions.
  *
  * @param request ListDoNotCallNumbersRequest
  * @return ListDoNotCallNumbersResponse
@@ -7390,7 +7482,7 @@ ListDocumentsResponse Client::listDocuments(const ListDocumentsRequest &request)
 }
 
 /**
- * @summary 查询反馈记录
+ * @summary Queries feedback records.
  *
  * @param request ListFeedbacksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7425,7 +7517,7 @@ ListFeedbacksResponse Client::listFeedbacksWithOptions(const ListFeedbacksReques
 }
 
 /**
- * @summary 查询反馈记录
+ * @summary Queries feedback records.
  *
  * @param request ListFeedbacksRequest
  * @return ListFeedbacksResponse
@@ -7436,6 +7528,8 @@ ListFeedbacksResponse Client::listFeedbacks(const ListFeedbacksRequest &request)
 }
 
 /**
+ * @summary You can use ListFlashSmsApplication to obtain third-party flash SMS configuration information.
+ *
  * @param request ListFlashSmsApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListFlashSmsApplicationsResponse
@@ -7481,6 +7575,8 @@ ListFlashSmsApplicationsResponse Client::listFlashSmsApplicationsWithOptions(con
 }
 
 /**
+ * @summary You can use ListFlashSmsApplication to obtain third-party flash SMS configuration information.
+ *
  * @param request ListFlashSmsApplicationsRequest
  * @return ListFlashSmsApplicationsResponse
  */
@@ -7490,6 +7586,8 @@ ListFlashSmsApplicationsResponse Client::listFlashSmsApplications(const ListFlas
 }
 
 /**
+ * @summary Call the ListFlashSmsSettings operation to retrieve the flash SMS configurations for a specified skill group.
+ *
  * @param tmpReq ListFlashSmsSettingsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListFlashSmsSettingsResponse
@@ -7541,6 +7639,8 @@ ListFlashSmsSettingsResponse Client::listFlashSmsSettingsWithOptions(const ListF
 }
 
 /**
+ * @summary Call the ListFlashSmsSettings operation to retrieve the flash SMS configurations for a specified skill group.
+ *
  * @param request ListFlashSmsSettingsRequest
  * @return ListFlashSmsSettingsResponse
  */
@@ -7550,7 +7650,7 @@ ListFlashSmsSettingsResponse Client::listFlashSmsSettings(const ListFlashSmsSett
 }
 
 /**
- * @summary 获取闪信模板列表
+ * @summary Use ListFlashSmsTemplates to retrieve flash SMS template information.
  *
  * @param request ListFlashSmsTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7589,7 +7689,7 @@ ListFlashSmsTemplatesResponse Client::listFlashSmsTemplatesWithOptions(const Lis
 }
 
 /**
- * @summary 获取闪信模板列表
+ * @summary Use ListFlashSmsTemplates to retrieve flash SMS template information.
  *
  * @param request ListFlashSmsTemplatesRequest
  * @return ListFlashSmsTemplatesResponse
@@ -7600,7 +7700,7 @@ ListFlashSmsTemplatesResponse Client::listFlashSmsTemplates(const ListFlashSmsTe
 }
 
 /**
- * @summary ListGroupChatMessages
+ * @summary Retrieves the records of group chat messages.
  *
  * @param request ListGroupChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7647,7 +7747,7 @@ ListGroupChatMessagesResponse Client::listGroupChatMessagesWithOptions(const Lis
 }
 
 /**
- * @summary ListGroupChatMessages
+ * @summary Retrieves the records of group chat messages.
  *
  * @param request ListGroupChatMessagesRequest
  * @return ListGroupChatMessagesResponse
@@ -7658,7 +7758,7 @@ ListGroupChatMessagesResponse Client::listGroupChatMessages(const ListGroupChatM
 }
 
 /**
- * @summary 列表查询历史作息报告
+ * @summary Retrieves historical data reports for one or more agents in a specified instance.
  *
  * @param request ListHistoricalAgentReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7719,7 +7819,7 @@ ListHistoricalAgentReportResponse Client::listHistoricalAgentReportWithOptions(c
 }
 
 /**
- * @summary 列表查询历史作息报告
+ * @summary Retrieves historical data reports for one or more agents in a specified instance.
  *
  * @param request ListHistoricalAgentReportRequest
  * @return ListHistoricalAgentReportResponse
@@ -7730,7 +7830,7 @@ ListHistoricalAgentReportResponse Client::listHistoricalAgentReport(const ListHi
 }
 
 /**
- * @summary ListHistoricalAgentSkillGroupReport
+ * @summary You can call ListHistoricalAgentSkillGroupReport to retrieve historical skill group reports for one or more agents in a specified instance.
  *
  * @param request ListHistoricalAgentSkillGroupReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7791,7 +7891,7 @@ ListHistoricalAgentSkillGroupReportResponse Client::listHistoricalAgentSkillGrou
 }
 
 /**
- * @summary ListHistoricalAgentSkillGroupReport
+ * @summary You can call ListHistoricalAgentSkillGroupReport to retrieve historical skill group reports for one or more agents in a specified instance.
  *
  * @param request ListHistoricalAgentSkillGroupReportRequest
  * @return ListHistoricalAgentSkillGroupReportResponse
@@ -7802,7 +7902,7 @@ ListHistoricalAgentSkillGroupReportResponse Client::listHistoricalAgentSkillGrou
 }
 
 /**
- * @summary 技能组汇总报表
+ * @summary You can invoke ListHistoricalSkillGroupReport to obtain historical data reports for one or more skill groups under a specified instance.
  *
  * @param request ListHistoricalSkillGroupReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7859,7 +7959,7 @@ ListHistoricalSkillGroupReportResponse Client::listHistoricalSkillGroupReportWit
 }
 
 /**
- * @summary 技能组汇总报表
+ * @summary You can invoke ListHistoricalSkillGroupReport to obtain historical data reports for one or more skill groups under a specified instance.
  *
  * @param request ListHistoricalSkillGroupReportRequest
  * @return ListHistoricalSkillGroupReportResponse
@@ -7870,7 +7970,9 @@ ListHistoricalSkillGroupReportResponse Client::listHistoricalSkillGroupReport(co
 }
 
 /**
- * @summary 查询实例列表
+ * @summary Invoke the ListInstances API to obtain the list of Cloud Contact Center instances under the current Alibaba Cloud account.
+ *
+ * @description If a RAM user needs to invoke this API, the RAM user must have the "Manage Cloud Call Center (CCC)" permission (AliyunCCCFullAccess).
  *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7905,7 +8007,9 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary 查询实例列表
+ * @summary Invoke the ListInstances API to obtain the list of Cloud Contact Center instances under the current Alibaba Cloud account.
+ *
+ * @description If a RAM user needs to invoke this API, the RAM user must have the "Manage Cloud Call Center (CCC)" permission (AliyunCCCFullAccess).
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -7916,7 +8020,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary 查询实例列表
+ * @summary You can invoke ListInstancesOfUser to obtain the list of Cloud Contact Center instances to which the User belongs.
  *
  * @param request ListInstancesOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7951,7 +8055,7 @@ ListInstancesOfUserResponse Client::listInstancesOfUserWithOptions(const ListIns
 }
 
 /**
- * @summary 查询实例列表
+ * @summary You can invoke ListInstancesOfUser to obtain the list of Cloud Contact Center instances to which the User belongs.
  *
  * @param request ListInstancesOfUserRequest
  * @return ListInstancesOfUserResponse
@@ -7962,7 +8066,7 @@ ListInstancesOfUserResponse Client::listInstancesOfUser(const ListInstancesOfUse
 }
 
 /**
- * @summary 查询坐席报表
+ * @summary You can invoke ListIntervalAgentReport to obtain the segment statistical report of a specified agent under a specified instance.
  *
  * @param request ListIntervalAgentReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8013,7 +8117,7 @@ ListIntervalAgentReportResponse Client::listIntervalAgentReportWithOptions(const
 }
 
 /**
- * @summary 查询坐席报表
+ * @summary You can invoke ListIntervalAgentReport to obtain the segment statistical report of a specified agent under a specified instance.
  *
  * @param request ListIntervalAgentReportRequest
  * @return ListIntervalAgentReportResponse
@@ -8024,7 +8128,7 @@ ListIntervalAgentReportResponse Client::listIntervalAgentReport(const ListInterv
 }
 
 /**
- * @summary ListIntervalAgentSkillGroupReport
+ * @summary Retrieves the interval-based statistical report for a specified agent in a specified instance.
  *
  * @param request ListIntervalAgentSkillGroupReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8051,7 +8155,7 @@ ListIntervalAgentSkillGroupReportResponse Client::listIntervalAgentSkillGroupRep
 }
 
 /**
- * @summary ListIntervalAgentSkillGroupReport
+ * @summary Retrieves the interval-based statistical report for a specified agent in a specified instance.
  *
  * @param request ListIntervalAgentSkillGroupReportRequest
  * @return ListIntervalAgentSkillGroupReportResponse
@@ -8062,7 +8166,7 @@ ListIntervalAgentSkillGroupReportResponse Client::listIntervalAgentSkillGroupRep
 }
 
 /**
- * @summary 查询实例报表
+ * @summary You can invoke ListIntervalInstanceReport to obtain the segment statistical report for a specified instance.
  *
  * @param request ListIntervalInstanceReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8105,7 +8209,7 @@ ListIntervalInstanceReportResponse Client::listIntervalInstanceReportWithOptions
 }
 
 /**
- * @summary 查询实例报表
+ * @summary You can invoke ListIntervalInstanceReport to obtain the segment statistical report for a specified instance.
  *
  * @param request ListIntervalInstanceReportRequest
  * @return ListIntervalInstanceReportResponse
@@ -8116,7 +8220,7 @@ ListIntervalInstanceReportResponse Client::listIntervalInstanceReport(const List
 }
 
 /**
- * @summary 查询技能组报表
+ * @summary You can invoke ListIntervalSkillGroupReport to obtain the segment-based statistical report of a specified skill group under a specified instance.
  *
  * @param request ListIntervalSkillGroupReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8167,7 +8271,7 @@ ListIntervalSkillGroupReportResponse Client::listIntervalSkillGroupReportWithOpt
 }
 
 /**
- * @summary 查询技能组报表
+ * @summary You can invoke ListIntervalSkillGroupReport to obtain the segment-based statistical report of a specified skill group under a specified instance.
  *
  * @param request ListIntervalSkillGroupReportRequest
  * @return ListIntervalSkillGroupReportResponse
@@ -8178,7 +8282,7 @@ ListIntervalSkillGroupReportResponse Client::listIntervalSkillGroupReport(const 
 }
 
 /**
- * @summary 查询ivr轨迹
+ * @summary Invoke ListIvrTrackingDetails to obtain the IVR tracking details of a specified call under a specified instance.
  *
  * @param request ListIvrTrackingDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8221,7 +8325,7 @@ ListIvrTrackingDetailsResponse Client::listIvrTrackingDetailsWithOptions(const L
 }
 
 /**
- * @summary 查询ivr轨迹
+ * @summary Invoke ListIvrTrackingDetails to obtain the IVR tracking details of a specified call under a specified instance.
  *
  * @param request ListIvrTrackingDetailsRequest
  * @return ListIvrTrackingDetailsResponse
@@ -8234,7 +8338,7 @@ ListIvrTrackingDetailsResponse Client::listIvrTrackingDetails(const ListIvrTrack
 /**
  * @deprecated OpenAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
  *
- * @summary ListLegacyAgentEventLogs
+ * @summary You can invoke ListLegacyAgentEventLogs to obtain the list of 1.0 legacy agent event logs. This API is available only to specific Users, and other Customers are not recommended to invoke it.
  *
  * @param request ListLegacyAgentEventLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8287,7 +8391,7 @@ ListLegacyAgentEventLogsResponse Client::listLegacyAgentEventLogsWithOptions(con
 /**
  * @deprecated OpenAPI ListLegacyAgentEventLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
  *
- * @summary ListLegacyAgentEventLogs
+ * @summary You can invoke ListLegacyAgentEventLogs to obtain the list of 1.0 legacy agent event logs. This API is available only to specific Users, and other Customers are not recommended to invoke it.
  *
  * @param request ListLegacyAgentEventLogsRequest
  * @return ListLegacyAgentEventLogsResponse
@@ -8300,7 +8404,7 @@ ListLegacyAgentEventLogsResponse Client::listLegacyAgentEventLogs(const ListLega
 /**
  * @deprecated OpenAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
  *
- * @summary ListLegacyAgentStatusLogs
+ * @summary You can invoke ListLegacyAgentStatusLogs to obtain the list of legacy agent status logs for version 1.0. This API is available only to specific Users, and other Customers are not recommended to invoke it.
  *
  * @param request ListLegacyAgentStatusLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8353,7 +8457,7 @@ ListLegacyAgentStatusLogsResponse Client::listLegacyAgentStatusLogsWithOptions(c
 /**
  * @deprecated OpenAPI ListLegacyAgentStatusLogs is deprecated, please use CCC::2020-07-01::ListAgentStateLogs instead.
  *
- * @summary ListLegacyAgentStatusLogs
+ * @summary You can invoke ListLegacyAgentStatusLogs to obtain the list of legacy agent status logs for version 1.0. This API is available only to specific Users, and other Customers are not recommended to invoke it.
  *
  * @param request ListLegacyAgentStatusLogsRequest
  * @return ListLegacyAgentStatusLogsResponse
@@ -8422,7 +8526,7 @@ ListLegacyAppraiseLogsResponse Client::listLegacyAppraiseLogs(const ListLegacyAp
 }
 
 /**
- * @summary ListLegacyQueueEventLogs
+ * @summary You can invoke ListLegacyQueueEventLogs to obtain the list of 1.0 legacy queue event logs. This API is available only to specific Users, and other Customers are not recommended to invoke it.
  *
  * @param request ListLegacyQueueEventLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8473,7 +8577,7 @@ ListLegacyQueueEventLogsResponse Client::listLegacyQueueEventLogsWithOptions(con
 }
 
 /**
- * @summary ListLegacyQueueEventLogs
+ * @summary You can invoke ListLegacyQueueEventLogs to obtain the list of 1.0 legacy queue event logs. This API is available only to specific Users, and other Customers are not recommended to invoke it.
  *
  * @param request ListLegacyQueueEventLogsRequest
  * @return ListLegacyQueueEventLogsResponse
@@ -8484,7 +8588,7 @@ ListLegacyQueueEventLogsResponse Client::listLegacyQueueEventLogs(const ListLega
 }
 
 /**
- * @summary 获取单轨录音
+ * @summary Call ListMonoRecordings to retrieve single-track recordings for each party in a specified call under a specified instance. During a call, each party has a channel, and each channel generates a combined track recording in WAV format.
  *
  * @param request ListMonoRecordingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8527,7 +8631,7 @@ ListMonoRecordingsResponse Client::listMonoRecordingsWithOptions(const ListMonoR
 }
 
 /**
- * @summary 获取单轨录音
+ * @summary Call ListMonoRecordings to retrieve single-track recordings for each party in a specified call under a specified instance. During a call, each party has a channel, and each channel generates a combined track recording in WAV format.
  *
  * @param request ListMonoRecordingsRequest
  * @return ListMonoRecordingsResponse
@@ -8538,7 +8642,7 @@ ListMonoRecordingsResponse Client::listMonoRecordings(const ListMonoRecordingsRe
 }
 
 /**
- * @summary 获取分轨录音
+ * @summary Call ListMultiChannelRecordings to retrieve the multi-channel recordings for each party in a specified call and instance. Each party has a call channel that corresponds to a multi-channel recording in MKV format.
  *
  * @param request ListMultiChannelRecordingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8581,7 +8685,7 @@ ListMultiChannelRecordingsResponse Client::listMultiChannelRecordingsWithOptions
 }
 
 /**
- * @summary 获取分轨录音
+ * @summary Call ListMultiChannelRecordings to retrieve the multi-channel recordings for each party in a specified call and instance. Each party has a call channel that corresponds to a multi-channel recording in MKV format.
  *
  * @param request ListMultiChannelRecordingsRequest
  * @return ListMultiChannelRecordingsResponse
@@ -8592,7 +8696,7 @@ ListMultiChannelRecordingsResponse Client::listMultiChannelRecordings(const List
 }
 
 /**
- * @summary 查询消息推送记录
+ * @summary Query notification records that were not sent using Message Queue (MQ).
  *
  * @param request ListNotificationRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8627,7 +8731,7 @@ ListNotificationRecordsResponse Client::listNotificationRecordsWithOptions(const
 }
 
 /**
- * @summary 查询消息推送记录
+ * @summary Query notification records that were not sent using Message Queue (MQ).
  *
  * @param request ListNotificationRecordsRequest
  * @return ListNotificationRecordsResponse
@@ -8638,7 +8742,7 @@ ListNotificationRecordsResponse Client::listNotificationRecords(const ListNotifi
 }
 
 /**
- * @summary 该坐席可用的外呼号码列表
+ * @summary `ListOutboundNumbersOfUser` retrieves the outbound numbers for a specified agent in a specified instance.
  *
  * @param request ListOutboundNumbersOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8685,7 +8789,7 @@ ListOutboundNumbersOfUserResponse Client::listOutboundNumbersOfUserWithOptions(c
 }
 
 /**
- * @summary 该坐席可用的外呼号码列表
+ * @summary `ListOutboundNumbersOfUser` retrieves the outbound numbers for a specified agent in a specified instance.
  *
  * @param request ListOutboundNumbersOfUserRequest
  * @return ListOutboundNumbersOfUserResponse
@@ -8696,7 +8800,9 @@ ListOutboundNumbersOfUserResponse Client::listOutboundNumbersOfUser(const ListOu
 }
 
 /**
- * @summary 获取个人外呼号码列表
+ * @summary You can invoke ListPersonalNumbersOfUser to obtain the list of personal outbound numbers for a specified agent under a specified instance. You can also use this API to retrieve the list of numbers that can be added as personal outbound numbers for an agent.
+ *
+ * @description Note: If a number is already attached to a skill group, it will not appear in the list of numbers available as personal outbound numbers.
  *
  * @param request ListPersonalNumbersOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8747,7 +8853,9 @@ ListPersonalNumbersOfUserResponse Client::listPersonalNumbersOfUserWithOptions(c
 }
 
 /**
- * @summary 获取个人外呼号码列表
+ * @summary You can invoke ListPersonalNumbersOfUser to obtain the list of personal outbound numbers for a specified agent under a specified instance. You can also use this API to retrieve the list of numbers that can be added as personal outbound numbers for an agent.
+ *
+ * @description Note: If a number is already attached to a skill group, it will not appear in the list of numbers available as personal outbound numbers.
  *
  * @param request ListPersonalNumbersOfUserRequest
  * @return ListPersonalNumbersOfUserResponse
@@ -8758,7 +8866,7 @@ ListPersonalNumbersOfUserResponse Client::listPersonalNumbersOfUser(const ListPe
 }
 
 /**
- * @summary 获取号码列表
+ * @summary You can invoke ListPhoneNumbers to obtain the phone number list under a specified instance.
  *
  * @param request ListPhoneNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8809,7 +8917,7 @@ ListPhoneNumbersResponse Client::listPhoneNumbersWithOptions(const ListPhoneNumb
 }
 
 /**
- * @summary 获取号码列表
+ * @summary You can invoke ListPhoneNumbers to obtain the phone number list under a specified instance.
  *
  * @param request ListPhoneNumbersRequest
  * @return ListPhoneNumbersResponse
@@ -8820,7 +8928,9 @@ ListPhoneNumbersResponse Client::listPhoneNumbers(const ListPhoneNumbersRequest 
 }
 
 /**
- * @summary 查询技能组绑定的号码
+ * @summary You can invoke the ListPhoneNumbersOfSkillGroup API to obtain the list of phone numbers associated with a specified skill group under a specified instance. You can also use this API to query phone numbers that are not currently associated with the skill group but can be associated with it.
+ *
+ * @description Note: If a phone number is already used as a personal outbound number, it will not appear in the list of numbers available for association with a skill group.
  *
  * @param request ListPhoneNumbersOfSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8875,7 +8985,9 @@ ListPhoneNumbersOfSkillGroupResponse Client::listPhoneNumbersOfSkillGroupWithOpt
 }
 
 /**
- * @summary 查询技能组绑定的号码
+ * @summary You can invoke the ListPhoneNumbersOfSkillGroup API to obtain the list of phone numbers associated with a specified skill group under a specified instance. You can also use this API to query phone numbers that are not currently associated with the skill group but can be associated with it.
+ *
+ * @description Note: If a phone number is already used as a personal outbound number, it will not appear in the list of numbers available for association with a skill group.
  *
  * @param request ListPhoneNumbersOfSkillGroupRequest
  * @return ListPhoneNumbersOfSkillGroupResponse
@@ -8886,7 +8998,7 @@ ListPhoneNumbersOfSkillGroupResponse Client::listPhoneNumbersOfSkillGroup(const 
 }
 
 /**
- * @summary 查询用户权限
+ * @summary Invoke ListPrivilegesOfUser to obtain the permissions owned by the current User.
  *
  * @param request ListPrivilegesOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8917,7 +9029,7 @@ ListPrivilegesOfUserResponse Client::listPrivilegesOfUserWithOptions(const ListP
 }
 
 /**
- * @summary 查询用户权限
+ * @summary Invoke ListPrivilegesOfUser to obtain the permissions owned by the current User.
  *
  * @param request ListPrivilegesOfUserRequest
  * @return ListPrivilegesOfUserResponse
@@ -8928,7 +9040,9 @@ ListPrivilegesOfUserResponse Client::listPrivilegesOfUser(const ListPrivilegesOf
 }
 
 /**
- * @summary 列表查询ram用户
+ * @summary Lists RAM users that have not been imported into a specified instance.
+ *
+ * @description A Resource Access Management (RAM) user can be imported as an agent into multiple Cloud Contact Center (CCC) instances. However, an agent can be associated with only one RAM account. When you create an agent in a CCC instance, a corresponding RAM account is also created. To avoid creating redundant RAM accounts when you set up a new instance, you can call the ListRamUsers operation to list RAM users that have not been imported into the instance. You can then call the operation that imports RAM users to add them to the new instance. This prevents creating unnecessary RAM accounts and conserves resources.
  *
  * @param request ListRamUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8971,7 +9085,9 @@ ListRamUsersResponse Client::listRamUsersWithOptions(const ListRamUsersRequest &
 }
 
 /**
- * @summary 列表查询ram用户
+ * @summary Lists RAM users that have not been imported into a specified instance.
+ *
+ * @description A Resource Access Management (RAM) user can be imported as an agent into multiple Cloud Contact Center (CCC) instances. However, an agent can be associated with only one RAM account. When you create an agent in a CCC instance, a corresponding RAM account is also created. To avoid creating redundant RAM accounts when you set up a new instance, you can call the ListRamUsers operation to list RAM users that have not been imported into the instance. You can then call the operation that imports RAM users to add them to the new instance. This prevents creating unnecessary RAM accounts and conserves resources.
  *
  * @param request ListRamUsersRequest
  * @return ListRamUsersResponse
@@ -8982,7 +9098,7 @@ ListRamUsersResponse Client::listRamUsers(const ListRamUsersRequest &request) {
 }
 
 /**
- * @summary 列表查询坐席状态
+ * @summary You can invoke ListRealtimeAgentStates to obtain a real-time status data report for one or more specified agents in a specified instance.
  *
  * @param request ListRealtimeAgentStatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9059,7 +9175,7 @@ ListRealtimeAgentStatesResponse Client::listRealtimeAgentStatesWithOptions(const
 }
 
 /**
- * @summary 列表查询坐席状态
+ * @summary You can invoke ListRealtimeAgentStates to obtain a real-time status data report for one or more specified agents in a specified instance.
  *
  * @param request ListRealtimeAgentStatesRequest
  * @return ListRealtimeAgentStatesResponse
@@ -9070,7 +9186,7 @@ ListRealtimeAgentStatesResponse Client::listRealtimeAgentStates(const ListRealti
 }
 
 /**
- * @summary 列表查询技能组状态报表
+ * @summary You can invoke ListRealtimeSkillGroupStates to obtain the real-time skill group status report for a specified instance.
  *
  * @param request ListRealtimeSkillGroupStatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9119,7 +9235,7 @@ ListRealtimeSkillGroupStatesResponse Client::listRealtimeSkillGroupStatesWithOpt
 }
 
 /**
- * @summary 列表查询技能组状态报表
+ * @summary You can invoke ListRealtimeSkillGroupStates to obtain the real-time skill group status report for a specified instance.
  *
  * @param request ListRealtimeSkillGroupStatesRequest
  * @return ListRealtimeSkillGroupStatesResponse
@@ -9130,7 +9246,7 @@ ListRealtimeSkillGroupStatesResponse Client::listRealtimeSkillGroupStates(const 
 }
 
 /**
- * @summary 列表查询历史通话记录
+ * @summary You can invoke ListRecentCallDetailRecords to obtain the list of recent call detail records for agents mapped to the current Resource Access Management (RAM) user under the specified instance.
  *
  * @param request ListRecentCallDetailRecordsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9183,7 +9299,7 @@ ListRecentCallDetailRecordsResponse Client::listRecentCallDetailRecordsWithOptio
 }
 
 /**
- * @summary 列表查询历史通话记录
+ * @summary You can invoke ListRecentCallDetailRecords to obtain the list of recent call detail records for agents mapped to the current Resource Access Management (RAM) user under the specified instance.
  *
  * @param request ListRecentCallDetailRecordsRequest
  * @return ListRecentCallDetailRecordsResponse
@@ -9194,7 +9310,7 @@ ListRecentCallDetailRecordsResponse Client::listRecentCallDetailRecords(const Li
 }
 
 /**
- * @summary 列表查询角色
+ * @summary You can invoke ListRoles to obtain all roles under a specified instance.
  *
  * @param request ListRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9225,7 +9341,7 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &request, 
 }
 
 /**
- * @summary 列表查询角色
+ * @summary You can invoke ListRoles to obtain all roles under a specified instance.
  *
  * @param request ListRolesRequest
  * @return ListRolesResponse
@@ -9238,7 +9354,7 @@ ListRolesResponse Client::listRoles(const ListRolesRequest &request) {
 /**
  * @deprecated OpenAPI ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead.
  *
- * @summary ListSkillGroupStates for acc
+ * @summary You can invoke the ListSkillgroupStates API to obtain the status list of specified skill groups under a specified instance. This API is only available to specific Users, and other Customers are not recommended to invoke it.
  *
  * @param request ListSkillGroupStatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9267,7 +9383,7 @@ ListSkillGroupStatesResponse Client::listSkillGroupStatesWithOptions(const ListS
 /**
  * @deprecated OpenAPI ListSkillGroupStates is deprecated, please use CCC::2020-07-01::ListRealtimeSkillGroupStates instead.
  *
- * @summary ListSkillGroupStates for acc
+ * @summary You can invoke the ListSkillgroupStates API to obtain the status list of specified skill groups under a specified instance. This API is only available to specific Users, and other Customers are not recommended to invoke it.
  *
  * @param request ListSkillGroupStatesRequest
  * @return ListSkillGroupStatesResponse
@@ -9280,7 +9396,7 @@ ListSkillGroupStatesResponse Client::listSkillGroupStates(const ListSkillGroupSt
 /**
  * @deprecated OpenAPI ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead.
  *
- * @summary ListSkillGroupSummaryReportsSinceMidnight for acc
+ * @summary The `ListSkillgroupSummaryReportsSinceMidnight` operation retrieves historical summary reports, filtered by specified conditions, for skill groups in a specified instance. The report contains data from 00:00 (midnight) today to the time of the request. This operation is available to specific users only.
  *
  * @param request ListSkillGroupSummaryReportsSinceMidnightRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9309,7 +9425,7 @@ ListSkillGroupSummaryReportsSinceMidnightResponse Client::listSkillGroupSummaryR
 /**
  * @deprecated OpenAPI ListSkillGroupSummaryReportsSinceMidnight is deprecated, please use CCC::2020-07-01::ListHistoricalSkillGroupReport instead.
  *
- * @summary ListSkillGroupSummaryReportsSinceMidnight for acc
+ * @summary The `ListSkillgroupSummaryReportsSinceMidnight` operation retrieves historical summary reports, filtered by specified conditions, for skill groups in a specified instance. The report contains data from 00:00 (midnight) today to the time of the request. This operation is available to specific users only.
  *
  * @param request ListSkillGroupSummaryReportsSinceMidnightRequest
  * @return ListSkillGroupSummaryReportsSinceMidnightResponse
@@ -9320,7 +9436,7 @@ ListSkillGroupSummaryReportsSinceMidnightResponse Client::listSkillGroupSummaryR
 }
 
 /**
- * @summary 查询技能组列表
+ * @summary You can invoke ListSkillGroups to obtain the list of skill groups under a specified instance.
  *
  * @param request ListSkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9367,7 +9483,7 @@ ListSkillGroupsResponse Client::listSkillGroupsWithOptions(const ListSkillGroups
 }
 
 /**
- * @summary 查询技能组列表
+ * @summary You can invoke ListSkillGroups to obtain the list of skill groups under a specified instance.
  *
  * @param request ListSkillGroupsRequest
  * @return ListSkillGroupsResponse
@@ -9378,7 +9494,7 @@ ListSkillGroupsResponse Client::listSkillGroups(const ListSkillGroupsRequest &re
 }
 
 /**
- * @summary 查询用户技能组级别
+ * @summary You can use this API to retrieve the list of skill levels for skill groups associated with a specified agent under a specified instance. You can also use this API to query the list of skill groups that the agent can be associated with but is not currently associated with.
  *
  * @param request ListSkillLevelsOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9429,7 +9545,7 @@ ListSkillLevelsOfUserResponse Client::listSkillLevelsOfUserWithOptions(const Lis
 }
 
 /**
- * @summary 查询用户技能组级别
+ * @summary You can use this API to retrieve the list of skill levels for skill groups associated with a specified agent under a specified instance. You can also use this API to query the list of skill groups that the agent can be associated with but is not currently associated with.
  *
  * @param request ListSkillLevelsOfUserRequest
  * @return ListSkillLevelsOfUserResponse
@@ -9440,7 +9556,7 @@ ListSkillLevelsOfUserResponse Client::listSkillLevelsOfUser(const ListSkillLevel
 }
 
 /**
- * @summary 使用ListSmsMetadata获取短信配置信息。
+ * @summary Queries the details of SMS configurations.
  *
  * @param request ListSmsMetadataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9483,7 +9599,7 @@ ListSmsMetadataResponse Client::listSmsMetadataWithOptions(const ListSmsMetadata
 }
 
 /**
- * @summary 使用ListSmsMetadata获取短信配置信息。
+ * @summary Queries the details of SMS configurations.
  *
  * @param request ListSmsMetadataRequest
  * @return ListSmsMetadataResponse
@@ -9536,6 +9652,8 @@ ListTicketTasksResponse Client::listTicketTasks(const ListTicketTasksRequest &re
 }
 
 /**
+ * @summary Retrieves a list of ticket templates.
+ *
  * @param request ListTicketTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTicketTemplatesResponse
@@ -9585,6 +9703,8 @@ ListTicketTemplatesResponse Client::listTicketTemplatesWithOptions(const ListTic
 }
 
 /**
+ * @summary Retrieves a list of ticket templates.
+ *
  * @param request ListTicketTemplatesRequest
  * @return ListTicketTemplatesResponse
  */
@@ -9594,6 +9714,8 @@ ListTicketTemplatesResponse Client::listTicketTemplates(const ListTicketTemplate
 }
 
 /**
+ * @summary Retrieves a list of tickets for an instance.
+ *
  * @param request ListTicketsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListTicketsResponse
@@ -9679,6 +9801,8 @@ ListTicketsResponse Client::listTicketsWithOptions(const ListTicketsRequest &req
 }
 
 /**
+ * @summary Retrieves a list of tickets for an instance.
+ *
  * @param request ListTicketsRequest
  * @return ListTicketsResponse
  */
@@ -9688,7 +9812,7 @@ ListTicketsResponse Client::listTickets(const ListTicketsRequest &request) {
 }
 
 /**
- * @summary 获取未分配号码列表
+ * @summary You can invoke ListUnassignedNumbers to obtain the list of numbers under your Alibaba Cloud account that have not been assigned to an instance.
  *
  * @param request ListUnassignedNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9727,7 +9851,7 @@ ListUnassignedNumbersResponse Client::listUnassignedNumbersWithOptions(const Lis
 }
 
 /**
- * @summary 获取未分配号码列表
+ * @summary You can invoke ListUnassignedNumbers to obtain the list of numbers under your Alibaba Cloud account that have not been assigned to an instance.
  *
  * @param request ListUnassignedNumbersRequest
  * @return ListUnassignedNumbersResponse
@@ -9738,7 +9862,7 @@ ListUnassignedNumbersResponse Client::listUnassignedNumbers(const ListUnassigned
 }
 
 /**
- * @summary 查询技能组级别列表
+ * @summary You can invoke the ListUserLevelsOfSkillGroup API to retrieve the list of agent skill levels under a specified skill group in a given instance. You can also use this API to retrieve the list of agents who can be associated with but are not currently associated with the specified skill group.
  *
  * @param request ListUserLevelsOfSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9789,7 +9913,7 @@ ListUserLevelsOfSkillGroupResponse Client::listUserLevelsOfSkillGroupWithOptions
 }
 
 /**
- * @summary 查询技能组级别列表
+ * @summary You can invoke the ListUserLevelsOfSkillGroup API to retrieve the list of agent skill levels under a specified skill group in a given instance. You can also use this API to retrieve the list of agents who can be associated with but are not currently associated with the specified skill group.
  *
  * @param request ListUserLevelsOfSkillGroupRequest
  * @return ListUserLevelsOfSkillGroupResponse
@@ -9800,7 +9924,7 @@ ListUserLevelsOfSkillGroupResponse Client::listUserLevelsOfSkillGroup(const List
 }
 
 /**
- * @summary 查询用户列表
+ * @summary Invoke ListUsers to obtain the agent list under a specified instance.
  *
  * @param request ListUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9847,7 +9971,7 @@ ListUsersResponse Client::listUsersWithOptions(const ListUsersRequest &request, 
 }
 
 /**
- * @summary 查询用户列表
+ * @summary Invoke ListUsers to obtain the agent list under a specified instance.
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -9858,7 +9982,7 @@ ListUsersResponse Client::listUsers(const ListUsersRequest &request) {
 }
 
 /**
- * @summary ListVisitorChatMessages
+ * @summary You can use ListVisitorChatMessages to retrieve visitor chat records.
  *
  * @param request ListVisitorChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9921,7 +10045,7 @@ ListVisitorChatMessagesResponse Client::listVisitorChatMessagesWithOptions(const
 }
 
 /**
- * @summary ListVisitorChatMessages
+ * @summary You can use ListVisitorChatMessages to retrieve visitor chat records.
  *
  * @param request ListVisitorChatMessagesRequest
  * @return ListVisitorChatMessagesResponse
@@ -9932,7 +10056,7 @@ ListVisitorChatMessagesResponse Client::listVisitorChatMessages(const ListVisito
 }
 
 /**
- * @summary 查询语音信箱列表
+ * @summary You can call the ListVoicemails operation to retrieve a list of voicemails for a specified instance.
  *
  * @param request ListVoicemailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9991,7 +10115,7 @@ ListVoicemailsResponse Client::listVoicemailsWithOptions(const ListVoicemailsReq
 }
 
 /**
- * @summary 查询语音信箱列表
+ * @summary You can call the ListVoicemails operation to retrieve a list of voicemails for a specified instance.
  *
  * @param request ListVoicemailsRequest
  * @return ListVoicemailsResponse
@@ -10002,6 +10126,8 @@ ListVoicemailsResponse Client::listVoicemails(const ListVoicemailsRequest &reque
 }
 
 /**
+ * @summary The ListWaitingChats operation allows agents to retrieve chats that are waiting in a queue to be assigned or claimed.
+ *
  * @param request ListWaitingChatsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListWaitingChatsResponse
@@ -10035,6 +10161,8 @@ ListWaitingChatsResponse Client::listWaitingChatsWithOptions(const ListWaitingCh
 }
 
 /**
+ * @summary The ListWaitingChats operation allows agents to retrieve chats that are waiting in a queue to be assigned or claimed.
+ *
  * @param request ListWaitingChatsRequest
  * @return ListWaitingChatsResponse
  */
@@ -10044,6 +10172,8 @@ ListWaitingChatsResponse Client::listWaitingChats(const ListWaitingChatsRequest 
 }
 
 /**
+ * @summary You can invoke MakeCall to initiate a call. The callee can be an internal agent or an external customer.
+ *
  * @param request MakeCallRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return MakeCallResponse
@@ -10109,6 +10239,8 @@ MakeCallResponse Client::makeCallWithOptions(const MakeCallRequest &request, con
 }
 
 /**
+ * @summary You can invoke MakeCall to initiate a call. The callee can be an internal agent or an external customer.
+ *
  * @param request MakeCallRequest
  * @return MakeCallResponse
  */
@@ -10118,7 +10250,7 @@ MakeCallResponse Client::makeCall(const MakeCallRequest &request) {
 }
 
 /**
- * @summary 修改媒体文件
+ * @summary You can invoke ModifyAudioFile to modify the audio file associated with a specified audio resource ID under a given instance. You can update the audio file name, display name, and the OSS key of the audio file.
  *
  * @param request ModifyAudioFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10169,7 +10301,7 @@ ModifyAudioFileResponse Client::modifyAudioFileWithOptions(const ModifyAudioFile
 }
 
 /**
- * @summary 修改媒体文件
+ * @summary You can invoke ModifyAudioFile to modify the audio file associated with a specified audio resource ID under a given instance. You can update the audio file name, display name, and the OSS key of the audio file.
  *
  * @param request ModifyAudioFileRequest
  * @return ModifyAudioFileResponse
@@ -10180,7 +10312,7 @@ ModifyAudioFileResponse Client::modifyAudioFile(const ModifyAudioFileRequest &re
 }
 
 /**
- * @summary 修改活动外呼号码
+ * @summary Modifies the calling numbers for a batch prediction outbound campaign.
  *
  * @param tmpReq ModifyCampaignNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10229,7 +10361,7 @@ ModifyCampaignNumbersResponse Client::modifyCampaignNumbersWithOptions(const Mod
 }
 
 /**
- * @summary 修改活动外呼号码
+ * @summary Modifies the calling numbers for a batch prediction outbound campaign.
  *
  * @param request ModifyCampaignNumbersRequest
  * @return ModifyCampaignNumbersResponse
@@ -10240,7 +10372,7 @@ ModifyCampaignNumbersResponse Client::modifyCampaignNumbers(const ModifyCampaign
 }
 
 /**
- * @summary 编辑呼入控制号码
+ * @summary You can invoke ModifyCustomCallTagging to modify the description and attached number tags of an inbound number mark for a specified number under a specified instance.
  *
  * @param request ModifyCustomCallTaggingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10283,7 +10415,7 @@ ModifyCustomCallTaggingResponse Client::modifyCustomCallTaggingWithOptions(const
 }
 
 /**
- * @summary 编辑呼入控制号码
+ * @summary You can invoke ModifyCustomCallTagging to modify the description and attached number tags of an inbound number mark for a specified number under a specified instance.
  *
  * @param request ModifyCustomCallTaggingRequest
  * @return ModifyCustomCallTaggingResponse
@@ -10294,7 +10426,7 @@ ModifyCustomCallTaggingResponse Client::modifyCustomCallTagging(const ModifyCust
 }
 
 /**
- * @summary 修改实例
+ * @summary You can invoke ModifyInstance to modify a Cloud Contact Center instance.
  *
  * @param request ModifyInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10329,7 +10461,7 @@ ModifyInstanceResponse Client::modifyInstanceWithOptions(const ModifyInstanceReq
 }
 
 /**
- * @summary 修改实例
+ * @summary You can invoke ModifyInstance to modify a Cloud Contact Center instance.
  *
  * @param request ModifyInstanceRequest
  * @return ModifyInstanceResponse
@@ -10340,7 +10472,7 @@ ModifyInstanceResponse Client::modifyInstance(const ModifyInstanceRequest &reque
 }
 
 /**
- * @summary 修改电话号码
+ * @summary You can invoke ModifyPhoneNumber to modify the information of a specified phone number under a specified instance, primarily to update the number\\"s usage and the attached contact flow ID.
  *
  * @param request ModifyPhoneNumberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10383,7 +10515,7 @@ ModifyPhoneNumberResponse Client::modifyPhoneNumberWithOptions(const ModifyPhone
 }
 
 /**
- * @summary 修改电话号码
+ * @summary You can invoke ModifyPhoneNumber to modify the information of a specified phone number under a specified instance, primarily to update the number\\"s usage and the attached contact flow ID.
  *
  * @param request ModifyPhoneNumberRequest
  * @return ModifyPhoneNumberResponse
@@ -10394,7 +10526,7 @@ ModifyPhoneNumberResponse Client::modifyPhoneNumber(const ModifyPhoneNumberReque
 }
 
 /**
- * @summary 修改技能组
+ * @summary You can invoke ModifySkillGroup to modify the information of a skill group associated with a specified skill group ID under a specified instance, primarily updating the skill group\\"s display name and description.
  *
  * @param request ModifySkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10437,7 +10569,7 @@ ModifySkillGroupResponse Client::modifySkillGroupWithOptions(const ModifySkillGr
 }
 
 /**
- * @summary 修改技能组
+ * @summary You can invoke ModifySkillGroup to modify the information of a skill group associated with a specified skill group ID under a specified instance, primarily updating the skill group\\"s display name and description.
  *
  * @param request ModifySkillGroupRequest
  * @return ModifySkillGroupResponse
@@ -10448,7 +10580,7 @@ ModifySkillGroupResponse Client::modifySkillGroup(const ModifySkillGroupRequest 
 }
 
 /**
- * @summary 修改坐席技能组
+ * @summary Modify the skill level of a specified agent in one or more skill groups under a specified instance.
  *
  * @param request ModifySkillLevelsOfUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10487,7 +10619,7 @@ ModifySkillLevelsOfUserResponse Client::modifySkillLevelsOfUserWithOptions(const
 }
 
 /**
- * @summary 修改坐席技能组
+ * @summary Modify the skill level of a specified agent in one or more skill groups under a specified instance.
  *
  * @param request ModifySkillLevelsOfUserRequest
  * @return ModifySkillLevelsOfUserResponse
@@ -10498,7 +10630,7 @@ ModifySkillLevelsOfUserResponse Client::modifySkillLevelsOfUser(const ModifySkil
 }
 
 /**
- * @summary 修改坐席
+ * @summary You can invoke ModifyUser to modify the information of a specified agent under a specified instance. You can modify the phone number, work mode, role, and agent ID.
  *
  * @param request ModifyUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10565,7 +10697,7 @@ ModifyUserResponse Client::modifyUserWithOptions(const ModifyUserRequest &reques
 }
 
 /**
- * @summary 修改坐席
+ * @summary You can invoke ModifyUser to modify the information of a specified agent under a specified instance. You can modify the phone number, work mode, role, and agent ID.
  *
  * @param request ModifyUserRequest
  * @return ModifyUserResponse
@@ -10576,7 +10708,7 @@ ModifyUserResponse Client::modifyUser(const ModifyUserRequest &request) {
 }
 
 /**
- * @summary 修改坐席技能组级别
+ * @summary You can invoke ModifyUserLevelsOfSkillGroup to modify the skill levels of one or more agents under a specified skill group in a specified instance.
  *
  * @param request ModifyUserLevelsOfSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10615,7 +10747,7 @@ ModifyUserLevelsOfSkillGroupResponse Client::modifyUserLevelsOfSkillGroupWithOpt
 }
 
 /**
- * @summary 修改坐席技能组级别
+ * @summary You can invoke ModifyUserLevelsOfSkillGroup to modify the skill levels of one or more agents under a specified skill group in a specified instance.
  *
  * @param request ModifyUserLevelsOfSkillGroupRequest
  * @return ModifyUserLevelsOfSkillGroupResponse
@@ -10626,7 +10758,7 @@ ModifyUserLevelsOfSkillGroupResponse Client::modifyUserLevelsOfSkillGroup(const 
 }
 
 /**
- * @summary 通话监听
+ * @summary You can invoke MonitorCall to listen to a call associated with a specified call ID under a specified instance. The call must be in a state where both the agent and the customer are normally connected, and the agent initiating the listening must have permission to monitor the target agent.
  *
  * @param request MonitorCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10673,7 +10805,7 @@ MonitorCallResponse Client::monitorCallWithOptions(const MonitorCallRequest &req
 }
 
 /**
- * @summary 通话监听
+ * @summary You can invoke MonitorCall to listen to a call associated with a specified call ID under a specified instance. The call must be in a state where both the agent and the customer are normally connected, and the agent initiating the listening must have permission to monitor the target agent.
  *
  * @param request MonitorCallRequest
  * @return MonitorCallResponse
@@ -10684,7 +10816,7 @@ MonitorCallResponse Client::monitorCall(const MonitorCallRequest &request) {
 }
 
 /**
- * @summary 静音
+ * @summary You can invoke MuteCall to mute the call associated with a specified call ID under a specified instance. This operation can only be invoked by an agent who is in a talking state, and the agent can only mute themselves. After the agent mutes themselves, the customer will no longer hear the agent\\"s voice.
  *
  * @param request MuteCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10731,7 +10863,7 @@ MuteCallResponse Client::muteCallWithOptions(const MuteCallRequest &request, con
 }
 
 /**
- * @summary 静音
+ * @summary You can invoke MuteCall to mute the call associated with a specified call ID under a specified instance. This operation can only be invoked by an agent who is in a talking state, and the agent can only mute themselves. After the agent mutes themselves, the customer will no longer hear the agent\\"s voice.
  *
  * @param request MuteCallRequest
  * @return MuteCallResponse
@@ -10742,7 +10874,7 @@ MuteCallResponse Client::muteCall(const MuteCallRequest &request) {
 }
 
 /**
- * @summary 暂停预测式外呼活动
+ * @summary Invoke PauseCampaign to pause the predictive outbound calling Activity corresponding to the specified ID under the specified instance.
  *
  * @param request PauseCampaignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10777,7 +10909,7 @@ PauseCampaignResponse Client::pauseCampaignWithOptions(const PauseCampaignReques
 }
 
 /**
- * @summary 暂停预测式外呼活动
+ * @summary Invoke PauseCampaign to pause the predictive outbound calling Activity corresponding to the specified ID under the specified instance.
  *
  * @param request PauseCampaignRequest
  * @return PauseCampaignResponse
@@ -10788,7 +10920,7 @@ PauseCampaignResponse Client::pauseCampaign(const PauseCampaignRequest &request)
 }
 
 /**
- * @summary 选择外呼号码
+ * @summary You can invoke PickOutboundNumbers to select an appropriate caller number based on the provided callee number. The number selection logic is controlled by an Intelligent algorithm.
  *
  * @param request PickOutboundNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10831,7 +10963,7 @@ PickOutboundNumbersResponse Client::pickOutboundNumbersWithOptions(const PickOut
 }
 
 /**
- * @summary 选择外呼号码
+ * @summary You can invoke PickOutboundNumbers to select an appropriate caller number based on the provided callee number. The number selection logic is controlled by an Intelligent algorithm.
  *
  * @param request PickOutboundNumbersRequest
  * @return PickOutboundNumbersResponse
@@ -10842,7 +10974,7 @@ PickOutboundNumbersResponse Client::pickOutboundNumbers(const PickOutboundNumber
 }
 
 /**
- * @summary 轮询座席状态
+ * @summary Polls the agent status of a specified agent under a specified instance. This operation is typically invoked by the frontend agent Workbench to synchronize agent status.
  *
  * @param request PollUserStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10881,7 +11013,7 @@ PollUserStatusResponse Client::pollUserStatusWithOptions(const PollUserStatusReq
 }
 
 /**
- * @summary 轮询座席状态
+ * @summary Polls the agent status of a specified agent under a specified instance. This operation is typically invoked by the frontend agent Workbench to synchronize agent status.
  *
  * @param request PollUserStatusRequest
  * @return PollUserStatusResponse
@@ -11004,7 +11136,7 @@ ProcessCustomIMCallbackResponse Client::processCustomIMCallback(const ProcessCus
 }
 
 /**
- * @summary 发布ivr流程
+ * @summary Publishes a contact flow.
  *
  * @param request PublishContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11043,7 +11175,7 @@ PublishContactFlowResponse Client::publishContactFlowWithOptions(const PublishCo
 }
 
 /**
- * @summary 发布ivr流程
+ * @summary Publishes a contact flow.
  *
  * @param request PublishContactFlowRequest
  * @return PublishContactFlowResponse
@@ -11054,7 +11186,7 @@ PublishContactFlowResponse Client::publishContactFlow(const PublishContactFlowRe
 }
 
 /**
- * @summary 就绪/示闲
+ * @summary You can invoke ReadyForService to make a specified agent under a specified instance ready. After becoming ready, the agent enters the idle status.
  *
  * @param request ReadyForServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11097,7 +11229,7 @@ ReadyForServiceResponse Client::readyForServiceWithOptions(const ReadyForService
 }
 
 /**
- * @summary 就绪/示闲
+ * @summary You can invoke ReadyForService to make a specified agent under a specified instance ready. After becoming ready, the agent enters the idle status.
  *
  * @param request ReadyForServiceRequest
  * @return ReadyForServiceResponse
@@ -11108,7 +11240,7 @@ ReadyForServiceResponse Client::readyForService(const ReadyForServiceRequest &re
 }
 
 /**
- * @summary 重拨
+ * @summary Redial the number in the desensitized call record
  *
  * @param request RedialCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11167,7 +11299,7 @@ RedialCallResponse Client::redialCallWithOptions(const RedialCallRequest &reques
 }
 
 /**
- * @summary 重拨
+ * @summary Redial the number in the desensitized call record
  *
  * @param request RedialCallRequest
  * @return RedialCallResponse
@@ -11178,7 +11310,7 @@ RedialCallResponse Client::redialCall(const RedialCallRequest &request) {
 }
 
 /**
- * @summary 注册设备
+ * @summary Registers a Session Initiation Protocol (SIP) device with a specified agent in an instance. A SIP device can be a physical SIP phone or a softphone.
  *
  * @param request RegisterDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11221,7 +11353,7 @@ RegisterDeviceResponse Client::registerDeviceWithOptions(const RegisterDeviceReq
 }
 
 /**
- * @summary 注册设备
+ * @summary Registers a Session Initiation Protocol (SIP) device with a specified agent in an instance. A SIP device can be a physical SIP phone or a softphone.
  *
  * @param request RegisterDeviceRequest
  * @return RegisterDeviceResponse
@@ -11232,7 +11364,7 @@ RegisterDeviceResponse Client::registerDevice(const RegisterDeviceRequest &reque
 }
 
 /**
- * @summary 注册设备
+ * @summary Registers one or more SIP devices to specified agents in an instance. A SIP device can be a SIP phone or a SIP softphone.
  *
  * @param request RegisterDevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11275,7 +11407,7 @@ RegisterDevicesResponse Client::registerDevicesWithOptions(const RegisterDevices
 }
 
 /**
- * @summary 注册设备
+ * @summary Registers one or more SIP devices to specified agents in an instance. A SIP device can be a SIP phone or a SIP softphone.
  *
  * @param request RegisterDevicesRequest
  * @return RegisterDevicesResponse
@@ -11286,6 +11418,8 @@ RegisterDevicesResponse Client::registerDevices(const RegisterDevicesRequest &re
 }
 
 /**
+ * @summary Rejects a chat assigned to an agent.
+ *
  * @param request RejectChatRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RejectChatResponse
@@ -11319,6 +11453,8 @@ RejectChatResponse Client::rejectChatWithOptions(const RejectChatRequest &reques
 }
 
 /**
+ * @summary Rejects a chat assigned to an agent.
+ *
  * @param request RejectChatRequest
  * @return RejectChatResponse
  */
@@ -11328,6 +11464,8 @@ RejectChatResponse Client::rejectChat(const RejectChatRequest &request) {
 }
 
 /**
+ * @summary Use the RejectTicket operation to reject a ticket. The ticket creator can add information to a rejected ticket and then resubmit it.
+ *
  * @param request RejectTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return RejectTicketResponse
@@ -11365,6 +11503,8 @@ RejectTicketResponse Client::rejectTicketWithOptions(const RejectTicketRequest &
 }
 
 /**
+ * @summary Use the RejectTicket operation to reject a ticket. The ticket creator can add information to a rejected ticket and then resubmit it.
+ *
  * @param request RejectTicketRequest
  * @return RejectTicketResponse
  */
@@ -11374,7 +11514,7 @@ RejectTicketResponse Client::rejectTicket(const RejectTicketRequest &request) {
 }
 
 /**
- * @summary 释放对话
+ * @summary You can invoke ReleaseCall to hang up the call associated with a specified call ID under a specified instance. The invoker must be an agent and currently in a call.
  *
  * @param request ReleaseCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11421,7 +11561,7 @@ ReleaseCallResponse Client::releaseCallWithOptions(const ReleaseCallRequest &req
 }
 
 /**
- * @summary 释放对话
+ * @summary You can invoke ReleaseCall to hang up the call associated with a specified call ID under a specified instance. The invoker must be an agent and currently in a call.
  *
  * @param request ReleaseCallRequest
  * @return ReleaseCallResponse
@@ -11432,6 +11572,8 @@ ReleaseCallResponse Client::releaseCall(const ReleaseCallRequest &request) {
 }
 
 /**
+ * @summary The ReleaseChat operation ends the current chat.
+ *
  * @param request ReleaseChatRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ReleaseChatResponse
@@ -11477,6 +11619,8 @@ ReleaseChatResponse Client::releaseChatWithOptions(const ReleaseChatRequest &req
 }
 
 /**
+ * @summary The ReleaseChat operation ends the current chat.
+ *
  * @param request ReleaseChatRequest
  * @return ReleaseChatResponse
  */
@@ -11486,7 +11630,7 @@ ReleaseChatResponse Client::releaseChat(const ReleaseChatRequest &request) {
 }
 
 /**
- * @summary 编辑呼入控制号码
+ * @summary Removes the blacklist tag from a specified phone number.
  *
  * @param request RemoveBlacklistCallTaggingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11525,7 +11669,7 @@ RemoveBlacklistCallTaggingResponse Client::removeBlacklistCallTaggingWithOptions
 }
 
 /**
- * @summary 编辑呼入控制号码
+ * @summary Removes the blacklist tag from a specified phone number.
  *
  * @param request RemoveBlacklistCallTaggingRequest
  * @return RemoveBlacklistCallTaggingResponse
@@ -11536,7 +11680,7 @@ RemoveBlacklistCallTaggingResponse Client::removeBlacklistCallTagging(const Remo
 }
 
 /**
- * @summary 删除黑名单号码
+ * @summary You can invoke RemoveDoNotCallNumbers to delete one or more Do Not Call number configuration items under a specified instance.
  *
  * @param request RemoveDoNotCallNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11571,7 +11715,7 @@ RemoveDoNotCallNumbersResponse Client::removeDoNotCallNumbersWithOptions(const R
 }
 
 /**
- * @summary 删除黑名单号码
+ * @summary You can invoke RemoveDoNotCallNumbers to delete one or more Do Not Call number configuration items under a specified instance.
  *
  * @param request RemoveDoNotCallNumbersRequest
  * @return RemoveDoNotCallNumbersResponse
@@ -11582,7 +11726,7 @@ RemoveDoNotCallNumbersResponse Client::removeDoNotCallNumbers(const RemoveDoNotC
 }
 
 /**
- * @summary 移除个人号码
+ * @summary You can invoke RemovePersonalNumbersFromUser to delete one or more personal outbound numbers associated with a specified agent under a specified instance.
  *
  * @param request RemovePersonalNumbersFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11621,7 +11765,7 @@ RemovePersonalNumbersFromUserResponse Client::removePersonalNumbersFromUserWithO
 }
 
 /**
- * @summary 移除个人号码
+ * @summary You can invoke RemovePersonalNumbersFromUser to delete one or more personal outbound numbers associated with a specified agent under a specified instance.
  *
  * @param request RemovePersonalNumbersFromUserRequest
  * @return RemovePersonalNumbersFromUserResponse
@@ -11632,7 +11776,7 @@ RemovePersonalNumbersFromUserResponse Client::removePersonalNumbersFromUser(cons
 }
 
 /**
- * @summary 移除技能组下的电话号码
+ * @summary You can invoke RemovePhoneNumberFromSkillGroups to delete the binding relationship between a specified phone number and one or more skill groups under a given instance. This operation removes only the association between the phone number and the skill groups, not the actual phone number itself.
  *
  * @param request RemovePhoneNumberFromSkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11671,7 +11815,7 @@ RemovePhoneNumberFromSkillGroupsResponse Client::removePhoneNumberFromSkillGroup
 }
 
 /**
- * @summary 移除技能组下的电话号码
+ * @summary You can invoke RemovePhoneNumberFromSkillGroups to delete the binding relationship between a specified phone number and one or more skill groups under a given instance. This operation removes only the association between the phone number and the skill groups, not the actual phone number itself.
  *
  * @param request RemovePhoneNumberFromSkillGroupsRequest
  * @return RemovePhoneNumberFromSkillGroupsResponse
@@ -11682,7 +11826,7 @@ RemovePhoneNumberFromSkillGroupsResponse Client::removePhoneNumberFromSkillGroup
 }
 
 /**
- * @summary 移除电话号码
+ * @summary Removes one or more numbers from an instance. This action disassociates the numbers from the instance but does not permanently delete them. It also disassociates all associated resources, such as skill groups, contact flows, and agents.
  *
  * @param request RemovePhoneNumbersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11721,7 +11865,7 @@ RemovePhoneNumbersResponse Client::removePhoneNumbersWithOptions(const RemovePho
 }
 
 /**
- * @summary 移除电话号码
+ * @summary Removes one or more numbers from an instance. This action disassociates the numbers from the instance but does not permanently delete them. It also disassociates all associated resources, such as skill groups, contact flows, and agents.
  *
  * @param request RemovePhoneNumbersRequest
  * @return RemovePhoneNumbersResponse
@@ -11732,7 +11876,7 @@ RemovePhoneNumbersResponse Client::removePhoneNumbers(const RemovePhoneNumbersRe
 }
 
 /**
- * @summary 移除技能组下的电话号码
+ * @summary You can invoke RemovePhoneNumbersFromSkillGroup to delete the association between one or more phone numbers and a specified skill group under a given instance.
  *
  * @param request RemovePhoneNumbersFromSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11771,7 +11915,7 @@ RemovePhoneNumbersFromSkillGroupResponse Client::removePhoneNumbersFromSkillGrou
 }
 
 /**
- * @summary 移除技能组下的电话号码
+ * @summary You can invoke RemovePhoneNumbersFromSkillGroup to delete the association between one or more phone numbers and a specified skill group under a given instance.
  *
  * @param request RemovePhoneNumbersFromSkillGroupRequest
  * @return RemovePhoneNumbersFromSkillGroupResponse
@@ -11782,7 +11926,7 @@ RemovePhoneNumbersFromSkillGroupResponse Client::removePhoneNumbersFromSkillGrou
 }
 
 /**
- * @summary 移除多个技能组下的坐席
+ * @summary You can invoke RemoveSkillGroupsFromUser to delete the association between one or more skill groups and a specified agent under a specified instance.
  *
  * @param request RemoveSkillGroupsFromUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11821,7 +11965,7 @@ RemoveSkillGroupsFromUserResponse Client::removeSkillGroupsFromUserWithOptions(c
 }
 
 /**
- * @summary 移除多个技能组下的坐席
+ * @summary You can invoke RemoveSkillGroupsFromUser to delete the association between one or more skill groups and a specified agent under a specified instance.
  *
  * @param request RemoveSkillGroupsFromUserRequest
  * @return RemoveSkillGroupsFromUserResponse
@@ -11832,7 +11976,7 @@ RemoveSkillGroupsFromUserResponse Client::removeSkillGroupsFromUser(const Remove
 }
 
 /**
- * @summary 移除坐席
+ * @summary You can invoke RemoveUsers to delete one or more agents from a specified instance. This operation only detaches the RAM accounts from the instance and removes the agents mapped to those RAM accounts from the instance. It does not delete the RAM accounts themselves.
  *
  * @param request RemoveUsersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11879,7 +12023,7 @@ RemoveUsersResponse Client::removeUsersWithOptions(const RemoveUsersRequest &req
 }
 
 /**
- * @summary 移除坐席
+ * @summary You can invoke RemoveUsers to delete one or more agents from a specified instance. This operation only detaches the RAM accounts from the instance and removes the agents mapped to those RAM accounts from the instance. It does not delete the RAM accounts themselves.
  *
  * @param request RemoveUsersRequest
  * @return RemoveUsersResponse
@@ -11890,7 +12034,7 @@ RemoveUsersResponse Client::removeUsers(const RemoveUsersRequest &request) {
 }
 
 /**
- * @summary 移除坐席下的技能组
+ * @summary You can invoke RemoveUsersFromSkillGroup to delete the association between one or more agents and a specified skill group under a specified instance. This operation only removes the association between the skill group and the agents and does not delete the agents themselves.
  *
  * @param request RemoveUsersFromSkillGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11929,7 +12073,7 @@ RemoveUsersFromSkillGroupResponse Client::removeUsersFromSkillGroupWithOptions(c
 }
 
 /**
- * @summary 移除坐席下的技能组
+ * @summary You can invoke RemoveUsersFromSkillGroup to delete the association between one or more agents and a specified skill group under a specified instance. This operation only removes the association between the skill group and the agents and does not delete the agents themselves.
  *
  * @param request RemoveUsersFromSkillGroupRequest
  * @return RemoveUsersFromSkillGroupResponse
@@ -11940,7 +12084,7 @@ RemoveUsersFromSkillGroupResponse Client::removeUsersFromSkillGroup(const Remove
 }
 
 /**
- * @summary 重置坐席状态
+ * @summary Resets the state of a specific agent in a specific instance.
  *
  * @param request ResetAgentStateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11979,7 +12123,7 @@ ResetAgentStateResponse Client::resetAgentStateWithOptions(const ResetAgentState
 }
 
 /**
- * @summary 重置坐席状态
+ * @summary Resets the state of a specific agent in a specific instance.
  *
  * @param request ResetAgentStateRequest
  * @return ResetAgentStateResponse
@@ -11990,7 +12134,7 @@ ResetAgentStateResponse Client::resetAgentState(const ResetAgentStateRequest &re
 }
 
 /**
- * @summary 重置坐席密码
+ * @summary Invoke ResetUserPassword to reset the logon password of a specified agent under a specified instance. In practice, agents do not have logon passwords; this operation actually modifies the logon password of the RAM account associated with the agent. This is typically used in scenarios where a customer service representative forgets the logon password of their RAM account.
  *
  * @param request ResetUserPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12029,7 +12173,7 @@ ResetUserPasswordResponse Client::resetUserPasswordWithOptions(const ResetUserPa
 }
 
 /**
- * @summary 重置坐席密码
+ * @summary Invoke ResetUserPassword to reset the logon password of a specified agent under a specified instance. In practice, agents do not have logon passwords; this operation actually modifies the logon password of the RAM account associated with the agent. This is typically used in scenarios where a customer service representative forgets the logon password of their RAM account.
  *
  * @param request ResetUserPasswordRequest
  * @return ResetUserPasswordResponse
@@ -12040,7 +12184,7 @@ ResetUserPasswordResponse Client::resetUserPassword(const ResetUserPasswordReque
 }
 
 /**
- * @summary 录音解冻
+ * @summary Restores call recordings for the specified instance.
  *
  * @param request RestoreArchivedRecordingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12075,7 +12219,7 @@ RestoreArchivedRecordingsResponse Client::restoreArchivedRecordingsWithOptions(c
 }
 
 /**
- * @summary 录音解冻
+ * @summary Restores call recordings for the specified instance.
  *
  * @param request RestoreArchivedRecordingsRequest
  * @return RestoreArchivedRecordingsResponse
@@ -12086,6 +12230,8 @@ RestoreArchivedRecordingsResponse Client::restoreArchivedRecordings(const Restor
 }
 
 /**
+ * @summary You can use the ResubmitTicket API to resubmit a rejected or returned ticket.
+ *
  * @param request ResubmitTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ResubmitTicketResponse
@@ -12123,6 +12269,8 @@ ResubmitTicketResponse Client::resubmitTicketWithOptions(const ResubmitTicketReq
 }
 
 /**
+ * @summary You can use the ResubmitTicket API to resubmit a rejected or returned ticket.
+ *
  * @param request ResubmitTicketRequest
  * @return ResubmitTicketResponse
  */
@@ -12132,7 +12280,7 @@ ResubmitTicketResponse Client::resubmitTicket(const ResubmitTicketRequest &reque
 }
 
 /**
- * @summary 恢复预测式外呼活动
+ * @summary Invoke ResumeCampaign to recover the predictive outbound calling Activity corresponding to the specified ID under the specified instance.
  *
  * @param request ResumeCampaignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12167,7 +12315,7 @@ ResumeCampaignResponse Client::resumeCampaignWithOptions(const ResumeCampaignReq
 }
 
 /**
- * @summary 恢复预测式外呼活动
+ * @summary Invoke ResumeCampaign to recover the predictive outbound calling Activity corresponding to the specified ID under the specified instance.
  *
  * @param request ResumeCampaignRequest
  * @return ResumeCampaignResponse
@@ -12178,7 +12326,7 @@ ResumeCampaignResponse Client::resumeCampaign(const ResumeCampaignRequest &reque
 }
 
 /**
- * @summary 取回
+ * @summary You can invoke RetrieveCall to retrieve a call associated with a specified call ID under a specified instance. The call must be on hold for the retrieve operation to be performed.
  *
  * @param request RetrieveCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12225,7 +12373,7 @@ RetrieveCallResponse Client::retrieveCallWithOptions(const RetrieveCallRequest &
 }
 
 /**
- * @summary 取回
+ * @summary You can invoke RetrieveCall to retrieve a call associated with a specified call ID under a specified instance. The call must be on hold for the retrieve operation to be performed.
  *
  * @param request RetrieveCallRequest
  * @return RetrieveCallResponse
@@ -12290,7 +12438,7 @@ SaveDocumentResponse Client::saveDocument(const SaveDocumentRequest &request) {
 }
 
 /**
- * @summary 客服侧数据收集
+ * @summary Invoke SaveRTCStatsV2 to report Web Real-Time Communication (WebRTC) voice transmission statistics information from the agent side. This API is not relevant for regular customers.
  *
  * @param request SaveRTCStatsV2Request
  * @param runtime runtime options for this request RuntimeOptions
@@ -12341,7 +12489,7 @@ SaveRTCStatsV2Response Client::saveRTCStatsV2WithOptions(const SaveRTCStatsV2Req
 }
 
 /**
- * @summary 客服侧数据收集
+ * @summary Invoke SaveRTCStatsV2 to report Web Real-Time Communication (WebRTC) voice transmission statistics information from the agent side. This API is not relevant for regular customers.
  *
  * @param request SaveRTCStatsV2Request
  * @return SaveRTCStatsV2Response
@@ -12352,7 +12500,7 @@ SaveRTCStatsV2Response Client::saveRTCStatsV2(const SaveRTCStatsV2Request &reque
 }
 
 /**
- * @summary 保存终端埋点日志
+ * @summary Invoke the SaveTerminalLog API to report agent-side log information. Regular customers do not need to be concerned with this API.
  *
  * @param request SaveTerminalLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12415,7 +12563,7 @@ SaveTerminalLogResponse Client::saveTerminalLogWithOptions(const SaveTerminalLog
 }
 
 /**
- * @summary 保存终端埋点日志
+ * @summary Invoke the SaveTerminalLog API to report agent-side log information. Regular customers do not need to be concerned with this API.
  *
  * @param request SaveTerminalLogRequest
  * @return SaveTerminalLogResponse
@@ -12426,7 +12574,7 @@ SaveTerminalLogResponse Client::saveTerminalLog(const SaveTerminalLogRequest &re
 }
 
 /**
- * @summary 客服侧数据收集
+ * @summary Invoke the SaveWebRTCStats API to report Web Real-Time Communication (WebRTC) voice transmission statistics information from the agent side. Regular customers do not need to concern themselves with this API.
  *
  * @param request SaveWebRTCStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12477,7 +12625,7 @@ SaveWebRTCStatsResponse Client::saveWebRTCStatsWithOptions(const SaveWebRTCStats
 }
 
 /**
- * @summary 客服侧数据收集
+ * @summary Invoke the SaveWebRTCStats API to report Web Real-Time Communication (WebRTC) voice transmission statistics information from the agent side. Regular customers do not need to concern themselves with this API.
  *
  * @param request SaveWebRTCStatsRequest
  * @return SaveWebRTCStatsResponse
@@ -12488,7 +12636,7 @@ SaveWebRTCStatsResponse Client::saveWebRTCStats(const SaveWebRTCStatsRequest &re
 }
 
 /**
- * @summary 客服侧数据收集
+ * @summary Invoke the SaveWebRtcInfo API to report WebRTC call status information from the agent side, including call quality monitoring data, for backend statistics and monitoring. Customers do not need to concern themselves with this API.
  *
  * @param request SaveWebRtcInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12535,7 +12683,7 @@ SaveWebRtcInfoResponse Client::saveWebRtcInfoWithOptions(const SaveWebRtcInfoReq
 }
 
 /**
- * @summary 客服侧数据收集
+ * @summary Invoke the SaveWebRtcInfo API to report WebRTC call status information from the agent side, including call quality monitoring data, for backend statistics and monitoring. Customers do not need to concern themselves with this API.
  *
  * @param request SaveWebRtcInfoRequest
  * @return SaveWebRtcInfoResponse
@@ -12546,7 +12694,7 @@ SaveWebRtcInfoResponse Client::saveWebRtcInfo(const SaveWebRtcInfoRequest &reque
 }
 
 /**
- * @summary 在接通的电话上发送DTMF信号
+ * @summary You can invoke SendDtmfSignaling to send DTMF keypress information during a call.
  *
  * @param request SendDtmfSignalingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12597,7 +12745,7 @@ SendDtmfSignalingResponse Client::sendDtmfSignalingWithOptions(const SendDtmfSig
 }
 
 /**
- * @summary 在接通的电话上发送DTMF信号
+ * @summary You can invoke SendDtmfSignaling to send DTMF keypress information during a call.
  *
  * @param request SendDtmfSignalingRequest
  * @return SendDtmfSignalingResponse
@@ -12666,7 +12814,7 @@ SendNotificationResponse Client::sendNotification(const SendNotificationRequest 
 }
 
 /**
- * @summary 上线
+ * @summary You can invoke SignInGroup to sign an agent into a specified skill group under a specified instance, which is the operation for publishing the agent online.
  *
  * @param request SignInGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12717,7 +12865,7 @@ SignInGroupResponse Client::signInGroupWithOptions(const SignInGroupRequest &req
 }
 
 /**
- * @summary 上线
+ * @summary You can invoke SignInGroup to sign an agent into a specified skill group under a specified instance, which is the operation for publishing the agent online.
  *
  * @param request SignInGroupRequest
  * @return SignInGroupResponse
@@ -12728,7 +12876,7 @@ SignInGroupResponse Client::signInGroup(const SignInGroupRequest &request) {
 }
 
 /**
- * @summary 下线
+ * @summary You can call SignOutGroup to check out an agent from the skill group they are currently signed into, which is equivalent to performing an unpublish operation for the agent.
  *
  * @param request SignOutGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12767,7 +12915,7 @@ SignOutGroupResponse Client::signOutGroupWithOptions(const SignOutGroupRequest &
 }
 
 /**
- * @summary 下线
+ * @summary You can call SignOutGroup to check out an agent from the skill group they are currently signed into, which is equivalent to performing an unpublish operation for the agent.
  *
  * @param request SignOutGroupRequest
  * @return SignOutGroupResponse
@@ -12778,7 +12926,9 @@ SignOutGroupResponse Client::signOutGroup(const SignOutGroupRequest &request) {
 }
 
 /**
- * @summary 双呼
+ * @summary You can invoke StartBack2BackCall to initiate a back-to-back call.
+ *
+ * @description A back-to-back call differs from a traditional two-party call in that the caller does not directly call the callee. Instead, a Back-to-Back Agent is used. The Back-to-Back Agent first calls the caller, and after the connection is established, it calls the callee and then joins both parties into a single conference. In this mode, because all message streams of each call pass through the Back-to-Back Agent, the service provider (SP) can offer value-added services such as call timing, call recording, and number masking.
  *
  * @param request StartBack2BackCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12833,7 +12983,9 @@ StartBack2BackCallResponse Client::startBack2BackCallWithOptions(const StartBack
 }
 
 /**
- * @summary 双呼
+ * @summary You can invoke StartBack2BackCall to initiate a back-to-back call.
+ *
+ * @description A back-to-back call differs from a traditional two-party call in that the caller does not directly call the callee. Instead, a Back-to-Back Agent is used. The Back-to-Back Agent first calls the caller, and after the connection is established, it calls the callee and then joins both parties into a single conference. In this mode, because all message streams of each call pass through the Back-to-Back Agent, the service provider (SP) can offer value-added services such as call timing, call recording, and number masking.
  *
  * @param request StartBack2BackCallRequest
  * @return StartBack2BackCallResponse
@@ -12844,6 +12996,8 @@ StartBack2BackCallResponse Client::startBack2BackCall(const StartBack2BackCallRe
 }
 
 /**
+ * @summary Starts a chat session.
+ *
  * @param tmpReq StartChatRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartChatResponse
@@ -12891,6 +13045,8 @@ StartChatResponse Client::startChatWithOptions(const StartChatRequest &tmpReq, c
 }
 
 /**
+ * @summary Starts a chat session.
+ *
  * @param request StartChatRequest
  * @return StartChatResponse
  */
@@ -12900,7 +13056,7 @@ StartChatResponse Client::startChat(const StartChatRequest &request) {
 }
 
 /**
- * @summary 开始会议
+ * @summary You can invoke StartConference to initiate a conference.
  *
  * @param request StartConferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12947,7 +13103,7 @@ StartConferenceResponse Client::startConferenceWithOptions(const StartConference
 }
 
 /**
- * @summary 开始会议
+ * @summary You can invoke StartConference to initiate a conference.
  *
  * @param request StartConferenceRequest
  * @return StartConferenceResponse
@@ -12958,7 +13114,7 @@ StartConferenceResponse Client::startConference(const StartConferenceRequest &re
 }
 
 /**
- * @summary 编辑ivr流程
+ * @summary Start editing a contact flow and generate a draft version.
  *
  * @param request StartEditContactFlowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12993,7 +13149,7 @@ StartEditContactFlowResponse Client::startEditContactFlowWithOptions(const Start
 }
 
 /**
- * @summary 编辑ivr流程
+ * @summary Start editing a contact flow and generate a draft version.
  *
  * @param request StartEditContactFlowRequest
  * @return StartEditContactFlowResponse
@@ -13004,7 +13160,11 @@ StartEditContactFlowResponse Client::startEditContactFlow(const StartEditContact
 }
 
 /**
- * @summary 开始预测试外呼
+ * @summary Invoke StartPredictiveCall to initiate predictive outbound calling.
+ *
+ * @description In addition to supporting agents initiating outbound calls from the agent Workbench, Cloud Call Center also enables your Operational System backend to initiate outbound calls and transfer the call to an agent after it is answered. This allows you to seamlessly embed Cloud Call Center features into your Business Process.
+ * For example, your Customer can enter their phone number on your WeChat Official Account and click a button to inquire about a product. Your backend system then invokes this API to call the Customer’s Phone. After the call is connected, the system plays back the message: “We have received your inquiry about our product via the Official Account. We are now connecting you to an advisor. Please wait.” The call is then transferred to an appropriate agent.
+ * Compared with the DialEX API in version 1.0, this API offers greater flexibility in configuration. In addition to customizing the IVR for transfer-in, you can also pass custom parameters, which can be played back by voice within the IVR to support notification scenarios.
  *
  * @param request StartPredictiveCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13067,7 +13227,11 @@ StartPredictiveCallResponse Client::startPredictiveCallWithOptions(const StartPr
 }
 
 /**
- * @summary 开始预测试外呼
+ * @summary Invoke StartPredictiveCall to initiate predictive outbound calling.
+ *
+ * @description In addition to supporting agents initiating outbound calls from the agent Workbench, Cloud Call Center also enables your Operational System backend to initiate outbound calls and transfer the call to an agent after it is answered. This allows you to seamlessly embed Cloud Call Center features into your Business Process.
+ * For example, your Customer can enter their phone number on your WeChat Official Account and click a button to inquire about a product. Your backend system then invokes this API to call the Customer’s Phone. After the call is connected, the system plays back the message: “We have received your inquiry about our product via the Official Account. We are now connecting you to an advisor. Please wait.” The call is then transferred to an appropriate agent.
+ * Compared with the DialEX API in version 1.0, this API offers greater flexibility in configuration. In addition to customizing the IVR for transfer-in, you can also pass custom parameters, which can be played back by voice within the IVR to support notification scenarios.
  *
  * @param request StartPredictiveCallRequest
  * @return StartPredictiveCallResponse
@@ -13078,7 +13242,7 @@ StartPredictiveCallResponse Client::startPredictiveCall(const StartPredictiveCal
 }
 
 /**
- * @summary 发起隐私呼叫
+ * @summary Starts a privacy call.
  *
  * @param request StartPrivacyCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13121,7 +13285,7 @@ StartPrivacyCallResponse Client::startPrivacyCallWithOptions(const StartPrivacyC
 }
 
 /**
- * @summary 发起隐私呼叫
+ * @summary Starts a privacy call.
  *
  * @param request StartPrivacyCallRequest
  * @return StartPrivacyCallResponse
@@ -13132,7 +13296,7 @@ StartPrivacyCallResponse Client::startPrivacyCall(const StartPrivacyCallRequest 
 }
 
 /**
- * @summary 提交预测式外呼活动
+ * @summary Invoke SubmitCampaign to start the predictive outbound calling activity corresponding to the specified ID under the specified instance.
  *
  * @param request SubmitCampaignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13167,7 +13331,7 @@ SubmitCampaignResponse Client::submitCampaignWithOptions(const SubmitCampaignReq
 }
 
 /**
- * @summary 提交预测式外呼活动
+ * @summary Invoke SubmitCampaign to start the predictive outbound calling activity corresponding to the specified ID under the specified instance.
  *
  * @param request SubmitCampaignRequest
  * @return SubmitCampaignResponse
@@ -13178,7 +13342,7 @@ SubmitCampaignResponse Client::submitCampaign(const SubmitCampaignRequest &reque
 }
 
 /**
- * @summary 切换关注/咨询转到会议
+ * @summary You can invoke SwitchToConference to switch the status of a specified call under a specified instance to a three-party conference. This is typically used in scenarios where a consultation is converted into a conference.
  *
  * @param request SwitchToConferenceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13221,7 +13385,7 @@ SwitchToConferenceResponse Client::switchToConferenceWithOptions(const SwitchToC
 }
 
 /**
- * @summary 切换关注/咨询转到会议
+ * @summary You can invoke SwitchToConference to switch the status of a specified call under a specified instance to a three-party conference. This is typically used in scenarios where a consultation is converted into a conference.
  *
  * @param request SwitchToConferenceRequest
  * @return SwitchToConferenceResponse
@@ -13232,7 +13396,7 @@ SwitchToConferenceResponse Client::switchToConference(const SwitchToConferenceRe
 }
 
 /**
- * @summary 小休
+ * @summary You can invoke TakeBreak to set a specified agent in a specified instance to the break state.
  *
  * @param request TakeBreakRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13275,7 +13439,7 @@ TakeBreakResponse Client::takeBreakWithOptions(const TakeBreakRequest &request, 
 }
 
 /**
- * @summary 小休
+ * @summary You can invoke TakeBreak to set a specified agent in a specified instance to the break state.
  *
  * @param request TakeBreakRequest
  * @return TakeBreakResponse
@@ -13286,6 +13450,8 @@ TakeBreakResponse Client::takeBreak(const TakeBreakRequest &request) {
 }
 
 /**
+ * @summary Closes a ticket.
+ *
  * @param request TerminateTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TerminateTicketResponse
@@ -13323,6 +13489,8 @@ TerminateTicketResponse Client::terminateTicketWithOptions(const TerminateTicket
 }
 
 /**
+ * @summary Closes a ticket.
+ *
  * @param request TerminateTicketRequest
  * @return TerminateTicketResponse
  */
@@ -13332,6 +13500,8 @@ TerminateTicketResponse Client::terminateTicket(const TerminateTicketRequest &re
 }
 
 /**
+ * @summary You can call TransferTicketTask to transfer a ticket to another user.
+ *
  * @param request TransferTicketTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TransferTicketTaskResponse
@@ -13377,6 +13547,8 @@ TransferTicketTaskResponse Client::transferTicketTaskWithOptions(const TransferT
 }
 
 /**
+ * @summary You can call TransferTicketTask to transfer a ticket to another user.
+ *
  * @param request TransferTicketTaskRequest
  * @return TransferTicketTaskResponse
  */
@@ -13386,7 +13558,7 @@ TransferTicketTaskResponse Client::transferTicketTask(const TransferTicketTaskRe
 }
 
 /**
- * @summary 取消静音
+ * @summary [responses_200_schema_properties_Data_properties_UserContext_properties_UserState_type]string
  *
  * @param request UnmuteCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13433,7 +13605,7 @@ UnmuteCallResponse Client::unmuteCallWithOptions(const UnmuteCallRequest &reques
 }
 
 /**
- * @summary 取消静音
+ * @summary [responses_200_schema_properties_Data_properties_UserContext_properties_UserState_type]string
  *
  * @param request UnmuteCallRequest
  * @return UnmuteCallResponse
@@ -13444,7 +13616,7 @@ UnmuteCallResponse Client::unmuteCall(const UnmuteCallRequest &request) {
 }
 
 /**
- * @summary 删除注册设备
+ * @summary You can invoke UnregisterDevice to delete the device registration record of a specified agent under a specified instance. After deletion, the SIP phone or SIP softphone associated with the agent becomes inactive.
  *
  * @param request UnregisterDeviceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13479,7 +13651,7 @@ UnregisterDeviceResponse Client::unregisterDeviceWithOptions(const UnregisterDev
 }
 
 /**
- * @summary 删除注册设备
+ * @summary You can invoke UnregisterDevice to delete the device registration record of a specified agent under a specified instance. After deletion, the SIP phone or SIP softphone associated with the agent becomes inactive.
  *
  * @param request UnregisterDeviceRequest
  * @return UnregisterDeviceResponse
@@ -13490,7 +13662,7 @@ UnregisterDeviceResponse Client::unregisterDevice(const UnregisterDeviceRequest 
 }
 
 /**
- * @summary 更新会话小结
+ * @summary Updates a call summary.
  *
  * @param request UpdateCallSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13529,7 +13701,7 @@ UpdateCallSummaryResponse Client::updateCallSummaryWithOptions(const UpdateCallS
 }
 
 /**
- * @summary 更新会话小结
+ * @summary Updates a call summary.
  *
  * @param request UpdateCallSummaryRequest
  * @return UpdateCallSummaryResponse
@@ -13540,7 +13712,7 @@ UpdateCallSummaryResponse Client::updateCallSummary(const UpdateCallSummaryReque
 }
 
 /**
- * @summary 更新预测试外呼活动
+ * @summary Updates outbound campaign parameters.
  *
  * @param request UpdateCampaignRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13599,7 +13771,7 @@ UpdateCampaignResponse Client::updateCampaignWithOptions(const UpdateCampaignReq
 }
 
 /**
- * @summary 更新预测试外呼活动
+ * @summary Updates outbound campaign parameters.
  *
  * @param request UpdateCampaignRequest
  * @return UpdateCampaignResponse
@@ -13610,6 +13782,8 @@ UpdateCampaignResponse Client::updateCampaign(const UpdateCampaignRequest &reque
 }
 
 /**
+ * @summary You can use UpdateChatRoutingProfile to configure session transfers.
+ *
  * @param request UpdateChatRoutingProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateChatRoutingProfileResponse
@@ -13643,6 +13817,8 @@ UpdateChatRoutingProfileResponse Client::updateChatRoutingProfileWithOptions(con
 }
 
 /**
+ * @summary You can use UpdateChatRoutingProfile to configure session transfers.
+ *
  * @param request UpdateChatRoutingProfileRequest
  * @return UpdateChatRoutingProfileResponse
  */
@@ -13652,7 +13828,7 @@ UpdateChatRoutingProfileResponse Client::updateChatRoutingProfile(const UpdateCh
 }
 
 /**
- * @summary 更新系统配置
+ * @summary Use the UpdateConfigItems operation to add or modify configuration items for an instance, such as hiding the caller ID for inbound calls or allowing agents to hang up.
  *
  * @param request UpdateConfigItemsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13695,7 +13871,7 @@ UpdateConfigItemsResponse Client::updateConfigItemsWithOptions(const UpdateConfi
 }
 
 /**
- * @summary 更新系统配置
+ * @summary Use the UpdateConfigItems operation to add or modify configuration items for an instance, such as hiding the caller ID for inbound calls or allowing agents to hang up.
  *
  * @param request UpdateConfigItemsRequest
  * @return UpdateConfigItemsResponse
@@ -13762,7 +13938,7 @@ UpdateSchemaPropertyResponse Client::updateSchemaProperty(const UpdateSchemaProp
 }
 
 /**
- * @summary UpdateSubscription
+ * @summary Use the UpdateSubscription operation to configure message subscriptions.
  *
  * @param request UpdateSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13829,7 +14005,7 @@ UpdateSubscriptionResponse Client::updateSubscriptionWithOptions(const UpdateSub
 }
 
 /**
- * @summary UpdateSubscription
+ * @summary Use the UpdateSubscription operation to configure message subscriptions.
  *
  * @param request UpdateSubscriptionRequest
  * @return UpdateSubscriptionResponse
@@ -13840,6 +14016,8 @@ UpdateSubscriptionResponse Client::updateSubscription(const UpdateSubscriptionRe
 }
 
 /**
+ * @summary UpdateTicket updates the content of a ticket.
+ *
  * @param request UpdateTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateTicketResponse
@@ -13885,6 +14063,8 @@ UpdateTicketResponse Client::updateTicketWithOptions(const UpdateTicketRequest &
 }
 
 /**
+ * @summary UpdateTicket updates the content of a ticket.
+ *
  * @param request UpdateTicketRequest
  * @return UpdateTicketResponse
  */
@@ -13894,6 +14074,8 @@ UpdateTicketResponse Client::updateTicket(const UpdateTicketRequest &request) {
 }
 
 /**
+ * @summary You can use WithdrawTicket to withdraw a ticket.
+ *
  * @param request WithdrawTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return WithdrawTicketResponse
@@ -13931,6 +14113,8 @@ WithdrawTicketResponse Client::withdrawTicketWithOptions(const WithdrawTicketReq
 }
 
 /**
+ * @summary You can use WithdrawTicket to withdraw a ticket.
+ *
  * @param request WithdrawTicketRequest
  * @return WithdrawTicketResponse
  */

@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The list of phone number group IDs.
     shared_ptr<string> instNumberGroupIdList_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The list of phone numbers. Ensure that the phone numbers already exist in the current instance.
     shared_ptr<string> numberList_ {};
+    // The skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> skillGroupId_ {};
   };

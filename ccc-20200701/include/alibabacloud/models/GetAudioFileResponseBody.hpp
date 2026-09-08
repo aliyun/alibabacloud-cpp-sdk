@@ -121,12 +121,19 @@ namespace Models
 
 
     protected:
+      // Audio file name.
       shared_ptr<string> audioFileName_ {};
+      // Audio resource ID, the UUID of the audio file.
       shared_ptr<string> audioResourceId_ {};
+      // Creation Time of the audio resource.
       shared_ptr<string> createdTime_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Display name of the audio.
       shared_ptr<string> name_ {};
+      // Key of the audio resource file in OSS.
       shared_ptr<string> ossFileKey_ {};
+      // Last Updated At of the audio resource.
       shared_ptr<string> updatedTime_ {};
     };
 
@@ -170,10 +177,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Audio file data.
     shared_ptr<GetAudioFileResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

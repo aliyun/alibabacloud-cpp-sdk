@@ -94,13 +94,21 @@ namespace Models
 
 
   protected:
+    // The ID of the call.
     shared_ptr<string> contactId_ {};
+    // Ticket field information.
     shared_ptr<string> context_ {};
+    // Customer ID, the customer ID in Cloud Contact Center customer profiles.
     shared_ptr<string> customerId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Ticket source.
     shared_ptr<string> source_ {};
+    // Ticket template ID.
     shared_ptr<string> templateId_ {};
+    // Ticket title.
     shared_ptr<string> title_ {};
   };
 

@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The ID of the chat session.
       shared_ptr<string> chatConversationId_ {};
+      // The job ID.
       shared_ptr<string> jobId_ {};
     };
 
@@ -119,10 +121,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<StartChatResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

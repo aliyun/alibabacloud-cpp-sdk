@@ -153,15 +153,25 @@ namespace Models
 
 
     protected:
+      // The break code.
       shared_ptr<string> breakCode_ {};
+      // The device ID. This can be the ID of a browser-based WebRTC softphone or a physical phone. Only one device can be registered at a time.
       shared_ptr<string> deviceId_ {};
+      // The agent\\"s extension number.
       shared_ptr<string> extension_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The call ID. If populated, this field indicates that the agent is in a call.
       shared_ptr<string> jobId_ {};
+      // Indicates whether the agent is in outbound-only mode.
       shared_ptr<bool> outboundScenario_ {};
+      // The IDs of the skill groups to which the agent is signed in.
       shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+      // The agent ID.
       shared_ptr<string> userId_ {};
+      // The agent state.
       shared_ptr<string> userState_ {};
+      // The work mode.
       shared_ptr<string> workMode_ {};
     };
 
@@ -214,11 +224,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<ChangeVisibilityResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The response parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

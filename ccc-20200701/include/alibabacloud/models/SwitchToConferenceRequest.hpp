@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // Invalid field. You can enter any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Agent ID. If not specified, the agent mapped to the current Resource Access Management (RAM) user is used by default.
     shared_ptr<string> userId_ {};
   };
 

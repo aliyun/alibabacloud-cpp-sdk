@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The IVR contact flow ID attached to the number. This field is valid only when the number usage is Inbound or Bidirection.
     shared_ptr<string> contactFlowId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> number_ {};
+    // Number usage.
+    // 
     // This parameter is required.
     shared_ptr<string> usage_ {};
   };

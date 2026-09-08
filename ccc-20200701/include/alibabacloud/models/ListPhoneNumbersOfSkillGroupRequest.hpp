@@ -94,16 +94,28 @@ namespace Models
 
 
   protected:
+    // Indicates whether the phone number is active. This parameter is optional. The default value is empty, which means no filtering is applied.
     shared_ptr<bool> active_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether the phone numbers are associated with the skill group. If true, the API queries the list of phone numbers already associated with the specified SkillGroupId. If false, the API queries the list of phone numbers that can be associated with the specified SkillGroupId but are not currently associated. This parameter is typically used together with the AddNumbersToSkillGroup API.
+    // 
     // This parameter is required.
     shared_ptr<bool> isMember_ {};
+    // Page number for paging. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size for paging. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Performs Fuzzy Matching on phone numbers. This parameter is optional. The default value is empty, which means no filtering is applied.
     shared_ptr<string> searchPattern_ {};
+    // Skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> skillGroupId_ {};
   };

@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // Cloud Contact Center instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Flash SMS configuration name.
     shared_ptr<string> name_ {};
+    // Page number. Valid values: 1 to 100.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
+    // Flash SMS provider ID.
     shared_ptr<string> providerId_ {};
   };
 

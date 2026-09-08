@@ -153,15 +153,25 @@ namespace Models
 
 
     protected:
+      // The reason code for the agent\\"s break. This can be a system-defined or a custom code. System-defined codes include:
       shared_ptr<string> breakCode_ {};
+      // The ID of the registered device, such as a browser-based WebRTC softphone or a physical phone. An agent can register only one device at a time.
       shared_ptr<string> deviceId_ {};
+      // The agent\\"s extension.
       shared_ptr<string> extension_ {};
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The ID of the call. This parameter is returned only if the agent is on a call.
       shared_ptr<string> jobId_ {};
+      // Indicates whether the outbound-only mode is enabled for the agent.
       shared_ptr<bool> outboundScenario_ {};
+      // The IDs of the skill groups that the agent is signed in to.
       shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+      // The ID of the agent.
       shared_ptr<string> userId_ {};
+      // The current state of the agent.
       shared_ptr<string> userState_ {};
+      // The agent\\"s work mode.
       shared_ptr<string> workMode_ {};
     };
 
@@ -214,11 +224,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The response data.
     shared_ptr<ResetAgentStateResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // Reserved for future use.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

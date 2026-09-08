@@ -156,13 +156,16 @@ namespace Models
 
 
       protected:
+        // The city where the phone number is located.
         shared_ptr<string> city_ {};
+        // The phone number.
         shared_ptr<string> number_ {};
         shared_ptr<string> provider_ {};
         shared_ptr<string> providerCode_ {};
         shared_ptr<string> providerDisplayName_ {};
         shared_ptr<string> providerShortName_ {};
         shared_ptr<string> providerType_ {};
+        // The province where the phone number is located.
         shared_ptr<string> province_ {};
       };
 
@@ -199,9 +202,13 @@ namespace Models
 
 
     protected:
+      // A list of phone numbers.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number. Valid values: 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page. Valid values: 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -245,10 +252,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListOutboundNumbersOfUserResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

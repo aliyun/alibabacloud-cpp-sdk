@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Permission Name. Regular Customers do not need to understand specific permission names; this API is primarily invoked by the Workbench.
       shared_ptr<string> name_ {};
+      // Permission Scope.
       shared_ptr<string> scope_ {};
     };
 
@@ -130,10 +133,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<vector<ListPrivilegesOfUserResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

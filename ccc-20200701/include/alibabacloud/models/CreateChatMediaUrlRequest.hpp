@@ -57,12 +57,15 @@ namespace Models
 
 
   protected:
+    // Cloud Contact Center instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // media id
+    // Media ID.
     // 
     // This parameter is required.
     shared_ptr<string> mimeType_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

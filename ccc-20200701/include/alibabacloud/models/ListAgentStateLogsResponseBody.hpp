@@ -122,12 +122,19 @@ namespace Models
 
 
     protected:
+      // Break code.
       shared_ptr<string> breakCode_ {};
+      // Duration of the status, in seconds.
       shared_ptr<int64_t> duration_ {};
+      // Indicates whether the agent is in outbound-only mode.
       shared_ptr<bool> outboundScenario_ {};
+      // Start Time of the status, in UNIX timestamp format, in milliseconds.
       shared_ptr<int64_t> startTime_ {};
+      // Status code.
       shared_ptr<string> state_ {};
+      // Sub-status, which provides additional details for the status code. In certain scenarios, an agent\\"s status is jointly identified by State and StateCode. For example, in a monitoring scenario, the State is Talking and the StateCode is Monitoring.
       shared_ptr<string> stateCode_ {};
+      // Work mode.
       shared_ptr<string> workMode_ {};
     };
 
@@ -171,10 +178,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<vector<ListAgentStateLogsResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

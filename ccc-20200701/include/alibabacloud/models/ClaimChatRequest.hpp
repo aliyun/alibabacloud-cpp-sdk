@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the call.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Filter by skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> skillGroupId_ {};
   };

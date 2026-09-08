@@ -75,11 +75,22 @@ namespace Models
 
 
   protected:
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // Job ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Channel token for network services.
     shared_ptr<string> token_ {};
+    // User ID. Visitor ID or agent ID.
     shared_ptr<string> userId_ {};
+    // User type.
+    // 
+    // - CUSTOMER: visitor
+    // 
+    // - AGENT: agent
+    // 
     // This parameter is required.
     shared_ptr<string> userType_ {};
   };

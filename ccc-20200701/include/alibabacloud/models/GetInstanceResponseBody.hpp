@@ -196,12 +196,19 @@ namespace Models
 
 
         protected:
+          // The description of the skill group.
           shared_ptr<string> description_ {};
+          // The display name of the skill group.
           shared_ptr<string> displayName_ {};
+          // The instance ID.
           shared_ptr<string> instanceId_ {};
+          // The name of the skill group.
           shared_ptr<string> name_ {};
+          // The number of phone numbers associated with the skill group.
           shared_ptr<int32_t> phoneNumberCount_ {};
+          // The skill group ID.
           shared_ptr<string> skillGroupId_ {};
+          // The number of agents associated with the skill group.
           shared_ptr<int32_t> userCount_ {};
         };
 
@@ -274,14 +281,23 @@ namespace Models
 
 
       protected:
+        // Indicates whether the number is active.
         shared_ptr<bool> active_ {};
+        // The city where the number is registered.
         shared_ptr<string> city_ {};
+        // The ID of the contact flow (IVR) associated with the phone number.
         shared_ptr<string> contactFlowId_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The phone number.
         shared_ptr<string> number_ {};
+        // The province where the number is registered.
         shared_ptr<string> province_ {};
+        // The list of skill groups associated with the number.
         shared_ptr<vector<NumberList::SkillGroups>> skillGroups_ {};
+        // The purpose of the number.
         shared_ptr<string> usage_ {};
+        // The agent ID. If this parameter is not empty, the number is a personal outbound number for the agent.
         shared_ptr<string> userId_ {};
       };
 
@@ -438,15 +454,25 @@ namespace Models
 
 
       protected:
+        // The name of the administrator.
         shared_ptr<string> displayName_ {};
+        // The mailbox.
         shared_ptr<string> email_ {};
+        // The agent\\"s extension number.
         shared_ptr<string> extension_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The agent\\"s logon name.
         shared_ptr<string> loginName_ {};
+        // The agent\\"s personal phone number.
         shared_ptr<string> mobile_ {};
+        // The role ID. The format is: Role\\@Instance ID.
         shared_ptr<string> roleId_ {};
+        // The role name.
         shared_ptr<string> roleName_ {};
+        // The agent ID.
         shared_ptr<string> userId_ {};
+        // The work mode.
         shared_ptr<string> workMode_ {};
       };
 
@@ -537,16 +563,25 @@ namespace Models
 
 
     protected:
+      // The list of administrators.
       shared_ptr<vector<Data::AdminList>> adminList_ {};
       shared_ptr<string> agentType_ {};
+      // The ID of the Alibaba Cloud account to which the instance belongs.
       shared_ptr<string> aliyunUid_ {};
       shared_ptr<Data::ChatbotBusinessUnit> chatbotBusinessUnit_ {};
+      // The URL of the Cloud Contact Center instance homepage. This URL is formed by combining the base URL of Cloud Contact Center and the instance ID.
       shared_ptr<string> consoleUrl_ {};
+      // The description of the instance.
       shared_ptr<string> description_ {};
+      // The domain name of the instance. It is globally unique.
       shared_ptr<string> domainName_ {};
+      // The instance ID.
       shared_ptr<string> id_ {};
+      // The instance name.
       shared_ptr<string> name_ {};
+      // The list of numbers.
       shared_ptr<vector<Data::NumberList>> numberList_ {};
+      // The instance status.
       shared_ptr<string> status_ {};
     };
 
@@ -590,10 +625,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<GetInstanceResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The key of the OSS file.
       shared_ptr<string> caseFileKey_ {};
+      // A pre-signed OSS file upload URL for uploading the file. The validity period is one hour.
       shared_ptr<string> url_ {};
     };
 
@@ -119,10 +121,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetCaseFileUploadUrlResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

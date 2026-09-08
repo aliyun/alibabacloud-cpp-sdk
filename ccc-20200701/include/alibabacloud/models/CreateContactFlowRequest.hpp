@@ -75,14 +75,27 @@ namespace Models
 
 
   protected:
+    // IVR content.
+    // 
     // This parameter is required.
     shared_ptr<string> definition_ {};
+    // Version description.
+    // 
     // This parameter is required.
     shared_ptr<string> description_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Contact flow name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Flow type.<br>
+    // Main flow: MAIN_FLOW<br>
+    // Child flow: SUB_FLOW<br>
+    // Survey flow: SURVEY_FLOW<br><br><br>
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

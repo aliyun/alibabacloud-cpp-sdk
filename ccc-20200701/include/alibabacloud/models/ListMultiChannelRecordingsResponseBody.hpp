@@ -115,7 +115,9 @@ namespace Models
 
 
       protected:
+        // The end time of the call hold, in milliseconds.
         shared_ptr<int64_t> endTime_ {};
+        // Call hold start time, in milliseconds.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -202,16 +204,27 @@ namespace Models
 
 
     protected:
+      // Agent call channel ID.
       shared_ptr<string> agentChannelId_ {};
+      // Agent ID.
       shared_ptr<string> agentId_ {};
+      // Agent name.
       shared_ptr<string> agentName_ {};
+      // Call ID.
       shared_ptr<string> contactId_ {};
+      // Recording duration, in milliseconds.
       shared_ptr<string> duration_ {};
+      // Recording file name.
       shared_ptr<string> fileName_ {};
+      // OSS download URL for the recording file. Note the time-to-live (TTL) of the download URL. The download URL is valid for 1 day.
       shared_ptr<string> fileUrl_ {};
+      // List of call hold time segments.
       shared_ptr<vector<Data::HoldTimeSegments>> holdTimeSegments_ {};
+      // RAM account ID for the agent.
       shared_ptr<string> ramId_ {};
+      // Skill group ID.
       shared_ptr<string> skillGroupId_ {};
+      // Recording start time, in UNIX timestamp format, in milliseconds.
       shared_ptr<int64_t> startTime_ {};
     };
 
@@ -255,10 +268,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Recording list.
     shared_ptr<vector<ListMultiChannelRecordingsResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

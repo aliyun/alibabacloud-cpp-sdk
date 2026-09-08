@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
+    // The callee\\"s number.
+    // 
     // This parameter is required.
     shared_ptr<string> callee_ {};
+    // The caller\\"s number.
+    // 
     // This parameter is required.
     shared_ptr<string> caller_ {};
+    // The ID of the Cloud Contact Center (CCC) instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

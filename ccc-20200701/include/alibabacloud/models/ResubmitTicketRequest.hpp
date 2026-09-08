@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // The handling comment.
     shared_ptr<string> comment_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ticket ID.
+    // 
     // This parameter is required.
     shared_ptr<string> ticketId_ {};
   };

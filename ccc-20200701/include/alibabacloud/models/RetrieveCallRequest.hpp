@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // Channel ID of the call to retrieve.
+    // 
     // This parameter is required.
     shared_ptr<string> channelId_ {};
+    // Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Agent ID.
     shared_ptr<string> userId_ {};
   };
 

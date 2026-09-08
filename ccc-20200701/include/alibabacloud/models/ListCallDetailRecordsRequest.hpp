@@ -222,29 +222,53 @@ namespace Models
 
 
   protected:
+    // Filter by agent ID.
     shared_ptr<string> agentId_ {};
+    // Filter by called number.
     shared_ptr<string> calledNumber_ {};
+    // Filter by calling number.
     shared_ptr<string> callingNumber_ {};
+    // Filter by disposition type. Note: Disposition reasons such as voicemail, transfer to agent failed, queuing timeout, queuing overflow, and IVR abnormal are only displayed if the customer has configured a disposition reason node. If no such node is configured and there is no transfer-to-agent module in the IVR, the disposition reason defaults to "Abandoned in IVR".
     shared_ptr<string> contactDisposition_ {};
+    // Filter by hang-up reason list.
     shared_ptr<string> contactDispositionList_ {};
+    // Query the record of a specific call by specifying a contactId. The contactId can be obtained from the softphone software development kit (SDK) during a call. If this parameter is provided, all other query parameters are automatically ignored.
     shared_ptr<string> contactId_ {};
+    // Filter by call type.
     shared_ptr<string> contactType_ {};
+    // Filter by contact type list.
     shared_ptr<string> contactTypeList_ {};
+    // Perform a fuzzy query based on the calling or called number. The value must be a JSON string containing only one field, phoneNumber, which can be the full number or a partial segment of either the calling or called number.
     shared_ptr<string> criteria_ {};
+    // Filter by a list of reasons for failed connection.
     shared_ptr<string> earlyMediaStateList_ {};
+    // End time of the historical data to retrieve. The default value is the current time, in UNIX timestamp format with millisecond precision.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Sorting field. Optional. Default value is startTime (call start time).
     shared_ptr<string> orderByField_ {};
+    // Page number for paging, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Filter by satisfaction description list. The description content is Custom by the Customer.
     shared_ptr<string> satisfactionDescriptionList_ {};
+    // Filter by satisfaction List. Separate multiple satisfaction Results with commas.
     shared_ptr<string> satisfactionList_ {};
+    // Filter by satisfaction survey channel.
     shared_ptr<string> satisfactionSurveyChannel_ {};
+    // Filter by skill group ID.
     shared_ptr<string> skillGroupId_ {};
+    // Sorting order. This parameter is optional and defaults to descending.
     shared_ptr<string> sortOrder_ {};
+    // Start time of the historical data to retrieve. The default value is 00:00:00 of the current day, in UNIX timestamp format with millisecond precision.
     shared_ptr<int64_t> startTime_ {};
   };
 

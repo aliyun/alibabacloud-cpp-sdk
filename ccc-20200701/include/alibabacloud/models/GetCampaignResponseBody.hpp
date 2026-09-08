@@ -266,28 +266,50 @@ namespace Models
 
 
     protected:
+      // The actual end time of the predictive outbound campaign. This is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> actualEndTime_ {};
+      // The actual start time of the predictive outbound campaign. This is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> actualStartTime_ {};
+      // The ID of the predictive outbound campaign.
       shared_ptr<string> campaignId_ {};
+      // The number of aborted contacts.
       shared_ptr<int64_t> casesAborted_ {};
+      // The number of connected contacts.
       shared_ptr<int64_t> casesConnected_ {};
+      // The number of uncompleted contacts.
       shared_ptr<int64_t> casesUncompleted_ {};
       shared_ptr<string> casesUncompletedAfterAttempt_ {};
+      // The number of attempted but unconnected contacts that are still eligible for redial.
       shared_ptr<int64_t> casesUncompletedAfterAttempted_ {};
+      // The ratio of connected contacts to the total number of contacts.
       shared_ptr<float> completionRate_ {};
+      // The ID of the associated Contact Flow.
       shared_ptr<string> contactFlowId_ {};
+      // The maximum number of call attempts for each contact. If an attempt fails, the contact is redialed until this limit is reached.
       shared_ptr<int64_t> maxAttemptCount_ {};
+      // The minimum interval, in seconds, to wait before redialing a failed call.
       shared_ptr<int64_t> minAttemptInterval_ {};
+      // The name of the predictive outbound campaign.
       shared_ptr<string> name_ {};
+      // The planned end time of the predictive outbound campaign. This is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> planedEndTime_ {};
+      // The planned start time of the predictive outbound campaign. This is a Unix timestamp in milliseconds.
       shared_ptr<int64_t> planedStartTime_ {};
+      // The ID of the associated skill group.
       shared_ptr<string> queueId_ {};
+      // The name of the associated skill group.
       shared_ptr<string> queueName_ {};
+      // Indicates whether the campaign is a test simulation. This parameter is not intended for production use.
       shared_ptr<bool> simulation_ {};
+      // The parameters for a test simulation. This parameter is not intended for production use.
       shared_ptr<string> simulationParameters_ {};
+      // The state of the predictive outbound campaign.
       shared_ptr<string> state_ {};
+      // The strategy parameters for the predictive outbound campaign, in JSON format. For a `PID` strategy, the format is `{"abandonRate":"5","historicalConnectedRate":"35"}`. For a `PACING` strategy, the format is `{"ratio":1}`. `abandonRate` specifies the target abandon rate, `historicalConnectedRate` specifies the historical connection rate for reference, and `ratio` specifies the fixed dialing ratio.
       shared_ptr<string> strategyParameters_ {};
+      // The dialing strategy for the predictive outbound campaign.
       shared_ptr<string> strategyType_ {};
+      // The total number of contacts.
       shared_ptr<int64_t> totalCases_ {};
     };
 
@@ -324,9 +346,13 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<GetCampaignResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

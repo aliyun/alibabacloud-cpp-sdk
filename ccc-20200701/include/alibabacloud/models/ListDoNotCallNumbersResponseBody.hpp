@@ -139,11 +139,17 @@ namespace Models
 
 
       protected:
+        // Creation time of the Do Not Call number configuration, in Unix timestamp format with millisecond precision. (Deprecated)
         shared_ptr<int64_t> createTime_ {};
+        // Creation time of the prohibited outbound call number configuration, in Unix timestamp format, in milliseconds.
         shared_ptr<int64_t> createdTime_ {};
+        // Creator, which is the agent logon name of the agent who created this record.
         shared_ptr<string> creator_ {};
+        // Phone number.
         shared_ptr<string> number_ {};
+        // Remark.
         shared_ptr<string> remark_ {};
+        // Scope of application.
         shared_ptr<string> scope_ {};
       };
 
@@ -180,9 +186,13 @@ namespace Models
 
 
     protected:
+      // List of prohibited outbound call numbers.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -235,11 +245,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListDoNotCallNumbersResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

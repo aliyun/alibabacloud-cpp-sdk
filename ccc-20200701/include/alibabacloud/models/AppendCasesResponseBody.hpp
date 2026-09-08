@@ -130,10 +130,14 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
     shared_ptr<vector<AppendCasesResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

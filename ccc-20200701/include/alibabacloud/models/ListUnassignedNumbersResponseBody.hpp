@@ -110,8 +110,11 @@ namespace Models
 
 
       protected:
+        // City where the number is registered.
         shared_ptr<string> city_ {};
+        // Number.
         shared_ptr<string> number_ {};
+        // Province where the number is registered.
         shared_ptr<string> province_ {};
       };
 
@@ -148,9 +151,13 @@ namespace Models
 
 
     protected:
+      // List of numbers.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -194,10 +201,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListUnassignedNumbersResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

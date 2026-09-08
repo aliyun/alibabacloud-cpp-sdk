@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // Fuzzy search criteria in JSON object format. The object contains three properties that can be combined arbitrarily: phoneNumber (fuzzy search by calling or called number), callingNumber (fuzzy search by calling number), and calledNumber (fuzzy search by called number).
     shared_ptr<string> criteria_ {};
+    // End UNIX timestamp. The default value is the current time.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page ordinal number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Start UNIX timestamp. The default value is the start time of the current day. The earliest allowed time is 180 days before the current time.
     shared_ptr<int64_t> startTime_ {};
   };
 

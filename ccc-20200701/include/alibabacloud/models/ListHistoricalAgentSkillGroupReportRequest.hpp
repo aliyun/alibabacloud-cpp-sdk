@@ -103,16 +103,27 @@ namespace Models
 
 
   protected:
+    // List of agent IDs. The list size is 0 to 100.
     shared_ptr<string> agentIdList_ {};
+    // End time for historical data retrieval. Format is UNIX timestamp in milliseconds. Optional. Defaults to the current time. The statistical time granularity is hourly, rounded up to the nearest hour, in an open interval. For example, if the start time is 11:12:20 and the end time is 11:45:50, the aligned request parameter time range is [11:00:00, 12:00:00), meaning greater than or equal to 11:00 and less than 12:00.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Media type. Defaults to Audio. Other optional parameters include Chat and Video.
     shared_ptr<string> mediaType_ {};
+    // Page number. Valid values are 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size. Valid values are 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // List of skill group IDs. The list size is 0 to 100.
     shared_ptr<string> skillGroupIdList_ {};
+    // Start timestamp. Defaults to 00:00 on the current day. The statistical time granularity is hourly, rounded down to the nearest hour, in a closed interval.
     shared_ptr<int64_t> startTime_ {};
   };
 

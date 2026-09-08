@@ -75,13 +75,31 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Media type.
+    // 
+    // Enumeration values:
+    // 
+    // AUDIO: Voice.
+    // 
+    // VIDEO: Video.
+    // 
+    // CHAT: Message.
+    // 
+    // ALL: All.
     shared_ptr<string> mediaType_ {};
+    // Page number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // List of skill group IDs for which data is queried. If not specified, all skill groups under the current instance are queried. The format is a JSON array string, with each array element being a skill group ID.
     shared_ptr<string> skillGroupIdList_ {};
   };
 

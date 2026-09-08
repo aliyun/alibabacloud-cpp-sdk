@@ -165,8 +165,11 @@ namespace Models
 
 
         protected:
+          // The ID of the skill group.
           shared_ptr<string> skillGroupId_ {};
+          // The name of the skill group.
           shared_ptr<string> skillGroupName_ {};
+          // The skill level.
           shared_ptr<int32_t> skillLevel_ {};
         };
 
@@ -235,10 +238,15 @@ namespace Models
 
 
         protected:
+          // Whether the number is active.
           shared_ptr<bool> active_ {};
+          // City where the number is registered.
           shared_ptr<string> city_ {};
+          // Number.
           shared_ptr<string> number_ {};
+          // The province of the phone number\\"s registration location.
           shared_ptr<string> province_ {};
+          // Usage of the number.
           shared_ptr<string> usage_ {};
         };
 
@@ -378,23 +386,41 @@ namespace Models
 
 
       protected:
+        // SIP phone extension number. If the agent has registered a SIP phone, this parameter is the extension number of the SIP phone device.
         shared_ptr<string> deviceExt_ {};
+        // Device ID, which is the identity of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
         shared_ptr<string> deviceId_ {};
+        // The status of the SIP phone device. If no SIP phone is registered, the status is UNREGISTERED (Unregistered). If a SIP phone is registered but offline, the status is OFFLINE (Offline). If a SIP phone is registered and online, the status is ONLINE (Online).
         shared_ptr<string> deviceState_ {};
+        // The agent\\"s employee ID.
         shared_ptr<string> displayId_ {};
+        // Agent display name.
         shared_ptr<string> displayName_ {};
+        // Mailbox.
         shared_ptr<string> email_ {};
+        // The landline extension number.
         shared_ptr<string> extension_ {};
+        // Agent logon name.
         shared_ptr<string> loginName_ {};
+        // The agent\\"s personal phone number.
         shared_ptr<string> mobile_ {};
+        // List of personal outbound numbers for the agent.
         shared_ptr<vector<List::PersonalOutboundNumberList>> personalOutboundNumberList_ {};
+        // Indicates whether the RAM account mapped to the agent is a RAM root account.
         shared_ptr<bool> primary_ {};
+        // Indicates whether the RAM account mapped to the agent is a RAM primary account.
         shared_ptr<bool> primaryAccount_ {};
+        // The UID of the Resource Access Management (RAM) user associated with the agent.
         shared_ptr<int64_t> ramId_ {};
+        // The role ID, in the format: role\\@instance ID.
         shared_ptr<string> roleId_ {};
+        // The role name.
         shared_ptr<string> roleName_ {};
+        // The list of skill group levels associated with the agent.
         shared_ptr<vector<List::SkillLevelList>> skillLevelList_ {};
+        // Agent ID.
         shared_ptr<string> userId_ {};
+        // Work mode.
         shared_ptr<string> workMode_ {};
       };
 
@@ -431,9 +457,13 @@ namespace Models
 
 
     protected:
+      // Agent list.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -486,11 +516,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListUsersResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

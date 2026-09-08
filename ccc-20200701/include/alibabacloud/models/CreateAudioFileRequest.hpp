@@ -75,14 +75,23 @@ namespace Models
 
 
   protected:
+    // Audio file name, containing 1 to 32 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> audioFileName_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Display name of the audio, containing 1 to 32 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // Key of the OSS file, returned by the GetAudioFileUploadParameters API.
+    // 
     // This parameter is required.
     shared_ptr<string> ossFileKey_ {};
+    // Usage of the audio file. The default value is General (used in scenarios such as IVR). Other optional values include HoldMusic (hold music during a call).
     shared_ptr<string> usage_ {};
   };
 

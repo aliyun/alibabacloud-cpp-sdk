@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // Data
+    // 
     // This parameter is required.
     shared_ptr<string> flowPackageData_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

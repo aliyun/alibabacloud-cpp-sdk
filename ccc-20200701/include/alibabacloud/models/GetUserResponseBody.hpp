@@ -206,21 +206,37 @@ namespace Models
 
 
     protected:
+      // Agent profile picture URL.
       shared_ptr<string> avatarUrl_ {};
+      // SIP phone extension number. If the agent has registered a SIP phone, this parameter is the extension number of the SIP phone device.
       shared_ptr<string> deviceExt_ {};
+      // Device ID, which is the identity of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
       shared_ptr<string> deviceId_ {};
+      // The status of the SIP phone device. If no SIP phone is registered, the status is UNREGISTERED (Unregistered). If a SIP phone was previously registered but is currently offline, the status is OFFLINE (Offline). If a SIP phone is registered and currently online, the status is ONLINE (Online).
       shared_ptr<string> deviceState_ {};
+      // Agent\\"s employee ID.
       shared_ptr<string> displayId_ {};
+      // Agent display name.
       shared_ptr<string> displayName_ {};
+      // Mailbox.
       shared_ptr<string> email_ {};
+      // Agent extension number.
       shared_ptr<string> extension_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Agent logon name.
       shared_ptr<string> loginName_ {};
+      // Agent\\"s personal phone number.
       shared_ptr<string> mobile_ {};
+      // Agent nickname
       shared_ptr<string> nickname_ {};
+      // Role ID, in the format: role\\@instance ID.
       shared_ptr<string> roleId_ {};
+      // Role name.
       shared_ptr<string> roleName_ {};
+      // Agent ID.
       shared_ptr<string> userId_ {};
+      // Work mode.
       shared_ptr<string> workMode_ {};
     };
 
@@ -273,11 +289,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetUserResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Extension parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

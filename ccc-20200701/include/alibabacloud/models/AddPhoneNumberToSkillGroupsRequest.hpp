@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> number_ {};
+    // List of skill group IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> skillGroupIdList_ {};
   };

@@ -84,8 +84,11 @@ namespace Models
 
 
     protected:
+      // Number of tickets pending processing.
       shared_ptr<string> ticketsAssigned_ {};
+      // Number of tickets created.
       shared_ptr<string> ticketsCreated_ {};
+      // Number of tickets processed.
       shared_ptr<string> ticketsParticipated_ {};
     };
 
@@ -129,10 +132,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetTicketSummaryReportResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

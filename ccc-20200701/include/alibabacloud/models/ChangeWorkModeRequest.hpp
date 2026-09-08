@@ -84,12 +84,20 @@ namespace Models
 
 
   protected:
+    // Device ID, which is the identity ID of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The agent\\"s personal phone number, which is used in off-site mode. The agent can use this number to answer calls in off-site mode.
     shared_ptr<string> mobile_ {};
+    // List of skill groups to sign in to. When changing the work mode to off-site mode, you can use this parameter to specify the list of skill groups that the off-site agent needs to sign in to.
     shared_ptr<string> signedSkillGroupIdList_ {};
+    // Agent ID. If not specified, the agent mapped to the current Resource Access Management (RAM) user is used by default.
     shared_ptr<string> userId_ {};
+    // Work mode.
+    // 
     // This parameter is required.
     shared_ptr<string> workMode_ {};
   };

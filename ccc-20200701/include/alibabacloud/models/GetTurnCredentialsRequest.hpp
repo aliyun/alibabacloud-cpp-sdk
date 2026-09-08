@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the agent. This parameter is optional. If you do not specify this parameter, the agent mapped to the current RAM user is used by default.
     shared_ptr<string> userId_ {};
   };
 

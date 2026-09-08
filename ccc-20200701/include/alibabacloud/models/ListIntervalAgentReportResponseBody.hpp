@@ -201,8 +201,11 @@ namespace Models
 
 
         protected:
+          // Break code.
           shared_ptr<string> breakCode_ {};
+          // Quantity.
           shared_ptr<int64_t> count_ {};
+          // Duration in seconds.
           shared_ptr<int64_t> duration_ {};
         };
 
@@ -462,40 +465,75 @@ namespace Models
 
 
       protected:
+        // Average break duration, in seconds. Calculation Formula: TotalBreakTime / Count of breaks. The count of breaks is not an API statistics field.
         shared_ptr<float> averageBreakTime_ {};
+        // Average call hold duration, in seconds. Calculation Formula: TotalHoldTime / (Inbound CallsHold + Outbound CallsHold).
         shared_ptr<float> averageHoldTime_ {};
+        // Average ready time, in seconds. Calculation Formula: TotalReadyTime / Count of ready events. The count of ready events is a non-API statistical field.
         shared_ptr<float> averageReadyTime_ {};
+        // Average talk time, in seconds. Calculation Formula: TotalTalkTime / (CallsAnswered + CallsHandled).
         shared_ptr<float> averageTalkTime_ {};
+        // Average post-processing duration per call, in seconds. Calculation Formula: TotalWorkTime / TotalCalls.
         shared_ptr<float> averageWorkTime_ {};
+        // List of break details.
         shared_ptr<vector<Overall::BreakCodeDetailList>> breakCodeDetailList_ {};
+        // This field has a value only when the input parameter Interval is Daily, representing the first publish time of the day.
         shared_ptr<int64_t> firstCheckInTime_ {};
+        // This field has a value only when the input parameter Interval is Daily, representing the last unpublish time of the day.
         shared_ptr<int64_t> lastCheckOutTime_ {};
+        // This value is available only when the input parameter Interval is set to Daily, indicating the last unpublish time on that day.
         shared_ptr<int64_t> lastCheckoutTime_ {};
+        // Maximum break time, in seconds.
         shared_ptr<int64_t> maxBreakTime_ {};
+        // Maximum call hold time, in seconds.
         shared_ptr<int64_t> maxHoldTime_ {};
+        // Maximum ready time, in seconds.
         shared_ptr<int64_t> maxReadyTime_ {};
+        // Maximum talk time, in seconds.
         shared_ptr<int64_t> maxTalkTime_ {};
+        // Maximum post-processing duration in seconds.
         shared_ptr<int64_t> maxWorkTime_ {};
+        // Agent occupancy rate. Calculation Formula: (TotalWorkTime + TotalTalkTime) / TotalLoggedInTime.
         shared_ptr<float> occupancyRate_ {};
+        // Satisfaction index, which is the average value of the satisfaction keypress digits (single-digit numbers).
         shared_ptr<float> satisfactionIndex_ {};
+        // Satisfaction rate. Calculation Formula: Number of evaluations marked as satisfied / Count of satisfaction survey responses.
         shared_ptr<float> satisfactionRate_ {};
+        // Sending Count of satisfaction surveys.
         shared_ptr<int64_t> satisfactionSurveysOffered_ {};
+        // Response Count of satisfaction surveys.
         shared_ptr<int64_t> satisfactionSurveysResponded_ {};
+        // Total break time, in seconds.
         shared_ptr<int64_t> totalBreakTime_ {};
+        // Total call volume. Calculation Formula: CallsOffered + CallsDialed.
         shared_ptr<int64_t> totalCalls_ {};
+        // Total hold time in seconds.
         shared_ptr<int64_t> totalHoldTime_ {};
+        // Total logon duration, in seconds. Note: Exclude offline and break durations.
         shared_ptr<int64_t> totalLoggedInTime_ {};
+        // Total off-site logged-in duration, in seconds.
         shared_ptr<int64_t> totalOffSiteLoggedInTime_ {};
+        // Total off-site online duration, in seconds.
         shared_ptr<int64_t> totalOffSiteOnlineTime_ {};
+        // Total office phone logged-in time, in seconds.
         shared_ptr<int64_t> totalOfficePhoneLoggedInTime_ {};
+        // Total office phone online time, in seconds.
         shared_ptr<int64_t> totalOfficePhoneOnlineTime_ {};
+        // Total on-site logged-in duration, in seconds.
         shared_ptr<int64_t> totalOnSiteLoggedInTime_ {};
+        // Total on-site online duration, in seconds.
         shared_ptr<int64_t> totalOnSiteOnlineTime_ {};
+        // Total online time for outbound-only scenarios, in seconds.
         shared_ptr<int64_t> totalOutboundScenarioLoggedInTime_ {};
+        // Total idle time for outbound-only scenarios, in seconds.
         shared_ptr<int64_t> totalOutboundScenarioReadyTime_ {};
+        // Total outbound-only scenario duration, in seconds.
         shared_ptr<int64_t> totalOutboundScenarioTime_ {};
+        // Total ready time, in seconds.
         shared_ptr<int64_t> totalReadyTime_ {};
+        // Total talk duration, in seconds.
         shared_ptr<int64_t> totalTalkTime_ {};
+        // Total post-processing time in seconds.
         shared_ptr<int64_t> totalWorkTime_ {};
       };
 
@@ -776,33 +814,61 @@ namespace Models
 
 
       protected:
+        // Answer rate. Calculation Formula: CallsAnswered / CallsDialed. (Because answering events and acknowledgement events may fall into different Time Ranges, the Result may exceed 100% in certain cases.)
         shared_ptr<float> answerRate_ {};
+        // Average dial-up duration, in seconds. Calculation Formula: TotalDialingTime / CallsDialed.
         shared_ptr<float> averageDialingTime_ {};
+        // Average hold duration, in seconds. Calculation formula: TotalHoldTime / CallsHold.
         shared_ptr<float> averageHoldTime_ {};
+        // Average ring time in seconds. Calculation Formula: TotalRingTime / CallsRinged.
         shared_ptr<float> averageRingTime_ {};
+        // Average talk time, in seconds. Calculation Formula: TotalTalkTime / CallsAnswered.
         shared_ptr<float> averageTalkTime_ {};
+        // Average post-processing time in seconds. Calculation Formula: TotalWorkTime / CallsDialed.
         shared_ptr<float> averageWorkTime_ {};
+        // Answered call count.
         shared_ptr<int64_t> callsAnswered_ {};
+        // Number of attended transfer-in calls. If a single call is transferred to the agent multiple times, each transfer counts as one.
         shared_ptr<int64_t> callsAttendedTransferIn_ {};
+        // Number of transfer-out calls. If a single call is transferred out to other agents multiple times, each transfer-out counts as one.
         shared_ptr<int64_t> callsAttendedTransferOut_ {};
+        // Number of blind transfer-in calls. If a single call is transferred to the agent multiple times, each transfer counts as one.
         shared_ptr<int64_t> callsBlindTransferIn_ {};
+        // Number of blind transfer-out calls. If a single call is transferred to other agents multiple times, each transfer counts as one.
         shared_ptr<int64_t> callsBlindTransferOut_ {};
+        // Dial-up count.
         shared_ptr<int64_t> callsDialed_ {};
+        // Hold count, which is the number of times call hold occurred.
         shared_ptr<int64_t> callsHold_ {};
+        // Number of calls that rang for the agent.
         shared_ptr<int64_t> callsRinged_ {};
+        // Maximum dial-up duration, in seconds.
         shared_ptr<int64_t> maxDialingTime_ {};
+        // Maximum hold time during calls, in seconds.
         shared_ptr<int64_t> maxHoldTime_ {};
+        // Maximum ring time, in seconds.
         shared_ptr<int64_t> maxRingTime_ {};
+        // Maximum talk time, in seconds.
         shared_ptr<int64_t> maxTalkTime_ {};
+        // Maximum post-processing time in seconds.
         shared_ptr<int64_t> maxWorkTime_ {};
+        // Satisfaction index, which is the average value of the satisfaction key digits (single-digit numbers).
         shared_ptr<float> satisfactionIndex_ {};
+        // Satisfaction rate. Calculation Formula: Count of evaluations marked as satisfied / Count of satisfaction survey responses.
         shared_ptr<float> satisfactionRate_ {};
+        // Sending Count of satisfaction surveys.
         shared_ptr<int64_t> satisfactionSurveysOffered_ {};
+        // Count of satisfaction survey responses.
         shared_ptr<int64_t> satisfactionSurveysResponded_ {};
+        // Total dial-up duration, in seconds.
         shared_ptr<int64_t> totalDialingTime_ {};
+        // Total hold duration, in seconds.
         shared_ptr<int64_t> totalHoldTime_ {};
+        // Total ring time, in seconds.
         shared_ptr<int64_t> totalRingTime_ {};
+        // Total talk time, in seconds.
         shared_ptr<int64_t> totalTalkTime_ {};
+        // Total post-processing duration, in seconds.
         shared_ptr<int64_t> totalWorkTime_ {};
       };
 
@@ -880,11 +946,17 @@ namespace Models
 
 
       protected:
+        // Average talk time, in seconds.
         shared_ptr<float> averageTalkTime_ {};
+        // Number of answered calls.
         shared_ptr<int64_t> callsAnswered_ {};
+        // Number of dial-up calls.
         shared_ptr<int64_t> callsDialed_ {};
+        // Number of acknowledgements, which refers to the number of times the agent acknowledged a call.
         shared_ptr<int64_t> callsHandled_ {};
+        // Number of assigned calls, which refers to the count of calls assigned to this agent, including calls blindly transferred or consultatively transferred from other agents.
         shared_ptr<int64_t> callsOffered_ {};
+        // Number of calls participated in.
         shared_ptr<int64_t> callsTalked_ {};
       };
 
@@ -1007,7 +1079,9 @@ namespace Models
 
 
         protected:
+          // Channel Type.
           shared_ptr<string> accessChannelType_ {};
+          // Number of assigned sessions.
           shared_ptr<int64_t> callsOffered_ {};
         };
 
@@ -1246,37 +1320,69 @@ namespace Models
 
 
       protected:
+        // Statistics for each Channel.
         shared_ptr<vector<Inbound::AccessChannelTypeDetails>> accessChannelTypeDetails_ {};
+        // Average first response time for chat sessions, in seconds.
         shared_ptr<float> averageFirstResponseTime_ {};
+        // Average hold time during calls, in seconds. Calculation Formula: TotalHoldTime / CallsHold.
         shared_ptr<float> averageHoldTime_ {};
+        // Average response time for chat sessions.
         shared_ptr<float> averageResponseTime_ {};
+        // Average ring time, in seconds. Calculation Formula: TotalRingTime / CallsRinged.
         shared_ptr<float> averageRingTime_ {};
+        // Average talk time, in seconds. Calculation Formula: TotalTalkTime / CallsHandled.
         shared_ptr<float> averageTalkTime_ {};
+        // Average post-processing time, in seconds. Calculation Formula: TotalWorkTime / CallsHandled.
         shared_ptr<float> averageWorkTime_ {};
+        // Number of attended transfer-ins. If a single call is transferred to the agent multiple times, each transfer counts as one.
         shared_ptr<int64_t> callsAttendedTransferIn_ {};
+        // Number of transfer-out calls. If a single call is transferred to other agents multiple times, each transfer counts as one.
         shared_ptr<int64_t> callsAttendedTransferOut_ {};
+        // Number of blind transfer-in calls. If a single call is transferred in to this agent multiple times, each transfer counts as one.
         shared_ptr<int64_t> callsBlindTransferIn_ {};
+        // Number of blind transfer-out calls. If a single call is transferred out to other agents multiple times, each transfer counts as one.
         shared_ptr<int64_t> callsBlindTransferOut_ {};
+        // Acknowledgement count, which is the number of times agents answered calls.
         shared_ptr<int64_t> callsHandled_ {};
+        // Number of calls placed on hold, that is, the count of occurrences where a call was held.
         shared_ptr<int64_t> callsHold_ {};
+        // Assigned count, which refers to the number of calls assigned to this agent, including calls blindly transferred or consultatively transferred from other agents.
         shared_ptr<int64_t> callsOffered_ {};
+        // Number of calls that rang to the agent.
         shared_ptr<int64_t> callsRinged_ {};
+        // Acknowledgement rate. Calculation Formula: CallsHandled / CallsOffered (because acknowledgement events and assign events may fall into different time ranges, the result may exceed 100% in certain cases).
         shared_ptr<float> handleRate_ {};
+        // Maximum call hold duration, in seconds.
         shared_ptr<int64_t> maxHoldTime_ {};
+        // Maximum ring time, in seconds.
         shared_ptr<int64_t> maxRingTime_ {};
+        // Maximum talk time, in seconds.
         shared_ptr<int64_t> maxTalkTime_ {};
+        // Maximum post-processing duration, in seconds.
         shared_ptr<int64_t> maxWorkTime_ {};
+        // Satisfaction Index, which is the average of the satisfaction rating digits (single-digit numbers) entered by users.
         shared_ptr<float> satisfactionIndex_ {};
+        // Satisfaction rate. Calculation Formula: Number of evaluations marked as satisfied / Count of satisfaction survey responses.
         shared_ptr<float> satisfactionRate_ {};
+        // Sending Count of satisfaction surveys.
         shared_ptr<int64_t> satisfactionSurveysOffered_ {};
+        // Response Count of satisfaction surveys.
         shared_ptr<int64_t> satisfactionSurveysResponded_ {};
+        // Service level within 15 seconds.
         shared_ptr<float> serviceLevel15_ {};
+        // Total hold time during calls, in seconds.
         shared_ptr<int64_t> totalHoldTime_ {};
+        // Total number of messages sent in chat sessions.
         shared_ptr<int64_t> totalMessagesSent_ {};
+        // Total number of messages sent by the agent in chat sessions.
         shared_ptr<int64_t> totalMessagesSentByAgent_ {};
+        // Total number of messages sent by the Customer in chat sessions.
         shared_ptr<int64_t> totalMessagesSentByCustomer_ {};
+        // Total ring time, in seconds.
         shared_ptr<int64_t> totalRingTime_ {};
+        // Total talk time, in seconds.
         shared_ptr<int64_t> totalTalkTime_ {};
+        // Total post-processing time, in seconds.
         shared_ptr<int64_t> totalWorkTime_ {};
       };
 
@@ -1446,21 +1552,37 @@ namespace Models
 
 
       protected:
+        // Agent acknowledgement rate.
         shared_ptr<float> agentHandleRate_ {};
+        // Answer rate. Calculation Formula: CallsAnswered / CallsDialed. (Because answer events and acknowledgement events may fall into different time ranges, the result may exceed 100% in certain cases.)
         shared_ptr<float> answerRate_ {};
+        // Average customer-side ring duration in seconds.
         shared_ptr<float> averageCustomerRingTime_ {};
+        // Average ring time, in seconds.
         shared_ptr<float> averageRingTime_ {};
+        // Average talk time, in seconds.
         shared_ptr<float> averageTalkTime_ {};
+        // Number of calls answered by agents.
         shared_ptr<int64_t> callsAgentHandled_ {};
+        // Number of answered calls.
         shared_ptr<int64_t> callsAnswered_ {};
+        // Number of calls answered by customers.
         shared_ptr<int64_t> callsCustomerAnswered_ {};
+        // Number of dial-up calls.
         shared_ptr<int64_t> callsDialed_ {};
+        // Customer answer rate.
         shared_ptr<float> customerAnswerRate_ {};
+        // Maximum customer-side ring time, in seconds.
         shared_ptr<int64_t> maxCustomerRingTime_ {};
+        // Maximum ring duration in seconds.
         shared_ptr<int64_t> maxRingTime_ {};
+        // Maximum talk time, in seconds.
         shared_ptr<int64_t> maxTalkTime_ {};
+        // Total customer-side ring time, in seconds.
         shared_ptr<int64_t> totalCustomerRingTime_ {};
+        // Total ring time, in seconds.
         shared_ptr<int64_t> totalRingTime_ {};
+        // Total talk time, in seconds.
         shared_ptr<int64_t> totalTalkTime_ {};
       };
 
@@ -1519,11 +1641,17 @@ namespace Models
 
 
     protected:
+      // Back-to-back call metric.
       shared_ptr<Data::Back2Back> back2Back_ {};
+      // Inbound metrics.
       shared_ptr<Data::Inbound> inbound_ {};
+      // Internal call metrics.
       shared_ptr<Data::Internal> internal_ {};
+      // Outbound metrics.
       shared_ptr<Data::Outbound> outbound_ {};
+      // Overall metrics.
       shared_ptr<Data::Overall> overall_ {};
+      // Start time of the time segment, formatted as a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> statsTime_ {};
     };
 
@@ -1567,10 +1695,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // List of agent segment statistics.
     shared_ptr<vector<ListIntervalAgentReportResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

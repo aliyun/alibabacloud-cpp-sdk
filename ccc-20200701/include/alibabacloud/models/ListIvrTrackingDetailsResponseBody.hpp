@@ -233,21 +233,37 @@ namespace Models
 
 
       protected:
+        // Callee number.
         shared_ptr<string> callee_ {};
+        // The calling number.
         shared_ptr<string> caller_ {};
+        // Voice channel ID.
         shared_ptr<string> channelId_ {};
+        // Channel-associated data.
         shared_ptr<string> channelVariables_ {};
+        // Call ID.
         shared_ptr<string> contactId_ {};
+        // The time when the call entered this IVR edge zone, in Unix timestamp format, in milliseconds.
         shared_ptr<int64_t> enterTime_ {};
+        // Contact flow ID.
         shared_ptr<string> flowId_ {};
+        // The name of the contact flow.
         shared_ptr<string> flowName_ {};
+        // Instance ID.
         shared_ptr<string> instance_ {};
+        // Time when leaving this IVR node.
         shared_ptr<int64_t> leaveTime_ {};
+        // Status code of the edge zone.
         shared_ptr<string> nodeExitCode_ {};
+        // Node ID.
         shared_ptr<string> nodeId_ {};
+        // Edge zone name.
         shared_ptr<string> nodeName_ {};
+        // A collection of properties of the edge zone.
         Darabonba::Json nodeProperties_ {};
+        // File Type.
         shared_ptr<string> nodeType_ {};
+        // Node variables.
         Darabonba::Json nodeVariables_ {};
       };
 
@@ -284,9 +300,13 @@ namespace Models
 
 
     protected:
+      // List of IVR tracking details.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -330,10 +350,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListIvrTrackingDetailsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,13 +75,22 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of RAM user IDs to add.
+    // 
     // This parameter is required.
     shared_ptr<string> ramIdList_ {};
+    // Role ID. This is the agent\\"s role in the instance after successful import. Roles include administrator, skill group leader, and agent.
+    // 
     // This parameter is required.
     shared_ptr<string> roleId_ {};
+    // Skill level list for the skill group. This is a JSON array string. Each array element is an object with two fields: skillGroupId and skillLevel. skillGroupId is the ID of the skill group the agent wants to associate with. skillLevel is the agent\\"s skill level in that skill group. The range is 1-10. A smaller value indicates stronger business capability and the ability to handle more calls per unit of time.
     shared_ptr<string> skillLevelList_ {};
+    // Work mode.
+    // 
     // This parameter is required.
     shared_ptr<string> workMode_ {};
   };

@@ -57,10 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // schema id
+    // The ID of the schema.
     // 
     // This parameter is required.
     shared_ptr<string> schemaId_ {};

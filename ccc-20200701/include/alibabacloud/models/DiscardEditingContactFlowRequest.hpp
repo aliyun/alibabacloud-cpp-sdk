@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Contact flow ID.
+    // 
     // This parameter is required.
     shared_ptr<string> contactFlowId_ {};
+    // Draft ID.
+    // 
     // This parameter is required.
     shared_ptr<string> draftId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

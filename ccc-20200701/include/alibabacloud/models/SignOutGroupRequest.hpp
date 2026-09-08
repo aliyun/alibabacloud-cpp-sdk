@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Agent ID. If not specified, the agent mapped to the current Resource Access Management (RAM) user is used by default.
     shared_ptr<string> userId_ {};
   };
 

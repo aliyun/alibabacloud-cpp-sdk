@@ -121,9 +121,17 @@ namespace Models
 
 
       protected:
+        // Indicates whether flash SMS is enabled for the skill group.
+        // 
+        // - **true**: enabled.
+        // 
+        // - **false**: disabled.
         shared_ptr<bool> enabled_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The skill group ID.
         shared_ptr<string> skillGroupId_ {};
+        // The name of the skill group.
         shared_ptr<string> skillGroupName_ {};
       };
 
@@ -160,9 +168,13 @@ namespace Models
 
 
     protected:
+      // A list of configurations.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -215,11 +227,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListFlashSmsSettingsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A list of incorrect parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

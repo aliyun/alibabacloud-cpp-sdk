@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // The name of the call tag that failed to be created.
       shared_ptr<string> item_ {};
+      // The reason why the call tag creation failed.
       shared_ptr<string> reason_ {};
     };
 
@@ -120,10 +122,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The list of call tags that failed to be created.
     shared_ptr<vector<CreateCallTagsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

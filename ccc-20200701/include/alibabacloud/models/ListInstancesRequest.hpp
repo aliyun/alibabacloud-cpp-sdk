@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The paging ordinal number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The paging size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

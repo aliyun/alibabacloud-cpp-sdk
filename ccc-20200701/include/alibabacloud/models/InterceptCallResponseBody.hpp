@@ -202,18 +202,31 @@ namespace Models
 
 
       protected:
+        // Break status code, which can be either System-defined or Custom-defined. System-defined break codes include: Warm-up (temporary break state after an agent is published and before becoming idle), RingingTimeout (break caused by agent ringing timeout), and RejectCall (break caused by agent call rejection). There are no restrictions on Custom-defined status codes, and customers can define them according to their business needs.
         shared_ptr<string> breakCode_ {};
+        // Device ID, which is the identity ID of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
         shared_ptr<string> deviceId_ {};
+        // Agent extension number.
         shared_ptr<string> extension_ {};
+        // The time when the last heartbeat was received from the agent, formatted as a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> heartbeat_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Call ID.
         shared_ptr<string> jobId_ {};
+        // The agent\\"s personal phone number.
         shared_ptr<string> mobile_ {};
+        // Indicates whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // The time when the agent was most recently reserved. Being reserved means an incoming call will be assigned to the agent shortly. The format is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> reserved_ {};
+        // List of skill group IDs that the agent has signed into.
         shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+        // Agent ID.
         shared_ptr<string> userId_ {};
+        // Agent status.
         shared_ptr<string> userState_ {};
+        // Work mode.
         shared_ptr<string> workMode_ {};
       };
 
@@ -390,19 +403,33 @@ namespace Models
 
 
         protected:
+          // The call type of the channel.
           shared_ptr<string> callType_ {};
+          // 话务通道标志。
           shared_ptr<string> channelFlags_ {};
+          // 话务通道 ID。
           shared_ptr<string> channelId_ {};
+          // [responses_200_schema_properties_Data_properties_CallContext_properties_ChannelContexts_items_properties_CallType_enumValueTitles_COACH]Coaching
           shared_ptr<string> channelState_ {};
+          // [responses_200_schema_properties_Data_properties_CallContext_properties_ChannelContexts_items_properties_CallType_enumValueTitles_BARGE]Barge-in
           shared_ptr<string> destination_ {};
+          // An auto-incremented ID assigned by the system. Customers do not need to concern themselves with this value.
           shared_ptr<int32_t> index_ {};
+          // 通话 ID。
           shared_ptr<string> jobId_ {};
+          // 话务通道的主叫方。
           shared_ptr<string> originator_ {};
+          // [responses_200_schema_properties_Data_properties_CallContext_properties_ChannelContexts_items_properties_CallType_type]string
           shared_ptr<string> releaseInitiator_ {};
+          // 话务通道的挂断原因，表示当前话务通道为什么会被挂断，取值来自 SIP 协议中定义的响应码，请客户参考 SIP 协议分析挂断原因。
           shared_ptr<string> releaseReason_ {};
+          // 话务通道关联的技能组 ID，呼入场景下，关联的技能组 ID 由 IVR 中转人工模块配置的技能组决定，呼出场景下，关联的技能组 ID 为座席签入的第一个技能组的 ID。
           shared_ptr<string> skillGroupId_ {};
+          // 话务通道最近一次状态变化的时间戳，格式是 Unix 时间戳，单位毫秒。
           shared_ptr<int64_t> timestamp_ {};
+          // 话务通道关联的坐席的分机号。
           shared_ptr<string> userExtension_ {};
+          // 话务通道关联的坐席 ID，如果是客户的话务通道，该字段为空。
           shared_ptr<string> userId_ {};
         };
 
@@ -439,9 +466,13 @@ namespace Models
 
 
       protected:
+        // The call type of the channel.
         shared_ptr<string> callType_ {};
+        // The list of channels.
         shared_ptr<vector<CallContext::ChannelContexts>> channelContexts_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // The call ID.
         shared_ptr<string> jobId_ {};
       };
 
@@ -466,7 +497,9 @@ namespace Models
 
 
     protected:
+      // Call context environment.
       shared_ptr<Data::CallContext> callContext_ {};
+      // Agent context environment.
       shared_ptr<Data::UserContext> userContext_ {};
     };
 
@@ -519,11 +552,17 @@ namespace Models
 
 
   protected:
+    // 响应码。
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<InterceptCallResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

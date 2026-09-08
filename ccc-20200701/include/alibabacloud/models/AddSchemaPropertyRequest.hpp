@@ -211,24 +211,43 @@ namespace Models
 
 
     protected:
+      // Is array
       shared_ptr<bool> array_ {};
+      // Extension attributes
       shared_ptr<string> attributes_ {};
+      // Data type
+      // 
       // This parameter is required.
       shared_ptr<string> dataType_ {};
+      // Description.
       shared_ptr<string> description_ {};
+      // Is disabled
       shared_ptr<bool> disabled_ {};
+      // Name
       shared_ptr<string> displayName_ {};
+      // List display order
       shared_ptr<int32_t> displayOrder_ {};
+      // Editor type
       shared_ptr<string> editorType_ {};
+      // Maximum length
       shared_ptr<int32_t> maxLength_ {};
+      // Maximum numeric value
       shared_ptr<double> maximum_ {};
+      // Minimum length
       shared_ptr<int32_t> minLength_ {};
+      // Minimum numeric value
       shared_ptr<double> minimum_ {};
+      // Name
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // Regular expression validation rule
       shared_ptr<string> pattern_ {};
+      // Regular expression validation error message
       shared_ptr<string> patternErrorMessage_ {};
+      // Is read-only
       shared_ptr<bool> readOnly_ {};
+      // Is required
       shared_ptr<bool> required_ {};
     };
 
@@ -265,9 +284,13 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Field
     shared_ptr<AddSchemaPropertyRequest::Property> property_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
     // schema id
     // 

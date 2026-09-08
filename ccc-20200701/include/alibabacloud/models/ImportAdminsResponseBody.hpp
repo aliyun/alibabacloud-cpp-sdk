@@ -103,10 +103,15 @@ namespace Models
 
 
     protected:
+      // The agent extension.
       shared_ptr<string> extension_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The UID of the Alibaba Cloud RAM account.
       shared_ptr<string> ramId_ {};
+      // The role ID.
       shared_ptr<string> roleId_ {};
+      // The agent ID.
       shared_ptr<string> userId_ {};
     };
 
@@ -150,10 +155,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // A list of imported admins.
     shared_ptr<vector<ImportAdminsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

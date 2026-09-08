@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to force the removal. If a number is associated with a skill group, contact flow, or agent, you must set this parameter to `true` to remove it. The default value is `false`.
     shared_ptr<bool> force_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The list of numbers to remove.
+    // 
     // This parameter is required.
     shared_ptr<string> numberList_ {};
   };

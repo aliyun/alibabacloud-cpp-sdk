@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> contactId_ {};
+    // Expiration time, in seconds.
     shared_ptr<int64_t> expireSeconds_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

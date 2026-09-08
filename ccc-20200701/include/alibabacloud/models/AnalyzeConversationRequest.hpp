@@ -66,10 +66,25 @@ namespace Models
 
 
   protected:
+    // Call ID.
     shared_ptr<string> contactId_ {};
+    // When the TaskListJson parameter is set to "fields", this parameter specifies the field content to fetch.
     shared_ptr<string> fieldListJson_ {};
+    // Cloud Contact Center instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of Task Types for analysis. Valid values include:
+    // 
+    // - title: title
+    // 
+    // - summary: summary
+    // 
+    // - keywords: keywords
+    // 
+    // - fields: fields
+    // 
+    // Currently, only "summary" and "title" can be passed together. All other parameters must be passed individually.
     shared_ptr<string> taskListJson_ {};
   };
 

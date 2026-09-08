@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Call ID. Ensure that this call ID has a voicemail message; otherwise, the return result will contain no data.
+    // 
     // This parameter is required.
     shared_ptr<string> contactId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

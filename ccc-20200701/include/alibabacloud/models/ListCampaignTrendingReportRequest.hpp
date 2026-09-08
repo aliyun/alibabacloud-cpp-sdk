@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The ID of the predictive outbound calling Activity.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // The end time. This parameter is optional. The default value is the end time of the predictive outbound dialing activity.
     shared_ptr<int64_t> endTime_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Start Time. This parameter is optional. The default value is the Start Time of the predictive outbound calling Activity.
     shared_ptr<int64_t> startTime_ {};
   };
 

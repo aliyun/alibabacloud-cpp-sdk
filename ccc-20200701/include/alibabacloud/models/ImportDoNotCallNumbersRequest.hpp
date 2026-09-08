@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The key of the OSS file. You can obtain the key from the response of the GetDoNotCallFileUploadParameters API. This parameter is required only for file uploads.
     shared_ptr<string> filePath_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A JSON string that represents an array of do-not-call numbers.
     shared_ptr<string> numberList_ {};
+    // The remark for the do-not-call numbers.
     shared_ptr<string> remark_ {};
   };
 

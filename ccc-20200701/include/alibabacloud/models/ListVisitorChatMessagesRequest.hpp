@@ -112,14 +112,29 @@ namespace Models
 
 
   protected:
+    // Web business channel ID.
     shared_ptr<string> accessChannelId_ {};
+    // Web business channel token.
     shared_ptr<string> accessToken_ {};
+    // End time, in UNIX timestamp format. Unit: milliseconds.
     shared_ptr<string> endTime_ {};
+    // Cloud Contact Center instance.
     shared_ptr<string> instanceId_ {};
+    // Token for the next page. Do not include this parameter in your first request. The service returns it in the response. Include it in subsequent requests.
     shared_ptr<string> nextPageToken_ {};
+    // Number of records per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Sorting order. Default is descending.
+    // 
+    // Valid values:
+    // 
+    // ASC: ascending.
+    // 
+    // DESC: descending.
     shared_ptr<string> sortOrder_ {};
+    // Start time, in UNIX timestamp format. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
+    // Visitor ID.
     shared_ptr<string> visitorId_ {};
   };
 

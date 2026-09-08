@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Agent ID.
     shared_ptr<string> agentId_ {};
+    // The ID of the conversation.
+    // 
     // This parameter is required.
     shared_ptr<string> contactId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

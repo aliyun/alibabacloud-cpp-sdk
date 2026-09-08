@@ -112,11 +112,17 @@ namespace Models
 
 
     protected:
+      // The call ID.
       shared_ptr<string> contactId_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The task ID.
       shared_ptr<string> taskId_ {};
+      // The task name.
       shared_ptr<string> taskName_ {};
+      // The user\\"s rating for the task.
       shared_ptr<int32_t> userRating_ {};
+      // The data from user feedback.
       shared_ptr<string> userResponse_ {};
     };
 
@@ -160,10 +166,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned dataset.
     shared_ptr<vector<ListFeedbacksResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

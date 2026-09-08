@@ -84,15 +84,30 @@ namespace Models
 
 
   protected:
+    // The assignee for the signature.
+    // 
     // This parameter is required.
     shared_ptr<string> assignee_ {};
+    // Comments.
+    // 
     // This parameter is required.
     shared_ptr<string> comment_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The position to add the signature.
+    // 
+    // - Before: Before the current handler.
+    // 
+    // - After: After the current handler.
     shared_ptr<string> position_ {};
+    // The ticket flow node ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
+    // The ticket ID.
+    // 
     // This parameter is required.
     shared_ptr<string> ticketId_ {};
   };

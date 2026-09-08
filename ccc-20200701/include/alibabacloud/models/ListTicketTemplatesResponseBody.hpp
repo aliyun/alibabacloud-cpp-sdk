@@ -316,26 +316,47 @@ namespace Models
 
 
         protected:
+          // Indicates whether the field is an array.
           shared_ptr<bool> array_ {};
+          // The extended properties.
           shared_ptr<string> attribute_ {};
+          // The time when the field was created.
           shared_ptr<int64_t> createdTime_ {};
+          // The creator.
           shared_ptr<string> creator_ {};
+          // The data type.
           shared_ptr<string> dataType_ {};
+          // The description.
           shared_ptr<string> description_ {};
+          // Indicates whether the field is disabled.
           shared_ptr<bool> disabled_ {};
+          // The display name.
           shared_ptr<string> displayName_ {};
+          // The display order in the list.
           shared_ptr<int32_t> displayOrder_ {};
+          // The type of the editor.
           shared_ptr<string> editorType_ {};
+          // The maximum length.
           shared_ptr<int32_t> maxLength_ {};
+          // The maximum value for a number.
           shared_ptr<double> maximum_ {};
+          // The minimum length.
           shared_ptr<int32_t> minLength_ {};
+          // The minimum value for a number.
           shared_ptr<double> minimum_ {};
+          // The name.
           shared_ptr<string> name_ {};
+          // The regular expression that is used for validation.
           shared_ptr<string> pattern_ {};
+          // The error message that is returned when the regular expression validation fails.
           shared_ptr<string> patternErrorMessage_ {};
+          // Indicates whether the field is read-only.
           shared_ptr<bool> readOnly_ {};
+          // Indicates whether the field is required.
           shared_ptr<bool> required_ {};
+          // Indicates whether the field is a system field.
           shared_ptr<bool> system_ {};
+          // The time when the field was last updated.
           shared_ptr<int64_t> updatedTime_ {};
         };
 
@@ -422,16 +443,27 @@ namespace Models
 
 
       protected:
+        // The current working version.
         shared_ptr<string> appliedVersion_ {};
+        // The category ID.
         shared_ptr<string> categoryId_ {};
+        // The user who last edited the template.
         shared_ptr<string> editor_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The draft version.
         shared_ptr<string> latestVersion_ {};
+        // The name of the template.
         shared_ptr<string> name_ {};
+        // The process information. This parameter is deprecated.
         shared_ptr<string> processDefinition_ {};
+        // The status.
         shared_ptr<string> state_ {};
+        // The template ID.
         shared_ptr<string> templateId_ {};
+        // The list of fields in the template.
         shared_ptr<vector<List::TicketFields>> ticketFields_ {};
+        // The time when the template was last updated.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -468,9 +500,13 @@ namespace Models
 
 
     protected:
+      // The list of templates.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -523,11 +559,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListTicketTemplatesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The list of invalid parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

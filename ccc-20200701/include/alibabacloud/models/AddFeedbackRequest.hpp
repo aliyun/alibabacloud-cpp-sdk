@@ -75,11 +75,27 @@ namespace Models
 
 
   protected:
+    // The feedback provided by returning users.
     shared_ptr<string> feedback_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Rating:
+    // 
+    // - thumbsDown: Thumbs down.
+    // 
+    // - thumbsUp: Thumbs up.
     shared_ptr<int32_t> rating_ {};
+    // AI task ID.
     shared_ptr<string> taskId_ {};
+    // Task type.
+    // 
+    // - Abstract:fields (Field extraction)
+    // 
+    // - Abstract:keywords (Hot keywords)
+    // 
+    // - Abstract:title_summary (Summary)
     shared_ptr<string> taskName_ {};
   };
 

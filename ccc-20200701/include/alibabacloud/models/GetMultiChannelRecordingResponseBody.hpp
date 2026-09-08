@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // Recording file name.
       shared_ptr<string> fileName_ {};
+      // The OSS download URL of the recording file. Note that the download URL expires after a validity period of 1 day.
       shared_ptr<string> fileUrl_ {};
     };
 
@@ -119,10 +121,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetMultiChannelRecordingResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

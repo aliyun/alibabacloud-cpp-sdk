@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The ObjectKey of the OSS object containing the file with the list of users to delete.
     shared_ptr<string> filePath_ {};
+    // Specifies whether to force delete.
     shared_ptr<bool> force_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Notification email address.
     shared_ptr<string> notificationEmail_ {};
+    // A JSON-formatted string representing an array of agent IDs. Each array element is an agent ID.
     shared_ptr<string> userIdList_ {};
   };
 

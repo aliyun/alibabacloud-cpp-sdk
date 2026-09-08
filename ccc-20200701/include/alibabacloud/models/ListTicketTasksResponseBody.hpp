@@ -192,19 +192,33 @@ namespace Models
 
 
     protected:
+      // The action performed on the node.
       shared_ptr<string> action_ {};
+      // The ID of the assignee.
       shared_ptr<string> assignee_ {};
+      // The name of the assignee.
       shared_ptr<string> assigneeName_ {};
+      // The comment.
       shared_ptr<string> comment_ {};
+      // The end time.
       shared_ptr<int64_t> endTime_ {};
+      // A list of files.
       shared_ptr<vector<string>> fileKeys_ {};
+      // A list of file access URLs.
       shared_ptr<vector<string>> fileUrls_ {};
+      // The ID of the instance.
       shared_ptr<string> instanceId_ {};
+      // The start time.
       shared_ptr<int64_t> startTime_ {};
+      // The ID of the ticket node in the process definition.
       shared_ptr<string> taskDefinitionNodeId_ {};
+      // The type of the ticket node in the process definition.
       shared_ptr<string> taskDefinitionNodeType_ {};
+      // The ID of the node.
       shared_ptr<string> taskId_ {};
+      // The name of the node.
       shared_ptr<string> taskName_ {};
+      // The ID of the ticket.
       shared_ptr<string> ticketId_ {};
     };
 
@@ -257,11 +271,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<vector<ListTicketTasksResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A list of error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -278,22 +278,39 @@ namespace Models
 
 
         protected:
+          // Average ready time. Calculation Formula: TotalReadyTime divided by the Count of ready events. The Count of ready events is a non-API statistical field, in seconds.
           shared_ptr<int64_t> averageReadyTime_ {};
+          // Average talk time. Calculation Formula: TotalTalkTime / (CallsAnswered + CallsHandled), in seconds.
           shared_ptr<int64_t> averageTalkTime_ {};
+          // Average post-processing time. Calculation Formula: TotalWorkTime divided by TotalCalls, in seconds.
           shared_ptr<int64_t> averageWorkTime_ {};
+          // Maximum ready time, in seconds.
           shared_ptr<int64_t> maxReadyTime_ {};
+          // Maximum talk time, in seconds.
           shared_ptr<int64_t> maxTalkTime_ {};
+          // Maximum post-processing time after a call, in seconds.
           shared_ptr<int64_t> maxWorkTime_ {};
+          // Agent occupancy rate. Calculation Formula: (TotalWorkTime + TotalTalkTime) / TotalLoggedInTime.
           shared_ptr<float> occupancyRate_ {};
+          // Quantity of directly transferred calls.
           shared_ptr<int64_t> oneTransferCalls_ {};
+          // Satisfaction index, which is the average of the satisfaction rating digits (single-digit numbers).
           shared_ptr<float> satisfactionIndex_ {};
+          // Sending Count of satisfaction surveys.
           shared_ptr<int64_t> satisfactionSurveysOffered_ {};
+          // Count of satisfaction survey responses.
           shared_ptr<int64_t> satisfactionSurveysResponded_ {};
+          // Total break time, in seconds.
           shared_ptr<int64_t> totalBreakTime_ {};
+          // Total call volume. Calculation Formula: CallsOffered + CallsDialed.
           shared_ptr<int64_t> totalCalls_ {};
+          // Total logon time, excluding break time, in seconds.
           shared_ptr<int64_t> totalLoggedInTime_ {};
+          // Total ready time, in seconds.
           shared_ptr<int64_t> totalReadyTime_ {};
+          // Total talk time, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
+          // Total post-processing time, in seconds.
           shared_ptr<int64_t> totalWorkTime_ {};
         };
 
@@ -454,20 +471,35 @@ namespace Models
 
 
         protected:
+          // Answer rate. Calculation Formula: CallsAnswered / CallsDialed. (Because management events for answering and acknowledgement may fall into different Time Ranges, the Result may exceed 100% in some cases.)
           shared_ptr<float> answerRate_ {};
+          // Average dial-up time, in seconds.
           shared_ptr<int64_t> averageDialingTime_ {};
+          // Average talk time, in seconds.
           shared_ptr<int64_t> averageTalkTime_ {};
+          // Average post-processing duration, in seconds.
           shared_ptr<int64_t> averageWorkTime_ {};
+          // Number of answered calls.
           shared_ptr<int64_t> callsAnswered_ {};
+          // Number of dial-up calls.
           shared_ptr<int64_t> callsDialed_ {};
+          // Maximum dial-up duration, in seconds.
           shared_ptr<int64_t> maxDialingTime_ {};
+          // Maximum talk time, in seconds.
           shared_ptr<int64_t> maxTalkTime_ {};
+          // Maximum post-processing duration, in seconds.
           shared_ptr<string> maxWorkTime_ {};
+          // Satisfaction index, which is the average value of the satisfaction rating digits (single-digit numbers).
           shared_ptr<float> satisfactionIndex_ {};
+          // Sending Count of satisfaction surveys.
           shared_ptr<int64_t> satisfactionSurveysOffered_ {};
+          // Response Count of satisfaction surveys.
           shared_ptr<int64_t> satisfactionSurveysResponded_ {};
+          // Total dial-up time, in seconds.
           shared_ptr<int64_t> totalDialingTime_ {};
+          // Total talk time, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
+          // Total post-processing time, in seconds.
           shared_ptr<int64_t> totalWorkTime_ {};
         };
 
@@ -637,21 +669,37 @@ namespace Models
 
 
         protected:
+          // Average ring time, in seconds. Calculation Formula: TotalRingTime / CallsRinged.
           shared_ptr<int64_t> averageRingTime_ {};
+          // Average talk time, in seconds.
           shared_ptr<int64_t> averageTalkTime_ {};
+          // Average post-processing time, in seconds.
           shared_ptr<int64_t> averageWorkTime_ {};
+          // Acknowledgement Count, which is the number of times the agent answered calls.
           shared_ptr<int64_t> callsHandled_ {};
+          // Assign Count, which is the number of calls assigned to this agent, including calls blindly transferred or consultation-transferred from other agents.
           shared_ptr<int64_t> callsOffered_ {};
+          // Acknowledgement rate. Calculation Formula: CallsHandled / CallsOffered (because acknowledgement events and assign events may fall into different Time Ranges, the Result may exceed 100% in certain cases).
           shared_ptr<float> handleRate_ {};
+          // Maximum ring time, in seconds.
           shared_ptr<int64_t> maxRingTime_ {};
+          // Maximum talk time, in seconds.
           shared_ptr<int64_t> maxTalkTime_ {};
+          // Maximum post-processing time, in seconds.
           shared_ptr<int64_t> maxWorkTime_ {};
+          // Satisfaction Index, which is the average value of the single-digit satisfaction rating entered by customers.
           shared_ptr<float> satisfactionIndex_ {};
+          // Sending Count of satisfaction surveys.
           shared_ptr<int64_t> satisfactionSurveysOffered_ {};
+          // Response Count of satisfaction surveys.
           shared_ptr<int64_t> satisfactionSurveysResponded_ {};
+          // Answer rate within 20 seconds, in percent (%).
           shared_ptr<float> serviceLevel20_ {};
+          // Total ring time, in seconds.
           shared_ptr<int64_t> totalRingTime_ {};
+          // Total talk time, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
+          // Total post-processing time, in seconds.
           shared_ptr<int64_t> totalWorkTime_ {};
         };
 
@@ -735,15 +783,25 @@ namespace Models
 
 
       protected:
+        // Agent ID.
         shared_ptr<string> agentId_ {};
+        // Agent name.
         shared_ptr<string> agentName_ {};
+        // Inbound metrics.
         shared_ptr<List::Inbound> inbound_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Agent logon name.
         shared_ptr<string> loginName_ {};
+        // Outbound metrics.
         shared_ptr<List::Outbound> outbound_ {};
+        // Overall metric.
         shared_ptr<List::Overall> overall_ {};
+        // List of skill group IDs to which the agent belongs, formatted as a JSON array string, where each array element is a skill group ID.
         shared_ptr<string> skillGroupIds_ {};
+        // List of skill group names to which the agent belongs, formatted as a JSON array string, where each array element is a skill group name.
         shared_ptr<string> skillGroupNames_ {};
+        // The timestamp of the statistics data point.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -780,9 +838,13 @@ namespace Models
 
 
     protected:
+      // List of agent summary data.
       shared_ptr<vector<PagedAgentSummaryReport::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -833,11 +895,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Data.
     shared_ptr<ListAgentSummaryReportsSinceMidnightResponseBody::PagedAgentSummaryReport> pagedAgentSummaryReport_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
   };
 

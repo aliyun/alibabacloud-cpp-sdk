@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Return Result. The content varies depending on the analysis job.
     shared_ptr<string> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID, which can be used for LogSearch of this API.
     shared_ptr<string> requestId_ {};
   };
 

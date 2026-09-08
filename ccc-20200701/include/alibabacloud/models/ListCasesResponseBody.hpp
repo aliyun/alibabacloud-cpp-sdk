@@ -156,13 +156,27 @@ namespace Models
 
 
       protected:
+        // Phase at which the call was abandoned.
+        // 
+        // - IVR (IVR interaction phase)
+        // 
+        // - Queuing (queuing phase)
+        // 
+        // - Ringing (agent ringing phase)
         shared_ptr<string> abandonPhase_ {};
+        // The type of call abandonment, that is, the reason why the call was not successfully connected.
         shared_ptr<string> abandonType_ {};
+        // Number of attempts, which is the total number of calls made to this contact.
         shared_ptr<int64_t> attemptCount_ {};
+        // System-generated contact ID. Customers do not need to concern themselves with this.
         shared_ptr<string> caseId_ {};
+        // Custom variables defined by the customer, formatted as a JSON object. The object can contain up to 10 properties, each with a name and value defined by the customer. These can be configured when creating a predictive outbound dialing activity.
         shared_ptr<string> customVariables_ {};
+        // Reason for outbound call failure.
         shared_ptr<string> failureReason_ {};
+        // Phone number.
         shared_ptr<string> phoneNumber_ {};
+        // Status.
         shared_ptr<string> state_ {};
       };
 
@@ -199,9 +213,13 @@ namespace Models
 
 
     protected:
+      // List of contact list execution details.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int64_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int64_t> pageSize_ {};
+      // Total count.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -245,10 +263,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListCasesResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

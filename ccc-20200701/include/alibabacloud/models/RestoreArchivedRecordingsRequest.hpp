@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // List of contact IDs, in JSON format.
     shared_ptr<string> contactIds_ {};
+    // Cloud Contact Center instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

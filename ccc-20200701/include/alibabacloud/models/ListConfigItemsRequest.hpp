@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the object to which the config item applies. This can be the ID of an Alibaba Cloud account, an instance, a skill group, or an agent.
+    // 
     // This parameter is required.
     shared_ptr<string> objectId_ {};
+    // The type of the object.
+    // 
     // This parameter is required.
     shared_ptr<string> objectType_ {};
   };

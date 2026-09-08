@@ -157,16 +157,27 @@ namespace Models
 
 
     protected:
+      // Number of agents on break.
       shared_ptr<int64_t> breakingAgents_ {};
+      // The number of concurrent calls per second. "Concurrent" means calls happening simultaneously.
       shared_ptr<int64_t> caps_ {};
+      // Number of logged-in agents.
       shared_ptr<int64_t> loggedInAgents_ {};
+      // The number of agents in outbound-only mode who are on a break.
       shared_ptr<int64_t> outboundScenarioBreakingAgents_ {};
+      // The number of agents in outbound-only mode who are idle.
       shared_ptr<int64_t> outboundScenarioReadyAgents_ {};
+      // Number of agents in a call under outbound-only mode.
       shared_ptr<int64_t> outboundScenarioTalkingAgents_ {};
+      // Number of agents in post-processing status under outbound-only mode.
       shared_ptr<int64_t> outboundScenarioWorkingAgents_ {};
+      // Number of idle agents.
       shared_ptr<int64_t> readyAgents_ {};
+      // Number of agents in a call.
       shared_ptr<int64_t> talkingAgents_ {};
+      // Total number of agents.
       shared_ptr<int64_t> totalAgents_ {};
+      // Number of agents in post-processing.
       shared_ptr<int64_t> workingAgents_ {};
     };
 
@@ -210,10 +221,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetRealtimeCampaignStatsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

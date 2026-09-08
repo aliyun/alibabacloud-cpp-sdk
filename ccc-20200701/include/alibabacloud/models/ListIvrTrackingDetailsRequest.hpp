@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> contactId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
   };

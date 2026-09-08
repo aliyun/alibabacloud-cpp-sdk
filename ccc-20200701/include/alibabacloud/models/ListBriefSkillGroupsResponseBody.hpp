@@ -156,13 +156,21 @@ namespace Models
 
 
       protected:
+        // Description of the skill group.
         shared_ptr<string> description_ {};
+        // The display name of the skill group.
         shared_ptr<string> displayName_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // The media type. The default value is AUDIO. Other valid values include CHAT and VIDEO.
         shared_ptr<string> mediaType_ {};
+        // Quantity of phone numbers associated with the skill group.
         shared_ptr<int32_t> phoneNumberCount_ {};
+        // The skill group ID.
         shared_ptr<string> skillGroupId_ {};
+        // Name of the skill group.
         shared_ptr<string> skillGroupName_ {};
+        // The number of agents associated with the skill group.
         shared_ptr<int32_t> userCount_ {};
       };
 
@@ -199,9 +207,13 @@ namespace Models
 
 
     protected:
+      // List of skill group summary information.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -245,10 +257,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListBriefSkillGroupsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

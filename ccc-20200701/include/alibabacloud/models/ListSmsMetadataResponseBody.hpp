@@ -158,13 +158,21 @@ namespace Models
 
 
       protected:
+        // The Alibaba Cloud account ID.
         shared_ptr<int64_t> aliyunUid_ {};
+        // The description of the configuration.
         shared_ptr<string> description_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The name of the configuration.
         shared_ptr<string> name_ {};
+        // The scenario type.
         shared_ptr<string> scenario_ {};
+        // The name of the SMS signature.
         shared_ptr<string> signName_ {};
+        // The ID of the SMS configuration.
         shared_ptr<string> smsMetadataId_ {};
+        // The template code.
         shared_ptr<string> templateCode_ {};
       };
 
@@ -201,9 +209,13 @@ namespace Models
 
 
     protected:
+      // The list of SMS configurations.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -256,11 +268,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListSmsMetadataResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The list of incorrect parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

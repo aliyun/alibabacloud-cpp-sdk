@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // The ID of the CC instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number. The value ranges from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. The value ranges from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // A list of skill group IDs.
     shared_ptr<string> skillGroupIdListShrink_ {};
+    // The name of the skill group.
     shared_ptr<string> skillGroupName_ {};
   };
 

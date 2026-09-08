@@ -140,14 +140,23 @@ namespace Models
 
 
     protected:
+      // The agent ID.
       shared_ptr<string> agentId_ {};
+      // The agent name.
       shared_ptr<string> agentName_ {};
+      // The call ID.
       shared_ptr<string> contactId_ {};
+      // The duration of the recording in milliseconds.
       shared_ptr<string> duration_ {};
+      // The name of the recording file.
       shared_ptr<string> fileName_ {};
+      // The Object Storage Service (OSS) download URL for the recording file. Note that the download URL is valid for one day.
       shared_ptr<string> fileUrl_ {};
+      // The ID of the Resource Access Management (RAM) account that corresponds to the agent.
       shared_ptr<string> ramId_ {};
+      // The skill group ID.
       shared_ptr<string> skillGroupId_ {};
+      // The start time of the recording. This is a UNIX timestamp in milliseconds.
       shared_ptr<string> startTime_ {};
     };
 
@@ -191,10 +200,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The list of recording information.
     shared_ptr<vector<ListMonoRecordingsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

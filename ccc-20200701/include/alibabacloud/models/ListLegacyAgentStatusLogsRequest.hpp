@@ -84,15 +84,26 @@ namespace Models
 
 
   protected:
+    // Filter by agent ID. This parameter is optional and defaults to empty. An empty value means no filtering is applied.
     shared_ptr<string> agentId_ {};
+    // End time, in Unix timestamp format, in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number, ranging from 1 to 1000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 1000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Start Time, in UNIX timestamp format, in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
   };

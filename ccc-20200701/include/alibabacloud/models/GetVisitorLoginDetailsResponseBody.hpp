@@ -114,11 +114,17 @@ namespace Models
 
 
     protected:
+      // Chat session application ID.
       shared_ptr<string> chatAppId_ {};
+      // Chat session application key.
       shared_ptr<string> chatAppKey_ {};
+      // Chat device ID.
       shared_ptr<string> chatDeviceId_ {};
+      // Chat session login token.
       shared_ptr<string> chatLoginToken_ {};
+      // Chat session server address.
       shared_ptr<string> chatServerUrl_ {};
+      // Visitor\\"s identity ID.
       shared_ptr<string> chatUserId_ {};
     };
 
@@ -171,11 +177,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<GetVisitorLoginDetailsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Parameter information.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

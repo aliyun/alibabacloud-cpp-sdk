@@ -312,30 +312,55 @@ namespace Models
 
 
       protected:
+        // Assignee ID.
         shared_ptr<string> assignee_ {};
+        // Assignee name.
         shared_ptr<string> assigneeName_ {};
+        // Ticket category ID.
         shared_ptr<string> categoryId_ {};
+        // Ticket category name.
         shared_ptr<string> categoryName_ {};
+        // Ticket close reason.
         shared_ptr<string> closeCode_ {};
+        // Comment.
         shared_ptr<string> comment_ {};
+        // Ticket form information.
         shared_ptr<string> context_ {};
+        // Creation time.
         shared_ptr<string> createdTime_ {};
+        // Creator ID.
         shared_ptr<string> creator_ {};
+        // Creator name.
         shared_ptr<string> creatorName_ {};
+        // Current node ID.
         shared_ptr<string> currentTaskId_ {};
+        // Current node name.
         shared_ptr<string> currentTaskName_ {};
+        // Current node start time.
         shared_ptr<int64_t> currentTaskStartTime_ {};
+        // Customer ID.
         shared_ptr<string> customerId_ {};
+        // Ticket end time.
         shared_ptr<int64_t> endTime_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Job ID.
         shared_ptr<string> jobId_ {};
+        // Ticket source.
         shared_ptr<string> source_ {};
+        // Ticket start time.
         shared_ptr<int64_t> startTime_ {};
+        // State.
         shared_ptr<string> state_ {};
+        // Template ID.
         shared_ptr<string> templateId_ {};
+        // Template version.
         shared_ptr<string> templateVersion_ {};
+        // Ticket ID.
         shared_ptr<string> ticketId_ {};
+        // Ticket title.
         shared_ptr<string> title_ {};
+        // Update time.
         shared_ptr<string> updatedTime_ {};
       };
 
@@ -372,9 +397,13 @@ namespace Models
 
 
     protected:
+      // Tickets list.
       shared_ptr<vector<Data::List>> list_ {};
+      // Paging ordinal number. Range: 1-100.
       shared_ptr<int64_t> pageNumber_ {};
+      // Paging size. Range: 1-100.
       shared_ptr<int64_t> pageSize_ {};
+      // Total count.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -418,10 +447,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListTicketsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

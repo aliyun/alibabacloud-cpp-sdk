@@ -149,12 +149,19 @@ namespace Models
 
 
       protected:
+        // The UID of the Alibaba Cloud account to which the RAM user belongs.
         shared_ptr<int64_t> aliyunUid_ {};
+        // The display name of the RAM user.
         shared_ptr<string> displayName_ {};
+        // The email address of the RAM user.
         shared_ptr<string> email_ {};
+        // The logon name of the RAM user.
         shared_ptr<string> loginName_ {};
+        // The mobile number of the RAM user.
         shared_ptr<string> mobile_ {};
+        // Indicates whether the user is a primary account. A value of `false` indicates that the user is a RAM user.
         shared_ptr<bool> primary_ {};
+        // The ID of the RAM user.
         shared_ptr<string> ramId_ {};
       };
 
@@ -191,9 +198,13 @@ namespace Models
 
 
     protected:
+      // A list of RAM users.
       shared_ptr<vector<Data::List>> list_ {};
+      // The returned page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries returned per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -246,11 +257,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<ListRamUsersResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The response parameters.
     shared_ptr<vector<string>> params_ {};
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

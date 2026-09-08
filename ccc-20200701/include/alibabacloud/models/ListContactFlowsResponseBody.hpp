@@ -195,17 +195,29 @@ namespace Models
 
 
       protected:
+        // The ID of the IVR contact flow.
         shared_ptr<string> contactFlowId_ {};
+        // When the contact flow was created.
         shared_ptr<string> createdTime_ {};
+        // The JSON-formatted definition of the IVR contact flow. This parameter is for internal use and is parsed by the backend.
         shared_ptr<string> definition_ {};
+        // The description of the contact flow version.
         shared_ptr<string> description_ {};
+        // The draft ID. This parameter is returned only when the contact flow is unpublished.
         shared_ptr<string> draftId_ {};
+        // The login name of the agent currently editing this draft.
         shared_ptr<string> editor_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The name of the IVR contact flow.
         shared_ptr<string> name_ {};
+        // A list of phone numbers that are bound to the IVR contact flow.
         shared_ptr<vector<string>> numberList_ {};
+        // Indicates whether the contact flow has been published.
         shared_ptr<bool> published_ {};
+        // The type of the IVR contact flow.
         shared_ptr<string> type_ {};
+        // The last time the contact flow was updated.
         shared_ptr<string> updatedTime_ {};
       };
 
@@ -242,9 +254,13 @@ namespace Models
 
 
     protected:
+      // A list of contact flows.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -288,10 +304,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data returned.
     shared_ptr<ListContactFlowsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The ticket form information.
     shared_ptr<string> context_ {};
+    // The user ID.
     shared_ptr<string> customerId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ticket ID.
+    // 
     // This parameter is required.
     shared_ptr<string> ticketId_ {};
+    // The ticket title.
     shared_ptr<string> title_ {};
   };
 

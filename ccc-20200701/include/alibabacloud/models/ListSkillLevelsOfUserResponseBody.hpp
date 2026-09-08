@@ -119,9 +119,13 @@ namespace Models
 
 
       protected:
+        // Media type. The default value is AUDIO. Other optional values include CHAT and VIDEO.
         shared_ptr<string> mediaType_ {};
+        // Skill group ID.
         shared_ptr<string> skillGroupId_ {};
+        // Skill group name.
         shared_ptr<string> skillGroupName_ {};
+        // Skill level, with values ranging from 1 to 10. A smaller numeric value indicates stronger business capability and the ability to handle more calls per unit time.
         shared_ptr<string> skillLevel_ {};
       };
 
@@ -158,9 +162,13 @@ namespace Models
 
 
     protected:
+      // List of skill group levels.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -204,10 +212,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListSkillLevelsOfUserResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

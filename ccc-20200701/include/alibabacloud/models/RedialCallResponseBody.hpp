@@ -176,15 +176,55 @@ namespace Models
 
 
       protected:
+        // Break status code, which is divided into system-defined and customer-defined types.
+        // 
+        // System-defined break codes:
+        // 
+        // - Warm-up: A temporary break state after an agent is published but before becoming idle.
+        // 
+        // - RingingTimeout: A break caused by ringing timeout for the agent.
+        // 
+        // - RejectCall: A break caused by the agent rejecting a call.
+        // 
+        // There are no restrictions on customer-defined status codes. Customers can define them according to their business needs.
         shared_ptr<string> breakCode_ {};
+        // Device ID, which is the identity of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
         shared_ptr<string> deviceId_ {};
+        // User extension number.
         shared_ptr<string> extension_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Call job ID.
         shared_ptr<string> jobId_ {};
+        // Indicates whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // List of skill group IDs that the agent has signed into.
         shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+        // Agent User ID information.
         shared_ptr<string> userId_ {};
+        // Agent status. Enumeration values:
+        // 
+        // - READY: idle
+        // 
+        // - WORKING: post-processing
+        // 
+        // - DIALING: dial-up
+        // 
+        // - BREAK: break
+        // 
+        // - OFFLINE: offline
+        // 
+        // - TALKING: talking
+        // 
+        // - RINGING: ringing
         shared_ptr<string> userState_ {};
+        // Work mode. Enumeration values:
+        // 
+        // - ON_SITE: On-site mode
+        // 
+        // - OFF_SITE: Off-site mode
+        // 
+        // - OFFICE_PHONE: Office phone mode
         shared_ptr<string> workMode_ {};
       };
 
@@ -343,17 +383,29 @@ namespace Models
 
 
         protected:
+          // The call type of the channel.
           shared_ptr<string> callType_ {};
+          // Call channel flags.
           shared_ptr<string> channelFlags_ {};
+          // Channel ID.
           shared_ptr<string> channelId_ {};
+          // The status of the voice channel.
           shared_ptr<string> channelState_ {};
+          // The callee of the voice channel.
           shared_ptr<string> destination_ {};
+          // Call job ID.
           shared_ptr<string> jobId_ {};
+          // The calling party of the call channel.
           shared_ptr<string> originator_ {};
+          // The party that initiated the hang-up of the call channel, indicating who first terminated the call.
           shared_ptr<string> releaseInitiator_ {};
+          // The release reason of the voice channel, indicating why the current voice channel was released. The value is derived from the response codes defined in the SIP protocol. Customers can refer to the SIP protocol to analyze the release reason.
           shared_ptr<string> releaseReason_ {};
+          // UNIX timestamp of the last status change.
           shared_ptr<int64_t> timestamp_ {};
+          // User extension number.
           shared_ptr<string> userExtension_ {};
+          // Agent User ID information.
           shared_ptr<string> userId_ {};
         };
 
@@ -390,9 +442,13 @@ namespace Models
 
 
       protected:
+        // The call type, indicating the type of the call when it was initially initiated.
         shared_ptr<string> callType_ {};
+        // The list of call channels.
         shared_ptr<vector<CallContext::ChannelContexts>> channelContexts_ {};
+        // Cloud Contact Center instance ID.
         shared_ptr<string> instanceId_ {};
+        // The call job ID.
         shared_ptr<string> jobId_ {};
       };
 
@@ -424,8 +480,11 @@ namespace Models
 
 
     protected:
+      // Call context environment.
       shared_ptr<Data::CallContext> callContext_ {};
+      // Context ID, strictly ordered and incrementing.
       shared_ptr<int64_t> contextId_ {};
+      // Agent context environment.
       shared_ptr<Data::UserContext> userContext_ {};
     };
 
@@ -478,11 +537,17 @@ namespace Models
 
 
   protected:
+    // Status code. A return value of "OK" indicates that the request succeeded. For other error codes, see the error code list.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<RedialCallResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message
     shared_ptr<string> message_ {};
+    // List of response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

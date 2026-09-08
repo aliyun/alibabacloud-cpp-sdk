@@ -158,24 +158,43 @@ namespace Models
 
 
   protected:
+    // Filter by agent ID. This parameter is optional and defaults to empty.
     shared_ptr<string> agentId_ {};
+    // Call record ID, which has the same value as the call ID.
     shared_ptr<string> attemptId_ {};
+    // Filter by called number. Optional. Default is empty.
     shared_ptr<string> callee_ {};
+    // Filter by caller number. This parameter is optional and defaults to empty.
     shared_ptr<string> caller_ {};
+    // Predictive outbound dialing Activity ID.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // System-generated contact ID. Customers do not need to concern themselves with this value.
+    // 
     // This parameter is required.
     shared_ptr<string> caseId_ {};
+    // Filter by call ID. This parameter is optional and defaults to empty.
     shared_ptr<string> contactId_ {};
+    // Extended query conditions in JSON format. Currently supports caseIds for batch queries.
     shared_ptr<string> criteria_ {};
+    // End Time. This parameter is optional. If not specified, it defaults to the End Time of the predictive outbound dialing Activity. The format is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number. The product of PageNumber and PageSize must not exceed 10 000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size. The product of PageNumber and PageSize must not exceed 10 000.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Filter by skill group ID. This parameter is optional and defaults to empty, which means no filtering is applied.
     shared_ptr<string> queueId_ {};
+    // Start Time. This parameter is optional. If not specified, it defaults to the Start Time of the predictive outbound dialing Activity. The format is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 

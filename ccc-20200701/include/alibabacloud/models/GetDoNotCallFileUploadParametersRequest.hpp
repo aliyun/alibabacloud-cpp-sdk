@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Name of the file containing prohibited outbound call numbers.
+    // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

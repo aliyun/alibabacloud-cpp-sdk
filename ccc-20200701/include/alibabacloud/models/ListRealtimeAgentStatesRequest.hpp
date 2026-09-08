@@ -140,20 +140,35 @@ namespace Models
 
 
   protected:
+    // List of agent IDs, formatted as a JSON array string. The array can contain up to 20 elements. This parameter is optional and defaults to empty, which matches all agents under the current instance.
     shared_ptr<string> agentIdList_ {};
+    // Perform fuzzy matching by agent name.
     shared_ptr<string> agentName_ {};
+    // Filters by a list of call types. The value is a string in JSON array format, where each array element is a call type. This parameter is optional and defaults to empty, which matches all call types.
     shared_ptr<string> callTypeList_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Media type. The default is Audio. Other options include Chat (text), Video, and ALL.
     shared_ptr<string> mediaType_ {};
+    // Filters agents who are in outbound-only mode. This parameter is optional and defaults to empty, which means no filtering by outbound-only mode is applied.
     shared_ptr<bool> outboundScenario_ {};
+    // Page number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Performs fuzzy filtering based on the full or partial agent display name, agent ID, or agent extension number. This parameter is optional and defaults to empty, which means no filtering is applied.
     shared_ptr<string> query_ {};
+    // Filter by skill group ID. This parameter is optional and defaults to empty, which means no filtering is applied.
     shared_ptr<string> skillGroupId_ {};
+    // Filters by a list of statuses. This parameter is optional and defaults to empty, which matches all statuses.
     shared_ptr<string> stateList_ {};
+    // Filter by work mode list. This parameter is optional and defaults to empty, which means all work modes are matched.
     shared_ptr<string> workModeList_ {};
   };
 

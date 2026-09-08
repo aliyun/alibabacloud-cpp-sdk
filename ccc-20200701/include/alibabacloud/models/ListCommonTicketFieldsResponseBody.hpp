@@ -109,11 +109,15 @@ namespace Models
 
 
     protected:
+      // Creation time.
       shared_ptr<string> createdTime_ {};
-      // Schema ID。
+      // Schema ID.
       shared_ptr<string> id_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // List of fields.
       shared_ptr<map<string, DataPropertiesValue>> properties_ {};
+      // Last modification time.
       shared_ptr<string> updatedTime_ {};
     };
 
@@ -166,11 +170,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListCommonTicketFieldsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of error parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

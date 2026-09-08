@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // Document ID
     shared_ptr<string> documentId_ {};
+    // The document content to save. It must conform to the rules defined in the schema.
+    // 
     // This parameter is required.
     shared_ptr<string> documentJson_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
     // schema id
     // 

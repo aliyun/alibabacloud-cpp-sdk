@@ -147,12 +147,19 @@ namespace Models
 
 
       protected:
+        // Whether the phone number is active.
         shared_ptr<bool> active_ {};
+        // City where the phone number is registered.
         shared_ptr<string> city_ {};
+        // IVR contact flow ID associated with the phone number.
         shared_ptr<string> contactFlowId_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Phone number.
         shared_ptr<string> number_ {};
+        // Province where the phone number is registered.
         shared_ptr<string> province_ {};
+        // Usage of the phone number.
         shared_ptr<string> usage_ {};
       };
 
@@ -189,9 +196,13 @@ namespace Models
 
 
     protected:
+      // List of phone numbers.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -235,10 +246,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListPhoneNumbersOfSkillGroupResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

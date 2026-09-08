@@ -262,21 +262,37 @@ namespace Models
 
 
         protected:
+          // The average ready time, in seconds.
           shared_ptr<int64_t> averageReadyTime_ {};
+          // The average talk time, in seconds.
           shared_ptr<int64_t> averageTalkTime_ {};
+          // The average after-call work time, in seconds.
           shared_ptr<int64_t> averageWorkTime_ {};
+          // The maximum ready time, in seconds.
           shared_ptr<int64_t> maxReadyTime_ {};
+          // The maximum talk time, in seconds.
           shared_ptr<int64_t> maxTalkTime_ {};
+          // The maximum after-call work time, in seconds.
           shared_ptr<int64_t> maxWorkTime_ {};
+          // The agent occupancy rate, expressed as a percentage (%).
           shared_ptr<float> occupancyRate_ {};
+          // The satisfaction index, calculated as the average of single-digit keypad inputs from satisfaction surveys.
           shared_ptr<float> satisfactionIndex_ {};
+          // The number of satisfaction surveys offered.
           shared_ptr<int64_t> satisfactionSurveysOffered_ {};
+          // The number of satisfaction surveys responded to.
           shared_ptr<int64_t> satisfactionSurveysResponded_ {};
+          // The total break time, in seconds.
           shared_ptr<int64_t> totalBreakTime_ {};
+          // The total number of calls (`CallsOffered` + `CallsDialed`).
           shared_ptr<int64_t> totalCalls_ {};
+          // The total logged-in time, in seconds.
           shared_ptr<int64_t> totalLoggedInTime_ {};
+          // The total ready time, in seconds.
           shared_ptr<int64_t> totalReadyTime_ {};
+          // The total talk time, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
+          // The total after-call work time, in seconds.
           shared_ptr<int64_t> totalWorkTime_ {};
         };
 
@@ -548,13 +564,19 @@ namespace Models
 
 
         protected:
+          // The answer rate, expressed as a percentage (%).
           shared_ptr<float> answerRate_ {};
+          // The average dialing time, in seconds.
           shared_ptr<int64_t> averageDialingTime_ {};
+          // The average talk time, in seconds.
           shared_ptr<int64_t> averageTalkTime_ {};
+          // The average after-call work time, in seconds.
           shared_ptr<int64_t> averageWorkTime_ {};
           shared_ptr<int64_t> callsAbandoned_ {};
           shared_ptr<int64_t> callsAgentHandled_ {};
+          // The number of answered outbound calls.
           shared_ptr<int64_t> callsAnswered_ {};
+          // The number of outbound calls dialed.
           shared_ptr<int64_t> callsDialed_ {};
           shared_ptr<int64_t> callsOffered_ {};
           shared_ptr<int64_t> callsQueuingCancelled_ {};
@@ -563,17 +585,27 @@ namespace Models
           shared_ptr<int64_t> callsQueuingOverflow_ {};
           shared_ptr<int64_t> callsQueuingRerouted_ {};
           shared_ptr<int64_t> callsQueuingTimeout_ {};
+          // The number of calls answered by an agent within 30 seconds.
           shared_ptr<string> callsServiceLevel30_ {};
           shared_ptr<int64_t> callsServiceLevel30V2_ {};
+          // The maximum dialing time, in seconds.
           shared_ptr<int64_t> maxDialingTime_ {};
+          // The maximum talk time, in seconds.
           shared_ptr<int64_t> maxTalkTime_ {};
+          // The maximum after-call work time, in seconds.
           shared_ptr<int64_t> maxWorkTime_ {};
+          // The satisfaction index, calculated as the average of single-digit keypad inputs from satisfaction surveys.
           shared_ptr<float> satisfactionIndex_ {};
+          // The number of satisfaction surveys offered.
           shared_ptr<int64_t> satisfactionSurveysOffered_ {};
+          // The number of satisfaction surveys responded to.
           shared_ptr<int64_t> satisfactionSurveysResponded_ {};
+          // The total dialing time, in seconds.
           shared_ptr<int64_t> totalDialingTime_ {};
+          // The total talk time for outbound calls, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
           shared_ptr<int64_t> totalWaitTime_ {};
+          // The total after-call work time, in seconds.
           shared_ptr<int64_t> totalWorkTime_ {};
         };
 
@@ -937,42 +969,72 @@ namespace Models
 
 
         protected:
+          // The number of calls abandoned while waiting in the skill group queue.
           shared_ptr<int64_t> abandonedInQueueOfQueueCount_ {};
+          // The number of calls routed to the skill group and answered by an agent.
           shared_ptr<int64_t> answeredByAgentOfQueueCount_ {};
+          // The maximum queue wait time for a call answered by an agent.
           shared_ptr<int64_t> answeredByAgentOfQueueMaxWaitTimeDuration_ {};
+          // The total queue wait time for calls answered by an agent, in seconds.
           shared_ptr<int64_t> answeredByAgentOfQueueWaitTimeDuration_ {};
+          // The average ring time, in seconds.
           shared_ptr<int64_t> averageRingTime_ {};
+          // The average talk time, in seconds.
           shared_ptr<int64_t> averageTalkTime_ {};
+          // The average after-call work time, in seconds (`TotalWorkTime` / `CallsHandled`).
           shared_ptr<int64_t> averageWorkTime_ {};
           shared_ptr<int64_t> callsAbandoned_ {};
+          // The number of attended transfers initiated. If a call is transferred multiple times, each transfer is counted separately.
           shared_ptr<int64_t> callsAttendedTransferOut_ {};
+          // The number of blind transfers initiated. If a call is transferred multiple times, each transfer is counted separately.
           shared_ptr<int64_t> callsBlindTransferOut_ {};
+          // The number of handled inbound calls. Each call is counted once per queue entry, regardless of how many agents answer it.
           shared_ptr<int64_t> callsHandled_ {};
+          // The number of calls offered to the skill group.
           shared_ptr<int64_t> callsOffered_ {};
           shared_ptr<string> callsOverflow_ {};
           shared_ptr<string> callsQueuingCanceled_ {};
           shared_ptr<string> callsQueuingFailure_ {};
           shared_ptr<string> callsQueuingRerouted_ {};
           shared_ptr<int64_t> callsQueuingTimeout_ {};
+          // The number of calls answered by an agent within 10 seconds.
           shared_ptr<int64_t> callsServiceLevel10_ {};
+          // The number of calls answered by an agent within 20 seconds.
           shared_ptr<int64_t> callsServiceLevel20_ {};
+          // The number of calls answered by an agent within 30 seconds.
           shared_ptr<int64_t> callsServiceLevel30_ {};
           shared_ptr<int64_t> callsTimeout_ {};
+          // The number of calls that were abandoned while an agent in the skill group was being alerted.
           shared_ptr<int64_t> giveUpByAgentOfQueueCount_ {};
+          // The handle rate (`CallsHandled` / `CallsOffered`). The value can exceed 100% because the handle and offer events might occur in different time windows.
           shared_ptr<float> handleRate_ {};
+          // The number of calls that entered the skill group queue.
           shared_ptr<int64_t> inComingQueueOfQueueCount_ {};
+          // The maximum ring time, in seconds.
           shared_ptr<int64_t> maxRingTime_ {};
+          // The maximum talk time, in seconds.
           shared_ptr<string> maxTalkTime_ {};
+          // The maximum after-call work time, in seconds.
           shared_ptr<int64_t> maxWorkTime_ {};
+          // The number of calls that overflowed from the skill group queue.
           shared_ptr<int64_t> overFlowInQueueOfQueueCount_ {};
+          // The maximum queue wait time, in seconds.
           shared_ptr<int64_t> queueMaxWaitTimeDuration_ {};
+          // The queue wait time, in seconds.
           shared_ptr<int64_t> queueWaitTimeDuration_ {};
+          // The satisfaction index, calculated as the average of single-digit keypad inputs from satisfaction surveys.
           shared_ptr<float> satisfactionIndex_ {};
+          // The number of satisfaction surveys offered.
           shared_ptr<int64_t> satisfactionSurveysOffered_ {};
+          // The number of satisfaction surveys responded to.
           shared_ptr<int64_t> satisfactionSurveysResponded_ {};
+          // The percentage of calls answered within 20 seconds.
           shared_ptr<float> serviceLevel20_ {};
+          // The total ring time, in seconds.
           shared_ptr<int64_t> totalRingTime_ {};
+          // The total talk time for inbound calls, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
+          // The total after-call work time, in seconds.
           shared_ptr<int64_t> totalWorkTime_ {};
         };
 
@@ -1035,12 +1097,19 @@ namespace Models
 
 
       protected:
+        // Inbound call metrics.
         shared_ptr<List::Inbound> inbound_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // Outbound call metrics.
         shared_ptr<List::Outbound> outbound_ {};
+        // Overall metrics.
         shared_ptr<List::Overall> overall_ {};
+        // The skill group ID.
         shared_ptr<string> skillGroupId_ {};
+        // The name of the skill group.
         shared_ptr<string> skillGroupName_ {};
+        // The timestamp when the metrics were collected.
         shared_ptr<string> timestamp_ {};
       };
 
@@ -1077,9 +1146,13 @@ namespace Models
 
 
     protected:
+      // A list of skill group summary reports.
       shared_ptr<vector<PagedSkillGroupSummaryReport::List>> list_ {};
+      // The page number. The valid range is 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page. The valid range is 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -1130,11 +1203,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The returned data.
     shared_ptr<ListSkillGroupSummaryReportsSinceMidnightResponseBody::PagedSkillGroupSummaryReport> pagedSkillGroupSummaryReport_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

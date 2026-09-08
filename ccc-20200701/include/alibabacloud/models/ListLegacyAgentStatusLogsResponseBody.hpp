@@ -323,31 +323,57 @@ namespace Models
 
 
       protected:
+        // Indicates whether the agent hung up the call.
         shared_ptr<string> agentDropCall_ {};
+        // Agent ID.
         shared_ptr<string> agentNo_ {};
+        // Hang-up reason.
         shared_ptr<string> aliHangupCause_ {};
+        // Call direction.
         shared_ptr<string> callDir_ {};
+        // Call ID.
         shared_ptr<string> callId_ {};
+        // Call type.
         shared_ptr<string> callType_ {};
+        // The callee number.
         shared_ptr<string> calleeId_ {};
+        // Calling number.
         shared_ptr<string> callerId_ {};
+        // Call channel ID.
         shared_ptr<string> connId_ {};
+        // Custom extension field.
         shared_ptr<string> extend1_ {};
+        // Custom extension field.
         shared_ptr<string> extend2_ {};
+        // Custom extension field.
         shared_ptr<string> extend3_ {};
+        // Custom extension field.
         shared_ptr<string> extend4_ {};
+        // Skill group ID.
         shared_ptr<string> groupNo_ {};
+        // The listener phone number.
         shared_ptr<string> monitedAgentNo_ {};
+        // The monitored agent phone number.
         shared_ptr<string> monitedAgentPhoneNo_ {};
+        // Indicates whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // Agent extension number.
         shared_ptr<string> phoneNo_ {};
+        // The time when the statistics were collected.
         shared_ptr<string> statisticDate_ {};
+        // Duration of the status, in seconds.
         shared_ptr<int32_t> statisticTime_ {};
+        // Agent status.
         shared_ptr<string> status_ {};
+        // Skill group ID.
         shared_ptr<string> targetRequest_ {};
+        // Skill group ID.
         shared_ptr<string> targetSelect_ {};
+        // Tenant ID.
         shared_ptr<string> tenantId_ {};
+        // Transfer number.
         shared_ptr<string> transferNo_ {};
+        // Transfer number.
         shared_ptr<string> transferNumber_ {};
       };
 
@@ -384,9 +410,13 @@ namespace Models
 
 
     protected:
+      // List of agent status data.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 1000.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 1000.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -437,11 +467,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListLegacyAgentStatusLogsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
   };
 

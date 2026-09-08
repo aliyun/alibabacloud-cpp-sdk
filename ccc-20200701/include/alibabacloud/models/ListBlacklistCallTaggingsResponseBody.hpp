@@ -85,8 +85,11 @@ namespace Models
 
 
     protected:
+      // Indicates whether the number has a blacklist tag.
       shared_ptr<bool> blacklisted_ {};
+      // The call ID.
       shared_ptr<string> jobId_ {};
+      // The phone number.
       shared_ptr<string> number_ {};
     };
 
@@ -130,9 +133,13 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<vector<ListBlacklistCallTaggingsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

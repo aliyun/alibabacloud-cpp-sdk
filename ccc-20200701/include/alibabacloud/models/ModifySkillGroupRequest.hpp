@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // Description of the skill group. This parameter is optional and defaults to empty.
     shared_ptr<string> description_ {};
+    // Display name of the skill group, which must be 1 to 64 characters in length.
     shared_ptr<string> displayName_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> skillGroupId_ {};
   };

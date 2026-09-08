@@ -128,6 +128,7 @@ namespace Models
 
 
         protected:
+          // The number.
           shared_ptr<string> number_ {};
         };
 
@@ -242,15 +243,25 @@ namespace Models
 
 
         protected:
+          // The administrator\\"s name.
           shared_ptr<string> displayName_ {};
+          // Mailbox.
           shared_ptr<string> email_ {};
+          // Agent extension number.
           shared_ptr<string> extension_ {};
+          // Instance ID.
           shared_ptr<string> instanceId_ {};
+          // Agent logon name.
           shared_ptr<string> loginName_ {};
+          // The agent\\"s personal phone number.
           shared_ptr<string> mobile_ {};
+          // The role ID, in the format: role\\@instance ID.
           shared_ptr<string> roleId_ {};
+          // Role name.
           shared_ptr<string> roleName_ {};
+          // Agent ID.
           shared_ptr<string> userId_ {};
+          // Work mode.
           shared_ptr<string> workMode_ {};
         };
 
@@ -332,15 +343,25 @@ namespace Models
 
 
       protected:
+        // Administrator list.
         shared_ptr<vector<List::AdminList>> adminList_ {};
+        // The Alibaba Cloud account ID to which the instance belongs.
         shared_ptr<string> aliyunUid_ {};
+        // The URL of the Cloud Contact Center instance, used to access the homepage of the Cloud Call Center instance. It is composed of the specific Cloud Call Center URL followed by the instance ID.
         shared_ptr<string> consoleUrl_ {};
+        // The creation time of the instance.
         shared_ptr<int64_t> createTime_ {};
+        // The instance description.
         shared_ptr<string> description_ {};
+        // The domain name of the instance, which is globally unique.
         shared_ptr<string> domainName_ {};
+        // The instance ID.
         shared_ptr<string> id_ {};
+        // The instance name.
         shared_ptr<string> name_ {};
+        // The list of numbers.
         shared_ptr<vector<List::NumberList>> numberList_ {};
+        // Instance status.
         shared_ptr<string> status_ {};
       };
 
@@ -377,9 +398,13 @@ namespace Models
 
 
     protected:
+      // List.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -423,10 +448,15 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListInstancesResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

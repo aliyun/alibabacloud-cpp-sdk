@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of Do Not Call numbers to be deleted, formatted as a JSON array string. The array length must be between 1 and 300.
     shared_ptr<string> numberList_ {};
   };
 

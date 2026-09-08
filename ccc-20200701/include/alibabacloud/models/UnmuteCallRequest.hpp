@@ -75,11 +75,17 @@ namespace Models
 
 
   protected:
+    // The channel ID to unmute. This parameter is optional and defaults to empty. If empty, the system unmutes the channel associated with the agent specified by UserId.
     shared_ptr<string> channelId_ {};
+    // Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The call ID.
     shared_ptr<string> jobId_ {};
+    // The agent ID to unmute. If not specified, defaults to the agent mapped to the current RAM account.
     shared_ptr<string> userId_ {};
   };
 

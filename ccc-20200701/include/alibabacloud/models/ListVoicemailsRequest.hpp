@@ -103,16 +103,27 @@ namespace Models
 
 
   protected:
+    // The calling number.
     shared_ptr<string> caller_ {};
+    // The ID of the call. You can use this parameter to query the record of a specific call. You can obtain the contact ID from the softphone SDK during a call. If you specify this parameter, other query parameters are ignored.
     shared_ptr<string> contactId_ {};
+    // The end time of the query range. This is a UNIX timestamp in milliseconds. The default value is the current time.
     shared_ptr<int64_t> endTime_ {};
+    // The ID of the Cloud Contact Center (CC) instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The name of the voicemail.
     shared_ptr<string> name_ {};
+    // The page number. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The start time of the query range. This is a UNIX timestamp in milliseconds. The default value is 00:00 on the current day.
     shared_ptr<int64_t> startTime_ {};
   };
 

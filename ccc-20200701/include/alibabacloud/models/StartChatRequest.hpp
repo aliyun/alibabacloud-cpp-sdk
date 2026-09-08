@@ -92,9 +92,17 @@ namespace Models
 
 
     protected:
+      // The URL of the member\\"s profile picture.
       shared_ptr<string> avatarUrl_ {};
+      // The nickname of the member.
       shared_ptr<string> nickname_ {};
+      // The member ID.
       shared_ptr<string> userId_ {};
+      // The type of the member.
+      // 
+      // - AGENT: An agent.
+      // 
+      // - CUSTOMER: A visitor.
       shared_ptr<string> userType_ {};
     };
 
@@ -131,9 +139,14 @@ namespace Models
 
 
   protected:
+    // The ID of the web service channel.
     shared_ptr<string> accessChannelId_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The channel token for the web service.
     shared_ptr<string> token_ {};
+    // The information about chat members.
+    // 
     // This parameter is required.
     shared_ptr<vector<StartChatRequest::UserList>> userList_ {};
   };

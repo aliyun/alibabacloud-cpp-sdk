@@ -66,12 +66,20 @@ namespace Models
 
 
   protected:
+    // Calling number.
+    // 
     // This parameter is required.
     shared_ptr<string> callingNumber_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Start time of the query, formatted as a UNIX timestamp in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};
+    // End time of the query, formatted as a UNIX timestamp in milliseconds.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> stopTime_ {};
   };

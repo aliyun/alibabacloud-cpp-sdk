@@ -130,17 +130,41 @@ namespace Models
 
 
   protected:
+    // Assignee ID. This can be an agent ID or a skill group ID.
     shared_ptr<string> assignee_ {};
+    // Assignee type.
+    // 
+    // - Agent
+    // 
+    // - SkillGroup
     shared_ptr<string> assigneeType_ {};
+    // Ticket category ID.
     shared_ptr<string> categoryId_ {};
+    // Creator ID.
     shared_ptr<string> creator_ {};
+    // End time. Filter tickets by creation time.
     shared_ptr<int64_t> endTime_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
+    // Participant ID.
     shared_ptr<string> participant_ {};
+    // Start time. Filter tickets by creation time.
     shared_ptr<int64_t> startTime_ {};
+    // Ticket state.
+    // 
+    // - Processing
+    // 
+    // - Withdrawal
+    // 
+    // - Rejected
+    // 
+    // - Closed
     shared_ptr<string> state_ {};
   };
 

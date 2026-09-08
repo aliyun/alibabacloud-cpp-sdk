@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of numbers to be added. The numbers must be attachable to the agent corresponding to UserId. If you are unsure which numbers the agent can attach, refer to the ListPersonalNumbersOfUser API.
+    // 
     // This parameter is required.
     shared_ptr<string> numberList_ {};
+    // Agent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
   };

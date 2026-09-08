@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // Description of the instance. The description can be up to 256 characters in length.
     shared_ptr<string> description_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The predictive campaign ID.
+    // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The list of cases to be added.
     shared_ptr<string> bodyShrink_ {};
   };
 

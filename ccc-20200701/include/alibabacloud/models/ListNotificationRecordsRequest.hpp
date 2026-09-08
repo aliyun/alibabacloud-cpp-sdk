@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The ID of the Cloud Contact Center instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A list of notification keys to query. For example, if you specify a call ID, the API returns all notifications for that call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> notificationKeys_ {};
   };

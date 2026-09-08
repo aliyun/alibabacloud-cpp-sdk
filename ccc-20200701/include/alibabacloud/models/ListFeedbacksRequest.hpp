@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the CCC instance.
     shared_ptr<string> instanceId_ {};
+    // A list of task IDs.
     shared_ptr<string> taskIdList_ {};
   };
 

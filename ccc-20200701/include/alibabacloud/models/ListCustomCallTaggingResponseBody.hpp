@@ -130,7 +130,9 @@ namespace Models
 
 
         protected:
+          // Instance ID.
           shared_ptr<string> instanceId_ {};
+          // Number tag name.
           shared_ptr<string> tagName_ {};
         };
 
@@ -181,11 +183,17 @@ namespace Models
 
 
       protected:
+        // List of number tags.
         shared_ptr<vector<List::CallTagList>> callTagList_ {};
+        // Creator.
         shared_ptr<string> creator_ {};
+        // The description of the inbound number mark.
         shared_ptr<string> description_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The number of the inbound number mark.
         shared_ptr<string> number_ {};
+        // Last update time.
         shared_ptr<string> updateTime_ {};
       };
 
@@ -222,9 +230,13 @@ namespace Models
 
 
     protected:
+      // The list of inbound number marks.
       shared_ptr<vector<Data::List>> list_ {};
+      // The page number, ranging from 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // The page size, ranging from 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -268,10 +280,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ListCustomCallTaggingResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

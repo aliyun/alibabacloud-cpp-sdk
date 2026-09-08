@@ -84,12 +84,23 @@ namespace Models
 
 
   protected:
+    // The ID of the ticket category.
     shared_ptr<string> categoryId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The page number. The value must be between 1 and 100.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. The value must be between 1 and 100.
     shared_ptr<int32_t> pageSize_ {};
+    // The name of the template. Fuzzy search is supported.
     shared_ptr<string> searchPattern_ {};
+    // The status of the template.
+    // 
+    // - Enabled: The template is published.
+    // 
+    // - Disabled: The template is unpublished.
     shared_ptr<string> state_ {};
   };
 

@@ -94,15 +94,29 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The field by which to sort the results. Default value: updatedTime.
     shared_ptr<string> orderByField_ {};
+    // The page number. The value must be an integer that is greater than 0. Default value: 1.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // A keyword to search for in the names or descriptions of IVR flows.
     shared_ptr<string> searchPattern_ {};
+    // The sort order. Valid values:
+    // 
+    // - `ASC`: The results are sorted in ascending order.
+    // 
+    // - `DESC`: The results are sorted in descending order. This is the default value.
     shared_ptr<string> sortOrder_ {};
+    // Specifies the type of IVR flow to list. If you omit this parameter, IVR flows of all types are listed.
     shared_ptr<string> type_ {};
   };
 

@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The channel ID of the agent conversation.
     shared_ptr<string> agentChannelId_ {};
+    // The agent ID.
     shared_ptr<string> agentId_ {};
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> contactId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

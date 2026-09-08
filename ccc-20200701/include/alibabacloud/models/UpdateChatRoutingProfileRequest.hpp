@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The session assignment/transfer configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> routingProfiles_ {};
   };

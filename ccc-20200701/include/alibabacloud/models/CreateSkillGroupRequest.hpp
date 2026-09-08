@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // Description of the skill group. This parameter is optional. If not specified, it defaults to empty.
     shared_ptr<string> description_ {};
+    // Display name of the skill group. It must be 1 to 64 characters in length.
+    // 
     // This parameter is required.
     shared_ptr<string> displayName_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Media type. The default value is AUDIO. Other valid values include CHAT and VIDEO.
     shared_ptr<string> mediaType_ {};
+    // The skill group name. It must be 1 to 64 characters in length, can contain digits, letters, underscores (_), and hyphens (-), and must start with a letter.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

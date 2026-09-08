@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // Parameters related to offline quality inspection audio files.
       shared_ptr<string> paramsStr_ {};
     };
 
@@ -108,10 +109,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetUploadAudioDataParamsResponseBody::Data> data_ {};
+    // HTTP status code
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID, which can be used for LogSearch of the API.
     shared_ptr<string> requestId_ {};
   };
 

@@ -204,18 +204,31 @@ namespace Models
 
 
       protected:
+        // Break status code, which can be either System-defined or Custom-defined. System-defined break codes include: Warm-up (temporary break state after an agent is published and before becoming idle), RingingTimeout (break caused by agent ringing timeout), and RejectCall (break caused by agent call rejection). There are no restrictions on Custom-defined status codes; customers can define them as needed for their business.
         shared_ptr<string> breakCode_ {};
+        // Device ID, the identity ID of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
         shared_ptr<string> deviceId_ {};
+        // The agent\\"s extension number.
         shared_ptr<string> extension_ {};
+        // The time when the last heartbeat was received from the agent, in UNIX timestamp format with millisecond precision.
         shared_ptr<int64_t> heartbeat_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Call ID.
         shared_ptr<string> jobId_ {};
+        // The agent\\"s personal phone number.
         shared_ptr<string> mobile_ {};
+        // Indicates whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // The most recent time when the agent was reserved. Being reserved means an incoming call will be assigned to the agent shortly. The value is formatted as a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> reserved_ {};
+        // List of skill group IDs that the agent has signed into.
         shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+        // Agent ID.
         shared_ptr<string> userId_ {};
+        // Agent status.
         shared_ptr<string> userState_ {};
+        // Work mode.
         shared_ptr<string> workMode_ {};
       };
 
@@ -392,19 +405,33 @@ namespace Models
 
 
         protected:
+          // The call type of the call channel.
           shared_ptr<string> callType_ {};
+          // Channel flags.
           shared_ptr<string> channelFlags_ {};
+          // Channel ID.
           shared_ptr<string> channelId_ {};
+          // The status of the call channel.
           shared_ptr<string> channelState_ {};
+          // The callee of the call channel.
           shared_ptr<string> destination_ {};
+          // Records the order in which this channel was created during the call.
           shared_ptr<int32_t> index_ {};
+          // The call ID.
           shared_ptr<string> jobId_ {};
+          // The originator of the channel.
           shared_ptr<string> originator_ {};
+          // The party that initiated the release of the call channel, indicating who hung up first.
           shared_ptr<string> releaseInitiator_ {};
+          // The hang-up reason for the voice channel, indicating why the current voice channel was disconnected. The value comes from the response codes defined in the SIP protocol. Customers should refer to the SIP protocol to analyze the hang-up reason.
           shared_ptr<string> releaseReason_ {};
+          // The skill group ID associated with the voice channel. In inbound scenarios, the associated skill group ID is determined by the agent transfer module configured in the IVR. In outbound scenarios, the associated skill group ID is the first skill group the agent signed into.
           shared_ptr<string> skillGroupId_ {};
+          // The UNIX timestamp of the most recent status change of the voice channel, in milliseconds.
           shared_ptr<int64_t> timestamp_ {};
+          // The extension number of the agent associated with the channel.
           shared_ptr<string> userExtension_ {};
+          // The agent ID associated with the channel. This field is empty for a Customer channel.
           shared_ptr<string> userId_ {};
         };
 
@@ -441,9 +468,13 @@ namespace Models
 
 
       protected:
+        // Call type.
         shared_ptr<string> callType_ {};
+        // List of call channels.
         shared_ptr<vector<CallContext::ChannelContexts>> channelContexts_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Call ID.
         shared_ptr<string> jobId_ {};
       };
 
@@ -475,8 +506,11 @@ namespace Models
 
 
     protected:
+      // Call context environment.
       shared_ptr<Data::CallContext> callContext_ {};
+      // System auto increment ID. Customers do not need to concern themselves with this field.
       shared_ptr<int64_t> contextId_ {};
+      // Agent context environment.
       shared_ptr<Data::UserContext> userContext_ {};
     };
 
@@ -529,11 +563,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<InitiateAttendedTransferResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

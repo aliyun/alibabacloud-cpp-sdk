@@ -167,23 +167,41 @@ namespace Models
 
 
   protected:
+    // The queuing priority when transferring to a skill group queue. Valid values range from 0 to 9, where 0 is the highest priority and 9 is the lowest.
     shared_ptr<int32_t> callPriority_ {};
+    // Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The queuing overflow threshold when the transfer target is a skill group queue. The default value is 0, which means no overflow occurs.
     shared_ptr<int64_t> queuingOverflowThreshold_ {};
+    // The queuing timeout period in seconds when the transfer target is a skill group queue.
     shared_ptr<int64_t> queuingTimeoutSeconds_ {};
+    // The call assignment type. Valid values are Automatic or Manual. If this parameter is empty, the default value is Automatic, which is also the current system\\"s default behavior. When Manual is selected, you must invoke APIs such as ClaimCall to assign the call to a specific agent.
     shared_ptr<string> routingType_ {};
+    // The policy name for agent assignment when transferring to a skill group queue.
     shared_ptr<string> strategyName_ {};
+    // The policy parameters for agent assignment when transferring to a skill group queue.
     shared_ptr<string> strategyParams_ {};
+    // Ingest endpoint data, primarily used for extension requirements. Regular users do not need to concern themselves with this.
     shared_ptr<string> tags_ {};
+    // Timeout duration for the consultation transfer, in seconds. If the transferee does not answer within the specified time, the call is disconnected. This field is optional. Default value is 30 seconds.
     shared_ptr<int32_t> timeoutSeconds_ {};
+    // The transferee, which can be an agent ID or a skill group ID.
+    // 
     // This parameter is required.
     shared_ptr<string> transferee_ {};
+    // The destination type for the transfer. Valid values are AGENT, SKILL_GROUP, and EXTERNAL. If this parameter is not provided, the system determines the destination type based on the format of the target number. If inaccurate detection occurs, explicitly specify this parameter.
     shared_ptr<string> transfereeType_ {};
+    // The party initiating the transfer. When transferring to an external number, this parameter specifies the caller number. This parameter is invalid when transferring to an internal agent or skill group; in such cases, the initiator is determined by the UserId parameter.
     shared_ptr<string> transferor_ {};
+    // The agent ID initiating the consultation transfer.
     shared_ptr<string> userId_ {};
   };
 

@@ -113,11 +113,17 @@ namespace Models
 
 
     protected:
+      // AccessKeyId used for signing.
       shared_ptr<string> accessKeyId_ {};
+      // Expiration time, formatted as a Unix timestamp in seconds.
       shared_ptr<int32_t> expireTime_ {};
+      // Key of the OSS file.
       shared_ptr<string> filePath_ {};
+      // Endpoint domain name of OSS.
       shared_ptr<string> host_ {};
+      // Signature policy.
       shared_ptr<string> policy_ {};
+      // Signature information of the temporary credential for file upload, used to authenticate validity during upload.
       shared_ptr<string> signature_ {};
     };
 
@@ -168,11 +174,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetDoNotCallFileUploadParametersResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
   };
 

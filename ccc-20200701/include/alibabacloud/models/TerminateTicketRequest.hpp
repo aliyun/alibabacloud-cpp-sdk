@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // Resolution comments.
     shared_ptr<string> comment_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ticket ID.
     shared_ptr<string> ticketId_ {};
   };
 

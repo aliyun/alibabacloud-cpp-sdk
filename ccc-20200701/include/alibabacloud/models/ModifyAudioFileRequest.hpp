@@ -84,16 +84,27 @@ namespace Models
 
 
   protected:
+    // Name of the audio file to be modified. You can specify new content for the audio file here.
+    // 
     // This parameter is required.
     shared_ptr<string> audioFileName_ {};
+    // Audio resource ID, which uniquely identifies an audio file.
+    // 
     // This parameter is required.
     shared_ptr<string> audioResourceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Display name of the audio file. It must be 1 to 32 characters in length. The display name cannot be changed when modifying the audio file, so you must provide the original display name here.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The OSS key of the audio file to be modified.
+    // 
     // This parameter is required.
     shared_ptr<string> ossFileKey_ {};
+    // Usage of the audio file. The default value is General (used in scenarios such as IVR). Other valid values include HoldMusic (hold music during call waiting).
     shared_ptr<string> usage_ {};
   };
 

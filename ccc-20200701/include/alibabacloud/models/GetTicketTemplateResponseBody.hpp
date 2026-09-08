@@ -287,26 +287,47 @@ namespace Models
 
 
       protected:
+        // Whether the field is an array.
         shared_ptr<bool> array_ {};
+        // Extension attributes.
         shared_ptr<string> attributes_ {};
+        // Creation time.
         shared_ptr<int64_t> createdTime_ {};
+        // Creator.
         shared_ptr<string> creator_ {};
+        // Data type.
         shared_ptr<string> dataType_ {};
+        // Description.
         shared_ptr<string> description_ {};
+        // Whether the field is disabled.
         shared_ptr<bool> disabled_ {};
+        // Display name.
         shared_ptr<string> displayName_ {};
+        // Display order in lists.
         shared_ptr<int32_t> displayOrder_ {};
+        // Editor type.
         shared_ptr<string> editorType_ {};
+        // Maximum length.
         shared_ptr<int32_t> maxLength_ {};
+        // Numeric maximum value.
         shared_ptr<double> maximum_ {};
+        // Minimum length.
         shared_ptr<int32_t> minLength_ {};
+        // Numeric minimum value.
         shared_ptr<double> minimum_ {};
+        // Name.
         shared_ptr<string> name_ {};
+        // Regular expression validation rule.
         shared_ptr<string> pattern_ {};
+        // Error message for regular expression validation.
         shared_ptr<string> patternErrorMessage_ {};
+        // Whether the field is read-only.
         shared_ptr<bool> readOnly_ {};
+        // Whether the field is required.
         shared_ptr<bool> required_ {};
+        // Whether the field is a system field.
         shared_ptr<bool> system_ {};
+        // Update time.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -379,14 +400,23 @@ namespace Models
 
 
     protected:
+      // Ticket category ID.
       shared_ptr<string> categoryId_ {};
+      // Template editor.
       shared_ptr<string> editor_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Template name.
       shared_ptr<string> name_ {};
+      // Workflow information.
       shared_ptr<string> processDefinition_ {};
+      // Status code.
       shared_ptr<string> state_ {};
+      // Template ID.
       shared_ptr<string> templateId_ {};
+      // List of template fields.
       shared_ptr<vector<Data::TicketFields>> ticketFields_ {};
+      // Last modified time.
       shared_ptr<int64_t> updatedTime_ {};
     };
 
@@ -439,11 +469,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetTicketTemplateResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of error parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

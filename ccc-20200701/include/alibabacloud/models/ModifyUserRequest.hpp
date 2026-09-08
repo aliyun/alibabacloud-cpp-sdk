@@ -121,17 +121,30 @@ namespace Models
 
 
   protected:
+    // Agent profile picture URL.
     shared_ptr<string> avatarUrl_ {};
+    // Agent ID (employee ID).
     shared_ptr<string> displayId_ {};
+    // User\\"s full name.
     shared_ptr<string> displayName_ {};
+    // Whether to force the modification.
     shared_ptr<bool> force_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Agent\\"s personal phone number.
     shared_ptr<string> mobile_ {};
+    // Agent nickname
     shared_ptr<string> nickname_ {};
+    // Role ID, in the format: role\\@instance ID.
     shared_ptr<string> roleId_ {};
+    // Agent ID.
+    // 
     // This parameter is required.
     shared_ptr<string> userId_ {};
+    // Work mode.
+    // 
     // This parameter is required.
     shared_ptr<string> workMode_ {};
   };

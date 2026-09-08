@@ -75,12 +75,19 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // A JSON-formatted string representing an array of participants. Each array element represents a participant. For internal calls to agents, the participant is the target agent\\"s extension number. For external calls to customers, the participant is the customer\\"s phone number.
+    // 
     // This parameter is required.
     shared_ptr<string> participantListJson_ {};
+    // Ingest endpoint data. It cannot exceed 128 bytes and is primarily used for extension requirements. Ordinary customers do not need to concern themselves with it.
     shared_ptr<string> tags_ {};
+    // Timeout period. If the call is not answered within the time specified by this parameter, it will be automatically disconnected. This parameter is optional. The default value is 30 seconds.
     shared_ptr<int32_t> timeoutSeconds_ {};
+    // The agent ID initiating the conference call. This parameter is optional. If not specified, the agent mapped to the current RAM account is used by default.
     shared_ptr<string> userId_ {};
   };
 

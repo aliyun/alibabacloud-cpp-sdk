@@ -66,11 +66,17 @@ namespace Models
 
 
   protected:
+    // The Device ID. This parameter is meaningless and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The agent ID.
     shared_ptr<string> userId_ {};
   };
 

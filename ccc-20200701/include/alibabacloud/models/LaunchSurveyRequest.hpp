@@ -121,17 +121,29 @@ namespace Models
 
 
   protected:
+    // The contact flow ID of the IVR satisfaction survey flow. Ensure that the specified contact flow ID corresponds to an active satisfaction survey flow.
     shared_ptr<string> contactFlowId_ {};
+    // Variables passed to the contact flow. The variables configured here can be retrieved and used in the IVR flow. The format is a JSON string containing a collection of key-value pairs. This parameter is optional and defaults to empty.
     shared_ptr<string> contactFlowVariables_ {};
+    // Device ID. This parameter has no effect and can be filled with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The configuration ID for text message satisfaction. This parameter is required only when the collection channel is SMS. It is optional and defaults to empty.
     shared_ptr<string> smsMetadataId_ {};
+    // The channel for collecting satisfaction feedback. This parameter is optional and defaults to Voice Satisfaction.
     shared_ptr<string> surveyChannel_ {};
+    // The ID of the satisfaction survey template.
     shared_ptr<string> surveyTemplateId_ {};
+    // Satisfaction survey configuration.
     shared_ptr<string> surveyTemplateVariables_ {};
+    // The agent ID that initiates the satisfaction survey.
     shared_ptr<string> userId_ {};
   };
 

@@ -76,7 +76,9 @@ namespace Models
 
 
     protected:
+      // Role name.
       shared_ptr<string> name_ {};
+      // Role ID, in the format: role\\@instance ID.
       shared_ptr<string> roleId_ {};
     };
 
@@ -120,10 +122,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // List of roles.
     shared_ptr<vector<ListRolesResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

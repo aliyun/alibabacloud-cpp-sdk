@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The phone number tag name. Ensure that the tag you specify has already been created.
+    // 
     // This parameter is required.
     shared_ptr<string> tagName_ {};
   };

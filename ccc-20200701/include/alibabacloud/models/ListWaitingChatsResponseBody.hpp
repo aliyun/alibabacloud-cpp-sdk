@@ -129,9 +129,13 @@ namespace Models
 
 
       protected:
+        // Profile picture URL.
         shared_ptr<string> avatarUrl_ {};
+        // User ID.
         shared_ptr<string> userId_ {};
+        // User name.
         shared_ptr<string> userName_ {};
+        // User type.
         shared_ptr<string> userType_ {};
       };
 
@@ -182,8 +186,15 @@ namespace Models
 
 
       protected:
+        // Message content.
         shared_ptr<string> content_ {};
+        // Message sender ID.
         shared_ptr<string> senderId_ {};
+        // Sender type. Valid values:
+        // 
+        // - **CUSTOMER**: visitor
+        // 
+        // - **AGENT**: agent
         shared_ptr<string> senderType_ {};
       };
 
@@ -258,14 +269,23 @@ namespace Models
 
 
     protected:
+      // Access channel ID.
       shared_ptr<string> accessChannelId_ {};
+      // Access channel type.
       shared_ptr<string> accessChannelType_ {};
+      // Indicates whether the session has been assigned to an agent.
       shared_ptr<bool> beingAssigned_ {};
+      // Chat session ID.
       shared_ptr<string> chatConversationId_ {};
+      // Enqueue time, in Unix timestamp format, in milliseconds.
       shared_ptr<int64_t> enqueueTime_ {};
+      // Job ID.
       shared_ptr<string> jobId_ {};
+      // Message list.
       shared_ptr<vector<Data::Messages>> messages_ {};
+      // The skill group information.
       shared_ptr<string> skillGroupId_ {};
+      // User list.
       shared_ptr<vector<Data::UserList>> userList_ {};
     };
 
@@ -309,10 +329,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Returned data.
     shared_ptr<vector<ListWaitingChatsResponseBody::Data>> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

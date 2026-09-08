@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The ID of the IVR contact flow.
+    // 
     // This parameter is required.
     shared_ptr<string> flowId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -75,13 +75,24 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The paging ordinal number, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Converting (transforming)<br>
+    // Completed (transformation completed)<br>
+    // Failed (transformation failed)<br>
+    // If this parameter is not specified, resources in all statuses are queried.
     shared_ptr<string> status_ {};
+    // Purpose of the audio file. The default value is General (used in scenarios such as IVR). Other optional values include HoldMusic (hold music during calls).
     shared_ptr<string> usage_ {};
   };
 

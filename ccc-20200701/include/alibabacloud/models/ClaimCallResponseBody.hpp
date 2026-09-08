@@ -176,15 +176,25 @@ namespace Models
 
 
       protected:
+        // The break code.
         shared_ptr<string> breakCode_ {};
+        // The device ID.
         shared_ptr<string> deviceId_ {};
+        // The extension number.
         shared_ptr<string> extension_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The call ID.
         shared_ptr<string> jobId_ {};
+        // Indicates whether this is an outbound scenario.
         shared_ptr<bool> outboundScenario_ {};
+        // The list of signed-in skill group IDs.
         shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+        // The agent ID.
         shared_ptr<string> userId_ {};
+        // The agent state.
         shared_ptr<string> userState_ {};
+        // The work mode.
         shared_ptr<string> workMode_ {};
       };
 
@@ -341,17 +351,29 @@ namespace Models
 
 
         protected:
+          // The call type of the channel.
           shared_ptr<string> callType_ {};
+          // The channel ID.
           shared_ptr<string> channelId_ {};
+          // The state of the channel.
           shared_ptr<string> channelState_ {};
+          // The channel variables.
           shared_ptr<string> channelVariables_ {};
+          // The destination of the channel.
           shared_ptr<string> destination_ {};
+          // The call ID.
           shared_ptr<string> jobId_ {};
+          // The originator of the channel.
           shared_ptr<string> originator_ {};
+          // The party who initiated the channel release.
           shared_ptr<string> releaseInitiator_ {};
+          // The reason why the channel was released. This is a SIP response code. For more information, see the SIP protocol specification.
           shared_ptr<string> releaseReason_ {};
+          // The Unix timestamp that indicates the last time the channel state changed. Unit: milliseconds.
           shared_ptr<int64_t> timestamp_ {};
+          // The agent extension number.
           shared_ptr<string> userExtension_ {};
+          // The agent ID.
           shared_ptr<string> userId_ {};
         };
 
@@ -381,8 +403,11 @@ namespace Models
 
 
       protected:
+        // The channel contexts.
         shared_ptr<vector<CallContext::ChannelContexts>> channelContexts_ {};
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The call ID.
         shared_ptr<string> jobId_ {};
       };
 
@@ -414,8 +439,11 @@ namespace Models
 
 
     protected:
+      // The call context.
       shared_ptr<Data::CallContext> callContext_ {};
+      // The context ID.
       shared_ptr<int64_t> contextId_ {};
+      // The agent context.
       shared_ptr<Data::UserContext> userContext_ {};
     };
 
@@ -468,11 +496,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<ClaimCallResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The list of error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

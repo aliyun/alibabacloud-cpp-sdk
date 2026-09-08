@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The ID of the ticket category. Specify this parameter to return information about the subcategories of the specified category. If you leave this parameter empty, information about all categories in the instance is returned.
     shared_ptr<string> categoryId_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The category type.
     shared_ptr<string> type_ {};
   };
 

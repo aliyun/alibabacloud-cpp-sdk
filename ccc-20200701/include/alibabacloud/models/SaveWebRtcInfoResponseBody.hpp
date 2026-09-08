@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The number of rows returned upon data storage, indicating how many records were successfully written. If this value is not 1, an abnormal condition may have occurred and requires attention.
     shared_ptr<int64_t> rowCount_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
+    // The time when the information was stored, formatted as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> timeStamp_ {};
   };
 

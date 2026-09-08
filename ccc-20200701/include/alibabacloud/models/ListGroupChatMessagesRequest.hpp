@@ -75,10 +75,21 @@ namespace Models
 
 
   protected:
+    // Cloud Contact Center instance.
     shared_ptr<string> instanceId_ {};
+    // Call ID.
     shared_ptr<string> jobId_ {};
+    // Token for the next page. This is a 32-character UUID. Leave this parameter empty when requesting the first page. For subsequent pages, use the NextPageToken value from the previous response.
     shared_ptr<string> nextPageToken_ {};
+    // Page size. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
+    // Sorting order. Default is descending.
+    // 
+    // Valid values:
+    // 
+    // ASC: ascending.
+    // 
+    // DESC: descending.
     shared_ptr<string> sortOrder_ {};
   };
 

@@ -289,30 +289,73 @@ namespace Models
 
 
     protected:
+      // The ID of the assignee.
       shared_ptr<string> assignee_ {};
+      // The name of the assignee.
       shared_ptr<string> assigneeName_ {};
+      // The ticket category ID.
       shared_ptr<string> categoryId_ {};
+      // The name of the ticket category.
       shared_ptr<string> categoryName_ {};
+      // The reason for closing the ticket.
+      // 
+      // - Completed
+      // 
+      // - Terminated
       shared_ptr<string> closeCode_ {};
+      // The comment.
       shared_ptr<string> comment_ {};
+      // The fields of the ticket.
       shared_ptr<string> context_ {};
+      // The time when the ticket was created.
       shared_ptr<int64_t> createdTime_ {};
+      // The ID of the creator.
       shared_ptr<string> creator_ {};
+      // The name of the creator.
       shared_ptr<string> creatorName_ {};
+      // The ID of the current node.
       shared_ptr<string> currentTaskId_ {};
+      // The name of the current node.
       shared_ptr<string> currentTaskName_ {};
+      // The time when the current node started.
       shared_ptr<int64_t> currentTaskStartTime_ {};
+      // The customer ID. This is the customer ID in the customer profile of Cloud Contact Center.
       shared_ptr<string> customerId_ {};
+      // The time when the ticket processing was completed.
       shared_ptr<int64_t> endTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The call ID.
       shared_ptr<string> jobId_ {};
+      // The source of the ticket.
+      // 
+      // - AUDIO: Voice service.
+      // 
+      // - CHAT: Web service.
+      // 
+      // - Console: Created in the ticket console.
       shared_ptr<string> source_ {};
+      // The time when the ticket processing started.
       shared_ptr<int64_t> startTime_ {};
+      // The ticket status.
+      // 
+      // - Processing
+      // 
+      // - Withdrawal
+      // 
+      // - Rejected
+      // 
+      // - Closed
       shared_ptr<string> state_ {};
+      // The ticket template ID.
       shared_ptr<string> templateId_ {};
+      // The version of the ticket template.
       shared_ptr<string> templateVersion_ {};
+      // The ticket ID.
       shared_ptr<string> ticketId_ {};
+      // The ticket title.
       shared_ptr<string> title_ {};
+      // The time of the last update.
       shared_ptr<int64_t> updatedTime_ {};
     };
 
@@ -365,11 +408,17 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The data.
     shared_ptr<GetTicketResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The list of incorrect parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

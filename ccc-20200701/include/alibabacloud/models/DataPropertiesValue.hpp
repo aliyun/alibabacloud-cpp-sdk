@@ -222,26 +222,47 @@ namespace Models
 
 
   protected:
+    // The display name.
     shared_ptr<string> displayName_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The data type.
     shared_ptr<string> dataType_ {};
+    // The regular expression that is used for validation.
     shared_ptr<string> pattern_ {};
+    // The error message that is returned if the value does not match the regular expression.
     shared_ptr<string> patternErrorMessage_ {};
+    // The minimum length.
     shared_ptr<int32_t> minLength_ {};
+    // The maximum length.
     shared_ptr<int32_t> maxLength_ {};
+    // The minimum value.
     shared_ptr<double> minimum_ {};
+    // The maximum value.
     shared_ptr<double> maximum_ {};
+    // Indicates whether the field is required.
     shared_ptr<bool> required_ {};
+    // Indicates whether the field is a system field.
     shared_ptr<bool> system_ {};
+    // Indicates whether the field is disabled.
     shared_ptr<bool> disabled_ {};
+    // Indicates whether the field is an array.
     shared_ptr<bool> array_ {};
+    // Indicates whether the field is read-only.
     shared_ptr<bool> readOnly_ {};
+    // The type of the editor.
     shared_ptr<string> editorType_ {};
+    // The extended properties.
     shared_ptr<string> attributes_ {};
+    // The display order.
     shared_ptr<int32_t> displayOrder_ {};
+    // The time when the field was created.
     shared_ptr<int64_t> createdTime_ {};
+    // The time when the field was last updated.
     shared_ptr<int64_t> updatedTime_ {};
+    // Creator
     shared_ptr<string> creator_ {};
   };
 

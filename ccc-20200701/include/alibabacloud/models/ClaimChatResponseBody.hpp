@@ -213,19 +213,55 @@ namespace Models
 
 
       protected:
+        // Break status code.
         shared_ptr<string> breakCode_ {};
+        // Device ID.
         shared_ptr<string> deviceId_ {};
+        // Device state.
         shared_ptr<string> deviceState_ {};
+        // Agent extension number.
         shared_ptr<string> extension_ {};
+        // Time of the agent\\"s last heartbeat, in Unix timestamp format, in milliseconds.
         shared_ptr<int64_t> heartbeat_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Job ID.
         shared_ptr<string> jobId_ {};
+        // Agent\\"s personal phone number. Not applicable for chat scenarios.
         shared_ptr<string> mobile_ {};
+        // Outbound call scenario only. Not applicable for chat services.
         shared_ptr<bool> outboundScenario_ {};
+        // Time when the agent was last reserved, in Unix timestamp format, in milliseconds.
         shared_ptr<int64_t> reserved_ {};
+        // List of skill group IDs the agent is signed into.
         shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+        // Agent ID.
         shared_ptr<string> userId_ {};
+        // Agent state.
+        // 
+        // Enumerated values:
+        // 
+        // - READY: Idle.
+        // 
+        // - WORKING: Post-call processing.
+        // 
+        // - BREAK: Break.
+        // 
+        // - OFFLINE: Offline.
+        // 
+        // - TALKING: Chatting.
+        // 
+        // - RINGING: Incoming chat.
         shared_ptr<string> userState_ {};
+        // Work mode. Not applicable for chat scenarios.
+        // 
+        // Enumerated values:
+        // 
+        // - ON_SITE: On-site mode.
+        // 
+        // - OFF_SITE: Off-site mode.
+        // 
+        // - OFFICE_PHONE: Office phone mode.
         shared_ptr<string> workMode_ {};
       };
 
@@ -322,13 +358,21 @@ namespace Models
 
 
       protected:
+        // Network service channel ID.
         shared_ptr<string> accessChannelId_ {};
+        // Network service channel name.
         shared_ptr<string> accessChannelName_ {};
+        // Network service channel type.
         shared_ptr<string> accessChannelType_ {};
+        // Whether the session has been assigned to an agent.
         shared_ptr<bool> beingAssigned_ {};
+        // Call variables.
         shared_ptr<string> callVariables_ {};
+        // Session type.
         shared_ptr<string> chatType_ {};
+        // Instance ID.
         shared_ptr<string> instanceId_ {};
+        // Job ID.
         shared_ptr<string> jobId_ {};
       };
 
@@ -360,8 +404,11 @@ namespace Models
 
 
     protected:
+      // Session context.
       shared_ptr<vector<Data::ChatContexts>> chatContexts_ {};
+      // System auto-increment ID. Customers do not need to be concerned.
       shared_ptr<int64_t> contextId_ {};
+      // Agent context.
       shared_ptr<Data::UserContext> userContext_ {};
     };
 
@@ -414,11 +461,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ClaimChatResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

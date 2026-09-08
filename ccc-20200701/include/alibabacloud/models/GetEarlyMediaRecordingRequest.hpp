@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // Call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> contactId_ {};
+    // Cloud Contact Center instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

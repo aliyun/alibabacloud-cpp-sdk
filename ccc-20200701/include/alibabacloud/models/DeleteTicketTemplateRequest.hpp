@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the instance.
     shared_ptr<string> instanceId_ {};
+    // The ID of the ticket template.
     shared_ptr<string> templateId_ {};
   };
 

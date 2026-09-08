@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // A string that identifies the device. The value is not processed by the system and can be any string.
     shared_ptr<string> deviceId_ {};
+    // The ID of the Cloud Call Center (CCC) instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the agent. This parameter is optional. If omitted, the agent mapped to the current RAM account is reset.
     shared_ptr<string> userId_ {};
   };
 

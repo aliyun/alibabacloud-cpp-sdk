@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ticket ID.
     shared_ptr<string> ticketId_ {};
   };
 

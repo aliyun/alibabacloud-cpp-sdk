@@ -75,7 +75,9 @@ namespace Models
 
 
     protected:
+      // The UNIX timestamp (in milliseconds) of the most recent incoming call.
       shared_ptr<int64_t> lastCallingTime_ {};
+      // Total number of incoming calls from this number during the query time period.
       shared_ptr<int64_t> totalCalls_ {};
     };
 
@@ -119,10 +121,15 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<GetHistoricalCallerReportResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

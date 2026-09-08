@@ -121,18 +121,31 @@ namespace Models
 
 
   protected:
+    // The actual start time of the campaign. This parameter is optional. By default, all time ranges are queried.
     shared_ptr<string> actualStartTimeFrom_ {};
+    // The actual end time of the campaign. This parameter is optional. By default, all time ranges are queried.
     shared_ptr<string> actualStartTimeTo_ {};
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Filters campaigns by predictive dialing campaign name. Fuzzy match is not supported. This parameter is optional and defaults to empty, which indicates no filtering.
     shared_ptr<string> name_ {};
+    // The page number. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageNumber_ {};
+    // The page size. Valid values: 1 to 100.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> pageSize_ {};
+    // The planned start time of the campaign. This parameter is optional. By default, all time ranges are queried.
     shared_ptr<string> planedStartTimeFrom_ {};
+    // The planned end time of the campaign. This parameter is optional. By default, all time ranges are queried.
     shared_ptr<string> planedStartTimeTo_ {};
+    // Filters campaigns by skill group ID. This parameter is optional and defaults to empty, which indicates no filtering.
     shared_ptr<string> queueId_ {};
+    // Filters campaigns by predictive dialing campaign state. This parameter is optional and defaults to empty.
     shared_ptr<string> state_ {};
   };
 

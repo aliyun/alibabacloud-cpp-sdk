@@ -250,23 +250,41 @@ namespace Models
 
 
       protected:
+        // Indicates whether the agent hung up the call.
         shared_ptr<string> agentDropCall_ {};
+        // Agent ID.
         shared_ptr<string> agentNo_ {};
+        // Call direction.
         shared_ptr<string> callDir_ {};
+        // Call ID.
         shared_ptr<string> callId_ {};
+        // Call pattern.
         shared_ptr<string> callMode_ {};
+        // Call type.
         shared_ptr<string> callType_ {};
+        // Callee number.
         shared_ptr<string> calleeId_ {};
+        // Calling number.
         shared_ptr<string> callerId_ {};
+        // Call channel ID.
         shared_ptr<string> connId_ {};
+        // Type of management event.
         shared_ptr<string> event_ {};
+        // List of skill group IDs that the agent signed in to. Separate multiple skill group IDs with commas.
         shared_ptr<string> groupNo_ {};
+        // Indicates whether the agent is in outbound-only mode.
         shared_ptr<bool> outboundScenario_ {};
+        // Agent extension number.
         shared_ptr<string> phoneNo_ {};
+        // Statistics timestamp.
         shared_ptr<string> statisticDate_ {};
+        // Skill group ID.
         shared_ptr<string> targetRequest_ {};
+        // Skill group ID.
         shared_ptr<string> targetSelect_ {};
+        // Tenant ID.
         shared_ptr<string> tenantId_ {};
+        // Transfer number.
         shared_ptr<string> transferNumber_ {};
       };
 
@@ -303,9 +321,13 @@ namespace Models
 
 
     protected:
+      // List of agent event logs.
       shared_ptr<vector<Data::List>> list_ {};
+      // Page number, ranging from 1 to 1000.
       shared_ptr<int32_t> pageNumber_ {};
+      // Page size, ranging from 1 to 1000.
       shared_ptr<int32_t> pageSize_ {};
+      // Total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -356,11 +378,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ListLegacyAgentEventLogsResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the operation succeeded.
     shared_ptr<bool> success_ {};
   };
 

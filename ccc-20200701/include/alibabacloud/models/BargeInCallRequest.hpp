@@ -84,14 +84,23 @@ namespace Models
 
 
   protected:
+    // Agent ID whose call was barged in on.
+    // 
     // This parameter is required.
     shared_ptr<string> bargedUserId_ {};
+    // Device ID. This parameter is meaningless and can be filled in with any value.
     shared_ptr<string> deviceId_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Call ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // Timeout for force insert, in seconds. If the force insert operation does not succeed within the specified time, it is canceled. Normally, the force insert operation succeeds immediately. The timeout setting is provided to handle abnormal scenarios. This field is optional and defaults to 30 seconds.
     shared_ptr<int32_t> timeoutSeconds_ {};
+    // Agent ID initiating the force insert.
     shared_ptr<string> userId_ {};
   };
 

@@ -94,13 +94,21 @@ namespace Models
 
 
   protected:
+    // Filters by a list of agent IDs.
     shared_ptr<string> agentIds_ {};
+    // Filters out offline agents. This parameter is fixed to true and does not support false at present.
     shared_ptr<bool> excludeOfflineUsers_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Page number, ranging from 1 to 100.
     shared_ptr<int32_t> pageNumber_ {};
+    // Page size, ranging from 1 to 300.
     shared_ptr<int32_t> pageSize_ {};
+    // Filters by skill group ID.
     shared_ptr<string> skillGroupId_ {};
+    // Filters agents by status. Only a single status can be specified.
     shared_ptr<string> state_ {};
   };
 

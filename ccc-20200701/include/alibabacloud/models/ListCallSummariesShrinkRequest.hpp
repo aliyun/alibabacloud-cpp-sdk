@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // List of call IDs.
     shared_ptr<string> contactIdListShrink_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
   };

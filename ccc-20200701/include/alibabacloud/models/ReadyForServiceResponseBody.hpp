@@ -153,15 +153,25 @@ namespace Models
 
 
     protected:
+      // Break status code, which can be either System-defined or Custom-defined. System-defined break codes include: Warm-up (temporary break state after the agent is published and before becoming idle), RingingTimeout (break caused by agent ringing timeout), and RejectCall (break caused by agent rejecting a call). There are no restrictions on Custom-defined status codes; customers can define them according to their business needs.
       shared_ptr<string> breakCode_ {};
+      // Device ID, which is the identity ID of a browser-based Web Real-Time Communication (WebRTC) softphone or a physical phone device. Only one type of device can be registered at a time.
       shared_ptr<string> deviceId_ {};
+      // Agent extension number.
       shared_ptr<string> extension_ {};
+      // Instance ID.
       shared_ptr<string> instanceId_ {};
+      // Call ID.
       shared_ptr<string> jobId_ {};
+      // Indicates whether the agent is in outbound-only mode.
       shared_ptr<bool> outboundScenario_ {};
+      // List of skill group IDs that the agent has signed into.
       shared_ptr<vector<string>> signedSkillGroupIdList_ {};
+      // Agent ID.
       shared_ptr<string> userId_ {};
+      // Agent status.
       shared_ptr<string> userState_ {};
+      // Work mode.
       shared_ptr<string> workMode_ {};
     };
 
@@ -214,11 +224,17 @@ namespace Models
 
 
   protected:
+    // Response code.
     shared_ptr<string> code_ {};
+    // Data.
     shared_ptr<ReadyForServiceResponseBody::Data> data_ {};
+    // HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Response message.
     shared_ptr<string> message_ {};
+    // List of response parameters.
     shared_ptr<vector<string>> params_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 
