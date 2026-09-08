@@ -13,10 +13,12 @@ namespace Models
   class UpdateLoginPreferenceShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateLoginPreferenceShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AllowedPostLogoutRedirectUris, allowedPostLogoutRedirectUrisShrink_);
       DARABONBA_PTR_TO_JSON(LoginPreference, loginPreferenceShrink_);
       DARABONBA_PTR_TO_JSON(UserPoolName, userPoolName_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateLoginPreferenceShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllowedPostLogoutRedirectUris, allowedPostLogoutRedirectUrisShrink_);
       DARABONBA_PTR_FROM_JSON(LoginPreference, loginPreferenceShrink_);
       DARABONBA_PTR_FROM_JSON(UserPoolName, userPoolName_);
     };
@@ -31,8 +33,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->loginPreferenceShrink_ == nullptr
-        && this->userPoolName_ == nullptr; };
+    virtual bool empty() const override { return this->allowedPostLogoutRedirectUrisShrink_ == nullptr
+        && this->loginPreferenceShrink_ == nullptr && this->userPoolName_ == nullptr; };
+    // allowedPostLogoutRedirectUrisShrink Field Functions 
+    bool hasAllowedPostLogoutRedirectUrisShrink() const { return this->allowedPostLogoutRedirectUrisShrink_ != nullptr;};
+    void deleteAllowedPostLogoutRedirectUrisShrink() { this->allowedPostLogoutRedirectUrisShrink_ = nullptr;};
+    inline string getAllowedPostLogoutRedirectUrisShrink() const { DARABONBA_PTR_GET_DEFAULT(allowedPostLogoutRedirectUrisShrink_, "") };
+    inline UpdateLoginPreferenceShrinkRequest& setAllowedPostLogoutRedirectUrisShrink(string allowedPostLogoutRedirectUrisShrink) { DARABONBA_PTR_SET_VALUE(allowedPostLogoutRedirectUrisShrink_, allowedPostLogoutRedirectUrisShrink) };
+
+
     // loginPreferenceShrink Field Functions 
     bool hasLoginPreferenceShrink() const { return this->loginPreferenceShrink_ != nullptr;};
     void deleteLoginPreferenceShrink() { this->loginPreferenceShrink_ = nullptr;};
@@ -48,6 +57,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> allowedPostLogoutRedirectUrisShrink_ {};
     shared_ptr<string> loginPreferenceShrink_ {};
     shared_ptr<string> userPoolName_ {};
   };

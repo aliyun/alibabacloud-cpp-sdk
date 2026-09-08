@@ -13,6 +13,7 @@ namespace Models
   class UpdateWorkloadIdentityShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateWorkloadIdentityShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AllowedConsentCallbackURLs, allowedConsentCallbackURLsShrink_);
       DARABONBA_PTR_TO_JSON(AllowedResourceOAuth2ReturnURLs, allowedResourceOAuth2ReturnURLsShrink_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(IdentityProviderName, identityProviderName_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkloadIdentityName, workloadIdentityName_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateWorkloadIdentityShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllowedConsentCallbackURLs, allowedConsentCallbackURLsShrink_);
       DARABONBA_PTR_FROM_JSON(AllowedResourceOAuth2ReturnURLs, allowedResourceOAuth2ReturnURLsShrink_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(IdentityProviderName, identityProviderName_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->allowedResourceOAuth2ReturnURLsShrink_ == nullptr
-        && this->description_ == nullptr && this->identityProviderName_ == nullptr && this->roleArn_ == nullptr && this->sessionBindingEnabled_ == nullptr && this->workloadIdentityName_ == nullptr; };
+    virtual bool empty() const override { return this->allowedConsentCallbackURLsShrink_ == nullptr
+        && this->allowedResourceOAuth2ReturnURLsShrink_ == nullptr && this->description_ == nullptr && this->identityProviderName_ == nullptr && this->roleArn_ == nullptr && this->sessionBindingEnabled_ == nullptr
+        && this->workloadIdentityName_ == nullptr; };
+    // allowedConsentCallbackURLsShrink Field Functions 
+    bool hasAllowedConsentCallbackURLsShrink() const { return this->allowedConsentCallbackURLsShrink_ != nullptr;};
+    void deleteAllowedConsentCallbackURLsShrink() { this->allowedConsentCallbackURLsShrink_ = nullptr;};
+    inline string getAllowedConsentCallbackURLsShrink() const { DARABONBA_PTR_GET_DEFAULT(allowedConsentCallbackURLsShrink_, "") };
+    inline UpdateWorkloadIdentityShrinkRequest& setAllowedConsentCallbackURLsShrink(string allowedConsentCallbackURLsShrink) { DARABONBA_PTR_SET_VALUE(allowedConsentCallbackURLsShrink_, allowedConsentCallbackURLsShrink) };
+
+
     // allowedResourceOAuth2ReturnURLsShrink Field Functions 
     bool hasAllowedResourceOAuth2ReturnURLsShrink() const { return this->allowedResourceOAuth2ReturnURLsShrink_ != nullptr;};
     void deleteAllowedResourceOAuth2ReturnURLsShrink() { this->allowedResourceOAuth2ReturnURLsShrink_ = nullptr;};
@@ -84,6 +94,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> allowedConsentCallbackURLsShrink_ {};
     shared_ptr<string> allowedResourceOAuth2ReturnURLsShrink_ {};
     shared_ptr<string> description_ {};
     shared_ptr<string> identityProviderName_ {};

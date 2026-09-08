@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_UPDATELOGINPREFERENCEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_UPDATELOGINPREFERENCEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -13,10 +14,12 @@ namespace Models
   class UpdateLoginPreferenceRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateLoginPreferenceRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AllowedPostLogoutRedirectUris, allowedPostLogoutRedirectUris_);
       DARABONBA_PTR_TO_JSON(LoginPreference, loginPreference_);
       DARABONBA_PTR_TO_JSON(UserPoolName, userPoolName_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateLoginPreferenceRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllowedPostLogoutRedirectUris, allowedPostLogoutRedirectUris_);
       DARABONBA_PTR_FROM_JSON(LoginPreference, loginPreference_);
       DARABONBA_PTR_FROM_JSON(UserPoolName, userPoolName_);
     };
@@ -62,8 +65,17 @@ namespace Models
       shared_ptr<bool> enablePasswordLogin_ {};
     };
 
-    virtual bool empty() const override { return this->loginPreference_ == nullptr
-        && this->userPoolName_ == nullptr; };
+    virtual bool empty() const override { return this->allowedPostLogoutRedirectUris_ == nullptr
+        && this->loginPreference_ == nullptr && this->userPoolName_ == nullptr; };
+    // allowedPostLogoutRedirectUris Field Functions 
+    bool hasAllowedPostLogoutRedirectUris() const { return this->allowedPostLogoutRedirectUris_ != nullptr;};
+    void deleteAllowedPostLogoutRedirectUris() { this->allowedPostLogoutRedirectUris_ = nullptr;};
+    inline const vector<string> & getAllowedPostLogoutRedirectUris() const { DARABONBA_PTR_GET_CONST(allowedPostLogoutRedirectUris_, vector<string>) };
+    inline vector<string> getAllowedPostLogoutRedirectUris() { DARABONBA_PTR_GET(allowedPostLogoutRedirectUris_, vector<string>) };
+    inline UpdateLoginPreferenceRequest& setAllowedPostLogoutRedirectUris(const vector<string> & allowedPostLogoutRedirectUris) { DARABONBA_PTR_SET_VALUE(allowedPostLogoutRedirectUris_, allowedPostLogoutRedirectUris) };
+    inline UpdateLoginPreferenceRequest& setAllowedPostLogoutRedirectUris(vector<string> && allowedPostLogoutRedirectUris) { DARABONBA_PTR_SET_RVALUE(allowedPostLogoutRedirectUris_, allowedPostLogoutRedirectUris) };
+
+
     // loginPreference Field Functions 
     bool hasLoginPreference() const { return this->loginPreference_ != nullptr;};
     void deleteLoginPreference() { this->loginPreference_ = nullptr;};
@@ -81,6 +93,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<vector<string>> allowedPostLogoutRedirectUris_ {};
     shared_ptr<UpdateLoginPreferenceRequest::LoginPreference> loginPreference_ {};
     shared_ptr<string> userPoolName_ {};
   };

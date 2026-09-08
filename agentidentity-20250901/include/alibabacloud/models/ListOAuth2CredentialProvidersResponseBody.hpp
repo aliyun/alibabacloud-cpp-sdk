@@ -47,9 +47,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CredentialProviderArn, credentialProviderArn_);
         DARABONBA_PTR_TO_JSON(CredentialProviderVendor, credentialProviderVendor_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(IDaaSInstanceId, IDaaSInstanceId_);
         DARABONBA_PTR_TO_JSON(OAuth2CredentialProviderName, OAuth2CredentialProviderName_);
         DARABONBA_PTR_TO_JSON(OAuth2ProviderConfig, OAuth2ProviderConfig_);
         DARABONBA_PTR_TO_JSON(OAuthType, OAuthType_);
+        DARABONBA_PTR_TO_JSON(OutboundApplicationId, outboundApplicationId_);
+        DARABONBA_PTR_TO_JSON(OutboundAudience, outboundAudience_);
+        DARABONBA_PTR_TO_JSON(OutboundClientId, outboundClientId_);
+        DARABONBA_PTR_TO_JSON(SourcePlatform, sourcePlatform_);
         DARABONBA_PTR_TO_JSON(TokenVaultName, tokenVaultName_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
       };
@@ -59,9 +64,14 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CredentialProviderArn, credentialProviderArn_);
         DARABONBA_PTR_FROM_JSON(CredentialProviderVendor, credentialProviderVendor_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(IDaaSInstanceId, IDaaSInstanceId_);
         DARABONBA_PTR_FROM_JSON(OAuth2CredentialProviderName, OAuth2CredentialProviderName_);
         DARABONBA_PTR_FROM_JSON(OAuth2ProviderConfig, OAuth2ProviderConfig_);
         DARABONBA_PTR_FROM_JSON(OAuthType, OAuthType_);
+        DARABONBA_PTR_FROM_JSON(OutboundApplicationId, outboundApplicationId_);
+        DARABONBA_PTR_FROM_JSON(OutboundAudience, outboundAudience_);
+        DARABONBA_PTR_FROM_JSON(OutboundClientId, outboundClientId_);
+        DARABONBA_PTR_FROM_JSON(SourcePlatform, sourcePlatform_);
         DARABONBA_PTR_FROM_JSON(TokenVaultName, tokenVaultName_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
       };
@@ -77,8 +87,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->callbackURL_ == nullptr
-        && this->createTime_ == nullptr && this->credentialProviderArn_ == nullptr && this->credentialProviderVendor_ == nullptr && this->description_ == nullptr && this->OAuth2CredentialProviderName_ == nullptr
-        && this->OAuth2ProviderConfig_ == nullptr && this->OAuthType_ == nullptr && this->tokenVaultName_ == nullptr && this->updateTime_ == nullptr; };
+        && this->createTime_ == nullptr && this->credentialProviderArn_ == nullptr && this->credentialProviderVendor_ == nullptr && this->description_ == nullptr && this->IDaaSInstanceId_ == nullptr
+        && this->OAuth2CredentialProviderName_ == nullptr && this->OAuth2ProviderConfig_ == nullptr && this->OAuthType_ == nullptr && this->outboundApplicationId_ == nullptr && this->outboundAudience_ == nullptr
+        && this->outboundClientId_ == nullptr && this->sourcePlatform_ == nullptr && this->tokenVaultName_ == nullptr && this->updateTime_ == nullptr; };
       // callbackURL Field Functions 
       bool hasCallbackURL() const { return this->callbackURL_ != nullptr;};
       void deleteCallbackURL() { this->callbackURL_ = nullptr;};
@@ -114,6 +125,13 @@ namespace Models
       inline OAuth2CredentialProviders& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // IDaaSInstanceId Field Functions 
+      bool hasIDaaSInstanceId() const { return this->IDaaSInstanceId_ != nullptr;};
+      void deleteIDaaSInstanceId() { this->IDaaSInstanceId_ = nullptr;};
+      inline string getIDaaSInstanceId() const { DARABONBA_PTR_GET_DEFAULT(IDaaSInstanceId_, "") };
+      inline OAuth2CredentialProviders& setIDaaSInstanceId(string IDaaSInstanceId) { DARABONBA_PTR_SET_VALUE(IDaaSInstanceId_, IDaaSInstanceId) };
+
+
       // OAuth2CredentialProviderName Field Functions 
       bool hasOAuth2CredentialProviderName() const { return this->OAuth2CredentialProviderName_ != nullptr;};
       void deleteOAuth2CredentialProviderName() { this->OAuth2CredentialProviderName_ = nullptr;};
@@ -137,6 +155,34 @@ namespace Models
       inline OAuth2CredentialProviders& setOAuthType(string OAuthType) { DARABONBA_PTR_SET_VALUE(OAuthType_, OAuthType) };
 
 
+      // outboundApplicationId Field Functions 
+      bool hasOutboundApplicationId() const { return this->outboundApplicationId_ != nullptr;};
+      void deleteOutboundApplicationId() { this->outboundApplicationId_ = nullptr;};
+      inline string getOutboundApplicationId() const { DARABONBA_PTR_GET_DEFAULT(outboundApplicationId_, "") };
+      inline OAuth2CredentialProviders& setOutboundApplicationId(string outboundApplicationId) { DARABONBA_PTR_SET_VALUE(outboundApplicationId_, outboundApplicationId) };
+
+
+      // outboundAudience Field Functions 
+      bool hasOutboundAudience() const { return this->outboundAudience_ != nullptr;};
+      void deleteOutboundAudience() { this->outboundAudience_ = nullptr;};
+      inline string getOutboundAudience() const { DARABONBA_PTR_GET_DEFAULT(outboundAudience_, "") };
+      inline OAuth2CredentialProviders& setOutboundAudience(string outboundAudience) { DARABONBA_PTR_SET_VALUE(outboundAudience_, outboundAudience) };
+
+
+      // outboundClientId Field Functions 
+      bool hasOutboundClientId() const { return this->outboundClientId_ != nullptr;};
+      void deleteOutboundClientId() { this->outboundClientId_ = nullptr;};
+      inline string getOutboundClientId() const { DARABONBA_PTR_GET_DEFAULT(outboundClientId_, "") };
+      inline OAuth2CredentialProviders& setOutboundClientId(string outboundClientId) { DARABONBA_PTR_SET_VALUE(outboundClientId_, outboundClientId) };
+
+
+      // sourcePlatform Field Functions 
+      bool hasSourcePlatform() const { return this->sourcePlatform_ != nullptr;};
+      void deleteSourcePlatform() { this->sourcePlatform_ = nullptr;};
+      inline string getSourcePlatform() const { DARABONBA_PTR_GET_DEFAULT(sourcePlatform_, "") };
+      inline OAuth2CredentialProviders& setSourcePlatform(string sourcePlatform) { DARABONBA_PTR_SET_VALUE(sourcePlatform_, sourcePlatform) };
+
+
       // tokenVaultName Field Functions 
       bool hasTokenVaultName() const { return this->tokenVaultName_ != nullptr;};
       void deleteTokenVaultName() { this->tokenVaultName_ = nullptr;};
@@ -157,9 +203,14 @@ namespace Models
       shared_ptr<string> credentialProviderArn_ {};
       shared_ptr<string> credentialProviderVendor_ {};
       shared_ptr<string> description_ {};
+      shared_ptr<string> IDaaSInstanceId_ {};
       shared_ptr<string> OAuth2CredentialProviderName_ {};
       shared_ptr<OAuth2ProviderConfig> OAuth2ProviderConfig_ {};
       shared_ptr<string> OAuthType_ {};
+      shared_ptr<string> outboundApplicationId_ {};
+      shared_ptr<string> outboundAudience_ {};
+      shared_ptr<string> outboundClientId_ {};
+      shared_ptr<string> sourcePlatform_ {};
       shared_ptr<string> tokenVaultName_ {};
       shared_ptr<string> updateTime_ {};
     };

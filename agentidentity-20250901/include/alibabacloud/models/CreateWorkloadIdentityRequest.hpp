@@ -14,6 +14,7 @@ namespace Models
   class CreateWorkloadIdentityRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateWorkloadIdentityRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AllowedConsentCallbackURLs, allowedConsentCallbackURLs_);
       DARABONBA_PTR_TO_JSON(AllowedResourceOAuth2ReturnURLs, allowedResourceOAuth2ReturnURLs_);
       DARABONBA_PTR_TO_JSON(CreateRAMRole, createRAMRole_);
       DARABONBA_PTR_TO_JSON(Description, description_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkloadIdentityName, workloadIdentityName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateWorkloadIdentityRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AllowedConsentCallbackURLs, allowedConsentCallbackURLs_);
       DARABONBA_PTR_FROM_JSON(AllowedResourceOAuth2ReturnURLs, allowedResourceOAuth2ReturnURLs_);
       DARABONBA_PTR_FROM_JSON(CreateRAMRole, createRAMRole_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -46,9 +48,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->allowedResourceOAuth2ReturnURLs_ == nullptr
-        && this->createRAMRole_ == nullptr && this->description_ == nullptr && this->identityProviderName_ == nullptr && this->roleArn_ == nullptr && this->sessionBindingEnabled_ == nullptr
-        && this->sourceAgentArn_ == nullptr && this->sourcePlatform_ == nullptr && this->workloadIdentityName_ == nullptr; };
+    virtual bool empty() const override { return this->allowedConsentCallbackURLs_ == nullptr
+        && this->allowedResourceOAuth2ReturnURLs_ == nullptr && this->createRAMRole_ == nullptr && this->description_ == nullptr && this->identityProviderName_ == nullptr && this->roleArn_ == nullptr
+        && this->sessionBindingEnabled_ == nullptr && this->sourceAgentArn_ == nullptr && this->sourcePlatform_ == nullptr && this->workloadIdentityName_ == nullptr; };
+    // allowedConsentCallbackURLs Field Functions 
+    bool hasAllowedConsentCallbackURLs() const { return this->allowedConsentCallbackURLs_ != nullptr;};
+    void deleteAllowedConsentCallbackURLs() { this->allowedConsentCallbackURLs_ = nullptr;};
+    inline const vector<string> & getAllowedConsentCallbackURLs() const { DARABONBA_PTR_GET_CONST(allowedConsentCallbackURLs_, vector<string>) };
+    inline vector<string> getAllowedConsentCallbackURLs() { DARABONBA_PTR_GET(allowedConsentCallbackURLs_, vector<string>) };
+    inline CreateWorkloadIdentityRequest& setAllowedConsentCallbackURLs(const vector<string> & allowedConsentCallbackURLs) { DARABONBA_PTR_SET_VALUE(allowedConsentCallbackURLs_, allowedConsentCallbackURLs) };
+    inline CreateWorkloadIdentityRequest& setAllowedConsentCallbackURLs(vector<string> && allowedConsentCallbackURLs) { DARABONBA_PTR_SET_RVALUE(allowedConsentCallbackURLs_, allowedConsentCallbackURLs) };
+
+
     // allowedResourceOAuth2ReturnURLs Field Functions 
     bool hasAllowedResourceOAuth2ReturnURLs() const { return this->allowedResourceOAuth2ReturnURLs_ != nullptr;};
     void deleteAllowedResourceOAuth2ReturnURLs() { this->allowedResourceOAuth2ReturnURLs_ = nullptr;};
@@ -115,6 +126,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<vector<string>> allowedConsentCallbackURLs_ {};
     shared_ptr<vector<string>> allowedResourceOAuth2ReturnURLs_ {};
     shared_ptr<bool> createRAMRole_ {};
     shared_ptr<string> description_ {};

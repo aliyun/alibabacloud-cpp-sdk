@@ -38,6 +38,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(CredentialProviderArn, credentialProviderArn_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(SourcePlatform, sourcePlatform_);
         DARABONBA_PTR_TO_JSON(TokenVaultName, tokenVaultName_);
       };
       friend void from_json(const Darabonba::Json& j, APIKeyCredentialProvider& obj) { 
@@ -45,6 +46,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(CredentialProviderArn, credentialProviderArn_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(SourcePlatform, sourcePlatform_);
         DARABONBA_PTR_FROM_JSON(TokenVaultName, tokenVaultName_);
       };
       APIKeyCredentialProvider() = default ;
@@ -59,7 +61,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->APIKeyCredentialProviderName_ == nullptr
-        && this->createTime_ == nullptr && this->credentialProviderArn_ == nullptr && this->description_ == nullptr && this->tokenVaultName_ == nullptr; };
+        && this->createTime_ == nullptr && this->credentialProviderArn_ == nullptr && this->description_ == nullptr && this->sourcePlatform_ == nullptr && this->tokenVaultName_ == nullptr; };
       // APIKeyCredentialProviderName Field Functions 
       bool hasAPIKeyCredentialProviderName() const { return this->APIKeyCredentialProviderName_ != nullptr;};
       void deleteAPIKeyCredentialProviderName() { this->APIKeyCredentialProviderName_ = nullptr;};
@@ -88,6 +90,13 @@ namespace Models
       inline APIKeyCredentialProvider& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // sourcePlatform Field Functions 
+      bool hasSourcePlatform() const { return this->sourcePlatform_ != nullptr;};
+      void deleteSourcePlatform() { this->sourcePlatform_ = nullptr;};
+      inline string getSourcePlatform() const { DARABONBA_PTR_GET_DEFAULT(sourcePlatform_, "") };
+      inline APIKeyCredentialProvider& setSourcePlatform(string sourcePlatform) { DARABONBA_PTR_SET_VALUE(sourcePlatform_, sourcePlatform) };
+
+
       // tokenVaultName Field Functions 
       bool hasTokenVaultName() const { return this->tokenVaultName_ != nullptr;};
       void deleteTokenVaultName() { this->tokenVaultName_ = nullptr;};
@@ -100,6 +109,7 @@ namespace Models
       shared_ptr<string> createTime_ {};
       shared_ptr<string> credentialProviderArn_ {};
       shared_ptr<string> description_ {};
+      shared_ptr<string> sourcePlatform_ {};
       shared_ptr<string> tokenVaultName_ {};
     };
 

@@ -832,11 +832,19 @@ CreateWorkloadIdentityResponse Client::createWorkloadIdentityWithOptions(const C
   tmpReq.validate();
   CreateWorkloadIdentityShrinkRequest request = CreateWorkloadIdentityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAllowedConsentCallbackURLs()) {
+    request.setAllowedConsentCallbackURLsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAllowedConsentCallbackURLs(), "AllowedConsentCallbackURLs", "json"));
+  }
+
   if (!!tmpReq.hasAllowedResourceOAuth2ReturnURLs()) {
     request.setAllowedResourceOAuth2ReturnURLsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAllowedResourceOAuth2ReturnURLs(), "AllowedResourceOAuth2ReturnURLs", "json"));
   }
 
   json body = {};
+  if (!!request.hasAllowedConsentCallbackURLsShrink()) {
+    body["AllowedConsentCallbackURLs"] = request.getAllowedConsentCallbackURLsShrink();
+  }
+
   if (!!request.hasAllowedResourceOAuth2ReturnURLsShrink()) {
     body["AllowedResourceOAuth2ReturnURLs"] = request.getAllowedResourceOAuth2ReturnURLsShrink();
   }
@@ -3542,11 +3550,19 @@ UpdateLoginPreferenceResponse Client::updateLoginPreferenceWithOptions(const Upd
   tmpReq.validate();
   UpdateLoginPreferenceShrinkRequest request = UpdateLoginPreferenceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAllowedPostLogoutRedirectUris()) {
+    request.setAllowedPostLogoutRedirectUrisShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAllowedPostLogoutRedirectUris(), "AllowedPostLogoutRedirectUris", "json"));
+  }
+
   if (!!tmpReq.hasLoginPreference()) {
     request.setLoginPreferenceShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLoginPreference(), "LoginPreference", "json"));
   }
 
   json query = {};
+  if (!!request.hasAllowedPostLogoutRedirectUrisShrink()) {
+    query["AllowedPostLogoutRedirectUris"] = request.getAllowedPostLogoutRedirectUrisShrink();
+  }
+
   if (!!request.hasLoginPreferenceShrink()) {
     query["LoginPreference"] = request.getLoginPreferenceShrink();
   }
@@ -4050,11 +4066,19 @@ UpdateWorkloadIdentityResponse Client::updateWorkloadIdentityWithOptions(const U
   tmpReq.validate();
   UpdateWorkloadIdentityShrinkRequest request = UpdateWorkloadIdentityShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAllowedConsentCallbackURLs()) {
+    request.setAllowedConsentCallbackURLsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAllowedConsentCallbackURLs(), "AllowedConsentCallbackURLs", "json"));
+  }
+
   if (!!tmpReq.hasAllowedResourceOAuth2ReturnURLs()) {
     request.setAllowedResourceOAuth2ReturnURLsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAllowedResourceOAuth2ReturnURLs(), "AllowedResourceOAuth2ReturnURLs", "json"));
   }
 
   json body = {};
+  if (!!request.hasAllowedConsentCallbackURLsShrink()) {
+    body["AllowedConsentCallbackURLs"] = request.getAllowedConsentCallbackURLsShrink();
+  }
+
   if (!!request.hasAllowedResourceOAuth2ReturnURLsShrink()) {
     body["AllowedResourceOAuth2ReturnURLs"] = request.getAllowedResourceOAuth2ReturnURLsShrink();
   }
