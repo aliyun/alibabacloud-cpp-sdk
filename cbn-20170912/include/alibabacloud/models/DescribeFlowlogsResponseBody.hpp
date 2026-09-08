@@ -372,16 +372,17 @@ namespace Models
 
   protected:
     shared_ptr<DescribeFlowlogsResponseBody::FlowLogs> flowLogs_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page for paging queries.
     shared_ptr<string> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
+    // Indicates whether the current API call is successful.
     // 
-    // *   **true**: yes
-    // *   **false**: no
+    // - **true**: successful.
+    // 
+    // - **false**: failed.
     shared_ptr<string> success_ {};
     // The total number of entries returned.
     shared_ptr<string> totalCount_ {};

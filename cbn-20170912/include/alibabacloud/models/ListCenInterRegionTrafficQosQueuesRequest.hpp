@@ -91,9 +91,9 @@ namespace Models
 
 
     protected:
-      // The actual bandwidth is greater than or equal to the specified value.
+      // The actual effective bandwidth is greater than or equal to the specified bandwidth value.
       shared_ptr<int64_t> gte_ {};
-      // The actual bandwidth is less than or equal to the specified value.
+      // The actual effective bandwidth is less than or equal to the specified bandwidth value.
       shared_ptr<int64_t> lte_ {};
     };
 
@@ -195,35 +195,34 @@ namespace Models
 
 
   protected:
-    // Filters the results by the actual bandwidth. Only positive integers are supported. Unit: Mbit/s.
+    // Filters results by the actual effective bandwidth value. Only positive integers are allowed. Unit: Mbit/s.
     shared_ptr<ListCenInterRegionTrafficQosQueuesRequest::EffectiveBandwidthFilter> effectiveBandwidthFilter_ {};
-    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 20.
+    // The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It is used in the next request to retrieve a new page of results.
+    // The token that determines the start point of the next query. Valid values:
     // 
-    // - If **NextToken** is empty, no more results are returned.
-    // 
-    // - If NextToken is not empty, the value of **NextToken** is used for the next query.
+    // - If **NextToken** is empty, no next query exists.
+    // - If a value is returned for **NextToken**, the value indicates the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the QoS policy.
+    // The ID of the traffic scheduling policy.
     shared_ptr<string> trafficQosPolicyId_ {};
-    // The description of the queue in the QoS policy.
+    // The description of the traffic scheduling policy queue.
     // 
-    // The description can be empty or 1 to 256 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
+    // The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> trafficQosQueueDescription_ {};
-    // The ID of the queue in the QoS policy.
+    // The ID of the traffic scheduling policy queue.
     shared_ptr<string> trafficQosQueueId_ {};
-    // The name of the queue in the QoS policy.
+    // The name of the traffic scheduling policy queue.
     // 
-    // The name can be empty or 1 to 128 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
+    // The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
     shared_ptr<string> trafficQosQueueName_ {};
     // The ID of the inter-region connection.
     shared_ptr<string> transitRouterAttachmentId_ {};
-    // The ID of the transit router.
+    // The ID of the transit router instance.
     shared_ptr<string> transitRouterId_ {};
   };
 

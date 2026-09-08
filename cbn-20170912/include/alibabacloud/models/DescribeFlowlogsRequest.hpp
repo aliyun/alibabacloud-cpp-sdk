@@ -106,17 +106,17 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
-      // You can specify at most 20 tag keys.
+      // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value of the resource.
       // 
-      // The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
       // 
-      // Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+      // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -268,62 +268,63 @@ namespace Models
 
 
   protected:
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The Cloud Enterprise Network (CEN) instance ID.
     shared_ptr<string> cenId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // >  If you do not set this parameter, ClientToken is set to the value of RequestId. The value of RequestId for each API request may be different.
+    // > If you do not specify this parameter, the system automatically uses the RequestId value as the ClientToken value. The RequestId value may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the flow log.
     // 
-    // The description is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http:// or https://.
+    // The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // The ID of the flow log.
+    // The flow log ID.
     shared_ptr<string> flowLogId_ {};
     // The name of the flow log.
     // 
-    // The name is optional. If you enter a name, it must be 1 to 128 characters in length, and cannot start with http:// or https://.
+    // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> flowLogName_ {};
-    // The flow log version.
+    // The version of the flow log.
     // 
-    // Flow logs are automatically created in the latest version, which is **3**.
+    // When a flow log is created, the latest version supported by the system is automatically used. The current version is **3**.
     shared_ptr<string> flowLogVersion_ {};
-    // The time window for collecting log data. Unit: seconds Valid values: **60** or **600** Default value: **600**.
+    // The capture window duration of the flow log. Unit: seconds. Valid values: **60** or **600**. Default value: **600**.
     shared_ptr<int32_t> interval_ {};
-    // The name of the Logstore where the flow log is stored.
+    // The name of the Logstore that stores the captured traffic.
     // 
-    // The name must be 3 to 63 characters in length, and can contain lowercase letters, digits, underscores (_), and hyphens (-). It must start or end with a lowercase letter or a digit.
+    // The Logstore name must be 3 to 63 characters in length, and must start and end with a lowercase letter or digit. It can contain only lowercase letters, digits, hyphens (-), and underscores (_).
     shared_ptr<string> logStoreName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Minimum value: **1**. Default value: **20**.
+    // The number of entries per page for paging queries. Minimum value: **1**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the project where the flow log is stored.
+    // The name of the project that stores the captured traffic.
     // 
-    // The name must be 3 to 63 characters in length, and can contain lowercase letters, digits, and hyphens (-). It must start or end with a lowercase letter or a digit.
+    // The project name must be 3 to 63 characters in length, and must start and end with a lowercase letter or digit. It can contain only lowercase letters, digits, and hyphens (-).
     shared_ptr<string> projectName_ {};
-    // The ID of the region where the flow log is deployed.
+    // The region ID of the flow log.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The status of the flow log. Valid values:
     // 
-    // *   **Active**: The flow log is enabled.
-    // *   **Inactive**: The flow log is disabled.
-    shared_ptr<string> status_ {};
-    // The information about the tags.
+    // - **Active**: activated.
     // 
-    // You can specify at most 20 tags in each call.
+    // - **Inactive**: not activated.
+    shared_ptr<string> status_ {};
+    // The tag information.
+    // 
+    // You can specify up to 20 tags at a time.
     shared_ptr<vector<DescribeFlowlogsRequest::Tag>> tag_ {};
-    // The ID of the network instance connection.
+    // The network instance connection ID.
     shared_ptr<string> transitRouterAttachmentId_ {};
-    // The ID of the transit router.
+    // The transit router instance ID.
     shared_ptr<string> transitRouterId_ {};
   };
 

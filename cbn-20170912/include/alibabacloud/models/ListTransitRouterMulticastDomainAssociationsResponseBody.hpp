@@ -128,21 +128,19 @@ namespace Models
       shared_ptr<int64_t> resourceOwnerId_ {};
       // The type of resource associated with the multicast domain.
       // 
-      // The value is **VPC**.
+      // Set the value to **VPC**.
       shared_ptr<string> resourceType_ {};
       // The association status.
       // 
-      // - **Associated**: The resource is associated with the multicast domain.
-      // 
-      // - **Associating**: The resource is being associated with the multicast domain.
-      // 
-      // - **Dissociating**: The resource is being dissociated from the multicast domain.
+      // - **Associated**: associated.
+      // - **Associating**: being associated.
+      // - **Dissociating**: being dissociated.
       shared_ptr<string> status_ {};
-      // The ID of the network instance connection.
+      // The network instance connection ID.
       shared_ptr<string> transitRouterAttachmentId_ {};
-      // The ID of the multicast domain.
+      // The multicast domain ID.
       shared_ptr<string> transitRouterMulticastDomainId_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
     };
 
@@ -186,13 +184,12 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. Valid values:
+    // The token that determines the start point of the query. Valid values:
     // 
-    // - If **NextToken** is empty, it indicates that no next query is to be sent.
-    // 
-    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
+    // - If **NextToken** is empty, no subsequent query is to be sent.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

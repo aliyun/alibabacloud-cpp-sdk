@@ -130,17 +130,17 @@ namespace Models
 
 
   protected:
-    // The ID of the network instance to query.
+    // The instance ID of the network instance to query.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceId_ {};
-    // The ID of the region where the network instance is deployed.
+    // The region ID of the network instance.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRegionId_ {};
-    // The ID of the route table of the network instance.
+    // The route table ID of the network instance to query.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRouteTableId_ {};
@@ -154,13 +154,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
-    // The destination CIDR block of the conflicting route.
+    // The destination CIDR block of the conflicting route entry.
     shared_ptr<string> destinationCidrBlock_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries per page during paging. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

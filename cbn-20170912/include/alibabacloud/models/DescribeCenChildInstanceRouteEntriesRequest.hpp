@@ -140,44 +140,52 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The CEN instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The ID of the network instance.
+    // The network instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceId_ {};
-    // The ID of the region where the network instance is deployed.
+    // The region ID of the network instance.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
     shared_ptr<string> childInstanceRegionId_ {};
-    // The ID of the route table of the network instance. If you do not specify a route table ID, the system queries the routes in the system route tables of the VPCs by default.
+    // The routing table ID of the network instance.
+    // If you do not specify a routing table ID when querying route entries of a VPC-connected instance, the system queries route entries in the system routing table of the VPC-connected instance by default.
     shared_ptr<string> childInstanceRouteTableId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **VBR**: virtual border router (VBR)
-    // *   **CCN**: Cloud Connect Network (CCN) instance
-    // *   **ECR**: Express Connect Router (ECR)
+    // - **VPC**: virtual private cloud (VPC).
+    // 
+    // - **VBR**: virtual border router (VBR).
+    // 
+    // - **CCN**: Cloud Connect Network (CCN).
+    // 
+    // - **ECR**: Express Connect Router (ECR).
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1** to **500**. Default value: **10**.
+    // The number of entries per page for paging queries. Default value: **10**. Valid values: **1** to **500**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the route. Valid values:
+    // The status of the route entry. Valid values:
     // 
-    // *   **Active**: available
-    // *   **Candidate**: standby
-    // *   **Rejected**: rejected
-    // *   **Prohibited**: prohibited
-    // *   **All** (default): all routes
+    // - **Active**: active.
+    // 
+    // - **Candidate**: candidate.
+    // 
+    // - **Rejected**: rejected.
+    // 
+    // - **Prohibited**: prohibited.
+    // 
+    // - **All** (default): queries route entries in all states of the network instance.
     shared_ptr<string> status_ {};
   };
 

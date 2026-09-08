@@ -155,8 +155,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether IGMPv2 is enabled for the multicast domain.
+        // Indicates whether IGMP is enabled for the multicast domain.
         shared_ptr<string> igmpv2Support_ {};
+        // Indicates whether strict multicast source control is enabled for the multicast domain.
         shared_ptr<string> strictSourceControl_ {};
       };
 
@@ -231,21 +232,23 @@ namespace Models
 
 
     protected:
-      // The ID of the CEN instance.
+      // The Cloud Enterprise Network (CEN) instance ID.
       shared_ptr<string> cenId_ {};
-      // The options of the multicast domain.
+      // The feature options of the multicast domain.
       shared_ptr<TransitRouterMulticastDomains::Options> options_ {};
-      // The ID of the region where the transit router is deployed.
+      // The region ID of the transit router.
       // 
-      // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
+      // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
       shared_ptr<string> regionId_ {};
       // The status of the multicast domain.
       // 
-      // The value is **Active**, which indicates that the multicast domain is available.
+      // Valid values:
+      // - ``Active``: The multicast domain is available.
+      // - ``Modifying``: The multicast domain is being modified.
       shared_ptr<string> status_ {};
       // The list of tags.
       shared_ptr<vector<TransitRouterMulticastDomains::Tags>> tags_ {};
-      // The ID of the transit router.
+      // The transit router instance ID.
       shared_ptr<string> transitRouterId_ {};
       // The description of the multicast domain.
       shared_ptr<string> transitRouterMulticastDomainDescription_ {};
@@ -297,15 +300,14 @@ namespace Models
   protected:
     // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
+    // The token that determines the start point of the next query. Valid values:
     // 
-    // - If the value of **NextToken** is empty, it indicates that no next query is to be sent.
-    // 
-    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** is returned, the value indicates the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
     // The list of multicast domains.
     shared_ptr<vector<ListTransitRouterMulticastDomainsResponseBody::TransitRouterMulticastDomains>> transitRouterMulticastDomains_ {};

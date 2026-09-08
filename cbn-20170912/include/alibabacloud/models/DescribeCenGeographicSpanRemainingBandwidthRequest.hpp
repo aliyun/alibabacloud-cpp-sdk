@@ -112,39 +112,33 @@ namespace Models
 
 
   protected:
-    // The ID of the Cloud Enterprise Network (CEN) instance to which the bandwidth plan is attached.
+    // The instance ID of the Cloud Enterprise Network (CEN) instance to which the bandwidth plan is attached.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The ID of a connected area of the bandwidth plan. Valid values:
+    // The ID of one of the connected areas of the bandwidth plan instance. Valid values:
     // 
     // - **China**: the Chinese mainland.
-    // 
     // - **North-America**: North America.
-    // 
     // - **Asia-Pacific**: Asia Pacific.
-    // 
     // - **Europe**: Europe.
     // 
     // This parameter is required.
     shared_ptr<string> geographicRegionAId_ {};
-    // The ID of the other connected area of the bandwidth plan. Valid values:
+    // The ID of the other connected areas of the bandwidth plan instance. Valid values:
     // 
     // - **China**: the Chinese mainland.
-    // 
     // - **North-America**: North America.
-    // 
     // - **Asia-Pacific**: Asia Pacific.
-    // 
     // - **Europe**: Europe.
     // 
     // This parameter is required.
     shared_ptr<string> geographicRegionBId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The default value is **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. The default value is **10**. Valid values: **1** to **50**.
+    // The number of entries per page when using paging. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

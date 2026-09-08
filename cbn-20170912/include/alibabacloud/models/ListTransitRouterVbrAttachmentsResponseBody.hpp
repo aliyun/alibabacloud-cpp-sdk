@@ -241,36 +241,33 @@ namespace Models
 
 
     protected:
-      // Indicates whether the Enterprise Edition transit router automatically advertises routes to the VBR.
+      // Indicates whether the Enterprise Edition forward routing automatically publishes route entries to the VBR instance. Valid values:
       // 
-      // - **false**: no.
-      // 
-      // - **true**: yes.
+      // - **false**: The Enterprise Edition forward routing does not automatically publish route entries to the VBR instance.
+      // - **true**: The Enterprise Edition forward routing automatically publishes route entries to the VBR instance.
       shared_ptr<bool> autoPublishRouteEnabled_ {};
-      // The ID of the CEN instance.
+      // The CEN instance ID.
       shared_ptr<string> cenId_ {};
       // The time when the VBR connection was created.
       // 
-      // The time is displayed in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
+      // The time is displayed in the ISO 8601 standard in UTC. Format: YYYY-MM-DDThh:mmZ.
       shared_ptr<string> creationTime_ {};
+      // The cloud service that manages the VBR connection. This parameter is returned only when the VBR connection is managed by a cloud service. The standard code of the cloud service is returned. If the VBR connection is managed by you, this parameter is not returned.
       shared_ptr<string> managedService_ {};
-      // The payer for the network instance. Valid values:
+      // The payer of the network instance. Valid values:
       // 
-      // - **PayByCenOwner**: The connection fee and data transfer fee for the VBR are paid by the account that owns the transit router.
-      // 
-      // - **PayByResourceOwner**: The connection fee and data transfer fee for the VBR are paid by the account that owns the VBR.
+      // - **PayByCenOwner**: The connection fee and data processing fee of the VBR instance are paid by the account to which the transit router instance belongs.
+      // - **PayByResourceOwner**: The connection fee and data processing fee of the VBR instance are paid by the account to which the VBR instance belongs.
       shared_ptr<string> orderType_ {};
-      // The resource type of the connection.
+      // The type of resource to which the connection belongs.
       // 
-      // The value is set to **VBR**, which indicates a VBR instance.
+      // The value is **VBR**, which indicates a virtual border router instance.
       shared_ptr<string> resourceType_ {};
-      // The status of the VBR connection.
+      // The status of the VBR connection. Valid values:
       // 
-      // - **Attached**: The connection is established.
-      // 
-      // - **Attaching**: The connection is being established.
-      // 
-      // - **Detaching**: The connection is being removed.
+      // - **Attached**: The VBR connection is attached.
+      // - **Attaching**: The VBR connection is being attached.
+      // - **Detaching**: The VBR connection is being detached.
       shared_ptr<string> status_ {};
       // The list of tags.
       shared_ptr<vector<TransitRouterAttachments::Tags>> tags_ {};
@@ -280,13 +277,13 @@ namespace Models
       shared_ptr<string> transitRouterAttachmentId_ {};
       // The name of the VBR connection.
       shared_ptr<string> transitRouterAttachmentName_ {};
-      // The ID of the Enterprise Edition transit router.
+      // The Enterprise Edition forward routing instance ID.
       shared_ptr<string> transitRouterId_ {};
-      // The VBR ID.
+      // The VBR instance ID.
       shared_ptr<string> vbrId_ {};
-      // The ID of the Alibaba Cloud account to which the VBR belongs.
+      // The ID of the account to which the VBR instance belongs.
       shared_ptr<int64_t> vbrOwnerId_ {};
-      // The ID of the region where the VBR is deployed.
+      // The region ID of the VBR instance.
       shared_ptr<string> vbrRegionId_ {};
     };
 
@@ -332,17 +329,16 @@ namespace Models
   protected:
     // The maximum number of entries returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used for the next query.
+    // The token that determines the start point of the query. Valid values:
     // 
-    // - If this parameter is empty, no more data is returned.
-    // 
-    // - If a value is returned for this parameter, it is the token that you can use to retrieve the next page of results.
+    // - If this is the first query or no subsequent query is to be sent, you do not need to specify this parameter.
+    // - If a subsequent query is to be sent, set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of VBR connections.
+    // The list of VBR connections.
     shared_ptr<vector<ListTransitRouterVbrAttachmentsResponseBody::TransitRouterAttachments>> transitRouterAttachments_ {};
   };
 

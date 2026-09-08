@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The Cloud Enterprise Network (CEN) instance ID.
     shared_ptr<string> cenId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The default value is **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The default value is **10**. Valid values: **1** to **50**.
+    // The number of entries per page when using paging. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The region ID of the transit router.
     // 
-    // Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query information about regions.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region information corresponding to a region ID.
     shared_ptr<string> trRegionId_ {};
   };
 

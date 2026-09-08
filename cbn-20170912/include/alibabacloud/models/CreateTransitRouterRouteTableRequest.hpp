@@ -90,15 +90,15 @@ namespace Models
     protected:
       // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with \\`aliyun\\` or \\`acs:\\`. It cannot contain \\`http\\://\\` or \\`https\\://\\`.
+      // Once specified, the tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       // 
-      // You can specify up to 20 tag keys.
+      // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
       // The tag value of the resource.
       // 
-      // The tag value can be an empty string or a string of up to 128 characters. It cannot start with \\`aliyun\\` or \\`acs:\\` and cannot contain \\`http\\://\\` or \\`https\\://\\`.
+      // Once specified, the tag value cannot be empty. The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. It cannot contain http:// or https://.
       // 
-      // Each tag key must have a unique tag value. You can specify up to 20 tag values.
+      // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -130,11 +130,9 @@ namespace Models
 
 
     protected:
-      // The multi-region equal-cost multi-path (ECMP) routing feature. Valid values:
-      // 
-      // - **disable** (default): disables the multi-region ECMP routing feature. If you disable the multi-region ECMP routing feature, routes that are learned from different regions but have the same prefix and attributes select the transit router with the smallest region ID as the next hop. The region ID is sorted in alphabetical order. In this case, the latency and bandwidth consumption of the traffic may change. Make sure that you are aware of the impact before you disable the feature.
-      // 
-      // - **enable**: enables the multi-region ECMP routing feature. If you enable the multi-region ECMP routing feature, routes that are learned from different regions but have the same prefix and attributes are considered ECMP routes. In this case, the latency and bandwidth consumption of the traffic may change. Make sure that you are aware of the impact before you enable the feature.
+      // The multi-region equal-cost multi-path (ECMP) routing setting. Valid values:
+      // - **disable** (default): disables multi-region ECMP routing. After multi-region ECMP routing is disabled, routes with the same prefix learned from different regions prefer the transit router whose Region ID is the smallest (sorted alphabetically) as the next hop when other route attributes are the same. This may change traffic latency and bandwidth consumption between regions. Make sure that you fully evaluate the impact before disabling this feature.
+      // - **enable**: enables multi-region ECMP routing. After multi-region ECMP routing is enabled, routes with the same prefix learned from different regions form ECMP routes when other route attributes are the same. This may change traffic latency and bandwidth consumption between regions. Make sure that you fully evaluate the impact before enabling this feature.
       shared_ptr<string> multiRegionECMP_ {};
     };
 
@@ -225,25 +223,24 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a token from your client to ensure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** of each request is different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
+    // Specifies whether to perform a dry run, including permission and instance status verification. Valid values:
     // 
-    // - **true**: performs a dry run. The system checks the request for potential issues, including required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-    // 
-    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, a custom route table is created.
+    // - **false** (default): sends a normal request and creates the custom route table after the request passes the verification.
+    // - **true**: sends a check request without creating the custom route table. The system checks the required parameters, request format, and other conditions. If the check fails, the corresponding error is returned. If the check passes, the corresponding request ID is returned.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The features of the route table.
+    // The route table options.
     shared_ptr<CreateTransitRouterRouteTableRequest::RouteTableOptions> routeTableOptions_ {};
-    // The tag.
+    // The tag information.
     // 
-    // You can specify up to 20 tags in each call.
+    // You can specify up to 20 tags at a time.
     shared_ptr<vector<CreateTransitRouterRouteTableRequest::Tag>> tag_ {};
     // The ID of the Enterprise Edition transit router instance.
     // 
@@ -251,11 +248,11 @@ namespace Models
     shared_ptr<string> transitRouterId_ {};
     // The description of the custom route table.
     // 
-    // The description can be empty or 1 to 256 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
+    // The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> transitRouterRouteTableDescription_ {};
     // The name of the custom route table.
     // 
-    // The name can be empty or 1 to 128 characters in length. It cannot start with \\`http\\://\\` or \\`https\\://\\`.
+    // The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
     shared_ptr<string> transitRouterRouteTableName_ {};
   };
 

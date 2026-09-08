@@ -140,51 +140,49 @@ namespace Models
 
 
   protected:
-    // The CIDR block of the transit router.
+    // The transit router CIDR block.
     // 
     // This parameter is required.
     shared_ptr<string> cidr_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a token on your client to make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID is different for each request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the transit router CIDR block.
     // 
-    // The description can be empty or 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
+    // The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // 
+    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
     // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the transit router CIDR block is created.
     shared_ptr<bool> dryRun_ {};
     // The name of the transit router CIDR block.
     // 
-    // The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
+    // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to allow the system to automatically add a route that points to the transit router CIDR block to the route table of the transit router.
+    // Specifies whether to allow the system to automatically add a route for the transit router CIDR block to the transit router route table.
     // 
-    // - **true** (default): Yes.
-    // 
-    //   After you create a VPN connection that uses a private VPN gateway and enable route learning for the connection, the system automatically adds a blackhole route to the route table of the associated transit router. The destination of this route is the transit router CIDR block. The transit router CIDR block is the CIDR block from which a gateway IP address is allocated to the IPsec connection. This blackhole route is advertised only to the route tables of virtual border routers (VBRs) that are connected to the transit router.
-    // 
-    //   A blackhole route whose destination CIDR block is the transit router CIDR block, which refers to the CIDR block from which gateway IP addresses are allocated to the IPsec-VPN connection. The blackhole route is advertised only to the route tables of virtual border routers (VBRs) connected to the transit router.
-    // 
-    // - **false**: No.
+    // - **true** (default): allows the system to automatically add a route.
+    //        
+    //      If you select this option, after you create a VPN connection of the private gateway type and create a route learning relationship for the VPN connection, the system automatically adds a route entry to the transit router route table that has a route learning relationship with the VPN connection:
+    //    
+    //   A blackhole route whose destination CIDR block is the transit router CIDR block from which gateway IP addresses are allocated to IPsec connections. This blackhole route is propagated only to the route tables of Virtual Border Router (VBR) instances associated with the transit router.
+    // - **false**: does not allow the system to automatically add a route.
     shared_ptr<bool> publishCidrRoute_ {};
-    // The ID of the region where the transit router is deployed.
+    // The region ID of the transit router.
     // 
-    // Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the transit router.
+    // The transit routing instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterId_ {};

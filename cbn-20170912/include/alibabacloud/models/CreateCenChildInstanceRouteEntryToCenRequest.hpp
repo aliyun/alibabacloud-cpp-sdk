@@ -130,34 +130,34 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The CEN instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The ID of the Alibaba Cloud account to which the network instance belongs.
+    // The Alibaba Cloud account ID to which the network instance belongs.
     // 
-    // > If the network instance belongs to another Alibaba Cloud account, this parameter is required.
+    // > This parameter is required if the network instance belongs to a different Alibaba Cloud account.
     shared_ptr<int64_t> childInstanceAliUid_ {};
-    // The ID of the network instance.
+    // The network instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceId_ {};
-    // The ID of the region where the network instance is deployed.
+    // The region ID of the network instance.
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRegionId_ {};
     // The type of the network instance. Valid values:
     // 
-    // *   **VPC**: a virtual private cloud (VPC)
-    // *   **VBR**: a virtual border router (VBR)
+    // - **VPC**: a virtual private cloud (VPC) instance.
+    // - **VBR**: a virtual border router (VBR) instance.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
-    // The destination CIDR block of the route.
+    // The destination CIDR block of the route entry.
     // 
-    // Specify the value of this parameter in CIDR notation. Example: 192.168.10.0/24.
+    // The destination CIDR block must be in CIDR format. Example: 192.168.10.0/24.
     // 
     // This parameter is required.
     shared_ptr<string> destinationCidrBlock_ {};
@@ -165,7 +165,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the route table configured on the network instance.
+    // The ID of the route table of the network instance.
     // 
     // This parameter is required.
     shared_ptr<string> routeTableId_ {};

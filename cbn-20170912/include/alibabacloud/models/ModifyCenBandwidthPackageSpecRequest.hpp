@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The new maximum bandwidth of the bandwidth plan. Unit: Mbps.
+    // The new peak bandwidth of the bandwidth plan instance. Unit: Mbit/s.
     // 
     // Valid values: **2** to **10000**.
     shared_ptr<int32_t> bandwidth_ {};
-    // The ID of the bandwidth plan.
+    // The instance ID of the bandwidth plan.
     // 
     // This parameter is required.
     shared_ptr<string> cenBandwidthPackageId_ {};

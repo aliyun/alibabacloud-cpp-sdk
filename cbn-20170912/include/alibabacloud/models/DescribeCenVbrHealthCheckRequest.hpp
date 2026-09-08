@@ -121,23 +121,23 @@ namespace Models
 
 
   protected:
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The Cloud Enterprise Network (CEN) instance ID.
     shared_ptr<string> cenId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1** to **50**. Default value: **10**.
+    // The number of entries per page for paging. Valid values: **1** to **50**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the VBR.
+    // The VBR instance ID.
     shared_ptr<string> vbrInstanceId_ {};
-    // The ID of the Alibaba Cloud account that owns the VBR.
+    // The ID of the Alibaba Cloud account that owns the VBR instance.
     shared_ptr<int64_t> vbrInstanceOwnerId_ {};
-    // The ID of the region where the Virtual Border Router (VBR) is deployed.
+    // The region ID of the VBR instance.
     // 
-    // For more information, see [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html).
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> vbrInstanceRegionId_ {};

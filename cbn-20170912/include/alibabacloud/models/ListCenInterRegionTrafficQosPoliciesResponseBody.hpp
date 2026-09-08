@@ -157,11 +157,11 @@ namespace Models
 
 
       protected:
-        // The bandwidth value allocated to the queue of the inter-region connection. This parameter is returned when the bandwidth guarantee type is byBandwidth.
+        // The inter-region bandwidth allocated to the current queue when the bandwidth guarantee type is set to the absolute value mode.
         shared_ptr<string> bandwidth_ {};
-        // The Differentiated Services Code Point (DSCP) values of the traffic messages that are matched by the queue.
+        // The DSCP values of the traffic packets to be matched by the current queue.
         shared_ptr<vector<int32_t>> dscps_ {};
-        // The actual bandwidth of the queue.
+        // The actual effective bandwidth of the current queue.
         shared_ptr<string> effectiveBandwidth_ {};
         // The description of the queue.
         shared_ptr<string> qosQueueDescription_ {};
@@ -169,7 +169,7 @@ namespace Models
         shared_ptr<string> qosQueueId_ {};
         // The name of the queue.
         shared_ptr<string> qosQueueName_ {};
-        // The percentage of the inter-region connection bandwidth that is used by the queue. This parameter is returned when the bandwidth guarantee type is byBandwidthPercent.
+        // The percentage of inter-region bandwidth occupied by the current queue when the bandwidth guarantee type is set to the percentage mode.
         shared_ptr<int32_t> remainBandwidthPercent_ {};
       };
 
@@ -235,33 +235,28 @@ namespace Models
 
 
     protected:
-      // The bandwidth guarantee type.
-      // 
-      // - **byBandwidth**: The QoS queues are configured based on an absolute bandwidth value.
-      // 
-      // - **byBandwidthPercent**: The QoS queues are configured based on a bandwidth percentage.
+      // The bandwidth guarantee type. Valid values:
+      // - **byBandwidth**: configures QoS queues by absolute bandwidth value.
+      // - **byBandwidthPercent**: configures QoS queues by bandwidth percentage.
       shared_ptr<string> bandwidthGuaranteeMode_ {};
-      // The description of the QoS policy.
+      // The description of the traffic scheduling policy.
       shared_ptr<string> trafficQosPolicyDescription_ {};
-      // The ID of the QoS policy.
+      // The ID of the traffic scheduling policy.
       shared_ptr<string> trafficQosPolicyId_ {};
-      // The name of the QoS policy.
+      // The name of the traffic scheduling policy.
       shared_ptr<string> trafficQosPolicyName_ {};
-      // The status of the QoS policy.
+      // The status of the traffic scheduling policy.
       // 
-      // - **Creating**: The policy is being created.
-      // 
-      // - **Active**: The policy is active.
-      // 
-      // - **Modifying**: The policy is being modified.
-      // 
-      // - **Deleting**: The policy is being deleted.
+      // - **Creating**: being created.
+      // - **Active**: active.
+      // - **Modifying**: being modified.
+      // - **Deleting**: being deleted.
       shared_ptr<string> trafficQosPolicyStatus_ {};
       // The list of queues.
       shared_ptr<vector<TrafficQosPolicies::TrafficQosQueues>> trafficQosQueues_ {};
       // The ID of the network instance connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
-      // The ID of the TransitRouter instance.
+      // The transit router instance ID.
       shared_ptr<string> transitRouterId_ {};
     };
 
@@ -305,19 +300,18 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token that is used in the next request to retrieve a new page of results.
     // 
-    // - If **NextToken** is empty, no next page exists.
-    // 
-    // - If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of entries returned.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of QoS policies.
+    // The list of traffic scheduling policies.
     shared_ptr<vector<ListCenInterRegionTrafficQosPoliciesResponseBody::TrafficQosPolicies>> trafficQosPolicies_ {};
   };
 

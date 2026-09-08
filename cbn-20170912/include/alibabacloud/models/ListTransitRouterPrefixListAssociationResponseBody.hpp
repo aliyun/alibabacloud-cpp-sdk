@@ -133,19 +133,16 @@ namespace Models
     protected:
       // The ID of the next hop connection.
       // 
-      // > If **BlackHole** is returned, it indicates that all CIDR blocks in the prefix list are blackhole routes. All traffic destined for the CIDR blocks in the prefix list is dropped.
+      // > If the value is **BlackHole**, all CIDR blocks in the prefix list are blackhole routes, and all traffic destined for the CIDR blocks in the prefix list is dropped.
       shared_ptr<string> nextHop_ {};
-      // The ID of the network instance that is associated with the next hop connection.
+      // The network instance ID associated with the next hop connection.
       shared_ptr<string> nextHopInstanceId_ {};
       // The next hop type.
       // 
-      // - **BlackHole**: The routes are blackhole routes. All traffic destined for the CIDR blocks in the prefix list is dropped.
-      // 
-      // - **VPC**: The next hop is a Virtual Private Cloud (VPC) connection.
-      // 
-      // - **VBR**: The next hop is a virtual border router (VBR) connection.
-      // 
-      // - **TR**: The next hop is an inter-region connection.
+      // - **BlackHole**: the CIDR blocks in the prefix list are blackhole routes, and all traffic destined for the CIDR blocks in the prefix list is dropped.
+      // - **VPC**: the next hop of the CIDR blocks in the prefix list is a Virtual Private Cloud (VPC) connection.
+      // - **VBR**: the next hop of the CIDR blocks in the prefix list is a Virtual Border Router (VBR) connection.
+      // - **TR**: the next hop of the CIDR blocks in the prefix list is an inter-region connection.
       shared_ptr<string> nextHopType_ {};
       // The ID of the Alibaba Cloud account to which the prefix list belongs.
       shared_ptr<int64_t> ownerUid_ {};
@@ -153,13 +150,12 @@ namespace Models
       shared_ptr<string> prefixListId_ {};
       // The status of the prefix list.
       // 
-      // - **Active**: The prefix list is active.
-      // 
-      // - **Updating**: The prefix list is being updated.
+      // - **Active**: active.
+      // - **Updating**: being updated.
       shared_ptr<string> status_ {};
-      // The ID of the transit router.
+      // The transit router instance ID.
       shared_ptr<string> transitRouterId_ {};
-      // The ID of the route table of the transit router.
+      // The ID of the transit router route table.
       shared_ptr<string> transitRouterTableId_ {};
     };
 
@@ -203,15 +199,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The information about the prefix lists.
     shared_ptr<vector<ListTransitRouterPrefixListAssociationResponseBody::PrefixLists>> prefixLists_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that match the query conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -103,29 +103,24 @@ namespace Models
 
 
     protected:
-      // The ID of the network instance.
+      // The network instance ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the network instance.
+      // The network instance type. Valid values:
       // 
-      // - **VPC**: a VPC.
-      // 
-      // - **VBR**: a VBR.
-      // 
-      // - **TR**: a transit router.
-      // 
-      // - **VPN**: a VPN connection.
+      // - **VPC**: virtual private cloud (VPC) instance.
+      // - **VBR**: virtual border router (VBR) instance.
+      // - **TR**: transit router instance.
+      // - **VPN**: VPN connection.
       shared_ptr<string> resourceType_ {};
-      // The status of the route propagation.
+      // The status of the route learning relationship. Valid values:
       // 
-      // - **Enabling**: The propagation is being enabled.
-      // 
-      // - **Disabling**: The propagation is being disabled.
-      // 
-      // - **Active**: The propagation is active.
+      // - **Enabling**: being enabled.
+      // - **Disabling**: being disabled.
+      // - **Active**: active.
       shared_ptr<string> status_ {};
-      // The ID of the network instance connection.
+      // The network instance connection ID.
       shared_ptr<string> transitRouterAttachmentId_ {};
-      // The ID of the route table of the Enterprise Edition transit router.
+      // The ID of the Enterprise Edition transit router route table.
       shared_ptr<string> transitRouterRouteTableId_ {};
     };
 
@@ -169,15 +164,15 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
+    // The token for the next query in a paged query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of the route propagations.
+    // The list of route learning relationships.
     shared_ptr<vector<ListTransitRouterRouteTablePropagationsResponseBody::TransitRouterPropagations>> transitRouterPropagations_ {};
   };
 

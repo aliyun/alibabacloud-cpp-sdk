@@ -164,9 +164,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCenGeographicSpansResponseBody::GeographicSpanModels> geographicSpanModels_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

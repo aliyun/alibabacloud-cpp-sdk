@@ -217,7 +217,7 @@ namespace Models
     shared_ptr<DescribeCenInterRegionBandwidthLimitsResponseBody::CenInterRegionBandwidthLimits> cenInterRegionBandwidthLimits_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page when using paging.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

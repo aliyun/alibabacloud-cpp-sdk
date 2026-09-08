@@ -169,31 +169,28 @@ namespace Models
   protected:
     // The ID of the next hop connection.
     // 
-    // > If you want to query information about the prefix list that is used to generate blackhole routes, set this parameter to **BlackHole**.
+    // > To query information about a prefix list that generates blackhole routes, set this parameter to **BlackHole**.
     shared_ptr<string> nextHop_ {};
-    // The ID of the network instance that is associated with the next hop connection.
+    // The network instance ID associated with the next hop connection.
     shared_ptr<string> nextHopInstanceId_ {};
     // The next hop type. Valid values:
     // 
-    // - **BlackHole**: queries the prefix lists that generate blackhole routes.
-    // 
-    // - **VPC**: queries the prefix lists whose next hop is a Virtual Private Cloud (VPC) connection.
-    // 
-    // - **VBR**: queries the prefix lists whose next hop is a virtual border router (VBR) connection.
-    // 
-    // - **TR**: queries the prefix lists whose next hop is an inter-region connection.
+    // - **BlackHole**: queries information about prefix lists that generate blackhole routes.
+    // - **VPC**: queries information about prefix lists whose next hop is a Virtual Private Cloud (VPC) connection.
+    // - **VBR**: queries information about prefix lists whose next hop is a Virtual Border Router (VBR) connection.
+    // - **TR**: queries information about prefix lists whose next hop is an inter-region connection.
     shared_ptr<string> nextHopType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The ID of the Alibaba Cloud account to which the prefix list belongs.
     shared_ptr<int64_t> ownerUid_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number of the list to query. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+    // The number of entries per page for a paged query. Maximum value: **100**. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the prefix list.
     shared_ptr<string> prefixListId_ {};
-    // The region ID of the transit router.
+    // The region ID of the transit router instance.
     // 
     // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
     // 
@@ -203,15 +200,14 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The status of the prefix list.
     // 
-    // - **Active**: The prefix list is active.
-    // 
-    // - **Updating**: The prefix list is being updated.
+    // - **Active**: active.
+    // - **Updating**: being updated.
     shared_ptr<string> status_ {};
-    // The ID of the transit router.
+    // The transit router instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterId_ {};
-    // The ID of the route table of the transit router.
+    // The ID of the transit router route table.
     shared_ptr<string> transitRouterTableId_ {};
   };
 

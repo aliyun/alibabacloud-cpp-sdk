@@ -225,19 +225,16 @@ namespace Models
 
   protected:
     shared_ptr<DescribeGrantRulesToCenResponseBody::GrantRules> grantRules_ {};
-    // - The maximum number of entries to return per page.
-    // 
-    // - This value is the same as the **MaxResults** value that you specified in the request.
+    // - If you did not specify the **MaxResults** request parameter, pagination is not required. The **MaxResults** value in the response indicates the total number of entries.
+    // - If you specified the **MaxResults** request parameter, pagination is required. The **MaxResults** value in the response indicates the number of entries in the current page.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
-    // 
-    // - If the **NextToken** parameter is empty, no more results are available.
-    // 
-    // - To retrieve the next page, set the NextToken request parameter to this value.
+    // The pagination token. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

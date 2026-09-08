@@ -108,16 +108,16 @@ namespace Models
 
 
     protected:
-      // The match pattern for filtering CIDR blocks. Valid values:
+      // The filter condition. Valid values:
       // 
-      // - **PrefixExactMatchCidrs**: exact matching.
-      // - **LongestPrefixMatchCidrs**: longest prefix matching. You can specify IP addresses and CIDR blocks.
-      // - **SubnetOfMatchCidrs**: subnet matching. The subnets of the specified CIDR blocks, including the CIDR block, are matches against the match conditions.
-      // - **SupernetOfMatchCidrs**: supernet matching. The supernets of the CIDR block, including the CIDR block, are matched against the match conditions.
+      // - **PrefixExactMatchCidrs**: exact match.
+      // - **LongestPrefixMatchCidrs**: longest prefix match. IP addresses and CIDR blocks are supported.
+      // - **SubnetOfMatchCidrs**: subnet match. Matches subnets of the specified CIDR block, including the specified CIDR block itself.
+      // - **SupernetOfMatchCidrs**: supernet match. Matches supernets of the specified CIDR block, including the specified CIDR block itself.
       // 
-      // By default, the logical operator among filter conditions is **AND**. Information about a route entry is returned only if the route entry matches all filter conditions. Filter conditions must be unique.
+      // Multiple filter conditions have an **AND** relationship by default, which means that a route entry must meet all filter conditions to be considered a match. You cannot specify the same filter condition more than once.
       shared_ptr<string> key_ {};
-      // The filter value.
+      // The list of filter condition values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -273,69 +273,69 @@ namespace Models
 
 
   protected:
-    // The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page when entries are returned in pages. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // The token that determines the start point of the query. Valid values:
     // 
-    // - You do not need to specify this parameter for the first request.
-    // - You must specify the token that is obtained from the previous query as the value of **NextToken**.
+    // - You do not need to specify this parameter for the first query or if no subsequent query is to be sent.
+    // - If a subsequent query is to be sent, set the value to the **NextToken** value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The prefix list ID.
+    // The ID of the prefix list.
     shared_ptr<string> prefixListId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The filter conditions.
+    // The filter conditions for route entry CIDR blocks.
     shared_ptr<vector<ListTransitRouterRouteEntriesRequest::RouteFilter>> routeFilter_ {};
-    // The destination CIDR block of the route. **This parameter is to be deprecated. We recommend that you use the RouteFilter parameter**.
+    // The destination CIDR block of the route entry (**This parameter will be deprecated. Use the RouteFilter parameter instead**).
     shared_ptr<string> transitRouterRouteEntryDestinationCidrBlock_ {};
-    // The route ID.
+    // The IDs of the route entries.
     shared_ptr<vector<string>> transitRouterRouteEntryIds_ {};
-    // The route name.
+    // The names of the route entries.
     shared_ptr<vector<string>> transitRouterRouteEntryNames_ {};
-    // The ID of the network instance connection that you want to specify as the next hop.
+    // The ID of the network instance connection associated with the next hop of the route entry.
     shared_ptr<string> transitRouterRouteEntryNextHopId_ {};
-    // The next hop ID.
+    // The instance ID of the next hop of the route entry.
     shared_ptr<string> transitRouterRouteEntryNextHopResourceId_ {};
-    // The next hop type. Valid values:
+    // The type of the next hop instance of the route entry. Valid values:
     // 
-    // - **VPC**
-    // - **VBR**
-    // - **TR**
-    // - **VPN**
+    // - **VPC**: Virtual Private Cloud (VPC) instance.
+    // - **VBR**: Virtual Border Router (VBR) instance.
+    // - **TR**: transit router instance.
+    // - **VPN**: IPsec connection instance.
     shared_ptr<string> transitRouterRouteEntryNextHopResourceType_ {};
     // The next hop type. Valid values:
     // 
-    // - **BlackHole**: routes network traffic to a black hole.
-    // - **Attachment**: routes network traffic to a network instance connection.
+    // - **BlackHole**: the route entry is a blackhole route.
+    // - **Attachment**: the next hop of the route entry is a network instance connection.
     shared_ptr<string> transitRouterRouteEntryNextHopType_ {};
-    // The source instance ID.
+    // The instance ID of the origin of the route entry.
     shared_ptr<string> transitRouterRouteEntryOriginResourceId_ {};
-    // The source instance type. Valid values:
+    // The type of the origin instance of the route entry. Valid values:
     // 
-    // - **VPC**
-    // - **VBR**
-    // - **TR**
-    // - **VPN**
+    // - **VPC**: Virtual Private Cloud (VPC) instance.
+    // - **VBR**: Virtual Border Router (VBR) instance.
+    // - **TR**: transit router instance.
+    // - **VPN**: IPsec connection instance.
     shared_ptr<string> transitRouterRouteEntryOriginResourceType_ {};
-    // The status of the route. Valid values:
+    // The status of the route entry. Valid values:
     // 
-    // - **All**
-    // - **Active** (default)
-    // - **Rejected**
-    // - **Prohibited**
-    // - **Standby**
-    // - **Candidate**
+    // - **All**: queries route entries in all states.
+    // - **Active (default)**: queries only route entries in the active state.
+    // - **Rejected**: queries only route entries that are rejected due to route conflicts.
+    // - **Prohibited**: queries only route entries that are prohibited because they match a routing policy.
+    // - **Standby**: queries only route entries that serve as standby routes.
+    // - **Candidate**: queries only route entries that serve as candidate routes.
     // 
-    // If you do not specify a value, routes in the active state are queried.
+    // If you do not specify this parameter, only route entries in the active state are queried.
     shared_ptr<string> transitRouterRouteEntryStatus_ {};
-    // The route type. Valid values:
+    // The type of the route entry. Valid values:
     // 
-    // - **Propagated**: automatically learned by the route table.
-    // - **Static**: static routes.
+    // - **Propagated**: generated by automatic learning on the current route table.
+    // - **Static**: generated by static configuration on the current route table.
     shared_ptr<string> transitRouterRouteEntryType_ {};
-    // The ID of the route table of the Enterprise Edition transit router.
+    // The ID of the Enterprise Edition transit router route table.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterRouteTableId_ {};

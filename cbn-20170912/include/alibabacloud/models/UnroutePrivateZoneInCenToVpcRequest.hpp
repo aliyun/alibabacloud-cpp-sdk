@@ -84,13 +84,13 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the PrivateZone connection is accessed.
+    // The ID of the region that accesses the PrivateZone service.
     // 
-    // Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to get the region ID.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> accessRegionId_ {};
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The instance ID of the Cloud Enterprise Network (CEN).
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};

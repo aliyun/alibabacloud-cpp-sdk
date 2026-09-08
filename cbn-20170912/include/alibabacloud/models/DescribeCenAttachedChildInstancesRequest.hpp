@@ -112,25 +112,27 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The CEN instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The ID of the region where the network instance is deployed.
+    // The region ID of the network instance.                   
     // 
-    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the most recent region list.
+    // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     shared_ptr<string> childInstanceRegionId_ {};
     // The type of the network instance. Valid values:
     // 
-    // - **VPC**: virtual private cloud (VPC)
-    // - **VBR**: virtual border router (VBR)
-    // - **CCN**: Cloud Connect Network (CCN) instance
+    // - **VPC**: virtual private cloud.
+    // 
+    // - **VBR**: virtual border router.
+    // 
+    // - **CCN**: Cloud Connect Network.
     shared_ptr<string> childInstanceType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Default value: **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+    // The number of entries per page for paging query. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

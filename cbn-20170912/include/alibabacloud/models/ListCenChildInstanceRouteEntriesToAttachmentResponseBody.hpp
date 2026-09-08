@@ -108,21 +108,18 @@ namespace Models
 
 
     protected:
-      // The ID of the CEN instance.
+      // The Cloud Enterprise Network (CEN) instance ID.
       shared_ptr<string> cenId_ {};
-      // The ID of the route table of the network instance.
+      // The route table ID of the network instance.
       shared_ptr<string> childInstanceRouteTableId_ {};
-      // The destination CIDR block of the route.
+      // The destination CIDR block of the route entry.
       shared_ptr<string> destinationCidrBlock_ {};
-      // The type of the managed routing service. If this parameter is empty, the route is not managed. The value TR indicates that the route is managed by a transit router.
+      // The type of route hosting. If this field is empty, the route is not hosted. Valid values: TR, which indicates that the hosting type is transit router.
       shared_ptr<string> serviceType_ {};
-      // The status of the route. Valid values:
-      // 
-      // - **Available**: The route is active.
-      // 
-      // - **Pending**: The route is being configured.
-      // 
-      // - **Modifying**: The route is being modified.
+      // The status of the route entry. Valid values:
+      // - **Available**: available.
+      // - **Pending**: being configured.
+      // - **Modifying**: being modified.
       shared_ptr<string> status_ {};
       // The ID of the network instance connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
@@ -154,15 +151,14 @@ namespace Models
 
 
   protected:
-    // The token that is used for the next query.
+    // Indicates whether a next query token (Token) exists. Valid values:
     // 
-    // - If **NextToken** is empty, no subsequent query is sent.
-    // 
-    // - If a value is returned for **NextToken**, the value is the token that is used for the next query.
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the route.
+    // The details of the route entries.
     shared_ptr<vector<ListCenChildInstanceRouteEntriesToAttachmentResponseBody::RouteEntry>> routeEntry_ {};
   };
 

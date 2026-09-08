@@ -144,25 +144,24 @@ namespace Models
 
 
       protected:
-        // The CIDR block of the transit router.
+        // The transit router CIDR block.
         shared_ptr<string> cidr_ {};
-        // The description of the CIDR block.
+        // The description of the transit router CIDR block.
         shared_ptr<string> description_ {};
-        // The name of the CIDR block.
+        // The name of the transit router CIDR block.
         shared_ptr<string> name_ {};
-        // Indicates whether the system automatically adds a route for the transit router CIDR block to the route table of the transit router.
+        // Indicates whether the system is allowed to automatically add a route for the transit router CIDR block to the transit router route table. Valid values:
         // 
-        // - **true**: Yes.
+        // - **true**: allowed.
         // 
-        //   If this parameter is set to **true**, after you create a VPN connection of the private gateway type and enable route learning for the VPN connection, the system automatically adds a blackhole route to the route table of the transit router that is in a route learning correlation with the VPN connection.
+        //      If the value is **true**, after you create a VPN connection of the private gateway type and create a route learning relationship for the VPN connection, the system automatically adds the following route entry to the transit router route table that has a route learning relationship with the VPN connection:
         // 
-        //   The destination CIDR block of the blackhole route is the CIDR block of the transit router. The CIDR block of the transit router is the CIDR block from which an IP address is allocated to the IPsec-VPN connection.
-        // 
-        //   This blackhole route is advertised only to the route tables of the virtual border routers (VBRs) that are connected to the transit router.
-        // 
-        // - **false**: No.
+        //   A blackhole route whose destination CIDR block is the transit router CIDR block from which a gateway IP address is allocated to the IPsec connection.
+        //       
+        //   The blackhole route is propagated only to the route tables of VBR instances under the transit router.
+        // - **false**: not allowed.
         shared_ptr<bool> publishCidrRoute_ {};
-        // The ID of the CIDR block.
+        // The ID of the transit router CIDR block.
         shared_ptr<string> transitRouterCidrId_ {};
       };
 
@@ -305,47 +304,41 @@ namespace Models
     protected:
       // The ID of the Alibaba Cloud account to which the CEN instance belongs.
       shared_ptr<int64_t> aliUid_ {};
-      // The ID of the CEN instance.
+      // The CEN instance ID.
       shared_ptr<string> cenId_ {};
-      // The time when the transit router was created.
+      // The time when the transit router instance was created.
       // 
-      // The time is displayed in the `YYYY-MM-DDThh:mmZ` format in UTC.
+      // The time is displayed in UTC in the `YYYY-MM-DDThh:mmZ` format.
       shared_ptr<string> creationTime_ {};
-      // The ID of the region where the transit router is deployed.
+      // The region ID of the transit router instance.
       shared_ptr<string> regionId_ {};
-      // The status of the transit router.
+      // The status of the transit router instance. Valid values:
       // 
-      // - **Creating**: The transit router is being created.
-      // 
-      // - **Active**: The transit router is available.
-      // 
-      // - **Modifying**: The transit router is being modified.
-      // 
-      // - **Deleting**: The transit router is being deleted.
-      // 
-      // - **Upgrading**: The transit router is being upgraded.
+      // - **Creating**: being created.
+      // - **Active**: active.
+      // - **Modifying**: being modified.
+      // - **Deleting**: being deleted.
+      // - **Upgrading**: being upgraded.
       shared_ptr<string> status_ {};
-      // Indicates whether the multicast feature is enabled for the transit router.
+      // Indicates whether the multicast feature is enabled for the transit router instance. Valid values:
       // 
       // - **true**: enabled.
-      // 
       // - **false**: disabled.
       shared_ptr<bool> supportMulticast_ {};
-      // A list of tags.
+      // The list of tags.
       shared_ptr<vector<TransitRouters::Tags>> tags_ {};
-      // A list of CIDR blocks of the transit router.
+      // The list of transit router CIDR blocks.
       shared_ptr<vector<TransitRouters::TransitRouterCidrList>> transitRouterCidrList_ {};
-      // The description of the transit router.
+      // The description of the transit router instance.
       shared_ptr<string> transitRouterDescription_ {};
-      // The ID of the transit router.
+      // The transit router instance ID.
       shared_ptr<string> transitRouterId_ {};
-      // The name of the transit router.
+      // The name of the transit router instance.
       shared_ptr<string> transitRouterName_ {};
-      // The type of the transit router.
+      // The type of the transit router instance. Valid values:
       // 
-      // - **Enterprise**: Enterprise Edition.
-      // 
-      // - **Basic**: Basic Edition.
+      // - **Enterprise**: Enterprise Edition transit router.
+      // - **Basic**: Basic Edition transit router.
       shared_ptr<string> type_ {};
     };
 
@@ -391,13 +384,13 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query. For more information about paging, see the related parameter descriptions.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of transit routers.
+    // The list of transit router instances.
     shared_ptr<vector<ListTransitRoutersResponseBody::TransitRouters>> transitRouters_ {};
   };
 

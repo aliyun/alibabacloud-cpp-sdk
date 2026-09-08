@@ -61,11 +61,11 @@ namespace Models
     shared_ptr<string> flowLogId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful.
+    // Indicates whether the API call is successful.
     // 
-    // - **true**: The call is successful.
+    // - **true**: successful.
     // 
-    // - **false**: The call failed.
+    // - **false**: failed.
     shared_ptr<string> success_ {};
   };
 

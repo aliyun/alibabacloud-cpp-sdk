@@ -158,45 +158,42 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the local Enterprise Edition transit router to automatically advertise the routes of the inter-region connection to the peer transit router. Valid values:
+    // Specifies whether to allow the Enterprise Edition transit router to automatically advertise routes of the inter-region connection to the peer region.
     // 
-    // - **false** (default): no
-    // 
-    // - **true**: yes
+    // - **false** (default): no.
+    // - **true**: yes.
     shared_ptr<bool> autoPublishRouteEnabled_ {};
     // The bandwidth value of the inter-region connection. Unit: Mbit/s.
     // 
-    // - This parameter specifies the maximum bandwidth value for the inter-region connection if you set **BandwidthType** to **BandwidthPackage**.
-    // 
-    // - This parameter specifies the bandwidth throttling threshold for the inter-region connection if you set **BandwidthType** to **DataTransfer**.
+    // - If **BandwidthType** is set to **BandwidthPackage**, this parameter specifies the bandwidth that the inter-region connection can use.
+    // - If **BandwidthType** is set to **DataTransfer**, this parameter specifies the bandwidth limit of the inter-region connection.
     shared_ptr<int32_t> bandwidth_ {};
     // The bandwidth allocation method. Valid values:
     // 
-    // - **BandwidthPackage**: allocates bandwidth from a bandwidth plan.
-    // 
-    // - **DataTransfer**: bandwidth is billed based on the pay-by-data-transfer metering method.
+    // - **BandwidthPackage**: allocates bandwidth from a bandwidth package.
+    // - **DataTransfer**: does not allocate bandwidth to the inter-region connection. Billing is based on the traffic volume.
     shared_ptr<string> bandwidthType_ {};
-    // The ID of the bandwidth plan that is used to allocate bandwidth to the inter-region connection.
+    // The ID of the bandwidth package to be associated with the inter-region connection.
     // 
-    // > If you set **BandwidthType** to **DataTransfer**, you do not need to set this parameter.
+    // <props="china">If you do not specify a bandwidth package ID, the test bandwidth is used. The default test bandwidth is 1 Kbit/s and is intended only for testing (IPv4) network connectivity.
+    // >If **BandwidthType** is set to **DataTransfer**, you do not need to configure this parameter.
     shared_ptr<string> cenBandwidthPackageId_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** of each API request may be different.
     shared_ptr<string> clientToken_ {};
-    // The default line type.
+    // The default link type.
     // 
-    // Valid values: Platinum and Gold.
+    // Valid values: Platinum and Gold. Default value: Gold.
     // 
-    // Platinum is supported only when BandwidthType is set to DataTransfer.
+    // The value can be set to Platinum only when the bandwidth allocation method is pay-by-data-transfer.
     shared_ptr<string> defaultLinkType_ {};
-    // Specifies whether to perform a dry run to check information such as the permissions and the instance status. Default values:
+    // Specifies whether to perform a dry run, including permission and instance status verification. Valid values:
     // 
-    // - **false** (default): performs a dry run and sends the request.
-    // 
-    // - **true**: performs a dry run. The system checks the required parameters and request syntax. If the request fails the dry run, an error message is returned. If the request passes the dry run, the system returns the ID of the request.
+    // - **false** (default): sends a normal request and directly modifies the configuration of the inter-region connection after the request passes the check.
+    // - **true**: sends a check request. Only the check is performed and the configuration of the inter-region connection is not modified. The check items include whether required parameters are specified and the request format. If the check fails, the corresponding error is returned. If the check succeeds, the corresponding request ID is returned.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -204,7 +201,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The new description of the inter-region connection.
     // 
-    // This parameter is optional. If you enter a description, it must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://.
+    // The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> transitRouterAttachmentDescription_ {};
     // The ID of the inter-region connection.
     // 
@@ -212,7 +209,7 @@ namespace Models
     shared_ptr<string> transitRouterAttachmentId_ {};
     // The new name of the inter-region connection.
     // 
-    // The name can be empty or 1 to 128 characters in length, and cannot start with http\\:// or https\\://.
+    // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> transitRouterAttachmentName_ {};
   };
 

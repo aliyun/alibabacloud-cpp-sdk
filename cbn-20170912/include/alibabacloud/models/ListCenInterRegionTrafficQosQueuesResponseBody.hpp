@@ -156,37 +156,35 @@ namespace Models
 
 
     protected:
-      // The bandwidth allocated to the queue. This parameter is returned only if you allocate bandwidth to the queue by absolute value.
+      // The inter-region bandwidth allocated to the current queue when the bandwidth guarantee type is set to absolute value mode.
       // 
-      // For example, a value of **1** indicates that traffic that matches the queue can use up to 1 Mbit/s of the inter-region connection bandwidth.
+      // For example, a value of **1** indicates that traffic packets matching the current queue can use up to 1 Mbit/s of inter-region bandwidth.
       shared_ptr<string> bandwidth_ {};
-      // The Differentiated Services Code Point (DSCP) values that are matched by the queue.
+      // The DSCP values matched by the current queue.
       shared_ptr<vector<int32_t>> dscps_ {};
-      // The actual bandwidth of the queue.
+      // The actual effective bandwidth value of the current queue.
       shared_ptr<string> effectiveBandwidth_ {};
-      // The percentage of the inter-region connection bandwidth that can be used by the queue. This parameter is returned only if you allocate bandwidth to the queue by percentage.
+      // The percentage of inter-region bandwidth that the current queue can use when the bandwidth guarantee type is set to percentage mode.
       // 
-      // For example, a value of **1** indicates that traffic that matches the queue can use up to 1% of the inter-region connection bandwidth.
+      // For example, a value of **1** indicates that traffic packets matching the current queue can use up to 1% of the inter-region bandwidth.
       shared_ptr<int32_t> remainBandwidthPercent_ {};
-      // The status of the queue.
+      // The status of the queue. Valid values:
       // 
       // - **Creating**: The queue is being created.
-      // 
       // - **Active**: The queue is running.
-      // 
       // - **Deleting**: The queue is being deleted.
       shared_ptr<string> status_ {};
-      // The ID of the QoS policy.
+      // The ID of the traffic scheduling policy.
       shared_ptr<string> trafficQosPolicyId_ {};
-      // The description of the queue in the QoS policy.
+      // The description of the traffic scheduling policy queue.
       shared_ptr<string> trafficQosQueueDescription_ {};
-      // The ID of the queue in the QoS policy.
+      // The ID of the traffic scheduling policy queue.
       shared_ptr<string> trafficQosQueueId_ {};
-      // The name of the queue in the QoS policy.
+      // The name of the traffic scheduling policy queue.
       shared_ptr<string> trafficQosQueueName_ {};
       // The ID of the inter-region connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
-      // The ID of the transit router.
+      // The ID of the transit router instance.
       shared_ptr<string> transitRouterId_ {};
     };
 
@@ -216,15 +214,14 @@ namespace Models
 
 
   protected:
-    // A pagination token. It is used in the next request to retrieve a new page of results. Valid values:
+    // The token that determines the start point of the next query. Valid values:
     // 
-    // - If **NextToken** is empty, no more results are returned.
-    // 
-    // - If NextToken is not empty, the value of **NextToken** is used for the next query.
+    // - If **NextToken** is empty, no next query exists.
+    // - If a value is returned for **NextToken**, the value indicates the token that is used for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the queues of the QoS policy.
+    // The queue information of the traffic scheduling policy.
     shared_ptr<vector<ListCenInterRegionTrafficQosQueuesResponseBody::TrafficQosQueues>> trafficQosQueues_ {};
   };
 

@@ -85,12 +85,18 @@ namespace Models
 
 
     protected:
-      // Specifies whether to enable the Internet Group Management Protocol (IGMP) feature for the multicast domain. When this feature is enabled, hosts can use IGMP to dynamically join or leave multicast groups. Set the value to **enable**.
+      // Specifies whether to enable the IGMP feature for the multicast domain. After this feature is enabled, hosts can dynamically join or leave multicast groups by using Internet Group Management Protocol (IGMP). Valid values: **enable**.
       // 
-      // > - The IGMP feature is in public preview. To use this feature, contact your account manager.
-      // >
-      // > - You cannot disable the IGMP feature after it is enabled.
+      // > - The IGMP feature is in public preview. To use this feature, contact your account manager to request access.
+      // > - The IGMP feature cannot be disabled after it is enabled.
       shared_ptr<string> igmpv2Support_ {};
+      // Specifies whether to enable the strict multicast source control feature. If this feature is disabled, all ECS instances in the associated vSwitch can serve as multicast sources. If this feature is enabled, only ENIs that are statically configured or have sent IGMP Join messages can serve as multicast sources. Valid values:
+      // 
+      // - ``enable``: enables the strict multicast source control feature.
+      // - ``disable``: disables the strict multicast source control feature.
+      // 
+      // > - The strict multicast source control feature takes effect only for multicast domains with the IGMP feature enabled.
+      // > - Only one multicast domain with the strict multicast source control feature disabled can be created under a transit router.
       shared_ptr<string> strictSourceControl_ {};
     };
 
@@ -170,15 +176,14 @@ namespace Models
 
 
   protected:
-    // A client token that ensures the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a unique token on your client for each request. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken parameter supports only ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: Performs a dry run. The system checks the required parameters, request format, and service limits. If the check fails, an error message is returned. If the check passes, the `DryRunOperation` error code is returned.
-    // 
-    // - **false** (default): Sends the request. If the request passes the check, the name and description of the multicast domain are modified.
+    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+    // - **false** (default): performs a dry run and sends the request. After the request passes the dry run, the name and description of the multicast domain are modified.
     shared_ptr<bool> dryRun_ {};
     // The feature options of the multicast domain.
     shared_ptr<ModifyTransitRouterMulticastDomainRequest::Options> options_ {};
@@ -188,7 +193,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The new description of the multicast domain.
     // 
-    // The description can be empty or 1 to 256 characters long. It cannot start with http\\:// or https\\://.
+    // The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> transitRouterMulticastDomainDescription_ {};
     // The ID of the multicast domain.
     // 
@@ -196,7 +201,7 @@ namespace Models
     shared_ptr<string> transitRouterMulticastDomainId_ {};
     // The new name of the multicast domain.
     // 
-    // The name can be empty or 1 to 128 characters long. It cannot start with http\\:// or https\\://.
+    // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> transitRouterMulticastDomainName_ {};
   };
 

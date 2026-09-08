@@ -130,24 +130,26 @@ namespace Models
 
 
   protected:
-    // Specifies whether to allow the Enterprise Edition transit router to automatically advertise routes to the VBR. Valid values:
+    // Specifies whether to allow the Enterprise Edition transit router to automatically forward routing entries to the VBR instance. Valid values:
     // 
-    // - **true**: Allows the Enterprise Edition transit router to automatically advertise routes to the VBR.
-    // 
-    // - **false**: Does not allow the Enterprise Edition transit router to automatically advertise routes to the VBR.
+    // - **true**: allowed.
+    // - **false**: not allowed.
     shared_ptr<bool> autoPublishRouteEnabled_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use your client to generate a token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the request as the **ClientToken**. The **RequestId** may be different for each API request.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** as the **ClientToken**. The **RequestId** of each API request is different.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run. Valid values:
+    // Specifies whether to perform a dry run, including permission and instance status verification. Valid values:
     // 
-    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // 
-    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an operation is performed.
+    // - **false** (default): sends a normal request. If the request passes the check, the name and description of the VBR connection are modified.
+    // - **true**: sends a check request. Only the check is performed. If the check passes, the error code `DryRunOperation` is returned. If the check fails, the corresponding error is returned.
     shared_ptr<bool> dryRun_ {};
+    // The payer of the network instance. Valid values:
+    // 
+    // - **PayByCenOwner**: the connection fee and data transfer fee of the VBR instance are paid by the account to which the transit router instance belongs.
+    // - **PayByResourceOwner**: the connection fee and data transfer fee of the VBR instance are paid by the account to which the VBR instance belongs.
     shared_ptr<string> orderType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -155,7 +157,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The new description of the VBR connection.
     // 
-    // The description can be empty or 1 to 256 characters in length. It cannot start with `http://` or `https://`.
+    // The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> transitRouterAttachmentDescription_ {};
     // The ID of the VBR connection.
     // 
@@ -163,7 +165,7 @@ namespace Models
     shared_ptr<string> transitRouterAttachmentId_ {};
     // The new name of the VBR connection.
     // 
-    // The name can be empty or 1 to 128 characters in length. It cannot start with `http://` or `https://`.
+    // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> transitRouterAttachmentName_ {};
   };
 

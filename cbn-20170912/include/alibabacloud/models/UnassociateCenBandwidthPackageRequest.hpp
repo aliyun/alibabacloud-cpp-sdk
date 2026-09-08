@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The ID of the bandwidth plan.
+    // The bandwidth package instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenBandwidthPackageId_ {};
-    // The ID of the CEN instance.
+    // The CEN instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};

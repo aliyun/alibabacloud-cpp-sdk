@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // The ID of the region where the cloud service is accessed.
+    // The region ID from which the cloud service is accessed.
     shared_ptr<string> accessRegionId_ {};
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The Cloud Enterprise Network (CEN) instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The endpoint of the Alibaba Cloud service.
+    // The service address of the cloud service.
     // 
-    // The endpoint can be a domain name, an IP address, or a CIDR block.
+    // You can enter a domain name, an IP address, or a CIDR block.
     shared_ptr<string> host_ {};
-    // The ID of the region where the Alibaba Cloud service is deployed.
+    // The region ID of the cloud service.
     // 
-    // Call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to obtain the region ID.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     shared_ptr<string> hostRegionId_ {};
-    // The ID of the VPC that is associated with the Alibaba Cloud service.
+    // The instance ID of the VPC-connected instance associated with the cloud service.
     shared_ptr<string> hostVpcId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The default value is **1**.
+    // The page number. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The default value is **10**. Valid values: **1** to **50**.
+    // The number of entries per page for paging. Default value: **10**. Valid values: **1** to **50**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

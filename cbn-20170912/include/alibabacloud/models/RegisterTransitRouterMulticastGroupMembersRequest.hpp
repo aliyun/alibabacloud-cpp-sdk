@@ -137,37 +137,37 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+    // >If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run, without performing the actual request. Valid values:
+    // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // - **false** (default): performs a dry run and performs the request.
+    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the multicast member is created.
     shared_ptr<bool> dryRun_ {};
-    // The IP address of the multicast group to which the multicast members belong. Valid values: **224.0.0.1** to **239.255.255.254**.
-    // 
-    // If the multicast group does not exist in the specified multicast domain, the system automatically creates the multicast group in the multicast domain.
+    // The IP address of the multicast group to which the multicast member belongs. Valid values: **224.0.1.0** to **239.255.255.254**.
+    // >Notice: 224.0.0.0 to 224.0.0.127 are system reserved IP addresses and cannot be used as multicast group IP addresses.
+    // If the multicast group that you specify does not exist in the current multicast domain, the system automatically creates a new multicast group in the current multicast domain.
     // 
     // This parameter is required.
     shared_ptr<string> groupIpAddress_ {};
-    // The IDs of the ENIs.
+    // The list of elastic network interfaces (ENIs) IDs.
     shared_ptr<vector<string>> networkInterfaceIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The IDs of inter-region multicast domains.
+    // The list of cross-region multicast domain IDs.
     shared_ptr<vector<string>> peerTransitRouterMulticastDomains_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the multicast domain to which the multicast members belong.
+    // The ID of the multicast domain to which the multicast member belongs.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterMulticastDomainId_ {};
-    // The ID of the VPC to which the ENI belongs.
+    // The instance ID of the VPC-connected instance to which the elastic network interfaces (ENIs) belongs.
     // 
-    // - If the ENI belongs to the current Alibaba Cloud account, ignore this parameter.
-    // - If the ENI belongs to a different Alibaba Cloud account, you must set this parameter.
+    // - If the network interface controller (NIC) belongs to the same Alibaba Cloud account that you use to logon to call this operation, you do not need to set this parameter.
+    // - If the network interface controller (NIC) belongs to a different Alibaba Cloud account from the one you use to logon, you must set this parameter.
     shared_ptr<string> vpcId_ {};
   };
 

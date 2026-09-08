@@ -142,27 +142,31 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
     // 
-    // >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+    // > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-    // *   **false** (default): performs a dry run and sends the task.
-    shared_ptr<bool> dryRun_ {};
-    // The ID of the next hop.
+    // - **true**: performs a dry run without dissociating the prefix list. The system checks the required parameters, request syntax, and business restrictions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the prefix list is dissociated.
     // 
-    // > If **NextHopType** is set to **BlackHole**, you must set this parameter to **BlackHole**.
+    // 
+    // > This parameter is not yet available.
+    shared_ptr<bool> dryRun_ {};
+    // The ID of the next hop connection.
+    // 
+    // If the CIDR blocks in the prefix list are blackhole routes, set this parameter to **BlackHole**.
     // 
     // This parameter is required.
     shared_ptr<string> nextHop_ {};
-    // The type of the next hop. Valid values:
+    // The next hop type. Valid values:
     // 
-    // *   **BlackHole**: All the CIDR blocks in the prefix list are blackhole routes. Packets destined for the CIDR blocks are dropped.
-    // *   **VPC**: The next hop of the CIDR blocks in the prefix list is a VPC connection.
-    // *   **VBR**: The next hop of the CIDR blocks in the prefix list is a VBR connection.
-    // *   **TR**: The next hop of the CIDR blocks in the prefix list is an inter-region connection.
+    // - **BlackHole**: All CIDR blocks in the prefix list are blackhole routes. All traffic destined for the CIDR blocks in the prefix list is dropped.
+    // - **VPC**: The next hop of the CIDR blocks in the prefix list is a Virtual Private Cloud (VPC) connection.
+    // - **VBR**: The next hop of the CIDR blocks in the prefix list is a Virtual Border Router (VBR) connection.
+    // - **TR**: The next hop of the CIDR blocks in the prefix list is an inter-region connection.
+    // - **ECR**: The next hop of the CIDR blocks in the prefix list is an Express Connect Router (ECR) instance.
     shared_ptr<string> nextHopType_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -170,19 +174,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> prefixListId_ {};
-    // The ID of the region where the transit router is deployed.
+    // The region ID of the transit router instance.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the transit router.
+    // The ID of the transit routing instance.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterId_ {};
-    // The ID of the route table of the transit router.
+    // The ID of the transit router route table.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterTableId_ {};

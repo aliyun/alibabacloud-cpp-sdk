@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the bandwidth plan.
+    // The instance ID of the new bandwidth plan.
     shared_ptr<string> cenBandwidthPackageId_ {};
-    // The ID of the order for the bandwidth plan.
+    // The order ID of the bandwidth plan.
     shared_ptr<string> cenBandwidthPackageOrderId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

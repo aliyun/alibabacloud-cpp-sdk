@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the queue.
+    // The queue ID.
     shared_ptr<string> qosQueueId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

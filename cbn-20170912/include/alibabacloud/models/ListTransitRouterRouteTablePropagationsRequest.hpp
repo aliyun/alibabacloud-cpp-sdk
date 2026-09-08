@@ -130,37 +130,31 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page. The default value is **50**.
+    // The number of entries per page for a paged query. Default value: **50**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
+    // The token for the next query in a paged query.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the route propagation.
-    // 
-    // - **Active**: The propagation is active.
-    // 
-    // - **Enabling**: The propagation is being enabled.
-    // 
-    // - **Disabling**: The propagation is being disabled.
+    // The status of the route learning relationship. Valid values:
+    // - **Active**: active.
+    // - **Enabling**: being enabled.
+    // - **Disabling**: being disabled.
     shared_ptr<string> status_ {};
-    // The ID of the network instance connection.
+    // The network instance connection ID.
     shared_ptr<string> transitRouterAttachmentId_ {};
-    // The ID of the network instance.
+    // The network instance ID.
     shared_ptr<string> transitRouterAttachmentResourceId_ {};
-    // The type of the network instance.
+    // The network instance type. Valid values:
     // 
-    // - **VPC**: a virtual private cloud (VPC).
-    // 
-    // - **VBR**: a virtual border router (VBR).
-    // 
-    // - **TR**: a transit router.
-    // 
-    // - **VPN**: a VPN connection.
+    // - **VPC**: virtual private cloud (VPC) instance.
+    // - **VBR**: virtual border router (VBR) instance.
+    // - **TR**: transit router instance.
+    // - **VPN**: VPN connection.
     shared_ptr<string> transitRouterAttachmentResourceType_ {};
-    // The ID of the route table of the Enterprise Edition transit router.
+    // The ID of the Enterprise Edition transit router route table.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterRouteTableId_ {};

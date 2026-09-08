@@ -82,15 +82,15 @@ namespace Models
 
 
   protected:
-    // A list of available zone IDs.
+    // The list of zone IDs.
     shared_ptr<vector<string>> availableZones_ {};
-    // A list of primary zone IDs.
+    // The list of primary zone IDs.
     shared_ptr<vector<string>> masterZones_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of secondary zone IDs.
+    // The list of secondary zone IDs.
     shared_ptr<vector<string>> slaveZones_ {};
-    // Indicates whether the returned zones support the multicast feature.
+    // Indicates whether the zone information is for multicast-enabled zones.
     shared_ptr<bool> supportMulticast_ {};
   };
 

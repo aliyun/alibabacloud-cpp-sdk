@@ -193,71 +193,63 @@ namespace Models
 
 
   protected:
-    // A client token to ensure the idempotence of the request.
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a unique value from your client for each request. The \\`ClientToken\\` parameter can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
     // The IP address of the multicast group.
     // 
     // Each multicast group is identified by a multicast IP address.
     shared_ptr<string> groupIpAddress_ {};
-    // Specifies whether to query multicast members.
+    // Specifies whether to query multicast members. Valid values:
     // 
-    // - **false**: No.
+    // - **false**: no.
+    // - **true**: yes.
     // 
-    // - **true**: Yes.
-    // 
-    // > This parameter works with \\`IsGroupSource\\`.
-    // >
-    // > - If you do not specify \\`IsGroupMember\\` or \\`IsGroupSource\\`, the system queries both multicast members and sources.
-    // >
-    // > - If you specify one or both parameters, the system queries resources based on the specified parameters.
+    // > This parameter is used together with IsGroupSource.
+    // > - If neither parameter is configured, both multicast sources and members are queried by default.
+    // > - If only one parameter is configured or both are configured, the query is based on the configured parameters.
     shared_ptr<bool> isGroupMember_ {};
-    // Specifies whether to query multicast sources.
+    // Specifies whether to query multicast sources. Valid values:
     // 
-    // - **false**: No.
+    // - **false**: no.
+    // - **true**: yes.
     // 
-    // - **true**: Yes.
-    // 
-    // > This parameter works with \\`IsGroupMember\\`.
-    // >
-    // > - If you do not specify \\`IsGroupSource\\` or \\`IsGroupMember\\`, the system queries both multicast sources and members.
-    // >
-    // > - If you specify one or both parameters, the system queries resources based on the specified parameters.
+    // > This parameter is used together with IsGroupMember.
+    // > - If neither parameter is configured, both multicast sources and members are queried by default.
+    // > - If only one parameter is configured or both are configured, the query is based on the configured parameters.
     shared_ptr<bool> isGroupSource_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The number of entries per page for a paged query. Default value: **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // A list of Elastic Network Interface (ENI) IDs.
+    // The list of elastic network interface (ENI) IDs.
     shared_ptr<vector<string>> networkInterfaceIds_ {};
-    // The token for the next page of results.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
     // 
-    // - If this is your first query or if no next page exists, do not specify this parameter.
-    // 
-    // - If a next page exists, set this parameter to the \\`NextToken\\` value that is returned from the previous call.
+    // - You do not need to specify this parameter for the first request or if no next query exists.
+    // - If a next query exists, set the value to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // A list of IDs of cross-region multicast domains.
+    // The list of cross-region multicast domain IDs.
     shared_ptr<vector<string>> peerTransitRouterMulticastDomains_ {};
-    // The ID of the resource associated with the multicast resource.
+    // The resource ID associated with the multicast resource.
     shared_ptr<string> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the multicast resource.
+    // The type of the multicast resource. Valid values:
     // 
-    // - **VPC**: queries information about multicast resources in a VPC.
-    // 
-    // - **TR**: queries information about cross-region multicast resources.
+    // - **VPC**: queries multicast resources in a virtual private cloud (VPC).
+    // - **TR**: queries cross-region multicast resources.
     shared_ptr<string> resourceType_ {};
-    // The ID of the network instance connection.
+    // The network instance connection ID.
     // 
-    // You must specify \\`TransitRouterMulticastDomainId\\` or \\`TransitRouterAttachmentId\\`.
+    // You must specify at least one of TransitRouterMulticastDomainId and TransitRouterAttachmentId.
     shared_ptr<string> transitRouterAttachmentId_ {};
-    // The ID of the multicast domain.
+    // The multicast domain ID.
     // 
-    // You must specify \\`TransitRouterMulticastDomainId\\` or \\`TransitRouterAttachmentId\\`.
+    // You must specify at least one of TransitRouterMulticastDomainId and TransitRouterAttachmentId.
     shared_ptr<string> transitRouterMulticastDomainId_ {};
-    // A list of vSwitch IDs.
+    // The list of vSwitch IDs.
     shared_ptr<vector<string>> vSwitchIds_ {};
   };
 

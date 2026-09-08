@@ -143,41 +143,38 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance to which the VPC is connected.
+    // The ID of the CEN instance to which the VPC-connected instance is connected.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The maximum number of entries to return on each page. Valid values: 10 to 500.
+    // The maximum number of entries per page for a paged query. Valid values: 10 to 500.
     // 
     // Default value:
-    // 
-    // - If you do not specify this parameter, the default value is 20.
-    // 
-    // - If you specify a value greater than 500, the default value is 500.
+    // - If you do not set this parameter, the default value is 20.
+    // - If the value you set is greater than 500, the default value is 500.
     shared_ptr<int64_t> maxResults_ {};
-    // The ID of the ENI.
+    // The IDs of network interface controllers (NICs).
     shared_ptr<vector<string>> networkInterfaceId_ {};
-    // The name of the ENI.
+    // The name of the elastic network interfaces (ENIs). You can use this parameter to filter network interface controllers (NICs) by name.
     shared_ptr<string> networkInterfaceName_ {};
-    // The token that is used for the next query. Valid values:
+    // The token for the next query. Valid values:
     // 
-    // - If this is your first query, you do not need to specify this parameter.
-    // 
-    // - If a next query is to be sent, set the value to the NextToken value that was returned from the last call.
+    // - If this is the first query or no next query exists, leave this parameter empty.
+    // - If a next query exists, set this parameter to the NextToken value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The primary private IPv4 address of the ENI.
+    // The primary private IP IPv4 address of the elastic network interfaces (ENIs). You can use this parameter to filter network interface controllers (NICs) by primary private IP address.
     shared_ptr<string> primaryIpAddress_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of a vSwitch in the VPC.
+    // The ID of a vSwitch in the VPC-connected instance.
     // 
-    // You can query information about the ENIs in only one vSwitch at a time.
+    // You can query network interface controller (NIC) information for only one vSwitch at a time.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the VPC.
+    // The ID of the VPC-connected instance.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};

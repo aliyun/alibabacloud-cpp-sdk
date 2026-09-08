@@ -140,49 +140,44 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The instance ID of the CEN instance.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The ID of the network instance to query.
+    // The instance ID of the network instance to query.
     shared_ptr<string> childInstanceId_ {};
-    // The ID of the Alibaba Cloud account that owns the network instance.
+    // The ID of the Alibaba Cloud account to which the network instance belongs.
     shared_ptr<int64_t> childInstanceOwnerId_ {};
-    // Specifies whether IPv6 is enabled.
-    // 
-    // 1. This parameter applies only when **ProductType** is set to **VPC**.
-    // 
-    // 2. Set to **true** to return only VPCs with IPv6 enabled, or **false** to return only those with IPv6 disabled. If you omit this parameter, the response is not filtered by the IPv6 status.
+    // Specifies whether IPv6 is enabled:
+    // 1. This parameter takes effect only when ProductType is set to "VPC".
+    // 2. A value of true indicates that IPv6 is enabled. A value of false indicates that IPv6 is not enabled. If this parameter is left empty, results are not filtered by this parameter.
     shared_ptr<bool> enabledIpv6_ {};
-    // - If you omit this parameter, all entries are returned. The **MaxResults** value in the response then indicates the total number of entries.
-    // 
-    // - If you set this parameter, the response is paginated. The **MaxResults** value specifies the number of entries to return on each page. Valid values: **1** to **100**. The **MaxResults** value in the response indicates the number of entries on the current page. Setting **MaxResults** to **20** is recommended.
+    // - If you do not specify the **MaxResults** parameter, pagination is not required. The **MaxResults** value in the response indicates the total number of entries.
+    // - If you specify the **MaxResults** parameter, pagination is required. The **MaxResults** value specifies the number of entries to return per page. Valid values: **1** to **100**. The **MaxResults** value in the response indicates the number of entries in the current page. We recommend that you set **MaxResults** to **20**.
     shared_ptr<int64_t> maxResults_ {};
-    // The token used to retrieve the next page of results.
-    // 
-    // - Omit this parameter for the first request.
-    // 
-    // - Set this parameter to the **NextToken** value from the previous response to retrieve the next page of results.
+    // The pagination token. Valid values:
+    // - You do not need to specify this parameter for the first request or if no subsequent query exists.
+    // - If a subsequent query exists, set this parameter to the **NextToken** value returned by the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The type of the network instance. Valid values:
     // 
-    // - **VPC**: a virtual private cloud (VPC).
+    // - **VPC**: virtual private cloud (VPC).
     // 
-    // - **VBR**: a virtual border router (VBR).
+    // - **VBR**: virtual border router (VBR).
     // 
-    // - **CCN**: a Cloud Connect Network (CCN) instance.
+    // - **CCN**: Cloud Connect Network (CCN).
     // 
-    // - **VPN**: an IPsec-VPN connection.
+    // - **VPN**: IPsec connection.
     // 
-    // - **ECR**: an Express Connect router.
+    // - **ECR**: Express Connect Router (ECR).
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // The ID of the region where the network instance is located.
+    // The region ID of the network instance.                   
     // 
-    // You can call the [](t2264556.xdita#)operation to query region IDs.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

@@ -116,31 +116,30 @@ namespace Models
 
 
     protected:
-      // The CIDR block of the transit router.
+      // The transit router CIDR block.
       shared_ptr<string> cidr_ {};
-      // The description of the CIDR block.
+      // The description of the transit router CIDR block.
       shared_ptr<string> description_ {};
-      // The type of the CIDR block.
+      // The type of the transit router CIDR block.
       // 
-      // The value is **IPv4**, which indicates that the CIDR block is of the IPv4 type.
+      // The value is **IPv4** only, which indicates that the transit router CIDR block is of the IPv4 type.
       shared_ptr<string> family_ {};
-      // The name of the CIDR block.
+      // The name of the transit router CIDR block.
       shared_ptr<string> name_ {};
-      // Indicates whether the system is allowed to automatically add a route to the route table of the transit router. Valid values:
+      // Indicates whether the system is allowed to automatically add a route for the transit router CIDR block to the transit router route table.
       // 
-      // *   **true**
-      // 
-      //     A value of **true** indicates that after you create a private VPN connection and enable route learning for the connection, the system automatically adds a blackhole route to the route table of the transit router to which the VPN connection is attached.
-      // 
-      //     The destination CIDR block of the blackhole route is the CIDR block of the transit router. The CIDR block of the transit router refers to the CIDR block from which gateway IP addresses are allocated to IPsec-VPN connections.
-      // 
-      //     The blackhole route is advertised only to the route table of the virtual border router (VBR) that is connected to the transit router.
-      // 
-      // *   **false**
+      // - **true**: allowed.
+      //        
+      //     If the value of this parameter is **true**, after you create a VPN connection of the private gateway type and create a route learning relationship for the VPN connection, the system automatically adds a route entry to the transit router route table that has a route learning relationship with the VPN connection:
+      //    
+      //   The route entry is a blackhole route whose destination CIDR block is the transit router CIDR block from which gateway IP addresses have been allocated to the IPsec connection.
+      //         
+      //   The blackhole route is propagated only to the route tables of VBR instances associated with the transit router.
+      // - **false**: not allowed.
       shared_ptr<bool> publishCidrRoute_ {};
       // The ID of the transit router CIDR block.
       shared_ptr<string> transitRouterCidrId_ {};
-      // The transit router ID.
+      // The ID of the transit router instance.
       shared_ptr<string> transitRouterId_ {};
     };
 
@@ -163,9 +162,9 @@ namespace Models
 
 
   protected:
-    // The information about the CIDR block.
+    // The list of transit router CIDR blocks.
     shared_ptr<vector<ListTransitRouterCidrResponseBody::CidrLists>> cidrLists_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

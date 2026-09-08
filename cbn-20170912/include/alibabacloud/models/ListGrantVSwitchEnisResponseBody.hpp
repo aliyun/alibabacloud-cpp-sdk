@@ -122,25 +122,24 @@ namespace Models
 
 
     protected:
-      // The description of the ENI.
+      // The description of the elastic network interfaces (ENIs). This describes the network interface controller (NIC).
       shared_ptr<string> description_ {};
-      // The ID of the ENI.
+      // The ID of the elastic network interfaces (ENIs). This is the network interface controller (NIC) identifier.
       shared_ptr<string> networkInterfaceId_ {};
-      // The name of the ENI.
+      // The name of the elastic network interfaces (ENIs). This is the network interface controller (NIC) name.
       shared_ptr<string> networkInterfaceName_ {};
-      // The primary private IPv4 address of the ENI.
+      // The primary private IP IPv4 address of the elastic network interfaces (ENIs). This is the network interface controller (NIC) primary private IP address.
       shared_ptr<string> primaryIpAddress_ {};
-      // Indicates whether the ENI is created by a transit router.
+      // Indicates whether the elastic network interface (ENI) is created by a transit router for routing and forwarding purposes.
       // 
       // - **true**: The ENI is created by a transit router.
-      // 
       // - **false**: The ENI is not created by a transit router.
       // 
-      // ENIs created by transit routers cannot be used as multicast sources or members.
+      // Elastic network interfaces (ENIs) created by transit routers cannot serve as multicast sources or multicast members.
       shared_ptr<bool> transitRouterFlag_ {};
-      // The ID of the vSwitch.
+      // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the VPC.
+      // The VPC-connected instance ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -184,19 +183,16 @@ namespace Models
 
 
   protected:
-    // A list of ENI information.
+    // The list of network interface controller (NIC) information.
     shared_ptr<vector<ListGrantVSwitchEnisResponseBody::GrantVSwitchEnis>> grantVSwitchEnis_ {};
-    // The maximum number of entries returned.
+    // The maximum number of entries returned for this query.
     shared_ptr<int64_t> maxResults_ {};
-    // The token that is used for the next query.
+    // The token returned for this query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
-    // 
-    // >Notice: 
-    // 
-    // This parameter is invalid if you use MaxResults and NextToken to perform a paged query.
+    // The total number of entries returned.
+    // >Notice: When you use the MaxResults and NextToken parameters for paging, the returned Total parameter value is meaningless.
     shared_ptr<string> totalCount_ {};
   };
 

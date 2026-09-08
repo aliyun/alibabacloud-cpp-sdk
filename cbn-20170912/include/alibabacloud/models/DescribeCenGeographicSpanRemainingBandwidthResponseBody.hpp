@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The remaining bandwidth of the bandwidth plan. Unit: Mbps.
+    // The remaining bandwidth of the bandwidth plan instance. Unit: Mbit/s.
     shared_ptr<int64_t> remainingBandwidth_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

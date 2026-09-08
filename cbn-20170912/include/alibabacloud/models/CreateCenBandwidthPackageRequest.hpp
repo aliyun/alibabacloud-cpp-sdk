@@ -100,17 +100,17 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
       // 
-      // You can specify up to 20 tag keys.
+      // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The tag value of the resource.
       // 
-      // The tag value can be an empty string or a string of up to 128 characters. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+      // The tag value cannot be empty. The tag value can be up to 128 characters in length and cannot start with aliyun or acs:. The tag value cannot contain http:// or https://.
       // 
-      // Each tag key corresponds to a tag value. You can specify up to 20 tag values.
+      // Each tag key has a unique tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -241,79 +241,72 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic payment. Valid values:
+    // Specifies whether to enable automatic payment for the bill of the bandwidth plan instance. Valid values:
     // 
-    // - **true**: yes.
+    // - **true**: enables automatic payment.
     // 
-    // - **false** (default): no.
+    // - **false** (default): disables automatic payment.
     // 
-    // If you disable automatic payment, you must go to the Order Hub in the console to complete the payment after you call this operation. Otherwise, the instance cannot be created.
+    // If you set this parameter to false, go to the Order Center in the console to complete the payment after you invoke this operation. Otherwise, the instance cannot be created.
     shared_ptr<bool> autoPay_ {};
     shared_ptr<bool> autoRenew_ {};
     shared_ptr<int32_t> autoRenewDuration_ {};
-    // The maximum bandwidth of the bandwidth plan. Unit: Mbps. Valid values: **2** to **10000**.
+    // The maximum bandwidth value of the bandwidth plan. Unit: Mbit/s. Valid values: **2** to **10000**.
     // 
     // This parameter is required.
     shared_ptr<int32_t> bandwidth_ {};
-    // The billing method of the bandwidth plan. Set the value to **PREPAY**. This value specifies the subscription billing method.
+    // The billing method of the bandwidth plan. Valid values: **PREPAY**, which indicates the subscription billing method.
     shared_ptr<string> bandwidthPackageChargeType_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Make sure that the client token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can be up to 64 ASCII characters in length.
     shared_ptr<string> clientToken_ {};
     // The description of the bandwidth plan.
     // 
-    // The description can be empty or 1 to 256 characters in length. It cannot start with http\\:// or https\\://.
+    // The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // The area where the network instance is deployed. Valid values:
+    // The area to which the network instance belongs. Valid values:
     // 
     // - **China**: the Chinese mainland.
-    // 
     // - **North-America**: North America.
-    // 
-    // - **Asia-Pacific**: Asia-Pacific.
-    // 
+    // - **Asia-Pacific**: Asia Pacific.
     // - **Europe**: Europe.
     // 
     // This parameter is required.
     shared_ptr<string> geographicRegionAId_ {};
-    // The other area where the network instance is deployed. Valid values:
+    // The area to which the other network instance belongs. Valid values:
     // 
     // - **China**: the Chinese mainland.
-    // 
     // - **North-America**: North America.
-    // 
-    // - **Asia-Pacific**: Asia-Pacific.
-    // 
+    // - **Asia-Pacific**: Asia Pacific.
     // - **Europe**: Europe.
     // 
     // This parameter is required.
     shared_ptr<string> geographicRegionBId_ {};
     // The name of the bandwidth plan.
     // 
-    // The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
+    // The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
     shared_ptr<string> name_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The subscription duration of the bandwidth plan. Default value: 1.
     // 
-    // - If you set **PricingCycle** to **Month**, valid values for **Period** are **1** to **3** and **6**.
+    // - If **PricingCycle** is set to **Month**, valid values for **Period** are **1** to **3** and **6**.
+    // - If **PricingCycle** is set to **Year**, valid values for **Period** are **1** to **3**.
     // 
-    // - If you set **PricingCycle** to **Year**, valid values for **Period** are **1** to **3**.
-    // 
-    // > This parameter is required if you set **BandwidthPackageChargeType** to **PREPAY**.
+    // > This parameter is required when **BandwidthPackageChargeType** is set to **PREPAY**.
     shared_ptr<int32_t> period_ {};
     // The billing cycle of the bandwidth plan. Valid values:
     // 
-    // - **Month** (default): The bandwidth plan is billed by month.
+    // - **Month** (default): billed on a monthly basis.
     // 
-    // - **Year**: The bandwidth plan is billed by year.
+    // - **Year**: billed on a yearly basis.
     shared_ptr<string> pricingCycle_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags.
+    // The tag information.
     // 
-    // You can specify up to 20 tags.
+    // You can specify up to 20 tags at a time.
     shared_ptr<vector<CreateCenBandwidthPackageRequest::Tag>> tag_ {};
   };
 

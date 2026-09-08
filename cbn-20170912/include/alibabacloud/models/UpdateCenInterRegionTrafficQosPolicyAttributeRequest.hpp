@@ -118,25 +118,25 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the request fails the dry run, an error message is returned. If the request passes the dry run, the error code `DryRunOperation` is returned.
     // 
-    // - **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
+    // - **false** (default): performs a dry run and sends the request. After the request passes the dry run, the name and description of the traffic scheduling policy are modified.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The new description of the QoS policy.
+    // The new description of the traffic scheduling policy.
     // 
-    // The description must be 1 to 256 characters in length, and cannot start with http\\:// or https\\://. You can also leave this parameter empty.
+    // The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> trafficQosPolicyDescription_ {};
-    // The ID of the QoS policy.
+    // The ID of the traffic scheduling policy.
     // 
     // This parameter is required.
     shared_ptr<string> trafficQosPolicyId_ {};
-    // The new name of the QoS policy.
+    // The new name of the traffic scheduling policy.
     // 
-    // The name must be 1 to 128 characters in length, and cannot start with http\\:// or https\\://. You can also leave this parameter empty.
+    // The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
     shared_ptr<string> trafficQosPolicyName_ {};
   };
 

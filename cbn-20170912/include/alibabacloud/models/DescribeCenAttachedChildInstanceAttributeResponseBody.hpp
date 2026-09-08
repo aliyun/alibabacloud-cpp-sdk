@@ -309,15 +309,15 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The CEN instance ID.
     shared_ptr<string> cenId_ {};
-    // The time when the network instance was attached to the CEN instance.
+    // The time when the network instance was attached.
     // 
-    // The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
+    // The time is displayed in UTC in the YYYY-MM-DDThh:mmZ format.
     shared_ptr<string> childInstanceAttachTime_ {};
-    // The details about the network instance.
+    // The details of the network instance.
     shared_ptr<DescribeCenAttachedChildInstanceAttributeResponseBody::ChildInstanceAttributes> childInstanceAttributes_ {};
-    // The ID of the network instance.
+    // The network instance ID.
     shared_ptr<string> childInstanceId_ {};
     // The name of the network instance.
     shared_ptr<string> childInstanceName_ {};
@@ -325,21 +325,23 @@ namespace Models
     shared_ptr<int64_t> childInstanceOwnerId_ {};
     // The region ID of the network instance.
     shared_ptr<string> childInstanceRegionId_ {};
-    // The type of the network instance. Valid values:
+    // The type of the network instance.
     // 
-    // - **VPC**: VPC
-    // - **VBR**: VBR
-    // - **CCN**: CCN instance
+    // - **VPC**: virtual private cloud.
+    // 
+    // - **VBR**: virtual border router.
+    // 
+    // - **CCN**: Cloud Connect Network.
     shared_ptr<string> childInstanceType_ {};
-    // The cloud service that the network instance belongs to. Its standard code is only returned when the VPC is connected to the transit router. For self-managed VPCs, no code is returned.
+    // The cloud service to which the network instance belongs. This parameter is returned only when a VPC occupied by a cloud service is connected to a transit router. If the VPC is managed by you, this parameter is not returned.
     shared_ptr<string> managedService_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the network instance is attached to the CEN instance.
+    // The attachment status of the network instance.
     // 
-    // - **Attaching**: The network instance is being attached to the CEN instance.
-    // - **Attached**: The network instance is attached to the CEN instance.
-    // - **Detaching**: The network instance is being detached from the CEN instance.
+    // - **Attaching**: being attached.
+    // - **Attached**: attached.
+    // - **Detaching**: being detached.
     shared_ptr<string> status_ {};
   };
 

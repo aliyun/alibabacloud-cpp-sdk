@@ -77,7 +77,7 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+    // The client generates the value of this parameter. Make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

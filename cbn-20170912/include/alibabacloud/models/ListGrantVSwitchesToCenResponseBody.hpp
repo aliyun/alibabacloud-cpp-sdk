@@ -94,13 +94,13 @@ namespace Models
 
 
     protected:
-      // The ID of the vSwitch.
+      // The vSwitch instance ID.
       shared_ptr<string> vSwitchId_ {};
       // The name of the vSwitch.
       shared_ptr<string> vSwitchName_ {};
-      // The ID of the VPC to which the vSwitch belongs.
+      // The VPC-connected instance ID to which the vSwitch belongs.
       shared_ptr<string> vpcId_ {};
-      // The ID of the zone to which the vSwitch belongs.
+      // The zone ID of the vSwitch.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -144,15 +144,15 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The page number of the list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries in the list.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of vSwitches.
+    // The list of vSwitch information.
     shared_ptr<vector<ListGrantVSwitchesToCenResponseBody::VSwitches>> vSwitches_ {};
   };
 

@@ -128,23 +128,22 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a unique value from your client for each request. The ClientToken parameter supports only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: Sends a check request without deleting the multicast member. The system checks required parameters, the request format, and service limits. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
-    // 
-    // - **false** (default): Sends a normal request. After the request passes the check, the multicast member is deleted.
+    // - **true**: performs a dry run without removing the multicast member. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+    // - **false** (default): performs a dry run and sends the request. After the check succeeds, the multicast member is removed.
     shared_ptr<bool> dryRun_ {};
     // The IP address of the multicast group to which the multicast member belongs.
     // 
     // This parameter is required.
     shared_ptr<string> groupIpAddress_ {};
-    // A list of Elastic Network Interface (ENI) IDs.
+    // The list of network interface controller (NIC) IDs.
     shared_ptr<vector<string>> networkInterfaceIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // A list of inter-region multicast domain IDs.
+    // The list of cross-region multicast domain IDs.
     shared_ptr<vector<string>> peerTransitRouterMulticastDomains_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

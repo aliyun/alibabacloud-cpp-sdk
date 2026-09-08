@@ -130,31 +130,29 @@ namespace Models
 
 
   protected:
-    // The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results. Valid values:
-    // 
-    // - If this is your first query or no next page exists, do not specify this parameter.
-    // 
-    // - If a next page exists, set the value to the **NextToken** value returned from the previous call.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - You do not need to specify this parameter for the first request or if no next query exists.
+    // - If a next query exists, set the value to the **NextToken** value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The description of the QoS policy.
+    // The description of the traffic scheduling policy.
     // 
-    // The description can be empty or 1 to 256 characters in length. It cannot start with http\\:// or https\\://.
+    // The description can be empty or 1 to 256 characters in length and cannot start with http:// or https://.
     shared_ptr<string> trafficQosPolicyDescription_ {};
-    // The ID of the QoS policy.
+    // The ID of the traffic scheduling policy.
     shared_ptr<string> trafficQosPolicyId_ {};
-    // The name of the QoS policy.
+    // The name of the traffic scheduling policy.
     // 
-    // The name can be empty or 1 to 128 characters in length. It cannot start with http\\:// or https\\://.
+    // The name can be empty or 1 to 128 characters in length and cannot start with http:// or https://.
     shared_ptr<string> trafficQosPolicyName_ {};
     // The ID of the inter-region connection.
     shared_ptr<string> transitRouterAttachmentId_ {};
-    // The ID of the TransitRouter instance.
+    // The transit router instance ID.
     shared_ptr<string> transitRouterId_ {};
   };
 

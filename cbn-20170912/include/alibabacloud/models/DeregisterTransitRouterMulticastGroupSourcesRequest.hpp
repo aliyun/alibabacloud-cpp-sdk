@@ -117,25 +117,24 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request.
     // 
-    // Generate a token on your client. Make sure that the token is unique among different requests. The \\`ClientToken\\` parameter can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to perform a dry run. Valid values:
     // 
-    // - **true**: Sends a check request without deleting the multicast source. The check includes required parameters, request format, and business limits. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
-    // 
-    // - **false** (default): Sends a normal request. After the request passes the check, the multicast source is deleted.
+    // - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the multicast source is deleted.
     shared_ptr<bool> dryRun_ {};
-    // The IP address of the multicast group that contains the multicast source.
+    // The IP address of the multicast group to which the multicast source belongs.
     // 
     // This parameter is required.
     shared_ptr<string> groupIpAddress_ {};
-    // The list of multicast source IDs.
+    // The IDs of the multicast sources.
     shared_ptr<vector<string>> networkInterfaceIds_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the multicast domain that contains the multicast source.
+    // The ID of the multicast domain to which the multicast source belongs.
     // 
     // This parameter is required.
     shared_ptr<string> transitRouterMulticastDomainId_ {};

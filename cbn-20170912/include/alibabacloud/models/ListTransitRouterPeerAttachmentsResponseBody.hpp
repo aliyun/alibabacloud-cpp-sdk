@@ -278,77 +278,68 @@ namespace Models
 
 
     protected:
-      // Indicates whether the Enterprise Edition transit router automatically advertises routes to the peer region.
+      // Indicates whether the Enterprise Edition transit router instance automatically advertises routes of the inter-region connection to the peer region.
       // 
       // - **false** (default): No.
-      // 
       // - **true**: Yes.
       shared_ptr<bool> autoPublishRouteEnabled_ {};
-      // The bandwidth of the inter-region connection. Unit: Mbit/s.
+      // The bandwidth value of the inter-region connection. Unit: Mbit/s.
       // 
-      // - If **BandwidthType** is set to **BandwidthPackage**, this parameter indicates the bandwidth that is allocated to the inter-region connection.
-      // 
-      // - If **BandwidthType** is set to **DataTransfer**, this parameter indicates the maximum bandwidth of the inter-region connection.
+      // - If **BandwidthType** is set to **BandwidthPackage**, this parameter indicates the bandwidth that the inter-region connection can use.
+      // - If **BandwidthType** is set to **DataTransfer**, this parameter indicates the bandwidth limit of the inter-region connection.
       shared_ptr<int32_t> bandwidth_ {};
       // The bandwidth allocation method. Valid values:
       // 
-      // - **BandwidthPackage**: Bandwidth is allocated from a bandwidth plan.
+      // - **BandwidthPackage**: Bandwidth is allocated from a bandwidth package.
       // 
-      // - **DataTransfer**: The inter-region connection is not allocated a specific bandwidth and is billed on a pay-by-traffic basis.
+      // - **DataTransfer**: No bandwidth is allocated to the inter-region connection. Data transfer is pay-as-you-go.
       shared_ptr<string> bandwidthType_ {};
-      // The ID of the bandwidth plan that is associated with the inter-region connection.
+      // The ID of the bandwidth package associated with the inter-region connection.
       shared_ptr<string> cenBandwidthPackageId_ {};
-      // The ID of the CEN instance.
+      // The CEN instance ID.
       shared_ptr<string> cenId_ {};
       // The time when the inter-region connection was created.
       // 
-      // The time is displayed in the ISO 8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
+      // The time is displayed in the ISO 8601 standard in UTC. Format: `YYYY-MM-DDThh:mmZ`.
       shared_ptr<string> creationTime_ {};
       // The default link type.
       // 
-      // - **Gold** (default): Gold.
-      // 
+      // - **Gold** (default): gold.
       // - **Platinum**: Platinum.
       shared_ptr<string> defaultLinkType_ {};
-      // The connected areas of the bandwidth plan.
+      // The connected areas of the bandwidth package.
       shared_ptr<string> geographicSpanId_ {};
-      // The ID of the peer transit router.
+      // The instance ID of the peer transit routing router.
       shared_ptr<string> peerTransitRouterId_ {};
-      // The ID of the Alibaba Cloud account to which the peer transit router belongs.
+      // The ID of the account to which the peer transit router instance belongs.
       shared_ptr<int64_t> peerTransitRouterOwnerId_ {};
-      // The ID of the region where the peer transit router is deployed.
+      // The region ID of the peer transit router instance.
       shared_ptr<string> peerTransitRouterRegionId_ {};
-      // The ID of the region where the Enterprise Edition transit router is deployed.
+      // The region ID of the Enterprise Edition transit router.
       shared_ptr<string> regionId_ {};
-      // The type of resource that is associated with the connection.
+      // The type of resource associated with the connection.
       // 
-      // - **VPC**: virtual private cloud (VPC).
-      // 
-      // - **CCN**: Cloud Connect Network (CCN) instance.
-      // 
-      // - **VBR**: virtual border router (VBR).
-      // 
-      // - **TR**: transit router.
+      // - **VPC**: virtual private cloud (VPC) instance.
+      // - **CCN**: Cloud Connect Network instance.
+      // - **VBR**: virtual border router (VBR) instance.
+      // - **TR**: transit router instance.
       shared_ptr<string> resourceType_ {};
       // The status of the inter-region connection.
       // 
-      // - **Attached**: The connection is attached.
-      // 
-      // - **Attaching**: The connection is being attached.
-      // 
-      // - **Detaching**: The connection is being detached.
-      // 
-      // - **Detached**: The connection is detached.
+      // - **Attached**: attached.
+      // - **Attaching**: being attached.
+      // - **Detaching**: being detached.
+      // - **Detached**: detached.
       shared_ptr<string> status_ {};
-      // The list of tags.
+      // The tag list.
       shared_ptr<vector<TransitRouterAttachments::Tags>> tags_ {};
       // The description of the inter-region connection.
       shared_ptr<string> transitRouterAttachmentDescription_ {};
-      // The ID of the inter-region connection.
+      // The inter-region connection ID.
       shared_ptr<string> transitRouterAttachmentId_ {};
       // The name of the inter-region connection.
       shared_ptr<string> transitRouterAttachmentName_ {};
-      // The ID of the Enterprise Edition transit router.
+      // The Enterprise Edition transit router instance ID.
       shared_ptr<string> transitRouterId_ {};
     };
 
@@ -392,19 +383,18 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used for the next query. Valid values:
+    // The token that determines the start point of the next query. Valid values:
     // 
-    // - If this parameter is empty, no more data is returned.
-    // 
-    // - If a value is returned for this parameter, the value is the token that is used for the next query.
+    // - If **NextToken** is empty, no subsequent query is to be sent.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of inter-region connections.
+    // The list of inter-region connections.
     shared_ptr<vector<ListTransitRouterPeerAttachmentsResponseBody::TransitRouterAttachments>> transitRouterAttachments_ {};
   };
 

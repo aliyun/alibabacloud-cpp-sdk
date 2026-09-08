@@ -103,21 +103,21 @@ namespace Models
 
 
   protected:
-    // The ID of the CEN instance.
+    // The CEN instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The ID of the network instance.
+    // The network instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceId_ {};
-    // The ID of the region where the network instance is deployed.
+    // The region ID of the network instance.
     // 
     // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRegionId_ {};
-    // The ID of the route table of the network instance.
+    // The route table ID of the network instance.
     // 
     // This parameter is required.
     shared_ptr<string> childInstanceRouteTableId_ {};
@@ -125,11 +125,9 @@ namespace Models
     // 
     // - **VPC**: virtual private cloud.
     // 
-    // - **VBR**: virtual border router.
-    // 
     // This parameter is required.
     shared_ptr<string> childInstanceType_ {};
-    // The destination CIDR block of the route that you want to advertise.
+    // The destination CIDR block of the route entry to be published.
     // 
     // This parameter is required.
     shared_ptr<string> destinationCidrBlock_ {};

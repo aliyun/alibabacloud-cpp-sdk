@@ -520,13 +520,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeCenChildInstanceRouteEntriesResponseBody::CenRouteEntries> cenRouteEntries_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page for paging queries.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

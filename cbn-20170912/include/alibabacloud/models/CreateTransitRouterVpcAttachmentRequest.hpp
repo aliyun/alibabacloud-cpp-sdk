@@ -105,13 +105,17 @@ namespace Models
 
 
     protected:
-      // The ID of the vSwitch.
+      // The ID of the vSwitch instance in a zone supported by the Enterprise Edition transit router.
+      // 
+      // You can select vSwitch instances for up to 10 zones at a time.
       // 
       // This parameter is required.
       shared_ptr<string> vSwitchId_ {};
-      // The ID of the zone. The zone must be supported by the Enterprise Edition transit router.
+      // The ID of a zone supported by the Enterprise Edition transit router.
       // 
-      // You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query available zones.
+      // You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
+      // 
+      // You can select up to 10 zones at a time.
       // 
       // This parameter is required.
       shared_ptr<string> zoneId_ {};
@@ -155,13 +159,17 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key of the resource.
       // 
-      // The tag key cannot be an empty string. The key can be up to 64 characters long and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+      // Once specified, the tag key cannot be an empty string. The tag key can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`.
+      // 
+      // You can specify up to 20 tag keys at a time.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value of the resource.
       // 
-      // The tag value can be an empty string or a string up to 128 characters long. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+      // Once specified, the tag value cannot be empty. The tag value can be up to 128 characters in length, and cannot start with aliyun or acs:, or contain http:// or https://.
+      // 
+      // Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
       shared_ptr<string> value_ {};
     };
 
@@ -203,7 +211,15 @@ namespace Models
 
 
     protected:
+      // Specifies whether to enable the appliance mode.
+      // 
+      // - **disable** (default): No.
+      // - **enable**: Yes.
       shared_ptr<string> applianceModeSupport_ {};
+      // Specifies whether IPv6 is supported.
+      // 
+      // - **disable** (default): No.
+      // - **enable**: Yes.
       shared_ptr<string> ipv6Support_ {};
     };
 
@@ -354,64 +370,63 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the Enterprise Edition transit router to automatically advertise routes to the VPC.
+    // Specifies whether to allow the Enterprise Edition transit router to automatically publish routing entries to the VPC instance.
     // 
-    // - **false** (default): Do not automatically advertise routes.
-    // 
-    // - **true**: Automatically advertise routes.
+    // - **false** (default): No.
+    // - **true**: Yes.
     shared_ptr<bool> autoPublishRouteEnabled_ {};
-    // The ID of the CEN instance.
+    // The instance ID of the Cloud Enterprise Network (CEN).
     shared_ptr<string> cenId_ {};
-    // The billing method. The default value is **POSTPAY** (pay-as-you-go).
+    // The billing method. Default value: **POSTPAY**, which indicates pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The client token used to ensure request idempotency.
+    // The client token that is used to ensure the idempotence of the request.
     // 
-    // You must generate a value on your client that is unique among different requests. The token can contain only ASCII characters.
+    // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system automatically uses the request ID as the client token, which is unique for each request.
+    // >If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to perform a dry run to check the validity of the request without creating the resource. The check includes permissions and instance status. Valid values:
+    // Specifies whether to execute a dry run, including permission and instance status verification. Valid values:
     // 
-    // - **false** (default): Sends a normal request. The system creates the VPC connection if the request is valid.
-    // 
-    // - **true**: Sends only a check request. The system checks required parameters, request format, and permissions. The VPC connection is not created. If the check fails, an error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+    // - **false** (default): Sends a normal request and creates the VPC connection after the request passes the check.
+    // - **true**: Sends a check request. Only the check is performed, and the VPC connection is not created. The check items include whether required parameters are specified and the request format. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
     shared_ptr<bool> dryRun_ {};
+    // The collection of feature attributes.
     shared_ptr<CreateTransitRouterVpcAttachmentRequest::Options> options_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region where the VPC is located.
+    // The region ID of the VPC-connected instance.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
+    // You can invoke the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The tags to add to the VPC connection.
+    // The list of tags.
     // 
-    // You can add up to 20 tags.
+    // You can specify up to 20 tags at a time.
     shared_ptr<vector<CreateTransitRouterVpcAttachmentRequest::Tag>> tag_ {};
     // The description of the VPC connection.
     // 
-    // The description can be empty or 1 to 256 characters long, and cannot start with `http://` or `https://`.
+    // The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> transitRouterAttachmentDescription_ {};
     // The name of the VPC connection.
     // 
-    // The name can be empty or 1 to 128 characters long, and cannot start with `http://` or `https://`.
+    // The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
     shared_ptr<string> transitRouterAttachmentName_ {};
-    // The ID of the Enterprise Edition transit router.
+    // The instance ID of the Enterprise Edition transit router.
     shared_ptr<string> transitRouterId_ {};
-    // The properties of the VPC connection. This parameter is deprecated. We recommend that you use the `Options` parameter instead.
+    // The list of feature attributes for the VPC connection (to be deprecated, use the new parameter Options instead).
     shared_ptr<map<string, string>> transitRouterVPCAttachmentOptions_ {};
-    // The ID of the VPC.
+    // The instance ID of the VPC-connected instance.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // The ID of the Alibaba Cloud account that owns the VPC. By default, this is the ID of the current Alibaba Cloud account.
+    // The Alibaba Cloud account ID to which the VPC-connected instance belongs. The default value is the Alibaba Cloud account ID of the current logon user.
     // 
-    // > This parameter is required if you want to attach a cross-account network instance.
+    // > This parameter is required if you want to load a cross-account network instance.
     shared_ptr<int64_t> vpcOwnerId_ {};
-    // The zone mappings for the VPC connection. For each mapping, you must specify a vSwitch in a zone that is supported by the Enterprise Edition transit router.
+    // Select a vSwitch instance in a zone supported by the Enterprise Edition transit router.
     // 
-    // You can specify up to 10 zone mappings.
+    // You can add up to 10 entries at a time.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateTransitRouterVpcAttachmentRequest::ZoneMappings>> zoneMappings_ {};

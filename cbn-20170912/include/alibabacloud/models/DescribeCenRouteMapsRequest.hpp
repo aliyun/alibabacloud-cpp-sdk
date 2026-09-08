@@ -130,35 +130,35 @@ namespace Models
 
 
   protected:
-    // The ID of the Cloud Enterprise Network (CEN) instance.
+    // The instance ID of the Cloud Enterprise Network (CEN) instance.
     // 
     // This parameter is required.
     shared_ptr<string> cenId_ {};
-    // The ID of the region where the routing policy is applied.
+    // The ID of the region where the route map is applied.
     // 
     // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     shared_ptr<string> cenRegionId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Default value: **1**.
+    // The page number of the list. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **10**.
+    // The number of entries per page in a paged query. Default value: **10**.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the routing policy.
+    // The ID of the route map.
     shared_ptr<string> routeMapId_ {};
-    // The ID of the route table of the transit router that is associated with the routing policy.
+    // The ID of the transit router route table associated with the route map.
     shared_ptr<string> transitRouterRouteTableId_ {};
-    // The direction in which the routing policy is applied. Valid values:
+    // The direction in which the route map is applied. Valid values:
     // 
-    // - **RegionIn**: Inbound. The routing policy is applied to routes that are advertised to the gateway of a region.
+    // - **RegionIn**: Routes are advertised to the regional gateway of the CEN instance.
     // 
-    // For example, routes are advertised from network instances in the current region to the gateway of the current region, or routes from other regions are advertised to the gateway of the current region.
+    //  For example, routes are advertised from a network instance in the local region to the local regional gateway, or routes are advertised from a regional gateway in another region to the local regional gateway.
     // 
-    // - **RegionOut**: Outbound. The routing policy is applied to routes that are advertised from the gateway of a region.
+    // - **RegionOut**: Routes are advertised from the regional gateway of the CEN instance.
     // 
-    // For example, routes are advertised from the gateway of the current region to network instances in the current region, or to gateways in other regions.
+    //  For example, routes are advertised from the local regional gateway to network instances in the local region, or routes are advertised from the local regional gateway to regional gateways in other regions.
     shared_ptr<string> transmitDirection_ {};
   };
 

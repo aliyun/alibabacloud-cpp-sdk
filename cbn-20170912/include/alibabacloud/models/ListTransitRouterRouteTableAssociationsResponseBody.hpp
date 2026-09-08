@@ -105,29 +105,23 @@ namespace Models
     protected:
       // The ID of the next hop resource.
       shared_ptr<string> resourceId_ {};
-      // The type of the next hop resource.
+      // The type of the next hop resource. Valid values:
       // 
-      // - **VPC**: virtual private cloud (VPC).
-      // 
-      // - **VBR**: virtual border router (VBR).
-      // 
-      // - **TR**: transit router.
-      // 
+      // - **VPC**: virtual private cloud (VPC) instance.
+      // - **VBR**: virtual border router (VBR) instance.
+      // - **TR**: transit router instance.
       // - **VPN**: VPN connection.
       shared_ptr<string> resourceType_ {};
-      // The status of the association.
+      // The status of the route association. Valid values:
       // 
-      // - **Active**: The association is active.
-      // 
-      // - **Associating**: The association is being created.
-      // 
-      // - **Dissociating**: The association is being deleted.
-      // 
-      // - **Deleted**: The association is deleted.
+      // - **Active**: active.
+      // - **Associating**: being associated.
+      // - **Dissociating**: being dissociated.
+      // - **Deleted**: deleted.
       shared_ptr<string> status_ {};
       // The ID of the network instance connection.
       shared_ptr<string> transitRouterAttachmentId_ {};
-      // The ID of the route table of the Enterprise Edition transit router.
+      // The ID of the Enterprise Edition transit router route table.
       shared_ptr<string> transitRouterRouteTableId_ {};
     };
 
@@ -171,19 +165,17 @@ namespace Models
 
 
   protected:
-    // The number of entries returned per page.
+    // The number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query.
-    // 
-    // - If this parameter is not returned, it indicates that no more results are to be returned.
-    // 
-    // - If a value is returned for this parameter, the value is the token that is used for the next query.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - If **NextToken** is empty, no subsequent query exists.
+    // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // A list of forwarding associations.
+    // The list of route association relationships.
     shared_ptr<vector<ListTransitRouterRouteTableAssociationsResponseBody::TransitRouterAssociations>> transitRouterAssociations_ {};
   };
 

@@ -126,10 +126,10 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The type of the network instance. Valid values:
     // 
-    // - **VPC**: VPC
-    // - **ExpressConnect**: VBR
-    // - **VPN**: IPsec-VPN connection
-    // - **ECR**: ECR
+    // - **VPC**: VPC instance.
+    // - **ExpressConnect**: VBR instance.
+    // - **VPN**: IPsec connection.
+    // - **ECR**: ECR instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
@@ -137,7 +137,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the network instance.
     // 
-    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query the most recent region list.
+    // You can call the [DescribeChildInstanceRegions](https://help.aliyun.com/document_detail/132080.html) operation to query region IDs.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
