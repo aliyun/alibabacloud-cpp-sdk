@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_READNUMGROUPBYCLASSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ReadNumGroupByClassResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -39,51 +38,102 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->code_ != nullptr
-        && this->data_ != nullptr && this->message_ != nullptr && this->requestId_ != nullptr && this->success_ != nullptr; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(ClassId, classId_);
+        DARABONBA_PTR_TO_JSON(MsgCount, msgCount_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(ClassId, classId_);
+        DARABONBA_PTR_FROM_JSON(MsgCount, msgCount_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->classId_ == nullptr
+        && this->msgCount_ == nullptr; };
+      // classId Field Functions 
+      bool hasClassId() const { return this->classId_ != nullptr;};
+      void deleteClassId() { this->classId_ = nullptr;};
+      inline int64_t getClassId() const { DARABONBA_PTR_GET_DEFAULT(classId_, 0L) };
+      inline Data& setClassId(int64_t classId) { DARABONBA_PTR_SET_VALUE(classId_, classId) };
+
+
+      // msgCount Field Functions 
+      bool hasMsgCount() const { return this->msgCount_ != nullptr;};
+      void deleteMsgCount() { this->msgCount_ = nullptr;};
+      inline int64_t getMsgCount() const { DARABONBA_PTR_GET_DEFAULT(msgCount_, 0L) };
+      inline Data& setMsgCount(int64_t msgCount) { DARABONBA_PTR_SET_VALUE(msgCount_, msgCount) };
+
+
+    protected:
+      // The message category ID.
+      shared_ptr<int64_t> classId_ {};
+      // The number of unread messages in the category.
+      shared_ptr<int64_t> msgCount_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline string code() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
     inline ReadNumGroupByClassResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const vector<ReadNumGroupByClassResponseBodyData> & data() const { DARABONBA_PTR_GET_CONST(data_, vector<ReadNumGroupByClassResponseBodyData>) };
-    inline vector<ReadNumGroupByClassResponseBodyData> data() { DARABONBA_PTR_GET(data_, vector<ReadNumGroupByClassResponseBodyData>) };
-    inline ReadNumGroupByClassResponseBody& setData(const vector<ReadNumGroupByClassResponseBodyData> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ReadNumGroupByClassResponseBody& setData(vector<ReadNumGroupByClassResponseBodyData> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const vector<ReadNumGroupByClassResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ReadNumGroupByClassResponseBody::Data>) };
+    inline vector<ReadNumGroupByClassResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ReadNumGroupByClassResponseBody::Data>) };
+    inline ReadNumGroupByClassResponseBody& setData(const vector<ReadNumGroupByClassResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ReadNumGroupByClassResponseBody& setData(vector<ReadNumGroupByClassResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline ReadNumGroupByClassResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ReadNumGroupByClassResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline bool success() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
     inline ReadNumGroupByClassResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    std::shared_ptr<string> code_ = nullptr;
-    std::shared_ptr<vector<ReadNumGroupByClassResponseBodyData>> data_ = nullptr;
-    std::shared_ptr<string> message_ = nullptr;
-    std::shared_ptr<string> requestId_ = nullptr;
-    std::shared_ptr<bool> success_ = nullptr;
+    // The error code returned when the call fails. For more information, see error codes.
+    shared_ptr<string> code_ {};
+    // The execution result.
+    shared_ptr<vector<ReadNumGroupByClassResponseBody::Data>> data_ {};
+    // The message returned when the call fails.
+    shared_ptr<string> message_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

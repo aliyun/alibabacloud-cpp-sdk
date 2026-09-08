@@ -1,0 +1,153 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_READWEBHOOKCONTACTSENDTEMPLATELISTRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_READWEBHOOKCONTACTSENDTEMPLATELISTRESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Notifications20241225
+{
+namespace Models
+{
+  class ReadWebhookContactSendTemplateListResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ReadWebhookContactSendTemplateListResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(Code, code_);
+      DARABONBA_PTR_TO_JSON(Data, data_);
+      DARABONBA_PTR_TO_JSON(HttpCode, httpCode_);
+      DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(Success, success_);
+    };
+    friend void from_json(const Darabonba::Json& j, ReadWebhookContactSendTemplateListResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(Code, code_);
+      DARABONBA_PTR_FROM_JSON(Data, data_);
+      DARABONBA_PTR_FROM_JSON(HttpCode, httpCode_);
+      DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(Success, success_);
+    };
+    ReadWebhookContactSendTemplateListResponseBody() = default ;
+    ReadWebhookContactSendTemplateListResponseBody(const ReadWebhookContactSendTemplateListResponseBody &) = default ;
+    ReadWebhookContactSendTemplateListResponseBody(ReadWebhookContactSendTemplateListResponseBody &&) = default ;
+    ReadWebhookContactSendTemplateListResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ReadWebhookContactSendTemplateListResponseBody() = default ;
+    ReadWebhookContactSendTemplateListResponseBody& operator=(const ReadWebhookContactSendTemplateListResponseBody &) = default ;
+    ReadWebhookContactSendTemplateListResponseBody& operator=(ReadWebhookContactSendTemplateListResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(Code, code_);
+        DARABONBA_ANY_TO_JSON(Template, template_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(Code, code_);
+        DARABONBA_ANY_FROM_JSON(Template, template_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->code_ == nullptr
+        && this->template_ == nullptr; };
+      // code Field Functions 
+      bool hasCode() const { return this->code_ != nullptr;};
+      void deleteCode() { this->code_ = nullptr;};
+      inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+      inline Data& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+      // template Field Functions 
+      bool hasTemplate() const { return this->template_ != nullptr;};
+      void deleteTemplate() { this->template_ = nullptr;};
+      inline       const Darabonba::Json & getTemplate() const { DARABONBA_GET(template_) };
+      Darabonba::Json & getTemplate() { DARABONBA_GET(template_) };
+      inline Data& setTemplate(const Darabonba::Json & _template) { DARABONBA_SET_VALUE(template_, _template) };
+      inline Data& setTemplate(Darabonba::Json && _template) { DARABONBA_SET_RVALUE(template_, _template) };
+
+
+    protected:
+      // The template code.
+      shared_ptr<string> code_ {};
+      // The template.
+      Darabonba::Json template_ {};
+    };
+
+    virtual bool empty() const override { return this->code_ == nullptr
+        && this->data_ == nullptr && this->httpCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->success_ == nullptr; };
+    // code Field Functions 
+    bool hasCode() const { return this->code_ != nullptr;};
+    void deleteCode() { this->code_ = nullptr;};
+    inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+    inline ReadWebhookContactSendTemplateListResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const vector<ReadWebhookContactSendTemplateListResponseBody::Data> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<ReadWebhookContactSendTemplateListResponseBody::Data>) };
+    inline vector<ReadWebhookContactSendTemplateListResponseBody::Data> getData() { DARABONBA_PTR_GET(data_, vector<ReadWebhookContactSendTemplateListResponseBody::Data>) };
+    inline ReadWebhookContactSendTemplateListResponseBody& setData(const vector<ReadWebhookContactSendTemplateListResponseBody::Data> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline ReadWebhookContactSendTemplateListResponseBody& setData(vector<ReadWebhookContactSendTemplateListResponseBody::Data> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // httpCode Field Functions 
+    bool hasHttpCode() const { return this->httpCode_ != nullptr;};
+    void deleteHttpCode() { this->httpCode_ = nullptr;};
+    inline int32_t getHttpCode() const { DARABONBA_PTR_GET_DEFAULT(httpCode_, 0) };
+    inline ReadWebhookContactSendTemplateListResponseBody& setHttpCode(int32_t httpCode) { DARABONBA_PTR_SET_VALUE(httpCode_, httpCode) };
+
+
+    // message Field Functions 
+    bool hasMessage() const { return this->message_ != nullptr;};
+    void deleteMessage() { this->message_ = nullptr;};
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline ReadWebhookContactSendTemplateListResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline ReadWebhookContactSendTemplateListResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // success Field Functions 
+    bool hasSuccess() const { return this->success_ != nullptr;};
+    void deleteSuccess() { this->success_ = nullptr;};
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline ReadWebhookContactSendTemplateListResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+
+
+  protected:
+    // The business status code.
+    shared_ptr<string> code_ {};
+    // The returned result.
+    shared_ptr<vector<ReadWebhookContactSendTemplateListResponseBody::Data>> data_ {};
+    // The HTTP status code.
+    shared_ptr<int32_t> httpCode_ {};
+    // The business message.
+    shared_ptr<string> message_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> success_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Notifications20241225
+#endif
