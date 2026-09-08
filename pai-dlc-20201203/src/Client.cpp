@@ -62,25 +62,7 @@ AlibabaCloud::PaiDlc20201203::Client::Client(Config &config): OpenApiClient(conf
     {"eu-west-1" , "pai-dlc.aliyuncs.com"},
     {"eu-west-1-oxs" , "pai-dlc.aliyuncs.com"},
     {"me-east-1" , "pai-dlc.aliyuncs.com"},
-    {"rus-west-1-pop" , "pai-dlc.aliyuncs.com"},
-    {"cn-wulanchabu" , "pai-dlc.cn-wulanchabu.aliyuncs.com"},
-    {"cn-beijing" , "pai-dlc.cn-beijing.aliyuncs.com"},
-    {"cn-shanghai" , "pai-dlc.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "pai-dlc.cn-hongkong.aliyuncs.com"},
-    {"cn-shenzhen" , "pai-dlc.cn-shenzhen.aliyuncs.com"},
-    {"ap-northeast-1" , "pai-dlc.ap-northeast-1.aliyuncs.com"},
-    {"cn-guangzhou" , "pai-dlc.cn-guangzhou.aliyuncs.com"},
-    {"ap-southeast-1" , "pai-dlc.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "pai-dlc.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-5" , "pai-dlc.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-7" , "pai-dlc.ap-southeast-7.aliyuncs.com"},
-    {"cn-hangzhou" , "pai-dlc.cn-hangzhou.aliyuncs.com"},
-    {"ap-southeast-8" , "pai-dlc.ap-southeast-8.aliyuncs.com"},
-    {"us-east-1" , "pai-dlc.us-east-1.aliyuncs.com"},
-    {"us-southeast-1" , "pai-dlc.us-southeast-1.aliyuncs.com"},
-    {"us-west-1" , "pai-dlc.us-west-1.aliyuncs.com"},
-    {"eu-central-1" , "pai-dlc.eu-central-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "pai-dlc.cn-shanghai-finance-1.aliyuncs.com"}
+    {"rus-west-1-pop" , "pai-dlc.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("pai-dlc", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -100,9 +82,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+ * @summary Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
  *
- * @description Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * @description Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
  *
  * @param request CreateJobRequest
  * @param headers map
@@ -235,9 +218,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 }
 
 /**
- * @summary Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+ * @summary Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
  *
- * @description Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * @description Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -785,7 +769,7 @@ GetDashboardResponse Client::getDashboard(const string &jobId, const GetDashboar
 }
 
 /**
- * @summary Retrieves the detailed configuration and runtime information of a node.
+ * @summary Retrieves the detailed configuration and runtime information of a task.
  *
  * @param request GetJobRequest
  * @param headers map
@@ -818,7 +802,7 @@ GetJobResponse Client::getJobWithOptions(const string &JobId, const GetJobReques
 }
 
 /**
- * @summary Retrieves the detailed configuration and runtime information of a node.
+ * @summary Retrieves the detailed configuration and runtime information of a task.
  *
  * @param request GetJobRequest
  * @return GetJobResponse
@@ -1196,7 +1180,7 @@ GetPodEventsResponse Client::getPodEvents(const string &JobId, const string &Pod
 }
 
 /**
- * @summary Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
+ * @summary Retrieves or downloads the log of a specific node in a job. The log is collected from stdout and stderr of the system and user scripts.
  *
  * @param request GetPodLogsRequest
  * @param headers map
@@ -1206,6 +1190,10 @@ GetPodEventsResponse Client::getPodEvents(const string &JobId, const string &Pod
 GetPodLogsResponse Client::getPodLogsWithOptions(const string &JobId, const string &PodId, const GetPodLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasContainers()) {
+    query["Containers"] = request.getContainers();
+  }
+
   if (!!request.hasDownloadToFile()) {
     query["DownloadToFile"] = request.getDownloadToFile();
   }
@@ -1245,7 +1233,7 @@ GetPodLogsResponse Client::getPodLogsWithOptions(const string &JobId, const stri
 }
 
 /**
- * @summary Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
+ * @summary Retrieves or downloads the log of a specific node in a job. The log is collected from stdout and stderr of the system and user scripts.
  *
  * @param request GetPodLogsRequest
  * @return GetPodLogsResponse
@@ -1502,7 +1490,7 @@ GetTensorboardSharedUrlResponse Client::getTensorboardSharedUrl(const string &Te
 }
 
 /**
- * @summary Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
+ * @summary Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
  *
  * @param request GetTokenRequest
  * @param headers map
@@ -1524,6 +1512,10 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
     query["TargetType"] = request.getTargetType();
   }
 
+  if (!!request.hasTokenSettings()) {
+    query["TokenSettings"] = request.getTokenSettings();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)}
@@ -1543,7 +1535,7 @@ GetTokenResponse Client::getTokenWithOptions(const GetTokenRequest &request, con
 }
 
 /**
- * @summary Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
+ * @summary Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
  *
  * @param request GetTokenRequest
  * @return GetTokenResponse
@@ -2678,7 +2670,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Updates a job\\"s configuration, such as its priority.
+ * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
  *
  * @param request UpdateJobRequest
  * @param headers map
@@ -2704,6 +2696,10 @@ UpdateJobResponse Client::updateJobWithOptions(const string &JobId, const Update
     body["Priority"] = request.getPriority();
   }
 
+  if (!!request.hasUserCommand()) {
+    body["UserCommand"] = request.getUserCommand();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -2723,7 +2719,7 @@ UpdateJobResponse Client::updateJobWithOptions(const string &JobId, const Update
 }
 
 /**
- * @summary Updates a job\\"s configuration, such as its priority.
+ * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse

@@ -199,7 +199,10 @@ namespace Models
 
 
     protected:
-      // The default routing. This parameter is valid only for general computing resources. Valid values:
+      // The default route. This parameter is valid only for general-purpose computing resources. Valid values:
+      // 
+      // eth0: uses the default network interface card (NIC) to access external networks through the public gateway.
+      // eth1: uses the user elastic network interface (ENI) to access external networks through the private gateway.
       shared_ptr<string> defaultRoute_ {};
       // The extended CIDR blocks. Example: 192.168.0.1/24.
       shared_ptr<vector<string>> extendedCidrs_ {};
@@ -358,7 +361,7 @@ namespace Models
         shared_ptr<string> detailErrorMsg_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
-        // The fault error message.
+        // The error information.
         shared_ptr<string> errorMsg_ {};
         // The error source.
         shared_ptr<string> errorSource_ {};
@@ -446,20 +449,21 @@ namespace Models
 
 
     protected:
-      // The list of fault error messages.
+      // The error information list.
       shared_ptr<vector<RestartRecord::DetailErrorInfoList>> detailErrorInfoList_ {};
       // The number of job restarts.
       shared_ptr<int64_t> jobRestartCount_ {};
       // The phase in which the event occurred.
       shared_ptr<string> occurPhase_ {};
-      // The time when the event occurred.
+      // The time at which the event occurred.
       shared_ptr<string> occurTime_ {};
-      // The reason for the restart.
+      // The reason.
       shared_ptr<string> reason_ {};
       // The restart duration, in seconds.
       shared_ptr<int64_t> restartDurationInSec_ {};
       // The reason for the restart failure.
       shared_ptr<string> restartFailReason_ {};
+      // The restart level (pod-level restart or job-level restart).
       shared_ptr<string> restartLevelType_ {};
       // The restart status.
       shared_ptr<string> restartStatus_ {};
@@ -678,7 +682,7 @@ namespace Models
         shared_ptr<string> nodeName_ {};
         // Pod ID。
         shared_ptr<string> podId_ {};
-        // The pod IP addresses.
+        // The IP addresses of the pod.
         shared_ptr<vector<PodNetworkInterface>> podIps_ {};
         // Pod UID。
         shared_ptr<string> podUid_ {};
@@ -686,10 +690,13 @@ namespace Models
         shared_ptr<string> resourceType_ {};
         // The pod status.
         shared_ptr<string> status_ {};
-        // The pod sub-status, such as preemption status. Valid values:
+        // The pod substatus, such as preemption status. Valid values:
+        // - Normal
+        // - Evicted
         shared_ptr<string> subStatus_ {};
         // The pod type.
         shared_ptr<string> type_ {};
+        // The list of supported profiling types, comma-separated, such as sysom. An empty string indicates that profiling is not supported.
         shared_ptr<string> supportedProfilingTypes_ {};
       };
 
@@ -823,18 +830,27 @@ namespace Models
       shared_ptr<string> nodeName_ {};
       // The pod ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events for the pod.
       shared_ptr<string> podId_ {};
-      // The pod IP addresses.
+      // The IP addresses of the pod.
       shared_ptr<vector<PodNetworkInterface>> podIps_ {};
       // Pod UID。
       shared_ptr<string> podUid_ {};
       // The pod resource usage type.
       shared_ptr<string> resourceType_ {};
       // The pod status. Valid values:
+      // 
+      // - Pending
+      // - Running
+      // - Succeeded
+      // - Failed
+      // - Unknown
       shared_ptr<string> status_ {};
-      // The pod sub-status, such as preemption status. Valid values:
+      // The pod substatus, such as preemption status. Valid values:
+      // - Normal
+      // - Evicted
       shared_ptr<string> subStatus_ {};
-      // The pod type, which corresponds to a JobSpec in the JobSpecs parameter of CreateJob.
+      // The pod type, which corresponds to a specific JobSpec in the JobSpecs parameter of CreateJob.
       shared_ptr<string> type_ {};
+      // The list of supported profiling types, comma-separated, such as sysom. An empty string indicates that profiling is not supported.
       shared_ptr<string> supportedProfilingTypes_ {};
     };
 
@@ -887,7 +903,7 @@ namespace Models
     protected:
       // The data source ID.
       shared_ptr<string> dataSourceId_ {};
-      // The local mount path. This is an optional parameter. If left empty, the mount path specified in the data source is used.
+      // The local mount path. This is an optional parameter. The default value is empty, which indicates that the mount path specified in the data source is used.
       shared_ptr<string> mountPath_ {};
       // The data source path.
       shared_ptr<string> uri_ {};
@@ -1390,6 +1406,8 @@ namespace Models
 
   protected:
     // The visibility of the task. Valid values:
+    // - PUBLIC: Visible to all users in the workspace.
+    // - PRIVATE (default): Visible only to you and administrators in the workspace.
     shared_ptr<string> accessibility_ {};
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
@@ -1407,7 +1425,7 @@ namespace Models
     shared_ptr<int64_t> duration_ {};
     // The elastic job parameters.
     shared_ptr<JobElasticSpec> elasticSpec_ {};
-    // Specifies whether the debugger job is enabled.
+    // Indicates whether the debugger job is enabled.
     shared_ptr<bool> enabledDebugger_ {};
     // The environment variable configuration.
     shared_ptr<map<string, string>> envs_ {};
@@ -1429,7 +1447,7 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The job replica statuses.
     shared_ptr<vector<JobReplicaStatus>> jobReplicaStatuses_ {};
-    // The node configurations in the job. Refer to **JobSpecs** in the CreateJob API.
+    // The node configurations in the job. For more information, see **JobSpecs** in the CreateJob API.
     shared_ptr<vector<JobSpec>> jobSpecs_ {};
     // The job type. Specified by the JobType parameter in the [CreateJob](https://help.aliyun.com/document_detail/459672.html) API.
     shared_ptr<string> jobType_ {};
@@ -1443,7 +1461,7 @@ namespace Models
     shared_ptr<string> reasonMessage_ {};
     // The request ID, used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group in which the job runs.
+    // The ID of the resource group where the job runs.
     shared_ptr<string> resourceId_ {};
     // The resource level used when the job runs.
     shared_ptr<string> resourceLevel_ {};
@@ -1451,17 +1469,31 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The job restart records.
     shared_ptr<vector<GetJobResponseBody::RestartRecord>> restartRecord_ {};
-    // The number of restarts used and the maximum number of restarts for the job.
+    // The number of restarts used and the maximum number of restarts allowed for the job.
     shared_ptr<string> restartTimes_ {};
     shared_ptr<map<string, Darabonba::Json>> roleSystemEnvs_ {};
+    // The scheduling strategy configuration.
     shared_ptr<string> schedulingStrategy_ {};
     // The additional parameter settings for the job.
     shared_ptr<JobSettings> settings_ {};
-    // The job running status. Valid values:
+    // The job status. Valid values:
+    // - Creating
+    // - Queuing
+    // - Bidding (currently only for Lingjun spot jobs)
+    // - EnvPreparing
+    // - SanityChecking
+    // - Running
+    // - Restarting
+    // - Stopping
+    // - SucceededReserving
+    // - FailedReserving
+    // - Succeeded
+    // - Failed
+    // - Stopped
     shared_ptr<string> status_ {};
     // The status history.
     shared_ptr<vector<StatusTransitionItem>> statusHistory_ {};
-    // The job sub-status, such as preemption retry status.
+    // The job substatus, such as preemption retry status.
     shared_ptr<string> subStatus_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
@@ -1479,6 +1511,7 @@ namespace Models
     shared_ptr<string> workspaceId_ {};
     // The name of the workspace to which the job belongs.
     shared_ptr<string> workspaceName_ {};
+    // The list of supported profiling types, comma-separated, such as sysom. An empty string indicates that profiling is not supported.
     shared_ptr<string> supportedProfilingTypes_ {};
   };
 

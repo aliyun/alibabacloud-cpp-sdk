@@ -21,9 +21,10 @@ namespace PaiDlc20201203
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+       * @summary Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
        *
-       * @description Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+       * @description Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+       * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
        *
        * @param request CreateJobRequest
        * @param headers map
@@ -33,9 +34,10 @@ namespace PaiDlc20201203
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a job to run in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
+       * @summary Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
        *
-       * @description Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+       * @description Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+       * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -227,7 +229,7 @@ namespace PaiDlc20201203
       Models::GetDashboardResponse getDashboard(const string &jobId, const Models::GetDashboardRequest &request);
 
       /**
-       * @summary Retrieves the detailed configuration and runtime information of a node.
+       * @summary Retrieves the detailed configuration and runtime information of a task.
        *
        * @param request GetJobRequest
        * @param headers map
@@ -237,7 +239,7 @@ namespace PaiDlc20201203
       Models::GetJobResponse getJobWithOptions(const string &JobId, const Models::GetJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the detailed configuration and runtime information of a node.
+       * @summary Retrieves the detailed configuration and runtime information of a task.
        *
        * @param request GetJobRequest
        * @return GetJobResponse
@@ -369,7 +371,7 @@ namespace PaiDlc20201203
       Models::GetPodEventsResponse getPodEvents(const string &JobId, const string &PodId, const Models::GetPodEventsRequest &request);
 
       /**
-       * @summary Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
+       * @summary Retrieves or downloads the log of a specific node in a job. The log is collected from stdout and stderr of the system and user scripts.
        *
        * @param request GetPodLogsRequest
        * @param headers map
@@ -379,7 +381,7 @@ namespace PaiDlc20201203
       Models::GetPodLogsResponse getPodLogsWithOptions(const string &JobId, const string &PodId, const Models::GetPodLogsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains or downloads the logs of a node for a task. The logs are from the stdout and stderr of the system and user scripts.
+       * @summary Retrieves or downloads the log of a specific node in a job. The log is collected from stdout and stderr of the system and user scripts.
        *
        * @param request GetPodLogsRequest
        * @return GetPodLogsResponse
@@ -491,7 +493,7 @@ namespace PaiDlc20201203
       Models::GetTensorboardSharedUrlResponse getTensorboardSharedUrl(const string &TensorboardId, const Models::GetTensorboardSharedUrlRequest &request);
 
       /**
-       * @summary Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
+       * @summary Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
        *
        * @param request GetTokenRequest
        * @param headers map
@@ -501,7 +503,7 @@ namespace PaiDlc20201203
       Models::GetTokenResponse getTokenWithOptions(const Models::GetTokenRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the sharing token of a DLC job. This token is used to view the information about the shared job.
+       * @summary Retrieves a sharing token for a DLC job, which is used to view information about the shared task.
        *
        * @param request GetTokenRequest
        * @return GetTokenResponse
@@ -819,7 +821,7 @@ namespace PaiDlc20201203
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Updates a job\\"s configuration, such as its priority.
+       * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
        *
        * @param request UpdateJobRequest
        * @param headers map
@@ -829,7 +831,7 @@ namespace PaiDlc20201203
       Models::UpdateJobResponse updateJobWithOptions(const string &JobId, const Models::UpdateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a job\\"s configuration, such as its priority.
+       * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
        *
        * @param request UpdateJobRequest
        * @return UpdateJobResponse

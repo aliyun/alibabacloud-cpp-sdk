@@ -50,6 +50,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SystemDisk, systemDisk_);
       DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(UseSpotInstance, useSpotInstance_);
+      DARABONBA_PTR_TO_JSON(UserCommand, userCommand_);
     };
     friend void from_json(const Darabonba::Json& j, JobSpec& obj) { 
       DARABONBA_PTR_FROM_JSON(AssignNodeSpec, assignNodeSpec_);
@@ -76,6 +77,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SystemDisk, systemDisk_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(UseSpotInstance, useSpotInstance_);
+      DARABONBA_PTR_FROM_JSON(UserCommand, userCommand_);
     };
     JobSpec() = default ;
     JobSpec(const JobSpec &) = default ;
@@ -93,7 +95,7 @@ namespace Models
         && this->extraPodSpec_ == nullptr && this->hyperNodeSchedulingConfig_ == nullptr && this->image_ == nullptr && this->imageConfig_ == nullptr && this->isCheif_ == nullptr
         && this->isChief_ == nullptr && this->localMountSpecs_ == nullptr && this->oversoldType_ == nullptr && this->podCount_ == nullptr && this->quotaId_ == nullptr
         && this->resourceConfig_ == nullptr && this->restartPolicy_ == nullptr && this->serviceSpec_ == nullptr && this->spotSpec_ == nullptr && this->startupDependencies_ == nullptr
-        && this->systemDisk_ == nullptr && this->type_ == nullptr && this->useSpotInstance_ == nullptr; };
+        && this->systemDisk_ == nullptr && this->type_ == nullptr && this->useSpotInstance_ == nullptr && this->userCommand_ == nullptr; };
     // assignNodeSpec Field Functions 
     bool hasAssignNodeSpec() const { return this->assignNodeSpec_ != nullptr;};
     void deleteAssignNodeSpec() { this->assignNodeSpec_ = nullptr;};
@@ -286,27 +288,34 @@ namespace Models
     inline JobSpec& setUseSpotInstance(bool useSpotInstance) { DARABONBA_PTR_SET_VALUE(useSpotInstance_, useSpotInstance) };
 
 
+    // userCommand Field Functions 
+    bool hasUserCommand() const { return this->userCommand_ != nullptr;};
+    void deleteUserCommand() { this->userCommand_ = nullptr;};
+    inline string getUserCommand() const { DARABONBA_PTR_GET_DEFAULT(userCommand_, "") };
+    inline JobSpec& setUserCommand(string userCommand) { DARABONBA_PTR_SET_VALUE(userCommand_, userCommand) };
+
+
   protected:
-    // The assigned scheduling node configuration.
+    // The node scheduling configuration.
     shared_ptr<AssignNodeSpec> assignNodeSpec_ {};
     // The auto scaling configuration.
     shared_ptr<AutoScalingSpec> autoScalingSpec_ {};
-    // Specifies whether this role is considered when determining job success. This parameter takes effect only when the success policy is set to Partial.
+    // Specifies whether to consider this role when determining job success. This parameter takes effect only when the success policy is set to Partial.
     shared_ptr<bool> considerInSuccessPolicy_ {};
     shared_ptr<string> driver_ {};
-    // The hardware specifications of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed list of specifications.>Notice: Prices vary depending on the specifications.
+    // The hardware specification of the worker. Visit [PAI-DLC billing](https://help.aliyun.com/document_detail/171758.html) for the detailed specification list.>Notice: Prices vary depending on the specification.
     shared_ptr<string> ecsSpec_ {};
     shared_ptr<vector<ElasticSpotSpec>> elasticSpotSpecs_ {};
     // The extra pod configuration.
     shared_ptr<ExtraPodSpec> extraPodSpec_ {};
     shared_ptr<HyperNodeSchedulingConfig> hyperNodeSchedulingConfig_ {};
-    // The runtime image address for this type of worker. Call [ListImages](https://help.aliyun.com/document_detail/449118.html) to obtain images provided by the PAI platform. You can also specify a third-party public image.
+    // The runtime image address for this type of worker. Call [ListImages](https://help.aliyun.com/document_detail/449118.html) to retrieve images provided by the PAI platform. You can also specify a third-party public image.
     shared_ptr<string> image_ {};
     // The private image configuration.
     shared_ptr<ImageConfig> imageConfig_ {};
-    // Deprecated due to a spelling error.
+    // **[Deprecated]** This field is deprecated due to a spelling error.
     shared_ptr<bool> isCheif_ {};
-    // Indicates whether this role is the Chief role. Only one Chief role is allowed.
+    // Specifies whether the role is the Chief role. Only one Chief role is allowed.
     shared_ptr<bool> isChief_ {};
     // The list of local mount configurations.
     shared_ptr<vector<LocalMountSpec>> localMountSpecs_ {};
@@ -325,7 +334,7 @@ namespace Models
     // The dependencies required before this role starts.
     shared_ptr<vector<StartupDependency>> startupDependencies_ {};
     shared_ptr<SystemDisk> systemDisk_ {};
-    // Type is closely related to Job Type. Different job types support different worker types.
+    // The type, which is closely related to the job type. Different job types support different worker types.
     // 
     // - **TFJob**: Supports Chief, PS, Worker, Evaluator, and GraphLearn.
     // 
@@ -336,10 +345,12 @@ namespace Models
     // - **ElasticBatch**: Supports Worker and Master.
     // - **RayJob**: Supports Head, Worker, and Worker[-xxx].
     // 
-    // Master is optional in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch. If Master is not specified, the system automatically designates the first Worker node as Master.
+    // Master is optional in PyTorchJob, XGBoostJob, OneFlowJob, and ElasticBatch. If not specified, the system automatically designates the first Worker node as Master.
     shared_ptr<string> type_ {};
     // Specifies whether to use spot instances.
     shared_ptr<bool> useSpotInstance_ {};
+    // The role-level startup command.
+    shared_ptr<string> userCommand_ {};
   };
 
   } // namespace Models

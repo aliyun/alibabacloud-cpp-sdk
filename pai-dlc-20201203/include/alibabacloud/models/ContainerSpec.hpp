@@ -123,9 +123,9 @@ namespace Models
     shared_ptr<vector<string>> command_ {};
     // The environment variables.
     shared_ptr<vector<EnvVar>> env_ {};
-    // The endpoint of the container image.
+    // The container image address.
     shared_ptr<string> image_ {};
-    // The name of the container.
+    // The container name.
     shared_ptr<string> name_ {};
     // The container resources.
     shared_ptr<ResourceRequirements> resources_ {};

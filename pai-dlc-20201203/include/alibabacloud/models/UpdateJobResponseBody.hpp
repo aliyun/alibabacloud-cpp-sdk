@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the job.
+    // The job ID.
     shared_ptr<string> jobId_ {};
-    // The request ID, used for diagnostics and support.
+    // The request ID, which is used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

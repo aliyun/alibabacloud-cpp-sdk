@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_GETPODLOGSRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETPODLOGSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ContainerInfo.hpp>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -14,6 +15,8 @@ namespace Models
   class GetPodLogsResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetPodLogsResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(ContainerInfo, containerInfo_);
+      DARABONBA_PTR_TO_JSON(Containers, containers_);
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(Logs, logs_);
       DARABONBA_PTR_TO_JSON(PodId, podId_);
@@ -21,6 +24,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, GetPodLogsResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(ContainerInfo, containerInfo_);
+      DARABONBA_PTR_FROM_JSON(Containers, containers_);
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(Logs, logs_);
       DARABONBA_PTR_FROM_JSON(PodId, podId_);
@@ -38,8 +43,25 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->jobId_ == nullptr
-        && this->logs_ == nullptr && this->podId_ == nullptr && this->podUid_ == nullptr && this->requestId_ == nullptr; };
+    virtual bool empty() const override { return this->containerInfo_ == nullptr
+        && this->containers_ == nullptr && this->jobId_ == nullptr && this->logs_ == nullptr && this->podId_ == nullptr && this->podUid_ == nullptr
+        && this->requestId_ == nullptr; };
+    // containerInfo Field Functions 
+    bool hasContainerInfo() const { return this->containerInfo_ != nullptr;};
+    void deleteContainerInfo() { this->containerInfo_ = nullptr;};
+    inline const ContainerInfo & getContainerInfo() const { DARABONBA_PTR_GET_CONST(containerInfo_, ContainerInfo) };
+    inline ContainerInfo getContainerInfo() { DARABONBA_PTR_GET(containerInfo_, ContainerInfo) };
+    inline GetPodLogsResponseBody& setContainerInfo(const ContainerInfo & containerInfo) { DARABONBA_PTR_SET_VALUE(containerInfo_, containerInfo) };
+    inline GetPodLogsResponseBody& setContainerInfo(ContainerInfo && containerInfo) { DARABONBA_PTR_SET_RVALUE(containerInfo_, containerInfo) };
+
+
+    // containers Field Functions 
+    bool hasContainers() const { return this->containers_ != nullptr;};
+    void deleteContainers() { this->containers_ = nullptr;};
+    inline string getContainers() const { DARABONBA_PTR_GET_DEFAULT(containers_, "") };
+    inline GetPodLogsResponseBody& setContainers(string containers) { DARABONBA_PTR_SET_VALUE(containers_, containers) };
+
+
     // jobId Field Functions 
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
@@ -78,15 +100,19 @@ namespace Models
 
 
   protected:
+    // The container information that may be associated with the node.
+    shared_ptr<ContainerInfo> containerInfo_ {};
+    // The containers used to filter logs. Separate multiple container names with commas (,).
+    shared_ptr<string> containers_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The logs.
+    // The log list.
     shared_ptr<vector<string>> logs_ {};
     // The node ID.
     shared_ptr<string> podId_ {};
     // The instance UID.
     shared_ptr<string> podUid_ {};
-    // The request ID which is used for diagnostics and Q\\&A.
+    // The request ID for this call, used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

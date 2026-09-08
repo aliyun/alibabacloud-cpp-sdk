@@ -13,6 +13,7 @@ namespace Models
   class GetPodLogsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetPodLogsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Containers, containers_);
       DARABONBA_PTR_TO_JSON(DownloadToFile, downloadToFile_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(MaxLines, maxLines_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, GetPodLogsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Containers, containers_);
       DARABONBA_PTR_FROM_JSON(DownloadToFile, downloadToFile_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(MaxLines, maxLines_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->downloadToFile_ == nullptr
-        && this->endTime_ == nullptr && this->maxLines_ == nullptr && this->podUid_ == nullptr && this->startTime_ == nullptr; };
+    virtual bool empty() const override { return this->containers_ == nullptr
+        && this->downloadToFile_ == nullptr && this->endTime_ == nullptr && this->maxLines_ == nullptr && this->podUid_ == nullptr && this->startTime_ == nullptr; };
+    // containers Field Functions 
+    bool hasContainers() const { return this->containers_ != nullptr;};
+    void deleteContainers() { this->containers_ = nullptr;};
+    inline string getContainers() const { DARABONBA_PTR_GET_DEFAULT(containers_, "") };
+    inline GetPodLogsRequest& setContainers(string containers) { DARABONBA_PTR_SET_VALUE(containers_, containers) };
+
+
     // downloadToFile Field Functions 
     bool hasDownloadToFile() const { return this->downloadToFile_ != nullptr;};
     void deleteDownloadToFile() { this->downloadToFile_ = nullptr;};
@@ -75,16 +84,17 @@ namespace Models
 
 
   protected:
-    // Specifies whether to download the log file. Default value: false. Valid values:
-    // 
-    // *   false
-    // *   true
+    // Filters logs by specified containers. Separate multiple container names with commas (,).
+    shared_ptr<string> containers_ {};
+    // Specifies whether to download the log file. Valid values:
+    // - false (default): The log file is not downloaded.
+    // - true: The log file is downloaded.
     shared_ptr<bool> downloadToFile_ {};
     // The end time of the query. Default value: current time.
     shared_ptr<string> endTime_ {};
-    // The maximum number of log entries. Default value: 2000.
+    // The maximum number of log lines to return. Default value: 2000.
     shared_ptr<int32_t> maxLines_ {};
-    // The node UID. For more information about how to obtain a node UID, see [GetJob](https://help.aliyun.com/document_detail/459677.html).
+    // The node UID. For information about how to obtain the node UID, see [GetJob](https://help.aliyun.com/document_detail/459677.html).
     shared_ptr<string> podUid_ {};
     // The start time of the query. Default value: 7 days ago.
     shared_ptr<string> startTime_ {};

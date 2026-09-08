@@ -19,12 +19,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_TO_JSON(Priority, priority_);
+      DARABONBA_PTR_TO_JSON(UserCommand, userCommand_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Accessibility, accessibility_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(JobSpecs, jobSpecs_);
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
+      DARABONBA_PTR_FROM_JSON(UserCommand, userCommand_);
     };
     UpdateJobRequest() = default ;
     UpdateJobRequest(const UpdateJobRequest &) = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessibility_ == nullptr
-        && this->description_ == nullptr && this->jobSpecs_ == nullptr && this->priority_ == nullptr; };
+        && this->description_ == nullptr && this->jobSpecs_ == nullptr && this->priority_ == nullptr && this->userCommand_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -69,20 +71,26 @@ namespace Models
     inline UpdateJobRequest& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
+    // userCommand Field Functions 
+    bool hasUserCommand() const { return this->userCommand_ != nullptr;};
+    void deleteUserCommand() { this->userCommand_ = nullptr;};
+    inline string getUserCommand() const { DARABONBA_PTR_GET_DEFAULT(userCommand_, "") };
+    inline UpdateJobRequest& setUserCommand(string userCommand) { DARABONBA_PTR_SET_VALUE(userCommand_, userCommand) };
+
+
   protected:
-    // The job\\"s visibility. You can only increase, not decrease, the visibility. Valid value:
-    // 
-    // - `PUBLIC`: The job is visible to all users in the workspace.
+    // The visibility of the job. The visibility can only be expanded, not reduced. Valid values:
+    // - PUBLIC: visible to all users in the workspace.
     shared_ptr<string> accessibility_ {};
     shared_ptr<string> description_ {};
-    // The job specifications.
+    // The job specification definition.
     shared_ptr<vector<JobSpec>> jobSpecs_ {};
-    // The priority of the job. Valid values range from 1 to 9:
-    // 
-    // - 1 indicates the lowest priority.
-    // 
-    // - 9 indicates the highest priority.
+    // The priority of the job. Valid values: 1 to 9.
+    // - 1: the lowest priority.
+    // - 9: the highest priority.
     shared_ptr<int32_t> priority_ {};
+    // The user command.
+    shared_ptr<string> userCommand_ {};
   };
 
   } // namespace Models
