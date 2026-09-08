@@ -19,16 +19,6 @@ namespace Dms20250414
 
 AlibabaCloud::Dms20250414::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shenzhen" , "dms.cn-shenzhen.aliyuncs.com"},
-    {"cn-beijing" , "dms.cn-beijing.aliyuncs.com"},
-    {"cn-shanghai" , "dms.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "dms.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-1" , "dms.ap-southeast-1.aliyuncs.com"},
-    {"cn-hangzhou" , "dms.cn-hangzhou.aliyuncs.com"},
-    {"us-west-1" , "dms.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "dms.us-east-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dms", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -925,7 +915,7 @@ CreateDataAgentAccuracyTestResponse Client::createDataAgentAccuracyTest(const Cr
 }
 
 /**
- * @summary Data Agent点赞点踩功能
+ * @summary Creates feedback for a DataAgent.
  *
  * @param request CreateDataAgentFeedbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -984,7 +974,7 @@ CreateDataAgentFeedbackResponse Client::createDataAgentFeedbackWithOptions(const
 }
 
 /**
- * @summary Data Agent点赞点踩功能
+ * @summary Creates feedback for a DataAgent.
  *
  * @param request CreateDataAgentFeedbackRequest
  * @return CreateDataAgentFeedbackResponse
@@ -4124,6 +4114,8 @@ GetOneMetaOssieModelResponse Client::getOneMetaOssieModel(const GetOneMetaOssieM
 /**
  * @summary Queries the operation logs of the SQL window.
  *
+ * @description When you call this operation, the service endpoint must match the region where the instance resides. Otherwise, the complete SQL window operation logs cannot be retrieved.
+ *
  * @param request GetSqlConsoleOperationLogRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetSqlConsoleOperationLogResponse
@@ -4182,6 +4174,8 @@ GetSqlConsoleOperationLogResponse Client::getSqlConsoleOperationLogWithOptions(c
 
 /**
  * @summary Queries the operation logs of the SQL window.
+ *
+ * @description When you call this operation, the service endpoint must match the region where the instance resides. Otherwise, the complete SQL window operation logs cannot be retrieved.
  *
  * @param request GetSqlConsoleOperationLogRequest
  * @return GetSqlConsoleOperationLogResponse
@@ -4640,7 +4634,7 @@ ListAirflowsResponse Client::listAirflows(const ListAirflowsRequest &request) {
 }
 
 /**
- * @summary ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
+ * @summary Lists all custom agents in a personal space or workspace.
  *
  * @param request ListCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4691,7 +4685,7 @@ ListCustomAgentResponse Client::listCustomAgentWithOptions(const ListCustomAgent
 }
 
 /**
- * @summary ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
+ * @summary Lists all custom agents in a personal space or workspace.
  *
  * @param request ListCustomAgentRequest
  * @return ListCustomAgentResponse
@@ -7277,7 +7271,7 @@ SaveWorkspaceCodeResponse Client::saveWorkspaceCode(const SaveWorkspaceCodeReque
  * @summary Sends a user message to a specified session or cancels a session.
  *
  * @description ## Request description
- * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+ * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
  * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
  * - `quoted_message` can be used to quote the content of a previous user message.
@@ -7388,7 +7382,7 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
  * @summary Sends a user message to a specified session or cancels a session.
  *
  * @description ## Request description
- * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+ * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
  * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
  * - When `message_type` is `additional`, the `question` field is required.
  * - `quoted_message` can be used to quote the content of a previous user message.

@@ -86,15 +86,15 @@ namespace Models
   protected:
     // The page number. Pages start from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size. The default value is 20.
+    // The number of records per page. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // Specifies whether to query all published custom agents. The default value is false.
+    // Specifies whether to query all custom agents in the published state. Default value: false.
     shared_ptr<bool> queryAllReleased_ {};
-    // A keyword for a fuzzy search on the names and descriptions of custom agents.
+    // The search keyword. Supports fuzzy search by custom agent name and description.
     shared_ptr<string> searchKey_ {};
     // The status of the custom agent.
     shared_ptr<string> status_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

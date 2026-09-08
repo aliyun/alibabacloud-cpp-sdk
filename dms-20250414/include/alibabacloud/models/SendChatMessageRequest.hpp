@@ -128,7 +128,7 @@ namespace Models
         shared_ptr<string> reportPrompt_ {};
         // The report theme. Valid values: default, journal, legacy, and neobrutalism.
         shared_ptr<string> reportTheme_ {};
-        // The service type. Valid values: TextReport and WebReport, which indicate that the task generates a text report or a web report. Currently only WebReport is supported.
+        // The service type. Valid values: TextReport and WebReport, which indicate that the task generates a text report or a web report. Currently, only WebReport is supported.
         shared_ptr<string> reportType_ {};
       };
 
@@ -143,7 +143,7 @@ namespace Models
 
 
     protected:
-      // The report rule configuration. Only when MessageType is REPORT, a report task is executed based on this configuration.
+      // The configuration of the report rule. Only when MesageType is set to REPORT, a report task is executed based on this configuration.
       shared_ptr<TaskConfig::ReportConfig> reportConfig_ {};
     };
 
@@ -222,9 +222,11 @@ namespace Models
 
 
       protected:
-        // The default behavior for unconfigured tables. Valid values:
-        // - allow: Allow. This is the default value.
-        // - deny: Deny.
+        // The default action for table-level permissions. This parameter controls whether tables that are not configured in DataSources.[item].Permission can be queried. Valid values: allow, deny.
+        // 
+        // - allow (default): works in blacklist mode. By default, all tables can be queried, and the actual permissions are subject to the permissions configured on the Data Management side. Row-level and column-level permissions are enforced only when you configure **row-level and column-level** permissions in DataSources.[item].Permission.
+        // 
+        // - deny (must be manually specified): works in whitelist mode. By default, no tables can be queried. A table can be queried only when you configure permissions for it in DataSources.[item].Permission. You can grant full access to a table by not configuring any row-level or column-level restrictions.
         shared_ptr<string> defaultAction_ {};
       };
 
@@ -249,15 +251,17 @@ namespace Models
       // enableSearch Field Functions 
       bool hasEnableSearch() const { return this->enableSearch_ != nullptr;};
       void deleteEnableSearch() { this->enableSearch_ = nullptr;};
-      inline string getEnableSearch() const { DARABONBA_PTR_GET_DEFAULT(enableSearch_, "") };
-      inline SessionConfig& setEnableSearch(string enableSearch) { DARABONBA_PTR_SET_VALUE(enableSearch_, enableSearch) };
+      inline bool getEnableSearch() const { DARABONBA_PTR_GET_DEFAULT(enableSearch_, false) };
+      inline SessionConfig& setEnableSearch(bool enableSearch) { DARABONBA_PTR_SET_VALUE(enableSearch_, enableSearch) };
 
 
       // kbUuidList Field Functions 
       bool hasKbUuidList() const { return this->kbUuidList_ != nullptr;};
       void deleteKbUuidList() { this->kbUuidList_ = nullptr;};
-      inline string getKbUuidList() const { DARABONBA_PTR_GET_DEFAULT(kbUuidList_, "") };
-      inline SessionConfig& setKbUuidList(string kbUuidList) { DARABONBA_PTR_SET_VALUE(kbUuidList_, kbUuidList) };
+      inline const vector<string> & getKbUuidList() const { DARABONBA_PTR_GET_CONST(kbUuidList_, vector<string>) };
+      inline vector<string> getKbUuidList() { DARABONBA_PTR_GET(kbUuidList_, vector<string>) };
+      inline SessionConfig& setKbUuidList(const vector<string> & kbUuidList) { DARABONBA_PTR_SET_VALUE(kbUuidList_, kbUuidList) };
+      inline SessionConfig& setKbUuidList(vector<string> && kbUuidList) { DARABONBA_PTR_SET_RVALUE(kbUuidList_, kbUuidList) };
 
 
       // language Field Functions 
@@ -270,8 +274,10 @@ namespace Models
       // mcpServerIds Field Functions 
       bool hasMcpServerIds() const { return this->mcpServerIds_ != nullptr;};
       void deleteMcpServerIds() { this->mcpServerIds_ = nullptr;};
-      inline string getMcpServerIds() const { DARABONBA_PTR_GET_DEFAULT(mcpServerIds_, "") };
-      inline SessionConfig& setMcpServerIds(string mcpServerIds) { DARABONBA_PTR_SET_VALUE(mcpServerIds_, mcpServerIds) };
+      inline const vector<string> & getMcpServerIds() const { DARABONBA_PTR_GET_CONST(mcpServerIds_, vector<string>) };
+      inline vector<string> getMcpServerIds() { DARABONBA_PTR_GET(mcpServerIds_, vector<string>) };
+      inline SessionConfig& setMcpServerIds(const vector<string> & mcpServerIds) { DARABONBA_PTR_SET_VALUE(mcpServerIds_, mcpServerIds) };
+      inline SessionConfig& setMcpServerIds(vector<string> && mcpServerIds) { DARABONBA_PTR_SET_RVALUE(mcpServerIds_, mcpServerIds) };
 
 
       // mode Field Functions 
@@ -342,26 +348,26 @@ namespace Models
 
 
     protected:
-      // The custom Agent ID. A custom Agent is an entity used to customize the analysis process. You can create one in the DataAgent console or by calling the CreateCustomAgent operation. The custom Agent ID is a string that starts with `ca-`.
+      // The custom agent ID. A custom agent is an entity used to customize the analysis process. You can create one in the DataAgent console or by calling the CreateCustomAgent operation. The custom agent ID is a string that starts with `ca-`.
       shared_ptr<string> customAgentId_ {};
-      // The stage of the custom Agent.
+      // The stage of the custom agent.
       shared_ptr<string> customAgentStage_ {};
       // Specifies whether to enable web search.
-      shared_ptr<string> enableSearch_ {};
+      shared_ptr<bool> enableSearch_ {};
       // The list of knowledge base IDs.
-      shared_ptr<string> kbUuidList_ {};
+      shared_ptr<vector<string>> kbUuidList_ {};
       // Currently only Chinese and English are supported. The default value is Chinese. Only uppercase values are supported.
       shared_ptr<string> language_ {};
       // The MCP server IDs in the session configuration.
-      shared_ptr<string> mcpServerIds_ {};
+      shared_ptr<vector<string>> mcpServerIds_ {};
       // The mode. Valid values:
       //  - **ASK_DATA**: data query mode.
       //  - **ANALYSIS**: analysis mode.
       //  - **INSIGHT**: insight mode.
       shared_ptr<string> mode_ {};
-      // The session-level permission configuration. This parameter specifies only the default behavior for unconfigured tables.
+      // The session level data permission settings. If this parameter is set multiple times across multiple turns within the same session, the last setting takes effect.
       shared_ptr<SessionConfig::PermissionConfig> permissionConfig_ {};
-      // Specifies whether to enable the plan. Valid values: disable, enable, and force. Default value: enable.
+      // Specifies whether to enable the plan. Valid values: disable, enable, force. Default value: enable.
       shared_ptr<string> planMode_ {};
       // The text of up to 64 characters that is used as a watermark in the generated PDF report.
       shared_ptr<string> reportWaterMark_ {};
@@ -373,6 +379,7 @@ namespace Models
       shared_ptr<bool> skipSqlConfirm_ {};
       // Specifies whether to skip the web report generation confirmation.
       shared_ptr<bool> skipWebReportConfirm_ {};
+      // The list of user-specified skills.
       shared_ptr<vector<string>> userSpecifiedSkillList_ {};
     };
 
@@ -496,12 +503,17 @@ namespace Models
 
 
         protected:
-          // The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If this field is specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure the effectiveness of DataAgent analysis, avoid specifying columns that exceed the allowed scope in the prompts, knowledge, or instructions modules of DataAgent. Otherwise, SQL statements without the required permissions are generated and blocked, which reduces the analysis speed and effectiveness of DataAgent.
+          // The list of columns that are allowed for querying in the current table. If this field is left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
           shared_ptr<vector<string>> allowedColumns_ {};
+          // The list of columns that are not allowed for querying in the current table. If this field is left empty, all columns **can be queried**. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked.  
+          // 
+          // If both the disallowed list and the allowed list are configured, the disallowed list takes higher priority. For example, if Table 1 has columns A, B, C, and D, and columns A and B are configured as not queryable while columns B and C are configured as queryable, the final result is that only column C is queryable.
+          // 
+          // To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
           shared_ptr<vector<string>> disallowedColumns_ {};
-          // The required row filter condition for the current table. If this field is left empty, it is ignored. If this field is specified, all SQL statements involving this table are validated to check whether they carry the filter field and whether the WHERE condition meets the constraints. SQL statements that do not meet the constraints are rejected. Ensure the format of the validation conditions is correct.
+          // The required row filter condition for the current table. If this field is left empty, it is ignored. If specified, all SQL statements involving this table are validated to check whether they carry the filter field and whether the WHERE condition meets the constraints. SQL statements that do not meet the constraints are rejected. Ensure the validation condition format is correct.
           shared_ptr<string> requiredRowFilter_ {};
-          // The name of the table to which the permission constraint rule applies.
+          // The table name to which the permission constraint rule applies.
           shared_ptr<string> tableName_ {};
         };
 
@@ -615,7 +627,7 @@ namespace Models
     protected:
       // Deprecated. You do not need to specify this field.
       shared_ptr<string> dataSourceId_ {};
-      // The data source type. Valid values: remote_data_center and database, which indicate that the analysis is performed on a file or a database.
+      // The data source type. Valid values: remote_data_center, database. These values indicate that the analysis is performed on a file or a database.
       shared_ptr<string> dataSourceType_ {};
       // Deprecated. You do not need to specify this field.
       shared_ptr<string> database_ {};
@@ -759,12 +771,17 @@ namespace Models
 
 
         protected:
-          // The list of columns that are allowed to be queried in the current table. If this field is left empty, all columns can be queried. If this field is specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure the effectiveness of DataAgent analysis, avoid specifying columns that exceed the allowed scope in the prompts, knowledge, or instructions modules of DataAgent. Otherwise, SQL statements without the required permissions are generated and blocked, which reduces the analysis speed and effectiveness of DataAgent.
+          // The list of columns that are allowed for querying in the current table. If this field is left empty, all columns can be queried. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked. To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
           shared_ptr<vector<string>> allowedColumns_ {};
+          // The list of columns that are not allowed for querying in the current table. If this field is left empty, all columns **can be queried**. If specified, SQL statements that exceed the allowed scope are blocked. For example, syntax such as SELECT * is blocked.  
+          // 
+          // If both the disallowed list and the allowed list are configured, the disallowed list takes higher priority. For example, if Table 1 has columns A, B, C, and D, and columns A and B are configured as not queryable while columns B and C are configured as queryable, the final result is that only column C is queryable.
+          // 
+          // To ensure DataAgent analysis effectiveness, avoid specifying columns beyond the allowed scope in the DataAgent prompts, knowledge, or instructions modules. Otherwise, unauthorized SQL statements may be generated and blocked, which reduces DataAgent analysis speed and effectiveness.
           shared_ptr<vector<string>> disallowedColumns_ {};
-          // The required row filter condition for the current table. If this field is left empty, it is ignored. If this field is specified, all SQL statements involving this table are validated to check whether they carry the filter field and whether the WHERE condition meets the constraints. SQL statements that do not meet the constraints are rejected. Ensure the format of the validation conditions is correct.
+          // The required row filter condition for the current table. If this field is left empty, it is ignored. If specified, all SQL statements involving this table are validated to check whether they carry the filter field and whether the WHERE condition meets the constraints. SQL statements that do not meet the constraints are rejected. Ensure the validation condition format is correct.
           shared_ptr<string> requiredRowFilter_ {};
-          // The name of the table to which the permission constraint rule applies.
+          // The table name to which the permission constraint rule applies.
           shared_ptr<string> tableName_ {};
         };
 
@@ -878,7 +895,7 @@ namespace Models
     protected:
       // Deprecated. You do not need to specify this field.
       shared_ptr<string> dataSourceId_ {};
-      // The data source type. Valid values: `[remote_data_center, database]`, which indicate that the analysis is performed on a file or a database.
+      // The data source type. Valid values: `[remote_data_center, database]`, indicating that the analysis is performed on a file or a database.
       shared_ptr<string> dataSourceType_ {};
       // Deprecated. You do not need to specify this field.
       shared_ptr<string> database_ {};
@@ -1020,15 +1037,15 @@ namespace Models
 
 
   protected:
-    // **[Deprecated]** This field is now automatically obtained by the backend. You do not need to specify this field.
+    // **[Optimized]** This field is now automatically obtained by the backend. You do not need to specify this field.
     shared_ptr<string> agentId_ {};
-    // **[Deprecated]** This field is now automatically obtained by the backend. You do not need to specify this field when calling the API.
+    // **[Optimized]** This field is now automatically obtained by the backend. You do not need to specify this field when calling the API.
     shared_ptr<string> DMSUnit_ {};
     // The data source information. This parameter can be left empty. This parameter supports only one data source. Use the DataSources parameter instead.
     shared_ptr<SendChatMessageRequest::DataSource> dataSource_ {};
     // The detailed data source information. This parameter can be left empty.
     shared_ptr<vector<SendChatMessageRequest::DataSources>> dataSources_ {};
-    // The content of the message to send to the Agent.
+    // The message content to send to the Agent.
     // 
     // This parameter is required.
     shared_ptr<string> message_ {};
@@ -1036,34 +1053,34 @@ namespace Models
     // 
     // - For regular interactions with the Agent, set the message type to `[primary]`.
     // 
-    // - When the message is a response to the Agent\\"s human-in-the-loop question, set the type to `[additional]`.
+    // - When the message is a response to the Agent\\"s Human-in-Loop question, set the type to `[additional]`.
     // 
-    // - When the message triggers a report generation, set the type to `[report]`.
+    // - When the message is intended to trigger report generation, set the type to `[report]`.
     // 
-    // - When the message cancels the current session, set the type to `[cancel]`.
+    // - When the message is intended to cancel the current session, set the type to `[cancel]`.
     shared_ptr<string> messageType_ {};
     // The parent session ID.
     shared_ptr<string> parentSessionId_ {};
-    // This field is required when the message type is `additional`. Specify the specific question that the Agent asks the user through the human-in-the-loop mechanism.
+    // This field is required when the message type is `additional`. Specify the specific question that the Agent asks the user through Human-in-Loop.
     shared_ptr<string> question_ {};
     // The quoted content. This is typically used during interactions with the Agent.
     shared_ptr<string> quotedMessage_ {};
     // **Important**
     // 
-    // When this message is a reply to an Agent message (for example, the Agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried in that Agent message. If this message is not a targeted reply, such as requesting the Agent to perform further in-depth analysis after the analysis is complete, leave reply_to empty or set it to "0".  
+    // When this message is a reply to an Agent message (for example, the Agent asks a clarifying question through ASK_HUMAN), set reply_to to the exact Checkpoint sequence number carried in that Agent message. If this message is not a targeted reply, such as requesting the Agent to perform further in-depth analysis after analysis is complete, you can leave reply_to empty or set it to "0".  
     // 
-    // This field affects how the Agent decides to process the message. Passing an incorrect value may cause the analysis results to be less effective than expected.
+    // This field affects how the Agent decides to process the message. Incorrect values may lead to analysis results that do not meet expectations.
     shared_ptr<string> replyTo_ {};
     // The special configuration for the current session. For the same session, only the configuration included in the first SendMessage call takes effect.
     shared_ptr<SendChatMessageRequest::SessionConfig> sessionConfig_ {};
-    // The session ID. This is an optional field used for multi-turn conversations.
-    // - You can start a session without specifying this field. The response includes the SessionID for the current session.
+    // The session ID. This is an optional field used for multi-turn sessions.
+    // - You can start a session without specifying this field. The response includes the SessionID of the current session.
     // - You can also manually create a session ID by calling the CreateDataAgentSession operation and include the ID when initiating a session.
-    // - If you need multi-turn conversations (such as follow-up questions or confirming execution plans), include the SessionID returned by the previous SendChatMessage call.
+    // - For multi-turn conversations (such as follow-up questions or confirming execution plans), specify the SessionID returned by the previous SendChatMessage call.
     shared_ptr<string> sessionId_ {};
     // The configuration items that affect only the current task.
     shared_ptr<SendChatMessageRequest::TaskConfig> taskConfig_ {};
-    // The OSS bucket of the user. If this field is left empty, the analysis data is securely stored in the built-in storage.
+    // The OSS bucket of the user. If this parameter is not specified, the analysis data is securely stored in built-in storage.
     shared_ptr<string> userOssBucket_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};

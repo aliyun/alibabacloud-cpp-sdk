@@ -103,13 +103,46 @@ namespace Models
 
 
   protected:
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
+    // The feedback content. You can directly enter the feedback content, or pass a JSON string for the issue report scenario as shown in the example. The feedback_type field corresponds to the issue type, user_feedback corresponds to the issue description, email corresponds to the contact email address, and is_authorized indicates whether to authorize log access for troubleshooting.
+    // 
+    // feedback_type issue types. Valid values:
+    // 
+    // - **ANALYSIS_RESULT_INACCURATE**: Inaccurate analysis result.
+    // - **RUNTIME_ERROR**: Runtime error.
+    // - **REPORT_EXCEPTION**: Report exception.
+    // - **SLOW_RESPONSE**: Slow response.
+    // - **PRODUCT_SUGGESTION**: Product suggestion.
+    // - **OTHER**: Other.
     shared_ptr<string> feedbackContent_ {};
+    // The feedback type. Valid values:
+    // 
+    // - **ISSUE_REPORT**: issue report.
+    // - **CANCEL_CHAT**: task cancellation.
+    // - **LIKE**: like.
+    // - **DISLIKE**: dislike.
     shared_ptr<string> feedbackType_ {};
+    // The like value. This parameter is used only for like and dislike scenarios. Do not pass this parameter for other scenarios. Valid values:
+    // 
+    // - **1**: like.
+    // - **-1**: dislike.
     shared_ptr<int32_t> likeValue_ {};
+    // The agent session ID.
     shared_ptr<string> sessionId_ {};
+    // The feedback target ID.
+    // 
+    // - For issue reports, use SessionId + underscore + random UUID.
+    // - For other feedback types, pass the checkpoint of the current SSE message stream.
     shared_ptr<string> targetId_ {};
+    // The feedback target. Valid values:
+    // 
+    // - **SESSION**: session (used for issue reports).
+    // - **CHAT**: chat (used for task cancellation).
+    // - **REPORT**: report.
+    // - **PLAN**: execution plan.
     shared_ptr<string> targetType_ {};
+    // The workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

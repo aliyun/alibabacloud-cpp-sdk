@@ -195,9 +195,9 @@ namespace Models
 
 
         protected:
-          // The cron expression for the recurring task.
+          // The cron expression for the timed scheduling.
           shared_ptr<string> cronExpression_ {};
-          // The query for the recurring task.
+          // The query of the periodic task.
           shared_ptr<string> query_ {};
           // The ID of the referenced historical session.
           shared_ptr<string> relatedSessionId_ {};
@@ -383,13 +383,13 @@ namespace Models
 
         protected:
           shared_ptr<bool> forbiddenAppendDataSource_ {};
-          // Indicates whether to prevent user inquiries during the process.
+          // Specifies whether to disable user inquiries during the process.
           shared_ptr<bool> skipAskHuman_ {};
-          // Indicates whether to skip the plan confirmation step.
+          // Specifies whether to skip the plan confirmation step.
           shared_ptr<bool> skipPlan_ {};
-          // Indicates whether to skip all SQL confirmations.
+          // Specifies whether to skip all SQL confirmations.
           shared_ptr<bool> skipSqlConfirm_ {};
-          // Indicates whether to skip the confirmation for generating a web report.
+          // Specifies whether to skip the web report rendering confirmation.
           shared_ptr<bool> skipWebReportConfirm_ {};
         };
 
@@ -717,18 +717,17 @@ namespace Models
 
 
       protected:
-        // The parent Alibaba Cloud account ID.
+        // The Alibaba Cloud primary account ID.
         shared_ptr<string> aliyunParentId_ {};
         // The Alibaba Cloud account ID.
         shared_ptr<string> aliyunUid_ {};
         shared_ptr<Content::CallbackConfig> callbackConfig_ {};
         // The name of the creator.
         shared_ptr<string> creatorUserName_ {};
-        // The custom agent ID.
+        // The ID of the custom agent.
         shared_ptr<string> customAgentId_ {};
-        // The current DMS unit.
         shared_ptr<string> DMSUnit_ {};
-        // The data scope, specified as a JSON string.
+        // The specified data scope in JSON string format.
         shared_ptr<string> dataJson_ {};
         shared_ptr<int32_t> defaultAgent_ {};
         // The description of the custom agent.
@@ -737,41 +736,40 @@ namespace Models
         shared_ptr<string> dmsUnit_ {};
         // The execution configuration.
         shared_ptr<Content::ExecutionConfig> executionConfig_ {};
-        // The time when the agent was created.
+        // The creation time.
         shared_ptr<string> gmtCreated_ {};
-        // The time when the agent was last modified.
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The instructions.
+        // The instruction.
         shared_ptr<string> instruction_ {};
-        // Indicates whether the agent is configured with a recurring task.
+        // Indicates whether a periodic task is configured.
         shared_ptr<bool> isScheduleTask_ {};
-        // The provided knowledge.
+        // The knowledge.
         shared_ptr<string> knowledge_ {};
         shared_ptr<vector<Content::KnowledgeConfigList>> knowledgeConfigList_ {};
         shared_ptr<vector<Content::KnowledgeSemanticConfigList>> knowledgeSemanticConfigList_ {};
-        // The user who last modified the agent.
+        // The modifier.
         shared_ptr<string> modifier_ {};
-        // The name of the user who last modified the agent.
+        // The name of the modifier.
         shared_ptr<string> modifierUserName_ {};
         // The name of the custom agent.
         shared_ptr<string> name_ {};
-        // If a recurring task is configured, this indicates its next scheduled runtime.
+        // The next run time of the periodic task.
         shared_ptr<int64_t> nextRuntime_ {};
-        // The time when the agent was taken offline.
+        // The offline time.
         shared_ptr<string> offlineTime_ {};
         // The region.
         shared_ptr<string> region_ {};
         shared_ptr<string> relatedSessionId_ {};
-        // The time when the agent was published.
+        // The publish time.
         shared_ptr<string> releaseTime_ {};
-        // The recurring task configuration.
         shared_ptr<Content::ScheduleTaskConfig> scheduleTaskConfig_ {};
         // The status of the custom agent.
         shared_ptr<string> status_ {};
-        // The formatting instructions for the text report.
+        // The text report format.
         shared_ptr<string> textReportConfig_ {};
         shared_ptr<vector<string>> userSpecifiedSkillList_ {};
-        // The formatting instructions for the web report.
+        // The web report format.
         shared_ptr<string> webReportConfig_ {};
         shared_ptr<string> webReportTheme_ {};
         // The workspace ID.
@@ -818,13 +816,13 @@ namespace Models
 
 
     protected:
-      // A list of custom agent objects.
+      // The list of data content.
       shared_ptr<vector<Data::Content>> content_ {};
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page.
+      // The number of records per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int64_t> totalElements_ {};
       // The total number of pages.
       shared_ptr<int64_t> totalPages_ {};
@@ -870,18 +868,17 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response struct.
     shared_ptr<ListCustomAgentResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request fails.
+    // The error message returned if the request failed.
     shared_ptr<string> errorMessage_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
+    // - **true**: The request was successful.                                 
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };

@@ -233,7 +233,7 @@ namespace Dms20250414
       Models::CreateDataAgentAccuracyTestResponse createDataAgentAccuracyTest(const Models::CreateDataAgentAccuracyTestRequest &request);
 
       /**
-       * @summary Data Agent点赞点踩功能
+       * @summary Creates feedback for a DataAgent.
        *
        * @param request CreateDataAgentFeedbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -242,7 +242,7 @@ namespace Dms20250414
       Models::CreateDataAgentFeedbackResponse createDataAgentFeedbackWithOptions(const Models::CreateDataAgentFeedbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Data Agent点赞点踩功能
+       * @summary Creates feedback for a DataAgent.
        *
        * @param request CreateDataAgentFeedbackRequest
        * @return CreateDataAgentFeedbackResponse
@@ -1260,6 +1260,8 @@ namespace Dms20250414
       /**
        * @summary Queries the operation logs of the SQL window.
        *
+       * @description When you call this operation, the service endpoint must match the region where the instance resides. Otherwise, the complete SQL window operation logs cannot be retrieved.
+       *
        * @param request GetSqlConsoleOperationLogRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetSqlConsoleOperationLogResponse
@@ -1268,6 +1270,8 @@ namespace Dms20250414
 
       /**
        * @summary Queries the operation logs of the SQL window.
+       *
+       * @description When you call this operation, the service endpoint must match the region where the instance resides. Otherwise, the complete SQL window operation logs cannot be retrieved.
        *
        * @param request GetSqlConsoleOperationLogRequest
        * @return GetSqlConsoleOperationLogResponse
@@ -1431,7 +1435,7 @@ namespace Dms20250414
       Models::ListAirflowsResponse listAirflows(const Models::ListAirflowsRequest &request);
 
       /**
-       * @summary ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
+       * @summary Lists all custom agents in a personal space or workspace.
        *
        * @param request ListCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1440,7 +1444,7 @@ namespace Dms20250414
       Models::ListCustomAgentResponse listCustomAgentWithOptions(const Models::ListCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ListCustomAgent returns a list of all custom agents from the personal space and workspaces.
+       * @summary Lists all custom agents in a personal space or workspace.
        *
        * @param request ListCustomAgentRequest
        * @return ListCustomAgentResponse
@@ -2108,7 +2112,7 @@ namespace Dms20250414
        * @summary Sends a user message to a specified session or cancels a session.
        *
        * @description ## Request description
-       * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+       * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
        * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
        * - `quoted_message` can be used to quote the content of a previous user message.
@@ -2123,7 +2127,7 @@ namespace Dms20250414
        * @summary Sends a user message to a specified session or cancels a session.
        *
        * @description ## Request description
-       * - `message_type` defaults to `primary`. Set it to `additional` or `cancel` when you need to append information or cancel a session.
+       * - `message_type` defaults to `primary`. To append information or cancel a session, set it to `additional` or `cancel`.
        * - The `reply_to` field indicates which Agent message this message is a response to. The default value is `0`.
        * - When `message_type` is `additional`, the `question` field is required.
        * - `quoted_message` can be used to quote the content of a previous user message.

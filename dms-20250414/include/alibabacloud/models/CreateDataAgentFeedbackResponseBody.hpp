@@ -125,12 +125,19 @@ namespace Models
 
 
     protected:
+      // The feedback content.
       shared_ptr<string> feedbackContent_ {};
+      // The feedback type.
       shared_ptr<string> feedbackType_ {};
+      // The like value.
       shared_ptr<int32_t> likeValue_ {};
+      // The region.
       shared_ptr<string> regionId_ {};
+      // The agent session ID.
       shared_ptr<string> sessionId_ {};
+      // The feedback target ID.
       shared_ptr<string> targetId_ {};
+      // The feedback target.
       shared_ptr<string> targetType_ {};
     };
 
@@ -189,12 +196,22 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The response struct.
     shared_ptr<CreateDataAgentFeedbackResponseBody::Data> data_ {};
+    // The error code.
     shared_ptr<string> errorCode_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 
