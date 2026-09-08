@@ -1,0 +1,88 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_LISTTEMPLATESREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTTEMPLATESREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Sddp20260120
+{
+namespace Models
+{
+  class ListTemplatesRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const ListTemplatesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_TO_JSON(FeatureType, featureType_);
+      DARABONBA_PTR_TO_JSON(Lang, lang_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(UsageScenario, usageScenario_);
+    };
+    friend void from_json(const Darabonba::Json& j, ListTemplatesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
+      DARABONBA_PTR_FROM_JSON(FeatureType, featureType_);
+      DARABONBA_PTR_FROM_JSON(Lang, lang_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(UsageScenario, usageScenario_);
+    };
+    ListTemplatesRequest() = default ;
+    ListTemplatesRequest(const ListTemplatesRequest &) = default ;
+    ListTemplatesRequest(ListTemplatesRequest &&) = default ;
+    ListTemplatesRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListTemplatesRequest() = default ;
+    ListTemplatesRequest& operator=(const ListTemplatesRequest &) = default ;
+    ListTemplatesRequest& operator=(ListTemplatesRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->currentPage_ == nullptr
+        && this->featureType_ == nullptr && this->lang_ == nullptr && this->pageSize_ == nullptr && this->usageScenario_ == nullptr; };
+    // currentPage Field Functions 
+    bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
+    void deleteCurrentPage() { this->currentPage_ = nullptr;};
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline ListTemplatesRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
+
+
+    // featureType Field Functions 
+    bool hasFeatureType() const { return this->featureType_ != nullptr;};
+    void deleteFeatureType() { this->featureType_ = nullptr;};
+    inline int32_t getFeatureType() const { DARABONBA_PTR_GET_DEFAULT(featureType_, 0) };
+    inline ListTemplatesRequest& setFeatureType(int32_t featureType) { DARABONBA_PTR_SET_VALUE(featureType_, featureType) };
+
+
+    // lang Field Functions 
+    bool hasLang() const { return this->lang_ != nullptr;};
+    void deleteLang() { this->lang_ = nullptr;};
+    inline string getLang() const { DARABONBA_PTR_GET_DEFAULT(lang_, "") };
+    inline ListTemplatesRequest& setLang(string lang) { DARABONBA_PTR_SET_VALUE(lang_, lang) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline ListTemplatesRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
+    // usageScenario Field Functions 
+    bool hasUsageScenario() const { return this->usageScenario_ != nullptr;};
+    void deleteUsageScenario() { this->usageScenario_ = nullptr;};
+    inline int32_t getUsageScenario() const { DARABONBA_PTR_GET_DEFAULT(usageScenario_, 0) };
+    inline ListTemplatesRequest& setUsageScenario(int32_t usageScenario) { DARABONBA_PTR_SET_VALUE(usageScenario_, usageScenario) };
+
+
+  protected:
+    shared_ptr<int32_t> currentPage_ {};
+    shared_ptr<int32_t> featureType_ {};
+    shared_ptr<string> lang_ {};
+    shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int32_t> usageScenario_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Sddp20260120
+#endif
