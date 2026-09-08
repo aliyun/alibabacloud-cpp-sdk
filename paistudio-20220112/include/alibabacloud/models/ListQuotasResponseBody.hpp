@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The list of quotas.
+    // The list of resource quotas.
     shared_ptr<vector<Quota>> quotas_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that match the request.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

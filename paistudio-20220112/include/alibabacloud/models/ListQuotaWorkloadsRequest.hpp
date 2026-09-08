@@ -259,48 +259,47 @@ namespace Models
 
 
   protected:
-    // Retrieves workloads that precede the specified workload ID in the queue.
+    // Queries the queuing information for instances before a specified workload ID in the queue.
     shared_ptr<string> beforeWorkloadId_ {};
-    // Filters workloads by their dequeue time range.
+    // The range search for workload dequeue time.
     shared_ptr<TimeRangeFilter> gmtDequeuedTimeRange_ {};
-    // Filters workloads by their enqueue time range.
+    // The range search for workload enqueue time.
     shared_ptr<TimeRangeFilter> gmtEnqueuedTimeRange_ {};
-    // Filters workloads by the time range of their last queue position change.
+    // The range search for workload queue position change time.
     shared_ptr<TimeRangeFilter> gmtPositionModifiedTimeRange_ {};
     shared_ptr<string> instanceId_ {};
-    // Filters workloads by node name.
+    // Searches only for nodes on the specified node.
     shared_ptr<string> nodeName_ {};
-    // The sort order for the results. Valid values are `asc` for ascending and `desc` for descending.
+    // The sort order.
     shared_ptr<string> order_ {};
-    // The number of the page to return.
+    // The page number of the query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of entries to return on a single page.
+    // The number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<int32_t> position_ {};
     shared_ptr<int32_t> priority_ {};
-    // Specifies whether to return only workloads that belong to the specified quota.
+    // Specifies whether to display only the workloads associated with the current resource quota.
     shared_ptr<bool> showOwn_ {};
-    // The field to use for sorting the results.
+    // The field by which to sort the returned results.
     shared_ptr<string> sortBy_ {};
-    // Filters workloads by their status in the queue.
+    // The status in the queue.
     shared_ptr<string> status_ {};
-    // Filters workloads by sub-quota ID. You can specify multiple IDs, separated by commas.
+    // The list of sub-resource quota IDs.
     shared_ptr<string> subQuotaIds_ {};
     shared_ptr<bool> useOversoldResource_ {};
-    // Filters workloads by user ID. You can specify multiple IDs, separated by commas.
+    // The list of user IDs.
     shared_ptr<string> userIds_ {};
-    // Specifies whether to include historical data in the query results.
     shared_ptr<bool> withHistoricalData_ {};
-    // Filters workloads based on their creation time range.
+    // The range search for workload creation time.
     shared_ptr<TimeRangeFilter> workloadCreatedTimeRange_ {};
-    // Filters workloads by workload ID. You can specify multiple IDs, separated by commas.
+    // Queries the queuing information for specified workload IDs.
     shared_ptr<string> workloadIds_ {};
     shared_ptr<string> workloadNames_ {};
-    // Filters workloads by status. You can specify multiple statuses, separated by commas.
+    // Filters by workload status.
     shared_ptr<string> workloadStatuses_ {};
-    // Filters workloads by the sub-product type of the instance.
+    // Queries the queuing information for instances of a specified sub-product.
     shared_ptr<string> workloadType_ {};
-    // Filters workloads by workspace ID. You can specify multiple IDs, separated by commas.
+    // Queries the queuing information for workloads in a specified workspace.
     shared_ptr<string> workspaceIds_ {};
   };
 

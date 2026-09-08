@@ -166,27 +166,30 @@ namespace Models
 
 
   protected:
-    // Total MinQuota amount actually assigned
+    // The total MinQuota actually allocated. For example, if the user configured 10 nodes but only 8 nodes are actually bound, this value returns the total resources of the 8 nodes.
     shared_ptr<ResourceAmount> actualMinQuota_ {};
-    // Quota amount assignable by the User
+    // The user-allocatable quota amount. For general computing resources, each node has system-reserved resources. This value represents the quota resources that user workloads can occupy.
+    // ActualMin = AllocatableQuota + SystemReservedQuota.
     shared_ptr<ResourceAmount> allocatableQuota_ {};
-    // Total Quota usage information
+    // The total quota usage information, which is the total resources occupied by workloads after scheduling to nodes.
     shared_ptr<ResourceAmount> allocatedQuota_ {};
-    // Quota usage information of ancestors
+    // The ancestor quota usage information, which is the total resources of workloads submitted using ancestor quotas after they are scheduled to nodes.
     shared_ptr<ResourceAmount> ancestorsAllocatedQuota_ {};
-    // Quota usage information of descendants
+    // The descendant quota usage information, which is the total resources of workloads submitted using descendant quotas after they are scheduled to nodes.
     shared_ptr<ResourceAmount> descendantsAllocatedQuota_ {};
-    // Total MinQuota amount requested by the User
+    // The total MinQuota desired by the user.
     shared_ptr<ResourceAmount> desiredMinQuota_ {};
+    // The statistics information of nodes within the quota.
     shared_ptr<QuotaNodeStatistics> nodeStatistics_ {};
-    // Quota request amount
+    // The quota requested amount, which is the total resources occupied by workloads after they are dequeued.
     shared_ptr<ResourceAmount> requestedQuota_ {};
-    // Quota usage information at the current level
+    // The current-level quota usage information, which is the total resources of workloads submitted using this quota after they are scheduled to nodes.
     shared_ptr<ResourceAmount> selfAllocatedQuota_ {};
+    // The amount submitted to this quota, which is the total resources of workloads submitted to this quota, including workloads that are queued.
     shared_ptr<ResourceAmount> selfSubmittedQuota_ {};
-    // System-reserved Quota amount
+    // The system-reserved quota amount.
     shared_ptr<ResourceAmount> systemReservedQuota_ {};
-    // Quota usage amount
+    // The quota used amount. This field is deprecating. Use AllocatedQuota instead.
     shared_ptr<ResourceAmount> usedQuota_ {};
   };
 

@@ -72,12 +72,13 @@ namespace Models
 
 
   protected:
-    // A list of user resource usage details.
+    // The list of user resource usage details.
     shared_ptr<vector<QuotaUser>> quotaUserUsage_ {};
+    // The user usage information.
     shared_ptr<vector<QuotaUser>> quotaUserUsages_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of entries that meet the filter criteria.
+    // The number of instances that match the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

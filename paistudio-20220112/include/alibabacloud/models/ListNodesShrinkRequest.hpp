@@ -317,64 +317,63 @@ namespace Models
     // The accelerator type. Valid values:
     // 
     // - CPU
-    // 
     // - GPU
     // 
-    // If omitted, this operation returns nodes of all accelerator types.
+    // Default value: empty, which indicates all types.
     shared_ptr<string> acceleratorType_ {};
     shared_ptr<string> availabilityZone_ {};
     shared_ptr<string> cliqueID_ {};
     shared_ptr<string> diskPL_ {};
-    // When used with `ResourceGroupIds`, this parameter further filters the results to include only nodes from the specified resource quota.
+    // Used together with ResourceGroupIds to display nodes in the resource groups that are bound to the specified quotas.
     shared_ptr<string> filterByQuotaId_ {};
-    // When used with `QuotaId`, this parameter further filters the results to include only nodes from the specified resource groups.
+    // Used together with QuotaId to display nodes in the quota that belong to the specified resource groups.
     shared_ptr<string> filterByResourceGroupIds_ {};
-    // The GPU type. Fuzzy matching is supported.
+    // The GPU type. Fuzzy match is supported.
     shared_ptr<string> GPUType_ {};
+    // The number of healthy nodes.
     shared_ptr<string> healthCountShrink_ {};
+    // The health rate of nodes (the proportion of healthy nodes).
     shared_ptr<string> healthRateShrink_ {};
     shared_ptr<string> hyperNode_ {};
     shared_ptr<string> hyperZone_ {};
+    // The layout mode.
     shared_ptr<string> layoutMode_ {};
     shared_ptr<string> machineGroupIds_ {};
-    // A comma-separated list of node names. Only nodes with names that match this list are returned.
+    // The node names to display, separated by commas.
     shared_ptr<string> nodeNames_ {};
-    // A comma-separated list of node statuses. If this parameter is omitted, this operation returns nodes of all statuses.
+    // The node statuses, separated by commas. If this parameter is not specified, nodes in all statuses are returned.
     shared_ptr<string> nodeStatuses_ {};
-    // A comma-separated list of node specifications. If this parameter is omitted, this operation returns nodes of all specifications.
+    // The resource node specifications, separated by commas. If this parameter is not configured, nodes of all node specifications are returned.
     shared_ptr<string> nodeTypes_ {};
     // The sort order. Valid values:
-    // 
-    // - `desc`: Descending
-    // 
-    // - `asc`: Ascending
+    // - desc: Descending order.
+    // - asc: Ascending order.
     shared_ptr<string> order_ {};
-    // A comma-separated list of order IDs.
+    // The order ID information.
     shared_ptr<string> orderInstanceIds_ {};
-    // A comma-separated list of order statuses.
+    // The order statuses of the nodes.
     shared_ptr<string> orderStatuses_ {};
-    // The page number. The first page is 1.
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return per page.
+    // The number of entries per page for paged query. This parameter is used for paging.
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> paymentType_ {};
     shared_ptr<int32_t> podNum_ {};
-    // The ID of the resource quota that contains the nodes.
+    // The resource quota ID to which the node belongs.
     shared_ptr<string> quotaId_ {};
     shared_ptr<string> reasonCodes_ {};
-    // A comma-separated list of resource group IDs. You must specify either this parameter or `QuotaId`.
+    // The IDs of resource groups, separated by commas. Either this parameter or QuotaId is required.
+    // 
     // Constraints:
-    // 
-    // 1. The user ID of the request must match the user ID associated with the specified resource groups.
-    // 
-    // 2. All specified resource groups must be of the same type.
-    // 
-    // 3. All specified resource groups must be in the same VPC.
+    // 1. The UserId of the specified ResourceGroupId must match the UserId of the request.
+    // 2. The specified resource groups must be of the same type.
+    // 3. The specified resource groups must be associated with the same VPC at this stage.
     shared_ptr<string> resourceGroupIds_ {};
+    // The name of the resource group.
     shared_ptr<string> resourceGroupName_ {};
-    // The field by which to sort the results.
+    // The field used for sorting.
     shared_ptr<string> sortBy_ {};
-    // Specifies whether to return resource usage information. This parameter applies only when `QuotaId` is specified.
+    // Specifies whether to return resource usage information. This parameter takes effect only when QuotaId is specified.
     shared_ptr<bool> verbose_ {};
     shared_ptr<int32_t> workloadNum_ {};
     shared_ptr<string> workspaceId_ {};

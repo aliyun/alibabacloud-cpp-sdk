@@ -41,6 +41,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(LimitMemory, limitMemory_);
       DARABONBA_PTR_TO_JSON(MachineGroupId, machineGroupId_);
       DARABONBA_PTR_TO_JSON(Memory, memory_);
+      DARABONBA_PTR_TO_JSON(NodeGPUMemory, nodeGPUMemory_);
+      DARABONBA_PTR_TO_JSON(NodeGPUMemoryBytes, nodeGPUMemoryBytes_);
       DARABONBA_PTR_TO_JSON(NodeName, nodeName_);
       DARABONBA_PTR_TO_JSON(NodeStatus, nodeStatus_);
       DARABONBA_PTR_TO_JSON(NodeType, nodeType_);
@@ -86,6 +88,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(LimitMemory, limitMemory_);
       DARABONBA_PTR_FROM_JSON(MachineGroupId, machineGroupId_);
       DARABONBA_PTR_FROM_JSON(Memory, memory_);
+      DARABONBA_PTR_FROM_JSON(NodeGPUMemory, nodeGPUMemory_);
+      DARABONBA_PTR_FROM_JSON(NodeGPUMemoryBytes, nodeGPUMemoryBytes_);
       DARABONBA_PTR_FROM_JSON(NodeName, nodeName_);
       DARABONBA_PTR_FROM_JSON(NodeStatus, nodeStatus_);
       DARABONBA_PTR_FROM_JSON(NodeType, nodeType_);
@@ -121,11 +125,11 @@ namespace Models
         && this->CPU_ == nullptr && this->creatorId_ == nullptr && this->descendantQuotaWorkloadNum_ == nullptr && this->diskCapacity_ == nullptr && this->diskPL_ == nullptr
         && this->GPU_ == nullptr && this->GPUMemory_ == nullptr && this->GPUType_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtCreatedTime_ == nullptr
         && this->gmtExpiredTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->hyperZone_ == nullptr && this->isBound_ == nullptr && this->limitCPU_ == nullptr
-        && this->limitGPU_ == nullptr && this->limitMemory_ == nullptr && this->machineGroupId_ == nullptr && this->memory_ == nullptr && this->nodeName_ == nullptr
-        && this->nodeStatus_ == nullptr && this->nodeType_ == nullptr && this->orderStatus_ == nullptr && this->podNum_ == nullptr && this->reasonCode_ == nullptr
-        && this->reasonMessage_ == nullptr && this->requestCPU_ == nullptr && this->requestGPU_ == nullptr && this->requestMemory_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceGroupName_ == nullptr && this->selfQuotaWorkloadNum_ == nullptr && this->subNodes_ == nullptr && this->systemReservedCPU_ == nullptr && this->systemReservedMemory_ == nullptr
-        && this->users_ == nullptr && this->workloadNum_ == nullptr; };
+        && this->limitGPU_ == nullptr && this->limitMemory_ == nullptr && this->machineGroupId_ == nullptr && this->memory_ == nullptr && this->nodeGPUMemory_ == nullptr
+        && this->nodeGPUMemoryBytes_ == nullptr && this->nodeName_ == nullptr && this->nodeStatus_ == nullptr && this->nodeType_ == nullptr && this->orderStatus_ == nullptr
+        && this->podNum_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->requestCPU_ == nullptr && this->requestGPU_ == nullptr
+        && this->requestMemory_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr && this->selfQuotaWorkloadNum_ == nullptr && this->subNodes_ == nullptr
+        && this->systemReservedCPU_ == nullptr && this->systemReservedMemory_ == nullptr && this->users_ == nullptr && this->workloadNum_ == nullptr; };
     // acceleratorType Field Functions 
     bool hasAcceleratorType() const { return this->acceleratorType_ != nullptr;};
     void deleteAcceleratorType() { this->acceleratorType_ = nullptr;};
@@ -303,6 +307,20 @@ namespace Models
     inline Node& setMemory(string memory) { DARABONBA_PTR_SET_VALUE(memory_, memory) };
 
 
+    // nodeGPUMemory Field Functions 
+    bool hasNodeGPUMemory() const { return this->nodeGPUMemory_ != nullptr;};
+    void deleteNodeGPUMemory() { this->nodeGPUMemory_ = nullptr;};
+    inline string getNodeGPUMemory() const { DARABONBA_PTR_GET_DEFAULT(nodeGPUMemory_, "") };
+    inline Node& setNodeGPUMemory(string nodeGPUMemory) { DARABONBA_PTR_SET_VALUE(nodeGPUMemory_, nodeGPUMemory) };
+
+
+    // nodeGPUMemoryBytes Field Functions 
+    bool hasNodeGPUMemoryBytes() const { return this->nodeGPUMemoryBytes_ != nullptr;};
+    void deleteNodeGPUMemoryBytes() { this->nodeGPUMemoryBytes_ = nullptr;};
+    inline int64_t getNodeGPUMemoryBytes() const { DARABONBA_PTR_GET_DEFAULT(nodeGPUMemoryBytes_, 0L) };
+    inline Node& setNodeGPUMemoryBytes(int64_t nodeGPUMemoryBytes) { DARABONBA_PTR_SET_VALUE(nodeGPUMemoryBytes_, nodeGPUMemoryBytes) };
+
+
     // nodeName Field Functions 
     bool hasNodeName() const { return this->nodeName_ != nullptr;};
     void deleteNodeName() { this->nodeName_ = nullptr;};
@@ -434,54 +452,61 @@ namespace Models
 
 
   protected:
-    // The accelerator type of the resource node instance, such as CPU or GPU.
+    // The accelerator type of the resource node specifications (CPU/GPU).
     shared_ptr<string> acceleratorType_ {};
-    // The number of allocatable CPU cores.
+    // The number of CPU cores that can be allocated to users.
     shared_ptr<string> allocatableCPU_ {};
-    // The amount of allocatable memory in GiB.
+    // The memory size that can be allocated to users.
     shared_ptr<string> allocatableMemory_ {};
     shared_ptr<int64_t> ancestorQuotaWorkloadNum_ {};
+    // The zone.
     shared_ptr<string> availabilityZone_ {};
-    // The list of quotas that are bound to the node.
+    // The list of bound quotas.
     shared_ptr<vector<QuotaIdName>> boundQuotas_ {};
     // The number of CPU cores.
     shared_ptr<string> CPU_ {};
-    // The ID of the user who created the resource node.
+    // The creator of the resource node.
     shared_ptr<string> creatorId_ {};
     shared_ptr<int64_t> descendantQuotaWorkloadNum_ {};
     shared_ptr<int64_t> diskCapacity_ {};
     shared_ptr<string> diskPL_ {};
     // The number of GPUs.
     shared_ptr<string> GPU_ {};
-    // The GPU memory size in GiB.
+    // The GPU memory.
     shared_ptr<string> GPUMemory_ {};
     // The GPU model.
     shared_ptr<string> GPUType_ {};
-    // The time when the resource node was created.
+    // The creation time of the resource node.
     shared_ptr<string> gmtCreateTime_ {};
+    // The creation time of the resource node.
     shared_ptr<string> gmtCreatedTime_ {};
-    // The time when the resource node expires.
+    // The expiration time of the resource node.
     shared_ptr<string> gmtExpiredTime_ {};
-    // The time when the resource node was last modified.
+    // The update time of the resource node.
     shared_ptr<string> gmtModifiedTime_ {};
+    // The high-speed interconnect zone.
     shared_ptr<string> hyperZone_ {};
-    // Indicates whether the node is bound to a quota.
+    // Indicates whether the resource node is bound to a quota.
     shared_ptr<bool> isBound_ {};
     // The maximum number of CPU cores.
     shared_ptr<string> limitCPU_ {};
     // The maximum number of GPUs.
     shared_ptr<string> limitGPU_ {};
-    // The maximum memory size in GiB.
+    // The maximum memory size.
     shared_ptr<string> limitMemory_ {};
     // The ID of the machine group to which the resource node belongs.
     shared_ptr<string> machineGroupId_ {};
-    // The memory size in GiB.
+    // The memory size.
     shared_ptr<string> memory_ {};
+    // The GPU memory of the node.
+    shared_ptr<string> nodeGPUMemory_ {};
+    // The GPU memory of the node in bytes.
+    shared_ptr<int64_t> nodeGPUMemoryBytes_ {};
     // The name of the resource node.
     shared_ptr<string> nodeName_ {};
     // The status of the resource node.
     shared_ptr<string> nodeStatus_ {};
-    // The instance type of the resource node.
+    // The node specifications type of the resource node.
     shared_ptr<string> nodeType_ {};
     // The order status of the resource node.
     shared_ptr<string> orderStatus_ {};
@@ -495,17 +520,18 @@ namespace Models
     shared_ptr<string> requestCPU_ {};
     // The number of requested GPUs.
     shared_ptr<string> requestGPU_ {};
-    // The requested memory size in GiB.
+    // The requested memory size.
     shared_ptr<string> requestMemory_ {};
     // The ID of the resource group to which the resource node belongs.
     shared_ptr<string> resourceGroupId_ {};
     // The name of the resource group to which the resource node belongs.
     shared_ptr<string> resourceGroupName_ {};
     shared_ptr<int64_t> selfQuotaWorkloadNum_ {};
+    // The names of the child nodes.
     shared_ptr<vector<string>> subNodes_ {};
-    // The number of CPU cores that are reserved for the system.
+    // The number of system-reserved CPU cores.
     shared_ptr<string> systemReservedCPU_ {};
-    // The amount of memory that is reserved for the system in GiB.
+    // The system-reserved memory size.
     shared_ptr<string> systemReservedMemory_ {};
     // The user information.
     shared_ptr<vector<UserInfo>> users_ {};

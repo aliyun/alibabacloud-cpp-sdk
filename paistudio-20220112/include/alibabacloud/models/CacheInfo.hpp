@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The mount point address of the datasource for service registration in the cache service, such as an OSS Bucket path or a CPFS path.
     shared_ptr<string> mountPoint_ {};
+    // The port number that the cache service provides for external access to the datasource. The client must access cached data through this port.
     shared_ptr<string> port_ {};
   };
 

@@ -54,7 +54,7 @@ namespace Models
     // - Running
     // - Terminated
     shared_ptr<string> podStatus_ {};
-    // The resource group ID. Each resource group has a globally unique resource group ID. You can use the resource group ID to obtain information about the resource group.
+    // The resource group ID. Each resource group has a globally unique resource group ID. You can use the resource group ID to retrieve information about the resource group.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupID_ {};

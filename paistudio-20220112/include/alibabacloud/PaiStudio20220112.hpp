@@ -91,7 +91,7 @@ namespace PaiStudio20220112
       Models::CreateInstanceWebTerminalResponse createInstanceWebTerminal(const string &TrainingJobId, const string &InstanceId);
 
       /**
-       * @summary Call the `CreateQuota` operation to create a quota.
+       * @summary Creates a resource quota by calling the CreateQuota operation.
        *
        * @param request CreateQuotaRequest
        * @param headers map
@@ -101,7 +101,7 @@ namespace PaiStudio20220112
       Models::CreateQuotaResponse createQuotaWithOptions(const Models::CreateQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call the `CreateQuota` operation to create a quota.
+       * @summary Creates a resource quota by calling the CreateQuota operation.
        *
        * @param request CreateQuotaRequest
        * @return CreateQuotaResponse
@@ -197,7 +197,7 @@ namespace PaiStudio20220112
       Models::DeleteMachineGroupResponse deleteMachineGroup(const string &MachineGroupID);
 
       /**
-       * @summary You can delete a resource quota by using DeleteQuota.
+       * @summary Deletes a resource quota.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -206,7 +206,7 @@ namespace PaiStudio20220112
       Models::DeleteQuotaResponse deleteQuotaWithOptions(const string &QuotaId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can delete a resource quota by using DeleteQuota.
+       * @summary Deletes a resource quota.
        *
        * @return DeleteQuotaResponse
        */
@@ -231,7 +231,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
        *
-       * @summary Deletes the specified machine group from a resource group.
+       * @summary Deletes a machine group.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -242,7 +242,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
        *
-       * @summary Deletes the specified machine group from a resource group.
+       * @summary Deletes a machine group.
        *
        * @return DeleteResourceGroupMachineGroupResponse
        */
@@ -337,7 +337,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI GetNodeMetrics is deprecated
        *
-       * @summary You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
+       * @summary Retrieves metric information for resource group nodes.
        *
        * @param request GetNodeMetricsRequest
        * @param headers map
@@ -349,7 +349,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI GetNodeMetrics is deprecated
        *
-       * @summary You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
+       * @summary Retrieves metric information for resource group nodes.
        *
        * @param request GetNodeMetricsRequest
        * @return GetNodeMetricsResponse
@@ -357,7 +357,7 @@ namespace PaiStudio20220112
       Models::GetNodeMetricsResponse getNodeMetrics(const string &ResourceGroupID, const string &MetricType, const Models::GetNodeMetricsRequest &request);
 
       /**
-       * @summary Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
+       * @summary Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
        *
        * @param request GetQuotaRequest
        * @param headers map
@@ -367,7 +367,7 @@ namespace PaiStudio20220112
       Models::GetQuotaResponse getQuotaWithOptions(const string &QuotaId, const Models::GetQuotaRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
+       * @summary Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
        *
        * @param request GetQuotaRequest
        * @return GetQuotaResponse
@@ -413,7 +413,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI GetResourceGroupRequest is deprecated
        *
-       * @summary You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
+       * @summary Retrieves the number of resources that have been assigned to a resource group.
        *
        * @param request GetResourceGroupRequestRequest
        * @param headers map
@@ -425,7 +425,7 @@ namespace PaiStudio20220112
       /**
        * @deprecated OpenAPI GetResourceGroupRequest is deprecated
        *
-       * @summary You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
+       * @summary Retrieves the number of resources that have been assigned to a resource group.
        *
        * @param request GetResourceGroupRequestRequest
        * @return GetResourceGroupRequestResponse
@@ -599,8 +599,8 @@ namespace PaiStudio20220112
        *
        * @description ## Operation description
        * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
-       * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the resource group ID to which the node belongs.
-       * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+       * - NodeName and ResourceGroupId are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+       * - Optional parameters include OversoldTypes and GPUIndexes, which are used to further filter or specify conditions.
        *
        * @param request ListNodePodsRequest
        * @param headers map
@@ -614,8 +614,8 @@ namespace PaiStudio20220112
        *
        * @description ## Operation description
        * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
-       * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the resource group ID to which the node belongs.
-       * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+       * - NodeName and ResourceGroupId are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+       * - Optional parameters include OversoldTypes and GPUIndexes, which are used to further filter or specify conditions.
        *
        * @param request ListNodePodsRequest
        * @return ListNodePodsResponse
@@ -653,9 +653,9 @@ namespace PaiStudio20220112
       Models::ListNodeTypesResponse listNodeTypes(const Models::ListNodeTypesRequest &request);
 
       /**
-       * @summary Returns a list of resource nodes.
+       * @summary Retrieves a list of resource nodes.
        *
-       * @description ListNodes retrieves resource nodes that match specified filter conditions.
+       * @description You can call ListNodes to retrieve resource nodes that match specified filter conditions.
        *
        * @param tmpReq ListNodesRequest
        * @param headers map
@@ -665,9 +665,9 @@ namespace PaiStudio20220112
       Models::ListNodesResponse listNodesWithOptions(const Models::ListNodesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns a list of resource nodes.
+       * @summary Retrieves a list of resource nodes.
        *
-       * @description ListNodes retrieves resource nodes that match specified filter conditions.
+       * @description You can call ListNodes to retrieve resource nodes that match specified filter conditions.
        *
        * @param request ListNodesRequest
        * @return ListNodesResponse
@@ -675,9 +675,9 @@ namespace PaiStudio20220112
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
-       * @summary Lists users within a quota and their resource usage.
+       * @summary Retrieves the list of users under the current resource quota and their resource usage.
        *
-       * @description Retrieves the resource usage of users in a specified quota.
+       * @description Retrieves the resource usage of users for a specified QuotaId.
        *
        * @param request ListQuotaActiveUserUsagesRequest
        * @param headers map
@@ -687,9 +687,9 @@ namespace PaiStudio20220112
       Models::ListQuotaActiveUserUsagesResponse listQuotaActiveUserUsagesWithOptions(const string &QuotaId, const Models::ListQuotaActiveUserUsagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists users within a quota and their resource usage.
+       * @summary Retrieves the list of users under the current resource quota and their resource usage.
        *
-       * @description Retrieves the resource usage of users in a specified quota.
+       * @description Retrieves the resource usage of users for a specified QuotaId.
        *
        * @param request ListQuotaActiveUserUsagesRequest
        * @return ListQuotaActiveUserUsagesResponse
@@ -697,7 +697,7 @@ namespace PaiStudio20220112
       Models::ListQuotaActiveUserUsagesResponse listQuotaActiveUserUsages(const string &QuotaId, const Models::ListQuotaActiveUserUsagesRequest &request);
 
       /**
-       * @summary Retrieves a list of workloads associated with a specific quota.
+       * @summary Retrieves the list of node information on a resource quota.
        *
        * @param request ListQuotaWorkloadsRequest
        * @param headers map
@@ -707,7 +707,7 @@ namespace PaiStudio20220112
       Models::ListQuotaWorkloadsResponse listQuotaWorkloadsWithOptions(const string &QuotaId, const Models::ListQuotaWorkloadsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of workloads associated with a specific quota.
+       * @summary Retrieves the list of node information on a resource quota.
        *
        * @param request ListQuotaWorkloadsRequest
        * @return ListQuotaWorkloadsResponse
@@ -715,7 +715,7 @@ namespace PaiStudio20220112
       Models::ListQuotaWorkloadsResponse listQuotaWorkloads(const string &QuotaId, const Models::ListQuotaWorkloadsRequest &request);
 
       /**
-       * @summary Lists quotas.
+       * @summary Retrieves a list of resource quotas.
        *
        * @param request ListQuotasRequest
        * @param headers map
@@ -725,7 +725,7 @@ namespace PaiStudio20220112
       Models::ListQuotasResponse listQuotasWithOptions(const Models::ListQuotasRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists quotas.
+       * @summary Retrieves a list of resource quotas.
        *
        * @param request ListQuotasRequest
        * @return ListQuotasResponse
@@ -927,9 +927,9 @@ namespace PaiStudio20220112
       Models::ListTrainingJobsResponse listTrainingJobs(const Models::ListTrainingJobsRequest &request);
 
       /**
-       * @summary Use OperateNode to manage nodes.
+       * @summary Operates on a specified node.
        *
-       * @description Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
+       * @description You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
        *
        * @param request OperateNodeRequest
        * @param headers map
@@ -939,9 +939,9 @@ namespace PaiStudio20220112
       Models::OperateNodeResponse operateNodeWithOptions(const string &NodeId, const Models::OperateNodeRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Use OperateNode to manage nodes.
+       * @summary Operates on a specified node.
        *
-       * @description Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
+       * @description You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
        *
        * @param request OperateNodeRequest
        * @return OperateNodeResponse

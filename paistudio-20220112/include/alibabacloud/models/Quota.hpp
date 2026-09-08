@@ -285,66 +285,60 @@ namespace Models
 
 
   protected:
-    // The resource allocation strategy. Currently, only `ByNodeSpec` is supported.
+    // The resource allocation strategy. Currently, only ByNodeSpecs is supported.
     shared_ptr<string> allocateStrategy_ {};
-    // The ID of the user who created the quota.
+    // The ID of the resource quota creator.
     shared_ptr<string> creatorId_ {};
-    // The quota description.
+    // The resource quota description.
     shared_ptr<string> description_ {};
+    // The GPU type.
     shared_ptr<string> GPUType_ {};
-    // The time when the quota was created.
+    // The time when the resource quota was created.
     shared_ptr<string> gmtCreatedTime_ {};
-    // The time when the quota was last modified.
+    // The time when the resource quota was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
     shared_ptr<vector<string>> hyperZones_ {};
-    // The quota labels.
+    // The resource quota labels.
     shared_ptr<vector<Label>> labels_ {};
-    // The ID of the most recent operation on the quota.
+    // The ID of the latest operation on the resource quota.
     shared_ptr<string> latestOperationId_ {};
     // The guaranteed resources.
     shared_ptr<ResourceSpec> min_ {};
-    // The parent quota ID.
+    // The parent resource quota ID.
     shared_ptr<string> parentQuotaId_ {};
-    // The queuing strategy. Valid values:
-    // 
-    // - `PaiStrategyIntelligent`: intelligent strategy.
-    // 
-    // - `PaiStrategyBalance`: balanced strategy.
-    // 
-    // - `PaiStrategyRoundRobin`: round-robin strategy.
-    // 
-    // - `PaiStrategyStrictFIFO`: FIFO strategy.
+    // The queue policy for the quota. Valid values:
+    // - PaiStrategyIntelligent: intelligent policies.
+    // - PaiStrategyBalance: balanced policy.
+    // - PaiStrategyRoundRobin: resource-priority policy.
+    // - PaiStrategyStrictFIFO: FIFO policy.
     shared_ptr<string> queueStrategy_ {};
     shared_ptr<QuotaCluster> quotaCluster_ {};
-    // The quota configuration.
+    // The resource quota configuration.
     shared_ptr<QuotaConfig> quotaConfig_ {};
-    // The quota details.
+    // The resource quota details.
     shared_ptr<QuotaDetails> quotaDetails_ {};
-    // The quota ID.
+    // The resource quota ID.
     shared_ptr<string> quotaId_ {};
-    // The quota name.
+    // The resource quota name.
     shared_ptr<string> quotaName_ {};
     // The error code.
     shared_ptr<string> reasonCode_ {};
-    // The error message.
+    // The error reason.
     shared_ptr<string> reasonMessage_ {};
-    // A list of resource group IDs.
+    // The list of resource groups.
     shared_ptr<vector<string>> resourceGroupIds_ {};
     // The resource type. Valid values:
-    // 
-    // - `Lingjun`
-    // 
-    // - `ECS` (default)
-    // 
-    // - `ACS`
+    // - Lingjun
+    // - ECS (default)
+    // - ACS
     shared_ptr<string> resourceType_ {};
-    // The quota status.
+    // The resource quota status.
     shared_ptr<string> status_ {};
-    // A list of sub-quotas.
+    // The list of sub-quotas under the resource quota.
     shared_ptr<vector<QuotaIdName>> subQuotas_ {};
     // The version.
     shared_ptr<string> version_ {};
-    // The workspaces that are associated with the quota.
+    // The workspaces associated with the resource quota.
     shared_ptr<vector<WorkspaceIdName>> workspaces_ {};
   };
 

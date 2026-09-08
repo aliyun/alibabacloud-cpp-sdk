@@ -35,6 +35,7 @@
 #include <alibabacloud/models/Features.hpp>
 #include <alibabacloud/models/GPUInfo.hpp>
 #include <alibabacloud/models/GPUMetric.hpp>
+#include <alibabacloud/models/GlobalSpotPriceItem.hpp>
 #include <alibabacloud/models/JobSettings.hpp>
 #include <alibabacloud/models/JobViewMetric.hpp>
 #include <alibabacloud/models/Label.hpp>
@@ -47,6 +48,7 @@
 #include <alibabacloud/models/NodeDrainParameters.hpp>
 #include <alibabacloud/models/NodeGPUMetric.hpp>
 #include <alibabacloud/models/NodeMetric.hpp>
+#include <alibabacloud/models/ResizeDiskParameters.hpp>
 #include <alibabacloud/models/NodeUncordonParameters.hpp>
 #include <alibabacloud/models/NodeOperationParameters.hpp>
 #include <alibabacloud/models/NodeOperationResult.hpp>

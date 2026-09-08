@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The node scheduling rule configuration.
     shared_ptr<SchedulingRule> scheduling_ {};
   };
 

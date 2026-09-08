@@ -72,13 +72,13 @@ namespace Models
 
 
   protected:
-    // 资源组ID
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // 用户监控数据。
+    // The user monitoring data.
     shared_ptr<UserViewMetric> summary_ {};
-    // 总条数
+    // The total number of entries.
     shared_ptr<int32_t> total_ {};
-    // 按照用户维度统计的指标
+    // The metrics aggregated at the user dimension.
     shared_ptr<vector<UserViewMetric>> userMetrics_ {};
   };
 

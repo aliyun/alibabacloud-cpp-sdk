@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The node ID.
     shared_ptr<string> nodeId_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

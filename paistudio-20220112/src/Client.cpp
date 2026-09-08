@@ -39,11 +39,11 @@ AlibabaCloud::PaiStudio20220112::Client::Client(Config &config): OpenApiClient(c
     {"cn-shanghai-finance-1" , "pai.cn-shanghai-finance-1.aliyuncs.com"},
     {"cn-wulanchabu" , "pai.cn-wulanchabu.aliyuncs.com"},
     {"cn-zhangjiakou" , "pai.cn-zhangjiakou.aliyuncs.com"},
-    {"us-southeast-1" , "pai.us-southeast-1.aliyuncs.com"},
     {"cn-zhongwei" , "pai.cn-zhongwei.aliyuncs.com"},
+    {"ap-northeast-2" , "pai.ap-northeast-2.aliyuncs.com"},
     {"cn-guangzhou" , "pai.cn-guangzhou.aliyuncs.com"},
     {"ap-southeast-8" , "pai.ap-southeast-8.aliyuncs.com"},
-    {"ap-northeast-2" , "pai.ap-northeast-2.aliyuncs.com"}
+    {"us-southeast-1" , "pai.us-southeast-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("paistudio", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -252,7 +252,7 @@ CreateInstanceWebTerminalResponse Client::createInstanceWebTerminal(const string
 }
 
 /**
- * @summary Call the `CreateQuota` operation to create a quota.
+ * @summary Creates a resource quota by calling the CreateQuota operation.
  *
  * @param request CreateQuotaRequest
  * @param headers map
@@ -325,7 +325,7 @@ CreateQuotaResponse Client::createQuotaWithOptions(const CreateQuotaRequest &req
 }
 
 /**
- * @summary Call the `CreateQuota` operation to create a quota.
+ * @summary Creates a resource quota by calling the CreateQuota operation.
  *
  * @param request CreateQuotaRequest
  * @return CreateQuotaResponse
@@ -651,7 +651,7 @@ DeleteMachineGroupResponse Client::deleteMachineGroup(const string &MachineGroup
 }
 
 /**
- * @summary You can delete a resource quota by using DeleteQuota.
+ * @summary Deletes a resource quota.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -676,7 +676,7 @@ DeleteQuotaResponse Client::deleteQuotaWithOptions(const string &QuotaId, const 
 }
 
 /**
- * @summary You can delete a resource quota by using DeleteQuota.
+ * @summary Deletes a resource quota.
  *
  * @return DeleteQuotaResponse
  */
@@ -725,7 +725,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroup(const string &ResourceGr
 /**
  * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
  *
- * @summary Deletes the specified machine group from a resource group.
+ * @summary Deletes a machine group.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -752,7 +752,7 @@ DeleteResourceGroupMachineGroupResponse Client::deleteResourceGroupMachineGroupW
 /**
  * @deprecated OpenAPI DeleteResourceGroupMachineGroup is deprecated
  *
- * @summary Deletes the specified machine group from a resource group.
+ * @summary Deletes a machine group.
  *
  * @return DeleteResourceGroupMachineGroupResponse
  */
@@ -958,7 +958,7 @@ GetMachineGroupResponse Client::getMachineGroup(const string &MachineGroupID) {
 /**
  * @deprecated OpenAPI GetNodeMetrics is deprecated
  *
- * @summary You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
+ * @summary Retrieves metric information for resource group nodes.
  *
  * @param request GetNodeMetricsRequest
  * @param headers map
@@ -1009,7 +1009,7 @@ GetNodeMetricsResponse Client::getNodeMetricsWithOptions(const string &ResourceG
 /**
  * @deprecated OpenAPI GetNodeMetrics is deprecated
  *
- * @summary You can call the GetNodeMetrics operation to obtain the metric information of resource group nodes.
+ * @summary Retrieves metric information for resource group nodes.
  *
  * @param request GetNodeMetricsRequest
  * @return GetNodeMetricsResponse
@@ -1021,7 +1021,7 @@ GetNodeMetricsResponse Client::getNodeMetrics(const string &ResourceGroupID, con
 }
 
 /**
- * @summary Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
+ * @summary Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
  *
  * @param request GetQuotaRequest
  * @param headers map
@@ -1058,7 +1058,7 @@ GetQuotaResponse Client::getQuotaWithOptions(const string &QuotaId, const GetQuo
 }
 
 /**
- * @summary Call GetQuota to retrieve the details of a resource quota. This helps you monitor current resource usage for effective resource management and planning.
+ * @summary Retrieves the details of a resource quota to help you understand the current resource usage and facilitate resource management and planning.
  *
  * @param request GetQuotaRequest
  * @return GetQuotaResponse
@@ -1178,7 +1178,7 @@ GetResourceGroupMachineGroupResponse Client::getResourceGroupMachineGroup(const 
 /**
  * @deprecated OpenAPI GetResourceGroupRequest is deprecated
  *
- * @summary You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
+ * @summary Retrieves the number of resources that have been assigned to a resource group.
  *
  * @param request GetResourceGroupRequestRequest
  * @param headers map
@@ -1217,7 +1217,7 @@ GetResourceGroupRequestResponse Client::getResourceGroupRequestWithOptions(const
 /**
  * @deprecated OpenAPI GetResourceGroupRequest is deprecated
  *
- * @summary You can call the GetResourceGroupRequest operation to obtain the number of resources that have been allocated to a resource group.
+ * @summary Retrieves the number of resources that have been assigned to a resource group.
  *
  * @param request GetResourceGroupRequestRequest
  * @return GetResourceGroupRequestResponse
@@ -1700,8 +1700,8 @@ ListAlgorithmsResponse Client::listAlgorithms(const ListAlgorithmsRequest &reque
  *
  * @description ## Operation description
  * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
- * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the resource group ID to which the node belongs.
- * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+ * - NodeName and ResourceGroupId are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+ * - Optional parameters include OversoldTypes and GPUIndexes, which are used to further filter or specify conditions.
  *
  * @param request ListNodePodsRequest
  * @param headers map
@@ -1746,8 +1746,8 @@ ListNodePodsResponse Client::listNodePodsWithOptions(const string &NodeId, const
  *
  * @description ## Operation description
  * - This feature is currently available only on the Lingjun AI Computing Service platform and is accessible to customers through a whitelist.
- * - `NodeName` and `ResourceGroupId` are required parameters that represent the node name and the resource group ID to which the node belongs.
- * - Optional parameters include `OversoldTypes` and `GPUIndexes`, which are used to further filter or specify conditions.
+ * - NodeName and ResourceGroupId are required parameters that represent the node name and the ID of the resource group to which the node belongs.
+ * - Optional parameters include OversoldTypes and GPUIndexes, which are used to further filter or specify conditions.
  *
  * @param request ListNodePodsRequest
  * @return ListNodePodsResponse
@@ -1832,9 +1832,9 @@ ListNodeTypesResponse Client::listNodeTypes(const ListNodeTypesRequest &request)
 }
 
 /**
- * @summary Returns a list of resource nodes.
+ * @summary Retrieves a list of resource nodes.
  *
- * @description ListNodes retrieves resource nodes that match specified filter conditions.
+ * @description You can call ListNodes to retrieve resource nodes that match specified filter conditions.
  *
  * @param tmpReq ListNodesRequest
  * @param headers map
@@ -1997,9 +1997,9 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &tmpReq, c
 }
 
 /**
- * @summary Returns a list of resource nodes.
+ * @summary Retrieves a list of resource nodes.
  *
- * @description ListNodes retrieves resource nodes that match specified filter conditions.
+ * @description You can call ListNodes to retrieve resource nodes that match specified filter conditions.
  *
  * @param request ListNodesRequest
  * @return ListNodesResponse
@@ -2011,9 +2011,9 @@ ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
 }
 
 /**
- * @summary Lists users within a quota and their resource usage.
+ * @summary Retrieves the list of users under the current resource quota and their resource usage.
  *
- * @description Retrieves the resource usage of users in a specified quota.
+ * @description Retrieves the resource usage of users for a specified QuotaId.
  *
  * @param request ListQuotaActiveUserUsagesRequest
  * @param headers map
@@ -2078,9 +2078,9 @@ ListQuotaActiveUserUsagesResponse Client::listQuotaActiveUserUsagesWithOptions(c
 }
 
 /**
- * @summary Lists users within a quota and their resource usage.
+ * @summary Retrieves the list of users under the current resource quota and their resource usage.
  *
- * @description Retrieves the resource usage of users in a specified quota.
+ * @description Retrieves the resource usage of users for a specified QuotaId.
  *
  * @param request ListQuotaActiveUserUsagesRequest
  * @return ListQuotaActiveUserUsagesResponse
@@ -2092,7 +2092,7 @@ ListQuotaActiveUserUsagesResponse Client::listQuotaActiveUserUsages(const string
 }
 
 /**
- * @summary Retrieves a list of workloads associated with a specific quota.
+ * @summary Retrieves the list of node information on a resource quota.
  *
  * @param request ListQuotaWorkloadsRequest
  * @param headers map
@@ -2217,7 +2217,7 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloadsWithOptions(const string &Q
 }
 
 /**
- * @summary Retrieves a list of workloads associated with a specific quota.
+ * @summary Retrieves the list of node information on a resource quota.
  *
  * @param request ListQuotaWorkloadsRequest
  * @return ListQuotaWorkloadsResponse
@@ -2229,7 +2229,7 @@ ListQuotaWorkloadsResponse Client::listQuotaWorkloads(const string &QuotaId, con
 }
 
 /**
- * @summary Lists quotas.
+ * @summary Retrieves a list of resource quotas.
  *
  * @param request ListQuotasRequest
  * @param headers map
@@ -2330,7 +2330,7 @@ ListQuotasResponse Client::listQuotasWithOptions(const ListQuotasRequest &reques
 }
 
 /**
- * @summary Lists quotas.
+ * @summary Retrieves a list of resource quotas.
  *
  * @param request ListQuotasRequest
  * @return ListQuotasResponse
@@ -3059,9 +3059,9 @@ ListTrainingJobsResponse Client::listTrainingJobs(const ListTrainingJobsRequest 
 }
 
 /**
- * @summary Use OperateNode to manage nodes.
+ * @summary Operates on a specified node.
  *
- * @description Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
+ * @description You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
  *
  * @param request OperateNodeRequest
  * @param headers map
@@ -3102,9 +3102,9 @@ OperateNodeResponse Client::operateNodeWithOptions(const string &NodeId, const O
 }
 
 /**
- * @summary Use OperateNode to manage nodes.
+ * @summary Operates on a specified node.
  *
- * @description Use OperateNode to manage a specified resource node. Supported operations include disabling or enabling scheduling.
+ * @description You can call OperateNode to operate on a specified resource node, including operations such as disabling scheduling and enabling scheduling.
  *
  * @param request OperateNodeRequest
  * @return OperateNodeResponse

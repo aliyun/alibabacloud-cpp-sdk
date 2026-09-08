@@ -60,19 +60,16 @@ namespace Models
 
 
   protected:
-    // The operation to perform.
-    // 
-    // - Cordon: Disables scheduling on the node.
-    // 
-    // - Uncordon: Enables scheduling on the node.
-    // 
-    // - Drain: Evicts pods from the node.
+    // The operation. Valid values:	
+    // - Cordon: disables scheduling
+    // - Uncordon: enables scheduling
+    // - Drain: evicts pods
     // 
     // This parameter is required.
     shared_ptr<string> operation_ {};
-    // The parameter settings for the node operation.
+    // The node operation parameter settings.
     shared_ptr<NodeOperationParameters> operationParameters_ {};
-    // The ID of the resource group that contains the node.
+    // The ID of the resource group to which the resource node belongs.
     shared_ptr<string> resourceGroupId_ {};
   };
 

@@ -106,7 +106,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
-    // The sorting criterion.
+    // The sorting field.
     shared_ptr<string> sortBy_ {};
     // The time step. Default value: 5m. Valid values for the time unit:
     // 
@@ -116,7 +116,7 @@ namespace Models
     // 
     // - s: seconds.
     // 
-    // If no unit is specified, the default unit s (seconds) is used.
+    // If no unit is specified, the default unit is s (seconds).
     shared_ptr<string> timeStep_ {};
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> userId_ {};

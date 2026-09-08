@@ -63,9 +63,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of workloads that match the filter criteria.
+    // The number of instances that match the filter conditions.
     shared_ptr<int64_t> totalCount_ {};
-    // A list of workloads.
+    // The list of workload information.
     shared_ptr<vector<QueueInfo>> workloads_ {};
   };
 

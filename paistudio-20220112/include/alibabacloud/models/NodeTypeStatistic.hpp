@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The number of resource nodes of the specification that can be bound.
     shared_ptr<int32_t> canBeBoundCount_ {};
+    // The resource node specifications.
     shared_ptr<string> nodeType_ {};
+    // The total number of resource nodes of the specification.
     shared_ptr<int32_t> totalCount_ {};
   };
 

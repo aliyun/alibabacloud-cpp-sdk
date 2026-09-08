@@ -195,35 +195,35 @@ namespace Models
 
 
   protected:
-    // Filters the results by cluster type.
+    // The cluster type.
     shared_ptr<string> clusterType_ {};
     shared_ptr<string> GPUType_ {};
     shared_ptr<string> hasResource_ {};
-    // Filters the results by labels. Specify labels as key=value pairs, separated by commas (,).
+    // Filters by label key and value. Separate multiple labels with commas (,).
     shared_ptr<string> labels_ {};
-    // The layout mode. Valid values: Tree and List.
+    // The display mode. Valid values: tree or list.
     shared_ptr<string> layoutMode_ {};
-    // The sort order. Valid values are desc and asc.
+    // The sort order. Valid values: desc or asc.
     shared_ptr<string> order_ {};
-    // The page number of the results to return. The minimum value is 1.
+    // The page number to query. Minimum value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. The minimum value is 1.
+    // The number of entries per page. Minimum value: 1.
     shared_ptr<int32_t> pageSize_ {};
-    // Filters the results by parent quota ID:
+    // Filters by ParentQuotaId:
     // 
-    // - If this parameter is not specified, all quotas within the tenant are returned, including both root and child quotas.
+    // - Not specified: lists all quotas under the tenant, including root quotas and child quotas.
     // 
-    // - If this parameter is set to an empty string, all root quotas are returned.
+    // - Empty string: lists all root quotas.
     // 
-    // - If a specific parent quota ID is provided, all child quotas of that parent are returned.
+    // - Non-empty string: lists all child quotas of the specified ParentQuotaId.
     shared_ptr<string> parentQuotaId_ {};
-    // A comma-separated list of up to 100 quota IDs to filter the results. Only exact matching is supported.
+    // Comma-separated QuotaIds for filtering. Only exact match is supported. A maximum of 100 IDs can be specified at a time.
     shared_ptr<string> quotaIds_ {};
-    // Filters the results by quota name. Fuzzy matching is supported.
+    // Filters by QuotaName. Fuzzy match is supported.
     shared_ptr<string> quotaName_ {};
-    // The resource type. Valid values are Lingjun, ECS, and ACS. The default value is ECS.
+    // The resource type of the quota (Lingjun/ECS/ACS). Default value: ECS.
     shared_ptr<string> resourceType_ {};
-    // The field to sort the results by. Valid values:
+    // The field by which to sort the results. Valid values:
     // 
     // - QuotaName
     // 
@@ -239,17 +239,15 @@ namespace Models
     // 
     // - GmtModifiedTime
     shared_ptr<string> sortBy_ {};
-    // A comma-separated list of quota statuses to filter the results. Only exact matching is supported.
+    // Comma-separated quota statuses for filtering. Only exact match is supported.
     shared_ptr<string> statuses_ {};
-    // Specifies whether to return detailed information. Valid values:
-    // 
-    // - true: Returns detailed information.
-    // 
-    // - false: Does not return detailed information.
+    // Specifies whether to display details. Valid values:
+    // - true: Displays details.
+    // - false: Does not display details.
     shared_ptr<bool> verbose_ {};
-    // Filters the results by version.
+    // Filters by version information.
     shared_ptr<string> versions_ {};
-    // A comma-separated list of up to 10 workspace IDs to filter the results. Only exact matching is supported.
+    // Comma-separated WorkspaceIds for filtering. Only exact match is supported. A maximum of 10 IDs can be specified at a time.
     shared_ptr<string> workspaceIds_ {};
     // The name of the associated workspace.
     shared_ptr<string> workspaceName_ {};

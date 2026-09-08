@@ -57,6 +57,7 @@ namespace Models
 
 
     protected:
+      // Indicates whether the feature is started.
       shared_ptr<bool> isEnabled_ {};
     };
 
@@ -71,6 +72,7 @@ namespace Models
 
 
   protected:
+    // The Quota feature.
     shared_ptr<Features::Quota> quota_ {};
   };
 

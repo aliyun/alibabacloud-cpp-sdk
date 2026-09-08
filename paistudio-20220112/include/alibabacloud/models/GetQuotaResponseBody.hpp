@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AllocateStrategy, allocateStrategy_);
       DARABONBA_PTR_TO_JSON(CreatorId, creatorId_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(GPUType, GPUType_);
       DARABONBA_PTR_TO_JSON(GmtCreatedTime, gmtCreatedTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_TO_JSON(HyperZones, hyperZones_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AllocateStrategy, allocateStrategy_);
       DARABONBA_PTR_FROM_JSON(CreatorId, creatorId_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(GPUType, GPUType_);
       DARABONBA_PTR_FROM_JSON(GmtCreatedTime, gmtCreatedTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_FROM_JSON(HyperZones, hyperZones_);
@@ -86,11 +88,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allocateStrategy_ == nullptr
-        && this->creatorId_ == nullptr && this->description_ == nullptr && this->gmtCreatedTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->hyperZones_ == nullptr
-        && this->labels_ == nullptr && this->latestOperationId_ == nullptr && this->min_ == nullptr && this->parentQuotaId_ == nullptr && this->queueStrategy_ == nullptr
-        && this->quotaCluster_ == nullptr && this->quotaConfig_ == nullptr && this->quotaDetails_ == nullptr && this->quotaId_ == nullptr && this->quotaName_ == nullptr
-        && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->requestId_ == nullptr && this->resourceGroupIds_ == nullptr && this->resourceType_ == nullptr
-        && this->status_ == nullptr && this->subQuotas_ == nullptr && this->version_ == nullptr && this->workspaces_ == nullptr; };
+        && this->creatorId_ == nullptr && this->description_ == nullptr && this->GPUType_ == nullptr && this->gmtCreatedTime_ == nullptr && this->gmtModifiedTime_ == nullptr
+        && this->hyperZones_ == nullptr && this->labels_ == nullptr && this->latestOperationId_ == nullptr && this->min_ == nullptr && this->parentQuotaId_ == nullptr
+        && this->queueStrategy_ == nullptr && this->quotaCluster_ == nullptr && this->quotaConfig_ == nullptr && this->quotaDetails_ == nullptr && this->quotaId_ == nullptr
+        && this->quotaName_ == nullptr && this->reasonCode_ == nullptr && this->reasonMessage_ == nullptr && this->requestId_ == nullptr && this->resourceGroupIds_ == nullptr
+        && this->resourceType_ == nullptr && this->status_ == nullptr && this->subQuotas_ == nullptr && this->version_ == nullptr && this->workspaces_ == nullptr; };
     // allocateStrategy Field Functions 
     bool hasAllocateStrategy() const { return this->allocateStrategy_ != nullptr;};
     void deleteAllocateStrategy() { this->allocateStrategy_ = nullptr;};
@@ -110,6 +112,13 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline GetQuotaResponseBody& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // GPUType Field Functions 
+    bool hasGPUType() const { return this->GPUType_ != nullptr;};
+    void deleteGPUType() { this->GPUType_ = nullptr;};
+    inline string getGPUType() const { DARABONBA_PTR_GET_DEFAULT(GPUType_, "") };
+    inline GetQuotaResponseBody& setGPUType(string GPUType) { DARABONBA_PTR_SET_VALUE(GPUType_, GPUType) };
 
 
     // gmtCreatedTime Field Functions 
@@ -285,61 +294,63 @@ namespace Models
 
 
   protected:
-    // The resource allocation policy.
+    // The resource allocation strategy.
     shared_ptr<string> allocateStrategy_ {};
-    // The ID of the user who created the resource quota.
+    // The ID of the quota creator.
     shared_ptr<string> creatorId_ {};
-    // The description of the resource quota.
+    // The description of the quota.
     shared_ptr<string> description_ {};
-    // The time when the resource quota was created.
+    // The GPU type.
+    shared_ptr<string> GPUType_ {};
+    // The time when the quota was created.
     shared_ptr<string> gmtCreatedTime_ {};
-    // The time when the resource quota was last modified.
+    // The time when the quota was last modified.
     shared_ptr<string> gmtModifiedTime_ {};
-    // A list of high-performance network zones.
+    // The list of high-performance network zones.
     shared_ptr<vector<string>> hyperZones_ {};
-    // The labels of the resource quota.
+    // The labels of the quota.
     shared_ptr<vector<Label>> labels_ {};
-    // The ID of the most recent change to the resource quota.
+    // The ID of the latest quota operation.
     shared_ptr<string> latestOperationId_ {};
-    // The configuration of the minimum quota.
+    // The minimum quota configuration.
     shared_ptr<ResourceSpec> min_ {};
-    // The ID of the parent resource quota.
+    // The ID of the parent quota.
     shared_ptr<string> parentQuotaId_ {};
-    // The queuing policy for tasks in the resource quota.
+    // The queuing strategy for tasks in the quota.
     shared_ptr<string> queueStrategy_ {};
-    // The specifications and status of the cluster that is composed of resources within the quota.
+    // The cluster specifications and status composed of resources in the quota.
     shared_ptr<QuotaCluster> quotaCluster_ {};
-    // The configurations of the resource quota:
+    // The quota configuration:
     // 
     // - VPC information
     // 
-    // - Whether Remote Direct Memory Access (RDMA) is supported
+    // - Whether RDMA is supported
     // 
-    // - ACS configurations, which take effect if the resource type is ACS
+    // - ACS configuration (takes effect when the resource type is ACS)
     shared_ptr<QuotaConfig> quotaConfig_ {};
-    // The details of the resource quota.
+    // The details of the quota.
     shared_ptr<QuotaDetails> quotaDetails_ {};
-    // The ID of the resource quota.
+    // The resource quota ID.
     shared_ptr<string> quotaId_ {};
     // The name of the resource quota.
     shared_ptr<string> quotaName_ {};
     // The error code.
     shared_ptr<string> reasonCode_ {};
-    // The cause of the error.
+    // The error reason.
     shared_ptr<string> reasonMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The resource groups that are associated with the resource quota.
+    // The resource group information associated with the resource quota.
     shared_ptr<vector<string>> resourceGroupIds_ {};
     // The resource type of the quota.
     shared_ptr<string> resourceType_ {};
-    // The status of the resource quota.
+    // The status of the quota.
     shared_ptr<string> status_ {};
-    // A list of sub-quotas of the resource quota.
+    // The list of sub-quotas under the quota.
     shared_ptr<vector<QuotaIdName>> subQuotas_ {};
-    // The version information. This parameter takes effect when ResourceType is set to ECS.
+    // The version information. Takes effect when the resource type is ECS.
     shared_ptr<string> version_ {};
-    // The workspaces that are associated with the resource quota.
+    // The workspaces associated with the quota.
     shared_ptr<vector<WorkspaceIdName>> workspaces_ {};
   };
 

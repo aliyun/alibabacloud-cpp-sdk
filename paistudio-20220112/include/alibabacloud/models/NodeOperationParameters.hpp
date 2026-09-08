@@ -4,6 +4,7 @@
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/NodeCordonParameters.hpp>
 #include <alibabacloud/models/NodeDrainParameters.hpp>
+#include <alibabacloud/models/ResizeDiskParameters.hpp>
 #include <alibabacloud/models/NodeUncordonParameters.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -18,11 +19,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const NodeOperationParameters& obj) { 
       DARABONBA_PTR_TO_JSON(CordonParameters, cordonParameters_);
       DARABONBA_PTR_TO_JSON(DrainParameters, drainParameters_);
+      DARABONBA_PTR_TO_JSON(ResizeDiskParameters, resizeDiskParameters_);
       DARABONBA_PTR_TO_JSON(UncordonParameters, uncordonParameters_);
     };
     friend void from_json(const Darabonba::Json& j, NodeOperationParameters& obj) { 
       DARABONBA_PTR_FROM_JSON(CordonParameters, cordonParameters_);
       DARABONBA_PTR_FROM_JSON(DrainParameters, drainParameters_);
+      DARABONBA_PTR_FROM_JSON(ResizeDiskParameters, resizeDiskParameters_);
       DARABONBA_PTR_FROM_JSON(UncordonParameters, uncordonParameters_);
     };
     NodeOperationParameters() = default ;
@@ -37,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cordonParameters_ == nullptr
-        && this->drainParameters_ == nullptr && this->uncordonParameters_ == nullptr; };
+        && this->drainParameters_ == nullptr && this->resizeDiskParameters_ == nullptr && this->uncordonParameters_ == nullptr; };
     // cordonParameters Field Functions 
     bool hasCordonParameters() const { return this->cordonParameters_ != nullptr;};
     void deleteCordonParameters() { this->cordonParameters_ = nullptr;};
@@ -56,6 +59,15 @@ namespace Models
     inline NodeOperationParameters& setDrainParameters(NodeDrainParameters && drainParameters) { DARABONBA_PTR_SET_RVALUE(drainParameters_, drainParameters) };
 
 
+    // resizeDiskParameters Field Functions 
+    bool hasResizeDiskParameters() const { return this->resizeDiskParameters_ != nullptr;};
+    void deleteResizeDiskParameters() { this->resizeDiskParameters_ = nullptr;};
+    inline const ResizeDiskParameters & getResizeDiskParameters() const { DARABONBA_PTR_GET_CONST(resizeDiskParameters_, ResizeDiskParameters) };
+    inline ResizeDiskParameters getResizeDiskParameters() { DARABONBA_PTR_GET(resizeDiskParameters_, ResizeDiskParameters) };
+    inline NodeOperationParameters& setResizeDiskParameters(const ResizeDiskParameters & resizeDiskParameters) { DARABONBA_PTR_SET_VALUE(resizeDiskParameters_, resizeDiskParameters) };
+    inline NodeOperationParameters& setResizeDiskParameters(ResizeDiskParameters && resizeDiskParameters) { DARABONBA_PTR_SET_RVALUE(resizeDiskParameters_, resizeDiskParameters) };
+
+
     // uncordonParameters Field Functions 
     bool hasUncordonParameters() const { return this->uncordonParameters_ != nullptr;};
     void deleteUncordonParameters() { this->uncordonParameters_ = nullptr;};
@@ -66,11 +78,13 @@ namespace Models
 
 
   protected:
-    // Node cordon parameter settings
+    // The parameter settings for disabling node scheduling.
     shared_ptr<NodeCordonParameters> cordonParameters_ {};
-    // Node drain task instance parameter settings
+    // The parameter settings for draining task instances from a node.
     shared_ptr<NodeDrainParameters> drainParameters_ {};
-    // Node uncordon parameter settings
+    // The parameters for changing disk capacity.
+    shared_ptr<ResizeDiskParameters> resizeDiskParameters_ {};
+    // The parameter settings for enabling node scheduling.
     shared_ptr<NodeUncordonParameters> uncordonParameters_ {};
   };
 
