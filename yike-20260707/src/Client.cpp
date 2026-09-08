@@ -426,6 +426,48 @@ GenerateYikeLoginTokenResponse Client::generateYikeLoginToken(const GenerateYike
 }
 
 /**
+ * @summary Queries an agent asynchronous task.
+ *
+ * @param request GetAgentJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentJobResponse
+ */
+GetAgentJobResponse Client::getAgentJobWithOptions(const GetAgentJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAgentJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentJobResponse>();
+}
+
+/**
+ * @summary Queries an agent asynchronous task.
+ *
+ * @param request GetAgentJobRequest
+ * @return GetAgentJobResponse
+ */
+GetAgentJobResponse Client::getAgentJob(const GetAgentJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgentJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
  *
  * @param request GetAssetCategoryRequest
@@ -1253,6 +1295,68 @@ SearchMediaResponse Client::searchMedia(const SearchMediaRequest &request) {
 }
 
 /**
+ * @summary Submits an agent asynchronous node.
+ *
+ * @param request SubmitAgentJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SubmitAgentJobResponse
+ */
+SubmitAgentJobResponse Client::submitAgentJobWithOptions(const SubmitAgentJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasModel()) {
+    query["Model"] = request.getModel();
+  }
+
+  if (!!request.hasNotifyUrl()) {
+    query["NotifyUrl"] = request.getNotifyUrl();
+  }
+
+  if (!!request.hasPrompt()) {
+    query["Prompt"] = request.getPrompt();
+  }
+
+  if (!!request.hasSkill()) {
+    query["Skill"] = request.getSkill();
+  }
+
+  if (!!request.hasUserData()) {
+    query["UserData"] = request.getUserData();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "SubmitAgentJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SubmitAgentJobResponse>();
+}
+
+/**
+ * @summary Submits an agent asynchronous node.
+ *
+ * @param request SubmitAgentJobRequest
+ * @return SubmitAgentJobResponse
+ */
+SubmitAgentJobResponse Client::submitAgentJob(const SubmitAgentJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return submitAgentJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Submits an image generation task.
  *
  * @param request SubmitImageGenerationJobRequest
@@ -1447,7 +1551,7 @@ SubmitRemakeScriptJobResponse Client::submitRemakeScriptJob(const SubmitRemakeSc
 /**
  * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
  *
- * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+ * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
  *
  * @param request SubmitVideoDetextJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1496,7 +1600,7 @@ SubmitVideoDetextJobResponse Client::submitVideoDetextJobWithOptions(const Submi
 /**
  * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
  *
- * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+ * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
  *
  * @param request SubmitVideoDetextJobRequest
  * @return SubmitVideoDetextJobResponse

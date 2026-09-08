@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_SUBMITVIDEODETEXTJOBRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_SUBMITVIDEODETEXTJOBRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_SUBMITAGENTJOBRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_SUBMITAGENTJOBRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Yike20260707
 {
 namespace Models
 {
-  class SubmitVideoDetextJobResponseBody : public Darabonba::Model {
+  class SubmitAgentJobResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const SubmitVideoDetextJobResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const SubmitAgentJobResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(JobId, jobId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
-    friend void from_json(const Darabonba::Json& j, SubmitVideoDetextJobResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, SubmitAgentJobResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(JobId, jobId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
-    SubmitVideoDetextJobResponseBody() = default ;
-    SubmitVideoDetextJobResponseBody(const SubmitVideoDetextJobResponseBody &) = default ;
-    SubmitVideoDetextJobResponseBody(SubmitVideoDetextJobResponseBody &&) = default ;
-    SubmitVideoDetextJobResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~SubmitVideoDetextJobResponseBody() = default ;
-    SubmitVideoDetextJobResponseBody& operator=(const SubmitVideoDetextJobResponseBody &) = default ;
-    SubmitVideoDetextJobResponseBody& operator=(SubmitVideoDetextJobResponseBody &&) = default ;
+    SubmitAgentJobResponseBody() = default ;
+    SubmitAgentJobResponseBody(const SubmitAgentJobResponseBody &) = default ;
+    SubmitAgentJobResponseBody(SubmitAgentJobResponseBody &&) = default ;
+    SubmitAgentJobResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~SubmitAgentJobResponseBody() = default ;
+    SubmitAgentJobResponseBody& operator=(const SubmitAgentJobResponseBody &) = default ;
+    SubmitAgentJobResponseBody& operator=(SubmitAgentJobResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,20 +37,20 @@ namespace Models
     bool hasJobId() const { return this->jobId_ != nullptr;};
     void deleteJobId() { this->jobId_ = nullptr;};
     inline string getJobId() const { DARABONBA_PTR_GET_DEFAULT(jobId_, "") };
-    inline SubmitVideoDetextJobResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
+    inline SubmitAgentJobResponseBody& setJobId(string jobId) { DARABONBA_PTR_SET_VALUE(jobId_, jobId) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline SubmitVideoDetextJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline SubmitAgentJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The video text erasure job ID. Use this ID to call GetVideoDetextJob to query the job.
+    // The task ID.
     shared_ptr<string> jobId_ {};
-    // The request ID, which is used for Tracing Analysis and troubleshooting.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

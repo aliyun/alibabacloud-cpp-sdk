@@ -168,6 +168,23 @@ namespace Yike20260707
       Models::GenerateYikeLoginTokenResponse generateYikeLoginToken(const Models::GenerateYikeLoginTokenRequest &request);
 
       /**
+       * @summary Queries an agent asynchronous task.
+       *
+       * @param request GetAgentJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentJobResponse
+       */
+      Models::GetAgentJobResponse getAgentJobWithOptions(const Models::GetAgentJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries an agent asynchronous task.
+       *
+       * @param request GetAgentJobRequest
+       * @return GetAgentJobResponse
+       */
+      Models::GetAgentJobResponse getAgentJob(const Models::GetAgentJobRequest &request);
+
+      /**
        * @summary Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
        *
        * @param request GetAssetCategoryRequest
@@ -478,6 +495,23 @@ namespace Yike20260707
       Models::SearchMediaResponse searchMedia(const Models::SearchMediaRequest &request);
 
       /**
+       * @summary Submits an agent asynchronous node.
+       *
+       * @param request SubmitAgentJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SubmitAgentJobResponse
+       */
+      Models::SubmitAgentJobResponse submitAgentJobWithOptions(const Models::SubmitAgentJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits an agent asynchronous node.
+       *
+       * @param request SubmitAgentJobRequest
+       * @return SubmitAgentJobResponse
+       */
+      Models::SubmitAgentJobResponse submitAgentJob(const Models::SubmitAgentJobRequest &request);
+
+      /**
        * @summary Submits an image generation task.
        *
        * @param request SubmitImageGenerationJobRequest
@@ -541,7 +575,7 @@ namespace Yike20260707
       /**
        * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
        *
-       * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+       * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
        *
        * @param request SubmitVideoDetextJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -552,7 +586,7 @@ namespace Yike20260707
       /**
        * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
        *
-       * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a media asset ID. You can configure the erasure time range and text regions.
+       * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
        *
        * @param request SubmitVideoDetextJobRequest
        * @return SubmitVideoDetextJobResponse
