@@ -281,8 +281,9 @@ namespace Models
       shared_ptr<string> adaptedTitle_ {};
       // The channel enumeration value.
       shared_ptr<string> channel_ {};
-      // The snapshot of the publishing account.
+      // The publishing account snapshot.
       shared_ptr<string> channelAccount_ {};
+      // The display name of the publishing account.
       shared_ptr<string> channelAccountName_ {};
       // The display name of the channel.
       shared_ptr<string> channelName_ {};
@@ -294,7 +295,7 @@ namespace Models
       shared_ptr<string> draftId_ {};
       // The ID returned by the platform.
       shared_ptr<string> externalId_ {};
-      // The redirect URL on the platform.
+      // The redirect URL of the platform.
       shared_ptr<string> externalUrl_ {};
       // The reason for the failure.
       shared_ptr<string> failReason_ {};
@@ -391,28 +392,28 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name. The application with this name is queried.
+    // The application name used to query the application.
     shared_ptr<string> appName_ {};
     // The dynamic code. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** parameter.
-    // > For example, if the value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
+    // The dynamic error message that is used to replace the `%s` variable in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error arguments.
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Indicates whether the deletion is successful.
+    // Indicates whether the deletion was successful.
     shared_ptr<TranslateChannelDraftResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The root error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

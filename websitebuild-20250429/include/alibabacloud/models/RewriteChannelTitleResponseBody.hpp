@@ -146,11 +146,11 @@ namespace Models
 
 
       protected:
-        // The material center file ID.
+        // The file ID in the material center.
         shared_ptr<string> materialFileId_ {};
-        // The image CDN URL.
+        // The CDN URL of the image.
         shared_ptr<string> ossUrl_ {};
-        // The sort order.
+        // The sort order number.
         shared_ptr<int32_t> sortOrder_ {};
       };
 
@@ -279,12 +279,13 @@ namespace Models
       shared_ptr<string> adaptedContent_ {};
       // The channel-adapted title.
       shared_ptr<string> adaptedTitle_ {};
-      // The channel enumeration.
+      // The channel enumeration value.
       shared_ptr<string> channel_ {};
       // The publishing account snapshot.
       shared_ptr<string> channelAccount_ {};
+      // The display name of the publishing account.
       shared_ptr<string> channelAccountName_ {};
-      // The channel display name.
+      // The display name of the channel.
       shared_ptr<string> channelName_ {};
       // The channel type. Valid values: DOMESTIC, OVERSEA, and INTERNAL.
       shared_ptr<string> channelType_ {};
@@ -294,13 +295,13 @@ namespace Models
       shared_ptr<string> draftId_ {};
       // The ID returned by the platform.
       shared_ptr<string> externalId_ {};
-      // The platform redirect URL.
+      // The redirect URL of the platform.
       shared_ptr<string> externalUrl_ {};
       // The failure reason.
       shared_ptr<string> failReason_ {};
-      // The channel-specific publishing fields in JSON format.
+      // The channel-specific publishing configuration in JSON format.
       shared_ptr<string> publishConfig_ {};
-      // The publishing time, in millisecond-precision timestamp.
+      // The publishing time, in millisecond timestamp.
       shared_ptr<int64_t> publishedAt_ {};
       // The status. Valid values: EDITING, PUBLISHING, SUCCESS, and FAILED.
       shared_ptr<string> status_ {};
@@ -393,16 +394,16 @@ namespace Models
   protected:
     // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // Indicates whether the operation is successful.
     shared_ptr<RewriteChannelTitleResponseBody::Module> module_ {};
@@ -410,7 +411,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
     // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};

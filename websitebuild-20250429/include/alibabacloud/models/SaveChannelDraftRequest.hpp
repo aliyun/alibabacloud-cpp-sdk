@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // The URL of the image.
+      // The image URL.
       // 
       // This parameter is required.
       shared_ptr<string> imageUrl_ {};
-      // The file ID in the material center (optional).
+      // The material center file ID (optional).
       shared_ptr<string> materialFileId_ {};
       // The sort order.
       // 
@@ -146,17 +146,19 @@ namespace Models
 
 
   protected:
-    // The channel content (international only).
+    // The channel content (outside China only).
     shared_ptr<string> adaptedContent_ {};
     // The channel title.
     shared_ptr<string> adaptedTitle_ {};
+    // The display name of the publishing account. A null value does not overwrite the original value. Maximum length: 256 characters.
     shared_ptr<string> channelAccountName_ {};
     // The collection of channel cover images (full overwrite).
     shared_ptr<vector<SaveChannelDraftRequest::CoverImages>> coverImages_ {};
-    // The ID of the channel draft.
+    // The channel draft ID.
     // 
     // This parameter is required.
     shared_ptr<string> draftId_ {};
+    // The article column name for Wanxiaozhi 1.0. This parameter is required only when the website has not enabled an article column.
     shared_ptr<string> websiteNavName_ {};
   };
 
