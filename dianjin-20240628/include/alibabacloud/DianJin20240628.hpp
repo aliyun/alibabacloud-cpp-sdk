@@ -986,6 +986,24 @@ namespace DianJin20240628
       Models::PreviewDocumentResponse previewDocument(const string &workspaceId, const Models::PreviewDocumentRequest &request);
 
       /**
+       * @summary 查询用量
+       *
+       * @param request QueryAmountRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAmountResponse
+       */
+      Models::QueryAmountResponse queryAmountWithOptions(const string &workspaceId, const Models::QueryAmountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询用量
+       *
+       * @param request QueryAmountRequest
+       * @return QueryAmountResponse
+       */
+      Models::QueryAmountResponse queryAmount(const string &workspaceId, const Models::QueryAmountRequest &request);
+
+      /**
        * @summary 查询兑换记录
        *
        * @param request QueryApiKeysRequest

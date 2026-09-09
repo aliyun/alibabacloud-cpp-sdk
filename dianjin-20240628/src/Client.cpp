@@ -28,9 +28,6 @@ namespace DianJin20240628
 
 AlibabaCloud::DianJin20240628::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-beijing" , "dianjin.cn-beijing.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dianjin", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -2632,6 +2629,59 @@ PreviewDocumentResponse Client::previewDocument(const string &workspaceId, const
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return previewDocumentWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询用量
+ *
+ * @param request QueryAmountRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAmountResponse
+ */
+QueryAmountResponse Client::queryAmountWithOptions(const string &workspaceId, const QueryAmountRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasAliyunUidList()) {
+    body["aliyunUidList"] = request.getAliyunUidList();
+  }
+
+  if (!!request.hasEndDate()) {
+    body["endDate"] = request.getEndDate();
+  }
+
+  if (!!request.hasStartDate()) {
+    body["startDate"] = request.getStartDate();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "QueryAmount"},
+    {"version" , "2024-06-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/api/v1/aigcRevenue/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAmountResponse>();
+}
+
+/**
+ * @summary 查询用量
+ *
+ * @param request QueryAmountRequest
+ * @return QueryAmountResponse
+ */
+QueryAmountResponse Client::queryAmount(const string &workspaceId, const QueryAmountRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryAmountWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**

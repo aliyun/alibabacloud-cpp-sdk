@@ -137,6 +137,9 @@
 #include <alibabacloud/models/PreviewDocumentRequest.hpp>
 #include <alibabacloud/models/PreviewDocumentResponseBody.hpp>
 #include <alibabacloud/models/PreviewDocumentResponse.hpp>
+#include <alibabacloud/models/QueryAmountRequest.hpp>
+#include <alibabacloud/models/QueryAmountResponseBody.hpp>
+#include <alibabacloud/models/QueryAmountResponse.hpp>
 #include <alibabacloud/models/QueryApiKeysHeaders.hpp>
 #include <alibabacloud/models/QueryApiKeysRequest.hpp>
 #include <alibabacloud/models/QueryApiKeysResponseBody.hpp>
