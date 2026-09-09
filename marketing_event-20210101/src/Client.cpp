@@ -36,6 +36,72 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
+ * @summary 上报论坛议程汇总数据
+ *
+ * @param request AddAgendaSumRecordFlowPopRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddAgendaSumRecordFlowPopResponse
+ */
+AddAgendaSumRecordFlowPopResponse Client::addAgendaSumRecordFlowPopWithOptions(const AddAgendaSumRecordFlowPopRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasActiveNum()) {
+    query["ActiveNum"] = request.getActiveNum();
+  }
+
+  if (!!request.hasAgendaId()) {
+    query["AgendaId"] = request.getAgendaId();
+  }
+
+  if (!!request.hasAttendancePercent()) {
+    query["AttendancePercent"] = request.getAttendancePercent();
+  }
+
+  if (!!request.hasFlowTime()) {
+    query["FlowTime"] = request.getFlowTime();
+  }
+
+  if (!!request.hasSessionName()) {
+    query["SessionName"] = request.getSessionName();
+  }
+
+  if (!!request.hasTotalPv()) {
+    query["TotalPv"] = request.getTotalPv();
+  }
+
+  if (!!request.hasTotalUv()) {
+    query["TotalUv"] = request.getTotalUv();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddAgendaSumRecordFlowPop"},
+    {"version" , "2021-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddAgendaSumRecordFlowPopResponse>();
+}
+
+/**
+ * @summary 上报论坛议程汇总数据
+ *
+ * @param request AddAgendaSumRecordFlowPopRequest
+ * @return AddAgendaSumRecordFlowPopResponse
+ */
+AddAgendaSumRecordFlowPopResponse Client::addAgendaSumRecordFlowPop(const AddAgendaSumRecordFlowPopRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addAgendaSumRecordFlowPopWithOptions(request, runtime);
+}
+
+/**
  * @param request AddSumRecordFlowPopRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddSumRecordFlowPopResponse

@@ -21,6 +21,23 @@ namespace MarketingEvent20210101
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary 上报论坛议程汇总数据
+       *
+       * @param request AddAgendaSumRecordFlowPopRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddAgendaSumRecordFlowPopResponse
+       */
+      Models::AddAgendaSumRecordFlowPopResponse addAgendaSumRecordFlowPopWithOptions(const Models::AddAgendaSumRecordFlowPopRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 上报论坛议程汇总数据
+       *
+       * @param request AddAgendaSumRecordFlowPopRequest
+       * @return AddAgendaSumRecordFlowPopResponse
+       */
+      Models::AddAgendaSumRecordFlowPopResponse addAgendaSumRecordFlowPop(const Models::AddAgendaSumRecordFlowPopRequest &request);
+
+      /**
        * @param request AddSumRecordFlowPopRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddSumRecordFlowPopResponse

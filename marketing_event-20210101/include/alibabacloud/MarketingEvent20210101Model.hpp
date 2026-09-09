@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_MARKETINGEVENT20210101MODEL_HPP_
 #define ALIBABACLOUD_MARKETINGEVENT20210101MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AddAgendaSumRecordFlowPopRequest.hpp>
+#include <alibabacloud/models/AddAgendaSumRecordFlowPopResponseBody.hpp>
+#include <alibabacloud/models/AddAgendaSumRecordFlowPopResponse.hpp>
 #include <alibabacloud/models/AddSumRecordFlowPopRequest.hpp>
 #include <alibabacloud/models/AddSumRecordFlowPopResponseBody.hpp>
 #include <alibabacloud/models/AddSumRecordFlowPopResponse.hpp>
