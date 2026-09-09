@@ -166,17 +166,17 @@ namespace Models
 
 
   protected:
-    // The request ID, which is active for end-to-end diagnostics.
+    // The request ID, which can be used for end-to-end diagnostics.
     shared_ptr<string> requestId_ {};
     // The status code.
-    // - If `code == Success`, the authorization is successful.
-    // - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
+    // - `code == Success` indicates that the authorization is successful.
+    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned results.
     shared_ptr<vector<ListAgentInstallRecordsResponseBody::Data>> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the error message for the request.
+    // - Otherwise, this field contains the error information of the request.
     shared_ptr<string> message_ {};
     // The total number of records.
     shared_ptr<int64_t> total_ {};

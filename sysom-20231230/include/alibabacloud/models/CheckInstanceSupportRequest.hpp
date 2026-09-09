@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> xDebugId_ {};
     // The list of instance IDs to check.
     shared_ptr<vector<string>> instances_ {};
-    // The region to which the instances belong. All instance IDs specified in instances must belong to the same region.
+    // The region to which the instances belong. Ensure that all instance IDs passed in instances belong to the same region.
     shared_ptr<string> region_ {};
     shared_ptr<string> xSysomInvokeSource_ {};
   };

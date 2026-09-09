@@ -177,10 +177,10 @@ namespace Models
       shared_ptr<string> serviceName_ {};
       // The execution status of the diagnostic task.
       // Valid values:
-      // - **Ready**: ready
-      // - **Running**: running
-      // - **Success**: succeeded
-      // - **Fail**: failed.
+      // - **Ready**: Ready.
+      // - **Running**: Running.
+      // - **Success**: Succeeded.
+      // - **Fail**: Failed.
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -224,14 +224,14 @@ namespace Models
 
   protected:
     // The status code.
-    // - `code == Success` indicates that the authorization was successful.
-    // - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+    // - `code == Success`: The authorization is successful.
+    // - Other status codes indicate authorization failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<GetDiagnosisResultResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error information.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

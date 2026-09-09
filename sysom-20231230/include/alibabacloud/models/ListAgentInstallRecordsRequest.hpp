@@ -115,13 +115,13 @@ namespace Models
     shared_ptr<string> xDebugId_ {};
     // The current page number. Pages start from page 1.
     shared_ptr<int64_t> current_ {};
-    // The ID of the instance. If you specify this parameter, only the Agent installation records for the specified instance are returned.
+    // Specifies the instance ID. If this parameter is specified, only the Agent installation records for the specified instance are returned.
     shared_ptr<string> instanceId_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the Agent. If you specify this parameter, only the installation records for the specified Agent are returned. You can use this parameter together with the plugin_version parameter.
+    // Specifies the Agent ID. If this parameter is specified, only the installation records for the specified Agent are returned. You can use this parameter together with the plugin_version parameter.
     shared_ptr<string> pluginId_ {};
-    // The version of the Agent. This parameter cannot be used alone. Use this parameter together with the plugin_id parameter to filter installation records for a specific version of the specified Agent.
+    // Specifies the Agent version. This parameter cannot be used alone and must be used together with the plugin_id parameter to filter the installation records for a specific version of the specified Agent.
     shared_ptr<string> pluginVersion_ {};
     // The region ID.
     shared_ptr<string> region_ {};

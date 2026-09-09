@@ -113,12 +113,19 @@ namespace Models
 
   protected:
     shared_ptr<string> xDebugId_ {};
+    // The information type.
     shared_ptr<string> infoType_ {};
+    // The instance type.
     shared_ptr<string> instanceType_ {};
+    // The managed type.
     shared_ptr<string> managedType_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The plugin ID.
     shared_ptr<string> pluginId_ {};
+    // The region ID.
     shared_ptr<string> region_ {};
     shared_ptr<string> xSysomInvokeSource_ {};
   };

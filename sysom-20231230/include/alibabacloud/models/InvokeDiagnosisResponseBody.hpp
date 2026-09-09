@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The diagnostic task ID. You can use this ID to call the `GetDiagnosisResult` operation to query the diagnosis result.
+      // The diagnostic task ID. You can use this ID to call the `GetDiagnosisResult` operation to query the diagnostic result.
       shared_ptr<string> taskId_ {};
     };
 
@@ -102,13 +102,13 @@ namespace Models
   protected:
     // The status code.
     // - `code == Success` indicates that the authorization is successful.
-    // - Other status codes indicate the authorization is failed. Check the `message` field for the detailed fault information.
+    // - Other status codes indicate that the authorization has failed. Check the `message` field for the detailed fault information.
     shared_ptr<string> code_ {};
     // The returned result.
     shared_ptr<InvokeDiagnosisResponseBody::Data> data_ {};
     // The error message.
     // - If `code == Success`, this field is empty.
-    // - Otherwise, this field contains the request error information.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

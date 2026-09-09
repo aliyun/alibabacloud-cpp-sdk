@@ -53,7 +53,7 @@ namespace SysOM20231230
       /**
        * @summary Checks whether a target instance is supported by SysOM.
        *
-       * @description This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+       * @description The instance list returned by this operation contains only instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
        *
        * @param request CheckInstanceSupportRequest
        * @param headers map
@@ -65,7 +65,7 @@ namespace SysOM20231230
       /**
        * @summary Checks whether a target instance is supported by SysOM.
        *
-       * @description This operation retrieves the list of instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
+       * @description The instance list returned by this operation contains only instances that are already managed by SysOM. If an ECS instance exists but is not managed by SysOM, it does not appear in the list.
        *
        * @param request CheckInstanceSupportRequest
        * @return CheckInstanceSupportResponse
@@ -257,10 +257,10 @@ namespace SysOM20231230
       Models::DescribeMetricListResponse describeMetricList(const Models::DescribeMetricListRequest &request);
 
       /**
-       * @summary Get the response result of the copilot service
+       * @summary Retrieves the response from the Copilot service.
        *
-       * @description - Parameters need to be filled in according to the standard LLM service input parameters, converted to a string, and assigned to llmParamString
-       * - The returned data needs to be converted from string to dict before use. Refer to the standard LLM service response format
+       * @description - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+       * - Convert the returned data from a string to a dict before use. Refer to the standard LLM service response format.
        *
        * @param request GenerateCopilotResponseRequest
        * @param headers map
@@ -270,10 +270,10 @@ namespace SysOM20231230
       Models::GenerateCopilotResponseResponse generateCopilotResponseWithOptions(const Models::GenerateCopilotResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the response result of the copilot service
+       * @summary Retrieves the response from the Copilot service.
        *
-       * @description - Parameters need to be filled in according to the standard LLM service input parameters, converted to a string, and assigned to llmParamString
-       * - The returned data needs to be converted from string to dict before use. Refer to the standard LLM service response format
+       * @description - Populate the parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
+       * - Convert the returned data from a string to a dict before use. Refer to the standard LLM service response format.
        *
        * @param request GenerateCopilotResponseRequest
        * @return GenerateCopilotResponseResponse
@@ -281,7 +281,7 @@ namespace SysOM20231230
       Models::GenerateCopilotResponseResponse generateCopilotResponse(const Models::GenerateCopilotResponseRequest &request);
 
       /**
-       * @summary Calls the streaming SSE interface of the OS Copilot service.
+       * @summary Provides a streaming SSE interface for the OS Copilot service.
        *
        * @description - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
        * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
@@ -295,7 +295,7 @@ namespace SysOM20231230
       FutureGenerator<Models::GenerateCopilotStreamResponseResponse> generateCopilotStreamResponseWithSSE(const Models::GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the streaming SSE interface of the OS Copilot service.
+       * @summary Provides a streaming SSE interface for the OS Copilot service.
        *
        * @description - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
        * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
@@ -309,7 +309,7 @@ namespace SysOM20231230
       Models::GenerateCopilotStreamResponseResponse generateCopilotStreamResponseWithOptions(const Models::GenerateCopilotStreamResponseRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the streaming SSE interface of the OS Copilot service.
+       * @summary Provides a streaming SSE interface for the OS Copilot service.
        *
        * @description - Use this operation together with the call_sseapi interface in the aliyun-tea-openapi-inner package.
        * - Populate parameters based on the standard LLM service input parameters, convert them to a string, and assign the string to llmParamString.
@@ -467,7 +467,7 @@ namespace SysOM20231230
       /**
        * @summary Retrieves the diagnostic result.
        *
-       * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+       * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
        *
        * @param request GetDiagnosisResultRequest
        * @param headers map
@@ -479,7 +479,7 @@ namespace SysOM20231230
       /**
        * @summary Retrieves the diagnostic result.
        *
-       * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be in progress. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
+       * @description The diagnostic process is asynchronous. When you call this operation, the diagnosis may still be running. You can check the `data.status` field in the response to determine the status. When `data.status == Success`, the diagnosis is complete and you can read the diagnostic result from `data.result`.
        *
        * @param request GetDiagnosisResultRequest
        * @return GetDiagnosisResultResponse
@@ -897,11 +897,11 @@ namespace SysOM20231230
       /**
        * @summary Initiates a diagnostic task.
        *
-       * @description The following requirements apply when diagnosing a target ECS instance:
+       * @description The following requirements must be met to diagnose a target ECS instance:
        * - The target ECS instance status must be Running.
        * - Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://www.alibabacloud.com/help/en/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
-       * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly returns failed.
-       * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, invoke AuthDiagnosis first to associate the authorization. That operation creates the service-linked role.
+       * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly fails.
+       * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, first invoke AuthDiagnosis to associate the authorization. That operation creates the aforementioned service-linked role.
        *
        * @param request InvokeDiagnosisRequest
        * @param headers map
@@ -913,11 +913,11 @@ namespace SysOM20231230
       /**
        * @summary Initiates a diagnostic task.
        *
-       * @description The following requirements apply when diagnosing a target ECS instance:
+       * @description The following requirements must be met to diagnose a target ECS instance:
        * - The target ECS instance status must be Running.
        * - Cloud Assistant must be installed on the target ECS instance. If it is not installed, refer to [Install the Cloud Assistant Agent](https://www.alibabacloud.com/help/en/ecs/user-guide/install-the-cloud-assistant-agent) for installation.
-       * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly returns failed.
-       * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, invoke AuthDiagnosis first to associate the authorization. That operation creates the service-linked role.
+       * - You must invoke the AuthDiagnosis operation to authorize SysOM to diagnose the target ECS instance. If authorization is not granted, this operation directly fails.
+       * - This operation depends on the SysOM service-linked role (AliyunServiceRoleForSysom) being created. This operation does not automatically create the service-linked role. If the service-linked role does not exist, first invoke AuthDiagnosis to associate the authorization. That operation creates the aforementioned service-linked role.
        *
        * @param request InvokeDiagnosisRequest
        * @return InvokeDiagnosisResponse
@@ -1121,7 +1121,7 @@ namespace SysOM20231230
       Models::ListInstanceHealthResponse listInstanceHealth(const Models::ListInstanceHealthRequest &request);
 
       /**
-       * @summary 此接口用于获取某类型实例信息的所有值
+       * @summary Retrieves all values of a specified type of instance information.
        *
        * @param request ListInstanceInfoRequest
        * @param headers map
@@ -1131,7 +1131,7 @@ namespace SysOM20231230
       Models::ListInstanceInfoResponse listInstanceInfoWithOptions(const Models::ListInstanceInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 此接口用于获取某类型实例信息的所有值
+       * @summary Retrieves all values of a specified type of instance information.
        *
        * @param request ListInstanceInfoRequest
        * @return ListInstanceInfoResponse

@@ -87,8 +87,11 @@ namespace Models
 
 
     protected:
+      // The information key.
       shared_ptr<string> infoKey_ {};
+      // The information type.
       shared_ptr<string> infoType_ {};
+      // The information value.
       shared_ptr<string> infoValue_ {};
     };
 
@@ -139,10 +142,17 @@ namespace Models
 
 
   protected:
+    // The status code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<vector<ListInstanceInfoResponseBody::Data>> data_ {};
+    // The maximum number of entries returned per request.
     shared_ptr<int32_t> maxResults_ {};
+    // The error message.
+    // - If `code == Success`, this field is empty.
+    // - Otherwise, this field contains the request error message.
     shared_ptr<string> message_ {};
+    // The pagination token for the next request.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
