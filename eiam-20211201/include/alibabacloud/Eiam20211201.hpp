@@ -327,7 +327,7 @@ namespace Eiam20211201
       Models::CheckInstanceForDeleteResponse checkInstanceForDelete(const Models::CheckInstanceForDeleteRequest &request);
 
       /**
-       * @summary Determines whether an instance has the capability of a specific module.
+       * @summary Checks whether an instance has the feature of a specific module.
        *
        * @param request CheckInstanceModuleStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +336,7 @@ namespace Eiam20211201
       Models::CheckInstanceModuleStatusResponse checkInstanceModuleStatusWithOptions(const Models::CheckInstanceModuleStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Determines whether an instance has the capability of a specific module.
+       * @summary Checks whether an instance has the feature of a specific module.
        *
        * @param request CheckInstanceModuleStatusRequest
        * @return CheckInstanceModuleStatusResponse
@@ -382,7 +382,7 @@ namespace Eiam20211201
       Models::CreateApplicationClientSecretResponse createApplicationClientSecret(const Models::CreateApplicationClientSecretRequest &request);
 
       /**
-       * @summary Creates an application federated identity credential.
+       * @summary Creates an application federated credential.
        *
        * @param request CreateApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -391,7 +391,7 @@ namespace Eiam20211201
       Models::CreateApplicationFederatedCredentialResponse createApplicationFederatedCredentialWithOptions(const Models::CreateApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application federated identity credential.
+       * @summary Creates an application federated credential.
        *
        * @param request CreateApplicationFederatedCredentialRequest
        * @return CreateApplicationFederatedCredentialResponse
@@ -501,9 +501,10 @@ namespace Eiam20211201
       Models::CreateClientPublicKeyResponse createClientPublicKey(const Models::CreateClientPublicKeyRequest &request);
 
       /**
-       * @summary Creates a cloud account resource in a specified EIAM instance.
+       * @summary Creates a cloud account resource under a specified EIAM instance.
        *
-       * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+       * @description <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+       * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
        *
        * @param request CreateCloudAccountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -512,9 +513,10 @@ namespace Eiam20211201
       Models::CreateCloudAccountResponse createCloudAccountWithOptions(const Models::CreateCloudAccountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a cloud account resource in a specified EIAM instance.
+       * @summary Creates a cloud account resource under a specified EIAM instance.
        *
-       * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+       * @description <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+       * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
        *
        * @param request CreateCloudAccountRequest
        * @return CreateCloudAccountResponse
@@ -696,7 +698,7 @@ namespace Eiam20211201
       Models::CreateGroupResponse createGroup(const Models::CreateGroupRequest &request);
 
       /**
-       * @summary Create an identity provider.
+       * @summary Creates an identity provider.
        *
        * @param request CreateIdentityProviderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -705,7 +707,7 @@ namespace Eiam20211201
       Models::CreateIdentityProviderResponse createIdentityProviderWithOptions(const Models::CreateIdentityProviderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create an identity provider.
+       * @summary Creates an identity provider.
        *
        * @param request CreateIdentityProviderRequest
        * @return CreateIdentityProviderResponse
@@ -2179,7 +2181,8 @@ namespace Eiam20211201
       /**
        * @summary Enables a field.
        *
-       * @description **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**.
+       * @description <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+       * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
        *
        * @param request EnableCustomFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2190,7 +2193,8 @@ namespace Eiam20211201
       /**
        * @summary Enables a field.
        *
-       * @description **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**.
+       * @description <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+       * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
        *
        * @param request EnableCustomFieldRequest
        * @return EnableCustomFieldResponse
@@ -2542,7 +2546,7 @@ namespace Eiam20211201
       Models::GetApplicationAdvancedConfigResponse getApplicationAdvancedConfig(const Models::GetApplicationAdvancedConfigRequest &request);
 
       /**
-       * @summary Retrieves the federated identity credential of an application.
+       * @summary Retrieves an application federated identity credential.
        *
        * @param request GetApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2551,7 +2555,7 @@ namespace Eiam20211201
       Models::GetApplicationFederatedCredentialResponse getApplicationFederatedCredentialWithOptions(const Models::GetApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the federated identity credential of an application.
+       * @summary Retrieves an application federated identity credential.
        *
        * @param request GetApplicationFederatedCredentialRequest
        * @return GetApplicationFederatedCredentialResponse
@@ -2644,7 +2648,7 @@ namespace Eiam20211201
       Models::GetApplicationRoleResponse getApplicationRole(const Models::GetApplicationRoleRequest &request);
 
       /**
-       * @summary Retrieves the single sign-on (SSO) configuration for an application in EIAM.
+       * @summary Queries the single sign-on (SSO) configuration properties of an EIAM application.
        *
        * @param request GetApplicationSsoConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2653,7 +2657,7 @@ namespace Eiam20211201
       Models::GetApplicationSsoConfigResponse getApplicationSsoConfigWithOptions(const Models::GetApplicationSsoConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the single sign-on (SSO) configuration for an application in EIAM.
+       * @summary Queries the single sign-on (SSO) configuration properties of an EIAM application.
        *
        * @param request GetApplicationSsoConfigRequest
        * @return GetApplicationSsoConfigResponse
@@ -2678,7 +2682,7 @@ namespace Eiam20211201
       Models::GetApplicationTemplateResponse getApplicationTemplate(const Models::GetApplicationTemplateRequest &request);
 
       /**
-       * @summary Queries the information of an authorization resource.
+       * @summary Queries the information about an authorization resource.
        *
        * @param request GetAuthorizationResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2687,7 +2691,7 @@ namespace Eiam20211201
       Models::GetAuthorizationResourceResponse getAuthorizationResourceWithOptions(const Models::GetAuthorizationResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information of an authorization resource.
+       * @summary Queries the information about an authorization resource.
        *
        * @param request GetAuthorizationResourceRequest
        * @return GetAuthorizationResourceResponse
@@ -2729,7 +2733,7 @@ namespace Eiam20211201
       Models::GetAuthorizationServerResponse getAuthorizationServer(const Models::GetAuthorizationServerRequest &request);
 
       /**
-       * @summary Get Brand Details
+       * @summary Retrieves the details of a brand.
        *
        * @param request GetBrandRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2738,7 +2742,7 @@ namespace Eiam20211201
       Models::GetBrandResponse getBrandWithOptions(const Models::GetBrandRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get Brand Details
+       * @summary Retrieves the details of a brand.
        *
        * @param request GetBrandRequest
        * @return GetBrandResponse
@@ -3489,7 +3493,7 @@ namespace Eiam20211201
       Models::ListApplicationClientSecretsResponse listApplicationClientSecrets(const Models::ListApplicationClientSecretsRequest &request);
 
       /**
-       * @summary Queries a list of application federated credentials.
+       * @summary Queries the list of application federated identity credentials.
        *
        * @param request ListApplicationFederatedCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3498,7 +3502,7 @@ namespace Eiam20211201
       Models::ListApplicationFederatedCredentialsResponse listApplicationFederatedCredentialsWithOptions(const Models::ListApplicationFederatedCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of application federated credentials.
+       * @summary Queries the list of application federated identity credentials.
        *
        * @param request ListApplicationFederatedCredentialsRequest
        * @return ListApplicationFederatedCredentialsResponse
@@ -3697,9 +3701,9 @@ namespace Eiam20211201
       Models::ListApplicationsForUserResponse listApplicationsForUser(const Models::ListApplicationsForUserRequest &request);
 
       /**
-       * @summary Queries a list of authorization resource information.
+       * @summary Lists authorized resource information.
        *
-       * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+       * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
        *
        * @param request ListAuthorizationResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3708,9 +3712,9 @@ namespace Eiam20211201
       Models::ListAuthorizationResourcesResponse listAuthorizationResourcesWithOptions(const Models::ListAuthorizationResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of authorization resource information.
+       * @summary Lists authorized resource information.
        *
-       * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+       * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
        *
        * @param request ListAuthorizationResourcesRequest
        * @return ListAuthorizationResourcesResponse
@@ -3837,7 +3841,7 @@ namespace Eiam20211201
       Models::ListClientPublicKeysResponse listClientPublicKeys(const Models::ListClientPublicKeysRequest &request);
 
       /**
-       * @summary Queries the information about one or more cloud roles by using paging.
+       * @summary Queries information about one or more cloud roles by using paging.
        *
        * @param request ListCloudAccountRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3846,7 +3850,7 @@ namespace Eiam20211201
       Models::ListCloudAccountRolesResponse listCloudAccountRolesWithOptions(const Models::ListCloudAccountRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about one or more cloud roles by using paging.
+       * @summary Queries information about one or more cloud roles by using paging.
        *
        * @param request ListCloudAccountRolesRequest
        * @return ListCloudAccountRolesResponse
@@ -3854,7 +3858,7 @@ namespace Eiam20211201
       Models::ListCloudAccountRolesResponse listCloudAccountRoles(const Models::ListCloudAccountRolesRequest &request);
 
       /**
-       * @summary Queries one or more cloud accounts by using paging.
+       * @summary Queries information about one or more cloud accounts by using paging.
        *
        * @param request ListCloudAccountsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3863,7 +3867,7 @@ namespace Eiam20211201
       Models::ListCloudAccountsResponse listCloudAccountsWithOptions(const Models::ListCloudAccountsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries one or more cloud accounts by using paging.
+       * @summary Queries information about one or more cloud accounts by using paging.
        *
        * @param request ListCloudAccountsRequest
        * @return ListCloudAccountsResponse
@@ -5055,9 +5059,9 @@ namespace Eiam20211201
       Models::SetApplicationResourceServerIdentifierResponse setApplicationResourceServerIdentifier(const Models::SetApplicationResourceServerIdentifierRequest &request);
 
       /**
-       * @summary Sets the single sign-on (SSO) configuration properties for an EIAM application.
+       * @summary Sets the single sign-on (SSO) configuration properties of an EIAM application.
        *
-       * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the application.
+       * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
        *
        * @param request SetApplicationSsoConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5066,9 +5070,9 @@ namespace Eiam20211201
       Models::SetApplicationSsoConfigResponse setApplicationSsoConfigWithOptions(const Models::SetApplicationSsoConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sets the single sign-on (SSO) configuration properties for an EIAM application.
+       * @summary Sets the single sign-on (SSO) configuration properties of an EIAM application.
        *
-       * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the application.
+       * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
        *
        * @param request SetApplicationSsoConfigRequest
        * @return SetApplicationSsoConfigResponse
@@ -5450,7 +5454,7 @@ namespace Eiam20211201
       Models::UpdateApplicationDescriptionResponse updateApplicationDescription(const Models::UpdateApplicationDescriptionRequest &request);
 
       /**
-       * @summary Updates a federated credential for an application.
+       * @summary Updates an application federated identity credential.
        *
        * @param request UpdateApplicationFederatedCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5459,7 +5463,7 @@ namespace Eiam20211201
       Models::UpdateApplicationFederatedCredentialResponse updateApplicationFederatedCredentialWithOptions(const Models::UpdateApplicationFederatedCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a federated credential for an application.
+       * @summary Updates an application federated identity credential.
        *
        * @param request UpdateApplicationFederatedCredentialRequest
        * @return UpdateApplicationFederatedCredentialResponse

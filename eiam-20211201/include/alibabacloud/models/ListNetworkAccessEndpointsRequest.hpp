@@ -98,16 +98,16 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries per page for a paged query. Maximum value: 100.
+    // The number of rows per page in a paged query. Maximum value: 100.
     shared_ptr<int64_t> maxResults_ {};
     // The status of the network access endpoint. Valid values:
     //  
-    // - pending: Pending initialization.
-    // - creating: Being created.
-    // - running: Running.
-    // - deleting: Being deleted.
+    // - pending: pending initialization.
+    // - creating: being created.
+    // - running: running.
+    // - deleting: being deleted.
     // 
-    // This parameter does not take effect when NetworkAccessEndpointType is set to shared.
+    // This filter parameter does not take effect when NetworkAccessEndpointType is set to shared.
     shared_ptr<string> networkAccessEndpointStatus_ {};
     // The type of the network access endpoint. Valid values:
     // 

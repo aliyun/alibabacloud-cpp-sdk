@@ -208,24 +208,24 @@ namespace Models
 
 
     protected:
-      // The resource entity ID associated with the authorization resource.
+      // The ID of the resource entity associated with the authorized resource.
       shared_ptr<string> authorizationResourceEntityId_ {};
-      // The resource entity type associated with the authorization resource. Valid values:
-      // - cloud_account_role: cloud role
+      // The type of the resource entity associated with the authorized resource. Valid values:
+      // - cloud_account_role: cloud role.
       shared_ptr<string> authorizationResourceEntityType_ {};
       // The authorization resource ID.
       shared_ptr<string> authorizationResourceId_ {};
       // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
-      // The cloud account ID to which the resource entity associated with the authorization resource belongs.
+      // The ID of the cloud account to which the resource entity associated with the authorized resource belongs.
       shared_ptr<string> cloudAccountId_ {};
       // The effective condition.
       shared_ptr<AuthorizationResources::Condition> condition_ {};
-      // The creation time.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The update time.
+      // The update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -269,15 +269,15 @@ namespace Models
 
 
   protected:
-    // The list of authorization resources.
+    // The list of authorized resources.
     shared_ptr<vector<ListAuthorizationResourcesResponseBody::AuthorizationResources>> authorizationResources_ {};
     // The number of rows per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned by this call, used for the next page query.
+    // The pagination token returned in this call, which is used for the next paged query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries in the list.
+    // The total number of entries returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

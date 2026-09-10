@@ -71,9 +71,12 @@ namespace Models
           DARABONBA_PTR_TO_JSON(NameIdFormat, nameIdFormat_);
           DARABONBA_PTR_TO_JSON(NameIdValueExpression, nameIdValueExpression_);
           DARABONBA_PTR_TO_JSON(OptionalRelayStates, optionalRelayStates_);
+          DARABONBA_PTR_TO_JSON(RequireAuthnRequestSigned, requireAuthnRequestSigned_);
           DARABONBA_PTR_TO_JSON(ResponseSigned, responseSigned_);
           DARABONBA_PTR_TO_JSON(SignatureAlgorithm, signatureAlgorithm_);
           DARABONBA_PTR_TO_JSON(SpEntityId, spEntityId_);
+          DARABONBA_PTR_TO_JSON(SpSigningCertificates, spSigningCertificates_);
+          DARABONBA_PTR_TO_JSON(SpSloResponseUrl, spSloResponseUrl_);
           DARABONBA_PTR_TO_JSON(SpSsoAcsUrl, spSsoAcsUrl_);
         };
         friend void from_json(const Darabonba::Json& j, SamlSsoConfig& obj) { 
@@ -84,9 +87,12 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(NameIdFormat, nameIdFormat_);
           DARABONBA_PTR_FROM_JSON(NameIdValueExpression, nameIdValueExpression_);
           DARABONBA_PTR_FROM_JSON(OptionalRelayStates, optionalRelayStates_);
+          DARABONBA_PTR_FROM_JSON(RequireAuthnRequestSigned, requireAuthnRequestSigned_);
           DARABONBA_PTR_FROM_JSON(ResponseSigned, responseSigned_);
           DARABONBA_PTR_FROM_JSON(SignatureAlgorithm, signatureAlgorithm_);
           DARABONBA_PTR_FROM_JSON(SpEntityId, spEntityId_);
+          DARABONBA_PTR_FROM_JSON(SpSigningCertificates, spSigningCertificates_);
+          DARABONBA_PTR_FROM_JSON(SpSloResponseUrl, spSloResponseUrl_);
           DARABONBA_PTR_FROM_JSON(SpSsoAcsUrl, spSsoAcsUrl_);
         };
         SamlSsoConfig() = default ;
@@ -140,7 +146,7 @@ namespace Models
         protected:
           // The display name of the RelayState.
           shared_ptr<string> displayName_ {};
-          // The optional RelayState value. The display names of multiple redirect URLs are shown on the application card in the application portal. After a user clicks a URL and completes the SSO, the user is redirected to the URL.
+          // The optional RelayState value. In the application portal, the application card displays multiple optional redirect addresses with display names. After a user clicks an address and completes SSO, the user is automatically redirected to the corresponding address.
           shared_ptr<string> relayState_ {};
         };
 
@@ -182,15 +188,16 @@ namespace Models
 
 
         protected:
-          // The name of the attribute in the SAML assertion.
+          // The Name of the attribute in the SAML assertion.
           shared_ptr<string> attributeName_ {};
-          // The expression used to generate the value of the attribute in the SAML assertion.
+          // The attribute value expression in the SAML assertion.
           shared_ptr<string> attributeValueExpression_ {};
         };
 
         virtual bool empty() const override { return this->assertionSigned_ == nullptr
         && this->attributeStatements_ == nullptr && this->defaultRelayState_ == nullptr && this->idPEntityId_ == nullptr && this->nameIdFormat_ == nullptr && this->nameIdValueExpression_ == nullptr
-        && this->optionalRelayStates_ == nullptr && this->responseSigned_ == nullptr && this->signatureAlgorithm_ == nullptr && this->spEntityId_ == nullptr && this->spSsoAcsUrl_ == nullptr; };
+        && this->optionalRelayStates_ == nullptr && this->requireAuthnRequestSigned_ == nullptr && this->responseSigned_ == nullptr && this->signatureAlgorithm_ == nullptr && this->spEntityId_ == nullptr
+        && this->spSigningCertificates_ == nullptr && this->spSloResponseUrl_ == nullptr && this->spSsoAcsUrl_ == nullptr; };
         // assertionSigned Field Functions 
         bool hasAssertionSigned() const { return this->assertionSigned_ != nullptr;};
         void deleteAssertionSigned() { this->assertionSigned_ = nullptr;};
@@ -244,6 +251,13 @@ namespace Models
         inline SamlSsoConfig& setOptionalRelayStates(vector<SamlSsoConfig::OptionalRelayStates> && optionalRelayStates) { DARABONBA_PTR_SET_RVALUE(optionalRelayStates_, optionalRelayStates) };
 
 
+        // requireAuthnRequestSigned Field Functions 
+        bool hasRequireAuthnRequestSigned() const { return this->requireAuthnRequestSigned_ != nullptr;};
+        void deleteRequireAuthnRequestSigned() { this->requireAuthnRequestSigned_ = nullptr;};
+        inline bool getRequireAuthnRequestSigned() const { DARABONBA_PTR_GET_DEFAULT(requireAuthnRequestSigned_, false) };
+        inline SamlSsoConfig& setRequireAuthnRequestSigned(bool requireAuthnRequestSigned) { DARABONBA_PTR_SET_VALUE(requireAuthnRequestSigned_, requireAuthnRequestSigned) };
+
+
         // responseSigned Field Functions 
         bool hasResponseSigned() const { return this->responseSigned_ != nullptr;};
         void deleteResponseSigned() { this->responseSigned_ = nullptr;};
@@ -265,6 +279,22 @@ namespace Models
         inline SamlSsoConfig& setSpEntityId(string spEntityId) { DARABONBA_PTR_SET_VALUE(spEntityId_, spEntityId) };
 
 
+        // spSigningCertificates Field Functions 
+        bool hasSpSigningCertificates() const { return this->spSigningCertificates_ != nullptr;};
+        void deleteSpSigningCertificates() { this->spSigningCertificates_ = nullptr;};
+        inline const vector<string> & getSpSigningCertificates() const { DARABONBA_PTR_GET_CONST(spSigningCertificates_, vector<string>) };
+        inline vector<string> getSpSigningCertificates() { DARABONBA_PTR_GET(spSigningCertificates_, vector<string>) };
+        inline SamlSsoConfig& setSpSigningCertificates(const vector<string> & spSigningCertificates) { DARABONBA_PTR_SET_VALUE(spSigningCertificates_, spSigningCertificates) };
+        inline SamlSsoConfig& setSpSigningCertificates(vector<string> && spSigningCertificates) { DARABONBA_PTR_SET_RVALUE(spSigningCertificates_, spSigningCertificates) };
+
+
+        // spSloResponseUrl Field Functions 
+        bool hasSpSloResponseUrl() const { return this->spSloResponseUrl_ != nullptr;};
+        void deleteSpSloResponseUrl() { this->spSloResponseUrl_ = nullptr;};
+        inline string getSpSloResponseUrl() const { DARABONBA_PTR_GET_DEFAULT(spSloResponseUrl_, "") };
+        inline SamlSsoConfig& setSpSloResponseUrl(string spSloResponseUrl) { DARABONBA_PTR_SET_VALUE(spSloResponseUrl_, spSloResponseUrl) };
+
+
         // spSsoAcsUrl Field Functions 
         bool hasSpSsoAcsUrl() const { return this->spSsoAcsUrl_ != nullptr;};
         void deleteSpSsoAcsUrl() { this->spSsoAcsUrl_ = nullptr;};
@@ -273,43 +303,41 @@ namespace Models
 
 
       protected:
-        // Indicates whether the assertion needs to be signed. ResponseSigned and AssertionSigned cannot both be false.
-        // 
-        // - true: The assertion must be signed.
-        // 
-        // - false: The assertion does not need to be signed.
+        // Specifies whether the assertion needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false.
+        // - true: Signed.
+        // - false: Not signed.
         shared_ptr<bool> assertionSigned_ {};
-        // The configuration of additional user attributes in the SAML assertion.
+        // The additional user attribute configuration included in the SAML assertion.
         shared_ptr<vector<SamlSsoConfig::AttributeStatements>> attributeStatements_ {};
-        // The default value of RelayState. If the SSO is initiated by EIAM, the RelayState in the SAML response is set to this value.
+        // The default RelayState value. When the single sign-on (SSO) request is initiated by EIAM, the SAML Response provided by EIAM specifies the RelayState as this value. This applies when the user logon request is initiated by EIAM.
         shared_ptr<string> defaultRelayState_ {};
-        // The EntityID of the identity provider (IdP) in the SAML protocol.
+        // The Entity ID that represents the IdP identity in the SAML protocol.
         shared_ptr<string> idPEntityId_ {};
-        // The format of the NameID in the SAML protocol. Valid values:
-        // 
+        // The NameID format defined by the SAML protocol standard. Valid values:
         // - urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified: Unspecified. The application determines how to parse the NameID.
-        // 
         // - urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress: Email address format.
-        // 
         // - urn:oasis:names:tc:SAML:2.0:nameid-format:persistent: Persistent NameID.
-        // 
         // - urn:oasis:names:tc:SAML:2.0:nameid-format:transient: Transient NameID.
         shared_ptr<string> nameIdFormat_ {};
-        // The expression used to generate the value of the NameID in the SAML assertion.
+        // The expression used to generate the actual NameID value in the SAML protocol.
         shared_ptr<string> nameIdValueExpression_ {};
-        // The optional RelayState values. The display names of multiple redirect URLs are shown on the application card in the application portal. After a user clicks a URL and completes the SSO, the user is redirected to the URL. You must specify a default redirect URL before you can specify optional RelayState values.
+        // The optional RelayState values. In the application portal, the application card displays multiple optional redirect addresses with display names. After a user clicks an address and completes SSO, the user is automatically redirected to the corresponding address. You can specify optional redirect addresses only after you specify a default redirect address.
         shared_ptr<vector<SamlSsoConfig::OptionalRelayStates>> optionalRelayStates_ {};
-        // Indicates whether the response needs to be signed. ResponseSigned and AssertionSigned cannot both be false.
-        // 
-        // - true: The response must be signed.
-        // 
-        // - false: The response does not need to be signed.
+        // Indicates whether SSO AuthnRequest signature verification is enabled.
+        shared_ptr<bool> requireAuthnRequestSigned_ {};
+        // Indicates whether the Response needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false. Valid values:
+        // - true: Signing is required.
+        // - false: Signing is not required.
         shared_ptr<bool> responseSigned_ {};
         // The signature algorithm for the SAML assertion.
         shared_ptr<string> signatureAlgorithm_ {};
-        // The SAML EntityID of the application (service provider).
+        // The SAML EntityId of the application (SP).
         shared_ptr<string> spEntityId_ {};
-        // The SAML assertion consumer service (ACS) URL of the application (service provider).
+        // The configured SP signing verification certificates in PEM format. A maximum of two certificates are returned for the console or API caller to read and display.
+        shared_ptr<vector<string>> spSigningCertificates_ {};
+        // The configured SP SLO response URL.
+        shared_ptr<string> spSloResponseUrl_ {};
+        // The SAML Assertion Consumer Service (ACS) URL of the application (SP).
         shared_ptr<string> spSsoAcsUrl_ {};
       };
 
@@ -325,6 +353,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(OidcJwksEndpoint, oidcJwksEndpoint_);
           DARABONBA_PTR_TO_JSON(OidcLogoutEndpoint, oidcLogoutEndpoint_);
           DARABONBA_PTR_TO_JSON(SamlMetaEndpoint, samlMetaEndpoint_);
+          DARABONBA_PTR_TO_JSON(SamlSloEndpoint, samlSloEndpoint_);
           DARABONBA_PTR_TO_JSON(SamlSsoEndpoint, samlSsoEndpoint_);
         };
         friend void from_json(const Darabonba::Json& j, ProtocolEndpointDomain& obj) { 
@@ -337,6 +366,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(OidcJwksEndpoint, oidcJwksEndpoint_);
           DARABONBA_PTR_FROM_JSON(OidcLogoutEndpoint, oidcLogoutEndpoint_);
           DARABONBA_PTR_FROM_JSON(SamlMetaEndpoint, samlMetaEndpoint_);
+          DARABONBA_PTR_FROM_JSON(SamlSloEndpoint, samlSloEndpoint_);
           DARABONBA_PTR_FROM_JSON(SamlSsoEndpoint, samlSsoEndpoint_);
         };
         ProtocolEndpointDomain() = default ;
@@ -352,7 +382,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->oauth2AuthorizationEndpoint_ == nullptr
         && this->oauth2DeviceAuthorizationEndpoint_ == nullptr && this->oauth2RevokeEndpoint_ == nullptr && this->oauth2TokenEndpoint_ == nullptr && this->oauth2UserinfoEndpoint_ == nullptr && this->oidcIssuer_ == nullptr
-        && this->oidcJwksEndpoint_ == nullptr && this->oidcLogoutEndpoint_ == nullptr && this->samlMetaEndpoint_ == nullptr && this->samlSsoEndpoint_ == nullptr; };
+        && this->oidcJwksEndpoint_ == nullptr && this->oidcLogoutEndpoint_ == nullptr && this->samlMetaEndpoint_ == nullptr && this->samlSloEndpoint_ == nullptr && this->samlSsoEndpoint_ == nullptr; };
         // oauth2AuthorizationEndpoint Field Functions 
         bool hasOauth2AuthorizationEndpoint() const { return this->oauth2AuthorizationEndpoint_ != nullptr;};
         void deleteOauth2AuthorizationEndpoint() { this->oauth2AuthorizationEndpoint_ = nullptr;};
@@ -416,6 +446,13 @@ namespace Models
         inline ProtocolEndpointDomain& setSamlMetaEndpoint(string samlMetaEndpoint) { DARABONBA_PTR_SET_VALUE(samlMetaEndpoint_, samlMetaEndpoint) };
 
 
+        // samlSloEndpoint Field Functions 
+        bool hasSamlSloEndpoint() const { return this->samlSloEndpoint_ != nullptr;};
+        void deleteSamlSloEndpoint() { this->samlSloEndpoint_ = nullptr;};
+        inline string getSamlSloEndpoint() const { DARABONBA_PTR_GET_DEFAULT(samlSloEndpoint_, "") };
+        inline ProtocolEndpointDomain& setSamlSloEndpoint(string samlSloEndpoint) { DARABONBA_PTR_SET_VALUE(samlSloEndpoint_, samlSloEndpoint) };
+
+
         // samlSsoEndpoint Field Functions 
         bool hasSamlSsoEndpoint() const { return this->samlSsoEndpoint_ != nullptr;};
         void deleteSamlSsoEndpoint() { this->samlSsoEndpoint_ = nullptr;};
@@ -424,25 +461,27 @@ namespace Models
 
 
       protected:
-        // The OAuth 2.0 authorization endpoint. This parameter is returned only when the application uses OIDC for SSO.
+        // The OAuth 2.0 authorization endpoint. This parameter is returned only when the application SSO protocol is OIDC.
         shared_ptr<string> oauth2AuthorizationEndpoint_ {};
-        // The OAuth 2.0 device authorization endpoint. This parameter is returned only when the application uses OIDC for SSO.
+        // The OAuth 2.0 device authorization endpoint. This parameter is returned only when the application SSO protocol is OIDC.
         shared_ptr<string> oauth2DeviceAuthorizationEndpoint_ {};
-        // The OAuth 2.0 token revocation endpoint. This parameter is returned only when the application uses OIDC for SSO.
+        // The OAuth 2.0 token revocation endpoint. This parameter is returned only when the application SSO protocol is OIDC.
         shared_ptr<string> oauth2RevokeEndpoint_ {};
-        // The OAuth 2.0 token endpoint. This parameter is returned only when the application uses OIDC for SSO.
+        // The OAuth 2.0 token endpoint. This parameter is returned only when the application SSO protocol is OIDC.
         shared_ptr<string> oauth2TokenEndpoint_ {};
-        // The OIDC userinfo endpoint. This parameter is returned only when the application uses OIDC for SSO.
+        // The OIDC user information endpoint. This parameter is returned only when the application SSO protocol is OIDC.
         shared_ptr<string> oauth2UserinfoEndpoint_ {};
-        // The OIDC issuer. This parameter is returned only when the application uses OIDC for SSO.
+        // The OIDC issuer information. This parameter is returned only when the application SSO protocol is OIDC.
         shared_ptr<string> oidcIssuer_ {};
-        // The JSON Web Key Set (JWKS) endpoint for OIDC. This parameter is returned only when the application uses OIDC for SSO.
+        // The OIDC JWKS endpoint. This parameter is returned only when the application SSO protocol is OIDC.
         shared_ptr<string> oidcJwksEndpoint_ {};
-        // The OIDC Relying Party (RP)-initiated logout endpoint. This parameter is returned only when the application uses OIDC for SSO.
+        // The OIDC RP-initiated logout endpoint. This parameter is returned only when the application SSO protocol is OIDC.
         shared_ptr<string> oidcLogoutEndpoint_ {};
-        // The metadata endpoint for the SAML protocol. This parameter is returned only when the application uses SAML 2.0 for SSO.
+        // The SAML protocol metadata endpoint URL. This parameter is returned only when the application SSO protocol is SAML 2.0.
         shared_ptr<string> samlMetaEndpoint_ {};
-        // The endpoint that receives AuthnRequest requests for the SAML protocol. This parameter is returned only when the application uses SAML 2.0 for SSO.
+        // The SAML single logout URL (SLO URL) on the IdP side. The SP redirects the user to this URL to initiate single logout.
+        shared_ptr<string> samlSloEndpoint_ {};
+        // The SAML protocol AuthnRequest receiving endpoint. This parameter is returned only when the application SSO protocol is SAML 2.0.
         shared_ptr<string> samlSsoEndpoint_ {};
       };
 
@@ -533,9 +572,9 @@ namespace Models
 
 
         protected:
-          // The name of the claim.
+          // The name of the returned claim.
           shared_ptr<string> claimName_ {};
-          // The expression used to generate the value of the claim.
+          // The value expression of the returned claim.
           shared_ptr<string> claimValueExpression_ {};
         };
 
@@ -670,37 +709,37 @@ namespace Models
 
 
       protected:
-        // The validity period of the access token. Unit: seconds. Default value: 1200 (20 minutes).
+        // The validity period of the issued access token. Unit: seconds. Default value: 1200 (20 minutes).
         shared_ptr<int64_t> accessTokenEffectiveTime_ {};
-        // Indicates whether the application is allowed to make requests to the IDaaS EIAM authorization server as a public client. This feature is supported only for the authorization code and device code grant types. Default value: false.
+        // Specifies whether the application is allowed to request the IDaaS EIAM authorization server as a public client. This parameter can be enabled only in authorization code mode and device mode. Default value: false.
         shared_ptr<string> allowedPublicClient_ {};
-        // The validity period of the authorization code. Unit: seconds. Default value: 60 (1 minute).
+        // The validity period of the issued code. Unit: seconds. Default value: 60 (1 minute).
         shared_ptr<int64_t> codeEffectiveTime_ {};
-        // The custom claims that are returned in the ID token.
+        // The custom user information included in the ID token response.
         shared_ptr<vector<OidcSsoConfig::CustomClaims>> customClaims_ {};
-        // The OIDC-compliant scope parameter. This parameter specifies the scope of user attributes that can be returned by the userinfo endpoint or included in the ID token.
+        // The OIDC standard parameter scope, which specifies the range of user attributes that can be returned by the userinfo endpoint or ID token.
         shared_ptr<vector<string>> grantScopes_ {};
-        // The list of OIDC grant types that are supported.
+        // The list of supported OIDC protocol grant types.
         shared_ptr<vector<string>> grantTypes_ {};
-        // The validity period of the ID token. Unit: seconds. Default value: 300 (5 minutes).
+        // The validity period of the issued ID token. Unit: seconds. Default value: 300 (5 minutes).
         shared_ptr<int64_t> idTokenEffectiveTime_ {};
-        // The ID of the authentication source for password-based logon. This parameter is valid only if GrantTypes for the OIDC application is set to password.
+        // The ID of the identity authentication source used in password mode. This parameter takes effect only when the GrantTypes specified for the OIDC protocol application include the password mode.
         shared_ptr<string> passwordAuthenticationSourceId_ {};
-        // Indicates whether Time-based One-Time Password (TOTP) multi-factor authentication (MFA) is required for password-based logon. This parameter is valid only if GrantTypes for the OIDC application is set to password.
+        // Specifies whether TOTP-based secondary authentication is required in password mode. This parameter takes effect only when the GrantTypes specified for the OIDC protocol application include the password mode.
         shared_ptr<bool> passwordTotpMfaRequired_ {};
-        // The algorithm used to calculate the code challenge in PKCE.
+        // The algorithm used to calculate the Code Challenge in PKCE.
         shared_ptr<vector<string>> pkceChallengeMethods_ {};
-        // Indicates whether Proof Key for Code Exchange (PKCE) is required for the application SSO. For more information, see RFC 7636.
+        // Specifies whether the application SSO requires PKCE (RFC 7636).
         shared_ptr<bool> pkceRequired_ {};
-        // The list of post-logout redirect URIs.
+        // The list of logout callback addresses supported by the application.
         shared_ptr<vector<string>> postLogoutRedirectUris_ {};
-        // The list of redirect URIs that the application supports.
+        // The list of redirect URIs supported by the application.
         shared_ptr<vector<string>> redirectUris_ {};
-        // The validity period of the refresh token. Unit: seconds. Default value: 86400 (1 day).
+        // The validity period of the issued refresh token. Unit: seconds. Default value: 86400 (1 day).
         shared_ptr<int64_t> refreshTokenEffective_ {};
-        // The response type that the application supports. This parameter is returned only if OidcSsoConfig.GrantTypes is set to implicit.
+        // The response types supported by the application when OidcSsoConfig.GrantTypes includes the implicit mode.
         shared_ptr<vector<string>> responseTypes_ {};
-        // The expression used to generate the value of the sub claim in the ID token.
+        // The custom expression for the sub value returned in the ID token.
         shared_ptr<string> subjectIdExpression_ {};
       };
 
@@ -755,24 +794,20 @@ namespace Models
 
 
     protected:
-      // The SSO initiation method. Valid values:
-      // 
-      // - only_app_init_sso: SSO is initiated only by the application. This is the default value for OIDC applications. If this method is used for a SAML application, you must specify InitLoginUrl.
-      // 
-      // - idaas_or_app_init_sso: SSO can be initiated by the IDaaS console or the application. This is the default value for SAML applications. If this method is used for an OIDC application, you must specify InitLoginUrl.
+      // The initialization single sign-on (SSO) method. Valid values:
+      // - only_app_init_sso: Only application-initiated SSO. This is the default value for OIDC protocol applications. When a SAML application specifies this method, InitLoginUrl must be specified.
+      // - idaas_or_app_init_sso: IDaaS portal-initiated or application-initiated SSO. This is the default value for SAML protocol applications. When an OIDC application specifies this method, InitLoginUrl must be specified.
       shared_ptr<string> initLoginType_ {};
-      // The URL that triggers SSO. This parameter is required when InitLoginType for an OIDC application is set to idaas_or_app_init_sso. This parameter is also required when InitLoginType for a SAML application is set to only_app_init_sso.
+      // The initialization single sign-on (SSO) trigger URL. This parameter is required when the InitLoginType of an OIDC protocol application is set to idaas_or_app_init_sso, or when the InitLoginType of a SAML protocol application is set to only_app_init_sso.
       shared_ptr<string> initLoginUrl_ {};
-      // The SSO configuration parameters for the application that uses OpenID Connect (OIDC). This parameter is returned only when the application uses OIDC for SSO.
+      // The SSO configuration parameters for OIDC protocol applications. This parameter is returned only when the application SSO protocol is OIDC.
       shared_ptr<ApplicationSsoConfig::OidcSsoConfig> oidcSsoConfig_ {};
-      // The configuration of the metadata endpoint provided by the application.
+      // The metadata endpoint configuration provided by the application.
       shared_ptr<ApplicationSsoConfig::ProtocolEndpointDomain> protocolEndpointDomain_ {};
-      // The SSO configuration parameters for the application that uses Security Assertion Markup Language (SAML) 2.0. This parameter is returned only when the application uses SAML 2.0 for SSO.
+      // The SSO configuration parameters for SAML protocol applications. This parameter is returned only when the application SSO protocol is SAML 2.0.
       shared_ptr<ApplicationSsoConfig::SamlSsoConfig> samlSsoConfig_ {};
-      // The status of the SSO feature for the application. Valid values:
-      // 
+      // The SSO status of the application. Valid values:
       // - enabled: Enabled.
-      // 
       // - disabled: Disabled.
       shared_ptr<string> ssoStatus_ {};
     };
@@ -796,7 +831,7 @@ namespace Models
 
 
   protected:
-    // The SSO configuration of the application.
+    // The single sign-on (SSO) configuration information of the application.
     shared_ptr<GetApplicationSsoConfigResponseBody::ApplicationSsoConfig> applicationSsoConfig_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

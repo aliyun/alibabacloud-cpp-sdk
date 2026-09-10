@@ -79,7 +79,7 @@ namespace Models
       // The name of the filter field. Valid values:
       // 
       // - AuthorizationRuleId: the authorization rule ID.
-      // - AuthorizationRuleNameStartWith: the prefix of the authorization rule name for fuzzy match.
+      // - AuthorizationRuleNameStartWith: the left-match value of the authorization rule name.
       shared_ptr<string> name_ {};
       // The values of the filter field.
       shared_ptr<vector<string>> value_ {};
@@ -130,7 +130,7 @@ namespace Models
     // 
     // - The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the starting position of the next page.
+    // The token that identifies the start position of the next page.
     // 
     // - If this parameter is not specified, the query starts from the first page.
     shared_ptr<string> nextToken_ {};

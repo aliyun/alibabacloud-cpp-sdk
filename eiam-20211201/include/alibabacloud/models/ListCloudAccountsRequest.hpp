@@ -125,7 +125,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The maximum number of entries per page.
+    // The maximum number of records per page.
     // 
     // - If this parameter is not specified, the default value is 20.
     // 

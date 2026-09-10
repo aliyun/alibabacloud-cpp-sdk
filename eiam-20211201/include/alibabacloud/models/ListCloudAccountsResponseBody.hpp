@@ -125,9 +125,9 @@ namespace Models
 
 
       protected:
-        // The failure error code.
+        // The error code.
         shared_ptr<string> errorCode_ {};
-        // The failure message.
+        // The error message.
         shared_ptr<string> errorMessage_ {};
       };
 
@@ -226,7 +226,7 @@ namespace Models
       protected:
         // The error reason. This field is returned when the health check status is unhealthy.
         shared_ptr<CloudAccountHealthCheckResult::ErrorReason> errorReason_ {};
-        // The last check time, in UNIX timestamp format. Unit: milliseconds.
+        // The last check time, in UNIX timestamp format, measured in milliseconds.
         shared_ptr<int64_t> lastCheckTime_ {};
         // The health check result of the cloud account. Valid values:
         // - success: Succeeded.
@@ -372,27 +372,37 @@ namespace Models
       shared_ptr<string> cloudAccountName_ {};
       // The identity provider name.
       shared_ptr<string> cloudAccountProviderName_ {};
-      // The cloud account site.
+      // The cloud account site. Valid values:
+      // - china_mainland: The Chinese mainland.
+      // - global: Global.
       shared_ptr<string> cloudAccountSite_ {};
       // The cloud account type. Valid values:
       // 
       // - alibaba_cloud: Alibaba Cloud.
       shared_ptr<string> cloudAccountVendorType_ {};
-      // The creation time, in UNIX timestamp format. Unit: milliseconds.
+      // The creation time, in UNIX timestamp format, measured in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The cloud account description.
       shared_ptr<string> description_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The list of associated privileged access application IDs.
+      // The list of associated privilege application IDs.
       shared_ptr<vector<string>> privilegeApplicationIds_ {};
       // The reason for the privilege hosting or removal failure.
       shared_ptr<CloudAccounts::PrivilegeHostingError> privilegeHostingError_ {};
-      // The privilege hosting state, which indicates whether the account has privileged access capabilities.
+      // The hosting state of the cloud account. The default value is unmanaged. Valid values:
+      // - hosting_unmanaged: Unmanaged. The cloud account has not initiated hosting and is in the initial state.
+      // - hosting_pending: Hosting in progress. The hosting task has been submitted and is being executed asynchronously. Wait for the hosting process to complete before the final state is reached.
+      // - hosting_completed: Hosting completed. The cloud account hosting process was executed successfully, and the related permission templates and hosting bindings have taken effect.
+      // - hosting_failed: Hosting failed. The hosting process encountered an exception. View the failure reason and re-initiate hosting.
+      // - hosting_removing: Removal in progress. The removal task has been submitted and is being executed asynchronously. Wait for the removal process to complete before the final state is reached.
+      // - hosting_remove_failed: Removal failed. The removal process encountered an exception. View the failure reason and re-initiate removal.
       shared_ptr<string> privilegeHostingState_ {};
-      // The privilege switch status, which indicates whether the privileged access capability is available.
+      // The privilege switch status. Valid values:
+      // - enabled: Enabled. The resource is active and can be used normally.
+      // - disabled: Disabled. The resource is deactivated and no longer takes effect. You can re-enable it to restore functionality.
       shared_ptr<string> privilegeStatus_ {};
-      // The last update time, in UNIX timestamp format. Unit: milliseconds.
+      // The last update time, in UNIX timestamp format, measured in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -438,9 +448,9 @@ namespace Models
   protected:
     // The list of cloud accounts.
     shared_ptr<vector<ListCloudAccountsResponseBody::CloudAccounts>> cloudAccounts_ {};
-    // The maximum number of entries per page for paging.
+    // The number of rows per page for paging.
     shared_ptr<int32_t> maxResults_ {};
-    // The token returned for the current call.
+    // The token returned for this request.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

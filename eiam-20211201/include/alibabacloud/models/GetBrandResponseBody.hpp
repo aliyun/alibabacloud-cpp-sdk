@@ -38,14 +38,18 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BrandName, brandName_);
         DARABONBA_PTR_TO_JSON(BrandType, brandType_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_TO_JSON(SmsGatewayId, smsGatewayId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(SystemNotificationStatus, systemNotificationStatus_);
       };
       friend void from_json(const Darabonba::Json& j, Brand& obj) { 
         DARABONBA_PTR_FROM_JSON(BrandId, brandId_);
         DARABONBA_PTR_FROM_JSON(BrandName, brandName_);
         DARABONBA_PTR_FROM_JSON(BrandType, brandType_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+        DARABONBA_PTR_FROM_JSON(SmsGatewayId, smsGatewayId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(SystemNotificationStatus, systemNotificationStatus_);
       };
       Brand() = default ;
       Brand(const Brand &) = default ;
@@ -59,7 +63,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->brandId_ == nullptr
-        && this->brandName_ == nullptr && this->brandType_ == nullptr && this->instanceId_ == nullptr && this->status_ == nullptr; };
+        && this->brandName_ == nullptr && this->brandType_ == nullptr && this->instanceId_ == nullptr && this->smsGatewayId_ == nullptr && this->status_ == nullptr
+        && this->systemNotificationStatus_ == nullptr; };
       // brandId Field Functions 
       bool hasBrandId() const { return this->brandId_ != nullptr;};
       void deleteBrandId() { this->brandId_ = nullptr;};
@@ -88,6 +93,13 @@ namespace Models
       inline Brand& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+      // smsGatewayId Field Functions 
+      bool hasSmsGatewayId() const { return this->smsGatewayId_ != nullptr;};
+      void deleteSmsGatewayId() { this->smsGatewayId_ = nullptr;};
+      inline string getSmsGatewayId() const { DARABONBA_PTR_GET_DEFAULT(smsGatewayId_, "") };
+      inline Brand& setSmsGatewayId(string smsGatewayId) { DARABONBA_PTR_SET_VALUE(smsGatewayId_, smsGatewayId) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -95,17 +107,28 @@ namespace Models
       inline Brand& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // systemNotificationStatus Field Functions 
+      bool hasSystemNotificationStatus() const { return this->systemNotificationStatus_ != nullptr;};
+      void deleteSystemNotificationStatus() { this->systemNotificationStatus_ = nullptr;};
+      inline string getSystemNotificationStatus() const { DARABONBA_PTR_GET_DEFAULT(systemNotificationStatus_, "") };
+      inline Brand& setSystemNotificationStatus(string systemNotificationStatus) { DARABONBA_PTR_SET_VALUE(systemNotificationStatus_, systemNotificationStatus) };
+
+
     protected:
-      // Brand ID.
+      // The brand ID.
       shared_ptr<string> brandId_ {};
-      // Brand name.
+      // The brand name.
       shared_ptr<string> brandName_ {};
-      // Brand type.
+      // The brand type.
       shared_ptr<string> brandType_ {};
-      // Instance ID.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Brand status.
+      // The SMS gateway ID.
+      shared_ptr<string> smsGatewayId_ {};
+      // The brand status.
       shared_ptr<string> status_ {};
+      // The enabling status of system notifications.
+      shared_ptr<string> systemNotificationStatus_ {};
     };
 
     virtual bool empty() const override { return this->brand_ == nullptr
@@ -127,9 +150,9 @@ namespace Models
 
 
   protected:
-    // Brand.
+    // The brand.
     shared_ptr<GetBrandResponseBody::Brand> brand_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

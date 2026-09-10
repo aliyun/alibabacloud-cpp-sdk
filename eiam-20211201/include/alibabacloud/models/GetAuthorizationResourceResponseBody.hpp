@@ -214,11 +214,11 @@ namespace Models
       shared_ptr<string> cloudAccountId_ {};
       // The condition restriction.
       shared_ptr<AuthorizationResource::Condition> condition_ {};
-      // The creation time.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The update time.
+      // The update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

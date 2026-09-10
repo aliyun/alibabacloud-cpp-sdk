@@ -111,7 +111,7 @@ namespace Models
 
 
       protected:
-        // The list of allowed instance IDs. A maximum of 10 instance IDs are supported.
+        // The list of allowed instance IDs.
         shared_ptr<vector<string>> instanceIds_ {};
       };
 
@@ -189,11 +189,11 @@ namespace Models
 
 
         protected:
-          // The Kubernetes namespace.
+          // The K8s namespace.
           shared_ptr<string> namespace_ {};
           // The pod name prefix.
           shared_ptr<string> podNamePrefix_ {};
-          // The Kubernetes service account name.
+          // The K8s service account name.
           shared_ptr<string> serviceAccountName_ {};
         };
 
@@ -225,6 +225,7 @@ namespace Models
 
 
         protected:
+          // The subject identifier.
           shared_ptr<string> subject_ {};
         };
 
@@ -277,10 +278,11 @@ namespace Models
 
 
         protected:
-          // The list of VM instance IDs. A maximum of 10 instance IDs are supported.
+          // The list of VM instance IDs.
           shared_ptr<vector<string>> instanceIds_ {};
+          // The GCP project ID.
           shared_ptr<string> projectId_ {};
-          // The service account ID that corresponds to the sub claim.
+          // The subject corresponding to the service account.
           shared_ptr<string> serviceAccountId_ {};
         };
 
@@ -342,9 +344,13 @@ namespace Models
 
 
         protected:
+          // The principal ID.
           shared_ptr<string> principalId_ {};
+          // The Azure resource group name.
           shared_ptr<string> resourceGroupName_ {};
+          // The subscription ID.
           shared_ptr<string> subscriptionId_ {};
+          // The list of virtual machine names.
           shared_ptr<vector<string>> vmNames_ {};
         };
 
@@ -398,10 +404,15 @@ namespace Models
         shared_ptr<OidcVerificationConfig::AzureVmConfig> azureVmConfig_ {};
         // The GCP VM scenario configuration.
         shared_ptr<OidcVerificationConfig::GcpVmConfig> gcpVmConfig_ {};
+        // The generic scenario configuration.
         shared_ptr<OidcVerificationConfig::GenericConfig> genericConfig_ {};
         // The Kubernetes scenario configuration.
         shared_ptr<OidcVerificationConfig::KubernetesConfig> kubernetesConfig_ {};
-        // The OIDC scenario profile. Valid values: generic, kubernetes, gcp_vm, and azure_vm.
+        // The OIDC scenario profile. Different profiles correspond to different configurations. Valid values:
+        // - generic
+        // - kubernetes
+        // - gcp_vm
+        // - azure_vm
         shared_ptr<string> profile_ {};
       };
 
@@ -582,7 +593,7 @@ namespace Models
       shared_ptr<string> applicationId_ {};
       // The attribute mappings.
       shared_ptr<vector<ApplicationFederatedCredential::AttributeMappings>> attributeMappings_ {};
-      // The time when the credential was created.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
       // The application federated credential description.
       shared_ptr<string> description_ {};
@@ -590,19 +601,21 @@ namespace Models
       shared_ptr<string> federatedCredentialProviderId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The time when the credential was last used.
+      // The last used time.
       shared_ptr<int64_t> lastUsedTime_ {};
-      // The OIDC structured configuration. This parameter applies when the verification mode is structured and the credential type is oidc.
+      // The OIDC structured configuration.
       shared_ptr<ApplicationFederatedCredential::OidcVerificationConfig> oidcVerificationConfig_ {};
-      // The PKCS#7 structured configuration. This parameter applies when the verification mode is structured and the credential type is pkcs7.
+      // The PKCS#7 structured configuration.
       shared_ptr<ApplicationFederatedCredential::Pkcs7VerificationConfig> pkcs7VerificationConfig_ {};
       // The application federated credential status.
       shared_ptr<string> status_ {};
-      // The time when the credential was last updated.
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
       // The verification condition.
       shared_ptr<string> verificationCondition_ {};
-      // The verification mode. Valid values: freedom and structured.
+      // The verification mode. Valid values:
+      // - freedom: Free mode.
+      // - structured: Structured mode.
       shared_ptr<string> verificationMode_ {};
     };
 

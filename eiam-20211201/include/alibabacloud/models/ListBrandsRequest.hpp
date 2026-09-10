@@ -74,7 +74,7 @@ namespace Models
     shared_ptr<int64_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The pagination token for the previous page.
+    // The token used to query the previous page.
     shared_ptr<string> previousToken_ {};
   };
 

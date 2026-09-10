@@ -110,6 +110,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const WeComConfig& obj) { 
           DARABONBA_PTR_TO_JSON(AgentId, agentId_);
           DARABONBA_PTR_TO_JSON(AuthorizeCallbackDomain, authorizeCallbackDomain_);
+          DARABONBA_PTR_TO_JSON(ContactSecret, contactSecret_);
           DARABONBA_PTR_TO_JSON(CorpId, corpId_);
           DARABONBA_PTR_TO_JSON(CorpSecret, corpSecret_);
           DARABONBA_PTR_TO_JSON(TrustableDomain, trustableDomain_);
@@ -117,6 +118,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, WeComConfig& obj) { 
           DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
           DARABONBA_PTR_FROM_JSON(AuthorizeCallbackDomain, authorizeCallbackDomain_);
+          DARABONBA_PTR_FROM_JSON(ContactSecret, contactSecret_);
           DARABONBA_PTR_FROM_JSON(CorpId, corpId_);
           DARABONBA_PTR_FROM_JSON(CorpSecret, corpSecret_);
           DARABONBA_PTR_FROM_JSON(TrustableDomain, trustableDomain_);
@@ -133,7 +135,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->authorizeCallbackDomain_ == nullptr && this->corpId_ == nullptr && this->corpSecret_ == nullptr && this->trustableDomain_ == nullptr; };
+        && this->authorizeCallbackDomain_ == nullptr && this->contactSecret_ == nullptr && this->corpId_ == nullptr && this->corpSecret_ == nullptr && this->trustableDomain_ == nullptr; };
         // agentId Field Functions 
         bool hasAgentId() const { return this->agentId_ != nullptr;};
         void deleteAgentId() { this->agentId_ = nullptr;};
@@ -146,6 +148,13 @@ namespace Models
         void deleteAuthorizeCallbackDomain() { this->authorizeCallbackDomain_ = nullptr;};
         inline string getAuthorizeCallbackDomain() const { DARABONBA_PTR_GET_DEFAULT(authorizeCallbackDomain_, "") };
         inline WeComConfig& setAuthorizeCallbackDomain(string authorizeCallbackDomain) { DARABONBA_PTR_SET_VALUE(authorizeCallbackDomain_, authorizeCallbackDomain) };
+
+
+        // contactSecret Field Functions 
+        bool hasContactSecret() const { return this->contactSecret_ != nullptr;};
+        void deleteContactSecret() { this->contactSecret_ = nullptr;};
+        inline string getContactSecret() const { DARABONBA_PTR_GET_DEFAULT(contactSecret_, "") };
+        inline WeComConfig& setContactSecret(string contactSecret) { DARABONBA_PTR_SET_VALUE(contactSecret_, contactSecret) };
 
 
         // corpId Field Functions 
@@ -174,11 +183,13 @@ namespace Models
         shared_ptr<string> agentId_ {};
         // The authorization callback domain.
         shared_ptr<string> authorizeCallbackDomain_ {};
-        // The CorpId of the WeCom self-built application.
+        // The WeCom contacts secret.
+        shared_ptr<string> contactSecret_ {};
+        // The corpId of the WeCom self-built application.
         shared_ptr<string> corpId_ {};
-        // The CorpSecret of the WeCom self-built application.
+        // The corpSecret of the WeCom self-built application.
         shared_ptr<string> corpSecret_ {};
-        // The trusted domain name.
+        // The trusted domain.
         shared_ptr<string> trustableDomain_ {};
       };
 
@@ -243,9 +254,9 @@ namespace Models
 
 
         protected:
-          // The list of synchronization source nodes.
+          // The list of source nodes for synchronization.
           shared_ptr<vector<string>> sourceScopes_ {};
-          // The synchronization target node.
+          // The target node for synchronization.
           shared_ptr<string> targetScope_ {};
         };
 
@@ -270,7 +281,7 @@ namespace Models
       protected:
         // This field is not in use. Ignore it.
         shared_ptr<string> incrementalCallbackStatus_ {};
-        // The list of synchronization scope configurations.
+        // The list of sync scope configurations.
         shared_ptr<vector<UdPushConfig::UdSyncScopeConfigs>> udSyncScopeConfigs_ {};
       };
 
@@ -337,9 +348,9 @@ namespace Models
 
 
         protected:
-          // The list of synchronization source nodes.
+          // The list of source nodes for synchronization.
           shared_ptr<vector<string>> sourceScopes_ {};
-          // The synchronization target node.
+          // The target node for synchronization.
           shared_ptr<string> targetScope_ {};
         };
 
@@ -369,19 +380,19 @@ namespace Models
 
 
       protected:
-        // Specifies whether group synchronization is enabled. Valid values:
+        // Indicates whether group synchronization is enabled. Valid values:
         // 
         // - disabled: Disabled.
         // 
         // - enabled: Enabled.
         shared_ptr<string> groupSyncStatus_ {};
-        // The incremental callback status. Specifies whether to process incremental callback data from the IdP. Valid values:
+        // The incremental callback status, which indicates whether incremental callback data from the IdP is processed. Valid values:
         // 
         // - disabled: Disabled.
         // 
         // - enabled: Enabled.
         shared_ptr<string> incrementalCallbackStatus_ {};
-        // The synchronization scope configuration.
+        // The sync scope configuration.
         shared_ptr<UdPullConfig::UdSyncScopeConfig> udSyncScopeConfig_ {};
       };
 
@@ -477,9 +488,9 @@ namespace Models
 
 
           protected:
-            // The latest validity date of the certificate.
+            // The date after which the certificate is no longer valid.
             shared_ptr<int64_t> notAfter_ {};
-            // The earliest validity date of the certificate.
+            // The date before which the certificate is not valid.
             shared_ptr<int64_t> notBefore_ {};
           };
 
@@ -574,15 +585,17 @@ namespace Models
         shared_ptr<string> bindingMethod_ {};
         // The list of IdP signing certificates.
         shared_ptr<vector<SamlConfig::Certificates>> certificates_ {};
-        // The EntityId of the IdP.
+        // The entity ID of the IdP.
         shared_ptr<string> idPEntityId_ {};
-        // The logon URL of the IdP.
+        // The SSO URL of the IdP.
         shared_ptr<string> idPSsoUrl_ {};
         // The maximum clock skew.
         shared_ptr<int64_t> maxClockSkew_ {};
-        // Specifies whether the request must be signed.
+        // Indicates whether requests are required to be signed.
         shared_ptr<bool> requireRequestSigned_ {};
+        // Indicates whether the external IdP is required to sign assertions.
         shared_ptr<bool> wantAssertionsSigned_ {};
+        // Indicates whether the external IdP is required to sign the Response.
         shared_ptr<bool> wantResponseSigned_ {};
       };
 
@@ -810,9 +823,9 @@ namespace Models
         // 
         // - S256: SHA-256.
         // 
-        // - plain: Plaintext.
+        // - plain: plaintext.
         shared_ptr<string> pkceChallengeMethod_ {};
-        // Specifies whether to use PKCE in the AuthorizationCode grant mode.
+        // Indicates whether PKCE is used in the AuthorizationCode grant mode.
         shared_ptr<bool> pkceRequired_ {};
       };
 
@@ -913,9 +926,9 @@ namespace Models
       protected:
         // The AD/LDAP administrator password.
         shared_ptr<string> administratorPassword_ {};
-        // The AD/LDAP administrator account.
+        // The AD/LDAP administrator username.
         shared_ptr<string> administratorUsername_ {};
-        // Specifies whether to verify the certificate fingerprint. Valid values:
+        // Indicates whether certificate fingerprint verification is enabled. Valid values:
         // 
         // - disabled: Disabled.
         // 
@@ -929,7 +942,7 @@ namespace Models
         shared_ptr<string> ldapServerHost_ {};
         // The AD/LDAP server address.
         shared_ptr<int32_t> ldapServerPort_ {};
-        // Specifies whether StartTLS is enabled. Valid values:
+        // Indicates whether StartTLS is enabled. Valid values:
         // 
         // - disabled: Disabled.
         // 
@@ -1002,15 +1015,15 @@ namespace Models
 
 
       protected:
-        // The AppId of the Lark self-built application.
+        // The CorpId of the Lark custom application.
         shared_ptr<string> appId_ {};
-        // The AppSecret of the Lark self-built application.
+        // The AppSecret of the Lark custom application.
         shared_ptr<string> appSecret_ {};
-        // The EncryptKey of the Lark self-built application.
+        // The EncryptKey of the Lark custom application.
         shared_ptr<string> encryptKey_ {};
         // The Lark enterprise number.
         shared_ptr<string> enterpriseNumber_ {};
-        // The VerificationToken of the Lark self-built application.
+        // The VerificationToken of the Lark custom application.
         shared_ptr<string> verificationToken_ {};
       };
 
@@ -1317,7 +1330,7 @@ namespace Models
         shared_ptr<string> appSecret_ {};
         // The CorpId of the DingTalk first-party application.
         shared_ptr<string> corpId_ {};
-        // The DingTalk QR code logon version.
+        // The DingTalk QR code login version.
         shared_ptr<string> dingtalkLoginVersion_ {};
         // The DingTalk version. Valid values:
         // 
@@ -1555,7 +1568,7 @@ namespace Models
 
 
     protected:
-      // The advanced configuration status. Valid values:
+      // The advanced configuration capability. Valid values:
       // 
       // - disabled: Disabled.
       // 
@@ -1579,13 +1592,13 @@ namespace Models
       // 
       // - urn:alibaba:idaas:idp:alibaba:sase: Alibaba Cloud SASE.
       shared_ptr<string> authnSourceSupplier_ {};
-      // The authentication method type, such as OIDC or SAML. Valid values:
+      // The authentication type, OIDC or SAML. Valid values:
       // 
       // - urn:alibaba:idaas:authntype:oidc: OIDC.
       // 
       // - urn:alibaba:idaas:authntype:saml2: SAML.
       shared_ptr<string> authnSourceType_ {};
-      // Specifies whether the corresponding IdP supports authentication. Valid values:
+      // Indicates whether the corresponding IdP supports authentication. Valid values:
       // 
       // - disabled: Disabled.
       // 
@@ -1597,7 +1610,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The DingTalk basic configuration.
       shared_ptr<IdentityProviderDetail::DingtalkAppConfig> dingtalkAppConfig_ {};
-      // The DingTalk synchronization configuration. This value is returned only for DingTalk identity providers.
+      // The DingTalk provisioning configuration. This value is returned only for the DingTalk type.
       shared_ptr<IdentityProviderDetail::DingtalkProvisioningConfig> dingtalkProvisioningConfig_ {};
       // The endpoint metadata.
       shared_ptr<IdentityProviderDetail::EndpointMetadata> endpointMetadata_ {};
@@ -1631,29 +1644,29 @@ namespace Models
       shared_ptr<IdentityProviderDetail::LarkConfig> larkConfig_ {};
       // The result of the last status check.
       shared_ptr<string> lastStatusCheckJobResult_ {};
-      // The AD/LDAP identity provider configuration.
+      // The AD/LDAP identity provider information.
       shared_ptr<IdentityProviderDetail::LdapConfig> ldapConfig_ {};
       // The lock reason.
       shared_ptr<string> lockReason_ {};
       // The custom logo URL of the identity provider.
       shared_ptr<string> logoUrl_ {};
-      // The network endpoint ID.
+      // The network access endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
       // The OIDC IdP configuration.
       shared_ptr<IdentityProviderDetail::OidcConfig> oidcConfig_ {};
       // The SAML IdP configuration.
       shared_ptr<IdentityProviderDetail::SamlConfig> samlConfig_ {};
-      // The inbound synchronization configuration.
+      // The inbound sync configuration.
       shared_ptr<IdentityProviderDetail::UdPullConfig> udPullConfig_ {};
-      // Specifies whether the inbound synchronization feature is supported. Valid values:
+      // Indicates whether the inbound sync feature is supported. Valid values:
       // 
       // - disabled: Disabled.
       // 
       // - enabled: Enabled.
       shared_ptr<string> udPullStatus_ {};
-      // The outbound synchronization configuration.
+      // The outbound sync configuration.
       shared_ptr<IdentityProviderDetail::UdPushConfig> udPushConfig_ {};
-      // Specifies whether the outbound synchronization feature is enabled. Valid values:
+      // Indicates whether the outbound sync capability is enabled. Valid values:
       // 
       // - disabled: Disabled.
       // 

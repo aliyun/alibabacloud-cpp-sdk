@@ -84,19 +84,21 @@ namespace Models
 
 
   protected:
-    // The secondary module identifier.
+    // The level-2 module identifier.
     shared_ptr<string> featureKey_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The primary module identifier.
+    // The level-1 module identifier.
     // 
     // This parameter is required.
     shared_ptr<string> moduleKey_ {};
+    // The resource label URN key.
     shared_ptr<string> resourceLabelKey_ {};
+    // The resource label name.
     shared_ptr<string> resourceLabelValue_ {};
-    // The tertiary module identifier.
+    // The level-3 module identifier.
     shared_ptr<string> subFeatureKey_ {};
   };
 

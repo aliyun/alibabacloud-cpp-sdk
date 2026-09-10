@@ -191,7 +191,9 @@ namespace Models
       shared_ptr<string> authorizationRuleId_ {};
       // The authorization rule name.
       shared_ptr<string> authorizationRuleName_ {};
-      // The scenario label of the authorization rule.
+      // The scenario label of the authorization rule. Valid values:
+      // - privileged_cloud_account: Privileged cloud account scenario.
+      // - asset: Asset scenario.
       shared_ptr<string> authorizationRuleScenarioLabel_ {};
       // The subject ID associated with the authorization rule.
       shared_ptr<string> authorizationRuleSubjectId_ {};
@@ -203,7 +205,7 @@ namespace Models
       // - application: Application.
       // - user: Account.
       shared_ptr<string> authorizationRuleSubjectType_ {};
-      // The creation time, in UNIX timestamp format, measured in milliseconds.
+      // The creation time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The description of the authorization rule.
       shared_ptr<string> description_ {};
@@ -215,7 +217,7 @@ namespace Models
       // - enabled: Enabled.
       // - disabled: Disabled.
       shared_ptr<string> status_ {};
-      // The last update time, in UNIX timestamp format, measured in milliseconds.
+      // The last update time, in UNIX timestamp format. Unit: milliseconds.
       shared_ptr<int64_t> updateTime_ {};
     };
 

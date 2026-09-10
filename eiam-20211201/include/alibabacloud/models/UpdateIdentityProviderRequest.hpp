@@ -57,12 +57,14 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const WeComConfig& obj) { 
         DARABONBA_PTR_TO_JSON(AgentId, agentId_);
         DARABONBA_PTR_TO_JSON(AuthorizeCallbackDomain, authorizeCallbackDomain_);
+        DARABONBA_PTR_TO_JSON(ContactSecret, contactSecret_);
         DARABONBA_PTR_TO_JSON(CorpSecret, corpSecret_);
         DARABONBA_PTR_TO_JSON(TrustableDomain, trustableDomain_);
       };
       friend void from_json(const Darabonba::Json& j, WeComConfig& obj) { 
         DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
         DARABONBA_PTR_FROM_JSON(AuthorizeCallbackDomain, authorizeCallbackDomain_);
+        DARABONBA_PTR_FROM_JSON(ContactSecret, contactSecret_);
         DARABONBA_PTR_FROM_JSON(CorpSecret, corpSecret_);
         DARABONBA_PTR_FROM_JSON(TrustableDomain, trustableDomain_);
       };
@@ -78,7 +80,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->authorizeCallbackDomain_ == nullptr && this->corpSecret_ == nullptr && this->trustableDomain_ == nullptr; };
+        && this->authorizeCallbackDomain_ == nullptr && this->contactSecret_ == nullptr && this->corpSecret_ == nullptr && this->trustableDomain_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -91,6 +93,13 @@ namespace Models
       void deleteAuthorizeCallbackDomain() { this->authorizeCallbackDomain_ = nullptr;};
       inline string getAuthorizeCallbackDomain() const { DARABONBA_PTR_GET_DEFAULT(authorizeCallbackDomain_, "") };
       inline WeComConfig& setAuthorizeCallbackDomain(string authorizeCallbackDomain) { DARABONBA_PTR_SET_VALUE(authorizeCallbackDomain_, authorizeCallbackDomain) };
+
+
+      // contactSecret Field Functions 
+      bool hasContactSecret() const { return this->contactSecret_ != nullptr;};
+      void deleteContactSecret() { this->contactSecret_ = nullptr;};
+      inline string getContactSecret() const { DARABONBA_PTR_GET_DEFAULT(contactSecret_, "") };
+      inline WeComConfig& setContactSecret(string contactSecret) { DARABONBA_PTR_SET_VALUE(contactSecret_, contactSecret) };
 
 
       // corpSecret Field Functions 
@@ -108,13 +117,14 @@ namespace Models
 
 
     protected:
-      // AgentId of the WeCom self-built application.
+      // The AgentId of the WeCom self-built application.
       shared_ptr<string> agentId_ {};
-      // Authorization callback domain.
+      // The authorization callback domain.
       shared_ptr<string> authorizeCallbackDomain_ {};
-      // CorpSecret of the WeCom self-built application.
+      shared_ptr<string> contactSecret_ {};
+      // The CorpSecret of the WeCom self-built application.
       shared_ptr<string> corpSecret_ {};
-      // Trusted domain.
+      // The trusted domain name.
       shared_ptr<string> trustableDomain_ {};
     };
 
@@ -179,6 +189,7 @@ namespace Models
 
 
       protected:
+        // The certificate content.
         shared_ptr<string> content_ {};
       };
 
@@ -244,13 +255,21 @@ namespace Models
 
 
     protected:
+      // The binding type.
       shared_ptr<string> bindingMethod_ {};
+      // The certificate list of the IdP.
       shared_ptr<vector<SamlConfig::Certificates>> certificates_ {};
+      // The EntityId of the IdP.
       shared_ptr<string> idPEntityId_ {};
+      // The logon URL of the IdP.
       shared_ptr<string> idPSsoUrl_ {};
+      // The maximum clock skew.
       shared_ptr<int64_t> maxClockSkew_ {};
+      // Specifies whether the request must be signed.
       shared_ptr<bool> requireRequestSigned_ {};
+      // Specifies whether the external IdP is required to sign the Assertion.
       shared_ptr<bool> wantAssertionsSigned_ {};
+      // Specifies whether the external IdP is required to sign the Response.
       shared_ptr<bool> wantResponseSigned_ {};
     };
 
@@ -348,15 +367,15 @@ namespace Models
 
 
       protected:
-        // OIDC authorization endpoint.
+        // The OIDC authorization endpoint.
         shared_ptr<string> authorizationEndpoint_ {};
-        // OIDC issuer information.
+        // The OIDC issuer information.
         shared_ptr<string> issuer_ {};
-        // OIDC JWKS URI.
+        // The OIDC JWKS URI.
         shared_ptr<string> jwksUri_ {};
-        // OIDC token endpoint.
+        // The OIDC token endpoint.
         shared_ptr<string> tokenEndpoint_ {};
-        // OIDC UserInfo endpoint.
+        // The OIDC UserInfo endpoint.
         shared_ptr<string> userinfoEndpoint_ {};
       };
 
@@ -398,13 +417,13 @@ namespace Models
 
 
       protected:
-        // OIDC authentication method. Valid values:
+        // The OIDC authentication method. Valid values:
         // 
         // - client_secret_basic
         // 
         // - client_secret_post
         shared_ptr<string> authnMethod_ {};
-        // OIDC client secret.
+        // The OIDC client secret.
         shared_ptr<string> clientSecret_ {};
       };
 
@@ -459,20 +478,20 @@ namespace Models
 
 
     protected:
-      // OIDC client authentication configuration.
+      // The OIDC client authentication configuration.
       shared_ptr<OidcConfig::AuthnParam> authnParam_ {};
-      // OIDC endpoint configuration.
+      // The OIDC endpoint configuration.
       shared_ptr<OidcConfig::EndpointConfig> endpointConfig_ {};
-      // OIDC grant scopes list.
+      // The list of OIDC grant scopes.
       shared_ptr<vector<string>> grantScopes_ {};
-      // OIDC grant type.
+      // The OIDC grant type.
       shared_ptr<string> grantType_ {};
-      // PKCE algorithm.
-      // - SHA256: S256
+      // The PKCE algorithm. Valid values:
+      // - S256: SHA-256.
       // 
-      // - Plain text: plain
+      // - plain: Plaintext.
       shared_ptr<string> pkceChallengeMethod_ {};
-      // Whether to use PKCE in AuthorizationCode grant mode.
+      // Specifies whether to use PKCE in the AuthorizationCode grant mode.
       shared_ptr<bool> pkceRequired_ {};
     };
 
@@ -571,28 +590,28 @@ namespace Models
 
 
     protected:
-      // Administrator password.
+      // The administrator password.
       shared_ptr<string> administratorPassword_ {};
-      // Administrator username.
+      // The administrator account.
       shared_ptr<string> administratorUsername_ {};
-      // Whether to verify the fingerprint certificate. Valid values:
+      // Specifies whether to verify the certificate fingerprint. Valid values:
       // 
-      // - Disabled: disabled
+      // - disabled: Disabled.
       // 
-      // - Enabled: enabled
+      // - enabled: Enabled.
       shared_ptr<string> certificateFingerprintStatus_ {};
-      // Certificate fingerprint list.
+      // The list of certificate fingerprints.
       shared_ptr<vector<string>> certificateFingerprints_ {};
-      // Communication protocol.
+      // The communication protocol.
       shared_ptr<string> ldapProtocol_ {};
-      // Server address.
+      // The server address.
       shared_ptr<string> ldapServerHost_ {};
-      // Port number.
+      // The port number.
       shared_ptr<int32_t> ldapServerPort_ {};
-      // Whether StartTLS is enabled. Valid values:
-      // - Disabled: disabled
+      // Specifies whether StartTLS is enabled. Valid values:
+      // - disabled: Disabled.
       // 
-      // - Enabled: enabled
+      // - enabled: Enabled.
       shared_ptr<string> startTlsStatus_ {};
     };
 
@@ -652,13 +671,13 @@ namespace Models
 
 
     protected:
-      // Lark application AppId.
+      // The AppId of the Lark application.
       shared_ptr<string> appId_ {};
-      // Lark application AppSecret.
+      // The AppSecret of the Lark application.
       shared_ptr<string> appSecret_ {};
-      // EncryptKey of the Lark self-built application.
+      // The encryptKey of the custom Lark application.
       shared_ptr<string> encryptKey_ {};
-      // VerificationToken of the Lark self-built application.
+      // The verificationToken of the custom Lark application.
       shared_ptr<string> verificationToken_ {};
     };
 
@@ -727,15 +746,15 @@ namespace Models
 
 
     protected:
-      // AppKey of the DingTalk first-party application.
+      // The AppKey of the DingTalk first-party application.
       shared_ptr<string> appKey_ {};
-      // AppSecret of the DingTalk first-party application.
+      // The AppSecret of the DingTalk first-party application.
       shared_ptr<string> appSecret_ {};
-      // DingTalk QR code login version.
+      // The DingTalk QR code login version.
       shared_ptr<string> dingtalkLoginVersion_ {};
-      // EncryptKey of the DingTalk application.
+      // The EncryptKey of the DingTalk application.
       shared_ptr<string> encryptKey_ {};
-      // VerificationToken of the DingTalk application.
+      // The VerificationToken of the DingTalk application.
       shared_ptr<string> verificationToken_ {};
     };
 
@@ -840,32 +859,33 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotency of the request. The value of this parameter is generated by the client to ensure uniqueness among different requests.
+    // The client token that is used to ensure the idempotence of the request. The value is generated by the client and must be unique across different requests.
     shared_ptr<string> clientToken_ {};
-    // DingTalk configuration basic information.
+    // The DingTalk configuration basic information.
     shared_ptr<UpdateIdentityProviderRequest::DingtalkAppConfig> dingtalkAppConfig_ {};
-    // Identity provider ID.
+    // The identity provider ID.
     // 
     // This parameter is required.
     shared_ptr<string> identityProviderId_ {};
-    // Identity provider name.
+    // The identity provider name.
     shared_ptr<string> identityProviderName_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Lark configuration information.
+    // The Lark configuration information.
     shared_ptr<UpdateIdentityProviderRequest::LarkConfig> larkConfig_ {};
-    // AD/LDAP basic information.
+    // The AD/LDAP basic information.
     shared_ptr<UpdateIdentityProviderRequest::LdapConfig> ldapConfig_ {};
-    // Application logo URL.
+    // The URL of the application logo.
     shared_ptr<string> logoUrl_ {};
-    // Network access endpoint ID.
+    // The network endpoint ID.
     shared_ptr<string> networkAccessEndpointId_ {};
-    // OIDC-related configuration.
+    // The OIDC-related configuration.
     shared_ptr<UpdateIdentityProviderRequest::OidcConfig> oidcConfig_ {};
+    // The SAML IdP configuration.
     shared_ptr<UpdateIdentityProviderRequest::SamlConfig> samlConfig_ {};
-    // WeCom basic information.
+    // The WeCom basic information.
     shared_ptr<UpdateIdentityProviderRequest::WeComConfig> weComConfig_ {};
   };
 

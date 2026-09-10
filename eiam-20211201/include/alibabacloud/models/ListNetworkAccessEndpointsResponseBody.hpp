@@ -157,11 +157,17 @@ namespace Models
 
 
       protected:
+        // The list of private egress IP addresses of the backup network access endpoint.
         shared_ptr<vector<string>> backupEgressPrivateIpAddresses_ {};
+        // The list of public egress IP addresses of the backup network access endpoint.
         shared_ptr<vector<string>> backupEgressPublicIpAddresses_ {};
+        // The security group ID of the backup network access endpoint.
         shared_ptr<string> backupSecurityGroupId_ {};
+        // The list of vSwitches for the backup network access endpoint.
         shared_ptr<vector<string>> backupVSwitchIds_ {};
+        // The VPC ID of the backup network access endpoint.
         shared_ptr<string> backupVpcId_ {};
+        // The region of the backup network access endpoint VPC.
         shared_ptr<string> backupVpcRegionId_ {};
       };
 
@@ -258,6 +264,7 @@ namespace Models
 
 
     protected:
+      // The backup network access endpoint VPC configuration.
       shared_ptr<NetworkAccessEndpoints::BackupVpcEndpoint> backupVpcEndpoint_ {};
       // The creation time of the network access endpoint. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
@@ -265,21 +272,21 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The network access endpoint ID.
       shared_ptr<string> networkAccessEndpointId_ {};
-      // The network access endpoint name.
+      // The network access endpoint name. For example, the VPC access endpoint for a specific business.
       shared_ptr<string> networkAccessEndpointName_ {};
       // The type of the network access endpoint. Valid values:
       // 
-      // - shared: Shared network access endpoint.
-      // - private: Dedicated network access endpoint.
+      // - shared: shared network access endpoint.
+      // - private: dedicated network access endpoint.
       shared_ptr<string> networkAccessEndpointType_ {};
       // The security group ID used by the dedicated network access endpoint.
       shared_ptr<string> securityGroupId_ {};
       // The status of the network access endpoint. Valid values:
       //  
-      // - pending: Pending initialization.
-      // - creating: Being created.
-      // - running: Running.
-      // - deleting: Being deleted.
+      // - pending: pending initialization.
+      // - creating: being created.
+      // - running: running.
+      // - deleting: being deleted.
       shared_ptr<string> status_ {};
       // The last update time of the network access endpoint. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> updateTime_ {};

@@ -72,6 +72,7 @@ namespace Models
 
 
     protected:
+      // The list of VM instance IDs.
       shared_ptr<vector<string>> instanceIds_ {};
     };
 
@@ -149,11 +150,11 @@ namespace Models
 
 
       protected:
-        // The Kubernetes namespace.
+        // The K8s namespace.
         shared_ptr<string> namespace_ {};
         // The pod name prefix.
         shared_ptr<string> podNamePrefix_ {};
-        // The Kubernetes service account name.
+        // The K8s service account name.
         shared_ptr<string> serviceAccountName_ {};
       };
 
@@ -185,6 +186,7 @@ namespace Models
 
 
       protected:
+        // The subject identifier.
         shared_ptr<string> subject_ {};
       };
 
@@ -237,9 +239,11 @@ namespace Models
 
 
       protected:
+        // The list of VM instance IDs.
         shared_ptr<vector<string>> instanceIds_ {};
+        // The GCP project ID.
         shared_ptr<string> projectId_ {};
-        // The sub value corresponding to the service account.
+        // The sub claim corresponding to the service account.
         shared_ptr<string> serviceAccountId_ {};
       };
 
@@ -301,9 +305,13 @@ namespace Models
 
 
       protected:
+        // The principal ID.
         shared_ptr<string> principalId_ {};
+        // The Azure resource group name.
         shared_ptr<string> resourceGroupName_ {};
+        // The subscription ID.
         shared_ptr<string> subscriptionId_ {};
+        // The list of virtual machine names.
         shared_ptr<vector<string>> vmNames_ {};
       };
 
@@ -357,10 +365,15 @@ namespace Models
       shared_ptr<OidcVerificationConfig::AzureVmConfig> azureVmConfig_ {};
       // The GCP VM scenario configuration.
       shared_ptr<OidcVerificationConfig::GcpVmConfig> gcpVmConfig_ {};
+      // The generic scenario configuration.
       shared_ptr<OidcVerificationConfig::GenericConfig> genericConfig_ {};
       // The Kubernetes scenario configuration.
       shared_ptr<OidcVerificationConfig::KubernetesConfig> kubernetesConfig_ {};
-      // The OIDC scenario profile. Valid values: generic, kubernetes, gcp_vm, and azure_vm.
+      // The OIDC scenario profile. Different profiles correspond to different configurations. Valid values:
+      // - generic
+      // - kubernetes
+      // - gcp_vm
+      // - azure_vm
       shared_ptr<string> profile_ {};
     };
 
@@ -481,9 +494,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The OIDC structured configuration (structured mode + oidc type).
+    // The OIDC structured configuration.
     shared_ptr<UpdateApplicationFederatedCredentialRequest::OidcVerificationConfig> oidcVerificationConfig_ {};
-    // The PKCS#7 structured configuration (structured mode + pkcs7 type).
+    // The PKCS#7 structured configuration.
     shared_ptr<UpdateApplicationFederatedCredentialRequest::Pkcs7VerificationConfig> pkcs7VerificationConfig_ {};
     // The verification condition.
     shared_ptr<string> verificationCondition_ {};

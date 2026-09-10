@@ -52,9 +52,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NameIdFormat, nameIdFormat_);
         DARABONBA_PTR_TO_JSON(NameIdValueExpression, nameIdValueExpression_);
         DARABONBA_PTR_TO_JSON(OptionalRelayStates, optionalRelayStates_);
+        DARABONBA_PTR_TO_JSON(RequireAuthnRequestSigned, requireAuthnRequestSigned_);
         DARABONBA_PTR_TO_JSON(ResponseSigned, responseSigned_);
         DARABONBA_PTR_TO_JSON(SignatureAlgorithm, signatureAlgorithm_);
         DARABONBA_PTR_TO_JSON(SpEntityId, spEntityId_);
+        DARABONBA_PTR_TO_JSON(SpSigningCertificates, spSigningCertificates_);
+        DARABONBA_PTR_TO_JSON(SpSloResponseUrl, spSloResponseUrl_);
         DARABONBA_PTR_TO_JSON(SpSsoAcsUrl, spSsoAcsUrl_);
       };
       friend void from_json(const Darabonba::Json& j, SamlSsoConfig& obj) { 
@@ -65,9 +68,12 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NameIdFormat, nameIdFormat_);
         DARABONBA_PTR_FROM_JSON(NameIdValueExpression, nameIdValueExpression_);
         DARABONBA_PTR_FROM_JSON(OptionalRelayStates, optionalRelayStates_);
+        DARABONBA_PTR_FROM_JSON(RequireAuthnRequestSigned, requireAuthnRequestSigned_);
         DARABONBA_PTR_FROM_JSON(ResponseSigned, responseSigned_);
         DARABONBA_PTR_FROM_JSON(SignatureAlgorithm, signatureAlgorithm_);
         DARABONBA_PTR_FROM_JSON(SpEntityId, spEntityId_);
+        DARABONBA_PTR_FROM_JSON(SpSigningCertificates, spSigningCertificates_);
+        DARABONBA_PTR_FROM_JSON(SpSloResponseUrl, spSloResponseUrl_);
         DARABONBA_PTR_FROM_JSON(SpSsoAcsUrl, spSsoAcsUrl_);
       };
       SamlSsoConfig() = default ;
@@ -163,7 +169,7 @@ namespace Models
 
 
       protected:
-        // The Name of the attribute in the SAML assertion.
+        // The name of the attribute in the SAML assertion.
         shared_ptr<string> attributeName_ {};
         // The value expression of the attribute in the SAML assertion.
         shared_ptr<string> attributeValueExpression_ {};
@@ -171,7 +177,8 @@ namespace Models
 
       virtual bool empty() const override { return this->assertionSigned_ == nullptr
         && this->attributeStatements_ == nullptr && this->defaultRelayState_ == nullptr && this->idPEntityId_ == nullptr && this->nameIdFormat_ == nullptr && this->nameIdValueExpression_ == nullptr
-        && this->optionalRelayStates_ == nullptr && this->responseSigned_ == nullptr && this->signatureAlgorithm_ == nullptr && this->spEntityId_ == nullptr && this->spSsoAcsUrl_ == nullptr; };
+        && this->optionalRelayStates_ == nullptr && this->requireAuthnRequestSigned_ == nullptr && this->responseSigned_ == nullptr && this->signatureAlgorithm_ == nullptr && this->spEntityId_ == nullptr
+        && this->spSigningCertificates_ == nullptr && this->spSloResponseUrl_ == nullptr && this->spSsoAcsUrl_ == nullptr; };
       // assertionSigned Field Functions 
       bool hasAssertionSigned() const { return this->assertionSigned_ != nullptr;};
       void deleteAssertionSigned() { this->assertionSigned_ = nullptr;};
@@ -225,6 +232,13 @@ namespace Models
       inline SamlSsoConfig& setOptionalRelayStates(vector<SamlSsoConfig::OptionalRelayStates> && optionalRelayStates) { DARABONBA_PTR_SET_RVALUE(optionalRelayStates_, optionalRelayStates) };
 
 
+      // requireAuthnRequestSigned Field Functions 
+      bool hasRequireAuthnRequestSigned() const { return this->requireAuthnRequestSigned_ != nullptr;};
+      void deleteRequireAuthnRequestSigned() { this->requireAuthnRequestSigned_ = nullptr;};
+      inline bool getRequireAuthnRequestSigned() const { DARABONBA_PTR_GET_DEFAULT(requireAuthnRequestSigned_, false) };
+      inline SamlSsoConfig& setRequireAuthnRequestSigned(bool requireAuthnRequestSigned) { DARABONBA_PTR_SET_VALUE(requireAuthnRequestSigned_, requireAuthnRequestSigned) };
+
+
       // responseSigned Field Functions 
       bool hasResponseSigned() const { return this->responseSigned_ != nullptr;};
       void deleteResponseSigned() { this->responseSigned_ = nullptr;};
@@ -246,6 +260,22 @@ namespace Models
       inline SamlSsoConfig& setSpEntityId(string spEntityId) { DARABONBA_PTR_SET_VALUE(spEntityId_, spEntityId) };
 
 
+      // spSigningCertificates Field Functions 
+      bool hasSpSigningCertificates() const { return this->spSigningCertificates_ != nullptr;};
+      void deleteSpSigningCertificates() { this->spSigningCertificates_ = nullptr;};
+      inline const vector<string> & getSpSigningCertificates() const { DARABONBA_PTR_GET_CONST(spSigningCertificates_, vector<string>) };
+      inline vector<string> getSpSigningCertificates() { DARABONBA_PTR_GET(spSigningCertificates_, vector<string>) };
+      inline SamlSsoConfig& setSpSigningCertificates(const vector<string> & spSigningCertificates) { DARABONBA_PTR_SET_VALUE(spSigningCertificates_, spSigningCertificates) };
+      inline SamlSsoConfig& setSpSigningCertificates(vector<string> && spSigningCertificates) { DARABONBA_PTR_SET_RVALUE(spSigningCertificates_, spSigningCertificates) };
+
+
+      // spSloResponseUrl Field Functions 
+      bool hasSpSloResponseUrl() const { return this->spSloResponseUrl_ != nullptr;};
+      void deleteSpSloResponseUrl() { this->spSloResponseUrl_ = nullptr;};
+      inline string getSpSloResponseUrl() const { DARABONBA_PTR_GET_DEFAULT(spSloResponseUrl_, "") };
+      inline SamlSsoConfig& setSpSloResponseUrl(string spSloResponseUrl) { DARABONBA_PTR_SET_VALUE(spSloResponseUrl_, spSloResponseUrl) };
+
+
       // spSsoAcsUrl Field Functions 
       bool hasSpSsoAcsUrl() const { return this->spSsoAcsUrl_ != nullptr;};
       void deleteSpSsoAcsUrl() { this->spSsoAcsUrl_ = nullptr;};
@@ -254,13 +284,13 @@ namespace Models
 
 
     protected:
-      // Specifies whether the Assertion needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false.
-      // - true: The Assertion is signed.
-      // - false: The Assertion is not signed.
+      // Specifies whether the assertion needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false.
+      // - true: The assertion is signed.
+      // - false: The assertion is not signed.
       shared_ptr<bool> assertionSigned_ {};
       // The additional user attribute configurations included in the SAML assertion.
       shared_ptr<vector<SamlSsoConfig::AttributeStatements>> attributeStatements_ {};
-      // The default RelayState value. When the single sign-on (SSO) request is initiated by EIAM, the SAML Response provided by EIAM specifies the RelayState as this value.
+      // The default RelayState value. When a single sign-on (SSO) logon request is initiated by EIAM, the SAML Response provided by EIAM specifies the RelayState as this value.
       shared_ptr<string> defaultRelayState_ {};
       // The Entity ID that represents the IdP identity in the SAML protocol. URL format and URN format are supported.
       shared_ptr<string> idPEntityId_ {};
@@ -270,19 +300,25 @@ namespace Models
       // - urn:oasis:names:tc:SAML:2.0:nameid-format:persistent: Persistent NameID.
       // - urn:oasis:names:tc:SAML:2.0:nameid-format:transient: Transient NameID.
       shared_ptr<string> nameIdFormat_ {};
-      // The expression used to generate the actual NameID value for the SAML protocol.
+      // The expression used to generate the actual NameID value in the SAML protocol.
       shared_ptr<string> nameIdValueExpression_ {};
       // The optional RelayState configurations.
       shared_ptr<vector<SamlSsoConfig::OptionalRelayStates>> optionalRelayStates_ {};
-      // Specifies whether the Response needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false.
-      // - true: The Response is signed.
-      // - false: The Response is not signed.
+      // Specifies whether SSO AuthnRequest signature verification is enabled. Default value: false. If set to true, spSigningCertificates must be configured (the array must not be empty).
+      shared_ptr<bool> requireAuthnRequestSigned_ {};
+      // Specifies whether the response needs to be signed. ResponseSigned and AssertionSigned cannot both be set to false.
+      // - true: The response is signed.
+      // - false: The response is not signed.
       shared_ptr<bool> responseSigned_ {};
-      // The SAML assertion signature algorithm.
+      // The signature algorithm for the SAML assertion.
       shared_ptr<string> signatureAlgorithm_ {};
       // The SAML EntityId of the application (SP).
       shared_ptr<string> spEntityId_ {};
-      // The SAML assertion consumer service (ACS) URL of the application (SP).
+      // The array of SP signature verification certificates in PEM format. A maximum of two certificates are allowed and are shared by SSO and SLO. Each certificate is validated for format and validity upon write. Requests with more than two certificates are rejected.
+      shared_ptr<vector<string>> spSigningCertificates_ {};
+      // The URL on the SP side that receives the LogoutResponse. This parameter is optional.
+      shared_ptr<string> spSloResponseUrl_ {};
+      // The SAML assertion consumer service URL of the application (SP).
       shared_ptr<string> spSsoAcsUrl_ {};
     };
 
@@ -512,35 +548,35 @@ namespace Models
     protected:
       // The validity period of the issued access token. Unit: seconds. Default value: 1200 (20 minutes).
       shared_ptr<int64_t> accessTokenEffectiveTime_ {};
-      // Specifies whether the application is allowed to act as a public client to request the IDaaS EIAM authorization server. Only the authorization code mode and device mode support this feature. Default value: false.
+      // Specifies whether the application is allowed to act as a public client to request the IDaaS EIAM authorization server. This parameter can be enabled only in authorization code mode and device mode. Default value: false.
       shared_ptr<bool> allowedPublicClient_ {};
       // The validity period of the issued code. Unit: seconds. Default value: 60 (1 minute).
       shared_ptr<int64_t> codeEffectiveTime_ {};
-      // The custom user information included in the ID token response.
+      // The custom user information included in the returned ID token.
       shared_ptr<vector<OidcSsoConfig::CustomClaims>> customClaims_ {};
-      // The OIDC standard parameter scope, which specifies the scope of user attributes that can be returned by the userinfo endpoint or the ID token.
+      // The OIDC standard parameter scope, which specifies the range of user attributes that can be returned by the userinfo endpoint or the id_token.
       shared_ptr<vector<string>> grantScopes_ {};
-      // The list of supported OIDC protocol grant types.
+      // The list of supported OIDC grant types.
       shared_ptr<vector<string>> grantTypes_ {};
       // The validity period of the issued ID token. Unit: seconds. Default value: 300 (5 minutes).
       shared_ptr<int64_t> idTokenEffectiveTime_ {};
-      // The ID of the identity authentication source used for the password mode. This parameter takes effect only when the GrantTypes of the OIDC application includes the password mode.
+      // The ID of the authentication source used in password mode. This parameter takes effect only when the GrantTypes specified for the OIDC application include the password mode.
       shared_ptr<string> passwordAuthenticationSourceId_ {};
-      // Specifies whether TOTP-based secondary authentication is required for the password mode. This parameter takes effect only when the GrantTypes of the OIDC application includes the password mode.
+      // Specifies whether TOTP-based secondary authentication is required for password mode. This parameter takes effect only when the GrantTypes specified for the OIDC application include the password mode.
       shared_ptr<bool> passwordTotpMfaRequired_ {};
       // The algorithm used to calculate the Code Challenge in PKCE.
       shared_ptr<vector<string>> pkceChallengeMethods_ {};
-      // Specifies whether the application SSO requires PKCE (RFC 7636).
+      // Specifies whether Proof Key for Code Exchange (PKCE) (RFC 7636) is required for application SSO.
       shared_ptr<bool> pkceRequired_ {};
-      // The list of logout callback addresses supported by the application.
+      // The list of logout callback URIs supported by the application.
       shared_ptr<vector<string>> postLogoutRedirectUris_ {};
-      // The list of RedirectUris supported by the application.
+      // The list of redirect URIs supported by the application.
       shared_ptr<vector<string>> redirectUris_ {};
       // The validity period of the issued refresh token. Unit: seconds. Default value: 86400 (1 day).
       shared_ptr<int64_t> refreshTokenEffective_ {};
-      // The response types supported by the application when OidcSsoConfig.GrantTypes includes the implicit mode.
+      // The response types supported by the application when OidcSsoConfig.GrantTypes includes the implicit grant type.
       shared_ptr<vector<string>> responseTypes_ {};
-      // The custom expression for the sub value returned in the ID token.
+      // The custom expression for the sub claim value returned in the ID token.
       shared_ptr<string> subjectIdExpression_ {};
     };
 
@@ -605,23 +641,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
+    // The client token that is used to ensure the idempotence of the request. Generate a unique value from your client. The value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see How to ensure idempotence.
     shared_ptr<string> clientToken_ {};
-    // The initialization single sign-on (SSO) method. Valid values:
-    // - only_app_init_sso: Only application-initiated SSO. This is the default value for OIDC protocol applications. When a SAML application specifies this method, InitLoginUrl must be specified.
-    // - idaas_or_app_init_sso: SSO initiated from the IDaaS portal or the application. This is the default value for SAML protocol applications. When an OIDC protocol application specifies this method, InitLoginUrl must be specified.
+    // The initial single sign-on (SSO) logon method. Valid values:
+    // - only_app_init_sso: Only application-initiated SSO is supported. This is the default value for OIDC protocol applications. When a SAML application uses this method, InitLoginUrl must be specified.
+    // - idaas_or_app_init_sso: Both IDaaS portal-initiated and application-initiated SSO are supported. This is the default value for SAML protocol applications. When an OIDC protocol application uses this method, InitLoginUrl must be specified.
     shared_ptr<string> initLoginType_ {};
-    // The URL that triggers the initialization single sign-on (SSO).
-    // When an OIDC protocol application sets InitLoginType to idaas_or_app_init_sso, this parameter is required.
-    // When a SAML protocol application sets InitLoginType to only_app_init_sso, this parameter is required.
+    // The initial single sign-on (SSO) logon trigger URL.
+    // This parameter is required when an OIDC protocol application sets InitLoginType to idaas_or_app_init_sso.
+    // This parameter is required when a SAML protocol application sets InitLoginType to only_app_init_sso.
     shared_ptr<string> initLoginUrl_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The SSO configuration parameters for an OIDC protocol-based application.
+    // The SSO configuration parameters for an OIDC-based application.
     shared_ptr<SetApplicationSsoConfigRequest::OidcSsoConfig> oidcSsoConfig_ {};
-    // The SSO configuration parameters for a SAML protocol-based application.
+    // The SSO configuration parameters for a SAML-based application.
     shared_ptr<SetApplicationSsoConfigRequest::SamlSsoConfig> samlSsoConfig_ {};
   };
 

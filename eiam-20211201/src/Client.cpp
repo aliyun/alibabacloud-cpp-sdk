@@ -18,15 +18,6 @@ namespace Eiam20211201
 
 AlibabaCloud::Eiam20211201::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-hongkong" , "eiam.cn-hongkong.aliyuncs.com"},
-    {"ap-northeast-2" , "eiam.ap-northeast-2.aliyuncs.com"},
-    {"ap-southeast-1" , "eiam.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-5" , "eiam.ap-southeast-5.aliyuncs.com"},
-    {"cn-hangzhou" , "eiam.cn-hangzhou.aliyuncs.com"},
-    {"cn-beijing" , "eiam.cn-beijing.aliyuncs.com"},
-    {"eu-central-1" , "eiam.eu-central-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eiam", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -1027,7 +1018,7 @@ CheckInstanceForDeleteResponse Client::checkInstanceForDelete(const CheckInstanc
 }
 
 /**
- * @summary Determines whether an instance has the capability of a specific module.
+ * @summary Checks whether an instance has the feature of a specific module.
  *
  * @param request CheckInstanceModuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1078,7 +1069,7 @@ CheckInstanceModuleStatusResponse Client::checkInstanceModuleStatusWithOptions(c
 }
 
 /**
- * @summary Determines whether an instance has the capability of a specific module.
+ * @summary Checks whether an instance has the feature of a specific module.
  *
  * @param request CheckInstanceModuleStatusRequest
  * @return CheckInstanceModuleStatusResponse
@@ -1221,7 +1212,7 @@ CreateApplicationClientSecretResponse Client::createApplicationClientSecret(cons
 }
 
 /**
- * @summary Creates an application federated identity credential.
+ * @summary Creates an application federated credential.
  *
  * @param request CreateApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1292,7 +1283,7 @@ CreateApplicationFederatedCredentialResponse Client::createApplicationFederatedC
 }
 
 /**
- * @summary Creates an application federated identity credential.
+ * @summary Creates an application federated credential.
  *
  * @param request CreateApplicationFederatedCredentialRequest
  * @return CreateApplicationFederatedCredentialResponse
@@ -1651,9 +1642,10 @@ CreateClientPublicKeyResponse Client::createClientPublicKey(const CreateClientPu
 }
 
 /**
- * @summary Creates a cloud account resource in a specified EIAM instance.
+ * @summary Creates a cloud account resource under a specified EIAM instance.
  *
- * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * @description <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
  *
  * @param request CreateCloudAccountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1712,9 +1704,10 @@ CreateCloudAccountResponse Client::createCloudAccountWithOptions(const CreateClo
 }
 
 /**
- * @summary Creates a cloud account resource in a specified EIAM instance.
+ * @summary Creates a cloud account resource under a specified EIAM instance.
  *
- * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * @description <props="china">**Before you call this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * <props="intl">**Before you call this operation, make sure that you fully understand the billing method of IDaaS EIAM.**
  *
  * @param request CreateCloudAccountRequest
  * @return CreateCloudAccountResponse
@@ -2405,7 +2398,7 @@ CreateGroupResponse Client::createGroup(const CreateGroupRequest &request) {
 }
 
 /**
- * @summary Create an identity provider.
+ * @summary Creates an identity provider.
  *
  * @param request CreateIdentityProviderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2504,7 +2497,7 @@ CreateIdentityProviderResponse Client::createIdentityProviderWithOptions(const C
 }
 
 /**
- * @summary Create an identity provider.
+ * @summary Creates an identity provider.
  *
  * @param request CreateIdentityProviderRequest
  * @return CreateIdentityProviderResponse
@@ -6665,7 +6658,8 @@ EnableCredentialProviderResponse Client::enableCredentialProvider(const EnableCr
 /**
  * @summary Enables a field.
  *
- * @description **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**.
+ * @description <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
  *
  * @param request EnableCustomFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6702,7 +6696,8 @@ EnableCustomFieldResponse Client::enableCustomFieldWithOptions(const EnableCusto
 /**
  * @summary Enables a field.
  *
- * @description **Before you use this operation, make sure that you fully understand the billing method and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**.
+ * @description <props="china">**Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product#/ecs/detail) of IDaaS EIAM.**
+ * <props="intl">**Before using this operation, make sure that you fully understand the billing methods of IDaaS EIAM.**
  *
  * @param request EnableCustomFieldRequest
  * @return EnableCustomFieldResponse
@@ -7681,7 +7676,7 @@ GetApplicationAdvancedConfigResponse Client::getApplicationAdvancedConfig(const 
 }
 
 /**
- * @summary Retrieves the federated identity credential of an application.
+ * @summary Retrieves an application federated identity credential.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7720,7 +7715,7 @@ GetApplicationFederatedCredentialResponse Client::getApplicationFederatedCredent
 }
 
 /**
- * @summary Retrieves the federated identity credential of an application.
+ * @summary Retrieves an application federated identity credential.
  *
  * @param request GetApplicationFederatedCredentialRequest
  * @return GetApplicationFederatedCredentialResponse
@@ -7965,7 +7960,7 @@ GetApplicationRoleResponse Client::getApplicationRole(const GetApplicationRoleRe
 }
 
 /**
- * @summary Retrieves the single sign-on (SSO) configuration for an application in EIAM.
+ * @summary Queries the single sign-on (SSO) configuration properties of an EIAM application.
  *
  * @param request GetApplicationSsoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8000,7 +7995,7 @@ GetApplicationSsoConfigResponse Client::getApplicationSsoConfigWithOptions(const
 }
 
 /**
- * @summary Retrieves the single sign-on (SSO) configuration for an application in EIAM.
+ * @summary Queries the single sign-on (SSO) configuration properties of an EIAM application.
  *
  * @param request GetApplicationSsoConfigRequest
  * @return GetApplicationSsoConfigResponse
@@ -8053,7 +8048,7 @@ GetApplicationTemplateResponse Client::getApplicationTemplate(const GetApplicati
 }
 
 /**
- * @summary Queries the information of an authorization resource.
+ * @summary Queries the information about an authorization resource.
  *
  * @param request GetAuthorizationResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8092,7 +8087,7 @@ GetAuthorizationResourceResponse Client::getAuthorizationResourceWithOptions(con
 }
 
 /**
- * @summary Queries the information of an authorization resource.
+ * @summary Queries the information about an authorization resource.
  *
  * @param request GetAuthorizationResourceRequest
  * @return GetAuthorizationResourceResponse
@@ -8195,7 +8190,7 @@ GetAuthorizationServerResponse Client::getAuthorizationServer(const GetAuthoriza
 }
 
 /**
- * @summary Get Brand Details
+ * @summary Retrieves the details of a brand.
  *
  * @param request GetBrandRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8230,7 +8225,7 @@ GetBrandResponse Client::getBrandWithOptions(const GetBrandRequest &request, con
 }
 
 /**
- * @summary Get Brand Details
+ * @summary Retrieves the details of a brand.
  *
  * @param request GetBrandRequest
  * @return GetBrandResponse
@@ -10223,7 +10218,7 @@ ListApplicationClientSecretsResponse Client::listApplicationClientSecrets(const 
 }
 
 /**
- * @summary Queries a list of application federated credentials.
+ * @summary Queries the list of application federated identity credentials.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10274,7 +10269,7 @@ ListApplicationFederatedCredentialsResponse Client::listApplicationFederatedCred
 }
 
 /**
- * @summary Queries a list of application federated credentials.
+ * @summary Queries the list of application federated identity credentials.
  *
  * @param request ListApplicationFederatedCredentialsRequest
  * @return ListApplicationFederatedCredentialsResponse
@@ -10951,9 +10946,9 @@ ListApplicationsForUserResponse Client::listApplicationsForUser(const ListApplic
 }
 
 /**
- * @summary Queries a list of authorization resource information.
+ * @summary Lists authorized resource information.
  *
- * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListAuthorizationResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11000,9 +10995,9 @@ ListAuthorizationResourcesResponse Client::listAuthorizationResourcesWithOptions
 }
 
 /**
- * @summary Queries a list of authorization resource information.
+ * @summary Lists authorized resource information.
  *
- * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When calling this operation, you can use the **ApplicationIds** parameter to filter applications.
+ * @description This operation queries only the direct permissions of an organization, that is, applications directly assigned to the organization. When you call this operation, you can use the **ApplicationIds** parameter to filter applications.
  *
  * @param request ListAuthorizationResourcesRequest
  * @return ListAuthorizationResourcesResponse
@@ -11387,7 +11382,7 @@ ListClientPublicKeysResponse Client::listClientPublicKeys(const ListClientPublic
 }
 
 /**
- * @summary Queries the information about one or more cloud roles by using paging.
+ * @summary Queries information about one or more cloud roles by using paging.
  *
  * @param request ListCloudAccountRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11434,7 +11429,7 @@ ListCloudAccountRolesResponse Client::listCloudAccountRolesWithOptions(const Lis
 }
 
 /**
- * @summary Queries the information about one or more cloud roles by using paging.
+ * @summary Queries information about one or more cloud roles by using paging.
  *
  * @param request ListCloudAccountRolesRequest
  * @return ListCloudAccountRolesResponse
@@ -11445,7 +11440,7 @@ ListCloudAccountRolesResponse Client::listCloudAccountRoles(const ListCloudAccou
 }
 
 /**
- * @summary Queries one or more cloud accounts by using paging.
+ * @summary Queries information about one or more cloud accounts by using paging.
  *
  * @param request ListCloudAccountsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11488,7 +11483,7 @@ ListCloudAccountsResponse Client::listCloudAccountsWithOptions(const ListCloudAc
 }
 
 /**
- * @summary Queries one or more cloud accounts by using paging.
+ * @summary Queries information about one or more cloud accounts by using paging.
  *
  * @param request ListCloudAccountsRequest
  * @return ListCloudAccountsResponse
@@ -15307,9 +15302,9 @@ SetApplicationResourceServerIdentifierResponse Client::setApplicationResourceSer
 }
 
 /**
- * @summary Sets the single sign-on (SSO) configuration properties for an EIAM application.
+ * @summary Sets the single sign-on (SSO) configuration properties of an EIAM application.
  *
- * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the application.
+ * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
  *
  * @param request SetApplicationSsoConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15364,9 +15359,9 @@ SetApplicationSsoConfigResponse Client::setApplicationSsoConfigWithOptions(const
 }
 
 /**
- * @summary Sets the single sign-on (SSO) configuration properties for an EIAM application.
+ * @summary Sets the single sign-on (SSO) configuration properties of an EIAM application.
  *
- * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the application.
+ * @description In EIAM, application management supports adding applications that use multiple single sign-on (SSO) protocols (SAML 2.0 and OIDC). However, each application supports only one SSO protocol, which is specified during creation and cannot be changed afterward. Specify the corresponding SSO configuration property parameters based on the SSO protocol type supported by the current application.
  *
  * @param request SetApplicationSsoConfigRequest
  * @return SetApplicationSsoConfigResponse
@@ -16569,7 +16564,7 @@ UpdateApplicationDescriptionResponse Client::updateApplicationDescription(const 
 }
 
 /**
- * @summary Updates a federated credential for an application.
+ * @summary Updates an application federated identity credential.
  *
  * @param request UpdateApplicationFederatedCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16624,7 +16619,7 @@ UpdateApplicationFederatedCredentialResponse Client::updateApplicationFederatedC
 }
 
 /**
- * @summary Updates a federated credential for an application.
+ * @summary Updates an application federated identity credential.
  *
  * @param request UpdateApplicationFederatedCredentialRequest
  * @return UpdateApplicationFederatedCredentialResponse

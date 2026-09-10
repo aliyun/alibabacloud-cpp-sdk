@@ -78,13 +78,13 @@ namespace Models
 
 
     protected:
-      // The name of the filter field. Valid values:
+      // The filter field name. Valid values:
       // - CloudAccountRoleId: the cloud role ID.
       // - CloudAccountRoleName: the cloud role name.
-      // - CloudAccountRoleExternalId: the external identifier of the cloud role.
-      // - CloudAccountRoleUsageType: the usage type of the cloud role.
+      // - CloudAccountRoleExternalId: the cloud role external identifier.
+      // - CloudAccountRoleUsageType: the cloud role usage type.
       shared_ptr<string> name_ {};
-      // The values of the filter field.
+      // The list of filter field values.
       shared_ptr<vector<string>> value_ {};
     };
 
@@ -144,7 +144,7 @@ namespace Models
     // 
     // - The maximum value is 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that identifies the start position of the next page.
+    // The token that specifies the start position of the next page.
     // 
     // - If this parameter is not specified, the query starts from the first page.
     shared_ptr<string> nextToken_ {};

@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // Brand ID.
+    // The brand ID.
     // 
     // This parameter is required.
     shared_ptr<string> brandId_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

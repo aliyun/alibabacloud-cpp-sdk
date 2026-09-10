@@ -187,28 +187,30 @@ namespace Models
 
     protected:
       // The authorization resource scope. Valid values:
-      // - global: all resources under the project
-      // - custom: specified resources under the project
+      // - global: all resources under the project.
+      // - custom: specified resources under the project.
       shared_ptr<string> authorizationResourceScope_ {};
       // The creation type of the authorization rule. Valid values:
-      // - system_init: created by the system
-      // - user_custom: created by the user
+      // - system_init: created by the system.
+      // - user_custom: created by the user.
       shared_ptr<string> authorizationRuleCreationType_ {};
       // The authorization rule ID.
       shared_ptr<string> authorizationRuleId_ {};
       // The authorization rule name.
       shared_ptr<string> authorizationRuleName_ {};
-      // The scenario label of the authorization rule.
+      // The scenario label of the authorization rule. Valid values:
+      // - privileged_cloud_account: privileged cloud account scenario.
+      // - asset: asset scenario.
       shared_ptr<string> authorizationRuleScenarioLabel_ {};
       // The subject ID associated with the authorization rule.
       shared_ptr<string> authorizationRuleSubjectId_ {};
       // The subject scope of the authorization rule. Valid values:
-      // - shared: supports all subjects, including accounts and applications
-      // - exclusive: exclusive type
+      // - shared: supports all subjects, including accounts and applications.
+      // - exclusive: exclusive type.
       shared_ptr<string> authorizationRuleSubjectScope_ {};
       // The subject type associated with the authorization rule. This parameter takes effect only when the subject scope is exclusive. Valid values:
-      // - application: application
-      // - user: account
+      // - application: application.
+      // - user: account.
       shared_ptr<string> authorizationRuleSubjectType_ {};
       // The creation time, in UNIX timestamp format, measured in milliseconds.
       shared_ptr<int64_t> createTime_ {};
@@ -219,8 +221,8 @@ namespace Models
       // The project ID associated with the authorization rule.
       shared_ptr<string> projectId_ {};
       // The authorization rule status. Valid values:
-      // - enabled: enabled
-      // - disabled: disabled
+      // - enabled: Enabled.
+      // - disabled: Disabled.
       shared_ptr<string> status_ {};
       // The last update time, in UNIX timestamp format, measured in milliseconds.
       shared_ptr<int64_t> updateTime_ {};
@@ -268,7 +270,7 @@ namespace Models
   protected:
     // The list of authorization rules.
     shared_ptr<vector<ListAuthorizationRulesResponseBody::AuthorizationRules>> authorizationRules_ {};
-    // The number of entries per page in the paging query.
+    // The number of entries per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
     // The token returned for the next page query.
     shared_ptr<string> nextToken_ {};
