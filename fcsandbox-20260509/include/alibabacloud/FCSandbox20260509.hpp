@@ -39,7 +39,7 @@ namespace FCSandbox20260509
       Models::CreateApiKeyResponse createApiKey(const Models::CreateApiKeyRequest &request);
 
       /**
-       * @summary Creates a Team.
+       * @summary Creates a team.
        *
        * @param request CreateTeamRequest
        * @param headers map
@@ -49,7 +49,7 @@ namespace FCSandbox20260509
       Models::CreateTeamResponse createTeamWithOptions(const Models::CreateTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a Team.
+       * @summary Creates a team.
        *
        * @param request CreateTeamRequest
        * @return CreateTeamResponse

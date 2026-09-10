@@ -75,7 +75,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The Team information.
+    // The team information.
     shared_ptr<E2BTeam> team_ {};
   };
 

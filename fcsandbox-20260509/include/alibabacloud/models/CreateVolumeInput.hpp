@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATEVOLUMEINPUT_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
+#include <alibabacloud/models/AgenticBucketVolumeConfig.hpp>
 #include <alibabacloud/models/AgenticFSVolumeConfig.hpp>
 #include <alibabacloud/models/OSSVolumeConfig.hpp>
 using namespace std;
@@ -16,6 +17,7 @@ namespace Models
   class CreateVolumeInput : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateVolumeInput& obj) { 
+      DARABONBA_PTR_TO_JSON(agenticBucketVolumeConfig, agenticBucketVolumeConfig_);
       DARABONBA_PTR_TO_JSON(agenticFSVolumeConfig, agenticFSVolumeConfig_);
       DARABONBA_PTR_TO_JSON(mountConfig, mountConfig_);
       DARABONBA_PTR_TO_JSON(ossVolumeConfig, ossVolumeConfig_);
@@ -23,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(volumeName, volumeName_);
     };
     friend void from_json(const Darabonba::Json& j, CreateVolumeInput& obj) { 
+      DARABONBA_PTR_FROM_JSON(agenticBucketVolumeConfig, agenticBucketVolumeConfig_);
       DARABONBA_PTR_FROM_JSON(agenticFSVolumeConfig, agenticFSVolumeConfig_);
       DARABONBA_PTR_FROM_JSON(mountConfig, mountConfig_);
       DARABONBA_PTR_FROM_JSON(ossVolumeConfig, ossVolumeConfig_);
@@ -143,8 +146,17 @@ namespace Models
       shared_ptr<MountConfig::VpcConfig> vpcConfig_ {};
     };
 
-    virtual bool empty() const override { return this->agenticFSVolumeConfig_ == nullptr
-        && this->mountConfig_ == nullptr && this->ossVolumeConfig_ == nullptr && this->teamID_ == nullptr && this->volumeName_ == nullptr; };
+    virtual bool empty() const override { return this->agenticBucketVolumeConfig_ == nullptr
+        && this->agenticFSVolumeConfig_ == nullptr && this->mountConfig_ == nullptr && this->ossVolumeConfig_ == nullptr && this->teamID_ == nullptr && this->volumeName_ == nullptr; };
+    // agenticBucketVolumeConfig Field Functions 
+    bool hasAgenticBucketVolumeConfig() const { return this->agenticBucketVolumeConfig_ != nullptr;};
+    void deleteAgenticBucketVolumeConfig() { this->agenticBucketVolumeConfig_ = nullptr;};
+    inline const AgenticBucketVolumeConfig & getAgenticBucketVolumeConfig() const { DARABONBA_PTR_GET_CONST(agenticBucketVolumeConfig_, AgenticBucketVolumeConfig) };
+    inline AgenticBucketVolumeConfig getAgenticBucketVolumeConfig() { DARABONBA_PTR_GET(agenticBucketVolumeConfig_, AgenticBucketVolumeConfig) };
+    inline CreateVolumeInput& setAgenticBucketVolumeConfig(const AgenticBucketVolumeConfig & agenticBucketVolumeConfig) { DARABONBA_PTR_SET_VALUE(agenticBucketVolumeConfig_, agenticBucketVolumeConfig) };
+    inline CreateVolumeInput& setAgenticBucketVolumeConfig(AgenticBucketVolumeConfig && agenticBucketVolumeConfig) { DARABONBA_PTR_SET_RVALUE(agenticBucketVolumeConfig_, agenticBucketVolumeConfig) };
+
+
     // agenticFSVolumeConfig Field Functions 
     bool hasAgenticFSVolumeConfig() const { return this->agenticFSVolumeConfig_ != nullptr;};
     void deleteAgenticFSVolumeConfig() { this->agenticFSVolumeConfig_ = nullptr;};
@@ -187,6 +199,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<AgenticBucketVolumeConfig> agenticBucketVolumeConfig_ {};
     // The AgenticFS configuration.
     shared_ptr<AgenticFSVolumeConfig> agenticFSVolumeConfig_ {};
     // The mount configuration.

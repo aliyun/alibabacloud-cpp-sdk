@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_FCSANDBOX20260509MODEL_HPP_
 #define ALIBABACLOUD_FCSANDBOX20260509MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AgenticBucketVolumeConfig.hpp>
 #include <alibabacloud/models/AgenticFSVolumeConfig.hpp>
 #include <alibabacloud/models/IPConfig.hpp>
 #include <alibabacloud/models/ApiKey.hpp>

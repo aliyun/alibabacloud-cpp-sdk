@@ -77,7 +77,7 @@ CreateApiKeyResponse Client::createApiKey(const CreateApiKeyRequest &request) {
 }
 
 /**
- * @summary Creates a Team.
+ * @summary Creates a team.
  *
  * @param request CreateTeamRequest
  * @param headers map
@@ -105,7 +105,7 @@ CreateTeamResponse Client::createTeamWithOptions(const CreateTeamRequest &reques
 }
 
 /**
- * @summary Creates a Team.
+ * @summary Creates a team.
  *
  * @param request CreateTeamRequest
  * @return CreateTeamResponse
