@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_QUERYGUIDESUBSTATUSRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_QUERYGUIDESUBSTATUSRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DOWNLOADRESOURCECONTROLEVENTSRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DOWNLOADRESOURCECONTROLEVENTSRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,29 +10,29 @@ namespace RiskManagement20260424
 {
 namespace Models
 {
-  class QueryGuideSubStatusResponseBody : public Darabonba::Model {
+  class DownloadResourceControlEventsResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const QueryGuideSubStatusResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DownloadResourceControlEventsResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, QueryGuideSubStatusResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DownloadResourceControlEventsResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    QueryGuideSubStatusResponseBody() = default ;
-    QueryGuideSubStatusResponseBody(const QueryGuideSubStatusResponseBody &) = default ;
-    QueryGuideSubStatusResponseBody(QueryGuideSubStatusResponseBody &&) = default ;
-    QueryGuideSubStatusResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~QueryGuideSubStatusResponseBody() = default ;
-    QueryGuideSubStatusResponseBody& operator=(const QueryGuideSubStatusResponseBody &) = default ;
-    QueryGuideSubStatusResponseBody& operator=(QueryGuideSubStatusResponseBody &&) = default ;
+    DownloadResourceControlEventsResponseBody() = default ;
+    DownloadResourceControlEventsResponseBody(const DownloadResourceControlEventsResponseBody &) = default ;
+    DownloadResourceControlEventsResponseBody(DownloadResourceControlEventsResponseBody &&) = default ;
+    DownloadResourceControlEventsResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DownloadResourceControlEventsResponseBody() = default ;
+    DownloadResourceControlEventsResponseBody& operator=(const DownloadResourceControlEventsResponseBody &) = default ;
+    DownloadResourceControlEventsResponseBody& operator=(DownloadResourceControlEventsResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -43,52 +43,51 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline QueryGuideSubStatusResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline DownloadResourceControlEventsResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
     inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
-    inline QueryGuideSubStatusResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DownloadResourceControlEventsResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline QueryGuideSubStatusResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline DownloadResourceControlEventsResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline QueryGuideSubStatusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DownloadResourceControlEventsResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline QueryGuideSubStatusResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline DownloadResourceControlEventsResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The status of the API call.
-    shared_ptr<string> code_ {};
-    // The subscription status. Valid values:
+    // The status code.
     // 
-    // - **SUBSCRIBED**: Subscribed.
-    // - **UNSUBSCRIBED**: Not subscribed.
+    // > 200 indicates success. Other values (such as 500 or 400) indicate error codes.
+    shared_ptr<string> code_ {};
+    // The metadata response information.
     shared_ptr<string> data_ {};
     // The prompt message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
+    // Indicates whether the call was successful.
     // 
-    // - **true**: The call was successful.              
+    // - **true**: The call was successful.                                
     // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };

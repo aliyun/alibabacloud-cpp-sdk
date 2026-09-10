@@ -453,6 +453,178 @@ DescribeVersionConfigResponse Client::describeVersionConfig(const DescribeVersio
 }
 
 /**
+ * @summary Downloads cloud resource control events.
+ *
+ * @param tmpReq DownloadResourceControlEventsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DownloadResourceControlEventsResponse
+ */
+DownloadResourceControlEventsResponse Client::downloadResourceControlEventsWithOptions(const DownloadResourceControlEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DownloadResourceControlEventsShrinkRequest request = DownloadResourceControlEventsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasActionCodes()) {
+    request.setActionCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getActionCodes(), "ActionCodes", "json"));
+  }
+
+  if (!!tmpReq.hasCaseCodesPrefix()) {
+    request.setCaseCodesPrefixShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCaseCodesPrefix(), "CaseCodesPrefix", "json"));
+  }
+
+  if (!!tmpReq.hasEventCodes()) {
+    request.setEventCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEventCodes(), "EventCodes", "json"));
+  }
+
+  if (!!tmpReq.hasExcludeActionCodes()) {
+    request.setExcludeActionCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExcludeActionCodes(), "ExcludeActionCodes", "json"));
+  }
+
+  if (!!tmpReq.hasExcludeEventCodes()) {
+    request.setExcludeEventCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExcludeEventCodes(), "ExcludeEventCodes", "json"));
+  }
+
+  if (!!tmpReq.hasExcludeReasons()) {
+    request.setExcludeReasonsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getExcludeReasons(), "ExcludeReasons", "json"));
+  }
+
+  if (!!tmpReq.hasIncludeReasons()) {
+    request.setIncludeReasonsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getIncludeReasons(), "IncludeReasons", "json"));
+  }
+
+  if (!!tmpReq.hasSourceCodes()) {
+    request.setSourceCodesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceCodes(), "SourceCodes", "json"));
+  }
+
+  if (!!tmpReq.hasStatusList()) {
+    request.setStatusListShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStatusList(), "StatusList", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasActionCode()) {
+    query["ActionCode"] = request.getActionCode();
+  }
+
+  if (!!request.hasActionCodesShrink()) {
+    query["ActionCodes"] = request.getActionCodesShrink();
+  }
+
+  if (!!request.hasAliyunLang()) {
+    query["AliyunLang"] = request.getAliyunLang();
+  }
+
+  if (!!request.hasBusinessCode()) {
+    query["BusinessCode"] = request.getBusinessCode();
+  }
+
+  if (!!request.hasCaseCodesPrefixShrink()) {
+    query["CaseCodesPrefix"] = request.getCaseCodesPrefixShrink();
+  }
+
+  if (!!request.hasCurrent()) {
+    query["Current"] = request.getCurrent();
+  }
+
+  if (!!request.hasDomain()) {
+    query["Domain"] = request.getDomain();
+  }
+
+  if (!!request.hasEventCode()) {
+    query["EventCode"] = request.getEventCode();
+  }
+
+  if (!!request.hasEventCodesShrink()) {
+    query["EventCodes"] = request.getEventCodesShrink();
+  }
+
+  if (!!request.hasEventId()) {
+    query["EventId"] = request.getEventId();
+  }
+
+  if (!!request.hasExcludeActionCodesShrink()) {
+    query["ExcludeActionCodes"] = request.getExcludeActionCodesShrink();
+  }
+
+  if (!!request.hasExcludeEventCodesShrink()) {
+    query["ExcludeEventCodes"] = request.getExcludeEventCodesShrink();
+  }
+
+  if (!!request.hasExcludeReasonsShrink()) {
+    query["ExcludeReasons"] = request.getExcludeReasonsShrink();
+  }
+
+  if (!!request.hasIncludeReasonsShrink()) {
+    query["IncludeReasons"] = request.getIncludeReasonsShrink();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasIp()) {
+    query["Ip"] = request.getIp();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasPunishEndTime()) {
+    query["PunishEndTime"] = request.getPunishEndTime();
+  }
+
+  if (!!request.hasPunishStartTime()) {
+    query["PunishStartTime"] = request.getPunishStartTime();
+  }
+
+  if (!!request.hasReason()) {
+    query["Reason"] = request.getReason();
+  }
+
+  if (!!request.hasSourceCodesShrink()) {
+    query["SourceCodes"] = request.getSourceCodesShrink();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasStatusListShrink()) {
+    query["StatusList"] = request.getStatusListShrink();
+  }
+
+  if (!!request.hasUrl()) {
+    query["Url"] = request.getUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DownloadResourceControlEvents"},
+    {"version" , "2026-04-24"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DownloadResourceControlEventsResponse>();
+}
+
+/**
+ * @summary Downloads cloud resource control events.
+ *
+ * @param request DownloadResourceControlEventsRequest
+ * @return DownloadResourceControlEventsResponse
+ */
+DownloadResourceControlEventsResponse Client::downloadResourceControlEvents(const DownloadResourceControlEventsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return downloadResourceControlEventsWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the analysis results of alert records.
  *
  * @param tmpReq GetAlertRecordAnalysisResultRequest

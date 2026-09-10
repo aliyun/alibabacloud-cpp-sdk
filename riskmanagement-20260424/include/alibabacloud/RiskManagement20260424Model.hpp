@@ -33,6 +33,10 @@
 #include <alibabacloud/models/DescribeVersionConfigShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeVersionConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeVersionConfigResponse.hpp>
+#include <alibabacloud/models/DownloadResourceControlEventsRequest.hpp>
+#include <alibabacloud/models/DownloadResourceControlEventsShrinkRequest.hpp>
+#include <alibabacloud/models/DownloadResourceControlEventsResponseBody.hpp>
+#include <alibabacloud/models/DownloadResourceControlEventsResponse.hpp>
 #include <alibabacloud/models/GetAlertRecordAnalysisResultRequest.hpp>
 #include <alibabacloud/models/GetAlertRecordAnalysisResultShrinkRequest.hpp>
 #include <alibabacloud/models/GetAlertRecordAnalysisResultResponseBody.hpp>

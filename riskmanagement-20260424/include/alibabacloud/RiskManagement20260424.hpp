@@ -157,6 +157,23 @@ namespace RiskManagement20260424
       Models::DescribeVersionConfigResponse describeVersionConfig(const Models::DescribeVersionConfigRequest &request);
 
       /**
+       * @summary Downloads cloud resource control events.
+       *
+       * @param tmpReq DownloadResourceControlEventsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DownloadResourceControlEventsResponse
+       */
+      Models::DownloadResourceControlEventsResponse downloadResourceControlEventsWithOptions(const Models::DownloadResourceControlEventsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Downloads cloud resource control events.
+       *
+       * @param request DownloadResourceControlEventsRequest
+       * @return DownloadResourceControlEventsResponse
+       */
+      Models::DownloadResourceControlEventsResponse downloadResourceControlEvents(const Models::DownloadResourceControlEventsRequest &request);
+
+      /**
        * @summary Retrieves the analysis results of alert records.
        *
        * @param tmpReq GetAlertRecordAnalysisResultRequest

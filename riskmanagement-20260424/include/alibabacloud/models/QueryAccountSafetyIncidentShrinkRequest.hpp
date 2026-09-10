@@ -157,21 +157,24 @@ namespace Models
     // - **en**: English.
     shared_ptr<string> aliyunLang_ {};
     // The event name code.
+    // > This parameter does not take effect when the CaseCodes parameter is not empty.
     shared_ptr<string> caseCode_ {};
     // The list of event name codes.
     shared_ptr<string> caseCodesShrink_ {};
     // The current page number. The value must be greater than 0.
     shared_ptr<string> current_ {};
     // The event ID.
+    // > This parameter does not take effect when the EventIds parameter is not empty.
     shared_ptr<string> eventId_ {};
+    // The list of event IDs.
     shared_ptr<string> eventIdsShrink_ {};
     // The number of records per page. Valid values: 1 to 100.
     shared_ptr<string> pageSize_ {};
-    // The control end time.
+    // The end time of the control action.
     // 
     // > Format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> punishEndTime_ {};
-    // The control start time.
+    // The start time of the control action.
     // 
     // > Format: yyyy-MM-dd HH:mm:ss
     shared_ptr<string> punishStartTime_ {};
@@ -183,7 +186,10 @@ namespace Models
     // - **Removed**: Removed.
     // - **Alerting**: Alerting.
     // - **Ended**: Ended.
+    // 
+    // > This parameter does not take effect when the Statuses parameter is not empty.
     shared_ptr<string> status_ {};
+    // The list of event statuses.
     shared_ptr<string> statusesShrink_ {};
   };
 

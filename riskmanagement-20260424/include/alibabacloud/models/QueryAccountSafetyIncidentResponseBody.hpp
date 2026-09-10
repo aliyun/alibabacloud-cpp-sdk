@@ -108,7 +108,7 @@ namespace Models
       protected:
         // The current page number.
         shared_ptr<string> current_ {};
-        // The number of assets displayed on each page in a paging query.
+        // The number of assets displayed on each page in a paged query.
         shared_ptr<string> pageSize_ {};
         // The total number of events.
         shared_ptr<string> total_ {};
@@ -218,13 +218,13 @@ namespace Models
 
 
         protected:
-          // The alert end time.
+          // The time when the alert ended.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertEndTime_ {};
-          // The first alert time.
+          // The time when the first alert was triggered.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> alertStartTime_ {};
-          // The latest detection time.
+          // The time of the latest detection.
           // > Format: yyyy-MM-dd HH:mm:ss
           shared_ptr<string> lastCheckTime_ {};
         };
@@ -377,11 +377,11 @@ namespace Models
 
 
       protected:
-        // The control action name code.
+        // The control action code.
         shared_ptr<string> actionCode_ {};
         // The control action name.
         shared_ptr<string> actionName_ {};
-        // The control removal time.
+        // The time when the control action was removed.
         // 
         // > Format: yyyy-MM-dd HH:mm:ss
         shared_ptr<string> antiPunishTime_ {};
@@ -399,12 +399,12 @@ namespace Models
         shared_ptr<string> eventReason_ {};
         // The event subtype name.
         shared_ptr<string> eventType_ {};
-        // The exception call time.
+        // The time of the abnormal call.
         // > Format: yyyy-MM-dd HH:mm:ss
         shared_ptr<string> exceptionCallTime_ {};
-        // The exception IP address.
+        // The abnormal IP address.
         shared_ptr<string> exceptionIp_ {};
-        // The control start time.
+        // The start time of the control action.
         // 
         // > Format: yyyy-MM-dd HH:mm:ss
         shared_ptr<string> punishTime_ {};
@@ -412,7 +412,7 @@ namespace Models
         shared_ptr<string> reinforcement_ {};
         // The cloud resource ID.
         shared_ptr<string> resourceId_ {};
-        // The control object type.
+        // The controlled object type.
         shared_ptr<string> resourceType_ {};
         // The event status. Valid values:
         // 
@@ -452,7 +452,7 @@ namespace Models
     protected:
       // The event data.
       shared_ptr<vector<Data::List>> list_ {};
-      // The pagination information.
+      // The total number of records.
       shared_ptr<Data::PageInfo> pageInfo_ {};
     };
 
@@ -498,7 +498,7 @@ namespace Models
   protected:
     // The status code.
     // 
-    // > 200: success. Other values (such as 500 or 400): error codes.
+    // >  200: The request was successful. Other codes (500, 400, etc.): An error occurred.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryAccountSafetyIncidentResponseBody::Data> data_ {};
@@ -506,7 +506,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request was successful.
     // 
     // - **true**
     // - **false**
