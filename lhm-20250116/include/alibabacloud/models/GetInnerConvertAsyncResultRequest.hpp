@@ -1,0 +1,48 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETINNERCONVERTASYNCRESULTREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_GETINNERCONVERTASYNCRESULTREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace LHM20250116
+{
+namespace Models
+{
+  class GetInnerConvertAsyncResultRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetInnerConvertAsyncResultRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(taskId, taskId_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetInnerConvertAsyncResultRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(taskId, taskId_);
+    };
+    GetInnerConvertAsyncResultRequest() = default ;
+    GetInnerConvertAsyncResultRequest(const GetInnerConvertAsyncResultRequest &) = default ;
+    GetInnerConvertAsyncResultRequest(GetInnerConvertAsyncResultRequest &&) = default ;
+    GetInnerConvertAsyncResultRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetInnerConvertAsyncResultRequest() = default ;
+    GetInnerConvertAsyncResultRequest& operator=(const GetInnerConvertAsyncResultRequest &) = default ;
+    GetInnerConvertAsyncResultRequest& operator=(GetInnerConvertAsyncResultRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->taskId_ == nullptr; };
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline GetInnerConvertAsyncResultRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+  protected:
+    // The task ID that uniquely identifies a task.
+    shared_ptr<string> taskId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace LHM20250116
+#endif
