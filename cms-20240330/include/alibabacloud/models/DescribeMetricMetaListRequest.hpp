@@ -14,6 +14,8 @@ namespace Models
   class DescribeMetricMetaListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeMetricMetaListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(aliyunLang, aliyunLang_);
+      DARABONBA_PTR_TO_JSON(category, category_);
       DARABONBA_PTR_TO_JSON(keywords, keywords_);
       DARABONBA_PTR_TO_JSON(labels, labels_);
       DARABONBA_PTR_TO_JSON(metaFormat, metaFormat_);
@@ -23,6 +25,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(pageSize, pageSize_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeMetricMetaListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(aliyunLang, aliyunLang_);
+      DARABONBA_PTR_FROM_JSON(category, category_);
       DARABONBA_PTR_FROM_JSON(keywords, keywords_);
       DARABONBA_PTR_FROM_JSON(labels, labels_);
       DARABONBA_PTR_FROM_JSON(metaFormat, metaFormat_);
@@ -86,9 +90,23 @@ namespace Models
       shared_ptr<string> value_ {};
     };
 
-    virtual bool empty() const override { return this->keywords_ == nullptr
-        && this->labels_ == nullptr && this->metaFormat_ == nullptr && this->metricName_ == nullptr && this->namespace_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr; };
+    virtual bool empty() const override { return this->aliyunLang_ == nullptr
+        && this->category_ == nullptr && this->keywords_ == nullptr && this->labels_ == nullptr && this->metaFormat_ == nullptr && this->metricName_ == nullptr
+        && this->namespace_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+    // aliyunLang Field Functions 
+    bool hasAliyunLang() const { return this->aliyunLang_ != nullptr;};
+    void deleteAliyunLang() { this->aliyunLang_ = nullptr;};
+    inline string getAliyunLang() const { DARABONBA_PTR_GET_DEFAULT(aliyunLang_, "") };
+    inline DescribeMetricMetaListRequest& setAliyunLang(string aliyunLang) { DARABONBA_PTR_SET_VALUE(aliyunLang_, aliyunLang) };
+
+
+    // category Field Functions 
+    bool hasCategory() const { return this->category_ != nullptr;};
+    void deleteCategory() { this->category_ = nullptr;};
+    inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+    inline DescribeMetricMetaListRequest& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
     // keywords Field Functions 
     bool hasKeywords() const { return this->keywords_ != nullptr;};
     void deleteKeywords() { this->keywords_ = nullptr;};
@@ -141,6 +159,10 @@ namespace Models
 
 
   protected:
+    // The language.
+    shared_ptr<string> aliyunLang_ {};
+    // The category.
+    shared_ptr<string> category_ {};
     // The keyword.
     shared_ptr<string> keywords_ {};
     // Filters resources by label. The following labels are available:
@@ -149,11 +171,12 @@ namespace Models
     // - alertUnit: the recommended alert unit.
     // - unitFactor: the unit conversion factor.
     // - minAlertPeriod: the minimum alert period.
-    // - productCategory: the service type category.
+    // - productCategory: the product type category.
     shared_ptr<vector<DescribeMetricMetaListRequest::Labels>> labels_ {};
     // The metadata source. Valid values:
+    // 
     // - CMS: CloudMonitor Basic monitoring metrics.
-    // - PROM_BASIC: Prometheus CloudMonitor basic monitoring metrics.
+    // - PROM_BASIC: Prometheus CloudMonitor Basic monitoring metrics.
     shared_ptr<string> metaFormat_ {};
     // The metric name.
     shared_ptr<string> metricName_ {};

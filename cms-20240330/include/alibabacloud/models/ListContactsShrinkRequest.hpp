@@ -116,19 +116,19 @@ namespace Models
     shared_ptr<string> contactIdsShrink_ {};
     // The email address of the contact.
     shared_ptr<string> email_ {};
-    // The ID of the contact group.
+    // The ID of the contact group to which the contact belongs.
     shared_ptr<string> groupId_ {};
     // The contact name.
     shared_ptr<string> name_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 100.
+    // The number of entries per page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The mobile number of the contact.
+    // The phone number of the contact.
     shared_ptr<string> phone_ {};
     // Specifies whether to query only ungrouped contacts.
     shared_ptr<bool> queryUngroupedContacts_ {};
-    // The workspace ID.
+    // The workspace name.
     shared_ptr<string> workspace_ {};
   };
 

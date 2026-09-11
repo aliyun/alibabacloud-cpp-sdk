@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Returns only items whose partition key value equals this string.
+    // The exact match value.
     shared_ptr<string> eq_ {};
   };
 

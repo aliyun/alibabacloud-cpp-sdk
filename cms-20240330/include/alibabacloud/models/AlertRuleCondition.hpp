@@ -178,9 +178,13 @@ namespace Models
 
 
         protected:
+          // The conditional expression type of the sub-condition, typically SIMPLE.
           shared_ptr<string> expressionType_ {};
+          // The comparison operator of the sub-condition, used to compare the query result with the threshold.
           shared_ptr<string> operator_ {};
+          // The query name referenced by the sub-condition, corresponding to the name in queries.
           shared_ptr<string> queryName_ {};
+          // The threshold value of the sub-condition.
           shared_ptr<double> threshold_ {};
         };
 
@@ -210,8 +214,11 @@ namespace Models
 
 
       protected:
+        // The list of sub-conditions for the trigger condition. Multiple sub-conditions are evaluated based on the logicOperator of the parent expression.
         shared_ptr<vector<Expression::Conditions>> conditions_ {};
+        // The expression type. SIMPLE indicates a single-metric condition. COMPOSITE indicates a multi-metric composite condition.
         shared_ptr<string> expressionType_ {};
+        // The multi-metric composite operator. Valid only when expressionType=COMPOSITE.
         shared_ptr<string> logicOperator_ {};
       };
 
@@ -241,8 +248,11 @@ namespace Models
 
 
     protected:
+      // The duration in seconds that the condition must be continuously met before an alert is triggered.
       shared_ptr<int32_t> durationSecs_ {};
+      // The expression of the trigger condition. Supports two forms: SIMPLE (single-metric) and COMPOSITE (multi-metric AND/OR/UNLESS combination).
       shared_ptr<Triggers::Expression> expression_ {};
+      // The alert severity level that corresponds to this trigger condition when it is met.
       shared_ptr<string> severity_ {};
     };
 
@@ -302,9 +312,13 @@ namespace Models
 
 
     protected:
+      // The upper bound of the range (required when operator=IN_RANGE/OUT_OF_RANGE).
       shared_ptr<double> max_ {};
+      // The lower bound of the range (required when operator=IN_RANGE/OUT_OF_RANGE).
       shared_ptr<double> min_ {};
+      // The severity level.
       shared_ptr<string> severity_ {};
+      // The threshold (required when the operator is not a range operator).
       shared_ptr<double> threshold_ {};
     };
 
@@ -417,7 +431,7 @@ namespace Models
         // - WARNING
         // - INFO
         shared_ptr<string> level_ {};
-        // The statistical method. The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified cloud service. Examples: Maximum, Minimum, and Average.
+        // The statistical method. The valid values of this parameter are determined by the Statistics column corresponding to the MetricName of the specified cloud service. Examples: Maximum, Minimum, and Average.
         shared_ptr<string> statistics_ {};
         // The alert threshold.
         shared_ptr<double> threshold_ {};
@@ -451,13 +465,13 @@ namespace Models
 
 
     protected:
-      // The list of conditions. When an alert rule corresponds to multiple levels, each level has a condition object.
+      // The list of conditions. If an alert rule corresponds to multiple levels, each level has a condition object.
       shared_ptr<vector<SimpleEscalation::Escalations>> escalations_ {};
       // Applicable condition type: CMS_BASIC_CONDITION.
       // 
       // The metric associated with the alert condition.
       shared_ptr<string> metricName_ {};
-      // The time window of the metric. Unit: seconds.
+      // The time window of the metric, in seconds.
       shared_ptr<int64_t> period_ {};
     };
 
@@ -514,7 +528,7 @@ namespace Models
       // - WARNING
       // - INFO
       shared_ptr<string> level_ {};
-      // The alert condition expression.
+      // The alert conditional expression.
       shared_ptr<string> rawExpression_ {};
       // The number of times the condition must be met to trigger an alert.
       shared_ptr<int32_t> times_ {};
@@ -631,10 +645,10 @@ namespace Models
         shared_ptr<int64_t> period_ {};
         // The statistical method. The value of this parameter is determined by the Statistics column corresponding to the MetricName of the specified cloud service. Example values for the statistical method of a metric:
         // 
-        // - $Maximum: Maximum value.
-        // - $Minimum: Minimum value.
-        // - $Average: Average value.
-        // - $Availability: Availability rate (typically used for site monitoring).
+        // - $Maximum: maximum value.
+        // - $Minimum: minimum value.
+        // - $Average: average value.
+        // - $Availability: availability rate (typically used for site monitoring).
         // 
         // Note: $ is the unified prefix symbol for metrics.
         shared_ptr<string> statistics_ {};
@@ -824,7 +838,7 @@ namespace Models
 
 
     protected:
-      // The aggregate functions applied after time series aggregation.
+      // The aggregation function applied after time series.
       // 
       // - count
       // - sum
@@ -854,10 +868,10 @@ namespace Models
       shared_ptr<double> value_ {};
       // The list of alert levels for different values.
       shared_ptr<vector<CompareList::ValueLevelList>> valueLevelList_ {};
-      // The time unit for year-over-year comparison. Valid only when oper is set to YOY_UP or YOY_DOWN.
+      // The year-over-year time unit. Valid only when oper is set to YOY_UP or YOY_DOWN.
       // Valid values: minute, hour, day, week, month.
       shared_ptr<string> yoyTimeUnit_ {};
-      // The value of the year-over-year time period. Used together with yoyTimeUnit.
+      // The year-over-year time value. Used together with yoyTimeUnit.
       shared_ptr<int32_t> yoyTimeValue_ {};
     };
 
@@ -925,13 +939,13 @@ namespace Models
       shared_ptr<string> countCondition_ {};
       // The alert level when the condition is met.
       shared_ptr<string> level_ {};
-      // The match type: has data, has a specific number of data entries, has data match, or has a specific number of data matches.
+      // The match type: has data, has specific count of data, has data match, or has specific count of data match.
       // 
       // Valid values:
       // - HasData: has data
-      // - HasDataCount: has a specific number of data entries
+      // - HasDataCount: has specific count of data
       // - HasDataMatch: has data match
-      // - HasDataMatchCount: has a specific number of data matches
+      // - HasDataMatchCount: has specific count of data match
       shared_ptr<string> type_ {};
     };
 
@@ -1130,7 +1144,7 @@ namespace Models
     shared_ptr<int32_t> alertCount_ {};
     // Applicable condition type: SLS_CONDITION.
     // 
-    // The list of Simple Log Service alert conditions.
+    // The list of Simple Log Service (SLS) alert conditions.
     shared_ptr<vector<AlertRuleCondition::CaseList>> caseList_ {};
     // Applicable condition type: APM_CONDITION.
     // 
@@ -1138,54 +1152,63 @@ namespace Models
     shared_ptr<vector<AlertRuleCondition::CompareList>> compareList_ {};
     // Applicable condition type: CMS_BASIC_CONDITION.
     // 
-    // This parameter takes effect only when escalationType is set to composite. The composite metric alert condition.
+    // Valid when escalationType is set to composite. The composite metric alert condition.
     shared_ptr<AlertRuleCondition::CompositeEscalation> compositeEscalation_ {};
+    // The count comparison operator, specified when type=LOG_SET_CONDITION. Valid values: GTE / GT / EQ / LTE / LT.
     shared_ptr<string> countOperator_ {};
+    // The count threshold, specified when type=LOG_SET_CONDITION.
     shared_ptr<int64_t> countThreshold_ {};
+    // Used when type=UMODEL_METRICSET_MULTI_CONDITION. Specifies whether to enable severity suppression to the highest level. Default value: true. Only the highest severity level is reported for the same entity.
     shared_ptr<bool> enableSeveritySuppression_ {};
     // Applicable condition type: CMS_BASIC_CONDITION.
     // 
     // Valid values:
     // 
-    // - simple: simple metric condition.
-    // - composite: composite metric condition.
-    // - express: expression condition.
+    // - simple: simple metric condition
+    // - composite: composite metric condition
+    // - express: expression condition
     shared_ptr<string> escalationType_ {};
     // Applicable condition type: CMS_BASIC_CONDITION.
     // 
-    // This parameter takes effect only when escalationType is set to composite. The multi-metric composite alert condition.
+    // Valid when escalationType=composite. Specifies the multi-metric composite alert conditions.
     shared_ptr<AlertRuleCondition::ExpressEscalation> expressEscalation_ {};
+    // The log field name, specified when type=LOG_SET_CONDITION and matchOperator=CONTAINS/EQUALS/REGEX.
     shared_ptr<string> matchField_ {};
+    // The match operator, specified when type=LOG_SET_CONDITION. Valid values: PRESENT / NOT_PRESENT / CONTAINS / EQUALS / REGEX.
     shared_ptr<string> matchOperator_ {};
+    // The match value, specified when type=LOG_SET_CONDITION and matchOperator=CONTAINS/EQUALS/REGEX.
     shared_ptr<string> matchValue_ {};
+    // The upper bound of the range specified when type=BASIC_CONDITION and oper=IN_RANGE/OUT_OF_RANGE.
     shared_ptr<double> max_ {};
+    // The lower bound of the range specified when type=BASIC_CONDITION and oper=IN_RANGE/OUT_OF_RANGE.
     shared_ptr<double> min_ {};
     // Applicable condition type: APM_CONDITION.
     // 
-    // The alert level when no data is available. If this parameter is not specified, no alert is triggered when no data is available.
+    // The alert level when no data is available. If not specified, no alert is triggered for no-data scenarios.
     shared_ptr<string> noDataAlertLevel_ {};
     // Applicable condition type: APM_CONDITION.
     // 
-    // The compensation value when no data is available.
+    // The value to use as compensation when no data is available.
     shared_ptr<string> noDataAppendValue_ {};
     // Applicable condition type: CMS_BASIC_CONDITION.
     // 
-    // The method used to handle alerts when no monitoring data is available. Valid values:
+    // 
+    // Specifies how to handle alerts when no monitoring data is available. Valid values:
     // 
     // - KEEP_LAST_STATE (default): No action is taken.
-    // - INSUFFICIENT_DATA: The alert content indicates that no data is available.
+    // - INSUFFICIENT_DATA: The alert content indicates no data.
     // - OK: Normal.
     shared_ptr<string> noDataPolicy_ {};
-    // The comparison operator. Specifies whether to use year-over-year or period-over-period comparison. Valid values:
+    // The comparison operator. Determines whether year-over-year or period-over-period comparison is used.
     // 
-    // - GT: greater than.
-    // - GTE: greater than or equal to.
-    // - LT: less than.
-    // - LTE: less than or equal to.
-    // - EQ: equal to.
-    // - NE: not equal to.
-    // - YOY_UP: year-over-year increase.
-    // - YOY_DOWN: year-over-year decrease.
+    // - Greater than: GT
+    // - Greater than or equal to: GTE
+    // - Less than: LT
+    // - Less than or equal to: LTE
+    // - Equal to: EQ
+    // - Not equal to: NE
+    // - Year-over-year increase: YOY_UP
+    // - Year-over-year decrease: YOY_DOWN
     shared_ptr<string> oper_ {};
     // Applicable condition type: APM_CONDITION.
     // 
@@ -1195,18 +1218,20 @@ namespace Models
     shared_ptr<string> relation_ {};
     // Applicable condition type: CMS_BASIC_CONDITION.
     // 
-    // This parameter takes effect only when escalationType is set to simple. The alert condition configured for a single metric.
+    // Valid only when escalationType is set to simple. The alert condition for a single metric.
     shared_ptr<AlertRuleCondition::SimpleEscalation> simpleEscalation_ {};
+    // The list of multi-level thresholds and severity levels, used to map different thresholds to corresponding alert levels.
     shared_ptr<vector<AlertRuleCondition::ThresholdList>> thresholdList_ {};
+    // Specified when type=UMODEL_METRICSET_MULTI_CONDITION. The list of trigger conditions. Each item contains severity, durationSecs, and an expression (SIMPLE for single-metric or COMPOSITE for multi-metric AND/OR/UNLESS).
     shared_ptr<vector<AlertRuleCondition::Triggers>> triggers_ {};
     // The rule condition type. Valid values:
-    // - SLS_CONDITION: Simple Log Service alert condition.
+    // - SLS_CONDITION: SLS alert condition.
     // - APM_CONDITION: APM alert condition.
-    // - CMS_BASIC_CONDITION: CloudMonitor Basic monitoring alert condition.
+    // - CMS_BASIC_CONDITION: CloudMonitor Basic CloudMonitor alerts condition.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The threshold that triggers the alert.
+    // The threshold for triggering an alert.
     shared_ptr<double> value_ {};
   };
 

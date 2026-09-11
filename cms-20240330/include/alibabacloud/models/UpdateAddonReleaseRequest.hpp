@@ -69,9 +69,11 @@ namespace Models
 
 
   protected:
-    // The version of the add-on.
+    // The version of the addon.
     shared_ptr<string> addonVersion_ {};
-    // Specifies whether to perform a dry run for the request.
+    // Specifies whether to perform a dry run. Valid values:
+    // - true: Performs a dry run.
+    // - false: Does not perform a dry run.
     shared_ptr<bool> dryRun_ {};
     // The entity discovery rules.
     shared_ptr<EntityDiscoverRule> entityRules_ {};

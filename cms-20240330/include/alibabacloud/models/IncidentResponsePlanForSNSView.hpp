@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The incident state at which repeated notifications stop. For example, `resolved`.
+      // The setting that specifies whether to send repeat notifications when an incident ends.
       shared_ptr<string> endIncidentState_ {};
-      // The interval, in seconds, for repeated notifications.
+      // The repeat notification interval, in seconds.
       shared_ptr<int32_t> repeatInterval_ {};
     };
 
@@ -149,11 +149,11 @@ namespace Models
 
 
     protected:
-      // The IDs of actions to run when an alert is triggered.
+      // The list of response action IDs triggered by alerts.
       shared_ptr<vector<string>> alertActionIds_ {};
-      // The IDs of actions to run when the incident is resolved.
+      // The list of response action IDs triggered by alert recovery.
       shared_ptr<vector<string>> restoreActionIds_ {};
-      // The ID of the notification template.
+      // The UUID of the template used for pushing.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -259,31 +259,31 @@ namespace Models
 
 
   protected:
-    // The duration, in seconds, after which an incident without new alerts is automatically resolved.
+    // The auto-recovery time when no incidents occur, in seconds.
     shared_ptr<int64_t> autoRecoverSeconds_ {};
-    // The time when the incident response plan was created, in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format.
+    // The creation time.
     shared_ptr<string> createTime_ {};
-    // Indicates if the incident response plan is enabled. Valid values: `true` and `false`.
+    // Indicates whether the response plan is enabled.
     shared_ptr<bool> enable_ {};
-    // The IDs of the escalation policies.
+    // The list of escalation plan IDs.
     shared_ptr<vector<string>> escalationId_ {};
-    // The mode of the incident response plan. Valid values: `AUTO` and `MANUAL`.
+    // The lifecycle mode.
     shared_ptr<string> mode_ {};
-    // The name of the incident response plan.
+    // The name.
     shared_ptr<string> name_ {};
-    // The settings for sending notifications.
+    // The push settings.
     shared_ptr<IncidentResponsePlanForSNSView::PushingSetting> pushingSetting_ {};
-    // The settings for repeated notifications.
+    // The repeat notification configuration.
     shared_ptr<IncidentResponsePlanForSNSView::RepeatNotifySetting> repeatNotifySetting_ {};
-    // The source of the incident.
+    // The source. The value must be CUSTOM within SNS.
     shared_ptr<string> source_ {};
     // The synchronization source type.
     shared_ptr<string> syncFromType_ {};
-    // The type of the incident response plan.
+    // The response plan type. The value must be NOTIFY_STRATEGY_DEFINED within SNS.
     shared_ptr<string> type_ {};
-    // The time when the incident response plan was last updated, in UTC and in the `YYYY-MM-DDThh:mm:ssZ` format.
+    // The update time.
     shared_ptr<string> updateTime_ {};
-    // The unique ID of the incident response plan.
+    // The unique identifier of the response plan.
     shared_ptr<string> uuid_ {};
   };
 

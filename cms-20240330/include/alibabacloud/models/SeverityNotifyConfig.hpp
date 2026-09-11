@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // The list of notification recipients. Each recipient specifies a type, an identifier, and the enabled channels.
+    // The list of Notification Recipients. Each recipient specifies the type, identifier, and enabled channels.
     shared_ptr<vector<DirectNotifyReceiver>> receivers_ {};
-    // Specifies whether to send recovery notifications for this severity level. If this parameter is left empty, the value falls back to the top-level sendRecoverNotification parameter.
+    // Specifies whether to send recovery notifications for this severity level. If this parameter is empty, the value falls back to the top-level sendRecoverNotification parameter.
     shared_ptr<bool> sendRecoverNotification_ {};
   };
 

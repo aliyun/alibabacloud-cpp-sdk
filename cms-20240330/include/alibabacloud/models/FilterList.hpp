@@ -57,10 +57,15 @@ namespace Models
 
 
   protected:
+    // The dimension key.
+    // 
     // This parameter is required.
     shared_ptr<string> key_ {};
+    // The filter type.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The filter value. This parameter can be left empty when type is set to ALL or DISABLED.
     shared_ptr<string> value_ {};
   };
 

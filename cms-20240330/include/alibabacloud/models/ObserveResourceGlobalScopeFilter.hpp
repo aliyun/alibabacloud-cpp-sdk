@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to retrieve only resources that are exclusive to the global scope.
+    // The exact match.
     shared_ptr<bool> eq_ {};
   };
 

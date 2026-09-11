@@ -133,16 +133,27 @@ namespace Models
 
 
   protected:
+    // The days of the week on which notifications are sent, 1-7.
     shared_ptr<vector<int32_t>> activeDays_ {};
+    // The daily notification effective end time.
     shared_ptr<string> activeEndTime_ {};
+    // The daily notification effective start time.
     shared_ptr<string> activeStartTime_ {};
+    // The list of notification channels.
     shared_ptr<vector<DirectNotifyChannel>> channels_ {};
+    // The list of notification policy IDs (type=NOTIFY_POLICY, currently a maximum of 1 is supported. Mutually exclusive with the DIRECT_NOTIFY fields channels/silenceTimeSecs/activeDays/activeStartTime/activeEndTime/utcOffset).
     shared_ptr<vector<string>> notifyStrategies_ {};
+    // Specifies whether to send recovery notifications (type=DIRECT_NOTIFY). Default value: true. Each severity level in severityChannels can independently override this setting.
     shared_ptr<bool> sendRecoverNotification_ {};
+    // The Notification Recipients and channels configured by severity level (type=DIRECT_NOTIFY, new mode, mutually exclusive with channels). The key is the severity level: CRITICAL/ERROR/WARNING/INFO.
     shared_ptr<map<string, SeverityNotifyConfig>> severityChannels_ {};
+    // The mute for epoch in seconds.
     shared_ptr<int32_t> silenceTimeSecs_ {};
+    // The notification configuration type.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
+    // The UTC time zone offset.
     shared_ptr<string> utcOffset_ {};
   };
 

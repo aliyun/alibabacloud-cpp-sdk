@@ -60,9 +60,14 @@ namespace Models
 
 
   protected:
+    // The grouping dimension.
     shared_ptr<vector<string>> groupBy_ {};
+    // The metric code.
+    // 
     // This parameter is required.
     shared_ptr<string> measureCode_ {};
+    // The query time window, in seconds.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> windowSecs_ {};
   };

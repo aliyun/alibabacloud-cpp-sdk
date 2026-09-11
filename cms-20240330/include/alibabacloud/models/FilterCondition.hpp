@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The name of the field to filter on.
+    // The field name.
     shared_ptr<string> field_ {};
-    // The comparison operator, such as `equals` or `startsWith`.
+    // The operator.
     shared_ptr<string> op_ {};
-    // The value to match for the specified field and operator.
+    // The comparison value.
     shared_ptr<string> value_ {};
   };
 

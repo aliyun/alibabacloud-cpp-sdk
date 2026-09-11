@@ -83,15 +83,15 @@ namespace Models
 
 
   protected:
-    // The details of the created or updated alert rule.
+    // The alert rule V2.
     shared_ptr<AlertRuleV2> alertRule_ {};
-    // The number of deleted alert rules.
+    // The number of rules that were successfully deleted.
     shared_ptr<int32_t> deletedCount_ {};
-    // A list of UUIDs of deleted alert rules.
+    // The list of UUIDs of rules that were successfully deleted.
     shared_ptr<vector<string>> deletedUuidList_ {};
-    // The number of updated alert rules.
+    // The number of rules that were successfully enabled or disabled.
     shared_ptr<int32_t> updatedCount_ {};
-    // A list of UUIDs of updated alert rules.
+    // The list of UUIDs of rules that were successfully enabled or disabled.
     shared_ptr<vector<string>> updatedUuidList_ {};
   };
 

@@ -322,19 +322,23 @@ namespace Models
 
 
   protected:
+    // The action integration configuration.
     shared_ptr<ActionIntegrationConfig> actionIntegrationConfig_ {};
     // The annotations.
     shared_ptr<map<string, string>> annotations_ {};
+    // The ARMS integration configuration.
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
-    // The business source. This field is read-only. Example values: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls.
+    // The business source. This value is read-only. Example values: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, and sls.
     shared_ptr<string> bizSource_ {};
+    // The detection condition configuration. Supported types: Prometheus simple, UModel, APM simple, and APM composite.
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
     // The content template.
     shared_ptr<string> contentTemplate_ {};
-    // The creation time in ISO 8601 format. This field is read-only.
+    // The creation time in ISO 8601 format. This value is read-only.
     shared_ptr<string> createdAt_ {};
+    // The datasource configuration. This is a unified object shared by PROMETHEUS, UMODEL, and APM. Fields are selected based on the type.
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
-    // The data source type. This field is read-only and derived.
+    // The datasource type. This value is read-only and derived.
     shared_ptr<string> datasourceType_ {};
     // The display name.
     shared_ptr<string> displayName_ {};
@@ -342,32 +346,35 @@ namespace Models
     shared_ptr<bool> enabled_ {};
     // The labels.
     shared_ptr<map<string, string>> labels_ {};
+    // The notification configuration. Currently, only DIRECT_NOTIFY is supported, which corresponds to DirectNotifyConfig.
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
-    // The notification strategy ID. This field is read-only and derived from the first item in the notification strategy list.
+    // The notification policy ID. This value is read-only and derived from the first entry in the notification policy list.
     shared_ptr<string> notifyStrategyId_ {};
     // The observable resource configuration.
     shared_ptr<ObserveResourceConfig> observeResourceConfig_ {};
-    // **[Deprecated]** Indicates whether the rule applies to all resources of this type. This field is read-only and derived. Use observeResourceConfig.relationType set to ALL for equivalent semantics in new integrations.
+    // **[Deprecated]** Indicates whether the rule applies to all resources of this type. This value is read-only and derived. For new integrations, use observeResourceConfig.relationType and check whether it is set to ALL for equivalent semantics.
     shared_ptr<bool> observeResourceGlobalScope_ {};
-    // The list of observable resource IDs. This field is read-only and derived.
+    // The list of observable resource IDs. This value is read-only and derived.
     shared_ptr<vector<string>> observeResourceList_ {};
-    // **[Deprecated]** The observable resource type. This field is read-only and derived. Use observeResourceConfig.entityType instead for new integrations.
+    // **[Deprecated]** The observable resource type. This value is read-only and derived. Use observeResourceConfig.entityType instead for new integrations.
     shared_ptr<string> observeResourceType_ {};
-    // The partition key. This field is read-only and maintained by the system for rule routing and sharding.
+    // The partition key. This value is read-only and maintained by the system for rule routing and sharding.
     shared_ptr<string> partitionKey_ {};
+    // The query configuration. Valid types: PROMETHEUS_SINGLE_QUERY, UMODEL_METRICSET_QUERY, and APM_MULTI_QUERY.
     shared_ptr<QueryConfigUnified> queryConfig_ {};
     // The RCA (root cause analysis) configuration.
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
-    // The region ID. This field is aligned with V1 AlertRule.regionId. Priority: request body regionId > gateway callerRegionId.
+    // The region ID, aligned with V1 AlertRule.regionId. Priority: the regionId in the request body takes precedence over the gateway callerRegionId.
     shared_ptr<string> regionId_ {};
+    // The scheduling configuration. Currently, only the FIXED type is supported.
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
-    // The severity levels covered by this rule, separated by commas. This field is read-only and derived. The format is the same as the filter.severityLevels query parameter.
+    // The severity levels covered by this rule, in comma-separated format. This value is read-only and derived. The format is consistent with the filter.severityLevels query parameter.
     shared_ptr<string> severityLevels_ {};
-    // The alert status. This field is read-only.
+    // The alert status. This value is read-only.
     shared_ptr<string> status_ {};
-    // The update time in ISO 8601 format. This field is read-only.
+    // The update time in ISO 8601 format. This value is read-only.
     shared_ptr<string> updatedAt_ {};
-    // The rule UUID. This field is system-generated and read-only.
+    // The rule UUID. This value is system-generated and read-only.
     shared_ptr<string> uuid_ {};
     // The workspace.
     shared_ptr<string> workspace_ {};

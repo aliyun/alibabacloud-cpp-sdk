@@ -148,9 +148,13 @@ namespace Models
 
 
       protected:
+        // The effective days, from Monday to Sunday.
         shared_ptr<vector<int32_t>> dayInWeek_ {};
+        // The start time in minutes.
         shared_ptr<int32_t> endTimeInMinute_ {};
+        // The start time in minutes.
         shared_ptr<int32_t> startTimeInMinute_ {};
+        // The time zone.
         shared_ptr<string> timeZone_ {};
       };
 
@@ -205,8 +209,11 @@ namespace Models
 
 
       protected:
+        // The channel type.
         shared_ptr<string> channelType_ {};
+        // The enabled notification types.
         shared_ptr<vector<string>> enabledSubChannels_ {};
+        // The channel receivers.
         shared_ptr<vector<string>> receivers_ {};
       };
 
@@ -263,11 +270,17 @@ namespace Models
 
 
     protected:
+      // The notification channels.
       shared_ptr<vector<Routes::Channels>> channels_ {};
+      // The digital employee name.
       shared_ptr<string> digitalEmployeeName_ {};
+      // The effective time range.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
+      // Indicates whether root cause analysis (RCA) is enabled.
       shared_ptr<bool> enableRca_ {};
+      // The route-level filter.
       shared_ptr<FilterSetting> filterSetting_ {};
+      // The severity filter.
       shared_ptr<vector<string>> severities_ {};
     };
 
@@ -329,9 +342,13 @@ namespace Models
 
 
     protected:
+      // The grouping keys.
       shared_ptr<vector<string>> groupingKeys_ {};
+      // The check period in minutes.
       shared_ptr<int32_t> periodMin_ {};
+      // The silence duration in seconds.
       shared_ptr<int32_t> silenceSec_ {};
+      // The number of times the condition is triggered.
       shared_ptr<int32_t> times_ {};
     };
 
@@ -373,7 +390,9 @@ namespace Models
 
 
     protected:
+      // The notification type.
       shared_ptr<string> targetType_ {};
+      // The template UUID.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -500,21 +519,37 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The notification channel templates.
     shared_ptr<vector<NotifyStrategyForSNSView::CustomTemplateEntries>> customTemplateEntries_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // Indicates whether the notification policy is enabled.
     shared_ptr<bool> enable_ {};
+    // Indicates whether incident management is enabled.
     shared_ptr<bool> enableIncidentManagement_ {};
+    // The grouping settings.
     shared_ptr<NotifyStrategyForSNSView::GroupingSetting> groupingSetting_ {};
+    // Indicates whether recovery notifications are sent.
     shared_ptr<bool> ignoreRestoredNotification_ {};
+    // The UUID of the associated response plan, which equals notifyStrategyId.
     shared_ptr<string> incidentResponsePlanId_ {};
+    // The lifecycle mode. Within SNS, this value is always BundleStrategy.
     shared_ptr<string> mode_ {};
+    // The notification policy ID.
     shared_ptr<string> notifyStrategyId_ {};
+    // The name.
     shared_ptr<string> notifyStrategyName_ {};
+    // The notification channel routing settings.
     shared_ptr<vector<NotifyStrategyForSNSView::Routes>> routes_ {};
+    // The synchronization source. For SNS creation, this value is always OBS.
     shared_ptr<string> syncFromType_ {};
+    // The update time.
     shared_ptr<string> updateTime_ {};
+    // The user ID.
     shared_ptr<string> userId_ {};
+    // The workspace identifier.
     shared_ptr<string> workspace_ {};
   };
 

@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The label name.
     shared_ptr<string> name_ {};
+    // The label filter operator. Supported operators: = (equal to), != (not equal to), =~ (regular expression match), and !~ (regular expression not match).
     shared_ptr<string> operator_ {};
+    // The label value.
     shared_ptr<string> value_ {};
   };
 

@@ -187,12 +187,15 @@ namespace Models
     shared_ptr<vector<string>> fsWebhooks_ {};
     // The list of contact group IDs.
     shared_ptr<vector<string>> groups_ {};
-    // The notification time period. Notifications are sent only during this time period.
+    // The notification time window. Notifications are sent only within this time window.
     shared_ptr<AlertRuleTimeSpan> notifyTime_ {};
+    // The Qwen (Qwencloud) Notification Recipient configuration. Both the outer key and inner key are custom identity values. The inner Boolean value specifies whether the Notification Recipient is enabled.
     shared_ptr<map<string, Darabonba::Json>> qwencloudContacts_ {};
+    // Specifies whether to send recovery notifications. Each severity level in severityNotifications can independently override this setting.
     shared_ptr<bool> sendOk_ {};
+    // The Notification Recipients and channels configured by severity level. This parameter is mutually exclusive with the top-level contacts, groups, and similar parameters. The key is the severity level: CRITICAL, ERROR, WARNING, or INFO.
     shared_ptr<map<string, SeverityNotifyConfig>> severityNotifications_ {};
-    // The notification mute duration, in seconds.
+    // The notification mute duration. Unit: seconds.
     shared_ptr<int64_t> silenceTime_ {};
     // The list of Slack webhook Notification Recipient IDs.
     shared_ptr<vector<string>> slackWebhooks_ {};

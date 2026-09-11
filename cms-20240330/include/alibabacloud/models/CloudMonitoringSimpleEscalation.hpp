@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // An object that defines a single escalation rule.
+    // The multi-level trigger list.
     shared_ptr<vector<CloudMonitoringSimpleEscalationEntry>> escalations_ {};
-    // The name of the metric.
+    // The metric name.
     shared_ptr<string> metricName_ {};
-    // The evaluation period for the metric, in seconds.
+    // The collection period, in seconds.
     shared_ptr<int32_t> period_ {};
   };
 

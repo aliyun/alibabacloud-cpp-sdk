@@ -199,15 +199,15 @@ namespace Models
     protected:
       // The description.
       shared_ptr<string> description_ {};
-      // The dimension description.
+      // The dimension information description.
       shared_ptr<vector<Resources::DimensionDescription>> dimensionDescription_ {};
       // The resource filtering dimensions of CloudMonitor Basic.
       shared_ptr<vector<string>> dimensions_ {};
       // The CloudMonitor labels. This parameter is returned only when metaFormat is set to CMS.
       shared_ptr<map<string, string>> labels_ {};
-      // The metadata source. CMS indicates CloudMonitor Basic monitoring metrics. PROM_BASIC indicates Prometheus CloudMonitor basic monitoring metrics.
+      // The metadata source. CMS indicates CloudMonitor Basic monitoring metrics. PROM_BASIC indicates Prometheus CloudMonitor Basic monitoring metrics.
       // 
-      // Sample value:
+      // Example value:
       // CMS
       // Valid values:
       // CMS

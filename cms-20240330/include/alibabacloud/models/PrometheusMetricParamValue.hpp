@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The parameter name.
     shared_ptr<string> name_ {};
+    // The parameter value.
     shared_ptr<string> value_ {};
   };
 

@@ -240,6 +240,9 @@
 #include <alibabacloud/models/CreateIntegrationPolicyRequest.hpp>
 #include <alibabacloud/models/CreateIntegrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/CreateIntegrationPolicyResponse.hpp>
+#include <alibabacloud/models/CreateMaintainWindowRequest.hpp>
+#include <alibabacloud/models/CreateMaintainWindowResponseBody.hpp>
+#include <alibabacloud/models/CreateMaintainWindowResponse.hpp>
 #include <alibabacloud/models/CreateMemoryStoreRequest.hpp>
 #include <alibabacloud/models/CreateMemoryStoreResponseBody.hpp>
 #include <alibabacloud/models/CreateMemoryStoreResponse.hpp>
@@ -318,6 +321,9 @@
 #include <alibabacloud/models/DeleteIntegrationPolicyRequest.hpp>
 #include <alibabacloud/models/DeleteIntegrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/DeleteIntegrationPolicyResponse.hpp>
+#include <alibabacloud/models/DeleteMaintainWindowRequest.hpp>
+#include <alibabacloud/models/DeleteMaintainWindowResponseBody.hpp>
+#include <alibabacloud/models/DeleteMaintainWindowResponse.hpp>
 #include <alibabacloud/models/DeleteMemoriesRequest.hpp>
 #include <alibabacloud/models/DeleteMemoriesResponseBody.hpp>
 #include <alibabacloud/models/DeleteMemoriesResponse.hpp>
@@ -370,9 +376,15 @@
 #include <alibabacloud/models/DescribeRegionsRequest.hpp>
 #include <alibabacloud/models/DescribeRegionsResponseBody.hpp>
 #include <alibabacloud/models/DescribeRegionsResponse.hpp>
+#include <alibabacloud/models/DisableMaintainWindowRequest.hpp>
+#include <alibabacloud/models/DisableMaintainWindowResponseBody.hpp>
+#include <alibabacloud/models/DisableMaintainWindowResponse.hpp>
 #include <alibabacloud/models/DisableNotifyPolicyRequest.hpp>
 #include <alibabacloud/models/DisableNotifyPolicyResponseBody.hpp>
 #include <alibabacloud/models/DisableNotifyPolicyResponse.hpp>
+#include <alibabacloud/models/EnableMaintainWindowRequest.hpp>
+#include <alibabacloud/models/EnableMaintainWindowResponseBody.hpp>
+#include <alibabacloud/models/EnableMaintainWindowResponse.hpp>
 #include <alibabacloud/models/EnableNotifyPolicyRequest.hpp>
 #include <alibabacloud/models/EnableNotifyPolicyResponseBody.hpp>
 #include <alibabacloud/models/EnableNotifyPolicyResponse.hpp>
@@ -432,6 +444,9 @@
 #include <alibabacloud/models/GetIntegrationVersionForCSRequest.hpp>
 #include <alibabacloud/models/GetIntegrationVersionForCSResponseBody.hpp>
 #include <alibabacloud/models/GetIntegrationVersionForCSResponse.hpp>
+#include <alibabacloud/models/GetMaintainWindowRequest.hpp>
+#include <alibabacloud/models/GetMaintainWindowResponseBody.hpp>
+#include <alibabacloud/models/GetMaintainWindowResponse.hpp>
 #include <alibabacloud/models/GetMemoriesRequest.hpp>
 #include <alibabacloud/models/GetMemoriesResponseBody.hpp>
 #include <alibabacloud/models/GetMemoriesResponse.hpp>
@@ -557,6 +572,9 @@
 #include <alibabacloud/models/ListIntegrationPolicyStorageRequirementsRequest.hpp>
 #include <alibabacloud/models/ListIntegrationPolicyStorageRequirementsResponseBody.hpp>
 #include <alibabacloud/models/ListIntegrationPolicyStorageRequirementsResponse.hpp>
+#include <alibabacloud/models/ListMaintainWindowsRequest.hpp>
+#include <alibabacloud/models/ListMaintainWindowsResponseBody.hpp>
+#include <alibabacloud/models/ListMaintainWindowsResponse.hpp>
 #include <alibabacloud/models/ListMemoryStoresRequest.hpp>
 #include <alibabacloud/models/ListMemoryStoresResponseBody.hpp>
 #include <alibabacloud/models/ListMemoryStoresResponse.hpp>
@@ -658,6 +676,9 @@
 #include <alibabacloud/models/UpdateIntegrationPolicyRequest.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyResponseBody.hpp>
 #include <alibabacloud/models/UpdateIntegrationPolicyResponse.hpp>
+#include <alibabacloud/models/UpdateMaintainWindowRequest.hpp>
+#include <alibabacloud/models/UpdateMaintainWindowResponseBody.hpp>
+#include <alibabacloud/models/UpdateMaintainWindowResponse.hpp>
 #include <alibabacloud/models/UpdateMemoryRequest.hpp>
 #include <alibabacloud/models/UpdateMemoryResponseBody.hpp>
 #include <alibabacloud/models/UpdateMemoryResponse.hpp>

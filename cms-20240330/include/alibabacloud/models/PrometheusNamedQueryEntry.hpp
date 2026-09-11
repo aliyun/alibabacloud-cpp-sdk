@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The PromQL query expression.
     shared_ptr<string> expr_ {};
+    // The query name, such as $A or $B, referenced by the condition trigger.
     shared_ptr<string> name_ {};
   };
 

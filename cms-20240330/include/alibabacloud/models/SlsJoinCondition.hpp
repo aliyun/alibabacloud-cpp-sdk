@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The left field in the format $<query_idx>.<field>, such as $0.hostIp.
     shared_ptr<string> lhsField_ {};
+    // The comparison operator. Valid values: ==, !=, <, >, <=, and >=.
     shared_ptr<string> operator_ {};
+    // The right field in the format $<query_idx>.<field>, such as $1.hostIp.
     shared_ptr<string> rhsField_ {};
   };
 

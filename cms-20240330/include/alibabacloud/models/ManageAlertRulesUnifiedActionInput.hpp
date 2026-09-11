@@ -267,28 +267,51 @@ namespace Models
 
 
   protected:
+    // The action type.
+    // 
     // This parameter is required.
     shared_ptr<string> action_ {};
+    // The action integration configuration.
     shared_ptr<ActionIntegrationConfig> actionIntegrationConfig_ {};
+    // The annotations.
     shared_ptr<map<string, string>> annotations_ {};
+    // The ARMS integration configuration.
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
+    // The business source (optional). Examples: managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, sls. Provide as needed for CREATE/UPDATE/PATCH.
     shared_ptr<string> bizSource_ {};
+    // The aggregated condition configuration.
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
+    // The content template.
     shared_ptr<string> contentTemplate_ {};
+    // The aggregated data source configuration.
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
+    // The display name.
     shared_ptr<string> displayName_ {};
+    // Specifies whether the rule is enabled.
     shared_ptr<bool> enabled_ {};
+    // The labels.
     shared_ptr<map<string, string>> labels_ {};
+    // The aggregated notification configuration.
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
+    // The observable resource configuration.
     shared_ptr<ObserveResourceConfig> observeResourceConfig_ {};
+    // **[Deprecated]** The monitored object instance ID. Use observeResourceConfig.resources instead. Retained only for backward compatibility with legacy SDKs.
     shared_ptr<string> observeResourceInstanceId_ {};
+    // **[Deprecated]** The monitored object resource type. Use observeResourceConfig.entityType instead. Retained only for backward compatibility with legacy SDKs.
     shared_ptr<string> observeResourceType_ {};
+    // The aggregated query configuration.
     shared_ptr<QueryConfigUnified> queryConfig_ {};
+    // The root cause analysis (RCA) configuration (optional). Provide as needed for CREATE/UPDATE/PATCH.
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
+    // The region ID. Aligned with V1 AlertRule.regionId. If not provided, the gateway callerRegionId is used.
     shared_ptr<string> regionId_ {};
+    // The aggregated schedule configuration.
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
+    // The UUID of the rule. Required for UPDATE/PATCH.
     shared_ptr<string> uuid_ {};
+    // The list of rule UUIDs to delete (BATCH_DELETE).
     shared_ptr<vector<string>> uuidList_ {};
+    // The workspace. Required for CREATE/UPDATE and other actions.
     shared_ptr<string> workspace_ {};
   };
 

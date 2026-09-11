@@ -161,19 +161,33 @@ namespace Models
 
 
   protected:
+    // The creation time.
     shared_ptr<string> createTime_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // Indicates whether the policy is enabled.
     shared_ptr<bool> enabled_ {};
+    // The migration batch ID. This field is empty for user-created entries and has a value for migration artifacts.
     shared_ptr<string> migrationBatchId_ {};
+    // The migration metadata JSON string.
     shared_ptr<string> migrationMeta_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The notification policy snapshot.
     shared_ptr<NotifyStrategyForSNSView> notifyStrategy_ {};
+    // The UUID of the associated notifyStrategy, which is shared with the responsePlan UUID.
     shared_ptr<string> notifyStrategyUuid_ {};
+    // The UUID of the directly bound primary subscription, which has a 1:1 association in the NOTIFY mode.
     shared_ptr<string> subscriptionUuid_ {};
+    // The update time.
     shared_ptr<string> updateTime_ {};
+    // The user ID of the owner.
     shared_ptr<string> userId_ {};
+    // The UUID of the aggregate entity.
     shared_ptr<string> uuid_ {};
+    // The optimistic lock version number.
     shared_ptr<int32_t> version_ {};
+    // The workspace identifier.
     shared_ptr<string> workspace_ {};
   };
 

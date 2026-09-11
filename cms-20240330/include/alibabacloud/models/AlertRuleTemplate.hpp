@@ -222,26 +222,47 @@ namespace Models
 
 
   protected:
+    // The alert type.
     shared_ptr<string> alertType_ {};
+    // The number of rules that have been applied from this template.
     shared_ptr<int64_t> applyCount_ {};
+    // The business type.
     shared_ptr<string> bizType_ {};
+    // The data source, in JSON string format.
     shared_ptr<string> datasource_ {};
+    // The template description.
     shared_ptr<string> description_ {};
+    // The creation time, in UNIX millisecond timestamp format.
     shared_ptr<int64_t> gmtCreate_ {};
+    // The last modified time, in UNIX millisecond timestamp format.
     shared_ptr<int64_t> gmtModified_ {};
+    // The template ID.
     shared_ptr<int64_t> id_ {};
+    // Indicates whether the template is a system template. Valid values: 1: yes. 0: no.
     shared_ptr<int32_t> isSystem_ {};
+    // The labels, in JSON string format.
     shared_ptr<string> labels_ {};
+    // The namespace.
     shared_ptr<string> namespace_ {};
+    // The cloud service category.
     shared_ptr<string> productCategory_ {};
+    // The rule configurations, in JSON string format.
     shared_ptr<string> ruleConfigs_ {};
+    // The applicable scenarios.
     shared_ptr<string> scenes_ {};
+    // The schema version.
     shared_ptr<string> schemaVersion_ {};
+    // The source type.
     shared_ptr<string> sourceType_ {};
+    // The template status. Valid values: 1: enabled. 0: disabled.
     shared_ptr<int32_t> status_ {};
+    // The subtype.
     shared_ptr<string> subType_ {};
+    // The template name.
     shared_ptr<string> templateName_ {};
+    // The ID of the user to whom the template belongs.
     shared_ptr<string> userId_ {};
+    // The template UUID.
     shared_ptr<string> uuid_ {};
   };
 

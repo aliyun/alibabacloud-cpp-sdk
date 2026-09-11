@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The exact ID of the notification strategy to retrieve.
+    // The exact match.
     shared_ptr<string> eq_ {};
   };
 

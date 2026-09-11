@@ -173,22 +173,35 @@ namespace Models
 
 
   protected:
+    // The time when the subscription was created.
     shared_ptr<string> createTime_ {};
+    // Indicates whether the subscription is enabled.
     shared_ptr<bool> enable_ {};
+    // The filter configuration.
     shared_ptr<FilterSetting> filterSetting_ {};
+    // The lifecycle mode.
     shared_ptr<string> mode_ {};
+    // The subscription name.
     shared_ptr<string> name_ {};
-    // The reverse association to SNS (= snsUuid).
+    // The reverse association to the SNS (= snsUuid).
     shared_ptr<string> notifyStrategyUuid_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // Indicates whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: subscribed. false or null: not subscribed.
+    // Indicates whether the subscription includes legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values: true: Subscribed. false or null: Not subscribed.
     shared_ptr<bool> subscribeLegacyEvent_ {};
+    // The subscription type.
     shared_ptr<string> subscriptionType_ {};
+    // The sync source type.
     shared_ptr<string> syncFromType_ {};
+    // The time when the subscription was last updated.
     shared_ptr<string> updateTime_ {};
+    // The user ID of the owner.
     shared_ptr<string> userId_ {};
+    // The subscription UUID.
     shared_ptr<string> uuid_ {};
+    // The workspace.
     shared_ptr<string> workspace_ {};
+    // The workspace filter configuration.
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };
 

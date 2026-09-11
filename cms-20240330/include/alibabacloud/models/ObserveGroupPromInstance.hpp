@@ -72,7 +72,7 @@ namespace Models
     // - system: The system automatically identifies the instance based on the workspace or UModel.
     // - custom: The user manually selects the instance in the console.
     shared_ptr<string> kind_ {};
-    // The region where the Managed Service for Prometheus instance resides. If this parameter is left empty, the backend automatically populates the region based on the workspace to which the application group belongs.
+    // The region where the Managed Service for Prometheus instance resides. If this parameter is left empty, the backend automatically populates the region based on the workspace to which the observation group belongs.
     shared_ptr<string> region_ {};
     // The time when the record was written or selected. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> time_ {};

@@ -66,9 +66,16 @@ namespace Models
 
 
   protected:
+    // **[Deprecated]** The SLS project name. This field has been moved to DatasourceConfigUnified.project. Using this field in write paths returns HTTP status code 400.
     shared_ptr<string> project_ {};
+    // **[Deprecated]** The region ID. This field has been moved to DatasourceConfigUnified.regionId. Using this field in write paths returns HTTP status code 400.
     shared_ptr<string> regionId_ {};
+    // The name of the SLS Store.
     shared_ptr<string> store_ {};
+    // The store type. Valid values:
+    // 
+    // - LOG: Logstore.
+    // - METRIC: Metricstore.
     shared_ptr<string> storeType_ {};
   };
 

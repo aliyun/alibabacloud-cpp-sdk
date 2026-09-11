@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The exact match value.
+    // The exact match.
     shared_ptr<string> eq_ {};
   };
 

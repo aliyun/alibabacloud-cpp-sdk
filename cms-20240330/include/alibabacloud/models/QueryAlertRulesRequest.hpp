@@ -84,7 +84,7 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // The maximum number of data records to read in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the position from which you want to start reading. If this parameter is left empty, data is read from the beginning.
+    // The pagination token that marks the position from which to start reading. Leave this parameter empty to read from the beginning.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> queryJson_ {};
   };

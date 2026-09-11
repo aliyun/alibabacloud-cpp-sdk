@@ -163,26 +163,27 @@ namespace Models
 
 
     protected:
-      // The ID of the contact.
+      // The contact ID.
       shared_ptr<string> contactId_ {};
       // The email address of the contact.
       shared_ptr<string> email_ {};
       // Indicates whether the email address is verified.
       shared_ptr<bool> emailVerify_ {};
-      // A list of contact group IDs to which the contact belongs.
+      // The contact groups to which the contact belongs.
       shared_ptr<vector<string>> groupList_ {};
-      // A map of user IDs for various instant messaging (IM) tools.
+      // The instant messaging user ID mappings. Multiple instant messaging tools are supported.
       shared_ptr<map<string, string>> imUserIds_ {};
-      // The language preference for notifications. Valid values: zh-CN and en-US.
+      // The language.
       shared_ptr<string> lang_ {};
-      // The name of the contact.
+      // The contact name.
       shared_ptr<string> name_ {};
       // The phone number of the contact.
       shared_ptr<string> phone_ {};
-      // Indicates whether the phone number is verified.
+      // Indicates whether the phone number of the contact is verified.
       shared_ptr<bool> phoneVerify_ {};
-      // The last time the contact was updated.
+      // The update time.
       shared_ptr<string> updateTime_ {};
+      // The workspace name.
       shared_ptr<string> workspace_ {};
     };
 
@@ -232,9 +233,9 @@ namespace Models
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     shared_ptr<int64_t> total_ {};
   };
 

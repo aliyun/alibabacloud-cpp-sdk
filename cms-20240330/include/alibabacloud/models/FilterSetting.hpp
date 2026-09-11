@@ -81,11 +81,11 @@ namespace Models
 
 
     protected:
-      // The field.
+      // The JSON path of the event field. Dot-notation nesting is supported.
       shared_ptr<string> field_ {};
       // The comparison operator.
       shared_ptr<string> op_ {};
-      // The value.
+      // The matching value. Separate multiple values with commas when using IN or NOT_IN.
       shared_ptr<string> value_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
   protected:
     // The subscription conditions.
     shared_ptr<vector<FilterSetting::Conditions>> conditions_ {};
-    // The expression.
+    // Use either expression or relation. If expression is not empty, it takes precedence and relation is ignored. If expression is empty or not specified, relation (AND or OR) is used to perform a simple AND/OR operation on all conditions. Condition numbers correspond to the indexes of the conditions array (starting from 1). Each condition evaluates whether a single event field matches by using field (the event field path, which supports dot-notation nesting such as resource.tags.pod), op (the operator, such as CONTAIN, EQ, or IN), and value (the matching value).
     shared_ptr<string> expression_ {};
-    // The relationship between conditions.
+    // The logical relationship between conditions. This parameter takes effect when expression is empty.
     shared_ptr<string> relation_ {};
   };
 

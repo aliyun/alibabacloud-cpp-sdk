@@ -15,6 +15,8 @@ namespace Models
   class MetricSetMultiTrigger : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const MetricSetMultiTrigger& obj) { 
+      DARABONBA_PTR_TO_JSON(absDeviation, absDeviation_);
+      DARABONBA_PTR_TO_JSON(baselinePeriod, baselinePeriod_);
       DARABONBA_PTR_TO_JSON(conditions, conditions_);
       DARABONBA_PTR_TO_JSON(durationSecs, durationSecs_);
       DARABONBA_PTR_TO_JSON(expressionType, expressionType_);
@@ -23,10 +25,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(min, min_);
       DARABONBA_PTR_TO_JSON(operator, operator_);
       DARABONBA_PTR_TO_JSON(queryName, queryName_);
+      DARABONBA_PTR_TO_JSON(sensitivity, sensitivity_);
       DARABONBA_PTR_TO_JSON(severity, severity_);
       DARABONBA_PTR_TO_JSON(threshold, threshold_);
     };
     friend void from_json(const Darabonba::Json& j, MetricSetMultiTrigger& obj) { 
+      DARABONBA_PTR_FROM_JSON(absDeviation, absDeviation_);
+      DARABONBA_PTR_FROM_JSON(baselinePeriod, baselinePeriod_);
       DARABONBA_PTR_FROM_JSON(conditions, conditions_);
       DARABONBA_PTR_FROM_JSON(durationSecs, durationSecs_);
       DARABONBA_PTR_FROM_JSON(expressionType, expressionType_);
@@ -35,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(min, min_);
       DARABONBA_PTR_FROM_JSON(operator, operator_);
       DARABONBA_PTR_FROM_JSON(queryName, queryName_);
+      DARABONBA_PTR_FROM_JSON(sensitivity, sensitivity_);
       DARABONBA_PTR_FROM_JSON(severity, severity_);
       DARABONBA_PTR_FROM_JSON(threshold, threshold_);
     };
@@ -49,9 +55,24 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->conditions_ == nullptr
-        && this->durationSecs_ == nullptr && this->expressionType_ == nullptr && this->logicOperator_ == nullptr && this->max_ == nullptr && this->min_ == nullptr
-        && this->operator_ == nullptr && this->queryName_ == nullptr && this->severity_ == nullptr && this->threshold_ == nullptr; };
+    virtual bool empty() const override { return this->absDeviation_ == nullptr
+        && this->baselinePeriod_ == nullptr && this->conditions_ == nullptr && this->durationSecs_ == nullptr && this->expressionType_ == nullptr && this->logicOperator_ == nullptr
+        && this->max_ == nullptr && this->min_ == nullptr && this->operator_ == nullptr && this->queryName_ == nullptr && this->sensitivity_ == nullptr
+        && this->severity_ == nullptr && this->threshold_ == nullptr; };
+    // absDeviation Field Functions 
+    bool hasAbsDeviation() const { return this->absDeviation_ != nullptr;};
+    void deleteAbsDeviation() { this->absDeviation_ = nullptr;};
+    inline double getAbsDeviation() const { DARABONBA_PTR_GET_DEFAULT(absDeviation_, 0.0) };
+    inline MetricSetMultiTrigger& setAbsDeviation(double absDeviation) { DARABONBA_PTR_SET_VALUE(absDeviation_, absDeviation) };
+
+
+    // baselinePeriod Field Functions 
+    bool hasBaselinePeriod() const { return this->baselinePeriod_ != nullptr;};
+    void deleteBaselinePeriod() { this->baselinePeriod_ = nullptr;};
+    inline string getBaselinePeriod() const { DARABONBA_PTR_GET_DEFAULT(baselinePeriod_, "") };
+    inline MetricSetMultiTrigger& setBaselinePeriod(string baselinePeriod) { DARABONBA_PTR_SET_VALUE(baselinePeriod_, baselinePeriod) };
+
+
     // conditions Field Functions 
     bool hasConditions() const { return this->conditions_ != nullptr;};
     void deleteConditions() { this->conditions_ = nullptr;};
@@ -110,6 +131,13 @@ namespace Models
     inline MetricSetMultiTrigger& setQueryName(string queryName) { DARABONBA_PTR_SET_VALUE(queryName_, queryName) };
 
 
+    // sensitivity Field Functions 
+    bool hasSensitivity() const { return this->sensitivity_ != nullptr;};
+    void deleteSensitivity() { this->sensitivity_ = nullptr;};
+    inline string getSensitivity() const { DARABONBA_PTR_GET_DEFAULT(sensitivity_, "") };
+    inline MetricSetMultiTrigger& setSensitivity(string sensitivity) { DARABONBA_PTR_SET_VALUE(sensitivity_, sensitivity) };
+
+
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
@@ -125,25 +153,31 @@ namespace Models
 
 
   protected:
-    // The list of sub-conditions (used when expressionType=COMPOSITE). Each item contains queryName, operator, and threshold.
+    // The minimum deviation or absolute deviation dead zone for the dynamic baseline. Takes effect only with baseline operators. The unit is the same as the metric. The value must be greater than or equal to 0. A value of 0 means no restriction.
+    shared_ptr<double> absDeviation_ {};
+    // The baseline period. Takes effect only with baseline operators. Valid values: AUTO (automatic detection), DAILY (daily), WEEKLY (weekly), and NONE (no period). When set to WEEKLY, the backend automatically expands the historical training window to at least 14 days.
+    shared_ptr<string> baselinePeriod_ {};
+    // The list of sub-conditions. Used when expressionType is COMPOSITE. Each item contains queryName, operator, and threshold.
     shared_ptr<vector<MetricSetTriggerSimpleExpression>> conditions_ {};
-    // The duration in seconds that data must continuously meet the condition to trigger an alert. If not specified, the value is inherited from conditionConfig.durationSecs.
+    // The duration in seconds that data must continuously meet the condition before an alert is triggered. If not specified, the value is inherited from conditionConfig.durationSecs.
     shared_ptr<int32_t> durationSecs_ {};
-    // The expression type. Valid values: SIMPLE (single-metric threshold) or COMPOSITE (multi-metric AND/OR/UNLESS combination).
+    // The expression type. Valid values: SIMPLE (single-metric threshold) and COMPOSITE (multi-metric AND/OR/UNLESS combination).
     shared_ptr<string> expressionType_ {};
-    // The logic operator (used when expressionType=COMPOSITE). Valid values: AND (all conditions met), OR (any condition met), UNLESS (first condition met and all others not met).
+    // The logical operator. Used when expressionType is COMPOSITE. Valid values: AND (all conditions met), OR (any condition met), and UNLESS (first condition met and all others not met).
     shared_ptr<string> logicOperator_ {};
-    // The upper bound of the range. Required when expressionType=SIMPLE and operator is IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
+    // The upper bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
     shared_ptr<double> max_ {};
-    // The lower bound of the range. Required when expressionType=SIMPLE and operator is IN_RANGE or OUT_OF_RANGE.
+    // The lower bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE or OUT_OF_RANGE.
     shared_ptr<double> min_ {};
-    // The comparison operator (used when expressionType=SIMPLE). Valid values: GT (greater than), GE (greater than or equal to), LT (less than), LE (less than or equal to), EQ (equal to), NE (not equal to), IN_RANGE (within range, requires min/max), OUT_OF_RANGE (outside range, requires min/max), PRESENT (field exists, no threshold/min/max needed), NOT_PRESENT (field does not exist, no threshold/min/max needed).
+    // The comparison operator (used when expressionType is SIMPLE). Valid values: GT (greater than), GE (greater than or equal to), LT (less than), LE (less than or equal to), EQ (equal to), NE (not equal to), IN_RANGE (within range, requires min/max), OUT_OF_RANGE (outside range, requires min/max), PRESENT (field exists, no threshold/min/max required), NOT_PRESENT (field does not exist, no threshold/min/max required), ABOVE_UPPER/BELOW_LOWER/OUT_OF_BAND (dynamic baseline spike/drop/bidirectional, requires sensitivity, no threshold/min/max).
     shared_ptr<string> operator_ {};
-    // The referenced query name (used when expressionType=SIMPLE), corresponding to QueryConfigUnified.queries[].name.
+    // The referenced query name (used when expressionType is SIMPLE), corresponding to QueryConfigUnified.queries[].name.
     shared_ptr<string> queryName_ {};
+    // The dynamic baseline sensitivity. Takes effect when expressionType is SIMPLE and a baseline operator is used. Valid values: HIGH (narrowest and most sensitive band), MEDIUM, and LOW (widest and least sensitive band).
+    shared_ptr<string> sensitivity_ {};
     // The alert severity level: CRITICAL > ERROR > WARN / WARNING > INFO. Multiple triggers are sorted by this priority, and the first match fires.
     shared_ptr<string> severity_ {};
-    // The comparison threshold. Used when expressionType=SIMPLE and operator is GT/GE/LT/LE/EQ/NE. For IN_RANGE/OUT_OF_RANGE, use min/max instead. For PRESENT/NOT_PRESENT, leave this field empty.
+    // The comparison threshold. Used when expressionType is SIMPLE and operator is GT/GE/LT/LE/EQ/NE. For IN_RANGE/OUT_OF_RANGE, use min/max instead. Not required for PRESENT/NOT_PRESENT.
     shared_ptr<double> threshold_ {};
   };
 

@@ -107,11 +107,11 @@ namespace Models
 
 
     protected:
-      // The list of action plan IDs for alert pushing.
+      // The list of action plan IDs for alert push.
       shared_ptr<vector<string>> alertActionIds_ {};
       // The action plan ID.
       shared_ptr<string> responsePlanId_ {};
-      // The list of action integration plan IDs for recovery pushing.
+      // The list of action integration plan IDs for recovery push.
       shared_ptr<vector<string>> restoreActionIds_ {};
       // The UUID of the template.
       shared_ptr<string> templateUuid_ {};
@@ -157,7 +157,9 @@ namespace Models
 
 
     protected:
+      // The unique identifier of the agent.
       shared_ptr<string> agentUuid_ {};
+      // The list of agent routing configurations.
       shared_ptr<vector<NotifyRouteForSubscription>> routes_ {};
     };
 
@@ -229,6 +231,7 @@ namespace Models
 
 
   protected:
+    // The agent configuration information.
     shared_ptr<SubscriptionForModify::AgentConfig> agentConfig_ {};
     // The description.
     shared_ptr<string> description_ {};
@@ -246,6 +249,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionName_ {};
+    // The workspace filter settings.
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };
 

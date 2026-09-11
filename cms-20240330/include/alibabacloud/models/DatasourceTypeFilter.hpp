@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // Specifies the data source type for an exact match.
+    // The exact match value.
     shared_ptr<string> eq_ {};
   };
 

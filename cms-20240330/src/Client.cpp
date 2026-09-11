@@ -269,9 +269,9 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Installs an add-on.
+ * @summary Installs an access component, which represents a single access operation.
  *
- * @description Creates a release for an add-on.
+ * @description Creates a site monitoring task.
  *
  * @param request CreateAddonReleaseRequest
  * @param headers map
@@ -340,9 +340,9 @@ CreateAddonReleaseResponse Client::createAddonReleaseWithOptions(const string &p
 }
 
 /**
- * @summary Installs an add-on.
+ * @summary Installs an access component, which represents a single access operation.
  *
- * @description Creates a release for an add-on.
+ * @description Creates a site monitoring task.
  *
  * @param request CreateAddonReleaseRequest
  * @return CreateAddonReleaseResponse
@@ -465,9 +465,9 @@ CreateAggTaskGroupResponse Client::createAggTaskGroup(const string &instanceId, 
 }
 
 /**
- * @summary Create a webhook
+ * @summary Creates a webhook.
  *
- * @description Creates an alert webhook to use as a notification recipient.
+ * @description Creates a webhook notification recipient.
  *
  * @param request CreateAlertWebhookRequest
  * @param headers map
@@ -528,9 +528,9 @@ CreateAlertWebhookResponse Client::createAlertWebhookWithOptions(const CreateAle
 }
 
 /**
- * @summary Create a webhook
+ * @summary Creates a webhook.
  *
- * @description Creates an alert webhook to use as a notification recipient.
+ * @description Creates a webhook notification recipient.
  *
  * @param request CreateAlertWebhookRequest
  * @return CreateAlertWebhookResponse
@@ -1053,6 +1053,52 @@ CreateIntegrationPolicyResponse Client::createIntegrationPolicy(const CreateInte
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createIntegrationPolicyWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 创建订阅
+ *
+ * @param request CreateMaintainWindowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateMaintainWindowResponse
+ */
+CreateMaintainWindowResponse Client::createMaintainWindowWithOptions(const CreateMaintainWindowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateMaintainWindow"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/maintainWindows")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateMaintainWindowResponse>();
+}
+
+/**
+ * @summary 创建订阅
+ *
+ * @param request CreateMaintainWindowRequest
+ * @return CreateMaintainWindowResponse
+ */
+CreateMaintainWindowResponse Client::createMaintainWindow(const CreateMaintainWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createMaintainWindowWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1803,7 +1849,7 @@ CreateUmodelResponse Client::createUmodel(const string &workspace, const CreateU
 }
 
 /**
- * @summary Deletes add-on release information.
+ * @summary Deletes addon release information.
  *
  * @param request DeleteAddonReleaseRequest
  * @param headers map
@@ -1844,7 +1890,7 @@ DeleteAddonReleaseResponse Client::deleteAddonReleaseWithOptions(const string &p
 }
 
 /**
- * @summary Deletes add-on release information.
+ * @summary Deletes addon release information.
  *
  * @param request DeleteAddonReleaseRequest
  * @return DeleteAddonReleaseResponse
@@ -2389,6 +2435,55 @@ DeleteIntegrationPolicyResponse Client::deleteIntegrationPolicy(const string &po
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteIntegrationPolicyWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 删除转换器
+ *
+ * @description 删除指定的静默策略。删除成功后，服务通过异步消息刷新运行时缓存，因此短时间内仍可能按删除前的策略处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request DeleteMaintainWindowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteMaintainWindowResponse
+ */
+DeleteMaintainWindowResponse Client::deleteMaintainWindowWithOptions(const string &maintainWindowId, const DeleteMaintainWindowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteMaintainWindow"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/maintainWindows/" , Darabonba::Encode::Encoder::percentEncode(maintainWindowId))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteMaintainWindowResponse>();
+}
+
+/**
+ * @summary 删除转换器
+ *
+ * @description 删除指定的静默策略。删除成功后，服务通过异步消息刷新运行时缓存，因此短时间内仍可能按删除前的策略处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request DeleteMaintainWindowRequest
+ * @return DeleteMaintainWindowResponse
+ */
+DeleteMaintainWindowResponse Client::deleteMaintainWindow(const string &maintainWindowId, const DeleteMaintainWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
 }
 
 /**
@@ -3087,6 +3182,14 @@ DescribeMetricMetaListResponse Client::describeMetricMetaListWithOptions(const D
   }
 
   json query = {};
+  if (!!request.hasAliyunLang()) {
+    query["aliyunLang"] = request.getAliyunLang();
+  }
+
+  if (!!request.hasCategory()) {
+    query["category"] = request.getCategory();
+  }
+
   if (!!request.hasKeywords()) {
     query["keywords"] = request.getKeywords();
   }
@@ -3193,6 +3296,55 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
+ * @summary 暂停转换器
+ *
+ * @description 暂停指定的静默策略。暂停成功后，服务通过异步消息刷新运行时缓存；刷新完成后该策略不再参与事件静默判断，短时间内仍可能按暂停前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request DisableMaintainWindowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableMaintainWindowResponse
+ */
+DisableMaintainWindowResponse Client::disableMaintainWindowWithOptions(const string &maintainWindowId, const DisableMaintainWindowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableMaintainWindow"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/maintainWindows/" , Darabonba::Encode::Encoder::percentEncode(maintainWindowId) , "/disable")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableMaintainWindowResponse>();
+}
+
+/**
+ * @summary 暂停转换器
+ *
+ * @description 暂停指定的静默策略。暂停成功后，服务通过异步消息刷新运行时缓存；刷新完成后该策略不再参与事件静默判断，短时间内仍可能按暂停前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request DisableMaintainWindowRequest
+ * @return DisableMaintainWindowResponse
+ */
+DisableMaintainWindowResponse Client::disableMaintainWindow(const string &maintainWindowId, const DisableMaintainWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
+}
+
+/**
  * @summary Disables a specified notification policy. After the policy is disabled, notifications are paused but all configurations are retained. The policy can be re-enabled.
  *
  * @description Disables a notification policy by specifying the workspace and uuid (path parameter). Returns success and the policy uuid.
@@ -3239,6 +3391,55 @@ DisableNotifyPolicyResponse Client::disableNotifyPolicy(const string &uuid, cons
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return disableNotifyPolicyWithOptions(uuid, request, headers, runtime);
+}
+
+/**
+ * @summary 启动转换器
+ *
+ * @description 启用指定的静默策略。启用成功后，服务通过异步消息刷新运行时缓存；刷新完成后，命中该策略过滤条件且处于生效时间内的事件不会触发通知，短时间内仍可能按启用前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request EnableMaintainWindowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableMaintainWindowResponse
+ */
+EnableMaintainWindowResponse Client::enableMaintainWindowWithOptions(const string &maintainWindowId, const EnableMaintainWindowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "EnableMaintainWindow"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/maintainWindows/" , Darabonba::Encode::Encoder::percentEncode(maintainWindowId) , "/enable")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableMaintainWindowResponse>();
+}
+
+/**
+ * @summary 启动转换器
+ *
+ * @description 启用指定的静默策略。启用成功后，服务通过异步消息刷新运行时缓存；刷新完成后，命中该策略过滤条件且处于生效时间内的事件不会触发通知，短时间内仍可能按启用前状态处理事件。指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request EnableMaintainWindowRequest
+ * @return EnableMaintainWindowResponse
+ */
+EnableMaintainWindowResponse Client::enableMaintainWindow(const string &maintainWindowId, const EnableMaintainWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
 }
 
 /**
@@ -4179,6 +4380,55 @@ GetIntegrationVersionForCSResponse Client::getIntegrationVersionForCS(const GetI
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getIntegrationVersionForCSWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 获取订阅
+ *
+ * @description 查询指定静默策略的详细配置，包括策略名称、描述、启用状态、过滤条件、生效时间配置以及创建时间和更新时间。当前查询结果不返回 workspaceFilterSetting。指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request GetMaintainWindowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMaintainWindowResponse
+ */
+GetMaintainWindowResponse Client::getMaintainWindowWithOptions(const string &maintainWindowId, const GetMaintainWindowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMaintainWindow"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/maintainWindows/" , Darabonba::Encode::Encoder::percentEncode(maintainWindowId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMaintainWindowResponse>();
+}
+
+/**
+ * @summary 获取订阅
+ *
+ * @description 查询指定静默策略的详细配置，包括策略名称、描述、启用状态、过滤条件、生效时间配置以及创建时间和更新时间。当前查询结果不返回 workspaceFilterSetting。指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request GetMaintainWindowRequest
+ * @return GetMaintainWindowResponse
+ */
+GetMaintainWindowResponse Client::getMaintainWindow(const string &maintainWindowId, const GetMaintainWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
 }
 
 /**
@@ -5241,7 +5491,10 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 }
 
 /**
- * @summary Queries alert chatbots.
+ * @summary Queries alert robots.
+ *
+ * @description This operation can only query alert history from the last year.
+ * This topic provides an example of querying the alert history of Elastic Computing Service from the cloud service `product` dimension.
  *
  * @param tmpReq ListAlertRobotsRequest
  * @param headers map
@@ -5304,7 +5557,10 @@ ListAlertRobotsResponse Client::listAlertRobotsWithOptions(const ListAlertRobots
 }
 
 /**
- * @summary Queries alert chatbots.
+ * @summary Queries alert robots.
+ *
+ * @description This operation can only query alert history from the last year.
+ * This topic provides an example of querying the alert history of Elastic Computing Service from the cloud service `product` dimension.
  *
  * @param request ListAlertRobotsRequest
  * @return ListAlertRobotsResponse
@@ -5316,7 +5572,7 @@ ListAlertRobotsResponse Client::listAlertRobots(const ListAlertRobotsRequest &re
 }
 
 /**
- * @summary Query webhooks
+ * @summary Queries webhooks.
  *
  * @param tmpReq ListAlertWebhooksRequest
  * @param headers map
@@ -5371,7 +5627,7 @@ ListAlertWebhooksResponse Client::listAlertWebhooksWithOptions(const ListAlertWe
 }
 
 /**
- * @summary Query webhooks
+ * @summary Queries webhooks.
  *
  * @param request ListAlertWebhooksRequest
  * @return ListAlertWebhooksResponse
@@ -5438,6 +5694,8 @@ ListBizTracesResponse Client::listBizTraces(const ListBizTracesRequest &request)
 /**
  * @summary Queries contact groups.
  *
+ * @description This topic provides an example of how to create an alert contact group named `ECS_Group`.
+ *
  * @param tmpReq ListContactGroupsRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5493,6 +5751,8 @@ ListContactGroupsResponse Client::listContactGroupsWithOptions(const ListContact
 /**
  * @summary Queries contact groups.
  *
+ * @description This topic provides an example of how to create an alert contact group named `ECS_Group`.
+ *
  * @param request ListContactGroupsRequest
  * @return ListContactGroupsResponse
  */
@@ -5503,7 +5763,9 @@ ListContactGroupsResponse Client::listContactGroups(const ListContactGroupsReque
 }
 
 /**
- * @summary Query contacts
+ * @summary Queries contacts.
+ *
+ * @description This topic provides an example of how to create an alert contact group named `ECS_Group`.
  *
  * @param tmpReq ListContactsRequest
  * @param headers map
@@ -5574,7 +5836,9 @@ ListContactsResponse Client::listContactsWithOptions(const ListContactsRequest &
 }
 
 /**
- * @summary Query contacts
+ * @summary Queries contacts.
+ *
+ * @description This topic provides an example of how to create an alert contact group named `ECS_Group`.
  *
  * @param request ListContactsRequest
  * @return ListContactsResponse
@@ -6356,6 +6620,85 @@ ListIntegrationPolicyStorageRequirementsResponse Client::listIntegrationPolicySt
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listIntegrationPolicyStorageRequirementsWithOptions(policyId, request, headers, runtime);
+}
+
+/**
+ * @summary 查询维护窗口列表
+ *
+ * @description 分页查询指定工作空间下的静默策略列表，支持按策略名称模糊匹配、按策略 ID 精确匹配、按启用状态过滤，并支持按创建时间、更新时间或启用状态排序。没有匹配项时正常返回空列表；列表项不返回 workspaceFilterSetting。
+ * 当本次返回条数达到 maxResults 时，响应可能包含非空 nextToken；非空 nextToken 仅表示可以继续查询，不保证下一页一定包含数据。nextToken 为空表示分页结束。
+ *
+ * @param request ListMaintainWindowsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMaintainWindowsResponse
+ */
+ListMaintainWindowsResponse Client::listMaintainWindowsWithOptions(const ListMaintainWindowsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDirection()) {
+    query["direction"] = request.getDirection();
+  }
+
+  if (!!request.hasEnable()) {
+    query["enable"] = request.getEnable();
+  }
+
+  if (!!request.hasMaintainWindowId()) {
+    query["maintainWindowId"] = request.getMaintainWindowId();
+  }
+
+  if (!!request.hasMaintainWindowName()) {
+    query["maintainWindowName"] = request.getMaintainWindowName();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrderBy()) {
+    query["orderBy"] = request.getOrderBy();
+  }
+
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMaintainWindows"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/maintainWindows")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMaintainWindowsResponse>();
+}
+
+/**
+ * @summary 查询维护窗口列表
+ *
+ * @description 分页查询指定工作空间下的静默策略列表，支持按策略名称模糊匹配、按策略 ID 精确匹配、按启用状态过滤，并支持按创建时间、更新时间或启用状态排序。没有匹配项时正常返回空列表；列表项不返回 workspaceFilterSetting。
+ * 当本次返回条数达到 maxResults 时，响应可能包含非空 nextToken；非空 nextToken 仅表示可以继续查询，不保证下一页一定包含数据。nextToken 为空表示分页结束。
+ *
+ * @param request ListMaintainWindowsRequest
+ * @return ListMaintainWindowsResponse
+ */
+ListMaintainWindowsResponse Client::listMaintainWindows(const ListMaintainWindowsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMaintainWindowsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -7417,7 +7760,7 @@ PutWorkspaceResponse Client::putWorkspace(const string &workspaceName, const Put
 /**
  * @summary Queries alert rules.
  *
- * @description This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param tmpReq QueryAlertRulesRequest
  * @param headers map
@@ -7476,7 +7819,7 @@ QueryAlertRulesResponse Client::queryAlertRulesWithOptions(const QueryAlertRules
 /**
  * @summary Queries alert rules.
  *
- * @description This topic provides an example of how to query the list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
+ * @description This topic provides an example on how to query a list of alert templates. The response shows that the alert template list contains two alert templates: `ECS_Template1` and `ECS_Template2`.
  *
  * @param request QueryAlertRulesRequest
  * @return QueryAlertRulesResponse
@@ -7764,7 +8107,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Upgrades an add-on component.
+ * @summary Upgrades an access component.
  *
  * @param request UpdateAddonReleaseRequest
  * @param headers map
@@ -7809,7 +8152,7 @@ UpdateAddonReleaseResponse Client::updateAddonReleaseWithOptions(const string &r
 }
 
 /**
- * @summary Upgrades an add-on component.
+ * @summary Upgrades an access component.
  *
  * @param request UpdateAddonReleaseRequest
  * @return UpdateAddonReleaseResponse
@@ -8466,6 +8809,58 @@ UpdateIntegrationPolicyResponse Client::updateIntegrationPolicy(const string &in
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateIntegrationPolicyWithOptions(integrationPolicyId, request, headers, runtime);
+}
+
+/**
+ * @summary 修改已存在的维护窗口配置。
+ *
+ * @description 更新指定静默策略的配置。maintainWindowName 为空时保留原名称；description、filterSetting、effective、effectTimeRange、startTime、endTime 按请求体中的值更新，未提供时写为空。建议先通过 GetMaintainWindow 获取当前配置后再提交修改。
+ * 本接口不修改策略的启用状态，启用或暂停请使用 EnableMaintainWindow、DisableMaintainWindow。时间配置校验与 CreateMaintainWindow 一致；同一工作空间下策略名称重复时返回 InvalidParameterValue；指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request UpdateMaintainWindowRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMaintainWindowResponse
+ */
+UpdateMaintainWindowResponse Client::updateMaintainWindowWithOptions(const string &maintainWindowId, const UpdateMaintainWindowRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasWorkspace()) {
+    query["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMaintainWindow"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/maintainWindows/" , Darabonba::Encode::Encoder::percentEncode(maintainWindowId))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMaintainWindowResponse>();
+}
+
+/**
+ * @summary 修改已存在的维护窗口配置。
+ *
+ * @description 更新指定静默策略的配置。maintainWindowName 为空时保留原名称；description、filterSetting、effective、effectTimeRange、startTime、endTime 按请求体中的值更新，未提供时写为空。建议先通过 GetMaintainWindow 获取当前配置后再提交修改。
+ * 本接口不修改策略的启用状态，启用或暂停请使用 EnableMaintainWindow、DisableMaintainWindow。时间配置校验与 CreateMaintainWindow 一致；同一工作空间下策略名称重复时返回 InvalidParameterValue；指定的静默策略不存在时返回 ResourceNotFound。
+ *
+ * @param request UpdateMaintainWindowRequest
+ * @return UpdateMaintainWindowResponse
+ */
+UpdateMaintainWindowResponse Client::updateMaintainWindow(const string &maintainWindowId, const UpdateMaintainWindowRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMaintainWindowWithOptions(maintainWindowId, request, headers, runtime);
 }
 
 /**

@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The incident state that stops repeat notifications.
+      // The incident status at which repeat notifications stop. Repeat notifications are no longer sent after the incident reaches this status.
       shared_ptr<string> endIncidentState_ {};
-      // The repeat interval for notifications, in seconds.
+      // The repeat notification interval. Unit: seconds.
       shared_ptr<int32_t> repeatInterval_ {};
     };
 
@@ -131,11 +131,11 @@ namespace Models
 
 
     protected:
-      // The IDs of the alert actions.
+      // The list of action IDs to execute when an event is triggered. Actions must be created in advance by calling CreateAlertAction.
       shared_ptr<vector<string>> alertActionIds_ {};
-      // The IDs of the restore actions.
+      // The list of action IDs to execute when an event is recovered.
       shared_ptr<vector<string>> restoreActionIds_ {};
-      // The UUID of the notification template.
+      // Deprecated. This parameter does not take effect even if a value is passed in.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -176,13 +176,13 @@ namespace Models
 
 
   protected:
-    // The auto recovery time, in seconds. After this period, the incident is automatically resolved.
+    // The auto-recovery time. Unit: seconds. After this is configured, if no new events are generated for the incident within this period, the incident is automatically marked as resolved.
     shared_ptr<int64_t> autoRecoverSeconds_ {};
-    // The IDs of the escalation policies.
+    // The list of escalation policy IDs. Associates with IncidentEscalationPolicy to define step-by-step escalation rules when an incident is not handled as expected, such as notifying a supervisor if the incident is not acknowledged within 30 minutes.
     shared_ptr<vector<string>> escalationId_ {};
-    // The push setting for notifications.
+    // The action integration execution configuration that defines automated actions to trigger when an incident occurs and when it is recovered.
     shared_ptr<IncidentResponsePlanForSNSModify::PushingSetting> pushingSetting_ {};
-    // The repeat notification setting.
+    // The repeat notification settings. When an incident remains unresolved, notifications are sent repeatedly at a fixed interval.
     shared_ptr<IncidentResponsePlanForSNSModify::RepeatNotifySetting> repeatNotifySetting_ {};
   };
 

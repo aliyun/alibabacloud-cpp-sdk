@@ -21,8 +21,10 @@ namespace Models
   class ConditionConfigUnified : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ConditionConfigUnified& obj) { 
+      DARABONBA_PTR_TO_JSON(absDeviation, absDeviation_);
       DARABONBA_PTR_TO_JSON(aggregate, aggregate_);
       DARABONBA_PTR_TO_JSON(alertCount, alertCount_);
+      DARABONBA_PTR_TO_JSON(baselinePeriod, baselinePeriod_);
       DARABONBA_PTR_TO_JSON(compareList, compareList_);
       DARABONBA_PTR_TO_JSON(compositeEscalation, compositeEscalation_);
       DARABONBA_PTR_TO_JSON(countOperator, countOperator_);
@@ -45,6 +47,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(operator, operator_);
       DARABONBA_PTR_TO_JSON(prometheus, prometheus_);
       DARABONBA_PTR_TO_JSON(relation, relation_);
+      DARABONBA_PTR_TO_JSON(sensitivity, sensitivity_);
       DARABONBA_PTR_TO_JSON(severity, severity_);
       DARABONBA_PTR_TO_JSON(simpleEscalation, simpleEscalation_);
       DARABONBA_PTR_TO_JSON(threshold, threshold_);
@@ -55,8 +58,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(yoyTimeValue, yoyTimeValue_);
     };
     friend void from_json(const Darabonba::Json& j, ConditionConfigUnified& obj) { 
+      DARABONBA_PTR_FROM_JSON(absDeviation, absDeviation_);
       DARABONBA_PTR_FROM_JSON(aggregate, aggregate_);
       DARABONBA_PTR_FROM_JSON(alertCount, alertCount_);
+      DARABONBA_PTR_FROM_JSON(baselinePeriod, baselinePeriod_);
       DARABONBA_PTR_FROM_JSON(compareList, compareList_);
       DARABONBA_PTR_FROM_JSON(compositeEscalation, compositeEscalation_);
       DARABONBA_PTR_FROM_JSON(countOperator, countOperator_);
@@ -79,6 +84,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(operator, operator_);
       DARABONBA_PTR_FROM_JSON(prometheus, prometheus_);
       DARABONBA_PTR_FROM_JSON(relation, relation_);
+      DARABONBA_PTR_FROM_JSON(sensitivity, sensitivity_);
       DARABONBA_PTR_FROM_JSON(severity, severity_);
       DARABONBA_PTR_FROM_JSON(simpleEscalation, simpleEscalation_);
       DARABONBA_PTR_FROM_JSON(threshold, threshold_);
@@ -99,14 +105,21 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->aggregate_ == nullptr
-        && this->alertCount_ == nullptr && this->compareList_ == nullptr && this->compositeEscalation_ == nullptr && this->countOperator_ == nullptr && this->countThreshold_ == nullptr
-        && this->durationSecs_ == nullptr && this->enableSeveritySuppression_ == nullptr && this->escalationType_ == nullptr && this->expressEscalation_ == nullptr && this->legacyRaw_ == nullptr
-        && this->legacyType_ == nullptr && this->matchField_ == nullptr && this->matchOperator_ == nullptr && this->matchValue_ == nullptr && this->max_ == nullptr
-        && this->min_ == nullptr && this->noDataAlertLevel_ == nullptr && this->noDataAlertSeverity_ == nullptr && this->noDataAppendValue_ == nullptr && this->noDataPolicy_ == nullptr
-        && this->operator_ == nullptr && this->prometheus_ == nullptr && this->relation_ == nullptr && this->severity_ == nullptr && this->simpleEscalation_ == nullptr
-        && this->threshold_ == nullptr && this->thresholdList_ == nullptr && this->triggers_ == nullptr && this->type_ == nullptr && this->yoyTimeUnit_ == nullptr
-        && this->yoyTimeValue_ == nullptr; };
+    virtual bool empty() const override { return this->absDeviation_ == nullptr
+        && this->aggregate_ == nullptr && this->alertCount_ == nullptr && this->baselinePeriod_ == nullptr && this->compareList_ == nullptr && this->compositeEscalation_ == nullptr
+        && this->countOperator_ == nullptr && this->countThreshold_ == nullptr && this->durationSecs_ == nullptr && this->enableSeveritySuppression_ == nullptr && this->escalationType_ == nullptr
+        && this->expressEscalation_ == nullptr && this->legacyRaw_ == nullptr && this->legacyType_ == nullptr && this->matchField_ == nullptr && this->matchOperator_ == nullptr
+        && this->matchValue_ == nullptr && this->max_ == nullptr && this->min_ == nullptr && this->noDataAlertLevel_ == nullptr && this->noDataAlertSeverity_ == nullptr
+        && this->noDataAppendValue_ == nullptr && this->noDataPolicy_ == nullptr && this->operator_ == nullptr && this->prometheus_ == nullptr && this->relation_ == nullptr
+        && this->sensitivity_ == nullptr && this->severity_ == nullptr && this->simpleEscalation_ == nullptr && this->threshold_ == nullptr && this->thresholdList_ == nullptr
+        && this->triggers_ == nullptr && this->type_ == nullptr && this->yoyTimeUnit_ == nullptr && this->yoyTimeValue_ == nullptr; };
+    // absDeviation Field Functions 
+    bool hasAbsDeviation() const { return this->absDeviation_ != nullptr;};
+    void deleteAbsDeviation() { this->absDeviation_ = nullptr;};
+    inline double getAbsDeviation() const { DARABONBA_PTR_GET_DEFAULT(absDeviation_, 0.0) };
+    inline ConditionConfigUnified& setAbsDeviation(double absDeviation) { DARABONBA_PTR_SET_VALUE(absDeviation_, absDeviation) };
+
+
     // aggregate Field Functions 
     bool hasAggregate() const { return this->aggregate_ != nullptr;};
     void deleteAggregate() { this->aggregate_ = nullptr;};
@@ -119,6 +132,13 @@ namespace Models
     void deleteAlertCount() { this->alertCount_ = nullptr;};
     inline int32_t getAlertCount() const { DARABONBA_PTR_GET_DEFAULT(alertCount_, 0) };
     inline ConditionConfigUnified& setAlertCount(int32_t alertCount) { DARABONBA_PTR_SET_VALUE(alertCount_, alertCount) };
+
+
+    // baselinePeriod Field Functions 
+    bool hasBaselinePeriod() const { return this->baselinePeriod_ != nullptr;};
+    void deleteBaselinePeriod() { this->baselinePeriod_ = nullptr;};
+    inline string getBaselinePeriod() const { DARABONBA_PTR_GET_DEFAULT(baselinePeriod_, "") };
+    inline ConditionConfigUnified& setBaselinePeriod(string baselinePeriod) { DARABONBA_PTR_SET_VALUE(baselinePeriod_, baselinePeriod) };
 
 
     // compareList Field Functions 
@@ -283,6 +303,13 @@ namespace Models
     inline ConditionConfigUnified& setRelation(string relation) { DARABONBA_PTR_SET_VALUE(relation_, relation) };
 
 
+    // sensitivity Field Functions 
+    bool hasSensitivity() const { return this->sensitivity_ != nullptr;};
+    void deleteSensitivity() { this->sensitivity_ = nullptr;};
+    inline string getSensitivity() const { DARABONBA_PTR_GET_DEFAULT(sensitivity_, "") };
+    inline ConditionConfigUnified& setSensitivity(string sensitivity) { DARABONBA_PTR_SET_VALUE(sensitivity_, sensitivity) };
+
+
     // severity Field Functions 
     bool hasSeverity() const { return this->severity_ != nullptr;};
     void deleteSeverity() { this->severity_ = nullptr;};
@@ -346,71 +373,77 @@ namespace Models
 
 
   protected:
-    // The aggregate functions (used by APM_SIMPLE_CONDITION. For UMODEL conditions, the aggregation semantics have been migrated to QueryConfigUnified and this field no longer takes effect).
+    // The dynamic baseline minimum deviation or absolute deviation dead zone (UMODEL_METRICSET_CONDITION / APM_SIMPLE_CONDITION). Takes effect only for baseline operators. If |current value − boundary| < absDeviation, no alert is fired. The unit is the same as the metric. The value must be >= 0. A value of 0 means no restriction.
+    shared_ptr<double> absDeviation_ {};
+    // The aggregate functions (APM_SIMPLE_CONDITION).
     shared_ptr<string> aggregate_ {};
     // The consecutive trigger count threshold (type=SLS_MULTI_CONDITION). An alert is fired only after the condition is met N times. Default value: 1.
     shared_ptr<int32_t> alertCount_ {};
-    // The list of comparison conditions (APM_COMPOSITE_CONDITION).
+    // The baseline period. Takes effect only for baseline operators. Valid values: AUTO (automatic detection), DAILY (daily), WEEKLY (weekly), and NONE (no period). When set to WEEKLY, the backend automatically expands the historical training window to at least 14 days. Automatic detection does not return the specific detection result.
+    shared_ptr<string> baselinePeriod_ {};
+    // The multiple comparisons (APM_COMPOSITE_CONDITION).
     shared_ptr<vector<CompareList>> compareList_ {};
-    // The multi-metric composite trigger configuration for CLOUD_MONITORING_CONDITION when escalationType=COMPOSITE (requires relation, severity, times, escalations).
+    // The multi-metric composite trigger configuration for CLOUD_MONITORING_CONDITION when escalationType is set to COMPOSITE. Required fields: relation, severity, times, and escalations.
     shared_ptr<CloudMonitoringCompositeEscalation> compositeEscalation_ {};
     // The count comparison operator (type=UMODEL_LOGSET_CONDITION).
     shared_ptr<string> countOperator_ {};
     // The count threshold (type=UMODEL_LOGSET_CONDITION).
     shared_ptr<int64_t> countThreshold_ {};
-    // The duration in seconds. Used directly by PROMETHEUS_SIMPLE / UMODEL_METRICSET_CONDITION / UMODEL_LOGSET_CONDITION. For UMODEL_METRICSET_MULTI_CONDITION, this serves as the global default and can be overridden by the durationSecs field in each trigger.
+    // The duration in seconds. Used by PROMETHEUS_SIMPLE and UMODEL_METRICSET.
     shared_ptr<int32_t> durationSecs_ {};
-    // Specifies whether to enable severity suppression by highest level (type=UMODEL_METRICSET_MULTI_CONDITION / PROMETHEUS_MULTI_CONDITION). Default value: true. When enabled, only the highest severity trigger is reported for the same entity.
+    // Specifies whether to enable severity suppression to the highest level (type=UMODEL_METRICSET_MULTI_CONDITION / PROMETHEUS_MULTI_CONDITION). Default value: true. When enabled, only the highest severity trigger is reported for the same entity.
     shared_ptr<bool> enableSeveritySuppression_ {};
-    // The expression type for CLOUD_MONITORING_CONDITION: SIMPLE / COMPOSITE / EXPRESS / PROMETHEUS (write paths support only SIMPLE / COMPOSITE). Specify the corresponding escalation sub-object based on the type.
+    // The expression type for CLOUD_MONITORING_CONDITION. Valid values: SIMPLE, COMPOSITE, EXPRESS, and PROMETHEUS. Only SIMPLE and COMPOSITE are supported in write paths. Specify the corresponding escalation sub-object based on the type.
     shared_ptr<string> escalationType_ {};
-    // The expression-based trigger configuration for CLOUD_MONITORING_CONDITION when escalationType=EXPRESS (read path output only).
+    // The expression-based trigger configuration for CLOUD_MONITORING_CONDITION when escalationType is set to EXPRESS. This field is output only in read paths.
     shared_ptr<CloudMonitoringExpressEscalation> expressEscalation_ {};
-    // The raw V1 condition JSON string returned when type=UNKNOWN_CONDITION and the read path fails to parse the condition. If this field is not empty, display it as read-only on the frontend.
+    // The raw V1 condition JSON string returned when type is set to UNKNOWN_CONDITION and the read path fails to parse the condition. When the frontend detects that this field is not empty, display it as read-only.
     shared_ptr<string> legacyRaw_ {};
-    // Returned when type=UNKNOWN_CONDITION. Indicates that this rule cannot be edited through the new API. Submit a ticket to contact the CloudMonitor team.
+    // Returned when type is set to UNKNOWN_CONDITION. Indicates that this rule cannot be edited through the new API. Submit a ticket to contact the CloudMonitor team.
     shared_ptr<string> legacyType_ {};
-    // The log field name (used when type=UMODEL_LOGSET_CONDITION and matchOperator=CONTAINS/EQUALS/REGEX).
+    // The log field name (used when type is set to UMODEL_LOGSET_CONDITION and matchOperator is set to CONTAINS, EQUALS, or REGEX).
     shared_ptr<string> matchField_ {};
     // The log match operator (type=UMODEL_LOGSET_CONDITION).
     shared_ptr<string> matchOperator_ {};
-    // The log match value (used when type=UMODEL_LOGSET_CONDITION and matchOperator=CONTAINS/EQUALS/REGEX).
+    // The log match value (used when type is set to UMODEL_LOGSET_CONDITION and matchOperator is set to CONTAINS, EQUALS, or REGEX).
     shared_ptr<string> matchValue_ {};
-    // The upper bound of the range (used when UMODEL_METRICSET_CONDITION and operator=IN_RANGE/OUT_OF_RANGE).
+    // The upper bound of the range (used when UMODEL_METRICSET_CONDITION operator is set to IN_RANGE or OUT_OF_RANGE).
     shared_ptr<double> max_ {};
-    // The lower bound of the range (used when UMODEL_METRICSET_CONDITION and operator=IN_RANGE/OUT_OF_RANGE).
+    // The lower bound of the range (used when UMODEL_METRICSET_CONDITION operator is set to IN_RANGE or OUT_OF_RANGE).
     shared_ptr<double> min_ {};
-    // The no-data alert level (SLS_MULTI_CONDITION). APM and Prometheus conditions have migrated to noDataPolicy + noDataAlertSeverity.
+    // The no-data alert level (SLS_MULTI_CONDITION). APM and Prometheus conditions have migrated to noDataPolicy and noDataAlertSeverity.
     shared_ptr<string> noDataAlertLevel_ {};
-    // The no-data alert severity level (PROMETHEUS_SIMPLE_CONDITION / PROMETHEUS_MULTI_CONDITION, takes effect when noDataPolicy=NO_DATA_TO_ALERT). SLS_MULTI_CONDITION still uses noDataAlertLevel.
+    // The no-data alert severity level (PROMETHEUS_SIMPLE_CONDITION / PROMETHEUS_MULTI_CONDITION). Takes effect only when noDataPolicy is set to NO_DATA_TO_ALERT. SLS_MULTI_CONDITION still uses noDataAlertLevel.
     shared_ptr<string> noDataAlertSeverity_ {};
-    // The value to append when no data is available (APM_SIMPLE_CONDITION / APM_COMPOSITE_CONDITION). Nullable.
+    // The value to substitute when no data is available (APM_SIMPLE_CONDITION / APM_COMPOSITE_CONDITION). Nullable.
     shared_ptr<double> noDataAppendValue_ {};
-    // The no-data handling policy (CLOUD_MONITORING_CONDITION / PROMETHEUS_MULTI_CONDITION / PROMETHEUS_SIMPLE_CONDITION / APM_SIMPLE_CONDITION / APM_COMPOSITE_CONDITION): NO_DATA_TO_OK / NO_DATA_TO_ALERT / KEEP_LAST_STATE / APPEND_VALUE (APM only).
+    // The no-data handling policy (CLOUD_MONITORING_CONDITION / PROMETHEUS_MULTI_CONDITION / PROMETHEUS_SIMPLE_CONDITION / APM_SIMPLE_CONDITION / APM_COMPOSITE_CONDITION). Valid values: NO_DATA_TO_OK, NO_DATA_TO_ALERT, KEEP_LAST_STATE, and APPEND_VALUE (APM only).
     shared_ptr<string> noDataPolicy_ {};
-    // The comparison operator. For UMODEL_METRICSET_CONDITION: GT (greater than) / GE (greater than or equal to) / LT (less than) / LE (less than or equal to) / EQ (equal to) / NE (not equal to) / IN_RANGE (within range, requires min/max) / OUT_OF_RANGE (outside range, requires min/max) / PRESENT (field exists) / NOT_PRESENT (field does not exist). Not used by UMODEL_LOGSET_CONDITION. For APM_SIMPLE_CONDITION: GT/GTE/LT/LTE/EQ/NE/YOY_UP/YOY_DOWN (YOY_* requires yoyTimeUnit/yoyTimeValue).
+    // The comparison operator (UMODEL_METRICSET_CONDITION or APM_SIMPLE_CONDITION).
     shared_ptr<string> operator_ {};
-    // The PromQL-based trigger configuration for CLOUD_MONITORING_CONDITION when escalationType=PROMETHEUS (read path output only).
+    // The PromQL-based trigger configuration for CLOUD_MONITORING_CONDITION when escalationType is set to PROMETHEUS. This field is output only in read paths.
     shared_ptr<CloudMonitoringPrometheusEscalation> prometheus_ {};
     // The logical relationship between conditions (APM_COMPOSITE_CONDITION).
     shared_ptr<string> relation_ {};
-    // The severity level (UMODEL_METRICSET_CONDITION / UMODEL_LOGSET_CONDITION / PROMETHEUS_SIMPLE / APM_COMPOSITE).
+    // The dynamic baseline sensitivity (UMODEL_METRICSET_CONDITION / APM_SIMPLE_CONDITION). Takes effect only when operator is set to ABOVE_UPPER, BELOW_LOWER, or OUT_OF_BAND. Valid values: HIGH (narrowest band, most sensitive), MEDIUM, and LOW (widest band, least sensitive).
+    shared_ptr<string> sensitivity_ {};
+    // The severity level (UMODEL / PROMETHEUS_SIMPLE / APM_COMPOSITE).
     shared_ptr<string> severity_ {};
-    // The single-metric multi-level trigger configuration for CLOUD_MONITORING_CONDITION when escalationType=SIMPLE (requires metricName, period, escalations).
+    // The single-metric multi-level trigger configuration for CLOUD_MONITORING_CONDITION when escalationType is set to SIMPLE. Required fields: metricName, period, and escalations.
     shared_ptr<CloudMonitoringSimpleEscalation> simpleEscalation_ {};
-    // The threshold (used by UMODEL_METRICSET_CONDITION with non-range operators).
+    // The threshold (UMODEL_METRICSET_CONDITION).
     shared_ptr<double> threshold_ {};
     // The multi-threshold list (APM_SIMPLE_CONDITION).
     shared_ptr<vector<ThresholdList>> thresholdList_ {};
-    // The list of triggers (polymorphic by type. CLOUD_MONITORING_CONDITION does not use this field. Use simpleEscalation.escalations / compositeEscalation.escalations instead). For SLS_MULTI_CONDITION, each case contains matchField / matchOperator / matchValue / countOperator / countThreshold / severity, with at least one required. For UMODEL_METRICSET_MULTI_CONDITION, each trigger contains severity, durationSecs, and an expression (SIMPLE/COMPOSITE). For PROMETHEUS_MULTI_CONDITION, each trigger contains severity, durationSecs, and an expression (SIMPLE/COMPOSITE). Triggers are sorted by severity priority, and the first match fires.
+    // The trigger list. This field is polymorphic based on type. CLOUD_MONITORING_CONDITION does not use this field. Use simpleEscalation.escalations or compositeEscalation.escalations instead. For SLS_MULTI_CONDITION, each case contains matchField, matchOperator, matchValue, countOperator, countThreshold, and severity. At least one case is required. For UMODEL_METRICSET_MULTI_CONDITION, each trigger contains severity, durationSecs, and an expression (SIMPLE or COMPOSITE). For PROMETHEUS_MULTI_CONDITION, each trigger contains severity, durationSecs, and an expression (SIMPLE or COMPOSITE). Triggers are sorted by severity priority, and the first match fires.
     shared_ptr<vector<Triggers>> triggers_ {};
-    // The detection condition type. Valid values and their required fields: PROMETHEUS_SIMPLE_CONDITION (requires operator, threshold, durationSecs, severity). UMODEL_METRICSET_CONDITION (requires operator, durationSecs, severity. Non-range operators require threshold. operator=IN_RANGE/OUT_OF_RANGE requires min and max). UMODEL_LOGSET_CONDITION (requires matchOperator, durationSecs, severity. matchOperator=CONTAINS/EQUALS/REGEX requires matchField and matchValue. countOperator/countThreshold are optional). UMODEL_METRICSET_MULTI_CONDITION (requires triggers[*]. Optional durationSecs as global default, enableSeveritySuppression). APM_SIMPLE_CONDITION (requires operator, aggregate. Use thresholdList or threshold. operator=YOY_UP/YOY_DOWN requires yoyTimeUnit and yoyTimeValue. Optional noDataPolicy, noDataAppendValue). APM_COMPOSITE_CONDITION (requires compareList, relation, severity. Optional noDataPolicy, noDataAppendValue). CLOUD_MONITORING_CONDITION (requires escalationType. escalationType=SIMPLE requires simpleEscalation. escalationType=COMPOSITE requires compositeEscalation. Optional noDataPolicy). UNKNOWN_CONDITION (read-only fallback. Do not use in write paths). Do not use non-enumerated values such as SLS_CONDITION or CMS_BASIC_CONDITION. The backend returns an Invalidtype 400 error.
+    // The detection condition type.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The year-over-year time unit (APM_SIMPLE_CONDITION, takes effect only when operator=YOY_UP/YOY_DOWN).
+    // The year-over-year time unit (APM_SIMPLE_CONDITION). Takes effect only when operator is set to YOY_UP or YOY_DOWN.
     shared_ptr<string> yoyTimeUnit_ {};
-    // The year-over-year time value (APM_SIMPLE_CONDITION, takes effect only when operator=YOY_UP/YOY_DOWN).
+    // The year-over-year time value (APM_SIMPLE_CONDITION). Takes effect only when operator is set to YOY_UP or YOY_DOWN.
     shared_ptr<int32_t> yoyTimeValue_ {};
   };
 

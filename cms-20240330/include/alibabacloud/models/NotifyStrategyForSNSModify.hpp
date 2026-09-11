@@ -139,8 +139,11 @@ namespace Models
 
 
         protected:
+          // The JSON path of the field, such as labels._cms_rule_name.
           shared_ptr<string> field_ {};
+          // The comparison operator.
           shared_ptr<string> op_ {};
+          // The value.
           shared_ptr<string> value_ {};
         };
 
@@ -170,8 +173,11 @@ namespace Models
 
 
       protected:
+        // The subscription conditions.
         shared_ptr<vector<FilterSetting::Conditions>> conditions_ {};
+        // If expression is not empty, it takes precedence and relation is ignored. If expression is empty or not specified, the system uses relation (AND or OR) to perform a simple AND/OR operation on all conditions. Condition numbers correspond to the indexes of the conditions array (starting from 1). Each condition evaluates whether a single event field matches by using field (the event field path, which supports dot-separated nesting such as resource.tags.pod), op (the operator, such as CONTAIN, EQ, or IN), and value (the match value).
         shared_ptr<string> expression_ {};
+        // The relationship between conditions. If an expression is configured, the expression takes higher precedence.
         shared_ptr<string> relation_ {};
       };
 
@@ -233,13 +239,13 @@ namespace Models
 
 
       protected:
-        // The days of the week on which the setting takes effect. Array element values range from 0 to 6 (0 = Sunday, 1 = Monday, 2 = Tuesday, ... 6 = Saturday). Note: The value 7 is not supported. The maximum value is 6. Example for all days: [0,1,2,3,4,5,6]. Example for weekdays only: [1,2,3,4,5].
+        // The effective days of the week (Monday through Sunday).
         shared_ptr<vector<int32_t>> dayInWeek_ {};
-        // The end time of the day, expressed as the number of minutes from 00:00. Valid values: 0 to 1439 (23 × 60 + 59 = 1439, which represents 23:59).
+        // The end time in minutes.
         shared_ptr<int32_t> endTimeInMinute_ {};
-        // The start time of the day, expressed as the number of minutes from 00:00. Valid values: 0 to 1439 (0 represents 00:00).
+        // The start time in minutes.
         shared_ptr<int32_t> startTimeInMinute_ {};
-        // The IANA time zone identifier, such as Asia/Shanghai or America/Los_Angeles.
+        // The time zone.
         shared_ptr<string> timeZone_ {};
       };
 
@@ -294,13 +300,13 @@ namespace Models
 
 
       protected:
-        // The notification channel type. The value must be one of the following uppercase enum values: DING (DingTalk chatbot), WEIXIN (WeCom chatbot), FEISHU (Lark chatbot), SLACK, TEAMS, WEBHOOK (custom webhook), CONTACT (contact, requires enabledSubChannels to specify sub-channels), GROUP (contact group), DUTY (on-call schedule), or DING_COOL_APP (DingTalk Cool App). Note: Lowercase values such as EMAIL or SMS are not supported. To send email, text message, or voice notifications, set channelType to CONTACT and specify EMAIL, SMS, or VOICE in enabledSubChannels.
+        // The channel type.
         // 
         // This parameter is required.
         shared_ptr<string> channelType_ {};
-        // Required only when channelType is CONTACT, GROUP, or DUTY. Valid values: EMAIL (email), SMS (text message), VOICE (voice call), DING (DingTalk work notification), WEIXIN (WeCom message), FEISHU (Lark message), and WEBHOOK. For example, to notify a contact by email and text message, set channelType to CONTACT and enabledSubChannels to ["EMAIL","SMS"]. This field is not required for other channelType values such as WEBHOOK or DING.
+        // The enabled notification types.
         shared_ptr<vector<string>> enabledSubChannels_ {};
-        // The list of receiver identifiers. For the WEBHOOK type, specify the webhook UUID. For DING, WEIXIN, or FEISHU, specify the chatbot UUID. For CONTACT, specify the contact ID. For GROUP, specify the contact group ID. For DUTY, specify the on-call schedule UUID. At least one element is required.
+        // The channel receivers.
         // 
         // This parameter is required.
         shared_ptr<vector<string>> receivers_ {};
@@ -359,12 +365,17 @@ namespace Models
 
 
     protected:
+      // The notification channels.
       shared_ptr<vector<Routes::Channels>> channels_ {};
+      // The digital employee name.
       shared_ptr<string> digitalEmployeeName_ {};
-      // The effective period settings for notifications. Defines on which days and during which time range the system sends notifications.
+      // The effective time range.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
+      // Specifies whether to enable root cause analysis (RCA).
       shared_ptr<bool> enableRca_ {};
+      // The route-level filter. This is different from the top-level subscription.filterSetting.
       shared_ptr<Routes::FilterSetting> filterSetting_ {};
+      // **[Deprecated]** This parameter is deprecated and does not take effect. Route matching only checks filterSetting and effectTimeRange.
       shared_ptr<vector<string>> severities_ {};
     };
 
@@ -426,9 +437,13 @@ namespace Models
 
 
     protected:
+      // The grouping keys.
       shared_ptr<vector<string>> groupingKeys_ {};
+      // The check period in minutes.
       shared_ptr<int32_t> periodMin_ {};
+      // The silence duration in seconds.
       shared_ptr<int32_t> silenceSec_ {};
+      // The number of times the condition is triggered.
       shared_ptr<int32_t> times_ {};
     };
 
@@ -470,7 +485,9 @@ namespace Models
 
 
     protected:
+      // **[Deprecated]** This parameter is deprecated and does not take effect. The actual purpose of the template is determined by the type field of the template object referenced by templateUuid.
       shared_ptr<string> targetType_ {};
+      // The UUID of the template.
       shared_ptr<string> templateUuid_ {};
     };
 
@@ -525,12 +542,20 @@ namespace Models
 
 
   protected:
+    // The notification channel templates.
     shared_ptr<vector<NotifyStrategyForSNSModify::CustomTemplateEntries>> customTemplateEntries_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // Specifies whether to enable incident management.
     shared_ptr<bool> enableIncidentManagement_ {};
+    // The grouping settings.
+    // 
     // This parameter is required.
     shared_ptr<NotifyStrategyForSNSModify::GroupingSetting> groupingSetting_ {};
+    // Specifies whether to send a notification when the alert is recovered.
     shared_ptr<bool> ignoreRestoredNotification_ {};
+    // The notification channel routing settings.
+    // 
     // This parameter is required.
     shared_ptr<vector<NotifyStrategyForSNSModify::Routes>> routes_ {};
   };

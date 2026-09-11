@@ -96,12 +96,13 @@ namespace Models
 
 
     protected:
-      // The contact group ID.
+      // The unique identifier of the contact group.
       shared_ptr<string> contactGroupId_ {};
-      // The contact IDs in the group.
+      // The contact IDs.
       shared_ptr<vector<string>> contactIds_ {};
-      // The name of the contact group.
+      // The contact name.
       shared_ptr<string> name_ {};
+      // The workspace.
       shared_ptr<string> workspace_ {};
     };
 
@@ -145,13 +146,13 @@ namespace Models
 
 
   protected:
-    // A list of contact groups.
+    // The contact groups.
     shared_ptr<vector<ListContactGroupsResponseBody::ContactGroups>> contactGroups_ {};
-    // The returned page number.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> total_ {};

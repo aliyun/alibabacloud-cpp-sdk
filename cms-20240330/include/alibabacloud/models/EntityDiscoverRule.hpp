@@ -99,7 +99,7 @@ namespace Models
       shared_ptr<string> op_ {};
       // The key of the tag.
       shared_ptr<string> tagKey_ {};
-      // A collection of tag values.
+      // The collection of tag values.
       shared_ptr<vector<string>> tagValues_ {};
     };
 
@@ -156,7 +156,7 @@ namespace Models
       shared_ptr<string> op_ {};
       // The key of the label.
       shared_ptr<string> tagKey_ {};
-      // A collection of label values.
+      // The collection of label values.
       shared_ptr<vector<string>> tagValues_ {};
     };
 
@@ -198,7 +198,9 @@ namespace Models
 
 
     protected:
+      // The CIDR block of the IP address.
       shared_ptr<string> ipCIDR_ {};
+      // The property key of the IP address.
       shared_ptr<string> ipFieldKey_ {};
     };
 
@@ -253,7 +255,7 @@ namespace Models
     protected:
       // The key of the property.
       shared_ptr<string> fieldKey_ {};
-      // A collection of property values.
+      // The collection of property values.
       shared_ptr<vector<string>> fieldValues_ {};
       // The operation.
       shared_ptr<string> op_ {};
@@ -312,7 +314,7 @@ namespace Models
       shared_ptr<string> op_ {};
       // The key of the annotation.
       shared_ptr<string> tagKey_ {};
-      // A collection of annotation values.
+      // The collection of annotation values.
       shared_ptr<vector<string>> tagValues_ {};
     };
 
@@ -399,23 +401,23 @@ namespace Models
 
 
   protected:
-    // A collection of annotation matching rules.
+    // The collection of annotation matching rules.
     shared_ptr<vector<EntityDiscoverRule::Annotations>> annotations_ {};
-    // A collection of entity types.
+    // The collection of entity types.
     shared_ptr<vector<string>> entityTypes_ {};
     // The property matching rules.
     shared_ptr<vector<EntityDiscoverRule::FieldRules>> fieldRules_ {};
-    // A collection of instance IDs.
+    // The collection of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // A collection of IP address matching rules.
+    // The collection of IP matching rules.
     shared_ptr<EntityDiscoverRule::IpMatchRule> ipMatchRule_ {};
-    // A collection of label matching rules.
+    // The collection of label matching rules.
     shared_ptr<vector<EntityDiscoverRule::Labels>> labels_ {};
-    // A collection of region IDs.
+    // The collection of region IDs.
     shared_ptr<vector<string>> regionIds_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tag-based service discovery rules.
+    // The tag-based service discovery settings.
     shared_ptr<vector<EntityDiscoverRule::Tags>> tags_ {};
   };
 

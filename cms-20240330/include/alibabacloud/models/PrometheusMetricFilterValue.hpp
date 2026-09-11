@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The filter dimension name.
     shared_ptr<string> dim_ {};
+    // The filter operator, such as eq, neq, contain, not_contain, all, or disabled.
     shared_ptr<string> opt_ {};
+    // The filter value.
     shared_ptr<string> value_ {};
   };
 

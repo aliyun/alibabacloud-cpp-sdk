@@ -124,15 +124,25 @@ namespace Models
 
 
   protected:
+    // The creation time, represented as a UNIX millisecond timestamp string.
     shared_ptr<string> createTime_ {};
+    // The description of the notification policy.
     shared_ptr<string> description_ {};
+    // Indicates whether the notification policy is enabled.
     shared_ptr<bool> enabled_ {};
+    // The Policy Name of the notification policy.
     shared_ptr<string> name_ {};
+    // The configuration details of the notification policy.
     shared_ptr<NotifyStrategyDetail> notifyStrategy_ {};
+    // The update time, represented as a UNIX millisecond timestamp string.
     shared_ptr<string> updateTime_ {};
+    // The Alibaba Cloud account UID.
     shared_ptr<string> userId_ {};
+    // The unique identifier of the notification policy.
     shared_ptr<string> uuid_ {};
+    // The version number of the notification policy.
     shared_ptr<int32_t> version_ {};
+    // The workspace identifier.
     shared_ptr<string> workspace_ {};
   };
 

@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The list of action integration IDs.
+    // The list of action integration configurations. An action integration is an automated action that is executed after an alert rule is triggered, such as sending a notification or invoking a webhook. Each action integration is referenced by its action integration ID.
     shared_ptr<vector<string>> actions_ {};
-    // Indicates whether action integration is started.
+    // Indicates whether action integration is enabled.
     shared_ptr<bool> enabled_ {};
   };
 

@@ -234,26 +234,39 @@ namespace Models
 
 
   protected:
+    // The filter condition for the business source.
     shared_ptr<BizSourceFilter> bizSource_ {};
+    // The filter condition for the data source type.
     shared_ptr<DatasourceTypeFilter> datasourceType_ {};
+    // The filter for alert rule names.
     shared_ptr<DisplayNameFilter> displayName_ {};
+    // The filter for whether the alert rule is enabled.
     shared_ptr<EnabledFilter> enabled_ {};
+    // The filter for labels.
     shared_ptr<LabelsFilter> labels_ {};
-    // Filters by migration status. isMigrated=true queries migrated rules (migration_status is not 0 or NULL). isMigrated=false queries native rules (migration_status=0).
+    // The migration status filter. Set isMigrated to true to query migrated rules (migration_status is not 0 or NULL). Set isMigrated to false to query native rules (migration_status=0).
     shared_ptr<MigrationStatusFilter> migrationStatus_ {};
+    // The filter condition for notification channels.
     shared_ptr<NotificationChannelsFilter> notificationChannels_ {};
+    // The filter condition for the notification policy ID.
     shared_ptr<NotifyStrategyIdFilter> notifyStrategyId_ {};
-    // Filters by the observeResourceConfig structure. This takes priority over the standalone observeResourceType / observeResourceGlobalScope / observeResourceList fields below. If both are specified and their semantics conflict, the request is rejected.
+    // The composite filter based on the observeResourceConfig structure. This filter takes priority over the standalone observeResourceType, observeResourceGlobalScope, and observeResourceList fields. If both are specified and their semantics conflict, the request is rejected.
     shared_ptr<ObserveResourceConfigFilter> observeResourceConfig_ {};
+    // The filter condition for the global scope of observable resources.
     shared_ptr<ObserveResourceGlobalScopeFilter> observeResourceGlobalScope_ {};
-    // **[Deprecated]** Filters by a single resource entity ID. This field is retained only for backward compatibility with legacy SDKs. For new integrations, use observeResourceList.contains instead. If this field is not empty and observeResourceList is not specified, it is equivalent to observeResourceList.contains=[observeResourceInstanceId].
+    // **[Deprecated]** The single-value filter for the resource instance ID. This field is retained only for compatibility with legacy SDKs. Use observeResourceList.contains instead for new integrations. If this field is not empty and observeResourceList is not specified, it is equivalent to observeResourceList.contains=[observeResourceInstanceId].
     shared_ptr<string> observeResourceInstanceId_ {};
+    // The filter condition for the list of observable resources.
     shared_ptr<ObserveResourceListFilter> observeResourceList_ {};
-    // **[Deprecated]** Filters by observable resource type. For new integrations, use observeResourceConfig.entityType instead.
+    // **[Deprecated]** The filter for the observable resource type. Use observeResourceConfig.entityType instead for new integrations.
     shared_ptr<ObserveResourceTypeFilter> observeResourceType_ {};
+    // The filter condition for the partition key.
     shared_ptr<PartitionKeyFilter> partitionKey_ {};
+    // The filter condition for alert severity levels.
     shared_ptr<SeverityLevelsFilter> severityLevels_ {};
+    // The filter for statuses.
     shared_ptr<StatusFilter> status_ {};
+    // The filter for alert rule UUIDs.
     shared_ptr<UuidFilter> uuid_ {};
   };
 

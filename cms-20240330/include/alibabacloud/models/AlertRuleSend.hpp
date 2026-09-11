@@ -87,14 +87,15 @@ namespace Models
 
 
   protected:
-    // The integrated alert action configuration.
+    // The alert action integration configuration.
     shared_ptr<AlertRuleAction> action_ {};
     // The alert notification configuration.
     shared_ptr<AlertRuleNotification> notification_ {};
-    // The list of notification policies. Each policy defines the notification method or policy name to use for a specific alert state, such as trigger or recovery.
+    // The list of notification policies that define the notification methods or Policy Name values to use for different alert states, such as triggered and recover.
     shared_ptr<vector<string>> notifyStrategies_ {};
+    // The root cause analysis (RCA) configuration. After this feature is enabled, root cause analysis is automatically performed when an alert is triggered.
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
-    // Specifies whether to deliver alert events to Alert Management of Application Real-Time Monitoring Service (ARMS).
+    // Indicates whether event delivery of alert events to ARMS alert management is enabled.
     shared_ptr<bool> sendToArms_ {};
   };
 

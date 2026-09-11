@@ -173,7 +173,9 @@ namespace Models
 
 
     protected:
+      // The unique identifier of the Agent.
       shared_ptr<string> agentUuid_ {};
+      // The list of Agent routing configurations.
       shared_ptr<vector<NotifyRouteForSubscription>> routes_ {};
     };
 
@@ -302,6 +304,7 @@ namespace Models
 
 
   protected:
+    // The Agent configuration information.
     shared_ptr<SubscriptionForView::AgentConfig> agentConfig_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
@@ -315,16 +318,15 @@ namespace Models
     shared_ptr<string> notifyStrategyId_ {};
     // The push settings.
     shared_ptr<SubscriptionForView::PushingSetting> pushingSetting_ {};
-    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
-    // - true: Subscribe.
-    // - false or null: Do not subscribe.
+    // Indicates whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: Subscribed. false or null: Not subscribed.
     shared_ptr<bool> subscribeLegacyEvent_ {};
-    // UUID
+    // The unique identifier of the subscription.
     shared_ptr<string> subscriptionId_ {};
     // The name.
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionName_ {};
+    // The subscription type.
     shared_ptr<string> subscriptionType_ {};
     // The source type of the synchronization policy.
     shared_ptr<string> syncFromType_ {};
@@ -332,8 +334,9 @@ namespace Models
     shared_ptr<string> updateTime_ {};
     // The user ID.
     shared_ptr<string> userId_ {};
-    // workspace
+    // The workspace identifier.
     shared_ptr<string> workspace_ {};
+    // The workspace filter settings.
     shared_ptr<WorkspaceFilterSetting> workspaceFilterSetting_ {};
   };
 

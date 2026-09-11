@@ -76,7 +76,7 @@ namespace Models
     shared_ptr<string> relation_ {};
     // The severity level.
     shared_ptr<string> severity_ {};
-    // The number of consecutive times the conditions are met before the alert is triggered.
+    // The number of consecutive times the condition is triggered.
     shared_ptr<int32_t> times_ {};
   };
 

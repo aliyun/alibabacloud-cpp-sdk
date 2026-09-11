@@ -149,18 +149,29 @@ namespace Models
 
 
   protected:
+    // The auto-recovery time in seconds when no events occur.
     shared_ptr<int64_t> autoRecoverSeconds_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // Indicates whether the response plan is enabled.
     shared_ptr<bool> enabled_ {};
+    // The list of escalation plan IDs.
     shared_ptr<vector<string>> escalationId_ {};
+    // The lifecycle mode.
     shared_ptr<string> mode_ {};
+    // The name.
     shared_ptr<string> name_ {};
+    // The push settings.
     shared_ptr<PushingSetting> pushingSetting_ {};
+    // The repeat notification configuration.
     shared_ptr<RepeatNotifySetting> repeatNotifySetting_ {};
+    // The source.
     shared_ptr<string> source_ {};
+    // The synchronization source type.
     shared_ptr<string> syncFromType_ {};
+    // The type.
     shared_ptr<string> type_ {};
-    // Required for update operations. Optional for create operations; if omitted, the backend generates one. `NotifyStrategy` also uses this UUID.
+    // Required for Update. Can be omitted for Create, in which case the backend generates it. The UUID is shared with NotifyStrategy.
     shared_ptr<string> uuid_ {};
   };
 

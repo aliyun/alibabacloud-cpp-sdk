@@ -44,12 +44,14 @@ namespace Models
         DARABONBA_PTR_TO_JSON(recordContent, recordContent_);
         DARABONBA_PTR_TO_JSON(recordType, recordType_);
         DARABONBA_PTR_TO_JSON(serviceId, serviceId_);
+        DARABONBA_PTR_TO_JSON(serviceName, serviceName_);
         DARABONBA_PTR_TO_JSON(workspace, workspace_);
       };
       friend void from_json(const Darabonba::Json& j, Records& obj) { 
         DARABONBA_PTR_FROM_JSON(recordContent, recordContent_);
         DARABONBA_PTR_FROM_JSON(recordType, recordType_);
         DARABONBA_PTR_FROM_JSON(serviceId, serviceId_);
+        DARABONBA_PTR_FROM_JSON(serviceName, serviceName_);
         DARABONBA_PTR_FROM_JSON(workspace, workspace_);
       };
       Records() = default ;
@@ -64,7 +66,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->recordContent_ == nullptr
-        && this->recordType_ == nullptr && this->serviceId_ == nullptr && this->workspace_ == nullptr; };
+        && this->recordType_ == nullptr && this->serviceId_ == nullptr && this->serviceName_ == nullptr && this->workspace_ == nullptr; };
       // recordContent Field Functions 
       bool hasRecordContent() const { return this->recordContent_ != nullptr;};
       void deleteRecordContent() { this->recordContent_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
       inline Records& setServiceId(string serviceId) { DARABONBA_PTR_SET_VALUE(serviceId_, serviceId) };
 
 
+      // serviceName Field Functions 
+      bool hasServiceName() const { return this->serviceName_ != nullptr;};
+      void deleteServiceName() { this->serviceName_ = nullptr;};
+      inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+      inline Records& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
+
+
       // workspace Field Functions 
       bool hasWorkspace() const { return this->workspace_ != nullptr;};
       void deleteWorkspace() { this->workspace_ = nullptr;};
@@ -101,6 +110,8 @@ namespace Models
       shared_ptr<string> recordType_ {};
       // The unique identifier of the service.
       shared_ptr<string> serviceId_ {};
+      // The service name.
+      shared_ptr<string> serviceName_ {};
       // The workspace.
       shared_ptr<string> workspace_ {};
     };
@@ -149,7 +160,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The list of ticket operation records.
+    // The list of operation records.
     shared_ptr<vector<ListServiceRecordsResponseBody::Records>> records_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

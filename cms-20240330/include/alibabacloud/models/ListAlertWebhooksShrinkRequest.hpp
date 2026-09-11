@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The unique ID of the webhook.
     shared_ptr<string> webhookIdsShrink_ {};

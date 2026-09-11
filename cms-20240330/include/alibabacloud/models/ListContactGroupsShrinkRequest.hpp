@@ -77,12 +77,13 @@ namespace Models
   protected:
     // The contact group IDs.
     shared_ptr<string> contactGroupIdsShrink_ {};
-    // The name of the contact group.
+    // The contact name.
     shared_ptr<string> name_ {};
-    // The page number. The default is 1.
+    // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return per page. The default is 100.
+    // The number of entries per page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The workspace name.
     shared_ptr<string> workspace_ {};
   };
 

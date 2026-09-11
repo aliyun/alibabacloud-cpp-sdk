@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The exact resource type to query. Returns only resources of this type.
+    // The exact match.
     shared_ptr<string> eq_ {};
   };
 

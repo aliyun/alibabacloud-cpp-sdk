@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the filter field.
     shared_ptr<string> field_ {};
+    // The filter operator. Only = or != is supported.
     shared_ptr<string> operator_ {};
+    // The filter value.
     shared_ptr<string> value_ {};
   };
 

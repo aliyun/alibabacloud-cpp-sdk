@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The upper bound of the interval.
     shared_ptr<double> max_ {};
+    // The lower bound of the interval.
     shared_ptr<double> min_ {};
+    // The warning level.
+    // 
     // This parameter is required.
     shared_ptr<string> severity_ {};
+    // The threshold.
     shared_ptr<float> threshold_ {};
   };
 
