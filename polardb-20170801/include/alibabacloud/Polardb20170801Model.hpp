@@ -1281,6 +1281,9 @@
 #include <alibabacloud/models/RefreshDBClusterStorageUsageRequest.hpp>
 #include <alibabacloud/models/RefreshDBClusterStorageUsageResponseBody.hpp>
 #include <alibabacloud/models/RefreshDBClusterStorageUsageResponse.hpp>
+#include <alibabacloud/models/RegisterKnowledgeBaseFileRequest.hpp>
+#include <alibabacloud/models/RegisterKnowledgeBaseFileResponseBody.hpp>
+#include <alibabacloud/models/RegisterKnowledgeBaseFileResponse.hpp>
 #include <alibabacloud/models/RejectPolarClawDevicePairRequest.hpp>
 #include <alibabacloud/models/RejectPolarClawDevicePairResponseBody.hpp>
 #include <alibabacloud/models/RejectPolarClawDevicePairResponse.hpp>

@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateApplicationRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AIDBClusterId, AIDBClusterId_);
+      DARABONBA_PTR_TO_JSON(AgenticDBBranchSpec, agenticDBBranchSpec_);
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(Architecture, architecture_);
       DARABONBA_PTR_TO_JSON(AuthProvider, authProvider_);
@@ -49,6 +50,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_TO_JSON(SecurityIPType, securityIPType_);
       DARABONBA_PTR_TO_JSON(SkillTemplateId, skillTemplateId_);
+      DARABONBA_PTR_TO_JSON(Storages, storages_);
       DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(TargetVersion, targetVersion_);
       DARABONBA_PTR_TO_JSON(UsedTime, usedTime_);
@@ -59,6 +61,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateApplicationRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AIDBClusterId, AIDBClusterId_);
+      DARABONBA_PTR_FROM_JSON(AgenticDBBranchSpec, agenticDBBranchSpec_);
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
       DARABONBA_PTR_FROM_JSON(AuthProvider, authProvider_);
@@ -93,6 +96,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SecurityIPList, securityIPList_);
       DARABONBA_PTR_FROM_JSON(SecurityIPType, securityIPType_);
       DARABONBA_PTR_FROM_JSON(SkillTemplateId, skillTemplateId_);
+      DARABONBA_PTR_FROM_JSON(Storages, storages_);
       DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(TargetVersion, targetVersion_);
       DARABONBA_PTR_FROM_JSON(UsedTime, usedTime_);
@@ -154,6 +158,117 @@ namespace Models
       shared_ptr<string> key_ {};
       // The tag value.
       shared_ptr<string> value_ {};
+    };
+
+    class Storages : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Storages& obj) { 
+        DARABONBA_PTR_TO_JSON(ContainerMountPath, containerMountPath_);
+        DARABONBA_PTR_TO_JSON(EndpointId, endpointId_);
+        DARABONBA_PTR_TO_JSON(MountPath, mountPath_);
+        DARABONBA_PTR_TO_JSON(StorageCapacity, storageCapacity_);
+        DARABONBA_PTR_TO_JSON(StorageEndpoint, storageEndpoint_);
+        DARABONBA_PTR_TO_JSON(StorageInstanceId, storageInstanceId_);
+        DARABONBA_PTR_TO_JSON(StoragePerformanceLevel, storagePerformanceLevel_);
+        DARABONBA_PTR_TO_JSON(StorageType, storageType_);
+      };
+      friend void from_json(const Darabonba::Json& j, Storages& obj) { 
+        DARABONBA_PTR_FROM_JSON(ContainerMountPath, containerMountPath_);
+        DARABONBA_PTR_FROM_JSON(EndpointId, endpointId_);
+        DARABONBA_PTR_FROM_JSON(MountPath, mountPath_);
+        DARABONBA_PTR_FROM_JSON(StorageCapacity, storageCapacity_);
+        DARABONBA_PTR_FROM_JSON(StorageEndpoint, storageEndpoint_);
+        DARABONBA_PTR_FROM_JSON(StorageInstanceId, storageInstanceId_);
+        DARABONBA_PTR_FROM_JSON(StoragePerformanceLevel, storagePerformanceLevel_);
+        DARABONBA_PTR_FROM_JSON(StorageType, storageType_);
+      };
+      Storages() = default ;
+      Storages(const Storages &) = default ;
+      Storages(Storages &&) = default ;
+      Storages(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Storages() = default ;
+      Storages& operator=(const Storages &) = default ;
+      Storages& operator=(Storages &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->containerMountPath_ == nullptr
+        && this->endpointId_ == nullptr && this->mountPath_ == nullptr && this->storageCapacity_ == nullptr && this->storageEndpoint_ == nullptr && this->storageInstanceId_ == nullptr
+        && this->storagePerformanceLevel_ == nullptr && this->storageType_ == nullptr; };
+      // containerMountPath Field Functions 
+      bool hasContainerMountPath() const { return this->containerMountPath_ != nullptr;};
+      void deleteContainerMountPath() { this->containerMountPath_ = nullptr;};
+      inline string getContainerMountPath() const { DARABONBA_PTR_GET_DEFAULT(containerMountPath_, "") };
+      inline Storages& setContainerMountPath(string containerMountPath) { DARABONBA_PTR_SET_VALUE(containerMountPath_, containerMountPath) };
+
+
+      // endpointId Field Functions 
+      bool hasEndpointId() const { return this->endpointId_ != nullptr;};
+      void deleteEndpointId() { this->endpointId_ = nullptr;};
+      inline string getEndpointId() const { DARABONBA_PTR_GET_DEFAULT(endpointId_, "") };
+      inline Storages& setEndpointId(string endpointId) { DARABONBA_PTR_SET_VALUE(endpointId_, endpointId) };
+
+
+      // mountPath Field Functions 
+      bool hasMountPath() const { return this->mountPath_ != nullptr;};
+      void deleteMountPath() { this->mountPath_ = nullptr;};
+      inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+      inline Storages& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
+
+
+      // storageCapacity Field Functions 
+      bool hasStorageCapacity() const { return this->storageCapacity_ != nullptr;};
+      void deleteStorageCapacity() { this->storageCapacity_ = nullptr;};
+      inline string getStorageCapacity() const { DARABONBA_PTR_GET_DEFAULT(storageCapacity_, "") };
+      inline Storages& setStorageCapacity(string storageCapacity) { DARABONBA_PTR_SET_VALUE(storageCapacity_, storageCapacity) };
+
+
+      // storageEndpoint Field Functions 
+      bool hasStorageEndpoint() const { return this->storageEndpoint_ != nullptr;};
+      void deleteStorageEndpoint() { this->storageEndpoint_ = nullptr;};
+      inline string getStorageEndpoint() const { DARABONBA_PTR_GET_DEFAULT(storageEndpoint_, "") };
+      inline Storages& setStorageEndpoint(string storageEndpoint) { DARABONBA_PTR_SET_VALUE(storageEndpoint_, storageEndpoint) };
+
+
+      // storageInstanceId Field Functions 
+      bool hasStorageInstanceId() const { return this->storageInstanceId_ != nullptr;};
+      void deleteStorageInstanceId() { this->storageInstanceId_ = nullptr;};
+      inline string getStorageInstanceId() const { DARABONBA_PTR_GET_DEFAULT(storageInstanceId_, "") };
+      inline Storages& setStorageInstanceId(string storageInstanceId) { DARABONBA_PTR_SET_VALUE(storageInstanceId_, storageInstanceId) };
+
+
+      // storagePerformanceLevel Field Functions 
+      bool hasStoragePerformanceLevel() const { return this->storagePerformanceLevel_ != nullptr;};
+      void deleteStoragePerformanceLevel() { this->storagePerformanceLevel_ = nullptr;};
+      inline string getStoragePerformanceLevel() const { DARABONBA_PTR_GET_DEFAULT(storagePerformanceLevel_, "") };
+      inline Storages& setStoragePerformanceLevel(string storagePerformanceLevel) { DARABONBA_PTR_SET_VALUE(storagePerformanceLevel_, storagePerformanceLevel) };
+
+
+      // storageType Field Functions 
+      bool hasStorageType() const { return this->storageType_ != nullptr;};
+      void deleteStorageType() { this->storageType_ = nullptr;};
+      inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+      inline Storages& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
+    protected:
+      // The mount path inside the container.
+      shared_ptr<string> containerMountPath_ {};
+      // The storage endpoint ID.
+      shared_ptr<string> endpointId_ {};
+      // The storage mount path.
+      shared_ptr<string> mountPath_ {};
+      // The storage capacity.
+      shared_ptr<string> storageCapacity_ {};
+      // The storage access endpoint.
+      shared_ptr<string> storageEndpoint_ {};
+      // The storage instance ID.
+      shared_ptr<string> storageInstanceId_ {};
+      // The storage performance level.
+      shared_ptr<string> storagePerformanceLevel_ {};
+      // The storage type.
+      shared_ptr<string> storageType_ {};
     };
 
     class Parameters : public Darabonba::Model {
@@ -317,17 +432,17 @@ namespace Models
       shared_ptr<string> dbPassword_ {};
       // The username.
       shared_ptr<string> dbUser_ {};
-      // Required for mem0 applications. The name of the embedder model, such as text-embedding-v4.
+      // Required for mem0 applications. The embedder model name, such as text-embedding-v4.
       shared_ptr<string> embedderModel_ {};
       // The vector dimensions.
       shared_ptr<int32_t> embedderModelDimension_ {};
       // The graph LLM model.
       shared_ptr<string> graphLlmModel_ {};
-      // Required for mem0 applications. The name of the LLM model, such as qwen3-max.
+      // Required for mem0 applications. The LLM model name, such as qwen3-max.
       shared_ptr<string> llmModel_ {};
       // The project name, which corresponds to the database schema that stores project data.
       shared_ptr<string> projectName_ {};
-      // Required for mem0 applications. The name of the reranker model, such as qwen3-rerank.
+      // Required for mem0 applications. The reranker model name, such as qwen3-rerank.
       shared_ptr<string> rerankerModel_ {};
       // The number of table shards.
       shared_ptr<int32_t> shard_ {};
@@ -384,7 +499,7 @@ namespace Models
       shared_ptr<string> dashboardPassword_ {};
       // The password.
       shared_ptr<string> dbPassword_ {};
-      // Required for knowledge applications. The name of the LLM model, such as qwen3-max.
+      // Required for knowledge applications. The LLM model name, such as qwen3-max.
       shared_ptr<string> llmModel_ {};
     };
 
@@ -470,7 +585,7 @@ namespace Models
 
 
     protected:
-      // The frontend port. This parameter is optional. If not specified, the port is automatically assigned by the control plane to avoid conflicts with ports already in use on the gateway. You can query the assignment result by calling the DescribeApplicationAttribute operation.
+      // The frontend port. This parameter is optional. If not specified, the system automatically assigns a port that does not conflict with ports already in use on the gateway. You can query the assignment result by calling the DescribeApplicationAttribute operation.
       shared_ptr<int32_t> frontPort_ {};
       // The port name. Valid values: webui, hermesagent, dashboard, and ssh.
       shared_ptr<string> portName_ {};
@@ -587,9 +702,9 @@ namespace Models
 
 
     protected:
-      // The specifications of the application subcomponent.
+      // The specification of the application subcomponent.
       shared_ptr<string> componentClass_ {};
-      // The maximum number of application subcomponents with the same specifications. Default value: the value of ComponentReplica.
+      // The maximum number of replicas for the application subcomponent with the same specification. Default value: the value of ComponentReplica.
       // 
       // - Only raycluster supports this parameter.
       shared_ptr<int64_t> componentMaxReplica_ {};
@@ -612,31 +727,128 @@ namespace Models
       shared_ptr<string> scaleMax_ {};
       // The minimum number of replicas for component scaling.
       shared_ptr<string> scaleMin_ {};
-      // The list of security groups for the application subcomponent. Separate multiple security groups with commas (,).
+      // The list of security groups for the application subcomponent, separated by commas (,).
       shared_ptr<string> securityGroups_ {};
       // The name of the whitelist IP address group for the application subcomponent. Default value: default.
       shared_ptr<string> securityIPArrayName_ {};
-      // The whitelist IP addresses of the application subcomponent. Separate multiple IP addresses with commas (,).
+      // The whitelist IP addresses of the application subcomponent, separated by commas (,).
       shared_ptr<string> securityIPList_ {};
       // The type of the whitelist IP addresses for the application subcomponent. Default value: ipv4.
       shared_ptr<string> securityIPType_ {};
     };
 
+    class AgenticDBBranchSpec : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const AgenticDBBranchSpec& obj) { 
+        DARABONBA_PTR_TO_JSON(BranchId, branchId_);
+        DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+        DARABONBA_PTR_TO_JSON(ForkFromApplicationId, forkFromApplicationId_);
+        DARABONBA_PTR_TO_JSON(ForkFromBranch, forkFromBranch_);
+        DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
+        DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
+      };
+      friend void from_json(const Darabonba::Json& j, AgenticDBBranchSpec& obj) { 
+        DARABONBA_PTR_FROM_JSON(BranchId, branchId_);
+        DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+        DARABONBA_PTR_FROM_JSON(ForkFromApplicationId, forkFromApplicationId_);
+        DARABONBA_PTR_FROM_JSON(ForkFromBranch, forkFromBranch_);
+        DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
+        DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
+      };
+      AgenticDBBranchSpec() = default ;
+      AgenticDBBranchSpec(const AgenticDBBranchSpec &) = default ;
+      AgenticDBBranchSpec(AgenticDBBranchSpec &&) = default ;
+      AgenticDBBranchSpec(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~AgenticDBBranchSpec() = default ;
+      AgenticDBBranchSpec& operator=(const AgenticDBBranchSpec &) = default ;
+      AgenticDBBranchSpec& operator=(AgenticDBBranchSpec &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->branchId_ == nullptr
+        && this->DBClusterId_ == nullptr && this->forkFromApplicationId_ == nullptr && this->forkFromBranch_ == nullptr && this->projectId_ == nullptr && this->tenantId_ == nullptr; };
+      // branchId Field Functions 
+      bool hasBranchId() const { return this->branchId_ != nullptr;};
+      void deleteBranchId() { this->branchId_ = nullptr;};
+      inline string getBranchId() const { DARABONBA_PTR_GET_DEFAULT(branchId_, "") };
+      inline AgenticDBBranchSpec& setBranchId(string branchId) { DARABONBA_PTR_SET_VALUE(branchId_, branchId) };
+
+
+      // DBClusterId Field Functions 
+      bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
+      void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
+      inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
+      inline AgenticDBBranchSpec& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+      // forkFromApplicationId Field Functions 
+      bool hasForkFromApplicationId() const { return this->forkFromApplicationId_ != nullptr;};
+      void deleteForkFromApplicationId() { this->forkFromApplicationId_ = nullptr;};
+      inline string getForkFromApplicationId() const { DARABONBA_PTR_GET_DEFAULT(forkFromApplicationId_, "") };
+      inline AgenticDBBranchSpec& setForkFromApplicationId(string forkFromApplicationId) { DARABONBA_PTR_SET_VALUE(forkFromApplicationId_, forkFromApplicationId) };
+
+
+      // forkFromBranch Field Functions 
+      bool hasForkFromBranch() const { return this->forkFromBranch_ != nullptr;};
+      void deleteForkFromBranch() { this->forkFromBranch_ = nullptr;};
+      inline bool getForkFromBranch() const { DARABONBA_PTR_GET_DEFAULT(forkFromBranch_, false) };
+      inline AgenticDBBranchSpec& setForkFromBranch(bool forkFromBranch) { DARABONBA_PTR_SET_VALUE(forkFromBranch_, forkFromBranch) };
+
+
+      // projectId Field Functions 
+      bool hasProjectId() const { return this->projectId_ != nullptr;};
+      void deleteProjectId() { this->projectId_ = nullptr;};
+      inline string getProjectId() const { DARABONBA_PTR_GET_DEFAULT(projectId_, "") };
+      inline AgenticDBBranchSpec& setProjectId(string projectId) { DARABONBA_PTR_SET_VALUE(projectId_, projectId) };
+
+
+      // tenantId Field Functions 
+      bool hasTenantId() const { return this->tenantId_ != nullptr;};
+      void deleteTenantId() { this->tenantId_ = nullptr;};
+      inline string getTenantId() const { DARABONBA_PTR_GET_DEFAULT(tenantId_, "") };
+      inline AgenticDBBranchSpec& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
+
+
+    protected:
+      // The AgenticDB branch ID.
+      shared_ptr<string> branchId_ {};
+      // The AgenticDB cluster ID.
+      shared_ptr<string> DBClusterId_ {};
+      // The ID of the source application.
+      shared_ptr<string> forkFromApplicationId_ {};
+      // Specifies whether to create the application based on a specified AgenticDB branch.
+      shared_ptr<bool> forkFromBranch_ {};
+      // The AgenticDB project ID.
+      shared_ptr<string> projectId_ {};
+      // The AgenticDB tenant ID.
+      shared_ptr<string> tenantId_ {};
+    };
+
     virtual bool empty() const override { return this->AIDBClusterId_ == nullptr
-        && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr && this->authProviderConfig_ == nullptr && this->autoAllocatePublicEip_ == nullptr
-        && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->components_ == nullptr && this->DBClusterId_ == nullptr
-        && this->description_ == nullptr && this->dnatEntries_ == nullptr && this->dnatIpAddress_ == nullptr && this->dryRun_ == nullptr && this->endpoints_ == nullptr
-        && this->knowledgeApplicationSpec_ == nullptr && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr
-        && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parameters_ == nullptr && this->payType_ == nullptr && this->period_ == nullptr
-        && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr
-        && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr && this->skillTemplateId_ == nullptr && this->tag_ == nullptr
-        && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->vpcNatGatewayId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->agenticDBBranchSpec_ == nullptr && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr && this->authProviderConfig_ == nullptr
+        && this->autoAllocatePublicEip_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->components_ == nullptr
+        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dnatEntries_ == nullptr && this->dnatIpAddress_ == nullptr && this->dryRun_ == nullptr
+        && this->endpoints_ == nullptr && this->knowledgeApplicationSpec_ == nullptr && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr
+        && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parameters_ == nullptr && this->payType_ == nullptr
+        && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr && this->skillTemplateId_ == nullptr
+        && this->storages_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr && this->vpcNatGatewayId_ == nullptr && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
     inline string getAIDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(AIDBClusterId_, "") };
     inline CreateApplicationRequest& setAIDBClusterId(string AIDBClusterId) { DARABONBA_PTR_SET_VALUE(AIDBClusterId_, AIDBClusterId) };
+
+
+    // agenticDBBranchSpec Field Functions 
+    bool hasAgenticDBBranchSpec() const { return this->agenticDBBranchSpec_ != nullptr;};
+    void deleteAgenticDBBranchSpec() { this->agenticDBBranchSpec_ = nullptr;};
+    inline const CreateApplicationRequest::AgenticDBBranchSpec & getAgenticDBBranchSpec() const { DARABONBA_PTR_GET_CONST(agenticDBBranchSpec_, CreateApplicationRequest::AgenticDBBranchSpec) };
+    inline CreateApplicationRequest::AgenticDBBranchSpec getAgenticDBBranchSpec() { DARABONBA_PTR_GET(agenticDBBranchSpec_, CreateApplicationRequest::AgenticDBBranchSpec) };
+    inline CreateApplicationRequest& setAgenticDBBranchSpec(const CreateApplicationRequest::AgenticDBBranchSpec & agenticDBBranchSpec) { DARABONBA_PTR_SET_VALUE(agenticDBBranchSpec_, agenticDBBranchSpec) };
+    inline CreateApplicationRequest& setAgenticDBBranchSpec(CreateApplicationRequest::AgenticDBBranchSpec && agenticDBBranchSpec) { DARABONBA_PTR_SET_RVALUE(agenticDBBranchSpec_, agenticDBBranchSpec) };
 
 
     // applicationType Field Functions 
@@ -889,6 +1101,15 @@ namespace Models
     inline CreateApplicationRequest& setSkillTemplateId(string skillTemplateId) { DARABONBA_PTR_SET_VALUE(skillTemplateId_, skillTemplateId) };
 
 
+    // storages Field Functions 
+    bool hasStorages() const { return this->storages_ != nullptr;};
+    void deleteStorages() { this->storages_ = nullptr;};
+    inline const vector<CreateApplicationRequest::Storages> & getStorages() const { DARABONBA_PTR_GET_CONST(storages_, vector<CreateApplicationRequest::Storages>) };
+    inline vector<CreateApplicationRequest::Storages> getStorages() { DARABONBA_PTR_GET(storages_, vector<CreateApplicationRequest::Storages>) };
+    inline CreateApplicationRequest& setStorages(const vector<CreateApplicationRequest::Storages> & storages) { DARABONBA_PTR_SET_VALUE(storages_, storages) };
+    inline CreateApplicationRequest& setStorages(vector<CreateApplicationRequest::Storages> && storages) { DARABONBA_PTR_SET_RVALUE(storages_, storages) };
+
+
     // tag Field Functions 
     bool hasTag() const { return this->tag_ != nullptr;};
     void deleteTag() { this->tag_ = nullptr;};
@@ -941,8 +1162,10 @@ namespace Models
 
 
   protected:
-    // The ID of an existing template operator instance to associate. This parameter takes effect only when ApplicationType is set to polarclaw.
+    // The ID of an existing model operator instance to associate. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> AIDBClusterId_ {};
+    // The AgenticDB branch specification.
+    shared_ptr<CreateApplicationRequest::AgenticDBBranchSpec> agenticDBBranchSpec_ {};
     // The application type. Valid values:
     // 
     // - supabase: Set this value to create a managed Supabase application.
@@ -959,9 +1182,9 @@ namespace Models
     shared_ptr<string> architecture_ {};
     // The authentication service provider.
     shared_ptr<string> authProvider_ {};
-    // The configuration of the authentication provider.
+    // The authentication provider configuration.
     shared_ptr<string> authProviderConfig_ {};
-    // Specifies whether to automatically create and associate with an elastic IP address (EIP).
+    // Specifies whether to enable automatic creation of an elastic IP address (EIP) and attach it to the instance. This is equivalent to associate with an EIP.
     shared_ptr<bool> autoAllocatePublicEip_ {};
     // Specifies whether to enable automatic creation of a cold storage Polarlakebase instance. Valid values:
     // * false (default): Automatic creation is disabled.
@@ -981,9 +1204,9 @@ namespace Models
     shared_ptr<string> description_ {};
     // The list of expected DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. This parameter can be left empty, which indicates that no DNAT entries are created.
     shared_ptr<vector<CreateApplicationRequest::DnatEntries>> dnatEntries_ {};
-    // The dedicated DNAT NAT IP address that is allocated by the customer (separate from the SNAT IP address) for NAT mapping. The IP address must belong to the specified gateway and be in the available state. The vSwitch of the gateway must belong to the primary CIDR block that is reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: An SNAT entry is bound to the vSwitch where the application resides.
+    // The DNAT-dedicated NAT IP address that has been allocated (separate from the SNAT IP address) for NAT mapping. The IP address must belong to the specified gateway and be in an available state. The vSwitch of the gateway must belong to a primary CIDR block that is reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: An SNAT entry has been bound to the vSwitch where the application resides.
     shared_ptr<string> dnatIpAddress_ {};
-    // Default value: `false`. If you set this parameter to `true`, only parameter and resource validation is performed without actually creating resources.
+    // Default value: `false`. If you set this parameter to `true`, only parameter and resource validation is performed without actually creating the resource.
     shared_ptr<bool> dryRun_ {};
     // The list of user-defined service endpoints. By default, a VPC endpoint is created.
     shared_ptr<vector<CreateApplicationRequest::Endpoints>> endpoints_ {};
@@ -991,26 +1214,27 @@ namespace Models
     shared_ptr<CreateApplicationRequest::KnowledgeApplicationSpec> knowledgeApplicationSpec_ {};
     // Required for mem0 applications.
     shared_ptr<CreateApplicationRequest::MemApplicationSpec> memApplicationSpec_ {};
-    // The API of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
+    // The model API. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelApi_ {};
-    // The API key of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
+    // The model API key. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelApiKey_ {};
-    // The URL of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
+    // The model base URL. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelBaseUrl_ {};
     // The model source. Valid values:
-    // * bailian: Bailian model.
+    // 
+    // * bailian: Alibaba Cloud Model Studio model.
     // * custom: Custom model.
     // * maas: PolarDB model operator.
     shared_ptr<string> modelFrom_ {};
-    // The name of the model. This parameter takes effect only when ApplicationType is set to polarclaw.
+    // The model name. This parameter takes effect only when ApplicationType is set to polarclaw.
     shared_ptr<string> modelName_ {};
     // The list of parameters.
     shared_ptr<vector<CreateApplicationRequest::Parameters>> parameters_ {};
     // The billing type.
     shared_ptr<string> payType_ {};
-    // The subscription type, such as yearly or monthly.
+    // The subscription type (yearly or monthly).
     shared_ptr<string> period_ {};
-    // The instance ID of the Polarlakebase cold storage or high-performance instance. Default value: empty. If specified, the corresponding storage is mounted to the application.
+    // The instance ID of the Polarlakebase cold storage or high-performance edition. Default value: empty. If specified, the corresponding storage is mounted to the application.
     // 
     // Currently, only the following applications support this parameter:
     // - supabase
@@ -1026,23 +1250,25 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The name of the IP whitelist group. Default value: `default`.
     shared_ptr<string> securityIPArrayName_ {};
-    // The IP whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
+    // The IP whitelist. If you do not specify this parameter, the default value is `127.0.0.1`.
     shared_ptr<string> securityIPList_ {};
     // The type of the IP address.
     shared_ptr<string> securityIPType_ {};
     // The skill template ID.
     shared_ptr<string> skillTemplateId_ {};
+    // The list of application storages.
+    shared_ptr<vector<CreateApplicationRequest::Storages>> storages_ {};
     // The tags.
     shared_ptr<vector<CreateApplicationRequest::Tag>> tag_ {};
     // The target version.
     shared_ptr<string> targetVersion_ {};
     // The subscription duration.
     shared_ptr<string> usedTime_ {};
-    // The vSwitch. Default value: the current vSwitch in the primary zone of the instance.
+    // The vSwitch. Default value: the vSwitch in the primary zone of the instance.
     shared_ptr<string> vSwitchId_ {};
     // The VPC ID.
     shared_ptr<string> vpcId_ {};
-    // The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in the active state.
+    // The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in an active state.
     shared_ptr<string> vpcNatGatewayId_ {};
     // The zone. Default value: the primary zone of the instance.
     shared_ptr<string> zoneId_ {};

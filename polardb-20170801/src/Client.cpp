@@ -2920,7 +2920,7 @@ CreateAgenticDBTenantApiKeyResponse Client::createAgenticDBTenantApiKey(const Cr
 }
 
 /**
- * @summary Creates an application that is attached to a PolarDB instance.
+ * @summary Creates an application associated with a PolarDB instance.
  *
  * @param tmpReq CreateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2930,6 +2930,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
   tmpReq.validate();
   CreateApplicationShrinkRequest request = CreateApplicationShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAgenticDBBranchSpec()) {
+    request.setAgenticDBBranchSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAgenticDBBranchSpec(), "AgenticDBBranchSpec", "json"));
+  }
+
   if (!!tmpReq.hasComponents()) {
     request.setComponentsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getComponents(), "Components", "json"));
   }
@@ -2954,9 +2958,17 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     request.setParametersShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getParameters(), "Parameters", "json"));
   }
 
+  if (!!tmpReq.hasStorages()) {
+    request.setStoragesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStorages(), "Storages", "json"));
+  }
+
   json query = {};
   if (!!request.hasAIDBClusterId()) {
     query["AIDBClusterId"] = request.getAIDBClusterId();
+  }
+
+  if (!!request.hasAgenticDBBranchSpecShrink()) {
+    query["AgenticDBBranchSpec"] = request.getAgenticDBBranchSpecShrink();
   }
 
   if (!!request.hasApplicationType()) {
@@ -3095,6 +3107,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
     query["SkillTemplateId"] = request.getSkillTemplateId();
   }
 
+  if (!!request.hasStoragesShrink()) {
+    query["Storages"] = request.getStoragesShrink();
+  }
+
   if (!!request.hasTag()) {
     query["Tag"] = request.getTag();
   }
@@ -3141,7 +3157,7 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 }
 
 /**
- * @summary Creates an application that is attached to a PolarDB instance.
+ * @summary Creates an application associated with a PolarDB instance.
  *
  * @param request CreateApplicationRequest
  * @return CreateApplicationResponse
@@ -16362,10 +16378,10 @@ DescribeDbClusterAttributeZonalResponse Client::describeDbClusterAttributeZonal(
 }
 
 /**
- * @summary Queries the information about the backup sets in a released PolarDB cluster.
+ * @summary Queries the details of backup sets in a released PolarDB cluster.
  *
- * @description Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
- * >  You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+ * @description When you invoke this operation, the PolarDB cluster must be in the **Released** state, and one of the following backup retention options must have been selected when the cluster was released: **Long-term Retention (LTR) of All Backups** or **Long-term Retention (LTR) of the Last Backup (Automatic Backup Before Deletion)**. If all retained backup sets of a released cluster have been manually deleted, this operation can no longer query the cluster.
+ * > You can invoke the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
  *
  * @param request DescribeDetachedBackupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16444,10 +16460,10 @@ DescribeDetachedBackupsResponse Client::describeDetachedBackupsWithOptions(const
 }
 
 /**
- * @summary Queries the information about the backup sets in a released PolarDB cluster.
+ * @summary Queries the details of backup sets in a released PolarDB cluster.
  *
- * @description Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
- * >  You can call the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
+ * @description When you invoke this operation, the PolarDB cluster must be in the **Released** state, and one of the following backup retention options must have been selected when the cluster was released: **Long-term Retention (LTR) of All Backups** or **Long-term Retention (LTR) of the Last Backup (Automatic Backup Before Deletion)**. If all retained backup sets of a released cluster have been manually deleted, this operation can no longer query the cluster.
+ * > You can invoke the [DescribeDBClusterAttribute](https://help.aliyun.com/document_detail/98181.html) operation to query the cluster status.
  *
  * @param request DescribeDetachedBackupsRequest
  * @return DescribeDetachedBackupsResponse
@@ -17550,7 +17566,7 @@ DescribeHistoryTasksStatResponse Client::describeHistoryTasksStat(const Describe
 }
 
 /**
- * @summary Queries the synchronization list of a knowledge base.
+ * @summary Queries the list of knowledge base synchronization links.
  *
  * @param request DescribeKBSyncLinksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17565,6 +17581,14 @@ DescribeKBSyncLinksResponse Client::describeKBSyncLinksWithOptions(const Describ
 
   if (!!request.hasKnowledgeBaseId()) {
     query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
@@ -17589,7 +17613,7 @@ DescribeKBSyncLinksResponse Client::describeKBSyncLinksWithOptions(const Describ
 }
 
 /**
- * @summary Queries the synchronization list of a knowledge base.
+ * @summary Queries the list of knowledge base synchronization links.
  *
  * @param request DescribeKBSyncLinksRequest
  * @return DescribeKBSyncLinksResponse
@@ -24495,9 +24519,9 @@ ModifyAutoRenewAttributeResponse Client::modifyAutoRenewAttribute(const ModifyAu
 }
 
 /**
- * @summary Modifies the automatic backup policy for a PolarDB cluster.
+ * @summary Modifies the automatic backup policy of a PolarDB cluster.
  *
- * @description > You can also modify the automatic backup policy for a PolarDB cluster in the console. For more information, see [backup settings](https://help.aliyun.com/document_detail/280422.html).
+ * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
  *
  * @param tmpReq ModifyBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24606,9 +24630,9 @@ ModifyBackupPolicyResponse Client::modifyBackupPolicyWithOptions(const ModifyBac
 }
 
 /**
- * @summary Modifies the automatic backup policy for a PolarDB cluster.
+ * @summary Modifies the automatic backup policy of a PolarDB cluster.
  *
- * @description > You can also modify the automatic backup policy for a PolarDB cluster in the console. For more information, see [backup settings](https://help.aliyun.com/document_detail/280422.html).
+ * @description > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](https://help.aliyun.com/document_detail/280422.html).
  *
  * @param request ModifyBackupPolicyRequest
  * @return ModifyBackupPolicyResponse
@@ -29231,6 +29255,56 @@ RefreshDBClusterStorageUsageResponse Client::refreshDBClusterStorageUsage(const 
 }
 
 /**
+ * @summary Registers an OSS file in a knowledge base.
+ *
+ * @param request RegisterKnowledgeBaseFileRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RegisterKnowledgeBaseFileResponse
+ */
+RegisterKnowledgeBaseFileResponse Client::registerKnowledgeBaseFileWithOptions(const RegisterKnowledgeBaseFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFilePath()) {
+    query["FilePath"] = request.getFilePath();
+  }
+
+  if (!!request.hasKnowledgeBaseId()) {
+    query["KnowledgeBaseId"] = request.getKnowledgeBaseId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RegisterKnowledgeBaseFile"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RegisterKnowledgeBaseFileResponse>();
+}
+
+/**
+ * @summary Registers an OSS file in a knowledge base.
+ *
+ * @param request RegisterKnowledgeBaseFileRequest
+ * @return RegisterKnowledgeBaseFileResponse
+ */
+RegisterKnowledgeBaseFileResponse Client::registerKnowledgeBaseFile(const RegisterKnowledgeBaseFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return registerKnowledgeBaseFileWithOptions(request, runtime);
+}
+
+/**
  * @summary Rejects a PolarClaw device pairing request.
  *
  * @param request RejectPolarClawDevicePairRequest
@@ -30251,7 +30325,7 @@ RestoreTableResponse Client::restoreTable(const RestoreTableRequest &request) {
 }
 
 /**
- * @summary Retrieves information from a knowledge base.
+ * @summary Retrieves knowledge base search results.
  *
  * @param request RetrievalKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30302,7 +30376,7 @@ RetrievalKnowledgeBaseResponse Client::retrievalKnowledgeBaseWithOptions(const R
 }
 
 /**
- * @summary Retrieves information from a knowledge base.
+ * @summary Retrieves knowledge base search results.
  *
  * @param request RetrievalKnowledgeBaseRequest
  * @return RetrievalKnowledgeBaseResponse

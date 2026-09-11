@@ -133,7 +133,7 @@ namespace Models
     shared_ptr<string> applicationId_ {};
     // The list of child components.
     shared_ptr<vector<CreateApplicationResponseBody::Components>> components_ {};
-    // The description of the application.
+    // The application description.
     shared_ptr<string> description_ {};
     // The generated order ID.
     shared_ptr<string> orderId_ {};

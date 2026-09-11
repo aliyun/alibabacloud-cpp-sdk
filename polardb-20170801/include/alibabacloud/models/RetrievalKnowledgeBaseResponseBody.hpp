@@ -39,9 +39,12 @@ namespace Models
     class Results : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Results& obj) { 
+        DARABONBA_PTR_TO_JSON(Captions, captions_);
+        DARABONBA_PTR_TO_JSON(DocItems, docItems_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
         DARABONBA_PTR_TO_JSON(FileName, fileName_);
         DARABONBA_PTR_TO_JSON(Headings, headings_);
+        DARABONBA_PTR_TO_JSON(ImageResources, imageResources_);
         DARABONBA_PTR_TO_JSON(Metadata, metadata_);
         DARABONBA_PTR_TO_JSON(PageNumbers, pageNumbers_);
         DARABONBA_PTR_TO_JSON(ShardContent, shardContent_);
@@ -49,9 +52,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(SimilarityScore, similarityScore_);
       };
       friend void from_json(const Darabonba::Json& j, Results& obj) { 
+        DARABONBA_PTR_FROM_JSON(Captions, captions_);
+        DARABONBA_PTR_FROM_JSON(DocItems, docItems_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
         DARABONBA_PTR_FROM_JSON(FileName, fileName_);
         DARABONBA_PTR_FROM_JSON(Headings, headings_);
+        DARABONBA_PTR_FROM_JSON(ImageResources, imageResources_);
         DARABONBA_PTR_FROM_JSON(Metadata, metadata_);
         DARABONBA_PTR_FROM_JSON(PageNumbers, pageNumbers_);
         DARABONBA_PTR_FROM_JSON(ShardContent, shardContent_);
@@ -69,9 +75,104 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->fileId_ == nullptr
-        && this->fileName_ == nullptr && this->headings_ == nullptr && this->metadata_ == nullptr && this->pageNumbers_ == nullptr && this->shardContent_ == nullptr
-        && this->shardIndex_ == nullptr && this->similarityScore_ == nullptr; };
+      class ImageResources : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ImageResources& obj) { 
+          DARABONBA_PTR_TO_JSON(DocumentIndex, documentIndex_);
+          DARABONBA_PTR_TO_JSON(Id, id_);
+          DARABONBA_PTR_TO_JSON(ItemRef, itemRef_);
+          DARABONBA_PTR_TO_JSON(MimeType, mimeType_);
+          DARABONBA_PTR_TO_JSON(Uri, uri_);
+        };
+        friend void from_json(const Darabonba::Json& j, ImageResources& obj) { 
+          DARABONBA_PTR_FROM_JSON(DocumentIndex, documentIndex_);
+          DARABONBA_PTR_FROM_JSON(Id, id_);
+          DARABONBA_PTR_FROM_JSON(ItemRef, itemRef_);
+          DARABONBA_PTR_FROM_JSON(MimeType, mimeType_);
+          DARABONBA_PTR_FROM_JSON(Uri, uri_);
+        };
+        ImageResources() = default ;
+        ImageResources(const ImageResources &) = default ;
+        ImageResources(ImageResources &&) = default ;
+        ImageResources(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ImageResources() = default ;
+        ImageResources& operator=(const ImageResources &) = default ;
+        ImageResources& operator=(ImageResources &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->documentIndex_ == nullptr
+        && this->id_ == nullptr && this->itemRef_ == nullptr && this->mimeType_ == nullptr && this->uri_ == nullptr; };
+        // documentIndex Field Functions 
+        bool hasDocumentIndex() const { return this->documentIndex_ != nullptr;};
+        void deleteDocumentIndex() { this->documentIndex_ = nullptr;};
+        inline int32_t getDocumentIndex() const { DARABONBA_PTR_GET_DEFAULT(documentIndex_, 0) };
+        inline ImageResources& setDocumentIndex(int32_t documentIndex) { DARABONBA_PTR_SET_VALUE(documentIndex_, documentIndex) };
+
+
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+        inline ImageResources& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // itemRef Field Functions 
+        bool hasItemRef() const { return this->itemRef_ != nullptr;};
+        void deleteItemRef() { this->itemRef_ = nullptr;};
+        inline string getItemRef() const { DARABONBA_PTR_GET_DEFAULT(itemRef_, "") };
+        inline ImageResources& setItemRef(string itemRef) { DARABONBA_PTR_SET_VALUE(itemRef_, itemRef) };
+
+
+        // mimeType Field Functions 
+        bool hasMimeType() const { return this->mimeType_ != nullptr;};
+        void deleteMimeType() { this->mimeType_ = nullptr;};
+        inline string getMimeType() const { DARABONBA_PTR_GET_DEFAULT(mimeType_, "") };
+        inline ImageResources& setMimeType(string mimeType) { DARABONBA_PTR_SET_VALUE(mimeType_, mimeType) };
+
+
+        // uri Field Functions 
+        bool hasUri() const { return this->uri_ != nullptr;};
+        void deleteUri() { this->uri_ = nullptr;};
+        inline string getUri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
+        inline ImageResources& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
+
+
+      protected:
+        // The index of the source document that the image belongs to, starting from 0.
+        shared_ptr<int32_t> documentIndex_ {};
+        // The unique ID of the image resource.
+        shared_ptr<string> id_ {};
+        // The element reference of the image in the Docling source document structure.
+        shared_ptr<string> itemRef_ {};
+        // The media type of the image resource.
+        shared_ptr<string> mimeType_ {};
+        // The OSS URI of the image resource.
+        shared_ptr<string> uri_ {};
+      };
+
+      virtual bool empty() const override { return this->captions_ == nullptr
+        && this->docItems_ == nullptr && this->fileId_ == nullptr && this->fileName_ == nullptr && this->headings_ == nullptr && this->imageResources_ == nullptr
+        && this->metadata_ == nullptr && this->pageNumbers_ == nullptr && this->shardContent_ == nullptr && this->shardIndex_ == nullptr && this->similarityScore_ == nullptr; };
+      // captions Field Functions 
+      bool hasCaptions() const { return this->captions_ != nullptr;};
+      void deleteCaptions() { this->captions_ = nullptr;};
+      inline const vector<string> & getCaptions() const { DARABONBA_PTR_GET_CONST(captions_, vector<string>) };
+      inline vector<string> getCaptions() { DARABONBA_PTR_GET(captions_, vector<string>) };
+      inline Results& setCaptions(const vector<string> & captions) { DARABONBA_PTR_SET_VALUE(captions_, captions) };
+      inline Results& setCaptions(vector<string> && captions) { DARABONBA_PTR_SET_RVALUE(captions_, captions) };
+
+
+      // docItems Field Functions 
+      bool hasDocItems() const { return this->docItems_ != nullptr;};
+      void deleteDocItems() { this->docItems_ = nullptr;};
+      inline const vector<string> & getDocItems() const { DARABONBA_PTR_GET_CONST(docItems_, vector<string>) };
+      inline vector<string> getDocItems() { DARABONBA_PTR_GET(docItems_, vector<string>) };
+      inline Results& setDocItems(const vector<string> & docItems) { DARABONBA_PTR_SET_VALUE(docItems_, docItems) };
+      inline Results& setDocItems(vector<string> && docItems) { DARABONBA_PTR_SET_RVALUE(docItems_, docItems) };
+
+
       // fileId Field Functions 
       bool hasFileId() const { return this->fileId_ != nullptr;};
       void deleteFileId() { this->fileId_ = nullptr;};
@@ -93,6 +194,15 @@ namespace Models
       inline vector<string> getHeadings() { DARABONBA_PTR_GET(headings_, vector<string>) };
       inline Results& setHeadings(const vector<string> & headings) { DARABONBA_PTR_SET_VALUE(headings_, headings) };
       inline Results& setHeadings(vector<string> && headings) { DARABONBA_PTR_SET_RVALUE(headings_, headings) };
+
+
+      // imageResources Field Functions 
+      bool hasImageResources() const { return this->imageResources_ != nullptr;};
+      void deleteImageResources() { this->imageResources_ = nullptr;};
+      inline const vector<Results::ImageResources> & getImageResources() const { DARABONBA_PTR_GET_CONST(imageResources_, vector<Results::ImageResources>) };
+      inline vector<Results::ImageResources> getImageResources() { DARABONBA_PTR_GET(imageResources_, vector<Results::ImageResources>) };
+      inline Results& setImageResources(const vector<Results::ImageResources> & imageResources) { DARABONBA_PTR_SET_VALUE(imageResources_, imageResources) };
+      inline Results& setImageResources(vector<Results::ImageResources> && imageResources) { DARABONBA_PTR_SET_RVALUE(imageResources_, imageResources) };
 
 
       // metadata Field Functions 
@@ -133,19 +243,25 @@ namespace Models
 
 
     protected:
+      // The list of figure or table captions associated with the chunk.
+      shared_ptr<vector<string>> captions_ {};
+      // The list of Docling source document structured element references associated with the chunk. You can use these references to precisely locate original elements.
+      shared_ptr<vector<string>> docItems_ {};
       // The unique ID of the file.
       shared_ptr<string> fileId_ {};
-      // The file name.
+      // The name of the file.
       shared_ptr<string> fileName_ {};
-      // The chain of section headings to which the shard belongs.
+      // The chain of section headings that the chunk belongs to.
       shared_ptr<vector<string>> headings_ {};
+      // The list of image resources referenced by the chunk.
+      shared_ptr<vector<Results::ImageResources>> imageResources_ {};
       // The metadata.
       shared_ptr<string> metadata_ {};
-      // The list of page numbers to which the shard belongs.
+      // The list of page numbers that the chunk belongs to.
       shared_ptr<vector<int32_t>> pageNumbers_ {};
-      // The text content of the shard.
+      // The text content of the chunk.
       shared_ptr<string> shardContent_ {};
-      // The shard index.
+      // The index of the chunk.
       shared_ptr<int32_t> shardIndex_ {};
       // The similarity score.
       shared_ptr<double> similarityScore_ {};

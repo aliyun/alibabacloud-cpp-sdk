@@ -15,11 +15,17 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeKBSyncLinksResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Items, items_);
+      DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TotalRecordCount, totalRecordCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeKBSyncLinksResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Items, items_);
+      DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
+      DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TotalRecordCount, totalRecordCount_);
     };
     DescribeKBSyncLinksResponseBody() = default ;
     DescribeKBSyncLinksResponseBody(const DescribeKBSyncLinksResponseBody &) = default ;
@@ -134,7 +140,7 @@ namespace Models
 
 
     protected:
-      // The client identifier.
+      // The client ID.
       shared_ptr<string> clientId_ {};
       // The creation time.
       shared_ptr<string> creationTime_ {};
@@ -159,7 +165,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->items_ == nullptr
-        && this->requestId_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->requestId_ == nullptr && this->totalRecordCount_ == nullptr; };
     // items Field Functions 
     bool hasItems() const { return this->items_ != nullptr;};
     void deleteItems() { this->items_ = nullptr;};
@@ -169,6 +175,20 @@ namespace Models
     inline DescribeKBSyncLinksResponseBody& setItems(vector<DescribeKBSyncLinksResponseBody::Items> && items) { DARABONBA_PTR_SET_RVALUE(items_, items) };
 
 
+    // pageNumber Field Functions 
+    bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
+    void deletePageNumber() { this->pageNumber_ = nullptr;};
+    inline int32_t getPageNumber() const { DARABONBA_PTR_GET_DEFAULT(pageNumber_, 0) };
+    inline DescribeKBSyncLinksResponseBody& setPageNumber(int32_t pageNumber) { DARABONBA_PTR_SET_VALUE(pageNumber_, pageNumber) };
+
+
+    // pageSize Field Functions 
+    bool hasPageSize() const { return this->pageSize_ != nullptr;};
+    void deletePageSize() { this->pageSize_ = nullptr;};
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline DescribeKBSyncLinksResponseBody& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -176,11 +196,24 @@ namespace Models
     inline DescribeKBSyncLinksResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // totalRecordCount Field Functions 
+    bool hasTotalRecordCount() const { return this->totalRecordCount_ != nullptr;};
+    void deleteTotalRecordCount() { this->totalRecordCount_ = nullptr;};
+    inline int32_t getTotalRecordCount() const { DARABONBA_PTR_GET_DEFAULT(totalRecordCount_, 0) };
+    inline DescribeKBSyncLinksResponseBody& setTotalRecordCount(int32_t totalRecordCount) { DARABONBA_PTR_SET_VALUE(totalRecordCount_, totalRecordCount) };
+
+
   protected:
     // The list of synchronization links.
     shared_ptr<vector<DescribeKBSyncLinksResponseBody::Items>> items_ {};
+    // The page number of the current results.
+    shared_ptr<int32_t> pageNumber_ {};
+    // The number of records per page in the current results.
+    shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The total number of synchronization links that match the query conditions.
+    shared_ptr<int32_t> totalRecordCount_ {};
   };
 
   } // namespace Models

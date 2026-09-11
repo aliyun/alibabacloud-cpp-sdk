@@ -268,11 +268,11 @@ namespace Models
     shared_ptr<DescribeDetachedBackupsResponseBody::Items> items_ {};
     // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<string> totalRecordCount_ {};
   };
 
