@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the Bailian business workspace.
     shared_ptr<string> businessUnitId_ {};
+    // The description.
     shared_ptr<string> description_ {};
+    // The name of the hot word list.
     shared_ptr<string> name_ {};
+    // The hot word list.
     shared_ptr<string> wordsShrink_ {};
   };
 

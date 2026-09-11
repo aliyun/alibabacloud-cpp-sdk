@@ -112,17 +112,31 @@ namespace Models
 
 
   protected:
+    // The Bailian application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The encoding type. If this parameter is not specified, PCM encoding is used by default. Valid values:
+    // - PCM
+    // - OPUS
     shared_ptr<string> audioCodec_ {};
+    // The Bailian business space ID.
+    // 
     // This parameter is required.
     shared_ptr<string> businessUnitId_ {};
+    // The caller number for inbound calls (used for display purposes).
     shared_ptr<string> caller_ {};
+    // The device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
+    // The sampling rate.
     shared_ptr<int32_t> sampleRate_ {};
+    // Specifies whether the call is in a test environment.
     shared_ptr<bool> sandbox_ {};
+    // The pass-through data.
     shared_ptr<string> tags_ {};
+    // The timeout period. If the call is not connected within the specified time, the call is automatically hung up. Unit: seconds.
     shared_ptr<int32_t> timeoutSeconds_ {};
   };
 

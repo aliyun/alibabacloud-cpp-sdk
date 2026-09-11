@@ -142,14 +142,23 @@ namespace Models
 
 
     protected:
+      // The creation time.
       shared_ptr<int64_t> createdTime_ {};
+      // The description.
       shared_ptr<string> description_ {};
+      // The ID of the Model Studio business space.
       shared_ptr<string> instanceId_ {};
+      // The name of the hot word vocabulary.
       shared_ptr<string> name_ {};
+      // The tenant ID.
       shared_ptr<string> tenantId_ {};
+      // The update time.
       shared_ptr<int64_t> updatedTime_ {};
+      // The hot word vocabulary ID.
       shared_ptr<string> vocabularyId_ {};
+      // The number of hot words.
       shared_ptr<string> wordCount_ {};
+      // The hot words.
       shared_ptr<string> words_ {};
     };
 
@@ -202,11 +211,17 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The hot word vocabulary object.
     shared_ptr<GetVocabularyResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

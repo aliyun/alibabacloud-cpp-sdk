@@ -124,13 +124,21 @@ namespace Models
 
 
     protected:
+      // The client ID.
       shared_ptr<string> clientId_ {};
+      // The device ID.
       shared_ptr<string> deviceId_ {};
+      // The endpoint.
       shared_ptr<string> endpoint_ {};
+      // The validity period of the connection.
+      // 
+      // > The value is in timestamp format.
       shared_ptr<int64_t> expirationTime_ {};
+      // The password.
       shared_ptr<string> password_ {};
       // Topic
       shared_ptr<string> topic_ {};
+      // The username.
       shared_ptr<string> userName_ {};
     };
 
@@ -183,11 +191,17 @@ namespace Models
 
 
   protected:
+    // The API status or POP error code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetDataChannelCredentialResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The response parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

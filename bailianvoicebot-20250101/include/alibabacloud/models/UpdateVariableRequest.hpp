@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The ID of the Model Studio business unit.
     shared_ptr<string> businessUnitId_ {};
+    // The description of the variable.
     shared_ptr<string> description_ {};
+    // The display name of the variable.
     shared_ptr<string> displayName_ {};
+    // The ID of the variable.
     shared_ptr<string> variableId_ {};
   };
 

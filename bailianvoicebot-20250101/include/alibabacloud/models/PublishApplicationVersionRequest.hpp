@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The Bailian business workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> businessUnitId_ {};
+    // The version ID.
+    // 
     // This parameter is required.
     shared_ptr<string> versionId_ {};
   };

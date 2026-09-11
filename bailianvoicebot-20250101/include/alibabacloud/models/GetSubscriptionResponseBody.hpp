@@ -124,8 +124,11 @@ namespace Models
 
 
       protected:
+        // Indicates whether the event is pushed.
         shared_ptr<bool> disabled_ {};
+        // The display name of the subscription content.
         shared_ptr<string> displayName_ {};
+        // The subscription content.
         shared_ptr<string> name_ {};
       };
 
@@ -205,15 +208,28 @@ namespace Models
 
 
     protected:
+      // Indicates whether the subscription is disabled. Valid values:
+      // 
+      // - 0: enabled.
+      // - 1: disabled.
       shared_ptr<bool> disabled_ {};
+      // The endpoint. This parameter is required when MqType is set to ROCKET_MQ_4 or ROCKET_MQ_5.
       shared_ptr<string> endpoint_ {};
+      // The list of subscription events.
       shared_ptr<vector<Data::EventList>> eventList_ {};
+      // The Bailian business workspace ID.
       shared_ptr<string> instanceId_ {};
+      // The MQ instance ID. This parameter is required when MqType is set to ROCKET_MQ_5.
       shared_ptr<string> mqInstanceId_ {};
+      // The message push type.
       shared_ptr<string> mqType_ {};
+      // The password. This parameter is required when MqType is set to ROCKET_MQ_5.
       shared_ptr<string> password_ {};
+      // The producer ID. This parameter is required when MqType is set to ROCKET_MQ_4.
       shared_ptr<string> producerId_ {};
+      // The queue topic. This parameter is required when MqType is set to ROCKET_MQ_4 or ROCKET_MQ_5.
       shared_ptr<string> topic_ {};
+      // The username. This parameter is required when MqType is set to ROCKET_MQ_5.
       shared_ptr<string> userName_ {};
     };
 
@@ -266,11 +282,17 @@ namespace Models
 
 
   protected:
+    // The API status code.
     shared_ptr<string> code_ {};
+    // The subscription information.
     shared_ptr<GetSubscriptionResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

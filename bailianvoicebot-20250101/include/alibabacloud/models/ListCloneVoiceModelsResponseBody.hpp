@@ -112,8 +112,11 @@ namespace Models
 
 
       protected:
+        // The description.
         shared_ptr<string> description_ {};
+        // The display name.
         shared_ptr<string> displayName_ {};
+        // The model name.
         shared_ptr<string> name_ {};
       };
 
@@ -150,9 +153,13 @@ namespace Models
 
 
     protected:
+      // The list of voice cloning models.
       shared_ptr<vector<Data::CloneVoiceModels>> cloneVoiceModels_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -205,10 +212,15 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The paginated data of voice cloning models.
     shared_ptr<ListCloneVoiceModelsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

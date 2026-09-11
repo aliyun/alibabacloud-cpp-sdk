@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The Bailian workspace ID.
     shared_ptr<string> businessUnitId_ {};
   };
 

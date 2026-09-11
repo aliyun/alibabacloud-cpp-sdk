@@ -112,8 +112,11 @@ namespace Models
 
 
       protected:
+        // The engine configuration schema, provided as a JSON string.
         shared_ptr<string> configSchema_ {};
+        // The identifier for the voice engine.
         shared_ptr<string> nlsEngine_ {};
+        // The display name of the voice engine.
         shared_ptr<string> nlsEngineName_ {};
       };
 
@@ -150,9 +153,13 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries on the current page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of voice engines.
       shared_ptr<int32_t> totalCount_ {};
+      // A list of voice engine objects.
       shared_ptr<vector<Data::VoiceEngines>> voiceEngines_ {};
     };
 
@@ -205,12 +212,17 @@ namespace Models
 
 
   protected:
+    // The error code. A value of `OK` indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The pagination data, which includes the list of voice engines.
     shared_ptr<ListVoiceEnginesResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // A list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

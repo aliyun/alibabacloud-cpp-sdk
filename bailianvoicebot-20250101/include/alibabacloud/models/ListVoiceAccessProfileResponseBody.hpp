@@ -182,12 +182,19 @@ namespace Models
 
 
         protected:
+          // The AccessKey for Doubao calls.
           shared_ptr<string> accessKey_ {};
+          // The ApiKey for Bailian or iFLYTEK calls.
           shared_ptr<string> apiKey_ {};
+          // The ApiSecret for iFLYTEK calls.
           shared_ptr<string> apiSecret_ {};
+          // The AppId for iFLYTEK calls.
           shared_ptr<string> appId_ {};
+          // The AppKey for Doubao calls.
           shared_ptr<string> appKey_ {};
+          // Not currently in use.
           shared_ptr<string> asrAppKey_ {};
+          // Not currently in use.
           shared_ptr<string> ttsApiKey_ {};
         };
 
@@ -255,13 +262,21 @@ namespace Models
 
 
       protected:
+        // The configuration ID.
         shared_ptr<string> accessProfileId_ {};
+        // The list of voice engine capabilities.
         shared_ptr<vector<string>> capabilities_ {};
+        // The creation time.
         shared_ptr<int64_t> createdTime_ {};
+        // The Bailian business unit ID.
         shared_ptr<string> instanceId_ {};
+        // The voice engine.
         shared_ptr<string> nlsEngine_ {};
+        // The display name.
         shared_ptr<string> nlsEngineName_ {};
+        // The parameter settings.
         shared_ptr<VoiceAccessProfiles::Profile> profile_ {};
+        // The update time.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -298,9 +313,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
+      // The list of third-party voice configurations.
       shared_ptr<vector<Data::VoiceAccessProfiles>> voiceAccessProfiles_ {};
     };
 
@@ -353,10 +372,15 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The paginated results of third-party voice configurations.
     shared_ptr<ListVoiceAccessProfileResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

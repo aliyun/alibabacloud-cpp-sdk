@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The file type.
     shared_ptr<string> businessType_ {};
+    // The ID of the Bailian business workspace.
     shared_ptr<string> businessUnitId_ {};
+    // The file name.
     shared_ptr<string> fileName_ {};
   };
 

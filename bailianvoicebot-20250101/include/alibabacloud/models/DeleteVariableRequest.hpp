@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the Bailian business workspace.
     shared_ptr<string> businessUnitId_ {};
+    // The variable ID.
     shared_ptr<string> variableId_ {};
   };
 

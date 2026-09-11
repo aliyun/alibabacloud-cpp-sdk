@@ -87,12 +87,17 @@ namespace Models
 
 
   protected:
+    // The request status code. A value of `OK` indicates that the request was successful.
     shared_ptr<string> code_ {};
+    // The returned data, which is the application ID for this operation.
     shared_ptr<string> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message. If the request fails, this parameter contains the error message.
     shared_ptr<string> message_ {};
+    // A list of dynamic parameters used in the error message.
     shared_ptr<vector<string>> params_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

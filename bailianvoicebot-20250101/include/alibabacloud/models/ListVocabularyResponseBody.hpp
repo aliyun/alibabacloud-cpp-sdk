@@ -158,13 +158,21 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<int64_t> createdTime_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The Bailian business workspace ID.
         shared_ptr<string> instanceId_ {};
+        // The hot word name.
         shared_ptr<string> name_ {};
+        // The tenant ID.
         shared_ptr<string> tenantId_ {};
+        // The update time.
         shared_ptr<int64_t> updatedTime_ {};
+        // The hot word ID.
         shared_ptr<string> vocabularyId_ {};
+        // The number of hot words.
         shared_ptr<int32_t> wordCount_ {};
       };
 
@@ -201,9 +209,13 @@ namespace Models
 
 
     protected:
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
+      // The list of hot word objects.
       shared_ptr<vector<Data::Vocabularies>> vocabularies_ {};
     };
 
@@ -256,10 +268,15 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The paginated data of the hot word list.
     shared_ptr<ListVocabularyResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

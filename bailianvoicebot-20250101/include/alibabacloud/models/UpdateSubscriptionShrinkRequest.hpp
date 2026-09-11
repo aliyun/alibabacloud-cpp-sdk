@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The ID of the Model Studio business space.
     shared_ptr<string> businessUnitId_ {};
+    // The endpoint. This parameter is required if `MqType` is set to `ROCKET_MQ_4` or `ROCKET_MQ_5`.
     shared_ptr<string> endpoint_ {};
+    // A list of events to subscribe to.
     shared_ptr<string> eventSubscriptionsShrink_ {};
+    // The ID of the ApsaraMQ for RocketMQ instance. This parameter is required if `MqType` is set to `ROCKET_MQ_5`.
     shared_ptr<string> mqInstanceId_ {};
+    // The type of the message queue service. Valid values are `ROCKET_MQ_4` and `ROCKET_MQ_5`, which correspond to ApsaraMQ for RocketMQ.
     shared_ptr<string> mqType_ {};
+    // The password for authentication. This parameter is required if `MqType` is set to `ROCKET_MQ_5`.
     shared_ptr<string> password_ {};
+    // The ID of the producer. This parameter is required if `MqType` is set to `ROCKET_MQ_4`.
     shared_ptr<string> producerId_ {};
+    // The topic of the queue. This parameter is required if `MqType` is set to `ROCKET_MQ_4` or `ROCKET_MQ_5`.
     shared_ptr<string> topic_ {};
+    // The username for authentication. This parameter is required if `MqType` is set to `ROCKET_MQ_5`.
     shared_ptr<string> userName_ {};
   };
 

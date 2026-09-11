@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The Bailian workspace ID.
     shared_ptr<string> businessUnitId_ {};
+    // The hot word ID.
     shared_ptr<string> vocabularyId_ {};
   };
 

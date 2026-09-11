@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the Bailian business workspace.
     shared_ptr<string> businessUnitId_ {};
+    // The path of the uploaded file.
     shared_ptr<string> fileKey_ {};
   };
 

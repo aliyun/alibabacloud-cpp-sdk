@@ -78,7 +78,9 @@ namespace Models
 
 
     protected:
+      // The model ID.
       shared_ptr<string> id_ {};
+      // The model name.
       shared_ptr<string> name_ {};
     };
 
@@ -131,10 +133,15 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The list of conversation models.
     shared_ptr<vector<ListNluModelsResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

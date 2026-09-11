@@ -105,6 +105,7 @@ namespace Models
       protected:
         // ID
         shared_ptr<string> id_ {};
+        // The name.
         shared_ptr<string> name_ {};
       };
 
@@ -141,9 +142,13 @@ namespace Models
 
 
     protected:
+      // The list of background music.
       shared_ptr<vector<Data::BackgroundMusics>> backgroundMusics_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -196,10 +201,15 @@ namespace Models
 
 
   protected:
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The paginated result of the background music list.
     shared_ptr<ListBackgroundMusicsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The error message.
     shared_ptr<string> message_ {};
+    // The list of dynamic error parameters.
     shared_ptr<vector<string>> params_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

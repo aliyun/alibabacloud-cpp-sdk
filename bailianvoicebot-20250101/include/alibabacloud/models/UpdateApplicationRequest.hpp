@@ -75,12 +75,20 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The Model Studio workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> businessUnitId_ {};
+    // The concurrency setting.
     shared_ptr<int32_t> concurrency_ {};
+    // The application\\"s new description.
     shared_ptr<string> description_ {};
+    // The new name for the application.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
   };

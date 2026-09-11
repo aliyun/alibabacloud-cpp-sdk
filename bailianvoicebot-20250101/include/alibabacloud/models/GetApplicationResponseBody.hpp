@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_TO_JSON(Message, message_);
+      DARABONBA_PTR_TO_JSON(Params, params_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, GetApplicationResponseBody& obj) { 
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
+      DARABONBA_PTR_FROM_JSON(Params, params_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     GetApplicationResponseBody() = default ;
@@ -50,6 +52,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NluAccessType, nluAccessType_);
         DARABONBA_PTR_TO_JSON(NluEngine, nluEngine_);
         DARABONBA_PTR_TO_JSON(PublishedVersion, publishedVersion_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(UpdatedTime, updatedTime_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -62,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NluAccessType, nluAccessType_);
         DARABONBA_PTR_FROM_JSON(NluEngine, nluEngine_);
         DARABONBA_PTR_FROM_JSON(PublishedVersion, publishedVersion_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(UpdatedTime, updatedTime_);
       };
       Data() = default ;
@@ -79,6 +83,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const PublishedVersion& obj) { 
           DARABONBA_PTR_TO_JSON(InteractionConfig, interactionConfig_);
+          DARABONBA_PTR_TO_JSON(LabelConfig, labelConfig_);
           DARABONBA_PTR_TO_JSON(RagConfig, ragConfig_);
           DARABONBA_PTR_TO_JSON(ScriptProfile, scriptProfile_);
           DARABONBA_PTR_TO_JSON(SynthesizerConfig, synthesizerConfig_);
@@ -88,6 +93,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, PublishedVersion& obj) { 
           DARABONBA_PTR_FROM_JSON(InteractionConfig, interactionConfig_);
+          DARABONBA_PTR_FROM_JSON(LabelConfig, labelConfig_);
           DARABONBA_PTR_FROM_JSON(RagConfig, ragConfig_);
           DARABONBA_PTR_FROM_JSON(ScriptProfile, scriptProfile_);
           DARABONBA_PTR_FROM_JSON(SynthesizerConfig, synthesizerConfig_);
@@ -290,7 +296,9 @@ namespace Models
           shared_ptr<int32_t> endSilenceTimeout_ {};
           shared_ptr<string> model_ {};
           shared_ptr<TranscriberConfig::NlsAccessProfile> nlsAccessProfile_ {};
+          // The ASR invocation method.
           shared_ptr<string> nlsAccessType_ {};
+          // The ASR engine.
           shared_ptr<string> nlsEngine_ {};
           shared_ptr<int32_t> speechNoiseThreshold_ {};
           shared_ptr<string> vocabularyId_ {};
@@ -362,8 +370,11 @@ namespace Models
 
 
           protected:
+            // The base URL.
             shared_ptr<string> baseUrl_ {};
+            // The name.
             shared_ptr<string> name_ {};
+            // The SSE endpoint.
             shared_ptr<string> sseEndpoint_ {};
           };
 
@@ -378,6 +389,7 @@ namespace Models
 
 
         protected:
+          // The list of MCP server configurations.
           shared_ptr<vector<ToolConfig::McpServers>> mcpServers_ {};
         };
 
@@ -562,26 +574,48 @@ namespace Models
         protected:
           shared_ptr<string> model_ {};
           shared_ptr<SynthesizerConfig::NlsAccessProfile> nlsAccessProfile_ {};
+          // The TTS invocation method.
           shared_ptr<string> nlsAccessType_ {};
+          // The TTS engine.
           shared_ptr<string> nlsEngine_ {};
+          // The pitch rate.
+          // > Valid values: -500 to 500.
           shared_ptr<int32_t> pitchRate_ {};
           shared_ptr<vector<SynthesizerConfig::PronRules>> pronRules_ {};
+          // The speech rate.
+          // > Valid values: -500 to 500.
           shared_ptr<int32_t> speechRate_ {};
+          // The voice.
           shared_ptr<string> voice_ {};
+          // The volume.
           shared_ptr<int32_t> volume_ {};
         };
 
         class ScriptProfile : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const ScriptProfile& obj) { 
+            DARABONBA_PTR_TO_JSON(AgentKey, agentKey_);
             DARABONBA_PTR_TO_JSON(AgentProfile, agentProfile_);
+            DARABONBA_PTR_TO_JSON(ChatbotId, chatbotId_);
+            DARABONBA_PTR_TO_JSON(FunctionMeta, functionMeta_);
             DARABONBA_PTR_TO_JSON(Model, model_);
+            DARABONBA_PTR_TO_JSON(NluAccessProfile, nluAccessProfile_);
+            DARABONBA_PTR_TO_JSON(NluAccessType, nluAccessType_);
+            DARABONBA_PTR_TO_JSON(NluEngine, nluEngine_);
+            DARABONBA_PTR_TO_JSON(OmniModel, omniModel_);
             DARABONBA_PTR_TO_JSON(Temperature, temperature_);
             DARABONBA_PTR_TO_JSON(TopP, topP_);
           };
           friend void from_json(const Darabonba::Json& j, ScriptProfile& obj) { 
+            DARABONBA_PTR_FROM_JSON(AgentKey, agentKey_);
             DARABONBA_PTR_FROM_JSON(AgentProfile, agentProfile_);
+            DARABONBA_PTR_FROM_JSON(ChatbotId, chatbotId_);
+            DARABONBA_PTR_FROM_JSON(FunctionMeta, functionMeta_);
             DARABONBA_PTR_FROM_JSON(Model, model_);
+            DARABONBA_PTR_FROM_JSON(NluAccessProfile, nluAccessProfile_);
+            DARABONBA_PTR_FROM_JSON(NluAccessType, nluAccessType_);
+            DARABONBA_PTR_FROM_JSON(NluEngine, nluEngine_);
+            DARABONBA_PTR_FROM_JSON(OmniModel, omniModel_);
             DARABONBA_PTR_FROM_JSON(Temperature, temperature_);
             DARABONBA_PTR_FROM_JSON(TopP, topP_);
           };
@@ -596,17 +630,122 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class NluAccessProfile : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const NluAccessProfile& obj) { 
+              DARABONBA_PTR_TO_JSON(AccessProfileId, accessProfileId_);
+            };
+            friend void from_json(const Darabonba::Json& j, NluAccessProfile& obj) { 
+              DARABONBA_PTR_FROM_JSON(AccessProfileId, accessProfileId_);
+            };
+            NluAccessProfile() = default ;
+            NluAccessProfile(const NluAccessProfile &) = default ;
+            NluAccessProfile(NluAccessProfile &&) = default ;
+            NluAccessProfile(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~NluAccessProfile() = default ;
+            NluAccessProfile& operator=(const NluAccessProfile &) = default ;
+            NluAccessProfile& operator=(NluAccessProfile &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->accessProfileId_ == nullptr; };
+            // accessProfileId Field Functions 
+            bool hasAccessProfileId() const { return this->accessProfileId_ != nullptr;};
+            void deleteAccessProfileId() { this->accessProfileId_ = nullptr;};
+            inline string getAccessProfileId() const { DARABONBA_PTR_GET_DEFAULT(accessProfileId_, "") };
+            inline NluAccessProfile& setAccessProfileId(string accessProfileId) { DARABONBA_PTR_SET_VALUE(accessProfileId_, accessProfileId) };
+
+
+          protected:
+            shared_ptr<string> accessProfileId_ {};
+          };
+
+          class FunctionMeta : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const FunctionMeta& obj) { 
+              DARABONBA_PTR_TO_JSON(FunctionId, functionId_);
+              DARABONBA_PTR_TO_JSON(FunctionName, functionName_);
+              DARABONBA_PTR_TO_JSON(HttpTriggerName, httpTriggerName_);
+              DARABONBA_PTR_TO_JSON(HttpTriggerUrl, httpTriggerUrl_);
+              DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+            };
+            friend void from_json(const Darabonba::Json& j, FunctionMeta& obj) { 
+              DARABONBA_PTR_FROM_JSON(FunctionId, functionId_);
+              DARABONBA_PTR_FROM_JSON(FunctionName, functionName_);
+              DARABONBA_PTR_FROM_JSON(HttpTriggerName, httpTriggerName_);
+              DARABONBA_PTR_FROM_JSON(HttpTriggerUrl, httpTriggerUrl_);
+              DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+            };
+            FunctionMeta() = default ;
+            FunctionMeta(const FunctionMeta &) = default ;
+            FunctionMeta(FunctionMeta &&) = default ;
+            FunctionMeta(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~FunctionMeta() = default ;
+            FunctionMeta& operator=(const FunctionMeta &) = default ;
+            FunctionMeta& operator=(FunctionMeta &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->functionId_ == nullptr
+        && this->functionName_ == nullptr && this->httpTriggerName_ == nullptr && this->httpTriggerUrl_ == nullptr && this->regionId_ == nullptr; };
+            // functionId Field Functions 
+            bool hasFunctionId() const { return this->functionId_ != nullptr;};
+            void deleteFunctionId() { this->functionId_ = nullptr;};
+            inline string getFunctionId() const { DARABONBA_PTR_GET_DEFAULT(functionId_, "") };
+            inline FunctionMeta& setFunctionId(string functionId) { DARABONBA_PTR_SET_VALUE(functionId_, functionId) };
+
+
+            // functionName Field Functions 
+            bool hasFunctionName() const { return this->functionName_ != nullptr;};
+            void deleteFunctionName() { this->functionName_ = nullptr;};
+            inline string getFunctionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
+            inline FunctionMeta& setFunctionName(string functionName) { DARABONBA_PTR_SET_VALUE(functionName_, functionName) };
+
+
+            // httpTriggerName Field Functions 
+            bool hasHttpTriggerName() const { return this->httpTriggerName_ != nullptr;};
+            void deleteHttpTriggerName() { this->httpTriggerName_ = nullptr;};
+            inline string getHttpTriggerName() const { DARABONBA_PTR_GET_DEFAULT(httpTriggerName_, "") };
+            inline FunctionMeta& setHttpTriggerName(string httpTriggerName) { DARABONBA_PTR_SET_VALUE(httpTriggerName_, httpTriggerName) };
+
+
+            // httpTriggerUrl Field Functions 
+            bool hasHttpTriggerUrl() const { return this->httpTriggerUrl_ != nullptr;};
+            void deleteHttpTriggerUrl() { this->httpTriggerUrl_ = nullptr;};
+            inline string getHttpTriggerUrl() const { DARABONBA_PTR_GET_DEFAULT(httpTriggerUrl_, "") };
+            inline FunctionMeta& setHttpTriggerUrl(string httpTriggerUrl) { DARABONBA_PTR_SET_VALUE(httpTriggerUrl_, httpTriggerUrl) };
+
+
+            // regionId Field Functions 
+            bool hasRegionId() const { return this->regionId_ != nullptr;};
+            void deleteRegionId() { this->regionId_ = nullptr;};
+            inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+            inline FunctionMeta& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+          protected:
+            shared_ptr<string> functionId_ {};
+            shared_ptr<string> functionName_ {};
+            shared_ptr<string> httpTriggerName_ {};
+            shared_ptr<string> httpTriggerUrl_ {};
+            shared_ptr<string> regionId_ {};
+          };
+
           class AgentProfile : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const AgentProfile& obj) { 
               DARABONBA_PTR_TO_JSON(AgentProfileId, agentProfileId_);
               DARABONBA_PTR_TO_JSON(Description, description_);
+              DARABONBA_PTR_TO_JSON(Name, name_);
               DARABONBA_PTR_TO_JSON(PromptsJson, promptsJson_);
               DARABONBA_PTR_TO_JSON(ScriptProfileTemplateId, scriptProfileTemplateId_);
             };
             friend void from_json(const Darabonba::Json& j, AgentProfile& obj) { 
               DARABONBA_PTR_FROM_JSON(AgentProfileId, agentProfileId_);
               DARABONBA_PTR_FROM_JSON(Description, description_);
+              DARABONBA_PTR_FROM_JSON(Name, name_);
               DARABONBA_PTR_FROM_JSON(PromptsJson, promptsJson_);
               DARABONBA_PTR_FROM_JSON(ScriptProfileTemplateId, scriptProfileTemplateId_);
             };
@@ -622,7 +761,7 @@ namespace Models
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->agentProfileId_ == nullptr
-        && this->description_ == nullptr && this->promptsJson_ == nullptr && this->scriptProfileTemplateId_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->promptsJson_ == nullptr && this->scriptProfileTemplateId_ == nullptr; };
             // agentProfileId Field Functions 
             bool hasAgentProfileId() const { return this->agentProfileId_ != nullptr;};
             void deleteAgentProfileId() { this->agentProfileId_ = nullptr;};
@@ -635,6 +774,13 @@ namespace Models
             void deleteDescription() { this->description_ = nullptr;};
             inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
             inline AgentProfile& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline AgentProfile& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
             // promptsJson Field Functions 
@@ -652,14 +798,27 @@ namespace Models
 
 
           protected:
+            // The agent configuration ID.
             shared_ptr<string> agentProfileId_ {};
+            // The agent description.
             shared_ptr<string> description_ {};
+            shared_ptr<string> name_ {};
+            // The prompt in JSON format.
             shared_ptr<string> promptsJson_ {};
+            // The agent configuration template ID.
             shared_ptr<string> scriptProfileTemplateId_ {};
           };
 
-          virtual bool empty() const override { return this->agentProfile_ == nullptr
-        && this->model_ == nullptr && this->temperature_ == nullptr && this->topP_ == nullptr; };
+          virtual bool empty() const override { return this->agentKey_ == nullptr
+        && this->agentProfile_ == nullptr && this->chatbotId_ == nullptr && this->functionMeta_ == nullptr && this->model_ == nullptr && this->nluAccessProfile_ == nullptr
+        && this->nluAccessType_ == nullptr && this->nluEngine_ == nullptr && this->omniModel_ == nullptr && this->temperature_ == nullptr && this->topP_ == nullptr; };
+          // agentKey Field Functions 
+          bool hasAgentKey() const { return this->agentKey_ != nullptr;};
+          void deleteAgentKey() { this->agentKey_ = nullptr;};
+          inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+          inline ScriptProfile& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
+
+
           // agentProfile Field Functions 
           bool hasAgentProfile() const { return this->agentProfile_ != nullptr;};
           void deleteAgentProfile() { this->agentProfile_ = nullptr;};
@@ -669,11 +828,57 @@ namespace Models
           inline ScriptProfile& setAgentProfile(ScriptProfile::AgentProfile && agentProfile) { DARABONBA_PTR_SET_RVALUE(agentProfile_, agentProfile) };
 
 
+          // chatbotId Field Functions 
+          bool hasChatbotId() const { return this->chatbotId_ != nullptr;};
+          void deleteChatbotId() { this->chatbotId_ = nullptr;};
+          inline string getChatbotId() const { DARABONBA_PTR_GET_DEFAULT(chatbotId_, "") };
+          inline ScriptProfile& setChatbotId(string chatbotId) { DARABONBA_PTR_SET_VALUE(chatbotId_, chatbotId) };
+
+
+          // functionMeta Field Functions 
+          bool hasFunctionMeta() const { return this->functionMeta_ != nullptr;};
+          void deleteFunctionMeta() { this->functionMeta_ = nullptr;};
+          inline const ScriptProfile::FunctionMeta & getFunctionMeta() const { DARABONBA_PTR_GET_CONST(functionMeta_, ScriptProfile::FunctionMeta) };
+          inline ScriptProfile::FunctionMeta getFunctionMeta() { DARABONBA_PTR_GET(functionMeta_, ScriptProfile::FunctionMeta) };
+          inline ScriptProfile& setFunctionMeta(const ScriptProfile::FunctionMeta & functionMeta) { DARABONBA_PTR_SET_VALUE(functionMeta_, functionMeta) };
+          inline ScriptProfile& setFunctionMeta(ScriptProfile::FunctionMeta && functionMeta) { DARABONBA_PTR_SET_RVALUE(functionMeta_, functionMeta) };
+
+
           // model Field Functions 
           bool hasModel() const { return this->model_ != nullptr;};
           void deleteModel() { this->model_ = nullptr;};
           inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
           inline ScriptProfile& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+          // nluAccessProfile Field Functions 
+          bool hasNluAccessProfile() const { return this->nluAccessProfile_ != nullptr;};
+          void deleteNluAccessProfile() { this->nluAccessProfile_ = nullptr;};
+          inline const ScriptProfile::NluAccessProfile & getNluAccessProfile() const { DARABONBA_PTR_GET_CONST(nluAccessProfile_, ScriptProfile::NluAccessProfile) };
+          inline ScriptProfile::NluAccessProfile getNluAccessProfile() { DARABONBA_PTR_GET(nluAccessProfile_, ScriptProfile::NluAccessProfile) };
+          inline ScriptProfile& setNluAccessProfile(const ScriptProfile::NluAccessProfile & nluAccessProfile) { DARABONBA_PTR_SET_VALUE(nluAccessProfile_, nluAccessProfile) };
+          inline ScriptProfile& setNluAccessProfile(ScriptProfile::NluAccessProfile && nluAccessProfile) { DARABONBA_PTR_SET_RVALUE(nluAccessProfile_, nluAccessProfile) };
+
+
+          // nluAccessType Field Functions 
+          bool hasNluAccessType() const { return this->nluAccessType_ != nullptr;};
+          void deleteNluAccessType() { this->nluAccessType_ = nullptr;};
+          inline string getNluAccessType() const { DARABONBA_PTR_GET_DEFAULT(nluAccessType_, "") };
+          inline ScriptProfile& setNluAccessType(string nluAccessType) { DARABONBA_PTR_SET_VALUE(nluAccessType_, nluAccessType) };
+
+
+          // nluEngine Field Functions 
+          bool hasNluEngine() const { return this->nluEngine_ != nullptr;};
+          void deleteNluEngine() { this->nluEngine_ = nullptr;};
+          inline string getNluEngine() const { DARABONBA_PTR_GET_DEFAULT(nluEngine_, "") };
+          inline ScriptProfile& setNluEngine(string nluEngine) { DARABONBA_PTR_SET_VALUE(nluEngine_, nluEngine) };
+
+
+          // omniModel Field Functions 
+          bool hasOmniModel() const { return this->omniModel_ != nullptr;};
+          void deleteOmniModel() { this->omniModel_ = nullptr;};
+          inline bool getOmniModel() const { DARABONBA_PTR_GET_DEFAULT(omniModel_, false) };
+          inline ScriptProfile& setOmniModel(bool omniModel) { DARABONBA_PTR_SET_VALUE(omniModel_, omniModel) };
 
 
           // temperature Field Functions 
@@ -691,9 +896,25 @@ namespace Models
 
 
         protected:
+          shared_ptr<string> agentKey_ {};
+          // The agent configuration information.
           shared_ptr<ScriptProfile::AgentProfile> agentProfile_ {};
+          shared_ptr<string> chatbotId_ {};
+          shared_ptr<ScriptProfile::FunctionMeta> functionMeta_ {};
+          // The model.
           shared_ptr<string> model_ {};
+          shared_ptr<ScriptProfile::NluAccessProfile> nluAccessProfile_ {};
+          shared_ptr<string> nluAccessType_ {};
+          shared_ptr<string> nluEngine_ {};
+          shared_ptr<bool> omniModel_ {};
+          // The probability threshold for nucleus sampling during generation.
+          // 
+          // > - For example, when the value is set to 0.8, only the smallest set of most likely tokens whose cumulative probability is greater than or equal to 0.8 is retained as the candidate set.
+          //      * Valid values: (0, 1.0). A higher value increases randomness in generation. A lower value increases determinism in generation.
           shared_ptr<string> temperature_ {};
+          // Controls the randomness and diversity of model responses.
+          // > - Specifically, the temperature value controls the degree of smoothing applied to the probability distribution of each candidate token during text generation. A higher temperature value flattens the probability distribution, allowing more low-probability tokens to be selected, which produces more diverse results. A lower temperature value sharpens the probability distribution, making high-probability tokens more likely to be selected, which produces more deterministic results.
+          // > - Valid values: [0, 2). Setting the value to 0 is not recommended because it is meaningless.
           shared_ptr<string> topP_ {};
         };
 
@@ -764,19 +985,84 @@ namespace Models
 
 
         protected:
+          // Specifies whether RAG is enabled.
           shared_ptr<bool> enabled_ {};
+          // The list of knowledge base IDs.
           shared_ptr<vector<string>> knowledgeBaseIds_ {};
+          // The maximum concatenation length of RAG content.
           shared_ptr<int32_t> maxContentLength_ {};
+          // The RAG engine.
           shared_ptr<string> ragEngine_ {};
+          // The maximum number of data entries to retrieve.
           shared_ptr<int32_t> topN_ {};
+        };
+
+        class LabelConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const LabelConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(CandidateValues, candidateValues_);
+            DARABONBA_PTR_TO_JSON(Description, description_);
+            DARABONBA_PTR_TO_JSON(Name, name_);
+          };
+          friend void from_json(const Darabonba::Json& j, LabelConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(CandidateValues, candidateValues_);
+            DARABONBA_PTR_FROM_JSON(Description, description_);
+            DARABONBA_PTR_FROM_JSON(Name, name_);
+          };
+          LabelConfig() = default ;
+          LabelConfig(const LabelConfig &) = default ;
+          LabelConfig(LabelConfig &&) = default ;
+          LabelConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~LabelConfig() = default ;
+          LabelConfig& operator=(const LabelConfig &) = default ;
+          LabelConfig& operator=(LabelConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->candidateValues_ == nullptr
+        && this->description_ == nullptr && this->name_ == nullptr; };
+          // candidateValues Field Functions 
+          bool hasCandidateValues() const { return this->candidateValues_ != nullptr;};
+          void deleteCandidateValues() { this->candidateValues_ = nullptr;};
+          inline const vector<string> & getCandidateValues() const { DARABONBA_PTR_GET_CONST(candidateValues_, vector<string>) };
+          inline vector<string> getCandidateValues() { DARABONBA_PTR_GET(candidateValues_, vector<string>) };
+          inline LabelConfig& setCandidateValues(const vector<string> & candidateValues) { DARABONBA_PTR_SET_VALUE(candidateValues_, candidateValues) };
+          inline LabelConfig& setCandidateValues(vector<string> && candidateValues) { DARABONBA_PTR_SET_RVALUE(candidateValues_, candidateValues) };
+
+
+          // description Field Functions 
+          bool hasDescription() const { return this->description_ != nullptr;};
+          void deleteDescription() { this->description_ = nullptr;};
+          inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+          inline LabelConfig& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline LabelConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        protected:
+          shared_ptr<vector<string>> candidateValues_ {};
+          shared_ptr<string> description_ {};
+          shared_ptr<string> name_ {};
         };
 
         class InteractionConfig : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const InteractionConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(BackgroundMusicId, backgroundMusicId_);
+            DARABONBA_PTR_TO_JSON(EndConversationConfig, endConversationConfig_);
+            DARABONBA_PTR_TO_JSON(InitialGreetingDelayMilliseconds, initialGreetingDelayMilliseconds_);
             DARABONBA_PTR_TO_JSON(SilenceDetectionConfig, silenceDetectionConfig_);
           };
           friend void from_json(const Darabonba::Json& j, InteractionConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(BackgroundMusicId, backgroundMusicId_);
+            DARABONBA_PTR_FROM_JSON(EndConversationConfig, endConversationConfig_);
+            DARABONBA_PTR_FROM_JSON(InitialGreetingDelayMilliseconds, initialGreetingDelayMilliseconds_);
             DARABONBA_PTR_FROM_JSON(SilenceDetectionConfig, silenceDetectionConfig_);
           };
           InteractionConfig() = default ;
@@ -793,9 +1079,11 @@ namespace Models
           class SilenceDetectionConfig : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const SilenceDetectionConfig& obj) { 
+              DARABONBA_PTR_TO_JSON(MaxRepeats, maxRepeats_);
               DARABONBA_PTR_TO_JSON(Timeout, timeout_);
             };
             friend void from_json(const Darabonba::Json& j, SilenceDetectionConfig& obj) { 
+              DARABONBA_PTR_FROM_JSON(MaxRepeats, maxRepeats_);
               DARABONBA_PTR_FROM_JSON(Timeout, timeout_);
             };
             SilenceDetectionConfig() = default ;
@@ -809,7 +1097,15 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->timeout_ == nullptr; };
+            virtual bool empty() const override { return this->maxRepeats_ == nullptr
+        && this->timeout_ == nullptr; };
+            // maxRepeats Field Functions 
+            bool hasMaxRepeats() const { return this->maxRepeats_ != nullptr;};
+            void deleteMaxRepeats() { this->maxRepeats_ = nullptr;};
+            inline int32_t getMaxRepeats() const { DARABONBA_PTR_GET_DEFAULT(maxRepeats_, 0) };
+            inline SilenceDetectionConfig& setMaxRepeats(int32_t maxRepeats) { DARABONBA_PTR_SET_VALUE(maxRepeats_, maxRepeats) };
+
+
             // timeout Field Functions 
             bool hasTimeout() const { return this->timeout_ != nullptr;};
             void deleteTimeout() { this->timeout_ = nullptr;};
@@ -818,10 +1114,144 @@ namespace Models
 
 
           protected:
+            shared_ptr<int32_t> maxRepeats_ {};
+            // The timeout period.
             shared_ptr<int32_t> timeout_ {};
           };
 
-          virtual bool empty() const override { return this->silenceDetectionConfig_ == nullptr; };
+          class EndConversationConfig : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const EndConversationConfig& obj) { 
+              DARABONBA_PTR_TO_JSON(Delay, delay_);
+              DARABONBA_PTR_TO_JSON(Triggers, triggers_);
+            };
+            friend void from_json(const Darabonba::Json& j, EndConversationConfig& obj) { 
+              DARABONBA_PTR_FROM_JSON(Delay, delay_);
+              DARABONBA_PTR_FROM_JSON(Triggers, triggers_);
+            };
+            EndConversationConfig() = default ;
+            EndConversationConfig(const EndConversationConfig &) = default ;
+            EndConversationConfig(EndConversationConfig &&) = default ;
+            EndConversationConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~EndConversationConfig() = default ;
+            EndConversationConfig& operator=(const EndConversationConfig &) = default ;
+            EndConversationConfig& operator=(EndConversationConfig &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class Triggers : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const Triggers& obj) { 
+                DARABONBA_PTR_TO_JSON(ClosingStatement, closingStatement_);
+                DARABONBA_PTR_TO_JSON(KeyWords, keyWords_);
+                DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
+                DARABONBA_PTR_TO_JSON(TurnLimit, turnLimit_);
+              };
+              friend void from_json(const Darabonba::Json& j, Triggers& obj) { 
+                DARABONBA_PTR_FROM_JSON(ClosingStatement, closingStatement_);
+                DARABONBA_PTR_FROM_JSON(KeyWords, keyWords_);
+                DARABONBA_PTR_FROM_JSON(TriggerType, triggerType_);
+                DARABONBA_PTR_FROM_JSON(TurnLimit, turnLimit_);
+              };
+              Triggers() = default ;
+              Triggers(const Triggers &) = default ;
+              Triggers(Triggers &&) = default ;
+              Triggers(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~Triggers() = default ;
+              Triggers& operator=(const Triggers &) = default ;
+              Triggers& operator=(Triggers &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->closingStatement_ == nullptr
+        && this->keyWords_ == nullptr && this->triggerType_ == nullptr && this->turnLimit_ == nullptr; };
+              // closingStatement Field Functions 
+              bool hasClosingStatement() const { return this->closingStatement_ != nullptr;};
+              void deleteClosingStatement() { this->closingStatement_ = nullptr;};
+              inline string getClosingStatement() const { DARABONBA_PTR_GET_DEFAULT(closingStatement_, "") };
+              inline Triggers& setClosingStatement(string closingStatement) { DARABONBA_PTR_SET_VALUE(closingStatement_, closingStatement) };
+
+
+              // keyWords Field Functions 
+              bool hasKeyWords() const { return this->keyWords_ != nullptr;};
+              void deleteKeyWords() { this->keyWords_ = nullptr;};
+              inline const vector<string> & getKeyWords() const { DARABONBA_PTR_GET_CONST(keyWords_, vector<string>) };
+              inline vector<string> getKeyWords() { DARABONBA_PTR_GET(keyWords_, vector<string>) };
+              inline Triggers& setKeyWords(const vector<string> & keyWords) { DARABONBA_PTR_SET_VALUE(keyWords_, keyWords) };
+              inline Triggers& setKeyWords(vector<string> && keyWords) { DARABONBA_PTR_SET_RVALUE(keyWords_, keyWords) };
+
+
+              // triggerType Field Functions 
+              bool hasTriggerType() const { return this->triggerType_ != nullptr;};
+              void deleteTriggerType() { this->triggerType_ = nullptr;};
+              inline string getTriggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
+              inline Triggers& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
+
+
+              // turnLimit Field Functions 
+              bool hasTurnLimit() const { return this->turnLimit_ != nullptr;};
+              void deleteTurnLimit() { this->turnLimit_ = nullptr;};
+              inline int32_t getTurnLimit() const { DARABONBA_PTR_GET_DEFAULT(turnLimit_, 0) };
+              inline Triggers& setTurnLimit(int32_t turnLimit) { DARABONBA_PTR_SET_VALUE(turnLimit_, turnLimit) };
+
+
+            protected:
+              shared_ptr<string> closingStatement_ {};
+              shared_ptr<vector<string>> keyWords_ {};
+              shared_ptr<string> triggerType_ {};
+              shared_ptr<int32_t> turnLimit_ {};
+            };
+
+            virtual bool empty() const override { return this->delay_ == nullptr
+        && this->triggers_ == nullptr; };
+            // delay Field Functions 
+            bool hasDelay() const { return this->delay_ != nullptr;};
+            void deleteDelay() { this->delay_ = nullptr;};
+            inline int32_t getDelay() const { DARABONBA_PTR_GET_DEFAULT(delay_, 0) };
+            inline EndConversationConfig& setDelay(int32_t delay) { DARABONBA_PTR_SET_VALUE(delay_, delay) };
+
+
+            // triggers Field Functions 
+            bool hasTriggers() const { return this->triggers_ != nullptr;};
+            void deleteTriggers() { this->triggers_ = nullptr;};
+            inline const vector<EndConversationConfig::Triggers> & getTriggers() const { DARABONBA_PTR_GET_CONST(triggers_, vector<EndConversationConfig::Triggers>) };
+            inline vector<EndConversationConfig::Triggers> getTriggers() { DARABONBA_PTR_GET(triggers_, vector<EndConversationConfig::Triggers>) };
+            inline EndConversationConfig& setTriggers(const vector<EndConversationConfig::Triggers> & triggers) { DARABONBA_PTR_SET_VALUE(triggers_, triggers) };
+            inline EndConversationConfig& setTriggers(vector<EndConversationConfig::Triggers> && triggers) { DARABONBA_PTR_SET_RVALUE(triggers_, triggers) };
+
+
+          protected:
+            shared_ptr<int32_t> delay_ {};
+            shared_ptr<vector<EndConversationConfig::Triggers>> triggers_ {};
+          };
+
+          virtual bool empty() const override { return this->backgroundMusicId_ == nullptr
+        && this->endConversationConfig_ == nullptr && this->initialGreetingDelayMilliseconds_ == nullptr && this->silenceDetectionConfig_ == nullptr; };
+          // backgroundMusicId Field Functions 
+          bool hasBackgroundMusicId() const { return this->backgroundMusicId_ != nullptr;};
+          void deleteBackgroundMusicId() { this->backgroundMusicId_ = nullptr;};
+          inline string getBackgroundMusicId() const { DARABONBA_PTR_GET_DEFAULT(backgroundMusicId_, "") };
+          inline InteractionConfig& setBackgroundMusicId(string backgroundMusicId) { DARABONBA_PTR_SET_VALUE(backgroundMusicId_, backgroundMusicId) };
+
+
+          // endConversationConfig Field Functions 
+          bool hasEndConversationConfig() const { return this->endConversationConfig_ != nullptr;};
+          void deleteEndConversationConfig() { this->endConversationConfig_ = nullptr;};
+          inline const InteractionConfig::EndConversationConfig & getEndConversationConfig() const { DARABONBA_PTR_GET_CONST(endConversationConfig_, InteractionConfig::EndConversationConfig) };
+          inline InteractionConfig::EndConversationConfig getEndConversationConfig() { DARABONBA_PTR_GET(endConversationConfig_, InteractionConfig::EndConversationConfig) };
+          inline InteractionConfig& setEndConversationConfig(const InteractionConfig::EndConversationConfig & endConversationConfig) { DARABONBA_PTR_SET_VALUE(endConversationConfig_, endConversationConfig) };
+          inline InteractionConfig& setEndConversationConfig(InteractionConfig::EndConversationConfig && endConversationConfig) { DARABONBA_PTR_SET_RVALUE(endConversationConfig_, endConversationConfig) };
+
+
+          // initialGreetingDelayMilliseconds Field Functions 
+          bool hasInitialGreetingDelayMilliseconds() const { return this->initialGreetingDelayMilliseconds_ != nullptr;};
+          void deleteInitialGreetingDelayMilliseconds() { this->initialGreetingDelayMilliseconds_ = nullptr;};
+          inline int32_t getInitialGreetingDelayMilliseconds() const { DARABONBA_PTR_GET_DEFAULT(initialGreetingDelayMilliseconds_, 0) };
+          inline InteractionConfig& setInitialGreetingDelayMilliseconds(int32_t initialGreetingDelayMilliseconds) { DARABONBA_PTR_SET_VALUE(initialGreetingDelayMilliseconds_, initialGreetingDelayMilliseconds) };
+
+
           // silenceDetectionConfig Field Functions 
           bool hasSilenceDetectionConfig() const { return this->silenceDetectionConfig_ != nullptr;};
           void deleteSilenceDetectionConfig() { this->silenceDetectionConfig_ = nullptr;};
@@ -832,12 +1262,16 @@ namespace Models
 
 
         protected:
+          shared_ptr<string> backgroundMusicId_ {};
+          shared_ptr<InteractionConfig::EndConversationConfig> endConversationConfig_ {};
+          shared_ptr<int32_t> initialGreetingDelayMilliseconds_ {};
+          // The silence detection configuration.
           shared_ptr<InteractionConfig::SilenceDetectionConfig> silenceDetectionConfig_ {};
         };
 
         virtual bool empty() const override { return this->interactionConfig_ == nullptr
-        && this->ragConfig_ == nullptr && this->scriptProfile_ == nullptr && this->synthesizerConfig_ == nullptr && this->toolConfig_ == nullptr && this->transcriberConfig_ == nullptr
-        && this->versionId_ == nullptr; };
+        && this->labelConfig_ == nullptr && this->ragConfig_ == nullptr && this->scriptProfile_ == nullptr && this->synthesizerConfig_ == nullptr && this->toolConfig_ == nullptr
+        && this->transcriberConfig_ == nullptr && this->versionId_ == nullptr; };
         // interactionConfig Field Functions 
         bool hasInteractionConfig() const { return this->interactionConfig_ != nullptr;};
         void deleteInteractionConfig() { this->interactionConfig_ = nullptr;};
@@ -845,6 +1279,15 @@ namespace Models
         inline PublishedVersion::InteractionConfig getInteractionConfig() { DARABONBA_PTR_GET(interactionConfig_, PublishedVersion::InteractionConfig) };
         inline PublishedVersion& setInteractionConfig(const PublishedVersion::InteractionConfig & interactionConfig) { DARABONBA_PTR_SET_VALUE(interactionConfig_, interactionConfig) };
         inline PublishedVersion& setInteractionConfig(PublishedVersion::InteractionConfig && interactionConfig) { DARABONBA_PTR_SET_RVALUE(interactionConfig_, interactionConfig) };
+
+
+        // labelConfig Field Functions 
+        bool hasLabelConfig() const { return this->labelConfig_ != nullptr;};
+        void deleteLabelConfig() { this->labelConfig_ = nullptr;};
+        inline const vector<PublishedVersion::LabelConfig> & getLabelConfig() const { DARABONBA_PTR_GET_CONST(labelConfig_, vector<PublishedVersion::LabelConfig>) };
+        inline vector<PublishedVersion::LabelConfig> getLabelConfig() { DARABONBA_PTR_GET(labelConfig_, vector<PublishedVersion::LabelConfig>) };
+        inline PublishedVersion& setLabelConfig(const vector<PublishedVersion::LabelConfig> & labelConfig) { DARABONBA_PTR_SET_VALUE(labelConfig_, labelConfig) };
+        inline PublishedVersion& setLabelConfig(vector<PublishedVersion::LabelConfig> && labelConfig) { DARABONBA_PTR_SET_RVALUE(labelConfig_, labelConfig) };
 
 
         // ragConfig Field Functions 
@@ -900,12 +1343,20 @@ namespace Models
 
 
       protected:
+        // The interaction configuration.
         shared_ptr<PublishedVersion::InteractionConfig> interactionConfig_ {};
+        shared_ptr<vector<PublishedVersion::LabelConfig>> labelConfig_ {};
+        // The RAG configuration.
         shared_ptr<PublishedVersion::RagConfig> ragConfig_ {};
+        // The application model configuration.
         shared_ptr<PublishedVersion::ScriptProfile> scriptProfile_ {};
+        // The text-to-speech (TTS) configuration.
         shared_ptr<PublishedVersion::SynthesizerConfig> synthesizerConfig_ {};
+        // The tool configuration.
         shared_ptr<PublishedVersion::ToolConfig> toolConfig_ {};
+        // The automatic speech recognition (ASR) configuration.
         shared_ptr<PublishedVersion::TranscriberConfig> transcriberConfig_ {};
+        // The version ID.
         shared_ptr<string> versionId_ {};
       };
 
@@ -913,6 +1364,7 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const DraftVersion& obj) { 
           DARABONBA_PTR_TO_JSON(InteractionConfig, interactionConfig_);
+          DARABONBA_PTR_TO_JSON(LabelConfig, labelConfig_);
           DARABONBA_PTR_TO_JSON(RagConfig, ragConfig_);
           DARABONBA_PTR_TO_JSON(ScriptProfile, scriptProfile_);
           DARABONBA_PTR_TO_JSON(SynthesizerConfig, synthesizerConfig_);
@@ -922,6 +1374,7 @@ namespace Models
         };
         friend void from_json(const Darabonba::Json& j, DraftVersion& obj) { 
           DARABONBA_PTR_FROM_JSON(InteractionConfig, interactionConfig_);
+          DARABONBA_PTR_FROM_JSON(LabelConfig, labelConfig_);
           DARABONBA_PTR_FROM_JSON(RagConfig, ragConfig_);
           DARABONBA_PTR_FROM_JSON(ScriptProfile, scriptProfile_);
           DARABONBA_PTR_FROM_JSON(SynthesizerConfig, synthesizerConfig_);
@@ -1124,7 +1577,9 @@ namespace Models
           shared_ptr<int32_t> endSilenceTimeout_ {};
           shared_ptr<string> model_ {};
           shared_ptr<TranscriberConfig::NlsAccessProfile> nlsAccessProfile_ {};
+          // The ASR invocation method.
           shared_ptr<string> nlsAccessType_ {};
+          // The ASR engine.
           shared_ptr<string> nlsEngine_ {};
           shared_ptr<int32_t> speechNoiseThreshold_ {};
           shared_ptr<string> vocabularyId_ {};
@@ -1196,8 +1651,11 @@ namespace Models
 
 
           protected:
+            // The base URL.
             shared_ptr<string> baseUrl_ {};
+            // The name.
             shared_ptr<string> name_ {};
+            // The SSE endpoint.
             shared_ptr<string> sseEndpoint_ {};
           };
 
@@ -1212,6 +1670,7 @@ namespace Models
 
 
         protected:
+          // The list of MCP server configurations.
           shared_ptr<vector<ToolConfig::McpServers>> mcpServers_ {};
         };
 
@@ -1396,26 +1855,48 @@ namespace Models
         protected:
           shared_ptr<string> model_ {};
           shared_ptr<SynthesizerConfig::NlsAccessProfile> nlsAccessProfile_ {};
+          // The TTS invocation method.
           shared_ptr<string> nlsAccessType_ {};
+          // The TTS engine.
           shared_ptr<string> nlsEngine_ {};
+          // The pitch rate.
+          // > Valid values: -500 to 500.
           shared_ptr<int32_t> pitchRate_ {};
           shared_ptr<vector<SynthesizerConfig::PronRules>> pronRules_ {};
+          // The speech rate.
+          // > Valid values: -500 to 500.
           shared_ptr<int32_t> speechRate_ {};
+          // The voice.
           shared_ptr<string> voice_ {};
+          // The volume.
           shared_ptr<int32_t> volume_ {};
         };
 
         class ScriptProfile : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const ScriptProfile& obj) { 
+            DARABONBA_PTR_TO_JSON(AgentKey, agentKey_);
             DARABONBA_PTR_TO_JSON(AgentProfile, agentProfile_);
+            DARABONBA_PTR_TO_JSON(ChatbotId, chatbotId_);
+            DARABONBA_PTR_TO_JSON(FunctionMeta, functionMeta_);
             DARABONBA_PTR_TO_JSON(Model, model_);
+            DARABONBA_PTR_TO_JSON(NluAccessProfile, nluAccessProfile_);
+            DARABONBA_PTR_TO_JSON(NluAccessType, nluAccessType_);
+            DARABONBA_PTR_TO_JSON(NluEngine, nluEngine_);
+            DARABONBA_PTR_TO_JSON(OmniModel, omniModel_);
             DARABONBA_PTR_TO_JSON(Temperature, temperature_);
             DARABONBA_PTR_TO_JSON(TopP, topP_);
           };
           friend void from_json(const Darabonba::Json& j, ScriptProfile& obj) { 
+            DARABONBA_PTR_FROM_JSON(AgentKey, agentKey_);
             DARABONBA_PTR_FROM_JSON(AgentProfile, agentProfile_);
+            DARABONBA_PTR_FROM_JSON(ChatbotId, chatbotId_);
+            DARABONBA_PTR_FROM_JSON(FunctionMeta, functionMeta_);
             DARABONBA_PTR_FROM_JSON(Model, model_);
+            DARABONBA_PTR_FROM_JSON(NluAccessProfile, nluAccessProfile_);
+            DARABONBA_PTR_FROM_JSON(NluAccessType, nluAccessType_);
+            DARABONBA_PTR_FROM_JSON(NluEngine, nluEngine_);
+            DARABONBA_PTR_FROM_JSON(OmniModel, omniModel_);
             DARABONBA_PTR_FROM_JSON(Temperature, temperature_);
             DARABONBA_PTR_FROM_JSON(TopP, topP_);
           };
@@ -1430,17 +1911,122 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class NluAccessProfile : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const NluAccessProfile& obj) { 
+              DARABONBA_PTR_TO_JSON(AccessProfileId, accessProfileId_);
+            };
+            friend void from_json(const Darabonba::Json& j, NluAccessProfile& obj) { 
+              DARABONBA_PTR_FROM_JSON(AccessProfileId, accessProfileId_);
+            };
+            NluAccessProfile() = default ;
+            NluAccessProfile(const NluAccessProfile &) = default ;
+            NluAccessProfile(NluAccessProfile &&) = default ;
+            NluAccessProfile(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~NluAccessProfile() = default ;
+            NluAccessProfile& operator=(const NluAccessProfile &) = default ;
+            NluAccessProfile& operator=(NluAccessProfile &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->accessProfileId_ == nullptr; };
+            // accessProfileId Field Functions 
+            bool hasAccessProfileId() const { return this->accessProfileId_ != nullptr;};
+            void deleteAccessProfileId() { this->accessProfileId_ = nullptr;};
+            inline string getAccessProfileId() const { DARABONBA_PTR_GET_DEFAULT(accessProfileId_, "") };
+            inline NluAccessProfile& setAccessProfileId(string accessProfileId) { DARABONBA_PTR_SET_VALUE(accessProfileId_, accessProfileId) };
+
+
+          protected:
+            shared_ptr<string> accessProfileId_ {};
+          };
+
+          class FunctionMeta : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const FunctionMeta& obj) { 
+              DARABONBA_PTR_TO_JSON(FunctionId, functionId_);
+              DARABONBA_PTR_TO_JSON(FunctionName, functionName_);
+              DARABONBA_PTR_TO_JSON(HttpTriggerName, httpTriggerName_);
+              DARABONBA_PTR_TO_JSON(HttpTriggerUrl, httpTriggerUrl_);
+              DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+            };
+            friend void from_json(const Darabonba::Json& j, FunctionMeta& obj) { 
+              DARABONBA_PTR_FROM_JSON(FunctionId, functionId_);
+              DARABONBA_PTR_FROM_JSON(FunctionName, functionName_);
+              DARABONBA_PTR_FROM_JSON(HttpTriggerName, httpTriggerName_);
+              DARABONBA_PTR_FROM_JSON(HttpTriggerUrl, httpTriggerUrl_);
+              DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+            };
+            FunctionMeta() = default ;
+            FunctionMeta(const FunctionMeta &) = default ;
+            FunctionMeta(FunctionMeta &&) = default ;
+            FunctionMeta(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~FunctionMeta() = default ;
+            FunctionMeta& operator=(const FunctionMeta &) = default ;
+            FunctionMeta& operator=(FunctionMeta &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->functionId_ == nullptr
+        && this->functionName_ == nullptr && this->httpTriggerName_ == nullptr && this->httpTriggerUrl_ == nullptr && this->regionId_ == nullptr; };
+            // functionId Field Functions 
+            bool hasFunctionId() const { return this->functionId_ != nullptr;};
+            void deleteFunctionId() { this->functionId_ = nullptr;};
+            inline string getFunctionId() const { DARABONBA_PTR_GET_DEFAULT(functionId_, "") };
+            inline FunctionMeta& setFunctionId(string functionId) { DARABONBA_PTR_SET_VALUE(functionId_, functionId) };
+
+
+            // functionName Field Functions 
+            bool hasFunctionName() const { return this->functionName_ != nullptr;};
+            void deleteFunctionName() { this->functionName_ = nullptr;};
+            inline string getFunctionName() const { DARABONBA_PTR_GET_DEFAULT(functionName_, "") };
+            inline FunctionMeta& setFunctionName(string functionName) { DARABONBA_PTR_SET_VALUE(functionName_, functionName) };
+
+
+            // httpTriggerName Field Functions 
+            bool hasHttpTriggerName() const { return this->httpTriggerName_ != nullptr;};
+            void deleteHttpTriggerName() { this->httpTriggerName_ = nullptr;};
+            inline string getHttpTriggerName() const { DARABONBA_PTR_GET_DEFAULT(httpTriggerName_, "") };
+            inline FunctionMeta& setHttpTriggerName(string httpTriggerName) { DARABONBA_PTR_SET_VALUE(httpTriggerName_, httpTriggerName) };
+
+
+            // httpTriggerUrl Field Functions 
+            bool hasHttpTriggerUrl() const { return this->httpTriggerUrl_ != nullptr;};
+            void deleteHttpTriggerUrl() { this->httpTriggerUrl_ = nullptr;};
+            inline string getHttpTriggerUrl() const { DARABONBA_PTR_GET_DEFAULT(httpTriggerUrl_, "") };
+            inline FunctionMeta& setHttpTriggerUrl(string httpTriggerUrl) { DARABONBA_PTR_SET_VALUE(httpTriggerUrl_, httpTriggerUrl) };
+
+
+            // regionId Field Functions 
+            bool hasRegionId() const { return this->regionId_ != nullptr;};
+            void deleteRegionId() { this->regionId_ = nullptr;};
+            inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+            inline FunctionMeta& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+          protected:
+            shared_ptr<string> functionId_ {};
+            shared_ptr<string> functionName_ {};
+            shared_ptr<string> httpTriggerName_ {};
+            shared_ptr<string> httpTriggerUrl_ {};
+            shared_ptr<string> regionId_ {};
+          };
+
           class AgentProfile : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const AgentProfile& obj) { 
               DARABONBA_PTR_TO_JSON(AgentProfileId, agentProfileId_);
               DARABONBA_PTR_TO_JSON(Description, description_);
+              DARABONBA_PTR_TO_JSON(Name, name_);
               DARABONBA_PTR_TO_JSON(PromptsJson, promptsJson_);
               DARABONBA_PTR_TO_JSON(ScriptProfileTemplateId, scriptProfileTemplateId_);
             };
             friend void from_json(const Darabonba::Json& j, AgentProfile& obj) { 
               DARABONBA_PTR_FROM_JSON(AgentProfileId, agentProfileId_);
               DARABONBA_PTR_FROM_JSON(Description, description_);
+              DARABONBA_PTR_FROM_JSON(Name, name_);
               DARABONBA_PTR_FROM_JSON(PromptsJson, promptsJson_);
               DARABONBA_PTR_FROM_JSON(ScriptProfileTemplateId, scriptProfileTemplateId_);
             };
@@ -1456,7 +2042,7 @@ namespace Models
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
             virtual bool empty() const override { return this->agentProfileId_ == nullptr
-        && this->description_ == nullptr && this->promptsJson_ == nullptr && this->scriptProfileTemplateId_ == nullptr; };
+        && this->description_ == nullptr && this->name_ == nullptr && this->promptsJson_ == nullptr && this->scriptProfileTemplateId_ == nullptr; };
             // agentProfileId Field Functions 
             bool hasAgentProfileId() const { return this->agentProfileId_ != nullptr;};
             void deleteAgentProfileId() { this->agentProfileId_ = nullptr;};
@@ -1469,6 +2055,13 @@ namespace Models
             void deleteDescription() { this->description_ = nullptr;};
             inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
             inline AgentProfile& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline AgentProfile& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
             // promptsJson Field Functions 
@@ -1486,14 +2079,27 @@ namespace Models
 
 
           protected:
+            // The agent configuration ID.
             shared_ptr<string> agentProfileId_ {};
+            // The agent description.
             shared_ptr<string> description_ {};
+            shared_ptr<string> name_ {};
+            // The prompt in JSON format.
             shared_ptr<string> promptsJson_ {};
+            // The application template ID.
             shared_ptr<string> scriptProfileTemplateId_ {};
           };
 
-          virtual bool empty() const override { return this->agentProfile_ == nullptr
-        && this->model_ == nullptr && this->temperature_ == nullptr && this->topP_ == nullptr; };
+          virtual bool empty() const override { return this->agentKey_ == nullptr
+        && this->agentProfile_ == nullptr && this->chatbotId_ == nullptr && this->functionMeta_ == nullptr && this->model_ == nullptr && this->nluAccessProfile_ == nullptr
+        && this->nluAccessType_ == nullptr && this->nluEngine_ == nullptr && this->omniModel_ == nullptr && this->temperature_ == nullptr && this->topP_ == nullptr; };
+          // agentKey Field Functions 
+          bool hasAgentKey() const { return this->agentKey_ != nullptr;};
+          void deleteAgentKey() { this->agentKey_ = nullptr;};
+          inline string getAgentKey() const { DARABONBA_PTR_GET_DEFAULT(agentKey_, "") };
+          inline ScriptProfile& setAgentKey(string agentKey) { DARABONBA_PTR_SET_VALUE(agentKey_, agentKey) };
+
+
           // agentProfile Field Functions 
           bool hasAgentProfile() const { return this->agentProfile_ != nullptr;};
           void deleteAgentProfile() { this->agentProfile_ = nullptr;};
@@ -1503,11 +2109,57 @@ namespace Models
           inline ScriptProfile& setAgentProfile(ScriptProfile::AgentProfile && agentProfile) { DARABONBA_PTR_SET_RVALUE(agentProfile_, agentProfile) };
 
 
+          // chatbotId Field Functions 
+          bool hasChatbotId() const { return this->chatbotId_ != nullptr;};
+          void deleteChatbotId() { this->chatbotId_ = nullptr;};
+          inline string getChatbotId() const { DARABONBA_PTR_GET_DEFAULT(chatbotId_, "") };
+          inline ScriptProfile& setChatbotId(string chatbotId) { DARABONBA_PTR_SET_VALUE(chatbotId_, chatbotId) };
+
+
+          // functionMeta Field Functions 
+          bool hasFunctionMeta() const { return this->functionMeta_ != nullptr;};
+          void deleteFunctionMeta() { this->functionMeta_ = nullptr;};
+          inline const ScriptProfile::FunctionMeta & getFunctionMeta() const { DARABONBA_PTR_GET_CONST(functionMeta_, ScriptProfile::FunctionMeta) };
+          inline ScriptProfile::FunctionMeta getFunctionMeta() { DARABONBA_PTR_GET(functionMeta_, ScriptProfile::FunctionMeta) };
+          inline ScriptProfile& setFunctionMeta(const ScriptProfile::FunctionMeta & functionMeta) { DARABONBA_PTR_SET_VALUE(functionMeta_, functionMeta) };
+          inline ScriptProfile& setFunctionMeta(ScriptProfile::FunctionMeta && functionMeta) { DARABONBA_PTR_SET_RVALUE(functionMeta_, functionMeta) };
+
+
           // model Field Functions 
           bool hasModel() const { return this->model_ != nullptr;};
           void deleteModel() { this->model_ = nullptr;};
           inline string getModel() const { DARABONBA_PTR_GET_DEFAULT(model_, "") };
           inline ScriptProfile& setModel(string model) { DARABONBA_PTR_SET_VALUE(model_, model) };
+
+
+          // nluAccessProfile Field Functions 
+          bool hasNluAccessProfile() const { return this->nluAccessProfile_ != nullptr;};
+          void deleteNluAccessProfile() { this->nluAccessProfile_ = nullptr;};
+          inline const ScriptProfile::NluAccessProfile & getNluAccessProfile() const { DARABONBA_PTR_GET_CONST(nluAccessProfile_, ScriptProfile::NluAccessProfile) };
+          inline ScriptProfile::NluAccessProfile getNluAccessProfile() { DARABONBA_PTR_GET(nluAccessProfile_, ScriptProfile::NluAccessProfile) };
+          inline ScriptProfile& setNluAccessProfile(const ScriptProfile::NluAccessProfile & nluAccessProfile) { DARABONBA_PTR_SET_VALUE(nluAccessProfile_, nluAccessProfile) };
+          inline ScriptProfile& setNluAccessProfile(ScriptProfile::NluAccessProfile && nluAccessProfile) { DARABONBA_PTR_SET_RVALUE(nluAccessProfile_, nluAccessProfile) };
+
+
+          // nluAccessType Field Functions 
+          bool hasNluAccessType() const { return this->nluAccessType_ != nullptr;};
+          void deleteNluAccessType() { this->nluAccessType_ = nullptr;};
+          inline string getNluAccessType() const { DARABONBA_PTR_GET_DEFAULT(nluAccessType_, "") };
+          inline ScriptProfile& setNluAccessType(string nluAccessType) { DARABONBA_PTR_SET_VALUE(nluAccessType_, nluAccessType) };
+
+
+          // nluEngine Field Functions 
+          bool hasNluEngine() const { return this->nluEngine_ != nullptr;};
+          void deleteNluEngine() { this->nluEngine_ = nullptr;};
+          inline string getNluEngine() const { DARABONBA_PTR_GET_DEFAULT(nluEngine_, "") };
+          inline ScriptProfile& setNluEngine(string nluEngine) { DARABONBA_PTR_SET_VALUE(nluEngine_, nluEngine) };
+
+
+          // omniModel Field Functions 
+          bool hasOmniModel() const { return this->omniModel_ != nullptr;};
+          void deleteOmniModel() { this->omniModel_ = nullptr;};
+          inline bool getOmniModel() const { DARABONBA_PTR_GET_DEFAULT(omniModel_, false) };
+          inline ScriptProfile& setOmniModel(bool omniModel) { DARABONBA_PTR_SET_VALUE(omniModel_, omniModel) };
 
 
           // temperature Field Functions 
@@ -1525,9 +2177,25 @@ namespace Models
 
 
         protected:
+          shared_ptr<string> agentKey_ {};
+          // The agent configuration information.
           shared_ptr<ScriptProfile::AgentProfile> agentProfile_ {};
+          shared_ptr<string> chatbotId_ {};
+          shared_ptr<ScriptProfile::FunctionMeta> functionMeta_ {};
+          // The model.
           shared_ptr<string> model_ {};
+          shared_ptr<ScriptProfile::NluAccessProfile> nluAccessProfile_ {};
+          shared_ptr<string> nluAccessType_ {};
+          shared_ptr<string> nluEngine_ {};
+          shared_ptr<bool> omniModel_ {};
+          // The probability threshold for nucleus sampling during generation.
+          // 
+          // > - For example, when the value is set to 0.8, only the smallest set of most likely tokens whose cumulative probability is greater than or equal to 0.8 is retained as the candidate set.
+          //      * Valid values: (0, 1.0). A higher value increases randomness in generation. A lower value increases determinism in generation.
           shared_ptr<string> temperature_ {};
+          // Controls the randomness and diversity of model responses.
+          // > - Specifically, the temperature value controls the degree of smoothing applied to the probability distribution of each candidate token during text generation. A higher temperature value flattens the probability distribution, allowing more low-probability tokens to be selected, which produces more diverse results. A lower temperature value sharpens the probability distribution, making high-probability tokens more likely to be selected, which produces more deterministic results.
+          // > - Valid values: [0, 2). Setting the value to 0 is not recommended because it is meaningless.
           shared_ptr<string> topP_ {};
         };
 
@@ -1598,19 +2266,84 @@ namespace Models
 
 
         protected:
+          // Specifies whether RAG is enabled.
           shared_ptr<bool> enabled_ {};
+          // The list of knowledge base IDs.
           shared_ptr<vector<string>> knowledgeBaseIds_ {};
+          // The maximum concatenation length of RAG content.
           shared_ptr<int32_t> maxContentLength_ {};
+          // The RAG engine.
           shared_ptr<string> ragEngine_ {};
+          // The maximum number of data entries to retrieve.
           shared_ptr<int32_t> topN_ {};
+        };
+
+        class LabelConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const LabelConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(CandidateValues, candidateValues_);
+            DARABONBA_PTR_TO_JSON(Description, description_);
+            DARABONBA_PTR_TO_JSON(Name, name_);
+          };
+          friend void from_json(const Darabonba::Json& j, LabelConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(CandidateValues, candidateValues_);
+            DARABONBA_PTR_FROM_JSON(Description, description_);
+            DARABONBA_PTR_FROM_JSON(Name, name_);
+          };
+          LabelConfig() = default ;
+          LabelConfig(const LabelConfig &) = default ;
+          LabelConfig(LabelConfig &&) = default ;
+          LabelConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~LabelConfig() = default ;
+          LabelConfig& operator=(const LabelConfig &) = default ;
+          LabelConfig& operator=(LabelConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->candidateValues_ == nullptr
+        && this->description_ == nullptr && this->name_ == nullptr; };
+          // candidateValues Field Functions 
+          bool hasCandidateValues() const { return this->candidateValues_ != nullptr;};
+          void deleteCandidateValues() { this->candidateValues_ = nullptr;};
+          inline const vector<string> & getCandidateValues() const { DARABONBA_PTR_GET_CONST(candidateValues_, vector<string>) };
+          inline vector<string> getCandidateValues() { DARABONBA_PTR_GET(candidateValues_, vector<string>) };
+          inline LabelConfig& setCandidateValues(const vector<string> & candidateValues) { DARABONBA_PTR_SET_VALUE(candidateValues_, candidateValues) };
+          inline LabelConfig& setCandidateValues(vector<string> && candidateValues) { DARABONBA_PTR_SET_RVALUE(candidateValues_, candidateValues) };
+
+
+          // description Field Functions 
+          bool hasDescription() const { return this->description_ != nullptr;};
+          void deleteDescription() { this->description_ = nullptr;};
+          inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+          inline LabelConfig& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+          // name Field Functions 
+          bool hasName() const { return this->name_ != nullptr;};
+          void deleteName() { this->name_ = nullptr;};
+          inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+          inline LabelConfig& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        protected:
+          shared_ptr<vector<string>> candidateValues_ {};
+          shared_ptr<string> description_ {};
+          shared_ptr<string> name_ {};
         };
 
         class InteractionConfig : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const InteractionConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(BackgroundMusicId, backgroundMusicId_);
+            DARABONBA_PTR_TO_JSON(EndConversationConfig, endConversationConfig_);
+            DARABONBA_PTR_TO_JSON(InitialGreetingDelayMilliseconds, initialGreetingDelayMilliseconds_);
             DARABONBA_PTR_TO_JSON(SilenceDetectionConfig, silenceDetectionConfig_);
           };
           friend void from_json(const Darabonba::Json& j, InteractionConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(BackgroundMusicId, backgroundMusicId_);
+            DARABONBA_PTR_FROM_JSON(EndConversationConfig, endConversationConfig_);
+            DARABONBA_PTR_FROM_JSON(InitialGreetingDelayMilliseconds, initialGreetingDelayMilliseconds_);
             DARABONBA_PTR_FROM_JSON(SilenceDetectionConfig, silenceDetectionConfig_);
           };
           InteractionConfig() = default ;
@@ -1627,9 +2360,11 @@ namespace Models
           class SilenceDetectionConfig : public Darabonba::Model {
           public:
             friend void to_json(Darabonba::Json& j, const SilenceDetectionConfig& obj) { 
+              DARABONBA_PTR_TO_JSON(MaxRepeats, maxRepeats_);
               DARABONBA_PTR_TO_JSON(Timeout, timeout_);
             };
             friend void from_json(const Darabonba::Json& j, SilenceDetectionConfig& obj) { 
+              DARABONBA_PTR_FROM_JSON(MaxRepeats, maxRepeats_);
               DARABONBA_PTR_FROM_JSON(Timeout, timeout_);
             };
             SilenceDetectionConfig() = default ;
@@ -1643,7 +2378,15 @@ namespace Models
             };
             virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
             virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-            virtual bool empty() const override { return this->timeout_ == nullptr; };
+            virtual bool empty() const override { return this->maxRepeats_ == nullptr
+        && this->timeout_ == nullptr; };
+            // maxRepeats Field Functions 
+            bool hasMaxRepeats() const { return this->maxRepeats_ != nullptr;};
+            void deleteMaxRepeats() { this->maxRepeats_ = nullptr;};
+            inline int32_t getMaxRepeats() const { DARABONBA_PTR_GET_DEFAULT(maxRepeats_, 0) };
+            inline SilenceDetectionConfig& setMaxRepeats(int32_t maxRepeats) { DARABONBA_PTR_SET_VALUE(maxRepeats_, maxRepeats) };
+
+
             // timeout Field Functions 
             bool hasTimeout() const { return this->timeout_ != nullptr;};
             void deleteTimeout() { this->timeout_ = nullptr;};
@@ -1652,10 +2395,144 @@ namespace Models
 
 
           protected:
+            shared_ptr<int32_t> maxRepeats_ {};
+            // The task execution timeout period, in seconds.
             shared_ptr<int32_t> timeout_ {};
           };
 
-          virtual bool empty() const override { return this->silenceDetectionConfig_ == nullptr; };
+          class EndConversationConfig : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const EndConversationConfig& obj) { 
+              DARABONBA_PTR_TO_JSON(Delay, delay_);
+              DARABONBA_PTR_TO_JSON(Triggers, triggers_);
+            };
+            friend void from_json(const Darabonba::Json& j, EndConversationConfig& obj) { 
+              DARABONBA_PTR_FROM_JSON(Delay, delay_);
+              DARABONBA_PTR_FROM_JSON(Triggers, triggers_);
+            };
+            EndConversationConfig() = default ;
+            EndConversationConfig(const EndConversationConfig &) = default ;
+            EndConversationConfig(EndConversationConfig &&) = default ;
+            EndConversationConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~EndConversationConfig() = default ;
+            EndConversationConfig& operator=(const EndConversationConfig &) = default ;
+            EndConversationConfig& operator=(EndConversationConfig &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class Triggers : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const Triggers& obj) { 
+                DARABONBA_PTR_TO_JSON(ClosingStatement, closingStatement_);
+                DARABONBA_PTR_TO_JSON(KeyWords, keyWords_);
+                DARABONBA_PTR_TO_JSON(TriggerType, triggerType_);
+                DARABONBA_PTR_TO_JSON(TurnLimit, turnLimit_);
+              };
+              friend void from_json(const Darabonba::Json& j, Triggers& obj) { 
+                DARABONBA_PTR_FROM_JSON(ClosingStatement, closingStatement_);
+                DARABONBA_PTR_FROM_JSON(KeyWords, keyWords_);
+                DARABONBA_PTR_FROM_JSON(TriggerType, triggerType_);
+                DARABONBA_PTR_FROM_JSON(TurnLimit, turnLimit_);
+              };
+              Triggers() = default ;
+              Triggers(const Triggers &) = default ;
+              Triggers(Triggers &&) = default ;
+              Triggers(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~Triggers() = default ;
+              Triggers& operator=(const Triggers &) = default ;
+              Triggers& operator=(Triggers &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->closingStatement_ == nullptr
+        && this->keyWords_ == nullptr && this->triggerType_ == nullptr && this->turnLimit_ == nullptr; };
+              // closingStatement Field Functions 
+              bool hasClosingStatement() const { return this->closingStatement_ != nullptr;};
+              void deleteClosingStatement() { this->closingStatement_ = nullptr;};
+              inline string getClosingStatement() const { DARABONBA_PTR_GET_DEFAULT(closingStatement_, "") };
+              inline Triggers& setClosingStatement(string closingStatement) { DARABONBA_PTR_SET_VALUE(closingStatement_, closingStatement) };
+
+
+              // keyWords Field Functions 
+              bool hasKeyWords() const { return this->keyWords_ != nullptr;};
+              void deleteKeyWords() { this->keyWords_ = nullptr;};
+              inline const vector<string> & getKeyWords() const { DARABONBA_PTR_GET_CONST(keyWords_, vector<string>) };
+              inline vector<string> getKeyWords() { DARABONBA_PTR_GET(keyWords_, vector<string>) };
+              inline Triggers& setKeyWords(const vector<string> & keyWords) { DARABONBA_PTR_SET_VALUE(keyWords_, keyWords) };
+              inline Triggers& setKeyWords(vector<string> && keyWords) { DARABONBA_PTR_SET_RVALUE(keyWords_, keyWords) };
+
+
+              // triggerType Field Functions 
+              bool hasTriggerType() const { return this->triggerType_ != nullptr;};
+              void deleteTriggerType() { this->triggerType_ = nullptr;};
+              inline string getTriggerType() const { DARABONBA_PTR_GET_DEFAULT(triggerType_, "") };
+              inline Triggers& setTriggerType(string triggerType) { DARABONBA_PTR_SET_VALUE(triggerType_, triggerType) };
+
+
+              // turnLimit Field Functions 
+              bool hasTurnLimit() const { return this->turnLimit_ != nullptr;};
+              void deleteTurnLimit() { this->turnLimit_ = nullptr;};
+              inline int32_t getTurnLimit() const { DARABONBA_PTR_GET_DEFAULT(turnLimit_, 0) };
+              inline Triggers& setTurnLimit(int32_t turnLimit) { DARABONBA_PTR_SET_VALUE(turnLimit_, turnLimit) };
+
+
+            protected:
+              shared_ptr<string> closingStatement_ {};
+              shared_ptr<vector<string>> keyWords_ {};
+              shared_ptr<string> triggerType_ {};
+              shared_ptr<int32_t> turnLimit_ {};
+            };
+
+            virtual bool empty() const override { return this->delay_ == nullptr
+        && this->triggers_ == nullptr; };
+            // delay Field Functions 
+            bool hasDelay() const { return this->delay_ != nullptr;};
+            void deleteDelay() { this->delay_ = nullptr;};
+            inline int32_t getDelay() const { DARABONBA_PTR_GET_DEFAULT(delay_, 0) };
+            inline EndConversationConfig& setDelay(int32_t delay) { DARABONBA_PTR_SET_VALUE(delay_, delay) };
+
+
+            // triggers Field Functions 
+            bool hasTriggers() const { return this->triggers_ != nullptr;};
+            void deleteTriggers() { this->triggers_ = nullptr;};
+            inline const vector<EndConversationConfig::Triggers> & getTriggers() const { DARABONBA_PTR_GET_CONST(triggers_, vector<EndConversationConfig::Triggers>) };
+            inline vector<EndConversationConfig::Triggers> getTriggers() { DARABONBA_PTR_GET(triggers_, vector<EndConversationConfig::Triggers>) };
+            inline EndConversationConfig& setTriggers(const vector<EndConversationConfig::Triggers> & triggers) { DARABONBA_PTR_SET_VALUE(triggers_, triggers) };
+            inline EndConversationConfig& setTriggers(vector<EndConversationConfig::Triggers> && triggers) { DARABONBA_PTR_SET_RVALUE(triggers_, triggers) };
+
+
+          protected:
+            shared_ptr<int32_t> delay_ {};
+            shared_ptr<vector<EndConversationConfig::Triggers>> triggers_ {};
+          };
+
+          virtual bool empty() const override { return this->backgroundMusicId_ == nullptr
+        && this->endConversationConfig_ == nullptr && this->initialGreetingDelayMilliseconds_ == nullptr && this->silenceDetectionConfig_ == nullptr; };
+          // backgroundMusicId Field Functions 
+          bool hasBackgroundMusicId() const { return this->backgroundMusicId_ != nullptr;};
+          void deleteBackgroundMusicId() { this->backgroundMusicId_ = nullptr;};
+          inline string getBackgroundMusicId() const { DARABONBA_PTR_GET_DEFAULT(backgroundMusicId_, "") };
+          inline InteractionConfig& setBackgroundMusicId(string backgroundMusicId) { DARABONBA_PTR_SET_VALUE(backgroundMusicId_, backgroundMusicId) };
+
+
+          // endConversationConfig Field Functions 
+          bool hasEndConversationConfig() const { return this->endConversationConfig_ != nullptr;};
+          void deleteEndConversationConfig() { this->endConversationConfig_ = nullptr;};
+          inline const InteractionConfig::EndConversationConfig & getEndConversationConfig() const { DARABONBA_PTR_GET_CONST(endConversationConfig_, InteractionConfig::EndConversationConfig) };
+          inline InteractionConfig::EndConversationConfig getEndConversationConfig() { DARABONBA_PTR_GET(endConversationConfig_, InteractionConfig::EndConversationConfig) };
+          inline InteractionConfig& setEndConversationConfig(const InteractionConfig::EndConversationConfig & endConversationConfig) { DARABONBA_PTR_SET_VALUE(endConversationConfig_, endConversationConfig) };
+          inline InteractionConfig& setEndConversationConfig(InteractionConfig::EndConversationConfig && endConversationConfig) { DARABONBA_PTR_SET_RVALUE(endConversationConfig_, endConversationConfig) };
+
+
+          // initialGreetingDelayMilliseconds Field Functions 
+          bool hasInitialGreetingDelayMilliseconds() const { return this->initialGreetingDelayMilliseconds_ != nullptr;};
+          void deleteInitialGreetingDelayMilliseconds() { this->initialGreetingDelayMilliseconds_ = nullptr;};
+          inline int32_t getInitialGreetingDelayMilliseconds() const { DARABONBA_PTR_GET_DEFAULT(initialGreetingDelayMilliseconds_, 0) };
+          inline InteractionConfig& setInitialGreetingDelayMilliseconds(int32_t initialGreetingDelayMilliseconds) { DARABONBA_PTR_SET_VALUE(initialGreetingDelayMilliseconds_, initialGreetingDelayMilliseconds) };
+
+
           // silenceDetectionConfig Field Functions 
           bool hasSilenceDetectionConfig() const { return this->silenceDetectionConfig_ != nullptr;};
           void deleteSilenceDetectionConfig() { this->silenceDetectionConfig_ = nullptr;};
@@ -1666,12 +2543,16 @@ namespace Models
 
 
         protected:
+          shared_ptr<string> backgroundMusicId_ {};
+          shared_ptr<InteractionConfig::EndConversationConfig> endConversationConfig_ {};
+          shared_ptr<int32_t> initialGreetingDelayMilliseconds_ {};
+          // The silence detection configuration.
           shared_ptr<InteractionConfig::SilenceDetectionConfig> silenceDetectionConfig_ {};
         };
 
         virtual bool empty() const override { return this->interactionConfig_ == nullptr
-        && this->ragConfig_ == nullptr && this->scriptProfile_ == nullptr && this->synthesizerConfig_ == nullptr && this->toolConfig_ == nullptr && this->transcriberConfig_ == nullptr
-        && this->versionId_ == nullptr; };
+        && this->labelConfig_ == nullptr && this->ragConfig_ == nullptr && this->scriptProfile_ == nullptr && this->synthesizerConfig_ == nullptr && this->toolConfig_ == nullptr
+        && this->transcriberConfig_ == nullptr && this->versionId_ == nullptr; };
         // interactionConfig Field Functions 
         bool hasInteractionConfig() const { return this->interactionConfig_ != nullptr;};
         void deleteInteractionConfig() { this->interactionConfig_ = nullptr;};
@@ -1679,6 +2560,15 @@ namespace Models
         inline DraftVersion::InteractionConfig getInteractionConfig() { DARABONBA_PTR_GET(interactionConfig_, DraftVersion::InteractionConfig) };
         inline DraftVersion& setInteractionConfig(const DraftVersion::InteractionConfig & interactionConfig) { DARABONBA_PTR_SET_VALUE(interactionConfig_, interactionConfig) };
         inline DraftVersion& setInteractionConfig(DraftVersion::InteractionConfig && interactionConfig) { DARABONBA_PTR_SET_RVALUE(interactionConfig_, interactionConfig) };
+
+
+        // labelConfig Field Functions 
+        bool hasLabelConfig() const { return this->labelConfig_ != nullptr;};
+        void deleteLabelConfig() { this->labelConfig_ = nullptr;};
+        inline const vector<DraftVersion::LabelConfig> & getLabelConfig() const { DARABONBA_PTR_GET_CONST(labelConfig_, vector<DraftVersion::LabelConfig>) };
+        inline vector<DraftVersion::LabelConfig> getLabelConfig() { DARABONBA_PTR_GET(labelConfig_, vector<DraftVersion::LabelConfig>) };
+        inline DraftVersion& setLabelConfig(const vector<DraftVersion::LabelConfig> & labelConfig) { DARABONBA_PTR_SET_VALUE(labelConfig_, labelConfig) };
+        inline DraftVersion& setLabelConfig(vector<DraftVersion::LabelConfig> && labelConfig) { DARABONBA_PTR_SET_RVALUE(labelConfig_, labelConfig) };
 
 
         // ragConfig Field Functions 
@@ -1734,18 +2624,26 @@ namespace Models
 
 
       protected:
+        // The interaction configuration.
         shared_ptr<DraftVersion::InteractionConfig> interactionConfig_ {};
+        shared_ptr<vector<DraftVersion::LabelConfig>> labelConfig_ {};
+        // The RAG configuration.
         shared_ptr<DraftVersion::RagConfig> ragConfig_ {};
+        // The application model configuration.
         shared_ptr<DraftVersion::ScriptProfile> scriptProfile_ {};
+        // The text-to-speech (TTS) configuration.
         shared_ptr<DraftVersion::SynthesizerConfig> synthesizerConfig_ {};
+        // The tool configuration.
         shared_ptr<DraftVersion::ToolConfig> toolConfig_ {};
+        // The automatic speech recognition (ASR) configuration.
         shared_ptr<DraftVersion::TranscriberConfig> transcriberConfig_ {};
+        // The version ID.
         shared_ptr<string> versionId_ {};
       };
 
       virtual bool empty() const override { return this->applicationId_ == nullptr
         && this->concurrency_ == nullptr && this->createdTime_ == nullptr && this->description_ == nullptr && this->draftVersion_ == nullptr && this->name_ == nullptr
-        && this->nluAccessType_ == nullptr && this->nluEngine_ == nullptr && this->publishedVersion_ == nullptr && this->updatedTime_ == nullptr; };
+        && this->nluAccessType_ == nullptr && this->nluEngine_ == nullptr && this->publishedVersion_ == nullptr && this->status_ == nullptr && this->updatedTime_ == nullptr; };
       // applicationId Field Functions 
       bool hasApplicationId() const { return this->applicationId_ != nullptr;};
       void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -1813,6 +2711,13 @@ namespace Models
       inline Data& setPublishedVersion(Data::PublishedVersion && publishedVersion) { DARABONBA_PTR_SET_RVALUE(publishedVersion_, publishedVersion) };
 
 
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
       // updatedTime Field Functions 
       bool hasUpdatedTime() const { return this->updatedTime_ != nullptr;};
       void deleteUpdatedTime() { this->updatedTime_ = nullptr;};
@@ -1821,20 +2726,31 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> applicationId_ {};
+      // The call concurrency, which is the number of calls being made simultaneously.
       shared_ptr<int32_t> concurrency_ {};
+      // The time when the application was created.
       shared_ptr<int64_t> createdTime_ {};
+      // The application description.
       shared_ptr<string> description_ {};
+      // The draft version configuration content.
       shared_ptr<Data::DraftVersion> draftVersion_ {};
+      // The application name.
       shared_ptr<string> name_ {};
+      // The NLU access method.
       shared_ptr<string> nluAccessType_ {};
+      // The NLU engine.
       shared_ptr<string> nluEngine_ {};
+      // The published application version.
       shared_ptr<Data::PublishedVersion> publishedVersion_ {};
+      shared_ptr<string> status_ {};
+      // The time when the application was last modified.
       shared_ptr<int64_t> updatedTime_ {};
     };
 
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->httpStatusCode_ == nullptr && this->message_ == nullptr && this->params_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -1865,6 +2781,15 @@ namespace Models
     inline GetApplicationResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
+    // params Field Functions 
+    bool hasParams() const { return this->params_ != nullptr;};
+    void deleteParams() { this->params_ = nullptr;};
+    inline const vector<string> & getParams() const { DARABONBA_PTR_GET_CONST(params_, vector<string>) };
+    inline vector<string> getParams() { DARABONBA_PTR_GET(params_, vector<string>) };
+    inline GetApplicationResponseBody& setParams(const vector<string> & params) { DARABONBA_PTR_SET_VALUE(params_, params) };
+    inline GetApplicationResponseBody& setParams(vector<string> && params) { DARABONBA_PTR_SET_RVALUE(params_, params) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -1873,10 +2798,16 @@ namespace Models
 
 
   protected:
+    // The response code.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<GetApplicationResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    shared_ptr<vector<string>> params_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

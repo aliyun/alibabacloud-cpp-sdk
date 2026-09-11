@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The Bailian business workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> businessUnitId_ {};
+    // The device ID.
+    // 
     // This parameter is required.
     shared_ptr<string> deviceId_ {};
   };

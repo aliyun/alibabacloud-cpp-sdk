@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The ID of the Model Studio business unit.
     shared_ptr<string> businessUnitId_ {};
+    // The description of the vocabulary.
     shared_ptr<string> description_ {};
+    // The name of the vocabulary.
     shared_ptr<string> name_ {};
+    // The ID of the vocabulary.
     shared_ptr<string> vocabularyId_ {};
+    // An object containing the words in the vocabulary and their corresponding weights.
     shared_ptr<string> wordsShrink_ {};
   };
 

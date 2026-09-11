@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The application ID.
+    // 
     // This parameter is required.
     shared_ptr<string> applicationId_ {};
+    // The ID of the Model Studio business workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> businessUnitId_ {};
   };

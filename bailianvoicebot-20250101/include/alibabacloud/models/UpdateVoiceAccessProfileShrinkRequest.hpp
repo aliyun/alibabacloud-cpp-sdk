@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The configuration ID.
     shared_ptr<string> accessProfileId_ {};
+    // The Bailian business workspace ID.
     shared_ptr<string> businessUnitId_ {};
+    // The speech engine.
     shared_ptr<string> nlsEngine_ {};
+    // The parameter settings.
     shared_ptr<string> profileShrink_ {};
   };
 

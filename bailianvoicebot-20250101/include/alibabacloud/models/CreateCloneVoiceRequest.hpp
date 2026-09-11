@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The Bailian workspace ID.
     shared_ptr<string> businessUnitId_ {};
+    // The path of the uploaded file.
     shared_ptr<string> fileKey_ {};
+    // The clone model.
     shared_ptr<string> model_ {};
   };
 

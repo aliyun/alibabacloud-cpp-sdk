@@ -75,12 +75,21 @@ namespace Models
 
 
   protected:
+    // The ID of the Bailian business workspace.
+    // 
     // This parameter is required.
     shared_ptr<string> businessUnitId_ {};
+    // The number of concurrent connections.
     shared_ptr<int32_t> concurrency_ {};
+    // The application description.
     shared_ptr<string> description_ {};
+    // The application name.
+    // 
     // This parameter is required.
     shared_ptr<string> name_ {};
+    // The NLU access method.
+    // 
+    // - Managed
     shared_ptr<string> nluAccessType_ {};
   };
 

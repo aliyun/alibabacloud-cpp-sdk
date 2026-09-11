@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The ID of the Bailian business workspace.
     shared_ptr<string> businessUnitId_ {};
+    // The ID of the cloned voice.
     shared_ptr<string> cloneVoiceId_ {};
+    // The name of the cloned voice.
     shared_ptr<string> name_ {};
   };
 

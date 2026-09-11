@@ -113,11 +113,19 @@ namespace Models
 
 
     protected:
+      // The channel ID.
       shared_ptr<string> channelId_ {};
+      // The token expiration time.
+      // 
+      // > The value is in timestamp format.
       shared_ptr<string> expirationTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The server URL.
       shared_ptr<string> serverUrl_ {};
+      // The session ID.
       shared_ptr<string> sessionId_ {};
+      // The authentication signature.
       shared_ptr<string> token_ {};
     };
 
@@ -168,11 +176,17 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The returned data.
     shared_ptr<BridgeWebCallResponseBody::Data> data_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

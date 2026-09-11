@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The API status or POP error code.
     shared_ptr<string> code_ {};
+    // The response result, which is the ID of the deleted application.
     shared_ptr<string> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The additional information.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

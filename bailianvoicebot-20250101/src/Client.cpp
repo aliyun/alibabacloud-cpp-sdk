@@ -17,7 +17,7 @@ namespace BailianVoiceBot20250101
 {
 
 AlibabaCloud::BailianVoiceBot20250101::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("bailianvoicebot", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建软电话测试通话
+ * @summary Creates a softphone test call.
  *
  * @param request BridgeWebCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -99,7 +99,7 @@ BridgeWebCallResponse Client::bridgeWebCallWithOptions(const BridgeWebCallReques
 }
 
 /**
- * @summary 创建软电话测试通话
+ * @summary Creates a softphone test call.
  *
  * @param request BridgeWebCallRequest
  * @return BridgeWebCallResponse
@@ -110,7 +110,7 @@ BridgeWebCallResponse Client::bridgeWebCall(const BridgeWebCallRequest &request)
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates a voice chatbot application.
  *
  * @param request CreateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -157,7 +157,7 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 }
 
 /**
- * @summary 创建应用
+ * @summary Creates a voice chatbot application.
  *
  * @param request CreateApplicationRequest
  * @return CreateApplicationResponse
@@ -180,6 +180,10 @@ CreateApplicationVersionResponse Client::createApplicationVersionWithOptions(con
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInteractionConfig()) {
     request.setInteractionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInteractionConfig(), "InteractionConfig", "json"));
+  }
+
+  if (!!tmpReq.hasLabelConfig()) {
+    request.setLabelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabelConfig(), "LabelConfig", "json"));
   }
 
   if (!!tmpReq.hasRagConfig()) {
@@ -213,6 +217,10 @@ CreateApplicationVersionResponse Client::createApplicationVersionWithOptions(con
 
   if (!!request.hasInteractionConfigShrink()) {
     query["InteractionConfig"] = request.getInteractionConfigShrink();
+  }
+
+  if (!!request.hasLabelConfigShrink()) {
+    query["LabelConfig"] = request.getLabelConfigShrink();
   }
 
   if (!!request.hasRagConfigShrink()) {
@@ -268,7 +276,7 @@ CreateApplicationVersionResponse Client::createApplicationVersion(const CreateAp
 }
 
 /**
- * @summary 创建克隆音
+ * @summary Creates a cloned voice.
  *
  * @param request CreateCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -307,7 +315,7 @@ CreateCloneVoiceResponse Client::createCloneVoiceWithOptions(const CreateCloneVo
 }
 
 /**
- * @summary 创建克隆音
+ * @summary Creates a cloned voice.
  *
  * @param request CreateCloneVoiceRequest
  * @return CreateCloneVoiceResponse
@@ -318,7 +326,7 @@ CreateCloneVoiceResponse Client::createCloneVoice(const CreateCloneVoiceRequest 
 }
 
 /**
- * @summary 创建变量
+ * @summary Creates a variable.
  *
  * @param request CreateVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -361,7 +369,7 @@ CreateVariableResponse Client::createVariableWithOptions(const CreateVariableReq
 }
 
 /**
- * @summary 创建变量
+ * @summary Creates a variable.
  *
  * @param request CreateVariableRequest
  * @return CreateVariableResponse
@@ -372,7 +380,7 @@ CreateVariableResponse Client::createVariable(const CreateVariableRequest &reque
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param tmpReq CreateVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +429,7 @@ CreateVocabularyResponse Client::createVocabularyWithOptions(const CreateVocabul
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param request CreateVocabularyRequest
  * @return CreateVocabularyResponse
@@ -432,7 +440,7 @@ CreateVocabularyResponse Client::createVocabulary(const CreateVocabularyRequest 
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param tmpReq CreateVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -477,7 +485,7 @@ CreateVoiceAccessProfileResponse Client::createVoiceAccessProfileWithOptions(con
 }
 
 /**
- * @summary 创建实例
+ * @summary Creates an instance.
  *
  * @param request CreateVoiceAccessProfileRequest
  * @return CreateVoiceAccessProfileResponse
@@ -488,7 +496,7 @@ CreateVoiceAccessProfileResponse Client::createVoiceAccessProfile(const CreateVo
 }
 
 /**
- * @summary 删除应用
+ * @summary Deletes an application.
  *
  * @param request DeleteApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +531,7 @@ DeleteApplicationResponse Client::deleteApplicationWithOptions(const DeleteAppli
 }
 
 /**
- * @summary 删除应用
+ * @summary Deletes an application.
  *
  * @param request DeleteApplicationRequest
  * @return DeleteApplicationResponse
@@ -534,7 +542,7 @@ DeleteApplicationResponse Client::deleteApplication(const DeleteApplicationReque
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a cloned voice.
  *
  * @param request DeleteCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -569,7 +577,7 @@ DeleteCloneVoiceResponse Client::deleteCloneVoiceWithOptions(const DeleteCloneVo
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a cloned voice.
  *
  * @param request DeleteCloneVoiceRequest
  * @return DeleteCloneVoiceResponse
@@ -580,7 +588,7 @@ DeleteCloneVoiceResponse Client::deleteCloneVoice(const DeleteCloneVoiceRequest 
 }
 
 /**
- * @summary 删除变量
+ * @summary Deletes a variable.
  *
  * @param request DeleteVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -615,7 +623,7 @@ DeleteVariableResponse Client::deleteVariableWithOptions(const DeleteVariableReq
 }
 
 /**
- * @summary 删除变量
+ * @summary Deletes a variable.
  *
  * @param request DeleteVariableRequest
  * @return DeleteVariableResponse
@@ -626,7 +634,7 @@ DeleteVariableResponse Client::deleteVariable(const DeleteVariableRequest &reque
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a scenario.
  *
  * @param request DeleteVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -661,7 +669,7 @@ DeleteVocabularyResponse Client::deleteVocabularyWithOptions(const DeleteVocabul
 }
 
 /**
- * @summary 删除场景
+ * @summary Deletes a scenario.
  *
  * @param request DeleteVocabularyRequest
  * @return DeleteVocabularyResponse
@@ -672,7 +680,7 @@ DeleteVocabularyResponse Client::deleteVocabulary(const DeleteVocabularyRequest 
 }
 
 /**
- * @summary 删除三方语音配置
+ * @summary Deletes a third-party voice configuration.
  *
  * @param request DeleteVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -707,7 +715,7 @@ DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfileWithOptions(con
 }
 
 /**
- * @summary 删除三方语音配置
+ * @summary Deletes a third-party voice configuration.
  *
  * @param request DeleteVoiceAccessProfileRequest
  * @return DeleteVoiceAccessProfileResponse
@@ -718,7 +726,7 @@ DeleteVoiceAccessProfileResponse Client::deleteVoiceAccessProfile(const DeleteVo
 }
 
 /**
- * @summary 禁用消息订阅
+ * @summary Disables message subscription.
  *
  * @param request DisableSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -749,7 +757,7 @@ DisableSubscriptionResponse Client::disableSubscriptionWithOptions(const Disable
 }
 
 /**
- * @summary 禁用消息订阅
+ * @summary Disables message subscription.
  *
  * @param request DisableSubscriptionRequest
  * @return DisableSubscriptionResponse
@@ -760,7 +768,7 @@ DisableSubscriptionResponse Client::disableSubscription(const DisableSubscriptio
 }
 
 /**
- * @summary 导出热词
+ * @summary Exports hot words.
  *
  * @param tmpReq ExportVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -801,7 +809,7 @@ ExportVocabularyResponse Client::exportVocabularyWithOptions(const ExportVocabul
 }
 
 /**
- * @summary 导出热词
+ * @summary Exports hot words.
  *
  * @param request ExportVocabularyRequest
  * @return ExportVocabularyResponse
@@ -812,7 +820,7 @@ ExportVocabularyResponse Client::exportVocabulary(const ExportVocabularyRequest 
 }
 
 /**
- * @summary 获取文件上传信息
+ * @summary Retrieves file upload information.
  *
  * @param request GenerateFileUploadParamsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -851,7 +859,7 @@ GenerateFileUploadParamsResponse Client::generateFileUploadParamsWithOptions(con
 }
 
 /**
- * @summary 获取文件上传信息
+ * @summary Retrieves file upload information.
  *
  * @param request GenerateFileUploadParamsRequest
  * @return GenerateFileUploadParamsResponse
@@ -862,7 +870,7 @@ GenerateFileUploadParamsResponse Client::generateFileUploadParams(const Generate
 }
 
 /**
- * @summary Get应用
+ * @summary Retrieves a voice chatbot application.
  *
  * @param request GetApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -897,7 +905,7 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
 }
 
 /**
- * @summary Get应用
+ * @summary Retrieves a voice chatbot application.
  *
  * @param request GetApplicationRequest
  * @return GetApplicationResponse
@@ -908,7 +916,7 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
- * @summary 获取数据通道凭证
+ * @summary Retrieves data channel credentials.
  *
  * @param request GetDataChannelCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -943,7 +951,7 @@ GetDataChannelCredentialResponse Client::getDataChannelCredentialWithOptions(con
 }
 
 /**
- * @summary 获取数据通道凭证
+ * @summary Retrieves data channel credentials.
  *
  * @param request GetDataChannelCredentialRequest
  * @return GetDataChannelCredentialResponse
@@ -954,7 +962,7 @@ GetDataChannelCredentialResponse Client::getDataChannelCredential(const GetDataC
 }
 
 /**
- * @summary 获取MQ配置
+ * @summary Retrieves the MQ configuration.
  *
  * @param request GetSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -985,7 +993,7 @@ GetSubscriptionResponse Client::getSubscriptionWithOptions(const GetSubscription
 }
 
 /**
- * @summary 获取MQ配置
+ * @summary Retrieves the MQ configuration.
  *
  * @param request GetSubscriptionRequest
  * @return GetSubscriptionResponse
@@ -996,7 +1004,7 @@ GetSubscriptionResponse Client::getSubscription(const GetSubscriptionRequest &re
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of a hot word vocabulary.
  *
  * @param request GetVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1031,7 +1039,7 @@ GetVocabularyResponse Client::getVocabularyWithOptions(const GetVocabularyReques
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of a hot word vocabulary.
  *
  * @param request GetVocabularyRequest
  * @return GetVocabularyResponse
@@ -1042,7 +1050,7 @@ GetVocabularyResponse Client::getVocabulary(const GetVocabularyRequest &request)
 }
 
 /**
- * @summary 导入热词
+ * @summary Imports hot words.
  *
  * @param request ImportVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1077,7 +1085,7 @@ ImportVocabularyResponse Client::importVocabularyWithOptions(const ImportVocabul
 }
 
 /**
- * @summary 导入热词
+ * @summary Imports hot words.
  *
  * @param request ImportVocabularyRequest
  * @return ImportVocabularyResponse
@@ -1088,7 +1096,7 @@ ImportVocabularyResponse Client::importVocabulary(const ImportVocabularyRequest 
 }
 
 /**
- * @summary 查询应用
+ * @summary Queries the list of voice robot applications.
  *
  * @param request ListApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1131,7 +1139,7 @@ ListApplicationsResponse Client::listApplicationsWithOptions(const ListApplicati
 }
 
 /**
- * @summary 查询应用
+ * @summary Queries the list of voice robot applications.
  *
  * @param request ListApplicationsRequest
  * @return ListApplicationsResponse
@@ -1142,7 +1150,7 @@ ListApplicationsResponse Client::listApplications(const ListApplicationsRequest 
 }
 
 /**
- * @summary 获取背景音列表
+ * @summary Retrieves the list of background music.
  *
  * @param request ListBackgroundMusicsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1181,7 +1189,7 @@ ListBackgroundMusicsResponse Client::listBackgroundMusicsWithOptions(const ListB
 }
 
 /**
- * @summary 获取背景音列表
+ * @summary Retrieves the list of background music.
  *
  * @param request ListBackgroundMusicsRequest
  * @return ListBackgroundMusicsResponse
@@ -1192,7 +1200,7 @@ ListBackgroundMusicsResponse Client::listBackgroundMusics(const ListBackgroundMu
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1235,7 +1243,7 @@ ListCloneVoiceResponse Client::listCloneVoiceWithOptions(const ListCloneVoiceReq
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListCloneVoiceRequest
  * @return ListCloneVoiceResponse
@@ -1246,7 +1254,7 @@ ListCloneVoiceResponse Client::listCloneVoice(const ListCloneVoiceRequest &reque
 }
 
 /**
- * @summary 获取克隆音色可用模型列表
+ * @summary Retrieves the list of available models for voice cloning.
  *
  * @param request ListCloneVoiceModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1281,7 +1289,7 @@ ListCloneVoiceModelsResponse Client::listCloneVoiceModelsWithOptions(const ListC
 }
 
 /**
- * @summary 获取克隆音色可用模型列表
+ * @summary Retrieves the list of available models for voice cloning.
  *
  * @param request ListCloneVoiceModelsRequest
  * @return ListCloneVoiceModelsResponse
@@ -1292,7 +1300,7 @@ ListCloneVoiceModelsResponse Client::listCloneVoiceModels(const ListCloneVoiceMo
 }
 
 /**
- * @summary 获取对话模型列表
+ * @summary Retrieves the list of conversation models.
  *
  * @param request ListNluModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1323,7 +1331,7 @@ ListNluModelsResponse Client::listNluModelsWithOptions(const ListNluModelsReques
 }
 
 /**
- * @summary 获取对话模型列表
+ * @summary Retrieves the list of conversation models.
  *
  * @param request ListNluModelsRequest
  * @return ListNluModelsResponse
@@ -1334,7 +1342,7 @@ ListNluModelsResponse Client::listNluModels(const ListNluModelsRequest &request)
 }
 
 /**
- * @summary 获取变量列表
+ * @summary Retrieves a list of variables.
  *
  * @param request ListVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1377,7 +1385,7 @@ ListVariableResponse Client::listVariableWithOptions(const ListVariableRequest &
 }
 
 /**
- * @summary 获取变量列表
+ * @summary Retrieves a list of variables.
  *
  * @param request ListVariableRequest
  * @return ListVariableResponse
@@ -1388,7 +1396,7 @@ ListVariableResponse Client::listVariable(const ListVariableRequest &request) {
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1431,7 +1439,7 @@ ListVocabularyResponse Client::listVocabularyWithOptions(const ListVocabularyReq
 }
 
 /**
- * @summary 获取实例详情
+ * @summary Retrieves the details of an instance.
  *
  * @param request ListVocabularyRequest
  * @return ListVocabularyResponse
@@ -1442,7 +1450,7 @@ ListVocabularyResponse Client::listVocabulary(const ListVocabularyRequest &reque
 }
 
 /**
- * @summary 获取三方语音配置列表
+ * @summary Retrieves the list of third-party voice configurations.
  *
  * @param request ListVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1481,7 +1489,7 @@ ListVoiceAccessProfileResponse Client::listVoiceAccessProfileWithOptions(const L
 }
 
 /**
- * @summary 获取三方语音配置列表
+ * @summary Retrieves the list of third-party voice configurations.
  *
  * @param request ListVoiceAccessProfileRequest
  * @return ListVoiceAccessProfileResponse
@@ -1492,7 +1500,7 @@ ListVoiceAccessProfileResponse Client::listVoiceAccessProfile(const ListVoiceAcc
 }
 
 /**
- * @summary 获取引擎列表
+ * @summary Retrieves a paginated list of available voice engines.
  *
  * @param request ListVoiceEnginesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1527,7 +1535,7 @@ ListVoiceEnginesResponse Client::listVoiceEnginesWithOptions(const ListVoiceEngi
 }
 
 /**
- * @summary 获取引擎列表
+ * @summary Retrieves a paginated list of available voice engines.
  *
  * @param request ListVoiceEnginesRequest
  * @return ListVoiceEnginesResponse
@@ -1538,7 +1546,7 @@ ListVoiceEnginesResponse Client::listVoiceEngines(const ListVoiceEnginesRequest 
 }
 
 /**
- * @summary 获取音色列表
+ * @summary Retrieves the list of voice timbres.
  *
  * @param request ListVoicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1585,7 +1593,7 @@ ListVoicesResponse Client::listVoicesWithOptions(const ListVoicesRequest &reques
 }
 
 /**
- * @summary 获取音色列表
+ * @summary Retrieves the list of voice timbres.
  *
  * @param request ListVoicesRequest
  * @return ListVoicesResponse
@@ -1596,7 +1604,7 @@ ListVoicesResponse Client::listVoices(const ListVoicesRequest &request) {
 }
 
 /**
- * @summary 试听
+ * @summary Generates a preview of a synthesized voice.
  *
  * @param tmpReq PreviewVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1657,7 +1665,7 @@ PreviewVoiceResponse Client::previewVoiceWithOptions(const PreviewVoiceRequest &
 }
 
 /**
- * @summary 试听
+ * @summary Generates a preview of a synthesized voice.
  *
  * @param request PreviewVoiceRequest
  * @return PreviewVoiceResponse
@@ -1668,7 +1676,7 @@ PreviewVoiceResponse Client::previewVoice(const PreviewVoiceRequest &request) {
 }
 
 /**
- * @summary 发布版本
+ * @summary Publishes a voice robot version.
  *
  * @param request PublishApplicationVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1707,7 +1715,7 @@ PublishApplicationVersionResponse Client::publishApplicationVersionWithOptions(c
 }
 
 /**
- * @summary 发布版本
+ * @summary Publishes a voice robot version.
  *
  * @param request PublishApplicationVersionRequest
  * @return PublishApplicationVersionResponse
@@ -1718,7 +1726,7 @@ PublishApplicationVersionResponse Client::publishApplicationVersion(const Publis
 }
 
 /**
- * @summary 修改应用
+ * @summary Updates a voice bot application.
  *
  * @param request UpdateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1765,7 +1773,7 @@ UpdateApplicationResponse Client::updateApplicationWithOptions(const UpdateAppli
 }
 
 /**
- * @summary 修改应用
+ * @summary Updates a voice bot application.
  *
  * @param request UpdateApplicationRequest
  * @return UpdateApplicationResponse
@@ -1788,6 +1796,10 @@ UpdateApplicationVersionResponse Client::updateApplicationVersionWithOptions(con
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasInteractionConfig()) {
     request.setInteractionConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getInteractionConfig(), "InteractionConfig", "json"));
+  }
+
+  if (!!tmpReq.hasLabelConfig()) {
+    request.setLabelConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getLabelConfig(), "LabelConfig", "json"));
   }
 
   if (!!tmpReq.hasRagConfig()) {
@@ -1821,6 +1833,10 @@ UpdateApplicationVersionResponse Client::updateApplicationVersionWithOptions(con
 
   if (!!request.hasInteractionConfigShrink()) {
     query["InteractionConfig"] = request.getInteractionConfigShrink();
+  }
+
+  if (!!request.hasLabelConfigShrink()) {
+    query["LabelConfig"] = request.getLabelConfigShrink();
   }
 
   if (!!request.hasRagConfigShrink()) {
@@ -1876,7 +1892,7 @@ UpdateApplicationVersionResponse Client::updateApplicationVersion(const UpdateAp
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request UpdateCloneVoiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1915,7 +1931,7 @@ UpdateCloneVoiceResponse Client::updateCloneVoiceWithOptions(const UpdateCloneVo
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates an instance.
  *
  * @param request UpdateCloneVoiceRequest
  * @return UpdateCloneVoiceResponse
@@ -1926,7 +1942,7 @@ UpdateCloneVoiceResponse Client::updateCloneVoice(const UpdateCloneVoiceRequest 
 }
 
 /**
- * @summary 创建或更新MQ配置
+ * @summary Creates or updates a message queue (MQ) subscription.
  *
  * @param tmpReq UpdateSubscriptionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1995,7 +2011,7 @@ UpdateSubscriptionResponse Client::updateSubscriptionWithOptions(const UpdateSub
 }
 
 /**
- * @summary 创建或更新MQ配置
+ * @summary Creates or updates a message queue (MQ) subscription.
  *
  * @param request UpdateSubscriptionRequest
  * @return UpdateSubscriptionResponse
@@ -2006,7 +2022,7 @@ UpdateSubscriptionResponse Client::updateSubscription(const UpdateSubscriptionRe
 }
 
 /**
- * @summary 更新变量
+ * @summary Updates a variable.
  *
  * @param request UpdateVariableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2049,7 +2065,7 @@ UpdateVariableResponse Client::updateVariableWithOptions(const UpdateVariableReq
 }
 
 /**
- * @summary 更新变量
+ * @summary Updates a variable.
  *
  * @param request UpdateVariableRequest
  * @return UpdateVariableResponse
@@ -2060,7 +2076,7 @@ UpdateVariableResponse Client::updateVariable(const UpdateVariableRequest &reque
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates a vocabulary.
  *
  * @param tmpReq UpdateVocabularyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2113,7 +2129,7 @@ UpdateVocabularyResponse Client::updateVocabularyWithOptions(const UpdateVocabul
 }
 
 /**
- * @summary 更新实例
+ * @summary Updates a vocabulary.
  *
  * @param request UpdateVocabularyRequest
  * @return UpdateVocabularyResponse
@@ -2124,7 +2140,7 @@ UpdateVocabularyResponse Client::updateVocabulary(const UpdateVocabularyRequest 
 }
 
 /**
- * @summary 更新三方语音配置
+ * @summary Updates the third-party voice configuration.
  *
  * @param tmpReq UpdateVoiceAccessProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2173,7 +2189,7 @@ UpdateVoiceAccessProfileResponse Client::updateVoiceAccessProfileWithOptions(con
 }
 
 /**
- * @summary 更新三方语音配置
+ * @summary Updates the third-party voice configuration.
  *
  * @param request UpdateVoiceAccessProfileRequest
  * @return UpdateVoiceAccessProfileResponse

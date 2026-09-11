@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The third-party voice configuration ID.
     shared_ptr<string> accessProfileId_ {};
+    // The Bailian business workspace ID.
     shared_ptr<string> businessUnitId_ {};
   };
 

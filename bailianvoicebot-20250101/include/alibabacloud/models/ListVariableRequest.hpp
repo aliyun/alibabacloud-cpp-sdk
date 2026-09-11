@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The Bailian business workspace ID.
     shared_ptr<string> businessUnitId_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Performs a fuzzy match based on the variable name or display name.
     shared_ptr<string> searchPattern_ {};
   };
 

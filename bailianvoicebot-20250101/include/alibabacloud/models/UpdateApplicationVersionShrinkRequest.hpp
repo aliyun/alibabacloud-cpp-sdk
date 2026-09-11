@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_TO_JSON(BusinessUnitId, businessUnitId_);
       DARABONBA_PTR_TO_JSON(InteractionConfig, interactionConfigShrink_);
+      DARABONBA_PTR_TO_JSON(LabelConfig, labelConfigShrink_);
       DARABONBA_PTR_TO_JSON(RagConfig, ragConfigShrink_);
       DARABONBA_PTR_TO_JSON(ScriptProfile, scriptProfileShrink_);
       DARABONBA_PTR_TO_JSON(SynthesizerConfig, synthesizerConfigShrink_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
       DARABONBA_PTR_FROM_JSON(BusinessUnitId, businessUnitId_);
       DARABONBA_PTR_FROM_JSON(InteractionConfig, interactionConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(LabelConfig, labelConfigShrink_);
       DARABONBA_PTR_FROM_JSON(RagConfig, ragConfigShrink_);
       DARABONBA_PTR_FROM_JSON(ScriptProfile, scriptProfileShrink_);
       DARABONBA_PTR_FROM_JSON(SynthesizerConfig, synthesizerConfigShrink_);
@@ -46,8 +48,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->businessUnitId_ == nullptr && this->interactionConfigShrink_ == nullptr && this->ragConfigShrink_ == nullptr && this->scriptProfileShrink_ == nullptr && this->synthesizerConfigShrink_ == nullptr
-        && this->toolConfigShrink_ == nullptr && this->transcriberConfigShrink_ == nullptr && this->versionId_ == nullptr; };
+        && this->businessUnitId_ == nullptr && this->interactionConfigShrink_ == nullptr && this->labelConfigShrink_ == nullptr && this->ragConfigShrink_ == nullptr && this->scriptProfileShrink_ == nullptr
+        && this->synthesizerConfigShrink_ == nullptr && this->toolConfigShrink_ == nullptr && this->transcriberConfigShrink_ == nullptr && this->versionId_ == nullptr; };
     // applicationId Field Functions 
     bool hasApplicationId() const { return this->applicationId_ != nullptr;};
     void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     void deleteInteractionConfigShrink() { this->interactionConfigShrink_ = nullptr;};
     inline string getInteractionConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(interactionConfigShrink_, "") };
     inline UpdateApplicationVersionShrinkRequest& setInteractionConfigShrink(string interactionConfigShrink) { DARABONBA_PTR_SET_VALUE(interactionConfigShrink_, interactionConfigShrink) };
+
+
+    // labelConfigShrink Field Functions 
+    bool hasLabelConfigShrink() const { return this->labelConfigShrink_ != nullptr;};
+    void deleteLabelConfigShrink() { this->labelConfigShrink_ = nullptr;};
+    inline string getLabelConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(labelConfigShrink_, "") };
+    inline UpdateApplicationVersionShrinkRequest& setLabelConfigShrink(string labelConfigShrink) { DARABONBA_PTR_SET_VALUE(labelConfigShrink_, labelConfigShrink) };
 
 
     // ragConfigShrink Field Functions 
@@ -117,6 +126,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> businessUnitId_ {};
     shared_ptr<string> interactionConfigShrink_ {};
+    shared_ptr<string> labelConfigShrink_ {};
     shared_ptr<string> ragConfigShrink_ {};
     // This parameter is required.
     shared_ptr<string> scriptProfileShrink_ {};

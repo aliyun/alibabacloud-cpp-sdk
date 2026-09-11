@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The Bailian workspace ID.
     shared_ptr<string> businessUnitId_ {};
+    // The speech engine.
     shared_ptr<string> nlsEngine_ {};
+    // The parameter settings.
     shared_ptr<string> profileShrink_ {};
   };
 

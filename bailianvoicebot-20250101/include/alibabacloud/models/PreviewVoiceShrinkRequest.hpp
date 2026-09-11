@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // The ID of the Model Studio business unit.
     shared_ptr<string> businessUnitId_ {};
+    // The TTS model.
     shared_ptr<string> model_ {};
+    // The TTS access type.
     shared_ptr<string> nlsAccessType_ {};
+    // The TTS engine.
     shared_ptr<string> nlsEngine_ {};
+    // The synthesis parameters.
     shared_ptr<string> paramsShrink_ {};
+    // The text to synthesize for the preview.
     shared_ptr<string> text_ {};
+    // The voice for synthesis.
     shared_ptr<string> voice_ {};
   };
 

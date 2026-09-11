@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the Model Studio business space.
     shared_ptr<string> businessUnitId_ {};
+    // The hot word vocabulary ID.
     shared_ptr<string> vocabularyId_ {};
   };
 

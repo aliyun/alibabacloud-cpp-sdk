@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // The Bailian workspace ID.
     shared_ptr<string> businessUnitId_ {};
+    // The TTS call method.
     shared_ptr<string> nlsAccessType_ {};
+    // The TTS engine.
     shared_ptr<string> nlsEngine_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page. The value is fixed at 1000 and cannot be modified.
     shared_ptr<int32_t> pageSize_ {};
   };
 

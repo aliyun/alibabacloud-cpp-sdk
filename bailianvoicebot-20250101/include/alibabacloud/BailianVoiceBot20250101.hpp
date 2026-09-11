@@ -21,7 +21,7 @@ namespace BailianVoiceBot20250101
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 创建软电话测试通话
+       * @summary Creates a softphone test call.
        *
        * @param request BridgeWebCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace BailianVoiceBot20250101
       Models::BridgeWebCallResponse bridgeWebCallWithOptions(const Models::BridgeWebCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建软电话测试通话
+       * @summary Creates a softphone test call.
        *
        * @param request BridgeWebCallRequest
        * @return BridgeWebCallResponse
@@ -38,7 +38,7 @@ namespace BailianVoiceBot20250101
       Models::BridgeWebCallResponse bridgeWebCall(const Models::BridgeWebCallRequest &request);
 
       /**
-       * @summary 创建应用
+       * @summary Creates a voice chatbot application.
        *
        * @param request CreateApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +47,7 @@ namespace BailianVoiceBot20250101
       Models::CreateApplicationResponse createApplicationWithOptions(const Models::CreateApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建应用
+       * @summary Creates a voice chatbot application.
        *
        * @param request CreateApplicationRequest
        * @return CreateApplicationResponse
@@ -72,7 +72,7 @@ namespace BailianVoiceBot20250101
       Models::CreateApplicationVersionResponse createApplicationVersion(const Models::CreateApplicationVersionRequest &request);
 
       /**
-       * @summary 创建克隆音
+       * @summary Creates a cloned voice.
        *
        * @param request CreateCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +81,7 @@ namespace BailianVoiceBot20250101
       Models::CreateCloneVoiceResponse createCloneVoiceWithOptions(const Models::CreateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建克隆音
+       * @summary Creates a cloned voice.
        *
        * @param request CreateCloneVoiceRequest
        * @return CreateCloneVoiceResponse
@@ -89,7 +89,7 @@ namespace BailianVoiceBot20250101
       Models::CreateCloneVoiceResponse createCloneVoice(const Models::CreateCloneVoiceRequest &request);
 
       /**
-       * @summary 创建变量
+       * @summary Creates a variable.
        *
        * @param request CreateVariableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -98,7 +98,7 @@ namespace BailianVoiceBot20250101
       Models::CreateVariableResponse createVariableWithOptions(const Models::CreateVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建变量
+       * @summary Creates a variable.
        *
        * @param request CreateVariableRequest
        * @return CreateVariableResponse
@@ -106,7 +106,7 @@ namespace BailianVoiceBot20250101
       Models::CreateVariableResponse createVariable(const Models::CreateVariableRequest &request);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param tmpReq CreateVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -115,7 +115,7 @@ namespace BailianVoiceBot20250101
       Models::CreateVocabularyResponse createVocabularyWithOptions(const Models::CreateVocabularyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param request CreateVocabularyRequest
        * @return CreateVocabularyResponse
@@ -123,7 +123,7 @@ namespace BailianVoiceBot20250101
       Models::CreateVocabularyResponse createVocabulary(const Models::CreateVocabularyRequest &request);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param tmpReq CreateVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -132,7 +132,7 @@ namespace BailianVoiceBot20250101
       Models::CreateVoiceAccessProfileResponse createVoiceAccessProfileWithOptions(const Models::CreateVoiceAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建实例
+       * @summary Creates an instance.
        *
        * @param request CreateVoiceAccessProfileRequest
        * @return CreateVoiceAccessProfileResponse
@@ -140,7 +140,7 @@ namespace BailianVoiceBot20250101
       Models::CreateVoiceAccessProfileResponse createVoiceAccessProfile(const Models::CreateVoiceAccessProfileRequest &request);
 
       /**
-       * @summary 删除应用
+       * @summary Deletes an application.
        *
        * @param request DeleteApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteApplicationResponse deleteApplicationWithOptions(const Models::DeleteApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除应用
+       * @summary Deletes an application.
        *
        * @param request DeleteApplicationRequest
        * @return DeleteApplicationResponse
@@ -157,7 +157,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteApplicationResponse deleteApplication(const Models::DeleteApplicationRequest &request);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a cloned voice.
        *
        * @param request DeleteCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -166,7 +166,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteCloneVoiceResponse deleteCloneVoiceWithOptions(const Models::DeleteCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a cloned voice.
        *
        * @param request DeleteCloneVoiceRequest
        * @return DeleteCloneVoiceResponse
@@ -174,7 +174,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteCloneVoiceResponse deleteCloneVoice(const Models::DeleteCloneVoiceRequest &request);
 
       /**
-       * @summary 删除变量
+       * @summary Deletes a variable.
        *
        * @param request DeleteVariableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -183,7 +183,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteVariableResponse deleteVariableWithOptions(const Models::DeleteVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除变量
+       * @summary Deletes a variable.
        *
        * @param request DeleteVariableRequest
        * @return DeleteVariableResponse
@@ -191,7 +191,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteVariableResponse deleteVariable(const Models::DeleteVariableRequest &request);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a scenario.
        *
        * @param request DeleteVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -200,7 +200,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteVocabularyResponse deleteVocabularyWithOptions(const Models::DeleteVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除场景
+       * @summary Deletes a scenario.
        *
        * @param request DeleteVocabularyRequest
        * @return DeleteVocabularyResponse
@@ -208,7 +208,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteVocabularyResponse deleteVocabulary(const Models::DeleteVocabularyRequest &request);
 
       /**
-       * @summary 删除三方语音配置
+       * @summary Deletes a third-party voice configuration.
        *
        * @param request DeleteVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -217,7 +217,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteVoiceAccessProfileResponse deleteVoiceAccessProfileWithOptions(const Models::DeleteVoiceAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除三方语音配置
+       * @summary Deletes a third-party voice configuration.
        *
        * @param request DeleteVoiceAccessProfileRequest
        * @return DeleteVoiceAccessProfileResponse
@@ -225,7 +225,7 @@ namespace BailianVoiceBot20250101
       Models::DeleteVoiceAccessProfileResponse deleteVoiceAccessProfile(const Models::DeleteVoiceAccessProfileRequest &request);
 
       /**
-       * @summary 禁用消息订阅
+       * @summary Disables message subscription.
        *
        * @param request DisableSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -234,7 +234,7 @@ namespace BailianVoiceBot20250101
       Models::DisableSubscriptionResponse disableSubscriptionWithOptions(const Models::DisableSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 禁用消息订阅
+       * @summary Disables message subscription.
        *
        * @param request DisableSubscriptionRequest
        * @return DisableSubscriptionResponse
@@ -242,7 +242,7 @@ namespace BailianVoiceBot20250101
       Models::DisableSubscriptionResponse disableSubscription(const Models::DisableSubscriptionRequest &request);
 
       /**
-       * @summary 导出热词
+       * @summary Exports hot words.
        *
        * @param tmpReq ExportVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -251,7 +251,7 @@ namespace BailianVoiceBot20250101
       Models::ExportVocabularyResponse exportVocabularyWithOptions(const Models::ExportVocabularyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导出热词
+       * @summary Exports hot words.
        *
        * @param request ExportVocabularyRequest
        * @return ExportVocabularyResponse
@@ -259,7 +259,7 @@ namespace BailianVoiceBot20250101
       Models::ExportVocabularyResponse exportVocabulary(const Models::ExportVocabularyRequest &request);
 
       /**
-       * @summary 获取文件上传信息
+       * @summary Retrieves file upload information.
        *
        * @param request GenerateFileUploadParamsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -268,7 +268,7 @@ namespace BailianVoiceBot20250101
       Models::GenerateFileUploadParamsResponse generateFileUploadParamsWithOptions(const Models::GenerateFileUploadParamsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取文件上传信息
+       * @summary Retrieves file upload information.
        *
        * @param request GenerateFileUploadParamsRequest
        * @return GenerateFileUploadParamsResponse
@@ -276,7 +276,7 @@ namespace BailianVoiceBot20250101
       Models::GenerateFileUploadParamsResponse generateFileUploadParams(const Models::GenerateFileUploadParamsRequest &request);
 
       /**
-       * @summary Get应用
+       * @summary Retrieves a voice chatbot application.
        *
        * @param request GetApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -285,7 +285,7 @@ namespace BailianVoiceBot20250101
       Models::GetApplicationResponse getApplicationWithOptions(const Models::GetApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get应用
+       * @summary Retrieves a voice chatbot application.
        *
        * @param request GetApplicationRequest
        * @return GetApplicationResponse
@@ -293,7 +293,7 @@ namespace BailianVoiceBot20250101
       Models::GetApplicationResponse getApplication(const Models::GetApplicationRequest &request);
 
       /**
-       * @summary 获取数据通道凭证
+       * @summary Retrieves data channel credentials.
        *
        * @param request GetDataChannelCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -302,7 +302,7 @@ namespace BailianVoiceBot20250101
       Models::GetDataChannelCredentialResponse getDataChannelCredentialWithOptions(const Models::GetDataChannelCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取数据通道凭证
+       * @summary Retrieves data channel credentials.
        *
        * @param request GetDataChannelCredentialRequest
        * @return GetDataChannelCredentialResponse
@@ -310,7 +310,7 @@ namespace BailianVoiceBot20250101
       Models::GetDataChannelCredentialResponse getDataChannelCredential(const Models::GetDataChannelCredentialRequest &request);
 
       /**
-       * @summary 获取MQ配置
+       * @summary Retrieves the MQ configuration.
        *
        * @param request GetSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ namespace BailianVoiceBot20250101
       Models::GetSubscriptionResponse getSubscriptionWithOptions(const Models::GetSubscriptionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取MQ配置
+       * @summary Retrieves the MQ configuration.
        *
        * @param request GetSubscriptionRequest
        * @return GetSubscriptionResponse
@@ -327,7 +327,7 @@ namespace BailianVoiceBot20250101
       Models::GetSubscriptionResponse getSubscription(const Models::GetSubscriptionRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of a hot word vocabulary.
        *
        * @param request GetVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -336,7 +336,7 @@ namespace BailianVoiceBot20250101
       Models::GetVocabularyResponse getVocabularyWithOptions(const Models::GetVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of a hot word vocabulary.
        *
        * @param request GetVocabularyRequest
        * @return GetVocabularyResponse
@@ -344,7 +344,7 @@ namespace BailianVoiceBot20250101
       Models::GetVocabularyResponse getVocabulary(const Models::GetVocabularyRequest &request);
 
       /**
-       * @summary 导入热词
+       * @summary Imports hot words.
        *
        * @param request ImportVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -353,7 +353,7 @@ namespace BailianVoiceBot20250101
       Models::ImportVocabularyResponse importVocabularyWithOptions(const Models::ImportVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 导入热词
+       * @summary Imports hot words.
        *
        * @param request ImportVocabularyRequest
        * @return ImportVocabularyResponse
@@ -361,7 +361,7 @@ namespace BailianVoiceBot20250101
       Models::ImportVocabularyResponse importVocabulary(const Models::ImportVocabularyRequest &request);
 
       /**
-       * @summary 查询应用
+       * @summary Queries the list of voice robot applications.
        *
        * @param request ListApplicationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +370,7 @@ namespace BailianVoiceBot20250101
       Models::ListApplicationsResponse listApplicationsWithOptions(const Models::ListApplicationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询应用
+       * @summary Queries the list of voice robot applications.
        *
        * @param request ListApplicationsRequest
        * @return ListApplicationsResponse
@@ -378,7 +378,7 @@ namespace BailianVoiceBot20250101
       Models::ListApplicationsResponse listApplications(const Models::ListApplicationsRequest &request);
 
       /**
-       * @summary 获取背景音列表
+       * @summary Retrieves the list of background music.
        *
        * @param request ListBackgroundMusicsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +387,7 @@ namespace BailianVoiceBot20250101
       Models::ListBackgroundMusicsResponse listBackgroundMusicsWithOptions(const Models::ListBackgroundMusicsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取背景音列表
+       * @summary Retrieves the list of background music.
        *
        * @param request ListBackgroundMusicsRequest
        * @return ListBackgroundMusicsResponse
@@ -395,7 +395,7 @@ namespace BailianVoiceBot20250101
       Models::ListBackgroundMusicsResponse listBackgroundMusics(const Models::ListBackgroundMusicsRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -404,7 +404,7 @@ namespace BailianVoiceBot20250101
       Models::ListCloneVoiceResponse listCloneVoiceWithOptions(const Models::ListCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListCloneVoiceRequest
        * @return ListCloneVoiceResponse
@@ -412,7 +412,7 @@ namespace BailianVoiceBot20250101
       Models::ListCloneVoiceResponse listCloneVoice(const Models::ListCloneVoiceRequest &request);
 
       /**
-       * @summary 获取克隆音色可用模型列表
+       * @summary Retrieves the list of available models for voice cloning.
        *
        * @param request ListCloneVoiceModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -421,7 +421,7 @@ namespace BailianVoiceBot20250101
       Models::ListCloneVoiceModelsResponse listCloneVoiceModelsWithOptions(const Models::ListCloneVoiceModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取克隆音色可用模型列表
+       * @summary Retrieves the list of available models for voice cloning.
        *
        * @param request ListCloneVoiceModelsRequest
        * @return ListCloneVoiceModelsResponse
@@ -429,7 +429,7 @@ namespace BailianVoiceBot20250101
       Models::ListCloneVoiceModelsResponse listCloneVoiceModels(const Models::ListCloneVoiceModelsRequest &request);
 
       /**
-       * @summary 获取对话模型列表
+       * @summary Retrieves the list of conversation models.
        *
        * @param request ListNluModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -438,7 +438,7 @@ namespace BailianVoiceBot20250101
       Models::ListNluModelsResponse listNluModelsWithOptions(const Models::ListNluModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取对话模型列表
+       * @summary Retrieves the list of conversation models.
        *
        * @param request ListNluModelsRequest
        * @return ListNluModelsResponse
@@ -446,7 +446,7 @@ namespace BailianVoiceBot20250101
       Models::ListNluModelsResponse listNluModels(const Models::ListNluModelsRequest &request);
 
       /**
-       * @summary 获取变量列表
+       * @summary Retrieves a list of variables.
        *
        * @param request ListVariableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -455,7 +455,7 @@ namespace BailianVoiceBot20250101
       Models::ListVariableResponse listVariableWithOptions(const Models::ListVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取变量列表
+       * @summary Retrieves a list of variables.
        *
        * @param request ListVariableRequest
        * @return ListVariableResponse
@@ -463,7 +463,7 @@ namespace BailianVoiceBot20250101
       Models::ListVariableResponse listVariable(const Models::ListVariableRequest &request);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +472,7 @@ namespace BailianVoiceBot20250101
       Models::ListVocabularyResponse listVocabularyWithOptions(const Models::ListVocabularyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取实例详情
+       * @summary Retrieves the details of an instance.
        *
        * @param request ListVocabularyRequest
        * @return ListVocabularyResponse
@@ -480,7 +480,7 @@ namespace BailianVoiceBot20250101
       Models::ListVocabularyResponse listVocabulary(const Models::ListVocabularyRequest &request);
 
       /**
-       * @summary 获取三方语音配置列表
+       * @summary Retrieves the list of third-party voice configurations.
        *
        * @param request ListVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -489,7 +489,7 @@ namespace BailianVoiceBot20250101
       Models::ListVoiceAccessProfileResponse listVoiceAccessProfileWithOptions(const Models::ListVoiceAccessProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取三方语音配置列表
+       * @summary Retrieves the list of third-party voice configurations.
        *
        * @param request ListVoiceAccessProfileRequest
        * @return ListVoiceAccessProfileResponse
@@ -497,7 +497,7 @@ namespace BailianVoiceBot20250101
       Models::ListVoiceAccessProfileResponse listVoiceAccessProfile(const Models::ListVoiceAccessProfileRequest &request);
 
       /**
-       * @summary 获取引擎列表
+       * @summary Retrieves a paginated list of available voice engines.
        *
        * @param request ListVoiceEnginesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +506,7 @@ namespace BailianVoiceBot20250101
       Models::ListVoiceEnginesResponse listVoiceEnginesWithOptions(const Models::ListVoiceEnginesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取引擎列表
+       * @summary Retrieves a paginated list of available voice engines.
        *
        * @param request ListVoiceEnginesRequest
        * @return ListVoiceEnginesResponse
@@ -514,7 +514,7 @@ namespace BailianVoiceBot20250101
       Models::ListVoiceEnginesResponse listVoiceEngines(const Models::ListVoiceEnginesRequest &request);
 
       /**
-       * @summary 获取音色列表
+       * @summary Retrieves the list of voice timbres.
        *
        * @param request ListVoicesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -523,7 +523,7 @@ namespace BailianVoiceBot20250101
       Models::ListVoicesResponse listVoicesWithOptions(const Models::ListVoicesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 获取音色列表
+       * @summary Retrieves the list of voice timbres.
        *
        * @param request ListVoicesRequest
        * @return ListVoicesResponse
@@ -531,7 +531,7 @@ namespace BailianVoiceBot20250101
       Models::ListVoicesResponse listVoices(const Models::ListVoicesRequest &request);
 
       /**
-       * @summary 试听
+       * @summary Generates a preview of a synthesized voice.
        *
        * @param tmpReq PreviewVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -540,7 +540,7 @@ namespace BailianVoiceBot20250101
       Models::PreviewVoiceResponse previewVoiceWithOptions(const Models::PreviewVoiceRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 试听
+       * @summary Generates a preview of a synthesized voice.
        *
        * @param request PreviewVoiceRequest
        * @return PreviewVoiceResponse
@@ -548,7 +548,7 @@ namespace BailianVoiceBot20250101
       Models::PreviewVoiceResponse previewVoice(const Models::PreviewVoiceRequest &request);
 
       /**
-       * @summary 发布版本
+       * @summary Publishes a voice robot version.
        *
        * @param request PublishApplicationVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +557,7 @@ namespace BailianVoiceBot20250101
       Models::PublishApplicationVersionResponse publishApplicationVersionWithOptions(const Models::PublishApplicationVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发布版本
+       * @summary Publishes a voice robot version.
        *
        * @param request PublishApplicationVersionRequest
        * @return PublishApplicationVersionResponse
@@ -565,7 +565,7 @@ namespace BailianVoiceBot20250101
       Models::PublishApplicationVersionResponse publishApplicationVersion(const Models::PublishApplicationVersionRequest &request);
 
       /**
-       * @summary 修改应用
+       * @summary Updates a voice bot application.
        *
        * @param request UpdateApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +574,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateApplicationResponse updateApplicationWithOptions(const Models::UpdateApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改应用
+       * @summary Updates a voice bot application.
        *
        * @param request UpdateApplicationRequest
        * @return UpdateApplicationResponse
@@ -599,7 +599,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateApplicationVersionResponse updateApplicationVersion(const Models::UpdateApplicationVersionRequest &request);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param request UpdateCloneVoiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +608,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateCloneVoiceResponse updateCloneVoiceWithOptions(const Models::UpdateCloneVoiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新实例
+       * @summary Updates an instance.
        *
        * @param request UpdateCloneVoiceRequest
        * @return UpdateCloneVoiceResponse
@@ -616,7 +616,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateCloneVoiceResponse updateCloneVoice(const Models::UpdateCloneVoiceRequest &request);
 
       /**
-       * @summary 创建或更新MQ配置
+       * @summary Creates or updates a message queue (MQ) subscription.
        *
        * @param tmpReq UpdateSubscriptionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +625,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateSubscriptionResponse updateSubscriptionWithOptions(const Models::UpdateSubscriptionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建或更新MQ配置
+       * @summary Creates or updates a message queue (MQ) subscription.
        *
        * @param request UpdateSubscriptionRequest
        * @return UpdateSubscriptionResponse
@@ -633,7 +633,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateSubscriptionResponse updateSubscription(const Models::UpdateSubscriptionRequest &request);
 
       /**
-       * @summary 更新变量
+       * @summary Updates a variable.
        *
        * @param request UpdateVariableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +642,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateVariableResponse updateVariableWithOptions(const Models::UpdateVariableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新变量
+       * @summary Updates a variable.
        *
        * @param request UpdateVariableRequest
        * @return UpdateVariableResponse
@@ -650,7 +650,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateVariableResponse updateVariable(const Models::UpdateVariableRequest &request);
 
       /**
-       * @summary 更新实例
+       * @summary Updates a vocabulary.
        *
        * @param tmpReq UpdateVocabularyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -659,7 +659,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateVocabularyResponse updateVocabularyWithOptions(const Models::UpdateVocabularyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新实例
+       * @summary Updates a vocabulary.
        *
        * @param request UpdateVocabularyRequest
        * @return UpdateVocabularyResponse
@@ -667,7 +667,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateVocabularyResponse updateVocabulary(const Models::UpdateVocabularyRequest &request);
 
       /**
-       * @summary 更新三方语音配置
+       * @summary Updates the third-party voice configuration.
        *
        * @param tmpReq UpdateVoiceAccessProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -676,7 +676,7 @@ namespace BailianVoiceBot20250101
       Models::UpdateVoiceAccessProfileResponse updateVoiceAccessProfileWithOptions(const Models::UpdateVoiceAccessProfileRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新三方语音配置
+       * @summary Updates the third-party voice configuration.
        *
        * @param request UpdateVoiceAccessProfileRequest
        * @return UpdateVoiceAccessProfileResponse

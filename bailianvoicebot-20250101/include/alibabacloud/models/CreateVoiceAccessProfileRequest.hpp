@@ -117,12 +117,19 @@ namespace Models
 
 
     protected:
+      // Required when using Doubao.
       shared_ptr<string> accessKey_ {};
+      // Required when using Bailian or iFLYTEK.
       shared_ptr<string> apiKey_ {};
+      // Required when using iFLYTEK.
       shared_ptr<string> apiSecret_ {};
+      // Required when using iFLYTEK.
       shared_ptr<string> appId_ {};
+      // Required when using Doubao.
       shared_ptr<string> appKey_ {};
+      // Not currently in use.
       shared_ptr<string> asrAppKey_ {};
+      // Not currently in use.
       shared_ptr<string> ttsApiKey_ {};
     };
 
@@ -152,8 +159,11 @@ namespace Models
 
 
   protected:
+    // The Bailian workspace ID.
     shared_ptr<string> businessUnitId_ {};
+    // The speech engine.
     shared_ptr<string> nlsEngine_ {};
+    // The parameter settings.
     shared_ptr<CreateVoiceAccessProfileRequest::Profile> profile_ {};
   };
 

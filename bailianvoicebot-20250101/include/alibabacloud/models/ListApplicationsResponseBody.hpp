@@ -174,15 +174,25 @@ namespace Models
 
 
       protected:
+        // The application ID.
         shared_ptr<string> applicationId_ {};
+        // The concurrency settings.
         shared_ptr<int32_t> concurrency_ {};
+        // The creation time.
         shared_ptr<int64_t> createdTime_ {};
+        // The application description.
         shared_ptr<string> description_ {};
+        // The draft version ID.
         shared_ptr<string> draftVersionId_ {};
+        // The application name.
         shared_ptr<string> name_ {};
+        // The NLU invocation method.
         shared_ptr<string> nluAccessType_ {};
+        // The NLU engine.
         shared_ptr<string> nluEngine_ {};
+        // The published version ID.
         shared_ptr<string> publishedVersionId_ {};
+        // The modification time.
         shared_ptr<int64_t> updatedTime_ {};
       };
 
@@ -219,9 +229,13 @@ namespace Models
 
 
     protected:
+      // The application list information.
       shared_ptr<vector<Data::Applications>> applications_ {};
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -265,10 +279,15 @@ namespace Models
 
 
   protected:
+    // The API status code or POP error code.
     shared_ptr<string> code_ {};
+    // The returned result.
     shared_ptr<ListApplicationsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

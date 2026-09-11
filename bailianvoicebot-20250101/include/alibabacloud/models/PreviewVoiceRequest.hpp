@@ -88,8 +88,17 @@ namespace Models
 
 
     protected:
+      // The pitch rate.
+      // 
+      // > Valid values: -500 to 500.
       shared_ptr<float> pitchRate_ {};
+      // The speech rate.
+      // 
+      // > Valid values: -500 to 500.
       shared_ptr<float> speechRate_ {};
+      // The volume.
+      // 
+      // > Valid values: 0 to 100.
       shared_ptr<int32_t> volume_ {};
     };
 
@@ -148,12 +157,19 @@ namespace Models
 
 
   protected:
+    // The ID of the Model Studio business unit.
     shared_ptr<string> businessUnitId_ {};
+    // The TTS model.
     shared_ptr<string> model_ {};
+    // The TTS access type.
     shared_ptr<string> nlsAccessType_ {};
+    // The TTS engine.
     shared_ptr<string> nlsEngine_ {};
+    // The synthesis parameters.
     shared_ptr<PreviewVoiceRequest::Params> params_ {};
+    // The text to synthesize for the preview.
     shared_ptr<string> text_ {};
+    // The voice for synthesis.
     shared_ptr<string> voice_ {};
   };
 
