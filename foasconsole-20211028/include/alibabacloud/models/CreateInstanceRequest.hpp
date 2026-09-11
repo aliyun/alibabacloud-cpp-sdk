@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_TO_JSON(DefaultHaNamespaceResourceSpec, defaultHaNamespaceResourceSpec_);
+      DARABONBA_PTR_TO_JSON(DefaultNamespaceResourceSpec, defaultNamespaceResourceSpec_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(Extra, extra_);
       DARABONBA_PTR_TO_JSON(Ha, ha_);
@@ -39,6 +41,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_FROM_JSON(DefaultHaNamespaceResourceSpec, defaultHaNamespaceResourceSpec_);
+      DARABONBA_PTR_FROM_JSON(DefaultNamespaceResourceSpec, defaultNamespaceResourceSpec_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(Extra, extra_);
       DARABONBA_PTR_FROM_JSON(Ha, ha_);
@@ -279,15 +283,108 @@ namespace Models
     protected:
       // The number of CPUs for zone-disaster recovery.
       shared_ptr<int32_t> cpu_ {};
-      // The memory size for zone-disaster recovery.
+      // The memory size for zone-disaster recovery. The value is active memory allocated for high availability (HA).
+      shared_ptr<int32_t> memoryGB_ {};
+    };
+
+    class DefaultNamespaceResourceSpec : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DefaultNamespaceResourceSpec& obj) { 
+        DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(MemoryGB, memoryGB_);
+      };
+      friend void from_json(const Darabonba::Json& j, DefaultNamespaceResourceSpec& obj) { 
+        DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(MemoryGB, memoryGB_);
+      };
+      DefaultNamespaceResourceSpec() = default ;
+      DefaultNamespaceResourceSpec(const DefaultNamespaceResourceSpec &) = default ;
+      DefaultNamespaceResourceSpec(DefaultNamespaceResourceSpec &&) = default ;
+      DefaultNamespaceResourceSpec(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DefaultNamespaceResourceSpec() = default ;
+      DefaultNamespaceResourceSpec& operator=(const DefaultNamespaceResourceSpec &) = default ;
+      DefaultNamespaceResourceSpec& operator=(DefaultNamespaceResourceSpec &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->cpu_ == nullptr
+        && this->memoryGB_ == nullptr; };
+      // cpu Field Functions 
+      bool hasCpu() const { return this->cpu_ != nullptr;};
+      void deleteCpu() { this->cpu_ = nullptr;};
+      inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
+      inline DefaultNamespaceResourceSpec& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // memoryGB Field Functions 
+      bool hasMemoryGB() const { return this->memoryGB_ != nullptr;};
+      void deleteMemoryGB() { this->memoryGB_ = nullptr;};
+      inline int32_t getMemoryGB() const { DARABONBA_PTR_GET_DEFAULT(memoryGB_, 0) };
+      inline DefaultNamespaceResourceSpec& setMemoryGB(int32_t memoryGB) { DARABONBA_PTR_SET_VALUE(memoryGB_, memoryGB) };
+
+
+    protected:
+      // The number of CPUs.
+      shared_ptr<int32_t> cpu_ {};
+      // The memory size. Unit: GB.
+      // 
+      // > The memory size must be 4 times the number of CPUs.
+      shared_ptr<int32_t> memoryGB_ {};
+    };
+
+    class DefaultHaNamespaceResourceSpec : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DefaultHaNamespaceResourceSpec& obj) { 
+        DARABONBA_PTR_TO_JSON(Cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(MemoryGB, memoryGB_);
+      };
+      friend void from_json(const Darabonba::Json& j, DefaultHaNamespaceResourceSpec& obj) { 
+        DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(MemoryGB, memoryGB_);
+      };
+      DefaultHaNamespaceResourceSpec() = default ;
+      DefaultHaNamespaceResourceSpec(const DefaultHaNamespaceResourceSpec &) = default ;
+      DefaultHaNamespaceResourceSpec(DefaultHaNamespaceResourceSpec &&) = default ;
+      DefaultHaNamespaceResourceSpec(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DefaultHaNamespaceResourceSpec() = default ;
+      DefaultHaNamespaceResourceSpec& operator=(const DefaultHaNamespaceResourceSpec &) = default ;
+      DefaultHaNamespaceResourceSpec& operator=(DefaultHaNamespaceResourceSpec &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->cpu_ == nullptr
+        && this->memoryGB_ == nullptr; };
+      // cpu Field Functions 
+      bool hasCpu() const { return this->cpu_ != nullptr;};
+      void deleteCpu() { this->cpu_ = nullptr;};
+      inline int32_t getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, 0) };
+      inline DefaultHaNamespaceResourceSpec& setCpu(int32_t cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // memoryGB Field Functions 
+      bool hasMemoryGB() const { return this->memoryGB_ != nullptr;};
+      void deleteMemoryGB() { this->memoryGB_ = nullptr;};
+      inline int32_t getMemoryGB() const { DARABONBA_PTR_GET_DEFAULT(memoryGB_, 0) };
+      inline DefaultHaNamespaceResourceSpec& setMemoryGB(int32_t memoryGB) { DARABONBA_PTR_SET_VALUE(memoryGB_, memoryGB) };
+
+
+    protected:
+      // The number of CPUs.
+      shared_ptr<int32_t> cpu_ {};
+      // The memory size. Unit: GB.
+      // 
+      // > The memory size must be 4 times the number of CPUs.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
     virtual bool empty() const override { return this->architectureType_ == nullptr
-        && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->duration_ == nullptr && this->extra_ == nullptr && this->ha_ == nullptr
-        && this->haResourceSpec_ == nullptr && this->haVSwitchIds_ == nullptr && this->instanceName_ == nullptr && this->monitorType_ == nullptr && this->pricingCycle_ == nullptr
-        && this->promotionCode_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpec_ == nullptr && this->storage_ == nullptr
-        && this->tag_ == nullptr && this->usePromotionCode_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->defaultHaNamespaceResourceSpec_ == nullptr && this->defaultNamespaceResourceSpec_ == nullptr && this->duration_ == nullptr
+        && this->extra_ == nullptr && this->ha_ == nullptr && this->haResourceSpec_ == nullptr && this->haVSwitchIds_ == nullptr && this->instanceName_ == nullptr
+        && this->monitorType_ == nullptr && this->pricingCycle_ == nullptr && this->promotionCode_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceSpec_ == nullptr && this->storage_ == nullptr && this->tag_ == nullptr && this->usePromotionCode_ == nullptr && this->vSwitchIds_ == nullptr
+        && this->vpcId_ == nullptr; };
     // architectureType Field Functions 
     bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
     void deleteArchitectureType() { this->architectureType_ = nullptr;};
@@ -307,6 +404,24 @@ namespace Models
     void deleteChargeType() { this->chargeType_ = nullptr;};
     inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline CreateInstanceRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+    // defaultHaNamespaceResourceSpec Field Functions 
+    bool hasDefaultHaNamespaceResourceSpec() const { return this->defaultHaNamespaceResourceSpec_ != nullptr;};
+    void deleteDefaultHaNamespaceResourceSpec() { this->defaultHaNamespaceResourceSpec_ = nullptr;};
+    inline const CreateInstanceRequest::DefaultHaNamespaceResourceSpec & getDefaultHaNamespaceResourceSpec() const { DARABONBA_PTR_GET_CONST(defaultHaNamespaceResourceSpec_, CreateInstanceRequest::DefaultHaNamespaceResourceSpec) };
+    inline CreateInstanceRequest::DefaultHaNamespaceResourceSpec getDefaultHaNamespaceResourceSpec() { DARABONBA_PTR_GET(defaultHaNamespaceResourceSpec_, CreateInstanceRequest::DefaultHaNamespaceResourceSpec) };
+    inline CreateInstanceRequest& setDefaultHaNamespaceResourceSpec(const CreateInstanceRequest::DefaultHaNamespaceResourceSpec & defaultHaNamespaceResourceSpec) { DARABONBA_PTR_SET_VALUE(defaultHaNamespaceResourceSpec_, defaultHaNamespaceResourceSpec) };
+    inline CreateInstanceRequest& setDefaultHaNamespaceResourceSpec(CreateInstanceRequest::DefaultHaNamespaceResourceSpec && defaultHaNamespaceResourceSpec) { DARABONBA_PTR_SET_RVALUE(defaultHaNamespaceResourceSpec_, defaultHaNamespaceResourceSpec) };
+
+
+    // defaultNamespaceResourceSpec Field Functions 
+    bool hasDefaultNamespaceResourceSpec() const { return this->defaultNamespaceResourceSpec_ != nullptr;};
+    void deleteDefaultNamespaceResourceSpec() { this->defaultNamespaceResourceSpec_ = nullptr;};
+    inline const CreateInstanceRequest::DefaultNamespaceResourceSpec & getDefaultNamespaceResourceSpec() const { DARABONBA_PTR_GET_CONST(defaultNamespaceResourceSpec_, CreateInstanceRequest::DefaultNamespaceResourceSpec) };
+    inline CreateInstanceRequest::DefaultNamespaceResourceSpec getDefaultNamespaceResourceSpec() { DARABONBA_PTR_GET(defaultNamespaceResourceSpec_, CreateInstanceRequest::DefaultNamespaceResourceSpec) };
+    inline CreateInstanceRequest& setDefaultNamespaceResourceSpec(const CreateInstanceRequest::DefaultNamespaceResourceSpec & defaultNamespaceResourceSpec) { DARABONBA_PTR_SET_VALUE(defaultNamespaceResourceSpec_, defaultNamespaceResourceSpec) };
+    inline CreateInstanceRequest& setDefaultNamespaceResourceSpec(CreateInstanceRequest::DefaultNamespaceResourceSpec && defaultNamespaceResourceSpec) { DARABONBA_PTR_SET_RVALUE(defaultNamespaceResourceSpec_, defaultNamespaceResourceSpec) };
 
 
     // duration Field Functions 
@@ -456,13 +571,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
+    // The default high-availability namespace resource configuration.
+    shared_ptr<CreateInstanceRequest::DefaultHaNamespaceResourceSpec> defaultHaNamespaceResourceSpec_ {};
+    // The default namespace resource configuration.
+    shared_ptr<CreateInstanceRequest::DefaultNamespaceResourceSpec> defaultNamespaceResourceSpec_ {};
     // The subscription duration.
     // 
     // > This parameter is required when ChargeType is set to PRE.
     shared_ptr<int32_t> duration_ {};
     // The extended field.
     shared_ptr<string> extra_ {};
-    // Specifies whether to use zone-disaster recovery resources.
+    // Specifies whether to enable zone-disaster recovery resources.
     shared_ptr<bool> ha_ {};
     // The zone-disaster recovery resource specifications.
     shared_ptr<CreateInstanceRequest::HaResourceSpec> haResourceSpec_ {};
@@ -472,18 +591,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
-    // The type of monitoring and alerting service. You can select ARMS or CloudMonitor.
+    // The type of monitoring and alerting service. You can select Application Real-Time Monitoring Service (ARMS) or CloudMonitor.
     shared_ptr<string> monitorType_ {};
-    // The unit of the subscription duration. Valid values:
+    // The billing cycle of the subscription instance. Valid values:
     // 
-    // - **year**: year.
-    // - **month**: month.
+    // - **year**: yearly.
+    // - **month**: monthly.
     // 
     // > This parameter is required when ChargeType is set to PRE.
     shared_ptr<string> pricingCycle_ {};
     // The coupon code.
     shared_ptr<string> promotionCode_ {};
-    // The region ID.
+    // The region.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};

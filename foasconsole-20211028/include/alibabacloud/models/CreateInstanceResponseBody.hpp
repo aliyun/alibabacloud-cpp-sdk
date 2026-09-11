@@ -89,7 +89,7 @@ namespace Models
 
 
     protected:
-      // The instance ID of the order.
+      // The order instance ID.
       shared_ptr<string> instanceId_ {};
       // The order ID.
       shared_ptr<int64_t> orderId_ {};

@@ -16,6 +16,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_TO_JSON(DefaultHaNamespaceResourceSpec, defaultHaNamespaceResourceSpecShrink_);
+      DARABONBA_PTR_TO_JSON(DefaultNamespaceResourceSpec, defaultNamespaceResourceSpecShrink_);
       DARABONBA_PTR_TO_JSON(Duration, duration_);
       DARABONBA_PTR_TO_JSON(Extra, extra_);
       DARABONBA_PTR_TO_JSON(Ha, ha_);
@@ -38,6 +40,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ArchitectureType, architectureType_);
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
+      DARABONBA_PTR_FROM_JSON(DefaultHaNamespaceResourceSpec, defaultHaNamespaceResourceSpecShrink_);
+      DARABONBA_PTR_FROM_JSON(DefaultNamespaceResourceSpec, defaultNamespaceResourceSpecShrink_);
       DARABONBA_PTR_FROM_JSON(Duration, duration_);
       DARABONBA_PTR_FROM_JSON(Extra, extra_);
       DARABONBA_PTR_FROM_JSON(Ha, ha_);
@@ -68,10 +72,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->architectureType_ == nullptr
-        && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->duration_ == nullptr && this->extra_ == nullptr && this->ha_ == nullptr
-        && this->haResourceSpecShrink_ == nullptr && this->haVSwitchIdsShrink_ == nullptr && this->instanceName_ == nullptr && this->monitorType_ == nullptr && this->pricingCycle_ == nullptr
-        && this->promotionCode_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceSpecShrink_ == nullptr && this->storageShrink_ == nullptr
-        && this->tagShrink_ == nullptr && this->usePromotionCode_ == nullptr && this->vSwitchIdsShrink_ == nullptr && this->vpcId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->defaultHaNamespaceResourceSpecShrink_ == nullptr && this->defaultNamespaceResourceSpecShrink_ == nullptr && this->duration_ == nullptr
+        && this->extra_ == nullptr && this->ha_ == nullptr && this->haResourceSpecShrink_ == nullptr && this->haVSwitchIdsShrink_ == nullptr && this->instanceName_ == nullptr
+        && this->monitorType_ == nullptr && this->pricingCycle_ == nullptr && this->promotionCode_ == nullptr && this->region_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceSpecShrink_ == nullptr && this->storageShrink_ == nullptr && this->tagShrink_ == nullptr && this->usePromotionCode_ == nullptr && this->vSwitchIdsShrink_ == nullptr
+        && this->vpcId_ == nullptr; };
     // architectureType Field Functions 
     bool hasArchitectureType() const { return this->architectureType_ != nullptr;};
     void deleteArchitectureType() { this->architectureType_ = nullptr;};
@@ -91,6 +96,20 @@ namespace Models
     void deleteChargeType() { this->chargeType_ = nullptr;};
     inline string getChargeType() const { DARABONBA_PTR_GET_DEFAULT(chargeType_, "") };
     inline CreateInstanceShrinkRequest& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
+
+
+    // defaultHaNamespaceResourceSpecShrink Field Functions 
+    bool hasDefaultHaNamespaceResourceSpecShrink() const { return this->defaultHaNamespaceResourceSpecShrink_ != nullptr;};
+    void deleteDefaultHaNamespaceResourceSpecShrink() { this->defaultHaNamespaceResourceSpecShrink_ = nullptr;};
+    inline string getDefaultHaNamespaceResourceSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(defaultHaNamespaceResourceSpecShrink_, "") };
+    inline CreateInstanceShrinkRequest& setDefaultHaNamespaceResourceSpecShrink(string defaultHaNamespaceResourceSpecShrink) { DARABONBA_PTR_SET_VALUE(defaultHaNamespaceResourceSpecShrink_, defaultHaNamespaceResourceSpecShrink) };
+
+
+    // defaultNamespaceResourceSpecShrink Field Functions 
+    bool hasDefaultNamespaceResourceSpecShrink() const { return this->defaultNamespaceResourceSpecShrink_ != nullptr;};
+    void deleteDefaultNamespaceResourceSpecShrink() { this->defaultNamespaceResourceSpecShrink_ = nullptr;};
+    inline string getDefaultNamespaceResourceSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(defaultNamespaceResourceSpecShrink_, "") };
+    inline CreateInstanceShrinkRequest& setDefaultNamespaceResourceSpecShrink(string defaultNamespaceResourceSpecShrink) { DARABONBA_PTR_SET_VALUE(defaultNamespaceResourceSpecShrink_, defaultNamespaceResourceSpecShrink) };
 
 
     // duration Field Functions 
@@ -228,13 +247,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
+    // The default high-availability namespace resource configuration.
+    shared_ptr<string> defaultHaNamespaceResourceSpecShrink_ {};
+    // The default namespace resource configuration.
+    shared_ptr<string> defaultNamespaceResourceSpecShrink_ {};
     // The subscription duration.
     // 
     // > This parameter is required when ChargeType is set to PRE.
     shared_ptr<int32_t> duration_ {};
     // The extended field.
     shared_ptr<string> extra_ {};
-    // Specifies whether to use zone-disaster recovery resources.
+    // Specifies whether to enable zone-disaster recovery resources.
     shared_ptr<bool> ha_ {};
     // The zone-disaster recovery resource specifications.
     shared_ptr<string> haResourceSpecShrink_ {};
@@ -244,18 +267,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
-    // The type of monitoring and alerting service. You can select ARMS or CloudMonitor.
+    // The type of monitoring and alerting service. You can select Application Real-Time Monitoring Service (ARMS) or CloudMonitor.
     shared_ptr<string> monitorType_ {};
-    // The unit of the subscription duration. Valid values:
+    // The billing cycle of the subscription instance. Valid values:
     // 
-    // - **year**: year.
-    // - **month**: month.
+    // - **year**: yearly.
+    // - **month**: monthly.
     // 
     // > This parameter is required when ChargeType is set to PRE.
     shared_ptr<string> pricingCycle_ {};
     // The coupon code.
     shared_ptr<string> promotionCode_ {};
-    // The region ID.
+    // The region.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};

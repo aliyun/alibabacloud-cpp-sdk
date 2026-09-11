@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ClusterStatus, clusterStatus_);
         DARABONBA_PTR_TO_JSON(ClusterUsedResources, clusterUsedResources_);
         DARABONBA_PTR_TO_JSON(ClusterUsedStorage, clusterUsedStorage_);
+        DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
         DARABONBA_PTR_TO_JSON(Elastic, elastic_);
         DARABONBA_PTR_TO_JSON(ElasticInstanceId, elasticInstanceId_);
         DARABONBA_PTR_TO_JSON(ElasticOrderState, elasticOrderState_);
@@ -93,6 +94,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ClusterStatus, clusterStatus_);
         DARABONBA_PTR_FROM_JSON(ClusterUsedResources, clusterUsedResources_);
         DARABONBA_PTR_FROM_JSON(ClusterUsedStorage, clusterUsedStorage_);
+        DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
         DARABONBA_PTR_FROM_JSON(Elastic, elastic_);
         DARABONBA_PTR_FROM_JSON(ElasticInstanceId, elasticInstanceId_);
         DARABONBA_PTR_FROM_JSON(ElasticOrderState, elasticOrderState_);
@@ -209,11 +211,21 @@ namespace Models
 
 
       protected:
+        // The VPC CIDR block.
         shared_ptr<string> cidrBlock_ {};
+        // The VPC description.
         shared_ptr<string> description_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The VPC status. Valid values:
+        // 
+        // - Pending: Being configured.
+        // 
+        // - Available: Available.
         shared_ptr<string> status_ {};
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
+        // The VPC name.
         shared_ptr<string> vpcName_ {};
       };
 
@@ -310,13 +322,21 @@ namespace Models
 
 
       protected:
+        // The number of available IP addresses in the vSwitch.
         shared_ptr<string> availableIpAddressCount_ {};
+        // The description of the vSwitch group.
         shared_ptr<string> description_ {};
+        // The region ID.
         shared_ptr<string> regionId_ {};
+        // The vSwitch CIDR block.
         shared_ptr<string> vSwitchCidr_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The name of the vSwitch.
         shared_ptr<string> vSwitchName_ {};
+        // VPC ID。
         shared_ptr<string> vpcId_ {};
+        // The zone ID of the workspace.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -419,7 +439,7 @@ namespace Models
 
 
         protected:
-          // The name of the OSS bucket.
+          // The name of the bound OSS bucket.
           shared_ptr<string> bucket_ {};
         };
 
@@ -463,7 +483,19 @@ namespace Models
 
 
       protected:
+        // Indicates whether fully managed storage is selected. Valid values:
+        // - true: Used.
+        // - false: Not used.
         shared_ptr<bool> fullyManaged_ {};
+        // The order status of fully managed storage. Valid values:
+        // 
+        // - NOT_INIT: The order is placed but components are not yet deployed.
+        // 
+        // - NORMAL: Normal.
+        // 
+        // - CEASE: Expired.
+        // 
+        // - RELEASE: Overdue.
         shared_ptr<string> orderState_ {};
         // The OSS storage information.
         shared_ptr<Storage::Oss> oss_ {};
@@ -582,6 +614,7 @@ namespace Models
       protected:
         shared_ptr<string> accessId_ {};
         shared_ptr<string> accessKey_ {};
+        // The name of the bound OSS bucket.
         shared_ptr<string> bucket_ {};
         shared_ptr<string> bucketVersioningStatus_ {};
         shared_ptr<string> endpoint_ {};
@@ -726,13 +759,21 @@ namespace Models
 
 
       protected:
+        // The number of available IP addresses in the vSwitch.
         shared_ptr<int64_t> availableIpAddressCount_ {};
+        // The description of the VPC.
         shared_ptr<string> description_ {};
+        // The region.
         shared_ptr<string> regionId_ {};
+        // The vSwitch CIDR block information.
         shared_ptr<string> vSwitchCidr_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The vSwitch name.
         shared_ptr<string> vSwitchName_ {};
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
+        // The zone ID of the workspace.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -774,7 +815,9 @@ namespace Models
 
 
       protected:
+        // The number of CPUs for zone-disaster recovery.
         shared_ptr<int32_t> cpu_ {};
+        // The memory size of zone-disaster recovery resources.
         shared_ptr<int32_t> memoryGB_ {};
       };
 
@@ -816,7 +859,9 @@ namespace Models
 
 
       protected:
+        // The number of CPUs.
         shared_ptr<int32_t> cpu_ {};
+        // The amount of memory used.
         shared_ptr<int32_t> memoryGB_ {};
       };
 
@@ -1017,6 +1062,7 @@ namespace Models
         shared_ptr<float> guaranteedUsedCpu_ {};
         shared_ptr<float> guaranteedUsedMemory_ {};
         shared_ptr<float> guaranteedUsedResource_ {};
+        // Indicates whether zone-disaster recovery resources are selected.
         shared_ptr<bool> ha_ {};
         shared_ptr<float> haUsedCpu_ {};
         shared_ptr<float> haUsedMemory_ {};
@@ -1296,7 +1342,14 @@ namespace Models
         protected:
           shared_ptr<string> clusterId_ {};
           shared_ptr<int32_t> currentStage_ {};
+          // The error message.
           shared_ptr<string> message_ {};
+          // The status of the project space. Valid values:
+          // - CREATING: Being created.
+          // - DELETING: Being deleted.
+          // - MODIFYING: Resource specifications are being modified.
+          // - SUCCESS: The previous operation was successful.
+          // - FAILED: The previous operation failed.
           shared_ptr<string> status_ {};
           shared_ptr<vector<ClusterStage::TotalStageWithWeight>> totalStageWithWeight_ {};
         };
@@ -1368,7 +1421,29 @@ namespace Models
         shared_ptr<string> clusterId_ {};
         shared_ptr<ClusterState::ClusterStage> clusterStage_ {};
         shared_ptr<bool> createTimeout_ {};
+        // The cluster status. Valid values:
+        // 
+        // - CREATING: Being created.
+        // 
+        // - RUNNING: Running.
+        // 
+        // - DISABLE: Invalid.
+        // 
+        // - DELETING: Being deleted.
+        // 
+        // - DELETED: Deleted.
         shared_ptr<string> status_ {};
+        // The cluster status. Valid values:
+        // 
+        // - CREATING: Being created.
+        // 
+        // - RUNNING: Running.
+        // 
+        // - DISABLE: Invalid.
+        // 
+        // - DELETING: Being deleted.
+        // 
+        // - DELETED: Deleted.
         shared_ptr<string> subStatus_ {};
         shared_ptr<string> url_ {};
         shared_ptr<ClusterState::UserSlbDto> userSlbDto_ {};
@@ -1377,13 +1452,13 @@ namespace Models
 
       virtual bool empty() const override { return this->ansm_ == nullptr
         && this->architectureType_ == nullptr && this->askClusterId_ == nullptr && this->chargeType_ == nullptr && this->clusterState_ == nullptr && this->clusterStatus_ == nullptr
-        && this->clusterUsedResources_ == nullptr && this->clusterUsedStorage_ == nullptr && this->elastic_ == nullptr && this->elasticInstanceId_ == nullptr && this->elasticOrderState_ == nullptr
-        && this->elasticResourceSpec_ == nullptr && this->ha_ == nullptr && this->haResourceSpec_ == nullptr && this->haVSwitchIds_ == nullptr && this->haVSwitchInfo_ == nullptr
-        && this->haZoneId_ == nullptr && this->hostAliases_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->monitorType_ == nullptr
-        && this->orderState_ == nullptr && this->ossInfo_ == nullptr && this->region_ == nullptr && this->resourceCreateTime_ == nullptr && this->resourceExpiredTime_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceSpec_ == nullptr && this->storage_ == nullptr && this->supportDisasterRecoveryDrill_ == nullptr
-        && this->tags_ == nullptr && this->uid_ == nullptr && this->vSwitchIds_ == nullptr && this->vSwitchInfo_ == nullptr && this->vpcId_ == nullptr
-        && this->vpcInfo_ == nullptr && this->zoneId_ == nullptr; };
+        && this->clusterUsedResources_ == nullptr && this->clusterUsedStorage_ == nullptr && this->deletionProtection_ == nullptr && this->elastic_ == nullptr && this->elasticInstanceId_ == nullptr
+        && this->elasticOrderState_ == nullptr && this->elasticResourceSpec_ == nullptr && this->ha_ == nullptr && this->haResourceSpec_ == nullptr && this->haVSwitchIds_ == nullptr
+        && this->haVSwitchInfo_ == nullptr && this->haZoneId_ == nullptr && this->hostAliases_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
+        && this->monitorType_ == nullptr && this->orderState_ == nullptr && this->ossInfo_ == nullptr && this->region_ == nullptr && this->resourceCreateTime_ == nullptr
+        && this->resourceExpiredTime_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceId_ == nullptr && this->resourceSpec_ == nullptr && this->storage_ == nullptr
+        && this->supportDisasterRecoveryDrill_ == nullptr && this->tags_ == nullptr && this->uid_ == nullptr && this->vSwitchIds_ == nullptr && this->vSwitchInfo_ == nullptr
+        && this->vpcId_ == nullptr && this->vpcInfo_ == nullptr && this->zoneId_ == nullptr; };
       // ansm Field Functions 
       bool hasAnsm() const { return this->ansm_ != nullptr;};
       void deleteAnsm() { this->ansm_ = nullptr;};
@@ -1444,6 +1519,13 @@ namespace Models
       inline Instances::ClusterUsedStorage getClusterUsedStorage() { DARABONBA_PTR_GET(clusterUsedStorage_, Instances::ClusterUsedStorage) };
       inline Instances& setClusterUsedStorage(const Instances::ClusterUsedStorage & clusterUsedStorage) { DARABONBA_PTR_SET_VALUE(clusterUsedStorage_, clusterUsedStorage) };
       inline Instances& setClusterUsedStorage(Instances::ClusterUsedStorage && clusterUsedStorage) { DARABONBA_PTR_SET_RVALUE(clusterUsedStorage_, clusterUsedStorage) };
+
+
+      // deletionProtection Field Functions 
+      bool hasDeletionProtection() const { return this->deletionProtection_ != nullptr;};
+      void deleteDeletionProtection() { this->deletionProtection_ = nullptr;};
+      inline bool getDeletionProtection() const { DARABONBA_PTR_GET_DEFAULT(deletionProtection_, false) };
+      inline Instances& setDeletionProtection(bool deletionProtection) { DARABONBA_PTR_SET_VALUE(deletionProtection_, deletionProtection) };
 
 
       // elastic Field Functions 
@@ -1682,12 +1764,15 @@ namespace Models
 
     protected:
       shared_ptr<bool> ansm_ {};
+      // The processor architecture.
       shared_ptr<string> architectureType_ {};
+      // The cluster ID.
       shared_ptr<string> askClusterId_ {};
       // The billing method. Valid values:
       // - POST: pay-as-you-go.
       // - PRE: subscription.
       shared_ptr<string> chargeType_ {};
+      // The cluster state.
       shared_ptr<Instances::ClusterState> clusterState_ {};
       // The cluster status. Valid values:
       // - CREATING: Being created.
@@ -1696,38 +1781,50 @@ namespace Models
       // - DELETING: Being deleted.
       // - DELETED: Deleted.
       shared_ptr<string> clusterStatus_ {};
+      // The overall resource usage of the Flink service.
       shared_ptr<Instances::ClusterUsedResources> clusterUsedResources_ {};
       shared_ptr<Instances::ClusterUsedStorage> clusterUsedStorage_ {};
+      // Indicates whether deletion protection is enabled.
+      shared_ptr<bool> deletionProtection_ {};
       shared_ptr<bool> elastic_ {};
       // The elastic order ID.
       shared_ptr<string> elasticInstanceId_ {};
       shared_ptr<string> elasticOrderState_ {};
       shared_ptr<Instances::ElasticResourceSpec> elasticResourceSpec_ {};
+      // Indicates whether zone-disaster recovery resources are selected.
       shared_ptr<bool> ha_ {};
+      // The zone-disaster recovery resource description.
       shared_ptr<Instances::HaResourceSpec> haResourceSpec_ {};
+      // The vSwitch group in the secondary zone for zone-disaster recovery.
       shared_ptr<vector<string>> haVSwitchIds_ {};
+      // The vSwitch group information for the secondary zone of zone-disaster recovery.
       shared_ptr<vector<Instances::HaVSwitchInfo>> haVSwitchInfo_ {};
+      // The secondary zone ID for zone-disaster recovery.
       shared_ptr<string> haZoneId_ {};
+      // The domain name information added by the user.
+      // 
       // This parameter is required.
       shared_ptr<vector<Instances::HostAliases>> hostAliases_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The workspace name.
       shared_ptr<string> instanceName_ {};
+      // The type of the monitoring and alerting service. You can select ARMS or CloudMonitor.
       shared_ptr<string> monitorType_ {};
-      // The order status. Valid values:
-      // - NOT_INIT: The order is placed but components are not deployed.
+      // The order status of the Flink compute service. Valid values:
+      // - NOT_INIT: The order is placed but components are not yet deployed.
       // - NORMAL: Normal.
       // - CEASE: Expired.
       // - RELEASE: Overdue.
       shared_ptr<string> orderState_ {};
       shared_ptr<Instances::OssInfo> ossInfo_ {};
-      // The region of the instance.
+      // The region to which the instance belongs.
       shared_ptr<string> region_ {};
       // The time when the instance was created.
       shared_ptr<int64_t> resourceCreateTime_ {};
-      // The expiration time.
+      // The overdue time.
       shared_ptr<int64_t> resourceExpiredTime_ {};
+      // The resource group.
       shared_ptr<string> resourceGroupId_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
@@ -1736,15 +1833,17 @@ namespace Models
       // The storage information.
       shared_ptr<Instances::Storage> storage_ {};
       shared_ptr<bool> supportDisasterRecoveryDrill_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<Instances::Tags>> tags_ {};
       // The ID of the user to whom the instance belongs.
       shared_ptr<string> uid_ {};
-      // The vSwitch IDs.
+      // The vSwitch ID group.
       shared_ptr<vector<string>> vSwitchIds_ {};
+      // The information about the primary vSwitch group.
       shared_ptr<vector<Instances::VSwitchInfo>> vSwitchInfo_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
+      // The VPC information.
       shared_ptr<Instances::VpcInfo> vpcInfo_ {};
       // The zone ID of the instance.
       shared_ptr<string> zoneId_ {};
@@ -1814,8 +1913,8 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // - true: The request was successful.
-    // - false: The request failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
     // The total number of instances.
     shared_ptr<int64_t> totalCount_ {};

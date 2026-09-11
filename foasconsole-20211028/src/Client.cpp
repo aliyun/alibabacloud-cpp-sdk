@@ -17,11 +17,11 @@ namespace Foasconsole20211028
 {
 
 AlibabaCloud::Foasconsole20211028::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "regional";
+  this->_endpointRule = "central";
   this->_endpointMap = json({
-    {"cn-qingdao" , "foasconsole.cn-qingdao.aliyuncs.com"},
     {"cn-wulanchabu" , "foasconsole.cn-wulanchabu.aliyuncs.com"},
     {"cn-beijing" , "foasconsole.cn-beijing.aliyuncs.com"},
+    {"cn-qingdao" , "foasconsole.cn-qingdao.aliyuncs.com"},
     {"cn-shanghai" , "foasconsole.cn-shanghai.aliyuncs.com"},
     {"cn-hongkong" , "foasconsole.cn-hongkong.aliyuncs.com"},
     {"cn-zhangjiakou" , "foasconsole.cn-zhangjiakou.aliyuncs.com"},
@@ -36,8 +36,7 @@ AlibabaCloud::Foasconsole20211028::Client::Client(Config &config): OpenApiClient
     {"us-west-1" , "foasconsole.us-west-1.aliyuncs.com"},
     {"eu-central-1" , "foasconsole.eu-central-1.aliyuncs.com"},
     {"cn-shenzhen-finance-1" , "foasconsole.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "foasconsole.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "foasconsole.aliyuncs.com"}
+    {"cn-shanghai-finance-1" , "foasconsole.cn-shanghai-finance-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("foasconsole", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -291,7 +290,7 @@ ConvertPrepayInstanceResponse Client::convertPrepayInstance(const ConvertPrepayI
 /**
  * @summary Creates a subscription or pay-as-you-go fully managed Flink workspace.
  *
- * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
+ * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink.**
  *
  * @param tmpReq CreateInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -301,6 +300,14 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
   tmpReq.validate();
   CreateInstanceShrinkRequest request = CreateInstanceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDefaultHaNamespaceResourceSpec()) {
+    request.setDefaultHaNamespaceResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefaultHaNamespaceResourceSpec(), "DefaultHaNamespaceResourceSpec", "json"));
+  }
+
+  if (!!tmpReq.hasDefaultNamespaceResourceSpec()) {
+    request.setDefaultNamespaceResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDefaultNamespaceResourceSpec(), "DefaultNamespaceResourceSpec", "json"));
+  }
+
   if (!!tmpReq.hasHaResourceSpec()) {
     request.setHaResourceSpecShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHaResourceSpec(), "HaResourceSpec", "json"));
   }
@@ -336,6 +343,14 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 
   if (!!request.hasChargeType()) {
     body["ChargeType"] = request.getChargeType();
+  }
+
+  if (!!request.hasDefaultHaNamespaceResourceSpecShrink()) {
+    body["DefaultHaNamespaceResourceSpec"] = request.getDefaultHaNamespaceResourceSpecShrink();
+  }
+
+  if (!!request.hasDefaultNamespaceResourceSpecShrink()) {
+    body["DefaultNamespaceResourceSpec"] = request.getDefaultNamespaceResourceSpecShrink();
   }
 
   if (!!request.hasDuration()) {
@@ -426,7 +441,7 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 /**
  * @summary Creates a subscription or pay-as-you-go fully managed Flink workspace.
  *
- * @description **Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink before you call this operation.**
+ * @description **Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/billing-overview) of fully managed Flink.**
  *
  * @param request CreateInstanceRequest
  * @return CreateInstanceResponse
@@ -603,6 +618,8 @@ DeleteNamespaceResponse Client::deleteNamespace(const DeleteNamespaceRequest &re
 /**
  * @summary Queries the details of one or more fully managed Flink workspaces.
  *
+ * @description > In the following cases, you cannot release a workspace:- In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state.- If the billing method is subscription, unsubscribe from the resource on the Unsubscription Management page in User Center.
+ *
  * @param tmpReq DescribeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeInstancesResponse
@@ -635,6 +652,8 @@ DescribeInstancesResponse Client::describeInstancesWithOptions(const DescribeIns
 
 /**
  * @summary Queries the details of one or more fully managed Flink workspaces.
+ *
+ * @description > In the following cases, you cannot release a workspace:- In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state.- If the billing method is subscription, unsubscribe from the resource on the Unsubscription Management page in User Center.
  *
  * @param request DescribeInstancesRequest
  * @return DescribeInstancesResponse

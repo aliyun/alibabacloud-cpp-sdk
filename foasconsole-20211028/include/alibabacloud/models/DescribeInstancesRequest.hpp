@@ -177,11 +177,11 @@ namespace Models
 
 
   protected:
-    // The architecture type.
+    // The processor architecture. Valid values: X86 and ARM.
     shared_ptr<string> architectureType_ {};
     // The payment type.
     shared_ptr<string> chargeType_ {};
-    // Specifies whether mixed billing is used.
+    // Specifies whether hybrid billing is used.
     shared_ptr<bool> elastic_ {};
     // The order instance ID.
     shared_ptr<string> instanceId_ {};
@@ -197,6 +197,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
+    // The ID of the resource group to which the instance belongs.
     shared_ptr<string> resourceGroupId_ {};
     // The tags of the instance.
     shared_ptr<vector<DescribeInstancesRequest::Tags>> tags_ {};
