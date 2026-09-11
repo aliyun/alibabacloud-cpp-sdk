@@ -165,7 +165,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> key_ {};
+        // The tag value.
         shared_ptr<string> value_ {};
       };
 
@@ -452,13 +454,13 @@ namespace Models
       shared_ptr<string> accountStatus_ {};
       // The compute group architecture. Valid values:
       // 
-      // - onEci: Deployed on Elastic Container Instance (ECI).
-      // - onECS: Deployed on Elastic Compute Service (ECS).
+      // - onEci: Deployed on ECI.
+      // - onECS: Deployed on ECS.
       // - onBareMetal: Deployed on a bare metal resource pool.
       shared_ptr<string> architecture_ {};
       // The creation time of the compute group.
       shared_ptr<int64_t> beginTime_ {};
-      // The instance ID associated with the bill. For default compute groups (FE compute group and default BE compute group), this value is the instance ID. Otherwise, it is the compute group ID.
+      // The instance ID associated with the bill. For default compute groups (FE compute group and the default BE compute group), this value is the instance ID. Otherwise, it is the compute group ID.
       shared_ptr<string> billingInstanceId_ {};
       // The commodity code.
       shared_ptr<string> commodityCode_ {};
@@ -512,7 +514,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The number of nodes.
       shared_ptr<int32_t> residentNodeNumber_ {};
-      // The duration that the compute group has been running. Unit: seconds.
+      // The running time of the compute group. Unit: seconds.
       shared_ptr<int64_t> runningTime_ {};
       // The compute group specification type. Valid values:
       // 
@@ -536,8 +538,8 @@ namespace Models
       // - SCALING_OUT: Scale-out in progress.
       // - RESTARTING: Restarting.
       // - SCALING_IN: Scale-in in progress.
-      // - SCALING_UP: Upgrading specifications.
-      // - SCALING_DOWN: Downgrading specifications.
+      // - SCALING_UP: Scaling up.
+      // - SCALING_DOWN: Scaling down.
       // - UPGRADING: Upgrading.
       // - ENABLE_PUBLIC_NETWORK: Enabling public network access.
       // - DISABLE_PUBLIC_NETWORK: Disabling public network access.
@@ -555,6 +557,7 @@ namespace Models
       shared_ptr<string> storagePerformanceLevel_ {};
       // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
+      // The list of tags.
       shared_ptr<vector<Data::Tags>> tags_ {};
       // The target number of elastic nodes.
       shared_ptr<int32_t> targetElasticNodeNumber_ {};

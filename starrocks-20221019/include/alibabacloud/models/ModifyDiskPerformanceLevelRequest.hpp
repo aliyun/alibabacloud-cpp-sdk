@@ -13,12 +13,14 @@ namespace Models
   class ModifyDiskPerformanceLevelRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDiskPerformanceLevelRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_TO_JSON(PromotionOptionNo, promotionOptionNo_);
       DARABONBA_PTR_TO_JSON(Target, target_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDiskPerformanceLevelRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_FROM_JSON(PromotionOptionNo, promotionOptionNo_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->nodeGroupId_ == nullptr && this->promotionOptionNo_ == nullptr && this->target_ == nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && this->instanceId_ == nullptr && this->nodeGroupId_ == nullptr && this->promotionOptionNo_ == nullptr && this->target_ == nullptr; };
+    // autoPay Field Functions 
+    bool hasAutoPay() const { return this->autoPay_ != nullptr;};
+    void deleteAutoPay() { this->autoPay_ = nullptr;};
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline ModifyDiskPerformanceLevelRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -66,6 +75,10 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically purchase (pay for) all products specified in the Products parameter. Valid values:
+    // - true: Automatic payment.
+    // - false: No automatic payment.
+    shared_ptr<bool> autoPay_ {};
     // The instance ID.
     // 
     // This parameter is required.
@@ -74,8 +87,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
+    // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
-    // The target disk performance level.
+    // The target disk performance level (PL).
     // 
     // This parameter is required.
     shared_ptr<string> target_ {};

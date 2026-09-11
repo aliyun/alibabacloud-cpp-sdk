@@ -509,12 +509,7 @@ namespace Models
       shared_ptr<int32_t> residentNodeNumber_ {};
       // The specification type of the node group. Valid values:
       shared_ptr<string> specType_ {};
-      // The performance level of the cloud disk. Valid values:
-      // 
-      // - pl0: A single disk delivers up to 10,000 random read/write IOPS.
-      // - pl1: A single disk delivers up to 50,000 random read/write IOPS.
-      // - pl2: A single disk delivers up to 100,000 random read/write IOPS.
-      // - pl3: A single disk delivers up to 1,000,000 random read/write IOPS.
+      // The performance level (PL) of the cloud disk. Valid values:
       shared_ptr<string> storagePerformanceLevel_ {};
       // The storage size. Unit: GiB.
       shared_ptr<int32_t> storageSize_ {};
@@ -550,6 +545,7 @@ namespace Models
 
 
     protected:
+      // The number of CUs. A CU (Compute Unit) is the basic metering unit of the service. 1 CU = 1 CPU core + 4 GiB memory.
       shared_ptr<int32_t> cu_ {};
     };
 
@@ -809,7 +805,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> adminPassword_ {};
+    // The agent compute group.
     shared_ptr<CreateInstanceV1Request::AgentNodeGroup> agentNodeGroup_ {};
+    // Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
+    // 
+    // Valid values:
+    // - true: Automatic payment.
+    // - false: No automatic payment.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal. This parameter takes effect only when payType is set to PrePaid. Auto-renewal is disabled by default.
     shared_ptr<bool> autoRenew_ {};
@@ -823,6 +825,7 @@ namespace Models
     shared_ptr<string> dlfCatalogType_ {};
     // The subscription duration. This parameter takes effect only when payType is set to PrePaid.
     shared_ptr<int32_t> duration_ {};
+    // Specifies whether to enable the AI Center. Default value: false.
     shared_ptr<bool> enableAiFunction_ {};
     // Specifies whether to enable disaster recovery.
     shared_ptr<bool> enableMultiAz_ {};
@@ -830,6 +833,7 @@ namespace Models
     shared_ptr<bool> encrypted_ {};
     // The FE node group information.
     shared_ptr<vector<CreateInstanceV1Request::FrontendNodeGroups>> frontendNodeGroups_ {};
+    // The gateway type. Valid values: Slb and Privatezone.
     shared_ptr<string> gatewayType_ {};
     // The instance name.
     // 
@@ -839,14 +843,14 @@ namespace Models
     shared_ptr<string> kmsKeyId_ {};
     // The username of the associated Resource Access Management (RAM) user or the name of the associated RAM role.
     shared_ptr<string> linkedRamUserName_ {};
-    // The Observer node group information. Specify this parameter only when you need to enable cross-zone disaster recovery. The Observer node group specifications must be the same as those of the FE node group.
+    // The Observer node group information. Specify this parameter only when you need to enable multi-zone disaster recovery. The Observer node group specifications must be the same as those of the FE node group.
     shared_ptr<vector<CreateInstanceV1Request::ObserverNodeGroups>> observerNodeGroups_ {};
-    // The name of the role used for password-free access to Object Storage Service (OSS).
+    // The name of the role used for password-free access to OSS.
     shared_ptr<string> ossAccessingRoleName_ {};
-    // The instance edition. Valid values:
+    // The instance edition:
     // <ul>
-    // <li>trial: Trial Edition.</li>
-    // <li>official: Standard Edition.</li>
+    // <li>  Entry edition (trial).</li>
+    // <li> Standard edition (official).</li>
     // </ul>
     // 
     // This parameter is required.
@@ -883,7 +887,7 @@ namespace Models
     // The running mode of the cluster. Valid values:
     // 
     // - shared_nothing: compute-storage coupled.
-    // - shared_data: storage-compute disaggregation.
+    // - shared_data: compute-storage decoupled.
     // 
     // This parameter is required.
     shared_ptr<string> runMode_ {};

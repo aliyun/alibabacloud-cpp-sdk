@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the compute group.
+    // The compute group ID.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
-    // The ID of the coupon.
+    // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
-    // The target number of CUs.
+    // The target CU count.
     // 
     // This parameter is required.
     shared_ptr<int32_t> target_ {};

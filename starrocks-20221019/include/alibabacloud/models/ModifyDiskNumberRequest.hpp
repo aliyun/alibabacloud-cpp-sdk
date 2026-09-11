@@ -13,6 +13,7 @@ namespace Models
   class ModifyDiskNumberRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDiskNumberRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(FastMode, fastMode_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Target, target_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDiskNumberRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(FastMode, fastMode_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->fastMode_ == nullptr
-        && this->instanceId_ == nullptr && this->nodeGroupId_ == nullptr && this->promotionOptionNo_ == nullptr && this->target_ == nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && this->fastMode_ == nullptr && this->instanceId_ == nullptr && this->nodeGroupId_ == nullptr && this->promotionOptionNo_ == nullptr && this->target_ == nullptr; };
+    // autoPay Field Functions 
+    bool hasAutoPay() const { return this->autoPay_ != nullptr;};
+    void deleteAutoPay() { this->autoPay_ = nullptr;};
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline ModifyDiskNumberRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+
+
     // fastMode Field Functions 
     bool hasFastMode() const { return this->fastMode_ != nullptr;};
     void deleteFastMode() { this->fastMode_ = nullptr;};
@@ -75,11 +84,14 @@ namespace Models
 
 
   protected:
-    // Specifies whether to restart the compute nodes in fast mode. Default value: false.
+    // Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
+    // - true: Automatic payment.
+    // - false: No automatic payment.
+    shared_ptr<bool> autoPay_ {};
+    // Specifies whether to use the fast restart mode. Default value: false.
     // 
-    // - true: Restarts the compute nodes in fast mode. The nodes are restarted in batches. Nodes within a batch are restarted in parallel, and the batches are processed sequentially.
-    // 
-    // - false: Restarts the compute nodes in rolling restart mode.
+    // - true: Restarts compute nodes in fast restart mode. Compute nodes are restarted in multiple batches. Nodes within a batch are restarted in parallel, and batches execute sequentially.
+    // - false: Restarts compute nodes in rolling restart mode.
     shared_ptr<bool> fastMode_ {};
     // The instance ID.
     // 
@@ -89,6 +101,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
+    // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
     // The target number of disks.
     // 

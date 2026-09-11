@@ -126,13 +126,13 @@ namespace Models
 
 
       protected:
-        // The number of instances to purchase in a batch. You can use this parameter to query the price of purchasing multiple Elastic Compute Service (ECS) instances with a specific configuration. Valid values: 1 to 1000.
+        // The price for purchasing Elastic Computing Service (ECS) servers of a specific configuration in bulk. Valid values: 1 to 1000.
         // 
         // Default value: 1.
         shared_ptr<float> amount_ {};
-        // The name of the rule.
+        // The rule name.
         shared_ptr<string> name_ {};
-        // The ID of the rule.
+        // The rule ID.
         shared_ptr<string> ruleDescId_ {};
       };
 
@@ -183,11 +183,11 @@ namespace Models
 
 
       protected:
-        // The description of the coupon.
+        // The coupon description.
         shared_ptr<string> promotionDesc_ {};
-        // The name of the coupon.
+        // The coupon name.
         shared_ptr<string> promotionName_ {};
-        // The ID of the coupon.
+        // The coupon ID.
         shared_ptr<string> promotionOptionNo_ {};
       };
 
@@ -247,11 +247,11 @@ namespace Models
 
 
       protected:
-        // The price reduction ratio.
+        // The price reduction information.
         shared_ptr<float> cheapRate_ {};
         // The total list price after the price reduction.
         shared_ptr<float> cheapStandAmount_ {};
-        // Indicates whether to show the price reduction information.
+        // Indicates whether to display the price reduction.
         shared_ptr<bool> isShow_ {};
         // The original total list price.
         shared_ptr<float> originalStandAmount_ {};
@@ -313,7 +313,7 @@ namespace Models
 
 
       protected:
-        // The name of the component.
+        // The component name.
         shared_ptr<string> componentName_ {};
         // The discount amount.
         shared_ptr<float> discountAmount_ {};
@@ -405,23 +405,23 @@ namespace Models
 
 
     protected:
-      // The prices of the components.
+      // The component prices.
       shared_ptr<vector<Data::ComponentPrices>> componentPrices_ {};
       // The currency.
       shared_ptr<string> currency_ {};
-      // The depreciation rate.
+      // The price reduction information.
       shared_ptr<Data::DepreciateInfo> depreciateInfo_ {};
-      // The discount amount. Discount amount = Original amount - Billable amount. The billable amount includes coupon deductions.
+      // The discount amount, which is the original amount minus the payable amount (including coupon deductions).
       shared_ptr<float> discountAmount_ {};
       // The coupon information.
       shared_ptr<vector<Data::OptionalPromotions>> optionalPromotions_ {};
-      // The original price. Original price = List price × Billing usage.
+      // The original amount, which is the catalog price multiplied by the billable usage.
       shared_ptr<float> originalAmount_ {};
-      // The data structure returned in the response.
+      // The returned data structure.
       shared_ptr<vector<Data::Rules>> rules_ {};
-      // The price after the standard discount is applied.
+      // The discounted price based on the list price discount.
       shared_ptr<float> standDiscountPrice_ {};
-      // The discounted price on the official website.
+      // The list discount price.
       shared_ptr<float> standPrice_ {};
       // The transaction amount.
       shared_ptr<float> tradeAmount_ {};
@@ -482,7 +482,7 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<QueryModifyCuPriceResponseBody::Data> data_ {};
@@ -492,7 +492,7 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

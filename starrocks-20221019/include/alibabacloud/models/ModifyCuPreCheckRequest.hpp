@@ -61,20 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The warehouse ID.
+    // The compute group ID.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
-    // The number of CUs to which you want to change.
-    // 
-    // Valid values:
-    // 
-    // *   2
-    // *   4
-    // *   8
-    // *   16
-    // *   32
-    // *   64
+    // The target number of CUs.
     // 
     // This parameter is required.
     shared_ptr<int32_t> target_ {};

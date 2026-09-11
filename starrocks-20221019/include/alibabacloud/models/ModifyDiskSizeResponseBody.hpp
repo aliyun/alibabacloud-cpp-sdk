@@ -94,9 +94,9 @@ namespace Models
 
 
   protected:
-    // The details of the access denial.
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The ID of the order.
+    // The order ID.
     shared_ptr<int64_t> data_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

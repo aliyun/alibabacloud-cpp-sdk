@@ -84,7 +84,9 @@ namespace Models
 
 
     protected:
+      // The tag key.
       shared_ptr<string> key_ {};
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -193,8 +195,8 @@ namespace Models
     // - SCALING_OUT: Scale-out in progress.
     // - RESTARTING: Restarting.
     // - SCALING_IN: Scale-in in progress.
-    // - SCALING_UP: Upgrading specifications.
-    // - SCALING_DOWN: Downgrading specifications.
+    // - SCALING_UP: Scaling up.
+    // - SCALING_DOWN: Scaling down.
     // - UPGRADING: Upgrading.
     // - ENABLE_PUBLIC_NETWORK: Enabling public network access.
     // - DISABLE_PUBLIC_NETWORK: Disabling public network access.
@@ -203,6 +205,7 @@ namespace Models
     // - DELETING: Being deleted.
     // - DELETED: Deleted.
     shared_ptr<string> status_ {};
+    // The list of tags.
     shared_ptr<vector<DescribeNodeGroupsRequest::Tags>> tags_ {};
   };
 

@@ -96,15 +96,15 @@ namespace Models
   protected:
     // AccessDeniedDetail
     shared_ptr<string> accessDeniedDetail_ {};
-    // Order ID.
+    // The order ID.
     shared_ptr<int64_t> data_ {};
-    // Error code.
+    // The error code.
     shared_ptr<string> errCode_ {};
-    // Error message.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // HTTP request status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

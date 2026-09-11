@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // Details about the access denial.
+    // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
     // The order ID.
     shared_ptr<int64_t> data_ {};

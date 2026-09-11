@@ -13,6 +13,7 @@ namespace Models
   class ModifyNodeNumberRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyNodeNumberRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_TO_JSON(Parallelism, parallelism_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TerminationGracePeriodSeconds, terminationGracePeriodSeconds_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyNodeNumberRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
       DARABONBA_PTR_FROM_JSON(Parallelism, parallelism_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->nodeGroupId_ == nullptr && this->parallelism_ == nullptr && this->promotionOptionNo_ == nullptr && this->target_ == nullptr && this->terminationGracePeriodSeconds_ == nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && this->instanceId_ == nullptr && this->nodeGroupId_ == nullptr && this->parallelism_ == nullptr && this->promotionOptionNo_ == nullptr && this->target_ == nullptr
+        && this->terminationGracePeriodSeconds_ == nullptr; };
+    // autoPay Field Functions 
+    bool hasAutoPay() const { return this->autoPay_ != nullptr;};
+    void deleteAutoPay() { this->autoPay_ = nullptr;};
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline ModifyNodeNumberRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -84,6 +94,10 @@ namespace Models
 
 
   protected:
+    // Specifies whether to automatically purchase (pay for) all products specified in the Products parameter. Valid values:
+    // - true: Automatic payment.
+    // - false: No automatic payment.
+    shared_ptr<bool> autoPay_ {};
     // The instance ID.
     // 
     // This parameter is required.
@@ -92,7 +106,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
-    // The decommission concurrency for BE scale-in scenarios in compute-storage decoupled architecture. Default value: 1.
+    // The decommission concurrency for BE scale-in scenarios in compute-storage coupled mode. Default value: 1.
     shared_ptr<int32_t> parallelism_ {};
     // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
@@ -100,7 +114,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> target_ {};
-    // The duration to wait for running tasks to complete before dropping nodes during CN scale-in scenarios in storage-compute disaggregation architecture.
+    // The wait time for running tasks to complete before dropping nodes during CN scale-in scenarios in compute-storage decoupled mode.
     shared_ptr<int32_t> terminationGracePeriodSeconds_ {};
   };
 

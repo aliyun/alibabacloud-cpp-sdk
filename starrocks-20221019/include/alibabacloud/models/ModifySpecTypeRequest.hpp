@@ -13,6 +13,7 @@ namespace Models
   class ModifySpecTypeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifySpecTypeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(FastMode, fastMode_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NodeGroupId, nodeGroupId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TargetSpecType, targetSpecType_);
     };
     friend void from_json(const Darabonba::Json& j, ModifySpecTypeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(FastMode, fastMode_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NodeGroupId, nodeGroupId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->fastMode_ == nullptr
-        && this->instanceId_ == nullptr && this->nodeGroupId_ == nullptr && this->promotionOptionNo_ == nullptr && this->targetSpecType_ == nullptr; };
+    virtual bool empty() const override { return this->autoPay_ == nullptr
+        && this->fastMode_ == nullptr && this->instanceId_ == nullptr && this->nodeGroupId_ == nullptr && this->promotionOptionNo_ == nullptr && this->targetSpecType_ == nullptr; };
+    // autoPay Field Functions 
+    bool hasAutoPay() const { return this->autoPay_ != nullptr;};
+    void deleteAutoPay() { this->autoPay_ = nullptr;};
+    inline bool getAutoPay() const { DARABONBA_PTR_GET_DEFAULT(autoPay_, false) };
+    inline ModifySpecTypeRequest& setAutoPay(bool autoPay) { DARABONBA_PTR_SET_VALUE(autoPay_, autoPay) };
+
+
     // fastMode Field Functions 
     bool hasFastMode() const { return this->fastMode_ != nullptr;};
     void deleteFastMode() { this->fastMode_ = nullptr;};
@@ -75,23 +84,26 @@ namespace Models
 
 
   protected:
-    // Restart in fast restart mode. Default is false.
+    // Specifies whether to automatically purchase (pay for) all products specified in the Products parameter.
+    // - true: Automatic payment.
+    // - false: No automatic payment.
+    shared_ptr<bool> autoPay_ {};
+    // Specifies whether to use the fast restart mode. Default value: false.
     // 
-    // - true: Restarts compute nodes in fast restart mode. Nodes restart in parallel within a batch, and batches execute sequentially.
-    // 
+    // - true: Restarts compute nodes in fast restart mode. Compute nodes are restarted in multiple batches. Nodes within a batch are restarted in parallel, and batches execute sequentially.
     // - false: Restarts compute nodes in rolling restart mode.
     shared_ptr<bool> fastMode_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Compute group ID.
+    // The compute group ID.
     // 
     // This parameter is required.
     shared_ptr<string> nodeGroupId_ {};
-    // Coupon ID.
+    // The coupon ID.
     shared_ptr<string> promotionOptionNo_ {};
-    // Target specifications type.
+    // The target specification type.
     // 
     // This parameter is required.
     shared_ptr<string> targetSpecType_ {};
