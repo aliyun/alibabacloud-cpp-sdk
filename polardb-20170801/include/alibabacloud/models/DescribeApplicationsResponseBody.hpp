@@ -62,6 +62,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Applications& obj) { 
           DARABONBA_PTR_TO_JSON(ApplicationId, applicationId_);
           DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
+          DARABONBA_PTR_TO_JSON(BranchId, branchId_);
           DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
           DARABONBA_PTR_TO_JSON(Description, description_);
@@ -79,6 +80,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Applications& obj) { 
           DARABONBA_PTR_FROM_JSON(ApplicationId, applicationId_);
           DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
+          DARABONBA_PTR_FROM_JSON(BranchId, branchId_);
           DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
           DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -265,9 +267,9 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->applicationId_ == nullptr
-        && this->applicationType_ == nullptr && this->creationTime_ == nullptr && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->endpoints_ == nullptr
-        && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->payType_ == nullptr && this->polarFSInstanceId_ == nullptr
-        && this->regionId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->zoneId_ == nullptr; };
+        && this->applicationType_ == nullptr && this->branchId_ == nullptr && this->creationTime_ == nullptr && this->DBClusterId_ == nullptr && this->description_ == nullptr
+        && this->endpoints_ == nullptr && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->payType_ == nullptr
+        && this->polarFSInstanceId_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->zoneId_ == nullptr; };
         // applicationId Field Functions 
         bool hasApplicationId() const { return this->applicationId_ != nullptr;};
         void deleteApplicationId() { this->applicationId_ = nullptr;};
@@ -280,6 +282,13 @@ namespace Models
         void deleteApplicationType() { this->applicationType_ = nullptr;};
         inline string getApplicationType() const { DARABONBA_PTR_GET_DEFAULT(applicationType_, "") };
         inline Applications& setApplicationType(string applicationType) { DARABONBA_PTR_SET_VALUE(applicationType_, applicationType) };
+
+
+        // branchId Field Functions 
+        bool hasBranchId() const { return this->branchId_ != nullptr;};
+        void deleteBranchId() { this->branchId_ = nullptr;};
+        inline string getBranchId() const { DARABONBA_PTR_GET_DEFAULT(branchId_, "") };
+        inline Applications& setBranchId(string branchId) { DARABONBA_PTR_SET_VALUE(branchId_, branchId) };
 
 
         // creationTime Field Functions 
@@ -380,6 +389,7 @@ namespace Models
       protected:
         shared_ptr<string> applicationId_ {};
         shared_ptr<string> applicationType_ {};
+        shared_ptr<string> branchId_ {};
         shared_ptr<string> creationTime_ {};
         shared_ptr<string> DBClusterId_ {};
         shared_ptr<string> description_ {};
@@ -449,15 +459,14 @@ namespace Models
 
 
   protected:
-    // Contains the returned applications.
     shared_ptr<DescribeApplicationsResponseBody::Items> items_ {};
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records on the current page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total record count.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

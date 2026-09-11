@@ -140,9 +140,9 @@ namespace Models
 
 
       protected:
-        // The index of the source document that the image belongs to, starting from 0.
+        // The index of the source document to which the image belongs, starting from 0.
         shared_ptr<int32_t> documentIndex_ {};
-        // The unique ID of the image resource.
+        // The unique identifier of the image resource.
         shared_ptr<string> id_ {};
         // The element reference of the image in the Docling source document structure.
         shared_ptr<string> itemRef_ {};
@@ -245,19 +245,19 @@ namespace Models
     protected:
       // The list of figure or table captions associated with the chunk.
       shared_ptr<vector<string>> captions_ {};
-      // The list of Docling source document structured element references associated with the chunk. You can use these references to precisely locate original elements.
+      // The list of Docling source document structured element references associated with the chunk. You can use these references to precisely locate elements in the original document.
       shared_ptr<vector<string>> docItems_ {};
-      // The unique ID of the file.
+      // The unique identifier of the file.
       shared_ptr<string> fileId_ {};
       // The name of the file.
       shared_ptr<string> fileName_ {};
-      // The chain of section headings that the chunk belongs to.
+      // The chain of section headings to which the chunk belongs.
       shared_ptr<vector<string>> headings_ {};
       // The list of image resources referenced by the chunk.
       shared_ptr<vector<Results::ImageResources>> imageResources_ {};
       // The metadata.
       shared_ptr<string> metadata_ {};
-      // The list of page numbers that the chunk belongs to.
+      // The list of page numbers to which the chunk belongs.
       shared_ptr<vector<int32_t>> pageNumbers_ {};
       // The text content of the chunk.
       shared_ptr<string> shardContent_ {};

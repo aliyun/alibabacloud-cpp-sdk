@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of the tag.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -141,28 +141,26 @@ namespace Models
 
 
   protected:
-    // A list of application IDs. If specified, this operation returns information only about the specified applications.
+    // The list of application IDs. If specified, only information about these applications is returned.
     shared_ptr<string> applicationIds_ {};
+    // The application engine filter.
     shared_ptr<string> applicationTypes_ {};
-    // The ID of the PolarDB instance. If specified, this operation returns information only about applications associated with this instance.
+    // The PolarDB instance ID. If specified, only application information related to this PolarDB instance is returned.
     shared_ptr<string> DBClusterId_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
-    // 
-    // - **30**
-    // 
-    // - **50**
-    // 
-    // - **100**
+    // The number of entries per page. Valid values:
+    // * **30**
+    // * **50**
+    // * **100**
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region.
+    // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // A list of tags. A tag is a key-value pair.
+    // The tags.
     shared_ptr<vector<DescribeApplicationsRequest::Tag>> tag_ {};
   };
 

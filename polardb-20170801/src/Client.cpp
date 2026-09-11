@@ -12376,7 +12376,7 @@ DescribeApplicationUsageResponse Client::describeApplicationUsage(const Describe
 }
 
 /**
- * @summary Gets the list of applications for all PolarDB instances in a specified region.
+ * @summary Retrieves the list of applications for all PolarDB instances in a specified region.
  *
  * @param request DescribeApplicationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12431,7 +12431,7 @@ DescribeApplicationsResponse Client::describeApplicationsWithOptions(const Descr
 }
 
 /**
- * @summary Gets the list of applications for all PolarDB instances in a specified region.
+ * @summary Retrieves the list of applications for all PolarDB instances in a specified region.
  *
  * @param request DescribeApplicationsRequest
  * @return DescribeApplicationsResponse
@@ -25619,7 +25619,7 @@ ModifyDBClusterDescriptionZonalResponse Client::modifyDBClusterDescriptionZonal(
 }
 
 /**
- * @summary This operation modifies the properties of a PolarDB cluster endpoint. You can configure settings such as the read/write mode, automatic node addition, consistency level, transaction splitting, the connection pool, and whether the primary node accepts read requests.
+ * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
  *
  * @param request ModifyDBClusterEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25702,7 +25702,7 @@ ModifyDBClusterEndpointResponse Client::modifyDBClusterEndpointWithOptions(const
 }
 
 /**
- * @summary This operation modifies the properties of a PolarDB cluster endpoint. You can configure settings such as the read/write mode, automatic node addition, consistency level, transaction splitting, the connection pool, and whether the primary node accepts read requests.
+ * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
  *
  * @param request ModifyDBClusterEndpointRequest
  * @return ModifyDBClusterEndpointResponse
@@ -30325,7 +30325,7 @@ RestoreTableResponse Client::restoreTable(const RestoreTableRequest &request) {
 }
 
 /**
- * @summary Retrieves knowledge base search results.
+ * @summary Retrieves information from a knowledge base.
  *
  * @param request RetrievalKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30376,7 +30376,7 @@ RetrievalKnowledgeBaseResponse Client::retrievalKnowledgeBaseWithOptions(const R
 }
 
 /**
- * @summary Retrieves knowledge base search results.
+ * @summary Retrieves information from a knowledge base.
  *
  * @param request RetrievalKnowledgeBaseRequest
  * @return RetrievalKnowledgeBaseResponse
