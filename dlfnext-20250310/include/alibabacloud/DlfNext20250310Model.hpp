@@ -83,6 +83,7 @@
 #include <alibabacloud/models/BatchRevokePermissionsResponseBody.hpp>
 #include <alibabacloud/models/BatchRevokePermissionsResponse.hpp>
 #include <alibabacloud/models/CreateCatalogRequest.hpp>
+#include <alibabacloud/models/CreateCatalogResponseBody.hpp>
 #include <alibabacloud/models/CreateCatalogResponse.hpp>
 #include <alibabacloud/models/CreateDatabaseRequest.hpp>
 #include <alibabacloud/models/CreateDatabaseResponse.hpp>

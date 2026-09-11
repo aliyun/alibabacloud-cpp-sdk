@@ -19,20 +19,6 @@ namespace DlfNext20250310
 
 AlibabaCloud::DlfNext20250310::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"us-west-1" , "dlfnext.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "dlfnext.us-east-1.aliyuncs.com"},
-    {"eu-central-1" , "dlfnext.eu-central-1.aliyuncs.com"},
-    {"cn-wulanchabu" , "dlfnext.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "dlfnext.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "dlfnext.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "dlfnext.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "dlfnext.cn-hangzhou.aliyuncs.com"},
-    {"cn-beijing" , "dlfnext.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-5" , "dlfnext.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-1" , "dlfnext.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-1" , "dlfnext.ap-northeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dlfnext", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -529,7 +515,7 @@ BatchRevokePermissionsResponse Client::batchRevokePermissions(const string &cata
 }
 
 /**
- * @summary Creates a catalog.
+ * @summary Creates a data catalog.
  *
  * @param request CreateCatalogRequest
  * @param headers map
@@ -572,13 +558,13 @@ CreateCatalogResponse Client::createCatalogWithOptions(const CreateCatalogReques
     {"authType" , "AK"},
     {"style" , "ROA"},
     {"reqBodyType" , "json"},
-    {"bodyType" , "none"}
+    {"bodyType" , "json"}
   }).get<map<string, string>>());
   return json(callApi(params, req, runtime)).get<CreateCatalogResponse>();
 }
 
 /**
- * @summary Creates a catalog.
+ * @summary Creates a data catalog.
  *
  * @param request CreateCatalogRequest
  * @return CreateCatalogResponse

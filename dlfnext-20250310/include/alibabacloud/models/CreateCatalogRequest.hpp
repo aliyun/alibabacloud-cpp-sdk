@@ -78,15 +78,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to share the catalog.
+    // Specifies whether the catalog is a shared data catalog.
     shared_ptr<bool> isShared_ {};
-    // The catalog name.
+    // The name of the data catalog.
     shared_ptr<string> name_ {};
-    // The configuration options for the catalog.
+    // The configuration parameter struct.
     shared_ptr<map<string, string>> options_ {};
     // The share ID.
     shared_ptr<string> shareId_ {};
-    // The catalog type.
+    // The type of the data catalog.
     shared_ptr<string> type_ {};
   };
 

@@ -3,6 +3,7 @@
 #define ALIBABACLOUD_MODELS_CREATECATALOGRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
+#include <alibabacloud/models/CreateCatalogResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -16,10 +17,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateCatalogResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_TO_JSON(body, body_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCatalogResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
+      DARABONBA_PTR_FROM_JSON(body, body_);
     };
     CreateCatalogResponse() = default ;
     CreateCatalogResponse(const CreateCatalogResponse &) = default ;
@@ -33,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->headers_ == nullptr
-        && this->statusCode_ == nullptr; };
+        && this->statusCode_ == nullptr && this->body_ == nullptr; };
     // headers Field Functions 
     bool hasHeaders() const { return this->headers_ != nullptr;};
     void deleteHeaders() { this->headers_ = nullptr;};
@@ -50,9 +53,19 @@ namespace Models
     inline CreateCatalogResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
+    // body Field Functions 
+    bool hasBody() const { return this->body_ != nullptr;};
+    void deleteBody() { this->body_ = nullptr;};
+    inline const CreateCatalogResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateCatalogResponseBody) };
+    inline CreateCatalogResponseBody getBody() { DARABONBA_PTR_GET(body_, CreateCatalogResponseBody) };
+    inline CreateCatalogResponse& setBody(const CreateCatalogResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline CreateCatalogResponse& setBody(CreateCatalogResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+
+
   protected:
     shared_ptr<map<string, string>> headers_ {};
     shared_ptr<int32_t> statusCode_ {};
+    shared_ptr<CreateCatalogResponseBody> body_ {};
   };
 
   } // namespace Models

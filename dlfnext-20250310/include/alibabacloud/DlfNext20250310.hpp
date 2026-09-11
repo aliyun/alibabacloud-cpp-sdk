@@ -201,7 +201,7 @@ namespace DlfNext20250310
       Models::BatchRevokePermissionsResponse batchRevokePermissions(const string &catalogId, const Models::BatchRevokePermissionsRequest &request);
 
       /**
-       * @summary Creates a catalog.
+       * @summary Creates a data catalog.
        *
        * @param request CreateCatalogRequest
        * @param headers map
@@ -211,7 +211,7 @@ namespace DlfNext20250310
       Models::CreateCatalogResponse createCatalogWithOptions(const Models::CreateCatalogRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a catalog.
+       * @summary Creates a data catalog.
        *
        * @param request CreateCatalogRequest
        * @return CreateCatalogResponse
