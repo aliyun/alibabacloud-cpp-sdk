@@ -211,7 +211,9 @@ namespace Models
 
 
       protected:
+        // The tag key of the image.
         shared_ptr<string> key_ {};
+        // The tag value of the image.
         shared_ptr<string> value_ {};
       };
 
@@ -253,10 +255,17 @@ namespace Models
 
 
       protected:
+        // The metadata access mode of the image. Valid values:
+        // 
+        // - v1: When you create an ECS instance from this image, you cannot set the metadata access mode to "hardened mode only".
+        // 
+        // - v2: When you create an ECS instance from this image, you can set the metadata access mode to "hardened mode only".
+        // 
+        // Default value: v1.
         shared_ptr<string> imdsSupport_ {};
         // Specifies whether the imported original image supports NVMe. Valid values:
-        // - supported: The instances created from this image support the NVMe protocol.
-        // - unsupported: The instances created from this image do not support the NVMe protocol.
+        // - supported: Instances created from this image support the NVMe protocol.
+        // - unsupported: Instances created from this image do not support the NVMe protocol.
         // 
         // Default value: unsupported.
         shared_ptr<string> nvmeSupport_ {};
@@ -322,8 +331,8 @@ namespace Models
         // 
         // The size consists of the system disk and data disks. Make sure that the system disk size is greater than or equal to the size of the imported image file. Valid values:
         // 
-        // - When N=1, the entry represents the system disk. Valid values: 1 GiB to 2048 GiB.
-        // - When N=2 to 17, the entry represents a data disk. Valid values: 1 GiB to 2048 GiB.
+        // - When N=1, the system disk is specified. Valid values: 1 GiB to 2048 GiB.
+        // - When N=2 to 17, data disks are specified. Valid values: 1 GiB to 2048 GiB.
         // 
         // After you upload the source image file to OSS, you can view the size of the image file in the OSS bucket.
         shared_ptr<int32_t> diskImageSize_ {};
@@ -333,11 +342,11 @@ namespace Models
         // - VHD.
         // - QCOW2.
         // 
-        // Default value: none. Alibaba Cloud automatically detects the image format, and the detected format prevails.
+        // Default value: empty, which indicates that Alibaba Cloud automatically detects the image format. The detected format prevails.
         shared_ptr<string> format_ {};
         // The OSS bucket in which the image file is stored.
         shared_ptr<string> OSSBucket_ {};
-        // The file name (key) of the image file stored in the OSS bucket after the image is uploaded.
+        // The name (key) of the image file that is stored in the OSS bucket after the image is uploaded to OSS.
         shared_ptr<string> OSSObject_ {};
       };
 
@@ -443,7 +452,7 @@ namespace Models
 
 
     protected:
-      // The system architecture of the system disk when a data disk snapshot is used as the system disk. Valid values:
+      // The system architecture of the system disk when a data disk snapshot is used as the image for the system disk. Valid values:
       // 
       // - x86_64.
       // - arm64.
@@ -455,28 +464,31 @@ namespace Models
       // - BIOS: BIOS boot mode.
       // - UEFI: UEFI boot mode.
       // 
-      // Default value: BIOS. If `Architecture=arm64`, the default value is UEFI, and only UEFI is supported.
+      // Default value: BIOS. If `Architecture=arm64`, the default value is UEFI, and only UEFI can be specified.
       // 
       // <notice>
       // 
-      // To prevent instances from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the image before you set this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
+      // To prevent instances from failing to start due to an unsupported boot mode, make sure that you understand the boot modes supported by the destination image before you set this parameter. For more information about image boot modes, see [Image boot modes](~~2244655#b9caa9b8bb1wf~~).
       // 
       // </notice>
       shared_ptr<string> bootMode_ {};
+      // The description of the imported image.
       shared_ptr<string> description_ {};
-      // The list of custom image information.
-      // - When N=1, the entry represents the system disk.
-      // - When N=2 to 17, the entry represents a data disk.
+      // The information about the custom image.
+      // - When N=1, the system disk is specified.
+      // - When N=2 to 17, data disks are specified.
       shared_ptr<vector<ImportImageOptions::DiskDeviceMappings>> diskDeviceMappings_ {};
       // The image feature properties.
       shared_ptr<ImportImageOptions::Features> features_ {};
+      // The name of the imported image.
       shared_ptr<string> imageName_ {};
+      // The tags of the image.
       shared_ptr<vector<ImportImageOptions::ImportImageTags>> importImageTags_ {};
       // The license type used to activate the operating system after the image is imported. Valid values:
       // 
-      // - Auto: Alibaba Cloud detects the source operating system and assigns a license. In automatic mode, the system first checks whether a license distributed through official Alibaba Cloud channels exists for the `Platform` you specified and assigns the license to the imported image. If no such license exists, the system switches to BYOL (Bring Your Own License) mode.
-      // - Aliyun: uses a license distributed through official Alibaba Cloud channels based on the `Platform` you specified.
-      // - BYOL: uses the license that comes with the source operating system. When you use BYOL, make sure that your license key supports use on Alibaba Cloud.
+      // - Auto: Alibaba Cloud detects the source operating system and assigns a license. In Auto mode, the system first searches for a license from an official Alibaba Cloud channel based on the `Platform` you specified and assigns it to the imported image. If no such license is available, the system switches to the BYOL (Bring Your Own License) method.
+      // - Aliyun: A license from an official Alibaba Cloud channel is used based on the `Platform` you specified.
+      // - BYOL: The license that comes with the source operating system is used. When you use BYOL, make sure that your license key supports use on Alibaba Cloud.
       // 
       // Default value: Auto.
       shared_ptr<string> licenseType_ {};
@@ -516,11 +528,23 @@ namespace Models
       // - Windows Server 2003
       // - Other Windows
       // 
-      // Default value: Others Linux if the operating system type is Linux. Otherwise, the default value is Other Windows.
+      // Default value: Others Linux when the operating system type is Linux. Otherwise, the default value is Other Windows.
       shared_ptr<string> platform_ {};
-      // > This parameter is in invitational preview.
+      // **[Deprecated]** Use ImportImageOptions.RetentionStrategy instead.
       shared_ptr<bool> retainImportedImage_ {};
+      // The data retention policy for the imported image. Valid values:
+      // 
+      // - RetainOnlySuccessful: The image is retained only if the build succeeds.
+      // 
+      // - RetainOnlyFailed: The image is retained only if the build fails.
+      // 
+      // - RetainAlways: The image is always retained regardless of the build result.
+      // 
+      // - RetainNever: The image is never retained regardless of the build result.
+      // 
+      // Default value: RetainNever.
       shared_ptr<string> retentionStrategy_ {};
+      // The name of the RAM role used to import the image.
       shared_ptr<string> roleName_ {};
     };
 
@@ -591,7 +615,7 @@ namespace Models
       protected:
         // The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. The tag key cannot contain `http://` or `https://`.
         shared_ptr<string> key_ {};
-        // The tag value. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
+        // The tag value of the resource. Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be up to 128 characters in length and cannot start with `acs:`. The tag value cannot contain `http://` or `https://`.
         shared_ptr<string> value_ {};
       };
 
@@ -623,9 +647,9 @@ namespace Models
 
 
       protected:
-        // Specifies whether the built image supports NVMe. Valid values:
-        // - supported: The instances created from this image support the NVMe protocol.
-        // - unsupported: The instances created from this image do not support the NVMe protocol.
+        // Specifies whether the destination image supports NVMe. Valid values:
+        // - supported: Instances created from this image support the NVMe protocol.
+        // - unsupported: Instances created from this image do not support the NVMe protocol.
         // - auto: The system automatically detects whether your image has the NVMe driver installed. This detection occurs before the build phase. If you install or uninstall the NVMe driver during the build, the result may be inaccurate. Set this parameter to supported or unsupported based on your build content.
         shared_ptr<string> nvmeSupport_ {};
       };
@@ -674,15 +698,15 @@ namespace Models
     protected:
       // The description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
       shared_ptr<string> description_ {};
-      // The image family of the built image. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot start with aliyun or acs:. The name cannot contain http:// or https://. The name can contain digits, colons (:), underscores (_), and hyphens (-).
+      // The destination image family. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot start with aliyun or acs:. The name cannot contain http:// or https://. The name can contain digits, colons (:), underscores (_), and hyphens (-).
       shared_ptr<string> imageFamily_ {};
-      // The image feature properties of the built image.
+      // The feature properties of the destination image.
       shared_ptr<ImageOptions::ImageFeatures> imageFeatures_ {};
-      // The prefix of the name of the built image. The name must be 2 to 64 characters in length and must start with a letter or a Chinese character. The name cannot start with `http://` or `https://`. The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
+      // The prefix of the destination image name. The name must be 2 to 64 characters in length and must start with a letter or a Chinese character. The name cannot start with `http://` or `https://`. The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
       // 
-      // The final complete image name is automatically generated by the system by concatenating the name prefix and the build task ID (`ExecutionId`) in the format of `{ImageName}_{ExecutionId}`.
+      // The final complete image name is automatically generated by the system by concatenating the name prefix with the build task ID (`ExecutionId`) in the format of `{ImageName}_{ExecutionId}`.
       shared_ptr<string> imageName_ {};
-      // The tags of the built image.
+      // The tags of the destination image.
       shared_ptr<vector<ImageOptions::ImageTags>> imageTags_ {};
     };
 
@@ -724,12 +748,12 @@ namespace Models
 
 
     protected:
-      // Specifies whether to disable the automatic suffix for the built image name. Valid values:
-      // - disable: disables the automatic suffix.
+      // Specifies whether to disable the automatic suffix for the destination image name. Valid values:
+      // - disable: The automatic suffix is disabled.
       shared_ptr<string> imageNameSuffix_ {};
-      // Specifies whether to retain Cloud Assistant. During the build process, the system automatically installs Cloud Assistant on the intermediate instance to run commands. You can choose whether to retain Cloud Assistant in the built image. Valid values:
-      // - true: retains Cloud Assistant.
-      // - false: does not retain Cloud Assistant.
+      // Specifies whether to retain Cloud Assistant. During the build process, the system automatically installs Cloud Assistant on the intermediate instance to run commands. You can choose whether to retain Cloud Assistant in the destination image. Valid values:
+      // - true: Cloud Assistant is retained.
+      // - false: Cloud Assistant is not retained.
       // 
       // Default value: false.
       // > This setting does not affect Cloud Assistant that is already included in your image.
@@ -961,7 +985,7 @@ namespace Models
 
 
   protected:
-    // The Alibaba Cloud account ID to which to share the built image through image sharing. Valid values of N: 1 to 20.
+    // The Alibaba Cloud account ID to which the destination image is shared through image sharing. Valid values of N: 1 to 20.
     shared_ptr<vector<int64_t>> addAccount_ {};
     // The advanced configuration.
     shared_ptr<CreateImagePipelineRequest::AdvancedOptions> advancedOptions_ {};
@@ -980,12 +1004,12 @@ namespace Models
     shared_ptr<string> baseImageType_ {};
     // The content of the image build template. The content size cannot exceed 16 KB. For more information about supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
     shared_ptr<string> buildContent_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // Specifies whether to release the intermediate instance if the image fails to be built. Valid values:
     // 
-    // - true: releases the intermediate instance.
-    // - false: does not release the intermediate instance.
+    // - true: The intermediate instance is released.
+    // - false: The intermediate instance is not released.
     // 
     // Default value: true.
     // 
@@ -993,23 +1017,23 @@ namespace Models
     shared_ptr<bool> deleteInstanceOnFailure_ {};
     // The description. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
-    // The image family of the built image.
+    // The destination image family.
     // <notice>
-    // This parameter is deprecated. Use ImageOptions.ImageFamily instead.
+    // **[Deprecated]** Use ImageOptions.ImageFamily instead.
     // </notice>
     shared_ptr<string> imageFamily_ {};
-    // The prefix of the name of the built image.
+    // The prefix of the destination image name.
     // <notice>
-    // This parameter is deprecated. Use ImageOptions.ImageName instead.
+    // **[Deprecated]** Use ImageOptions.ImageName instead.
     // </notice>
     shared_ptr<string> imageName_ {};
-    // The properties of the built image.
+    // The destination image properties.
     shared_ptr<CreateImagePipelineRequest::ImageOptions> imageOptions_ {};
     // The properties and settings for importing an image. This parameter is required when `BaseImageType=OSS`.
     shared_ptr<CreateImagePipelineRequest::ImportImageOptions> importImageOptions_ {};
     // The instance type. You can call [DescribeInstanceTypes](https://help.aliyun.com/document_detail/25620.html) to query different instance types.
     // 
-    // If you do not specify this parameter, the instance type that has the minimum number of vCPUs and the smallest memory size is automatically selected. The selection is subject to the inventory of instance types. For example, the ecs.g6.large instance type is selected by default. If the inventory of the ecs.g6.large instance type is insufficient, the ecs.g6.xlarge instance type is selected.
+    // If you do not specify this parameter, the instance type is automatically set based on the principle of minimum vCPUs and memory, subject to the inventory of the instance type. For example, the ecs.g6.large instance type is selected by default. If the inventory is insufficient, the ecs.g6.xlarge instance type is selected.
     shared_ptr<string> instanceType_ {};
     // The outbound public bandwidth of the intermediate instance. Unit: Mbit/s. Valid values: 0 to 100.
     // 
@@ -1017,11 +1041,11 @@ namespace Models
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
     // The template name. The name must be 2 to 128 characters in length and must start with a letter or a Chinese character. The name cannot start with `http://` or `https://`. The name can contain Chinese characters, letters, digits, colons (:), underscores (_), periods (.), and hyphens (-).
     // 
-    // > If you do not specify `Name`, the `ImagePipelineId` return value is used by default.
+    // > If you do not specify `Name`, the return value of `ImagePipelineId` is used by default.
     shared_ptr<string> name_ {};
-    // Specifies whether the built image supports NVMe.
+    // Specifies whether the destination image supports NVMe.
     // <notice>
-    // This parameter is deprecated. Use ImageOptions.ImageFeatures.NvmeSupport instead.
+    // **[Deprecated]** Use ImageOptions.ImageFeatures.NvmeSupport instead.
     // </notice>
     shared_ptr<string> nvmeSupport_ {};
     shared_ptr<string> ownerAccount_ {};
@@ -1030,26 +1054,70 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The image repair items.
+    // 
+    // - Repair items supported for Linux:
+    //    - fstab: repairs disk mount configuration issues.
+    //    - grub: repairs GRUB boot configuration issues.
+    //    - dhcp: repairs network DHCP issues.
+    //    - selinux: repairs Security-Enhanced Linux issues.
+    //    - growpart: repairs root partition online auto-expansion issues.
+    //    - cloudinit: installs the cloud-init initialization service.
+    //    - aegis: installs the China Cloud Security Center Agent service.
+    //    - nvme: repairs NVMe driver issues.
+    //    - virtio: repairs virtio driver issues.
+    //    - standardizedtimezone: repairs standardized time zone issues.
+    // - Repair items supported for Windows:
+    //    - bcd: repairs boot configuration data file issues.
+    //    - hotfix: repairs Windows patch issues.
+    //    - disk: repairs disk setting issues.
+    //    - update: repairs Update process issues.
+    //    - server: repairs service configuration issues.
+    //    - bootmgr: repairs Windows Boot Manager issues.
+    //    - vminit: repairs Windows initialization Agent issues.
+    //    - osloader: repairs Windows OS Loader issues.
+    //    - virtio: repairs virtio driver issues.
+    //    - standardizedtimezone: repairs standardized time zone issues.
     shared_ptr<vector<string>> repairItem_ {};
     // The repair option in the image template.
     // 
     // Valid values:
-    // - Standard: standard mode.
+    // - Standard: standard repair mode.
     // 
-    //   Detection items for Linux include:
+    //   The standard repair package for Linux includes the following items:
     //   - GUESTOS.CloudInit
     //   - GUESTOS.Dhcp
     //   - GUESTOS.Virtio
     //   - GUESTOS.OnlineResizeFS
     //   - GUESTOS.Grub
     //   - GUESTOS.Fstab
+    //   - GUESTOS.Nvme
     // 
-    //   Detection items for Windows include:
+    //   The standard repair package for Windows includes the following items:
     //   - GUESTOS.Virtio
     //   - GUESTOS.Update
     //   - GUESTOS.Hotfix
     //   - GUESTOS.Server
-    // > As detection and repair capabilities continue to improve, the repair items may increase. For more information about the repair items, see [Overview of image detection](https://help.aliyun.com/document_detail/439819.html).
+    //   - GUESTOS.Bcd
+    //   - GUESTOS.Disk
+    //   - GUESTOS.Bootmgr
+    //   - GUESTOS.OSLoader
+    //   - GUESTOS.Vminit
+    // 
+    // - All: full repair mode.
+    // 
+    //   The full repair package for Linux includes all items in the standard repair package, plus the following items:
+    // 
+    //   - GUESTOS.Selinux
+    //   - GUESTOS.SecurityCenterAgent
+    // 
+    //   The full repair package for Windows includes all items in the standard repair package, plus the following item:
+    //   - GUESTOS.Server
+    // 
+    // 
+    // - Customized: custom repair mode. In this mode, the repair items in the repair package are specified by the RepairItem parameter.
+    // 
+    // > As detection and repair capabilities continue to improve, the included repair items may increase. For more information about the specific meaning of each repair item, see [Overview of image detection](https://help.aliyun.com/document_detail/439819.html).
     shared_ptr<string> repairMode_ {};
     // The ID of the enterprise resource group.
     shared_ptr<string> resourceGroupId_ {};
@@ -1063,7 +1131,7 @@ namespace Models
     shared_ptr<vector<CreateImagePipelineRequest::Tag>> tag_ {};
     // The content of the image test template. The content size cannot exceed 16 KB. For more information about supported commands, see [Commands supported by Image Builder](https://help.aliyun.com/document_detail/200206.html).
     shared_ptr<string> testContent_ {};
-    // The regions to which to distribute the built image. Valid values of N: 1 to 20.
+    // The regions to which to distribute the destination image. Valid values of N: 1 to 20.
     // 
     // If you do not specify this parameter, the image is created only in the current region.
     shared_ptr<vector<string>> toRegionId_ {};

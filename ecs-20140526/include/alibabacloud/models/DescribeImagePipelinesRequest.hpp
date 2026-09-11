@@ -181,7 +181,7 @@ namespace Models
   protected:
     // The image template ID. Valid values of N: 1 to 20.
     shared_ptr<vector<string>> imagePipelineId_ {};
-    // The maximum number of entries per page for paging queries. Valid values: 1 to 500.
+    // The maximum number of entries per page in a paging query. Valid values: 1 to 500.
     // 
     // Default value: 50.
     shared_ptr<int32_t> maxResults_ {};
@@ -195,7 +195,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the enterprise resource group. When you use this parameter to filter resources, the resource count cannot exceed 1000.
+    // The ID of the enterprise resource group. When you use this parameter to filter resources, the resource count cannot exceed 1,000.
     // 
     // >Filtering by the default resource group is not supported.
     shared_ptr<string> resourceGroupId_ {};

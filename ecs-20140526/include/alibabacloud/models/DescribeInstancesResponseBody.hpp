@@ -1609,10 +1609,12 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const AdditionalInfo& obj) { 
             DARABONBA_PTR_TO_JSON(EnableHighDensityMode, enableHighDensityMode_);
+            DARABONBA_PTR_TO_JSON(ManagedHostId, managedHostId_);
             DARABONBA_PTR_TO_JSON(NodeSerialNumber, nodeSerialNumber_);
           };
           friend void from_json(const Darabonba::Json& j, AdditionalInfo& obj) { 
             DARABONBA_PTR_FROM_JSON(EnableHighDensityMode, enableHighDensityMode_);
+            DARABONBA_PTR_FROM_JSON(ManagedHostId, managedHostId_);
             DARABONBA_PTR_FROM_JSON(NodeSerialNumber, nodeSerialNumber_);
           };
           AdditionalInfo() = default ;
@@ -1627,12 +1629,19 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->enableHighDensityMode_ == nullptr
-        && this->nodeSerialNumber_ == nullptr; };
+        && this->managedHostId_ == nullptr && this->nodeSerialNumber_ == nullptr; };
           // enableHighDensityMode Field Functions 
           bool hasEnableHighDensityMode() const { return this->enableHighDensityMode_ != nullptr;};
           void deleteEnableHighDensityMode() { this->enableHighDensityMode_ = nullptr;};
           inline bool getEnableHighDensityMode() const { DARABONBA_PTR_GET_DEFAULT(enableHighDensityMode_, false) };
           inline AdditionalInfo& setEnableHighDensityMode(bool enableHighDensityMode) { DARABONBA_PTR_SET_VALUE(enableHighDensityMode_, enableHighDensityMode) };
+
+
+          // managedHostId Field Functions 
+          bool hasManagedHostId() const { return this->managedHostId_ != nullptr;};
+          void deleteManagedHostId() { this->managedHostId_ = nullptr;};
+          inline string getManagedHostId() const { DARABONBA_PTR_GET_DEFAULT(managedHostId_, "") };
+          inline AdditionalInfo& setManagedHostId(string managedHostId) { DARABONBA_PTR_SET_VALUE(managedHostId_, managedHostId) };
 
 
           // nodeSerialNumber Field Functions 
@@ -1644,6 +1653,7 @@ namespace Models
 
         protected:
           shared_ptr<bool> enableHighDensityMode_ {};
+          shared_ptr<string> managedHostId_ {};
           shared_ptr<string> nodeSerialNumber_ {};
         };
 
@@ -2319,11 +2329,11 @@ namespace Models
 
   protected:
     shared_ptr<DescribeInstancesResponseBody::Instances> instances_ {};
-    // The query token returned in this call.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page as specified in the request.
+    // The number of entries per page that was specified in the request.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

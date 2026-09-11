@@ -1172,9 +1172,9 @@ namespace Models
 
   protected:
     shared_ptr<DescribeImagePipelinesResponseBody::ImagePipeline> imagePipeline_ {};
-    // The maximum number of entries per page for paging queries.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token returned in this call. For more information about how to use it, refer to the operation description.
+    // The pagination token returned in this call. For more information about how to use this token, see the operation description.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

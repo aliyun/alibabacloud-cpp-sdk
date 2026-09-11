@@ -115,11 +115,11 @@ namespace Models
 
 
     protected:
-      // >This parameter is not publicly available.
+      // > This parameter is not publicly available.
       shared_ptr<int64_t> assumeRoleFor_ {};
-      // >This parameter is not publicly available.
+      // > This parameter is not publicly available.
       shared_ptr<string> roleType_ {};
-      // >This parameter is not publicly available.
+      // > This parameter is not publicly available.
       shared_ptr<string> rolearn_ {};
     };
 
@@ -154,7 +154,7 @@ namespace Models
       // The capacity of the new system disk. Unit: GiB. Valid values:
       // 
       // - Basic disk: Max{20, size of the image specified by the ImageId parameter} to 500.
-      // - Enterprise SSD (ESSD):
+      // - Enterprise SSD:
       //   - PL0: Max{1, size of the image specified by the ImageId parameter} to 2048.
       //   - PL1: Max{20, size of the image specified by the ImageId parameter} to 2048.
       //   - PL2: Max{461, size of the image specified by the ImageId parameter} to 2048.
@@ -327,7 +327,7 @@ namespace Models
     shared_ptr<string> clientToken_ {};
     // > **[Deprecated]** This parameter is deprecated. To improve compatibility, use `ImageId` instead.
     shared_ptr<string> diskId_ {};
-    // >This parameter is not publicly available.
+    // > This parameter is not publicly available.
     shared_ptr<string> encryptAlgorithm_ {};
     // Specifies whether to encrypt the disk. Valid values:
     // 
@@ -344,7 +344,7 @@ namespace Models
     shared_ptr<string> imageId_ {};
     // The ID of target instance.
     // 
-    // >Before you send the request, make sure that the instance status of the target instance is `Stopped`.
+    // > Before you send the request, make sure that the instance status of the target instance is `Stopped`.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -352,7 +352,7 @@ namespace Models
     shared_ptr<string> KMSKeyId_ {};
     // The name of the key pair. 
     // 
-    // > This parameter takes effect only for Linux instances. You can bind an SSH key pair to the ECS instance as a logon credential. After you bind an SSH key pair, the username and password logon method is disabled.
+    // > This parameter takes effect only for Linux instances. You can bind an SSH key pair to the ECS instance as a logon credential. After an SSH key pair is used, the username and password logon method is disabled.
     shared_ptr<string> keyPairName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
@@ -368,11 +368,11 @@ namespace Models
     // 
     // > If you specify the `Password` parameter, send the request over HTTPS to prevent password leaks.
     shared_ptr<string> password_ {};
-    // Specifies whether to use the preset password of the image.
+    // Specifies whether to use the password preset in the image.
     // 
     // Default value: false.
     // 
-    // > If you use this parameter, the Password parameter must be empty. Make sure that the image has a preset password.
+    // > If you use this parameter, the Password parameter must be empty. Make sure that the image you use has a password preset.
     shared_ptr<bool> passwordInherit_ {};
     // > This parameter is deprecated.
     shared_ptr<string> platform_ {};
@@ -380,9 +380,9 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // Specifies whether to use the free Security Center service after the system disk is replaced. Valid values: 
     // 
-    // - Active: The Security Center service is used. This value is supported only for public images.
+    // - Active: Security Center is used. This value is applicable only to public images.
     // 
-    // - Deactive: The Security Center service is not used. This value is supported for all images.
+    // - Deactive: Security Center is not used. This value is applicable to all images.
     // 
     // Default value: Deactive.
     shared_ptr<string> securityEnhancementStrategy_ {};
