@@ -142,27 +142,24 @@ namespace Models
 
 
     protected:
-      // The time of the most recent attach operation, in ISO 8601 format. The value is null if the instance has not been attached.
+      // The time of the most recent attach operation, in ISO 8601 format. This value is null if the instance has not been attached.
       shared_ptr<string> attachedAt_ {};
       // The file system capacity, in GiB.
       shared_ptr<int64_t> capacity_ {};
       // KVCacheStore KvcsId
       shared_ptr<string> kvcsId_ {};
-      // The mount point ID at the file system level.
+      // The file system-level mount point ID.
       shared_ptr<string> mountPointId_ {};
       // The region where the instance is deployed.
       shared_ptr<string> regionId_ {};
       // The attach status. Valid values:
-      // 
       // - Attaching: The instance is being mounted.
       // - Attached: The instance is mounted.
       // - Detaching: The instance is being unmounted.
       // 
       // After unmounting is complete, the record is deleted and not returned.
       shared_ptr<string> status_ {};
-      // The instance type. Valid values:
-      // 
-      // - kvcs: KVCacheStore (CPFS).
+      // The instance type. Valid values: kvcs (KVCacheStore, CPFS).
       shared_ptr<string> type_ {};
       // The VSC ID on the compute side.
       shared_ptr<string> vscId_ {};
@@ -219,7 +216,7 @@ namespace Models
   protected:
     // The list of mount information.
     shared_ptr<vector<ListKVCacheStoreAttachInfoResponseBody::AttachInfos>> attachInfos_ {};
-    // The pagination token used to query the next batch of data.
+    // The pagination token. Used to query the next batch of data.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

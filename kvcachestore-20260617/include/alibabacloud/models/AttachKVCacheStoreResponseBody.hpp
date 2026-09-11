@@ -134,7 +134,7 @@ namespace Models
   protected:
     // The list of mount results.
     shared_ptr<vector<AttachKVCacheStoreResponseBody::AttachResults>> attachResults_ {};
-    // The request ID. A request ID is returned regardless of whether the operation is successful.
+    // The request ID. A request ID is returned regardless of whether the API call succeeds.
     shared_ptr<string> requestId_ {};
   };
 

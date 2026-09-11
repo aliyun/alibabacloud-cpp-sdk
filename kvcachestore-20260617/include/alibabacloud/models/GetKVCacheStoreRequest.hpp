@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The KvCacheStore instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> kvcsId_ {};
+    // The region ID, such as cn-hangzhou.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

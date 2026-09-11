@@ -117,7 +117,9 @@ namespace Models
 
 
       protected:
+        // The tag key of the resource.
         shared_ptr<string> tagKey_ {};
+        // The tag value of the resource.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -233,20 +235,47 @@ namespace Models
 
 
     protected:
+      // The storage capacity, in GiB.
       shared_ptr<int64_t> capacity_ {};
+      // The creation time in ISO 8601 format.
       shared_ptr<string> createTime_ {};
+      // The instance description.
       shared_ptr<string> description_ {};
+      // The extra status information. Valid values:
+      // - CapacityExpanding
+      // - CapacityExpandSuccess
+      // - CapacityExpandFail
       shared_ptr<string> extraStatus_ {};
+      // The cluster number.
       shared_ptr<string> hpnZone_ {};
+      // The instance ID.
       shared_ptr<string> kvcsId_ {};
+      // The file system-level mount point ID. Instances under the same file system share this mount point. For more information, use ListKVCacheInstanceAttachInfo.
       shared_ptr<string> mountPointId_ {};
+      // The instance name.
       shared_ptr<string> name_ {};
+      // The payment type. Valid values:
+      // - PREPAY
+      // - POSTPAY
       shared_ptr<string> paymentType_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
+      // The instance status. Valid values:
+      // - Creating
+      // - Available
+      // - InUse
+      // - Stopping
+      // - Stopped
+      // - Deleting
       shared_ptr<string> status_ {};
+      // The list of resource tags.
       shared_ptr<vector<KvCacheStore::Tags>> tags_ {};
+      // The instance type. Valid values:
+      // - kvcs: KVCacheStore (CPFS).
       shared_ptr<string> type_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -269,7 +298,9 @@ namespace Models
 
 
   protected:
+    // The details of the KvCacheStore instance.
     shared_ptr<GetKVCacheStoreResponseBody::KvCacheStore> kvCacheStore_ {};
+    // The request ID. A request ID is returned regardless of whether the call is successful.
     shared_ptr<string> requestId_ {};
   };
 

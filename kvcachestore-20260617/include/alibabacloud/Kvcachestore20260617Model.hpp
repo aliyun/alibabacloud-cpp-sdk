@@ -29,6 +29,9 @@
 #include <alibabacloud/models/ListKVCacheStoreAvailableHpnZonesRequest.hpp>
 #include <alibabacloud/models/ListKVCacheStoreAvailableHpnZonesResponseBody.hpp>
 #include <alibabacloud/models/ListKVCacheStoreAvailableHpnZonesResponse.hpp>
+#include <alibabacloud/models/ListKVCacheStoreAvailableVscsRequest.hpp>
+#include <alibabacloud/models/ListKVCacheStoreAvailableVscsResponseBody.hpp>
+#include <alibabacloud/models/ListKVCacheStoreAvailableVscsResponse.hpp>
 #include <alibabacloud/models/ListKVCacheStoresRequest.hpp>
 #include <alibabacloud/models/ListKVCacheStoresResponseBody.hpp>
 #include <alibabacloud/models/ListKVCacheStoresResponse.hpp>

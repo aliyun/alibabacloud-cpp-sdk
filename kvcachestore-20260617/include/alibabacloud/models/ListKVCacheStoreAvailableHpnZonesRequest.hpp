@@ -51,8 +51,12 @@ namespace Models
 
 
   protected:
+    // The list of KVCacheStore instance IDs, separated by commas. You can specify a minimum of 1 and a maximum of 100 instance IDs.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> kvcsIds_ {};
+    // The region ID, such as cn-hangzhou.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

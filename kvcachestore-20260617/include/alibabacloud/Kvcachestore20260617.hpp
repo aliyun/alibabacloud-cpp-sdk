@@ -21,7 +21,7 @@ namespace Kvcachestore20260617
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Mounts KVCacheInstance resources to the virtualization side in batches.
+       * @summary Mounts KVCacheInstance resources to the virtualization stack in batches.
        *
        * @description * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
        * * The KVCacheStore must be in the Available or InUse state before it can be mounted.
@@ -33,7 +33,7 @@ namespace Kvcachestore20260617
       Models::AttachKVCacheStoreResponse attachKVCacheStoreWithOptions(const Models::AttachKVCacheStoreRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Mounts KVCacheInstance resources to the virtualization side in batches.
+       * @summary Mounts KVCacheInstance resources to the virtualization stack in batches.
        *
        * @description * This is an asynchronous operation. A return status of Attaching indicates that the request has been accepted. Call ListKVCacheStoreAttachInfo to query mount records. A record status of Attached indicates that the mount is complete.
        * * The KVCacheStore must be in the Available or InUse state before it can be mounted.
@@ -151,7 +151,7 @@ namespace Kvcachestore20260617
       Models::DetachKVCacheStoreResponse detachKVCacheStore(const Models::DetachKVCacheStoreRequest &request);
 
       /**
-       * @summary 查询 KvCacheStore 实例详情
+       * @summary Queries the details of a KvCacheStore instance.
        *
        * @param request GetKVCacheStoreRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -160,7 +160,7 @@ namespace Kvcachestore20260617
       Models::GetKVCacheStoreResponse getKVCacheStoreWithOptions(const Models::GetKVCacheStoreRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询 KvCacheStore 实例详情
+       * @summary Queries the details of a KvCacheStore instance.
        *
        * @param request GetKVCacheStoreRequest
        * @return GetKVCacheStoreResponse
@@ -168,7 +168,12 @@ namespace Kvcachestore20260617
       Models::GetKVCacheStoreResponse getKVCacheStore(const Models::GetKVCacheStoreRequest &request);
 
       /**
-       * @summary Queries the mount information of KVCacheInstance resources in batches.
+       * @summary Queries mount information of KVCacheInstances in batches.
+       *
+       * @description * This operation has no KVCacheStore status restrictions. If a KVCacheStore is in the Creating state, an empty list is returned.
+       * * A KVCacheStore can be mounted to multiple VSCs, so each KVCacheStore may return multiple mount records.
+       * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
+       * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
        *
        * @param request ListKVCacheStoreAttachInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -177,7 +182,12 @@ namespace Kvcachestore20260617
       Models::ListKVCacheStoreAttachInfoResponse listKVCacheStoreAttachInfoWithOptions(const Models::ListKVCacheStoreAttachInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the mount information of KVCacheInstance resources in batches.
+       * @summary Queries mount information of KVCacheInstances in batches.
+       *
+       * @description * This operation has no KVCacheStore status restrictions. If a KVCacheStore is in the Creating state, an empty list is returned.
+       * * A KVCacheStore can be mounted to multiple VSCs, so each KVCacheStore may return multiple mount records.
+       * * This operation supports batch queries. You can query up to 100 KVCacheStores in a single request.
+       * * This operation supports page number-based pagination (PageNumber and PageSize) and cursor-based pagination (NextToken and MaxResults). If both sets of pagination parameters are specified, cursor-based pagination takes precedence.
        *
        * @param request ListKVCacheStoreAttachInfoRequest
        * @return ListKVCacheStoreAttachInfoResponse
@@ -185,7 +195,9 @@ namespace Kvcachestore20260617
       Models::ListKVCacheStoreAttachInfoResponse listKVCacheStoreAttachInfo(const Models::ListKVCacheStoreAttachInfoRequest &request);
 
       /**
-       * @summary 查询指定 KVCacheStore 实例可用的 HpnZone 列表
+       * @summary Queries the list of available HpnZones for a specified KVCacheStore instance.
+       *
+       * @description * This operation queries available HpnZones by KVCacheStore. Use this operation to query available HPN cluster IDs before scaling or migrating a KVCacheStore.
        *
        * @param request ListKVCacheStoreAvailableHpnZonesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -194,12 +206,31 @@ namespace Kvcachestore20260617
       Models::ListKVCacheStoreAvailableHpnZonesResponse listKVCacheStoreAvailableHpnZonesWithOptions(const Models::ListKVCacheStoreAvailableHpnZonesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询指定 KVCacheStore 实例可用的 HpnZone 列表
+       * @summary Queries the list of available HpnZones for a specified KVCacheStore instance.
+       *
+       * @description * This operation queries available HpnZones by KVCacheStore. Use this operation to query available HPN cluster IDs before scaling or migrating a KVCacheStore.
        *
        * @param request ListKVCacheStoreAvailableHpnZonesRequest
        * @return ListKVCacheStoreAvailableHpnZonesResponse
        */
       Models::ListKVCacheStoreAvailableHpnZonesResponse listKVCacheStoreAvailableHpnZones(const Models::ListKVCacheStoreAvailableHpnZonesRequest &request);
+
+      /**
+       * @summary Queries the list of available VSC resources associated with a specified KVCacheStore instance.
+       *
+       * @param request ListKVCacheStoreAvailableVscsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKVCacheStoreAvailableVscsResponse
+       */
+      Models::ListKVCacheStoreAvailableVscsResponse listKVCacheStoreAvailableVscsWithOptions(const Models::ListKVCacheStoreAvailableVscsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of available VSC resources associated with a specified KVCacheStore instance.
+       *
+       * @param request ListKVCacheStoreAvailableVscsRequest
+       * @return ListKVCacheStoreAvailableVscsResponse
+       */
+      Models::ListKVCacheStoreAvailableVscsResponse listKVCacheStoreAvailableVscs(const Models::ListKVCacheStoreAvailableVscsRequest &request);
 
       /**
        * @summary Queries the list of KVCacheInstance instances.
