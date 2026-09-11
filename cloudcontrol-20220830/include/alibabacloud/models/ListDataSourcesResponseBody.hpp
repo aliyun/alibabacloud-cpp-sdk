@@ -3,7 +3,6 @@
 #define ALIBABACLOUD_MODELS_LISTDATASOURCESRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
-#include <alibabacloud/models/ListDataSourcesResponseBodyDataSources.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -33,29 +32,61 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->dataSources_ != nullptr
-        && this->requestId_ != nullptr; };
+    class DataSources : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const DataSources& obj) { 
+        DARABONBA_PTR_TO_JSON(id, id_);
+      };
+      friend void from_json(const Darabonba::Json& j, DataSources& obj) { 
+        DARABONBA_PTR_FROM_JSON(id, id_);
+      };
+      DataSources() = default ;
+      DataSources(const DataSources &) = default ;
+      DataSources(DataSources &&) = default ;
+      DataSources(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~DataSources() = default ;
+      DataSources& operator=(const DataSources &) = default ;
+      DataSources& operator=(DataSources &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->id_ == nullptr; };
+      // id Field Functions 
+      bool hasId() const { return this->id_ != nullptr;};
+      void deleteId() { this->id_ = nullptr;};
+      inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+      inline DataSources& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+    protected:
+      // The data ID.
+      shared_ptr<string> id_ {};
+    };
+
+    virtual bool empty() const override { return this->dataSources_ == nullptr
+        && this->requestId_ == nullptr; };
     // dataSources Field Functions 
     bool hasDataSources() const { return this->dataSources_ != nullptr;};
     void deleteDataSources() { this->dataSources_ = nullptr;};
-    inline const vector<ListDataSourcesResponseBodyDataSources> & dataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<ListDataSourcesResponseBodyDataSources>) };
-    inline vector<ListDataSourcesResponseBodyDataSources> dataSources() { DARABONBA_PTR_GET(dataSources_, vector<ListDataSourcesResponseBodyDataSources>) };
-    inline ListDataSourcesResponseBody& setDataSources(const vector<ListDataSourcesResponseBodyDataSources> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
-    inline ListDataSourcesResponseBody& setDataSources(vector<ListDataSourcesResponseBodyDataSources> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
+    inline const vector<ListDataSourcesResponseBody::DataSources> & getDataSources() const { DARABONBA_PTR_GET_CONST(dataSources_, vector<ListDataSourcesResponseBody::DataSources>) };
+    inline vector<ListDataSourcesResponseBody::DataSources> getDataSources() { DARABONBA_PTR_GET(dataSources_, vector<ListDataSourcesResponseBody::DataSources>) };
+    inline ListDataSourcesResponseBody& setDataSources(const vector<ListDataSourcesResponseBody::DataSources> & dataSources) { DARABONBA_PTR_SET_VALUE(dataSources_, dataSources) };
+    inline ListDataSourcesResponseBody& setDataSources(vector<ListDataSourcesResponseBody::DataSources> && dataSources) { DARABONBA_PTR_SET_RVALUE(dataSources_, dataSources) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline ListDataSourcesResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The queried data.
-    std::shared_ptr<vector<ListDataSourcesResponseBodyDataSources>> dataSources_ = nullptr;
-    // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    // The list of data.
+    shared_ptr<vector<ListDataSourcesResponseBody::DataSources>> dataSources_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

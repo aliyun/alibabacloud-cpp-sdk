@@ -31,29 +31,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attributeName_ != nullptr
-        && this->filterShrink_ != nullptr; };
+    virtual bool empty() const override { return this->attributeName_ == nullptr
+        && this->filterShrink_ == nullptr; };
     // attributeName Field Functions 
     bool hasAttributeName() const { return this->attributeName_ != nullptr;};
     void deleteAttributeName() { this->attributeName_ = nullptr;};
-    inline string attributeName() const { DARABONBA_PTR_GET_DEFAULT(attributeName_, "") };
+    inline string getAttributeName() const { DARABONBA_PTR_GET_DEFAULT(attributeName_, "") };
     inline ListDataSourcesShrinkRequest& setAttributeName(string attributeName) { DARABONBA_PTR_SET_VALUE(attributeName_, attributeName) };
 
 
     // filterShrink Field Functions 
     bool hasFilterShrink() const { return this->filterShrink_ != nullptr;};
     void deleteFilterShrink() { this->filterShrink_ = nullptr;};
-    inline string filterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
+    inline string getFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
     inline ListDataSourcesShrinkRequest& setFilterShrink(string filterShrink) { DARABONBA_PTR_SET_VALUE(filterShrink_, filterShrink) };
 
 
   protected:
-    // The name of the property. RegionId is supported.
+    // The name of the attribute. Only `RegionId` is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> attributeName_ = nullptr;
-    // The filter conditions. JSON format:{"key1":"value1"}.
-    std::shared_ptr<string> filterShrink_ = nullptr;
+    shared_ptr<string> attributeName_ {};
+    // The filter condition. The value must be a JSON string in the {"key1":"value1"} format.
+    shared_ptr<string> filterShrink_ {};
   };
 
   } // namespace Models

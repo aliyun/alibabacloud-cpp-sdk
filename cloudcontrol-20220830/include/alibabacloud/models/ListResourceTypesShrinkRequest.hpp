@@ -33,36 +33,36 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->maxResults_ != nullptr
-        && this->nextToken_ != nullptr && this->resourceTypesShrink_ != nullptr; };
+    virtual bool empty() const override { return this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->resourceTypesShrink_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline ListResourceTypesShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline ListResourceTypesShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // resourceTypesShrink Field Functions 
     bool hasResourceTypesShrink() const { return this->resourceTypesShrink_ != nullptr;};
     void deleteResourceTypesShrink() { this->resourceTypesShrink_ = nullptr;};
-    inline string resourceTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceTypesShrink_, "") };
+    inline string getResourceTypesShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceTypesShrink_, "") };
     inline ListResourceTypesShrinkRequest& setResourceTypesShrink(string resourceTypesShrink) { DARABONBA_PTR_SET_VALUE(resourceTypesShrink_, resourceTypesShrink) };
 
 
   protected:
     // The number of entries per page.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
+    shared_ptr<int32_t> maxResults_ {};
     // The pagination token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
-    std::shared_ptr<string> nextToken_ = nullptr;
+    shared_ptr<string> nextToken_ {};
     // The information about the resource types.
-    std::shared_ptr<string> resourceTypesShrink_ = nullptr;
+    shared_ptr<string> resourceTypesShrink_ {};
   };
 
   } // namespace Models

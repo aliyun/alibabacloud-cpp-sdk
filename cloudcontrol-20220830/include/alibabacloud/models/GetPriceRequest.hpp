@@ -31,29 +31,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->resourceAttributes_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->resourceAttributes_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetPriceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceAttributes Field Functions 
     bool hasResourceAttributes() const { return this->resourceAttributes_ != nullptr;};
     void deleteResourceAttributes() { this->resourceAttributes_ = nullptr;};
-    inline     const Darabonba::Json & resourceAttributes() const { DARABONBA_GET(resourceAttributes_) };
-    Darabonba::Json & resourceAttributes() { DARABONBA_GET(resourceAttributes_) };
+    inline     const Darabonba::Json & getResourceAttributes() const { DARABONBA_GET(resourceAttributes_) };
+    Darabonba::Json & getResourceAttributes() { DARABONBA_GET(resourceAttributes_) };
     inline GetPriceRequest& setResourceAttributes(const Darabonba::Json & resourceAttributes) { DARABONBA_SET_VALUE(resourceAttributes_, resourceAttributes) };
-    inline GetPriceRequest& setResourceAttributes(Darabonba::Json & resourceAttributes) { DARABONBA_SET_RVALUE(resourceAttributes_, resourceAttributes) };
+    inline GetPriceRequest& setResourceAttributes(Darabonba::Json && resourceAttributes) { DARABONBA_SET_RVALUE(resourceAttributes_, resourceAttributes) };
 
 
   protected:
     // The region ID. This parameter is required if the cloud product is deployed in a region.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The attributes based on which the price is queried (in JSON format).
-    Darabonba::Json resourceAttributes_ = nullptr;
+    Darabonba::Json resourceAttributes_ {};
   };
 
   } // namespace Models

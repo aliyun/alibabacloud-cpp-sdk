@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_CLOUDCONTROL20220830MODEL_HPP_
 #define ALIBABACLOUD_CLOUDCONTROL20220830MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/PriceComponentsValue.hpp>
 #include <alibabacloud/models/CancelTaskResponseBody.hpp>
 #include <alibabacloud/models/CancelTaskResponse.hpp>
 #include <alibabacloud/models/CreateResourceRequest.hpp>
@@ -11,6 +12,9 @@
 #include <alibabacloud/models/DeleteResourceShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteResourceResponseBody.hpp>
 #include <alibabacloud/models/DeleteResourceResponse.hpp>
+#include <alibabacloud/models/GetApiPriceRequest.hpp>
+#include <alibabacloud/models/GetApiPriceResponseBody.hpp>
+#include <alibabacloud/models/GetApiPriceResponse.hpp>
 #include <alibabacloud/models/GetPriceRequest.hpp>
 #include <alibabacloud/models/GetPriceShrinkRequest.hpp>
 #include <alibabacloud/models/GetPriceResponseBody.hpp>
@@ -24,6 +28,9 @@
 #include <alibabacloud/models/GetResourcesResponse.hpp>
 #include <alibabacloud/models/GetTaskResponseBody.hpp>
 #include <alibabacloud/models/GetTaskResponse.hpp>
+#include <alibabacloud/models/GetTerraformPricingMappingsRequest.hpp>
+#include <alibabacloud/models/GetTerraformPricingMappingsResponseBody.hpp>
+#include <alibabacloud/models/GetTerraformPricingMappingsResponse.hpp>
 #include <alibabacloud/models/ListDataSourcesRequest.hpp>
 #include <alibabacloud/models/ListDataSourcesShrinkRequest.hpp>
 #include <alibabacloud/models/ListDataSourcesResponseBody.hpp>
@@ -37,33 +44,11 @@
 #include <alibabacloud/models/ListResourceTypesShrinkRequest.hpp>
 #include <alibabacloud/models/ListResourceTypesResponseBody.hpp>
 #include <alibabacloud/models/ListResourceTypesResponse.hpp>
+#include <alibabacloud/models/ListSupportedPricingApisRequest.hpp>
+#include <alibabacloud/models/ListSupportedPricingApisResponseBody.hpp>
+#include <alibabacloud/models/ListSupportedPricingApisResponse.hpp>
 #include <alibabacloud/models/UpdateResourceRequest.hpp>
 #include <alibabacloud/models/UpdateResourceResponseBody.hpp>
 #include <alibabacloud/models/UpdateResourceResponse.hpp>
-#include <alibabacloud/models/GetPriceResponseBodyPriceModuleDetails.hpp>
-#include <alibabacloud/models/GetPriceResponseBodyPricePromotionDetails.hpp>
-#include <alibabacloud/models/GetPriceResponseBodyPrice.hpp>
-#include <alibabacloud/models/GetResourceTypeResponseBodyResourceTypeHandlersCreate.hpp>
-#include <alibabacloud/models/GetResourceTypeResponseBodyResourceTypeHandlersDelete.hpp>
-#include <alibabacloud/models/GetResourceTypeResponseBodyResourceTypeHandlersGet.hpp>
-#include <alibabacloud/models/GetResourceTypeResponseBodyResourceTypeHandlersList.hpp>
-#include <alibabacloud/models/GetResourceTypeResponseBodyResourceTypeHandlersUpdate.hpp>
-#include <alibabacloud/models/GetResourceTypeResponseBodyResourceTypeHandlers.hpp>
-#include <alibabacloud/models/GetResourceTypeResponseBodyResourceTypeInfo.hpp>
-#include <alibabacloud/models/GetResourceTypeResponseBodyResourceType.hpp>
-#include <alibabacloud/models/GetResourcesResponseBodyResource.hpp>
-#include <alibabacloud/models/GetResourcesResponseBodyResources.hpp>
-#include <alibabacloud/models/GetTaskResponseBodyTaskError.hpp>
-#include <alibabacloud/models/GetTaskResponseBodyTask.hpp>
-#include <alibabacloud/models/ListDataSourcesResponseBodyDataSources.hpp>
-#include <alibabacloud/models/ListProductsResponseBodyProducts.hpp>
-#include <alibabacloud/models/ListResourceTypesResponseBodyResourceTypesHandlersCreate.hpp>
-#include <alibabacloud/models/ListResourceTypesResponseBodyResourceTypesHandlersDelete.hpp>
-#include <alibabacloud/models/ListResourceTypesResponseBodyResourceTypesHandlersGet.hpp>
-#include <alibabacloud/models/ListResourceTypesResponseBodyResourceTypesHandlersList.hpp>
-#include <alibabacloud/models/ListResourceTypesResponseBodyResourceTypesHandlersUpdate.hpp>
-#include <alibabacloud/models/ListResourceTypesResponseBodyResourceTypesHandlers.hpp>
-#include <alibabacloud/models/ListResourceTypesResponseBodyResourceTypesInfo.hpp>
-#include <alibabacloud/models/ListResourceTypesResponseBodyResourceTypes.hpp>
 
 #endif

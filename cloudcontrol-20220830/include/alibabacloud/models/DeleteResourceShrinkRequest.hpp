@@ -33,35 +33,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->filterShrink_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->filterShrink_ == nullptr && this->regionId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteResourceShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // filterShrink Field Functions 
     bool hasFilterShrink() const { return this->filterShrink_ != nullptr;};
     void deleteFilterShrink() { this->filterShrink_ = nullptr;};
-    inline string filterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
+    inline string getFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
     inline DeleteResourceShrinkRequest& setFilterShrink(string filterShrink) { DARABONBA_PTR_SET_VALUE(filterShrink_, filterShrink) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteResourceShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. If a cloud service supports idempotence, the parameter takes effect.
-    std::shared_ptr<string> clientToken_ = nullptr;
-    std::shared_ptr<string> filterShrink_ = nullptr;
-    // The region. This parameter is required if a cloud service is a regionalized.
-    std::shared_ptr<string> regionId_ = nullptr;
+    // A client token to ensure idempotence. This parameter works only if the cloud product supports idempotence.
+    shared_ptr<string> clientToken_ {};
+    shared_ptr<string> filterShrink_ {};
+    // The region ID. This parameter is required if the cloud product is region-specific.
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

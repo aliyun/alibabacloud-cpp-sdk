@@ -1,3 +1,6 @@
+2026-09-11 Version: 1.0.4
+- Generated cpp 2022-08-30 for cloudcontrol.
+
 2025-09-17 Version: 1.0.3
 - Update API DeleteResource: add request parameters filter.
 

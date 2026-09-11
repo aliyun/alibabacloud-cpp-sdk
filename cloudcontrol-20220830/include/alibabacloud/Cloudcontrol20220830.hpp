@@ -67,9 +67,9 @@ namespace Cloudcontrol20220830
       Models::CreateResourceResponse createResource(const string &requestPath, const Models::CreateResourceRequest &request);
 
       /**
-       * @summary Calls this operation to delete resources.
+       * @summary Deletes a resource.
        *
-       * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+       * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view resource documentation and try Cloud Control API.
        *
        * @param requestPath the whole path of resource string
        * @param tmpReq DeleteResourceRequest
@@ -80,15 +80,33 @@ namespace Cloudcontrol20220830
       Models::DeleteResourceResponse deleteResourceWithOptions(const string &requestPath, const Models::DeleteResourceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls this operation to delete resources.
+       * @summary Deletes a resource.
        *
-       * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+       * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view resource documentation and try Cloud Control API.
        *
        * @param requestPath the whole path of resource string
        * @param request DeleteResourceRequest
        * @return DeleteResourceResponse
        */
       Models::DeleteResourceResponse deleteResource(const string &requestPath, const Models::DeleteResourceRequest &request);
+
+      /**
+       * @summary Queries pricing based on an OpenAPI triplet and input parameters.
+       *
+       * @param request GetApiPriceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetApiPriceResponse
+       */
+      Models::GetApiPriceResponse getApiPriceWithOptions(const Models::GetApiPriceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries pricing based on an OpenAPI triplet and input parameters.
+       *
+       * @param request GetApiPriceRequest
+       * @return GetApiPriceResponse
+       */
+      Models::GetApiPriceResponse getApiPrice(const Models::GetApiPriceRequest &request);
 
       /**
        * @summary An RFQ interface through which users can query resource prices.
@@ -111,7 +129,7 @@ namespace Cloudcontrol20220830
       Models::GetPriceResponse getPrice(const string &requestPath, const Models::GetPriceRequest &request);
 
       /**
-       * @summary You can call the operation to obtain resource metadata.
+       * @summary Retrieves resource metadata.
        *
        * @param requestPath the whole path of resource string
        * @param headers GetResourceTypeHeaders
@@ -121,7 +139,7 @@ namespace Cloudcontrol20220830
       Models::GetResourceTypeResponse getResourceTypeWithOptions(const string &requestPath, const Models::GetResourceTypeHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the operation to obtain resource metadata.
+       * @summary Retrieves resource metadata.
        *
        * @param requestPath the whole path of resource string
        * @return GetResourceTypeResponse
@@ -129,10 +147,10 @@ namespace Cloudcontrol20220830
       Models::GetResourceTypeResponse getResourceType(const string &requestPath);
 
       /**
-       * @summary You can call the operation to query resources.
+       * @summary Query resources.
        *
-       * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
-       * You can call this operation to query resources List and Get based on different request paths.
+       * @description You can go to the [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the resource documentation and test the Cloud Control API.
+       * This API provides Get and List operations for resources that you can invoke using different request URIs.
        *
        * @param requestPath the whole path of resource string
        * @param tmpReq GetResourcesRequest
@@ -143,10 +161,10 @@ namespace Cloudcontrol20220830
       Models::GetResourcesResponse getResourcesWithOptions(const string &requestPath, const Models::GetResourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the operation to query resources.
+       * @summary Query resources.
        *
-       * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
-       * You can call this operation to query resources List and Get based on different request paths.
+       * @description You can go to the [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the resource documentation and test the Cloud Control API.
+       * This API provides Get and List operations for resources that you can invoke using different request URIs.
        *
        * @param requestPath the whole path of resource string
        * @param request GetResourcesRequest
@@ -175,7 +193,29 @@ namespace Cloudcontrol20220830
       Models::GetTaskResponse getTask(const string &taskId);
 
       /**
-       * @summary You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
+       * @summary Retrieves pricing mapping catalogs in batches by Terraform resource type for cost estimation during the RunIaC plan phase.
+       *
+       * @description Retrieves the mappings between schema properties in the Terraform alicloud provider and OpenAPI parameters.
+       *
+       * @param request GetTerraformPricingMappingsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTerraformPricingMappingsResponse
+       */
+      Models::GetTerraformPricingMappingsResponse getTerraformPricingMappingsWithOptions(const Models::GetTerraformPricingMappingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves pricing mapping catalogs in batches by Terraform resource type for cost estimation during the RunIaC plan phase.
+       *
+       * @description Retrieves the mappings between schema properties in the Terraform alicloud provider and OpenAPI parameters.
+       *
+       * @param request GetTerraformPricingMappingsRequest
+       * @return GetTerraformPricingMappingsResponse
+       */
+      Models::GetTerraformPricingMappingsResponse getTerraformPricingMappings(const Models::GetTerraformPricingMappingsRequest &request);
+
+      /**
+       * @summary Queries the valid values of resource attributes, such as RegionID and ZoneId.
        *
        * @param requestPath the whole path of resource string
        * @param tmpReq ListDataSourcesRequest
@@ -186,7 +226,7 @@ namespace Cloudcontrol20220830
       Models::ListDataSourcesResponse listDataSourcesWithOptions(const string &requestPath, const Models::ListDataSourcesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
+       * @summary Queries the valid values of resource attributes, such as RegionID and ZoneId.
        *
        * @param requestPath the whole path of resource string
        * @param request ListDataSourcesRequest
@@ -237,6 +277,24 @@ namespace Cloudcontrol20220830
        * @return ListResourceTypesResponse
        */
       Models::ListResourceTypesResponse listResourceTypes(const string &provider, const string &product, const Models::ListResourceTypesRequest &request);
+
+      /**
+       * @summary Lists the OpenAPI triplets that currently support price inquiry.
+       *
+       * @param request ListSupportedPricingApisRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSupportedPricingApisResponse
+       */
+      Models::ListSupportedPricingApisResponse listSupportedPricingApisWithOptions(const Models::ListSupportedPricingApisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists the OpenAPI triplets that currently support price inquiry.
+       *
+       * @param request ListSupportedPricingApisRequest
+       * @return ListSupportedPricingApisResponse
+       */
+      Models::ListSupportedPricingApisResponse listSupportedPricingApis(const Models::ListSupportedPricingApisRequest &request);
 
       /**
        * @summary Calls this operation to update resources.

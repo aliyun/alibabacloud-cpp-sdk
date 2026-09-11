@@ -4,7 +4,7 @@
 #include <alibabacloud/Openapi.hpp>
 #include <map>
 #include <darabonba/Runtime.hpp>
-#include <darabonba/http/URL.hpp>
+#include <darabonba/encode/Encoder.hpp>
 #include <darabonba/Convert.hpp>
 using namespace std;
 using namespace Darabonba;
@@ -19,7 +19,37 @@ namespace Cloudcontrol20220830
 {
 
 AlibabaCloud::Cloudcontrol20220830::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
+  this->_endpointMap = json({
+    {"ap-northeast-1" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"ap-northeast-2" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-2" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-3" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-5" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-6" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"ap-southeast-7" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"cn-beijing" , "cloudcontrol.aliyuncs.com"},
+    {"cn-chengdu" , "cloudcontrol.aliyuncs.com"},
+    {"cn-fuzhou" , "cloudcontrol.aliyuncs.com"},
+    {"cn-guangzhou" , "cloudcontrol.aliyuncs.com"},
+    {"cn-hangzhou" , "cloudcontrol.aliyuncs.com"},
+    {"cn-heyuan" , "cloudcontrol.aliyuncs.com"},
+    {"cn-hongkong" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"cn-huhehaote" , "cloudcontrol.aliyuncs.com"},
+    {"cn-nanjing" , "cloudcontrol.aliyuncs.com"},
+    {"cn-qingdao" , "cloudcontrol.aliyuncs.com"},
+    {"cn-shanghai" , "cloudcontrol.aliyuncs.com"},
+    {"cn-shenzhen" , "cloudcontrol.aliyuncs.com"},
+    {"cn-wulanchabu" , "cloudcontrol.aliyuncs.com"},
+    {"cn-zhangjiakou" , "cloudcontrol.aliyuncs.com"},
+    {"us-west-1" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"us-east-1" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"eu-west-1" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"eu-central-1" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"me-east-1" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"me-central-1" , "cloudcontrol.ap-southeast-1.aliyuncs.com"},
+    {"ap-south-1" , "cloudcontrol.ap-southeast-1.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cloudcontrol", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -55,7 +85,7 @@ CancelTaskResponse Client::cancelTaskWithOptions(const string &taskId, const map
     {"action" , "CancelTask"},
     {"version" , "2022-08-30"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tasks/" , Darabonba::Http::URL::percentEncode(taskId) , "/operation/cancel")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId) , "/operation/cancel")},
     {"method" , "PUT"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -94,17 +124,17 @@ CreateResourceResponse Client::createResourceWithOptions(const string &requestPa
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["regionId"] = request.regionId();
+    query["regionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "CreateResource"},
@@ -136,9 +166,9 @@ CreateResourceResponse Client::createResource(const string &requestPath, const C
 }
 
 /**
- * @summary Calls this operation to delete resources.
+ * @summary Deletes a resource.
  *
- * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+ * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view resource documentation and try Cloud Control API.
  *
  * @param requestPath the whole path of resource string
  * @param tmpReq DeleteResourceRequest
@@ -151,20 +181,20 @@ DeleteResourceResponse Client::deleteResourceWithOptions(const string &requestPa
   DeleteResourceShrinkRequest request = DeleteResourceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "filter", "json"));
   }
 
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasFilterShrink()) {
-    query["filter"] = request.filterShrink();
+    query["filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasRegionId()) {
-    query["regionId"] = request.regionId();
+    query["regionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -186,9 +216,9 @@ DeleteResourceResponse Client::deleteResourceWithOptions(const string &requestPa
 }
 
 /**
- * @summary Calls this operation to delete resources.
+ * @summary Deletes a resource.
  *
- * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
+ * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view resource documentation and try Cloud Control API.
  *
  * @param requestPath the whole path of resource string
  * @param request DeleteResourceRequest
@@ -198,6 +228,46 @@ DeleteResourceResponse Client::deleteResource(const string &requestPath, const D
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteResourceWithOptions(requestPath, request, headers, runtime);
+}
+
+/**
+ * @summary Queries pricing based on an OpenAPI triplet and input parameters.
+ *
+ * @param request GetApiPriceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetApiPriceResponse
+ */
+GetApiPriceResponse Client::getApiPriceWithOptions(const GetApiPriceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "GetApiPrice"},
+    {"version" , "2022-08-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/price/quote")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetApiPriceResponse>();
+}
+
+/**
+ * @summary Queries pricing based on an OpenAPI triplet and input parameters.
+ *
+ * @param request GetApiPriceRequest
+ * @return GetApiPriceResponse
+ */
+GetApiPriceResponse Client::getApiPrice(const GetApiPriceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getApiPriceWithOptions(request, headers, runtime);
 }
 
 /**
@@ -214,16 +284,16 @@ GetPriceResponse Client::getPriceWithOptions(const string &requestPath, const Ge
   GetPriceShrinkRequest request = GetPriceShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceAttributes()) {
-    request.setResourceAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceAttributes(), "resourceAttributes", "json"));
+    request.setResourceAttributesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceAttributes(), "resourceAttributes", "json"));
   }
 
   json query = {};
   if (!!request.hasRegionId()) {
-    query["regionId"] = request.regionId();
+    query["regionId"] = request.getRegionId();
   }
 
   if (!!request.hasResourceAttributesShrink()) {
-    query["resourceAttributes"] = request.resourceAttributesShrink();
+    query["resourceAttributes"] = request.getResourceAttributesShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -258,7 +328,7 @@ GetPriceResponse Client::getPrice(const string &requestPath, const GetPriceReque
 }
 
 /**
- * @summary You can call the operation to obtain resource metadata.
+ * @summary Retrieves resource metadata.
  *
  * @param requestPath the whole path of resource string
  * @param headers GetResourceTypeHeaders
@@ -268,11 +338,11 @@ GetPriceResponse Client::getPrice(const string &requestPath, const GetPriceReque
 GetResourceTypeResponse Client::getResourceTypeWithOptions(const string &requestPath, const GetResourceTypeHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAcceptLanguage()) {
-    realHeaders["x-acs-accept-language"] = Darabonba::Convert::stringVal(headers.xAcsAcceptLanguage());
+    realHeaders["x-acs-accept-language"] = Darabonba::Convert::stringVal(headers.getXAcsAcceptLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -293,7 +363,7 @@ GetResourceTypeResponse Client::getResourceTypeWithOptions(const string &request
 }
 
 /**
- * @summary You can call the operation to obtain resource metadata.
+ * @summary Retrieves resource metadata.
  *
  * @param requestPath the whole path of resource string
  * @return GetResourceTypeResponse
@@ -305,10 +375,10 @@ GetResourceTypeResponse Client::getResourceType(const string &requestPath) {
 }
 
 /**
- * @summary You can call the operation to query resources.
+ * @summary Query resources.
  *
- * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
- * You can call this operation to query resources List and Get based on different request paths.
+ * @description You can go to the [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the resource documentation and test the Cloud Control API.
+ * This API provides Get and List operations for resources that you can invoke using different request URIs.
  *
  * @param requestPath the whole path of resource string
  * @param tmpReq GetResourcesRequest
@@ -321,24 +391,24 @@ GetResourcesResponse Client::getResourcesWithOptions(const string &requestPath, 
   GetResourcesShrinkRequest request = GetResourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "filter", "json"));
   }
 
   json query = {};
   if (!!request.hasFilterShrink()) {
-    query["filter"] = request.filterShrink();
+    query["filter"] = request.getFilterShrink();
   }
 
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["regionId"] = request.regionId();
+    query["regionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -360,10 +430,10 @@ GetResourcesResponse Client::getResourcesWithOptions(const string &requestPath, 
 }
 
 /**
- * @summary You can call the operation to query resources.
+ * @summary Query resources.
  *
- * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out CloudControl API.
- * You can call this operation to query resources List and Get based on different request paths.
+ * @description You can go to the [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the resource documentation and test the Cloud Control API.
+ * This API provides Get and List operations for resources that you can invoke using different request URIs.
  *
  * @param requestPath the whole path of resource string
  * @param request GetResourcesRequest
@@ -392,7 +462,7 @@ GetTaskResponse Client::getTaskWithOptions(const string &taskId, const map<strin
     {"action" , "GetTask"},
     {"version" , "2022-08-30"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tasks/" , Darabonba::Http::URL::percentEncode(taskId))},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/tasks/" , Darabonba::Encode::Encoder::percentEncode(taskId))},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -416,7 +486,51 @@ GetTaskResponse Client::getTask(const string &taskId) {
 }
 
 /**
- * @summary You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
+ * @summary Retrieves pricing mapping catalogs in batches by Terraform resource type for cost estimation during the RunIaC plan phase.
+ *
+ * @description Retrieves the mappings between schema properties in the Terraform alicloud provider and OpenAPI parameters.
+ *
+ * @param request GetTerraformPricingMappingsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTerraformPricingMappingsResponse
+ */
+GetTerraformPricingMappingsResponse Client::getTerraformPricingMappingsWithOptions(const GetTerraformPricingMappingsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "GetTerraformPricingMappings"},
+    {"version" , "2022-08-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/price/terraform-mappings")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTerraformPricingMappingsResponse>();
+}
+
+/**
+ * @summary Retrieves pricing mapping catalogs in batches by Terraform resource type for cost estimation during the RunIaC plan phase.
+ *
+ * @description Retrieves the mappings between schema properties in the Terraform alicloud provider and OpenAPI parameters.
+ *
+ * @param request GetTerraformPricingMappingsRequest
+ * @return GetTerraformPricingMappingsResponse
+ */
+GetTerraformPricingMappingsResponse Client::getTerraformPricingMappings(const GetTerraformPricingMappingsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getTerraformPricingMappingsWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the valid values of resource attributes, such as RegionID and ZoneId.
  *
  * @param requestPath the whole path of resource string
  * @param tmpReq ListDataSourcesRequest
@@ -429,16 +543,16 @@ ListDataSourcesResponse Client::listDataSourcesWithOptions(const string &request
   ListDataSourcesShrinkRequest request = ListDataSourcesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasFilter()) {
-    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.filter(), "filter", "json"));
+    request.setFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getFilter(), "filter", "json"));
   }
 
   json query = {};
   if (!!request.hasAttributeName()) {
-    query["attributeName"] = request.attributeName();
+    query["attributeName"] = request.getAttributeName();
   }
 
   if (!!request.hasFilterShrink()) {
-    query["filter"] = request.filterShrink();
+    query["filter"] = request.getFilterShrink();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -460,7 +574,7 @@ ListDataSourcesResponse Client::listDataSourcesWithOptions(const string &request
 }
 
 /**
- * @summary You can call the operation to query the valid values of resource attributes, such as RegionID and ZoneId.
+ * @summary Queries the valid values of resource attributes, such as RegionID and ZoneId.
  *
  * @param requestPath the whole path of resource string
  * @param request ListDataSourcesRequest
@@ -486,20 +600,20 @@ ListProductsResponse Client::listProductsWithOptions(const string &provider, con
   request.validate();
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAcceptLanguage()) {
-    realHeaders["x-acs-accept-language"] = Darabonba::Convert::stringVal(headers.xAcsAcceptLanguage());
+    realHeaders["x-acs-accept-language"] = Darabonba::Convert::stringVal(headers.getXAcsAcceptLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -510,7 +624,7 @@ ListProductsResponse Client::listProductsWithOptions(const string &provider, con
     {"action" , "ListProducts"},
     {"version" , "2022-08-30"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/providers/" , Darabonba::Http::URL::percentEncode(provider) , "/products")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/providers/" , Darabonba::Encode::Encoder::percentEncode(provider) , "/products")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -549,29 +663,29 @@ ListResourceTypesResponse Client::listResourceTypesWithOptions(const string &pro
   ListResourceTypesShrinkRequest request = ListResourceTypesShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
   if (!!tmpReq.hasResourceTypes()) {
-    request.setResourceTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.resourceTypes(), "resourceTypes", "simple"));
+    request.setResourceTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getResourceTypes(), "resourceTypes", "simple"));
   }
 
   json query = {};
   if (!!request.hasMaxResults()) {
-    query["maxResults"] = request.maxResults();
+    query["maxResults"] = request.getMaxResults();
   }
 
   if (!!request.hasNextToken()) {
-    query["nextToken"] = request.nextToken();
+    query["nextToken"] = request.getNextToken();
   }
 
   if (!!request.hasResourceTypesShrink()) {
-    query["resourceTypes"] = request.resourceTypesShrink();
+    query["resourceTypes"] = request.getResourceTypesShrink();
   }
 
   map<string, string> realHeaders = {};
   if (!!headers.hasCommonHeaders()) {
-    realHeaders = headers.commonHeaders();
+    realHeaders = headers.getCommonHeaders();
   }
 
   if (!!headers.hasXAcsAcceptLanguage()) {
-    realHeaders["x-acs-accept-language"] = Darabonba::Convert::stringVal(headers.xAcsAcceptLanguage());
+    realHeaders["x-acs-accept-language"] = Darabonba::Convert::stringVal(headers.getXAcsAcceptLanguage());
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -582,7 +696,7 @@ ListResourceTypesResponse Client::listResourceTypesWithOptions(const string &pro
     {"action" , "ListResourceTypes"},
     {"version" , "2022-08-30"},
     {"protocol" , "HTTPS"},
-    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/providers/" , Darabonba::Http::URL::percentEncode(provider) , "/products/" , Darabonba::Http::URL::percentEncode(product) , "/resourceTypes")},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/providers/" , Darabonba::Encode::Encoder::percentEncode(provider) , "/products/" , Darabonba::Encode::Encoder::percentEncode(product) , "/resourceTypes")},
     {"method" , "GET"},
     {"authType" , "AK"},
     {"style" , "ROA"},
@@ -607,6 +721,55 @@ ListResourceTypesResponse Client::listResourceTypes(const string &provider, cons
 }
 
 /**
+ * @summary Lists the OpenAPI triplets that currently support price inquiry.
+ *
+ * @param request ListSupportedPricingApisRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSupportedPricingApisResponse
+ */
+ListSupportedPricingApisResponse Client::listSupportedPricingApisWithOptions(const ListSupportedPricingApisRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSupportedPricingApis"},
+    {"version" , "2022-08-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/price/supported-apis")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSupportedPricingApisResponse>();
+}
+
+/**
+ * @summary Lists the OpenAPI triplets that currently support price inquiry.
+ *
+ * @param request ListSupportedPricingApisRequest
+ * @return ListSupportedPricingApisResponse
+ */
+ListSupportedPricingApisResponse Client::listSupportedPricingApis(const ListSupportedPricingApisRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSupportedPricingApisWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Calls this operation to update resources.
  *
  * @description You can go to [OpenAPI Explorer](https://next.api.aliyun.com/cloudcontrol) to view the documentation and try out Cloud Control API.
@@ -623,17 +786,17 @@ UpdateResourceResponse Client::updateResourceWithOptions(const string &requestPa
   request.validate();
   json query = {};
   if (!!request.hasClientToken()) {
-    query["clientToken"] = request.clientToken();
+    query["clientToken"] = request.getClientToken();
   }
 
   if (!!request.hasRegionId()) {
-    query["regionId"] = request.regionId();
+    query["regionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(request.body())}
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
   }));
   Params params = Params(json({
     {"action" , "UpdateResource"},

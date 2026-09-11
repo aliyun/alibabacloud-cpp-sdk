@@ -32,13 +32,13 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->commonHeaders_ != nullptr
-        && this->xAcsAcceptLanguage_ != nullptr; };
+    virtual bool empty() const override { return this->commonHeaders_ == nullptr
+        && this->xAcsAcceptLanguage_ == nullptr; };
     // commonHeaders Field Functions 
     bool hasCommonHeaders() const { return this->commonHeaders_ != nullptr;};
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
-    inline const map<string, string> & commonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
-    inline map<string, string> commonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
+    inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
+    inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
     inline GetResourceTypeHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
     inline GetResourceTypeHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
@@ -46,18 +46,18 @@ namespace Models
     // xAcsAcceptLanguage Field Functions 
     bool hasXAcsAcceptLanguage() const { return this->xAcsAcceptLanguage_ != nullptr;};
     void deleteXAcsAcceptLanguage() { this->xAcsAcceptLanguage_ = nullptr;};
-    inline string xAcsAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(xAcsAcceptLanguage_, "") };
+    inline string getXAcsAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(xAcsAcceptLanguage_, "") };
     inline GetResourceTypeHeaders& setXAcsAcceptLanguage(string xAcsAcceptLanguage) { DARABONBA_PTR_SET_VALUE(xAcsAcceptLanguage_, xAcsAcceptLanguage) };
 
 
   protected:
-    std::shared_ptr<map<string, string>> commonHeaders_ = nullptr;
-    // The language selected for the returned product.
+    shared_ptr<map<string, string>> commonHeaders_ {};
+    // The language in which the product information is returned. Valid values:
     // 
     // zh_CH: Chinese (default)
     // 
-    // en_US: English
-    std::shared_ptr<string> xAcsAcceptLanguage_ = nullptr;
+    // en_US: English.
+    shared_ptr<string> xAcsAcceptLanguage_ {};
   };
 
   } // namespace Models

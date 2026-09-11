@@ -33,37 +33,37 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->clientToken_ != nullptr
-        && this->filter_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->filter_ == nullptr && this->regionId_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string clientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline DeleteResourceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
 
 
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline     const Darabonba::Json & filter() const { DARABONBA_GET(filter_) };
-    Darabonba::Json & filter() { DARABONBA_GET(filter_) };
+    inline     const Darabonba::Json & getFilter() const { DARABONBA_GET(filter_) };
+    Darabonba::Json & getFilter() { DARABONBA_GET(filter_) };
     inline DeleteResourceRequest& setFilter(const Darabonba::Json & filter) { DARABONBA_SET_VALUE(filter_, filter) };
-    inline DeleteResourceRequest& setFilter(Darabonba::Json & filter) { DARABONBA_SET_RVALUE(filter_, filter) };
+    inline DeleteResourceRequest& setFilter(Darabonba::Json && filter) { DARABONBA_SET_RVALUE(filter_, filter) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline DeleteResourceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. If a cloud service supports idempotence, the parameter takes effect.
-    std::shared_ptr<string> clientToken_ = nullptr;
-    Darabonba::Json filter_ = nullptr;
-    // The region. This parameter is required if a cloud service is a regionalized.
-    std::shared_ptr<string> regionId_ = nullptr;
+    // A client token to ensure idempotence. This parameter works only if the cloud product supports idempotence.
+    shared_ptr<string> clientToken_ {};
+    Darabonba::Json filter_ {};
+    // The region ID. This parameter is required if the cloud product is region-specific.
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

@@ -31,27 +31,27 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->regionId_ != nullptr
-        && this->resourceAttributesShrink_ != nullptr; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->resourceAttributesShrink_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetPriceShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
     // resourceAttributesShrink Field Functions 
     bool hasResourceAttributesShrink() const { return this->resourceAttributesShrink_ != nullptr;};
     void deleteResourceAttributesShrink() { this->resourceAttributesShrink_ = nullptr;};
-    inline string resourceAttributesShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceAttributesShrink_, "") };
+    inline string getResourceAttributesShrink() const { DARABONBA_PTR_GET_DEFAULT(resourceAttributesShrink_, "") };
     inline GetPriceShrinkRequest& setResourceAttributesShrink(string resourceAttributesShrink) { DARABONBA_PTR_SET_VALUE(resourceAttributesShrink_, resourceAttributesShrink) };
 
 
   protected:
     // The region ID. This parameter is required if the cloud product is deployed in a region.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
     // The attributes based on which the price is queried (in JSON format).
-    std::shared_ptr<string> resourceAttributesShrink_ = nullptr;
+    shared_ptr<string> resourceAttributesShrink_ {};
   };
 
   } // namespace Models

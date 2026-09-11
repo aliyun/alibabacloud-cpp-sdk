@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_LISTPRODUCTSREQUEST_HPP_
-#define ALIBABACLOUD_MODELS_LISTPRODUCTSREQUEST_HPP_
+#ifndef ALIBABACLOUD_MODELS_LISTSUPPORTEDPRICINGAPISREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_LISTSUPPORTEDPRICINGAPISREQUEST_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,23 +10,23 @@ namespace Cloudcontrol20220830
 {
 namespace Models
 {
-  class ListProductsRequest : public Darabonba::Model {
+  class ListSupportedPricingApisRequest : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ListProductsRequest& obj) { 
+    friend void to_json(Darabonba::Json& j, const ListSupportedPricingApisRequest& obj) { 
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
     };
-    friend void from_json(const Darabonba::Json& j, ListProductsRequest& obj) { 
+    friend void from_json(const Darabonba::Json& j, ListSupportedPricingApisRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
     };
-    ListProductsRequest() = default ;
-    ListProductsRequest(const ListProductsRequest &) = default ;
-    ListProductsRequest(ListProductsRequest &&) = default ;
-    ListProductsRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ListProductsRequest() = default ;
-    ListProductsRequest& operator=(const ListProductsRequest &) = default ;
-    ListProductsRequest& operator=(ListProductsRequest &&) = default ;
+    ListSupportedPricingApisRequest() = default ;
+    ListSupportedPricingApisRequest(const ListSupportedPricingApisRequest &) = default ;
+    ListSupportedPricingApisRequest(ListSupportedPricingApisRequest &&) = default ;
+    ListSupportedPricingApisRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~ListSupportedPricingApisRequest() = default ;
+    ListSupportedPricingApisRequest& operator=(const ListSupportedPricingApisRequest &) = default ;
+    ListSupportedPricingApisRequest& operator=(ListSupportedPricingApisRequest &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -37,20 +37,18 @@ namespace Models
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
     inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
-    inline ListProductsRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
+    inline ListSupportedPricingApisRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
     inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
-    inline ListProductsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
+    inline ListSupportedPricingApisRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
   protected:
-    // The number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
     shared_ptr<string> nextToken_ {};
   };
 

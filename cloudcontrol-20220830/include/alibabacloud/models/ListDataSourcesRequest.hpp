@@ -31,31 +31,31 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->attributeName_ != nullptr
-        && this->filter_ != nullptr; };
+    virtual bool empty() const override { return this->attributeName_ == nullptr
+        && this->filter_ == nullptr; };
     // attributeName Field Functions 
     bool hasAttributeName() const { return this->attributeName_ != nullptr;};
     void deleteAttributeName() { this->attributeName_ = nullptr;};
-    inline string attributeName() const { DARABONBA_PTR_GET_DEFAULT(attributeName_, "") };
+    inline string getAttributeName() const { DARABONBA_PTR_GET_DEFAULT(attributeName_, "") };
     inline ListDataSourcesRequest& setAttributeName(string attributeName) { DARABONBA_PTR_SET_VALUE(attributeName_, attributeName) };
 
 
     // filter Field Functions 
     bool hasFilter() const { return this->filter_ != nullptr;};
     void deleteFilter() { this->filter_ = nullptr;};
-    inline     const Darabonba::Json & filter() const { DARABONBA_GET(filter_) };
-    Darabonba::Json & filter() { DARABONBA_GET(filter_) };
+    inline     const Darabonba::Json & getFilter() const { DARABONBA_GET(filter_) };
+    Darabonba::Json & getFilter() { DARABONBA_GET(filter_) };
     inline ListDataSourcesRequest& setFilter(const Darabonba::Json & filter) { DARABONBA_SET_VALUE(filter_, filter) };
-    inline ListDataSourcesRequest& setFilter(Darabonba::Json & filter) { DARABONBA_SET_RVALUE(filter_, filter) };
+    inline ListDataSourcesRequest& setFilter(Darabonba::Json && filter) { DARABONBA_SET_RVALUE(filter_, filter) };
 
 
   protected:
-    // The name of the property. RegionId is supported.
+    // The name of the attribute. Only `RegionId` is supported.
     // 
     // This parameter is required.
-    std::shared_ptr<string> attributeName_ = nullptr;
-    // The filter conditions. JSON format:{"key1":"value1"}.
-    Darabonba::Json filter_ = nullptr;
+    shared_ptr<string> attributeName_ {};
+    // The filter condition. The value must be a JSON string in the {"key1":"value1"} format.
+    Darabonba::Json filter_ {};
   };
 
   } // namespace Models

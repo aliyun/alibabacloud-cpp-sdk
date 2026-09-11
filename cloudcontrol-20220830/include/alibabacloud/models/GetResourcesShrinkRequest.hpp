@@ -35,45 +35,57 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { this->filterShrink_ != nullptr
-        && this->maxResults_ != nullptr && this->nextToken_ != nullptr && this->regionId_ != nullptr; };
+    virtual bool empty() const override { return this->filterShrink_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->regionId_ == nullptr; };
     // filterShrink Field Functions 
     bool hasFilterShrink() const { return this->filterShrink_ != nullptr;};
     void deleteFilterShrink() { this->filterShrink_ = nullptr;};
-    inline string filterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
+    inline string getFilterShrink() const { DARABONBA_PTR_GET_DEFAULT(filterShrink_, "") };
     inline GetResourcesShrinkRequest& setFilterShrink(string filterShrink) { DARABONBA_PTR_SET_VALUE(filterShrink_, filterShrink) };
 
 
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
-    inline int32_t maxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
+    inline int32_t getMaxResults() const { DARABONBA_PTR_GET_DEFAULT(maxResults_, 0) };
     inline GetResourcesShrinkRequest& setMaxResults(int32_t maxResults) { DARABONBA_PTR_SET_VALUE(maxResults_, maxResults) };
 
 
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
-    inline string nextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
+    inline string getNextToken() const { DARABONBA_PTR_GET_DEFAULT(nextToken_, "") };
     inline GetResourcesShrinkRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline GetResourcesShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
-    // The filter condition. The JSON format. You can use some resource properties as filter conditions.
-    std::shared_ptr<string> filterShrink_ = nullptr;
-    // The number of entries per page. Maximum value: 100.
-    std::shared_ptr<int32_t> maxResults_ = nullptr;
-    // The pagination token that is used in the next request to retrieve a new page of results. If you leave this parameter empty, the query starts from the beginning.
-    std::shared_ptr<string> nextToken_ = nullptr;
-    // The ID of the region. This parameter is required if the cloud product is deployed in a region.
-    std::shared_ptr<string> regionId_ = nullptr;
+    // The filter conditions for resources.
+    // 
+    // Specify multiple key-value pairs in JSON format to filter resources. If a List or Get operation for a cloud product supports filtering by specific properties, you can use those properties as filter conditions for this parameter.
+    // 
+    // > The supported filter fields may vary for different resource types. For more information about the supported fields, see the OpenAPI documentation for the specific resource.
+    // 
+    // For example, DBInstance resources support filtering by the `EditionType` and `PaymentType` fields.
+    shared_ptr<string> filterShrink_ {};
+    // The maximum number of records to return on each page for a paged query. Maximum value: 100.
+    shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
+    // 
+    // - You do not need to specify this parameter for the first query. The system returns data from the first page.
+    // 
+    // - For subsequent queries, set this parameter to the nextToken value returned from the previous call.
+    // 
+    // > If this parameter contains only digits, Cloud Control API treats it as the `PageNumber` for paging.
+    shared_ptr<string> nextToken_ {};
+    // The region ID. This parameter is required if the cloud product is region-specific.
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models
