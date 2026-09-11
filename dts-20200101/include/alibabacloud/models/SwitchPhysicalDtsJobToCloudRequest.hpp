@@ -75,16 +75,20 @@ namespace Models
 
 
   protected:
-    // Migration, synchronization, or subscription instance ID.
+    // The ID of the migration, synchronization, or change tracking instance.
     shared_ptr<string> dtsInstanceId_ {};
-    // Data migration or synchronization instance ID, which can be queried by calling the **describedtsjobs** interface.
+    // The ID of the data migration or synchronization task. You can call the **DescribeDtsJobs** operation to query the ID.
     shared_ptr<string> dtsJobId_ {};
-    // Region ID. Pass this parameter to specify the region where the instance is located. For more details, see the list of supported regions.
+    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see the list of supported regions.
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Synchronization direction, values: - **Forward**: Forward. - **Reverse**: Reverse.
-    // > - The default value is **Forward**. - **Reverse** can only be passed when the topology of the data synchronization instance is bidirectional, to release the reverse synchronization link.
+    // The synchronization direction. Valid values:
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
+    // 
+    // > - Default value: **Forward**.
+    // - You can set this parameter to **Reverse** to release the reverse synchronization link only when the topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
   };
 

@@ -84,29 +84,28 @@ namespace Models
 
 
   protected:
-    // The ID of the data migration, data synchronization, or change tracking instance.
+    // The migration, synchronization, or subscribe instance ID.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the Data Transmission Service (DTS) task. The DTS task can be a data migration, data synchronization, or change tracking task.
+    // The ID of the data migration, synchronization, or change tracking task.
     // 
-    // >  You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to obtain the task ID.
+    // > You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
     shared_ptr<string> dtsJobId_ {};
-    // The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The synchronization direction. Valid values:
     // 
-    // *   **Forward**
-    // *   **Reverse**
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
     // 
-    // > 
-    // 
-    // *   The default value is **Forward**.
-    // 
-    // *   You can set this parameter to **Reverse** only if the topology is two-way synchronization.
+    // > - The default value is **Forward**.
+    // - You can set this parameter to **Reverse** to suspend the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
-    // Whether it is a seamless integration (Zero-ETL) task, the value can be:
-    // - **false**: No. - **true**: Yes.
+    // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+    // 
+    // - **false**: no.
+    // - **true**: yes.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

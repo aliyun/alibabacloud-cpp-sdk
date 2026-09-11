@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the consumer group. You can specify this parameter on a downstream client when you consume tracked data.
+    // The consumer group ID. You can pass this ID to the downstream client to consume the change tracking data.
     shared_ptr<string> consumerGroupID_ {};
     // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
@@ -92,9 +92,9 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

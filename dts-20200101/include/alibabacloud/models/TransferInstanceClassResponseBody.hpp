@@ -130,37 +130,36 @@ namespace Models
 
 
   protected:
-    // The billing method of the DTS instance. Valid values:
-    // 
-    // *   **POSTPAY**: pay-as-you-go.
-    // *   **PREPAY**: subscription.
+    // The billing method. Valid values:
+    // - **POSTPAY**: pay-as-you-go.
+    // - **PREPAY**: subscription.
     shared_ptr<string> chargeType_ {};
-    // The error code that is returned.
+    // The error code.
     shared_ptr<string> code_ {};
     // The ID of the data migration or data synchronization task.
     shared_ptr<string> dtsJobId_ {};
-    // The dynamic part in the error message. This parameter is used to replace the **%s** variable in the value of the **ErrMessage** parameter.
+    // The dynamic error message, which is used to replace the %**s** variable in the **ErrMessage** parameter.
     // 
-    // > For example, if the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified value of the **DtsJobId** parameter is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The expiration time of the DTS instance.
+    // The time when the instance expires.
     // 
-    // > This parameter is returned only if the value of the ChargeType parameter is **PREPAY**.
+    // > This parameter is returned only when ChargeType is set to **PREPAY**.
     shared_ptr<string> endTime_ {};
-    // The error code returned if the request failed.
+    // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the DTS instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

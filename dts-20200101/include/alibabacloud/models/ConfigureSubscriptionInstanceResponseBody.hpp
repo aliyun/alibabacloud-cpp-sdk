@@ -66,11 +66,11 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request fails.
+    // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request fails.
+    // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<string> success_ {};

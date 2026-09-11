@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The internal error code. This parameter will be removed in the future.
+    // The internal error code of the service. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
-    // The CIDR blocks of DTS servers.
+    // The IP addresses of the DTS service.
     shared_ptr<string> dynamicMessage_ {};
     // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
     // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

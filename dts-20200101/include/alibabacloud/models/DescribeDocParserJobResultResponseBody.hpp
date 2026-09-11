@@ -86,7 +86,9 @@ namespace Models
 
 
     protected:
+      // The text content of the corresponding page, which is the complete Markdown text after parsing.
       shared_ptr<string> content_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
     };
 
@@ -166,15 +168,29 @@ namespace Models
 
 
   protected:
+    // The complete text parsing content.
+    // > If the task type is content, ContentList splits the original document by page. Each page has a separate Markdown text entry.
     shared_ptr<vector<DescribeDocParserJobResultResponseBody::ContentList>> contentList_ {};
+    // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
+    // The OSS download URL of the file.
+    // 
+    // > If the task type is zip, this field returns the download URL of the zip package. The URL is valid for 30 minutes.
     shared_ptr<string> fileUrl_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The public OSS download URL of the file.
     shared_ptr<string> outerFileUrl_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -176,46 +176,49 @@ namespace Models
 
 
   protected:
-    // destination aliyun uid
+    // The UID of the destination Alibaba Cloud account.
     shared_ptr<string> destAliyunUid_ {};
-    // VPCNAT destination main VSW
+    // The primary vSwitch of the destination for VPC NAT.
     shared_ptr<string> destPrimaryVswId_ {};
-    // destination role name
+    // The name of the destination role.
     shared_ptr<string> destRoleName_ {};
-    // VPCNAT destination backup VSW
+    // The secondary vSwitch of the destination for VPC NAT.
     shared_ptr<string> destSecondaryVswId_ {};
-    // source vpc id
+    // The ID of the destination VPC.
     shared_ptr<string> destVpcId_ {};
-    // The region ID to which the target instance belongs, please refer to the supported region list for details.
-    // >>If the target instance is a self built database or third-party cloud database with a public IP address, you can pass in the cn Hangzhou or the region ID closest to the physical distance of the database.
-    //  - When the DTS task is migration or synchronization, this parameter must be passed in.
+    // The region ID of the destination instance. For details, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // 
+    // > -  If the destination instance is a self-managed database with a public IP address or a third-party ApsaraDB database, you can set this parameter to **ap-southeast-1** or the area ID that is geographically closest to the database.
+    // -  This parameter is required when the DTS task is a data migration or data synchronization task.
     shared_ptr<string> destinationRegion_ {};
-    // The region ID of the change tracking instance. The region ID is the same as that of the source instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID of the source instance. For details, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // > If the source instance is a self-managed database with a public IP address or a third-party ApsaraDB database, you can set this parameter to **ap-southeast-1** or the area ID that is geographically closest to the database.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};
-    // The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region to which the DTS instance belongs. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // source aliyun uid
+    // The UID of the source Alibaba Cloud account.
     shared_ptr<string> srcAliyunUid_ {};
-    // VPCNAT source end main VSW
+    // The primary vSwitch of the source for VPC NAT.
     shared_ptr<string> srcPrimaryVswId_ {};
-    // source role Name
+    // The name of the source role.
     shared_ptr<string> srcRoleName_ {};
-    // VPCNAT source backup VSW
+    // The secondary vSwitch of the source for VPC NAT.
     shared_ptr<string> srcSecondaryVswId_ {};
-    // source vpc id
+    // The ID of the source VPC.
     shared_ptr<string> srcVpcId_ {};
-    // The access method for self built databases or third-party cloud databases, with a value of
-    //  - Internet: accessed through the public network.
-    //  - VPC: Connected through dedicated line/VPN gateway/intelligent gateway.
+    // The connection method of the self-managed database or third-party ApsaraDB database. Valid values:
+    // - **internet**: connected over the Internet.
+    // - **vpc**: connected over Express Connect, VPN Gateway, or Smart Access Gateway.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // Whether it is a seamless integration (Zero-ETL) task, the value can be:
-    // - **false**: No. - **true**: Yes.
+    // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+    // - **true**: The node is a seamless integration (Zero-ETL) node.
+    // - **false**: The node is not a seamless integration (Zero-ETL) node.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

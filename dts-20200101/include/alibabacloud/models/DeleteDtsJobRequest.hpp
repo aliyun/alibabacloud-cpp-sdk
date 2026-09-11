@@ -94,26 +94,28 @@ namespace Models
 
 
   protected:
-    // The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
-    // 
-    // >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+    // The instance ID of the data migration, synchronization, or subscribe instance.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the data migration, data synchronization, or change tracking task.
+    // The ID of the data migration, synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The type of the Data Transmission Service (DTS) task. Valid values:
+    // The node type of the DTS instance. Valid values:
     // 
-    // *   **MIGRATION**: data migration task
-    // *   **SYNC**: data synchronization task
-    // *   **SUBSCRIBE**: change tracking task
+    // - **MIGRATION**: data migration.
+    // - **SYNC**: data synchronization.
+    // - **SUBSCRIBE**: change tracking.
     shared_ptr<string> jobType_ {};
-    // The error code returned if the call failed.
+    // The ID of the region where the data migration or synchronization instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // A special business-specific field. You do not need to pass this parameter.
     shared_ptr<string> resourceGroupId_ {};
-    // The dynamic error code. This parameter will be removed in the future.
+    // The synchronization direction. Valid values:
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
+    // 
+    // > - Default value: **Forward**.
+    // - You can set this parameter to **Reverse** to release the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
-    // Whether it is a seamless integration (Zero-ETL) task, the value can be:
-    // - **false**: No. - **true**: Yes.
+    // A special business-specific field. You do not need to pass this parameter.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

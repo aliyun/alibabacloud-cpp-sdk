@@ -143,21 +143,21 @@ namespace Models
 
 
     protected:
-      // Other description of the operation.
+      // The additional remarks.
       shared_ptr<string> content_ {};
-      // The primary key of the log table.
+      // The primary key of the log record table.
       shared_ptr<string> id_ {};
-      // The time when the operation is recorded. The value is in the UNIX timestamp format. Unit: milliseconds.
+      // The timestamp. Unit: milliseconds.
       shared_ptr<int64_t> logDatetime_ {};
-      // The value of the parameter after the operation if the operation is an UPDATE operation.
+      // The new parameter value when the operation type is update.
       shared_ptr<string> newValue_ {};
-      // The value of the parameter before the operation if the operation is an UPDATE operation.
+      // The old parameter value when the operation type is update.
       shared_ptr<string> oldValue_ {};
-      // The type of the operation.
+      // The operation type.
       shared_ptr<string> operationName_ {};
-      // The user who performed the operation.
+      // The operator.
       shared_ptr<string> operationUser_ {};
-      // Indicates whether the request was successful. A value of **1** indicates that the request was successful.
+      // The call result. Indicates whether the call was successful. A value of **1** indicates success.
       shared_ptr<int32_t> success_ {};
     };
 
@@ -244,25 +244,25 @@ namespace Models
 
 
   protected:
-    // The error code returned by the backend service. The number is incremented.
+    // The backend error code, which is incrementally numeric.
     shared_ptr<string> code_ {};
-    // The information about the operation logs.
+    // The monitoring statistics information.
     shared_ptr<vector<DescribeClusterOperateLogsResponseBody::DataPoints>> dataPoints_ {};
-    // The dynamic part in the error message. This parameter is used to replace %s in the ErrMessage parameter.
+    // The dynamic error message, which is used to replace the %s placeholder in the ErrMessage response parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // The HTTP status code returned for an exception.
+    // The HTTP status code corresponding to the exception.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries displayed on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The call result.
     shared_ptr<bool> success_ {};
     // The total number of records.
     shared_ptr<int64_t> totalRecordCount_ {};

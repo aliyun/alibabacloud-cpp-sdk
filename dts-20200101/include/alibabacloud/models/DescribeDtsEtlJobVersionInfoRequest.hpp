@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The ID of the Data Transmission Service (DTS) instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+    // The DTS instance ID. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the ETL task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+    // The ETL task ID. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
     shared_ptr<string> dtsJobId_ {};
-    // The number of the page to return. Default value: 1.
+    // The page number of the instance status list. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 20.
+    // The number of entries per page in a paged query. Settings this parameter for paging. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region in which the DTS instance resides. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the available Alibaba Cloud regions.
+    // The region ID of the DTS instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query available regions.
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

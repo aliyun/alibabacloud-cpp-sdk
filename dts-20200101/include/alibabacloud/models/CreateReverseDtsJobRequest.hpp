@@ -66,15 +66,18 @@ namespace Models
 
 
   protected:
-    // The ID of the synchronization or migration task, which can be queried by calling [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html).
+    // The ID of the synchronization or migration task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
-    // Resource GroupId
+    // The ID of the resource group. This is a global parameter that does not need to be specified for this operation.
     shared_ptr<string> resourceGroupId_ {};
-    // Shard Password
+    // The password of the shard in a MongoDB sharded cluster instance.
+    // 
+    // > - This parameter is available and required only when the source database instance is a MongoDB sharded cluster instance.
+    // - This parameter takes effect only when **ModifyAccount** is set to **true**.
     shared_ptr<string> shardPassword_ {};
-    // Shard User name
+    // The account of the shard in a MongoDB sharded cluster instance.
     shared_ptr<string> shardUsername_ {};
   };
 

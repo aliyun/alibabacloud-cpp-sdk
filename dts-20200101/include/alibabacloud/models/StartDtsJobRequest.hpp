@@ -85,25 +85,23 @@ namespace Models
 
   protected:
     // The ID of the data migration, data synchronization, or change tracking instance.
-    // 
-    // >  You can call the [DescribeMigrationJobs](https://help.aliyun.com/document_detail/208139.html), [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html), or [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID
+    // > You can query the instance ID by invoking [Query the list of data migration instances and details of each instance](https://help.aliyun.com/document_detail/208139.html), [Query the list of change tracking instances and details of each instance](https://help.aliyun.com/document_detail/49442.html), or [Query the list of data synchronization instances and details of each instance](https://help.aliyun.com/document_detail/49454.html).
     shared_ptr<string> dtsInstanceId_ {};
     // The ID of the data migration, data synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The region ID of the Data Transmission Service (DTS) instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The synchronization direction. Default value: Forward. Valid values:
-    // 
-    // *   **Forward**: Data is synchronized from the source database to the destination database.
-    // 
-    // *   **Reverse**: Data is synchronized from the destination database to the source database.
-    // 
-    // >You can set this parameter to **Reverse** to start the reverse synchronization task only if the topology is two-way synchronization.
+    // The synchronization direction. Valid values:
+    // - **Forward**: forward. This is the default value.
+    // - **Reverse**: reverse.
+    // > You can set this parameter to **Reverse** to start the reverse synchronization link only when the topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
-    // Whether it is a seamless integration (Zero-ETL) task, the value can be:
-    // - **false**: No. - **true**: Yes.
+    // Specifies whether the node is a zero-ETL node. Valid values:
+    // 
+    // - **false**: no.
+    // - **true**: yes.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

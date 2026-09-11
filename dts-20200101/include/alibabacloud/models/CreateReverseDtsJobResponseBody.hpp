@@ -94,19 +94,19 @@ namespace Models
 
 
   protected:
-    // The ID of the instance corresponding to the generated reverse task.
+    // The ID of the DTS instance that corresponds to the generated reverse task.
     shared_ptr<string> dtsInstanceId_ {};
     // The ID of the generated reverse synchronization task.
     shared_ptr<string> dtsJobId_ {};
-    // Error code returned when the call fails.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // Error message returned when the call fails.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
-    // Status code.
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

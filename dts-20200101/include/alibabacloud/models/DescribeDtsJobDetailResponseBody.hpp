@@ -31,6 +31,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
       DARABONBA_PTR_TO_JSON(DatabaseCount, databaseCount_);
       DARABONBA_PTR_TO_JSON(DbObject, dbObject_);
+      DARABONBA_PTR_TO_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+      DARABONBA_PTR_TO_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+      DARABONBA_PTR_TO_JSON(DbObjectSize, dbObjectSize_);
       DARABONBA_PTR_TO_JSON(DedicatedClusterId, dedicatedClusterId_);
       DARABONBA_PTR_TO_JSON(Delay, delay_);
       DARABONBA_PTR_TO_JSON(DemoJob, demoJob_);
@@ -94,6 +97,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
       DARABONBA_PTR_FROM_JSON(DatabaseCount, databaseCount_);
       DARABONBA_PTR_FROM_JSON(DbObject, dbObject_);
+      DARABONBA_PTR_FROM_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+      DARABONBA_PTR_FROM_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+      DARABONBA_PTR_FROM_JSON(DbObjectSize, dbObjectSize_);
       DARABONBA_PTR_FROM_JSON(DedicatedClusterId, dedicatedClusterId_);
       DARABONBA_PTR_FROM_JSON(Delay, delay_);
       DARABONBA_PTR_FROM_JSON(DemoJob, demoJob_);
@@ -197,11 +203,11 @@ namespace Models
 
 
     protected:
-      // The private endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+      // The private endpoint of the change tracking task, in the format of `address:port`.
       shared_ptr<string> privateHost_ {};
-      // The public endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+      // The public network connection information of the subscribe node, in the format of `address:port`.
       shared_ptr<string> publicHost_ {};
-      // The VPC endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+      // The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
       shared_ptr<string> vpcHost_ {};
     };
 
@@ -243,15 +249,9 @@ namespace Models
 
 
     protected:
-      // Indicates whether DDL statements are tracked. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether the subscription data includes DDL statements. Valid values:
       shared_ptr<bool> ddl_ {};
-      // Indicates whether DML statements are tracked. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether the subscription data includes DML statements. Valid values:
       shared_ptr<bool> dml_ {};
     };
 
@@ -269,6 +269,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
         DARABONBA_PTR_TO_JSON(DatabaseCount, databaseCount_);
         DARABONBA_PTR_TO_JSON(DbObject, dbObject_);
+        DARABONBA_PTR_TO_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+        DARABONBA_PTR_TO_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+        DARABONBA_PTR_TO_JSON(DbObjectSize, dbObjectSize_);
         DARABONBA_PTR_TO_JSON(Delay, delay_);
         DARABONBA_PTR_TO_JSON(DestNetType, destNetType_);
         DARABONBA_PTR_TO_JSON(DestinationEndpoint, destinationEndpoint_);
@@ -318,6 +321,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
         DARABONBA_PTR_FROM_JSON(DatabaseCount, databaseCount_);
         DARABONBA_PTR_FROM_JSON(DbObject, dbObject_);
+        DARABONBA_PTR_FROM_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+        DARABONBA_PTR_FROM_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+        DARABONBA_PTR_FROM_JSON(DbObjectSize, dbObjectSize_);
         DARABONBA_PTR_FROM_JSON(Delay, delay_);
         DARABONBA_PTR_FROM_JSON(DestNetType, destNetType_);
         DARABONBA_PTR_FROM_JSON(DestinationEndpoint, destinationEndpoint_);
@@ -507,35 +513,30 @@ namespace Models
       protected:
         // The Alibaba Cloud account ID.
         shared_ptr<int64_t> aliUid_ {};
-        // The operator of the tag.
+        // The tag operator.
         shared_ptr<int64_t> creator_ {};
-        // The time when the task was created.
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the task was modified.
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The primary key of the table.
+        // The primary key.
         shared_ptr<int64_t> id_ {};
-        // The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+        // The ID of the region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
         shared_ptr<string> regionId_ {};
-        // The ID of the data migration, data synchronization, or change tracking instance.
+        // The instance ID of the data migration, synchronization, or change tracking task.
         shared_ptr<string> resourceId_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
-        // Indicates whether the tag is visible. Valid values:
-        // 
-        // *   **0**: The tag is public.
-        // *   **1**: The tag is private.
+        // The visibility of the tag. Valid values:
         shared_ptr<string> scope_ {};
-        // The ID of the region in which the DTS task resides.
-        // 
-        // > In most cases, the ID of the region in which the destination instance resides is returned.
+        // The region where the task resides.
         shared_ptr<string> srcRegion_ {};
-        // The type of the tag. Valid values:
+        // The tag type. Valid values:
         // 
-        // *   **System**: The tag was created by the system.
-        // *   **Custom**: The tag was created by a user.
+        // - **System**: A tag created by the system.
+        // - **Custom**: A tag added by the user.
         // 
-        // > By default, if the parameter is left empty, custom tags and system tags are returned.
+        // > If this value is empty, publicly visible tags are returned by default.
         shared_ptr<string> tagCategory_ {};
         // The tag key.
         shared_ptr<string> tagKey_ {};
@@ -590,11 +591,11 @@ namespace Models
 
 
       protected:
-        // The private endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+        // The private endpoint of the change tracking task, in the format of `address:port`.
         shared_ptr<string> privateHost_ {};
-        // The public endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+        // The public network connection information of the change tracking task. The format is `address:port`.
         shared_ptr<string> publicHost_ {};
-        // The VPC endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+        // The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
         shared_ptr<string> vpcHost_ {};
       };
 
@@ -636,15 +637,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether DDL statements are tracked. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the subscription data includes DDL statements. Valid values:
         shared_ptr<bool> ddl_ {};
-        // Indicates whether DML statements are tracked. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the subscription data includes DML statements. Valid values:
         shared_ptr<bool> dml_ {};
       };
 
@@ -713,21 +708,15 @@ namespace Models
 
 
       protected:
-        // Error message indicating task failure.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
-        // Whether to display upgrade specifications, return value:
-        // - True: Yes.
-        // - False: No.
+        // Indicates whether the upgrade prompt is displayed. Valid values:
         shared_ptr<bool> needUpgrade_ {};
-        // Initialization progress of library table structure, measured in percentage.
+        // The progress of initial schema synchronization, in percentage.
         shared_ptr<string> percent_ {};
-        // The number of tables that have completed library table structure initialization.
+        // The number of tables that have completed initial schema synchronization.
         shared_ptr<string> progress_ {};
-        // The initialization status of the library table structure includes:
-        // - NotStarted: Not started.
-        // - Migration: In the process of initialization.
-        // - Failed: Initialization failed.
-        // - Finished: Initialization completed.
+        // The status of initial schema synchronization. Valid values:
         shared_ptr<string> status_ {};
       };
 
@@ -861,34 +850,28 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account to which the source instance belongs.
+        // The Alibaba Cloud account ID to which the source instance belongs.
         shared_ptr<string> aliyunUid_ {};
-        // The name of the database from which the objects are migrated in the source instance.
+        // The name of the database to which the migration objects belong in the source instance.
         shared_ptr<string> databaseName_ {};
         // The database engine of the source instance.
         shared_ptr<string> engineName_ {};
-        // The source instance ID.
+        // The instance ID of the source instance.
         shared_ptr<string> instanceID_ {};
         // The type of the source instance.
         shared_ptr<string> instanceType_ {};
         // The endpoint of the source instance.
         shared_ptr<string> ip_ {};
         // The SID of the Oracle database.
-        // 
-        // > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+        // > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
         shared_ptr<string> oracleSID_ {};
         // The database service port of the source instance.
         shared_ptr<string> port_ {};
-        // The ID of the region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+        // The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
         shared_ptr<string> region_ {};
-        // The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
+        // The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
         shared_ptr<string> roleName_ {};
-        // Indicates whether SSL encryption is enabled. Valid values:
-        // 
-        // *   **DISABLE**: SSL encryption is disabled.
-        // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-        // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-        // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+        // Indicates whether SSL is used for the connection. Valid values:
         shared_ptr<string> sslSolutionEnum_ {};
         // The database account of the source instance.
         shared_ptr<string> userName_ {};
@@ -908,6 +891,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
           DARABONBA_PTR_TO_JSON(DatabaseCount, databaseCount_);
           DARABONBA_PTR_TO_JSON(DbObject, dbObject_);
+          DARABONBA_PTR_TO_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+          DARABONBA_PTR_TO_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+          DARABONBA_PTR_TO_JSON(DbObjectSize, dbObjectSize_);
           DARABONBA_PTR_TO_JSON(Delay, delay_);
           DARABONBA_PTR_TO_JSON(DestNetType, destNetType_);
           DARABONBA_PTR_TO_JSON(DestinationEndpoint, destinationEndpoint_);
@@ -954,6 +940,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
           DARABONBA_PTR_FROM_JSON(DatabaseCount, databaseCount_);
           DARABONBA_PTR_FROM_JSON(DbObject, dbObject_);
+          DARABONBA_PTR_FROM_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+          DARABONBA_PTR_FROM_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+          DARABONBA_PTR_FROM_JSON(DbObjectSize, dbObjectSize_);
           DARABONBA_PTR_FROM_JSON(Delay, delay_);
           DARABONBA_PTR_FROM_JSON(DestNetType, destNetType_);
           DARABONBA_PTR_FROM_JSON(DestinationEndpoint, destinationEndpoint_);
@@ -1140,35 +1129,30 @@ namespace Models
         protected:
           // The Alibaba Cloud account ID.
           shared_ptr<int64_t> aliUid_ {};
-          // The operator of the tag.
+          // The tag operator.
           shared_ptr<int64_t> creator_ {};
-          // The time when the task was created.
+          // The creation time.
           shared_ptr<string> gmtCreate_ {};
-          // The time when the task was modified.
+          // The modification time.
           shared_ptr<string> gmtModified_ {};
-          // The primary key of the table.
+          // The primary key.
           shared_ptr<int64_t> id_ {};
-          // The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+          // The ID of the region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
           shared_ptr<string> regionId_ {};
-          // The ID of the data migration, data synchronization, or change tracking instance.
+          // The instance ID of the data migration, synchronization, or change tracking task.
           shared_ptr<string> resourceId_ {};
           // The resource type.
           shared_ptr<string> resourceType_ {};
-          // Indicates whether the tag is visible. Valid values:
-          // 
-          // *   **0**: The tag is public.
-          // *   **1**: The tag is private.
+          // The visibility of the tag. Valid values:
           shared_ptr<string> scope_ {};
-          // The ID of the region in which the DTS task resides.
-          // 
-          // > In most cases, the ID of the region in which the destination instance resides is returned.
+          // The region where the task resides.
           shared_ptr<string> srcRegion_ {};
-          // The type of the tag. Valid values:
+          // The tag type. Valid values:
           // 
-          // *   **System**: The tag was created by the system.
-          // *   **Custom**: The tag was created by a user.
+          // - **System**: A tag created by the system.
+          // - **Custom**: A tag added by the user.
           // 
-          // > By default, if the parameter is left empty, custom tags and system tags are returned.
+          // > If this value is empty, publicly visible tags are returned by default.
           shared_ptr<string> tagCategory_ {};
           // The tag key.
           shared_ptr<string> tagKey_ {};
@@ -1223,11 +1207,11 @@ namespace Models
 
 
         protected:
-          // The private endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+          // The private endpoint of the change tracking task, in the format of `address:port`.
           shared_ptr<string> privateHost_ {};
-          // The public endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+          // The public network connection information of the change tracking task, in the format of `address:port`.
           shared_ptr<string> publicHost_ {};
-          // The VPC endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+          // The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
           shared_ptr<string> vpcHost_ {};
         };
 
@@ -1269,15 +1253,9 @@ namespace Models
 
 
         protected:
-          // Indicates whether DDL statements are tracked. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the subscription data includes DDL statements. Valid values:
           shared_ptr<bool> ddl_ {};
-          // Indicates whether DML statements are tracked. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the subscription data includes DML statements. Valid values:
           shared_ptr<bool> dml_ {};
         };
 
@@ -1346,23 +1324,19 @@ namespace Models
 
 
         protected:
-          // Error message indicating task failure.
+          // The error message returned when the task failed.
           shared_ptr<string> errorMessage_ {};
-          // Whether to display upgrade specifications, return value:
-          // 
-          // - True: Yes.
-          // - False: No.
+          // Indicates whether the upgrade prompt is displayed. Valid values:
           shared_ptr<bool> needUpgrade_ {};
-          // Initialization progress of library table structure, measured in percentage.
+          // The progress of initial schema synchronization, in percentage.
           shared_ptr<string> percent_ {};
-          // The number of tables that have completed library table structure initialization.
+          // The number of tables that have completed initial schema synchronization.
           shared_ptr<string> progress_ {};
-          // The initialization status of the library table structure includes:
-          // 
-          // - NotStarted: Not started.
-          // - Migration: In the process of initialization.
-          // - Failed: Initialization failed.
-          // - Finished: Initialization completed.
+          // The status of initial schema synchronization. Valid values:
+          // - **NotStarted**: Not started.
+          // - **Migrating**: In progress.
+          // - **Failed**: Failed.
+          // - **Finished**: Completed.
           shared_ptr<string> status_ {};
         };
 
@@ -1496,34 +1470,28 @@ namespace Models
 
 
         protected:
-          // The ID of the Alibaba Cloud account to which the source instance belongs.
+          // The Alibaba Cloud account ID to which the source instance belongs.
           shared_ptr<string> aliyunUid_ {};
-          // The name of the database from which the objects are migrated in the source instance.
+          // The name of the database to which the migration objects belong in the source instance.
           shared_ptr<string> databaseName_ {};
           // The database engine of the source instance.
           shared_ptr<string> engineName_ {};
-          // The DTS instance ID.
+          // The instance ID.
           shared_ptr<string> instanceID_ {};
           // The type of the source instance.
           shared_ptr<string> instanceType_ {};
           // The endpoint of the source instance.
           shared_ptr<string> ip_ {};
           // The SID of the Oracle database.
-          // 
-          // > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+          // > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
           shared_ptr<string> oracleSID_ {};
           // The database service port of the source instance.
           shared_ptr<string> port_ {};
-          // The ID of the region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+          // The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
           shared_ptr<string> region_ {};
-          // The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
+          // The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
           shared_ptr<string> roleName_ {};
-          // Indicates whether SSL encryption is enabled. Valid values:
-          // 
-          // *   **DISABLE**: SSL encryption is disabled.
-          // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-          // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-          // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+          // Indicates whether SSL is used for the connection. Valid values:
           shared_ptr<string> sslSolutionEnum_ {};
           // The database account of the source instance.
           shared_ptr<string> userName_ {};
@@ -1622,28 +1590,25 @@ namespace Models
 
 
         protected:
-          // The error message returned.
+          // The error message.
           shared_ptr<string> errMsg_ {};
           // The task ID.
           shared_ptr<string> jobId_ {};
-          // The maximum duration of a retry. Unit: seconds.
+          // The maximum retry time. Unit: seconds.
           shared_ptr<int32_t> maxRetryTime_ {};
-          // The progress of the instance when DTS performs retries.
+          // The instance progress.
           shared_ptr<string> module_ {};
           // The number of retries.
           shared_ptr<int32_t> retryCount_ {};
-          // The object on which the retries are performed. Valid values:
+          // The retry target. Valid values:
           // 
-          // *   **srcDB**: the source database.
-          // *   **destDB**: the destination database.
-          // *   **inner_module**: an internal module of DTS.
+          // - **srcDB**: source database.
+          // - **destDB**: destination database.
+          // - **inner_module**: DTS internal module.
           shared_ptr<string> retryTarget_ {};
-          // The time that has elapsed from the point in time when the first retry starts. Unit: seconds.
+          // The elapsed retry time. Unit: seconds.
           shared_ptr<int32_t> retryTime_ {};
           // Indicates whether the task is being retried. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
           shared_ptr<bool> retrying_ {};
         };
 
@@ -1737,22 +1702,20 @@ namespace Models
 
 
           protected:
-            // The name of the precheck item.
+            // The precheck item.
             shared_ptr<string> checkItem_ {};
             // The description of the precheck item.
             shared_ptr<string> checkItemDescription_ {};
-            // The precheck result. Valid values:
-            // 
-            // *   **Success**
-            // *   **Failed**
+            // The check result. Valid values:
+            // - **Success**: The check is passed.
+            // - **Failed**: The check is not passed.
             shared_ptr<string> checkResult_ {};
-            // The error message returned if the task failed to pass the precheck.
+            // The error message returned when the precheck fails.
             // 
-            // > This parameter is returned only if the return value of **CheckResult** is **Failed**.
+            // > This parameter is returned only when the value of **CheckResult** is **Failed**.
             shared_ptr<string> failedReason_ {};
-            // The method used to fix the precheck failure.
-            // 
-            // > This parameter is returned only if the return value of **CheckResult** is **Failed**.
+            // The method to fix the precheck failure.
+            // > This parameter is returned only when the value of **CheckResult** is **Failed**.
             shared_ptr<string> repairMethod_ {};
           };
 
@@ -1789,18 +1752,13 @@ namespace Models
 
 
         protected:
-          // The result of each precheck item.
+          // The execution details of each precheck item.
           shared_ptr<vector<PrecheckStatus::Detail>> detail_ {};
-          // The error message returned if the task failed.
+          // The error message returned when the task failed.
           shared_ptr<string> errorMessage_ {};
-          // The precheck progress. Unit: percentage.
+          // The overall precheck progress, in percentage.
           shared_ptr<string> percent_ {};
-          // The precheck state. Valid values:
-          // 
-          // *   **NotStarted**: The task is not started.
-          // *   **Prechecking**: The task is in precheck.
-          // *   **PrecheckFailed**: The task failed to pass the precheck.
-          // *   **Finished**: The task is complete.
+          // The precheck status. Valid values:
           shared_ptr<string> status_ {};
         };
 
@@ -1842,9 +1800,9 @@ namespace Models
 
 
         protected:
-          // The size of data that is migrated or synchronized per second. Unit: Mbit/s.
+          // The volume of data migrated or synchronized per second, in MB/s.
           shared_ptr<string> flow_ {};
-          // The number of times that SQL statements are migrated or synchronized per second, including BEGIN, COMMIT, DML, and DDL statements. DML statements include INSERT, DELETE, and UPDATE.
+          // The number of SQL statements migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
           shared_ptr<string> rps_ {};
         };
 
@@ -1905,24 +1863,14 @@ namespace Models
 
         protected:
           // Indicates whether data transformation is performed. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
           shared_ptr<bool> dataExtractTransformLoad_ {};
           // Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // - **true**: Yes.
+          // - **false**: No.
           shared_ptr<bool> dataInitialization_ {};
           // Indicates whether incremental data migration or synchronization is performed. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
           shared_ptr<bool> dataSynchronization_ {};
           // Indicates whether schema migration or initial schema synchronization is performed. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
           shared_ptr<bool> structureInitialization_ {};
         };
 
@@ -2056,9 +2004,9 @@ namespace Models
 
 
         protected:
-          // The ID of the Alibaba Cloud account to which the destination instance belongs.
+          // The Alibaba Cloud account ID to which the destination instance belongs.
           shared_ptr<string> aliyunUid_ {};
-          // The name of the database to which the objects are migrated in the destination instance.
+          // The name of the database to which the migration objects belong in the destination instance.
           shared_ptr<string> databaseName_ {};
           // The database engine of the destination instance.
           shared_ptr<string> engineName_ {};
@@ -2069,21 +2017,15 @@ namespace Models
           // The endpoint of the destination instance.
           shared_ptr<string> ip_ {};
           // The SID of the Oracle database.
-          // 
-          // > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+          // > This parameter is returned only when **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
           shared_ptr<string> oracleSID_ {};
           // The database service port of the destination instance.
           shared_ptr<string> port_ {};
-          // The ID of the region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+          // The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
           shared_ptr<string> region_ {};
-          // The name of the RAM role configured for the Alibaba Cloud account to which the destination instance belongs.
+          // The name of the role configured for the Alibaba Cloud account to which the destination instance belongs.
           shared_ptr<string> roleName_ {};
-          // Indicates whether SSL encryption is enabled. Valid values:
-          // 
-          // *   **DISABLE**: SSL encryption is disabled.
-          // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-          // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-          // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+          // Indicates whether SSL is used for the connection. Valid values:
           shared_ptr<string> sslSolutionEnum_ {};
           // The database account of the destination instance.
           shared_ptr<string> userName_ {};
@@ -2154,26 +2096,15 @@ namespace Models
 
 
         protected:
-          // The error message returned if the task failed.
+          // The error message returned when the task failed.
           shared_ptr<string> errorMessage_ {};
-          // Indicates whether the instance class needs to be upgraded. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the upgrade prompt is displayed. Valid values:
           shared_ptr<bool> needUpgrade_ {};
           // The progress of incremental data migration or synchronization.
           shared_ptr<string> percent_ {};
-          // The number of rows and size of data that is synchronized or migrated to the destination table per second during incremental data synchronization or migration.
+          // The number of data rows and data volume migrated or synchronized to the destination table per second.
           shared_ptr<string> progress_ {};
-          // The state of incremental data migration or synchronization. Valid values:
-          // 
-          // *   **NotStarted**: The task is not started.
-          // *   **Migrating**: The task is in progress.
-          // *   **Suspending**: The task is paused.
-          // *   **Checking**: The task is in precheck.
-          // *   **Failed**: The task failed.
-          // *   **Finished**: The task is complete.
-          // *   **Catched**: The task has no latency.
+          // The status of incremental data migration or synchronization. Valid values:
           shared_ptr<string> status_ {};
         };
 
@@ -2242,23 +2173,15 @@ namespace Models
 
 
         protected:
-          // The error message returned if full data migration or initial full data synchronization failed.
+          // The error message returned when full data migration or initial full data synchronization failed.
           shared_ptr<string> errorMessage_ {};
-          // Indicates whether the instance class needs to be upgraded. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the upgrade prompt is displayed. Valid values:
           shared_ptr<bool> needUpgrade_ {};
-          // The progress of full data migration or initial full data synchronization. Unit: percentage.
+          // The progress of full data migration or initial full data synchronization, in percentage.
           shared_ptr<string> percent_ {};
-          // The number of entries that are migrated or synchronized during full data migration or initial full data synchronization.
+          // The number of records that have completed full data migration or initial full data synchronization.
           shared_ptr<string> progress_ {};
-          // The state of full data migration or initial full data synchronization. Valid values:
-          // 
-          // *   **NotStarted**: The task is not started.
-          // *   **Migrating**: The task is in progress.
-          // *   **Failed**: The task failed.
-          // *   **Finished**: The task is complete.
+          // The status of full data migration or initial full data synchronization. Valid values:
           shared_ptr<string> status_ {};
         };
 
@@ -2327,37 +2250,29 @@ namespace Models
 
 
         protected:
-          // The error message returned if the task failed.
+          // The error message returned when the task failed.
           shared_ptr<string> errorMessage_ {};
-          // Indicates whether the instance class needs to be upgraded. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether to display the option to upgrade the instance type. Valid values:
           shared_ptr<bool> needUpgrade_ {};
-          // The progress of full data migration or initial full data synchronization. Unit: percentage.
+          // The progress of full data migration or initial full data synchronization, in percentage.
           shared_ptr<string> percent_ {};
-          // The number of entries that are migrated or synchronized during full data migration or initial full data synchronization.
+          // The number of records that have completed full data migration or initial full data synchronization.
           shared_ptr<string> progress_ {};
-          // The state of the ETL task. Valid values:
-          // 
-          // *   **NotStarted**: The task is not started.
-          // *   **Migrating**: The task is in progress.
-          // *   **Failed**: The task failed.
-          // *   **Finished**: The task is complete.
-          // *   **Catched**: The task has no latency.
+          // The status of the ETL task. Valid values:
           shared_ptr<string> status_ {};
         };
 
         virtual bool empty() const override { return this->appName_ == nullptr
         && this->beginTimestamp_ == nullptr && this->checkpoint_ == nullptr && this->consumptionCheckpoint_ == nullptr && this->consumptionClient_ == nullptr && this->createTime_ == nullptr
         && this->dataEtlStatus_ == nullptr && this->dataInitializationStatus_ == nullptr && this->dataSynchronizationStatus_ == nullptr && this->databaseCount_ == nullptr && this->dbObject_ == nullptr
-        && this->delay_ == nullptr && this->destNetType_ == nullptr && this->destinationEndpoint_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr
-        && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr && this->dtsJobName_ == nullptr && this->endTimestamp_ == nullptr && this->errorMessage_ == nullptr
-        && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->isDemoJob_ == nullptr
-        && this->jobType_ == nullptr && this->migrationMode_ == nullptr && this->originType_ == nullptr && this->payType_ == nullptr && this->performance_ == nullptr
-        && this->precheckStatus_ == nullptr && this->reserved_ == nullptr && this->retryState_ == nullptr && this->reverseJob_ == nullptr && this->sourceEndpoint_ == nullptr
-        && this->status_ == nullptr && this->structureInitializationStatus_ == nullptr && this->subscribeTopic_ == nullptr && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr
-        && this->synchronizationDirection_ == nullptr && this->tagList_ == nullptr && this->taskType_ == nullptr; };
+        && this->dbObjectOssUrl_ == nullptr && this->dbObjectOssUrlExpireTime_ == nullptr && this->dbObjectSize_ == nullptr && this->delay_ == nullptr && this->destNetType_ == nullptr
+        && this->destinationEndpoint_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr
+        && this->dtsJobName_ == nullptr && this->endTimestamp_ == nullptr && this->errorMessage_ == nullptr && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr
+        && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->isDemoJob_ == nullptr && this->jobType_ == nullptr && this->migrationMode_ == nullptr
+        && this->originType_ == nullptr && this->payType_ == nullptr && this->performance_ == nullptr && this->precheckStatus_ == nullptr && this->reserved_ == nullptr
+        && this->retryState_ == nullptr && this->reverseJob_ == nullptr && this->sourceEndpoint_ == nullptr && this->status_ == nullptr && this->structureInitializationStatus_ == nullptr
+        && this->subscribeTopic_ == nullptr && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr && this->synchronizationDirection_ == nullptr && this->tagList_ == nullptr
+        && this->taskType_ == nullptr; };
         // appName Field Functions 
         bool hasAppName() const { return this->appName_ != nullptr;};
         void deleteAppName() { this->appName_ = nullptr;};
@@ -2439,6 +2354,27 @@ namespace Models
         void deleteDbObject() { this->dbObject_ = nullptr;};
         inline string getDbObject() const { DARABONBA_PTR_GET_DEFAULT(dbObject_, "") };
         inline ReverseJob& setDbObject(string dbObject) { DARABONBA_PTR_SET_VALUE(dbObject_, dbObject) };
+
+
+        // dbObjectOssUrl Field Functions 
+        bool hasDbObjectOssUrl() const { return this->dbObjectOssUrl_ != nullptr;};
+        void deleteDbObjectOssUrl() { this->dbObjectOssUrl_ = nullptr;};
+        inline string getDbObjectOssUrl() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrl_, "") };
+        inline ReverseJob& setDbObjectOssUrl(string dbObjectOssUrl) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrl_, dbObjectOssUrl) };
+
+
+        // dbObjectOssUrlExpireTime Field Functions 
+        bool hasDbObjectOssUrlExpireTime() const { return this->dbObjectOssUrlExpireTime_ != nullptr;};
+        void deleteDbObjectOssUrlExpireTime() { this->dbObjectOssUrlExpireTime_ = nullptr;};
+        inline string getDbObjectOssUrlExpireTime() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrlExpireTime_, "") };
+        inline ReverseJob& setDbObjectOssUrlExpireTime(string dbObjectOssUrlExpireTime) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrlExpireTime_, dbObjectOssUrlExpireTime) };
+
+
+        // dbObjectSize Field Functions 
+        bool hasDbObjectSize() const { return this->dbObjectSize_ != nullptr;};
+        void deleteDbObjectSize() { this->dbObjectSize_ = nullptr;};
+        inline int64_t getDbObjectSize() const { DARABONBA_PTR_GET_DEFAULT(dbObjectSize_, 0L) };
+        inline ReverseJob& setDbObjectSize(int64_t dbObjectSize) { DARABONBA_PTR_SET_VALUE(dbObjectSize_, dbObjectSize) };
 
 
         // delay Field Functions 
@@ -2695,138 +2631,109 @@ namespace Models
 
 
       protected:
-        // Indicates whether the new change tracking feature is used.
-        // 
-        // > This parameter is returned only for change tracking instances of the new version.
+        // Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
         shared_ptr<string> appName_ {};
-        // The start of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> beginTimestamp_ {};
-        // The start offset of incremental data migration or data synchronization. This value is a UNIX timestamp. Unit: seconds.
+        // The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
         shared_ptr<string> checkpoint_ {};
-        // The consumption checkpoint of the change tracking instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> consumptionCheckpoint_ {};
-        // The downstream client information in the following format: \\<IP address of the downstream client>:\\<Random ID generated by DTS>.
+        // The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
         shared_ptr<string> consumptionClient_ {};
-        // The time when the task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> createTime_ {};
-        // The state of the ETL task.
-        // 
-        // > This parameter collection is returned only if an ETL task is configured.
+        // The status of the ETL task.
         shared_ptr<ReverseJob::DataEtlStatus> dataEtlStatus_ {};
-        // The state of full data migration or initial full data synchronization.
+        // The status of full data migration or initial full data synchronization.
         shared_ptr<ReverseJob::DataInitializationStatus> dataInitializationStatus_ {};
-        // The state of incremental data migration or synchronization.
+        // The status of incremental data migration or synchronization.
         shared_ptr<ReverseJob::DataSynchronizationStatus> dataSynchronizationStatus_ {};
-        // The number of ApsaraDB RDS for MySQL instances that are attached to the source PolarDB-X 1.0 instance.
+        // If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
         shared_ptr<int32_t> databaseCount_ {};
-        // The objects of the data migration, data synchronization, or change tracking task. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+        // The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
         shared_ptr<string> dbObject_ {};
-        // The latency of incremental data migration or synchronization. Unit: milliseconds.
+        shared_ptr<string> dbObjectOssUrl_ {};
+        shared_ptr<string> dbObjectOssUrlExpireTime_ {};
+        shared_ptr<int64_t> dbObjectSize_ {};
+        // The latency of incremental data migration or synchronization, in milliseconds.
         shared_ptr<int64_t> delay_ {};
         // The network type of the consumer client. Valid values:
-        // 
-        // *   **CLASSIC**: classic network.
-        // *   **VPC**: VPC.
         shared_ptr<string> destNetType_ {};
-        // The connection settings of the destination instance.
+        // The connection information of the destination instance.
         shared_ptr<ReverseJob::DestinationEndpoint> destinationEndpoint_ {};
         // The DTS instance ID.
         shared_ptr<string> dtsInstanceID_ {};
-        // The instance class.
+        // The specification of the data transmission link.
         shared_ptr<string> dtsJobClass_ {};
         // The synchronization direction. Valid values:
+        // - **Forward**: forward.
+        // - **Reverse**: reverse.
         // 
-        // *   **Forward**
-        // *   **Reverse**
-        // 
-        // > This parameter is returned only if the topology of the data synchronization instance is two-way synchronization.
+        // > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
         shared_ptr<string> dtsJobDirection_ {};
         // The DTS task ID.
         shared_ptr<string> dtsJobId_ {};
         // The DTS instance name.
         shared_ptr<string> dtsJobName_ {};
-        // The end of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> endTimestamp_ {};
-        // The error message returned if the task failed.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
         // The operator information of the ETL task.
-        // 
-        // > This parameter is returned only if you query the details of an ETL task.
         shared_ptr<string> etlCalculator_ {};
-        // The time when the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-        // 
-        // > This parameter is returned only if the return value of **PayType** is **PrePaid**.
+        // The expiration time of the instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+        // > This parameter is returned only when the value of **PayType** is **PrePaid**.
         shared_ptr<string> expireTime_ {};
-        // The time when the task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> finishTime_ {};
         // The resource group ID.
         shared_ptr<string> groupId_ {};
         // Indicates whether the task is a subtask. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> isDemoJob_ {};
-        // The type of the DTS task. Valid values:
+        // The task type of the DTS instance. Valid values:
         // 
-        // *   **online**: data migration task.
-        // *   **SYNC**: data synchronization task.
-        // *   **SUBSCRIBE**: change tracking task.
+        // - **online**: migration.
+        // - **SYNC**: synchronization.
+        // - **SUBSCRIBE**: change tracking.
         shared_ptr<string> jobType_ {};
-        // The migration types or initial synchronization types.
+        // The migration type or initial synchronization type.
         shared_ptr<ReverseJob::MigrationMode> migrationMode_ {};
-        // The source of the task. Valid values:
-        // 
-        // *   **PTS**
-        // *   **DMS**
-        // *   **DTS**
+        // The task source:
         shared_ptr<string> originType_ {};
-        // The billing method. Valid values:
-        // 
-        // *   **PrePaid**: subscription.
-        // *   **PostPaid**: pay-as-you-go.
+        // The payment type:
         shared_ptr<string> payType_ {};
-        // The performance of the data migration or synchronization instance.
+        // The performance information of the migration or synchronization task.
         shared_ptr<ReverseJob::Performance> performance_ {};
-        // The precheck state.
+        // The precheck status.
         shared_ptr<ReverseJob::PrecheckStatus> precheckStatus_ {};
-        // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet specific requirements, such as whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
+        // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved parameter description](https://help.aliyun.com/document_detail/176470.html).
         shared_ptr<string> reserved_ {};
-        // The information about the retries performed by DTS due to an exception.
+        // DTS is retrying the task due to a task exception.
         shared_ptr<ReverseJob::RetryState> retryState_ {};
-        // The details of the data synchronization task in the reverse direction.
-        // 
-        // > This parameter is returned only for two-way data synchronization tasks.
+        // The details of the reverse synchronization task.
         Darabonba::Json reverseJob_ {};
-        // The connection settings of the source instance.
+        // The connection information of the source instance.
         shared_ptr<ReverseJob::SourceEndpoint> sourceEndpoint_ {};
-        // The state of initial schema synchronization. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Migrating**: The task is in progress.
-        // *   **Failed**: The task failed.
-        // *   **Finished**: The task is complete.
+        // The status of the migration or synchronization task. Valid values:
         shared_ptr<string> status_ {};
-        // Initialization status of library table structure.
+        // The status of initial schema synchronization.
         shared_ptr<ReverseJob::StructureInitializationStatus> structureInitializationStatus_ {};
-        // The topic of the change tracking instance.
-        // 
-        // > This parameter is returned only if your change tracking instances are of the new version and you have called the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation to create a consumer group.
+        // The subscribed topic.
+        // > This parameter is returned only when the change tracking instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
         shared_ptr<string> subscribeTopic_ {};
-        // The type of data for change tracking.
+        // The type of the subscription data.
         shared_ptr<ReverseJob::SubscriptionDataType> subscriptionDataType_ {};
-        // The endpoint of the change tracking instance.
+        // The endpoint of the change tracking task.
         shared_ptr<ReverseJob::SubscriptionHost> subscriptionHost_ {};
         // The synchronization direction. Valid values:
+        // - **Forward**: forward.
+        // - **Reverse**: reverse.
         // 
-        // *   **Forward**
-        // *   **Reverse**
-        // 
-        // > 
-        // 
-        // *   The default value is **Forward**.
-        // *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
+        // > - Default value: **Forward**.
+        // - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
         shared_ptr<string> synchronizationDirection_ {};
-        // The tags of the task.
+        // The tag collection.
         shared_ptr<vector<ReverseJob::TagList>> tagList_ {};
         // The task type.
         shared_ptr<string> taskType_ {};
@@ -2925,28 +2832,25 @@ namespace Models
 
 
       protected:
-        // The error message returned.
+        // The error message.
         shared_ptr<string> errMsg_ {};
         // The task ID.
         shared_ptr<string> jobId_ {};
-        // The maximum duration of a retry. Unit: seconds.
+        // The maximum retry time. Unit: seconds.
         shared_ptr<int32_t> maxRetryTime_ {};
-        // The progress of the instance when DTS performs retries.
+        // The instance progress.
         shared_ptr<string> module_ {};
         // The number of retries.
         shared_ptr<int32_t> retryCount_ {};
-        // The object on which the retries are performed. Valid values:
+        // The retry target. Valid values:
         // 
-        // *   **srcDB**: the source database.
-        // *   **destDB**: the destination database.
-        // *   **inner_module**: an internal module of DTS.
+        // - **srcDB**: source database.
+        // - **destDB**: destination database.
+        // - **inner_module**: DTS internal module.
         shared_ptr<string> retryTarget_ {};
-        // The time that has elapsed from the point in time when the first retry starts. Unit: seconds.
+        // The elapsed retry time. Unit: seconds.
         shared_ptr<int32_t> retryTime_ {};
         // Indicates whether the task is being retried. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> retrying_ {};
       };
 
@@ -3040,22 +2944,20 @@ namespace Models
 
 
         protected:
-          // The name of the precheck item.
+          // The precheck item.
           shared_ptr<string> checkItem_ {};
           // The description of the precheck item.
           shared_ptr<string> checkItemDescription_ {};
-          // The precheck result. Valid values:
-          // 
-          // *   **Success**
-          // *   **Failed**
+          // The check result. Valid values:
+          // - **Success**: The check is passed.
+          // - **Failed**: The check is not passed.
           shared_ptr<string> checkResult_ {};
-          // The error message returned if the task failed to pass the precheck.
+          // The error message returned when the precheck fails.
           // 
-          // > This parameter is returned only if the return value of **CheckResult** is **Failed**.
+          // > This parameter is returned only when the value of **CheckResult** is **Failed**.
           shared_ptr<string> failedReason_ {};
-          // The method used to fix the precheck failure.
-          // 
-          // > This parameter is returned only if the return value of **CheckResult** is **Failed**.
+          // The repair method for a failed precheck item.
+          // > This parameter is returned only when the value of **CheckResult** is **Failed**.
           shared_ptr<string> repairMethod_ {};
         };
 
@@ -3092,18 +2994,13 @@ namespace Models
 
 
       protected:
-        // The result of each precheck item.
+        // The execution details of each precheck item.
         shared_ptr<vector<PrecheckStatus::Detail>> detail_ {};
-        // The error message returned if the task failed.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
-        // The precheck progress. Unit: percentage.
+        // The overall precheck progress, in percentage.
         shared_ptr<string> percent_ {};
-        // The precheck state. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Prechecking**: The task is in precheck.
-        // *   **PrecheckFailed**: The task failed to pass the precheck.
-        // *   **Finished**: The task is complete.
+        // The precheck status. Valid values:
         shared_ptr<string> status_ {};
       };
 
@@ -3145,9 +3042,9 @@ namespace Models
 
 
       protected:
-        // The size of data that is migrated or synchronized per second. Unit: Mbit/s.
+        // The volume of data migrated or synchronized per second, in MB/s.
         shared_ptr<string> flow_ {};
-        // The number of times that SQL statements are migrated or synchronized per second, including BEGIN, COMMIT, DML, and DDL statements. DML statements include INSERT, DELETE, and UPDATE.
+        // The number of SQL statements migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
         shared_ptr<string> rps_ {};
       };
 
@@ -3208,24 +3105,14 @@ namespace Models
 
       protected:
         // Indicates whether data transformation is performed. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> dataExtractTransformLoad_ {};
         // Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // - **true**: Yes.
+        // - **false**: No.
         shared_ptr<bool> dataInitialization_ {};
         // Indicates whether incremental data migration or synchronization is performed. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> dataSynchronization_ {};
         // Indicates whether schema migration or initial schema synchronization is performed. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> structureInitialization_ {};
       };
 
@@ -3359,34 +3246,28 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account to which the destination instance belongs.
+        // The Alibaba Cloud account ID to which the destination instance belongs.
         shared_ptr<string> aliyunUid_ {};
-        // The name of the database to which the objects are migrated in the destination instance.
+        // The name of the database to which the migration objects belong in the destination instance.
         shared_ptr<string> databaseName_ {};
         // The database engine of the destination instance.
         shared_ptr<string> engineName_ {};
-        // The destination instance ID.
+        // The instance ID of the destination instance.
         shared_ptr<string> instanceID_ {};
         // The type of the destination instance.
         shared_ptr<string> instanceType_ {};
         // The endpoint of the destination instance.
         shared_ptr<string> ip_ {};
         // The SID of the Oracle database.
-        // 
-        // > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+        // > This parameter is returned only when the **EngineName** of the destination instance is **Oracle** and the Oracle database is a non-RAC instance.
         shared_ptr<string> oracleSID_ {};
         // The database service port of the destination instance.
         shared_ptr<string> port_ {};
-        // The ID of the region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+        // The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
         shared_ptr<string> region_ {};
-        // The name of the RAM role configured for the Alibaba Cloud account to which the destination instance belongs.
+        // The name of the role configured for the Alibaba Cloud account to which the destination instance belongs.
         shared_ptr<string> roleName_ {};
-        // Indicates whether SSL encryption is enabled. Valid values:
-        // 
-        // *   **DISABLE**: SSL encryption is disabled.
-        // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-        // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-        // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+        // Indicates whether SSL is used for the connection. Valid values:
         shared_ptr<string> sslSolutionEnum_ {};
         // The database account of the destination instance.
         shared_ptr<string> userName_ {};
@@ -3457,26 +3338,15 @@ namespace Models
 
 
       protected:
-        // The error message returned if the task failed.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
-        // Indicates whether the instance class needs to be upgraded. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the upgrade prompt is displayed. Valid values:
         shared_ptr<bool> needUpgrade_ {};
         // The progress of incremental data migration or synchronization.
         shared_ptr<string> percent_ {};
-        // The number of rows and size of data that is synchronized or migrated to the destination table per second during incremental data synchronization or migration.
+        // The number of data rows and data volume migrated or synchronized to the destination table per second.
         shared_ptr<string> progress_ {};
-        // The state of incremental data migration or synchronization. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Migrating**: The task is in progress.
-        // *   **Suspending**: The task is paused.
-        // *   **Checking**: The task is in precheck.
-        // *   **Failed**: The task failed.
-        // *   **Finished**: The task is complete.
-        // *   **Catched**: The task has no latency.
+        // The status of incremental data migration or synchronization. Valid values:
         shared_ptr<string> status_ {};
       };
 
@@ -3545,23 +3415,15 @@ namespace Models
 
 
       protected:
-        // The error message returned if full data migration or initial full data synchronization failed.
+        // The error message returned when full data migration or initial full data synchronization failed.
         shared_ptr<string> errorMessage_ {};
-        // Indicates whether the instance class needs to be upgraded. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the upgrade prompt is displayed. Valid values:
         shared_ptr<bool> needUpgrade_ {};
-        // The progress of full data migration or initial full data synchronization. Unit: percentage.
+        // The progress of full data migration or initial full data synchronization, in percentage.
         shared_ptr<string> percent_ {};
-        // The number of entries that are migrated or synchronized during full data migration or initial full data synchronization.
+        // The number of records that have completed full data migration or initial full data synchronization.
         shared_ptr<string> progress_ {};
-        // The state of full data migration or initial full data synchronization. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Migrating**: The task is in progress.
-        // *   **Failed**: The task failed.
-        // *   **Finished**: The task is complete.
+        // The status of full data migration or initial full data synchronization. Valid values:
         shared_ptr<string> status_ {};
       };
 
@@ -3630,38 +3492,34 @@ namespace Models
 
 
       protected:
-        // The error message returned if the task failed.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
-        // Indicates whether the instance class needs to be upgraded. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the upgrade prompt is displayed. Valid values:
         shared_ptr<bool> needUpgrade_ {};
-        // The progress of full data migration or initial full data synchronization. Unit: percentage.
+        // The progress of full data migration or initial full data synchronization, in percentage.
         shared_ptr<string> percent_ {};
-        // The number of entries that are migrated or synchronized during full data migration or initial full data synchronization.
+        // The number of records that have completed full data migration or initial full data synchronization.
         shared_ptr<string> progress_ {};
-        // The state of the ETL task. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Migrating**: The task is in progress.
-        // *   **Failed**: The task failed.
-        // *   **Finished**: The task is complete.
-        // *   **Catched**: The task has no latency.
+        // The ETL task status. Valid values:
+        // - **NotStarted**: Not started.
+        // - **Migrating**: Running.
+        // - **Failed**: Failed.
+        // - **Finished**: Completed.
+        // - **Catched**: No latency.
         shared_ptr<string> status_ {};
       };
 
       virtual bool empty() const override { return this->appName_ == nullptr
         && this->beginTimestamp_ == nullptr && this->checkpoint_ == nullptr && this->consumptionCheckpoint_ == nullptr && this->consumptionClient_ == nullptr && this->createTime_ == nullptr
         && this->dataEtlStatus_ == nullptr && this->dataInitializationStatus_ == nullptr && this->dataSynchronizationStatus_ == nullptr && this->databaseCount_ == nullptr && this->dbObject_ == nullptr
-        && this->delay_ == nullptr && this->destNetType_ == nullptr && this->destinationEndpoint_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr
-        && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr && this->dtsJobName_ == nullptr && this->endTimestamp_ == nullptr && this->errorMessage_ == nullptr
-        && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->isDemoJob_ == nullptr
-        && this->jobType_ == nullptr && this->maxDu_ == nullptr && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->originType_ == nullptr
-        && this->payType_ == nullptr && this->performance_ == nullptr && this->precheckStatus_ == nullptr && this->reserved_ == nullptr && this->retryState_ == nullptr
-        && this->reverseJob_ == nullptr && this->sourceEndpoint_ == nullptr && this->status_ == nullptr && this->structureInitializationStatus_ == nullptr && this->subSyncJob_ == nullptr
-        && this->subscribeTopic_ == nullptr && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr && this->synchronizationDirection_ == nullptr && this->tagList_ == nullptr
-        && this->taskType_ == nullptr; };
+        && this->dbObjectOssUrl_ == nullptr && this->dbObjectOssUrlExpireTime_ == nullptr && this->dbObjectSize_ == nullptr && this->delay_ == nullptr && this->destNetType_ == nullptr
+        && this->destinationEndpoint_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr
+        && this->dtsJobName_ == nullptr && this->endTimestamp_ == nullptr && this->errorMessage_ == nullptr && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr
+        && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->isDemoJob_ == nullptr && this->jobType_ == nullptr && this->maxDu_ == nullptr
+        && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->originType_ == nullptr && this->payType_ == nullptr && this->performance_ == nullptr
+        && this->precheckStatus_ == nullptr && this->reserved_ == nullptr && this->retryState_ == nullptr && this->reverseJob_ == nullptr && this->sourceEndpoint_ == nullptr
+        && this->status_ == nullptr && this->structureInitializationStatus_ == nullptr && this->subSyncJob_ == nullptr && this->subscribeTopic_ == nullptr && this->subscriptionDataType_ == nullptr
+        && this->subscriptionHost_ == nullptr && this->synchronizationDirection_ == nullptr && this->tagList_ == nullptr && this->taskType_ == nullptr; };
       // appName Field Functions 
       bool hasAppName() const { return this->appName_ != nullptr;};
       void deleteAppName() { this->appName_ = nullptr;};
@@ -3743,6 +3601,27 @@ namespace Models
       void deleteDbObject() { this->dbObject_ = nullptr;};
       inline string getDbObject() const { DARABONBA_PTR_GET_DEFAULT(dbObject_, "") };
       inline SubSyncJob& setDbObject(string dbObject) { DARABONBA_PTR_SET_VALUE(dbObject_, dbObject) };
+
+
+      // dbObjectOssUrl Field Functions 
+      bool hasDbObjectOssUrl() const { return this->dbObjectOssUrl_ != nullptr;};
+      void deleteDbObjectOssUrl() { this->dbObjectOssUrl_ = nullptr;};
+      inline string getDbObjectOssUrl() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrl_, "") };
+      inline SubSyncJob& setDbObjectOssUrl(string dbObjectOssUrl) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrl_, dbObjectOssUrl) };
+
+
+      // dbObjectOssUrlExpireTime Field Functions 
+      bool hasDbObjectOssUrlExpireTime() const { return this->dbObjectOssUrlExpireTime_ != nullptr;};
+      void deleteDbObjectOssUrlExpireTime() { this->dbObjectOssUrlExpireTime_ = nullptr;};
+      inline string getDbObjectOssUrlExpireTime() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrlExpireTime_, "") };
+      inline SubSyncJob& setDbObjectOssUrlExpireTime(string dbObjectOssUrlExpireTime) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrlExpireTime_, dbObjectOssUrlExpireTime) };
+
+
+      // dbObjectSize Field Functions 
+      bool hasDbObjectSize() const { return this->dbObjectSize_ != nullptr;};
+      void deleteDbObjectSize() { this->dbObjectSize_ = nullptr;};
+      inline int64_t getDbObjectSize() const { DARABONBA_PTR_GET_DEFAULT(dbObjectSize_, 0L) };
+      inline SubSyncJob& setDbObjectSize(int64_t dbObjectSize) { DARABONBA_PTR_SET_VALUE(dbObjectSize_, dbObjectSize) };
 
 
       // delay Field Functions 
@@ -4022,148 +3901,115 @@ namespace Models
 
 
     protected:
-      // Indicates whether the new change tracking feature is used.
-      // 
-      // > This parameter is returned only for change tracking instances of the new version.
+      // Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
       shared_ptr<string> appName_ {};
-      // The start of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> beginTimestamp_ {};
-      // The start offset of incremental data migration or data synchronization. This value is a UNIX timestamp. Unit: seconds.
+      // The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
       shared_ptr<string> checkpoint_ {};
-      // The consumption checkpoint of the change tracking instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> consumptionCheckpoint_ {};
-      // The downstream client information in the following format: \\<IP address of the downstream client>:\\<Random ID generated by DTS>.
+      // The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
       shared_ptr<string> consumptionClient_ {};
-      // The time when the task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> createTime_ {};
-      // The state of the ETL task.
-      // 
-      // > This parameter collection is returned only if an ETL task is configured.
+      // The status of the ETL task.
       shared_ptr<SubSyncJob::DataEtlStatus> dataEtlStatus_ {};
-      // The state of full data migration or initial full data synchronization.
+      // The status of full data migration or initial full data synchronization.
       shared_ptr<SubSyncJob::DataInitializationStatus> dataInitializationStatus_ {};
-      // The state of incremental data migration or synchronization.
+      // The status of incremental data migration or synchronization.
       shared_ptr<SubSyncJob::DataSynchronizationStatus> dataSynchronizationStatus_ {};
-      // The number of ApsaraDB RDS for MySQL instances that are attached to the source PolarDB-X 1.0 instance.
+      // If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
       shared_ptr<int32_t> databaseCount_ {};
-      // The objects of the data migration, data synchronization, or change tracking task. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+      // The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
       shared_ptr<string> dbObject_ {};
-      // The latency of incremental data migration or synchronization. Unit: milliseconds.
+      shared_ptr<string> dbObjectOssUrl_ {};
+      shared_ptr<string> dbObjectOssUrlExpireTime_ {};
+      shared_ptr<int64_t> dbObjectSize_ {};
+      // The latency of incremental data migration or synchronization, in milliseconds.
       shared_ptr<int64_t> delay_ {};
       // The network type of the consumer client. Valid values:
-      // 
-      // *   **CLASSIC**: classic network.
-      // *   **VPC**: VPC.
       shared_ptr<string> destNetType_ {};
-      // The connection settings of the destination instance.
+      // The connection information of the destination instance.
       shared_ptr<SubSyncJob::DestinationEndpoint> destinationEndpoint_ {};
       // The DTS instance ID.
       shared_ptr<string> dtsInstanceID_ {};
-      // The instance class.
+      // The specification of the data transmission link.
       shared_ptr<string> dtsJobClass_ {};
       // The synchronization direction. Valid values:
+      // - **Forward**: forward.
+      // - **Reverse**: reverse.
       // 
-      // *   **Forward**
-      // *   **Reverse**
-      // 
-      // > This parameter is returned only if the topology of the data synchronization instance is two-way synchronization.
+      // > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
       shared_ptr<string> dtsJobDirection_ {};
       // The DTS task ID.
       shared_ptr<string> dtsJobId_ {};
       // The DTS instance name.
       shared_ptr<string> dtsJobName_ {};
-      // The end of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> endTimestamp_ {};
-      // The error message returned if the task failed.
+      // The error message returned when the task failed.
       shared_ptr<string> errorMessage_ {};
       // The operator information of the ETL task.
-      // 
-      // > This parameter is returned only if you query the details of an ETL task.
       shared_ptr<string> etlCalculator_ {};
-      // The time when the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-      // 
-      // > This parameter is returned only if the return value of **PayType** is **PrePaid**.
+      // The expiration time of the instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+      // > This parameter is returned only when the value of the **PayType** parameter is **PrePaid**.
       shared_ptr<string> expireTime_ {};
-      // The time when the task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> finishTime_ {};
       // The resource group ID.
       shared_ptr<string> groupId_ {};
       // Indicates whether the task is a subtask. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> isDemoJob_ {};
-      // The type of the DTS task. Valid values:
+      // The task type of the DTS instance. Valid values:
       // 
-      // *   **online**: data migration task.
-      // *   **SYNC**: data synchronization task.
-      // *   **SUBSCRIBE**: change tracking task.
+      // - **online**: data migration.
+      // - **SYNC**: data synchronization.
+      // - **SUBSCRIBE**: change tracking.
       shared_ptr<string> jobType_ {};
       // The maximum number of DUs.
-      // 
-      // > This parameter is supported only for serverless instances.
       shared_ptr<double> maxDu_ {};
-      // The migration types or initial synchronization types.
+      // The migration type or initial synchronization type.
       shared_ptr<SubSyncJob::MigrationMode> migrationMode_ {};
       // The minimum number of DUs.
-      // 
-      // > This parameter is supported only for serverless instances.
       shared_ptr<double> minDu_ {};
-      // The source of the task. Valid values:
-      // 
-      // *   **PTS**
-      // *   **DMS**
-      // *   **DTS**
+      // The task source:
       shared_ptr<string> originType_ {};
-      // The billing method. Valid values:
-      // 
-      // *   **PrePaid**: subscription.
-      // *   **PostPaid**: pay-as-you-go.
+      // The payment type:
       shared_ptr<string> payType_ {};
-      // The performance of the data migration or synchronization instance.
+      // The performance information of the migration or synchronization task.
       shared_ptr<SubSyncJob::Performance> performance_ {};
-      // The precheck state.
+      // The precheck status.
       shared_ptr<SubSyncJob::PrecheckStatus> precheckStatus_ {};
-      // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet specific requirements, such as whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
+      // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved parameter description](https://help.aliyun.com/document_detail/176470.html).
       shared_ptr<string> reserved_ {};
-      // The information about the retries performed by DTS due to an exception.
+      // DTS is retrying the task due to a task exception.
       shared_ptr<SubSyncJob::RetryState> retryState_ {};
-      // The details of the data synchronization task in the reverse direction.
-      // 
-      // > This parameter is returned only for two-way data synchronization tasks.
+      // The details of the reverse synchronization task.
       shared_ptr<SubSyncJob::ReverseJob> reverseJob_ {};
-      // The connection settings of the source instance.
+      // The connection information of the source instance.
       shared_ptr<SubSyncJob::SourceEndpoint> sourceEndpoint_ {};
-      // The state of initial schema synchronization. Valid values:
-      // 
-      // *   **NotStarted**: The task is not started.
-      // *   **Migrating**: The task is in progress.
-      // *   **Failed**: The task failed.
-      // *   **Finished**: The task is complete.
+      // The status of the migration or synchronization task. Valid values:
       shared_ptr<string> status_ {};
-      // Initialization status of library table structure.
+      // The status of initial schema synchronization.
       shared_ptr<SubSyncJob::StructureInitializationStatus> structureInitializationStatus_ {};
-      // The information about the subtasks in the current data synchronization task.
+      // The information about the synchronization subtask.
       shared_ptr<vector<Darabonba::Json>> subSyncJob_ {};
-      // The topic of the change tracking instance.
-      // 
-      // > This parameter is returned only if your change tracking instances are of the new version and you have called the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation to create a consumer group.
+      // The subscribed topic.
+      // > This parameter is returned only when the change tracking instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
       shared_ptr<string> subscribeTopic_ {};
-      // The type of data for change tracking.
+      // The type of the subscription data.
       shared_ptr<SubSyncJob::SubscriptionDataType> subscriptionDataType_ {};
-      // The endpoint of the change tracking instance.
+      // The endpoint of the change tracking task.
       shared_ptr<SubSyncJob::SubscriptionHost> subscriptionHost_ {};
       // The synchronization direction. Valid values:
+      // - **Forward**: forward.
+      // - **Reverse**: reverse.
       // 
-      // *   **Forward**
-      // *   **Reverse**
-      // 
-      // > 
-      // 
-      // *   The default value is **Forward**.
-      // *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
+      // > - Default value: **Forward**.
+      // - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
       shared_ptr<string> synchronizationDirection_ {};
-      // The tags of the task.
+      // The tag collection.
       shared_ptr<vector<SubSyncJob::TagList>> tagList_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
@@ -4183,6 +4029,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
         DARABONBA_PTR_TO_JSON(DatabaseCount, databaseCount_);
         DARABONBA_PTR_TO_JSON(DbObject, dbObject_);
+        DARABONBA_PTR_TO_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+        DARABONBA_PTR_TO_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+        DARABONBA_PTR_TO_JSON(DbObjectSize, dbObjectSize_);
         DARABONBA_PTR_TO_JSON(Delay, delay_);
         DARABONBA_PTR_TO_JSON(DestNetType, destNetType_);
         DARABONBA_PTR_TO_JSON(DestinationEndpoint, destinationEndpoint_);
@@ -4232,6 +4081,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
         DARABONBA_PTR_FROM_JSON(DatabaseCount, databaseCount_);
         DARABONBA_PTR_FROM_JSON(DbObject, dbObject_);
+        DARABONBA_PTR_FROM_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+        DARABONBA_PTR_FROM_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+        DARABONBA_PTR_FROM_JSON(DbObjectSize, dbObjectSize_);
         DARABONBA_PTR_FROM_JSON(Delay, delay_);
         DARABONBA_PTR_FROM_JSON(DestNetType, destNetType_);
         DARABONBA_PTR_FROM_JSON(DestinationEndpoint, destinationEndpoint_);
@@ -4421,35 +4273,30 @@ namespace Models
       protected:
         // The Alibaba Cloud account ID.
         shared_ptr<int64_t> aliUid_ {};
-        // The operator of the tag.
+        // The tag operator.
         shared_ptr<int64_t> creator_ {};
-        // The time when the task was created.
+        // The creation time.
         shared_ptr<string> gmtCreate_ {};
-        // The time when the task was modified.
+        // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The primary key of the table.
+        // The primary key.
         shared_ptr<int64_t> id_ {};
-        // The ID of the region in which the DTS task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+        // The region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
         shared_ptr<string> regionId_ {};
-        // The ID of the data migration, data synchronization, or change tracking instance.
+        // The instance ID of the data migration, synchronization, or change tracking task.
         shared_ptr<string> resourceId_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
-        // Indicates whether the tag is visible. Valid values:
-        // 
-        // *   **0**: The tag is public.
-        // *   **1**: The tag is private.
+        // The visibility of the tag. Valid values:
         shared_ptr<string> scope_ {};
-        // The ID of the region in which the DTS task resides.
-        // 
-        // > In most cases, the ID of the region in which the destination instance resides is returned.
+        // The region where the task resides.
         shared_ptr<string> srcRegion_ {};
-        // The type of the tag. Valid values:
+        // The tag type. Valid values:
         // 
-        // *   **System**: The tag was created by the system.
-        // *   **Custom**: The tag was created by a user.
+        // - **System**: A tag created by the system.
+        // - **Custom**: A tag added by the user.
         // 
-        // > By default, if the parameter is left empty, custom tags and system tags are returned.
+        // > If this value is empty, publicly visible tags are returned by default.
         shared_ptr<string> tagCategory_ {};
         // The tag key.
         shared_ptr<string> tagKey_ {};
@@ -4504,11 +4351,11 @@ namespace Models
 
 
       protected:
-        // The private endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+        // The private endpoint of the change tracking task, in the format of `address:port`.
         shared_ptr<string> privateHost_ {};
-        // The public endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+        // The public network connection information of the subscribe node. The format is `Address:Port number`.
         shared_ptr<string> publicHost_ {};
-        // The VPC endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+        // The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
         shared_ptr<string> vpcHost_ {};
       };
 
@@ -4550,15 +4397,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether DDL statements are tracked. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the subscription data includes DDL statements. Valid values:
         shared_ptr<bool> ddl_ {};
-        // Indicates whether DML statements are tracked. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the subscription data includes DML statements. Valid values:
         shared_ptr<bool> dml_ {};
       };
 
@@ -4627,21 +4468,19 @@ namespace Models
 
 
       protected:
-        // Error message.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
-        // Whether to display upgrade specifications, return value:
-        // - True: Yes.
-        // - False: No.
+        // Indicates whether the upgrade prompt is displayed. Valid values:
         shared_ptr<bool> needUpgrade_ {};
-        // Initialization progress of library table structure, measured in percentage.
+        // The progress of initial schema synchronization, in percentage.
         shared_ptr<string> percent_ {};
-        // The number of tables that have completed library table structure initialization.
+        // The number of tables that have completed initial schema synchronization.
         shared_ptr<string> progress_ {};
-        // The initialization status of the library table structure includes:
-        // - NotStarted: Not started.
-        // - Migration: In the process of initialization.
-        // - Failed: Initialization failed.
-        // - Finished: Initialization completed.
+        // The status of initial schema synchronization. Valid values:
+        // - **NotStarted**: Not started.
+        // - **Migrating**: In progress.
+        // - **Failed**: Failed.
+        // - **Finished**: Completed.
         shared_ptr<string> status_ {};
       };
 
@@ -4775,34 +4614,33 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account to which the source instance belongs.
+        // The Alibaba Cloud account ID to which the source instance belongs.
         shared_ptr<string> aliyunUid_ {};
-        // The name of the database from which the objects are migrated in the source instance.
+        // The name of the database to which the migration objects belong in the source instance.
         shared_ptr<string> databaseName_ {};
         // The database engine of the source instance.
         shared_ptr<string> engineName_ {};
-        // The source instance ID.
+        // The instance ID of the source instance.
         shared_ptr<string> instanceID_ {};
         // The type of the source instance.
         shared_ptr<string> instanceType_ {};
         // The endpoint of the source instance.
         shared_ptr<string> ip_ {};
         // The SID of the Oracle database.
-        // 
-        // > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+        // > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
         shared_ptr<string> oracleSID_ {};
         // The database service port of the source instance.
         shared_ptr<string> port_ {};
-        // The ID of the region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+        // The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
         shared_ptr<string> region_ {};
-        // The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
+        // The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
         shared_ptr<string> roleName_ {};
-        // Indicates whether SSL encryption is enabled. Valid values:
+        // Indicates whether an SSL connection is used. Valid values:
         // 
-        // *   **DISABLE**: SSL encryption is disabled.
-        // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-        // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-        // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+        // - **DISABLE**: An SSL connection is not used.
+        // - **ENABLE_WITH_CERTIFICATE**: An SSL connection is used, and the CA certificate is uploaded.
+        // - **ENABLE_ONLY_4_MONGODB_ALTAS**: An SSL connection is used to connect to AWS MongoDB Atlas.
+        // - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: A SCRAM-SHA-256 connection is used to connect to Kafka.
         shared_ptr<string> sslSolutionEnum_ {};
         // The database account of the source instance.
         shared_ptr<string> userName_ {};
@@ -4822,6 +4660,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
           DARABONBA_PTR_TO_JSON(DatabaseCount, databaseCount_);
           DARABONBA_PTR_TO_JSON(DbObject, dbObject_);
+          DARABONBA_PTR_TO_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+          DARABONBA_PTR_TO_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+          DARABONBA_PTR_TO_JSON(DbObjectSize, dbObjectSize_);
           DARABONBA_PTR_TO_JSON(Delay, delay_);
           DARABONBA_PTR_TO_JSON(DestNetType, destNetType_);
           DARABONBA_PTR_TO_JSON(DestinationEndpoint, destinationEndpoint_);
@@ -4870,6 +4711,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DataSynchronizationStatus, dataSynchronizationStatus_);
           DARABONBA_PTR_FROM_JSON(DatabaseCount, databaseCount_);
           DARABONBA_PTR_FROM_JSON(DbObject, dbObject_);
+          DARABONBA_PTR_FROM_JSON(DbObjectOssUrl, dbObjectOssUrl_);
+          DARABONBA_PTR_FROM_JSON(DbObjectOssUrlExpireTime, dbObjectOssUrlExpireTime_);
+          DARABONBA_PTR_FROM_JSON(DbObjectSize, dbObjectSize_);
           DARABONBA_PTR_FROM_JSON(Delay, delay_);
           DARABONBA_PTR_FROM_JSON(DestNetType, destNetType_);
           DARABONBA_PTR_FROM_JSON(DestinationEndpoint, destinationEndpoint_);
@@ -5058,35 +4902,30 @@ namespace Models
         protected:
           // The Alibaba Cloud account ID.
           shared_ptr<int64_t> aliUid_ {};
-          // The operator of the tag.
+          // The tag operator.
           shared_ptr<int64_t> creator_ {};
-          // The time when the task was created.
+          // The creation time.
           shared_ptr<string> gmtCreate_ {};
-          // The time when the task was modified.
+          // The modification time.
           shared_ptr<string> gmtModified_ {};
-          // The primary key of the table.
+          // The primary key.
           shared_ptr<int64_t> id_ {};
-          // The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+          // The ID of the region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
           shared_ptr<string> regionId_ {};
-          // The ID of the data migration, data synchronization, or change tracking instance.
+          // The instance ID of the data migration, synchronization, or change tracking task.
           shared_ptr<string> resourceId_ {};
           // The resource type.
           shared_ptr<string> resourceType_ {};
-          // Indicates whether the tag is visible. Valid values:
-          // 
-          // *   **0**: The tag is public.
-          // *   **1**: The tag is private.
+          // The visibility of the tag. Valid values:
           shared_ptr<string> scope_ {};
-          // The ID of the region in which the DTS task resides.
-          // 
-          // > In most cases, the ID of the region in which the destination instance resides is returned.
+          // The region where the task resides.
           shared_ptr<string> srcRegion_ {};
-          // The type of the tag. Valid values:
+          // The tag type. Valid values:
           // 
-          // *   **System**: The tag was created by the system.
-          // *   **Custom**: The tag was created by a user.
+          // - **System**: A tag created by the system.
+          // - **Custom**: A tag added by the user.
           // 
-          // > By default, if the parameter is left empty, custom tags and system tags are returned.
+          // > If this parameter is empty, tags that can be publicly displayed are returned by default.
           shared_ptr<string> tagCategory_ {};
           // The tag key.
           shared_ptr<string> tagKey_ {};
@@ -5141,11 +4980,11 @@ namespace Models
 
 
         protected:
-          // The private endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+          // The private endpoint of the change tracking task, in the format of `address:port`.
           shared_ptr<string> privateHost_ {};
-          // The public endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+          // The public network connection information of the subscribe node. The format is `Address:Port number`.
           shared_ptr<string> publicHost_ {};
-          // The VPC endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+          // The VPC (Virtual Private Cloud) endpoint of the change tracking task, in the format of `address:port`.
           shared_ptr<string> vpcHost_ {};
         };
 
@@ -5187,15 +5026,9 @@ namespace Models
 
 
         protected:
-          // Indicates whether DDL statements are tracked. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the subscription data includes DDL statements. Valid values:
           shared_ptr<bool> ddl_ {};
-          // Indicates whether DML statements are tracked. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the subscription data includes DML statements. Valid values:
           shared_ptr<bool> dml_ {};
         };
 
@@ -5264,21 +5097,19 @@ namespace Models
 
 
         protected:
-          // Error message indicating task failure.
+          // The error message returned when the task failed.
           shared_ptr<string> errorMessage_ {};
-          // Whether to display upgrade specifications, return value:
-          // - True: Yes.
-          // - False: No.
+          // Indicates whether the upgrade prompt is displayed. Valid values:
           shared_ptr<bool> needUpgrade_ {};
-          // Initialization progress of library table structure, measured in percentage.
+          // The progress of initial schema synchronization, in percentage.
           shared_ptr<string> percent_ {};
-          // The number of tables that have completed library table structure initialization.
+          // The number of tables that have completed initial schema synchronization.
           shared_ptr<string> progress_ {};
-          // The initialization status of the library table structure includes:
-          // - NotStarted: Not started.
-          // - Migration: In the process of initialization.
-          // - Failed: Initialization failed.
-          // - Finished: Initialization completed.
+          // The status of initial schema synchronization. Valid values:
+          // - **NotStarted**: Not started.
+          // - **Migrating**: In progress.
+          // - **Failed**: Failed.
+          // - **Finished**: Completed.
           shared_ptr<string> status_ {};
         };
 
@@ -5412,34 +5243,28 @@ namespace Models
 
 
         protected:
-          // The ID of the Alibaba Cloud account to which the source instance belongs.
+          // The Alibaba Cloud account ID to which the source instance belongs.
           shared_ptr<string> aliyunUid_ {};
-          // The name of the database from which the objects are migrated in the source instance.
+          // The name of the database to which the migration objects belong in the source instance.
           shared_ptr<string> databaseName_ {};
           // The database engine of the source instance.
           shared_ptr<string> engineName_ {};
-          // The source instance ID.
+          // The instance ID of the source instance.
           shared_ptr<string> instanceID_ {};
           // The type of the source instance.
           shared_ptr<string> instanceType_ {};
           // The endpoint of the source instance.
           shared_ptr<string> ip_ {};
           // The SID of the Oracle database.
-          // 
-          // > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+          // > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
           shared_ptr<string> oracleSID_ {};
           // The database service port of the source instance.
           shared_ptr<string> port_ {};
-          // The ID of the region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+          // The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
           shared_ptr<string> region_ {};
-          // The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
+          // The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
           shared_ptr<string> roleName_ {};
-          // Indicates whether SSL encryption is enabled. Valid values:
-          // 
-          // *   **DISABLE**: SSL encryption is disabled.
-          // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-          // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-          // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+          // Indicates whether SSL is used for the connection. Valid values:
           shared_ptr<string> sslSolutionEnum_ {};
           // The database account of the source instance.
           shared_ptr<string> userName_ {};
@@ -5538,28 +5363,25 @@ namespace Models
 
 
         protected:
-          // The error message returned.
+          // The error message.
           shared_ptr<string> errMsg_ {};
           // The task ID.
           shared_ptr<string> jobId_ {};
-          // The maximum duration of a retry. Unit: seconds.
+          // The maximum retry time. Unit: seconds.
           shared_ptr<int32_t> maxRetryTime_ {};
-          // The progress of the instance when DTS performs retries.
+          // The instance progress.
           shared_ptr<string> module_ {};
           // The number of retries.
           shared_ptr<int32_t> retryCount_ {};
-          // The object on which the retries are performed. Valid values:
+          // The retry target. Valid values:
           // 
-          // *   **srcDB**: the source database.
-          // *   **destDB**: the destination database.
-          // *   **inner_module**: an internal module of DTS.
+          // - **srcDB**: source database.
+          // - **destDB**: destination database.
+          // - **inner_module**: DTS internal module.
           shared_ptr<string> retryTarget_ {};
-          // The time that has elapsed from the point in time when the first retry starts. Unit: seconds.
+          // The elapsed retry time. Unit: seconds.
           shared_ptr<int32_t> retryTime_ {};
           // Indicates whether the task is being retried. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
           shared_ptr<bool> retrying_ {};
         };
 
@@ -5653,22 +5475,20 @@ namespace Models
 
 
           protected:
-            // The name of the precheck item.
+            // The precheck item.
             shared_ptr<string> checkItem_ {};
             // The description of the precheck item.
             shared_ptr<string> checkItemDescription_ {};
-            // The precheck result. Valid values:
-            // 
-            // *   **Success**
-            // *   **Failed**
+            // The check result. Valid values:
+            // - **Success**: The check is passed.
+            // - **Failed**: The check is not passed.
             shared_ptr<string> checkResult_ {};
-            // The error message returned if the task failed to pass the precheck.
+            // The error message returned when the precheck fails.
             // 
-            // > This parameter is returned only if the return value of **CheckResult** is **Failed**.
+            // > This parameter is returned only when the value of **CheckResult** is **Failed**.
             shared_ptr<string> failedReason_ {};
-            // The method used to fix the precheck failure.
-            // 
-            // > This parameter is returned only if the return value of **CheckResult** is **Failed**.
+            // The repair method for the failed precheck item.
+            // > This parameter is returned only when the value of **CheckResult** is **Failed**.
             shared_ptr<string> repairMethod_ {};
           };
 
@@ -5705,18 +5525,13 @@ namespace Models
 
 
         protected:
-          // The result of each precheck item.
+          // The execution details of each precheck item.
           shared_ptr<vector<PrecheckStatus::Detail>> detail_ {};
-          // The error message returned if the task failed.
+          // The error message returned when the task failed.
           shared_ptr<string> errorMessage_ {};
-          // The precheck progress. Unit: percentage.
+          // The overall precheck progress, in percentage.
           shared_ptr<string> percent_ {};
-          // The precheck state. Valid values:
-          // 
-          // *   **NotStarted**: The task is not started.
-          // *   **Prechecking**: The task is in precheck.
-          // *   **PrecheckFailed**: The task failed to pass the precheck.
-          // *   **Finished**: The task is complete.
+          // The precheck status. Valid values:
           shared_ptr<string> status_ {};
         };
 
@@ -5758,9 +5573,9 @@ namespace Models
 
 
         protected:
-          // The size of data that is migrated or synchronized per second. Unit: Mbit/s.
+          // The volume of data migrated or synchronized per second, in MB/s.
           shared_ptr<string> flow_ {};
-          // The number of times that SQL statements are migrated or synchronized per second, including BEGIN, COMMIT, DML, and DDL statements. DML statements include INSERT, DELETE, and UPDATE.
+          // The number of SQL statements migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
           shared_ptr<string> rps_ {};
         };
 
@@ -5821,24 +5636,14 @@ namespace Models
 
         protected:
           // Indicates whether data transformation is performed. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
           shared_ptr<bool> dataExtractTransformLoad_ {};
           // Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // - **true**: Yes.
+          // - **false**: No.
           shared_ptr<bool> dataInitialization_ {};
           // Indicates whether incremental data migration or synchronization is performed. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
           shared_ptr<bool> dataSynchronization_ {};
           // Indicates whether schema migration or initial schema synchronization is performed. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
           shared_ptr<bool> structureInitialization_ {};
         };
 
@@ -5972,34 +5777,28 @@ namespace Models
 
 
         protected:
-          // The ID of the Alibaba Cloud account to which the destination instance belongs.
+          // The Alibaba Cloud account ID to which the destination instance belongs.
           shared_ptr<string> aliyunUid_ {};
-          // The name of the database to which the objects are migrated in the destination instance.
+          // The name of the database to which the migration objects belong in the destination instance.
           shared_ptr<string> databaseName_ {};
           // The database engine of the destination instance.
           shared_ptr<string> engineName_ {};
-          // The destination instance ID.
+          // The ID of the destination instance.
           shared_ptr<string> instanceID_ {};
           // The type of the destination instance.
           shared_ptr<string> instanceType_ {};
           // The endpoint of the destination instance.
           shared_ptr<string> ip_ {};
           // The SID of the Oracle database.
-          // 
-          // > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+          // > This parameter is returned only when the **EngineName** of the destination instance is **Oracle** and the Oracle database is a non-RAC instance.
           shared_ptr<string> oracleSID_ {};
           // The database service port of the destination instance.
           shared_ptr<string> port_ {};
-          // The ID of the region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+          // The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
           shared_ptr<string> region_ {};
-          // The name of the RAM role configured for the Alibaba Cloud account to which the destination instance belongs.
+          // The name of the role configured for the Alibaba Cloud account to which the destination instance belongs.
           shared_ptr<string> roleName_ {};
-          // Indicates whether SSL encryption is enabled. Valid values:
-          // 
-          // *   **DISABLE**: SSL encryption is disabled.
-          // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-          // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-          // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+          // Indicates whether SSL is used for the connection. Valid values:
           shared_ptr<string> sslSolutionEnum_ {};
           // The database account of the destination instance.
           shared_ptr<string> userName_ {};
@@ -6070,26 +5869,15 @@ namespace Models
 
 
         protected:
-          // The error message returned if the task failed.
+          // The error message returned when the task failed.
           shared_ptr<string> errorMessage_ {};
-          // Indicates whether the instance class needs to be upgraded. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the upgrade prompt is displayed. Valid values:
           shared_ptr<bool> needUpgrade_ {};
           // The progress of incremental data migration or synchronization.
           shared_ptr<string> percent_ {};
-          // The number of rows and size of data that is synchronized or migrated to the destination table per second during incremental data synchronization or migration.
+          // The number of data rows and data volume migrated or synchronized to the destination table per second.
           shared_ptr<string> progress_ {};
-          // The state of incremental data migration or synchronization. Valid values:
-          // 
-          // *   **NotStarted**: The task is not started.
-          // *   **Migrating**: The task is in progress.
-          // *   **Suspending**: The task is paused.
-          // *   **Checking**: The task is in precheck.
-          // *   **Failed**: The task failed.
-          // *   **Finished**: The task is complete.
-          // *   **Catched**: The task has no latency.
+          // The status of incremental data migration or synchronization. Valid values:
           shared_ptr<string> status_ {};
         };
 
@@ -6158,23 +5946,15 @@ namespace Models
 
 
         protected:
-          // The error message returned if full data migration or initial full data synchronization failed.
+          // The error message returned when full data migration or initial full data synchronization failed.
           shared_ptr<string> errorMessage_ {};
-          // Indicates whether the instance class needs to be upgraded. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the upgrade prompt is displayed. Valid values:
           shared_ptr<bool> needUpgrade_ {};
-          // The progress of full data migration or initial full data synchronization. Unit: percentage.
+          // The progress of full data migration or initial full data synchronization, in percentage.
           shared_ptr<string> percent_ {};
-          // The number of entries that are migrated or synchronized during full data migration or initial full data synchronization.
+          // The number of records that have completed full data migration or initial full data synchronization.
           shared_ptr<string> progress_ {};
-          // The state of full data migration or initial full data synchronization. Valid values:
-          // 
-          // *   **NotStarted**: The task is not started.
-          // *   **Migrating**: The task is in progress.
-          // *   **Failed**: The task failed.
-          // *   **Finished**: The task is complete.
+          // The status of full data migration or initial full data synchronization. Valid values:
           shared_ptr<string> status_ {};
         };
 
@@ -6243,37 +6023,34 @@ namespace Models
 
 
         protected:
-          // The error message returned if the task failed.
+          // The error message returned when the task failed.
           shared_ptr<string> errorMessage_ {};
-          // Indicates whether the instance class needs to be upgraded. Valid values:
-          // 
-          // *   **true**
-          // *   **false**
+          // Indicates whether the upgrade prompt is displayed. Valid values:
           shared_ptr<bool> needUpgrade_ {};
-          // The progress of full data migration or initial full data synchronization. Unit: percentage.
+          // The progress of full data migration or initial full data synchronization, in percentage.
           shared_ptr<string> percent_ {};
-          // The number of entries that are migrated or synchronized during full data migration or initial full data synchronization.
+          // The number of records that have completed full data migration or initial full data synchronization.
           shared_ptr<string> progress_ {};
-          // The state of the ETL task. Valid values:
-          // 
-          // *   **NotStarted**: The task is not started.
-          // *   **Migrating**: The task is in progress.
-          // *   **Failed**: The task failed.
-          // *   **Finished**: The task is complete.
-          // *   **Catched**: The task has no latency.
+          // The status of the ETL task. Valid values:
+          // - **NotStarted**: Not started.
+          // - **Migrating**: Running.
+          // - **Failed**: Failed.
+          // - **Finished**: Completed.
+          // - **Catched**: No latency.
           shared_ptr<string> status_ {};
         };
 
         virtual bool empty() const override { return this->appName_ == nullptr
         && this->beginTimestamp_ == nullptr && this->checkpoint_ == nullptr && this->consumptionCheckpoint_ == nullptr && this->consumptionClient_ == nullptr && this->createTime_ == nullptr
         && this->dataEtlStatus_ == nullptr && this->dataInitializationStatus_ == nullptr && this->dataSynchronizationStatus_ == nullptr && this->databaseCount_ == nullptr && this->dbObject_ == nullptr
-        && this->delay_ == nullptr && this->destNetType_ == nullptr && this->destinationEndpoint_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr
-        && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr && this->dtsJobName_ == nullptr && this->endTimestamp_ == nullptr && this->errorMessage_ == nullptr
-        && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->isDemoJob_ == nullptr
-        && this->jobType_ == nullptr && this->maxDu_ == nullptr && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->originType_ == nullptr
-        && this->payType_ == nullptr && this->performance_ == nullptr && this->precheckStatus_ == nullptr && this->reserved_ == nullptr && this->retryState_ == nullptr
-        && this->reverseJob_ == nullptr && this->sourceEndpoint_ == nullptr && this->status_ == nullptr && this->structureInitializationStatus_ == nullptr && this->subscribeTopic_ == nullptr
-        && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr && this->synchronizationDirection_ == nullptr && this->tagList_ == nullptr && this->taskType_ == nullptr; };
+        && this->dbObjectOssUrl_ == nullptr && this->dbObjectOssUrlExpireTime_ == nullptr && this->dbObjectSize_ == nullptr && this->delay_ == nullptr && this->destNetType_ == nullptr
+        && this->destinationEndpoint_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr
+        && this->dtsJobName_ == nullptr && this->endTimestamp_ == nullptr && this->errorMessage_ == nullptr && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr
+        && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->isDemoJob_ == nullptr && this->jobType_ == nullptr && this->maxDu_ == nullptr
+        && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->originType_ == nullptr && this->payType_ == nullptr && this->performance_ == nullptr
+        && this->precheckStatus_ == nullptr && this->reserved_ == nullptr && this->retryState_ == nullptr && this->reverseJob_ == nullptr && this->sourceEndpoint_ == nullptr
+        && this->status_ == nullptr && this->structureInitializationStatus_ == nullptr && this->subscribeTopic_ == nullptr && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr
+        && this->synchronizationDirection_ == nullptr && this->tagList_ == nullptr && this->taskType_ == nullptr; };
         // appName Field Functions 
         bool hasAppName() const { return this->appName_ != nullptr;};
         void deleteAppName() { this->appName_ = nullptr;};
@@ -6355,6 +6132,27 @@ namespace Models
         void deleteDbObject() { this->dbObject_ = nullptr;};
         inline string getDbObject() const { DARABONBA_PTR_GET_DEFAULT(dbObject_, "") };
         inline ReverseJob& setDbObject(string dbObject) { DARABONBA_PTR_SET_VALUE(dbObject_, dbObject) };
+
+
+        // dbObjectOssUrl Field Functions 
+        bool hasDbObjectOssUrl() const { return this->dbObjectOssUrl_ != nullptr;};
+        void deleteDbObjectOssUrl() { this->dbObjectOssUrl_ = nullptr;};
+        inline string getDbObjectOssUrl() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrl_, "") };
+        inline ReverseJob& setDbObjectOssUrl(string dbObjectOssUrl) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrl_, dbObjectOssUrl) };
+
+
+        // dbObjectOssUrlExpireTime Field Functions 
+        bool hasDbObjectOssUrlExpireTime() const { return this->dbObjectOssUrlExpireTime_ != nullptr;};
+        void deleteDbObjectOssUrlExpireTime() { this->dbObjectOssUrlExpireTime_ = nullptr;};
+        inline string getDbObjectOssUrlExpireTime() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrlExpireTime_, "") };
+        inline ReverseJob& setDbObjectOssUrlExpireTime(string dbObjectOssUrlExpireTime) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrlExpireTime_, dbObjectOssUrlExpireTime) };
+
+
+        // dbObjectSize Field Functions 
+        bool hasDbObjectSize() const { return this->dbObjectSize_ != nullptr;};
+        void deleteDbObjectSize() { this->dbObjectSize_ = nullptr;};
+        inline int64_t getDbObjectSize() const { DARABONBA_PTR_GET_DEFAULT(dbObjectSize_, 0L) };
+        inline ReverseJob& setDbObjectSize(int64_t dbObjectSize) { DARABONBA_PTR_SET_VALUE(dbObjectSize_, dbObjectSize) };
 
 
         // delay Field Functions 
@@ -6625,146 +6423,109 @@ namespace Models
 
 
       protected:
-        // Indicates whether the new change tracking feature is used.
-        // 
-        // > This parameter is returned only for change tracking instances of the new version.
+        // Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
         shared_ptr<string> appName_ {};
-        // The start of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> beginTimestamp_ {};
-        // The start offset of incremental data migration or data synchronization. This value is a UNIX timestamp. Unit: seconds.
+        // The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
         shared_ptr<string> checkpoint_ {};
-        // The consumption checkpoint of the change tracking instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> consumptionCheckpoint_ {};
-        // The downstream client information in the following format: \\<IP address of the downstream client>:\\<Random ID generated by DTS>.
+        // The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
         shared_ptr<string> consumptionClient_ {};
-        // The time when the task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> createTime_ {};
-        // The state of the ETL task.
-        // 
-        // > This parameter collection is returned only if an ETL task is configured.
+        // The status of the ETL task.
         shared_ptr<ReverseJob::DataEtlStatus> dataEtlStatus_ {};
-        // The state of full data migration or initial full data synchronization.
+        // The status of full data migration or initial full data synchronization.
         shared_ptr<ReverseJob::DataInitializationStatus> dataInitializationStatus_ {};
-        // The state of incremental data migration or synchronization.
+        // The status of incremental data migration or synchronization.
         shared_ptr<ReverseJob::DataSynchronizationStatus> dataSynchronizationStatus_ {};
-        // The number of ApsaraDB RDS for MySQL instances that are attached to the source PolarDB-X 1.0 instance.
+        // If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
         shared_ptr<int32_t> databaseCount_ {};
-        // The objects of the data migration, data synchronization, or change tracking task. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+        // The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
         shared_ptr<string> dbObject_ {};
-        // The latency of incremental data migration or synchronization. Unit: milliseconds.
+        shared_ptr<string> dbObjectOssUrl_ {};
+        shared_ptr<string> dbObjectOssUrlExpireTime_ {};
+        shared_ptr<int64_t> dbObjectSize_ {};
+        // The latency of incremental data migration or synchronization, in milliseconds.
         shared_ptr<int64_t> delay_ {};
         // The network type of the consumer client. Valid values:
-        // 
-        // *   **CLASSIC**: classic network.
-        // *   **VPC**: VPC.
         shared_ptr<string> destNetType_ {};
-        // The connection settings of the destination instance.
+        // The connection information of the destination instance.
         shared_ptr<ReverseJob::DestinationEndpoint> destinationEndpoint_ {};
         // The DTS instance ID.
         shared_ptr<string> dtsInstanceID_ {};
-        // The instance class.
+        // The specification of the data transmission link.
         shared_ptr<string> dtsJobClass_ {};
         // The synchronization direction. Valid values:
+        // - **Forward**: forward.
+        // - **Reverse**: reverse.
         // 
-        // *   **Forward**
-        // *   **Reverse**
-        // 
-        // > This parameter is returned only if the topology of the data synchronization instance is two-way synchronization.
+        // > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
         shared_ptr<string> dtsJobDirection_ {};
         // The DTS task ID.
         shared_ptr<string> dtsJobId_ {};
         // The DTS instance name.
         shared_ptr<string> dtsJobName_ {};
-        // The end of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> endTimestamp_ {};
-        // The error message returned if the task failed.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
         // The operator information of the ETL task.
-        // 
-        // > This parameter is returned only if you query the details of an ETL task.
         shared_ptr<string> etlCalculator_ {};
-        // The time when the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-        // 
-        // > This parameter is returned only if the return value of **PayType** is **PrePaid**.
+        // The expiration time of the instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
+        // > This parameter is returned only when the value of the **PayType** parameter is **PrePaid**.
         shared_ptr<string> expireTime_ {};
-        // The time when the task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+        // The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
         shared_ptr<string> finishTime_ {};
         // The resource group ID.
         shared_ptr<string> groupId_ {};
         // Indicates whether the task is a subtask. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> isDemoJob_ {};
-        // The type of the DTS task. Valid values:
-        // 
-        // *   **online**: data migration task.
-        // *   **SYNC**: data synchronization task.
-        // *   **SUBSCRIBE**: change tracking task.
+        // The task type of the DTS instance. Valid values:
         shared_ptr<string> jobType_ {};
         // The maximum number of DUs.
-        // 
-        // > This parameter is supported only for serverless instances.
         shared_ptr<double> maxDu_ {};
-        // The migration types or initial synchronization types.
+        // The migration type or synchronization initialization type.
         shared_ptr<ReverseJob::MigrationMode> migrationMode_ {};
-        // The minimum number of DTS Units (DUs).
-        // 
-        // > This parameter is supported only for serverless instances.
+        // The minimum number of DUs.
         shared_ptr<double> minDu_ {};
-        // The source of the task. Valid values:
-        // 
-        // *   **PTS**
-        // *   **DMS**
-        // *   **DTS**
+        // The task source:
         shared_ptr<string> originType_ {};
-        // The billing method. Valid values:
-        // 
-        // *   **PrePaid**: subscription.
-        // *   **PostPaid**: pay-as-you-go.
+        // The payment type:
         shared_ptr<string> payType_ {};
-        // The performance of the data migration or synchronization instance.
+        // The performance information of the migration or synchronization task.
         shared_ptr<ReverseJob::Performance> performance_ {};
-        // The precheck state.
+        // The precheck status.
         shared_ptr<ReverseJob::PrecheckStatus> precheckStatus_ {};
-        // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet specific requirements, such as whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
+        // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
         shared_ptr<string> reserved_ {};
-        // The information about the retries performed by DTS due to an exception.
+        // DTS is retrying the task due to a task exception.
         shared_ptr<ReverseJob::RetryState> retryState_ {};
-        // The details of the data synchronization task in the reverse direction.
-        // 
-        // > This parameter is returned only for two-way data synchronization tasks.
+        // The details of the reverse synchronization task.
         Darabonba::Json reverseJob_ {};
-        // The connection settings of the source instance.
+        // The connection information of the source instance.
         shared_ptr<ReverseJob::SourceEndpoint> sourceEndpoint_ {};
-        // The state of initial schema synchronization. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Migrating**: The task is in progress.
-        // *   **Failed**: The task failed.
-        // *   **Finished**: The task is complete.
+        // The status of the migration or synchronization task. Valid values:
         shared_ptr<string> status_ {};
-        // Initialization status of library table structure.
+        // The status of initial schema synchronization.
         shared_ptr<ReverseJob::StructureInitializationStatus> structureInitializationStatus_ {};
-        // The topic of the change tracking instance.
-        // 
-        // > This parameter is returned only if your change tracking instances are of the new version and you have called the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation to create a consumer group.
+        // The subscription topic.
+        // > This parameter is returned only when the change tracking instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
         shared_ptr<string> subscribeTopic_ {};
-        // The type of data for change tracking.
+        // The type of the subscription data.
         shared_ptr<ReverseJob::SubscriptionDataType> subscriptionDataType_ {};
-        // The endpoint of the change tracking instance.
+        // The endpoint of the change tracking task.
         shared_ptr<ReverseJob::SubscriptionHost> subscriptionHost_ {};
         // The synchronization direction. Valid values:
+        // - **Forward**: forward.
+        // - **Reverse**: reverse.
         // 
-        // *   **Forward**
-        // *   **Reverse**
-        // 
-        // > 
-        // 
-        // *   The default value is **Forward**.
-        // *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
+        // > - Default value: **Forward**.
+        // - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
         shared_ptr<string> synchronizationDirection_ {};
-        // The tags of the task.
+        // The tag collection.
         shared_ptr<vector<ReverseJob::TagList>> tagList_ {};
         // The task type.
         shared_ptr<string> taskType_ {};
@@ -6863,28 +6624,25 @@ namespace Models
 
 
       protected:
-        // The error message returned.
+        // The error message.
         shared_ptr<string> errMsg_ {};
         // The task ID.
         shared_ptr<string> jobId_ {};
-        // The maximum duration of a retry. Unit: seconds.
+        // The maximum retry time. Unit: seconds.
         shared_ptr<int32_t> maxRetryTime_ {};
-        // The progress of the instance when DTS performs retries.
+        // The instance progress.
         shared_ptr<string> module_ {};
         // The number of retries.
         shared_ptr<int32_t> retryCount_ {};
-        // The object on which the retries are performed. Valid values:
+        // The retry target. Valid values:
         // 
-        // *   **srcDB**: the source database.
-        // *   **destDB**: the destination database.
-        // *   **inner_module**: an internal module of DTS.
+        // - **srcDB**: source database.
+        // - **destDB**: destination database.
+        // - **inner_module**: DTS internal module.
         shared_ptr<string> retryTarget_ {};
-        // The time that has elapsed from the point in time when the first retry starts. Unit: seconds.
+        // The elapsed retry time. Unit: seconds.
         shared_ptr<int32_t> retryTime_ {};
         // Indicates whether the task is being retried. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> retrying_ {};
       };
 
@@ -6978,22 +6736,20 @@ namespace Models
 
 
         protected:
-          // The name of the precheck item.
+          // The precheck item.
           shared_ptr<string> checkItem_ {};
           // The description of the precheck item.
           shared_ptr<string> checkItemDescription_ {};
           // The precheck result. Valid values:
-          // 
-          // *   **Success**
-          // *   **Failed**
+          // - **Success**: The check item is passed.
+          // - **Failed**: The check item is not passed.
           shared_ptr<string> checkResult_ {};
-          // The error message returned if the task failed to pass the precheck.
+          // The error message returned when the precheck fails.
           // 
-          // > This parameter is returned only if the return value of **CheckResult** is **Failed**.
+          // > This parameter is returned only when the value of **CheckResult** is **Failed**.
           shared_ptr<string> failedReason_ {};
-          // The method used to fix the precheck failure.
-          // 
-          // > This parameter is returned only if the return value of **CheckResult** is **Failed**.
+          // The method to fix the precheck failure.
+          // > This parameter is returned only when the value of **CheckResult** is **Failed**.
           shared_ptr<string> repairMethod_ {};
         };
 
@@ -7030,18 +6786,17 @@ namespace Models
 
 
       protected:
-        // The result of each precheck item.
+        // The execution details of each precheck item.
         shared_ptr<vector<PrecheckStatus::Detail>> detail_ {};
-        // The error message returned if the task failed.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
-        // The precheck progress. Unit: percentage.
+        // The overall precheck progress, in percentage.
         shared_ptr<string> percent_ {};
-        // The precheck state. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Prechecking**: The task is in precheck.
-        // *   **PrecheckFailed**: The task failed to pass the precheck.
-        // *   **Finished**: The task is complete.
+        // The precheck status. Valid values:
+        // - **NotStarted**: Not started.
+        // - **Prechecking**: Prechecking.
+        // - **PrecheckFailed**: Precheck failed.
+        // - **Finished**: Finished.
         shared_ptr<string> status_ {};
       };
 
@@ -7083,9 +6838,9 @@ namespace Models
 
 
       protected:
-        // The size of data that is migrated or synchronized per second. Unit: Mbit/s.
+        // The volume of data migrated or synchronized per second, in MB/s.
         shared_ptr<string> flow_ {};
-        // The number of times that SQL statements are migrated or synchronized per second, including BEGIN, COMMIT, DML, and DDL statements. DML statements include INSERT, DELETE, and UPDATE.
+        // The number of SQL statements migrated or synchronized per second, including BEGIN, COMMIT, DML statements (INSERT, DELETE, UPDATE), and DDL statements.
         shared_ptr<string> rps_ {};
       };
 
@@ -7146,24 +6901,14 @@ namespace Models
 
       protected:
         // Indicates whether data transformation is performed. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> dataExtractTransformLoad_ {};
         // Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // - **true**: Yes.
+        // - **false**: No.
         shared_ptr<bool> dataInitialization_ {};
         // Indicates whether incremental data migration or synchronization is performed. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> dataSynchronization_ {};
         // Indicates whether schema migration or initial schema synchronization is performed. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
         shared_ptr<bool> structureInitialization_ {};
       };
 
@@ -7297,34 +7042,33 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account to which the destination instance belongs.
+        // The Alibaba Cloud account ID to which the destination instance belongs.
         shared_ptr<string> aliyunUid_ {};
-        // The name of the database to which the objects are migrated in the destination instance.
+        // The name of the database to which the migration objects belong in the destination instance.
         shared_ptr<string> databaseName_ {};
         // The database engine of the destination instance.
         shared_ptr<string> engineName_ {};
-        // The destination instance ID.
+        // The instance ID of the destination instance.
         shared_ptr<string> instanceID_ {};
         // The type of the destination instance.
         shared_ptr<string> instanceType_ {};
         // The endpoint of the destination instance.
         shared_ptr<string> ip_ {};
         // The SID of the Oracle database.
-        // 
-        // > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+        // > This parameter is returned only when the **EngineName** of the destination instance is **Oracle** and the Oracle database is a non-Real Application Cluster (RAC) instance.
         shared_ptr<string> oracleSID_ {};
         // The database service port of the destination instance.
         shared_ptr<string> port_ {};
-        // The ID of the region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+        // The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
         shared_ptr<string> region_ {};
-        // The name of the RAM role configured for the Alibaba Cloud account to which the destination instance belongs.
+        // The name of the role configured for the Alibaba Cloud account to which the destination instance belongs.
         shared_ptr<string> roleName_ {};
-        // Indicates whether SSL encryption is enabled. Valid values:
+        // Indicates whether an SSL connection is used. Valid values:
         // 
-        // *   **DISABLE**: SSL encryption is disabled.
-        // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-        // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-        // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+        // - **DISABLE**: An SSL connection is not used.
+        // - **ENABLE_WITH_CERTIFICATE**: An SSL connection is used, and a CA certificate is uploaded.
+        // - **ENABLE_ONLY_4_MONGODB_ALTAS**: An SSL connection is used to connect to AWS MongoDB Atlas.
+        // - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: A SCRAM-SHA-256 connection is used to connect to Kafka.
         shared_ptr<string> sslSolutionEnum_ {};
         // The database account of the destination instance.
         shared_ptr<string> userName_ {};
@@ -7395,26 +7139,15 @@ namespace Models
 
 
       protected:
-        // The error message returned if the task failed.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
-        // Indicates whether the instance class needs to be upgraded. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the upgrade prompt is displayed. Valid values:
         shared_ptr<bool> needUpgrade_ {};
         // The progress of incremental data migration or synchronization.
         shared_ptr<string> percent_ {};
-        // The number of rows and size of data that is synchronized or migrated to the destination table per second during incremental data synchronization or migration.
+        // The number of data rows and data volume migrated or synchronized to the destination table per second.
         shared_ptr<string> progress_ {};
-        // The state of incremental data migration or synchronization. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Migrating**: The task is in progress.
-        // *   **Suspending**: The task is paused.
-        // *   **Checking**: The task is in precheck.
-        // *   **Failed**: The task failed.
-        // *   **Finished**: The task is complete.
-        // *   **Catched**: The task has no latency.
+        // The status of incremental data migration or synchronization. Valid values:
         shared_ptr<string> status_ {};
       };
 
@@ -7483,23 +7216,15 @@ namespace Models
 
 
       protected:
-        // The error message returned if full data migration or initial full data synchronization failed.
+        // The error message returned when full data migration or initial full data synchronization failed.
         shared_ptr<string> errorMessage_ {};
-        // Indicates whether the instance class needs to be upgraded. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the upgrade prompt is displayed. Valid values:
         shared_ptr<bool> needUpgrade_ {};
-        // The progress of full data migration or initial full data synchronization. Unit: percentage.
+        // The progress of full data migration or initial full data synchronization, in percentage.
         shared_ptr<string> percent_ {};
-        // The number of entries that are migrated or synchronized during full data migration or initial full data synchronization.
+        // The number of records that have completed full data migration or initial full data synchronization.
         shared_ptr<string> progress_ {};
-        // The state of full data migration or initial full data synchronization. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Migrating**: The task is in progress.
-        // *   **Failed**: The task failed.
-        // *   **Finished**: The task is complete.
+        // The status of full data migration or initial full data synchronization. Valid values:
         shared_ptr<string> status_ {};
       };
 
@@ -7568,38 +7293,34 @@ namespace Models
 
 
       protected:
-        // The error message returned if the task failed.
+        // The error message returned when the task failed.
         shared_ptr<string> errorMessage_ {};
-        // Indicates whether the instance class needs to be upgraded. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the upgrade prompt is displayed. Valid values:
         shared_ptr<bool> needUpgrade_ {};
-        // The progress of full data migration or initial full data synchronization. Unit: percentage.
+        // The progress of full data migration or initial full data synchronization, in percentage.
         shared_ptr<string> percent_ {};
-        // The number of entries that are migrated or synchronized during full data migration or initial full data synchronization.
+        // The number of records that have completed full data migration or initial full data synchronization.
         shared_ptr<string> progress_ {};
-        // The state of the ETL task. Valid values:
-        // 
-        // *   **NotStarted**: The task is not started.
-        // *   **Migrating**: The task is in progress.
-        // *   **Failed**: The task failed.
-        // *   **Finished**: The task is complete.
-        // *   **Catched**: The task has no latency.
+        // The status of the ETL task. Valid values:
+        // - **NotStarted**: Not started.
+        // - **Migrating**: Running.
+        // - **Failed**: Failed.
+        // - **Finished**: Completed.
+        // - **Catched**: No latency.
         shared_ptr<string> status_ {};
       };
 
       virtual bool empty() const override { return this->appName_ == nullptr
         && this->beginTimestamp_ == nullptr && this->checkpoint_ == nullptr && this->consumptionCheckpoint_ == nullptr && this->consumptionClient_ == nullptr && this->createTime_ == nullptr
         && this->dataEtlStatus_ == nullptr && this->dataInitializationStatus_ == nullptr && this->dataSynchronizationStatus_ == nullptr && this->databaseCount_ == nullptr && this->dbObject_ == nullptr
-        && this->delay_ == nullptr && this->destNetType_ == nullptr && this->destinationEndpoint_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr
-        && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr && this->dtsJobName_ == nullptr && this->endTimestamp_ == nullptr && this->errorMessage_ == nullptr
-        && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->isDemoJob_ == nullptr
-        && this->jobType_ == nullptr && this->maxDu_ == nullptr && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->originType_ == nullptr
-        && this->payType_ == nullptr && this->performance_ == nullptr && this->precheckStatus_ == nullptr && this->reserved_ == nullptr && this->retryState_ == nullptr
-        && this->reverseJob_ == nullptr && this->sourceEndpoint_ == nullptr && this->status_ == nullptr && this->structureInitializationStatus_ == nullptr && this->subSyncJob_ == nullptr
-        && this->subscribeTopic_ == nullptr && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr && this->synchronizationDirection_ == nullptr && this->tagList_ == nullptr
-        && this->taskType_ == nullptr; };
+        && this->dbObjectOssUrl_ == nullptr && this->dbObjectOssUrlExpireTime_ == nullptr && this->dbObjectSize_ == nullptr && this->delay_ == nullptr && this->destNetType_ == nullptr
+        && this->destinationEndpoint_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr
+        && this->dtsJobName_ == nullptr && this->endTimestamp_ == nullptr && this->errorMessage_ == nullptr && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr
+        && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->isDemoJob_ == nullptr && this->jobType_ == nullptr && this->maxDu_ == nullptr
+        && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->originType_ == nullptr && this->payType_ == nullptr && this->performance_ == nullptr
+        && this->precheckStatus_ == nullptr && this->reserved_ == nullptr && this->retryState_ == nullptr && this->reverseJob_ == nullptr && this->sourceEndpoint_ == nullptr
+        && this->status_ == nullptr && this->structureInitializationStatus_ == nullptr && this->subSyncJob_ == nullptr && this->subscribeTopic_ == nullptr && this->subscriptionDataType_ == nullptr
+        && this->subscriptionHost_ == nullptr && this->synchronizationDirection_ == nullptr && this->tagList_ == nullptr && this->taskType_ == nullptr; };
       // appName Field Functions 
       bool hasAppName() const { return this->appName_ != nullptr;};
       void deleteAppName() { this->appName_ = nullptr;};
@@ -7681,6 +7402,27 @@ namespace Models
       void deleteDbObject() { this->dbObject_ = nullptr;};
       inline string getDbObject() const { DARABONBA_PTR_GET_DEFAULT(dbObject_, "") };
       inline SubDistributedJob& setDbObject(string dbObject) { DARABONBA_PTR_SET_VALUE(dbObject_, dbObject) };
+
+
+      // dbObjectOssUrl Field Functions 
+      bool hasDbObjectOssUrl() const { return this->dbObjectOssUrl_ != nullptr;};
+      void deleteDbObjectOssUrl() { this->dbObjectOssUrl_ = nullptr;};
+      inline string getDbObjectOssUrl() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrl_, "") };
+      inline SubDistributedJob& setDbObjectOssUrl(string dbObjectOssUrl) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrl_, dbObjectOssUrl) };
+
+
+      // dbObjectOssUrlExpireTime Field Functions 
+      bool hasDbObjectOssUrlExpireTime() const { return this->dbObjectOssUrlExpireTime_ != nullptr;};
+      void deleteDbObjectOssUrlExpireTime() { this->dbObjectOssUrlExpireTime_ = nullptr;};
+      inline string getDbObjectOssUrlExpireTime() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrlExpireTime_, "") };
+      inline SubDistributedJob& setDbObjectOssUrlExpireTime(string dbObjectOssUrlExpireTime) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrlExpireTime_, dbObjectOssUrlExpireTime) };
+
+
+      // dbObjectSize Field Functions 
+      bool hasDbObjectSize() const { return this->dbObjectSize_ != nullptr;};
+      void deleteDbObjectSize() { this->dbObjectSize_ = nullptr;};
+      inline int64_t getDbObjectSize() const { DARABONBA_PTR_GET_DEFAULT(dbObjectSize_, 0L) };
+      inline SubDistributedJob& setDbObjectSize(int64_t dbObjectSize) { DARABONBA_PTR_SET_VALUE(dbObjectSize_, dbObjectSize) };
 
 
       // delay Field Functions 
@@ -7960,148 +7702,115 @@ namespace Models
 
 
     protected:
-      // Indicates whether the new change tracking feature is used.
-      // 
-      // > This parameter is returned only for change tracking instances of the new version.
+      // Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
       shared_ptr<string> appName_ {};
-      // The start of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> beginTimestamp_ {};
-      // The start offset of incremental data migration or data synchronization. This value is a UNIX timestamp. Unit: seconds.
+      // The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
       shared_ptr<string> checkpoint_ {};
-      // The consumption checkpoint of the change tracking instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> consumptionCheckpoint_ {};
-      // The downstream client information in the following format: \\<IP address of the downstream client>:\\<Random ID generated by DTS>.
+      // The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
       shared_ptr<string> consumptionClient_ {};
-      // The time when the task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> createTime_ {};
-      // The state of the ETL task.
-      // 
-      // > This parameter collection is returned only if an ETL task is configured.
+      // The status of the ETL task.
       shared_ptr<SubDistributedJob::DataEtlStatus> dataEtlStatus_ {};
-      // The state of full data migration or initial full data synchronization.
+      // The status of full data migration or initial full data synchronization.
       shared_ptr<SubDistributedJob::DataInitializationStatus> dataInitializationStatus_ {};
-      // The state of incremental data migration or synchronization.
+      // The status of incremental data migration or synchronization.
       shared_ptr<SubDistributedJob::DataSynchronizationStatus> dataSynchronizationStatus_ {};
-      // The number of ApsaraDB RDS for MySQL instances that are attached to the source PolarDB-X 1.0 instance.
+      // If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
       shared_ptr<int32_t> databaseCount_ {};
-      // The objects of the data migration, data synchronization, or change tracking task. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+      // The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
       shared_ptr<string> dbObject_ {};
-      // The latency of incremental data migration or synchronization. Unit: milliseconds.
+      shared_ptr<string> dbObjectOssUrl_ {};
+      shared_ptr<string> dbObjectOssUrlExpireTime_ {};
+      shared_ptr<int64_t> dbObjectSize_ {};
+      // The latency of incremental data migration or synchronization, in milliseconds.
       shared_ptr<int64_t> delay_ {};
       // The network type of the consumer client. Valid values:
-      // 
-      // *   **CLASSIC**: classic network.
-      // *   **VPC**: VPC.
       shared_ptr<string> destNetType_ {};
-      // The connection settings of the destination instance.
+      // The connection information of the destination instance.
       shared_ptr<SubDistributedJob::DestinationEndpoint> destinationEndpoint_ {};
       // The DTS instance ID.
       shared_ptr<string> dtsInstanceID_ {};
-      // The instance class.
+      // The specification of the data transmission link.
       shared_ptr<string> dtsJobClass_ {};
       // The synchronization direction. Valid values:
+      // - **Forward**: forward.
+      // - **Reverse**: reverse.
       // 
-      // *   **Forward**
-      // *   **Reverse**
-      // 
-      // > This parameter is returned only if the topology of the data synchronization instance is two-way synchronization.
+      // > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
       shared_ptr<string> dtsJobDirection_ {};
       // The DTS task ID.
       shared_ptr<string> dtsJobId_ {};
       // The DTS instance name.
       shared_ptr<string> dtsJobName_ {};
-      // The end of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> endTimestamp_ {};
-      // The error message returned if the task failed.
+      // The error message returned when the task failed.
       shared_ptr<string> errorMessage_ {};
       // The operator information of the ETL task.
-      // 
-      // > This parameter is returned only if you query the details of an ETL task.
       shared_ptr<string> etlCalculator_ {};
-      // The time when the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-      // 
-      // > This parameter is returned only if the return value of **PayType** is **PrePaid**.
+      // The expiration time of the instance. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // > This parameter is returned only when the value of the **PayType** parameter is **PrePaid**.
       shared_ptr<string> expireTime_ {};
-      // The time when the task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+      // The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> finishTime_ {};
       // The resource group ID.
       shared_ptr<string> groupId_ {};
       // Indicates whether the task is a subtask. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> isDemoJob_ {};
-      // The type of the DTS task. Valid values:
+      // The task type of the DTS instance. Valid values:
       // 
-      // *   **online**: data migration task.
-      // *   **SYNC**: data synchronization task.
-      // *   **SUBSCRIBE**: change tracking task.
+      // - **online**: data migration.
+      // - **SYNC**: data synchronization.
+      // - **SUBSCRIBE**: change tracking.
       shared_ptr<string> jobType_ {};
       // The maximum number of DUs.
-      // 
-      // > This parameter is supported only for serverless instances.
       shared_ptr<double> maxDu_ {};
-      // The migration types or initial synchronization types.
+      // The migration type or synchronization initialization type.
       shared_ptr<SubDistributedJob::MigrationMode> migrationMode_ {};
       // The minimum number of DUs.
-      // 
-      // > This parameter is supported only for serverless instances.
       shared_ptr<double> minDu_ {};
-      // The source of the task. Valid values:
-      // 
-      // *   **PTS**
-      // *   **DMS**
-      // *   **DTS**
+      // The task source:
       shared_ptr<string> originType_ {};
-      // The billing method. Valid values:
-      // 
-      // *   **PrePaid**: subscription.
-      // *   **PostPaid**: pay-as-you-go.
+      // The payment type:
       shared_ptr<string> payType_ {};
-      // The performance of the data migration or synchronization instance.
+      // The performance information of the migration or synchronization task.
       shared_ptr<SubDistributedJob::Performance> performance_ {};
-      // The precheck state.
+      // The precheck status.
       shared_ptr<SubDistributedJob::PrecheckStatus> precheckStatus_ {};
-      // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet specific requirements, such as whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
+      // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
       shared_ptr<string> reserved_ {};
-      // The information about the retries performed by DTS due to an exception.
+      // DTS is retrying the task due to a task exception.
       shared_ptr<SubDistributedJob::RetryState> retryState_ {};
-      // The details of the data synchronization task in the reverse direction.
-      // 
-      // > This parameter is returned only for two-way data synchronization tasks.
+      // The details of the reverse synchronization task.
       shared_ptr<SubDistributedJob::ReverseJob> reverseJob_ {};
-      // The connection settings of the source instance.
+      // The connection information of the source instance.
       shared_ptr<SubDistributedJob::SourceEndpoint> sourceEndpoint_ {};
-      // The state of initial schema synchronization. Valid values:
-      // 
-      // *   **NotStarted**: The task is not started.
-      // *   **Migrating**: The task is in progress.
-      // *   **Failed**: The task failed.
-      // *   **Finished**: The task is complete.
+      // The status of the migration or synchronization task. Valid values:
       shared_ptr<string> status_ {};
-      // Initialization status of library table structure.
+      // The status of initial schema synchronization.
       shared_ptr<SubDistributedJob::StructureInitializationStatus> structureInitializationStatus_ {};
-      // The information about the subtasks in the current data synchronization task.
+      // The information about the synchronization subtask.
       shared_ptr<vector<Darabonba::Json>> subSyncJob_ {};
-      // The topic of the change tracking instance.
-      // 
-      // > This parameter is returned only if your change tracking instances are of the new version and you have called the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation to create a consumer group.
+      // The subscribed topics.
+      // > This parameter is returned only when the change tracking instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
       shared_ptr<string> subscribeTopic_ {};
-      // The type of data for change tracking.
+      // The type of the subscription data.
       shared_ptr<SubDistributedJob::SubscriptionDataType> subscriptionDataType_ {};
-      // The endpoint of the change tracking instance.
+      // The endpoint of the change tracking task.
       shared_ptr<SubDistributedJob::SubscriptionHost> subscriptionHost_ {};
       // The synchronization direction. Valid values:
+      // - **Forward**: Forward.
+      // - **Reverse**: Reverse.
       // 
-      // *   **Forward**
-      // *   **Reverse**
-      // 
-      // > 
-      // 
-      // *   The default value is **Forward**.
-      // *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
+      // > - Default value: **Forward**.
+      // - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
       shared_ptr<string> synchronizationDirection_ {};
-      // The tags of the task.
+      // The tag collection.
       shared_ptr<vector<SubDistributedJob::TagList>> tagList_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
@@ -8246,39 +7955,35 @@ namespace Models
 
 
     protected:
-      // The ID of the Alibaba Cloud account to which the source instance belongs.
+      // The Alibaba Cloud account ID to which the source instance belongs.
       shared_ptr<string> aliyunUid_ {};
       // Indicates whether the password can be modified. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> canModifyPassword_ {};
-      // The name of the database from which the objects are migrated in the source instance.
+      // The name of the database to which the migration objects belong in the source instance.
       shared_ptr<string> databaseName_ {};
       // The database engine of the source instance.
       shared_ptr<string> engineName_ {};
-      // The source instance ID.
+      // The instance ID of the source instance.
       shared_ptr<string> instanceID_ {};
       // The type of the source instance.
       shared_ptr<string> instanceType_ {};
       // The endpoint of the source instance.
       shared_ptr<string> ip_ {};
-      // The system ID (SID) of the Oracle database.
-      // 
-      // > This parameter is returned only if the return value of **EngineName** of the source instance is **Oracle** and the Oracle database is deployed in a non-Real Application Cluster (RAC) architecture.
+      // The SID of the Oracle database.
+      // > This parameter is returned only when the **EngineName** of the source instance is set to **Oracle** and the Oracle database is a non-Real Application Cluster instance.
       shared_ptr<string> oracleSID_ {};
       // The database service port of the source instance.
       shared_ptr<string> port_ {};
-      // The ID of the region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+      // The region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
       shared_ptr<string> region_ {};
-      // The name of the Resource Access Management (RAM) role configured for the Alibaba Cloud account to which the source instance belongs.
+      // The name of the role configured for the Alibaba Cloud account to which the source instance belongs.
       shared_ptr<string> roleName_ {};
-      // Indicates whether SSL encryption is enabled. Valid values:
+      // Indicates whether an SSL connection is used. Valid values:
       // 
-      // *   **DISABLE**: SSL encryption is disabled.
-      // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-      // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-      // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+      // - **DISABLE**: SSL connection is not used.
+      // - **ENABLE_WITH_CERTIFICATE**: SSL connection is used, and the CA certificate is uploaded.
+      // - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL connection is used to connect to AWS MongoDB Atlas.
+      // - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
       shared_ptr<string> sslSolutionEnum_ {};
       // The database account of the source instance.
       shared_ptr<string> userName_ {};
@@ -8377,28 +8082,25 @@ namespace Models
 
 
     protected:
-      // The error message returned if these retries failed.
+      // The error message returned when the retry fails.
       shared_ptr<string> errMessage_ {};
       // The task ID.
       shared_ptr<string> jobId_ {};
-      // The maximum duration of a retry. Unit: seconds.
+      // The maximum retry time. Unit: seconds.
       shared_ptr<int32_t> maxRetryTime_ {};
-      // The progress of the instance when DTS performs retries.
+      // The instance progress.
       shared_ptr<string> module_ {};
       // The number of retries.
       shared_ptr<int32_t> retryCount_ {};
-      // The object on which the retries are performed. Valid values:
+      // The retry target. Valid values:
       // 
-      // *   **srcDB**: the source database.
-      // *   **destDB**: the destination database.
-      // *   **inner_module**: an internal module of DTS.
+      // - **srcDB**: source database.
+      // - **destDB**: destination database.
+      // - **inner_module**: DTS internal module.
       shared_ptr<string> retryTarget_ {};
-      // The time that has elapsed from the point in time when the first retry starts. Unit: seconds.
+      // The elapsed retry time. Unit: seconds.
       shared_ptr<int32_t> retryTime_ {};
       // Indicates whether the task is being retried. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> retrying_ {};
     };
 
@@ -8459,24 +8161,12 @@ namespace Models
 
     protected:
       // Indicates whether data transformation is performed. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> dataExtractTransformLoad_ {};
       // Indicates whether full data migration or initial full data synchronization is performed. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> dataInitialization_ {};
       // Indicates whether incremental data migration or synchronization is performed. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> dataSynchronization_ {};
       // Indicates whether schema migration or initial schema synchronization is performed. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> structureInitialization_ {};
     };
 
@@ -8621,35 +8311,31 @@ namespace Models
     protected:
       shared_ptr<string> aliyunUid_ {};
       // Indicates whether the password can be modified. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> canModifyPassword_ {};
-      // The name of the database to which the objects are migrated in the destination instance.
+      // The name of the database to which the migration objects belong in the destination instance.
       shared_ptr<string> databaseName_ {};
       // The database engine of the destination instance.
       shared_ptr<string> engineName_ {};
-      // The destination instance ID.
+      // The instance ID of the destination instance.
       shared_ptr<string> instanceID_ {};
-      // The type of the destination instance.
+      // The destination instance type.
       shared_ptr<string> instanceType_ {};
       // The endpoint of the destination instance.
       shared_ptr<string> ip_ {};
       // The SID of the Oracle database.
-      // 
-      // > This parameter is returned only if the return value of **EngineName** of the destination instance is **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+      // > This parameter is returned only when the **EngineName** of the destination instance is set to **Oracle** and the Oracle database is a non-RAC instance.
       shared_ptr<string> oracleSID_ {};
       // The database service port of the destination instance.
       shared_ptr<string> port_ {};
-      // The ID of the region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+      // The region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
       shared_ptr<string> region_ {};
       shared_ptr<string> roleName_ {};
-      // Indicates whether SSL encryption is enabled. Valid values:
+      // Indicates whether an SSL connection is used. Valid values:
       // 
-      // *   **DISABLE**: SSL encryption is disabled.
-      // *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled and the CA certificate is uploaded.
-      // *   **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
-      // *   **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+      // - **DISABLE**: SSL connection is not used.
+      // - **ENABLE_WITH_CERTIFICATE**: SSL connection is used, and a CA certificate is uploaded.
+      // - **ENABLE_ONLY_4_MONGODB_ALTAS**: SSL connection is used to connect to AWS MongoDB Atlas.
+      // - **ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256**: SCRAM-SHA-256 is used to connect to Kafka.
       shared_ptr<string> sslSolutionEnum_ {};
       // The database account of the destination instance.
       shared_ptr<string> userName_ {};
@@ -8720,26 +8406,15 @@ namespace Models
 
 
     protected:
-      // The error message returned if incremental data migration or synchronization failed.
+      // The error message returned when incremental data migration or synchronization fails.
       shared_ptr<string> errorMessage_ {};
-      // Indicates whether the instance class needs to be upgraded. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether to display the option to upgrade the instance type. Valid values:
       shared_ptr<bool> needUpgrade_ {};
-      // The progress of incremental data migration or synchronization. Unit: percentage.
+      // The progress of incremental data migration or synchronization, in percentage.
       shared_ptr<string> percent_ {};
-      // The number of rows and size of data that is synchronized or migrated to the destination table per second during incremental data synchronization or migration.
+      // The number of data rows and data volume migrated or synchronized to the destination table per second.
       shared_ptr<string> progress_ {};
-      // The state of incremental data migration or synchronization. Valid values:
-      // 
-      // *   **NotStarted**: The task is not started.
-      // *   **Migrating**: The task is in progress.
-      // *   **Suspending**: The task is paused.
-      // *   **Checking**: The task is in precheck.
-      // *   **Failed**: The task failed.
-      // *   **Finished**: The task is complete.
-      // *   **Catched**: The task has no latency.
+      // The status of incremental data migration or synchronization. Valid values:
       shared_ptr<string> status_ {};
     };
 
@@ -8808,15 +8483,15 @@ namespace Models
 
 
     protected:
-      // The number of partitions of the destination topic.
+      // The number of partitions for the delivery topic.
       shared_ptr<int32_t> partitionNum_ {};
-      // The public endpoint of the data shipping channel.
+      // The public endpoint of the delivery channel.
       shared_ptr<string> publicDproxyUrl_ {};
-      // The region in which the data shipping channel resides.
+      // The region where the delivery channel resides.
       shared_ptr<string> region_ {};
-      // The destination topic of the data shipping instance.
+      // The destination topic for delivery.
       shared_ptr<string> topic_ {};
-      // The VPC endpoint of the data shipping channel.
+      // The VPC endpoint of the delivery channel.
       shared_ptr<string> vpcDproxyUrl_ {};
     };
 
@@ -8824,15 +8499,16 @@ namespace Models
         && this->approvalProcessStatus_ == nullptr && this->approvalProcessUrl_ == nullptr && this->beginTimestamp_ == nullptr && this->binlog_ == nullptr && this->binlogSite_ == nullptr
         && this->binlogTime_ == nullptr && this->bootTime_ == nullptr && this->checkpoint_ == nullptr && this->code_ == nullptr && this->consumptionCheckpoint_ == nullptr
         && this->consumptionClient_ == nullptr && this->createTime_ == nullptr && this->dataDeliveryChannelInfo_ == nullptr && this->dataSynchronizationStatus_ == nullptr && this->databaseCount_ == nullptr
-        && this->dbObject_ == nullptr && this->dedicatedClusterId_ == nullptr && this->delay_ == nullptr && this->demoJob_ == nullptr && this->destNetType_ == nullptr
-        && this->destinationEndpoint_ == nullptr && this->dtsBisLabel_ == nullptr && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr && this->dtsJobDirection_ == nullptr
-        && this->dtsJobId_ == nullptr && this->dtsJobName_ == nullptr && this->dynamicMessage_ == nullptr && this->endTimestamp_ == nullptr && this->errCode_ == nullptr
-        && this->errMessage_ == nullptr && this->errorMessage_ == nullptr && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr && this->finishTime_ == nullptr
-        && this->groupId_ == nullptr && this->httpStatusCode_ == nullptr && this->initCheckpoint_ == nullptr && this->insightModule_ == nullptr && this->jobType_ == nullptr
-        && this->lastUpdateTime_ == nullptr && this->maxDu_ == nullptr && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->payType_ == nullptr
-        && this->requestId_ == nullptr && this->reserved_ == nullptr && this->resourceGroupDisplayName_ == nullptr && this->resourceGroupId_ == nullptr && this->retryState_ == nullptr
-        && this->sourceEndpoint_ == nullptr && this->status_ == nullptr && this->subDistributedJob_ == nullptr && this->subSyncJob_ == nullptr && this->subscribeTopic_ == nullptr
-        && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr && this->success_ == nullptr && this->synchronizationDirection_ == nullptr && this->taskType_ == nullptr; };
+        && this->dbObject_ == nullptr && this->dbObjectOssUrl_ == nullptr && this->dbObjectOssUrlExpireTime_ == nullptr && this->dbObjectSize_ == nullptr && this->dedicatedClusterId_ == nullptr
+        && this->delay_ == nullptr && this->demoJob_ == nullptr && this->destNetType_ == nullptr && this->destinationEndpoint_ == nullptr && this->dtsBisLabel_ == nullptr
+        && this->dtsInstanceID_ == nullptr && this->dtsJobClass_ == nullptr && this->dtsJobDirection_ == nullptr && this->dtsJobId_ == nullptr && this->dtsJobName_ == nullptr
+        && this->dynamicMessage_ == nullptr && this->endTimestamp_ == nullptr && this->errCode_ == nullptr && this->errMessage_ == nullptr && this->errorMessage_ == nullptr
+        && this->etlCalculator_ == nullptr && this->expireTime_ == nullptr && this->finishTime_ == nullptr && this->groupId_ == nullptr && this->httpStatusCode_ == nullptr
+        && this->initCheckpoint_ == nullptr && this->insightModule_ == nullptr && this->jobType_ == nullptr && this->lastUpdateTime_ == nullptr && this->maxDu_ == nullptr
+        && this->migrationMode_ == nullptr && this->minDu_ == nullptr && this->payType_ == nullptr && this->requestId_ == nullptr && this->reserved_ == nullptr
+        && this->resourceGroupDisplayName_ == nullptr && this->resourceGroupId_ == nullptr && this->retryState_ == nullptr && this->sourceEndpoint_ == nullptr && this->status_ == nullptr
+        && this->subDistributedJob_ == nullptr && this->subSyncJob_ == nullptr && this->subscribeTopic_ == nullptr && this->subscriptionDataType_ == nullptr && this->subscriptionHost_ == nullptr
+        && this->success_ == nullptr && this->synchronizationDirection_ == nullptr && this->taskType_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -8954,6 +8630,27 @@ namespace Models
     void deleteDbObject() { this->dbObject_ = nullptr;};
     inline string getDbObject() const { DARABONBA_PTR_GET_DEFAULT(dbObject_, "") };
     inline DescribeDtsJobDetailResponseBody& setDbObject(string dbObject) { DARABONBA_PTR_SET_VALUE(dbObject_, dbObject) };
+
+
+    // dbObjectOssUrl Field Functions 
+    bool hasDbObjectOssUrl() const { return this->dbObjectOssUrl_ != nullptr;};
+    void deleteDbObjectOssUrl() { this->dbObjectOssUrl_ = nullptr;};
+    inline string getDbObjectOssUrl() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrl_, "") };
+    inline DescribeDtsJobDetailResponseBody& setDbObjectOssUrl(string dbObjectOssUrl) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrl_, dbObjectOssUrl) };
+
+
+    // dbObjectOssUrlExpireTime Field Functions 
+    bool hasDbObjectOssUrlExpireTime() const { return this->dbObjectOssUrlExpireTime_ != nullptr;};
+    void deleteDbObjectOssUrlExpireTime() { this->dbObjectOssUrlExpireTime_ = nullptr;};
+    inline string getDbObjectOssUrlExpireTime() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOssUrlExpireTime_, "") };
+    inline DescribeDtsJobDetailResponseBody& setDbObjectOssUrlExpireTime(string dbObjectOssUrlExpireTime) { DARABONBA_PTR_SET_VALUE(dbObjectOssUrlExpireTime_, dbObjectOssUrlExpireTime) };
+
+
+    // dbObjectSize Field Functions 
+    bool hasDbObjectSize() const { return this->dbObjectSize_ != nullptr;};
+    void deleteDbObjectSize() { this->dbObjectSize_ = nullptr;};
+    inline int64_t getDbObjectSize() const { DARABONBA_PTR_GET_DEFAULT(dbObjectSize_, 0L) };
+    inline DescribeDtsJobDetailResponseBody& setDbObjectSize(int64_t dbObjectSize) { DARABONBA_PTR_SET_VALUE(dbObjectSize_, dbObjectSize) };
 
 
     // dedicatedClusterId Field Functions 
@@ -9281,192 +8978,166 @@ namespace Models
 
 
   protected:
-    // Indicates whether the new change tracking feature is used.
-    // 
-    // > This parameter is returned only for change tracking instances of the new version.
+    // Indicates whether the instance uses the new version of change tracking. The value "new" indicates the new version.
     shared_ptr<string> appName_ {};
     shared_ptr<int64_t> approvalProcessStatus_ {};
     shared_ptr<string> approvalProcessUrl_ {};
-    // The start of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The start of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> beginTimestamp_ {};
-    // The binary logs.
+    // The binlog information.
     shared_ptr<string> binlog_ {};
-    // The current offset.
+    // The current position.
     shared_ptr<string> binlogSite_ {};
-    // The offset range.
+    // The position range.
     shared_ptr<string> binlogTime_ {};
-    // The time when the task was started. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The start time of the specific project, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> bootTime_ {};
-    // The start offset of incremental data migration or data synchronization. This value is a UNIX timestamp. Unit: seconds.
+    // The start offset or synchronization offset of incremental data migration. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> checkpoint_ {};
-    // The error code. This parameter will be removed in the future.
+    // The error code. This parameter will be deprecated.
     shared_ptr<int32_t> code_ {};
-    // The consumption checkpoint of the change tracking instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The consumption checkpoint of the downstream consumer for the change tracking task. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> consumptionCheckpoint_ {};
-    // The downstream client information in the following format: \\<IP address of the downstream client>:\\<Random ID generated by DTS>.
+    // The information about the downstream consumer client, which consists of an IP address and a random number generated by DTS.
     shared_ptr<string> consumptionClient_ {};
-    // The time when the task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The time when the task was created. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> createTime_ {};
-    // The information about the data shipping channel.
+    // The data delivery channel information.
     shared_ptr<DescribeDtsJobDetailResponseBody::DataDeliveryChannelInfo> dataDeliveryChannelInfo_ {};
-    // The state of incremental data migration or synchronization.
+    // The status of incremental data migration or synchronization.
     shared_ptr<DescribeDtsJobDetailResponseBody::DataSynchronizationStatus> dataSynchronizationStatus_ {};
-    // The number of ApsaraDB RDS for MySQL instances that are attached to the source PolarDB-X 1.0 instance.
+    // If the source instance is a PolarDB-X 1.0 instance, specify the number of ApsaraDB RDS for MySQL instances attached to it.
     shared_ptr<int32_t> databaseCount_ {};
-    // The objects of the data migration, data synchronization, or change tracking task. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+    // The objects for migration, synchronization, or change tracking. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
     shared_ptr<string> dbObject_ {};
-    // The dedicated cluster ID.
+    shared_ptr<string> dbObjectOssUrl_ {};
+    shared_ptr<string> dbObjectOssUrlExpireTime_ {};
+    shared_ptr<int64_t> dbObjectSize_ {};
+    // The ID of the dedicated cluster.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The latency of incremental data migration or synchronization. Unit: milliseconds.
+    // The latency of incremental data migration or synchronization, in milliseconds.
     shared_ptr<int64_t> delay_ {};
     // Indicates whether the task is a subtask. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
     shared_ptr<bool> demoJob_ {};
     // The network type of the consumer client. Valid values:
-    // 
-    // *   **CLASSIC**: classic network.
-    // *   **VPC**: virtual private cloud (VPC).
     shared_ptr<string> destNetType_ {};
-    // The connection settings of the destination instance.
+    // The connection information of the destination instance.
     shared_ptr<DescribeDtsJobDetailResponseBody::DestinationEndpoint> destinationEndpoint_ {};
-    // The environment tag of the DTS instance. Valid values:
+    // The environment label of the DTS instance. Valid values:
     // 
-    // *   **normal******
-    // *   **online******
+    // - **normal**: normal
+    // - **online**: online
     shared_ptr<string> dtsBisLabel_ {};
-    // The ID of the data migration, data synchronization, or change tracking instance.
+    // The instance ID of the migration, synchronization, or subscribe instance.
     shared_ptr<string> dtsInstanceID_ {};
-    // The instance class.
-    // 
-    // > For more information about the description and test performance of each instance class, see [Specifications of data migration instances](https://help.aliyun.com/document_detail/26606.html) and [Specifications of data synchronization instances](https://help.aliyun.com/document_detail/26605.html).
+    // The specification of the DTS task link.
+    // > For more information about the specifications and performance test results of each link specification, see [Data migration link specifications](https://help.aliyun.com/document_detail/26606.html) and [Data synchronization link specifications](https://help.aliyun.com/document_detail/26605.html).
     shared_ptr<string> dtsJobClass_ {};
     // The synchronization direction. Valid values:
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
     // 
-    // *   **Forward**
-    // *   **Reverse**
-    // 
-    // > This parameter is returned only if the topology of the data synchronization instance is two-way synchronization.
+    // > This parameter is returned only when the topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> dtsJobDirection_ {};
     // The ID of the data migration, data synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The name of the data migration, data synchronization, or change tracking task.
+    // The name of the migration, synchronization, or change tracking task.
     shared_ptr<string> dtsJobName_ {};
-    // The dynamic part in the error message. The value of this parameter is used to replace **%s** in the value of **ErrMessage**.
-    // 
-    // > For example, if the return value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the value of **DynamicMessage** is **DtsJobId**, the specified value of **DtsJobId** is invalid.
+    // The dynamic error message that is used to replace the **%s** variable in the **ErrMessage** response parameter.
+    // > For example, if the **ErrMessage** parameter returns **The Value of Input Parameter %s is not valid** and the **DynamicMessage** parameter returns **DtsJobId**, the request parameter **DtsJobId** that you specify is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The end of the time range for change tracking. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The end of the timestamp range of data retained in the change tracking instance. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> endTimestamp_ {};
-    // The error code returned if the request failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The error message returned if the task failed.
+    // The error message returned when the task failed.
     shared_ptr<string> errorMessage_ {};
     // The operator information of the ETL task.
-    // 
-    // > This parameter is returned only if you query the details of an ETL task.
     shared_ptr<string> etlCalculator_ {};
-    // The time when the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-    // 
-    // > This parameter is returned only if the return value of **PayType** is **PrePaid**.
+    // The expiration time of the instance. The time follows the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // > This parameter is returned only when the value of **PayType** is **PrePaid**.
     shared_ptr<string> expireTime_ {};
-    // The time when the task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+    // The time when the task was completed. The time is displayed in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<string> finishTime_ {};
     // The resource group ID.
     shared_ptr<string> groupId_ {};
-    // The returned HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     shared_ptr<string> initCheckpoint_ {};
     shared_ptr<bool> insightModule_ {};
-    // The type of the DTS task. Valid values:
+    // The type of the task. Valid values:
+    // - **sync**: synchronization task.
+    // - **subSync**: subtask generated by modifying synchronization objects.
     // 
-    // *   **sync**: a data synchronization task.
-    // *   **subSync**: a subtask generated when the objects to be synchronized are modified.
-    // 
-    // > In most cases, this parameter is returned together with **TaskType**.
+    // > Generally used together with **TaskType**.
     shared_ptr<string> jobType_ {};
-    // The timestamp when the task was last updated.
+    // The timestamp of the last update.
     shared_ptr<string> lastUpdateTime_ {};
     // The maximum number of DUs.
-    // 
-    // > This parameter is supported only for serverless instances.
     shared_ptr<double> maxDu_ {};
-    // The migration types or initial synchronization types.
+    // The migration type or synchronization initialization type.
     shared_ptr<DescribeDtsJobDetailResponseBody::MigrationMode> migrationMode_ {};
     // The minimum number of DUs.
-    // 
-    // > This parameter is supported only for serverless instances.
     shared_ptr<double> minDu_ {};
-    // The billing method of the DTS instance. Valid values:
-    // 
-    // *   **PrePaid**: subscription.
-    // *   **PostPaid**: pay-as-you-go.
+    // The billing method of the instance. Valid values:
     shared_ptr<string> payType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet specific requirements, such as whether to automatically start a precheck. For more information, see [MigrationReserved](https://help.aliyun.com/document_detail/176470.html).
+    // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, such as whether to automatically start the precheck. For more information, see [MigrationReserved metric description](https://help.aliyun.com/document_detail/176470.html).
     shared_ptr<string> reserved_ {};
-    // The resource group name.
+    // The name of the resource group.
     shared_ptr<string> resourceGroupDisplayName_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The information about the retries performed by DTS due to an exception.
+    // DTS is retrying the task due to a task exception.
     shared_ptr<DescribeDtsJobDetailResponseBody::RetryState> retryState_ {};
-    // The connection settings of the source instance.
+    // The connection information of the source instance.
     shared_ptr<DescribeDtsJobDetailResponseBody::SourceEndpoint> sourceEndpoint_ {};
-    // The state of the data migration or synchronization task. Valid values:
+    // The status of the migration or synchronization task. Valid values:
     // 
-    // *   **NotStarted**: The task is not started.
-    // *   **NotConfigured**: The task is not configured.
-    // *   **Prechecking**: The task is in precheck.
-    // *   **PrecheckFailed**: The task failed to pass the precheck.
-    // *   **PreCheckPass**: The task passed the precheck.
-    // *   **Initializing**: Initial data synchronization is in progress.
-    // *   **InitializeFailed**: Initial data synchronization failed.
-    // *   **synchronizing**: Data synchronization is in progress.
-    // *   **Migrating**: Data migration is in progress.
-    // *   **Failed**: Data synchronization failed.
-    // *   **MigrationFailed**: Data migration failed.
-    // *   **Suspending**: The task is paused.
-    // *   **Modifying**: The objects of the task are being modified.
-    // *   **Retrying**: The task is being retried.
-    // *   **Upgrade**: The task is being upgraded.
-    // *   **Downgrade**: The task is being downgraded.
-    // *   **Locked**: The task is locked.
-    // *   **Finished**: The task is complete.
+    // - **NotStarted**: Not started.
+    // - **NotConfigured**: Not configured.
+    // - **Prechecking**: Running the precheck.
+    // - **PrecheckFailed**: Precheck failed.
+    // - **PreCheckPass**: Precheck passed.
+    // - **Initializing**: Running initial synchronization.
+    // - **InitializeFailed**: Initial synchronization failed.
+    // - **synchronizing**: Synchronizing.
+    // - **Migrating**: Migrating.
+    // - **Failed**: Synchronization failed.
+    // - **MigrationFailed**: Migration failed.
+    // - **Suspending**: Suspending.
+    // - **Modifying**: Modifying synchronization objects.
+    // - **Retrying**: Retrying.
+    // - **Upgrade**: Upgrading.
+    // - **Downgrade**: Downgrading.
+    // - **Locked**: Locked.
+    // - **Finished**: Completed.
     shared_ptr<string> status_ {};
-    // The information about the subtasks in the current distributed task. If the DTS task is not a distributed task, the value of this parameter is null.
-    // 
-    // > This parameter is available only if the DTS task is a data synchronization task.
+    // The information about the distributed subtask. This parameter is null if the parent task is not a distributed task.
+    // > Currently, this parameter is available only when the parent task is a data synchronization task. Other task types are not supported.
     shared_ptr<vector<DescribeDtsJobDetailResponseBody::SubDistributedJob>> subDistributedJob_ {};
-    // The information about the subtasks in the current data synchronization task.
+    // The information about the synchronization subtask.
     shared_ptr<vector<DescribeDtsJobDetailResponseBody::SubSyncJob>> subSyncJob_ {};
-    // The topic of the change tracking instance.
-    // 
-    // > This parameter is returned only if your change tracking instances are of the new version and you have called the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation to create a consumer group.
+    // The subscribed topic.
+    // > This parameter is returned only when the subscription instance is of the new version and a consumer group has been created by calling the [CreateConsumerGroup](https://help.aliyun.com/document_detail/122863.html) operation.
     shared_ptr<string> subscribeTopic_ {};
-    // The type of data for change tracking.
+    // The type of the subscription data.
     shared_ptr<DescribeDtsJobDetailResponseBody::SubscriptionDataType> subscriptionDataType_ {};
-    // The endpoint of the change tracking instance.
+    // The endpoint of the change tracking task.
     shared_ptr<DescribeDtsJobDetailResponseBody::SubscriptionHost> subscriptionHost_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
     // The synchronization direction. Valid values:
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
     // 
-    // *   **Forward**
-    // *   **Reverse**
-    // 
-    // > 
-    // 
-    // *   The default value is **Forward**.
-    // *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
+    // > - Default value: **Forward**.
+    // - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
-    // The type of the task.
-    // 
-    // > In most cases, this parameter is returned together with **JobType**.
+    // The business type of the task.
     shared_ptr<string> taskType_ {};
   };
 

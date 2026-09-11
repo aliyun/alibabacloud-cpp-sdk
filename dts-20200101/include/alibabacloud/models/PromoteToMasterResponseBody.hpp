@@ -103,13 +103,22 @@ namespace Models
 
 
   protected:
+    // Dynamic error code. This parameter will be unpublished soon.
     shared_ptr<string> dynamicCode_ {};
+    // Dynamic error message, used to replace the **%s** placeholder in the **ErrMessage** error message.  
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // Error code returned when the invocation fails.
     shared_ptr<string> errCode_ {};
+    // Error message returned when the invocation fails.
     shared_ptr<string> errMessage_ {};
+    // Status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded.
     shared_ptr<bool> success_ {};
+    // Job ID. This parameter will be unpublished soon.
     shared_ptr<string> taskId_ {};
   };
 

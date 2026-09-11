@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The built-in account that is used by DTS to connect to the node.
+    // The built-in account that DTS uses to connect to the unit node.
     shared_ptr<string> adminAccount_ {};
     // The password of the built-in account.
     shared_ptr<string> adminPassword_ {};
-    // The error code returned if the request fails.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request fails.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful.
     shared_ptr<string> success_ {};

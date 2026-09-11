@@ -94,30 +94,28 @@ namespace Models
 
 
   protected:
-    // The ID of the data synchronization task.
+    // The instance ID of the synchronization node.
     shared_ptr<string> dtsInstanceId_ {};
-    // If the node is a self-managed MySQL database that is connected over CEN, you must specify the ID of the CEN instance.
-    // 
-    // > You must specify the **EndpointRegion** and **EndpointInstanceId** parameters or the EndpointCenId parameter based on the type of the node.
+    // The instance ID of the CEN instance. This parameter is required if the unit node is a self-managed MySQL database connected through CEN.
+    // > You must specify either this parameter or the ApsaraDB RDS for MySQL-related parameters (**EndpointRegion** and **EndpointInstanceId**).
     shared_ptr<string> endpointCenId_ {};
-    // If the node is an ApsaraDB RDS for MySQL instance, you must specify the ID of the ApsaraDB RDS for MySQL instance.
-    // 
-    // > *   You must also specify the **EndpointRegion** parameter.
-    // >*   You must specify the EndpointInstanceId parameter or the **EndpointCenId** parameter based on the type of the node.
+    // The instance ID of the ApsaraDB RDS for MySQL instance. This parameter is required if the unit node is an ApsaraDB RDS for MySQL instance.
+    // > - You must also specify the **EndpointRegion** parameter.
+    // - You must specify either this parameter or **EndpointCenId**.
     shared_ptr<string> endpointInstanceId_ {};
-    // The type of the node. Valid values:
+    // The instance type of the unit node. Valid values:
     // 
-    // *   **RDS**: an ApsaraDB RDS for MySQL instance
-    // *   **CEN**: a self-managed MySQL database that is connected over CEN
+    // - **RDS**: ApsaraDB RDS for MySQL instance.
+    // - **CEN**: self-managed MySQL database connected through CEN.
     shared_ptr<string> endpointInstanceType_ {};
-    // If the node is an ApsaraDB RDS for MySQL instance, you must specify the region in which the ApsaraDB RDS for MySQL instance resides.
+    // The region in which the ApsaraDB RDS for MySQL instance resides. This parameter is required if the unit node is an ApsaraDB RDS for MySQL instance.
     // 
-    // > *   You must also specify the **EndpointInstanceId** parameter.
-    // >*   You must specify the EndpointRegion parameter or the **EndpointCenId** parameter based on the type of the node.
+    // > - You must also specify the **EndpointInstanceId** parameter.
+    // - You must specify either this parameter or **EndpointCenId**.
     shared_ptr<string> endpointRegion_ {};
-    // The ID of the region in which the active geo-redundancy database cluster resides.
+    // The region in which the active geo-redundancy database cluster resides.
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The ID of the resource group. This is a global parameter and does not need to be specified for this operation.
     shared_ptr<string> resourceGroupId_ {};
   };
 

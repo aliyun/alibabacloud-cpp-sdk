@@ -75,14 +75,14 @@ namespace Models
 
 
   protected:
-    // The dedicated cluster ID.
+    // The ID of the dedicated cluster.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The DTS task IDs. The value can be a JSON array that consists of multiple DTS task IDs. Separate the IDs with commas (,).
+    // The task ID. You can specify multiple task IDs in a JSON array. Separate the IDs with commas (,).
     shared_ptr<string> dtsJobIds_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the region where the DTS instance resides.
+    // The region in which the DTS instance resides.
     // 
-    // > For information about the regions that support dedicated clusters, see [DTS dedicated cluster](https://help.aliyun.com/document_detail/417481.html).
+    // > For the regions supported by dedicated clusters, see [DTS dedicated cluster](https://help.aliyun.com/document_detail/417481.html).
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

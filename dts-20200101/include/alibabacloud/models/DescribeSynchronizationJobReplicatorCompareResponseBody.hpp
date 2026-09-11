@@ -79,14 +79,14 @@ namespace Models
     shared_ptr<string> errCode_ {};
     // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
-    // Indicates whether image matching is enabled. Valid values:
+    // The full image switch. Valid values:
     // 
-    // *   **true**: Image matching is enabled.
-    // *   **false**: Image matching is disabled.
+    // - **true**: enabled.
+    // - **false**: disabled.
     shared_ptr<bool> synchronizationReplicatorCompareEnable_ {};
   };
 

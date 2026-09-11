@@ -380,15 +380,15 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
+    // The page number. The value is a positive integer that does not exceed the maximum value of the Integer data type. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The maximum number of records that can be displayed on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
-    // The total number of clusters that meet the query condition.
+    // The total number of clusters that meet the specified conditions.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

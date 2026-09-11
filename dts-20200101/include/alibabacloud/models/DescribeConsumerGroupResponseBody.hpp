@@ -226,13 +226,13 @@ namespace Models
     shared_ptr<string> errCode_ {};
     // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The maximum number of consumer groups that can be displayed on one page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
     // The total number of consumer groups.
     shared_ptr<int32_t> totalRecordCount_ {};

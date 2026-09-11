@@ -103,35 +103,33 @@ namespace Models
 
 
   protected:
-    // The ID of the consumer group. You can call the [DescribeConsumerChannel](https://help.aliyun.com/document_detail/264169.html) operation to query the consumer group ID.
+    // The ID of the consumer group. You can call [DescribeConsumerChannel](https://help.aliyun.com/document_detail/264169.html) to query the consumer group ID.
     // 
     // This parameter is required.
     shared_ptr<string> consumerGroupId_ {};
-    // The name of the consumer group. The name cannot exceed 128 characters in length. We recommend that you use an informative name for easy identification.
+    // The new name of the consumer group. The name can be up to 128 characters in length. Specify a descriptive name for easy identification.
     shared_ptr<string> consumerGroupName_ {};
-    // The new password of the consumer group.
+    // The new password of the consumer group account.
     // 
-    // *   A password must contain two or more of the following characters: uppercase letters, lowercase letters, digits, and special characters.
-    // *   A password must be 8 to 32 characters in length.
+    // - The password must contain characters from at least two of the following categories: uppercase letters, lowercase letters, digits, and special characters.
+    // - The password must be 8 to 32 characters in length.
     shared_ptr<string> consumerGroupPassword_ {};
-    // The new username of the consumer group.
+    // The new username of the consumer group account.
     // 
-    // *   A username can contain one or more of the following character types: uppercase letters, lowercase letters, digits, and underscores (_).
-    // *   A username cannot exceed 16 characters in length.
+    // - The username can contain one or more types of the following characters: uppercase letters, lowercase letters, digits, and underscores (_).
+    // - The username can be up to 16 characters in length.
     shared_ptr<string> consumerGroupUserName_ {};
-    // The ID of the change tracking instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
-    // 
-    // >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
+    // The ID of the change tracking instance. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the instance ID.
+    // > You must specify either **DtsInstanceId** or **DtsJobId**.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the change tracking task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
-    // 
-    // >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
+    // The ID of the change tracking task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
+    // > You must specify either **DtsInstanceId** or **DtsJobId**.
     shared_ptr<string> dtsJobId_ {};
-    // The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID of the DTS change tracking instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

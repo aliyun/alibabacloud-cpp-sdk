@@ -13,6 +13,7 @@ namespace Models
   class DescribeDtsJobDetailRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeDtsJobDetailRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DbObjectOutputType, dbObjectOutputType_);
       DARABONBA_PTR_TO_JSON(DtsInstanceID, dtsInstanceID_);
       DARABONBA_PTR_TO_JSON(DtsJobId, dtsJobId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZeroEtlJob, zeroEtlJob_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeDtsJobDetailRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DbObjectOutputType, dbObjectOutputType_);
       DARABONBA_PTR_FROM_JSON(DtsInstanceID, dtsInstanceID_);
       DARABONBA_PTR_FROM_JSON(DtsJobId, dtsJobId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -41,9 +43,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dtsInstanceID_ == nullptr
-        && this->dtsJobId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->syncSubJobHistory_ == nullptr && this->synchronizationDirection_ == nullptr
-        && this->zeroEtlJob_ == nullptr; };
+    virtual bool empty() const override { return this->dbObjectOutputType_ == nullptr
+        && this->dtsInstanceID_ == nullptr && this->dtsJobId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->syncSubJobHistory_ == nullptr
+        && this->synchronizationDirection_ == nullptr && this->zeroEtlJob_ == nullptr; };
+    // dbObjectOutputType Field Functions 
+    bool hasDbObjectOutputType() const { return this->dbObjectOutputType_ != nullptr;};
+    void deleteDbObjectOutputType() { this->dbObjectOutputType_ = nullptr;};
+    inline string getDbObjectOutputType() const { DARABONBA_PTR_GET_DEFAULT(dbObjectOutputType_, "") };
+    inline DescribeDtsJobDetailRequest& setDbObjectOutputType(string dbObjectOutputType) { DARABONBA_PTR_SET_VALUE(dbObjectOutputType_, dbObjectOutputType) };
+
+
     // dtsInstanceID Field Functions 
     bool hasDtsInstanceID() const { return this->dtsInstanceID_ != nullptr;};
     void deleteDtsInstanceID() { this->dtsInstanceID_ = nullptr;};
@@ -94,30 +103,27 @@ namespace Models
 
 
   protected:
-    // The ID of the data migration, data synchronization, or change tracking instance.
+    shared_ptr<string> dbObjectOutputType_ {};
+    // The instance ID of the data migration, data synchronization, or subscribe instance.
     shared_ptr<string> dtsInstanceID_ {};
     // The ID of the data migration, data synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The ID of the region in which the Data Transmission Service (DTS) instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The ID of the region in which the task resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Specifies whether to return the information about all data synchronization subtasks. Default value: **false**. A value of false indicates that the system returns only the information about a data synchronization subtask that is running or was most recently run.
+    // Specifies whether to return information about all synchronization subtasks. Default value: **false**, which returns only the synchronization subtask that is in progress or the most recently executed synchronization subtask.
     shared_ptr<bool> syncSubJobHistory_ {};
     // The synchronization direction. Valid values:
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
     // 
-    // *   **Forward**
-    // *   **Reverse**
-    // 
-    // > 
-    // 
-    // *   The default value is **Forward**.
-    // *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
+    // > - Default value: **Forward**.
+    // - The value **Reverse** takes effect only when the synchronization topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
-    // Specifies whether to query only zero-extract, transform, load (ETL) integration tasks. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Specifies whether the task is a zero-ETL task. Valid values:
+    // - **true**: The task is a zero-ETL task.
+    // - **false**: The task is not a zero-ETL task.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

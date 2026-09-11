@@ -140,32 +140,32 @@ namespace Models
 
 
   protected:
-    // The alert threshold for CPU utilization. Unit: percentage.
+    // The CPU alert threshold, in percentage.
     shared_ptr<string> cpuAlarmThreshold_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The alert threshold for disk usage. Unit: percentage.
+    // The disk alert threshold, in percentage.
     shared_ptr<string> diskAlarmThreshold_ {};
-    // The alert threshold for DTS Unit (DU) usage. Unit: percentage.
+    // The DU alert threshold, in percentage.
     shared_ptr<string> duAlarmThreshold_ {};
-    // The error code returned if the request failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The alert threshold for memory usage. Unit: percentage.
+    // The memory alert threshold, in percentage.
     shared_ptr<string> memAlarmThreshold_ {};
-    // Indicates whether the alert feature is enabled. Valid values:
+    // The alert switch. Valid values:
     // 
-    // *   **1**: The alert feature is enabled.
-    // *   **0**: The alert feature is disabled.
+    // - **1**: enabled.
+    // - **0**: disabled.
     shared_ptr<string> noticeSwitch_ {};
-    // The mobile phone number to which alerts are sent. Separate multiple mobile phone numbers with commas (,).
+    // The phone numbers that receive alerts. If there are multiple phone numbers, they are separated by commas (,).
     shared_ptr<string> phones_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<string> success_ {};
   };
 

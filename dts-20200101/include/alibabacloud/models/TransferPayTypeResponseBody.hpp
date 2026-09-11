@@ -130,24 +130,20 @@ namespace Models
 
 
   protected:
-    // The billing method of the DTS instance. Valid values:
-    // 
-    // *   **PrePaid**: subscription
-    // *   **PostPaid**: pay-as-you-go
+    // The billing method after conversion. Valid values:
+    // - **PrePaid**: subscription.
+    // - **PostPaid**: pay-as-you-go.
     shared_ptr<string> chargeType_ {};
-    // The error code. This parameter will be removed in the future.
+    // The error code. This parameter will be deprecated.
     shared_ptr<string> code_ {};
-    // The ID of the DTS task.
+    // The task ID.
     shared_ptr<string> dtsJobId_ {};
-    // The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
-    // 
-    // >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
+    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The expiration time of the subscription instance. The value is a UNIX timestamp.
-    // 
-    // > 
-    // *   If the DTS instance is a pay-as-you-go instance, the value of this parameter is empty.
-    // *   You can use a search engine to obtain a UNIX timestamp converter.
+    // The time when the subscription instance expires, in UNIX timestamp format.
+    // > - If the instance is converted to pay-as-you-go, this value is empty.
+    // - You can use a search engine to find a UNIX timestamp conversion tool.
     shared_ptr<string> endTime_ {};
     // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
@@ -155,14 +151,13 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the DTS instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // 
-    // *   **true**: The call was successful.
-    // *   **false**: The call failed.
+    // Indicates whether the request was successful. Valid values:
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

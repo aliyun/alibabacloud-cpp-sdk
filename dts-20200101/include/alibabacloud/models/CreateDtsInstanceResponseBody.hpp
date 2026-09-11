@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The ID of the DTS instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<string> jobId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<string> success_ {};

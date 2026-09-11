@@ -228,17 +228,29 @@ namespace Models
 
 
   protected:
+    // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
+    // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The instance ID of the GAD instance group.
     shared_ptr<string> instanceId_ {};
     shared_ptr<DescribePreCheckCreateGadOrderResultResponseBody::PreCheckItems> preCheckItems_ {};
+    // The overall precheck result.
     shared_ptr<bool> preCheckResult_ {};
+    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
+    // The ID of the precheck task.
     shared_ptr<string> taskId_ {};
   };
 

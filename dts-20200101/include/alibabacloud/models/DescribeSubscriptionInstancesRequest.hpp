@@ -84,19 +84,15 @@ namespace Models
 
 
     protected:
-      // The tag key.
-      // 
-      // > 
-      // *   N specifies the serial number of the tag. For example, Tag.1.Key specifies the key of the first tag and Tag.2.Key specifies the key of the second tag. You can specify 1 to 20 tag keys at a time.
-      // *   This parameter cannot be an empty string.
+      // The key of the tag.
+      // > - N specifies the sequence number of the tag key. For example, Tag.1.Key specifies the key of the first tag, and Tag.2.Key specifies the key of the second tag. You can query 1 to 20 tag keys at a time.
+      // - Empty strings are not allowed.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The tag value.
-      // 
-      // > 
-      // *   N specifies the serial number of the tag. For example, Tag.1.Value specifies the value of the first tag and Tag.2.Value specifies the value of the second tag. You can specify 1 to 20 tag values at a time.
-      // *   This parameter can be an empty string.
+      // The value of the tag.
+      // >- N specifies the sequence number of the tag value. For example, Tag.1.Value specifies the value of the first tag, and Tag.2.Value specifies the value of the second tag. You can query 1 to 20 tag values at a time.
+      // - Empty strings are allowed.
       shared_ptr<string> value_ {};
     };
 
@@ -169,24 +165,23 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be deprecated.
     shared_ptr<string> accountId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** parameter can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     shared_ptr<string> ownerId_ {};
-    // The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be an integer greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+    // The number of records per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/49442.html).
+    // The ID of the region where the change tracking instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/49442.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The name of the change tracking instance.
-    // 
-    // >  If you specify this parameter, DTS returns all the change tracking instances that match the specified name.
+    // > If you specify this parameter, DTS returns the change tracking instances that contain the specified name in the response.
     shared_ptr<string> subscriptionInstanceName_ {};
-    // Tags of the data migration instance, used as a filter. When this is not empty, only instances with this tag will be returned.
+    // The tags of the data migration instance. These tags are used as filter conditions. If this parameter is specified, only instances that have the specified tags are returned.
     shared_ptr<vector<DescribeSubscriptionInstancesRequest::Tag>> tag_ {};
   };
 

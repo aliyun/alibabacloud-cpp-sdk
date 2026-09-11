@@ -94,12 +94,23 @@ namespace Models
 
 
   protected:
+    // The error code.
     shared_ptr<string> code_ {};
+    // The dynamic error message used to replace the %s placeholder in the ErrMessage parameter.
+    // 
+    // > For example, if ErrMessage returns "The Value of Input Parameter %s is not valid" and DynamicMessage returns "JobId", it indicates that the JobId request parameter you provided is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The error code returned when the API call fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned when the API call fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request succeeded. Valid values:
+    // - **true**: The request succeeded.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

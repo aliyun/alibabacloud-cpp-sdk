@@ -75,24 +75,21 @@ namespace Models
 
 
   protected:
-    // The data verification method. Valid values:
-    // 
-    // *   **1**: full data verification.
-    // *   **2**: incremental data verification.
+    // The data verification method. Currently, only the value **1** is supported, which indicates full verification.
     // 
     // This parameter is required.
     shared_ptr<int32_t> checkType_ {};
-    // The name of the verified source database.
+    // The name of the source database to be verified.
     // 
     // This parameter is required.
     shared_ptr<string> dbName_ {};
-    // The ID of the Data Transmission Service (DTS) task. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+    // The ID of the DTS task. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
-    // Resource group ID.
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The name of the table verified in the source database.
+    // The name of the table in the source database to be verified.
     // 
     // This parameter is required.
     shared_ptr<string> tbName_ {};

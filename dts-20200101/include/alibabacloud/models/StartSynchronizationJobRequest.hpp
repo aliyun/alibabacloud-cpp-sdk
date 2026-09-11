@@ -84,23 +84,19 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be discontinued.
     shared_ptr<string> accountId_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the region in which the data synchronization instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The ID of the region where the data synchronization instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The synchronization direction. Valid values:
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
     // 
-    // *   **Forward**
-    // *   **Reverse**
-    // 
-    // > 
-    // 
-    // *   The default value is **Forward**.
-    // 
-    // *   You can set this parameter to **Reverse** to start the reverse synchronization task only if the topology is two-way synchronization.
+    // > - Default value: **Forward**.
+    // > - You can set this parameter to **Reverse** to start the reverse synchronization link only if the topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
     // The ID of the data synchronization instance. You can call the **DescribeSynchronizationJobs** operation to query the instance ID.
     // 

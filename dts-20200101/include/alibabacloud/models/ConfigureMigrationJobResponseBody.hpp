@@ -66,15 +66,16 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+    // The error code returned if the request failed.
     shared_ptr<string> errCode_ {};
-    // The ID of the request.
+    // The error message returned if the request failed.
     shared_ptr<string> errMessage_ {};
-    // The start offset of incremental data migration. The value is a UNIX timestamp. Unit: seconds.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The SID of the Oracle database.
+    // Indicates whether the request was successful. Valid values:
     // 
-    // >  You must specify this parameter only if the **DestinationEndpoint.EngineName** parameter is set to **Oracle** and the **Oracle** database is deployed in a non-RAC architecture.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

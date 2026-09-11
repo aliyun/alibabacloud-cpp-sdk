@@ -149,18 +149,34 @@ namespace Models
 
 
   protected:
+    // The time when the task was created, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<int64_t> createTime_ {};
+    // The dynamic error code associated with this request.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
+    // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The instance ID of the active geo-redundancy instance group.
     shared_ptr<string> instanceId_ {};
+    // The name of the active geo-redundancy instance group.
     shared_ptr<string> instanceName_ {};
+    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see the list of supported regions.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The instance ID of the secondary role.
     shared_ptr<string> slaveDbInstanceId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

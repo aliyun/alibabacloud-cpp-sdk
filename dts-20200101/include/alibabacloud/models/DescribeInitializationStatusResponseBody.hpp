@@ -159,24 +159,23 @@ namespace Models
 
 
       protected:
-        // The name of the database to which the object in the destination instance belongs.
+        // The name of the database to which the objects to be synchronized belong in the destination instance.
         shared_ptr<string> destinationOwnerDBName_ {};
-        // The error message returned if constraints failed to be created.
+        // The error message returned when constraint creation failed.
         shared_ptr<string> errorMessage_ {};
-        // The syntax to create constraints.
+        // The syntax definition for creating the constraint.
         shared_ptr<string> objectDefinition_ {};
-        // The name of the object.
+        // The name of the synchronization object.
         shared_ptr<string> objectName_ {};
-        // The type of the object. Valid value: **Table**.
+        // The type of the synchronization object. The value is fixed as **Table**.
         shared_ptr<string> objectType_ {};
-        // The name of the database to which the object in the source instance belongs.
+        // The name of the database to which the objects to be synchronized belong in the source instance.
         shared_ptr<string> sourceOwnerDBName_ {};
         // The status of constraint creation. Valid values:
-        // 
-        // *   **NotStarted**
-        // *   **Migrating**
-        // *   **Failed**
-        // *   **Finished**
+        // - **NotStarted**: Not started.
+        // - **Migrating**: In progress.
+        // - **Failed**: Failed.
+        // - **Finished**: Completed.
         shared_ptr<string> status_ {};
       };
 
@@ -243,29 +242,26 @@ namespace Models
 
     protected:
       // The constraints of the synchronization object, such as indexes and foreign keys.
-      // 
-      // >  This parameter is returned only if the **ObjectType** parameter is set to **Table** and the synchronization object has constraints.
+      // > This parameter is returned only when **ObjectType** is set to **Table** and the synchronization object has constraints.
       shared_ptr<vector<StructureInitializationDetails::Constraints>> constraints_ {};
-      // The name of the database to which the object in the destination instance belongs.
+      // The name of the database to which the objects to be synchronized belong in the destination instance.
       shared_ptr<string> destinationOwnerDBName_ {};
-      // The error message returned if initial schema synchronization failed.
+      // The error message returned when schema initialization failed.
       shared_ptr<string> errorMessage_ {};
-      // The schema of the object.
+      // The syntax definition of the synchronization object.
       shared_ptr<string> objectDefinition_ {};
-      // The name of the object.
+      // The name of the synchronization object.
       shared_ptr<string> objectName_ {};
-      // The type of the object. Valid values:
-      // 
+      // The type of the synchronization object. Valid values:
       // **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type**, **Synonym**, **Trigger**, **Function**, **Procedure**, **Package**, **Default**, **Rule**, **PlanGuide**, and **Sequence**.
       shared_ptr<string> objectType_ {};
-      // The name of the database to which the object in the source instance belongs.
+      // The name of the database to which the objects to be synchronized belong in the source instance.
       shared_ptr<string> sourceOwnerDBName_ {};
-      // The status of initial schema synchronization. Valid values:
-      // 
-      // *   **NotStarted**
-      // *   **Migrating**
-      // *   **Failed**
-      // *   **Finished**
+      // The status of schema initialization. Valid values:
+      // - **NotStarted**: Not started.
+      // - **Migrating**: In progress.
+      // - **Failed**: Failed.
+      // - **Finished**: Completed.
       shared_ptr<string> status_ {};
     };
 
@@ -334,20 +330,19 @@ namespace Models
 
 
     protected:
-      // The name of the database to which the object in the destination instance belongs.
+      // The name of the database to which the objects to be synchronized belong in the destination instance.
       shared_ptr<string> destinationOwnerDBName_ {};
-      // The error message returned if incremental data synchronization failed.
+      // The error message returned when incremental data synchronization failed.
       shared_ptr<string> errorMessage_ {};
-      // The name of the database to which the object in the source instance belongs.
+      // The name of the database to which the objects to be synchronized belong in the source instance.
       shared_ptr<string> sourceOwnerDBName_ {};
       // The status of incremental data synchronization. Valid values:
-      // 
-      // *   **NotStarted**
-      // *   **Migrating**
-      // *   **Failed**
-      // *   **Finished**
+      // - **NotStarted**: Not started.
+      // - **Migrating**: In progress.
+      // - **Failed**: Failed.
+      // - **Finished**: Completed.
       shared_ptr<string> status_ {};
-      // The table name.
+      // The table name of the synchronization object.
       shared_ptr<string> tableName_ {};
     };
 
@@ -444,30 +439,27 @@ namespace Models
 
 
     protected:
-      // The name of the database to which the object in the destination instance belongs.
+      // The name of the database to which the objects to be synchronized belong in the destination instance.
       shared_ptr<string> destinationOwnerDBName_ {};
-      // The error message returned if initial full data synchronization failed.
+      // The error message returned when full data initialization failed.
       shared_ptr<string> errorMessage_ {};
-      // The total number of rows that are actually synchronized.
-      // 
-      // >  This parameter indicates the total number of actually synchronized rows. In contrast, the value of the **TotalRowNum** parameter is calculated based on the system tables in the source database. The values of the two parameters may be different due to time difference.
+      // The number of rows that have been synchronized.
+      // > This parameter indicates the total number of rows that are actually synchronized. The value of the **TotalRowNum** parameter is obtained from the system table of the source database before synchronization starts. Due to time differences during synchronization, the two values may differ.
       shared_ptr<string> finishRowNum_ {};
-      // The name of the database to which the object in the source instance belongs.
+      // The name of the database to which the objects to be synchronized belong in the source instance.
       shared_ptr<string> sourceOwnerDBName_ {};
-      // The status of initial full data synchronization. Valid values:
-      // 
-      // *   **NotStarted**
-      // *   **Migrating**
-      // *   **Failed**
-      // *   **Finished**
+      // The status of full data initialization. Valid values:
+      // - **NotStarted**: Not started.
+      // - **Migrating**: In progress.
+      // - **Failed**: Failed.
+      // - **Finished**: Completed.
       shared_ptr<string> status_ {};
-      // The table name.
+      // The table name of the synchronization object.
       shared_ptr<string> tableName_ {};
-      // The total number of rows that are supposed to be synchronized.
-      // 
-      // >  The value of this parameter is calculated based on the system tables in the source database. In contrast, the **FinishRowNum** parameter indicates the total number of actually synchronized rows. The values of the two parameters may be different due to time difference.
+      // The total number of rows to be synchronized.
+      // > The value of this parameter is obtained from the system table of the source database before synchronization starts. The **FinishRowNum** parameter indicates the total number of rows that are actually synchronized. Due to time differences during synchronization, the two values may differ.
       shared_ptr<string> totalRowNum_ {};
-      // The time spent on full data synchronization.
+      // The time consumed by full data initialization.
       shared_ptr<string> usedTime_ {};
     };
 
@@ -530,21 +522,20 @@ namespace Models
 
 
   protected:
-    // The details of initial full data synchronization.
+    // The details of full data initialization.
     shared_ptr<vector<DescribeInitializationStatusResponseBody::DataInitializationDetails>> dataInitializationDetails_ {};
     // The details of incremental data synchronization.
-    // 
-    // >  This parameter and the parameters it contains will be removed in the future.
+    // > This parameter set and the included response parameters will be discontinued.
     shared_ptr<vector<DescribeInitializationStatusResponseBody::DataSynchronizationDetails>> dataSynchronizationDetails_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the request failed.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the request failed.
     shared_ptr<string> errMessage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of initial schema synchronization.
+    // The details of schema initialization.
     shared_ptr<vector<DescribeInitializationStatusResponseBody::StructureInitializationDetails>> structureInitializationDetails_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

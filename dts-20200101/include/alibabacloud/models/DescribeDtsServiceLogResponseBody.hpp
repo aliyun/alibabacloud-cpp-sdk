@@ -97,11 +97,11 @@ namespace Models
 
 
     protected:
-      // The log content.
+      // The specific log information.
       shared_ptr<string> context_ {};
-      // The log level.
+      // The status of the log entry.
       shared_ptr<string> state_ {};
-      // The time when the logs were collected. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
+      // The time when the log was collected, in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> time_ {};
     };
 
@@ -188,27 +188,27 @@ namespace Models
 
 
   protected:
-    // The dynamic error code. This parameter will be removed soon.
+    // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
+    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request fails.
+    // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request fails.
+    // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
-    // The HTTP status code that is returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of log entries returned per page.
+    // The number of log entries per page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the logs.
+    // The task logs details of the node.
     shared_ptr<vector<DescribeDtsServiceLogResponseBody::ServiceLogContexts>> serviceLogContexts_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of logs that meet the query conditions.
+    // The total number of log entries that meet the specified conditions.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

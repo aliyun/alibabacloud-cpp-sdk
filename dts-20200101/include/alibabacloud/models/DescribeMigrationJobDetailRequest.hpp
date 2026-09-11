@@ -92,11 +92,23 @@ namespace Models
 
 
     protected:
-      // The ID of the region where the data migration instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+      // Specifies whether to query the details of full data migration. Valid values:
+      // 
+      // - **true**: yes.
+      // - **false**: no.
+      // > Default value: **false**.
       shared_ptr<bool> dataInitialization_ {};
-      // The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+      // Specifies whether to query the details of incremental data migration. Valid values:
+      // 
+      // - **true**: yes.
+      // - **false**: no.
+      // > Default value: **false**.
       shared_ptr<bool> dataSynchronization_ {};
-      // When you call this operation, the data migration task must be in the Migrating, Failed, Paused, or Finished state.
+      // Specifies whether to query the details of schema migration. Valid values:
+      // 
+      // - **true**: yes.
+      // - **false**: no.
+      // > Default value: **false**.
       shared_ptr<bool> structureInitialization_ {};
     };
 
@@ -170,28 +182,22 @@ namespace Models
 
   protected:
     shared_ptr<DescribeMigrationJobDetailRequest::MigrationMode> migrationMode_ {};
-    // The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because it will be discontinued.
     shared_ptr<string> accountId_ {};
-    // The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The client token that is used to ensure the idempotence of the request. Generate a value from your client to ensure that the value is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
+    // Instance ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> migrationJobId_ {};
     shared_ptr<string> ownerId_ {};
-    // The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+    // The page number. The value must be an integer greater than **0** and must not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Valid values: 30, 50, and 100. Default value: 30.
+    // The number of records per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the data migration instance resides. For more information, see List of supported regions.
+    // The ID of the region where the data migration instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Specifies whether to query the details of schema migration. Valid values:
-    // 
-    // *   **true**: yes
-    // 
-    // *   **false**: no
-    // 
-    // > Default value: **false**
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

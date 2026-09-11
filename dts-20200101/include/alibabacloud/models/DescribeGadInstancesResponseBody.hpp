@@ -330,16 +330,30 @@ namespace Models
 
 
   protected:
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **Type**, the request parameter **Type** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The error code returned if the request failed.
     shared_ptr<string> errCode_ {};
+    // The error message returned if the request failed.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
     shared_ptr<DescribeGadInstancesResponseBody::Instances> instances_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The maximum number of entries that can be displayed on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // 
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
+    // The total number of instances returned.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

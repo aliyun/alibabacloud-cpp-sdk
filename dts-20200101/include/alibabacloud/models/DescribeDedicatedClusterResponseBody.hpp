@@ -268,66 +268,66 @@ namespace Models
 
 
   protected:
-    // The CPU utilization. Unit: percentage.
+    // The CPU utilization percentage.
     shared_ptr<int64_t> cpuUtilization_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The name of the cluster.
+    // The cluster name.
     shared_ptr<string> dedicatedClusterName_ {};
-    // The disk usage.
+    // The disk utilization.
     shared_ptr<int64_t> diskUtilization_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> dtsInstanceID_ {};
-    // The number of DTS units (DUs).
+    // The number of DUs.
     shared_ptr<int64_t> du_ {};
-    // The DU usage. Unit: percentage.
+    // The DU utilization percentage.
     shared_ptr<int64_t> duUtilization_ {};
-    // The error code returned if the request failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The time when the cluster was created.
+    // The creation time.
     shared_ptr<int64_t> gmtCreated_ {};
-    // The time when the cluster stopped.
+    // The end time.
     shared_ptr<int64_t> gmtFinished_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The memory usage.
+    // The memory utilization.
     shared_ptr<int64_t> memUtilization_ {};
     // The number of nodes in the cluster.
     shared_ptr<int64_t> nodeCount_ {};
-    // The number of DUs that exceeds the upper limit.
+    // The number of oversold DUs.
     shared_ptr<int64_t> oversoldDu_ {};
-    // The ID of the region in which the instance resides.
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the cluster. Valid values:
+    // The cluster status. Valid values:
     // 
-    // *   **init**: The cluster is being initialized.
-    // *   **schedule**: The cluster is pending scheduling.
-    // *   **running**: The cluster is running.
-    // *   **upgrade**: The cluster is being upgraded.
-    // *   **downgrade**: The cluster is being downgraded.
-    // *   **locked**: The cluster is locked.
-    // *   **releasing**: The cluster is being released.
-    // *   **released**: The cluster is released.
+    // - **init**: initialization.
+    // - **schedule**: pending scheduling.
+    // - **running**: running.
+    // - **upgrade**: upgrading.
+    // - **downgrade**: downgrading.
+    // - **locked**: locked.
+    // - **releasing**: being released.
+    // - **released**: released.
     shared_ptr<string> state_ {};
     // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
     // The total number of CPU cores.
     shared_ptr<int64_t> totalCpuCore_ {};
-    // The total disk size. Unit: GB.
+    // The total disk size, in GB.
     shared_ptr<int64_t> totalDiskGBSize_ {};
-    // The total amount of memory. Unit: GB.
+    // The total memory size, in GB.
     shared_ptr<int64_t> totalMemGBSize_ {};
     // The number of used CPU cores.
     shared_ptr<int64_t> usedCpuCore_ {};
-    // The used disk size. Unit: GB.
+    // The used disk size, in GB.
     shared_ptr<int64_t> usedDiskGBSize_ {};
     // The number of used DUs.
     shared_ptr<int64_t> usedDu_ {};
-    // The amount of used memory. Unit: GB.
+    // The used memory size, in GB.
     shared_ptr<int64_t> usedMemGBSize_ {};
   };
 

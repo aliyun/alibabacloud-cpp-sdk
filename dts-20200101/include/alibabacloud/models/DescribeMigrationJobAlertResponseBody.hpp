@@ -130,29 +130,33 @@ namespace Models
 
 
   protected:
-    // Phone number of the contact for delay alarm.
+    // The mobile phone number of the contact for latency alerts.
     shared_ptr<string> delayAlertPhone_ {};
-    // Whether to monitor the delay status, return values:
-    // - **enable**: Yes. - **disable**: No.
+    // Indicates whether latency status monitoring is enabled. Valid values:
+    // 
+    // - **enable**: Enabled.
+    // - **disable**: Disabled.
     shared_ptr<string> delayAlertStatus_ {};
-    // The threshold for triggering a delayed alarm, in seconds.
+    // The threshold that triggers a latency alert. Unit: seconds.
     shared_ptr<string> delayOverSeconds_ {};
-    // Error code returned when the call fails.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // Indicates whether the call was successful.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // Phone number of the contact for abnormal alarm notifications
+    // The mobile phone number of the contact for error alerts.
     shared_ptr<string> errorAlertPhone_ {};
-    // Whether to monitor for abnormal status, return values:
-    // - **enable**: Yes. - **disable**: No.
+    // Indicates whether error status monitoring is enabled. Valid values:
+    // 
+    // - **enable**: Enabled.
+    // - **disable**: Disabled.
     shared_ptr<string> errorAlertStatus_ {};
-    // Data migration instance ID.
+    // The ID of the data migration instance.
     shared_ptr<string> migrationJobId_ {};
-    // Name of the data migration task.
+    // The name of the data migration task.
     shared_ptr<string> migrationJobName_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Whether the request was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

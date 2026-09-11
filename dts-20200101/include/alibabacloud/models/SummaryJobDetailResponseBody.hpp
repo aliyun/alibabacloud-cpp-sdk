@@ -87,18 +87,17 @@ namespace Models
 
 
     protected:
-      // The type of migrated or synchronized object. Valid values: **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type**, **Synonym**, **Trigger**, **Function**, **Procedure**, **Package**, **Default**, **Rule**, **PlanGuide**, and **Sequence**.
+      // The object type of the migration object. Valid values: **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type** (user-defined type), **Synonym**, **Trigger**, **Function**, **Procedure** (stored procedure), **Package**, **Default**, **Rule**, **PlanGuide** (execute plan), and **Sequence**.
       shared_ptr<string> key_ {};
-      // The state of the data migration or data synchronization task. Valid values:
-      // 
-      // *   **0**: The task was complete.
-      // *   **1**: The task was waiting to start.
-      // *   **2**: The task was being initialized.
-      // *   **3**: The task was in progress.
-      // *   **4**: An error occurred.
-      // *   **5**: The task failed.
+      // The migration status. Valid values:
+      // - **0**: finish (completed).
+      // - **1**: catched (waiting for synchronization).
+      // - **2**: init (initializing).
+      // - **3**: running (synchronizing).
+      // - **4**: warning (error).
+      // - **5**: failed (failed).
       shared_ptr<int32_t> state_ {};
-      // The total number of migrated or synchronized objects.
+      // The total number of migration objects.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -153,18 +152,16 @@ namespace Models
     shared_ptr<string> code_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the data migration or data synchronization task.
+    // The ID of the data migration or synchronization task.
     shared_ptr<string> jobId_ {};
-    // The returned information about the migrated or synchronized objects in arrays.
-    // 
-    // >  The arrays are in the following format: [{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}].
+    // The array of migration object information.
+    // > The array is returned in the following format: [{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}].
     shared_ptr<vector<SummaryJobDetailResponseBody::ProgressSummaryDetails>> progressSummaryDetails_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -84,11 +84,23 @@ namespace Models
 
 
   protected:
+    // The name of the document to be parsed.
+    // 
+    // > The name must include the file name extension. Currently, only .pdf is supported.
     shared_ptr<string> fileName_ {};
+    // The OSS URL of the document to be parsed.
+    // 
+    // > This parameter is automatically populated when you call this operation by using an SDK.
     shared_ptr<Darabonba::IStream> fileUrlObject_ {};
     shared_ptr<string> ragInstanceId_ {};
+    // The region ID of the document parsing task. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The output format of the parsing result after the task is complete. Valid values:
+    // 
+    // - **zip**: a ZIP compressed file.
+    // - **content**: plain text.
     shared_ptr<string> resultType_ {};
   };
 

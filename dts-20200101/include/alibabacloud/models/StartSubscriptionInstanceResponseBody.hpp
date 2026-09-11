@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The error code returned if the call failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
-    // The task ID. This parameter will be removed in the future.
+    // The task ID. This parameter is about to be deprecated.
     shared_ptr<string> taskId_ {};
   };
 

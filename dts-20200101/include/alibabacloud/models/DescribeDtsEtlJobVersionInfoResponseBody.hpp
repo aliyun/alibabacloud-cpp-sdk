@@ -161,21 +161,21 @@ namespace Models
 
 
     protected:
-      // The time when the ETL task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The timestamp when the ETL task was created.
       shared_ptr<string> createTime_ {};
-      // The ID of the creator.
+      // The creator ID.
       shared_ptr<string> creator_ {};
       // The username of the creator.
       shared_ptr<string> creatorName_ {};
-      // The ID of the DTS instance.
+      // The DTS instance ID.
       shared_ptr<string> dtsInstanceId_ {};
-      // The ID of the ETL task.
+      // The ETL task ID.
       shared_ptr<string> dtsJobId_ {};
       // The name of the ETL task.
       shared_ptr<string> dtsJobName_ {};
-      // The time when the ETL task was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The modification timestamp.
       shared_ptr<string> modifyTime_ {};
-      // The safe checkpoint of the ETL task.
+      // The safe checkpoint, which indicates the current position of the ETL task.
       shared_ptr<string> safeCheckpoint_ {};
       // The log level. Valid values: ERROR, WARN, INFO, and DEBUG.
       shared_ptr<string> status_ {};
@@ -266,25 +266,25 @@ namespace Models
 
 
   protected:
-    // The details of ETL tasks.
+    // The array of ETL task information objects.
     shared_ptr<vector<DescribeDtsEtlJobVersionInfoResponseBody::DtsEtlJobVersionInfos>> dtsEtlJobVersionInfos_ {};
-    // The dynamic error code.
+    // The dynamic error code associated with this request.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic part in the error message.
+    // The dynamic error message associated with this request.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code. This example indicates that the specified ETL task ID is invalid.
+    // The error code returned when the specified ETL task ID is invalid and the corresponding task cannot be found.
     shared_ptr<string> errCode_ {};
-    // The error message. This example indicates that the specified ETL task ID does not exist. In this case, the ETL task may have been deleted.
+    // The error message returned when the specified ETL task ID is invalid and the corresponding task cannot be found. The task may have been deleted.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The page number of the returned page. Default value: 1.
+    // The page number of the instance status list. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records returned on the current page.
+    // The number of records on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. If the call failed, false is returned.
+    // Indicates whether the request was successful. A value of false indicates a failure.
     shared_ptr<bool> success_ {};
     // The total number of records.
     shared_ptr<int32_t> totalRecordCount_ {};

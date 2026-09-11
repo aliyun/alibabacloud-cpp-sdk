@@ -94,17 +94,17 @@ namespace Models
 
 
   protected:
-    // The error code returned by the backend service. The number is incremented.
+    // The backend error code, which is an incrementing number.
     shared_ptr<string> code_ {};
-    // The dynamic part in the error message. This parameter is used to replace the %s variable in the **ErrMessage** parameter.
+    // The dynamic error message. This parameter is used to replace the %s variable in the **ErrMessage** parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

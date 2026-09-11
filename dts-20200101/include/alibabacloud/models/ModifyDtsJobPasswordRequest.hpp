@@ -112,36 +112,36 @@ namespace Models
 
 
   protected:
-    // The ID of the data migration, data synchronization, or change tracking instance.
-    // 
-    // >  You can call the [DescribeMigrationJobs](https://help.aliyun.com/document_detail/208139.html), [DescribeSubscriptionInstances](https://help.aliyun.com/document_detail/49442.html), or [DescribeSynchronizationJobs](https://help.aliyun.com/document_detail/49454.html) operation to query the instance ID
+    // The instance ID of the data migration, synchronization, or subscribe instance.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the DTS task. The DTS task can be a data migration, data synchronization, or change tracking task.
+    // The ID of the data migration, synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The database to which the password belongs. Valid values:
+    // The database to which the account belongs. Valid values:
     // 
-    // *   **src**: source database.
-    // *   **dest**: destination database.
+    // - **src**: the source database.
+    // - **dest**: the destination database.
     // 
-    // >  This parameter is required.
+    // > This parameter is required.
     shared_ptr<string> endpoint_ {};
-    // The new password.
-    // 
-    // >  This parameter is required and cannot be set to a value that is the same as the current password.
+    // The new password for the database account.
+    // > This parameter is required and must be different from the current password.
     shared_ptr<string> password_ {};
-    // The ID of the region where the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID of the instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Synchronization direction, with values:
-    // - **Forward** (default): Forward. - **Reverse**: Reverse.
-    shared_ptr<string> synchronizationDirection_ {};
-    // The account of the source or destination database.
+    // The synchronization direction. Valid values:
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
     // 
-    // >  This parameter is required.
+    // > - Default value: **Forward**.
+    // - This parameter is required only when the synchronization topology of the data synchronization instance is two-way synchronization.
+    shared_ptr<string> synchronizationDirection_ {};
+    // The username of the database account to modify.
     shared_ptr<string> userName_ {};
-    // Whether it is a seamless integration (Zero-ETL) task, the value can be:
-    // - **false**: No. - **true**: Yes.
+    // Specifies whether the node is a seamless integration (Zero-ETL) node. Valid values:
+    // - **true**
+    // - **false**.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

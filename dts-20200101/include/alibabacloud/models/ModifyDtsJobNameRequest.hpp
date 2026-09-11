@@ -75,22 +75,22 @@ namespace Models
 
 
   protected:
-    // The ID of the DTS task. The DTS task can be a data migration, data synchronization, or change tracking task.
+    // The ID of the data migration, data synchronization, or change tracking task.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
-    // The new name of the DTS task.
-    // 
-    // >  We recommend that you specify a descriptive name for easy identification. You do not need to use a unique name.
+    // The new name of the task.
+    // > Configure a descriptive name that has business meaning (uniqueness is not required) for easy identification.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobName_ {};
-    // The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID of the task. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource GroupId
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Whether it is a seamless integration (Zero-ETL) task, the value can be:
-    // - **false**: No. - **true**: Yes.
+    // Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
+    // - **true**: The node is a seamless integration (zero-ETL) node.
+    // - **false**: The node is not a seamless integration (zero-ETL) node.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

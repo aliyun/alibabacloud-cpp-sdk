@@ -66,18 +66,17 @@ namespace Models
 
 
   protected:
-    // The ID of the data migration, data synchronization, or change tracking task.
-    // 
-    // > *   Separate multiple task IDs with commas (,).
-    // > *   You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query task IDs.
+    // The IDs of the data migration, data synchronization, or change tracking tasks.
+    // > - You can specify up to 10 task IDs, separated by commas (,).
+    // - You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the DTS task IDs.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobIds_ {};
-    // The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The resource group ID.
+    // A special parameter for specific business scenarios. You do not need to configure this parameter.
     shared_ptr<string> resourceGroupId_ {};
-    // Is it ZeroETL task
+    // A special parameter for specific business scenarios. You do not need to configure this parameter.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

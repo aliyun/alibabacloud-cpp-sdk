@@ -130,29 +130,29 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter will be removed in the future.
+    // The error code. This parameter will be deprecated.
     shared_ptr<string> code_ {};
-    // The dynamic part in the error message. This parameter is used to replace %s in ErrMessage.
+    // The dynamic error message used to replace the %s variable in the ErrMessage parameter.
     // 
-    // > If JobId is invalid, JobId is returned for DynamicMessage, and the following message is returned for ErrMessage: The Value of Input Parameter %s is not valid.
+    // > For example, if ErrMessage returns The Value of Input Parameter %s is not valid and DynamicMessage returns JobId, the JobId request parameter is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
-    // The HTTP status codes returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The precheck task ID.
+    // The ID of the precheck task.
     shared_ptr<string> migrationJobId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The precheck task ID.
+    // The ID of the precheck task.
     shared_ptr<string> scheduleJobId_ {};
-    // The shortened name of the precheck item.
+    // The abbreviated names of the precheck items to suppress or unsuppress.
     shared_ptr<string> skipItems_ {};
-    // The precheck item name.
+    // The full names of the precheck items to suppress or unsuppress.
     shared_ptr<string> skipNames_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

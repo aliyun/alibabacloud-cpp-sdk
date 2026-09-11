@@ -66,19 +66,18 @@ namespace Models
 
 
   protected:
-    // The instance class of the two-way synchronization task. Valid values: **large**, **medium**, **micro**, and **small**.
-    // 
-    // >  For more information, see [Specifications of data synchronization instances](https://help.aliyun.com/document_detail/26605.html).
+    // The instance specification for two-way synchronization. Valid values: **large**, **medium**, **micro**, and **small**.
+    // > For more information about instance specifications, see [Specifications of data synchronization instances](https://help.aliyun.com/document_detail/26605.html).
     // 
     // This parameter is required.
     shared_ptr<string> instanceClass_ {};
-    // The ID of the data synchronization instance. You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+    // The instance ID. You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region in which the DTS instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

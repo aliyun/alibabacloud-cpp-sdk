@@ -218,13 +218,13 @@ namespace Models
 
 
         protected:
-          // The record of errors.
+          // The error record.
           shared_ptr<string> errData_ {};
-          // The error message.
+          // The specific error message.
           shared_ptr<string> errMsg_ {};
           // The error type.
           shared_ptr<string> errType_ {};
-          // The level of logs.
+          // The log level.
           shared_ptr<string> logLevel_ {};
         };
 
@@ -412,74 +412,71 @@ namespace Models
 
 
       protected:
-        // The time when the subtask was started. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+        // The time when the specific item was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
         shared_ptr<string> bootTime_ {};
-        // Indicates whether the subtask can be ignored if it fails. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether DTS supports skipping the item after it fails. Valid values:
+        // * **true**: Yes.
+        // * **false**: No.
         shared_ptr<bool> canSkip_ {};
-        // The number of the subtasks that are running.
+        // The number of subtasks that are currently running.
         shared_ptr<string> current_ {};
-        // The DDL statements.
+        // The DDL operation that was executed.
         shared_ptr<string> ddlSql_ {};
-        // The latency of incremental data migration or synchronization.
+        // The synchronization latency of incremental data migration or incremental data synchronization.
         shared_ptr<int32_t> delaySeconds_ {};
-        // The name of the database to which the object in the destination instance belongs.
+        // The name of the database to which the migration object belongs in the destination instance.
         shared_ptr<string> destSchema_ {};
-        // This parameter will be removed in the future.
+        // This parameter will be deprecated.
         shared_ptr<int64_t> diffRow_ {};
-        // The error details of the subtask failure.
+        // The error details when the specific item encounters an error.
         shared_ptr<string> errDetail_ {};
-        // The error message of the subtask failure.
+        // The error message when the specific item encounters an error.
         shared_ptr<string> errMsg_ {};
-        // The time when the subtask was complete. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+        // The completion time. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
         shared_ptr<string> finishTime_ {};
-        // The ID of the entry in the metadatabase.
+        // The ID of the record in the metastore.
         shared_ptr<string> id_ {};
-        // Indicates whether DTS ignores the subtask and proceeds with the next subtask. Valid values:
+        // Indicates whether the specific item is directly ignored and the next item is processed. Valid values:
         // 
-        // *   **N**: no.
-        // *   **Y**: yes.
+        // - **N**: No.
+        // - **Y**: Yes.
         shared_ptr<string> ignoreFlag_ {};
-        // The name of the subtask.
+        // The name of the specific item.
         shared_ptr<string> item_ {};
-        // The subtask ID.
+        // The task ID.
         shared_ptr<string> jobId_ {};
-        // The operations logs of errors.
+        // The execution logs of the error.
         shared_ptr<vector<JobProgress::Logs>> logs_ {};
-        // The name of the subtask.
+        // The name of the specific item.
         shared_ptr<string> names_ {};
-        // The serial number of the subtask.
+        // The item number.
         shared_ptr<int32_t> orderNum_ {};
-        // This parameter will be removed in the future.
+        // This parameter will be deprecated.
         shared_ptr<string> parentObj_ {};
-        // The method to fix a precheck failure.
+        // The repair method when the precheck does not pass.
         shared_ptr<string> repairMethod_ {};
-        // Indicates whether the subtask was ignored. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the item has been skipped. Valid values:
+        // - **true**: Yes.
+        // - **false**: No.
         shared_ptr<bool> skip_ {};
-        // The name of the database to which the object in the source instance belongs.
+        // The name of the database to which the migration object belongs in the source instance.
         shared_ptr<string> sourceSchema_ {};
-        // The status of the subtask. Valid values:
+        // The execution status of the subtask. Valid values:
         // 
-        // *   **NotStarted**: The subtask is not started.
-        // *   **Suspending**: The subtask is paused.
-        // *   **Checking**: The subtask is being checked.
-        // *   **Migrating**: The subtask is in progress. Data is being migrated.
-        // *   **Failed**: The subtask failed.
-        // *   **Catched**: The subtask is in progress. Incremental data is being migrated or synchronized.
-        // *   **Finished**: The subtask is complete.
+        // - **NotStarted**: not started.
+        // - **Suspending**: suspended.
+        // - **Checking**: being checked.
+        // - **Migrating**: being migrated.
+        // - **Failed**: failed.
+        // - **Catched**: incremental data migration or synchronization in progress.
+        // - **Finished**: completed.
         shared_ptr<string> state_ {};
-        // The sub-item progress of the subtask.
-        // 
-        // > If \\*\\*[]\\*\\* is returned, the subtask has no sub-item.
+        // The progress of sub-items of the specific item.
+        // > If <b>[]</b> is returned, no sub-items exist.
         shared_ptr<string> sub_ {};
-        // The names of the objects that are migrated or synchronized.
+        // The name of the target object.
         shared_ptr<string> targetNames_ {};
-        // The total number of subtasks.
+        // The total number of items.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -538,32 +535,32 @@ namespace Models
 
 
     protected:
-      // The task code that indicates the type of the subtask. Valid values:
+      // The task code that represents the queried subtask type. Valid values:
       // 
-      // *   **01**: precheck.
-      // *   **02**: schema migration or initial schema synchronization.
-      // *   **03**: full data migration or initial full data synchronization.
-      // *   **04**: incremental data migration or synchronization.
+      // - **01**: precheck.
+      // - **02**: schema migration or initial schema synchronization.
+      // - **03**: full data migration or initial full data synchronization.
+      // - **04**: incremental data migration or incremental data synchronization.
       shared_ptr<string> code_ {};
-      // The number of subtasks that failed.
+      // The number of tasks that are currently failing.
       shared_ptr<int32_t> errorItem_ {};
-      // The subtask ID.
+      // The task ID.
       shared_ptr<string> jobId_ {};
-      // The name of distributed subtasks associated with the subtask.
+      // The name of the distributed subtask associated with the task.
       shared_ptr<string> jobName_ {};
-      // The subtasks and the progress of each subtask.
+      // The list of specific items of the subtask and their execution progress.
       shared_ptr<vector<SubDistributedJobStatus::JobProgress>> jobProgress_ {};
-      // The status of the subtask. Valid values:
+      // The execution status of the subtask. Valid values:
       // 
-      // *   **NotStarted**: The subtask is not started.
-      // *   **Suspending**: The subtask is paused.
-      // *   **Checking**: The subtask is being checked.
-      // *   **Migrating**: The subtask is in progress. Data is being migrated.
-      // *   **Failed**: The subtask failed.
-      // *   **Catched**: The subtask is in progress. Incremental data is being migrated or synchronized.
-      // *   **Finished**: The subtask is complete.
+      // - **NotStarted**: not started.
+      // - **Suspending**: suspended.
+      // - **Checking**: being checked.
+      // - **Migrating**: being migrated.
+      // - **Failed**: failed.
+      // - **Catched**: incremental data migration or synchronization in progress.
+      // - **Finished**: completed.
       shared_ptr<string> state_ {};
-      // The total number of entries that are returned.
+      // The total number of returned data entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -653,15 +650,18 @@ namespace Models
 
 
       protected:
-        // Document address for China region.
+        // The documentation URL for the China region.
         shared_ptr<string> cnDocUrl_ {};
-        // Diagnostic code.
+        // The diagnosis code.
         shared_ptr<string> code_ {};
-        // Access point, the return values are: - **source**: source end. - **destination**: destination end. - **unknown**: unknown.
+        // The endpoint type. Valid values:
+        // - **source**: source endpoint.
+        // - **destination**: destination endpoint.
+        // - **unknown**: unknown.
         shared_ptr<string> endpointType_ {};
-        // Overseas region document address.
+        // The documentation URL for regions outside China.
         shared_ptr<string> internationalDocUrl_ {};
-        // Reserved field for diagnostic results, default is empty.
+        // The reserved field for the diagnosis result. This field is empty by default.
         shared_ptr<string> result_ {};
       };
 
@@ -684,9 +684,9 @@ namespace Models
 
 
     protected:
-      // Network diagnostic report
+      // The network diagnostic report.
       shared_ptr<vector<NetworkDiagnosisResult::Diagnosis>> diagnosis_ {};
-      // Diagnose model version.
+      // The version of the diagnosis model.
       shared_ptr<string> modelVersion_ {};
     };
 
@@ -813,13 +813,13 @@ namespace Models
 
 
       protected:
-        // The error message.
+        // The error information.
         shared_ptr<string> errData_ {};
-        // The error message that is returned when an error occurs on the subtask.
+        // The error message returned by DTS when the specific item encounters an error.
         shared_ptr<string> errMsg_ {};
         // The error type.
         shared_ptr<string> errType_ {};
-        // The level of logs.
+        // The log level.
         shared_ptr<string> logLevel_ {};
       };
 
@@ -1007,72 +1007,68 @@ namespace Models
 
 
     protected:
-      // The time when the subtask was started. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
+      // The time when the specific item was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
       shared_ptr<string> bootTime_ {};
-      // Indicates whether the subtask can be ignored if it fails.
+      // Indicates whether DTS supports skipping the specific item after it fails.
       shared_ptr<bool> canSkip_ {};
-      // The number of the subtasks that are running.
+      // The number of subtasks that are currently running.
       shared_ptr<string> current_ {};
-      // The DDL statements.
+      // The DDL operation that was executed.
       shared_ptr<string> ddlSql_ {};
-      // The latency of incremental data migration or synchronization.
-      // 
-      // > If you query data migration tasks, the unit of this parameter is milliseconds. If you query data synchronization tasks, the unit of this parameter is seconds.
+      // The synchronization latency of incremental data migration or incremental data synchronization.
       shared_ptr<int32_t> delaySeconds_ {};
-      // The name of the database to which the object in the destination instance belongs.
+      // The name of the database to which the migration object belongs in the destination instance.
       shared_ptr<string> destSchema_ {};
-      // This parameter will be removed in the future.
+      // This parameter will be deprecated.
       shared_ptr<int64_t> diffRow_ {};
-      // The error details of the subtask failure.
+      // The error details when the specific item encounters an error.
       shared_ptr<string> errDetail_ {};
-      // The error message of the subtask failure.
+      // The error message when the specific item encounters an error.
       shared_ptr<string> errMsg_ {};
-      // The time when the subtask was complete. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
+      // The time when the specific item was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>ZZ format in UTC.
       shared_ptr<string> finishTime_ {};
-      // The ID of the entry in the metadatabase.
+      // The ID of the record in the metastore.
       shared_ptr<string> id_ {};
-      // Indicates whether DTS ignores the subtask and proceeds with the next subtask. Valid values:
+      // Indicates whether the specific item is directly ignored and the next item is processed. Valid values:
       // 
-      // *   **N**: no.
-      // *   **Y**: yes.
+      // - **N**: No.
+      // - **Y**: Yes.
       shared_ptr<string> ignoreFlag_ {};
-      // The shortened name of the subtask.
+      // The short name of the specific item.
       shared_ptr<string> item_ {};
       // The subtask ID.
       shared_ptr<string> jobId_ {};
-      // The logs of subtask failures.
+      // The execution logs of the specific error.
       shared_ptr<vector<JobProgress::Logs>> logs_ {};
-      // The name of the subtask.
+      // The name of the specific item.
       shared_ptr<string> names_ {};
-      // The serial number of the subtask.
+      // The item number.
       shared_ptr<int32_t> orderNum_ {};
-      // This parameter will be removed in the future.
+      // This parameter will be deprecated.
       shared_ptr<string> parentObj_ {};
-      // The method to fix the subtask failure.
+      // The repair method when the specific item does not pass.
       shared_ptr<string> repairMethod_ {};
-      // Indicates whether the subtask is ignored if it fails. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether you have set to skip this specific item after it failed. Valid values:
+      // * **true**: Yes.
+      // * **false**: No.
       shared_ptr<bool> skip_ {};
-      // The name of the database to which the object in the source instance belongs.
+      // The name of the database to which the migration object belongs in the source instance.
       shared_ptr<string> sourceSchema_ {};
-      // The status of the subtask. Valid values:
+      // The execution progress status of the specific item. Valid values:
       // 
-      // *   **NotStarted**: The subtask is not started.
-      // *   **Checking**: The subtask is being checked.
-      // *   **Migrating**: The subtask is in progress. Data is being migrated.
-      // *   **Failed**: The subtask failed.
-      // *   **Warning**: The subtask encounters an exception.
-      // *   **Success**: The subtask is complete.
+      // - **NotStarted**: not started.
+      // - **Checking**: being checked.
+      // - **Migrating**: being migrated.
+      // - **Failed**: failed.
+      // - **Warning**: warning.
+      // - **Success**: completed.
       shared_ptr<string> state_ {};
-      // The sub-item progress of the subtask.
-      // 
-      // > If \\*\\*[]\\*\\* is returned, the subtask has no sub-items.
+      // The progress of sub-items of the specific item.
+      // > If <b>[]</b> is returned, no sub-items exist.
       shared_ptr<string> sub_ {};
-      // The names of the objects that are migrated or synchronized.
+      // The name of the object to be migrated or synchronized.
       shared_ptr<string> targetNames_ {};
-      // The total number of sub-items of the subtask.
+      // The total number of specific items in the subtask.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -1244,13 +1240,13 @@ namespace Models
 
 
         protected:
-          // Error record.
+          // The error record.
           shared_ptr<string> errData_ {};
-          // Specific error message.
+          // The specific error message.
           shared_ptr<string> errMsg_ {};
-          // Type of error.
+          // The error type.
           shared_ptr<string> errType_ {};
-          // The level of the log.
+          // The log level.
           shared_ptr<string> logLevel_ {};
         };
 
@@ -1438,56 +1434,65 @@ namespace Models
 
 
       protected:
-        // The specific project start time, formatted as <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+        // The time when the specific item was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
         shared_ptr<string> bootTime_ {};
-        // Whether DTS supports skipping a project after it fails. Return values: * **true**: Yes * **false**: No
+        // Indicates whether DTS supports skipping the item after it fails. Valid values:
+        // * **true**: Yes.
+        // * **false**: No.
         shared_ptr<bool> canSkip_ {};
-        // The number of currently running tasks.
+        // The number of tasks that are currently running.
         shared_ptr<string> current_ {};
-        // The DDL operation to be executed.
+        // The DDL operation that was executed.
         shared_ptr<string> ddlSql_ {};
-        // Task delay time
+        // The task latency.
         shared_ptr<int32_t> delaySeconds_ {};
-        // Name of the database to which the migration objects in the target instance belong.
+        // The name of the database to which the migration object belongs in the destination instance.
         shared_ptr<string> destSchema_ {};
         // This parameter will be deprecated.
         shared_ptr<int64_t> diffRow_ {};
-        // Details of the error when a specific project fails.
+        // The error details when the specific item encounters an error.
         shared_ptr<string> errDetail_ {};
-        // Error message prompt when a specific project encounters an error.
+        // The error message when the specific item encounters an error.
         shared_ptr<string> errMsg_ {};
-        // Task completion time, formatted as yyyy-MM-ddTHH:mm:ssZ (UTC time).
+        // The time when the task was completed. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
         shared_ptr<string> finishTime_ {};
-        // The ID of the record in the metadata database.
+        // The ID of the record in the metastore.
         shared_ptr<string> id_ {};
-        // Whether to directly ignore this specific item and move to the next one. Return values:
-        // - **N**: No. - **Y**: Yes.
+        // Indicates whether the specific item is directly ignored and the next item is processed. Valid values:
+        // 
+        // - **N**: No.
+        // - **Y**: Yes.
         shared_ptr<string> ignoreFlag_ {};
-        // Specific project name.
+        // The name of the specific item.
         shared_ptr<string> item_ {};
-        // Task ID.
+        // The task ID.
         shared_ptr<string> jobId_ {};
-        // Error execution log information.
+        // The execution logs of the error.
         shared_ptr<vector<JobProgress::Logs>> logs_ {};
-        // Specific project name.
+        // The name of the specific item.
         shared_ptr<string> names_ {};
-        // Project number.
+        // The item number.
         shared_ptr<int32_t> orderNum_ {};
         // This parameter will be deprecated.
         shared_ptr<string> parentObj_ {};
-        // The corresponding remediation method when the pre-check fails.
+        // The repair method when the precheck does not pass.
         shared_ptr<string> repairMethod_ {};
-        // After this specific item fails, do you set to skip this item. Return values: * **true**: Yes * **false**: No
+        // Indicates whether you have set to skip this specific item after it failed. Valid values:
+        // * **true**: Yes.
+        // * **false**: No.
         shared_ptr<bool> skip_ {};
-        // Name of the database to which the migration objects in the source instance belong.
+        // The name of the database to which the migration object belongs in the source instance.
         shared_ptr<string> sourceSchema_ {};
-        // Check result, the return value is: - **Failed**: Failure. - **Success**: Completed.
+        // The check result. Valid values:
+        // - **Failed**: failed.
+        // - **Success**: completed.
         shared_ptr<string> state_ {};
-        // Progress of sub-projects under a specific project. > If it returns <b>[]</b>, it indicates there are no sub-projects.
+        // The progress of sub-items of the specific item.
+        // > If <b>[]</b> is returned, no sub-items exist.
         shared_ptr<string> sub_ {};
-        // Name of the target object
+        // The name of the target object.
         shared_ptr<string> targetNames_ {};
-        // The total number of projects.
+        // The total number of items.
         shared_ptr<int32_t> total_ {};
       };
 
@@ -1596,33 +1601,47 @@ namespace Models
 
 
     protected:
-      // Task code, **01** represents pre-check.
+      // The task code. **01** indicates precheck.
       shared_ptr<string> code_ {};
-      // ID of the region to which the target network segment belongs.
+      // The region ID of the destination CIDR block.
       shared_ptr<string> destRegion_ {};
-      // Destination network segment.
+      // The destination CIDR block.
       shared_ptr<string> destRegionCidr_ {};
-      // The access method of the target instance, with return values as follows: - **ALIYUN**: Access method is **cloud instance**. - **OTHER**: Access method is **public IP**. - **ECS**: Access method is **ECS self-built database**. - **EXPRESS**: Access method is **Express Connect / VPN Gateway / Smart Gateway**. - **CEN**: Access method is **Cloud Enterprise Network (CEN)**. - **DG**: Access method is **Database Gateway (DG)**.
+      // The connection method of the destination instance. Valid values:
+      // - **ALIYUN**: **cloud instance**.
+      // - **OTHER**: **public IP address**.
+      // - **ECS**: **self-managed database on ECS**.
+      // - **EXPRESS**: **Express Connect/VPN Gateway/Smart Access Gateway**.
+      // - **CEN**: **Cloud Enterprise Network (CEN)**.
+      // - **DG**: **Database Gateway (DG)**.
       shared_ptr<string> destinationEndpointType_ {};
-      // Number of pre-check failed items
+      // The number of items that failed the precheck.
       shared_ptr<int32_t> errorItem_ {};
-      // The region ID of the instance\\"s running node.
+      // The region ID of the node where the instance runs.
       shared_ptr<string> hostRegion_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> jobId_ {};
-      // Task name.
+      // The task name.
       shared_ptr<string> jobName_ {};
-      // A list of specific items for the task and their execution progress.
+      // The list of specific items of the task and their execution progress.
       shared_ptr<vector<FullNetCheckJobStatus::JobProgress>> jobProgress_ {};
-      // The access method of the source instance, with return values as follows: - **ALIYUN**: Access method is **cloud instance**. - **OTHER**: Access method is **public IP**. - **ECS**: Access method is **ECS self-built database**. - **EXPRESS**: Access method is **dedicated line/VPN gateway/smart gateway**. - **CEN**: Access method is **Cloud Enterprise Network CEN**. - **DG**: Access method is **Database Gateway DG**.
+      // The connection method of the source instance. Valid values:
+      // - **ALIYUN**: **cloud instance**.
+      // - **OTHER**: **public IP address**.
+      // - **ECS**: **self-managed database on ECS**.
+      // - **EXPRESS**: **Express Connect/VPN Gateway/Smart Access Gateway**.
+      // - **CEN**: **Cloud Enterprise Network (CEN)**.
+      // - **DG**: **Database Gateway (DG)**.
       shared_ptr<string> sourceEndpointType_ {};
-      // ID of the region to which the source network segment belongs.
+      // The region ID of the source CIDR block.
       shared_ptr<string> srcRegion_ {};
-      // Source network segment.
+      // The source CIDR block.
       shared_ptr<string> srcRegionCidr_ {};
-      // Check result, the return value is: - **Failed**: Failure. - **Success**: Completed.
+      // The check result. Valid values:
+      // - **Failed**: failed.
+      // - **Success**: completed.
       shared_ptr<string> state_ {};
-      // Total number of items in the project.
+      // The total number of items.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -1749,13 +1768,13 @@ namespace Models
 
 
       protected:
-        // Error message
+        // The error information.
         shared_ptr<string> errData_ {};
-        // Error message from DTS when a specific project encounters an error.
+        // The error message returned by DTS when the specific item encounters an error.
         shared_ptr<string> errMsg_ {};
-        // Error type.
+        // The error type.
         shared_ptr<string> errType_ {};
-        // The level of the log.
+        // The log level.
         shared_ptr<string> logLevel_ {};
       };
 
@@ -1943,56 +1962,63 @@ namespace Models
 
 
     protected:
-      // The specific project start time, formatted as <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+      // The time when the specific item was started. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
       shared_ptr<string> bootTime_ {};
-      // Whether to support skipping this sub-item.
+      // Indicates whether the sub-item can be skipped.
       shared_ptr<bool> canSkip_ {};
-      // The number of currently running subtasks.
+      // The number of subtasks that are currently running.
       shared_ptr<string> current_ {};
-      // The DDL operation to be executed.
+      // The DDL operation that was executed.
       shared_ptr<string> ddlSql_ {};
-      // Task delay time
+      // The task latency.
       shared_ptr<int32_t> delaySeconds_ {};
-      // Name of the database to which the migration objects in the target instance belong.
+      // The name of the database to which the migration object belongs in the destination instance.
       shared_ptr<string> destSchema_ {};
       // This parameter will be deprecated.
       shared_ptr<int64_t> diffRow_ {};
-      // Error details when the project encounters an error.
+      // The error details when the item encounters an error.
       shared_ptr<string> errDetail_ {};
-      // Specific error message.
+      // The specific error message.
       shared_ptr<string> errMsg_ {};
-      // The end time of the evaluation task, formatted as <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC time).
+      // The time when the assessment task was completed. The time is displayed in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format in UTC.
       shared_ptr<string> finishTime_ {};
-      // The ID of this evaluation item in the database.
+      // The ID of the assessment item in the database.
       shared_ptr<string> id_ {};
-      // Whether to directly ignore this specific item and move to the next one. Return values:
-      // - **N**: No. - **Y**: Yes.
+      // Indicates whether the specific item is directly ignored and the next item is processed. Valid values:
+      // 
+      // - **N**: No.
+      // - **Y**: Yes.
       shared_ptr<string> ignoreFlag_ {};
-      // Name of the evaluation item
+      // The name of the assessment item.
       shared_ptr<string> item_ {};
-      // The ID of the evaluation task.
+      // The ID of the assessment task.
       shared_ptr<string> jobId_ {};
-      // Sub-assessment item.
+      // The sub-assessment items.
       shared_ptr<vector<AnalysisJobProgress::Logs>> logs_ {};
-      // Name of the evaluation item
+      // The name of the assessment item.
       shared_ptr<string> names_ {};
-      // The number of the evaluation item.
+      // The number of the assessment item.
       shared_ptr<int32_t> orderNum_ {};
       // This parameter will be deprecated.
       shared_ptr<string> parentObj_ {};
-      // Remediation method for the evaluation item.
+      // The repair method for the assessment item.
       shared_ptr<string> repairMethod_ {};
-      // If this evaluation item fails, whether you set to skip this item. Return values: * **true**: Yes * **false**: No
+      // Indicates whether you have set to skip this assessment item after it failed. Valid values:
+      // * **true**: Yes.
+      // * **false**: No.
       shared_ptr<bool> skip_ {};
-      // Name of the database to which the migration objects in the source instance belong.
+      // The name of the database to which the migration object belongs in the source instance.
       shared_ptr<string> sourceSchema_ {};
-      // The result of the evaluation, with return values being: - **Failed**: Failure. - **Success**: Success.
+      // The result of the assessment item. Valid values:
+      // - **Failed**: failed.
+      // - **Success**: completed.
       shared_ptr<string> state_ {};
-      // Progress of sub-projects under a specific project. > If it returns <b>[]</b>, it indicates there are no sub-projects.
+      // The progress of sub-items of the specific item.
+      // > If <b>[]</b> is returned, no sub-items exist.
       shared_ptr<string> sub_ {};
-      // Name of the target object
+      // The name of the target object.
       shared_ptr<string> targetNames_ {};
-      // The total number of specific items in the sub-task.
+      // The total number of specific items in the subtask.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -2138,54 +2164,54 @@ namespace Models
 
 
   protected:
-    // Display list of evaluation tasks
+    // The list of assessment tasks.
     shared_ptr<vector<DescribePreCheckStatusResponseBody::AnalysisJobProgress>> analysisJobProgress_ {};
-    // The task code that indicates the type of the subtask. Valid values:
+    // The task code that represents the queried subtask. Valid values:
     // 
-    // *   **01**: precheck.
-    // *   **02**: schema migration or initial schema synchronization.
-    // *   **03**: full data migration or initial full data synchronization.
-    // *   **04**: incremental data migration or synchronization.
+    // - **01**: precheck.
+    // - **02**: schema migration or initial schema synchronization.
+    // - **03**: full data migration or initial full data synchronization.
+    // - **04**: incremental data migration or incremental data synchronization.
     shared_ptr<string> code_ {};
-    // Number of failed evaluation items
+    // The number of items that failed the assessment.
     shared_ptr<int32_t> errorAnalysisItem_ {};
-    // The total number of subtask failures.
+    // The number of specific items that caused the subtask to fail.
     shared_ptr<int32_t> errorItem_ {};
-    // Network-wide inspection results.
+    // The full CIDR block check results.
     shared_ptr<vector<DescribePreCheckStatusResponseBody::FullNetCheckJobStatus>> fullNetCheckJobStatus_ {};
-    // The status code that is returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the data migration or synchronization task.
+    // The ID of the data migration or data synchronization task.
     shared_ptr<string> jobId_ {};
-    // The name of the subtask.
+    // The name of the queried subtask.
     shared_ptr<string> jobName_ {};
-    // The subtasks and the progress of each subtask.
+    // The list of specific items of the subtask and their execution progress.
     shared_ptr<vector<DescribePreCheckStatusResponseBody::JobProgress>> jobProgress_ {};
-    // Network diagnosis result
+    // The network diagnosis result.
     shared_ptr<DescribePreCheckStatusResponseBody::NetworkDiagnosisResult> networkDiagnosisResult_ {};
-    // The page number. Pages start from page 1. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The maximum number of records that can be displayed on the current page.
     shared_ptr<int64_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the subtask. Valid values:
+    // The execution status of the subtask. Valid values:
     // 
-    // *   **NotStarted**: The subtask is not started.
-    // *   **Suspending**: The subtask is paused.
-    // *   **Checking**: The subtask is being checked.
-    // *   **Migrating**: The subtask is in progress. Data is being migrated.
-    // *   **Failed**: The subtask failed.
-    // *   **Catched**: The subtask is in progress. Incremental data is being migrated or synchronized.
-    // *   **Finished**: The subtask is complete.
+    // - **NotStarted**: not started.
+    // - **Suspending**: suspended.
+    // - **Checking**: being checked.
+    // - **Migrating**: being migrated.
+    // - **Failed**: failed.
+    // - **Catched**: incremental data migration or synchronization in progress.
+    // - **Finished**: completed.
     shared_ptr<string> state_ {};
-    // The information about the distributed subtasks.
+    // The details of distributed subtasks.
     shared_ptr<vector<DescribePreCheckStatusResponseBody::SubDistributedJobStatus>> subDistributedJobStatus_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
     // The total number of subtasks.
     shared_ptr<int32_t> total_ {};
-    // The total number of entries that are returned.
+    // The total number of records.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

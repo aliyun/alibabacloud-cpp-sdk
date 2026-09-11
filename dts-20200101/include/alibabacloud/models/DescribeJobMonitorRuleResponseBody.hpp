@@ -150,33 +150,35 @@ namespace Models
 
 
     protected:
-      // The threshold that triggers the alert.
-      // 
-      // *   If the request parameter **Type** of the [CreateJobMonitorRule](https://help.aliyun.com/document_detail/212332.html) operation is set to **delay**, the unit of DelayRuleTime is seconds.
-      // *   If the request parameter **Type** of the [CreateJobMonitorRule](https://help.aliyun.com/document_detail/212332.html) operation is set to **full_timeout**, the unit of DelayRuleTime is hours.
+      // The threshold that triggers a latency alert. Unit: seconds.
       shared_ptr<int64_t> delayRuleTime_ {};
-      // Task ID.
+      // The task ID.
       shared_ptr<string> jobId_ {};
-      // The task type of the DTS instance, with values: - **normal**: Migration or synchronization task. - **full_check**: Associated full check task. - **etl_check**: Associated incremental check task.
+      // The task type of the DTS instance. Valid values:
+      // - **normal**: data migration or data synchronization task.
+      // - **full_check**: associated full data validation task.
+      // - **etl_check**: associated incremental data validation task.
       shared_ptr<string> jobType_ {};
-      // Alarm threshold.
+      // The alert threshold.
       shared_ptr<int32_t> noticeValue_ {};
-      // The statistical period for incremental validation tasks, in minutes.
-      // > Currently supported values are 1 minute, 5 minutes, 10 minutes, and 30 minutes.
+      // The statistical period of the incremental data validation task. Unit: minutes.
+      // 
+      // > Valid values: 1, 5, 10, and 30 minutes.
       shared_ptr<int32_t> period_ {};
-      // The mobile phone numbers that receive alert notifications. Multiple mobile numbers are separated by commas (,).
+      // The phone numbers of the contacts to be notified when an alert is triggered. Multiple phone numbers are separated by commas (,).
       shared_ptr<string> phone_ {};
       // Indicates whether the monitoring rule is enabled. Valid values:
       // 
-      // *   **Y**: The monitoring rule is enabled.
-      // *   **N**: The monitoring rule is disabled.
+      // - **Y**: enabled.
+      // - **N**: disabled.
       shared_ptr<string> state_ {};
-      // The number of cycles for the incremental validation task.
+      // The number of periods for the incremental data validation task.
       shared_ptr<int32_t> times_ {};
       // The type of the monitoring rule. Valid values:
-      // 
-      // *   **delay**: If the task latency reaches the threshold, an alert is triggered.
-      // *   **error**: If an exception occurs, an alert is triggered.
+      // - **delay**: latency alert.
+      // - **error**: anomaly alert.
+      // - **full_timeout**: alert for the runtime of the full data module.
+      // - **warn**: notification alert (the task succeeded but the result did not meet expectations).
       shared_ptr<string> type_ {};
     };
 
@@ -258,30 +260,28 @@ namespace Models
 
 
   protected:
-    // The error code. This parameter will be removed in the future.
+    // The error code. This parameter will be deprecated.
     shared_ptr<string> code_ {};
     // The ID of the data migration, data synchronization, or change tracking task.
     shared_ptr<string> dtsJobId_ {};
-    // The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
-    // 
-    // >  If the specified **DtsJobId** parameter is invalid, **The Value of Input Parameter %s is not valid** is returned for **ErrMessage** and **DtsJobId** is returned for **DynamicMessage**.
+    // The dynamic error message used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the call failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The monitoring rules of the DTS task.
+    // The monitoring rule information of the DTS task.
     shared_ptr<vector<DescribeJobMonitorRuleResponseBody::MonitorRules>> monitorRules_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // 
-    // *   **true**: The call was successful.
-    // *   **false**:The call failed.
+    // Indicates whether the request was successful. Valid values:
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
-    // The topics of all subtasks in the distributed change tracking task.
+    // The Kafka topics.
     shared_ptr<vector<string>> topics_ {};
   };
 

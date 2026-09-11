@@ -121,11 +121,11 @@ namespace Models
 
 
   protected:
-    // Target end adaptation to VPCNAT IP whitelist
+    // The IP whitelist of the destination adapted for VPC NAT.
     shared_ptr<string> destIpList_ {};
-    // The dynamic error code. This parameter will be removed in the future.
+    // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message. This parameter will be removed in the future.
+    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
     shared_ptr<string> dynamicMessage_ {};
     // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
@@ -133,13 +133,15 @@ namespace Models
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // IP address.
+    // The IP whitelist. Multiple IP addresses are separated by commas (,).
     shared_ptr<string> ipList_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Source adaptation to VPC NAT IP whitelist
+    // The IP whitelist of the source adapted for VPC NAT.
     shared_ptr<string> srcIpList_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request was successful. Valid values:
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

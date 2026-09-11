@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The error code returned if the call failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
-    // The ID of the task that changes the objects. You must specify the task ID when you call the DescribeSynchronizationObjectModifyStatus operation to query the status and progress of the task.
+    // The task ID. You can call the [DescribeSynchronizationObjectModifyStatus](https://help.aliyun.com/document_detail/49452.html) operation based on this parameter to query the status and progress of the synchronization object modification.
     shared_ptr<string> taskId_ {};
   };
 

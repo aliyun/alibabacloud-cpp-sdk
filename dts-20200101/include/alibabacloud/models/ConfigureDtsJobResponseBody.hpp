@@ -94,15 +94,15 @@ namespace Models
 
 
   protected:
-    // The ID of the data migration or synchronization instance.
+    // The instance ID of the migration or synchronization task.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the data migration or synchronization task.
+    // The ID of the migration or synchronization task.
     shared_ptr<string> dtsJobId_ {};
-    // The error code returned if the request failed.
+    // The error code returned if the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call fails.
     shared_ptr<string> errMessage_ {};
-    // The returned HTTP status codes.
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

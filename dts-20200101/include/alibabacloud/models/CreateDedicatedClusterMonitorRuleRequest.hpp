@@ -130,33 +130,33 @@ namespace Models
 
 
   protected:
-    // The alert threshold for CPU utilization. Unit: percentage.
+    // The CPU alert threshold. Unit: %.
     shared_ptr<int64_t> cpuAlarmThreshold_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The alert threshold for disk usage. Unit: percentage.
+    // The disk alert threshold. Unit: %.
     shared_ptr<int64_t> diskAlarmThreshold_ {};
-    // The alert threshold for DTS Unit (DU) usage. Unit: percentage.
+    // The DU alert threshold. Unit: %.
     shared_ptr<int64_t> duAlarmThreshold_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The alert threshold for memory usage. Unit: percentage.
+    // The memory alert threshold. Unit: %.
     shared_ptr<int64_t> memAlarmThreshold_ {};
-    // Specifies whether to enable the alert feature. Valid values:
+    // The alert switch. Valid values:
     // 
-    // *   **1**: enables the alert feature.
-    // *   **0**: disables the alert feature.
+    // - **1**: on.
+    // - **0**: off.
     shared_ptr<int64_t> noticeSwitch_ {};
     shared_ptr<string> ownerId_ {};
-    // The mobile phone number to which alerts are sent. Separate multiple mobile phone numbers with commas (,).
+    // The alert phone numbers. Separate multiple phone numbers with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> phones_ {};
-    // The ID of the region in which the Data Transmission Service (DTS) instance resides.
+    // The region in which the DTS instance resides.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. This parameter is a global parameter and not required.
+    // The resource group ID. This is a global parameter and does not need to be passed in for this API operation.
     shared_ptr<string> resourceGroupId_ {};
   };
 

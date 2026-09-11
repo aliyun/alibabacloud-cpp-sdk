@@ -635,32 +635,20 @@ namespace Models
   protected:
     shared_ptr<DescribeMigrationJobDetailResponseBody::DataInitializationDetailList> dataInitializationDetailList_ {};
     shared_ptr<DescribeMigrationJobDetailResponseBody::DataSynchronizationDetailList> dataSynchronizationDetailList_ {};
-    // Specifies whether to query the details of incremental data migration. Valid values:
-    // 
-    // *   **true**: yes
-    // 
-    // *   **false**: no
-    // 
-    // > Default value: **false**
-    shared_ptr<string> errCode_ {};
-    // The ID of the request.
-    shared_ptr<string> errMessage_ {};
     // The error code returned if the call failed.
+    shared_ptr<string> errCode_ {};
+    // The error message returned if the call failed.
+    shared_ptr<string> errMessage_ {};
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The maximum number of migration instances that can be displayed on one page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // Specifies whether to query the details of full data migration. Valid values:
-    // 
-    // *   **true**: yes
-    // 
-    // *   **false**: no
-    // 
-    // > Default value: **false**
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeMigrationJobDetailResponseBody::StructureInitializationDetailList> structureInitializationDetailList_ {};
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
-    // Resource group ID.
+    // The total number of records.
     shared_ptr<int64_t> totalRecordCount_ {};
   };
 

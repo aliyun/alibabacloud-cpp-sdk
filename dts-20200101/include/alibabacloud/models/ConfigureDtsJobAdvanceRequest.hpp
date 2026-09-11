@@ -627,242 +627,223 @@ namespace Models
 
 
   protected:
-    // The start offset of incremental data migration or incremental data synchronization. The value is a UNIX timestamp. Unit: seconds.
+    // The start position for incremental data migration or the synchronization checkpoint, in the format of a UNIX timestamp. Unit: seconds.
+    // 
+    // > If you specify the **Checkpoint** parameter, make sure that no other running DTS instance has the same source database as the destination DTS instance.
     shared_ptr<string> checkpoint_ {};
-    // The parameters for data verification, including the configurations for data verification and alerts. The value is a JSON string. For more information, see [DataCheckConfigure parameter description](https://help.aliyun.com/document_detail/459023.html).
+    // The parameters of the data validation node, in JSON character string format, such as parameter limits and alert configuration. For more information, see [DataCheckConfigure parameter description](https://help.aliyun.com/document_detail/459023.html).
     shared_ptr<string> dataCheckConfigure_ {};
-    // Specifies whether to perform full data migration or full data synchronization. Valid values:
+    // Specifies whether to perform full data migration or initial full data synchronization. Valid values:
     // 
-    // *   **true** (default)
-    // *   **false**
+    // - **true**: Yes. This is the default value.
+    // - **false**: No.
     // 
-    // > If **JobType** is set to **CHECK**, set this parameter to **false**.
+    // > If **JobType** is set to **CHECK**, this parameter can only be set to **false**.
     // 
     // This parameter is required.
     shared_ptr<bool> dataInitialization_ {};
-    // Specifies whether to perform incremental data migration or incremental data synchronization. Valid values:
+    // Specifies whether to perform incremental data migration or synchronization. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false**: No. This is the default value.
+    // - **true**: Yes.
     // 
-    // > If **JobType** is set to **CHECK**, set this parameter to **false**.
+    // > If **JobType** is set to **CHECK**, this parameter can only be set to **false**.
     // 
     // This parameter is required.
     shared_ptr<bool> dataSynchronization_ {};
-    // The objects that you want to migrate or synchronize. The value is a JSON string. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
+    // The objects to be migrated or synchronized, in JSON format. For more information, see [Objects of migration, synchronization, or change tracking tasks](https://help.aliyun.com/document_detail/209545.html).
+    // 
+    // - The maximum size of the DbList value is 1 MB.
+    // - If DbList contains filter conditions, the total length of DbList (including filter conditions) cannot exceed 1 MB.
+    // - For distributed tasks (such as migration or synchronization tasks with PolarDB-X 1.0 as the source), DbList is split based on physical shards and multiple subtasks are generated. The maximum size of DbList for each subtask is 1 MB.
     shared_ptr<string> dbList_ {};
-    // The ID of the DTS dedicated cluster on which the task runs.
+    // The ID of the DTS dedicated cluster.
     // 
-    // > If this parameter is specified, the task is scheduled to the specified DTS dedicated cluster.
+    // > If you specify the ID of a dedicated cluster, the task is scheduled to the corresponding cluster.
     shared_ptr<string> dedicatedClusterId_ {};
-    // Specifies whether to monitor task latency. Valid values:
+    // Specifies whether to monitor the latency status. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> delayNotice_ {};
-    // The mobile phone numbers to which latency-related alerts are sent. Separate multiple mobile phone numbers with commas (,).
-    // 
-    // > 
-    // 
-    // *   This parameter is available only for users of the China site (aliyun.com). Only mobile phone numbers in the Chinese mainland are supported. You can specify up to 10 mobile phone numbers.
-    // *   Users of the international site (alibabacloud.com) cannot receive alerts by using mobile phone numbers, but can configure alert rules for DTS tasks in the CloudMonitor console. For more information, see [Configure alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
+    // The mobile phone numbers for latency alerting of the contact. Separate multiple phone numbers with commas (,).
+    // > - This parameter is supported only on the China site. Only the Chinese mainland phone numbers are supported, and a maximum of 10 phone numbers can be specified.
+    // - The international site does not support phone alerting. You can only [configure alert rules for DTS tasks through the CloudMonitor platform to set alert rules](https://help.aliyun.com/document_detail/175876.html).
     shared_ptr<string> delayPhone_ {};
-    // The threshold for latency alerts. Unit: seconds. The value must be an integer. You can set the threshold based on your business requirements. To prevent unstable latency caused by network and database overloads, we recommend that you set the threshold to more than 10 seconds.
-    // 
-    // > If **DelayNotice** is set to **true**, this parameter is required.
+    // The threshold for triggering latency alerts. Unit: seconds. The value must be an integer. Set the threshold based on your business requirements. To avoid alert fluctuations caused by network conditions or database loads, set the threshold to 10 seconds or more.
+    // > This parameter is required when **DelayNotice** is set to **true**.
     shared_ptr<int64_t> delayRuleTime_ {};
-    // The path of the CA certificate that is used if the connection to the destination database is encrypted by using SSL.
+    // The path of the CA certificate for SSL connection to the destination database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> destCaCertificateOssUrl_ {};
-    // The key of the CA certificate that is used if the connection to the destination database is encrypted by using SSL.
+    // The password of the CA certificate for SSL connection to the destination database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> destCaCertificatePassword_ {};
-    // The path to the client certificate that is used if the connection to the destination database is encrypted by using SSL.
+    // The path of the client certificate for SSL connection to the destination database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> destClientCertOssUrl_ {};
-    // The path to the private key of the client certificate that is used if the connection to the destination database is encrypted by using SSL.
+    // The path of the client certificate private key for SSL connection to the destination database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> destClientKeyOssUrl_ {};
-    // The password of the private key of the client certificate that is used if the connection to the destination database is encrypted by using SSL.
+    // The password of the client certificate private key for SSL connection to the destination database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> destClientPassword_ {};
-    // VPCNAT destination main VSW
+    // The primary vSwitch of the VPC NAT gateway on the destination side.
     shared_ptr<string> destPrimaryVswId_ {};
-    // VPCNAT destination backup VSW
+    // The secondary vSwitch of the VPC NAT gateway on the destination side.
     shared_ptr<string> destSecondaryVswId_ {};
-    // The name of the database to which the objects are migrated or synchronized in the destination instance.
-    // 
-    // > 
-    // 
-    // *   This parameter is valid and required only if the destination database is a PolarDB for PostgreSQL (Compatible with Oracle) cluster, an AnalyticDB for PostgreSQL instance, a PostgreSQL database, a MaxCompute project, or a MongoDB database.
-    // *   If the destination instance is a MaxCompute project, you must specify the MaxCompute project ID.
+    // The name of the database to which the objects to be migrated belong in the destination instance.
+    // > - This parameter is available and required only when the destination instance or destination database type is PolarDB for PostgreSQL (Compatible with Oracle), AnalyticDB for PostgreSQL, PostgreSQL, MaxCompute, or MongoDB.
+    // - If the destination database is MaxCompute, specify the project of the MaxCompute instance.
     shared_ptr<string> destinationEndpointDataBaseName_ {};
-    // The type of the destination database. Valid values:
+    // The database type of the destination instance. Valid values:
+    // - **MYSQL**: MySQL database (including ApsaraDB RDS for MySQL and self-managed MySQL).
+    // - **MARIADB**: ApsaraDB RDS for MariaDB.
+    // - **PolarDB**: PolarDB for MySQL.
+    // - **POLARDB_O**: PolarDB for PostgreSQL (Compatible with Oracle).
+    // - **POLARDBX10**: PolarDB-X 1.0 (formerly DRDS).
+    // - **POLARDBX20**: cloud-native distributed database PolarDB-X 2.0.
+    // - **ORACLE**: self-managed Oracle.
+    // - **PostgreSQL**: PostgreSQL database (including ApsaraDB RDS for PostgreSQL and self-managed PostgreSQL).
+    // - **MSSQL**: SQL Server database (including ApsaraDB RDS for SQL Server and self-managed SQL Server).
+    // - **ADS**: AnalyticDB for MySQL 2.0.
+    // - **ADB30**: AnalyticDB for MySQL 3.0.
+    // - **MONGODB**: MongoDB database (including self-managed MongoDB and ApsaraDB for MongoDB).
+    // - **ROCKETMQ**: ApsaraMQ for RocketMQ.
+    // - **GREENPLUM**: AnalyticDB for PostgreSQL.
+    // - **KAFKA**: Kafka database (including MSMQ for Apache Kafka and self-managed Kafka).
+    // - **DATAHUB**: Alibaba Cloud DataHub.
+    // - **DB2**: self-managed Db2 for LUW.
+    // - **AS400**: Db2 for i.
+    // - **ODPS**: MaxCompute.
+    // - **Tablestore**: Tablestore.
+    // - **ELK**: Alibaba Cloud Elasticsearch.
+    // - **REDIS**: Redis database, including self-managed Redis and Tair (Redis® OSS-Compatible).
+    // - **LINDORM**: cloud-native multi-model database Lindorm.
     // 
-    // *   **MYSQL**: ApsaraDB RDS for MySQL instance or self-managed MySQL database.
-    // *   **MARIADB**: ApsaraDB RDS for MariaDB instance.
-    // *   **PolarDB**: PolarDB for MySQL cluster.
-    // *   **POLARDB_O**: PolarDB for PostgreSQL (Compatible with Oracle) cluster.
-    // *   **POLARDBX10**: PolarDB-X 1.0 instance (formerly DRDS).
-    // *   **POLARDBX20**: PolarDB-X 2.0 instance.
-    // *   **ORACLE**: self-managed Oracle database.
-    // *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL instance or self-managed PostgreSQL database.
-    // *   **MSSQL**: ApsaraDB RDS for SQL Server instance or self-managed SQL Server database.
-    // *   **ADS**: AnalyticDB for MySQL V2.0 cluster.
-    // *   **ADB30**: AnalyticDB for MySQL V3.0 cluster.
-    // *   **MONGODB**: ApsaraDB for MongoDB instance or self-managed MongoDB database.
-    // *   **GREENPLUM**: AnalyticDB for PostgreSQL instance.
-    // *   **KAFKA**: ApsaraMQ for Kafka instance or self-managed Kafka cluster.
-    // *   **DATAHUB**: DataHub project.
-    // *   **DB2**: self-managed Db2 for LUW database.
-    // *   **AS400**: Db2 for i database.
-    // *   **ODPS**: MaxCompute project.
-    // *   **Tablestore**: Tablestore instance.
-    // *   **ELK**: Elasticsearch cluster.
-    // *   **REDIS**: ApsaraDB for Redis instance or self-managed Redis database.
-    // 
-    // > 
-    // 
-    // *   Default value: **MYSQL**.
-    // *   If this parameter is set to **KAFKA**, **MONGODB**, or **PolarDB**, you must also specify the database information in Reserve. For more information, see [Reserve parameter](https://help.aliyun.com/document_detail/273111.html).
+    // > - Default value: **MYSQL**.
+    // - If the database type of the destination instance is set to **KAFKA**, **MONGODB**, or **PolarDB**, you must also specify additional information in the Reserve parameter. For the metric description, see [Reserve parameter description](https://help.aliyun.com/document_detail/273111.html).
     shared_ptr<string> destinationEndpointEngineName_ {};
     // The IP address of the destination instance.
-    // 
-    // > This parameter is valid and required only if **DestinationEndpointInstanceType** is set to **OTHER**, **EXPRESS**, **DG**, or **CEN**.
+    // > This parameter is available and required only when **DestinationEndpointInstanceType** is set to **OTHER**, **EXPRESS**, **DG**, or **CEN**.
     shared_ptr<string> destinationEndpointIP_ {};
-    // The destination instance ID.
+    // The ID of the destination instance.
     // 
-    // If the destination instance is an Alibaba Cloud database instance, you must specify the database instance ID. For example, if the destination instance is an ApsaraDB RDS for MySQL instance, you must specify the ID of the ApsaraDB RDS for MySQL instance.
+    //  If the destination instance is an Alibaba Cloud database (such as ApsaraDB RDS for MySQL), specify the ID of the Alibaba Cloud database instance (such as the ApsaraDB RDS for MySQL instance ID).
     // 
-    // If the destination instance is a self-managed database, the value of this parameter varies with the value of **DestinationEndpointInstanceType**.****
+    //  If the destination instance is a self-managed database, the value of this parameter varies based on the value of **DestinationEndpointInstanceType**. Example:
     // 
-    // *   If DestinationEndpointInstanceType is set to **ECS**, you must specify the ECS instance ID.
-    // *   If DestinationEndpointInstanceType is set to **DG**, you must specify the database gateway ID.
-    // *   If DestinationEndpointInstanceType is set to **EXPRESS** or **CEN**, you must specify the ID of the VPC that is connected to the source instance.
     // 
-    // > If DestinationEndpointInstanceType is set to **CEN**, you must also specify the ID of the CEN instance in Reserve. For more information, see [Reserve parameter](https://help.aliyun.com/document_detail/273111.html).
+    // - **ECS**: Specify the ID of the ECS instance.
+    // - **DG**: Specify the ID of the database gateway.
+    // - **EXPRESS** or **CEN**: Specify the ID of the VPC that is connected to the source database.
+    // 
+    // > If the value is **CEN**, you must also specify the CEN instance ID in the Reserve parameter. For the metric description, see [Reserve parameter description](https://help.aliyun.com/document_detail/273111.html).
     shared_ptr<string> destinationEndpointInstanceID_ {};
-    // The type of the destination instance. Valid values:
+    // The target instance type. Valid values:
     // 
-    // **Alibaba Cloud database instance**
+    // **Alibaba Cloud databases**
+    // - **RDS**: ApsaraDB RDS for MySQL, ApsaraDB RDS for SQL Server, ApsaraDB RDS for PostgreSQL, or ApsaraDB RDS for MariaDB.
+    // - **PolarDB**: PolarDB for MySQL.
+    // - **DISTRIBUTED_POLARDBX10**: PolarDB-X 1.0 (formerly DRDS).
+    // - **POLARDBX20**: PolarDB-X 2.0.
+    // - **REDIS**: Tair (Redis® OSS-Compatible).
+    // - **ADS**: AnalyticDB for MySQL 2.0 or 3.0.
+    // - **MONGODB**: ApsaraDB for MongoDB.
+    // - **ROCKETMQ**: ApsaraMQ for RocketMQ.
+    // - **GREENPLUM**: AnalyticDB for PostgreSQL.
+    // - **DATAHUB**: Alibaba Cloud DataHub platform.
+    // - **ELK**: Alibaba Cloud Elasticsearch.
+    // - **Tablestore**: Tablestore.
+    // - **ODPS**: MaxCompute.
+    // - **LINDORM**: cloud-native multi-model database Lindorm.
     // 
-    // *   **RDS**: ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, or ApsaraDB RDS for MariaDB instance.
-    // *   **PolarDB**: PolarDB for MySQL cluster.
-    // *   **DISTRIBUTED_POLARDBX10**: PolarDB-X 1.0 instance (formerly DRDS).
-    // *   **POLARDBX20**: PolarDB-X 2.0 instance.
-    // *   **REDIS**: ApsaraDB for Redis instance.
-    // *   **ADS**: AnalyticDB for MySQL V2.0 cluster or AnalyticDB for MySQL V3.0 cluster.
-    // *   **MONGODB**: ApsaraDB for MongoDB instance.
-    // *   **GREENPLUM**: AnalyticDB for PostgreSQL instance.
-    // *   **DATAHUB**: DataHub project.
-    // *   **ELK**: Elasticsearch cluster.
-    // *   **Tablestore**: Tablestore instance.
-    // *   **ODPS**: MaxCompute project.
+    // **Self-managed databases**
+    // - **OTHER**: self-managed database with a public IP address.
+    // - **ECS**: self-managed database hosted on ECS.
+    // - **EXPRESS**: self-managed database connected over Express Connect.
+    // - **CEN**: self-managed database connected over Cloud Enterprise Network (CEN).
+    // - **DG**: self-managed database connected over Database Gateway.
     // 
-    // **Self-managed database**
-    // 
-    // *   **OTHER**: self-managed database with a public IP address.
-    // *   **ECS**: self-managed database hosted on an ECS instance.
-    // *   **EXPRESS**: self-managed database connected over Express Connect.
-    // *   **CEN**: self-managed database connected over Cloud Enterprise Network (CEN).
-    // *   **DG**: self-managed database connected over Database Gateway.
-    // 
-    // > 
-    // 
-    // *   If the destination instance is a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you must connect the cluster to DTS as a self-managed database by using a public IP address or Express Connect and set this parameter to **OTHER** or **EXPRESS**.
-    // *   If the destination instance is an ApsaraMQ for Kafka instance, you must connect the instance to DTS as a self-managed database by using ECS or Express Connect and set this parameter to **ECS** or **EXPRESS**.
-    // *   For more information, see [Supported source and destination databases](https://help.aliyun.com/document_detail/176064.html).
-    // *   If the destination instance is a self-managed database, you must deploy the network environment for the database. For more information, see [Preparation overview](https://help.aliyun.com/document_detail/146958.html).
+    // > - If the destination instance is a PolarDB for PostgreSQL (Compatible with Oracle) cluster, set this parameter to **OTHER** or **EXPRESS** to connect the cluster as a self-managed database over a public IP address or Express Connect.
+    // - If the destination instance is MSMQ for Apache Kafka, set this parameter to **ECS** or **EXPRESS** to connect the instance as a self-managed database over ECS or Express Connect.
+    // - For information about supported source and destination database combinations, see <props="china">[Supported databases](https://help.aliyun.com/document_detail/131497.html)<props="intl">[Supported source and destination databases](https://help.aliyun.com/document_detail/176064.html).
+    // - If the destination instance is a self-managed database, you must also execute the required preparations. For more information, see [Preparations overview](https://help.aliyun.com/document_detail/146958.html).
     // 
     // This parameter is required.
     shared_ptr<string> destinationEndpointInstanceType_ {};
     // The SID of the Oracle database.
-    // 
-    // > This parameter is valid and required only if **DestinationEndpointEngineName** is set to **ORACLE** and the **Oracle** database is deployed in a non-RAC architecture.
+    // > This parameter is available and required only when **DestinationEndpointEngineName** is set to **Oracle** and the Oracle database is a non-RAC instance.
     shared_ptr<string> destinationEndpointOracleSID_ {};
-    // The ID of the Alibaba Cloud account to which the destination ApsaraDB RDS for MySQL instance belongs.
-    // 
-    // > 
-    // 
-    // *   This parameter is available only if the destination instance is an ApsaraDB RDS for MySQL instance.
-    // *   You can specify this parameter to migrate or synchronize data across different Alibaba Cloud accounts. In this case, you must specify **DestinationEndpointRole**.
+    // The Alibaba Cloud account ID to which the destination ApsaraDB RDS for MySQL instance belongs.
+    // > - This parameter can be configured only when the destination instance is ApsaraDB RDS for MySQL.
+    // - Specifying this parameter indicates you execute a cross-account data migration or synchronization. You must also specify the **DestinationEndpointRole** parameter.
     shared_ptr<string> destinationEndpointOwnerID_ {};
-    // The password of the account that is used to log on to the destination database.
-    // 
-    // > If the destination database is a MaxCompute project, you must specify the AccessKey secret of your Alibaba Cloud account. For information about how to obtain an AccessKey pair, see [Create an AccessKey pair](https://help.aliyun.com/document_detail/116401.html).
+    // The password of the destination database account.
+    // > If the destination database is MaxCompute, specify the AccessKey secret of the Alibaba Cloud account. For more information about how to obtain the AccessKey secret, see [Create an AccessKey pair](https://help.aliyun.com/document_detail/116401.html).
     shared_ptr<string> destinationEndpointPassword_ {};
-    // The port number of the destination instance.
-    // 
-    // > This parameter is valid and required only if the destination instance is a self-managed database.
+    // The database service port of the destination instance.
+    // > This parameter is available and required only when the destination instance is a self-managed database.
     shared_ptr<string> destinationEndpointPort_ {};
-    // The ID of the region in which the destination instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
-    // 
-    // > If the destination instance is an Alibaba Cloud database instance, this parameter is required.
+    // The region of the destination instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // > If the destination instance is an Alibaba Cloud database, this parameter is required.
     shared_ptr<string> destinationEndpointRegion_ {};
     // The name of the RAM role configured for the Alibaba Cloud account to which the destination instance belongs.
-    // 
-    // > This parameter is required if you migrate or synchronize data across Alibaba Cloud accounts. For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account DTS tasks](https://help.aliyun.com/document_detail/48468.html).
+    // > This parameter is required for cross-account data migration or synchronization. For information about the permissions and authorization method required for this role, see [Configure RAM authorization for cross-account data migration or synchronization](https://help.aliyun.com/document_detail/48468.html).
     shared_ptr<string> destinationEndpointRole_ {};
-    // The username of the account that is used to log on to the destination database.
-    // 
-    // > 
-    // 
-    // *   In most cases, this parameter is required.
-    // *   The permissions that are required for the database account vary with the migration or synchronization scenario. For more information, see [Prepare the database accounts for data migration](https://help.aliyun.com/document_detail/175878.html) or [Prepare the database accounts for data synchronization](https://help.aliyun.com/document_detail/213152.html).
-    // *   If the destination database is a MaxCompute project, you must specify the AccessKey ID of your Alibaba Cloud account. For information about how to obtain an AccessKey pair, see [Create an AccessKey pair](https://help.aliyun.com/document_detail/116401.html).
+    // The database account of the destination database.
+    // > - In most cases, you must specify the database account of the destination database.
+    // - The required permissions vary depending on the database being migrated or synchronized. For more information, see [Prepare database accounts for data migration](https://help.aliyun.com/document_detail/175878.html) and [Prepare database accounts for data synchronization](https://help.aliyun.com/document_detail/213152.html).
+    // - If the destination database is MaxCompute, specify the AccessKey ID of the Alibaba Cloud account. For more information about how to obtain the AccessKey ID, see [Create an AccessKey pair](https://help.aliyun.com/document_detail/116401.html).
     shared_ptr<string> destinationEndpointUserName_ {};
-    // Specifies whether the instance is a disaster recovery instance. Valid values:
+    // Specifies whether this is a disaster recovery instance. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> disasterRecoveryJob_ {};
-    // The environment tag of the DTS instance. Valid values:
+    // The environment label of the DTS instance. Valid values:
     // 
-    // *   **normal******
-    // *   **online******
+    // - **normal**: normal
+    // - **online**: online.
     shared_ptr<string> dtsBisLabel_ {};
-    // The ID of the data migration or synchronization instance.
-    // 
-    // > You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the instance ID.
+    // The ID of the migration or synchronization instance.
+    // > You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the instance ID.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the data migration or synchronization task.
-    // 
-    // > You can call the [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) operation to query the task ID.
+    // The ID of the migration or synchronization task.
+    // > You can call [DescribeDtsJobs](https://help.aliyun.com/document_detail/209702.html) to query the task ID.
     shared_ptr<string> dtsJobId_ {};
     // The name of the DTS instance.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobName_ {};
-    // Specifies whether to monitor task status. Valid values:
+    // Specifies whether to monitor the error status. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> errorNotice_ {};
-    // The mobile phone numbers to which status-related alerts are sent. Separate multiple mobile phone numbers with commas (,).
-    // 
-    // > 
-    // 
-    // *   This parameter is available only for users of the China site (aliyun.com). Only mobile phone numbers in the Chinese mainland are supported. You can specify up to 10 mobile phone numbers.
-    // *   Users of the international site (alibabacloud.com) cannot receive alerts by using mobile phone numbers, but can configure alert rules for DTS tasks in the CloudMonitor console. For more information, see [Configure alert rules for DTS tasks in the CloudMonitor console](https://help.aliyun.com/document_detail/175876.html).
+    // The mobile phone numbers for error alerting of the contact. Separate multiple phone numbers with commas (,).
+    // > - This parameter is supported only on the China site. Only the Chinese mainland phone numbers are supported, and a maximum of 10 phone numbers can be specified.
+    // - The international site does not support phone alerting. You can only [configure alert rules for DTS tasks through the CloudMonitor platform to set alert rules](https://help.aliyun.com/document_detail/175876.html).
     shared_ptr<string> errorPhone_ {};
-    // The URL of the Object Storage Service (OSS) bucket that stores the files related to the DTS task.
+    // The OSS URL of the task file.
     shared_ptr<Darabonba::IStream> fileOssUrlObject_ {};
-    // The type of the task. Valid values:
+    // The type of the node. Valid values:
     // 
-    // *   **MIGRATION**: data migration task.
-    // *   **SYNC**: data synchronization task.
-    // *   **CHECK**: data verification task. You must separately purchase a data verification instance.
+    // - **MIGRATION**: data migration.
+    // - **SYNC**: data synchronization.
+    // - **CHECK**: data validation (purchased separately).
     // 
-    // > If you set this parameter to **MIGRATION** or **SYNC**, you can also enable data verification in the data migration or synchronization task.
+    // > - If the value is **MIGRATION** or **SYNC**, you can also configure a data validation node within the migration or synchronization instance.
+    // - To configure a data validation node, you must also specify the **DataCheckConfigure** parameter.
     // 
     // This parameter is required.
     shared_ptr<string> jobType_ {};
-    // The maximum number of DUs.
+    // The maximum number of DTS Units (DUs).
     // 
     // > This parameter is supported only for serverless instances.
     shared_ptr<double> maxDu_ {};
@@ -871,158 +852,146 @@ namespace Models
     // > This parameter is supported only for serverless instances.
     shared_ptr<double> minDu_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID of the DTS instance. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to add more configurations of the source or destination instance to the DTS task. For example, you can specify the data storage format of the destination Kafka database and the CEN instance ID. For more information, see [Reserve parameter](https://help.aliyun.com/document_detail/273111.html).
+    // The reserved parameter of DTS, in JSON character string format. You can specify this parameter to add information about the source and destination databases (such as the data storage format of the destination Kafka database, the CEN instance ID, and ETL feature configurations). For more information, see [Reserve parameter description](https://help.aliyun.com/document_detail/273111.html).
     shared_ptr<string> reserve_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The name of the database from which the objects are migrated or synchronized in the source instance.
-    // 
-    // > This parameter is valid and required only if the source instance is a PolarDB for PostgreSQL (Compatible with Oracle) cluster, a PostgreSQL database, or a MongoDB database.
+    // The name of the database to which the objects to be migrated belong in the source instance.
+    // > This parameter is available and required only when the source instance or its database type is PolarDB for PostgreSQL (Compatible with Oracle), PostgreSQL, or MongoDB.
     shared_ptr<string> sourceEndpointDatabaseName_ {};
-    // The database type of the source instance.
+    // The database type of the source instance. Valid values:
+    // - **MYSQL**: MySQL database (including ApsaraDB RDS for MySQL and self-managed MySQL).
+    // - **MARIADB**: ApsaraDB RDS for MariaDB.
+    // - **PolarDB**: PolarDB for MySQL.
+    // - **POLARDB_O**: PolarDB for PostgreSQL (Compatible with Oracle).
+    // - **POLARDBX10**: PolarDB-X 1.0 (formerly DRDS).
+    // - **POLARDBX20**: cloud-native distributed database PolarDB-X 2.0.
+    // - **ADB30**: AnalyticDB for MySQL 3.0.
+    // - **ORACLE**: self-managed Oracle.
+    // - **POSTGRESQL**: PostgreSQL database (including ApsaraDB RDS for PostgreSQL and self-managed PostgreSQL).
+    // - **MSSQL**: SQL Server database (including ApsaraDB RDS for SQL Server and self-managed SQL Server).
+    // - **MONGODB**: MongoDB database (including self-managed MongoDB and ApsaraDB for MongoDB).
+    // - **DB2**: self-managed Db2 for LUW.
+    // - **AS400**: self-managed Db2 for i.
+    // - **DMSPOLARDB**: Data Management (DMS) logical database.
+    // - **HBASE**: self-managed HBase database.
+    // - **TERADATA**: Teradata database.
+    // - **TiDB**: TiDB database.
+    // - **REDIS**: Redis database, including self-managed Redis and Tair (Redis® OSS-Compatible).
+    // - **LINDORM**: Lindorm.
     // 
-    // *   **MYSQL**: ApsaraDB RDS for MySQL instance or self-managed MySQL database.
-    // *   **MARIADB**: ApsaraDB RDS for MariaDB instance.
-    // *   **PolarDB**: PolarDB for MySQL cluster.
-    // *   **POLARDB_O**: PolarDB for PostgreSQL (Compatible with Oracle) cluster.
-    // *   **POLARDBX10**: PolarDB-X 1.0 instance (formerly DRDS).
-    // *   **POLARDBX20**: PolarDB-X 2.0 instance.
-    // *   **ORACLE**: self-managed Oracle database.
-    // *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL instance or self-managed PostgreSQL database.
-    // *   **MSSQL**: ApsaraDB RDS for SQL Server instance or self-managed SQL Server database.
-    // *   **MONGODB**: ApsaraDB for MongoDB instance or self-managed MongoDB database.
-    // *   **DB2**: self-managed Db2 for LUW database.
-    // *   **AS400**: self-managed Db2 for i database.
-    // *   **DMSPOLARDB**: DMS logical database.
-    // *   **HBASE**: self-managed HBase database.
-    // *   **TERADATA**: Teradata database.
-    // *   **TiDB**: TiDB database.
-    // *   **REDIS**: ApsaraDB for Redis instance or self-managed Redis database.
     // 
-    // > 
-    // 
-    // *   Default value: **MYSQL**.
-    // *   If this parameter is set to **MONGODB**, you must also specify the architecture type of the MongoDB database in Reserve. For more information, see [Reserve parameter](https://help.aliyun.com/document_detail/273111.html).
+    // > - Default value: **MYSQL**.
+    //  - If the database type of the source instance is set to **MONGODB**, you must also specify additional information in the Reserve parameter. For the metric description, see [Reserve parameter description](https://help.aliyun.com/document_detail/273111.html).
     shared_ptr<string> sourceEndpointEngineName_ {};
     // The IP address of the source instance.
-    // 
-    // > This parameter is valid and required only if **SourceEndpointInstanceType** is set to **OTHER**, **EXPRESS**, **DG**, or **CEN**.
+    // > This parameter is available and required only when **SourceEndpointInstanceType** is set to **OTHER**, **EXPRESS**, **DG**, or **CEN**.
     shared_ptr<string> sourceEndpointIP_ {};
-    // The source instance ID.
+    // The ID of the source instance.
     // 
-    // If the source instance is an Alibaba Cloud database instance, you must specify the database instance ID. For example, if the source instance is an ApsaraDB RDS for MySQL instance, you must specify the ID of the ApsaraDB RDS for MySQL instance.
+    // If the source instance is an Alibaba Cloud database (such as ApsaraDB RDS for MySQL), specify the ID of the Alibaba Cloud database instance (such as the ApsaraDB RDS for MySQL instance ID).
     // 
-    // If the source instance is a self-managed database, the value of this parameter varies with the value of **SourceEndpointInstanceType**.****
+    // If the source instance is a self-managed database, the value of this parameter varies based on the value of **SourceEndpointInstanceType**. Example:
     // 
-    // *   If SourceEndpointInstanceType is set to **ECS**, you must specify the ECS instance ID.
-    // *   If SourceEndpointInstanceType is set to **DG**, you must specify the database gateway ID.
-    // *   If SourceEndpointInstanceType is set to **EXPRESS** or **CEN**, you must specify the ID of the virtual private cloud (VPC) that is connected to the source instance.
+    // - **ECS**: Specify the ID of the ECS instance.
+    // - **DG**: Specify the ID of the database gateway.
+    // - **EXPRESS** or **CEN**: Specify the ID of the VPC that is connected to the source database.
     // 
-    // > If SourceEndpointInstanceType is set to **CEN**, you must also specify the ID of the CEN instance in Reserve. For more information, see [Reserve parameter](https://help.aliyun.com/document_detail/273111.html).
+    // > If the value is **CEN**, you must also specify the CEN instance ID in the Reserve parameter. For the metric description, see [Reserve parameter description](https://help.aliyun.com/document_detail/273111.html).
     shared_ptr<string> sourceEndpointInstanceID_ {};
     // The type of the source instance. Valid values:
     // 
-    // **Alibaba Cloud database instance**
+    // **Alibaba Cloud databases**
     // 
-    // *   **RDS**: ApsaraDB RDS for MySQL instance, ApsaraDB RDS for SQL Server instance, ApsaraDB RDS for PostgreSQL instance, or ApsaraDB RDS for MariaDB instance
-    // *   **PolarDB**: PolarDB for MySQL cluster.
-    // *   **REDIS**: ApsaraDB for Redis instance.
-    // *   **DISTRIBUTED_POLARDBX10**: PolarDB-X 1.0 instance (formerly DRDS).
-    // *   **POLARDBX20**: PolarDB-X 2.0 instance.
-    // *   **MONGODB**: ApsaraDB for MongoDB instance.
-    // *   **DISTRIBUTED_DMSLOGICDB**: Data Management (DMS) logical database
+    // - **RDS**: ApsaraDB RDS for MySQL, ApsaraDB RDS for SQL Server, ApsaraDB RDS for PostgreSQL, or ApsaraDB RDS for MariaDB.
+    // - **PolarDB**: PolarDB for MySQL.
+    // - **ADS**: AnalyticDB for MySQL.
+    // - **REDIS**: Tair (Redis® OSS-Compatible).
+    // - **DISTRIBUTED_POLARDBX10**: PolarDB-X 1.0 (formerly DRDS).
+    // - **POLARDBX20**: PolarDB-X 2.0.
+    // - **MONGODB**: ApsaraDB for MongoDB.
+    // - **DISTRIBUTED_DMSLOGICDB**: Data Management (DMS) logical database.
+    // - **LINDORM**: Lindorm.
     // 
-    // **Self-managed database**
+    // **Self-managed databases**
+    // - **OTHER**: self-managed database with a public IP address.
+    // - **ECS**: self-managed database hosted on ECS.
+    // - **EXPRESS**: self-managed database connected over Express Connect.
+    // - **CEN**: self-managed database connected over Cloud Enterprise Network (CEN).
+    // - **DG**: self-managed database connected over Database Gateway.
     // 
-    // *   **OTHER**: self-managed database with a public IP address.
-    // *   **ECS**: self-managed database hosted on an ECS instance.
-    // *   **EXPRESS**: self-managed database connected over Express Connect.
-    // *   **CEN**: self-managed database connected over Cloud Enterprise Network (CEN).
-    // *   **DG**: self-managed database connected over Database Gateway.
     // 
-    // > 
-    // 
-    // *   If the source instance is a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you must connect the cluster to DTS as a self-managed database by using a public IP address or Express Connect and set this parameter to **OTHER** or **EXPRESS**.
-    // *   For more information, see [Supported sources and targets](https://help.aliyun.com/document_detail/176064.html).
-    // *   If the source instance is a self-managed database, you must deploy the network environment for the database. For more information, see [Preparation overview](https://help.aliyun.com/document_detail/146958.html).
+    // > - If the source instance is a PolarDB for PostgreSQL (Compatible with Oracle) cluster, set this parameter to **OTHER** or **EXPRESS** to connect the cluster as a self-managed database over a public IP address or Express Connect.
+    // - For information about supported source and destination database combinations, see [Supported databases](https://help.aliyun.com/document_detail/131497.html).
+    // - If the source instance is a self-managed database, you must complete the required preparations. For more information, see [Preparations overview](https://help.aliyun.com/document_detail/130607.html).
     // 
     // This parameter is required.
     shared_ptr<string> sourceEndpointInstanceType_ {};
     // The SID of the Oracle database.
-    // 
-    // > This parameter is valid and required only if **SourceEndpointEngineName** is set to **ORACLE** and the **Oracle** database is deployed in a non-Real Application Cluster (RAC) architecture.
+    // > This parameter is available and required only when **SourceEndpointEngineName** is set to **Oracle** and the Oracle database is a non-RAC instance.
     shared_ptr<string> sourceEndpointOracleSID_ {};
-    // The ID of the Alibaba Cloud account to which the source database belongs.
-    // 
-    // > You can specify this parameter to migrate or synchronize data across different Alibaba Cloud accounts. In this case, you must specify **SourceEndpointRole**.
+    // The Alibaba Cloud account ID to which the source instance belongs.
+    // > Specifying this parameter indicates you execute a cross-account data migration or synchronization. You must also specify the **SourceEndpointRole** parameter.
     shared_ptr<string> sourceEndpointOwnerID_ {};
-    // The password of the account that is used to log on to the source database.
+    // The password of the source database account.
     shared_ptr<string> sourceEndpointPassword_ {};
-    // The port number of the source instance.
-    // 
-    // > This parameter is required only if the source instance is a self-managed database.
+    // The database service port of the source instance.
+    // > This parameter is available and required only when the source instance is a self-managed database.
     shared_ptr<string> sourceEndpointPort_ {};
-    // The ID of the region in which the source instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
-    // 
-    // > If the source instance is an Alibaba Cloud database instance, this parameter is required.
+    // The region of the source instance. For details, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // > If the source instance is an Alibaba Cloud database, this parameter is required.
     shared_ptr<string> sourceEndpointRegion_ {};
-    // The name of the Resource Access Management (RAM) role configured for the Alibaba Cloud account to which the source instance belongs.
-    // 
-    // > This parameter is required if you migrate or synchronize data across different Alibaba Cloud accounts. For information about the permissions and authorization methods of the RAM role, see [Configure RAM authorization for cross-account DTS tasks](https://help.aliyun.com/document_detail/48468.html).
+    // The name of the RAM role configured for the Alibaba Cloud account to which the source instance belongs.
+    // > This parameter is required for cross-account data migration or synchronization. For information about the permissions and authorization method required for this role, see [Configure RAM authorization for cross-account data migration or synchronization](https://help.aliyun.com/document_detail/48468.html).
     shared_ptr<string> sourceEndpointRole_ {};
-    // The username of the account that is used to log on to the source database.
-    // 
-    // > 
-    // 
-    // *   In most cases, this parameter is required.
-    // *   The permissions that are required for the database account vary with the migration or synchronization scenario. For more information, see [Prepare the database accounts for data migration](https://help.aliyun.com/document_detail/175878.html) or [Prepare the database accounts for data synchronization](https://help.aliyun.com/document_detail/213152.html).
+    // The database account of the source database.
+    // > - In most cases, you must specify the database account of the source database.
+    // - The required permissions vary depending on the database being migrated or synchronized. For more information, see [Prepare database accounts for data migration](https://help.aliyun.com/document_detail/175878.html) and [Prepare database accounts for data synchronization](https://help.aliyun.com/document_detail/213152.html).
     shared_ptr<string> sourceEndpointUserName_ {};
-    // The ID of the vSwitch that is used for data shipping.
+    // The vSwitch instance ID for the data delivery link.
     shared_ptr<string> sourceEndpointVSwitchID_ {};
-    // The path of the certificate authority (CA) certificate that is used if the connection to the source database is encrypted by using SSL.
+    // The path of the CA certificate for SSL connection to the source database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> srcCaCertificateOssUrl_ {};
-    // The key of the CA certificate that is used if the connection to the source database is encrypted by using SSL.
+    // The password of the CA certificate for SSL connection to the source database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> srcCaCertificatePassword_ {};
-    // The path to the client certificate that is used if the connection to the source database is encrypted by using SSL.
+    // The path of the client certificate for SSL connection to the source database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> srcClientCertOssUrl_ {};
-    // The path to the private key of the client certificate that is used if the connection to the source database is encrypted by using SSL.
+    // The path of the client certificate private key for SSL connection to the source database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> srcClientKeyOssUrl_ {};
-    // The password of the private key of the client certificate that is used if the connection to the source database is encrypted by using SSL.
+    // The password of the client certificate private key for SSL connection to the source database.
     // 
     // > This feature is not supported. Do not specify this parameter.
     shared_ptr<string> srcClientPassword_ {};
-    // VPCNAT source end main VSW
+    // The primary vSwitch of the VPC NAT gateway on the source side.
     shared_ptr<string> srcPrimaryVswId_ {};
-    // VPCNAT source backup VSW
+    // The secondary vSwitch of the VPC NAT gateway on the source side.
     shared_ptr<string> srcSecondaryVswId_ {};
-    // Specifies whether to perform schema migration or schema synchronization. Valid values:
+    // Specifies whether to perform schema migration or initial schema synchronization. Valid values:
     // 
-    // *   **true** (default)
-    // *   **false**
+    // - **true**: Yes. This is the default value.
+    // - **false**: No.
     // 
-    // > If **JobType** is set to **CHECK**, set this parameter to **false**.
+    // > If **JobType** is set to **CHECK**, this parameter can only be set to **false**.
     // 
     // This parameter is required.
     shared_ptr<bool> structureInitialization_ {};
     // The synchronization direction. Valid values:
     // 
-    // *   **Forward**
-    // *   **Reverse**
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
     // 
-    // > 
-    // 
-    // *   The default value is **Forward**.
-    // *   The value **Reverse** takes effect only if the topology of the data synchronization task is two-way synchronization.
+    // > - Default value: **Forward**.
+    // - The value **Reverse** takes effect only when the synchronization topology of the synchronization task is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
   };
 

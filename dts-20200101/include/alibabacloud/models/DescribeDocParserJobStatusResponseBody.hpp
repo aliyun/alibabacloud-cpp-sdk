@@ -103,13 +103,28 @@ namespace Models
 
 
   protected:
+    // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The status of the DTS document parsing task. Valid values:
+    // 
+    // - **NotStarted**: not started.
+    // - **Running**: document parsing in progress.
+    // - **Suspending**: pausing.
+    // - **Failed**: document parsing failed.
+    // - **Finished**: document parsing completed.
     shared_ptr<string> status_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

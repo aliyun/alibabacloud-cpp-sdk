@@ -123,24 +123,24 @@ namespace Models
   protected:
     // The ID of the Alibaba Cloud account.
     shared_ptr<string> accountId_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // Ensures the idempotency of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the DTS dedicated cluster on which a DTS task runs.
+    // The ID of the DTS dedicated cluster.
     // 
     // This parameter is required.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The ID of the data migration or synchronization task.
+    // The ID of the data migration or data synchronization task.
     shared_ptr<string> dtsJobId_ {};
-    // The end of the time range to query. The value must be in the UNIX timestamp format. Unit: milliseconds.
+    // The end timestamp. Unit: milliseconds (ms).
     shared_ptr<int64_t> endTime_ {};
     shared_ptr<string> ownerID_ {};
-    // The number of the page to return. Specify the parameter to a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: **20**.
+    // The number of log entries per page. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query. The value must be in the UNIX timestamp format. Unit: milliseconds. If you do not specify this parameter, the data within the last seven days is returned by default.
+    // The start timestamp. If this parameter is not specified, data from the last seven days is returned by default. Unit: milliseconds (ms).
     shared_ptr<int64_t> startTime_ {};
   };
 

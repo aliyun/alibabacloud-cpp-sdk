@@ -84,16 +84,16 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is about to be deprecated.
     shared_ptr<string> accountId_ {};
     // The ID of the consumer group. You can call the [DescribeConsumerGroup](https://help.aliyun.com/document_detail/122886.html) operation to query the consumer group ID.
     // 
     // This parameter is required.
     shared_ptr<string> consumerGroupID_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The ID of the change tracking instance. You can call the **DescribeSubscriptionInstances** operation to query the instance ID.
     // 

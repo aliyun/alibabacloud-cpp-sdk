@@ -92,7 +92,7 @@ namespace Models
     protected:
       // The statistical value.
       shared_ptr<float> statistics_ {};
-      // The timestamp of the record. Unit: milliseconds.
+      // The record timestamp, in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
     };
 
@@ -187,41 +187,40 @@ namespace Models
 
 
   protected:
-    // The error code returned by the backend service. The number is incremented.
+    // The backend error code, which is an incrementing number.
     shared_ptr<string> code_ {};
-    // The monitoring statistics.
+    // The monitoring statistics information.
     shared_ptr<vector<DescribeMetricListResponseBody::DataPoints>> dataPoints_ {};
-    // The dynamic part in the error message. This parameter is used to replace the %s variable in the **ErrMessage** parameter.
+    // The dynamic error message, which is used to replace the %s placeholder in the **ErrMessage** error message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // The HTTP status code returned for an exception.
+    // The HTTP status code corresponding to the exception.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // *   **InternetOut**: the outbound traffic over the Internet. Unit: byte.
-    // *   **diskusage_utilization**: the disk usage.
-    // *   **IntranetInRate**: the inbound traffic over the internal network. Unit: byte.
-    // *   **InternetIn**: the inbound traffic from the Internet. Unit: byte.
-    // *   **cpu_total**: the CPU utilization.
-    // *   **memory_usedutilization**: the memory usage.
-    // *   **IntranetOutRate**: the outbound traffic over the internal network. Unit: byte.
+    // - **InternetOut**: outbound Internet traffic, in bytes.
+    // - **diskusage_utilization**: disk usage.
+    // - **IntranetInRate**: inbound internal network traffic, in bytes.
+    // - **InternetIn**: inbound Internet traffic, in bytes.
+    // - **cpu_total**: CPU utilization.
+    // - **memory_usedutilization**: memory utilization.
+    // - **IntranetOutRate**: outbound internal network traffic, in bytes.
     shared_ptr<string> metricName_ {};
-    // Indicates whether the metrics of the cluster or a node are queried. Valid values:
-    // 
-    // *   **CLUSTER**: The metrics of the cluster are queried.
-    // *   **NODE**: The metrics of a node are queried.
+    // Specifies whether to query a cluster or a node. Valid values:
+    // - **CLUSTER**: cluster.
+    // - **NODE**: node.
     shared_ptr<string> metricType_ {};
-    // The monitored object.
+    // The observation value.
     // 
-    // *   If the **MetricType** parameter is set to **NODE**, the value of this parameter is the ID of the node that is monitored.****
-    // *   If the **MetricType** parameter is set to **CLUSTER**, the value of this parameter is the ID of the dedicated cluster. You can obtain the ID by calling the ListDedicatedCluster operation.
+    // - If **MetricType** is set to **NODE**, the value is **nodeid**.
+    // - If **MetricType** is set to **CLUSTER**, the value is the ID of the dedicated cluster, which can be obtained by calling the ListDedicatedCluster operation.
     shared_ptr<string> param_ {};
-    // The monitoring interval. Unit: seconds. Minimum value: 15.
+    // The observation interval in seconds. The minimum interval is 15 seconds.
     shared_ptr<int64_t> period_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -75,10 +75,14 @@ namespace Models
 
 
   protected:
+    // The instance ID of the active geo-redundancy instance group.
     shared_ptr<string> instanceId_ {};
+    // The instance name of the active geo-redundancy instance group.
     shared_ptr<string> instanceName_ {};
     shared_ptr<string> ownerId_ {};
+    // The region ID of the task. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

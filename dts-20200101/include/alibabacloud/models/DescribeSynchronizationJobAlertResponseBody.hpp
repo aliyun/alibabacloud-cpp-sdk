@@ -140,39 +140,38 @@ namespace Models
 
 
   protected:
-    // The mobile phone numbers that receive latency-related alerts.
+    // The mobile phone number of the contact for latency alerts.
     shared_ptr<string> delayAlertPhone_ {};
-    // Indicates whether task latency is monitored. Valid values:
+    // Indicates whether latency monitoring is enabled. Valid values:
     // 
-    // *   **enable**: yes
-    // *   **disable**: no
+    // - **enable**: enabled.
+    // - **disable**: disabled.
     shared_ptr<string> delayAlertStatus_ {};
-    // The threshold for triggering latency alerts. Unit: seconds.
+    // The threshold that triggers a latency alert. Unit: seconds.
     shared_ptr<string> delayOverSeconds_ {};
     // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
     // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
-    // The mobile phone numbers that receive status-related alerts.
+    // The mobile phone number of the contact for error alerts.
     shared_ptr<string> errorAlertPhone_ {};
-    // Indicates whether task status is monitored. Valid values:
+    // Indicates whether error status monitoring is enabled. Valid values:
     // 
-    // *   **enable**: yes
-    // *   **disable**: no
+    // - **enable**: enabled.
+    // - **disable**: disabled.
     shared_ptr<string> errorAlertStatus_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
     // The synchronization direction. Valid values:
     // 
-    // *   **Forward**
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
     // 
-    // *   **Reverse**
-    // 
-    // > This parameter is returned only when the topology of data synchronization is two-way synchronization.
+    // > Default value: **Forward**.
     shared_ptr<string> synchronizationDirection_ {};
-    // The ID of the data synchronization instance.
+    // The instance ID of the data synchronization instance.
     shared_ptr<string> synchronizationJobId_ {};
     // The name of the data synchronization task.
     shared_ptr<string> synchronizationJobName_ {};

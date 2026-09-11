@@ -182,17 +182,16 @@ namespace Models
 
 
   protected:
-    // The error code returned if the call failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
     // The query token.
-    // 
-    // >  If a query does not return all results, you can specify the returned **NextToken** parameter in the next query to obtain more results.
+    // > If this request does not return all results, you can pass this **NextToken** value in the subsequent request to continue the query.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
     shared_ptr<ListTagResourcesResponseBody::TagResources> tagResources_ {};
   };

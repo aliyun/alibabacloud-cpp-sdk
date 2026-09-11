@@ -140,17 +140,30 @@ namespace Models
 
 
   protected:
+    // The time when the task was created, in the format of <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     shared_ptr<int64_t> createTime_ {};
+    // The dynamic error code. This parameter will be deprecated.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message, which replaces **%s** in the **ErrMessage** response parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
+    // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
+    // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
+    // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
+    // The active geo-redundancy instance group ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The region ID of the instance. For more information, see Supported regions.
     shared_ptr<string> regionId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

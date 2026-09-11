@@ -97,16 +97,16 @@ namespace Models
 
 
     protected:
-      // The details of the inconsistent data, whose value is a JSON string. The JSON string contains the following parameters:
+      // The specific inconsistency details, which is a JSON string.
       // 
-      // *   column: the name of the field.
-      // *   source: the value of the field in the source database.
-      // *   dest: the value of the field in the destination database.
-      // *   isPrimary: indicates whether the field is a primary key.
+      // - column: the field name.
+      // - source: the value in the source database.
+      // - dest: the value in the destination database.
+      // - isPrimary: indicates whether the field is a primary key.
       shared_ptr<string> diff_ {};
-      // The time when the data verification was performed.
+      // The time when the verification was performed.
       shared_ptr<string> gmtCreated_ {};
-      // The auto-increment primary key that is used to identify the data in a verification result.
+      // The auto-increment primary key that identifies a verification result record.
       shared_ptr<int64_t> id_ {};
     };
 
@@ -193,21 +193,21 @@ namespace Models
 
 
   protected:
-    // The name of the source database to which the table that contains inconsistent data belongs.
+    // The name of the database in the source instance that contains the table with inconsistent data.
     shared_ptr<string> dbName_ {};
-    // The number of data rows that contain inconsistent data.
+    // The number of rows with data inconsistency.
     shared_ptr<int64_t> diffCount_ {};
-    // The information about the inconsistent data.
+    // The inconsistency details.
     shared_ptr<vector<DescribeDataCheckTableDiffDetailsResponseBody::DiffDetails>> diffDetails_ {};
-    // The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
+    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response element.
     // 
-    // > For example, if the value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the value of the **DynamicMessage** parameter is **Type**, the specified **Type** parameter is invalid.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **Type**, the request parameter **Type** that you specified is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
@@ -215,7 +215,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The name of the table that contains inconsistent data in the source database.
+    // The name of the table in the source database that contains inconsistent data.
     shared_ptr<string> tbName_ {};
   };
 

@@ -104,18 +104,13 @@ namespace Models
 
 
     protected:
-      // The error message returned if schema synchronization failed.
+      // The error message returned when initial schema synchronization failed.
       shared_ptr<string> errorMessage_ {};
-      // The progress of schema synchronization. Unit: %.
+      // The progress of initial schema synchronization, in percentage.
       shared_ptr<string> percent_ {};
-      // The number of tables whose schemas have been synchronized.
+      // The number of tables for which initial schema synchronization has been completed.
       shared_ptr<string> progress_ {};
-      // The status of schema synchronization. Valid values:
-      // 
-      // *   **NotStarted**: Schema synchronization is not started.
-      // *   **Migrating**: Schema synchronization is in progress.
-      // *   **Failed**: Schema synchronization failed.
-      // *   **Finished**: Schema synchronization is completed.
+      // The initial schema synchronization status. Valid values: NotStarted: not started. Migrating: initializing. Failed: initialization failed. Finished: initialization completed.
       shared_ptr<string> status_ {};
     };
 
@@ -198,20 +193,17 @@ namespace Models
 
 
       protected:
-        // The precheck result. Valid values:
+        // The check result. Valid values:
         // 
-        // *   Success: The task passed the precheck.
-        // *   Failed: The task failed to pass the precheck.
+        // - Success: The precheck item was passed.
+        // - Failed: The precheck item was not passed.
         shared_ptr<string> checkStatus_ {};
-        // The error message returned if the task failed to pass the precheck.
-        // 
-        // >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
+        // The error message returned when the precheck item was not passed.
         shared_ptr<string> errorMessage_ {};
-        // The name of the precheck item.
+        // The precheck item.
         shared_ptr<string> itemName_ {};
         // The method to fix the precheck failure.
-        // 
-        // >  This parameter is returned only if the return value of the **CheckStatus** parameter is Failed.
+        // > This parameter is returned only when the value of the **CheckStatus** parameter is Failed.
         shared_ptr<string> repairMethod_ {};
       };
 
@@ -241,9 +233,9 @@ namespace Models
 
 
     protected:
-      // The result of each precheck item.
+      // The execution details of each precheck item.
       shared_ptr<vector<PrecheckStatus::Detail>> detail_ {};
-      // The precheck progress. Unit: %.
+      // The precheck progress, in percentage.
       shared_ptr<string> percent_ {};
       // The precheck status.
       shared_ptr<string> status_ {};
@@ -305,18 +297,20 @@ namespace Models
 
 
     protected:
-      // The synchronization latency, in seconds.
+      // The synchronization latency of incremental data synchronization, in seconds.
       shared_ptr<string> delay_ {};
-      // The error message returned if incremental data synchronization failed.
+      // The error message returned when incremental data synchronization failed.
       shared_ptr<string> errorMessage_ {};
-      // The progress of incremental data synchronization. Unit: %.
+      // The progress of incremental data synchronization, in percentage.
       shared_ptr<string> percent_ {};
-      // The status of incremental data synchronization. Valid values:
+      // The status of the synchronization object change. Valid values:
       // 
-      // *   **NotStarted**: Incremental data synchronization is not started.
-      // *   **Migrating**: Incremental data synchronization is in progress.
-      // *   **Failed**: Incremental data synchronization failed.
-      // *   **Finished**: Incremental data synchronization is completed.
+      // - **NotStarted**: not started.
+      // - **Prechecking**: running the precheck.
+      // - **PrecheckFailed**: the precheck failed.
+      // - **Migrating**: synchronizing.
+      // - **Failed**: synchronization failed.
+      // - **Finished**: synchronization completed.
       shared_ptr<string> status_ {};
     };
 
@@ -376,18 +370,13 @@ namespace Models
 
 
     protected:
-      // The error message returned if full data synchronization failed.
+      // The error message returned when initial full data synchronization failed.
       shared_ptr<string> errorMessage_ {};
-      // The progress of full data synchronization. Unit: %.
+      // The progress of initial full data synchronization, in percentage.
       shared_ptr<string> percent_ {};
-      // The number of records that have been synchronized during full data synchronization.
+      // The number of records that have been synchronized during initial full data synchronization.
       shared_ptr<string> progress_ {};
-      // The status of full data synchronization. Valid values:
-      // 
-      // *   **NotStarted**: Full data synchronization is not started.
-      // *   **Migrating**: Full data synchronization is in progress.
-      // *   **Failed**: Full data synchronization failed.
-      // *   **Finished**: Full data synchronization is completed.
+      // The status of the synchronization object change. Valid values: -**notstarted**: not started. -**migrating**: synchronizing. -**failed**: synchronization failed. -**finaciallocked**: financial lock.
       shared_ptr<string> status_ {};
     };
 
@@ -473,34 +462,33 @@ namespace Models
 
 
   protected:
-    // The status of full data synchronization.
+    // The initial full data synchronization status.
     shared_ptr<DescribeSynchronizationObjectModifyStatusResponseBody::DataInitializationStatus> dataInitializationStatus_ {};
-    // The status of incremental data synchronization.
-    // 
-    // >  This parameter and its sub-parameters will be removed in the future.
+    // The incremental data synchronization status.
+    // > This parameter set and its response parameters will be discontinued.
     shared_ptr<DescribeSynchronizationObjectModifyStatusResponseBody::DataSynchronizationStatus> dataSynchronizationStatus_ {};
-    // The error code returned if the call failed.
+    // The error code returned when the call failed.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the call failed.
+    // The error message returned when the call failed.
     shared_ptr<string> errMessage_ {};
-    // The error message returned if the task failed to modify the objects to be synchronized.
+    // The error message returned when the task to modify synchronization objects failed.
     shared_ptr<string> errorMessage_ {};
     // The precheck status.
     shared_ptr<DescribeSynchronizationObjectModifyStatusResponseBody::PrecheckStatus> precheckStatus_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The status of the task that changes the objects to be synchronized. Valid values:
+    // The status of the synchronization object change. Valid values:
     // 
-    // *   **NotStarted**: The task is not started.
-    // *   **Prechecking**: The task is being prechecked.
-    // *   **PrecheckFailed**: The task failed to pass the precheck.
-    // *   **Migrating**: The task is running.
-    // *   **Failed**: The task failed.
-    // *   **Finished**: The task is completed.
+    // - **NotStarted**: not started.
+    // - **Prechecking**: running the precheck.
+    // - **PrecheckFailed**: the precheck failed.
+    // - **Migrating**: synchronizing.
+    // - **Failed**: synchronization failed.
+    // - **Finished**: synchronization completed.
     shared_ptr<string> status_ {};
-    // The status of schema synchronization.
+    // The initial schema synchronization status.
     shared_ptr<DescribeSynchronizationObjectModifyStatusResponseBody::StructureInitializationStatus> structureInitializationStatus_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

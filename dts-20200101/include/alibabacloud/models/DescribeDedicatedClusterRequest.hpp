@@ -66,12 +66,12 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> dedicatedClusterId_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the region in which the instance resides.
+    // The region in which the instance resides.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

@@ -94,20 +94,18 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster.
-    // 
-    // >  You must specify one of the **InstanceId** and **DedicatedClusterId** parameters.
+    // The ID of the dedicated cluster.
+    // > Either **InstanceId** or **DedicatedClusterId** must be specified.
     shared_ptr<string> dedicatedClusterId_ {};
     // The name of the cluster.
     shared_ptr<string> dedicatedClusterName_ {};
-    // The ID of the instance.
-    // 
-    // >  You must specify one of the **InstanceId** and **DedicatedClusterId** parameters.
+    // The instance ID of the cluster.
+    // > Either the **InstanceId** or **DedicatedClusterId** parameter must be specified.
     shared_ptr<string> instanceId_ {};
     // The overcommit ratio. Unit: %.
     shared_ptr<int32_t> oversoldRatio_ {};
     shared_ptr<string> ownerId_ {};
-    // The ID of the region in which the Data Transmission Service (DTS) instance resides.
+    // The region in which the DTS instance resides.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

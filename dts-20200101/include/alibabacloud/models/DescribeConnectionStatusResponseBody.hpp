@@ -88,15 +88,15 @@ namespace Models
 
 
   protected:
-    // The connectivity of DTS servers to the destination database.
+    // The connectivity test result of the destination database.
     Darabonba::Json destinationConnectionStatus_ {};
     // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
     // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The connectivity of DTS servers to the source database.
+    // The connectivity test result of the source database.
     Darabonba::Json sourceConnectionStatus_ {};
     // Indicates whether the call was successful.
     shared_ptr<string> success_ {};

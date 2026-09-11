@@ -103,43 +103,37 @@ namespace Models
 
 
   protected:
-    // The ID of the data migration or data synchronization instance.
-    // 
-    // >  You must specify at least one of the DtsJobId and DtsInstanceId parameters.
+    // The migration or synchronization instance ID.
     shared_ptr<string> dtsInstanceId_ {};
-    // The ID of the data migration or data synchronization task.
-    // 
-    // >  You must specify at least one of the DtsJobId and DtsInstanceId parameters.
+    // The ID of the data migration or synchronization task.
     // 
     // This parameter is required.
     shared_ptr<string> dtsJobId_ {};
-    // The phase of the data migration task. Valid values:
-    // 
-    // *   **02**: The task is in the schema migration phase.
-    // *   **03**: The task is in the incremental migration phase.
+    // The migration phase. Valid values:
+    // - **02**: schema migration phase.
+    // - **03**: incremental data migration phase.
     // 
     // This parameter is required.
     shared_ptr<string> jobCode_ {};
-    // The region ID of the DTS instance. For more information, see [List of supported regions](https://help.aliyun.com/document_detail/141033.html).
+    // The region in which the DTS instance resides. For more information, see [Supported regions](https://help.aliyun.com/document_detail/141033.html).
     shared_ptr<string> regionId_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // The type of schema definition. Valid values:
     // 
-    // *   **before**: schema migration or initial schema synchronization
-    // *   **after**: DDL operations performed during incremental data migration or synchronization
+    // - **before**: schema migration or initial schema synchronization.
+    // - **after**: DDL operations during incremental data migration or synchronization.
     shared_ptr<string> structType_ {};
-    // The synchronization direction of the data synchronization task. Valid values:
+    // The synchronization direction. Valid values:
+    // - **Forward**: forward.
+    // - **Reverse**: reverse.
     // 
-    // *   **Forward**: Data is synchronized from the source database to the destination database.
-    // *   **Reverse**: Data is synchronized from the destination database to the source database.
-    // 
-    // > 
-    // *   Default value: **Forward**.
-    // *   You can set this parameter to **Reverse** to delete the reverse synchronization task only if the topology is two-way synchronization.
+    // > - Default value: **Forward**.
+    // - You can set this parameter to **Reverse** to release the reverse synchronization link only when the topology of the data synchronization instance is two-way synchronization.
     shared_ptr<string> synchronizationDirection_ {};
-    // Whether it is a seamless integration (Zero-ETL) task, the value can be:
-    // - **false**: No. - **true**: Yes.
+    // Specifies whether the node is a seamless integration (zero-ETL) node. Valid values:
+    // - **true**: The node is a seamless integration node.
+    // - **false**: The node is not a seamless integration node.
     shared_ptr<bool> zeroEtlJob_ {};
   };
 

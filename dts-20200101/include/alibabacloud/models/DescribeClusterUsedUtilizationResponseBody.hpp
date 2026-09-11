@@ -186,39 +186,39 @@ namespace Models
 
 
   protected:
-    // The error code returned by the backend service. The number is incremented.
+    // The internal error code. The value is incremented.
     shared_ptr<string> code_ {};
-    // The CPU utilization of the cluster. Unit: percentage.
+    // The CPU utilization of the cluster. Unit: %.
     shared_ptr<float> cpuTotal_ {};
-    // The ID of the cluster.
+    // The cluster ID.
     shared_ptr<string> dedicatedClusterId_ {};
-    // The total disk size of the cluster. Unit: GB.
+    // The total disk space of the cluster. Unit: GB.
     shared_ptr<float> diskTotal_ {};
     // The disk usage of the cluster. Unit: GB.
     shared_ptr<float> diskUsed_ {};
-    // The total number of DTS units (DUs).
+    // The total number of DUs.
     shared_ptr<int32_t> duTotal_ {};
-    // The usage of DUs.
+    // The number of used DUs.
     shared_ptr<int32_t> duUsed_ {};
-    // The dynamic part in the error message. This parameter is used to replace %s in the ErrMessage parameter.
+    // The dynamic error message. This parameter is used to replace the %s placeholder in the ErrMessage response parameter.
     shared_ptr<string> dynamicMessage_ {};
-    // The error code returned if the request failed.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The total amount of memory. A value of 0 is temporarily returned.
+    // The total memory. The value 0 is returned.
     shared_ptr<float> memoryTotal_ {};
-    // The memory usage. A value of 0 is temporarily returned.
+    // The memory usage. The value 0 is returned.
     shared_ptr<float> memoryUsed_ {};
-    // The memory usage.
+    // The memory usage percentage.
     shared_ptr<float> memoryUsedPercentage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
-    // The number of tasks that are in progress.
+    // The number of running tasks.
     shared_ptr<int32_t> taskRunning_ {};
   };
 

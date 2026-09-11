@@ -89,15 +89,15 @@ namespace Models
   protected:
     // The type of the tag key.
     shared_ptr<string> category_ {};
-    // The start page of the returned pages.
+    // The page number of the returned tag values.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of tag values returned on each page.
+    // The number of tag values returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The tag values that are associated with the tag key.
+    // The tag information.
     shared_ptr<vector<string>> tagValues_ {};
-    // The total number of tag values that are associated with the tag key.
+    // The total number of tag values that correspond to the tag key.
     shared_ptr<int32_t> totalCount_ {};
   };
 

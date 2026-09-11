@@ -66,16 +66,13 @@ namespace Models
 
 
   protected:
-    // The current password of the consumer group.
+    // The error code returned when the call fails.
     shared_ptr<string> errCode_ {};
-    // The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+    // The error message returned when the call fails.
     shared_ptr<string> errMessage_ {};
-    // The username of the consumer group. You can call the [DescribeConsumerGroup](https://help.aliyun.com/document_detail/122886.html) operation to query the username.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The new password of the consumer group.
-    // 
-    // *   A password must contain two or more of the following characters: uppercase letters, lowercase letters, digits, and special characters.
-    // *   A password must be 8 to 32 characters in length.
+    // Indicates whether the request was successful.
     shared_ptr<string> success_ {};
   };
 

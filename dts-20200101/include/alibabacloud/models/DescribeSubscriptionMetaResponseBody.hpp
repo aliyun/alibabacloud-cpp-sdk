@@ -105,13 +105,12 @@ namespace Models
 
 
     protected:
-      // The consumer offset of the subtask. It is a UNIX timestamp that is generated when the client consumes the first data record. Unit: seconds.
-      // 
-      // >  You can use a search engine to obtain a UNIX timestamp converter.
+      // The consumption checkpoint of the subtask, which is the timestamp of the first data record consumed by the client. The value is a UNIX timestamp. Unit: seconds.
+      // > You can use a search engine to find a UNIX timestamp converter.
       shared_ptr<int64_t> checkpoint_ {};
       // The objects of the subtask. For more information, see [Objects of DTS tasks](https://help.aliyun.com/document_detail/209545.html).
       shared_ptr<string> DBList_ {};
-      // The endpoint and port number of the change tracking instance.
+      // The network address and port number of the change tracking channel.
       shared_ptr<string> DProxyUrl_ {};
       // The consumer group ID of the subtask.
       shared_ptr<string> sid_ {};
@@ -166,15 +165,15 @@ namespace Models
 
 
   protected:
-    // The error code returned if the request failed.
+    // The error code returned if the call failed.
     shared_ptr<string> errCode_ {};
-    // The error message returned if the request failed.
+    // The error message returned if the call failed.
     shared_ptr<string> errMessage_ {};
     // The HTTP status code.
     shared_ptr<string> httpStatusCode_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The details of the subtasks.
+    // The data information about the change tracking subtasks.
     shared_ptr<vector<DescribeSubscriptionMetaResponseBody::SubscriptionMetaList>> subscriptionMetaList_ {};
     // Indicates whether the request was successful.
     shared_ptr<string> success_ {};

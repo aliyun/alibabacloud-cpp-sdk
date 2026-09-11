@@ -94,20 +94,23 @@ namespace Models
 
 
   protected:
-    // Check the task job ID.
+    // The ID of the data validation task.
     shared_ptr<string> checkJobId_ {};
-    // The type of the check
-    // >>1 full quantity, 2 incremental, 3 all
+    // The data validation method. Valid values:
+    // 
+    // - **1**: full data validation.
+    // - **2**: incremental data validation.
+    // - **3**: all.
     shared_ptr<int32_t> checkType_ {};
-    // Data migration instance ID, which can be queried by calling the **describemigrationjobs** API.
+    // The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the ID.
     shared_ptr<string> instanceId_ {};
-    // The name of the data migration or synchronization job.
+    // The name of the data migration or data synchronization task.
     shared_ptr<string> jobName_ {};
-    // The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page.
+    // The number of records per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // Resource group ID.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

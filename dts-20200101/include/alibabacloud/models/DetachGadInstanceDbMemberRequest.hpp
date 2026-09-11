@@ -75,10 +75,14 @@ namespace Models
 
 
   protected:
+    // The instance ID of the active geo-redundancy instance group.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> ownerId_ {};
+    // The region ID. Specify this parameter to indicate the region where the instance resides. For more information, see the list of supported regions.
     shared_ptr<string> regionId_ {};
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // The instance ID of the secondary role.
     shared_ptr<string> slaveDbInstanceId_ {};
   };
 
