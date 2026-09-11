@@ -43,6 +43,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(exportVersion, exportVersion_);
         DARABONBA_PTR_TO_JSON(failedReason, failedReason_);
         DARABONBA_PTR_TO_JSON(includeRules, includeRules_);
+        DARABONBA_PTR_TO_JSON(modifyTime, modifyTime_);
         DARABONBA_PTR_TO_JSON(modules, modules_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(ramRole, ramRole_);
@@ -63,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(exportVersion, exportVersion_);
         DARABONBA_PTR_FROM_JSON(failedReason, failedReason_);
         DARABONBA_PTR_FROM_JSON(includeRules, includeRules_);
+        DARABONBA_PTR_FROM_JSON(modifyTime, modifyTime_);
         DARABONBA_PTR_FROM_JSON(modules, modules_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(ramRole, ramRole_);
@@ -178,15 +180,15 @@ namespace Models
 
 
       protected:
-        // The module type where the exported template is stored. Two formats are supported: CloudRegistry and OSS. If the ExportToModule parameter is specified, both formats are returned. Otherwise, only CloudRegistry is returned.
+        // The module type where the exported template is located. Two formats are supported: CloudRegistry and OSS. If you specify the ExportToModule parameter, both formats are returned. Otherwise, only CloudRegistry is returned.
         shared_ptr<string> source_ {};
-        // The download URL of the module where the exported template is stored.
+        // The download address of the exported template in the module.
         // 
         // - If Source is set to CloudRegistry, the format is: "cloudregistry::iacservice//"
         // 
-        // - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
+        // - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
         shared_ptr<string> sourcePath_ {};
-        // The version of the module where the exported template is stored.
+        // The version of the module where the exported template is located.
         shared_ptr<string> version_ {};
       };
 
@@ -233,12 +235,12 @@ namespace Models
         // The name of the include rule for resource export. Valid values:
         // 
         // - ResourceType: required. The resource type. Example: ALIYUN::VPC::VPC.
-        // - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: ap-southeast-1.
+        // - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: cn-chengdu.
         // - \\<ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
         // - ResourceGroupId: the resource group ID. Example: rg-1234.
-        // - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: ap-southeast-1a.
+        // - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: cn-hangzhou-h.
         // 
-        // By default, the relationship between multiple filter conditions is AND. A resource is considered matched only if all filter conditions are met.
+        // By default, the relationship between multiple filter conditions is AND, which means a resource must match all filter conditions to be considered a match.
         shared_ptr<string> key_ {};
         // The values of the include rules for resource export.
         shared_ptr<vector<string>> values_ {};
@@ -293,14 +295,14 @@ namespace Models
       protected:
         // The module type in which the exported template is saved. Valid values:
         // 
-        // - OSS: OSS
+        // - OSS: OSS.
         // - Registry: Terraform Registry.
         shared_ptr<string> source_ {};
         // The path where the template content is saved.
         // 
         // - If Source is set to Registry, the format is: "cloudregistry::iacservice//"
         // 
-        // - If Source is set to OSS, the format is: "oss::https://.oss-ap-southeast-1.aliyuncs.com/xxx.zip".
+        // - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
         shared_ptr<string> sourcePath_ {};
         // The path of the state file that corresponds to the module.
         shared_ptr<string> statePath_ {};
@@ -308,9 +310,9 @@ namespace Models
 
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->description_ == nullptr && this->elapsedTime_ == nullptr && this->exportTaskId_ == nullptr && this->exportToModule_ == nullptr && this->exportVersion_ == nullptr
-        && this->failedReason_ == nullptr && this->includeRules_ == nullptr && this->modules_ == nullptr && this->name_ == nullptr && this->ramRole_ == nullptr
-        && this->status_ == nullptr && this->taskOutputPath_ == nullptr && this->terraformContext_ == nullptr && this->terraformProviderVersion_ == nullptr && this->terraformVersion_ == nullptr
-        && this->triggerStrategy_ == nullptr && this->variables_ == nullptr; };
+        && this->failedReason_ == nullptr && this->includeRules_ == nullptr && this->modifyTime_ == nullptr && this->modules_ == nullptr && this->name_ == nullptr
+        && this->ramRole_ == nullptr && this->status_ == nullptr && this->taskOutputPath_ == nullptr && this->terraformContext_ == nullptr && this->terraformProviderVersion_ == nullptr
+        && this->terraformVersion_ == nullptr && this->triggerStrategy_ == nullptr && this->variables_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -369,6 +371,13 @@ namespace Models
       inline vector<Task::IncludeRules> getIncludeRules() { DARABONBA_PTR_GET(includeRules_, vector<Task::IncludeRules>) };
       inline Task& setIncludeRules(const vector<Task::IncludeRules> & includeRules) { DARABONBA_PTR_SET_VALUE(includeRules_, includeRules) };
       inline Task& setIncludeRules(vector<Task::IncludeRules> && includeRules) { DARABONBA_PTR_SET_RVALUE(includeRules_, includeRules) };
+
+
+      // modifyTime Field Functions 
+      bool hasModifyTime() const { return this->modifyTime_ != nullptr;};
+      void deleteModifyTime() { this->modifyTime_ = nullptr;};
+      inline string getModifyTime() const { DARABONBA_PTR_GET_DEFAULT(modifyTime_, "") };
+      inline Task& setModifyTime(string modifyTime) { DARABONBA_PTR_SET_VALUE(modifyTime_, modifyTime) };
 
 
       // modules Field Functions 
@@ -448,7 +457,7 @@ namespace Models
 
 
     protected:
-      // The time when the task was created.
+      // The time when the task was created, in UTC in ISO 8601 format (YYYY-MM-DDTHH:mm:ssZ).
       shared_ptr<string> createTime_ {};
       // The task description.
       shared_ptr<string> description_ {};
@@ -456,7 +465,7 @@ namespace Models
       shared_ptr<int64_t> elapsedTime_ {};
       // The ID of the resource export task.
       shared_ptr<string> exportTaskId_ {};
-      // Saves the exported template as a module. If this parameter is not set, the template is automatically saved in the registry.
+      // Saves the exported template as a module. If this parameter is not set, the template is automatically saved in the Registry.
       shared_ptr<Task::ExportToModule> exportToModule_ {};
       // The resource export version.
       shared_ptr<string> exportVersion_ {};
@@ -464,7 +473,11 @@ namespace Models
       shared_ptr<string> failedReason_ {};
       // The values of the include rules for resource export.
       shared_ptr<vector<Task::IncludeRules>> includeRules_ {};
-      // The module configuration for the exported resources.
+      // The modification time.
+      // 
+      // Use the UTC time format: yyyy-MM-ddTHH:mmZ
+      shared_ptr<string> modifyTime_ {};
+      // The module configurations after resource export.
       shared_ptr<vector<Task::Modules>> modules_ {};
       // The task name.
       shared_ptr<string> name_ {};
@@ -484,12 +497,12 @@ namespace Models
       // The Terraform version.
       shared_ptr<string> terraformVersion_ {};
       // The trigger strategy. Valid values:
-      // - Auto: triggered automatically when rules are modified or the trigger strategy is changed to Auto.
-      // - Manual: triggered manually.
+      // - Auto: triggered when rules are modified or the trigger strategy is changed to Auto.
+      // - Manual: manually triggered.
       // 
       // Default value: Manual.
       shared_ptr<string> triggerStrategy_ {};
-      // The list of variables. Parameters in the exported resources are set as variables.
+      // The list of variables. The parameters of the exported resources are set as variables.
       shared_ptr<vector<Task::Variables>> variables_ {};
     };
 

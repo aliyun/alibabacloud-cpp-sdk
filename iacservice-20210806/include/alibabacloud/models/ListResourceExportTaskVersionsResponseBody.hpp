@@ -53,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(modules, modules_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(status, status_);
+        DARABONBA_PTR_TO_JSON(terraformProviderVersion, terraformProviderVersion_);
         DARABONBA_PTR_TO_JSON(variables, variables_);
       };
       friend void from_json(const Darabonba::Json& j, ExportTasks& obj) { 
@@ -68,6 +69,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(modules, modules_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(status, status_);
+        DARABONBA_PTR_FROM_JSON(terraformProviderVersion, terraformProviderVersion_);
         DARABONBA_PTR_FROM_JSON(variables, variables_);
       };
       ExportTasks() = default ;
@@ -121,7 +123,7 @@ namespace Models
 
 
       protected:
-        // The list of Terraform resource properties corresponding to the resource type.
+        // The list of Terraform resource properties that correspond to the resource type.
         shared_ptr<vector<string>> properties_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
@@ -176,11 +178,11 @@ namespace Models
       protected:
         // The module type where the exported template is located. Two formats are supported: CloudRegistry and OSS. If the ExportToModule parameter is specified, both formats are returned. Otherwise, only CloudRegistry is returned.
         shared_ptr<string> source_ {};
-        // The download address of the exported template within the module.
+        // The download address of the exported template in the module.
         // 
-        // - If Source is CloudRegistry, the format is: "cloudregistry::iacservice//"
+        // - If Source is set to CloudRegistry, the format is: "cloudregistry::iacservice//"
         // 
-        // - If Source is OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
+        // - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
         shared_ptr<string> sourcePath_ {};
         // The version of the module where the exported template is located.
         shared_ptr<string> version_ {};
@@ -234,7 +236,7 @@ namespace Models
         // - ResourceGroupId: the resource group ID. Example: rg-1234.
         // - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: cn-hangzhou-h.
         // 
-        // Multiple filter conditions have an AND relationship by default. A resource must meet all filter conditions to be considered a match.
+        // By default, multiple filter conditions are evaluated with an AND operator. A resource must match all filter conditions to be considered a match.
         shared_ptr<string> key_ {};
         // The values of the include rule for resource export.
         shared_ptr<vector<string>> values_ {};
@@ -298,14 +300,14 @@ namespace Models
         // 
         // - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
         shared_ptr<string> sourcePath_ {};
-        // The path of the State file corresponding to the module.
+        // The path of the State file that corresponds to the module.
         shared_ptr<string> statePath_ {};
       };
 
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->description_ == nullptr && this->elapsedTime_ == nullptr && this->exportTaskId_ == nullptr && this->exportToModule_ == nullptr && this->exportVersion_ == nullptr
         && this->failedReason_ == nullptr && this->includeRules_ == nullptr && this->managedTaskId_ == nullptr && this->modules_ == nullptr && this->name_ == nullptr
-        && this->status_ == nullptr && this->variables_ == nullptr; };
+        && this->status_ == nullptr && this->terraformProviderVersion_ == nullptr && this->variables_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -396,6 +398,13 @@ namespace Models
       inline ExportTasks& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // terraformProviderVersion Field Functions 
+      bool hasTerraformProviderVersion() const { return this->terraformProviderVersion_ != nullptr;};
+      void deleteTerraformProviderVersion() { this->terraformProviderVersion_ = nullptr;};
+      inline string getTerraformProviderVersion() const { DARABONBA_PTR_GET_DEFAULT(terraformProviderVersion_, "") };
+      inline ExportTasks& setTerraformProviderVersion(string terraformProviderVersion) { DARABONBA_PTR_SET_VALUE(terraformProviderVersion_, terraformProviderVersion) };
+
+
       // variables Field Functions 
       bool hasVariables() const { return this->variables_ != nullptr;};
       void deleteVariables() { this->variables_ = nullptr;};
@@ -406,7 +415,7 @@ namespace Models
 
 
     protected:
-      // The creation time in UTC, in the ISO 8601 format of YYYY-MM-DDTHH:mm:ssZ.
+      // The creation time in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
       shared_ptr<string> createTime_ {};
       // The description.
       shared_ptr<string> description_ {};
@@ -414,7 +423,7 @@ namespace Models
       shared_ptr<int64_t> elapsedTime_ {};
       // The ID of the resource export task.
       shared_ptr<string> exportTaskId_ {};
-      // The module to which the exported template is saved. If this parameter is not set, the template is automatically saved in the Registry.
+      // The module to which the exported template is saved. If this parameter is not specified, the template is automatically saved in the Registry.
       shared_ptr<ExportTasks::ExportToModule> exportToModule_ {};
       // The resource export version.
       shared_ptr<string> exportVersion_ {};
@@ -423,7 +432,7 @@ namespace Models
       // The list of include rules used when exporting resources.
       shared_ptr<vector<ExportTasks::IncludeRules>> includeRules_ {};
       shared_ptr<string> managedTaskId_ {};
-      // The module configuration of the exported resources.
+      // The module configurations of the exported resources.
       shared_ptr<vector<ExportTasks::Modules>> modules_ {};
       // The name of the export task.
       shared_ptr<string> name_ {};
@@ -434,6 +443,8 @@ namespace Models
       // - Errored: failed
       // - Canceled: canceled
       shared_ptr<string> status_ {};
+      // The Terraform Provider version.
+      shared_ptr<string> terraformProviderVersion_ {};
       // The list of variables. Parameters of exported resources are set as variables.
       shared_ptr<vector<ExportTasks::Variables>> variables_ {};
     };

@@ -1688,7 +1688,7 @@ namespace IaCService20210806
       Models::ListRegistryNamespacesResponse listRegistryNamespaces(const Models::ListRegistryNamespacesRequest &request);
 
       /**
-       * @summary Retrieves the list of versions for a resource export task.
+       * @summary Retrieves the list of resource export task versions.
        *
        * @description Single-user call frequency: 100 calls per second.
        *
@@ -1700,7 +1700,7 @@ namespace IaCService20210806
       Models::ListResourceExportTaskVersionsResponse listResourceExportTaskVersionsWithOptions(const string &exportTaskId, const Models::ListResourceExportTaskVersionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of versions for a resource export task.
+       * @summary Retrieves the list of resource export task versions.
        *
        * @description Single-user call frequency: 100 calls per second.
        *
