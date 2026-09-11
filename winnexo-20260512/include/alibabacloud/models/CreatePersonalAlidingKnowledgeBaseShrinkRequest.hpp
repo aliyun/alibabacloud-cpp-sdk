@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(kbUrl, kbUrl_);
       DARABONBA_PTR_TO_JSON(objectBindings, objectBindingsShrink_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_TO_JSON(syncConfig, syncConfigShrink_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(kbUrl, kbUrl_);
       DARABONBA_PTR_FROM_JSON(objectBindings, objectBindingsShrink_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_FROM_JSON(syncConfig, syncConfigShrink_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
     };
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->directoryId_ == nullptr
-        && this->kbName_ == nullptr && this->kbUrl_ == nullptr && this->objectBindingsShrink_ == nullptr && this->operatingObjectName_ == nullptr && this->syncConfigShrink_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->kbName_ == nullptr && this->kbUrl_ == nullptr && this->objectBindingsShrink_ == nullptr && this->operatingObjectName_ == nullptr && this->sourceTags_ == nullptr
+        && this->syncConfigShrink_ == nullptr && this->tenantId_ == nullptr; };
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline CreatePersonalAlidingKnowledgeBaseShrinkRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
 
 
+    // sourceTags Field Functions 
+    bool hasSourceTags() const { return this->sourceTags_ != nullptr;};
+    void deleteSourceTags() { this->sourceTags_ = nullptr;};
+    inline string getSourceTags() const { DARABONBA_PTR_GET_DEFAULT(sourceTags_, "") };
+    inline CreatePersonalAlidingKnowledgeBaseShrinkRequest& setSourceTags(string sourceTags) { DARABONBA_PTR_SET_VALUE(sourceTags_, sourceTags) };
+
+
     // syncConfigShrink Field Functions 
     bool hasSyncConfigShrink() const { return this->syncConfigShrink_ != nullptr;};
     void deleteSyncConfigShrink() { this->syncConfigShrink_ = nullptr;};
@@ -106,6 +115,8 @@ namespace Models
     shared_ptr<string> objectBindingsShrink_ {};
     // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
+    // The list of resource tag JSON strings applied to all child sources created during knowledge base synchronization.
+    shared_ptr<string> sourceTags_ {};
     // The synchronization settings.
     shared_ptr<string> syncConfigShrink_ {};
     // The tenant ID.

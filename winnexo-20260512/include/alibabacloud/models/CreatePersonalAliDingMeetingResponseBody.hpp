@@ -129,7 +129,6 @@ namespace Models
     // The unique identifier on the business system side, that is, the business ID.
     shared_ptr<string> sourceId_ {};
     // The signing status. Valid values:
-    // 
     // - CREATED: Created but not signed.
     // - SUCCESS: Signed.
     // - STOP: Terminated.

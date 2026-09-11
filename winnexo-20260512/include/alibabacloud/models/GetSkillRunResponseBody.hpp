@@ -201,11 +201,11 @@ namespace Models
     shared_ptr<string> errorCode_ {};
     // The error description. This parameter is returned only when the status is Failed.
     shared_ptr<string> errorMessage_ {};
-    // The task end time in ISO 8601 format. This parameter has a value only in desired states (Succeeded, Failed, or Cancelled).
+    // The task end time in ISO 8601 format. This parameter has a value only when the task is in a desired state (Succeeded, Failed, or Cancelled).
     shared_ptr<string> finishedAt_ {};
     // The execution log list. This parameter is returned only when IncludeLogs is set to true.
     shared_ptr<vector<Darabonba::Json>> logs_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The progress percentage. This parameter is meaningful only when the status is Running.
     shared_ptr<int64_t> progress_ {};

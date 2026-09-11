@@ -120,7 +120,7 @@ namespace Models
     shared_ptr<string> gmtCreate_ {};
     // The operation message.
     shared_ptr<string> message_ {};
-    // The resource name.
+    // The image name.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

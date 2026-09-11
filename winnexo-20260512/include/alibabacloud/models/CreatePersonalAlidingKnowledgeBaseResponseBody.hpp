@@ -118,7 +118,7 @@ namespace Models
     shared_ptr<string> directoryId_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
-    // The knowledge base URL (echoed from the request parameter for caller alignment).
+    // The knowledge base URL. This echoes the input parameter for the caller to verify alignment.
     shared_ptr<string> kbUrl_ {};
     // The response message.
     shared_ptr<string> message_ {};
@@ -130,8 +130,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The status. Valid values:
     // 
-    // - 200: Success.
-    // - 500: Failure.
+    // - 200: Succeeded.
+    // - 500: Failed.
     shared_ptr<string> status_ {};
   };
 

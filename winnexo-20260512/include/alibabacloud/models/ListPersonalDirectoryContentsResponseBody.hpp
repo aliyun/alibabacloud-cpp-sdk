@@ -151,7 +151,7 @@ namespace Models
         shared_ptr<string> objectName_ {};
         // The bound object type, such as customer or project.
         shared_ptr<string> objectType_ {};
-        // The display name of the object type, such as "Customer". This value is resolved from the graph schema. The value is null when the cache is missed.
+        // The display name of the object type, such as "Customer", resolved from the graph schema. The value is null when there is a cache miss.
         shared_ptr<string> objectTypeName_ {};
       };
 
@@ -285,15 +285,15 @@ namespace Models
       shared_ptr<string> name_ {};
       // The object bindings.
       shared_ptr<vector<Items::ObjectBindings>> objectBindings_ {};
-      // The number of resources in the FAILED state. This field is returned only when the top-level KB directory list is queried.
+      // The number of resources with the FAILED status. This parameter is returned only when the top-level KB directory is listed.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // The knowledge base affiliation type. Valid values: aliding_kb_doc (DingTalk knowledge base document), normal (common knowledge).
+      // The knowledge base (KB) ownership type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
       shared_ptr<string> sourceKind_ {};
-      // The number of resources in the READY state. This field is returned only when the top-level KB directory list is queried.
+      // The number of resources with the READY status. This parameter is returned only when the top-level KB directory is listed.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // The resource status. This field has a value only when itemType is resource.
+      // The resource status. This parameter has a value only when itemType is resource.
       shared_ptr<string> sourceStatus_ {};
-      // The total number of resources under the directory and its subdirectories. This field is returned only when the top-level KB directory list is queried.
+      // The total number of resources under the directory and its subdirectories. This parameter is returned only when the top-level KB directory is listed.
       shared_ptr<int64_t> sourceTotalCount_ {};
       // The data source type.
       shared_ptr<string> sourceType_ {};

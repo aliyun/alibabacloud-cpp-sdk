@@ -100,9 +100,9 @@ namespace Models
   protected:
     // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // The incremental information list.
+    // The list of incremental information.
     shared_ptr<vector<map<string, string>>> items_ {};
-    // The error description. This parameter is empty when the request succeeds.
+    // The error description. This parameter is empty if the request is successful.
     shared_ptr<string> message_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};

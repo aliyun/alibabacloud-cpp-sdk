@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<vector<RecommendNextActionsResponseBody::NextActions>> nextActions_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The meeting reservation title.
+    // The scheduled meeting title.
     shared_ptr<string> title_ {};
   };
 

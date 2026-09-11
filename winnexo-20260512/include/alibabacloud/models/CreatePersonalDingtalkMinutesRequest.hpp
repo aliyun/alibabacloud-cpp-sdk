@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(notes, notes_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
       DARABONBA_PTR_TO_JSON(shanjiUrl, shanjiUrl_);
+      DARABONBA_PTR_TO_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, CreatePersonalDingtalkMinutesRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(notes, notes_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
       DARABONBA_PTR_FROM_JSON(shanjiUrl, shanjiUrl_);
+      DARABONBA_PTR_FROM_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
     };
     CreatePersonalDingtalkMinutesRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
         && this->directoryId_ == nullptr && this->name_ == nullptr && this->notes_ == nullptr && this->operatingObjectName_ == nullptr && this->shanjiUrl_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->sourceTags_ == nullptr && this->tenantId_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline CreatePersonalDingtalkMinutesRequest& setShanjiUrl(string shanjiUrl) { DARABONBA_PTR_SET_VALUE(shanjiUrl_, shanjiUrl) };
 
 
+    // sourceTags Field Functions 
+    bool hasSourceTags() const { return this->sourceTags_ != nullptr;};
+    void deleteSourceTags() { this->sourceTags_ = nullptr;};
+    inline string getSourceTags() const { DARABONBA_PTR_GET_DEFAULT(sourceTags_, "") };
+    inline CreatePersonalDingtalkMinutesRequest& setSourceTags(string sourceTags) { DARABONBA_PTR_SET_VALUE(sourceTags_, sourceTags) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -94,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The description of the pipeline.
+    // The pipeline description.
     shared_ptr<string> description_ {};
     // The directory ID.
     shared_ptr<string> directoryId_ {};
@@ -106,10 +115,12 @@ namespace Models
     shared_ptr<string> notes_ {};
     // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // The original Shanji link (required).
+    // The original Shanji note link (required).
     // 
     // This parameter is required.
     shared_ptr<string> shanjiUrl_ {};
+    // A list of resource tag JSON strings.
+    shared_ptr<string> sourceTags_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };

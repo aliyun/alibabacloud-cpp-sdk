@@ -79,13 +79,13 @@ namespace Models
     shared_ptr<string> customPrompt_ {};
     // The output type: `conversation/skill/task`.
     shared_ptr<string> outputType_ {};
-    // The number of recent messages used to assemble contextual information.
+    // The number of recent messages used to assemble the contextual information.
     shared_ptr<int64_t> recentMessageCount_ {};
     // The session ID to filter by. If specified, returns all Active/Expired status information associated with this session.
     // 
     // This parameter is required.
     shared_ptr<string> sessionId_ {};
-    // The tenant ID. This is a common parameter. Pass it explicitly through winnexo-cli using --tenant-id.
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

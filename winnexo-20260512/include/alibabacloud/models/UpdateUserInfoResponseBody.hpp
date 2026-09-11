@@ -239,31 +239,31 @@ namespace Models
 
 
     protected:
-      // The user profile picture URL.
+      // The profile picture URL of the user.
       shared_ptr<string> avatar_ {};
       // Indicates whether the user is a super administrator.
       shared_ptr<bool> isAdmin_ {};
       // Indicates whether the current logged-in tenant is a system tenant.
       shared_ptr<bool> isSystemTenant_ {};
-      // The user language preference.
+      // The language preference of the user.
       shared_ptr<string> languagePreference_ {};
-      // The username.
+      // The name of the user.
       shared_ptr<string> name_ {};
-      // The user service description.
+      // The service description of the user.
       shared_ptr<string> offering_ {};
-      // The parsed user service result in JSON format.
+      // The parsed result of the user service in JSON format.
       shared_ptr<string> parsedOffering_ {};
-      // The user role.
+      // The role of the user.
       shared_ptr<string> profileRole_ {};
-      // The user role description.
+      // The role description of the user.
       shared_ptr<string> profileRoleInfo_ {};
-      // The user self-introduction.
+      // The self-introduction of the user.
       shared_ptr<string> selfIntroduction_ {};
-      // The current tenant ID.
+      // The ID of the current tenant.
       shared_ptr<int64_t> tenantId_ {};
       // The list of tenants to which the user belongs.
       shared_ptr<vector<User::TenantList>> tenantList_ {};
-      // The current tenant name.
+      // The name of the current tenant.
       shared_ptr<string> tenantName_ {};
       // The user code.
       shared_ptr<string> userCode_ {};

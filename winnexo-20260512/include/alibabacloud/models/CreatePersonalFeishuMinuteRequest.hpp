@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(minuteToken, minuteToken_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
     friend void from_json(const Darabonba::Json& j, CreatePersonalFeishuMinuteRequest& obj) { 
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(minuteToken, minuteToken_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
     };
     CreatePersonalFeishuMinuteRequest() = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->credentialId_ == nullptr
         && this->description_ == nullptr && this->directoryId_ == nullptr && this->minuteToken_ == nullptr && this->name_ == nullptr && this->operatingObjectName_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->sourceTags_ == nullptr && this->tenantId_ == nullptr; };
     // credentialId Field Functions 
     bool hasCredentialId() const { return this->credentialId_ != nullptr;};
     void deleteCredentialId() { this->credentialId_ = nullptr;};
@@ -86,6 +88,13 @@ namespace Models
     inline CreatePersonalFeishuMinuteRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
 
 
+    // sourceTags Field Functions 
+    bool hasSourceTags() const { return this->sourceTags_ != nullptr;};
+    void deleteSourceTags() { this->sourceTags_ = nullptr;};
+    inline string getSourceTags() const { DARABONBA_PTR_GET_DEFAULT(sourceTags_, "") };
+    inline CreatePersonalFeishuMinuteRequest& setSourceTags(string sourceTags) { DARABONBA_PTR_SET_VALUE(sourceTags_, sourceTags) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -98,7 +107,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> credentialId_ {};
-    // The resource description.
+    // The schedule description.
     shared_ptr<string> description_ {};
     // The directory ID.
     shared_ptr<string> directoryId_ {};
@@ -106,12 +115,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> minuteToken_ {};
-    // The resource name.
+    // The image name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
+    // The list of resource tag JSON strings.
+    shared_ptr<string> sourceTags_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };

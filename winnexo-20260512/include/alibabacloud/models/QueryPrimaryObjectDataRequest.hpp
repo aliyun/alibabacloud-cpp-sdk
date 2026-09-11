@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The keyword for searching. The keyword is matched against the name field by default. If the schema defines a description field, the keyword is also matched against the description field.
+    // The keyword for search. The keyword is matched against the name field. If the schema defines a description field, the keyword is also matched against the description field.
     shared_ptr<string> keyword_ {};
     // Specifies whether to return only favorited primary objects. If this parameter is set to false or not specified, all objects are returned, including the isFavorited flag.
     shared_ptr<bool> onlyFavorites_ {};
@@ -92,11 +92,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> operatingObjectName_ {};
-    // The page number. Pages start from 1.
+    // The page number. Pages start from page 1.
     shared_ptr<int64_t> page_ {};
     // The number of entries per page. Valid values: 1 to 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The tenant ID. This is a common parameter. You can explicitly pass it in winnexo-cli by using --tenant-id.
+    // The tenant ID. This is a common parameter. You can explicitly pass this parameter by using --tenant-id in winnexo-cli.
     shared_ptr<string> tenantId_ {};
   };
 

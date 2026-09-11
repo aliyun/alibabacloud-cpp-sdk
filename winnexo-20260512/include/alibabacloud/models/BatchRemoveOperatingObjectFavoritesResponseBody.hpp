@@ -95,11 +95,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the object is favorited after the operation.
+      // Indicates whether the object is subscribed after the operation.
       shared_ptr<bool> isFavorited_ {};
       // The aligned object ID: target ID or KR ID.
       shared_ptr<string> objectId_ {};
-      // Indicates whether the request has been processed.
+      // Indicates whether the request is processed.
       shared_ptr<bool> processed_ {};
     };
 
@@ -189,9 +189,9 @@ namespace Models
     shared_ptr<string> objectType_ {};
     // The digital employee name (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // The number of remaining favorited objects within the specified scope.
+    // The number of remaining subscribed objects within the precise scope.
     shared_ptr<int64_t> remainingCount_ {};
-    // The number of physical favorite records that are actually deleted.
+    // The number of physical subscription records that are actually deleted.
     shared_ptr<int64_t> removedCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

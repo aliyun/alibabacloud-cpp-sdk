@@ -52,9 +52,9 @@ namespace WinNexo20260512
       Models::AddUserGroupMembersResponse addUserGroupMembers(const Models::AddUserGroupMembersRequest &request);
 
       /**
-       * @summary Batch cancels digital employee favorites for specific object types.
+       * @summary Batch cancels digital employee precise object type subscriptions.
        *
-       * @description Idempotently cancels favorites across three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. The server validates and deduplicates items while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. Deletion, per-item status updates, and remaining valid count are completed within a single transaction. To safely cancel all favorites, you must also call ClearOperatingObjectFavorites to clean up historical records, MISSING records, or permission-hidden records that are not visible in the list. Then read back the result to confirm that total is 0.
+       * @description Idempotently cancels subscriptions along three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. After server-side validation, items are deduplicated while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. The delete operation, per-item status tracking, and remaining valid count are completed within a single transaction. To safely cancel all subscriptions, you must also invoke ClearOperatingObjectFavorites to clean up historical, MISSING, or permission-hidden records that are invisible in the list, and then read back to confirm that total is 0.
        *
        * @param tmpReq BatchRemoveOperatingObjectFavoritesRequest
        * @param headers map
@@ -64,9 +64,9 @@ namespace WinNexo20260512
       Models::BatchRemoveOperatingObjectFavoritesResponse batchRemoveOperatingObjectFavoritesWithOptions(const Models::BatchRemoveOperatingObjectFavoritesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Batch cancels digital employee favorites for specific object types.
+       * @summary Batch cancels digital employee precise object type subscriptions.
        *
-       * @description Idempotently cancels favorites across three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. The server validates and deduplicates items while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. Deletion, per-item status updates, and remaining valid count are completed within a single transaction. To safely cancel all favorites, you must also call ClearOperatingObjectFavorites to clean up historical records, MISSING records, or permission-hidden records that are not visible in the list. Then read back the result to confirm that total is 0.
+       * @description Idempotently cancels subscriptions along three independent dimensions: graphName, operatingObjectName, and objectType. The input array accepts 1 to 200 items per request. Each item must be a non-empty string with a maximum length of 128 characters. After server-side validation, items are deduplicated while preserving order. Non-string values, values that exceed the length limit, or arrays that exceed the size limit are rejected. The delete operation, per-item status tracking, and remaining valid count are completed within a single transaction. To safely cancel all subscriptions, you must also invoke ClearOperatingObjectFavorites to clean up historical, MISSING, or permission-hidden records that are invisible in the list, and then read back to confirm that total is 0.
        *
        * @param request BatchRemoveOperatingObjectFavoritesRequest
        * @return BatchRemoveOperatingObjectFavoritesResponse
@@ -194,6 +194,50 @@ namespace WinNexo20260512
        * @return CreateCustomOrgResponse
        */
       Models::CreateCustomOrgResponse createCustomOrg(const Models::CreateCustomOrgRequest &request);
+
+      /**
+       * @summary 创建语义图谱并绑定数据源
+       *
+       * @description OpenAPI 创建语义图谱（同步快建占位记录 0.0.0）并在创建时绑定数据源。
+       *     内容编辑走个人草稿接口，正式发布走产品控制台。
+       *     业务编排：
+       *     1. 权限校验（个人 Token 校验语义管理权限；部署/系统级 Token 放行）
+       *     2. 同步落库 active 占位记录（schemaVersion 固定 0.0.0）并绑定数据源；
+       *        不写 history、不触发 runtime 重建
+       *     3. 图谱内容后续经个人草稿编辑，在控制台正式发布
+       *     错误码：
+       *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
+       *     - ERR.GraphSchema.GraphNameDuplicated: 图谱名称已存在
+       *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
+       *     - ERR.GraphDataSource.*: 数据源不存在 / 非 RDB 类不可绑定
+       *
+       * @param request CreateGraphRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateGraphResponse
+       */
+      Models::CreateGraphResponse createGraphWithOptions(const Models::CreateGraphRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建语义图谱并绑定数据源
+       *
+       * @description OpenAPI 创建语义图谱（同步快建占位记录 0.0.0）并在创建时绑定数据源。
+       *     内容编辑走个人草稿接口，正式发布走产品控制台。
+       *     业务编排：
+       *     1. 权限校验（个人 Token 校验语义管理权限；部署/系统级 Token 放行）
+       *     2. 同步落库 active 占位记录（schemaVersion 固定 0.0.0）并绑定数据源；
+       *        不写 history、不触发 runtime 重建
+       *     3. 图谱内容后续经个人草稿编辑，在控制台正式发布
+       *     错误码：
+       *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
+       *     - ERR.GraphSchema.GraphNameDuplicated: 图谱名称已存在
+       *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
+       *     - ERR.GraphDataSource.*: 数据源不存在 / 非 RDB 类不可绑定
+       *
+       * @param request CreateGraphRequest
+       * @return CreateGraphResponse
+       */
+      Models::CreateGraphResponse createGraph(const Models::CreateGraphRequest &request);
 
       /**
        * @summary Creates a DingTalk group chat knowledge resource in a group.
@@ -511,12 +555,13 @@ namespace WinNexo20260512
        * @summary Uploads an AliDing online document to the personal resources of the current digital employee.
        *
        * @description ## Request description
-       * - This API is used to add an AliDing online document to the "My Resources" section of a specified digital employee.
+       * - This API operation adds an AliDing online document to the "My Resources" section of a specified digital employee.
        * - Fixed parameters include `source_type=ONLINE_DOC`, `platform=ALI_DING`, and `scope=PERSONAL`.
-       * - If `directoryId` is not provided, the document is attached to the root folder of the current digital employee by default. If provided, ensure that the folder belongs to the current user and exists under the current digital employee.
+       * - If `directoryId` is not provided, the document is attached to the root folder of the current digital employee by default. If `directoryId` is provided, make sure that the folder belongs to the current user and exists under the current digital employee.
        * - During the invoke process, metering is started and related operation logs are recorded.
        * - For security purposes, `tenant_id` and `user_id` are obtained only from the authentication identity. Values provided by the caller for these fields are ignored.
-       * - Any validation or execute failure is thrown as an exception by the service and transformed into a POP error code returned to the caller.
+       * - Any validation or execute failure throws an exception through the service and is transformed to a POP error code returned to the caller.
+       * ## Related operations
        *
        * @param request CreatePersonalAlidingDocRequest
        * @param headers map
@@ -529,12 +574,13 @@ namespace WinNexo20260512
        * @summary Uploads an AliDing online document to the personal resources of the current digital employee.
        *
        * @description ## Request description
-       * - This API is used to add an AliDing online document to the "My Resources" section of a specified digital employee.
+       * - This API operation adds an AliDing online document to the "My Resources" section of a specified digital employee.
        * - Fixed parameters include `source_type=ONLINE_DOC`, `platform=ALI_DING`, and `scope=PERSONAL`.
-       * - If `directoryId` is not provided, the document is attached to the root folder of the current digital employee by default. If provided, ensure that the folder belongs to the current user and exists under the current digital employee.
+       * - If `directoryId` is not provided, the document is attached to the root folder of the current digital employee by default. If `directoryId` is provided, make sure that the folder belongs to the current user and exists under the current digital employee.
        * - During the invoke process, metering is started and related operation logs are recorded.
        * - For security purposes, `tenant_id` and `user_id` are obtained only from the authentication identity. Values provided by the caller for these fields are ignored.
-       * - Any validation or execute failure is thrown as an exception by the service and transformed into a POP error code returned to the caller.
+       * - Any validation or execute failure throws an exception through the service and is transformed to a POP error code returned to the caller.
+       * ## Related operations
        *
        * @param request CreatePersonalAlidingDocRequest
        * @return CreatePersonalAlidingDocResponse
@@ -542,15 +588,15 @@ namespace WinNexo20260512
       Models::CreatePersonalAlidingDocResponse createPersonalAlidingDoc(const Models::CreatePersonalAlidingDocRequest &request);
 
       /**
-       * @summary Adds an AliDing knowledge base to the personal resources of the current digital employee.
+       * @summary Adds the entire AliDing knowledge base to the personal resources of the current digital employee.
        *
        * @description ## Request description
-       * - This API creates an AliDing knowledge base and mounts it to the personal resource directory of the specified digital employee.
+       * - This API creates an AliDing knowledge base and mounts it under the personal resource directory of the specified digital employee.
        * - `platform` is fixed to `ALI_DING`, and `directory_type` is fixed to `PERSONAL`.
        * - If `directoryId` is provided, the system verifies that the directory exists and belongs to the current tenant and is of the personal type.
        * - During creation, the knowledge base root directory is initialized (with the status set to `RUNNING`), and background tasks are dispatched based on the provided synchronization configuration to pull the remote directory tree and create child nodes.
        * - For security purposes, `tenant_id` and `user_id` are obtained only from the authenticated identity. These fields in the request body are ignored.
-       * - The synchronization configuration is optional. If enabled, a cron expression must be provided. If not provided or disabled, scheduled synchronization is not performed by default.
+       * - The synchronization configuration is optional. If enabled, a cron expression is required. If not provided or disabled, scheduled synchronization is not performed by default.
        * - The knowledge base name can be customized. If not provided, it is automatically populated after background synchronization.
        * - Multi-value object binding is supported. Related information is serialized and stored in the knowledge base metadata.
        *
@@ -562,15 +608,15 @@ namespace WinNexo20260512
       Models::CreatePersonalAlidingKnowledgeBaseResponse createPersonalAlidingKnowledgeBaseWithOptions(const Models::CreatePersonalAlidingKnowledgeBaseRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds an AliDing knowledge base to the personal resources of the current digital employee.
+       * @summary Adds the entire AliDing knowledge base to the personal resources of the current digital employee.
        *
        * @description ## Request description
-       * - This API creates an AliDing knowledge base and mounts it to the personal resource directory of the specified digital employee.
+       * - This API creates an AliDing knowledge base and mounts it under the personal resource directory of the specified digital employee.
        * - `platform` is fixed to `ALI_DING`, and `directory_type` is fixed to `PERSONAL`.
        * - If `directoryId` is provided, the system verifies that the directory exists and belongs to the current tenant and is of the personal type.
        * - During creation, the knowledge base root directory is initialized (with the status set to `RUNNING`), and background tasks are dispatched based on the provided synchronization configuration to pull the remote directory tree and create child nodes.
        * - For security purposes, `tenant_id` and `user_id` are obtained only from the authenticated identity. These fields in the request body are ignored.
-       * - The synchronization configuration is optional. If enabled, a cron expression must be provided. If not provided or disabled, scheduled synchronization is not performed by default.
+       * - The synchronization configuration is optional. If enabled, a cron expression is required. If not provided or disabled, scheduled synchronization is not performed by default.
        * - The knowledge base name can be customized. If not provided, it is automatically populated after background synchronization.
        * - Multi-value object binding is supported. Related information is serialized and stored in the knowledge base metadata.
        *
@@ -648,12 +694,12 @@ namespace WinNexo20260512
       Models::CreatePersonalDingtalkMeetingResponse createPersonalDingtalkMeeting(const Models::CreatePersonalDingtalkMeetingRequest &request);
 
       /**
-       * @summary Uploads a meeting to the current user\\"s personal knowledge base by using a standard DingTalk Shanji URL.
+       * @summary Uploads a meeting to the current user\\"s personal knowledge base by using the URL of a standard DingTalk Shanji note.
        *
        * @description ## Request description
-       * - This API creates a meeting resource by using a standard DingTalk Shanji link. The collection method is fixed to the DWS corresponding to personal OAuth.
+       * - This API creates a meeting resource by using a standard DingTalk Shanji note link. The collection method is fixed to the DWS corresponding to personal OAuth.
        * - `source_type` is fixed to `DINGTALK_MEETING`, and `scope` is fixed to `PERSONAL`.
-       * - You must provide a standard DingTalk Shanji link or taskUuid (`shanjiUrl`).
+       * - You must provide a standard DingTalk Shanji note link or taskUuid (`shanjiUrl`).
        * - Optionally specify a target personal directory ID (`directoryId`). If not specified, the default root directory of the current digital employee is used.
        * - You can add a resource description (`description`) and meeting notes (`notes`).
        * - This operation supports one of the following authentication methods: AK, BearerToken, or APP.
@@ -666,12 +712,12 @@ namespace WinNexo20260512
       Models::CreatePersonalDingtalkMinutesResponse createPersonalDingtalkMinutesWithOptions(const Models::CreatePersonalDingtalkMinutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads a meeting to the current user\\"s personal knowledge base by using a standard DingTalk Shanji URL.
+       * @summary Uploads a meeting to the current user\\"s personal knowledge base by using the URL of a standard DingTalk Shanji note.
        *
        * @description ## Request description
-       * - This API creates a meeting resource by using a standard DingTalk Shanji link. The collection method is fixed to the DWS corresponding to personal OAuth.
+       * - This API creates a meeting resource by using a standard DingTalk Shanji note link. The collection method is fixed to the DWS corresponding to personal OAuth.
        * - `source_type` is fixed to `DINGTALK_MEETING`, and `scope` is fixed to `PERSONAL`.
-       * - You must provide a standard DingTalk Shanji link or taskUuid (`shanjiUrl`).
+       * - You must provide a standard DingTalk Shanji note link or taskUuid (`shanjiUrl`).
        * - Optionally specify a target personal directory ID (`directoryId`). If not specified, the default root directory of the current digital employee is used.
        * - You can add a resource description (`description`) and meeting notes (`notes`).
        * - This operation supports one of the following authentication methods: AK, BearerToken, or APP.
@@ -778,7 +824,7 @@ namespace WinNexo20260512
        * - `name`: The display name of the uploaded resource in the system.
        * - `minuteToken`: The unique identifier of the meeting from the Lark Minutes platform.
        * - `credentialId`: The ID associated with specific authentication information, used to verify the validity of the request.
-       * - `directoryId` (optional): The ID of the target personal directory where the resource is stored. If this field is omitted, the resource is automatically placed in the default location.
+       * - `directoryId` (optional): The ID of the target personal directory in which to store the resource. If this field is omitted, the resource is automatically placed in the default location.
        * - `description` (optional): A brief description or note about the uploaded resource.
        * Precautions:
        * - Ensure that the provided `minuteToken` and `credentialId` are valid.
@@ -800,7 +846,7 @@ namespace WinNexo20260512
        * - `name`: The display name of the uploaded resource in the system.
        * - `minuteToken`: The unique identifier of the meeting from the Lark Minutes platform.
        * - `credentialId`: The ID associated with specific authentication information, used to verify the validity of the request.
-       * - `directoryId` (optional): The ID of the target personal directory where the resource is stored. If this field is omitted, the resource is automatically placed in the default location.
+       * - `directoryId` (optional): The ID of the target personal directory in which to store the resource. If this field is omitted, the resource is automatically placed in the default location.
        * - `description` (optional): A brief description or note about the uploaded resource.
        * Precautions:
        * - Ensure that the provided `minuteToken` and `credentialId` are valid.
@@ -887,7 +933,7 @@ namespace WinNexo20260512
        * @summary Uploads an offline meeting audio file to the personal resources of the current digital employee.
        *
        * @description ## Operation description
-       * - This API operation uploads an offline meeting audio file to the "My Resources" section of a specified digital employee.
+       * - This API operation uploads an offline meeting audio file to the My Resources section of a specified digital employee.
        * - `source_type` is fixed to `VOICE_MEETING`, `scope` is fixed to `PERSONAL`, and `voice_meeting_type` is fixed to `OFFLINE`.
        * - If `directoryId` is not provided in the request body, the resource is automatically bound to the default root directory. If `directoryId` is provided, it must be an existing personal directory of the current user under the current digital employee.
        * - Calling this operation starts a background process to transcribe the audio file and returns information about the newly created resource.
@@ -905,7 +951,7 @@ namespace WinNexo20260512
        * @summary Uploads an offline meeting audio file to the personal resources of the current digital employee.
        *
        * @description ## Operation description
-       * - This API operation uploads an offline meeting audio file to the "My Resources" section of a specified digital employee.
+       * - This API operation uploads an offline meeting audio file to the My Resources section of a specified digital employee.
        * - `source_type` is fixed to `VOICE_MEETING`, `scope` is fixed to `PERSONAL`, and `voice_meeting_type` is fixed to `OFFLINE`.
        * - If `directoryId` is not provided in the request body, the resource is automatically bound to the default root directory. If `directoryId` is provided, it must be an existing personal directory of the current user under the current digital employee.
        * - Calling this operation starts a background process to transcribe the audio file and returns information about the newly created resource.
@@ -1250,13 +1296,41 @@ namespace WinNexo20260512
       Models::EnableTokenResponse enableToken(const Models::EnableTokenRequest &request);
 
       /**
-       * @summary Retrieves session details.
+       * @summary Retrieves DingTalk meeting minutes content for the Winnexo Lite Workbench.
        *
        * @description ## Request description
-       * - This API uploads a file to the "My Resources" section of a specified digital employee.
+       * - This API is exclusively for the Winnexo Lite Workbench.
+       * - Retrieves the title, meeting summary, to-do items, and full transcription based on a DingTalk minutes ID.
+       * - Audio and video files are not downloaded. If any content fails to be read, the entire request fails.
+       *
+       * @param request GetAliDingMinutesContentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAliDingMinutesContentResponse
+       */
+      Models::GetAliDingMinutesContentResponse getAliDingMinutesContentWithOptions(const Models::GetAliDingMinutesContentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves DingTalk meeting minutes content for the Winnexo Lite Workbench.
+       *
+       * @description ## Request description
+       * - This API is exclusively for the Winnexo Lite Workbench.
+       * - Retrieves the title, meeting summary, to-do items, and full transcription based on a DingTalk minutes ID.
+       * - Audio and video files are not downloaded. If any content fails to be read, the entire request fails.
+       *
+       * @param request GetAliDingMinutesContentRequest
+       * @return GetAliDingMinutesContentResponse
+       */
+      Models::GetAliDingMinutesContentResponse getAliDingMinutesContent(const Models::GetAliDingMinutesContentRequest &request);
+
+      /**
+       * @summary Retrieves session details.
+       *
+       * @description ## Operation description
+       * - This API is used to upload files to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
        * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-       * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
+       * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
        * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
        * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
        *
@@ -1270,11 +1344,11 @@ namespace WinNexo20260512
       /**
        * @summary Retrieves session details.
        *
-       * @description ## Request description
-       * - This API uploads a file to the "My Resources" section of a specified digital employee.
+       * @description ## Operation description
+       * - This API is used to upload files to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
        * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-       * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
+       * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
        * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
        * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
        *
@@ -1282,6 +1356,44 @@ namespace WinNexo20260512
        * @return GetChatSessionResponse
        */
       Models::GetChatSessionResponse getChatSession(const Models::GetChatSessionRequest &request);
+
+      /**
+       * @summary Retrieves the full schema after merging the active schema with personal drafts.
+       *
+       * @description Retrieves the full schema YAML by merging the active schema with the current user\\"s draft via OpenAPI (personal token only).
+       *     Business orchestration:
+       *     1. Draft domain identity verification (personal token only. Deploy/system-level tokens are rejected)
+       *        and semantic view permission verification.
+       *     2. If no personal draft exists, the full active YAML is returned (underlying short path).
+       *        If a draft exists, the merged full YAML is returned for editor rendering and pre-publish preview.
+       *     Error codes:
+       *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+       *     - ERR.GraphSchema.*: The knowledge graph does not exist.
+       *
+       * @param request GetGraphDraftAssembledRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGraphDraftAssembledResponse
+       */
+      Models::GetGraphDraftAssembledResponse getGraphDraftAssembledWithOptions(const Models::GetGraphDraftAssembledRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the full schema after merging the active schema with personal drafts.
+       *
+       * @description Retrieves the full schema YAML by merging the active schema with the current user\\"s draft via OpenAPI (personal token only).
+       *     Business orchestration:
+       *     1. Draft domain identity verification (personal token only. Deploy/system-level tokens are rejected)
+       *        and semantic view permission verification.
+       *     2. If no personal draft exists, the full active YAML is returned (underlying short path).
+       *        If a draft exists, the merged full YAML is returned for editor rendering and pre-publish preview.
+       *     Error codes:
+       *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+       *     - ERR.GraphSchema.*: The knowledge graph does not exist.
+       *
+       * @param request GetGraphDraftAssembledRequest
+       * @return GetGraphDraftAssembledResponse
+       */
+      Models::GetGraphDraftAssembledResponse getGraphDraftAssembled(const Models::GetGraphDraftAssembledRequest &request);
 
       /**
        * @summary Retrieves the active Graph Schema readable by the current user.
@@ -1304,6 +1416,34 @@ namespace WinNexo20260512
        * @return GetGraphSchemaResponse
        */
       Models::GetGraphSchemaResponse getGraphSchema(const Models::GetGraphSchemaRequest &request);
+
+      /**
+       * @summary Retrieves the complete schema of a semantic graph from the management perspective.
+       *
+       * @description Retrieves the complete active schema of a graph from the OpenAPI management perspective. This operation does not perform resource-level permission trimming, but requires semantic view permission at the entry point.
+       * graphStatus and hasDraft reflect the personal draft and publish status from the current caller\\"s perspective. Deployment or system-level tokens have no personal identity, so hasDraft is always false.
+       * Error codes:
+       * - ERR.GraphSchema.GraphSchemaNotFound: The graph does not exist.
+       *
+       * @param request GetGraphSchemaDetailRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGraphSchemaDetailResponse
+       */
+      Models::GetGraphSchemaDetailResponse getGraphSchemaDetailWithOptions(const Models::GetGraphSchemaDetailRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the complete schema of a semantic graph from the management perspective.
+       *
+       * @description Retrieves the complete active schema of a graph from the OpenAPI management perspective. This operation does not perform resource-level permission trimming, but requires semantic view permission at the entry point.
+       * graphStatus and hasDraft reflect the personal draft and publish status from the current caller\\"s perspective. Deployment or system-level tokens have no personal identity, so hasDraft is always false.
+       * Error codes:
+       * - ERR.GraphSchema.GraphSchemaNotFound: The graph does not exist.
+       *
+       * @param request GetGraphSchemaDetailRequest
+       * @return GetGraphSchemaDetailResponse
+       */
+      Models::GetGraphSchemaDetailResponse getGraphSchemaDetail(const Models::GetGraphSchemaDetailRequest &request);
 
       /**
        * @summary Queries the expiration time of the most recently created standard package instance for a tenant.
@@ -1413,13 +1553,13 @@ namespace WinNexo20260512
        * @summary Retrieves execution records of scheduled tasks.
        *
        * @description ## Operation description
-       * - This operation uploads a file to the enterprise knowledge base.
-       * - The `DEVELOPMENT_KB_MANAGE` feature permission is required to call this API.
+       * - This operation uploads files to an enterprise knowledge base.
+       * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this operation.
        * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
        * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
-       * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
-       * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Ensure that your account balance is sufficient.
+       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base folder. Otherwise, the file is bound to the default root folder of the current digital employee.
+       * - You can add tags to resources by using `sourceTags` for subsequent management and retrieval.
+       * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
        *
        * @param request GetScheduledTaskExecutionRecordsRequest
        * @param headers map
@@ -1432,13 +1572,13 @@ namespace WinNexo20260512
        * @summary Retrieves execution records of scheduled tasks.
        *
        * @description ## Operation description
-       * - This operation uploads a file to the enterprise knowledge base.
-       * - The `DEVELOPMENT_KB_MANAGE` feature permission is required to call this API.
+       * - This operation uploads files to an enterprise knowledge base.
+       * - You must have the `DEVELOPMENT_KB_MANAGE` feature permission to call this operation.
        * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
        * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
-       * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
-       * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Ensure that your account balance is sufficient.
+       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base folder. Otherwise, the file is bound to the default root folder of the current digital employee.
+       * - You can add tags to resources by using `sourceTags` for subsequent management and retrieval.
+       * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
        *
        * @param request GetScheduledTaskExecutionRecordsRequest
        * @return GetScheduledTaskExecutionRecordsResponse
@@ -1472,14 +1612,14 @@ namespace WinNexo20260512
        *
        * @summary Retrieves the details of scheduled task understanding.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This operation uploads a file to the enterprise knowledge base.
-       * - The `DEVELOPMENT_KB_MANAGE` feature permission is required to call this API.
-       * - The OSS persistent address (`filePath`) of the file must be provided during upload.
-       * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+       * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
+       * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
+       * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of file information.
+       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee by default.
        * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
-       * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Ensure that your account balance is sufficient.
+       * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
        *
        * @param tmpReq GetScheduledTaskUnderstandDetailRequest
        * @param headers map
@@ -1493,14 +1633,14 @@ namespace WinNexo20260512
        *
        * @summary Retrieves the details of scheduled task understanding.
        *
-       * @description ## Operation description
+       * @description ## Request description
        * - This operation uploads a file to the enterprise knowledge base.
-       * - The `DEVELOPMENT_KB_MANAGE` feature permission is required to call this API.
-       * - The OSS persistent address (`filePath`) of the file must be provided during upload.
-       * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
-       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
+       * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
+       * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
+       * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of file information.
+       * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee by default.
        * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
-       * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Ensure that your account balance is sufficient.
+       * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
        *
        * @param request GetScheduledTaskUnderstandDetailRequest
        * @return GetScheduledTaskUnderstandDetailResponse
@@ -1815,10 +1955,10 @@ namespace WinNexo20260512
        * @description ## Request description
        * - This operation returns the detailed information of the current authenticated user.
        * - If the tenant information is invalid, the corresponding error message is returned.
-       * - `tenantId` is an optional parameter. If not provided, the default tenant ID of the caller is used.
-       * - Multiple authentication methods are supported: AK, BearerToken, and APP authentication.
+       * - tenantId is an optional parameter. If not provided, the default tenant ID of the caller is used.
+       * - Multiple authentication methods are supported: AccessKey, BearerToken, and APP authentication.
        * - The returned data includes the user profile (such as username and profile picture URL), role preference settings, and details of all tenants to which the user belongs.
-       * - If the current logon tenant is the system tenant (that is, `tenantId=10000`), this is explicitly indicated in the response.
+       * - Note that if the current logon tenant is a system tenant (tenantId=10000), this is explicitly indicated in the response.
        *
        * @param request GetUserInfoRequest
        * @param headers map
@@ -1833,10 +1973,10 @@ namespace WinNexo20260512
        * @description ## Request description
        * - This operation returns the detailed information of the current authenticated user.
        * - If the tenant information is invalid, the corresponding error message is returned.
-       * - `tenantId` is an optional parameter. If not provided, the default tenant ID of the caller is used.
-       * - Multiple authentication methods are supported: AK, BearerToken, and APP authentication.
+       * - tenantId is an optional parameter. If not provided, the default tenant ID of the caller is used.
+       * - Multiple authentication methods are supported: AccessKey, BearerToken, and APP authentication.
        * - The returned data includes the user profile (such as username and profile picture URL), role preference settings, and details of all tenants to which the user belongs.
-       * - If the current logon tenant is the system tenant (that is, `tenantId=10000`), this is explicitly indicated in the response.
+       * - Note that if the current logon tenant is a system tenant (tenantId=10000), this is explicitly indicated in the response.
        *
        * @param request GetUserInfoRequest
        * @return GetUserInfoResponse
@@ -1906,10 +2046,10 @@ namespace WinNexo20260512
        *
        * @description ## Operation description
        * - This API supports two modes: when `directoryId` is empty or set to \\"root\\", the top-level knowledge base list is returned. When `directoryId` has a specific value, a drill-down operation is performed to return subdirectories and resources under the specified directory.
-       * - `tenantId` is a common parameter. If not provided, the caller\\"s tenant ID is used by default.
-       * - In drill-down mode (when `directoryId` is not empty), use the `sourceTypes` parameter to filter resources by specific types.
+       * - `tenantId` is a common parameter. If not provided, the tenant ID of the caller is used by default.
+       * - In drill-down mode (when `directoryId` is not empty), use the `sourceTypes` parameter to filter resources of specific types.
        * - The sort field (`sortField`) and sort order (`sortOrder`) can be customized. Invalid values are reset to default settings.
-       * - The search feature is only effective when retrieving the top-level list and supports only fuzzy matching on names or descriptions.
+       * - The search feature is effective only when retrieving the top-level list and supports only fuzzy matching on names or descriptions.
        * - For security purposes, `tenant_id` is strictly obtained from the authenticated identity and cannot be passed through the request body.
        *
        * @param tmpReq ListAdminKnowledgeBasesRequest
@@ -1924,10 +2064,10 @@ namespace WinNexo20260512
        *
        * @description ## Operation description
        * - This API supports two modes: when `directoryId` is empty or set to \\"root\\", the top-level knowledge base list is returned. When `directoryId` has a specific value, a drill-down operation is performed to return subdirectories and resources under the specified directory.
-       * - `tenantId` is a common parameter. If not provided, the caller\\"s tenant ID is used by default.
-       * - In drill-down mode (when `directoryId` is not empty), use the `sourceTypes` parameter to filter resources by specific types.
+       * - `tenantId` is a common parameter. If not provided, the tenant ID of the caller is used by default.
+       * - In drill-down mode (when `directoryId` is not empty), use the `sourceTypes` parameter to filter resources of specific types.
        * - The sort field (`sortField`) and sort order (`sortOrder`) can be customized. Invalid values are reset to default settings.
-       * - The search feature is only effective when retrieving the top-level list and supports only fuzzy matching on names or descriptions.
+       * - The search feature is effective only when retrieving the top-level list and supports only fuzzy matching on names or descriptions.
        * - For security purposes, `tenant_id` is strictly obtained from the authenticated identity and cannot be passed through the request body.
        *
        * @param request ListAdminKnowledgeBasesRequest
@@ -1940,9 +2080,9 @@ namespace WinNexo20260512
        *
        * @description Queries the full list of digital employees under a tenant, including deactivated ones.
        *     Business logic:
-       *     1. Constructs AuthContext from identity.
-       *     2. Delegates to AgentAuthorizationAuthorizedService.list_agents to complete permission verification (APPLICATION_AGENT_VIEW).
-       *     3. Returns rich fields for all digital employees of the tenant (operatingObjectName / displayName / authMode / isActive).
+       *     1. Constructs an AuthContext from the identity.
+       *     2. Delegates to AgentAuthorizationAuthorizedService.list_agents to perform permission verification (APPLICATION_AGENT_VIEW).
+       *     3. Returns rich fields for all digital employees of the tenant (operatingObjectName, displayName, authMode, and isActive).
        *     4. System-level tokens are automatically allowed through ctx.skip_permission.
        *     Difference from listAuthorizedAgents: This operation returns all digital employees of the tenant (including deactivated ones, without authorization filtering) and includes rich fields such as displayName and isActive for management console display.
        *
@@ -1958,9 +2098,9 @@ namespace WinNexo20260512
        *
        * @description Queries the full list of digital employees under a tenant, including deactivated ones.
        *     Business logic:
-       *     1. Constructs AuthContext from identity.
-       *     2. Delegates to AgentAuthorizationAuthorizedService.list_agents to complete permission verification (APPLICATION_AGENT_VIEW).
-       *     3. Returns rich fields for all digital employees of the tenant (operatingObjectName / displayName / authMode / isActive).
+       *     1. Constructs an AuthContext from the identity.
+       *     2. Delegates to AgentAuthorizationAuthorizedService.list_agents to perform permission verification (APPLICATION_AGENT_VIEW).
+       *     3. Returns rich fields for all digital employees of the tenant (operatingObjectName, displayName, authMode, and isActive).
        *     4. System-level tokens are automatically allowed through ctx.skip_permission.
        *     Difference from listAuthorizedAgents: This operation returns all digital employees of the tenant (including deactivated ones, without authorization filtering) and includes rich fields such as displayName and isActive for management console display.
        *
@@ -1968,6 +2108,62 @@ namespace WinNexo20260512
        * @return ListAgentsResponse
        */
       Models::ListAgentsResponse listAgents(const Models::ListAgentsRequest &request);
+
+      /**
+       * @summary Retrieves DingTalk group chat records for the Winnexo lightweight workbench.
+       *
+       * @description ## Operation description
+       * - This operation is exclusively for the Winnexo lightweight workbench.
+       * - Uses the existing time, direction, and pageSize time-watermark protocol to read messages from a specified group chat.
+       * - Does not introduce start or end time ranges. The response does not include raw DWS objects, attachment locators, or temporary download URLs.
+       *
+       * @param request ListAliDingGroupMessagesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAliDingGroupMessagesResponse
+       */
+      Models::ListAliDingGroupMessagesResponse listAliDingGroupMessagesWithOptions(const Models::ListAliDingGroupMessagesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves DingTalk group chat records for the Winnexo lightweight workbench.
+       *
+       * @description ## Operation description
+       * - This operation is exclusively for the Winnexo lightweight workbench.
+       * - Uses the existing time, direction, and pageSize time-watermark protocol to read messages from a specified group chat.
+       * - Does not introduce start or end time ranges. The response does not include raw DWS objects, attachment locators, or temporary download URLs.
+       *
+       * @param request ListAliDingGroupMessagesRequest
+       * @return ListAliDingGroupMessagesResponse
+       */
+      Models::ListAliDingGroupMessagesResponse listAliDingGroupMessages(const Models::ListAliDingGroupMessagesRequest &request);
+
+      /**
+       * @summary Retrieves the list of DingTalk meeting minutes for the Winnexo lightweight workbench.
+       *
+       * @description ## Operation description
+       * - This operation is exclusively for the Winnexo lightweight workbench.
+       * - Queries DingTalk meeting transcripts that the current platform user has access to, based on the startTime and endTime provided by the caller.
+       * - The time must include a time zone. This operation does not use recentDays and does not determine the time range on behalf of the caller.
+       *
+       * @param request ListAliDingMinutesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListAliDingMinutesResponse
+       */
+      Models::ListAliDingMinutesResponse listAliDingMinutesWithOptions(const Models::ListAliDingMinutesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the list of DingTalk meeting minutes for the Winnexo lightweight workbench.
+       *
+       * @description ## Operation description
+       * - This operation is exclusively for the Winnexo lightweight workbench.
+       * - Queries DingTalk meeting transcripts that the current platform user has access to, based on the startTime and endTime provided by the caller.
+       * - The time must include a time zone. This operation does not use recentDays and does not determine the time range on behalf of the caller.
+       *
+       * @param request ListAliDingMinutesRequest
+       * @return ListAliDingMinutesResponse
+       */
+      Models::ListAliDingMinutesResponse listAliDingMinutes(const Models::ListAliDingMinutesRequest &request);
 
       /**
        * @summary Queries the list of digital human names for which the caller has specified permissions.
@@ -2070,14 +2266,14 @@ namespace WinNexo20260512
       Models::ListAvailableConfigsResponse listAvailableConfigs(const Models::ListAvailableConfigsRequest &request);
 
       /**
-       * @summary Queries and filters the bill list through OpenAPI with support for multiple filter conditions.
+       * @summary Queries and filters a bill list by using OpenAPI. Multiple filter conditions are supported.
        *
        * @description ## Request description
        * - This operation queries the bill list based on specified conditions.
-       * - Supports filtering by tenant, user, operation type, status, time range, business source, and other conditions.
-       * - Returns bill data in pages. The default page size is 20 records.
+       * - Filtering is supported by tenant, user, operation type, status, time range, business source, and other conditions.
+       * - Bill data is returned in pages. By default, 20 records are displayed per page.
        * - You can choose whether to filter out bills with zero credit consumption. By default, such bills are filtered out.
-       * - Authentication information (such as AK, BearerToken, or APP authentication) is required for the request.
+       * - Provide the required authentication information (such as AccessKey pair, BearerToken, or APP authentication) when you send a request.
        *
        * @param request ListBillingRequest
        * @param headers map
@@ -2087,14 +2283,14 @@ namespace WinNexo20260512
       Models::ListBillingResponse listBillingWithOptions(const Models::ListBillingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries and filters the bill list through OpenAPI with support for multiple filter conditions.
+       * @summary Queries and filters a bill list by using OpenAPI. Multiple filter conditions are supported.
        *
        * @description ## Request description
        * - This operation queries the bill list based on specified conditions.
-       * - Supports filtering by tenant, user, operation type, status, time range, business source, and other conditions.
-       * - Returns bill data in pages. The default page size is 20 records.
+       * - Filtering is supported by tenant, user, operation type, status, time range, business source, and other conditions.
+       * - Bill data is returned in pages. By default, 20 records are displayed per page.
        * - You can choose whether to filter out bills with zero credit consumption. By default, such bills are filtered out.
-       * - Authentication information (such as AK, BearerToken, or APP authentication) is required for the request.
+       * - Provide the required authentication information (such as AccessKey pair, BearerToken, or APP authentication) when you send a request.
        *
        * @param request ListBillingRequest
        * @return ListBillingResponse
@@ -2128,6 +2324,74 @@ namespace WinNexo20260512
        * @return ListChatSessionsResponse
        */
       Models::ListChatSessionsResponse listChatSessions(const Models::ListChatSessionsRequest &request);
+
+      /**
+       * @summary Lists personal draft changes for a semantic graph.
+       *
+       * @description Queries the list of personal draft changes for the current user under a specified graph (personal token only).
+       *     Business orchestration:
+       *     1. Draft domain identity verification (personal token only. Deployment/system-level tokens are rejected)
+       *        and semantic view permission verification.
+       *     2. Returns the active drafts of the current user (with online change risks).
+       *        In permission revocation scenarios, the system also cleans up unauthorized drafts (existing behavior).
+       *     Online risk aggregation (riskCode / riskMessage) is serialized as risk JSON text.
+       *     Error codes:
+       *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+       *     - ERR.GraphSchema.*: The graph does not exist.
+       *
+       * @param request ListGraphDraftResourcesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGraphDraftResourcesResponse
+       */
+      Models::ListGraphDraftResourcesResponse listGraphDraftResourcesWithOptions(const Models::ListGraphDraftResourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Lists personal draft changes for a semantic graph.
+       *
+       * @description Queries the list of personal draft changes for the current user under a specified graph (personal token only).
+       *     Business orchestration:
+       *     1. Draft domain identity verification (personal token only. Deployment/system-level tokens are rejected)
+       *        and semantic view permission verification.
+       *     2. Returns the active drafts of the current user (with online change risks).
+       *        In permission revocation scenarios, the system also cleans up unauthorized drafts (existing behavior).
+       *     Online risk aggregation (riskCode / riskMessage) is serialized as risk JSON text.
+       *     Error codes:
+       *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+       *     - ERR.GraphSchema.*: The graph does not exist.
+       *
+       * @param request ListGraphDraftResourcesRequest
+       * @return ListGraphDraftResourcesResponse
+       */
+      Models::ListGraphDraftResourcesResponse listGraphDraftResources(const Models::ListGraphDraftResourcesRequest &request);
+
+      /**
+       * @summary 管理视角图谱列表
+       *
+       * @description OpenAPI 管理视角图谱列表（含草稿/发布中状态）。
+       *     返回租户级 active 图谱；graphStatus 三态：PUBLISHED / DEVELOPING（当前用户有活动草稿）/
+       *     PUBLISHING（当前用户发布中）；部署/系统级 Token 无个人身份，hasDraft 恒 false。
+       *     keyword 匹配 graphName / displayName（忽略大小写）；semanticTags 命中任一标签即保留。
+       *
+       * @param tmpReq ListGraphSchemasRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListGraphSchemasResponse
+       */
+      Models::ListGraphSchemasResponse listGraphSchemasWithOptions(const Models::ListGraphSchemasRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 管理视角图谱列表
+       *
+       * @description OpenAPI 管理视角图谱列表（含草稿/发布中状态）。
+       *     返回租户级 active 图谱；graphStatus 三态：PUBLISHED / DEVELOPING（当前用户有活动草稿）/
+       *     PUBLISHING（当前用户发布中）；部署/系统级 Token 无个人身份，hasDraft 恒 false。
+       *     keyword 匹配 graphName / displayName（忽略大小写）；semanticTags 命中任一标签即保留。
+       *
+       * @param request ListGraphSchemasRequest
+       * @return ListGraphSchemasResponse
+       */
+      Models::ListGraphSchemasResponse listGraphSchemas(const Models::ListGraphSchemasRequest &request);
 
       /**
        * @summary Queries the list of knowledge graphs available for semantic queries under a tenant.
@@ -2246,14 +2510,14 @@ namespace WinNexo20260512
       Models::ListOutputFilesResponse listOutputFiles(const Models::ListOutputFilesRequest &request);
 
       /**
-       * @summary Queries subdirectories and resources under a specified digital employee resource directory.
+       * @summary Queries the subdirectories and resources under a specified digital employee resource directory.
        *
        * @description ## Operation description
-       * - This API is used to drill down and query subdirectories and resources under the "My Resources" directory.
+       * - This API is used to drill down and query the subdirectories and resources under the "My Resources" directory.
        * - When `directoryId` is set to \\"root\\", the service automatically resolves and returns the content under the current digital employee\\"s default root directory. If a specific directory ID is provided, the subdirectories and resources under that directory are returned.
        * - Security constraint: `tenant_id` and `user_id` can only come from the authenticated identity information. These fields provided by the caller in the request body are ignored.
        * - You can use the `sourceTypes` parameter to filter resources of specific types. When this parameter has a value, only resources that match the type condition are returned, and subdirectories are not included.
-       * - Sorting supports ascending or descending order by name (`name`), creation time (`gmt_create`), or modification time (`gmt_modified`).
+       * - Sorting is supported by name (`name`), creation time (`gmt_create`), or modification time (`gmt_modified`) in ascending or descending order.
        * - The pagination feature allows you to customize the number of items displayed per page (maximum 100) and the current page number.
        *
        * @param tmpReq ListPersonalDirectoryContentsRequest
@@ -2264,14 +2528,14 @@ namespace WinNexo20260512
       Models::ListPersonalDirectoryContentsResponse listPersonalDirectoryContentsWithOptions(const Models::ListPersonalDirectoryContentsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries subdirectories and resources under a specified digital employee resource directory.
+       * @summary Queries the subdirectories and resources under a specified digital employee resource directory.
        *
        * @description ## Operation description
-       * - This API is used to drill down and query subdirectories and resources under the "My Resources" directory.
+       * - This API is used to drill down and query the subdirectories and resources under the "My Resources" directory.
        * - When `directoryId` is set to \\"root\\", the service automatically resolves and returns the content under the current digital employee\\"s default root directory. If a specific directory ID is provided, the subdirectories and resources under that directory are returned.
        * - Security constraint: `tenant_id` and `user_id` can only come from the authenticated identity information. These fields provided by the caller in the request body are ignored.
        * - You can use the `sourceTypes` parameter to filter resources of specific types. When this parameter has a value, only resources that match the type condition are returned, and subdirectories are not included.
-       * - Sorting supports ascending or descending order by name (`name`), creation time (`gmt_create`), or modification time (`gmt_modified`).
+       * - Sorting is supported by name (`name`), creation time (`gmt_create`), or modification time (`gmt_modified`) in ascending or descending order.
        * - The pagination feature allows you to customize the number of items displayed per page (maximum 100) and the current page number.
        *
        * @param request ListPersonalDirectoryContentsRequest
@@ -2353,7 +2617,7 @@ namespace WinNexo20260512
        * @summary Lists the skills visible to the current tenant.
        *
        * @description ## Request description
-       * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, and keywords, and supports pagination.
+       * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, keywords, and other conditions, and supports pagination.
        * ### Request parameters
        * - **TenantId**: Optional. A common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
        * - **FilterType**: Optional. The skill filtering dimension. Valid values: `ALL` (all published), `BUILTIN` (built-in published), `CUSTOM` (custom published), `DRAFT` (drafts, including published skills with unpublished modifications). Default value: `ALL`.
@@ -2361,10 +2625,10 @@ namespace WinNexo20260512
        * - **Keyword**: Optional. Performs a fuzzy match on the skill name or description.
        * - **Page**: Optional. The page number. Minimum value: 1. Default value: 1.
        * - **PageSize**: Optional. The number of entries per page. Valid values: 1 to 100. Default value: 20.
-       * - **OperatingObjectName**: Optional. The digital employee name. If specified, results are filtered by binding relationship. Must be used together with `BindStatus`.
+       * - **OperatingObjectName**: Optional. The name of the digital employee. If specified, results are filtered by binding relationship. Must be used together with `BindStatus`.
        * - **BindStatus**: Optional. The binding status. Valid values: `BOUND` (bound), `UNBOUND` (unbound global skills).
        * ### Response parameters
-       * The response contains the skill list `items`, total count `total`, current page `page`, and page size `pageSize`.
+       * The response contains the skill list `items`, the total count `total`, the current page `page`, and the number of entries per page `pageSize`.
        *
        * @param tmpReq ListSkillsRequest
        * @param headers map
@@ -2377,7 +2641,7 @@ namespace WinNexo20260512
        * @summary Lists the skills visible to the current tenant.
        *
        * @description ## Request description
-       * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, and keywords, and supports pagination.
+       * This API retrieves all visible skills under the current tenant. It supports filtering by digital employee binding relationship, skill source, tags, keywords, and other conditions, and supports pagination.
        * ### Request parameters
        * - **TenantId**: Optional. A common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
        * - **FilterType**: Optional. The skill filtering dimension. Valid values: `ALL` (all published), `BUILTIN` (built-in published), `CUSTOM` (custom published), `DRAFT` (drafts, including published skills with unpublished modifications). Default value: `ALL`.
@@ -2385,10 +2649,10 @@ namespace WinNexo20260512
        * - **Keyword**: Optional. Performs a fuzzy match on the skill name or description.
        * - **Page**: Optional. The page number. Minimum value: 1. Default value: 1.
        * - **PageSize**: Optional. The number of entries per page. Valid values: 1 to 100. Default value: 20.
-       * - **OperatingObjectName**: Optional. The digital employee name. If specified, results are filtered by binding relationship. Must be used together with `BindStatus`.
+       * - **OperatingObjectName**: Optional. The name of the digital employee. If specified, results are filtered by binding relationship. Must be used together with `BindStatus`.
        * - **BindStatus**: Optional. The binding status. Valid values: `BOUND` (bound), `UNBOUND` (unbound global skills).
        * ### Response parameters
-       * The response contains the skill list `items`, total count `total`, current page `page`, and page size `pageSize`.
+       * The response contains the skill list `items`, the total count `total`, the current page `page`, and the number of entries per page `pageSize`.
        *
        * @param request ListSkillsRequest
        * @return ListSkillsResponse
@@ -2774,14 +3038,14 @@ namespace WinNexo20260512
       Models::PreviewPersonalSourceResponse previewPersonalSource(const Models::PreviewPersonalSourceRequest &request);
 
       /**
-       * @summary Queries primary object data by operating object name with pagination, and supports filtering and searching.
+       * @summary Queries primary object data with paging by operating object name, with support for filtering and search.
        *
-       * @description ## Request description
-       * - This API queries primary object data with pagination based on a specified operating object name (such as `customer_1`).
-       * - Supports keyword-based searching and allows you to specify whether to return only objects marked as favorites.
-       * - Complex filter conditions can be used to further refine results, including but not limited to logical operators such as equal to, not equal to, greater than, and less than.
+       * @description ## Operation description
+       * - This API operation queries primary object data with paging by a specified operating object name (such as `customer_1`).
+       * - You can search by keyword and specify whether to return only objects marked as favorites.
+       * - You can use complex filter conditions to further narrow results, including but not limited to operators such as equal to, not equal to, greater than, and less than.
        * - If no primary object type is configured, an empty result set is returned.
-       * - Data included in the request undergoes authentication and filtering to ensure security and accuracy.
+       * - The data in the request is subject to authentication and filtering to ensure security and accuracy.
        *
        * @param request QueryPrimaryObjectDataRequest
        * @param headers map
@@ -2791,14 +3055,14 @@ namespace WinNexo20260512
       Models::QueryPrimaryObjectDataResponse queryPrimaryObjectDataWithOptions(const Models::QueryPrimaryObjectDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries primary object data by operating object name with pagination, and supports filtering and searching.
+       * @summary Queries primary object data with paging by operating object name, with support for filtering and search.
        *
-       * @description ## Request description
-       * - This API queries primary object data with pagination based on a specified operating object name (such as `customer_1`).
-       * - Supports keyword-based searching and allows you to specify whether to return only objects marked as favorites.
-       * - Complex filter conditions can be used to further refine results, including but not limited to logical operators such as equal to, not equal to, greater than, and less than.
+       * @description ## Operation description
+       * - This API operation queries primary object data with paging by a specified operating object name (such as `customer_1`).
+       * - You can search by keyword and specify whether to return only objects marked as favorites.
+       * - You can use complex filter conditions to further narrow results, including but not limited to operators such as equal to, not equal to, greater than, and less than.
        * - If no primary object type is configured, an empty result set is returned.
-       * - Data included in the request undergoes authentication and filtering to ensure security and accuracy.
+       * - The data in the request is subject to authentication and filtering to ensure security and accuracy.
        *
        * @param request QueryPrimaryObjectDataRequest
        * @return QueryPrimaryObjectDataResponse
@@ -2867,12 +3131,12 @@ namespace WinNexo20260512
        * @summary Generates next-step recommendations for a session.
        *
        * @description ## Request description
-       * Based on the most recent N messages in a session and the skills attached to the agent, this operation invokes an LLM to generate 0 to 3 next-step recommendations (follow-up questions or recommended skills to execute).
+       * Based on the most recent N messages in a session and the skills attached to the agent, invokes an LLM to generate 0 to 3 next-step recommendations (follow-up questions or recommended skills to execute).
        * - `sessionId`: The session ID. Required. Only sessions that the currently authenticated user has permission to access are allowed.
-       * - `recentMessageCount`: The number of recent messages used to assemble contextual information. Valid values: 1 to 30. Default value: 10 (approximately 5 rounds of user+assistant conversation).
-       * - `customPrompt`: A custom recommendation instruction (up to 10,000 characters). This is injected into the default recommendation template as a custom instruction (before the output format constraints). The output is still subject to the JSON format and type constraints of the template.
-       * - `outputType`: The output type filter. followUpOnly = follow-up recommendations only (default). skillOnly = skill recommendations only. both = generate both types.
-       * Unlike internal endpoints, API calls are not restricted by the next-step recommendation toggle in user personal settings and always execute recommendation generation.
+       * - `recentMessageCount`: The number of recent messages used to assemble the contextual information. Valid values: 1 to 30. Default value: 10 (approximately 5 rounds of user+assistant conversation).
+       * - `customPrompt`: A custom recommendation instruction (up to 10,000 characters). This instruction is injected into the default recommendation template before the output format constraints. The output is still subject to the JSON format and type constraints of the template.
+       * - `outputType`: Filters the output type. followUpOnly = follow-up question recommendations only (default). skillOnly = skill recommendations only. both = generates both types.
+       * Unlike internal endpoints, API calls are not restricted by the next-step recommendation toggle in user personal settings and always perform recommendation generation.
        *
        * @param request RecommendNextActionsRequest
        * @param headers map
@@ -2885,12 +3149,12 @@ namespace WinNexo20260512
        * @summary Generates next-step recommendations for a session.
        *
        * @description ## Request description
-       * Based on the most recent N messages in a session and the skills attached to the agent, this operation invokes an LLM to generate 0 to 3 next-step recommendations (follow-up questions or recommended skills to execute).
+       * Based on the most recent N messages in a session and the skills attached to the agent, invokes an LLM to generate 0 to 3 next-step recommendations (follow-up questions or recommended skills to execute).
        * - `sessionId`: The session ID. Required. Only sessions that the currently authenticated user has permission to access are allowed.
-       * - `recentMessageCount`: The number of recent messages used to assemble contextual information. Valid values: 1 to 30. Default value: 10 (approximately 5 rounds of user+assistant conversation).
-       * - `customPrompt`: A custom recommendation instruction (up to 10,000 characters). This is injected into the default recommendation template as a custom instruction (before the output format constraints). The output is still subject to the JSON format and type constraints of the template.
-       * - `outputType`: The output type filter. followUpOnly = follow-up recommendations only (default). skillOnly = skill recommendations only. both = generate both types.
-       * Unlike internal endpoints, API calls are not restricted by the next-step recommendation toggle in user personal settings and always execute recommendation generation.
+       * - `recentMessageCount`: The number of recent messages used to assemble the contextual information. Valid values: 1 to 30. Default value: 10 (approximately 5 rounds of user+assistant conversation).
+       * - `customPrompt`: A custom recommendation instruction (up to 10,000 characters). This instruction is injected into the default recommendation template before the output format constraints. The output is still subject to the JSON format and type constraints of the template.
+       * - `outputType`: Filters the output type. followUpOnly = follow-up question recommendations only (default). skillOnly = skill recommendations only. both = generates both types.
+       * Unlike internal endpoints, API calls are not restricted by the next-step recommendation toggle in user personal settings and always perform recommendation generation.
        *
        * @param request RecommendNextActionsRequest
        * @return RecommendNextActionsResponse
@@ -3272,16 +3536,16 @@ namespace WinNexo20260512
       Models::RetryDirectoryFailedSourcesResponse retryDirectoryFailedSources(const Models::RetryDirectoryFailedSourcesRequest &request);
 
       /**
-       * @summary Retries all data sources in failed status under a specified directory in batches.
+       * @summary Retries all data sources in failed status under a specified directory in batch.
        *
        * @description ## Operation description
        * This API retrieves and retries all data sources in FAILED status under a specified enterprise knowledge base directory (including its subdirectories). The request returns immediately, and the actual retry operations are executed asynchronously in the background.
-       * - **Authentication**: In addition to basic authentication, the `DEVELOPMENT_KB_MANAGE` permission is required.
+       * - **Authentication**: In addition to basic authentication, the DEVELOPMENT_KB_MANAGE permission is required.
        * - **Security constraints**: Only callers with the corresponding tenant and user identity are allowed access, and KB management permission is required. Administrators can initiate retries for failed resources of any user.
        * - **Parameters**:
-       *   - `directoryId` (required): The ID of the enterprise knowledge base directory to check and retry failed data sources.
+       *   - `directoryId` (required): The ID of the enterprise knowledge base directory for which to check and retry failed data sources.
        *   - `tenantId` (optional): The tenant ID. The default tenant of the caller is used if this parameter is not specified.
-       * - **Response**: On success, returns the number of data sources enqueued for retry and related details.
+       * - **Response**: On success, the response includes the number of data sources enqueued for retry and their details.
        *
        * @param request RetryKnowledgeBaseFailedSourcesRequest
        * @param headers map
@@ -3291,21 +3555,59 @@ namespace WinNexo20260512
       Models::RetryKnowledgeBaseFailedSourcesResponse retryKnowledgeBaseFailedSourcesWithOptions(const Models::RetryKnowledgeBaseFailedSourcesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retries all data sources in failed status under a specified directory in batches.
+       * @summary Retries all data sources in failed status under a specified directory in batch.
        *
        * @description ## Operation description
        * This API retrieves and retries all data sources in FAILED status under a specified enterprise knowledge base directory (including its subdirectories). The request returns immediately, and the actual retry operations are executed asynchronously in the background.
-       * - **Authentication**: In addition to basic authentication, the `DEVELOPMENT_KB_MANAGE` permission is required.
+       * - **Authentication**: In addition to basic authentication, the DEVELOPMENT_KB_MANAGE permission is required.
        * - **Security constraints**: Only callers with the corresponding tenant and user identity are allowed access, and KB management permission is required. Administrators can initiate retries for failed resources of any user.
        * - **Parameters**:
-       *   - `directoryId` (required): The ID of the enterprise knowledge base directory to check and retry failed data sources.
+       *   - `directoryId` (required): The ID of the enterprise knowledge base directory for which to check and retry failed data sources.
        *   - `tenantId` (optional): The tenant ID. The default tenant of the caller is used if this parameter is not specified.
-       * - **Response**: On success, returns the number of data sources enqueued for retry and related details.
+       * - **Response**: On success, the response includes the number of data sources enqueued for retry and their details.
        *
        * @param request RetryKnowledgeBaseFailedSourcesRequest
        * @return RetryKnowledgeBaseFailedSourcesResponse
        */
       Models::RetryKnowledgeBaseFailedSourcesResponse retryKnowledgeBaseFailedSources(const Models::RetryKnowledgeBaseFailedSourcesRequest &request);
+
+      /**
+       * @summary Revokes a single semantic resource draft.
+       *
+       * @description Revokes a single semantic resource draft via OpenAPI (personal token only).
+       *     Business orchestration:
+       *     1. Draft domain identity verification (personal token only. Deploy/system-level tokens are rejected)
+       *        and semantic management permission verification.
+       *     2. When graphName is provided, verifies draft ownership consistency (prevents accidental cross-knowledge-graph deletion).
+       *        If the draft no longer exists, returns reverted=false (idempotent semantics, no error is reported).
+       *     Error codes:
+       *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+       *     - ERR.Robject.Global.InvalidParameter: draftChangeId does not belong to the specified knowledge graph.
+       *
+       * @param request RevertGraphDraftResourceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RevertGraphDraftResourceResponse
+       */
+      Models::RevertGraphDraftResourceResponse revertGraphDraftResourceWithOptions(const Models::RevertGraphDraftResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Revokes a single semantic resource draft.
+       *
+       * @description Revokes a single semantic resource draft via OpenAPI (personal token only).
+       *     Business orchestration:
+       *     1. Draft domain identity verification (personal token only. Deploy/system-level tokens are rejected)
+       *        and semantic management permission verification.
+       *     2. When graphName is provided, verifies draft ownership consistency (prevents accidental cross-knowledge-graph deletion).
+       *        If the draft no longer exists, returns reverted=false (idempotent semantics, no error is reported).
+       *     Error codes:
+       *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+       *     - ERR.Robject.Global.InvalidParameter: draftChangeId does not belong to the specified knowledge graph.
+       *
+       * @param request RevertGraphDraftResourceRequest
+       * @return RevertGraphDraftResourceResponse
+       */
+      Models::RevertGraphDraftResourceResponse revertGraphDraftResource(const Models::RevertGraphDraftResourceRequest &request);
 
       /**
        * @summary Revokes the usage permissions of a user or user group on a digital human.
@@ -3374,6 +3676,48 @@ namespace WinNexo20260512
        * @return RunSkillResponse
        */
       Models::RunSkillResponse runSkill(const Models::RunSkillRequest &request);
+
+      /**
+       * @summary 保存单个语义资源草稿
+       *
+       * @description OpenAPI 保存单个语义资源草稿（仅个人 Token）。
+       *     业务编排：
+       *     1. 草稿域身份校验（仅个人 Token；部署/系统级 Token 被拒绝）
+       *        与语义管理权限校验
+       *     2. 委托个人草稿服务保存（来源固定 YAML），底层含资源级写权限校验；
+       *        内容与在线完全一致时跳过落库，摘要字段返回 null
+       *     错误码：
+       *     - ERR.User.TokenUserOnly: 个人草稿仅支持用户 Token
+       *     - ERR.Robject.Global.InvalidParameter: resourceType/elementType 组合不合法
+       *     - ERR.GraphSchema.*: 图谱不存在 / 资源命名与归属校验失败
+       *     - ERR.Robject.Global.ResourceNotFound: 资源不存在等底层校验失败
+       *
+       * @param request SaveGraphDraftResourceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveGraphDraftResourceResponse
+       */
+      Models::SaveGraphDraftResourceResponse saveGraphDraftResourceWithOptions(const Models::SaveGraphDraftResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 保存单个语义资源草稿
+       *
+       * @description OpenAPI 保存单个语义资源草稿（仅个人 Token）。
+       *     业务编排：
+       *     1. 草稿域身份校验（仅个人 Token；部署/系统级 Token 被拒绝）
+       *        与语义管理权限校验
+       *     2. 委托个人草稿服务保存（来源固定 YAML），底层含资源级写权限校验；
+       *        内容与在线完全一致时跳过落库，摘要字段返回 null
+       *     错误码：
+       *     - ERR.User.TokenUserOnly: 个人草稿仅支持用户 Token
+       *     - ERR.Robject.Global.InvalidParameter: resourceType/elementType 组合不合法
+       *     - ERR.GraphSchema.*: 图谱不存在 / 资源命名与归属校验失败
+       *     - ERR.Robject.Global.ResourceNotFound: 资源不存在等底层校验失败
+       *
+       * @param request SaveGraphDraftResourceRequest
+       * @return SaveGraphDraftResourceResponse
+       */
+      Models::SaveGraphDraftResourceResponse saveGraphDraftResource(const Models::SaveGraphDraftResourceRequest &request);
 
       /**
        * @summary Saves group outputs in batches to the collaboration group repository.
@@ -3480,6 +3824,34 @@ namespace WinNexo20260512
       Models::SaveOutputFileToResourceResponse saveOutputFileToResource(const Models::SaveOutputFileToResourceRequest &request);
 
       /**
+       * @summary Winnexo 轻量工作台搜索阿里钉群聊。
+       *
+       * @description ## 请求说明
+       * - 仅供 Winnexo 轻量工作台使用。
+       * - 按关键词分页搜索当前平台用户可见的阿里钉群聊。
+       * - 响应不包含 DWS 原始对象。
+       *
+       * @param request SearchAliDingGroupChatsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SearchAliDingGroupChatsResponse
+       */
+      Models::SearchAliDingGroupChatsResponse searchAliDingGroupChatsWithOptions(const Models::SearchAliDingGroupChatsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Winnexo 轻量工作台搜索阿里钉群聊。
+       *
+       * @description ## 请求说明
+       * - 仅供 Winnexo 轻量工作台使用。
+       * - 按关键词分页搜索当前平台用户可见的阿里钉群聊。
+       * - 响应不包含 DWS 原始对象。
+       *
+       * @param request SearchAliDingGroupChatsRequest
+       * @return SearchAliDingGroupChatsResponse
+       */
+      Models::SearchAliDingGroupChatsResponse searchAliDingGroupChats(const Models::SearchAliDingGroupChatsRequest &request);
+
+      /**
        * @summary Asynchronously sends a session message.
        *
        * @description Asynchronously sends a session message.
@@ -3504,13 +3876,13 @@ namespace WinNexo20260512
       /**
        * @summary Sends a message.
        *
-       * @description ## Request description
-       * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
+       * @description ## Operation description
+       * - This API operation is used to upload a file to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-       * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-       * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
-       * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
-       * - The operation type is write, and operation logs are recorded for subsequent auditing.
+       * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
+       * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the invoker.
+       * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
+       * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
        *
        * @param tmpReq SendChatMessageRequest
        * @param headers map
@@ -3522,13 +3894,13 @@ namespace WinNexo20260512
       /**
        * @summary Sends a message.
        *
-       * @description ## Request description
-       * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
+       * @description ## Operation description
+       * - This API operation is used to upload a file to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-       * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-       * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
-       * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
-       * - The operation type is write, and operation logs are recorded for subsequent auditing.
+       * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
+       * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the invoker.
+       * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
+       * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
        *
        * @param tmpReq SendChatMessageRequest
        * @param headers map
@@ -3540,13 +3912,13 @@ namespace WinNexo20260512
       /**
        * @summary Sends a message.
        *
-       * @description ## Request description
-       * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
+       * @description ## Operation description
+       * - This API operation is used to upload a file to the "My Resources" section of a specified digital employee.
        * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
-       * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
-       * - If no target folder ID (`directoryId`) is specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the invoker\\"s personal folder.
-       * - Multiple authentication methods (AK, BearerToken, APP) are supported to authenticate requests.
-       * - The operation type is write, and operation logs are recorded for subsequent auditing.
+       * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
+       * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the invoker.
+       * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
+       * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
        *
        * @param request SendChatMessageRequest
        * @return SendChatMessageResponse
@@ -3684,6 +4056,56 @@ namespace WinNexo20260512
       Models::TogglePrimaryObjectFavoriteResponse togglePrimaryObjectFavorite(const Models::TogglePrimaryObjectFavoriteRequest &request);
 
       /**
+       * @summary Converts speech to text.
+       *
+       * @description ## Request description
+       * This API is used for speech-to-text (ASR) and uses the **file transfer upload** mode (`fileTransfer`). Audio files are not transmitted through the request body of this API. Instead, the audio file is first uploaded to OSS, and then the OSS address is passed to the backend through the `FileUrl` parameter. The backend retrieves the audio bytes from that address and calls the ASR model to convert them to text.
+       * ### Call methods
+       * - **Recommended**: Use the `TranscribeChatVoiceAdvance` method generated by the SDK. Pass in the local audio file stream, and the SDK automatically completes the transfer upload and populates the `FileUrl` parameter.
+       * - **Direct upload**: Upload the audio file to an OSS address accessible by the server, and then call this API directly with the `FileUrl` parameter.
+       * ### Request parameters
+       * - **FileUrl**: Required. The OSS address of the audio file. When you use the Advance method, the SDK automatically populates this parameter. You do not need to set it manually.
+       * - **FileName**: Required. The original file name including the extension, such as `meeting.mp3`. The OSS address generated during the transfer does not carry the original file name. The backend uses this parameter to determine the audio format, so you must explicitly specify it.
+       * - **ContentType**: Optional. The MIME type of the audio, such as `audio/mpeg`. If this parameter is not specified, the MIME type is determined based on the file name extension.
+       * - Supported audio formats: mp3, wav, m4a, mp4, webm, ogg, oga, opus, flac, and amr. Maximum file size: 25 MB.
+       * ### Response parameters
+       * Returns the recognized text content `text`.
+       * ### Before you begin
+       * The tenant must have the speech recognition model (model_audio_flash) configured. If it is not configured, the error `ERR.Robject.Chat.VoiceAudioNotConfigured` is returned.
+       *
+       * @param request TranscribeChatVoiceRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return TranscribeChatVoiceResponse
+       */
+      Models::TranscribeChatVoiceResponse transcribeChatVoiceWithOptions(const Models::TranscribeChatVoiceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Converts speech to text.
+       *
+       * @description ## Request description
+       * This API is used for speech-to-text (ASR) and uses the **file transfer upload** mode (`fileTransfer`). Audio files are not transmitted through the request body of this API. Instead, the audio file is first uploaded to OSS, and then the OSS address is passed to the backend through the `FileUrl` parameter. The backend retrieves the audio bytes from that address and calls the ASR model to convert them to text.
+       * ### Call methods
+       * - **Recommended**: Use the `TranscribeChatVoiceAdvance` method generated by the SDK. Pass in the local audio file stream, and the SDK automatically completes the transfer upload and populates the `FileUrl` parameter.
+       * - **Direct upload**: Upload the audio file to an OSS address accessible by the server, and then call this API directly with the `FileUrl` parameter.
+       * ### Request parameters
+       * - **FileUrl**: Required. The OSS address of the audio file. When you use the Advance method, the SDK automatically populates this parameter. You do not need to set it manually.
+       * - **FileName**: Required. The original file name including the extension, such as `meeting.mp3`. The OSS address generated during the transfer does not carry the original file name. The backend uses this parameter to determine the audio format, so you must explicitly specify it.
+       * - **ContentType**: Optional. The MIME type of the audio, such as `audio/mpeg`. If this parameter is not specified, the MIME type is determined based on the file name extension.
+       * - Supported audio formats: mp3, wav, m4a, mp4, webm, ogg, oga, opus, flac, and amr. Maximum file size: 25 MB.
+       * ### Response parameters
+       * Returns the recognized text content `text`.
+       * ### Before you begin
+       * The tenant must have the speech recognition model (model_audio_flash) configured. If it is not configured, the error `ERR.Robject.Chat.VoiceAudioNotConfigured` is returned.
+       *
+       * @param request TranscribeChatVoiceRequest
+       * @return TranscribeChatVoiceResponse
+       */
+      Models::TranscribeChatVoiceResponse transcribeChatVoice(const Models::TranscribeChatVoiceRequest &request);
+
+      Models::TranscribeChatVoiceResponse transcribeChatVoiceAdvance(const Models::TranscribeChatVoiceAdvanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
        * @summary Updates the authorization mode for digital employee usage permissions.
        *
        * @description Switches the authorization mode for digital employee usage permissions.
@@ -3778,6 +4200,40 @@ namespace WinNexo20260512
        * @return UpdateDirectoryResponse
        */
       Models::UpdateDirectoryResponse updateDirectory(const Models::UpdateDirectoryRequest &request);
+
+      /**
+       * @summary 快更图谱元信息
+       *
+       * @description OpenAPI 快更图谱元信息（displayName / businessProfile），同步更新 active 记录。
+       *     displayName 与 businessProfile 至少传其一，否则返回 ERR.GraphSchema.QuickUpdateNoFieldsToUpdate。
+       *     错误码：
+       *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: 未传任何可更新字段
+       *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
+       *     - ERR.GraphSchema.GraphSchemaNotFound: 图谱不存在
+       *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
+       *
+       * @param request UpdateGraphInfoRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateGraphInfoResponse
+       */
+      Models::UpdateGraphInfoResponse updateGraphInfoWithOptions(const Models::UpdateGraphInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 快更图谱元信息
+       *
+       * @description OpenAPI 快更图谱元信息（displayName / businessProfile），同步更新 active 记录。
+       *     displayName 与 businessProfile 至少传其一，否则返回 ERR.GraphSchema.QuickUpdateNoFieldsToUpdate。
+       *     错误码：
+       *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: 未传任何可更新字段
+       *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
+       *     - ERR.GraphSchema.GraphSchemaNotFound: 图谱不存在
+       *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
+       *
+       * @param request UpdateGraphInfoRequest
+       * @return UpdateGraphInfoResponse
+       */
+      Models::UpdateGraphInfoResponse updateGraphInfo(const Models::UpdateGraphInfoRequest &request);
 
       /**
        * @summary Updates the information of a specified enterprise knowledge base directory, including the name, description, and parent directory.
@@ -4018,11 +4474,11 @@ namespace WinNexo20260512
       /**
        * @summary Updates partial fields of the current user information and returns the complete user information.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * - This API allows the caller to update some or all optional fields of a specified user. Fields that are not provided retain their original values.
        * - Use the `tenantId` parameter to specify a tenant ID. If omitted, the default tenant of the caller is used.
        * - After a successful update, the response body contains the complete user information object.
-       * - This operation requires authentication and supports AK, BearerToken, and APP security schemes.
+       * - This operation requires authentication and supports three security schemes: AK, BearerToken, and APP.
        * - The request content type is JSON, and the operation is available only over HTTPS.
        * - Note: The `profileRoleInfo` field is valid only when the user role is set to Others. It describes the specific role information of the user.
        *
@@ -4036,11 +4492,11 @@ namespace WinNexo20260512
       /**
        * @summary Updates partial fields of the current user information and returns the complete user information.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * - This API allows the caller to update some or all optional fields of a specified user. Fields that are not provided retain their original values.
        * - Use the `tenantId` parameter to specify a tenant ID. If omitted, the default tenant of the caller is used.
        * - After a successful update, the response body contains the complete user information object.
-       * - This operation requires authentication and supports AK, BearerToken, and APP security schemes.
+       * - This operation requires authentication and supports three security schemes: AK, BearerToken, and APP.
        * - The request content type is JSON, and the operation is available only over HTTPS.
        * - Note: The `profileRoleInfo` field is valid only when the user role is set to Others. It describes the specific role information of the user.
        *

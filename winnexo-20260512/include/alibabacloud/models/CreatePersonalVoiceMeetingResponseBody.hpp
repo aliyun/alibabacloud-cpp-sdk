@@ -114,7 +114,7 @@ namespace Models
   protected:
     // The response code.
     shared_ptr<string> code_ {};
-    // The bound directory ID. This value echoes the directoryId provided in the request body. If no directoryId is specified, the value is null because the default root directory is used.
+    // The bound directory ID. This value is echoed back if provided in the request body. The value is null if the default root directory is used.
     shared_ptr<string> directoryId_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
@@ -126,7 +126,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The resource scope. The value is fixed to PERSONAL.
     shared_ptr<string> scope_ {};
-    // The unique identifier on the business system side, that is, the business ID.
+    // The unique ID on the business system side, which is the business ID.
     shared_ptr<string> sourceId_ {};
     // The resource status. The initial status during the creation process is typically PENDING. If the on_create process fails, the status is FAILED.
     shared_ptr<string> status_ {};

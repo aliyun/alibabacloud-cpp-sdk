@@ -174,9 +174,9 @@ namespace Models
   protected:
     // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // The enterprise knowledge base directory ID.
+    // The ID of the enterprise knowledge base directory.
     shared_ptr<string> directoryId_ {};
-    // The number of resources successfully enqueued for retry.
+    // The number of data sources successfully enqueued for retry.
     shared_ptr<int64_t> enqueuedCount_ {};
     // The list of knowledge base source IDs that have been re-enqueued.
     shared_ptr<vector<string>> enqueuedIds_ {};
@@ -188,7 +188,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // The number of resources skipped (not in FAILED status).
+    // The number of data sources skipped because they are not in FAILED status.
     shared_ptr<int64_t> skippedCount_ {};
   };
 

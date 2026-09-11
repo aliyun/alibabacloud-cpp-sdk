@@ -154,13 +154,13 @@ namespace Models
 
 
       protected:
-        // The semantic graph name to which the object belongs. The object_id is unique within this graph.
+        // The name of the semantic graph to which the object belongs. The object_id is unique within this graph.
         shared_ptr<string> graphName_ {};
-        // The ID of the recommended item, which can be a feedId or a micro-application ID.
+        // The ID of the recommended item, which can be a **feedId** or a micro-application ID.
         shared_ptr<string> objectId_ {};
         // The object name.
         shared_ptr<string> objectName_ {};
-        // The object type, such as customer. This field has a value only when type is mention.
+        // The object type, such as customer. This field has a value when type is set to mention.
         shared_ptr<string> objectType_ {};
         // The display name of the object type (such as "Customer"), parsed from the graph schema. The value is null when the cache is missed.
         shared_ptr<string> objectTypeName_ {};
@@ -296,15 +296,15 @@ namespace Models
       shared_ptr<string> name_ {};
       // The object bindings.
       shared_ptr<vector<Items::ObjectBindings>> objectBindings_ {};
-      // The number of resources with FAILED status. This field is returned only for the top-level knowledge base directory list.
+      // The number of resources with the FAILED status. This field is returned only in the top-level knowledge base directory list.
       shared_ptr<int64_t> sourceFailedCount_ {};
-      // The knowledge base ownership type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
+      // The knowledge base source type. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
       shared_ptr<string> sourceKind_ {};
-      // The number of resources with READY status. This field is returned only for the top-level knowledge base directory list.
+      // The number of resources with the READY status. This field is returned only in the top-level knowledge base directory list.
       shared_ptr<int64_t> sourceReadyCount_ {};
-      // The resource status. This field has a value only when itemType is resource.
+      // The resource status. This field has a value when itemType is set to resource.
       shared_ptr<string> sourceStatus_ {};
-      // The total number of resources in the directory and its subdirectories. This field is returned only for the top-level knowledge base directory list.
+      // The total number of resources in the directory and its subdirectories. This field is returned only in the top-level knowledge base directory list.
       shared_ptr<int64_t> sourceTotalCount_ {};
       // The source type.
       shared_ptr<string> sourceType_ {};
@@ -369,7 +369,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The list of MCP cards.
     shared_ptr<vector<ListAdminKnowledgeBasesResponseBody::Items>> items_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> page_ {};
@@ -377,7 +377,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The maximum number of records returned in this request.
+    // The maximum number of entries returned in this request.
     shared_ptr<int64_t> total_ {};
   };
 

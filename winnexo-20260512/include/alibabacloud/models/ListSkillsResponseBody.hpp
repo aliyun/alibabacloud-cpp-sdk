@@ -195,7 +195,7 @@ namespace Models
       shared_ptr<bool> hasDraftChanges_ {};
       // The file name.
       shared_ptr<string> name_ {};
-      // The actual skill code for execution.
+      // The skill code that is actually executed.
       shared_ptr<string> skillCode_ {};
       // The skill definition ID.
       shared_ptr<int64_t> skillHubDefinitionId_ {};
@@ -203,7 +203,7 @@ namespace Models
       shared_ptr<string> sourceType_ {};
       // The task status. Running is returned upon submission.
       shared_ptr<string> status_ {};
-      // The key.
+      // The keys.
       shared_ptr<vector<string>> tags_ {};
       // The update timestamp, in milliseconds.
       shared_ptr<string> updatedTime_ {};

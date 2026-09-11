@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The unique business identifier. When bizType is LibraryChat, bizId refers to the document library ID.
+    // The unique business identifier. When bizType is set to LibraryChat, bizId specifies the document library ID.
     shared_ptr<string> bizId_ {};
     // The business type. Currently supported values: model Q&A (LlmChat) and document library Q&A (LibraryChat).
     shared_ptr<string> bizType_ {};
@@ -140,10 +140,10 @@ namespace Models
     shared_ptr<bool> ignoreZero_ {};
     // The operation type. Valid values:
     // 
-    // - start: indicates task creation. This is the default value and does not need to be explicitly set in most cases.
-    // - stop: stops a real-time meeting task. This corresponds to the creation of a real-time meeting. After the meeting ends, set this to stop to trigger the call. This is used in real-time meeting scenarios.
+    // - start: indicates node creation. This is the default value. In most cases, you do not need to explicitly set this value.
+    // - stop: stops a real-time meeting node. This value corresponds to the creation of a real-time meeting. After the meeting ends, set this value to stop and trigger the call. This value is used in real-time meeting scenarios.
     // 
-    // Note: When ending a real-time recording, you must set this parameter to stop.
+    // > Note: When ending a real-time recording, make sure to set this parameter to stop.
     shared_ptr<string> operation_ {};
     // The current page number.
     shared_ptr<int64_t> page_ {};
@@ -151,9 +151,9 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The query start time. The value is a UNIX timestamp in seconds.
     shared_ptr<string> startTime_ {};
-    // The task status. The status is returned as Running upon submission.
+    // The node status. Running is returned upon submission.
     shared_ptr<string> status_ {};
-    // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass this parameter explicitly by using --tenant-id.
     shared_ptr<string> tenantId_ {};
     // The user ID (WINNEXO platform user ID, optional filter).
     shared_ptr<string> wnUserId_ {};

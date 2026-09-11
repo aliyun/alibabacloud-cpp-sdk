@@ -157,11 +157,11 @@ namespace Models
       shared_ptr<int64_t> createdAt_ {};
       // The message ID.
       shared_ptr<string> id_ {};
-      // Indicates whether the creation time is older than 30 days.
+      // Indicates whether the creation time exceeds 30 days.
       shared_ptr<bool> isExpired_ {};
       // The session metadata.
       Darabonba::Json metadata_ {};
-      // The abstract model name used by the session (quick/standard/flagship).
+      // The abstract model name used by the session. Valid values: quick, standard, and flagship.
       shared_ptr<string> model_ {};
       // The type.
       shared_ptr<string> object_ {};
@@ -309,9 +309,9 @@ namespace Models
     protected:
       // The message content.
       shared_ptr<string> content_ {};
-      // Indicates whether the LLM context has been cleared after this message.
+      // Indicates whether the LLM context was cleared after this message.
       shared_ptr<bool> contextCleared_ {};
-      // Indicates whether the message is copied from a shared conversation.
+      // Indicates whether the message was copied from a shared conversation.
       shared_ptr<bool> fromShare_ {};
       // The message ID.
       shared_ptr<string> id_ {};
@@ -321,7 +321,7 @@ namespace Models
       shared_ptr<string> object_ {};
       // The role.
       shared_ptr<string> role_ {};
-      // The username of the user who shared the message. This parameter has a value only when from_share is set to True.
+      // The username of the sharing source. This field has a value only when from_share is set to True.
       shared_ptr<string> shareUserName_ {};
       // The message status.
       shared_ptr<string> status_ {};
@@ -329,7 +329,7 @@ namespace Models
       shared_ptr<string> traceId_ {};
       // The update time.
       shared_ptr<int64_t> updateAt_ {};
-      // The user feedback type: LIKE | DISLIKE | CANCEL.
+      // The user feedback type. Valid values: LIKE, DISLIKE, and CANCEL.
       shared_ptr<string> userFeedback_ {};
     };
 
@@ -379,11 +379,11 @@ namespace Models
     shared_ptr<string> code_ {};
     // The status code description.
     shared_ptr<string> message_ {};
-    // The message data detail structure.
+    // The message data details structure.
     shared_ptr<vector<GetChatSessionResponseBody::Messages>> messages_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The session information.
+    // The session ID.
     shared_ptr<GetChatSessionResponseBody::Session> session_ {};
   };
 

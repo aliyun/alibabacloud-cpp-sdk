@@ -112,7 +112,7 @@ namespace Models
     shared_ptr<string> filterType_ {};
     // The search keyword. Supports fuzzy search by API name or exact search by API ID.
     shared_ptr<string> keyword_ {};
-    // The digital employee name. Used to calculate the CodeAgent allowedSkills whitelist based on binding relationships.
+    // The name of the digital employee. Used to calculate the CodeAgent allowedSkills whitelist based on binding relationships.
     shared_ptr<string> operatingObjectName_ {};
     // The current page number.
     shared_ptr<int32_t> page_ {};

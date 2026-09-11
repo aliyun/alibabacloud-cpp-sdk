@@ -126,7 +126,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The permission scope.
     shared_ptr<string> scope_ {};
-    // The unique identifier on the business system side, which is the business ID.
+    // The unique ID on the business system side, that is, the business ID.
     shared_ptr<string> sourceId_ {};
     // The status.
     shared_ptr<string> status_ {};

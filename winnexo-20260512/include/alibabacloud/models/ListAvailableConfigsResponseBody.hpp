@@ -107,9 +107,9 @@ namespace Models
       shared_ptr<string> corpName_ {};
       // The platform type.
       shared_ptr<string> platformType_ {};
-      // The SSO configuration ID. This field has a value only for SAML, OAuth2, or WeCom types. The value is null for custom types.
+      // The SSO configuration ID. This parameter has a value only for SAML, OAuth2, and WeCom types. The value is null for the custom type.
       shared_ptr<string> ssoSettingsId_ {};
-      // The SSO configuration name. This field has a value only for SAML, OAuth2, or WeCom types. The value is null for custom types.
+      // The SSO configuration name. This parameter has a value only for SAML, OAuth2, and WeCom types. The value is null for the custom type.
       shared_ptr<string> ssoSettingsName_ {};
     };
 
@@ -150,7 +150,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The list of queried Logtail configurations.
     shared_ptr<vector<ListAvailableConfigsResponseBody::Configs>> configs_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

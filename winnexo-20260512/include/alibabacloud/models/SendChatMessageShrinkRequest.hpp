@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(contentType, contentType_);
       DARABONBA_PTR_TO_JSON(digitalEmployeeName, digitalEmployeeNameShrink_);
       DARABONBA_PTR_TO_JSON(directChat, directChat_);
+      DARABONBA_PTR_TO_JSON(enableWebSearch, enableWebSearch_);
       DARABONBA_PTR_TO_JSON(files, filesShrink_);
       DARABONBA_PTR_TO_JSON(model, model_);
       DARABONBA_PTR_TO_JSON(reuseLastSession, reuseLastSession_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(contentType, contentType_);
       DARABONBA_PTR_FROM_JSON(digitalEmployeeName, digitalEmployeeNameShrink_);
       DARABONBA_PTR_FROM_JSON(directChat, directChat_);
+      DARABONBA_PTR_FROM_JSON(enableWebSearch, enableWebSearch_);
       DARABONBA_PTR_FROM_JSON(files, filesShrink_);
       DARABONBA_PTR_FROM_JSON(model, model_);
       DARABONBA_PTR_FROM_JSON(reuseLastSession, reuseLastSession_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->contentType_ == nullptr && this->digitalEmployeeNameShrink_ == nullptr && this->directChat_ == nullptr && this->filesShrink_ == nullptr && this->model_ == nullptr
-        && this->reuseLastSession_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecutionShrink_ == nullptr && this->tenantId_ == nullptr; };
+        && this->contentType_ == nullptr && this->digitalEmployeeNameShrink_ == nullptr && this->directChat_ == nullptr && this->enableWebSearch_ == nullptr && this->filesShrink_ == nullptr
+        && this->model_ == nullptr && this->reuseLastSession_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecutionShrink_ == nullptr
+        && this->tenantId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -78,6 +81,13 @@ namespace Models
     void deleteDirectChat() { this->directChat_ = nullptr;};
     inline bool getDirectChat() const { DARABONBA_PTR_GET_DEFAULT(directChat_, false) };
     inline SendChatMessageShrinkRequest& setDirectChat(bool directChat) { DARABONBA_PTR_SET_VALUE(directChat_, directChat) };
+
+
+    // enableWebSearch Field Functions 
+    bool hasEnableWebSearch() const { return this->enableWebSearch_ != nullptr;};
+    void deleteEnableWebSearch() { this->enableWebSearch_ = nullptr;};
+    inline bool getEnableWebSearch() const { DARABONBA_PTR_GET_DEFAULT(enableWebSearch_, false) };
+    inline SendChatMessageShrinkRequest& setEnableWebSearch(bool enableWebSearch) { DARABONBA_PTR_SET_VALUE(enableWebSearch_, enableWebSearch) };
 
 
     // filesShrink Field Functions 
@@ -140,15 +150,17 @@ namespace Models
     shared_ptr<string> digitalEmployeeNameShrink_ {};
     // Specifies whether to enable direct connection mode. If set to true, the regular scenario routing is skipped and the direct conversation scenario is entered.
     shared_ptr<bool> directChat_ {};
-    // The list of file references. Each item is an object in which fileId is required and is returned by uploadChatFile.
+    // Specifies whether to enable web search. Default value: False. In task execution scenarios (when taskExecution is passed), the task configuration takes precedence.
+    shared_ptr<bool> enableWebSearch_ {};
+    // The list of file references. Each item is an object, and fileId is required (returned by uploadChatFile).
     shared_ptr<string> filesShrink_ {};
     // The abstract model tier. Valid values: quick, standard, and flagship. If not specified, new sessions use standard, and existing sessions retain the current session tier.
     shared_ptr<string> model_ {};
-    // Specifies whether to reuse the most recent session of the digital employee when sessionId is not provided (CLI scenario). Default value: false, which creates a new session.
+    // Specifies whether to reuse the most recent session of the digital employee when sessionId is not passed (CLI scenario). Default value: false, which creates a new session.
     shared_ptr<bool> reuseLastSession_ {};
     // The session ID.
     shared_ptr<string> sessionId_ {};
-    // Specifies whether to use streaming output.
+    // Specifies whether to enable streaming output.
     shared_ptr<bool> stream_ {};
     // The task execution metadata returned by executeScheduledTask. When provided, the request is processed through the task execution pipeline.
     shared_ptr<string> taskExecutionShrink_ {};

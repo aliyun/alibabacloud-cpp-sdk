@@ -238,7 +238,7 @@ namespace Models
       shared_ptr<string> entryObjectId_ {};
       // The entry object type.
       shared_ptr<string> entryObjectType_ {};
-      // Indicates whether this is a shadow bill.
+      // Indicates whether the bill is a shadow bill.
       shared_ptr<bool> isShadow_ {};
       // The operation type.
       shared_ptr<string> operation_ {};
@@ -246,7 +246,7 @@ namespace Models
       shared_ptr<string> operationDisplayName_ {};
       // The start timestamp, in milliseconds.
       shared_ptr<string> startTime_ {};
-      // The task status. The status is returned as Running upon submission.
+      // The node status. Running is returned upon submission.
       shared_ptr<string> status_ {};
       // The display name of the status.
       shared_ptr<string> statusDisplayName_ {};
@@ -315,7 +315,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The details of the bill list.
+    // The details of the bills.
     shared_ptr<vector<ListBillingResponseBody::List>> list_ {};
     // The prompt message.
     shared_ptr<string> message_ {};
@@ -325,7 +325,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of bills.
+    // The total number of entries.
     shared_ptr<int64_t> total_ {};
   };
 

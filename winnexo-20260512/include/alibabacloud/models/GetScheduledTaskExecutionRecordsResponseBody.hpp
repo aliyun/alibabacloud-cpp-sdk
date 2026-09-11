@@ -174,7 +174,7 @@ namespace Models
 
 
       protected:
-        // The actual working hours, in hours.
+        // The actual hours spent, in hours.
         shared_ptr<string> actualTime_ {};
         // The name of the schedule location.
         shared_ptr<string> displayName_ {};
@@ -268,7 +268,7 @@ namespace Models
 
 
     protected:
-      // The ID of the collaboration group to which the task belongs. If empty, the task is a personal task.
+      // The ID of the collaboration group to which the task belongs. An empty value indicates a personal task.
       shared_ptr<string> collaborationGroupId_ {};
       // The cron expression.
       shared_ptr<string> cronExpression_ {};
@@ -277,9 +277,9 @@ namespace Models
       // Indicates whether public access is enabled.
       shared_ptr<bool> isOpen_ {};
       // The execution model tier. Valid values:
-      // - flagship: flagship.
-      // - standard: standard.
-      // - quick: lightweight.
+      // - flagship: Flagship.
+      // - standard: Standard.
+      // - quick: Lightweight.
       shared_ptr<string> model_ {};
       // The name.
       shared_ptr<string> name_ {};
@@ -292,8 +292,8 @@ namespace Models
       // > Default value: UTC+8.
       shared_ptr<string> timezone_ {};
       // The trigger type. Valid values:
-      // - Manual: manually executed.
-      // - Cron: triggered by a schedule.
+      // - Manual: Manual execution.
+      // - Cron: Timed scheduling.
       shared_ptr<string> triggerType_ {};
     };
 

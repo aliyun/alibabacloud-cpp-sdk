@@ -106,7 +106,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The skill code.
       shared_ptr<string> skillCode_ {};
-      // The list of source IDs for related skills.
+      // The list of related skill source IDs.
       shared_ptr<vector<string>> sourceIds_ {};
     };
 
@@ -214,7 +214,7 @@ namespace Models
       shared_ptr<string> mentionType_ {};
       // The name.
       shared_ptr<string> name_ {};
-      // The object ID. Pass the project task ID.
+      // The object ID. Set this parameter to the project task ID.
       // 
       // - For internal enterprise applications, this is the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
       // 
@@ -295,7 +295,7 @@ namespace Models
     shared_ptr<vector<GetScheduledTaskUnderstandDetailResponseBody::RelatedSkills>> relatedSkills_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task understanding description polished by the LLM.
+    // The task understanding description refined by the LLM.
     shared_ptr<string> taskUnderstand_ {};
   };
 

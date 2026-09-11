@@ -96,17 +96,17 @@ namespace Models
   protected:
     // The profile picture URL.
     shared_ptr<string> avatar_ {};
-    // The language preference: zh-CN, en-US.
+    // The language preference: zh-CN or en-US.
     shared_ptr<string> languagePreference_ {};
     // The name.
     shared_ptr<string> name_ {};
     // The user service description. Maximum length: 1000 characters.
     shared_ptr<string> offering_ {};
-    // The user role description (used when profileRole is set to Others). Maximum length: 100 characters.
+    // The user role description. This parameter is used when profileRole is set to Others. Maximum length: 100 characters.
     shared_ptr<string> profileRoleInfo_ {};
     // The user self-introduction. Maximum length: 1000 characters.
     shared_ptr<string> selfIntroduction_ {};
-    // The effective tenant ID.
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
   };
 

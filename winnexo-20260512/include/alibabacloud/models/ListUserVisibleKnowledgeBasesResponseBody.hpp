@@ -140,11 +140,11 @@ namespace Models
 
 
     protected:
-      // The user ID of the creator.
+      // The user ID of the task creator.
       shared_ptr<int64_t> creatorId_ {};
-      // The name of the creator.
+      // The creator name.
       shared_ptr<string> creatorName_ {};
-      // The description of the knowledge base.
+      // The description of the to-do card type.
       shared_ptr<string> description_ {};
       // The directory ID of the enterprise knowledge base.
       shared_ptr<string> directoryId_ {};

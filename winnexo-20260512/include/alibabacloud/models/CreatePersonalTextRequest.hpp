@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(directoryId, directoryId_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(textContent, textContent_);
     };
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(directoryId, directoryId_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(textContent, textContent_);
     };
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->directoryId_ == nullptr && this->name_ == nullptr && this->operatingObjectName_ == nullptr && this->tenantId_ == nullptr && this->textContent_ == nullptr; };
+        && this->directoryId_ == nullptr && this->name_ == nullptr && this->operatingObjectName_ == nullptr && this->sourceTags_ == nullptr && this->tenantId_ == nullptr
+        && this->textContent_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -69,6 +72,13 @@ namespace Models
     inline CreatePersonalTextRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
 
 
+    // sourceTags Field Functions 
+    bool hasSourceTags() const { return this->sourceTags_ != nullptr;};
+    void deleteSourceTags() { this->sourceTags_ = nullptr;};
+    inline string getSourceTags() const { DARABONBA_PTR_GET_DEFAULT(sourceTags_, "") };
+    inline CreatePersonalTextRequest& setSourceTags(string sourceTags) { DARABONBA_PTR_SET_VALUE(sourceTags_, sourceTags) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -94,6 +104,8 @@ namespace Models
     shared_ptr<string> name_ {};
     // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
+    // 资源标签 JSON 字符串列表
+    shared_ptr<string> sourceTags_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
     // The message content for text messages.

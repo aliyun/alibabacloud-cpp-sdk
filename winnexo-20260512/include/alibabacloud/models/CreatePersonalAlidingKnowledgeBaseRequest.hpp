@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(kbUrl, kbUrl_);
       DARABONBA_PTR_TO_JSON(objectBindings, objectBindings_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_TO_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_TO_JSON(syncConfig, syncConfig_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
     };
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(kbUrl, kbUrl_);
       DARABONBA_PTR_FROM_JSON(objectBindings, objectBindings_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
+      DARABONBA_PTR_FROM_JSON(sourceTags, sourceTags_);
       DARABONBA_PTR_FROM_JSON(syncConfig, syncConfig_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
     };
@@ -80,7 +82,7 @@ namespace Models
 
 
     protected:
-      // The cron expression for timed scheduling.
+      // The cron expression for the timed scheduling node.
       shared_ptr<string> cron_ {};
       // Specifies whether to enable synchronization.
       shared_ptr<bool> enabled_ {};
@@ -131,8 +133,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->directoryId_ == nullptr
-        && this->kbName_ == nullptr && this->kbUrl_ == nullptr && this->objectBindings_ == nullptr && this->operatingObjectName_ == nullptr && this->syncConfig_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->kbName_ == nullptr && this->kbUrl_ == nullptr && this->objectBindings_ == nullptr && this->operatingObjectName_ == nullptr && this->sourceTags_ == nullptr
+        && this->syncConfig_ == nullptr && this->tenantId_ == nullptr; };
     // directoryId Field Functions 
     bool hasDirectoryId() const { return this->directoryId_ != nullptr;};
     void deleteDirectoryId() { this->directoryId_ = nullptr;};
@@ -170,6 +172,13 @@ namespace Models
     inline CreatePersonalAlidingKnowledgeBaseRequest& setOperatingObjectName(string operatingObjectName) { DARABONBA_PTR_SET_VALUE(operatingObjectName_, operatingObjectName) };
 
 
+    // sourceTags Field Functions 
+    bool hasSourceTags() const { return this->sourceTags_ != nullptr;};
+    void deleteSourceTags() { this->sourceTags_ = nullptr;};
+    inline string getSourceTags() const { DARABONBA_PTR_GET_DEFAULT(sourceTags_, "") };
+    inline CreatePersonalAlidingKnowledgeBaseRequest& setSourceTags(string sourceTags) { DARABONBA_PTR_SET_VALUE(sourceTags_, sourceTags) };
+
+
     // syncConfig Field Functions 
     bool hasSyncConfig() const { return this->syncConfig_ != nullptr;};
     void deleteSyncConfig() { this->syncConfig_ = nullptr;};
@@ -199,6 +208,8 @@ namespace Models
     shared_ptr<vector<CreatePersonalAlidingKnowledgeBaseRequest::ObjectBindings>> objectBindings_ {};
     // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
+    // The list of resource tag JSON strings applied to all child sources created during knowledge base synchronization.
+    shared_ptr<string> sourceTags_ {};
     // The synchronization settings.
     shared_ptr<CreatePersonalAlidingKnowledgeBaseRequest::SyncConfig> syncConfig_ {};
     // The tenant ID.

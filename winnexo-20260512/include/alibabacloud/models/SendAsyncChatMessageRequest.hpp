@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(contentType, contentType_);
       DARABONBA_PTR_TO_JSON(digitalEmployeeName, digitalEmployeeName_);
       DARABONBA_PTR_TO_JSON(directChat, directChat_);
+      DARABONBA_PTR_TO_JSON(enableWebSearch, enableWebSearch_);
       DARABONBA_PTR_TO_JSON(files, files_);
       DARABONBA_PTR_TO_JSON(model, model_);
       DARABONBA_PTR_TO_JSON(reuseLastSession, reuseLastSession_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(contentType, contentType_);
       DARABONBA_PTR_FROM_JSON(digitalEmployeeName, digitalEmployeeName_);
       DARABONBA_PTR_FROM_JSON(directChat, directChat_);
+      DARABONBA_PTR_FROM_JSON(enableWebSearch, enableWebSearch_);
       DARABONBA_PTR_FROM_JSON(files, files_);
       DARABONBA_PTR_FROM_JSON(model, model_);
       DARABONBA_PTR_FROM_JSON(reuseLastSession, reuseLastSession_);
@@ -236,8 +238,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->contentType_ == nullptr && this->digitalEmployeeName_ == nullptr && this->directChat_ == nullptr && this->files_ == nullptr && this->model_ == nullptr
-        && this->reuseLastSession_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecution_ == nullptr && this->tenantId_ == nullptr; };
+        && this->contentType_ == nullptr && this->digitalEmployeeName_ == nullptr && this->directChat_ == nullptr && this->enableWebSearch_ == nullptr && this->files_ == nullptr
+        && this->model_ == nullptr && this->reuseLastSession_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecution_ == nullptr
+        && this->tenantId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -266,6 +269,13 @@ namespace Models
     void deleteDirectChat() { this->directChat_ = nullptr;};
     inline bool getDirectChat() const { DARABONBA_PTR_GET_DEFAULT(directChat_, false) };
     inline SendAsyncChatMessageRequest& setDirectChat(bool directChat) { DARABONBA_PTR_SET_VALUE(directChat_, directChat) };
+
+
+    // enableWebSearch Field Functions 
+    bool hasEnableWebSearch() const { return this->enableWebSearch_ != nullptr;};
+    void deleteEnableWebSearch() { this->enableWebSearch_ = nullptr;};
+    inline bool getEnableWebSearch() const { DARABONBA_PTR_GET_DEFAULT(enableWebSearch_, false) };
+    inline SendAsyncChatMessageRequest& setEnableWebSearch(bool enableWebSearch) { DARABONBA_PTR_SET_VALUE(enableWebSearch_, enableWebSearch) };
 
 
     // files Field Functions 
@@ -332,6 +342,8 @@ namespace Models
     shared_ptr<vector<string>> digitalEmployeeName_ {};
     // Specifies whether to enable direct chat mode. If set to true, the regular scenario routing is skipped and the direct chat scenario is entered.
     shared_ptr<bool> directChat_ {};
+    // 是否启用联网搜索，默认 False；任务执行场景（传 taskExecution）下以任务配置为准
+    shared_ptr<bool> enableWebSearch_ {};
     // The list of file references. Each item is an object in which fileId is required and is returned by uploadChatFile.
     shared_ptr<vector<SendAsyncChatMessageRequest::Files>> files_ {};
     // The abstract model tier. Valid values: quick, standard, and flagship. If not specified, new sessions use standard, and existing sessions retain their current tier.
