@@ -166,49 +166,48 @@ namespace Models
 
 
     protected:
-      // The name of the permission group.
+      // The permission group name.
       // 
-      // Default permission group: DEFAULT\_VPC\_GROUP\_NAME
+      // Default permission group: DEFAULT_VPC_GROUP_NAME.
       shared_ptr<string> accessGroupName_ {};
-      // The time when the export directory was created. Return format: yyyy-MM-dd HH:mm:ss
+      // The creation time.
+      // Format: yyyy-MM-dd HH:mm:ss
       shared_ptr<string> createTime_ {};
-      // The description of the export directory.
+      // The description of the protocol service export.
       shared_ptr<string> description_ {};
-      // The ID of the export directory.
+      // The export directory ID.
       shared_ptr<string> exportId_ {};
-      // The fileset ID.
+      // Fileset ID。
       shared_ptr<string> fsetId_ {};
-      // The path of the CPFS directory that was queried.
+      // The path of the queried CPFS directory.
       // 
       // Format:
-      // 
-      // *   Must be 1 to 1,024 characters in length.
-      // *   Must be encoded in UTF-8.
-      // *   Must start and end with a forward slash (/). The root directory is `/`.
+      // - The path is 1 to 1,024 characters in length.
+      // - The path is encoded in UTF-8.
+      // - The path must start and end with a forward slash (/). The root directory is `/`.
       shared_ptr<string> path_ {};
-      // The domain name of the export directory for the protocol service.
+      // The domain name of the protocol service export directory.
       shared_ptr<string> protocolMountTargetDomain_ {};
       // The protocol type of the file system.
       // 
       // Valid values:
       // 
-      // *   NFS: Network File System (NFS)
-      // *   SMB: Server Message Block (SMB)
-      // *   cpfs: The protocol type supported by the CPFS file system.
+      // - NFS: NFS protocol
+      // - SMB: SMB protocol
+      // - cpfs: the protocol type supported by CPFS file systems
       shared_ptr<string> protocolType_ {};
-      // The status of the export directory. Valid values:
-      // 
-      // *   CREATING: The export directory is being created.
-      // *   AVAILABLE : The export directory is available.
-      // *   MODIFYING: The export directory is being modified.
-      // *   DELETING: The export directory is being deleted.
-      // *   STOPPING: The export directory is being stopped.
+      // The status of the protocol service export directory. Valid values:
+      // - CREATING: Being created.
+      // - AVAILABLE: Available.
+      // - MODIFYING: Being modified.
+      // - DELETING: Being deleted.
+      // - STOPPING: Being stopped.
       shared_ptr<string> status_ {};
-      // The vSwitch ID of the export directory.
+      // The vSwitch ID of the protocol service export.
       shared_ptr<string> vSwitchId_ {};
-      // The vSwitch ID list of the export directory.
+      // The list of vSwitch IDs of the protocol service export.
       shared_ptr<vector<string>> vSwitchIds_ {};
-      // The VPC ID of the export directory.
+      // The virtual private cloud (VPC) ID of the protocol service export.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -238,9 +237,9 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // If the response is truncated, you can use NextToken to send a subsequent request to retrieve the content after the current truncation point.
     shared_ptr<string> nextToken_ {};
-    // Information of the export directory for the protocol service
+    // The export directory information of the protocol service.
     shared_ptr<GetProtocolMountTargetResponseBody::ProtocolMountTarget> protocolMountTarget_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

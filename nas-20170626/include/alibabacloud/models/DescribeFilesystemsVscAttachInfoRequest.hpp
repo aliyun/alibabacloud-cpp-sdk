@@ -83,7 +83,7 @@ namespace Models
 
 
     protected:
-      // The UID of the Alibaba Cloud account, which specifies the account on whose behalf the service assumes the role.
+      // The UID of the Alibaba Cloud account (primary account), which specifies the account on whose behalf the service assumes the role.
       shared_ptr<string> assumeRoleFor_ {};
       // The resource descriptor of the specified role. Format: acs:ram::$accountID:role/$roleName.
       shared_ptr<string> roleArn_ {};
@@ -170,12 +170,12 @@ namespace Models
 
 
   protected:
-    // The number of results for each query.
+    // The number of results returned per query.
     // 
     // Valid values: 10 to 100.
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. Set the value to the NextToken value returned in the previous API call.
+    // The query token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The ID information of file systems and virtual storage channels. A maximum of 10 entries can be specified per batch.
     // 

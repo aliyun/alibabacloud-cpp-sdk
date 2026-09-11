@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATECPFSACCESSPOINTREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATECPFSACCESSPOINTREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -17,12 +18,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RootDirectory, rootDirectory_);
+      DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, CreateCpfsAccessPointRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RootDirectory, rootDirectory_);
+      DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
     CreateCpfsAccessPointRequest() = default ;
     CreateCpfsAccessPointRequest(const CreateCpfsAccessPointRequest &) = default ;
@@ -35,6 +38,50 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key.
+      shared_ptr<string> key_ {};
+      // The tag value.
+      shared_ptr<string> value_ {};
+    };
+
     class RootDirectory : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const RootDirectory& obj) { 
@@ -68,7 +115,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->fileSystemId_ == nullptr && this->regionId_ == nullptr && this->rootDirectory_ == nullptr; };
+        && this->fileSystemId_ == nullptr && this->regionId_ == nullptr && this->rootDirectory_ == nullptr && this->tag_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -99,19 +146,29 @@ namespace Models
     inline CreateCpfsAccessPointRequest& setRootDirectory(CreateCpfsAccessPointRequest::RootDirectory && rootDirectory) { DARABONBA_PTR_SET_RVALUE(rootDirectory_, rootDirectory) };
 
 
+    // tag Field Functions 
+    bool hasTag() const { return this->tag_ != nullptr;};
+    void deleteTag() { this->tag_ = nullptr;};
+    inline const vector<CreateCpfsAccessPointRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateCpfsAccessPointRequest::Tag>) };
+    inline vector<CreateCpfsAccessPointRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateCpfsAccessPointRequest::Tag>) };
+    inline CreateCpfsAccessPointRequest& setTag(const vector<CreateCpfsAccessPointRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateCpfsAccessPointRequest& setTag(vector<CreateCpfsAccessPointRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+
+
   protected:
     // The description of the access point.
     // 
     // Limits:
     // - The description must be 2 to 128 characters in length.
-    // - The description must start with a letter.It cannot start with http:// or https://.
+    // - The description must start with a letter.
+    // - The description cannot start with http:// or https://.
     // - The description can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> description_ {};
     // The file system ID.
     // 
-    // - CPFS: The ID must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
+    // - Cloud Parallel File Storage (CPFS): must start with `cpfs-`, such as cpfs-125487\\*\\*\\*\\*.
     // 
-    // - CPFS for Lingjun: The ID must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
+    // - CPFS for Lingjun: must start with `bmcpfs-`, such as bmcpfs-0015\\*\\*\\*\\*.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
@@ -121,6 +178,8 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The root directory of the access point. Default value: "/".
     shared_ptr<CreateCpfsAccessPointRequest::RootDirectory> rootDirectory_ {};
+    // The list of tags for the CPFS access point.
+    shared_ptr<vector<CreateCpfsAccessPointRequest::Tag>> tag_ {};
   };
 
   } // namespace Models

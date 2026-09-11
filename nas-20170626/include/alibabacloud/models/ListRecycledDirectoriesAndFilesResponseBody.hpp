@@ -152,7 +152,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The file size. Unit: bytes.
       // 
-      // If Type is set to Directory, the value 0 is returned.
+      // When Type is set to Directory, the value 0 is returned.
       shared_ptr<int64_t> size_ {};
       // The object type. Valid values:
       // 
@@ -187,11 +187,11 @@ namespace Models
 
 
   protected:
-    // The information about files or directories in the recycle bin.
+    // The collection of files or directories in the recycle bin.
     shared_ptr<vector<ListRecycledDirectoriesAndFilesResponseBody::Entries>> entries_ {};
     // The pagination token for the next page.
     // 
-    // If a single query does not return all files and directories, a non-empty NextToken is returned. You can specify the correct NextToken in subsequent queries to continue listing.
+    // If a single query does not return all files and directories, a non-empty NextToken is returned. You can pass the correct NextToken in subsequent queries to continue retrieving results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

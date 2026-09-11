@@ -91,12 +91,12 @@ namespace Models
       // The rule attribute.
       // 
       // Valid values:
-      // - Atime: the access time of the file.
+      // - Atime: the last access time of the file.
       shared_ptr<string> attribute_ {};
       // The rule threshold.
       // 
       // Valid values:
-      // - When Attribute is set to Atime, this parameter specifies the number of days that the file has not been accessed. Valid values: 0 to 365.
+      // - When Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 0 to 365.
       shared_ptr<string> threshold_ {};
     };
 
@@ -189,12 +189,12 @@ namespace Models
       // The rule attribute.
       // 
       // Valid values:
-      // - Atime: the access time of the file.
+      // - Atime: the last access time of the file.
       shared_ptr<string> attribute_ {};
       // The rule threshold.
       // 
       // Valid values:
-      // - When Attribute is set to Atime, this parameter specifies the number of days that the file has not been accessed. Valid values: 1 to 365.
+      // - When Attribute is set to Atime, the value specifies the number of days since the file was last accessed. Valid values: 1 to 365.
       shared_ptr<string> threshold_ {};
     };
 
@@ -301,7 +301,7 @@ namespace Models
     shared_ptr<string> fileSystemId_ {};
     // The lifecycle management policy name. The name must be 3 to 64 characters in length, start with an uppercase letter or lowercase letter, and can contain letters, digits, underscores (_), or hyphens (-).
     // 
-    // >This parameter is required for General-purpose NAS but not required for CPFS for Lingjun.
+    // >Required for General-purpose NAS. Not required for CPFS for Lingjun.
     shared_ptr<string> lifecyclePolicyName_ {};
     // The policy type.
     // - Auto (default): automatic execution.
@@ -323,7 +323,7 @@ namespace Models
     // 
     // - General-purpose NAS supports associating only a single directory. The path must start with a forward slash (/) and must be an existing path in the mount target.
     // 
-    // > Only General-purpose NAS is supported. For General-purpose NAS, use Paths.N to associate multiple directories at the same time.
+    // > Only General-purpose NAS is supported. For General-purpose NAS, use Paths.N instead to associate multiple directories at the same time.
     // >- Only one of Path and Paths can be specified.
     shared_ptr<string> path_ {};
     // The absolute paths of directories associated with the lifecycle management policy.
@@ -335,7 +335,7 @@ namespace Models
     shared_ptr<vector<CreateLifecyclePolicyRequest::RetrieveRules>> retrieveRules_ {};
     // The storage tiering type.
     // - InfrequentAccess: IA storage class.
-    // - Archive: Archive storage.
+    // - Archive: Archive storage class.
     // 
     // >General-purpose NAS supports InfrequentAccess and Archive. CPFS for Lingjun supports only InfrequentAccess.
     // 
@@ -343,7 +343,7 @@ namespace Models
     shared_ptr<string> storageType_ {};
     // The file data transit rules. You can configure up to one rule.
     // 
-    // >This parameter is supported only when LifecyclePolicyType is set to Auto for CPFS for Lingjun file systems.
+    // >Supported only when LifecyclePolicyType is set to Auto for CPFS for Lingjun file systems.
     shared_ptr<vector<CreateLifecyclePolicyRequest::TransitRules>> transitRules_ {};
   };
 

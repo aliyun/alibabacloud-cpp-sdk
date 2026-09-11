@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(RootDirectory, rootDirectory_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
       };
       friend void from_json(const Darabonba::Json& j, AccessPoints& obj) { 
         DARABONBA_PTR_FROM_JSON(ARN, ARN_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(RootDirectory, rootDirectory_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
       };
       AccessPoints() = default ;
       AccessPoints(const AccessPoints &) = default ;
@@ -73,6 +75,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The key of the CPFS access point tag.
+        shared_ptr<string> key_ {};
+        // The value of the CPFS access point tag.
+        shared_ptr<string> value_ {};
+      };
+
       class RootDirectory : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const RootDirectory& obj) { 
@@ -117,15 +163,15 @@ namespace Models
         // 
         // Valid values:
         // 
-        // - Unknown: The root path status is unknown.
-        // - NotExist: The root path does not exist. It may have been deleted by the user.
-        // - Ready: The root path status is normal.
+        // - Unknown: the root path status is unknown.
+        // - NotExist: the root path does not exist. It may have been deleted by the user.
+        // - Ready: the root path status is normal.
         shared_ptr<string> rootPathStatus_ {};
       };
 
       virtual bool empty() const override { return this->ARN_ == nullptr
         && this->accessPointId_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->fileSystemId_ == nullptr && this->modifyTime_ == nullptr
-        && this->regionId_ == nullptr && this->rootDirectory_ == nullptr && this->status_ == nullptr; };
+        && this->regionId_ == nullptr && this->rootDirectory_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr; };
       // ARN Field Functions 
       bool hasARN() const { return this->ARN_ != nullptr;};
       void deleteARN() { this->ARN_ = nullptr;};
@@ -191,6 +237,15 @@ namespace Models
       inline AccessPoints& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<AccessPoints::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<AccessPoints::Tags>) };
+      inline vector<AccessPoints::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<AccessPoints::Tags>) };
+      inline AccessPoints& setTags(const vector<AccessPoints::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline AccessPoints& setTags(vector<AccessPoints::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     protected:
       // The Alibaba Cloud Resource Name (ARN) of the access point.
       shared_ptr<string> ARN_ {};
@@ -212,13 +267,15 @@ namespace Models
       // 
       // Valid values:
       // 
-      // - Active: available
-      // - Inactive: unavailable
-      // - Pending: being created
-      // - Deleting: being deleted
+      // - Active: available.
+      // - Inactive: unavailable.
+      // - Pending: being created.
+      // - Deleting: being deleted.
       // 
-      // > The file system can be mounted only when the status is Active.
+      // > You can mount the file system only when the status is Active.
       shared_ptr<string> status_ {};
+      // The list of CPFS access point tags.
+      shared_ptr<vector<AccessPoints::Tags>> tags_ {};
     };
 
     virtual bool empty() const override { return this->accessPoints_ == nullptr

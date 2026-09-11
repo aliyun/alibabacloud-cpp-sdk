@@ -376,7 +376,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDataFlowSubTasksResponseBody::DataFlowSubTask> dataFlowSubTask_ {};
-    // If the returned results are truncated, you can use NextToken to initiate a new request to retrieve the content after the current truncation point.
+    // If the response is truncated, you can use NextToken to send a subsequent request to retrieve the remaining content from the point of truncation.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

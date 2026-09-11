@@ -144,7 +144,7 @@ namespace Models
     protected:
       // The time when the task was created.
       // 
-      // The time follows the ISO 8601 standard in the format of `yyyy-MM-ddTHH:mm:ssZ`.
+      // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
       shared_ptr<string> createTime_ {};
       // The total number of files read by the data retrieval task.
       shared_ptr<int64_t> discoveredFileCount_ {};
@@ -154,21 +154,21 @@ namespace Models
       shared_ptr<string> jobId_ {};
       // The execution paths of the data retrieval task.
       shared_ptr<vector<string>> paths_ {};
-      // The number of files successfully retrieved by the data retrieval task.
+      // The number of files that are successfully retrieved by the data retrieval task.
       shared_ptr<int64_t> retrievedFileCount_ {};
       // The status of the data retrieval task. Valid values:
-      // - active: running.
-      // - canceled: canceled.
-      // - completed: completed.
-      // - failed: failed.
+      // - active: Running.
+      // - canceled: Canceled.
+      // - completed: Completed.
+      // - failed: Failed.
       shared_ptr<string> status_ {};
       // The storage class. Valid values:
       // - InfrequentAccess: IA storage class.
-      // - Archive: Archive storage class.
+      // - Archive: Archive storage.
       shared_ptr<string> storageType_ {};
       // The time when the task was last updated.
       // 
-      // The time follows the ISO 8601 standard in the format of `yyyy-MM-ddTHH:mm:ssZ`.
+      // The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format.
       shared_ptr<string> updateTime_ {};
     };
 

@@ -129,7 +129,7 @@ namespace Models
     protected:
       // The file system ID.
       shared_ptr<string> fileSystemId_ {};
-      // The virtual storage channel ID.
+      // The Virtual Storage Channel (VSC) ID. You can call the ListVscs operation of Lingjun eflo-controller/2022-12-15 to query VSC IDs. If no VSC has been created, call the CreateVsc operation to create one.
       shared_ptr<string> vscId_ {};
     };
 
@@ -165,14 +165,14 @@ namespace Models
     // 
     // The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     // 
-    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may differ for each API request.
+    // > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
     shared_ptr<string> clientToken_ {};
-    // The ID information of the file system and virtual storage channel. A maximum of 10 entries can be specified per batch.
+    // The ID information of file systems and Virtual Storage Channels (VSCs). A maximum of 10 entries can be specified per batch.
     // 
     // This parameter is required.
     shared_ptr<vector<DetachVscFromFilesystemsRequest::ResourceIds>> resourceIds_ {};
     // The role chain.
-    // > This parameter is required only for cross-account scenarios.
+    // >This parameter is required only for cross-account scenarios.
     shared_ptr<vector<DetachVscFromFilesystemsRequest::RoleChain>> roleChain_ {};
   };
 

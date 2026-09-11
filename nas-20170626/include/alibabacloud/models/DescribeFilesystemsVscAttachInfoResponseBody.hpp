@@ -169,7 +169,7 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The query token. Set the value to the NextToken value returned in the previous API call.
+    // The query token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
