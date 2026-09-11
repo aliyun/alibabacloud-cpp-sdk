@@ -3458,11 +3458,11 @@ namespace Csas20230120
       /**
        * @summary Updates a device label.
        *
-       * @param request UpdateDeviceGroupRequest
+       * @param tmpReq UpdateDeviceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpdateDeviceGroupResponse
        */
-      Models::UpdateDeviceGroupResponse updateDeviceGroupWithOptions(const Models::UpdateDeviceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
+      Models::UpdateDeviceGroupResponse updateDeviceGroupWithOptions(const Models::UpdateDeviceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Updates a device label.

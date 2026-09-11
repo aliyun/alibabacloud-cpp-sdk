@@ -633,6 +633,7 @@
 #include <alibabacloud/models/UpdateConnectorClientResponseBody.hpp>
 #include <alibabacloud/models/UpdateConnectorClientResponse.hpp>
 #include <alibabacloud/models/UpdateDeviceGroupRequest.hpp>
+#include <alibabacloud/models/UpdateDeviceGroupShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateDeviceGroupResponseBody.hpp>
 #include <alibabacloud/models/UpdateDeviceGroupResponse.hpp>
 #include <alibabacloud/models/UpdateDomainMetaRequest.hpp>

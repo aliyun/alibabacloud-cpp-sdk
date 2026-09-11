@@ -9978,12 +9978,18 @@ UpdateConnectorClientResponse Client::updateConnectorClient(const UpdateConnecto
 /**
  * @summary Updates a device label.
  *
- * @param request UpdateDeviceGroupRequest
+ * @param tmpReq UpdateDeviceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateDeviceGroupResponse
  */
-UpdateDeviceGroupResponse Client::updateDeviceGroupWithOptions(const UpdateDeviceGroupRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
+UpdateDeviceGroupResponse Client::updateDeviceGroupWithOptions(const UpdateDeviceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateDeviceGroupShrinkRequest request = UpdateDeviceGroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDynamicRule()) {
+    request.setDynamicRuleShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDynamicRule(), "DynamicRule", "json"));
+  }
+
   json body = {};
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
@@ -9995,6 +10001,10 @@ UpdateDeviceGroupResponse Client::updateDeviceGroupWithOptions(const UpdateDevic
 
   if (!!request.hasDynamicOperator()) {
     body["DynamicOperator"] = request.getDynamicOperator();
+  }
+
+  if (!!request.hasDynamicRuleShrink()) {
+    body["DynamicRule"] = request.getDynamicRuleShrink();
   }
 
   if (!!request.hasName()) {
