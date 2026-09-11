@@ -13,9 +13,11 @@ namespace Models
   class DeleteHttpApiRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DeleteHttpApiRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteHttpApiRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
     };
     DeleteHttpApiRequest() = default ;
@@ -29,7 +31,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->dryRun_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->dryRun_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline DeleteHttpApiRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -38,7 +48,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to perform only a dry run. If set to true, all synchronous validations identical to an actual deletion are executed (including admission checks such as whether a published API cannot be deleted), but the API is not deleted, no associated configurations are cleaned up, and no side effects are produced. If this parameter is not specified or is set to false, the behavior is the same as the existing version.
+    // The idempotence token. If you call this operation multiple times for the same HTTP API by using the same clientToken value and the same delete request parameters, the result of the first successful call is returned.
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform only a dry run. If set to true, all synchronous validations identical to an actual deletion are executed (including admission checks such as whether a published API can be deleted), but the API is not deleted, no associated configurations are cleaned up, and no side effects are produced. If this parameter is not specified or is set to false, the behavior is the same as the existing version.
     shared_ptr<bool> dryRun_ {};
   };
 

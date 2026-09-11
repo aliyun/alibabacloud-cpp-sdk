@@ -2772,6 +2772,10 @@ DeleteGatewaySecurityGroupRuleResponse Client::deleteGatewaySecurityGroupRule(co
 DeleteHttpApiResponse Client::deleteHttpApiWithOptions(const string &httpApiId, const DeleteHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
   if (!!request.hasDryRun()) {
     query["dryRun"] = request.getDryRun();
   }
