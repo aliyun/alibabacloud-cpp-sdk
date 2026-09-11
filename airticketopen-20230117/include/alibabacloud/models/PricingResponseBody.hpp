@@ -378,6 +378,7 @@ namespace Models
               DARABONBA_PTR_TO_JSON(departure_terminal, departureTerminal_);
               DARABONBA_PTR_TO_JSON(departure_time, departureTime_);
               DARABONBA_PTR_TO_JSON(equip_type, equipType_);
+              DARABONBA_PTR_TO_JSON(fare_basis, fareBasis_);
               DARABONBA_PTR_TO_JSON(flight_duration, flightDuration_);
               DARABONBA_PTR_TO_JSON(marketing_airline, marketingAirline_);
               DARABONBA_PTR_TO_JSON(marketing_flight_no, marketingFlightNo_);
@@ -402,6 +403,7 @@ namespace Models
               DARABONBA_PTR_FROM_JSON(departure_terminal, departureTerminal_);
               DARABONBA_PTR_FROM_JSON(departure_time, departureTime_);
               DARABONBA_PTR_FROM_JSON(equip_type, equipType_);
+              DARABONBA_PTR_FROM_JSON(fare_basis, fareBasis_);
               DARABONBA_PTR_FROM_JSON(flight_duration, flightDuration_);
               DARABONBA_PTR_FROM_JSON(marketing_airline, marketingAirline_);
               DARABONBA_PTR_FROM_JSON(marketing_flight_no, marketingFlightNo_);
@@ -426,9 +428,9 @@ namespace Models
             virtual bool empty() const override { return this->arrivalAirport_ == nullptr
         && this->arrivalCity_ == nullptr && this->arrivalTerminal_ == nullptr && this->arrivalTime_ == nullptr && this->availability_ == nullptr && this->cabin_ == nullptr
         && this->cabinClass_ == nullptr && this->codeShare_ == nullptr && this->departureAirport_ == nullptr && this->departureCity_ == nullptr && this->departureTerminal_ == nullptr
-        && this->departureTime_ == nullptr && this->equipType_ == nullptr && this->flightDuration_ == nullptr && this->marketingAirline_ == nullptr && this->marketingFlightNo_ == nullptr
-        && this->marketingFlightNoInt_ == nullptr && this->operatingAirline_ == nullptr && this->operatingFlightNo_ == nullptr && this->segmentId_ == nullptr && this->stopCityList_ == nullptr
-        && this->stopQuantity_ == nullptr; };
+        && this->departureTime_ == nullptr && this->equipType_ == nullptr && this->fareBasis_ == nullptr && this->flightDuration_ == nullptr && this->marketingAirline_ == nullptr
+        && this->marketingFlightNo_ == nullptr && this->marketingFlightNoInt_ == nullptr && this->operatingAirline_ == nullptr && this->operatingFlightNo_ == nullptr && this->segmentId_ == nullptr
+        && this->stopCityList_ == nullptr && this->stopQuantity_ == nullptr; };
             // arrivalAirport Field Functions 
             bool hasArrivalAirport() const { return this->arrivalAirport_ != nullptr;};
             void deleteArrivalAirport() { this->arrivalAirport_ = nullptr;};
@@ -518,6 +520,13 @@ namespace Models
             void deleteEquipType() { this->equipType_ = nullptr;};
             inline string getEquipType() const { DARABONBA_PTR_GET_DEFAULT(equipType_, "") };
             inline SegmentList& setEquipType(string equipType) { DARABONBA_PTR_SET_VALUE(equipType_, equipType) };
+
+
+            // fareBasis Field Functions 
+            bool hasFareBasis() const { return this->fareBasis_ != nullptr;};
+            void deleteFareBasis() { this->fareBasis_ = nullptr;};
+            inline string getFareBasis() const { DARABONBA_PTR_GET_DEFAULT(fareBasis_, "") };
+            inline SegmentList& setFareBasis(string fareBasis) { DARABONBA_PTR_SET_VALUE(fareBasis_, fareBasis) };
 
 
             // flightDuration Field Functions 
@@ -610,6 +619,7 @@ namespace Models
             shared_ptr<string> departureTime_ {};
             // The aircraft type.
             shared_ptr<string> equipType_ {};
+            shared_ptr<string> fareBasis_ {};
             // The flight duration in minutes.
             shared_ptr<int32_t> flightDuration_ {};
             // The marketing airline code (for example, KA).

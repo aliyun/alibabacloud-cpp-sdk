@@ -101,13 +101,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> accountNo_ {};
-    // The number of adults per room.
+    // The total number of adults.
     // 
     // This parameter is required.
     shared_ptr<int32_t> adults_ {};
-    // The number of children per room.
+    // The total number of children.
     shared_ptr<int32_t> children_ {};
-    // The list of children ages.
+    // The list of children\\"s ages.
     shared_ptr<vector<int32_t>> childrenAges_ {};
     // The offer key.
     // 

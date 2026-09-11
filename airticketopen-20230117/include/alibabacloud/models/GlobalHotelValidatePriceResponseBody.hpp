@@ -116,7 +116,7 @@ namespace Models
       protected:
         // The amount in the smallest currency unit.
         shared_ptr<string> amount_ {};
-        // The currency code (ISO 4217).
+        // The currency code in ISO 4217 format.
         shared_ptr<string> currency_ {};
         // null
         shared_ptr<string> tracerId_ {};
@@ -194,7 +194,7 @@ namespace Models
         protected:
           // The amount in the smallest currency unit.
           shared_ptr<string> amount_ {};
-          // The currency code (ISO 4217).
+          // The currency code in ISO 4217 format.
           shared_ptr<string> currency_ {};
           // null
           shared_ptr<string> tracerId_ {};
@@ -226,7 +226,7 @@ namespace Models
 
 
       protected:
-        // The date in yyyy-MM-dd format, in the local time zone of the hotel.
+        // The date in yyyy-MM-dd format, based on the hotel\\"s local time zone.
         shared_ptr<string> date_ {};
         // The price for the night.
         shared_ptr<DailyPrices::Price> price_ {};
@@ -335,9 +335,9 @@ namespace Models
           shared_ptr<string> currency_ {};
           // The effective end time as a UTC millisecond timestamp.
           shared_ptr<string> end_ {};
-          // The penalty type (PERCENT/NIGHTS/NON_CANCELLABLE).
+          // The penalty type.
           shared_ptr<string> penaltyType_ {};
-          // The penalty value (percentage, amount, or number of nights). This field is not present when PenaltyType is NON_CANCELLABLE.
+          // The penalty value, which represents a percentage, amount, or number of nights.
           shared_ptr<string> penaltyValue_ {};
           // The effective start time as a UTC millisecond timestamp.
           shared_ptr<string> start_ {};
@@ -373,7 +373,7 @@ namespace Models
       protected:
         // The list of cancellation penalty details.
         shared_ptr<vector<CancellationPolicies::Penalties>> penalties_ {};
-        // The cancellation policy type (FREE_CANCEL/CONDITIONAL/NON_REFUNDABLE).
+        // The cancellation policy type.
         shared_ptr<string> policyType_ {};
         // TracerId
         shared_ptr<string> tracerId_ {};
@@ -427,7 +427,7 @@ namespace Models
       shared_ptr<vector<Data::CancellationPolicies>> cancellationPolicies_ {};
       // The list of daily prices.
       shared_ptr<vector<Data::DailyPrices>> dailyPrices_ {};
-      // The price validation result ID, used for subsequent order creation.
+      // The price validation result ID, which is used for subsequent order creation.
       shared_ptr<string> itemOfferId_ {};
       // The total selling price.
       shared_ptr<Data::TotalPrice> totalPrice_ {};
@@ -490,7 +490,7 @@ namespace Models
     shared_ptr<string> errorMsg_ {};
     // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
     // TracerId
     shared_ptr<string> tracerId_ {};
