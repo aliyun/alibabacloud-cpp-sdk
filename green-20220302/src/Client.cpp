@@ -41,10 +41,10 @@ AlibabaCloud::Green20220302::Client::Client(Config &config): OpenApiClient(confi
     {"cn-shanghai-finance-1" , "green.aliyuncs.com"},
     {"cn-north-2-gov-1" , "green.aliyuncs.com"},
     {"cn-shenzhen" , "green-cip.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "green-cip.cn-shanghai.aliyuncs.com"},
-    {"cn-hangzhou" , "green-cip.cn-hangzhou.aliyuncs.com"},
     {"cn-beijing" , "green-cip.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-1" , "green-cip.ap-southeast-1.aliyuncs.com"}
+    {"cn-shanghai" , "green-cip.cn-shanghai.aliyuncs.com"},
+    {"ap-southeast-1" , "green-cip.ap-southeast-1.aliyuncs.com"},
+    {"cn-hangzhou" , "green-cip.cn-hangzhou.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("green", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -738,9 +738,9 @@ ManualModerationResultResponse Client::manualModerationResult(const ManualModera
 }
 
 /**
- * @summary This is the synchronous detection API for the multi-modal agent.
+ * @summary Synchronously detects content by calling the multimodal Agent API.
  *
- * @description This is the AI Guardrails agent.
+ * @description The content moderation agent.
  *
  * @param request MultiModalAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -775,9 +775,9 @@ MultiModalAgentResponse Client::multiModalAgentWithOptions(const MultiModalAgent
 }
 
 /**
- * @summary This is the synchronous detection API for the multi-modal agent.
+ * @summary Synchronously detects content by calling the multimodal Agent API.
  *
- * @description This is the AI Guardrails agent.
+ * @description The content moderation agent.
  *
  * @param request MultiModalAgentRequest
  * @return MultiModalAgentResponse
@@ -788,7 +788,7 @@ MultiModalAgentResponse Client::multiModalAgent(const MultiModalAgentRequest &re
 }
 
 /**
- * @summary Synchronously detects multimodal content by using the Agent API.
+ * @summary Synchronously moderates multimodal content through the Agent API.
  *
  * @description The content moderation Agent.
  *
@@ -843,7 +843,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Synchronously detects multimodal content by using the Agent API.
+ * @summary Synchronously moderates multimodal content through the Agent API.
  *
  * @description The content moderation Agent.
  *
@@ -884,7 +884,7 @@ MultiModalAgentSSEResponse Client::multiModalAgentSSEWithOptions(const MultiModa
 }
 
 /**
- * @summary Synchronously detects multimodal content by using the Agent API.
+ * @summary Synchronously moderates multimodal content through the Agent API.
  *
  * @description The content moderation Agent.
  *
@@ -1402,7 +1402,9 @@ VideoModerationResponse Client::videoModeration(const VideoModerationRequest &re
 }
 
 /**
- * @summary Cancels an ApsaraVideo Live moderation task.
+ * @summary Cancels an ApsaraVideo Live content moderation node.
+ *
+ * @description Before calling this operation, you must activate Content Moderation Enhanced Edition. Activation link: https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.14652963KTpjic&commodityCode=lvwang_cip_public_cn. You must grant the required RAM access policy (such as AliyunYundunGreenWebFullAccess) and use the correct endpoint (green-cip.{region}.aliyuncs.com).
  *
  * @param request VideoModerationCancelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1437,7 +1439,9 @@ VideoModerationCancelResponse Client::videoModerationCancelWithOptions(const Vid
 }
 
 /**
- * @summary Cancels an ApsaraVideo Live moderation task.
+ * @summary Cancels an ApsaraVideo Live content moderation node.
+ *
+ * @description Before calling this operation, you must activate Content Moderation Enhanced Edition. Activation link: https://common-buy.aliyun.com/?spm=a2c4g.11186623.0.0.14652963KTpjic&commodityCode=lvwang_cip_public_cn. You must grant the required RAM access policy (such as AliyunYundunGreenWebFullAccess) and use the correct endpoint (green-cip.{region}.aliyuncs.com).
  *
  * @param request VideoModerationCancelRequest
  * @return VideoModerationCancelResponse
@@ -1450,7 +1454,7 @@ VideoModerationCancelResponse Client::videoModerationCancel(const VideoModeratio
 /**
  * @summary Retrieves the task result of a video moderation node from the enhanced video moderation service.
  *
- * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After 24 hours, results are automatically deleted.
+ * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous detection task). The maximum query window is 24 hours. After 24 hours, results are automatically deleted.
  *
  * @param request VideoModerationResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1487,7 +1491,7 @@ VideoModerationResultResponse Client::videoModerationResultWithOptions(const Vid
 /**
  * @summary Retrieves the task result of a video moderation node from the enhanced video moderation service.
  *
- * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous moderation task). The maximum query window is 24 hours. After 24 hours, results are automatically deleted.
+ * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting the asynchronous detection task). The maximum query window is 24 hours. After 24 hours, results are automatically deleted.
  *
  * @param request VideoModerationResultRequest
  * @return VideoModerationResultResponse

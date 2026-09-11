@@ -66,6 +66,7 @@ namespace Models
 
 
   protected:
+    // The base64-encoded string of the document.
     shared_ptr<string> fileBase64Str_ {};
     // The base64-encoded string of the image.
     shared_ptr<string> imageBase64Str_ {};

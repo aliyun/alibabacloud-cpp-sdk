@@ -39,7 +39,7 @@ namespace Models
 
   protected:
     // The set of parameters required by the service, in JSON string format.
-    // - TaskId: The task ID returned when the task was submitted.
+    // - taskId: The task ID returned when the task was submitted.
     shared_ptr<string> serviceParameters_ {};
   };
 

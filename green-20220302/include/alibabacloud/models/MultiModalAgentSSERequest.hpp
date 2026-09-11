@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the whiteboard application. To obtain the whiteboard application ID, see [CreateApp](https://help.aliyun.com/document_detail/204234.html).
+    // The unique identifier of the whiteboard application. To obtain the whiteboard application ID, refer to [CreateApp](https://help.aliyun.com/document_detail/204234.html).
     shared_ptr<string> appID_ {};
-    // The parameter set required by the moderation service, in JSON string format. The input parameter for text content is content (String), the custom data ID is DataId (String), and the cache type is CacheType (String, valid value: ephemeral).
+    // The parameter set required by the moderation service, in JSON string format. The text content input parameter is content (String), the custom data ID is DataId (String), and the cache type is CacheType (String, valid value: ephemeral).
     shared_ptr<string> serviceParameters_ {};
     // Specifies whether to use streaming output.
     shared_ptr<string> stream_ {};

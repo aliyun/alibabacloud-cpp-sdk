@@ -66,11 +66,13 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Usage& obj) { 
           DARABONBA_ANY_TO_JSON(AgentDetail, agentDetail_);
           DARABONBA_PTR_TO_JSON(ContentLength, contentLength_);
+          DARABONBA_PTR_TO_JSON(Credits, credits_);
           DARABONBA_PTR_TO_JSON(PromptLength, promptLength_);
         };
         friend void from_json(const Darabonba::Json& j, Usage& obj) { 
           DARABONBA_ANY_FROM_JSON(AgentDetail, agentDetail_);
           DARABONBA_PTR_FROM_JSON(ContentLength, contentLength_);
+          DARABONBA_PTR_FROM_JSON(Credits, credits_);
           DARABONBA_PTR_FROM_JSON(PromptLength, promptLength_);
         };
         Usage() = default ;
@@ -85,7 +87,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->agentDetail_ == nullptr
-        && this->contentLength_ == nullptr && this->promptLength_ == nullptr; };
+        && this->contentLength_ == nullptr && this->credits_ == nullptr && this->promptLength_ == nullptr; };
         // agentDetail Field Functions 
         bool hasAgentDetail() const { return this->agentDetail_ != nullptr;};
         void deleteAgentDetail() { this->agentDetail_ = nullptr;};
@@ -102,6 +104,13 @@ namespace Models
         inline Usage& setContentLength(int64_t contentLength) { DARABONBA_PTR_SET_VALUE(contentLength_, contentLength) };
 
 
+        // credits Field Functions 
+        bool hasCredits() const { return this->credits_ != nullptr;};
+        void deleteCredits() { this->credits_ = nullptr;};
+        inline double getCredits() const { DARABONBA_PTR_GET_DEFAULT(credits_, 0.0) };
+        inline Usage& setCredits(double credits) { DARABONBA_PTR_SET_VALUE(credits_, credits) };
+
+
         // promptLength Field Functions 
         bool hasPromptLength() const { return this->promptLength_ != nullptr;};
         void deletePromptLength() { this->promptLength_ = nullptr;};
@@ -110,11 +119,13 @@ namespace Models
 
 
       protected:
-        // Agent details.
+        // The agent details.
         Darabonba::Json agentDetail_ {};
-        // The length of the content.
+        // The content length.
         shared_ptr<int64_t> contentLength_ {};
-        // The length of the prompt.
+        // The credits consumed.
+        shared_ptr<double> credits_ {};
+        // The prompt length.
         shared_ptr<int64_t> promptLength_ {};
       };
 
@@ -165,26 +176,18 @@ namespace Models
 
 
       protected:
-        // The description of the label.
+        // The label description.
         shared_ptr<string> description_ {};
         // The risk label.
         shared_ptr<string> label_ {};
-        // A description of the result when the session is terminated.
-        // 
-        // - **SESSION_KILLED**: The session was successfully terminated.
-        // 
+        // The result description when the session is terminated.
+        // - **SESSION_KILLED**: The session is terminated.
         // - **SESSION_EXPIRED**: The session has expired.
-        // 
-        // - **SESSION_NO_PERMISSION**: The account used to terminate the session does not have sufficient permissions.
-        // 
+        // - **SESSION_NO_PERMISSION**: The account used to terminate the session has insufficient permissions.
         // - **SESSION_ACCOUNT_ERROR**: The account or password used to terminate the session is incorrect.
-        // 
-        // - **SESSION_IGNORED_USER**: The session of an account that does not need to be terminated.
-        // 
-        // - **SESSION_INTERNAL_USER_OR_COMMAND**: The session or command of an Alibaba Cloud operations account.
-        // 
-        // - **SESSION_KILL_TASK_TIMEOUT**: A timeout occurred when terminating the session.
-        // 
+        // - **SESSION_IGNORED_USER**: The session belongs to an account that does not need to be terminated.
+        // - **SESSION_INTERNAL_USER_OR_COMMAND**: The session or command belongs to an Alibaba Cloud operations account.
+        // - **SESSION_KILL_TASK_TIMEOUT**: The session termination timed out.
         // - **SESSION_OTHER_ERROR**: Other errors.
         shared_ptr<string> reason_ {};
       };
@@ -226,19 +229,19 @@ namespace Models
     protected:
       // The data ID.
       shared_ptr<string> dataId_ {};
-      // The structure of the label item.
+      // The label item structure.
       shared_ptr<vector<Data::Result>> result_ {};
-      // The risk level. The value is returned based on the configured high and low risk scores. Valid values:
+      // The risk level, which is returned based on the configured high and low risk scores. Valid values:
       // 
-      // - high: High risk
+      // - high: high risk.
       // 
-      // - medium: Medium risk
+      // - medium: medium risk.
+      //  
+      // - low: low risk.
       // 
-      // - low: Low risk
-      // 
-      // - none: No risk detected
+      // - none: no risk detected.
       shared_ptr<string> riskLevel_ {};
-      // Token usage.
+      // The token usage.
       shared_ptr<Data::Usage> usage_ {};
     };
 
@@ -275,7 +278,7 @@ namespace Models
 
 
   protected:
-    // The return code. A value of 200 indicates that the request was successful.
+    // The response code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
     // The result of the image content detection.
     shared_ptr<MultiModalAgentResponseBody::Data> data_ {};
