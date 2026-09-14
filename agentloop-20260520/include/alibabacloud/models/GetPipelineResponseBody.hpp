@@ -128,8 +128,11 @@ namespace Models
 
 
       protected:
+        // The SLS Logstore name.
         shared_ptr<string> logstore_ {};
+        // The SLS project name.
         shared_ptr<string> project_ {};
+        // The data filtered query statement in SLS query/analysis syntax.
         shared_ptr<string> query_ {};
       };
 
@@ -171,7 +174,9 @@ namespace Models
 
 
       protected:
+        // The field name.
         shared_ptr<string> name_ {};
+        // The field type. Valid values: text, long, double, and json.
         shared_ptr<string> type_ {};
       };
 
@@ -213,7 +218,9 @@ namespace Models
 
 
       protected:
+        // The source dataset name.
         shared_ptr<string> dataset_ {};
+        // The dataset data filter condition.
         shared_ptr<string> filter_ {};
       };
 
@@ -254,9 +261,13 @@ namespace Models
 
 
     protected:
+      // The dataset datasource config under the current AgentSpace.
       shared_ptr<Source::Dataset> dataset_ {};
+      // The input fields and field types, applicable to all data source types.
       shared_ptr<vector<Source::InputFields>> inputFields_ {};
+      // The SLS Logstore datasource config.
       shared_ptr<Source::Logstore> logstore_ {};
+      // The data source type. Valid values: logstore and dataset.
       shared_ptr<string> type_ {};
     };
 
@@ -321,7 +332,9 @@ namespace Models
 
 
       protected:
+        // The name of the AgentSpace to which the target dataset belongs.
         shared_ptr<string> agentSpace_ {};
+        // The target dataset name.
         shared_ptr<string> dataset_ {};
       };
 
@@ -430,7 +443,9 @@ namespace Models
 
 
             protected:
+              // The name of the AgentSpace to which the destination dataset belongs.
               shared_ptr<string> agentSpace_ {};
+              // The name of the destination dataset.
               shared_ptr<string> dataset_ {};
             };
 
@@ -453,7 +468,9 @@ namespace Models
 
 
           protected:
+            // The route destination dataset.
             shared_ptr<Sink::Dataset> dataset_ {};
+            // The route destination type. Currently, only dataset is supported.
             shared_ptr<string> type_ {};
           };
 
@@ -483,8 +500,11 @@ namespace Models
 
 
         protected:
+          // The route expression in SPL. Only where, project, and extend are supported.
           shared_ptr<string> expression_ {};
+          // The route ID.
           shared_ptr<string> id_ {};
+          // The route write destination.
           shared_ptr<Routes::Sink> sink_ {};
         };
 
@@ -547,7 +567,9 @@ namespace Models
 
 
           protected:
+            // The name of the AgentSpace to which the default destination dataset belongs.
             shared_ptr<string> agentSpace_ {};
+            // The name of the default destination dataset.
             shared_ptr<string> dataset_ {};
           };
 
@@ -570,7 +592,9 @@ namespace Models
 
 
         protected:
+          // The default destination dataset.
           shared_ptr<DefaultSink::Dataset> dataset_ {};
+          // The default destination type. Currently, only dataset is supported.
           shared_ptr<string> type_ {};
         };
 
@@ -602,8 +626,11 @@ namespace Models
 
 
       protected:
+        // The default write destination used when no conditional route is matched.
         shared_ptr<Condition::DefaultSink> defaultSink_ {};
+        // The route match mode. Currently, only all is supported.
         shared_ptr<string> matchMode_ {};
+        // The list of conditional routes.
         shared_ptr<vector<Condition::Routes>> routes_ {};
       };
 
@@ -635,8 +662,11 @@ namespace Models
 
 
     protected:
+      // The conditional routing configuration. This parameter is used only when sink.type is set to condition.
       shared_ptr<Sink::Condition> condition_ {};
+      // The target dataset configuration for the dataset sink. This parameter is used only when sink.type is set to dataset.
       shared_ptr<Sink::Dataset> dataset_ {};
+      // The sink type. Valid values: dataset and condition.
       shared_ptr<string> type_ {};
     };
 
@@ -708,8 +738,11 @@ namespace Models
 
 
       protected:
+        // The node ID.
         shared_ptr<string> id_ {};
+        // The node parameters in key-value structure, which vary depending on the node type.
         Darabonba::Json parameters_ {};
+        // The node type.
         shared_ptr<string> type_ {};
       };
 
@@ -724,6 +757,7 @@ namespace Models
 
 
     protected:
+      // The list of nodes.
       shared_ptr<vector<Pipeline::Nodes>> nodes_ {};
     };
 
@@ -788,7 +822,9 @@ namespace Models
 
 
       protected:
+        // The scheduling start time. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> fromTime_ {};
+        // The scheduling interval. For example, 1h.
         shared_ptr<string> interval_ {};
       };
 
@@ -830,7 +866,9 @@ namespace Models
 
 
       protected:
+        // The start time for data processing. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> fromTime_ {};
+        // The end time for data processing. The value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> toTime_ {};
       };
 
@@ -862,8 +900,11 @@ namespace Models
 
 
     protected:
+      // The scheduling mode. For example, scheduled (timed scheduling) or runOnce (one-time execution).
       shared_ptr<string> mode_ {};
+      // The configuration for one-time execution.
       shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
+      // The timed scheduling configuration.
       shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
     };
 
@@ -978,21 +1019,41 @@ namespace Models
 
 
   protected:
+    // The committed watermark. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> committedWatermark_ {};
+    // The time when the pipeline was created, in ISO 8601 UTC format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> createTime_ {};
+    // The pipeline description.
     shared_ptr<string> description_ {};
+    // The scheduling method.
     shared_ptr<GetPipelineResponseBody::ExecutePolicy> executePolicy_ {};
+    // The next scheduling trigger time. The value is a UNIX timestamp in seconds.
     shared_ptr<int64_t> nextTriggerTime_ {};
+    // The pipeline configuration for node orchestration.
     shared_ptr<GetPipelineResponseBody::Pipeline> pipeline_ {};
+    // The pipeline name.
     shared_ptr<string> pipelineName_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
+    // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The scheduling status. Valid values:
+    // - None: No scheduling.
+    // - Active: Active.
+    // - Paused: Paused.
+    // - Terminated: Terminated.
     shared_ptr<string> scheduleStatus_ {};
+    // The pipeline sink, which is the data write destination.
     shared_ptr<GetPipelineResponseBody::Sink> sink_ {};
+    // The pipeline data source.
     shared_ptr<GetPipelineResponseBody::Source> source_ {};
+    // The time when the pipeline was last updated, in ISO 8601 UTC format.
+    // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};
+    // The workspace associated with the pipeline.
     shared_ptr<string> workspace_ {};
   };
 

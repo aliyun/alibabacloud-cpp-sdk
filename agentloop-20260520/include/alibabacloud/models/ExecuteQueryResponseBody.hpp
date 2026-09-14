@@ -105,7 +105,9 @@ namespace Models
 
 
       protected:
+        // Indicates whether the result is truncated.
         shared_ptr<bool> truncated_ {};
+        // The truncation details of result rows.
         shared_ptr<vector<vector<int32_t>>> truncatedColumnIndexes_ {};
       };
 
@@ -157,6 +159,7 @@ namespace Models
       shared_ptr<int64_t> elapsedMillisecond_ {};
       // Indicates whether the query result is complete.
       shared_ptr<string> progress_ {};
+      // The result truncation details.
       shared_ptr<Meta::Truncation> truncation_ {};
     };
 
@@ -210,7 +213,7 @@ namespace Models
     shared_ptr<vector<string>> columnTypes_ {};
     // The result column information.
     shared_ptr<vector<string>> columns_ {};
-    // The metadata of the returned data.
+    // The metadata of the response.
     shared_ptr<ExecuteQueryResponseBody::Meta> meta_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

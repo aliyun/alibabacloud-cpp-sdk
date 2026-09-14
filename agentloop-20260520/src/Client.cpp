@@ -19,17 +19,6 @@ namespace AgentLoop20260520
 
 AlibabaCloud::AgentLoop20260520::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shenzhen" , "agentloop.cn-shenzhen.aliyuncs.com"},
-    {"cn-beijing" , "agentloop.cn-beijing.aliyuncs.com"},
-    {"cn-shanghai" , "agentloop.cn-shanghai.aliyuncs.com"},
-    {"cn-guangzhou" , "agentloop.cn-guangzhou.aliyuncs.com"},
-    {"cn-hongkong" , "agentloop.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-1" , "agentloop.ap-southeast-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "agentloop.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-hangzhou" , "agentloop.cn-hangzhou.aliyuncs.com"},
-    {"cn-chengdu" , "agentloop.cn-chengdu.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("agentloop", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -1390,6 +1379,9 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 /**
  * @summary Executes a query statement.
  *
+ * @description Calls CreateEvaluationTask to create an evaluation task in a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+ * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+ *
  * @param request ExecuteQueryRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -1398,6 +1390,10 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 ExecuteQueryResponse Client::executeQueryWithOptions(const string &agentSpace, const string &datasetName, const ExecuteQueryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasAnnotationFilter()) {
+    body["annotationFilter"] = request.getAnnotationFilter();
+  }
+
   if (!!request.hasFrom()) {
     body["from"] = request.getFrom();
   }
@@ -1450,6 +1446,9 @@ ExecuteQueryResponse Client::executeQueryWithOptions(const string &agentSpace, c
 
 /**
  * @summary Executes a query statement.
+ *
+ * @description Calls CreateEvaluationTask to create an evaluation task in a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+ * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
  *
  * @param request ExecuteQueryRequest
  * @return ExecuteQueryResponse
@@ -1875,7 +1874,7 @@ GetExperimentRunResponse Client::getExperimentRun(const string &agentSpace, cons
 }
 
 /**
- * @summary Queries a CI/CD pipeline.
+ * @summary Queries a pipeline.
  *
  * @param request GetPipelineRequest
  * @param headers map
@@ -1902,7 +1901,7 @@ GetPipelineResponse Client::getPipelineWithOptions(const string &agentSpace, con
 }
 
 /**
- * @summary Queries a CI/CD pipeline.
+ * @summary Queries a pipeline.
  *
  * @param request GetPipelineRequest
  * @return GetPipelineResponse
@@ -2006,7 +2005,9 @@ GetPipelineStatsResponse Client::getPipelineStats(const string &agentSpace, cons
 }
 
 /**
- * @summary Queries the list of AgentSpaces.
+ * @summary Queries a list of AgentSpaces.
+ *
+ * @description Supports filtering by region.
  *
  * @param request ListAgentSpacesRequest
  * @param headers map
@@ -2051,7 +2052,9 @@ ListAgentSpacesResponse Client::listAgentSpacesWithOptions(const ListAgentSpaces
 }
 
 /**
- * @summary Queries the list of AgentSpaces.
+ * @summary Queries a list of AgentSpaces.
+ *
+ * @description Supports filtering by region.
  *
  * @param request ListAgentSpacesRequest
  * @return ListAgentSpacesResponse
@@ -2719,6 +2722,10 @@ ListPipelinesResponse Client::listPipelinesWithOptions(const string &agentSpace,
 
   if (!!request.hasScheduleType()) {
     query["scheduleType"] = request.getScheduleType();
+  }
+
+  if (!!request.hasSinkName()) {
+    query["sinkName"] = request.getSinkName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

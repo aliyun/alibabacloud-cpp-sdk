@@ -477,6 +477,9 @@ namespace AgentLoop20260520
       /**
        * @summary Executes a query statement.
        *
+       * @description Calls CreateEvaluationTask to create an evaluation task in a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+       * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
+       *
        * @param request ExecuteQueryRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -486,6 +489,9 @@ namespace AgentLoop20260520
 
       /**
        * @summary Executes a query statement.
+       *
+       * @description Calls CreateEvaluationTask to create an evaluation task in a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+       * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
        *
        * @param request ExecuteQueryRequest
        * @return ExecuteQueryResponse
@@ -681,7 +687,7 @@ namespace AgentLoop20260520
       Models::GetExperimentRunResponse getExperimentRun(const string &agentSpace, const string &recordId, const Models::GetExperimentRunRequest &request);
 
       /**
-       * @summary Queries a CI/CD pipeline.
+       * @summary Queries a pipeline.
        *
        * @param request GetPipelineRequest
        * @param headers map
@@ -691,7 +697,7 @@ namespace AgentLoop20260520
       Models::GetPipelineResponse getPipelineWithOptions(const string &agentSpace, const string &pipelineName, const Models::GetPipelineRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a CI/CD pipeline.
+       * @summary Queries a pipeline.
        *
        * @param request GetPipelineRequest
        * @return GetPipelineResponse
@@ -735,7 +741,9 @@ namespace AgentLoop20260520
       Models::GetPipelineStatsResponse getPipelineStats(const string &agentSpace, const string &pipelineName, const Models::GetPipelineStatsRequest &request);
 
       /**
-       * @summary Queries the list of AgentSpaces.
+       * @summary Queries a list of AgentSpaces.
+       *
+       * @description Supports filtering by region.
        *
        * @param request ListAgentSpacesRequest
        * @param headers map
@@ -745,7 +753,9 @@ namespace AgentLoop20260520
       Models::ListAgentSpacesResponse listAgentSpacesWithOptions(const Models::ListAgentSpacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of AgentSpaces.
+       * @summary Queries a list of AgentSpaces.
+       *
+       * @description Supports filtering by region.
        *
        * @param request ListAgentSpacesRequest
        * @return ListAgentSpacesResponse

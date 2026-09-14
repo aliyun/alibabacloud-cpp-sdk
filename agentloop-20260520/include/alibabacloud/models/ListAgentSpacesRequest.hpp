@@ -72,6 +72,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
+    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 
