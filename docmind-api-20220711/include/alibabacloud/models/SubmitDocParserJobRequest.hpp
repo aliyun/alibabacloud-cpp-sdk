@@ -65,11 +65,19 @@ namespace Models
     class MultimediaParameters : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const MultimediaParameters& obj) { 
+        DARABONBA_PTR_TO_JSON(EnableDiarization, enableDiarization_);
         DARABONBA_PTR_TO_JSON(EnableSynopsisParse, enableSynopsisParse_);
+        DARABONBA_PTR_TO_JSON(EnableSynopsisSegments, enableSynopsisSegments_);
+        DARABONBA_PTR_TO_JSON(EnableSynopsisSummary, enableSynopsisSummary_);
+        DARABONBA_PTR_TO_JSON(FrameExtraction, frameExtraction_);
         DARABONBA_PTR_TO_JSON(VlParsePrompt, vlParsePrompt_);
       };
       friend void from_json(const Darabonba::Json& j, MultimediaParameters& obj) { 
+        DARABONBA_PTR_FROM_JSON(EnableDiarization, enableDiarization_);
         DARABONBA_PTR_FROM_JSON(EnableSynopsisParse, enableSynopsisParse_);
+        DARABONBA_PTR_FROM_JSON(EnableSynopsisSegments, enableSynopsisSegments_);
+        DARABONBA_PTR_FROM_JSON(EnableSynopsisSummary, enableSynopsisSummary_);
+        DARABONBA_PTR_FROM_JSON(FrameExtraction, frameExtraction_);
         DARABONBA_PTR_FROM_JSON(VlParsePrompt, vlParsePrompt_);
       };
       MultimediaParameters() = default ;
@@ -83,13 +91,105 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->enableSynopsisParse_ == nullptr
-        && this->vlParsePrompt_ == nullptr; };
+      class FrameExtraction : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const FrameExtraction& obj) { 
+          DARABONBA_PTR_TO_JSON(FrameRate, frameRate_);
+          DARABONBA_PTR_TO_JSON(Mode, mode_);
+          DARABONBA_PTR_TO_JSON(OutputImageHeight, outputImageHeight_);
+          DARABONBA_PTR_TO_JSON(OutputImageWidth, outputImageWidth_);
+        };
+        friend void from_json(const Darabonba::Json& j, FrameExtraction& obj) { 
+          DARABONBA_PTR_FROM_JSON(FrameRate, frameRate_);
+          DARABONBA_PTR_FROM_JSON(Mode, mode_);
+          DARABONBA_PTR_FROM_JSON(OutputImageHeight, outputImageHeight_);
+          DARABONBA_PTR_FROM_JSON(OutputImageWidth, outputImageWidth_);
+        };
+        FrameExtraction() = default ;
+        FrameExtraction(const FrameExtraction &) = default ;
+        FrameExtraction(FrameExtraction &&) = default ;
+        FrameExtraction(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~FrameExtraction() = default ;
+        FrameExtraction& operator=(const FrameExtraction &) = default ;
+        FrameExtraction& operator=(FrameExtraction &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->frameRate_ == nullptr
+        && this->mode_ == nullptr && this->outputImageHeight_ == nullptr && this->outputImageWidth_ == nullptr; };
+        // frameRate Field Functions 
+        bool hasFrameRate() const { return this->frameRate_ != nullptr;};
+        void deleteFrameRate() { this->frameRate_ = nullptr;};
+        inline float getFrameRate() const { DARABONBA_PTR_GET_DEFAULT(frameRate_, 0.0) };
+        inline FrameExtraction& setFrameRate(float frameRate) { DARABONBA_PTR_SET_VALUE(frameRate_, frameRate) };
+
+
+        // mode Field Functions 
+        bool hasMode() const { return this->mode_ != nullptr;};
+        void deleteMode() { this->mode_ = nullptr;};
+        inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+        inline FrameExtraction& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
+        // outputImageHeight Field Functions 
+        bool hasOutputImageHeight() const { return this->outputImageHeight_ != nullptr;};
+        void deleteOutputImageHeight() { this->outputImageHeight_ = nullptr;};
+        inline int64_t getOutputImageHeight() const { DARABONBA_PTR_GET_DEFAULT(outputImageHeight_, 0L) };
+        inline FrameExtraction& setOutputImageHeight(int64_t outputImageHeight) { DARABONBA_PTR_SET_VALUE(outputImageHeight_, outputImageHeight) };
+
+
+        // outputImageWidth Field Functions 
+        bool hasOutputImageWidth() const { return this->outputImageWidth_ != nullptr;};
+        void deleteOutputImageWidth() { this->outputImageWidth_ = nullptr;};
+        inline int64_t getOutputImageWidth() const { DARABONBA_PTR_GET_DEFAULT(outputImageWidth_, 0L) };
+        inline FrameExtraction& setOutputImageWidth(int64_t outputImageWidth) { DARABONBA_PTR_SET_VALUE(outputImageWidth_, outputImageWidth) };
+
+
+      protected:
+        shared_ptr<float> frameRate_ {};
+        shared_ptr<string> mode_ {};
+        shared_ptr<int64_t> outputImageHeight_ {};
+        shared_ptr<int64_t> outputImageWidth_ {};
+      };
+
+      virtual bool empty() const override { return this->enableDiarization_ == nullptr
+        && this->enableSynopsisParse_ == nullptr && this->enableSynopsisSegments_ == nullptr && this->enableSynopsisSummary_ == nullptr && this->frameExtraction_ == nullptr && this->vlParsePrompt_ == nullptr; };
+      // enableDiarization Field Functions 
+      bool hasEnableDiarization() const { return this->enableDiarization_ != nullptr;};
+      void deleteEnableDiarization() { this->enableDiarization_ = nullptr;};
+      inline bool getEnableDiarization() const { DARABONBA_PTR_GET_DEFAULT(enableDiarization_, false) };
+      inline MultimediaParameters& setEnableDiarization(bool enableDiarization) { DARABONBA_PTR_SET_VALUE(enableDiarization_, enableDiarization) };
+
+
       // enableSynopsisParse Field Functions 
       bool hasEnableSynopsisParse() const { return this->enableSynopsisParse_ != nullptr;};
       void deleteEnableSynopsisParse() { this->enableSynopsisParse_ = nullptr;};
       inline bool getEnableSynopsisParse() const { DARABONBA_PTR_GET_DEFAULT(enableSynopsisParse_, false) };
       inline MultimediaParameters& setEnableSynopsisParse(bool enableSynopsisParse) { DARABONBA_PTR_SET_VALUE(enableSynopsisParse_, enableSynopsisParse) };
+
+
+      // enableSynopsisSegments Field Functions 
+      bool hasEnableSynopsisSegments() const { return this->enableSynopsisSegments_ != nullptr;};
+      void deleteEnableSynopsisSegments() { this->enableSynopsisSegments_ = nullptr;};
+      inline bool getEnableSynopsisSegments() const { DARABONBA_PTR_GET_DEFAULT(enableSynopsisSegments_, false) };
+      inline MultimediaParameters& setEnableSynopsisSegments(bool enableSynopsisSegments) { DARABONBA_PTR_SET_VALUE(enableSynopsisSegments_, enableSynopsisSegments) };
+
+
+      // enableSynopsisSummary Field Functions 
+      bool hasEnableSynopsisSummary() const { return this->enableSynopsisSummary_ != nullptr;};
+      void deleteEnableSynopsisSummary() { this->enableSynopsisSummary_ = nullptr;};
+      inline bool getEnableSynopsisSummary() const { DARABONBA_PTR_GET_DEFAULT(enableSynopsisSummary_, false) };
+      inline MultimediaParameters& setEnableSynopsisSummary(bool enableSynopsisSummary) { DARABONBA_PTR_SET_VALUE(enableSynopsisSummary_, enableSynopsisSummary) };
+
+
+      // frameExtraction Field Functions 
+      bool hasFrameExtraction() const { return this->frameExtraction_ != nullptr;};
+      void deleteFrameExtraction() { this->frameExtraction_ = nullptr;};
+      inline const MultimediaParameters::FrameExtraction & getFrameExtraction() const { DARABONBA_PTR_GET_CONST(frameExtraction_, MultimediaParameters::FrameExtraction) };
+      inline MultimediaParameters::FrameExtraction getFrameExtraction() { DARABONBA_PTR_GET(frameExtraction_, MultimediaParameters::FrameExtraction) };
+      inline MultimediaParameters& setFrameExtraction(const MultimediaParameters::FrameExtraction & frameExtraction) { DARABONBA_PTR_SET_VALUE(frameExtraction_, frameExtraction) };
+      inline MultimediaParameters& setFrameExtraction(MultimediaParameters::FrameExtraction && frameExtraction) { DARABONBA_PTR_SET_RVALUE(frameExtraction_, frameExtraction) };
 
 
       // vlParsePrompt Field Functions 
@@ -100,7 +200,11 @@ namespace Models
 
 
     protected:
+      shared_ptr<bool> enableDiarization_ {};
       shared_ptr<bool> enableSynopsisParse_ {};
+      shared_ptr<bool> enableSynopsisSegments_ {};
+      shared_ptr<bool> enableSynopsisSummary_ {};
+      shared_ptr<MultimediaParameters::FrameExtraction> frameExtraction_ {};
       shared_ptr<string> vlParsePrompt_ {};
     };
 

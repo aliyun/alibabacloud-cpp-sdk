@@ -126,11 +126,13 @@ Darabonba::Json Client::_postOSSObject(const string &bucketName, const Darabonba
     try {
       Darabonba::Http::Request request_ = Darabonba::Http::Request();
       string boundary = Darabonba::Http::Form::getBoundary();
+      string tmp = Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()));
+      string host = DARA_STRING_TEMPLATE("" , bucketName , "." , tmp);
       request_.setProtocol("HTTPS");
       request_.setMethod("POST");
       request_.setPathname(DARA_STRING_TEMPLATE("/"));
       request_.setHeaders(json({
-        {"host" , Darabonba::Convert::stringVal(form.value("host", Darabonba::Json()))},
+        {"host" , host},
         {"date" , Utils::Utils::getDateUTCString()},
         {"user-agent" , Utils::Utils::getUserAgent("")}
       }).get<map<string, string>>());
@@ -1037,7 +1039,7 @@ SubmitConvertPdfToExcelJobResponse Client::submitConvertPdfToExcelJobAdvance(con
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1181,7 +1183,7 @@ SubmitConvertPdfToImageJobResponse Client::submitConvertPdfToImageJobAdvance(con
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1321,7 +1323,7 @@ SubmitConvertPdfToMarkdownJobResponse Client::submitConvertPdfToMarkdownJobAdvan
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1477,7 +1479,7 @@ SubmitConvertPdfToWordJobResponse Client::submitConvertPdfToWordJobAdvance(const
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1633,7 +1635,7 @@ SubmitDigitalDocStructureJobResponse Client::submitDigitalDocStructureJobAdvance
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -1843,7 +1845,7 @@ SubmitDocParserJobResponse Client::submitDocParserJobAdvance(const SubmitDocPars
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2017,7 +2019,7 @@ SubmitDocStructureJobResponse Client::submitDocStructureJobAdvance(const SubmitD
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2161,7 +2163,7 @@ SubmitDocumentExtractJobResponse Client::submitDocumentExtractJobAdvance(const S
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
@@ -2305,7 +2307,7 @@ SubmitTableUnderstandingJobResponse Client::submitTableUnderstandingJobAdvance(c
       {"contentType" , ""}
     }));
     ossHeader = json({
-      {"host" , DARA_STRING_TEMPLATE("" , authResponseBody.at("Bucket") , "." , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType))},
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
       {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
       {"policy" , authResponseBody.at("EncodedPolicy")},
       {"Signature" , authResponseBody.at("Signature")},
