@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The user credential object.
+    // The user identity credential object.
     shared_ptr<IdentifyCredential> identifyCredential_ {};
   };
 

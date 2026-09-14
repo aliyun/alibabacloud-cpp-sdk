@@ -38,7 +38,9 @@ namespace Models
 
 
   protected:
-    // The ID of the DataWorks workspace. You can obtain the workspace ID from the Workspace Management page in the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list).
+    // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/workspace/list) and go to the workspace management page to obtain the ID.
+    // 
+    // This parameter specifies the DataWorks workspace for this API call.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

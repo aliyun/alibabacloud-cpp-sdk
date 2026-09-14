@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the newly created rule template.
+    // The unique identifier of the created rule template.
     shared_ptr<string> id_ {};
-    // The API request ID, which is generated as a UUID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

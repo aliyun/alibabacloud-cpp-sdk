@@ -46,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Inputs, inputs_);
         DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
         DARABONBA_PTR_TO_JSON(ModifyUser, modifyUser_);
+        DARABONBA_PTR_TO_JSON(OperationType, operationType_);
         DARABONBA_PTR_TO_JSON(Outputs, outputs_);
         DARABONBA_PTR_TO_JSON(Owner, owner_);
         DARABONBA_PTR_TO_JSON(PeriodNumber, periodNumber_);
@@ -87,6 +88,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Inputs, inputs_);
         DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
         DARABONBA_PTR_FROM_JSON(ModifyUser, modifyUser_);
+        DARABONBA_PTR_FROM_JSON(OperationType, operationType_);
         DARABONBA_PTR_FROM_JSON(Outputs, outputs_);
         DARABONBA_PTR_FROM_JSON(Owner, owner_);
         DARABONBA_PTR_FROM_JSON(PeriodNumber, periodNumber_);
@@ -165,9 +167,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The label key.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The label value.
         shared_ptr<string> value_ {};
       };
 
@@ -211,7 +213,7 @@ namespace Models
       protected:
         // The script content.
         shared_ptr<string> content_ {};
-        // The script parameters.
+        // The list of script parameters.
         shared_ptr<string> parameters_ {};
       };
 
@@ -262,11 +264,11 @@ namespace Models
 
 
       protected:
-        // The default number of CUs configured for task running.
+        // The compute unit (CU) consumption configured for the task.
         shared_ptr<string> cu_ {};
-        // The ID of the image configured for task running.
+        // The image ID configured for the task.
         shared_ptr<string> image_ {};
-        // The ID of the resource group for scheduling configured for task running.
+        // The identifier of the schedule resource group configured for the task.
         shared_ptr<string> resourceGroupId_ {};
       };
 
@@ -308,9 +310,9 @@ namespace Models
 
 
       protected:
-        // The host for running.
+        // The machine on which the task runs.
         shared_ptr<string> gateway_ {};
-        // The instance run ID.
+        // The unique ID of the run.
         shared_ptr<string> processId_ {};
       };
 
@@ -385,14 +387,10 @@ namespace Models
           // The name of the variable.
           shared_ptr<string> name_ {};
           // The type. Valid values:
-          // 
-          // - Constant: constant
-          // 
-          // - PassThrough: node output
-          // 
-          // - System: variable
-          // 
-          // - NodeOutput: script output
+          // - Constant: constant.
+          // - PassThrough: output of a parameter node.
+          // - System: variable.
+          // - NodeOutput: script output.
           shared_ptr<string> type_ {};
           // The value of the variable.
           shared_ptr<string> value_ {};
@@ -451,9 +449,9 @@ namespace Models
 
 
       protected:
-        // The task outputs.
+        // The list of task output definitions.
         shared_ptr<vector<Outputs::TaskOutputs>> taskOutputs_ {};
-        // The variables.
+        // The list of variable definitions.
         shared_ptr<vector<Outputs::Variables>> variables_ {};
       };
 
@@ -526,14 +524,10 @@ namespace Models
           // The name of the variable.
           shared_ptr<string> name_ {};
           // The type. Valid values:
-          // 
-          // - Constant: constant
-          // 
-          // - PassThrough: node output
-          // 
-          // - System: variable
-          // 
-          // - NodeOutput: script output
+          // - Constant: constant.
+          // - PassThrough: output of a parameter node.
+          // - System: variable.
+          // - NodeOutput: script output.
           shared_ptr<string> type_ {};
           // The value of the variable.
           shared_ptr<string> value_ {};
@@ -550,7 +544,7 @@ namespace Models
 
 
       protected:
-        // The variables.
+        // The list of variable definitions.
         shared_ptr<vector<Inputs::Variables>> variables_ {};
       };
 
@@ -589,12 +583,12 @@ namespace Models
       virtual bool empty() const override { return this->baselineId_ == nullptr
         && this->bizdate_ == nullptr && this->createTime_ == nullptr && this->createUser_ == nullptr && this->dataSource_ == nullptr && this->description_ == nullptr
         && this->finishedTime_ == nullptr && this->id_ == nullptr && this->inputs_ == nullptr && this->modifyTime_ == nullptr && this->modifyUser_ == nullptr
-        && this->outputs_ == nullptr && this->owner_ == nullptr && this->periodNumber_ == nullptr && this->priority_ == nullptr && this->projectEnv_ == nullptr
-        && this->projectId_ == nullptr && this->rerunMode_ == nullptr && this->runNumber_ == nullptr && this->runtime_ == nullptr && this->runtimeResource_ == nullptr
-        && this->script_ == nullptr && this->startedTime_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->taskId_ == nullptr
-        && this->taskName_ == nullptr && this->taskType_ == nullptr && this->timeout_ == nullptr && this->triggerRecurrence_ == nullptr && this->triggerTime_ == nullptr
-        && this->triggerType_ == nullptr && this->unifiedWorkflowInstanceId_ == nullptr && this->waitingResourceTime_ == nullptr && this->waitingTriggerTime_ == nullptr && this->workflowId_ == nullptr
-        && this->workflowInstanceId_ == nullptr && this->workflowInstanceType_ == nullptr && this->workflowName_ == nullptr; };
+        && this->operationType_ == nullptr && this->outputs_ == nullptr && this->owner_ == nullptr && this->periodNumber_ == nullptr && this->priority_ == nullptr
+        && this->projectEnv_ == nullptr && this->projectId_ == nullptr && this->rerunMode_ == nullptr && this->runNumber_ == nullptr && this->runtime_ == nullptr
+        && this->runtimeResource_ == nullptr && this->script_ == nullptr && this->startedTime_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
+        && this->taskId_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr && this->timeout_ == nullptr && this->triggerRecurrence_ == nullptr
+        && this->triggerTime_ == nullptr && this->triggerType_ == nullptr && this->unifiedWorkflowInstanceId_ == nullptr && this->waitingResourceTime_ == nullptr && this->waitingTriggerTime_ == nullptr
+        && this->workflowId_ == nullptr && this->workflowInstanceId_ == nullptr && this->workflowInstanceType_ == nullptr && this->workflowName_ == nullptr; };
       // baselineId Field Functions 
       bool hasBaselineId() const { return this->baselineId_ != nullptr;};
       void deleteBaselineId() { this->baselineId_ = nullptr;};
@@ -674,6 +668,13 @@ namespace Models
       void deleteModifyUser() { this->modifyUser_ = nullptr;};
       inline string getModifyUser() const { DARABONBA_PTR_GET_DEFAULT(modifyUser_, "") };
       inline TaskInstance& setModifyUser(string modifyUser) { DARABONBA_PTR_SET_VALUE(modifyUser_, modifyUser) };
+
+
+      // operationType Field Functions 
+      bool hasOperationType() const { return this->operationType_ != nullptr;};
+      void deleteOperationType() { this->operationType_ = nullptr;};
+      inline string getOperationType() const { DARABONBA_PTR_GET_DEFAULT(operationType_, "") };
+      inline TaskInstance& setOperationType(string operationType) { DARABONBA_PTR_SET_VALUE(operationType_, operationType) };
 
 
       // outputs Field Functions 
@@ -885,131 +886,118 @@ namespace Models
     protected:
       // The baseline ID.
       shared_ptr<int64_t> baselineId_ {};
-      // The data timestamp.
+      // The business date.
       shared_ptr<int64_t> bizdate_ {};
       // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // The account ID of the creator.
+      // The account ID of the user who created the instance.
       shared_ptr<string> createUser_ {};
-      // The information about the associated data source.
+      // The data source information associated with the instance.
       shared_ptr<TaskInstance::DataSource> dataSource_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The time when the instance finished running.
+      // The completion time.
       shared_ptr<int64_t> finishedTime_ {};
-      // The instance ID.
+      // The unique identifier of the node instance.
       shared_ptr<int64_t> id_ {};
       // The input information.
       shared_ptr<TaskInstance::Inputs> inputs_ {};
       // The modification time.
       shared_ptr<int64_t> modifyTime_ {};
-      // The account ID of the modifier.
+      // The account ID of the user who modified the instance.
       shared_ptr<string> modifyUser_ {};
+      // The type of the most recent operation on the instance.
+      shared_ptr<string> operationType_ {};
       // The output information.
       shared_ptr<TaskInstance::Outputs> outputs_ {};
-      // The account ID of the task owner.
+      // The account ID of the node owner.
       shared_ptr<string> owner_ {};
-      // The sequence number of the cycle. This parameter indicates the cycle of the task instance on the current day.
+      // The period number. Indicates which scheduling cycle of the day the task instance is in.
       shared_ptr<int32_t> periodNumber_ {};
-      // The task priority. Valid values: 1 to 8. A larger value indicates a higher priority. Default value: 1.
+      // The running priority of the task. Minimum value: 1. Maximum value: 8. A larger value indicates a higher priority. Default value: 1.
       shared_ptr<int32_t> priority_ {};
-      // The environment of the workspace. Valid values:
-      // 
-      // - Prod: production environment
-      // 
-      // - Dev: development environment
+      // The project environment. Valid values:
+      // - Prod: Production.
+      // - Dev: Development.
       shared_ptr<string> projectEnv_ {};
-      // The workspace ID.
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
-      // The rerun mode. Valid values:
-      // 
-      // - AllDenied: The task cannot be rerun regardless of whether the task is successfully run or fails to run.
-      // 
-      // - AllAllowed: The task can be rerun regardless of whether the task is successfully run or fails to run.
-      // 
-      // - FailureAllowed: The task can be rerun only after it fails to run.
+      // The rerun configuration of the task. Valid values:
+      // - AllDenied: reruns are not allowed regardless of whether the task fails or succeeds.
+      // - AllAllowed: reruns are allowed regardless of whether the task fails or succeeds.
+      // - FailureAllowed: reruns are allowed only when the task fails.
       shared_ptr<string> rerunMode_ {};
-      // The number of times the instance is run. By default, the value starts from 1.
+      // The current run number. The value starts from 1 by default.
       shared_ptr<int32_t> runNumber_ {};
-      // The runtime information about the instance.
+      // The runtime information of the instance.
       shared_ptr<TaskInstance::Runtime> runtime_ {};
-      // The information about the resource group with which the instance is associated.
+      // The resource group information associated with the instance.
       shared_ptr<TaskInstance::RuntimeResource> runtimeResource_ {};
-      // The script information.
+      // The running script information.
       shared_ptr<TaskInstance::Script> script_ {};
-      // The time when the instance started to run.
+      // The start time of the run.
       shared_ptr<int64_t> startedTime_ {};
-      // The status of the instance. Valid values:
-      // 
-      // - NotRun: The instance is not run.
-      // 
-      // - Running: The instance is running.
-      // 
-      // - WaitTime: The instance is waiting for the scheduling time to arrive.
-      // 
-      // - CheckingCondition: Branch conditions are being checked for the instance.
-      // 
-      // - WaitResource: The instance is waiting for resources.
-      // 
-      // - Failure: The instance fails to be run.
-      // 
-      // - Success: The instance is successfully run.
-      // 
-      // - Checking: Data quality is being checked for the instance.
+      // The instance running status. Valid values:
+      // - NotRun: Not run.
+      // - Running: Running.
+      // - WaitTime: Waiting for the TriggerTime to arrive.
+      // - CheckingCondition: Checking branch conditions.
+      // - WaitResource: Waiting for resources.
+      // - Failure: Execution failed.
+      // - Success: Execution succeeded.
+      // - Checking: Submitted for data quality check.
+      // - WaitTrigger: Waiting for an external trigger. Trigger-based nodes enter this status after the waiting time elapses.
       shared_ptr<string> status_ {};
-      // The tags of the task.
+      // The list of node tags.
       shared_ptr<vector<TaskInstance::Tags>> tags_ {};
-      // The ID of the task for which the instance is generated.
+      // The ID of the corresponding task.
       shared_ptr<int64_t> taskId_ {};
-      // The name of the task for which the instance is generated.
+      // The name of the corresponding task.
       shared_ptr<string> taskName_ {};
-      // The type of the task for which the instance is generated.
+      // The type of the corresponding task.
       shared_ptr<string> taskType_ {};
-      // The timeout period of task running. Unit: seconds.
+      // The timeout period for task execution. Unit: seconds.
       // 
-      // Note: The value of this parameter is rounded up by hour.
+      // Note: The scheduling system rounds the configured value to the nearest hour.
       shared_ptr<int32_t> timeout_ {};
-      // The running mode of the instance after it is triggered. This parameter takes effect only if the TriggerType parameter is set to Scheduler. Valid values:
+      // The running mode when triggered. This parameter takes effect when TriggerType is set to Scheduler. Valid values:
       // 
-      // - Pause
-      // 
-      // - Skip
-      // 
-      // - Normal
+      // - Normal: a normal scheduled task that is scheduled on a regular basis.
+      // - Manual: a manual task that is not scheduled on a regular basis.
+      // - Pause: a paused task that is scheduled on a regular basis but is set to failed when scheduling starts.
+      // - Skip: a dry-run task that is scheduled on a regular basis but is set to succeeded when scheduling starts.
+      // - SkipUnchoose: a task that is not selected in a temporary workflow. This value exists only in temporary workflows. The task is set to succeeded when scheduling starts.
+      // - SkipCycle: a weekly or monthly task whose running cycle has not arrived. The task is scheduled on a regular basis but is set to succeeded when scheduling starts.
+      // - ConditionUnchoose: a downstream node that is not selected by an upstream branch (IF) node. The task directly becomes a dry run.
+      // - RealtimeDeprecated: an expired periodic instance generated in real time. The task is set to succeeded.
+      // - PauseCalendar: the instance is paused because a calendar is referenced.
+      // - SkipCalendar: the instance is a dry run because a calendar is referenced.
       shared_ptr<string> triggerRecurrence_ {};
-      // The scheduling time.
+      // The scheduled trigger time.
       shared_ptr<int64_t> triggerTime_ {};
-      // The method to trigger instance scheduling. The value of the Trigger.Type parameter in the response of the GetTask operation is used. Valid values:
-      // 
-      // - Scheduler
-      // 
-      // - Manual
+      // The trigger type. You can obtain the trigger type from the Trigger.Type response parameter of the GetTask operation. Valid values:
+      // - Scheduler: triggered by a scheduling cycle.
+      // - Manual: manually triggered.
       shared_ptr<string> triggerType_ {};
-      // Unified workflow instance ID. All task instances triggered under the same data timestamp share the same value for this field.
+      // The unified workflow instance ID. All task instances within the same business date under a single trigger share the same value for this field.
       shared_ptr<int64_t> unifiedWorkflowInstanceId_ {};
-      // The timestamp for when it started waiting for resources.
+      // The time when the instance entered the waiting-for-resource state.
       shared_ptr<int64_t> waitingResourceTime_ {};
-      // The timestamp for when it started waiting for the scheduled time.
+      // The time when the instance entered the waiting-for-scheduled-time state.
       shared_ptr<int64_t> waitingTriggerTime_ {};
-      // The ID of the workflow to which the instance belongs.
+      // The ID of the workflow to which the task instance belongs.
       shared_ptr<int64_t> workflowId_ {};
-      // The workflow instance ID.
+      // The ID of the workflow instance to which the task instance belongs.
       shared_ptr<int64_t> workflowInstanceId_ {};
-      // The type of the workflow instance. Valid values:
-      // 
-      // - SmokeTest
-      // 
-      // - SupplementData
-      // 
-      // - Manual
-      // 
-      // - ManualWorkflow
-      // 
-      // - Normal
-      // 
-      // - ManualFlow
+      // The type of the workflow instance to which the task instance belongs. Valid values:
+      // - SmokeTest: test.
+      // - SupplementData: data backfill.
+      // - Manual: manual task.
+      // - ManualWorkflow: manual workflow.
+      // - Normal: periodic scheduling.
+      // - ManualFlow: manually executed business flow.
       shared_ptr<string> workflowInstanceType_ {};
-      // The name of the workflow to which the instance belongs.
+      // The name of the workflow to which the task instance belongs.
       shared_ptr<string> workflowName_ {};
     };
 
@@ -1032,9 +1020,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The details of the task instance.
+    // The detailed information about the task instance.
     shared_ptr<GetTaskInstanceResponseBody::TaskInstance> taskInstance_ {};
   };
 

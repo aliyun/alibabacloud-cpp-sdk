@@ -160,7 +160,7 @@ namespace Models
 
 
             protected:
-              // A tag for the session, which can be used for filtering. For example, if your application has its own user accounts but calls the API through a single service account, you can pass your application\\"s user ID as a tag. This allows you to filter sessions by your internal users.
+              // The session tag. You can filter sessions based on session tags. For example, if you use a fixed RAM user to call OpenAPI but the calling system has its own account system, you can filter the session list based on an account ID. In this case, set this parameter to the account ID of the calling system.
               shared_ptr<string> sessionTagCode_ {};
             };
 
@@ -190,11 +190,11 @@ namespace Models
 
 
           protected:
-            // The source of the session.
+            // The session source.
             shared_ptr<string> sessionSource_ {};
-            // The session status.
+            // The session connection status.
             shared_ptr<string> sessionStatus_ {};
-            // A list of session tags.
+            // The list of session tags.
             shared_ptr<vector<Meta::SessionTagList>> sessionTagList_ {};
           };
 
@@ -245,17 +245,17 @@ namespace Models
 
 
         protected:
-          // DataWorks-specific session metadata. This field is not part of the standard ACP protocol.
+          // The extended session information from DataWorks, which is not part of the ACP standard protocol.
           shared_ptr<AgentSessions::Meta> meta_ {};
-          // The time the session was created.
+          // The time when the session was created.
           shared_ptr<int64_t> sessionCreatedAt_ {};
           // The session description.
           shared_ptr<string> sessionDescription_ {};
-          // The unique session ID.
+          // The unique ID of the session.
           shared_ptr<string> sessionId_ {};
           // The session title.
           shared_ptr<string> sessionTitle_ {};
-          // The time the session was last modified.
+          // The time when the session was last modified.
           shared_ptr<int64_t> sessionUpdatedAt_ {};
         };
 
@@ -292,13 +292,13 @@ namespace Models
 
 
       protected:
-        // A list of sessions.
+        // The session list.
         shared_ptr<vector<Result::AgentSessions>> agentSessions_ {};
-        // The number of entries returned on the current page.
+        // The actual number of entries per page.
         shared_ptr<int32_t> maxResults_ {};
-        // The token to retrieve the next page of results. To retrieve the first page, use the value `1`.
+        // The token for the next page. Set this parameter to 1 for the first page.
         shared_ptr<string> nextToken_ {};
-        // The total number of sessions that match the query.
+        // The total number of matched sessions.
         shared_ptr<int32_t> totalCount_ {};
       };
 
@@ -328,11 +328,11 @@ namespace Models
 
 
     protected:
-      // The ID provided in the request. This value is returned unmodified.
+      // The ID passed in by the requester. The value is returned as-is.
       shared_ptr<string> id_ {};
-      // The JSON-RPC version. The value is always `2.0`.
+      // The JSON-RPC version. Fixed value: 2.0.
       shared_ptr<string> jsonrpc_ {};
-      // The paginated results of the session query.
+      // The paginated result set of the session query.
       shared_ptr<JsonRpcResponse::Result> result_ {};
     };
 
@@ -357,7 +357,7 @@ namespace Models
   protected:
     // The JSON-RPC response.
     shared_ptr<ListAgentSessionsResponseBody::JsonRpcResponse> jsonRpcResponse_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

@@ -78,11 +78,11 @@ namespace Models
 
 
     protected:
-      // The creation time, in milliseconds (UNIX timestamp).
+      // The creation time, in millisecond-precision UNIX timestamp.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The last modification time, in milliseconds (UNIX timestamp).
+      // The last modification time, in millisecond-precision UNIX timestamp.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifiedTime_ {};

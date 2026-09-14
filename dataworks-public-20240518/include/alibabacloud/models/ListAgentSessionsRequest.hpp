@@ -122,19 +122,19 @@ namespace Models
 
 
     protected:
-      // Filters sessions by the **agent name**. You must specify at least one of this parameter and `SessionSourceList`.
+      // **Agent name** for exact filtering. At least one of this parameter and `SessionSourceList` must be specified.
       shared_ptr<string> agentName_ {};
-      // The maximum number of results to return per page. Default value: 50.
+      // The number of entries per page. Default value: 50.
       shared_ptr<int32_t> maxResults_ {};
-      // The token for the next page of results. Set this parameter to `1` to retrieve the first page of results.
+      // The token for the next page. Set this parameter to 1 for the first page.
       shared_ptr<string> nextToken_ {};
-      // Filters sessions by session ID.
+      // The session ID for exact matching.
       shared_ptr<string> sessionId_ {};
-      // Filters sessions by the **list of session sources**. You must specify at least one of this parameter and `AgentName`.
+      // **Session source list** for filtering. At least one of this parameter and `AgentName` must be specified.
       shared_ptr<vector<string>> sessionSourceList_ {};
-      // Filters sessions by session title using a fuzzy match.
+      // The session title for fuzzy match filtering.
       shared_ptr<string> sessionTitle_ {};
-      // Filters sessions by a list of session tag codes.
+      // The list of session tag codes for filtering.
       shared_ptr<vector<string>> tagList_ {};
     };
 
@@ -164,11 +164,11 @@ namespace Models
 
 
   protected:
-    // The ID provided by the caller. The value is returned as-is.
+    // The ID passed in by the requester. The value is returned as-is.
     shared_ptr<string> id_ {};
-    // The JSON-RPC version. The value must be `2.0`.
+    // The JSON-RPC version. Fixed value: 2.0.
     shared_ptr<string> jsonrpc_ {};
-    // Business parameters.
+    // The business parameters.
     shared_ptr<ListAgentSessionsRequest::Params> params_ {};
   };
 

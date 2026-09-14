@@ -118,11 +118,11 @@ namespace Models
       shared_ptr<string> env_ {};
       // The list of execution type codes returned by the executor in the submission response.
       shared_ptr<vector<int32_t>> execTypes_ {};
-      // The executor job identifier. Pass this value to the ExecutorJobId parameter of GetSemanticJobDetail, GetSemanticJobLog, or KillSemanticJob.
+      // The executor task identifier. Pass this value to the ExecutorJobId parameter of GetSemanticJobDetail, GetSemanticJobLog, or KillSemanticJob.
       shared_ptr<string> executorJobId_ {};
       // The unique identifier of this run. Pass this value to the JobRunId parameter of DownloadSemanticResults to obtain the output of this run.
       shared_ptr<string> jobRunId_ {};
-      // The list of status codes returned by the executor in the submission response. The status at the submission stage does not indicate that results are complete.
+      // The list of status codes returned by the executor in the submission response. The status at the submission stage does not indicate that the results are complete.
       shared_ptr<vector<int32_t>> statuses_ {};
     };
 

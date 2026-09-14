@@ -57,9 +57,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to allow transferring ownership to an owner in a different tenant. Default value: false.
     shared_ptr<bool> enableCrossTenant_ {};
+    // The target owner after the transfer. Use the Alibaba Cloud UID.
+    // 
     // This parameter is required.
     shared_ptr<string> owner_ {};
+    // The list of MaxCompute table metadata entity IDs to transfer. A maximum of 100 tables are allowed per request. Duplicate values are not allowed.
+    // 
     // This parameter is required.
     shared_ptr<string> tableMetaEntityIdsShrink_ {};
   };

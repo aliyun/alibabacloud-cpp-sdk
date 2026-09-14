@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated and is replaced by the Id parameter.
+    // **[Deprecated]** This parameter is deprecated. Use the Id parameter instead.
     shared_ptr<int64_t> DIJobId_ {};
-    // The ID of the synchronization task.
+    // The ID of the sync task.
     shared_ptr<int64_t> id_ {};
-    // The instance ID.
+    // The ID of the instance.
     shared_ptr<int64_t> instanceId_ {};
   };
 

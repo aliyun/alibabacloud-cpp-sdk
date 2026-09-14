@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The user credential object.
+    // The user identity credential object.
     shared_ptr<string> identifyCredentialShrink_ {};
   };
 

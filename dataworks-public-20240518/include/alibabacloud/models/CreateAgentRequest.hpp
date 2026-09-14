@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The list of project IDs that have visibility. This parameter takes effect when Visibility is set to `PROJECT`.
+      // The list of project IDs to which the Agent is visible. This parameter takes effect only when Visibility is set to `PROJECT`.
       shared_ptr<vector<string>> projectIds_ {};
-      // The list of user IDs that have visibility. This parameter takes effect when Visibility is set to `USER`.
+      // The list of user IDs to which the Agent is visible. This parameter takes effect only when Visibility is set to `USER`.
       shared_ptr<vector<string>> userIds_ {};
     };
 
@@ -309,7 +309,7 @@ namespace Models
     shared_ptr<vector<CreateAgentRequest::Tools>> tools_ {};
     // The visibility level.<br>
     // `TENANT`: Visible within the account.<br>
-    // `PROJECT`: Visible to specified projects.<br>
+    // `PROJECT`: Visible to a specified project.<br>
     // `USER`: Visible to specified users.
     shared_ptr<string> visibility_ {};
     // The visibility scope. The corresponding field is determined by the Visibility parameter.

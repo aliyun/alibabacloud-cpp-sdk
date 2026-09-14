@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The unique identifier of the task instance.
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};

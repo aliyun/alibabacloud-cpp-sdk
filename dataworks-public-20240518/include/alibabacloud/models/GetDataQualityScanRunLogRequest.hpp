@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the data quality monitor run record.
+    // The ID of the data quality monitoring run record.
     shared_ptr<int64_t> id_ {};
-    // The starting position of the log, in bytes, relative to the beginning of the file. Each query returns a maximum of 512 KB of content.
+    // The start position of the log, which is the offset relative to the beginning of the file. Unit: bytes. Each query returns a maximum of 512 KB of content.
     shared_ptr<int64_t> offset_ {};
   };
 

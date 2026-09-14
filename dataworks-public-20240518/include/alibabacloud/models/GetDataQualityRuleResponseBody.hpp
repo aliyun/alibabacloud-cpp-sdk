@@ -127,7 +127,7 @@ namespace Models
 
 
       protected:
-        // For a Table-type dataset, the type of database to which the table belongs.
+        // The database type of the table for a table-type dataset. Valid values:
         // - maxcompute
         // - emr
         // - cdh
@@ -138,9 +138,9 @@ namespace Models
         shared_ptr<string> databaseType_ {};
         // The partition settings of the partitioned table.
         shared_ptr<string> partitionSpec_ {};
-        // The unique ID of the table on which the rule takes effect in Data Map.
+        // The unique ID of the table in Data Map that the rule applies to.
         shared_ptr<string> tableGuid_ {};
-        // The type of the monitored object.
+        // The monitored object type. Valid values:
         // 
         // - Table
         shared_ptr<string> type_ {};
@@ -202,28 +202,28 @@ namespace Models
 
 
       protected:
-        // The name of the sampling metric:
-        // - Count: the number of table rows
-        // - Min: the minimum value of the field
-        // - Max: the maximum value of the field
-        // - Avg: the average value of the field
-        // - DistinctCount: the number of distinct values of the field
-        // - DistinctPercent: the ratio of the number of distinct values of the field to the number of data rows
-        // - DuplicatedCount: the number of duplicate values of the field
-        // - DuplicatedPercent: the ratio of the number of duplicate values of the field to the number of data rows
-        // - TableSize: the size of the table
-        // - NullValueCount: the number of rows in which the field is null
-        // - NullValuePercent: the proportion of rows in which the field is null
-        // - GroupCount: the number of data rows corresponding to each value after aggregation by field value
-        // - CountNotIn: the number of rows in which the enum value does not match
-        // - CountDistinctNotIn: the number of distinct values in which the enum value does not match
-        // - UserDefinedSql: performs sample collection by using a custom SQL statement
+        // The name of the sampling metric. Valid values:
+        // - Count: the number of table rows.
+        // - Min: the minimum value of a field.
+        // - Max: the maximum value of a field.
+        // - Avg: the average value of a field.
+        // - DistinctCount: the number of unique values of a field.
+        // - DistinctPercent: the ratio of the number of unique values of a field to the number of data rows.
+        // - DuplicatedCount: the number of duplicate values of a field.
+        // - DuplicatedPercent: the ratio of the number of duplicate values of a field to the number of data rows.
+        // - TableSize: the table size.
+        // - NullValueCount: the number of rows in which the field is null.
+        // - NullValuePercent: the ratio of rows in which the field is null.
+        // - GroupCount: the number of data rows for each value after aggregation by field value.
+        // - CountNotIn: the number of rows with mismatched enumeration values.
+        // - CountDistinctNotIn: the number of unique values with mismatched enumeration values.
+        // - UserDefinedSql: sample collection through custom SQL.
         shared_ptr<string> metric_ {};
         // The parameters required for sample collection.
         shared_ptr<string> metricParameters_ {};
-        // The condition used to perform secondary filtering on data that you do not focus on during sampling. The maximum length is 16,777,215 characters.
+        // The filter condition used to perform secondary filtering on irrelevant data during sampling. The value can be up to 16,777,215 characters in length.
         shared_ptr<string> samplingFilter_ {};
-        // The runtime parameter setting statements that are inserted and executed before the specific sampling statement is executed. The maximum length is 1,000 characters. Currently, only MaxCompute is supported.
+        // The runtime parameter setting statements that are executed before the sampling statement. The value can be up to 1,000 characters in length. Only MaxCompute is supported.
         shared_ptr<string> settingConfig_ {};
       };
 
@@ -265,9 +265,9 @@ namespace Models
 
 
       protected:
-        // If the rule is a custom SQL rule, you must specify an SQL statement to filter the problem data.
+        // The SQL statement specified by the user to filter error data. This is required for custom SQL rules.
         shared_ptr<string> errorDataFilter_ {};
-        // The handler type:
+        // The handler type. Valid values:
         // - SaveErrorData
         shared_ptr<string> type_ {};
       };
@@ -367,7 +367,7 @@ namespace Models
           protected:
             // The threshold expression.
             shared_ptr<string> expression_ {};
-            // The comparison operator:
+            // The comparison operator. Valid values:
             // - \\>
             // - \\>=
             // - <
@@ -428,7 +428,7 @@ namespace Models
           protected:
             // The threshold expression.
             shared_ptr<string> expression_ {};
-            // The comparison operator:
+            // The comparison operator. Valid values:
             // - \\>
             // - \\>=
             // - <
@@ -489,7 +489,7 @@ namespace Models
           protected:
             // The threshold expression.
             shared_ptr<string> expression_ {};
-            // The comparison operator:
+            // The comparison operator. Valid values:
             // - \\>
             // - \\>=
             // - <
@@ -565,11 +565,11 @@ namespace Models
 
 
       protected:
-        // Some types of thresholds require querying reference samples and then aggregating the values of the reference samples to derive the threshold used for comparison. An expression is used here to indicate the way in which the reference samples are queried.
+        // Some types of thresholds require querying reference samples and then aggregating the values of the reference samples to derive the threshold for comparison. This field uses an expression to specify how to query the reference samples.
         shared_ptr<string> referencedSamplesFilter_ {};
         // The threshold settings.
         shared_ptr<CheckingConfig::Thresholds> thresholds_ {};
-        // The threshold calculation method:
+        // The threshold calculation method. Valid values:
         // - Fixed
         // - Fluctation
         // - FluctationDiscreate
@@ -670,21 +670,21 @@ namespace Models
     protected:
       // The sample check settings.
       shared_ptr<DataQualityRule::CheckingConfig> checkingConfig_ {};
-      // The description of the rule. The maximum length is 500 characters.
+      // The rule description. The description can be up to 500 characters in length.
       shared_ptr<string> description_ {};
-      // Specifies whether the rule is enabled.
+      // Indicates whether the rule is enabled.
       shared_ptr<bool> enabled_ {};
-      // The list of issue handlers for quality rule checks.
+      // The list of quality rule check error handlers.
       shared_ptr<vector<DataQualityRule::ErrorHandlers>> errorHandlers_ {};
       // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> name_ {};
       // The DataWorks workspace ID.
       shared_ptr<int64_t> projectId_ {};
       // The settings required for sample collection.
       shared_ptr<DataQualityRule::SamplingConfig> samplingConfig_ {};
-      // The severity of the rule for the business (corresponds to strong/weak rules on the page). Valid values:
+      // The severity level of the rule for business (corresponding to strong and weak rules on the page). Valid values:
       // - Normal
       // - High
       shared_ptr<string> severity_ {};
@@ -713,9 +713,9 @@ namespace Models
 
 
   protected:
-    // The details of the rule.
+    // The rule details.
     shared_ptr<GetDataQualityRuleResponseBody::DataQualityRule> dataQualityRule_ {};
-    // The request ID.
+    // The API request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The owner ID.
+    // The ID of the owner.
     shared_ptr<string> owner_ {};
     // The project ID.
     shared_ptr<int64_t> projectId_ {};
-    // Detailed configuration Spec code of the rule template. For more information, see [Data quality Spec configuration description](~2963394~).
+    // The Spec code for the detailed configuration of the rule template. For more information, see [Data quality Spec configuration](https://help.aliyun.com/document_detail/2963394.html).
     shared_ptr<string> spec_ {};
   };
 

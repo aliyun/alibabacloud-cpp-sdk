@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the workspace to associate.
+    // The ID of the workspace to associate with the resource group.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

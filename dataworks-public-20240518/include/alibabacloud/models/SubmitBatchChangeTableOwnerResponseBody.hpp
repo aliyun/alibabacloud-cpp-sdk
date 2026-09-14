@@ -80,8 +80,11 @@ namespace Models
 
 
     protected:
+      // The batch transfer task ID. You can use this ID to call GetBatchChangeTableOwnerStatus to query the task progress.
       shared_ptr<string> batchId_ {};
+      // The initial status of the task after submission.
       shared_ptr<string> status_ {};
+      // The total number of tables submitted in this batch.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -111,8 +114,11 @@ namespace Models
 
 
   protected:
+    // The submit result of the batch table ownership transfer task.
     shared_ptr<SubmitBatchChangeTableOwnerResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

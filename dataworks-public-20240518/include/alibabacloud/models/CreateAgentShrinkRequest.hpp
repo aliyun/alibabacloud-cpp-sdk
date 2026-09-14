@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<string> toolsShrink_ {};
     // The visibility level.<br>
     // `TENANT`: Visible within the account.<br>
-    // `PROJECT`: Visible to specified projects.<br>
+    // `PROJECT`: Visible to a specified project.<br>
     // `USER`: Visible to specified users.
     shared_ptr<string> visibility_ {};
     // The visibility scope. The corresponding field is determined by the Visibility parameter.

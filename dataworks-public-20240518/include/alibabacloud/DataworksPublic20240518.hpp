@@ -22,6 +22,23 @@ namespace DataworksPublic20240518
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
+       * @summary Stops a cross-workspace publish flow.
+       *
+       * @param request AbolishCrossProjectPipelineRunRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AbolishCrossProjectPipelineRunResponse
+       */
+      Models::AbolishCrossProjectPipelineRunResponse abolishCrossProjectPipelineRunWithOptions(const Models::AbolishCrossProjectPipelineRunRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Stops a cross-workspace publish flow.
+       *
+       * @param request AbolishCrossProjectPipelineRunRequest
+       * @return AbolishCrossProjectPipelineRunResponse
+       */
+      Models::AbolishCrossProjectPipelineRunResponse abolishCrossProjectPipelineRun(const Models::AbolishCrossProjectPipelineRunRequest &request);
+
+      /**
        * @summary Calls this operation to change the status of a specified deployment process to terminated. The deployment process is not deleted and can still be queried through query operations.
        *
        * @description >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the AbolishDeployment operation. The parameters are the same as those described in this document.
@@ -64,18 +81,18 @@ namespace DataworksPublic20240518
       Models::AddEntityIntoMetaCollectionResponse addEntityIntoMetaCollection(const Models::AddEntityIntoMetaCollectionRequest &request);
 
       /**
-       * @summary Submits an application for access permissions on a specific resource.
+       * @summary Commits an access permissions request for specific resources.
        *
-       * @description ## Request Description
-       * - **Reason**: The reason for the application. This parameter is required.
-       * - **ApplyContents**: Contains multiple resource permission application contents, each including the resource description (Resource), grantee description (Grantee), permission types (AccessTypes), and permission expiration time (ExpirationTime). The maximum limit per request is 400 entries.
-       * - **Resource**: The resource description. You need to specify the ResourceSchema.name and version that the resource parsing depends on, as well as the resource metadata MetaData.
-       * - **Grantee**: The grantee description. You need to specify the grantee type (PrincipalType) and the principal ID (PrincipalId).
-       * - **AccessTypes**: The list of permission types. Multiple permission combinations are supported.
-       * - **ExpirationTime**: The permission expiration time, provided as a milliseconds timestamp.
-       * - **AuthMethod**: An optional parameter that specifies the authorization method. The system uses the built-in default authorization method if not specified.
+       * @description ## Operation description
+       * - **Reason**: The reason for the request. This parameter is required.
+       * - **ApplyContents**: Contains multiple resource permission request entries. Each entry includes a resource description (Resource), a grantee description (Grantee), access types (AccessTypes), and a permission expiration time (ExpirationTime). A maximum of 400 entries can be submitted in a single request.
+       * - **Resource**: The resource description. You must specify the ResourceSchema.name and version on which the resource parsing depends, as well as the resource metadata (MetaData).
+       * - **Grantee**: The grantee description. You must specify the principal type (PrincipalType) and principal ID (PrincipalId).
+       * - **AccessTypes**: The list of access types. Multiple access type combinations are supported.
+       * - **ExpirationTime**: The permission expiration time, provided as a millisecond-level timestamp.
+       * - **AuthMethod**: Optional. Specifies the authorization method. The system uses the built-in default authorization method if this parameter is not specified.
        * - **ClientToken**: The client token used to prevent duplicate requests. This parameter is optional.
-       * Ensure all required fields are filled in correctly and comply with the corresponding constraints. For example, `DefVersion` and `MetaData` in `Resource` should match the selected `DefSchema`.
+       * Make sure that all required fields are correctly specified and meet the corresponding constraints. For example, the DefVersion and MetaData in Resource must match the selected DefSchema.
        *
        * @param tmpReq ApplyResourceAccessPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -84,18 +101,18 @@ namespace DataworksPublic20240518
       Models::ApplyResourceAccessPermissionResponse applyResourceAccessPermissionWithOptions(const Models::ApplyResourceAccessPermissionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an application for access permissions on a specific resource.
+       * @summary Commits an access permissions request for specific resources.
        *
-       * @description ## Request Description
-       * - **Reason**: The reason for the application. This parameter is required.
-       * - **ApplyContents**: Contains multiple resource permission application contents, each including the resource description (Resource), grantee description (Grantee), permission types (AccessTypes), and permission expiration time (ExpirationTime). The maximum limit per request is 400 entries.
-       * - **Resource**: The resource description. You need to specify the ResourceSchema.name and version that the resource parsing depends on, as well as the resource metadata MetaData.
-       * - **Grantee**: The grantee description. You need to specify the grantee type (PrincipalType) and the principal ID (PrincipalId).
-       * - **AccessTypes**: The list of permission types. Multiple permission combinations are supported.
-       * - **ExpirationTime**: The permission expiration time, provided as a milliseconds timestamp.
-       * - **AuthMethod**: An optional parameter that specifies the authorization method. The system uses the built-in default authorization method if not specified.
+       * @description ## Operation description
+       * - **Reason**: The reason for the request. This parameter is required.
+       * - **ApplyContents**: Contains multiple resource permission request entries. Each entry includes a resource description (Resource), a grantee description (Grantee), access types (AccessTypes), and a permission expiration time (ExpirationTime). A maximum of 400 entries can be submitted in a single request.
+       * - **Resource**: The resource description. You must specify the ResourceSchema.name and version on which the resource parsing depends, as well as the resource metadata (MetaData).
+       * - **Grantee**: The grantee description. You must specify the principal type (PrincipalType) and principal ID (PrincipalId).
+       * - **AccessTypes**: The list of access types. Multiple access type combinations are supported.
+       * - **ExpirationTime**: The permission expiration time, provided as a millisecond-level timestamp.
+       * - **AuthMethod**: Optional. Specifies the authorization method. The system uses the built-in default authorization method if this parameter is not specified.
        * - **ClientToken**: The client token used to prevent duplicate requests. This parameter is optional.
-       * Ensure all required fields are filled in correctly and comply with the corresponding constraints. For example, `DefVersion` and `MetaData` in `Resource` should match the selected `DefSchema`.
+       * Make sure that all required fields are correctly specified and meet the corresponding constraints. For example, the DefVersion and MetaData in Resource must match the selected DefSchema.
        *
        * @param request ApplyResourceAccessPermissionRequest
        * @return ApplyResourceAccessPermissionResponse
@@ -132,8 +149,8 @@ namespace DataworksPublic20240518
       /**
        * @summary Associates an image with a workspace.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or later to use this operation.
-       * 2. **Ensure the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.**
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
        *
        * @param request AssociateProjectToImageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -144,8 +161,8 @@ namespace DataworksPublic20240518
       /**
        * @summary Associates an image with a workspace.
        *
-       * @description 1. You must purchase DataWorks Basic Edition or later to use this operation.
-       * 2. **Ensure the AliyunServiceRoleForDataWorks service-linked role is created before you call this operation.**
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. **Before calling this operation, make sure that the service-linked role AliyunServiceRoleForDataWorks has been created.**
        *
        * @param request AssociateProjectToImageRequest
        * @return AssociateProjectToImageResponse
@@ -155,9 +172,9 @@ namespace DataworksPublic20240518
       /**
        * @summary Associates a resource group with a workspace.
        *
-       * @description 1. This operation requires DataWorks Basic Edition or a more advanced edition.
-       * 2. You must have one of the following roles in the DataWorks workspace:
-       * - tenant owner, workspace administrator, project owner, or operator
+       * @description 1. You must have purchased DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. You must have at least one of the following roles in the DataWorks workspace:
+       * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
        *
        * @param request AssociateProjectToResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -168,9 +185,9 @@ namespace DataworksPublic20240518
       /**
        * @summary Associates a resource group with a workspace.
        *
-       * @description 1. This operation requires DataWorks Basic Edition or a more advanced edition.
-       * 2. You must have one of the following roles in the DataWorks workspace:
-       * - tenant owner, workspace administrator, project owner, or operator
+       * @description 1. You must have purchased DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. You must have at least one of the following roles in the DataWorks workspace:
+       * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
        *
        * @param request AssociateProjectToResourceGroupRequest
        * @return AssociateProjectToResourceGroupResponse
@@ -367,9 +384,9 @@ namespace DataworksPublic20240518
        * @description ## Operation description
        * - **Agent name**: Must be unique within the current account.
        * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
-       * - **Visibility level**: Defines who can access the Agent. Supported levels include account-wide, project-specific, or user-specific visibility.
+       * - **Visibility level**: Defines who can access the Agent. The Agent can be visible within the account, to a specific project, or to specific users.
        * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
-       * - **Other parameters**: Parameters such as display name and description are optional. Set them as needed.
+       * - **Other parameters**: Optional parameters such as display name and description. Set them as needed.
        *
        * @param tmpReq CreateAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -383,9 +400,9 @@ namespace DataworksPublic20240518
        * @description ## Operation description
        * - **Agent name**: Must be unique within the current account.
        * - **Model configuration**: An optional parameter that specifies the model used by the Agent and its related settings.
-       * - **Visibility level**: Defines who can access the Agent. Supported levels include account-wide, project-specific, or user-specific visibility.
+       * - **Visibility level**: Defines who can access the Agent. The Agent can be visible within the account, to a specific project, or to specific users.
        * - **Visibility scope**: When you set the visibility level to `PROJECT` or `USER`, you must specify the list of project IDs or user IDs.
-       * - **Other parameters**: Parameters such as display name and description are optional. Set them as needed.
+       * - **Other parameters**: Optional parameters such as display name and description. Set them as needed.
        *
        * @param request CreateAgentRequest
        * @return CreateAgentResponse
@@ -547,6 +564,27 @@ namespace DataworksPublic20240518
       Models::CreateCrawlerResponse createCrawler(const Models::CreateCrawlerRequest &request);
 
       /**
+       * @summary Creates a cross-workspace deployment flow.
+       *
+       * @description Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+       *
+       * @param tmpReq CreateCrossProjectPipelineRunRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCrossProjectPipelineRunResponse
+       */
+      Models::CreateCrossProjectPipelineRunResponse createCrossProjectPipelineRunWithOptions(const Models::CreateCrossProjectPipelineRunRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a cross-workspace deployment flow.
+       *
+       * @description Creates and persists a cross-workspace deployment flow. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Child objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects, call ExecCrossProjectPipelineRun to execute the deployment after creation, and call GetCrossProjectPipelineRun to query the deployment status.
+       *
+       * @param request CreateCrossProjectPipelineRunRequest
+       * @return CreateCrossProjectPipelineRunResponse
+       */
+      Models::CreateCrossProjectPipelineRunResponse createCrossProjectPipelineRun(const Models::CreateCrossProjectPipelineRunRequest &request);
+
+      /**
        * @summary Creates a custom attribute definition.
        *
        * @param tmpReq CreateCustomAttributeRequest
@@ -608,9 +646,9 @@ namespace DataworksPublic20240518
       Models::CreateDIJobResponse createDIJob(const Models::CreateDIJobRequest &request);
 
       /**
-       * @summary Creates a tag.
+       * @summary Creates a label.
        *
-       * @description This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+       * @description You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
        *
        * @param tmpReq CreateDataAssetTagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -619,9 +657,9 @@ namespace DataworksPublic20240518
       Models::CreateDataAssetTagResponse createDataAssetTagWithOptions(const Models::CreateDataAssetTagRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a tag.
+       * @summary Creates a label.
        *
-       * @description This API operation is available only for DataWorks Enterprise Edition or a more advanced edition.
+       * @description You must purchase DataWorks Enterprise Edition or a higher edition to use this feature.
        *
        * @param request CreateDataAssetTagRequest
        * @return CreateDataAssetTagResponse
@@ -792,9 +830,9 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityScanRunResponse createDataQualityScanRun(const Models::CreateDataQualityScanRunRequest &request);
 
       /**
-       * @summary Creates a data quality template.
+       * @summary Creates a data quality rule template in a specified project.
        *
-       * @description DataWorks Basic Edition or a higher edition is required.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request CreateDataQualityTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -803,9 +841,9 @@ namespace DataworksPublic20240518
       Models::CreateDataQualityTemplateResponse createDataQualityTemplateWithOptions(const Models::CreateDataQualityTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a data quality template.
+       * @summary Creates a data quality rule template in a specified project.
        *
-       * @description DataWorks Basic Edition or a higher edition is required.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request CreateDataQualityTemplateRequest
        * @return CreateDataQualityTemplateResponse
@@ -954,8 +992,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates an identity credential.
        *
-       * @description >Notice: 
-       * This operation does not support batch processing. If you specify multiple entities in the request parameters, only the first entity is processed and the rest are ignored.
+       * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
        *
        * @param tmpReq CreateIdentifyCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -966,8 +1003,7 @@ namespace DataworksPublic20240518
       /**
        * @summary Creates an identity credential.
        *
-       * @description >Notice: 
-       * This operation does not support batch processing. If you specify multiple entities in the request parameters, only the first entity is processed and the rest are ignored.
+       * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
        *
        * @param request CreateIdentifyCredentialRequest
        * @return CreateIdentifyCredentialResponse
@@ -1977,7 +2013,7 @@ namespace DataworksPublic20240518
       Models::DeleteDatasetResponse deleteDataset(const Models::DeleteDatasetRequest &request);
 
       /**
-       * @summary Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
+       * @summary Deletes a dataset version. Only non-v1 DataWorks dataset versions can be deleted by using this operation. To delete a v1 dataset version, use the DeleteDataset operation. The operator must be the creator of the dataset or an administrator of the workspace to which the dataset belongs.
        *
        * @param request DeleteDatasetVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1986,7 +2022,7 @@ namespace DataworksPublic20240518
       Models::DeleteDatasetVersionResponse deleteDatasetVersionWithOptions(const Models::DeleteDatasetVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a dataset version. Only non-v1 DataWorks datasets are supported. To delete v1 datasets, use the DeleteDataset operation. Requires dataset creator or workspace administrator permissions.
+       * @summary Deletes a dataset version. Only non-v1 DataWorks dataset versions can be deleted by using this operation. To delete a v1 dataset version, use the DeleteDataset operation. The operator must be the creator of the dataset or an administrator of the workspace to which the dataset belongs.
        *
        * @param request DeleteDatasetVersionRequest
        * @return DeleteDatasetVersionResponse
@@ -2189,10 +2225,9 @@ namespace DataworksPublic20240518
       Models::DeleteNetworkResponse deleteNetwork(const Models::DeleteNetworkRequest &request);
 
       /**
-       * @summary Deletes a node from DataStudio.
+       * @summary Deletes a specified data development node.
        *
-       * @description >Notice: 
-       * After a node is published, it cannot be deleted. You must unpublish the node before you can delete it.
+       * @description >Notice: After a node is published, it cannot be deleted. You must offline the node before deleting it.
        *
        * @param request DeleteNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2201,10 +2236,9 @@ namespace DataworksPublic20240518
       Models::DeleteNodeResponse deleteNodeWithOptions(const Models::DeleteNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a node from DataStudio.
+       * @summary Deletes a specified data development node.
        *
-       * @description >Notice: 
-       * After a node is published, it cannot be deleted. You must unpublish the node before you can delete it.
+       * @description >Notice: After a node is published, it cannot be deleted. You must offline the node before deleting it.
        *
        * @param request DeleteNodeRequest
        * @return DeleteNodeResponse
@@ -2262,8 +2296,8 @@ namespace DataworksPublic20240518
       /**
        * @summary Deletes a DataWorks workspace.
        *
-       * @description To call this API, you must purchase DataWorks Basic Edition or a higher edition.
-       * Note: When you delete a workspace, the system moves it to the Recycle Bin. After a 14-day retention period, the system permanently purges the workspace. During this time, you cannot create a new workspace with the same name. You can find the deleted workspace in the Recycle Bin on the Workspace page in the console.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * > Note: After a workspace is deleted, it is moved to the recycle bin on the **Workspaces** page in the console. The workspace is permanently removed after a 14-day cool-down period. During this period, you cannot create a workspace with the same name.
        *
        * @param request DeleteProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2274,8 +2308,8 @@ namespace DataworksPublic20240518
       /**
        * @summary Deletes a DataWorks workspace.
        *
-       * @description To call this API, you must purchase DataWorks Basic Edition or a higher edition.
-       * Note: When you delete a workspace, the system moves it to the Recycle Bin. After a 14-day retention period, the system permanently purges the workspace. During this time, you cannot create a new workspace with the same name. You can find the deleted workspace in the Recycle Bin on the Workspace page in the console.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * > Note: After a workspace is deleted, it is moved to the recycle bin on the **Workspaces** page in the console. The workspace is permanently removed after a 14-day cool-down period. During this period, you cannot create a workspace with the same name.
        *
        * @param request DeleteProjectRequest
        * @return DeleteProjectResponse
@@ -2801,6 +2835,23 @@ namespace DataworksPublic20240518
       Models::EstablishRelationTableToBusinessResponse establishRelationTableToBusiness(const Models::EstablishRelationTableToBusinessRequest &request);
 
       /**
+       * @summary Executes a cross-workspace publish flow.
+       *
+       * @param request ExecCrossProjectPipelineRunRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ExecCrossProjectPipelineRunResponse
+       */
+      Models::ExecCrossProjectPipelineRunResponse execCrossProjectPipelineRunWithOptions(const Models::ExecCrossProjectPipelineRunRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Executes a cross-workspace publish flow.
+       *
+       * @param request ExecCrossProjectPipelineRunRequest
+       * @return ExecCrossProjectPipelineRunResponse
+       */
+      Models::ExecCrossProjectPipelineRunResponse execCrossProjectPipelineRun(const Models::ExecCrossProjectPipelineRunRequest &request);
+
+      /**
        * @summary Executes a specified stage of a publish flow.
        *
        * @description >Notice: The stages of a publish flow are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.
@@ -2987,7 +3038,7 @@ namespace DataworksPublic20240518
       Models::GetApplicationContentsResponse getApplicationContents(const Models::GetApplicationContentsRequest &request);
 
       /**
-       * @summary 查询批量转交表Owner状态
+       * @summary Queries the status of a batch table owner transfer task.
        *
        * @param request GetBatchChangeTableOwnerStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2996,7 +3047,7 @@ namespace DataworksPublic20240518
       Models::GetBatchChangeTableOwnerStatusResponse getBatchChangeTableOwnerStatusWithOptions(const Models::GetBatchChangeTableOwnerStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询批量转交表Owner状态
+       * @summary Queries the status of a batch table owner transfer task.
        *
        * @param request GetBatchChangeTableOwnerStatusRequest
        * @return GetBatchChangeTableOwnerStatusResponse
@@ -3132,6 +3183,31 @@ namespace DataworksPublic20240518
       Models::GetComputeResourceResponse getComputeResource(const Models::GetComputeResourceRequest &request);
 
       /**
+       * @summary Queries the user mappings of a compute resource. Supports EMR and Serverless Spark resource types.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. You must have at least one of the following roles in the DataWorks workspace:
+       * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+       *
+       * @param request GetComputeResourceAuthUserMappingsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetComputeResourceAuthUserMappingsResponse
+       */
+      Models::GetComputeResourceAuthUserMappingsResponse getComputeResourceAuthUserMappingsWithOptions(const Models::GetComputeResourceAuthUserMappingsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the user mappings of a compute resource. Supports EMR and Serverless Spark resource types.
+       *
+       * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+       * 2. You must have at least one of the following roles in the DataWorks workspace:
+       * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+       *
+       * @param request GetComputeResourceAuthUserMappingsRequest
+       * @return GetComputeResourceAuthUserMappingsResponse
+       */
+      Models::GetComputeResourceAuthUserMappingsResponse getComputeResourceAuthUserMappings(const Models::GetComputeResourceAuthUserMappingsRequest &request);
+
+      /**
        * @summary Queries the configuration, status, and latest run information of a specified metadata crawler.
        *
        * @description ## Scenarios
@@ -3227,6 +3303,23 @@ namespace DataworksPublic20240518
        * @return GetCreateWorkflowInstancesResultResponse
        */
       Models::GetCreateWorkflowInstancesResultResponse getCreateWorkflowInstancesResult(const Models::GetCreateWorkflowInstancesResultRequest &request);
+
+      /**
+       * @summary Queries the details of a cross-workspace deployment flow.
+       *
+       * @param request GetCrossProjectPipelineRunRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCrossProjectPipelineRunResponse
+       */
+      Models::GetCrossProjectPipelineRunResponse getCrossProjectPipelineRunWithOptions(const Models::GetCrossProjectPipelineRunRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of a cross-workspace deployment flow.
+       *
+       * @param request GetCrossProjectPipelineRunRequest
+       * @return GetCrossProjectPipelineRunResponse
+       */
+      Models::GetCrossProjectPipelineRunResponse getCrossProjectPipelineRun(const Models::GetCrossProjectPipelineRunRequest &request);
 
       /**
        * @summary Retrieves a custom attribute definition.
@@ -3363,7 +3456,7 @@ namespace DataworksPublic20240518
        *
        * @summary Queries the details of a data quality rule.
        *
-       * @description You must purchase DataWorks Basic Edition or above to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request GetDataQualityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3376,7 +3469,7 @@ namespace DataworksPublic20240518
        *
        * @summary Queries the details of a data quality rule.
        *
-       * @description You must purchase DataWorks Basic Edition or above to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
        * @param request GetDataQualityRuleRequest
        * @return GetDataQualityRuleResponse
@@ -3451,9 +3544,9 @@ namespace DataworksPublic20240518
       Models::GetDataQualityScanRunResponse getDataQualityScanRun(const Models::GetDataQualityScanRunRequest &request);
 
       /**
-       * @summary Queries the log of a specific task instance that monitors data quality.
+       * @summary Queries the log content of a specified data quality monitoring task instance.
        *
-       * @description DataWorks Basic Edition or a higher edition is required.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request GetDataQualityScanRunLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3462,9 +3555,9 @@ namespace DataworksPublic20240518
       Models::GetDataQualityScanRunLogResponse getDataQualityScanRunLogWithOptions(const Models::GetDataQualityScanRunLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the log of a specific task instance that monitors data quality.
+       * @summary Queries the log content of a specified data quality monitoring task instance.
        *
-       * @description DataWorks Basic Edition or a higher edition is required.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request GetDataQualityScanRunLogRequest
        * @return GetDataQualityScanRunLogResponse
@@ -4362,7 +4455,7 @@ namespace DataworksPublic20240518
       Models::GetTaskResponse getTask(const Models::GetTaskRequest &request);
 
       /**
-       * @summary Queries the information about an instance.
+       * @summary Retrieves the details of a specified task instance.
        *
        * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
@@ -4373,7 +4466,7 @@ namespace DataworksPublic20240518
       Models::GetTaskInstanceResponse getTaskInstanceWithOptions(const Models::GetTaskInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an instance.
+       * @summary Retrieves the details of a specified task instance.
        *
        * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
        *
@@ -4402,6 +4495,27 @@ namespace DataworksPublic20240518
        * @return GetTaskInstanceLogResponse
        */
       Models::GetTaskInstanceLogResponse getTaskInstanceLog(const Models::GetTaskInstanceLogRequest &request);
+
+      /**
+       * @summary Queries the result of asynchronously creating a workflow instance.
+       *
+       * @description DataWorks Basic Edition or a more advanced edition is required.
+       *
+       * @param request GetUpdateTaskResultRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetUpdateTaskResultResponse
+       */
+      Models::GetUpdateTaskResultResponse getUpdateTaskResultWithOptions(const Models::GetUpdateTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the result of asynchronously creating a workflow instance.
+       *
+       * @description DataWorks Basic Edition or a more advanced edition is required.
+       *
+       * @param request GetUpdateTaskResultRequest
+       * @return GetUpdateTaskResultResponse
+       */
+      Models::GetUpdateTaskResultResponse getUpdateTaskResult(const Models::GetUpdateTaskResultRequest &request);
 
       /**
        * @summary Queries the information about a workflow.
@@ -4596,14 +4710,14 @@ namespace DataworksPublic20240518
       Models::ListAgentSessionArtifactsResponse listAgentSessionArtifacts(const Models::ListAgentSessionArtifactsRequest &request);
 
       /**
-       * @summary Retrieves the conversation history for the agent session.
+       * @summary Loads the conversation history list of an Agent Session.
        *
-       * @description ## Request
-       * - Specify at least one of `agentName` or `sessionSourceList`.
-       * - You can use the `tagList`, `sessionId`, and `sessionTitle` parameters for combined filtering.
-       * - The response follows the Alibaba Cloud OpenAPI pagination specification and includes the `totalCount`, `maxResults`, `nextToken`, and `sessionList` fields.
-       * - If you provide an invalid string for `nextToken`, its value defaults to `1`.
-       * - By default, this operation returns 50 records per page. You can use the `maxResults` parameter to adjust this number.
+       * @description ## Operation description
+       * - At least one of `agentName` and `sessionSourceList` must be provided.
+       * - Supports combined filtering by `tagList`, `sessionId`, and `sessionTitle`.
+       * - The response conforms to the Alibaba Cloud OpenAPI paging specification, including `totalCount`, `maxResults`, `nextToken`, and `sessionList`.
+       * - If `nextToken` is an invalid character string, it defaults to 1.
+       * - By default, 50 records are returned per page. Adjust this by using the `maxResults` parameter.
        *
        * @param tmpReq ListAgentSessionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4612,14 +4726,14 @@ namespace DataworksPublic20240518
       Models::ListAgentSessionsResponse listAgentSessionsWithOptions(const Models::ListAgentSessionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the conversation history for the agent session.
+       * @summary Loads the conversation history list of an Agent Session.
        *
-       * @description ## Request
-       * - Specify at least one of `agentName` or `sessionSourceList`.
-       * - You can use the `tagList`, `sessionId`, and `sessionTitle` parameters for combined filtering.
-       * - The response follows the Alibaba Cloud OpenAPI pagination specification and includes the `totalCount`, `maxResults`, `nextToken`, and `sessionList` fields.
-       * - If you provide an invalid string for `nextToken`, its value defaults to `1`.
-       * - By default, this operation returns 50 records per page. You can use the `maxResults` parameter to adjust this number.
+       * @description ## Operation description
+       * - At least one of `agentName` and `sessionSourceList` must be provided.
+       * - Supports combined filtering by `tagList`, `sessionId`, and `sessionTitle`.
+       * - The response conforms to the Alibaba Cloud OpenAPI paging specification, including `totalCount`, `maxResults`, `nextToken`, and `sessionList`.
+       * - If `nextToken` is an invalid character string, it defaults to 1.
+       * - By default, 50 records are returned per page. Adjust this by using the `maxResults` parameter.
        *
        * @param request ListAgentSessionsRequest
        * @return ListAgentSessionsResponse
@@ -4890,6 +5004,74 @@ namespace DataworksPublic20240518
        * @return ListCrawlersResponse
        */
       Models::ListCrawlersResponse listCrawlers(const Models::ListCrawlersRequest &request);
+
+      /**
+       * @summary Queries cross-workspace deployment candidate objects.
+       *
+       * @param request ListCrossProjectDeploymentCandidatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCrossProjectDeploymentCandidatesResponse
+       */
+      Models::ListCrossProjectDeploymentCandidatesResponse listCrossProjectDeploymentCandidatesWithOptions(const Models::ListCrossProjectDeploymentCandidatesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries cross-workspace deployment candidate objects.
+       *
+       * @param request ListCrossProjectDeploymentCandidatesRequest
+       * @return ListCrossProjectDeploymentCandidatesResponse
+       */
+      Models::ListCrossProjectDeploymentCandidatesResponse listCrossProjectDeploymentCandidates(const Models::ListCrossProjectDeploymentCandidatesRequest &request);
+
+      /**
+       * @summary Queries cross-workspace deployment environments.
+       *
+       * @param request ListCrossProjectDeploymentEnvironmentsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCrossProjectDeploymentEnvironmentsResponse
+       */
+      Models::ListCrossProjectDeploymentEnvironmentsResponse listCrossProjectDeploymentEnvironmentsWithOptions(const Models::ListCrossProjectDeploymentEnvironmentsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries cross-workspace deployment environments.
+       *
+       * @param request ListCrossProjectDeploymentEnvironmentsRequest
+       * @return ListCrossProjectDeploymentEnvironmentsResponse
+       */
+      Models::ListCrossProjectDeploymentEnvironmentsResponse listCrossProjectDeploymentEnvironments(const Models::ListCrossProjectDeploymentEnvironmentsRequest &request);
+
+      /**
+       * @summary Queries the publish items of a cross-workspace publish pipeline.
+       *
+       * @param request ListCrossProjectPipelineRunItemsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCrossProjectPipelineRunItemsResponse
+       */
+      Models::ListCrossProjectPipelineRunItemsResponse listCrossProjectPipelineRunItemsWithOptions(const Models::ListCrossProjectPipelineRunItemsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the publish items of a cross-workspace publish pipeline.
+       *
+       * @param request ListCrossProjectPipelineRunItemsRequest
+       * @return ListCrossProjectPipelineRunItemsResponse
+       */
+      Models::ListCrossProjectPipelineRunItemsResponse listCrossProjectPipelineRunItems(const Models::ListCrossProjectPipelineRunItemsRequest &request);
+
+      /**
+       * @summary Queries the list of cross-workspace publish flows.
+       *
+       * @param request ListCrossProjectPipelineRunsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCrossProjectPipelineRunsResponse
+       */
+      Models::ListCrossProjectPipelineRunsResponse listCrossProjectPipelineRunsWithOptions(const Models::ListCrossProjectPipelineRunsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of cross-workspace publish flows.
+       *
+       * @param request ListCrossProjectPipelineRunsRequest
+       * @return ListCrossProjectPipelineRunsResponse
+       */
+      Models::ListCrossProjectPipelineRunsResponse listCrossProjectPipelineRuns(const Models::ListCrossProjectPipelineRunsRequest &request);
 
       /**
        * @summary Retrieves a paginated list of custom agents.
@@ -5863,7 +6045,7 @@ namespace DataworksPublic20240518
       Models::ListNetworksResponse listNetworks(const Models::ListNetworksRequest &request);
 
       /**
-       * @summary Gets a paginated list of dependent nodes for a specified data development node.
+       * @summary Retrieves the dependency nodes of a specified DataStudio node with pagination.
        *
        * @param request ListNodeDependenciesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5872,7 +6054,7 @@ namespace DataworksPublic20240518
       Models::ListNodeDependenciesResponse listNodeDependenciesWithOptions(const Models::ListNodeDependenciesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets a paginated list of dependent nodes for a specified data development node.
+       * @summary Retrieves the dependency nodes of a specified DataStudio node with pagination.
        *
        * @param request ListNodeDependenciesRequest
        * @return ListNodeDependenciesResponse
@@ -6535,9 +6717,9 @@ namespace DataworksPublic20240518
       Models::ListTaskInstanceOperationLogsResponse listTaskInstanceOperationLogs(const Models::ListTaskInstanceOperationLogsRequest &request);
 
       /**
-       * @summary Queries a list of instances. You can also specify filter conditions to query specific instances.
+       * @summary Lists node instances by paging and supports filtered query by conditions.
        *
-       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
        *
        * @param tmpReq ListTaskInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6546,9 +6728,9 @@ namespace DataworksPublic20240518
       Models::ListTaskInstancesResponse listTaskInstancesWithOptions(const Models::ListTaskInstancesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of instances. You can also specify filter conditions to query specific instances.
+       * @summary Lists node instances by paging and supports filtered query by conditions.
        *
-       * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this API operation.
        *
        * @param request ListTaskInstancesRequest
        * @return ListTaskInstancesResponse
@@ -7216,14 +7398,14 @@ namespace DataworksPublic20240518
       Models::RunImageTestResponse runImageTest(const Models::RunImageTestRequest &request);
 
       /**
-       * @summary Submits a saved semantic job for execution by name and returns the run identifier and executor job identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+       * @summary Submits a saved semantic job for execution by name and returns the run and executor identifiers. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
        *
        * @description ## Description
-       * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime `Source`, resource group, or reference file overrides. The execution always uses the configuration saved by `CreateSemanticJob`.
+       * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime overrides for `Source`, resource groups, or reference files. The execution always uses the configuration saved by `CreateSemanticJob`.
        * ## Pre-execution validation
-       * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them to temporary addresses readable by the current run before submission. Deleting a file after upload or specifying an invalid file ID causes the submission to fail.
+       * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them into temporary addresses readable by the current run before submission. If a file is deleted after upload or an invalid file ID is specified, the submission fails.
        * ## Response and What to do next
-       * `Data.JobRunId` is the identity of the current semantics node run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor node and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
+       * `Data.JobRunId` is the identity of the current semantics job run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor job and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
        * ## Billing
        * **Before using this operation, make sure that you fully understand the billing method and pricing of the [model calls](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) used by semantic construction.**
        *
@@ -7234,14 +7416,14 @@ namespace DataworksPublic20240518
       Models::RunSemanticJobResponse runSemanticJobWithOptions(const Models::RunSemanticJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a saved semantic job for execution by name and returns the run identifier and executor job identifier. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
+       * @summary Submits a saved semantic job for execution by name and returns the run and executor identifiers. A successful call indicates that the job has been submitted, not that the semantic model results have been generated.
        *
        * @description ## Description
-       * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime `Source`, resource group, or reference file overrides. The execution always uses the configuration saved by `CreateSemanticJob`.
+       * Loads a saved semantic job definition by `Name` and submits a new analysis run to the executor. This operation does not accept runtime overrides for `Source`, resource groups, or reference files. The execution always uses the configuration saved by `CreateSemanticJob`.
        * ## Pre-execution validation
-       * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them to temporary addresses readable by the current run before submission. Deleting a file after upload or specifying an invalid file ID causes the submission to fail.
+       * The service validates the existence and access permissions of the job, and re-validates whether the associated files still exist. For files associated through `ReferenceFileIds`, the service resolves them into temporary addresses readable by the current run before submission. If a file is deleted after upload or an invalid file ID is specified, the submission fails.
        * ## Response and What to do next
-       * `Data.JobRunId` is the identity of the current semantics node run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor node and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
+       * `Data.JobRunId` is the identity of the current semantics job run and is used by `DownloadSemanticResults` to download the exact output of this run. `Data.ExecutorJobId` is the identity of the executor job and is used by `GetSemanticJobDetail`, `GetSemanticJobLog`, and `KillSemanticJob`. A successful response indicates that the executor has accepted the submission, not that the model analysis or result files are complete.
        * ## Billing
        * **Before using this operation, make sure that you fully understand the billing method and pricing of the [model calls](https://www.alibabacloud.com/help/en/dataworks/dataworks-data-agent-agent-billing) used by semantic construction.**
        *
@@ -7374,9 +7556,9 @@ namespace DataworksPublic20240518
       Models::StopCrawlerResponse stopCrawler(const Models::StopCrawlerRequest &request);
 
       /**
-       * @summary Stops a synchronization task.
+       * @summary Aborts a data integration task.
        *
-       * @description This API operation is available for all DataWorks editions.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request StopDIJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7385,9 +7567,9 @@ namespace DataworksPublic20240518
       Models::StopDIJobResponse stopDIJobWithOptions(const Models::StopDIJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops a synchronization task.
+       * @summary Aborts a data integration task.
        *
-       * @description This API operation is available for all DataWorks editions.
+       * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
        *
        * @param request StopDIJobRequest
        * @return StopDIJobResponse
@@ -7485,7 +7667,7 @@ namespace DataworksPublic20240518
       Models::StopWorkflowInstancesResponse stopWorkflowInstances(const Models::StopWorkflowInstancesRequest &request);
 
       /**
-       * @summary 提交批量转交表Owner
+       * @summary Submits a batch request to transfer table ownership.
        *
        * @param tmpReq SubmitBatchChangeTableOwnerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7494,7 +7676,7 @@ namespace DataworksPublic20240518
       Models::SubmitBatchChangeTableOwnerResponse submitBatchChangeTableOwnerWithOptions(const Models::SubmitBatchChangeTableOwnerRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交批量转交表Owner
+       * @summary Submits a batch request to transfer table ownership.
        *
        * @param request SubmitBatchChangeTableOwnerRequest
        * @return SubmitBatchChangeTableOwnerResponse
@@ -7729,6 +7911,31 @@ namespace DataworksPublic20240518
        * @return UpdateComputeResourceResponse
        */
       Models::UpdateComputeResourceResponse updateComputeResource(const Models::UpdateComputeResourceRequest &request);
+
+      /**
+       * @summary Updates the account mapping of a compute resource. Currently supports EMR and Serverless Spark resource types.
+       *
+       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * 2. You must have at least one of the following roles in the DataWorks workspace:
+       * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+       *
+       * @param tmpReq UpdateComputeResourceAuthUserMappingsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateComputeResourceAuthUserMappingsResponse
+       */
+      Models::UpdateComputeResourceAuthUserMappingsResponse updateComputeResourceAuthUserMappingsWithOptions(const Models::UpdateComputeResourceAuthUserMappingsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the account mapping of a compute resource. Currently supports EMR and Serverless Spark resource types.
+       *
+       * @description 1. DataWorks Basic Edition or a higher edition is required.
+       * 2. You must have at least one of the following roles in the DataWorks workspace:
+       * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+       *
+       * @param request UpdateComputeResourceAuthUserMappingsRequest
+       * @return UpdateComputeResourceAuthUserMappingsResponse
+       */
+      Models::UpdateComputeResourceAuthUserMappingsResponse updateComputeResourceAuthUserMappings(const Models::UpdateComputeResourceAuthUserMappingsRequest &request);
 
       /**
        * @summary Updates the resource group, collection scope, scheduling, and extension configurations of a specified metadata crawler.
@@ -8086,7 +8293,7 @@ namespace DataworksPublic20240518
       Models::UpdateFunctionResponse updateFunction(const Models::UpdateFunctionRequest &request);
 
       /**
-       * @summary Recalls the check result of the message of an extension point event.
+       * @summary Returns the check result of an extension point event message.
        *
        * @param request UpdateIDEEventResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8095,7 +8302,7 @@ namespace DataworksPublic20240518
       Models::UpdateIDEEventResultResponse updateIDEEventResultWithOptions(const Models::UpdateIDEEventResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Recalls the check result of the message of an extension point event.
+       * @summary Returns the check result of an extension point event message.
        *
        * @param request UpdateIDEEventResultRequest
        * @return UpdateIDEEventResultResponse
@@ -8493,6 +8700,33 @@ namespace DataworksPublic20240518
        * @return UpdateTaskResponse
        */
       Models::UpdateTaskResponse updateTask(const Models::UpdateTaskRequest &request);
+
+      /**
+       * @summary Updates a specified node and synchronizes the changes to DataStudio to create a new saved version.
+       *
+       * @description ## Operation description
+       * - This API operation updates the information of a specified node, including but not limited to the node name, description, and owner.
+       * - The changes are synchronized to DataStudio, and DataStudio creates a new saved version.
+       * - You can set detailed parameters such as the trigger method, runtime environment configuration, and dependencies of the node.
+       *
+       * @param tmpReq UpdateTaskAsyncRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTaskAsyncResponse
+       */
+      Models::UpdateTaskAsyncResponse updateTaskAsyncWithOptions(const Models::UpdateTaskAsyncRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a specified node and synchronizes the changes to DataStudio to create a new saved version.
+       *
+       * @description ## Operation description
+       * - This API operation updates the information of a specified node, including but not limited to the node name, description, and owner.
+       * - The changes are synchronized to DataStudio, and DataStudio creates a new saved version.
+       * - You can set detailed parameters such as the trigger method, runtime environment configuration, and dependencies of the node.
+       *
+       * @param request UpdateTaskAsyncRequest
+       * @return UpdateTaskAsyncResponse
+       */
+      Models::UpdateTaskAsyncResponse updateTaskAsync(const Models::UpdateTaskAsyncRequest &request);
 
       /**
        * @summary Modify the properties of multiple task instances in batch, including priority, resource group, data source, and more.

@@ -69,9 +69,9 @@ namespace Models
 
 
     protected:
-      // The task log.
+      // The node task logs.
       shared_ptr<string> log_ {};
-      // The starting offset of the next log segment. A value of -1 indicates that all logs have been read.
+      // The start offset of the next log segment. A value of -1 indicates that all logs have been read.
       shared_ptr<int64_t> nextOffset_ {};
     };
 
@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The task log information.
+    // The node task logs information.
     shared_ptr<GetDataQualityScanRunLogResponseBody::LogSegment> logSegment_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
