@@ -252,7 +252,7 @@ namespace Models
     shared_ptr<string> accountPassword_ {};
     // Specifies whether to enable auto start/stop. If this parameter is not specified, the default value is false.
     shared_ptr<bool> autoScale_ {};
-    // The idempotency token. Ensures that repeated requests do not execute the same operation more than once.
+    // The idempotency token. Ensures that duplicate requests do not result in duplicate operations.
     shared_ptr<string> clientToken_ {};
     // The performance level (PL) of the cloud disk. If this parameter is not specified, the default value PL0 is used.
     // 
@@ -271,7 +271,7 @@ namespace Models
     // - PG17: PostgreSQL 17, which supports the data sandbox feature.
     shared_ptr<string> engineVersion_ {};
     shared_ptr<bool> lightweight_ {};
-    // The billing method. If this parameter is not specified, the default value Free is used.
+    // The billing type. If this parameter is not specified, the default value Free is used.
     // 
     // Valid values:
     // 
@@ -306,7 +306,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> securityIPList_ {};
-    // The storage size. Unit: GB. If this parameter is not specified for non-Free billing types, the default value is 1 GB.
+    // The storage size, in GB. If this parameter is not specified for non-Free billing types, the default value is 1 GB.
     shared_ptr<int64_t> storageSize_ {};
     shared_ptr<vector<CreateSupabaseProjectRequest::Tags>> tags_ {};
     // The subscription duration. This parameter takes effect only when PayType is set to PrePay. If this parameter is not specified, the default value is 1.

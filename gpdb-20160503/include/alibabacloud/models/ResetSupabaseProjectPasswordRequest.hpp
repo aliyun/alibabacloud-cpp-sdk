@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ResetSupabaseProjectPasswordRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AccountPassword, accountPassword_);
+      DARABONBA_PTR_TO_JSON(DashboardPassword, dashboardPassword_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ResetSupabaseProjectPasswordRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AccountPassword, accountPassword_);
+      DARABONBA_PTR_FROM_JSON(DashboardPassword, dashboardPassword_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accountPassword_ == nullptr
-        && this->projectId_ == nullptr && this->regionId_ == nullptr; };
+        && this->dashboardPassword_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // accountPassword Field Functions 
     bool hasAccountPassword() const { return this->accountPassword_ != nullptr;};
     void deleteAccountPassword() { this->accountPassword_ = nullptr;};
     inline string getAccountPassword() const { DARABONBA_PTR_GET_DEFAULT(accountPassword_, "") };
     inline ResetSupabaseProjectPasswordRequest& setAccountPassword(string accountPassword) { DARABONBA_PTR_SET_VALUE(accountPassword_, accountPassword) };
+
+
+    // dashboardPassword Field Functions 
+    bool hasDashboardPassword() const { return this->dashboardPassword_ != nullptr;};
+    void deleteDashboardPassword() { this->dashboardPassword_ = nullptr;};
+    inline string getDashboardPassword() const { DARABONBA_PTR_GET_DEFAULT(dashboardPassword_, "") };
+    inline ResetSupabaseProjectPasswordRequest& setDashboardPassword(string dashboardPassword) { DARABONBA_PTR_SET_VALUE(dashboardPassword_, dashboardPassword) };
 
 
     // projectId Field Functions 
@@ -58,14 +67,14 @@ namespace Models
 
   protected:
     // The password of the database account.
-    // 
-    // *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-    // *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
-    // *   The password must be 8 to 32 characters in length.
+    // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+    // - The following special characters are supported: `!@#$%^&*()_+-=`
+    // - The password must be 8 to 32 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> accountPassword_ {};
-    // Supabase Instance ID
+    shared_ptr<string> dashboardPassword_ {};
+    // The Supabase instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};

@@ -61,31 +61,7 @@ AlibabaCloud::Gpdb20160503::Client::Client(AlibabaCloud::OpenApi::Utils::Models:
     {"cn-zhangjiakou-na62-a01" , "gpdb.aliyuncs.com"},
     {"cn-zhengzhou-nebula-1" , "gpdb.aliyuncs.com"},
     {"eu-west-1-oxs" , "gpdb.aliyuncs.com"},
-    {"rus-west-1-pop" , "gpdb.aliyuncs.com"},
-    {"cn-wulanchabu" , "gpdb.cn-wulanchabu.aliyuncs.com"},
-    {"cn-beijing" , "gpdb.cn-beijing.aliyuncs.com"},
-    {"cn-qingdao" , "gpdb.cn-qingdao.aliyuncs.com"},
-    {"cn-shanghai" , "gpdb.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "gpdb.cn-hongkong.aliyuncs.com"},
-    {"cn-zhangjiakou" , "gpdb.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-shenzhen" , "gpdb.cn-shenzhen.aliyuncs.com"},
-    {"ap-northeast-2" , "gpdb.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "gpdb.ap-northeast-1.aliyuncs.com"},
-    {"cn-chengdu" , "gpdb.cn-chengdu.aliyuncs.com"},
-    {"ap-southeast-1" , "gpdb.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "gpdb.ap-southeast-3.aliyuncs.com"},
-    {"cn-huhehaote" , "gpdb.cn-huhehaote.aliyuncs.com"},
-    {"ap-southeast-5" , "gpdb.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-7" , "gpdb.ap-southeast-7.aliyuncs.com"},
-    {"us-east-1" , "gpdb.us-east-1.aliyuncs.com"},
-    {"eu-west-1" , "gpdb.eu-west-1.aliyuncs.com"},
-    {"us-west-1" , "gpdb.us-west-1.aliyuncs.com"},
-    {"eu-central-1" , "gpdb.eu-central-1.aliyuncs.com"},
-    {"me-east-1" , "gpdb.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "gpdb.me-central-1.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "gpdb.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "gpdb.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "gpdb.cn-north-2-gov-1.aliyuncs.com"}
+    {"rus-west-1-pop" , "gpdb.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("gpdb", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -3443,7 +3419,7 @@ CreateStreamingJobResponse Client::createStreamingJob(const CreateStreamingJobRe
 /**
  * @summary Creates a Supabase project.
  *
- * @description Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+ * @description Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
  *
  * @param request CreateSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3544,7 +3520,7 @@ CreateSupabaseProjectResponse Client::createSupabaseProjectWithOptions(const Cre
 /**
  * @summary Creates a Supabase project.
  *
- * @description Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+ * @description Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
  *
  * @param request CreateSupabaseProjectRequest
  * @return CreateSupabaseProjectResponse
@@ -7234,6 +7210,52 @@ DescribeDBResourceManagementModeResponse Client::describeDBResourceManagementMod
 DescribeDBResourceManagementModeResponse Client::describeDBResourceManagementMode(const DescribeDBResourceManagementModeRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeDBResourceManagementModeWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the kernel update version information.
+ *
+ * @param request DescribeDBVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeDBVersionResponse
+ */
+DescribeDBVersionResponse Client::describeDBVersionWithOptions(const DescribeDBVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBInstanceId()) {
+    query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasOwnerId()) {
+    query["OwnerId"] = request.getOwnerId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeDBVersion"},
+    {"version" , "2016-05-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeDBVersionResponse>();
+}
+
+/**
+ * @summary Queries the kernel update version information.
+ *
+ * @param request DescribeDBVersionRequest
+ * @return DescribeDBVersionResponse
+ */
+DescribeDBVersionResponse Client::describeDBVersion(const DescribeDBVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeDBVersionWithOptions(request, runtime);
 }
 
 /**
@@ -11225,9 +11247,9 @@ GetStatementResultResponse Client::getStatementResult(const GetStatementResultRe
 }
 
 /**
- * @summary Retrieves details of a Supabase instance.
+ * @summary Queries the details of a Supabase instance.
  *
- * @description Gets the details of a Supabase instance.
+ * @description Queries the details of a Supabase instance.
  *
  * @param request GetSupabaseProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11262,9 +11284,9 @@ GetSupabaseProjectResponse Client::getSupabaseProjectWithOptions(const GetSupaba
 }
 
 /**
- * @summary Retrieves details of a Supabase instance.
+ * @summary Queries the details of a Supabase instance.
  *
- * @description Gets the details of a Supabase instance.
+ * @description Queries the details of a Supabase instance.
  *
  * @param request GetSupabaseProjectRequest
  * @return GetSupabaseProjectResponse
@@ -15562,6 +15584,10 @@ ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicyWithO
     query["AutoScale"] = request.getAutoScale();
   }
 
+  if (!!request.hasIdleTimeHours()) {
+    query["IdleTimeHours"] = request.getIdleTimeHours();
+  }
+
   if (!!request.hasProjectId()) {
     query["ProjectId"] = request.getProjectId();
   }
@@ -16847,9 +16873,9 @@ ResetIMVMonitorDataResponse Client::resetIMVMonitorData(const ResetIMVMonitorDat
 }
 
 /**
- * @summary Reset the password of a Supabase database
+ * @summary Resets the password of a Supabase database.
  *
- * @description Call this API to reset the password of the Supabase database.
+ * @description Resets the password of a Supabase database.
  *
  * @param request ResetSupabaseProjectPasswordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16860,6 +16886,10 @@ ResetSupabaseProjectPasswordResponse Client::resetSupabaseProjectPasswordWithOpt
   json query = {};
   if (!!request.hasAccountPassword()) {
     query["AccountPassword"] = request.getAccountPassword();
+  }
+
+  if (!!request.hasDashboardPassword()) {
+    query["DashboardPassword"] = request.getDashboardPassword();
   }
 
   if (!!request.hasProjectId()) {
@@ -16888,9 +16918,9 @@ ResetSupabaseProjectPasswordResponse Client::resetSupabaseProjectPasswordWithOpt
 }
 
 /**
- * @summary Reset the password of a Supabase database
+ * @summary Resets the password of a Supabase database.
  *
- * @description Call this API to reset the password of the Supabase database.
+ * @description Resets the password of a Supabase database.
  *
  * @param request ResetSupabaseProjectPasswordRequest
  * @return ResetSupabaseProjectPasswordResponse

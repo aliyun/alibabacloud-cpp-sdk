@@ -13,6 +13,7 @@ namespace Models
   class GetSupabaseProjectResponseBody : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetSupabaseProjectResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(AppliedIdleTimeHours, appliedIdleTimeHours_);
       DARABONBA_PTR_TO_JSON(AutoScale, autoScale_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
       DARABONBA_PTR_TO_JSON(DBSecurityIpList, DBSecurityIpList_);
@@ -42,6 +43,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
     friend void from_json(const Darabonba::Json& j, GetSupabaseProjectResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(AppliedIdleTimeHours, appliedIdleTimeHours_);
       DARABONBA_PTR_FROM_JSON(AutoScale, autoScale_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
       DARABONBA_PTR_FROM_JSON(DBSecurityIpList, DBSecurityIpList_);
@@ -81,13 +83,20 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->autoScale_ == nullptr
-        && this->createTime_ == nullptr && this->DBSecurityIpList_ == nullptr && this->dashboardPassword_ == nullptr && this->dashboardUserName_ == nullptr && this->diskPerformanceLevel_ == nullptr
-        && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->eni_ == nullptr && this->instanceVersion_ == nullptr && this->lightweight_ == nullptr
-        && this->payType_ == nullptr && this->privateConnectUrl_ == nullptr && this->projectDescription_ == nullptr && this->projectId_ == nullptr && this->projectName_ == nullptr
-        && this->projectSpec_ == nullptr && this->publicConnectUrl_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->securityIpList_ == nullptr
-        && this->status_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr
-        && this->zoneId_ == nullptr; };
+    virtual bool empty() const override { return this->appliedIdleTimeHours_ == nullptr
+        && this->autoScale_ == nullptr && this->createTime_ == nullptr && this->DBSecurityIpList_ == nullptr && this->dashboardPassword_ == nullptr && this->dashboardUserName_ == nullptr
+        && this->diskPerformanceLevel_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr && this->eni_ == nullptr && this->instanceVersion_ == nullptr
+        && this->lightweight_ == nullptr && this->payType_ == nullptr && this->privateConnectUrl_ == nullptr && this->projectDescription_ == nullptr && this->projectId_ == nullptr
+        && this->projectName_ == nullptr && this->projectSpec_ == nullptr && this->publicConnectUrl_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->securityIpList_ == nullptr && this->status_ == nullptr && this->storageSize_ == nullptr && this->storageType_ == nullptr && this->vSwitchId_ == nullptr
+        && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+    // appliedIdleTimeHours Field Functions 
+    bool hasAppliedIdleTimeHours() const { return this->appliedIdleTimeHours_ != nullptr;};
+    void deleteAppliedIdleTimeHours() { this->appliedIdleTimeHours_ = nullptr;};
+    inline string getAppliedIdleTimeHours() const { DARABONBA_PTR_GET_DEFAULT(appliedIdleTimeHours_, "") };
+    inline GetSupabaseProjectResponseBody& setAppliedIdleTimeHours(string appliedIdleTimeHours) { DARABONBA_PTR_SET_VALUE(appliedIdleTimeHours_, appliedIdleTimeHours) };
+
+
     // autoScale Field Functions 
     bool hasAutoScale() const { return this->autoScale_ != nullptr;};
     void deleteAutoScale() { this->autoScale_ = nullptr;};
@@ -278,87 +287,78 @@ namespace Models
 
 
   protected:
-    // Indicates whether the **auto pause and resume** feature is enabled.
-    // Valid values:
-    // 
-    // - `true`: The feature is enabled. The project automatically pauses and resumes based on traffic.
-    // 
-    // - `false`: The feature is disabled.
+    shared_ptr<string> appliedIdleTimeHours_ {};
+    // Indicates whether **auto start and stop** is enabled. Valid values:
+    // - true: Enabled. After this feature is enabled, Supabase automatically pauses and resumes based on traffic conditions.
+    // - false: Disabled. After this feature is disabled, the auto start and stop feature of Supabase is turned off.
     shared_ptr<string> autoScale_ {};
-    // The creation time of the project.
+    // The creation time.
     shared_ptr<string> createTime_ {};
-    // The database IP address whitelist, specified as a comma-separated string.
+    // The database whitelist.
     shared_ptr<string> DBSecurityIpList_ {};
-    // The password for the Supabase Dashboard. This parameter is not used.
+    // The Supabase Dashboard password. This parameter is not in use.
     shared_ptr<string> dashboardPassword_ {};
-    // The username for the Supabase Dashboard. This parameter is not used.
+    // The Supabase Dashboard username. This parameter is not in use.
     shared_ptr<string> dashboardUserName_ {};
-    // The performance level (PL) of the cloud disk. Valid values:
-    // 
+    // The performance level of the cloud disk. Valid values:
     // - PL0
-    // 
     // - PL1
     shared_ptr<string> diskPerformanceLevel_ {};
-    // The database engine.
+    // The database engine type.
     shared_ptr<string> engine_ {};
-    // The engine version.
+    // The database engine version.
     shared_ptr<string> engineVersion_ {};
-    // The elastic network interface (ENI) ID.
+    // The elastic network interface (ENI) ID. The network interface controller (NIC) ID of the instance.
     shared_ptr<string> eni_ {};
     // The current instance version.
     shared_ptr<string> instanceVersion_ {};
+    // Indicates whether the project is a lightweight edition.
     shared_ptr<string> lightweight_ {};
-    // The billing method. Valid values:
+    // The billing type. Valid values:
     // 
-    // - `POSTPAY`: pay-as-you-go
+    // - POSTPAY: pay-as-you-go.
     // 
-    // - `PREPAY`: subscription
+    // - PREPAY: subscription.
     shared_ptr<string> payType_ {};
-    // The private connection URL for the Supabase Dashboard.
+    // The internal network connection string of the Supabase Dashboard.
     shared_ptr<string> privateConnectUrl_ {};
-    // The description of the Supabase project.
+    // The detailed description of the Supabase project.
     shared_ptr<string> projectDescription_ {};
-    // The Supabase project ID.
+    // The Supabase instance ID.
     shared_ptr<string> projectId_ {};
     // The Supabase project name.
     shared_ptr<string> projectName_ {};
-    // The Supabase instance specification.
+    // The Supabase instance specifications.
     shared_ptr<string> projectSpec_ {};
-    // The public connection URL for the Supabase Dashboard.
+    // The public network connection string of the Supabase Dashboard.
     shared_ptr<string> publicConnectUrl_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available regions.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The IP address whitelist, specified as a comma-separated string.
+    // The list of IP addresses in the IP whitelist group, separated by commas (,).
     shared_ptr<string> securityIpList_ {};
     // The Supabase instance status.
     shared_ptr<string> status_ {};
-    // The storage space, in GB.
+    // The storage size. Unit: GB.
     shared_ptr<int64_t> storageSize_ {};
     // The storage type. Valid values:
-    // 
     // - **cloud_essd_pl0**
-    // 
     // - **cloud_essd_pl1**
-    // 
     // - **cloud_essd_pl2**
-    // 
     // - **cloud_essd_pl3**
     shared_ptr<string> storageType_ {};
-    // The vSwitch ID.
+    // The vSwitch ID. This parameter is required if a VPC ID is specified.
     shared_ptr<string> vSwitchId_ {};
     // The VPC ID.
-    // 
-    // > - You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query the available VPCs.
-    // >
+    // >  - You can call the [DescribeRdsVpcs](https://help.aliyun.com/document_detail/208327.html) operation to query available VPC IDs.
     // > - This parameter is required.
     shared_ptr<string> vpcId_ {};
     // The zone ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available zones.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available zone IDs.
     shared_ptr<string> zoneId_ {};
   };
 

@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifySupabaseAutoScalePolicyRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoScale, autoScale_);
+      DARABONBA_PTR_TO_JSON(IdleTimeHours, idleTimeHours_);
       DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifySupabaseAutoScalePolicyRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoScale, autoScale_);
+      DARABONBA_PTR_FROM_JSON(IdleTimeHours, idleTimeHours_);
       DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoScale_ == nullptr
-        && this->projectId_ == nullptr && this->regionId_ == nullptr; };
+        && this->idleTimeHours_ == nullptr && this->projectId_ == nullptr && this->regionId_ == nullptr; };
     // autoScale Field Functions 
     bool hasAutoScale() const { return this->autoScale_ != nullptr;};
     void deleteAutoScale() { this->autoScale_ = nullptr;};
     inline bool getAutoScale() const { DARABONBA_PTR_GET_DEFAULT(autoScale_, false) };
     inline ModifySupabaseAutoScalePolicyRequest& setAutoScale(bool autoScale) { DARABONBA_PTR_SET_VALUE(autoScale_, autoScale) };
+
+
+    // idleTimeHours Field Functions 
+    bool hasIdleTimeHours() const { return this->idleTimeHours_ != nullptr;};
+    void deleteIdleTimeHours() { this->idleTimeHours_ = nullptr;};
+    inline string getIdleTimeHours() const { DARABONBA_PTR_GET_DEFAULT(idleTimeHours_, "") };
+    inline ModifySupabaseAutoScalePolicyRequest& setIdleTimeHours(string idleTimeHours) { DARABONBA_PTR_SET_VALUE(idleTimeHours_, idleTimeHours) };
 
 
     // projectId Field Functions 
@@ -63,6 +72,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<bool> autoScale_ {};
+    shared_ptr<string> idleTimeHours_ {};
     // The ID of the Supabase project. You can obtain the workspace ID from the Supabase page in the console.
     // 
     // This parameter is required.

@@ -886,7 +886,7 @@ namespace Gpdb20160503
       /**
        * @summary Creates a Supabase project.
        *
-       * @description Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+       * @description Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
        *
        * @param request CreateSupabaseProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -897,7 +897,7 @@ namespace Gpdb20160503
       /**
        * @summary Creates a Supabase project.
        *
-       * @description Creates a Supabase project in a specified region and zone. This operation supports Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
+       * @description Creates a Supabase project in a specified region and zone. This operation supports the Free, pay-as-you-go, and subscription billing methods. You can specify the network, specifications, storage, access IP address whitelist, DPI engine version, and auto start/stop configurations.
        *
        * @param request CreateSupabaseProjectRequest
        * @return CreateSupabaseProjectResponse
@@ -2150,6 +2150,23 @@ namespace Gpdb20160503
        * @return DescribeDBResourceManagementModeResponse
        */
       Models::DescribeDBResourceManagementModeResponse describeDBResourceManagementMode(const Models::DescribeDBResourceManagementModeRequest &request);
+
+      /**
+       * @summary Queries the kernel update version information.
+       *
+       * @param request DescribeDBVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeDBVersionResponse
+       */
+      Models::DescribeDBVersionResponse describeDBVersionWithOptions(const Models::DescribeDBVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the kernel update version information.
+       *
+       * @param request DescribeDBVersionRequest
+       * @return DescribeDBVersionResponse
+       */
+      Models::DescribeDBVersionResponse describeDBVersion(const Models::DescribeDBVersionRequest &request);
 
       /**
        * @summary Queries the information about minor versions of AnalyticDB for PostgreSQL instances.
@@ -3439,9 +3456,9 @@ namespace Gpdb20160503
       Models::GetStatementResultResponse getStatementResult(const Models::GetStatementResultRequest &request);
 
       /**
-       * @summary Retrieves details of a Supabase instance.
+       * @summary Queries the details of a Supabase instance.
        *
-       * @description Gets the details of a Supabase instance.
+       * @description Queries the details of a Supabase instance.
        *
        * @param request GetSupabaseProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3450,9 +3467,9 @@ namespace Gpdb20160503
       Models::GetSupabaseProjectResponse getSupabaseProjectWithOptions(const Models::GetSupabaseProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves details of a Supabase instance.
+       * @summary Queries the details of a Supabase instance.
        *
-       * @description Gets the details of a Supabase instance.
+       * @description Queries the details of a Supabase instance.
        *
        * @param request GetSupabaseProjectRequest
        * @return GetSupabaseProjectResponse
@@ -5121,9 +5138,9 @@ namespace Gpdb20160503
       Models::ResetIMVMonitorDataResponse resetIMVMonitorData(const Models::ResetIMVMonitorDataRequest &request);
 
       /**
-       * @summary Reset the password of a Supabase database
+       * @summary Resets the password of a Supabase database.
        *
-       * @description Call this API to reset the password of the Supabase database.
+       * @description Resets the password of a Supabase database.
        *
        * @param request ResetSupabaseProjectPasswordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5132,9 +5149,9 @@ namespace Gpdb20160503
       Models::ResetSupabaseProjectPasswordResponse resetSupabaseProjectPasswordWithOptions(const Models::ResetSupabaseProjectPasswordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Reset the password of a Supabase database
+       * @summary Resets the password of a Supabase database.
        *
-       * @description Call this API to reset the password of the Supabase database.
+       * @description Resets the password of a Supabase database.
        *
        * @param request ResetSupabaseProjectPasswordRequest
        * @return ResetSupabaseProjectPasswordResponse

@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The Supabase instance ID. You can find this ID on the Supabase page in the console.
+    // The Supabase instance ID. You can obtain the ID from the Supabase page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> projectId_ {};
     // The region ID.
     // 
-    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to view the available region IDs.
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
   };
 

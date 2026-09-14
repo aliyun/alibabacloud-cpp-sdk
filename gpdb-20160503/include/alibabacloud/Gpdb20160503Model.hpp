@@ -337,6 +337,9 @@
 #include <alibabacloud/models/DescribeDBResourceManagementModeRequest.hpp>
 #include <alibabacloud/models/DescribeDBResourceManagementModeResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBResourceManagementModeResponse.hpp>
+#include <alibabacloud/models/DescribeDBVersionRequest.hpp>
+#include <alibabacloud/models/DescribeDBVersionResponseBody.hpp>
+#include <alibabacloud/models/DescribeDBVersionResponse.hpp>
 #include <alibabacloud/models/DescribeDBVersionInfosRequest.hpp>
 #include <alibabacloud/models/DescribeDBVersionInfosResponseBody.hpp>
 #include <alibabacloud/models/DescribeDBVersionInfosResponse.hpp>
