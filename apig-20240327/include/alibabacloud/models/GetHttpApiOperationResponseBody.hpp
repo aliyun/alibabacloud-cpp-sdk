@@ -71,7 +71,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The operation information.
+    // The API operation information.
     shared_ptr<HttpApiOperationInfo> data_ {};
     // The response message.
     shared_ptr<string> message_ {};

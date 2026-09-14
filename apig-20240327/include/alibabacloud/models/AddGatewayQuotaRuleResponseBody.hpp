@@ -168,18 +168,13 @@ namespace Models
 
 
         protected:
-          // The period type of the existing conflicting rule on the consumer subject. Valid values:
-          // - day: The existing conflicting rule has a daily period.
-          // - week: The existing conflicting rule has a weekly period.
-          // - month: The existing conflicting rule has a monthly period.
+          // The period type of the existing conflicting rule on the consumer subject. A value of day, week, or month indicates that the period of the existing conflicting rule is day, week, or month respectively.
           shared_ptr<string> conflictPeriodType_ {};
-          // The type of the existing conflicting rule on the consumer subject. Valid values:
-          // - calendar: The existing conflicting rule uses a calendar period.
-          // - epoch: The existing conflicting rule uses a custom period.
+          // The type of the existing conflicting rule on the consumer subject. A value of calendar indicates that the existing conflicting rule uses a calendar period. A value of epoch indicates that the existing conflicting rule uses a custom period.
           shared_ptr<string> conflictType_ {};
-          // The conflicting consumer ID. You can use subjectId instead.
+          // The conflicting consumer ID. Use subjectId instead.
           shared_ptr<string> consumerId_ {};
-          // The conflicting consumer name. You can use subjectName instead.
+          // The conflicting consumer name. Use subjectName instead.
           shared_ptr<string> consumerName_ {};
           // The ID of the conflicting subject.
           shared_ptr<string> subjectId_ {};
@@ -215,7 +210,7 @@ namespace Models
 
 
       protected:
-        // The conflict snapshot hash.
+        // The conflict hash.
         shared_ptr<string> conflictHash_ {};
         // The list of conflicting subjects (consumers or consumer groups).
         shared_ptr<vector<ConflictPreview::Items>> items_ {};
@@ -303,7 +298,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<AddGatewayQuotaRuleResponseBody::Data> data_ {};
-    // The response message.
+    // The message content.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

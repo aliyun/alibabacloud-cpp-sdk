@@ -112,9 +112,9 @@ namespace Models
 
 
   protected:
-    // The language. Valid values:
-    // - zh: Chinese
-    // - en: English
+    // The response language. Valid values:
+    // zh: Chinese
+    // en: English
     shared_ptr<string> acceptLanguage_ {};
     // The unique ID of the API.
     shared_ptr<string> apiId_ {};
@@ -122,11 +122,11 @@ namespace Models
     shared_ptr<string> filterShrink_ {};
     // The dashboard name. Valid values:
     // - LOG: access log
-    // - PLUGIN: plugin log
+    // - PLUGIN: plug-in log
     shared_ptr<string> name_ {};
-    // The plugin type ID.
+    // The plug-in type ID.
     shared_ptr<string> pluginClassId_ {};
-    // The plugin ID.
+    // The plug-in ID.
     shared_ptr<string> pluginId_ {};
     // The route ID.
     shared_ptr<string> routeId_ {};

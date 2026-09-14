@@ -147,9 +147,9 @@ namespace Models
       shared_ptr<string> clusterId_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The Ingress Class to listen on.
+      // The Ingress class to listen on.
       shared_ptr<string> ingressClass_ {};
-      // Specifies whether to update the address in the Ingress Status.
+      // Specifies whether to update the address in the Ingress status.
       shared_ptr<bool> overrideIngressIp_ {};
       // The source ID.
       shared_ptr<string> sourceId_ {};
@@ -310,31 +310,39 @@ namespace Models
 
 
   protected:
-    // The list of protocols supported by the agent. Required when type is Agent. Not required for other types.
+    // The list of protocols supported by the agent. Required when type is Agent. This field is not required for other types.
     shared_ptr<vector<string>> agentProtocols_ {};
-    // The list of AI API protocols. Required when type is LLM, and only one protocol can be specified. Required when type is Ai, and multiple protocols can be specified. Not required for other types. Example protocol entry: OpenAI/v1.
+    // The list of AI API protocols. Required when type is LLM (only one protocol allowed) or Ai (multiple protocols allowed). Not required for other types. Example protocol: OpenAI/v1.
     shared_ptr<vector<string>> aiProtocols_ {};
-    // The authentication configuration. Required when enableAuth=true.
+    // The authentication configuration. Required when enableAuth is set to true.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The API base path. Must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. Required when type=Rest. Optional when type=LLM, Ai, or Agent. Default value: /
+    // The base path of the API. Must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. Required when type is Rest. Optional when type is LLM, Ai, or Agent. Defaults to /.
     shared_ptr<string> basePath_ {};
     // The ID of the gateway to which the API belongs.
     shared_ptr<string> belongGatewayId_ {};
-    // The list of deployment configurations for the HTTP API. Required when type is LLM or Ai, and only one deployment configuration can be specified. Not validated at the request level for other types.
+    // The list of deployment configurations for the HTTP API. Required when type is LLM or Ai (only one deployment configuration allowed). Not validated at the request level for other types.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
     // The API description.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform a dry run without executing the operation.
+    // Specifies whether to preview only without executing.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable authentication. Validated when type is LLM, Ai, or Agent. Not validated at the request level when type is Rest.
     shared_ptr<bool> enableAuth_ {};
-    // The timeout period for waiting for the first byte from the backend.
+    // The timeout period for waiting for the backend to return the first byte.
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // The HTTP Ingress API configuration. Required when type is HttpIngress and cannot be nil. Not required for other types.
+    // The HTTP Ingress API configuration. Required when type is HttpIngress and cannot be null. Not required for other types.
     shared_ptr<CreateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // The AI model category. Optional when type is LLM or Ai. Not required for other types. Valid values: Text (text generation), Image (image generation), Audio (audio processing), Video (AI video generation), MultiModal (multi-modal), Embedding (text embedding), Rerank (reranking), Others (other).
+    // The AI model category. Optional when type is LLM or Ai. Not required for other types. Valid values:
+    // - Text: text generation.
+    // - Image: image generation.
+    // - Audio: audio processing.
+    // - Video: video generation.
+    // - MultiModal: multimodal.
+    // - Embedding: vector embedding.
+    // - Rerank: reranking.
+    // - Others: others.
     shared_ptr<string> modelCategory_ {};
-    // The name of the HTTP API, used to identify the current API resource. Example: test-api.
+    // The name of the HTTP API, used to identify the current API resource. For example, test-api.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -344,9 +352,15 @@ namespace Models
     shared_ptr<bool> removeBasePathOnForward_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The conflict merge strategy for import.
+    // The conflict resolution strategy for imports.
     shared_ptr<string> strategy_ {};
-    // The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), Agent (Agent proxy API).
+    // The HTTP API type. Valid values:
+    // - Http: a standard HTTP API.
+    // - Rest: a RESTful API.
+    // - WebSocket: a WebSocket API.
+    // - HttpIngress: an HTTP API accessed through Ingress.
+    // - LLM: a large language model API.
+    // - Agent: an Agent proxy API.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -221,13 +221,11 @@ namespace Models
         shared_ptr<string> deployStatus_ {};
         // The environment context.
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
-        // The expiration mode. Valid values:
-        // - LongTerm
-        // - ShortTerm
+        // The expiration mode. Valid values: LongTerm, ShortTerm.
         shared_ptr<string> expireMode_ {};
         // The expiration status.
         shared_ptr<string> expireStatus_ {};
-        // The expiration time.
+        // The expiration timestamp.
         shared_ptr<int64_t> expireTimestamp_ {};
         // The gateway information.
         shared_ptr<GatewayInfo> gatewayInfo_ {};

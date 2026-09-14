@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The ID of the resource to which the policy is attached.
+    // The ID of the resource to mount.
     // 
     // This parameter is required.
     shared_ptr<string> attachResourceId_ {};
-    // The type of the resource to which the policy is attached. Valid values: HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, and Domain.
+    // The type of the resource to mount. Valid values: HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, Domain.
     // 
     // This parameter is required.
     shared_ptr<string> attachResourceType_ {};

@@ -37,6 +37,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(routeBackend, routeBackend_);
       DARABONBA_PTR_TO_JSON(serviceConfigs, serviceConfigs_);
       DARABONBA_PTR_TO_JSON(subDomains, subDomains_);
+      DARABONBA_PTR_TO_JSON(systemModelTiers, systemModelTiers_);
     };
     friend void from_json(const Darabonba::Json& j, HttpApiDeployConfig& obj) { 
       DARABONBA_PTR_FROM_JSON(autoDeploy, autoDeploy_);
@@ -57,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(routeBackend, routeBackend_);
       DARABONBA_PTR_FROM_JSON(serviceConfigs, serviceConfigs_);
       DARABONBA_PTR_FROM_JSON(subDomains, subDomains_);
+      DARABONBA_PTR_FROM_JSON(systemModelTiers, systemModelTiers_);
     };
     HttpApiDeployConfig() = default ;
     HttpApiDeployConfig(const HttpApiDeployConfig &) = default ;
@@ -138,6 +140,7 @@ namespace Models
     class ServiceConfigs : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ServiceConfigs& obj) { 
+        DARABONBA_PTR_TO_JSON(capabilityTier, capabilityTier_);
         DARABONBA_PTR_TO_JSON(gatewayServiceId, gatewayServiceId_);
         DARABONBA_PTR_TO_JSON(intentCode, intentCode_);
         DARABONBA_PTR_TO_JSON(match, match_);
@@ -153,6 +156,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(weight, weight_);
       };
       friend void from_json(const Darabonba::Json& j, ServiceConfigs& obj) { 
+        DARABONBA_PTR_FROM_JSON(capabilityTier, capabilityTier_);
         DARABONBA_PTR_FROM_JSON(gatewayServiceId, gatewayServiceId_);
         DARABONBA_PTR_FROM_JSON(intentCode, intentCode_);
         DARABONBA_PTR_FROM_JSON(match, match_);
@@ -233,10 +237,17 @@ namespace Models
         shared_ptr<float> rateLimit_ {};
       };
 
-      virtual bool empty() const override { return this->gatewayServiceId_ == nullptr
-        && this->intentCode_ == nullptr && this->match_ == nullptr && this->modelName_ == nullptr && this->modelNamePattern_ == nullptr && this->multiServiceRouteStrategy_ == nullptr
-        && this->name_ == nullptr && this->observabilityRouteConfig_ == nullptr && this->port_ == nullptr && this->protocol_ == nullptr && this->serviceId_ == nullptr
-        && this->version_ == nullptr && this->weight_ == nullptr; };
+      virtual bool empty() const override { return this->capabilityTier_ == nullptr
+        && this->gatewayServiceId_ == nullptr && this->intentCode_ == nullptr && this->match_ == nullptr && this->modelName_ == nullptr && this->modelNamePattern_ == nullptr
+        && this->multiServiceRouteStrategy_ == nullptr && this->name_ == nullptr && this->observabilityRouteConfig_ == nullptr && this->port_ == nullptr && this->protocol_ == nullptr
+        && this->serviceId_ == nullptr && this->version_ == nullptr && this->weight_ == nullptr; };
+      // capabilityTier Field Functions 
+      bool hasCapabilityTier() const { return this->capabilityTier_ != nullptr;};
+      void deleteCapabilityTier() { this->capabilityTier_ = nullptr;};
+      inline string getCapabilityTier() const { DARABONBA_PTR_GET_DEFAULT(capabilityTier_, "") };
+      inline ServiceConfigs& setCapabilityTier(string capabilityTier) { DARABONBA_PTR_SET_VALUE(capabilityTier_, capabilityTier) };
+
+
       // gatewayServiceId Field Functions 
       bool hasGatewayServiceId() const { return this->gatewayServiceId_ != nullptr;};
       void deleteGatewayServiceId() { this->gatewayServiceId_ = nullptr;};
@@ -333,6 +344,8 @@ namespace Models
 
 
     protected:
+      // The capability tier of the intelligent routing candidate. Specify this parameter only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, and premium.
+      shared_ptr<string> capabilityTier_ {};
       // The gateway service ID.
       shared_ptr<string> gatewayServiceId_ {};
       // The intent code.
@@ -345,9 +358,9 @@ namespace Models
       shared_ptr<string> modelNamePattern_ {};
       // The multi-service routing strategy type.
       shared_ptr<string> multiServiceRouteStrategy_ {};
-      // The service display name.
+      // The display name of the service.
       shared_ptr<string> name_ {};
-      // The observability metric routing configuration.
+      // The observability metric-based routing configuration.
       shared_ptr<ServiceConfigs::ObservabilityRouteConfig> observabilityRouteConfig_ {};
       // The service port number.
       shared_ptr<int32_t> port_ {};
@@ -475,7 +488,7 @@ namespace Models
         && this->backendScene_ == nullptr && this->builtinRouteNames_ == nullptr && this->customDomainIds_ == nullptr && this->customDomainInfos_ == nullptr && this->enableSystemModels_ == nullptr
         && this->envDomainIds_ == nullptr && this->envDomainInfos_ == nullptr && this->environmentId_ == nullptr && this->gatewayId_ == nullptr && this->gatewayInfo_ == nullptr
         && this->gatewayType_ == nullptr && this->mock_ == nullptr && this->policyConfigs_ == nullptr && this->restApiRouteMode_ == nullptr && this->routeBackend_ == nullptr
-        && this->serviceConfigs_ == nullptr && this->subDomains_ == nullptr; };
+        && this->serviceConfigs_ == nullptr && this->subDomains_ == nullptr && this->systemModelTiers_ == nullptr; };
     // autoDeploy Field Functions 
     bool hasAutoDeploy() const { return this->autoDeploy_ != nullptr;};
     void deleteAutoDeploy() { this->autoDeploy_ = nullptr;};
@@ -624,22 +637,31 @@ namespace Models
     inline HttpApiDeployConfig& setSubDomains(vector<HttpApiDeployConfig::SubDomains> && subDomains) { DARABONBA_PTR_SET_RVALUE(subDomains_, subDomains) };
 
 
+    // systemModelTiers Field Functions 
+    bool hasSystemModelTiers() const { return this->systemModelTiers_ != nullptr;};
+    void deleteSystemModelTiers() { this->systemModelTiers_ = nullptr;};
+    inline const vector<string> & getSystemModelTiers() const { DARABONBA_PTR_GET_CONST(systemModelTiers_, vector<string>) };
+    inline vector<string> getSystemModelTiers() { DARABONBA_PTR_GET(systemModelTiers_, vector<string>) };
+    inline HttpApiDeployConfig& setSystemModelTiers(const vector<string> & systemModelTiers) { DARABONBA_PTR_SET_VALUE(systemModelTiers_, systemModelTiers) };
+    inline HttpApiDeployConfig& setSystemModelTiers(vector<string> && systemModelTiers) { DARABONBA_PTR_SET_RVALUE(systemModelTiers_, systemModelTiers) };
+
+
   protected:
-    // Specifies whether to automatically deploy.
+    // Specifies whether to automatically deploy the API.
     shared_ptr<bool> autoDeploy_ {};
-    // The deployment scenario.
+    // The publishing scenario.
     shared_ptr<string> backendScene_ {};
     // The list of built-in route names.
     shared_ptr<vector<string>> builtinRouteNames_ {};
     // The list of custom domain name IDs.
     shared_ptr<vector<string>> customDomainIds_ {};
-    // The list of custom domain name details.
+    // The list of custom domain name information.
     shared_ptr<vector<HttpApiDeployConfig::CustomDomainInfos>> customDomainInfos_ {};
-    // Specifies whether to enable gateway system models. This parameter takes effect only when the deployment scenario is AiAutoRouter. Default value: false. If enabled, built-in Qwen candidates from the platform are merged with the user\\"s own candidates.
+    // Specifies whether to enable gateway system models. This parameter takes effect only when the publishing scenario is AiAutoRouter. Default value: false. This field is used for backward compatibility with older clients. If systemModelTiers is not submitted, true indicates that all three tiers of system models are enabled, and false indicates that all are disabled.
     shared_ptr<bool> enableSystemModels_ {};
     // The list of environment domain name IDs. If not specified, all environment domain names are bound. An empty array indicates that no environment domain names are bound.
     shared_ptr<vector<string>> envDomainIds_ {};
-    // The list of environment domain name details.
+    // The list of environment domain name information.
     shared_ptr<vector<HttpApiDeployConfig::EnvDomainInfos>> envDomainInfos_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
@@ -653,14 +675,16 @@ namespace Models
     shared_ptr<HttpApiMockContract> mock_ {};
     // The list of policy configurations.
     shared_ptr<vector<HttpApiPolicyConfigs>> policyConfigs_ {};
-    // The current online routing mode of the REST API. ordinary indicates per-Operation routing. compressed indicates single-prefix routing for the API. This field is not returned for non-REST APIs.
+    // The current online routing mode of the REST API. ordinary indicates per-operation routing, and compressed indicates single-prefix routing for the API. This field is not returned for non-REST APIs.
     shared_ptr<string> restApiRouteMode_ {};
     // The backend service information.
     shared_ptr<Backend> routeBackend_ {};
     // The list of service configurations.
     shared_ptr<vector<HttpApiDeployConfig::ServiceConfigs>> serviceConfigs_ {};
-    // The list of subdomain contents.
+    // The list of subdomain content.
     shared_ptr<vector<HttpApiDeployConfig::SubDomains>> subDomains_ {};
+    // The set of explicitly enabled gateway system model capability tiers. Takes effect only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, premium. An explicit empty array indicates that no system model is enabled.
+    shared_ptr<vector<string>> systemModelTiers_ {};
   };
 
   } // namespace Models

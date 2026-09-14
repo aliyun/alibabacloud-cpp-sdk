@@ -242,13 +242,13 @@ namespace Models
 
 
       protected:
-        // The service group. Used in the HTTP-to-Dubbo conversion scenario.
+        // The service group. Used in HTTP-to-Dubbo transcoding scenarios.
         shared_ptr<string> groupName_ {};
-        // The HTTP-to-Dubbo protocol conversion configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+        // The HTTP-to-Dubbo protocol transcoding configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
         shared_ptr<HttpDubboTranscoder> httpDubboTranscoder_ {};
-        // The target model name. This field is shared by multiple model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If not specified in the AiAutoRouter scenario, the default model of the AI service is used.
+        // The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not specified for the AiAutoRouter scenario, the default model of the AI service is used.
         shared_ptr<string> modelName_ {};
-        // The service namespace. Used in the HTTP-to-Dubbo conversion scenario.
+        // The service namespace. Used in HTTP-to-Dubbo transcoding scenarios.
         shared_ptr<string> namespace_ {};
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
@@ -258,11 +258,11 @@ namespace Models
         shared_ptr<string> protocol_ {};
         // The service ID.
         shared_ptr<string> serviceId_ {};
-        // The service source type. Used in the HTTP-to-Dubbo conversion scenario.
+        // The service source type. Used in HTTP-to-Dubbo transcoding scenarios.
         shared_ptr<string> sourceType_ {};
-        // The service version. This parameter is valid only in the tag-based scenario.
+        // The service version. This parameter takes effect only in the tag-based scenario.
         shared_ptr<string> version_ {};
-        // The traffic ratio percentage value.
+        // The percentage value of the traffic ratio.
         shared_ptr<int32_t> weight_ {};
       };
 
@@ -384,7 +384,7 @@ namespace Models
     shared_ptr<vector<string>> domainIds_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // The route match rule.
+    // The route match rules.
     shared_ptr<HttpRouteMatch> match_ {};
     // The MCP route configuration.
     shared_ptr<CreateHttpApiRouteRequest::McpRouteConfig> mcpRouteConfig_ {};

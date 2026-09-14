@@ -28,8 +28,8 @@ namespace APIG20240327
        * >  Recommended call sequence:
        * > - Step 1: Perform a dry run to check for rule conflicts.
        * > - - Set dryRun to true.
-       * > - - The response returns a conflict preview that contains the conflictHash value.
-       * > - Step 2: Submit the request after confirmation.
+       * > - - The response returns a conflict preview that contains conflictHash.
+       * > - Step 2: Submit the rule after confirmation.
        * > - - No conflicts: Set dryRun to false and overwrite to false.
        * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
@@ -48,8 +48,8 @@ namespace APIG20240327
        * >  Recommended call sequence:
        * > - Step 1: Perform a dry run to check for rule conflicts.
        * > - - Set dryRun to true.
-       * > - - The response returns a conflict preview that contains the conflictHash value.
-       * > - Step 2: Submit the request after confirmation.
+       * > - - The response returns a conflict preview that contains conflictHash.
+       * > - Step 2: Submit the rule after confirmation.
        * > - - No conflicts: Set dryRun to false and overwrite to false.
        * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
@@ -425,7 +425,7 @@ namespace APIG20240327
       Models::CreateHttpApiResponse createHttpApi(const Models::CreateHttpApiRequest &request);
 
       /**
-       * @summary Creates operations for an HTTP API.
+       * @summary Creates an operation for an HTTP API.
        *
        * @param request CreateHttpApiOperationRequest
        * @param headers map
@@ -435,7 +435,7 @@ namespace APIG20240327
       Models::CreateHttpApiOperationResponse createHttpApiOperationWithOptions(const string &httpApiId, const Models::CreateHttpApiOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates operations for an HTTP API.
+       * @summary Creates an operation for an HTTP API.
        *
        * @param request CreateHttpApiOperationRequest
        * @return CreateHttpApiOperationResponse
@@ -591,7 +591,7 @@ namespace APIG20240327
       Models::CreatePolicyResponse createPolicy(const Models::CreatePolicyRequest &request);
 
       /**
-       * @summary Creates a policy attachment to a resource.
+       * @summary Creates a policy resource mount.
        *
        * @param request CreatePolicyAttachmentRequest
        * @param headers map
@@ -601,7 +601,7 @@ namespace APIG20240327
       Models::CreatePolicyAttachmentResponse createPolicyAttachmentWithOptions(const Models::CreatePolicyAttachmentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a policy attachment to a resource.
+       * @summary Creates a policy resource mount.
        *
        * @param request CreatePolicyAttachmentRequest
        * @return CreatePolicyAttachmentResponse
@@ -841,9 +841,9 @@ namespace APIG20240327
       Models::DeleteGatewayResponse deleteGateway(const string &gatewayId);
 
       /**
-       * @summary Deletes a quota throttling rule from a gateway.
+       * @summary Deletes a quota throttling rule for a gateway.
        *
-       * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+       * @description Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
        *
        * @param request DeleteGatewayQuotaRuleRequest
        * @param headers map
@@ -853,9 +853,9 @@ namespace APIG20240327
       Models::DeleteGatewayQuotaRuleResponse deleteGatewayQuotaRuleWithOptions(const string &gatewayId, const string &ruleId, const Models::DeleteGatewayQuotaRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a quota throttling rule from a gateway.
+       * @summary Deletes a quota throttling rule for a gateway.
        *
-       * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+       * @description Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
        *
        * @param request DeleteGatewayQuotaRuleRequest
        * @return DeleteGatewayQuotaRuleResponse
@@ -1449,7 +1449,7 @@ namespace APIG20240327
       Models::GetGatewayQuotaRuleSubjectUsageResponse getGatewayQuotaRuleSubjectUsage(const string &gatewayId, const string &ruleId, const string &subjectId, const Models::GetGatewayQuotaRuleSubjectUsageRequest &request);
 
       /**
-       * @summary Retrieves HTTP API information.
+       * @summary Retrieves the information of an HTTP API.
        *
        * @param request GetHttpApiRequest
        * @param headers map
@@ -1459,7 +1459,7 @@ namespace APIG20240327
       Models::GetHttpApiResponse getHttpApiWithOptions(const string &httpApiId, const Models::GetHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves HTTP API information.
+       * @summary Retrieves the information of an HTTP API.
        *
        * @param request GetHttpApiRequest
        * @return GetHttpApiResponse
@@ -1467,7 +1467,7 @@ namespace APIG20240327
       Models::GetHttpApiResponse getHttpApi(const string &httpApiId, const Models::GetHttpApiRequest &request);
 
       /**
-       * @summary Retrieves operation information.
+       * @summary Retrieves the API operation information.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1476,7 +1476,7 @@ namespace APIG20240327
       Models::GetHttpApiOperationResponse getHttpApiOperationWithOptions(const string &httpApiId, const string &operationId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves operation information.
+       * @summary Retrieves the API operation information.
        *
        * @return GetHttpApiOperationResponse
        */
@@ -1765,7 +1765,7 @@ namespace APIG20240327
       Models::GetTraceConfigResponse getTraceConfig(const string &gatewayId, const Models::GetTraceConfigRequest &request);
 
       /**
-       * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+       * @summary Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
        *
        * @param request ImportHttpApiRequest
        * @param headers map
@@ -1775,7 +1775,7 @@ namespace APIG20240327
       Models::ImportHttpApiResponse importHttpApiWithOptions(const Models::ImportHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+       * @summary Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
        *
        * @param request ImportHttpApiRequest
        * @return ImportHttpApiResponse
@@ -1883,7 +1883,7 @@ namespace APIG20240327
       Models::ListBatchExportTasksResponse listBatchExportTasks(const Models::ListBatchExportTasksRequest &request);
 
       /**
-       * @summary Retrieves the list of consumer authorization rules.
+       * @summary Retrieves a list of consumer authorization rules.
        *
        * @param request ListConsumerAuthorizationRulesRequest
        * @param headers map
@@ -1893,7 +1893,7 @@ namespace APIG20240327
       Models::ListConsumerAuthorizationRulesResponse listConsumerAuthorizationRulesWithOptions(const string &consumerId, const Models::ListConsumerAuthorizationRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of consumer authorization rules.
+       * @summary Retrieves a list of consumer authorization rules.
        *
        * @param request ListConsumerAuthorizationRulesRequest
        * @return ListConsumerAuthorizationRulesResponse
@@ -2351,7 +2351,7 @@ namespace APIG20240327
       Models::ListMseNacosSourcesResponse listMseNacosSources(const string &gatewayId, const Models::ListMseNacosSourcesRequest &request);
 
       /**
-       * @summary Retrieves the list of plugin mounts.
+       * @summary Retrieves the plug-in mount list.
        *
        * @param request ListPluginAttachmentsRequest
        * @param headers map
@@ -2361,7 +2361,7 @@ namespace APIG20240327
       Models::ListPluginAttachmentsResponse listPluginAttachmentsWithOptions(const Models::ListPluginAttachmentsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of plugin mounts.
+       * @summary Retrieves the plug-in mount list.
        *
        * @param request ListPluginAttachmentsRequest
        * @return ListPluginAttachmentsResponse
@@ -2971,7 +2971,7 @@ namespace APIG20240327
       /**
        * @summary Updates a consumer authorization rule.
        *
-       * @description 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+       * @description This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
        *
        * @param request UpdateConsumerAuthorizationRuleRequest
        * @param headers map
@@ -2983,7 +2983,7 @@ namespace APIG20240327
       /**
        * @summary Updates a consumer authorization rule.
        *
-       * @description 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+       * @description This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
        *
        * @param request UpdateConsumerAuthorizationRuleRequest
        * @return UpdateConsumerAuthorizationRuleResponse

@@ -45,8 +45,8 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
  * >  Recommended call sequence:
  * > - Step 1: Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response returns a conflict preview that contains the conflictHash value.
- * > - Step 2: Submit the request after confirmation.
+ * > - - The response returns a conflict preview that contains conflictHash.
+ * > - Step 2: Submit the rule after confirmation.
  * > - - No conflicts: Set dryRun to false and overwrite to false.
  * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
@@ -136,8 +136,8 @@ AddGatewayQuotaRuleResponse Client::addGatewayQuotaRuleWithOptions(const string 
  * >  Recommended call sequence:
  * > - Step 1: Perform a dry run to check for rule conflicts.
  * > - - Set dryRun to true.
- * > - - The response returns a conflict preview that contains the conflictHash value.
- * > - Step 2: Submit the request after confirmation.
+ * > - - The response returns a conflict preview that contains conflictHash.
+ * > - Step 2: Submit the rule after confirmation.
  * > - - No conflicts: Set dryRun to false and overwrite to false.
  * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
  *
@@ -811,6 +811,15 @@ CreateAndAttachPolicyResponse Client::createAndAttachPolicy(const CreateAndAttac
  */
 CreateConsumerResponse Client::createConsumerWithOptions(const CreateConsumerRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["dryRun"] = request.getDryRun();
+  }
+
   json body = {};
   if (!!request.hasAkSkIdentityConfigs()) {
     body["akSkIdentityConfigs"] = request.getAkSkIdentityConfigs();
@@ -842,6 +851,7 @@ CreateConsumerResponse Client::createConsumerWithOptions(const CreateConsumerReq
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -1426,7 +1436,7 @@ CreateHttpApiResponse Client::createHttpApi(const CreateHttpApiRequest &request)
 }
 
 /**
- * @summary Creates operations for an HTTP API.
+ * @summary Creates an operation for an HTTP API.
  *
  * @param request CreateHttpApiOperationRequest
  * @param headers map
@@ -1459,7 +1469,7 @@ CreateHttpApiOperationResponse Client::createHttpApiOperationWithOptions(const s
 }
 
 /**
- * @summary Creates operations for an HTTP API.
+ * @summary Creates an operation for an HTTP API.
  *
  * @param request CreateHttpApiOperationRequest
  * @return CreateHttpApiOperationResponse
@@ -2031,7 +2041,7 @@ CreatePolicyResponse Client::createPolicy(const CreatePolicyRequest &request) {
 }
 
 /**
- * @summary Creates a policy attachment to a resource.
+ * @summary Creates a policy resource mount.
  *
  * @param request CreatePolicyAttachmentRequest
  * @param headers map
@@ -2080,7 +2090,7 @@ CreatePolicyAttachmentResponse Client::createPolicyAttachmentWithOptions(const C
 }
 
 /**
- * @summary Creates a policy attachment to a resource.
+ * @summary Creates a policy resource mount.
  *
  * @param request CreatePolicyAttachmentRequest
  * @return CreatePolicyAttachmentResponse
@@ -2674,9 +2684,9 @@ DeleteGatewayResponse Client::deleteGateway(const string &gatewayId) {
 }
 
 /**
- * @summary Deletes a quota throttling rule from a gateway.
+ * @summary Deletes a quota throttling rule for a gateway.
  *
- * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+ * @description Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @param headers map
@@ -2703,9 +2713,9 @@ DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRuleWithOptions(const s
 }
 
 /**
- * @summary Deletes a quota throttling rule from a gateway.
+ * @summary Deletes a quota throttling rule for a gateway.
  *
- * @description This operation deletes a consumer-based or consumer group-based quota rule from an AI gateway. This operation takes effect only on AI gateways of version 2.1.19 or later.
+ * @description Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @return DeleteGatewayQuotaRuleResponse
@@ -4138,7 +4148,7 @@ GetGatewayQuotaRuleSubjectUsageResponse Client::getGatewayQuotaRuleSubjectUsage(
 }
 
 /**
- * @summary Retrieves HTTP API information.
+ * @summary Retrieves the information of an HTTP API.
  *
  * @param request GetHttpApiRequest
  * @param headers map
@@ -4171,7 +4181,7 @@ GetHttpApiResponse Client::getHttpApiWithOptions(const string &httpApiId, const 
 }
 
 /**
- * @summary Retrieves HTTP API information.
+ * @summary Retrieves the information of an HTTP API.
  *
  * @param request GetHttpApiRequest
  * @return GetHttpApiResponse
@@ -4183,7 +4193,7 @@ GetHttpApiResponse Client::getHttpApi(const string &httpApiId, const GetHttpApiR
 }
 
 /**
- * @summary Retrieves operation information.
+ * @summary Retrieves the API operation information.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4208,7 +4218,7 @@ GetHttpApiOperationResponse Client::getHttpApiOperationWithOptions(const string 
 }
 
 /**
- * @summary Retrieves operation information.
+ * @summary Retrieves the API operation information.
  *
  * @return GetHttpApiOperationResponse
  */
@@ -4846,7 +4856,7 @@ GetTraceConfigResponse Client::getTraceConfig(const string &gatewayId, const Get
 }
 
 /**
- * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+ * @summary Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
  *
  * @param request ImportHttpApiRequest
  * @param headers map
@@ -4931,7 +4941,7 @@ ImportHttpApiResponse Client::importHttpApiWithOptions(const ImportHttpApiReques
 }
 
 /**
- * @summary Imports an HTTP API. You can import an OpenAPI 2.0 or OpenAPI 3.0.x definition file as a REST API.
+ * @summary Imports an HTTP API. Supports importing OpenAPI 2.0 and OpenAPI 3.0.x definition files as REST-type APIs.
  *
  * @param request ImportHttpApiRequest
  * @return ImportHttpApiResponse
@@ -5303,7 +5313,7 @@ ListBatchExportTasksResponse Client::listBatchExportTasks(const ListBatchExportT
 }
 
 /**
- * @summary Retrieves the list of consumer authorization rules.
+ * @summary Retrieves a list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @param headers map
@@ -5344,7 +5354,7 @@ ListConsumerAuthorizationRulesResponse Client::listConsumerAuthorizationRulesWit
 }
 
 /**
- * @summary Retrieves the list of consumer authorization rules.
+ * @summary Retrieves a list of consumer authorization rules.
  *
  * @param request ListConsumerAuthorizationRulesRequest
  * @return ListConsumerAuthorizationRulesResponse
@@ -6909,7 +6919,7 @@ ListMseNacosSourcesResponse Client::listMseNacosSources(const string &gatewayId,
 }
 
 /**
- * @summary Retrieves the list of plugin mounts.
+ * @summary Retrieves the plug-in mount list.
  *
  * @param request ListPluginAttachmentsRequest
  * @param headers map
@@ -6974,7 +6984,7 @@ ListPluginAttachmentsResponse Client::listPluginAttachmentsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves the list of plugin mounts.
+ * @summary Retrieves the plug-in mount list.
  *
  * @param request ListPluginAttachmentsRequest
  * @return ListPluginAttachmentsResponse
@@ -8844,7 +8854,7 @@ UpdateConsumerResponse Client::updateConsumer(const string &consumerId, const Up
 /**
  * @summary Updates a consumer authorization rule.
  *
- * @description 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+ * @description This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @param headers map
@@ -8887,7 +8897,7 @@ UpdateConsumerAuthorizationRuleResponse Client::updateConsumerAuthorizationRuleW
 /**
  * @summary Updates a consumer authorization rule.
  *
- * @description 该 API 已被 UpdateAuthorizationRule 替代，新路径为 /v1/authorization-rules/{consumerAuthorizationRuleId}
+ * @description This API has been replaced by UpdateAuthorizationRule. The new operation path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When calling the new operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
  *
  * @param request UpdateConsumerAuthorizationRuleRequest
  * @return UpdateConsumerAuthorizationRuleResponse
