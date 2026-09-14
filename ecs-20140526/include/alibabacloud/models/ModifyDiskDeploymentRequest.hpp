@@ -112,35 +112,35 @@ namespace Models
 
 
   protected:
-    // The new disk type. This parameter takes effect only when you migrate a disk between different dedicated block storage clusters. Currently, only cloud_essd (enterprise SSD) is supported.
+    // The new disk type. This parameter is valid only when you migrate a disk between different dedicated block storage clusters. Only cloud_essd (standard SSD) is supported.
     // 
-    // Default value: empty, which indicates that the disk type is not changed.
+    // Default value: empty, which indicates that the disk type is not changed (no Upgrade/Downgrade) during migration.
     shared_ptr<string> diskCategory_ {};
     // The disk ID.
     // 
     // This parameter is required.
     shared_ptr<string> diskId_ {};
-    // Specifies whether to perform only a dry run. Valid values:
-    // - true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-    // - false: performs a dry run and performs the actual request. If the request passes the dry run, a 2XX HTTP status code is returned and the disk is migrated.
+    // Specifies whether to perform only a dry run for this request. Valid values:
+    // - true: performs a dry run. The system checks whether the required parameters are specified, the request format is valid, business limits are met, and ECS inventory is sufficient. If the check fails, the corresponding error is returned. If the check passes, the error code DryRunOperation is returned.
+    // - false: performs a normal request. After the check passes, a 2XX HTTP status code is returned and the disk migration starts immediately.
     // 
     // Default value: false.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The performance level (PL) of the enterprise SSD. This parameter takes effect only when you migrate a disk between different dedicated block storage clusters. Valid values:
-    // - PL0: A maximum of 10,000 random read/write IOPS per disk.
-    // - PL1: A maximum of 50,000 random read/write IOPS per disk.
+    // The new ESSD performance level of the standard SSD. This parameter is valid only when you migrate a disk between different dedicated block storage clusters. Valid values:
+    // - PL0: maximum random read/write IOPS of 10,000 for a single disk.
+    // - PL1: maximum random read/write IOPS of 50,000 for a single disk.
     // 
-    // Default value: empty, which indicates that the performance level (PL) is not changed.
+    // Default value: empty, which indicates that the performance level is not changed during migration.
     shared_ptr<string> performanceLevel_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The dedicated block storage cluster ID.
-    // - To migrate a disk to a dedicated block storage cluster, you must specify StorageClusterId.
-    // - To migrate a disk to a public cloud block storage cluster, StorageClusterId must be empty.
+    // - If you migrate the disk to a dedicated block storage cluster, you must specify `StorageClusterId`.
+    // - If you migrate the disk to a public block storage cluster, `StorageClusterId` must be empty.
     // 
-    // Default value: empty, which indicates that the disk is migrated to a public cloud block storage cluster.
+    // Default value: empty, which indicates that the disk is migrated to a public block storage cluster.
     shared_ptr<string> storageClusterId_ {};
   };
 

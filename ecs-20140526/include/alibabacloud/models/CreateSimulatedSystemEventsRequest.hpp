@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(TriggerRealOps, triggerRealOps_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSimulatedSystemEventsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EventType, eventType_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(TriggerRealOps, triggerRealOps_);
     };
     CreateSimulatedSystemEventsRequest() = default ;
     CreateSimulatedSystemEventsRequest(const CreateSimulatedSystemEventsRequest &) = default ;
@@ -46,7 +48,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->eventType_ == nullptr
         && this->instanceId_ == nullptr && this->notBefore_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->triggerRealOps_ == nullptr; };
     // eventType Field Functions 
     bool hasEventType() const { return this->eventType_ != nullptr;};
     void deleteEventType() { this->eventType_ = nullptr;};
@@ -105,10 +107,18 @@ namespace Models
     inline CreateSimulatedSystemEventsRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // triggerRealOps Field Functions 
+    bool hasTriggerRealOps() const { return this->triggerRealOps_ != nullptr;};
+    void deleteTriggerRealOps() { this->triggerRealOps_ = nullptr;};
+    inline bool getTriggerRealOps() const { DARABONBA_PTR_GET_DEFAULT(triggerRealOps_, false) };
+    inline CreateSimulatedSystemEventsRequest& setTriggerRealOps(bool triggerRealOps) { DARABONBA_PTR_SET_VALUE(triggerRealOps_, triggerRealOps) };
+
+
   protected:
     // The type of the system event. Valid values: 
-    // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance. 
-    // - SystemFailure.Reboot: The instance is restarted due to a system error. 
+    // 
+    // - SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
+    // - SystemFailure.Reboot: The instance is restarted due to a system error.
     // - InstanceFailure.Reboot: The instance is restarted due to an instance error.
     // - SystemMaintenance.Stop: The instance is stopped due to system maintenance.
     // - SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
@@ -124,18 +134,20 @@ namespace Models
     shared_ptr<vector<string>> instanceId_ {};
     // The scheduled start time of the event. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     // 
-    // > For abnormal events caused by system errors or instance errors, the event is already in the Executing state after it is created. In this case, the NotBefore parameter specifies the time when the event enters the Executed state.
+    // > For unexpected events caused by system errors or instance errors, the event is already in the Executing state after it is created. In this case, the NotBefore parameter specifies the time when the event enters the Executed state.
     // 
     // This parameter is required.
     shared_ptr<string> notBefore_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent list of Alibaba Cloud regions.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // Specifies whether to trigger real O&M operations. Valid values:<br>- true: Triggers real O&M operations. The system actually stops or releases the instance. Exercise caution when you perform this operation, or use instances that do not run workloads for testing.<br>- false (default): Only simulates event notifications without affecting the actual lifecycle of the instance.
+    shared_ptr<bool> triggerRealOps_ {};
   };
 
   } // namespace Models

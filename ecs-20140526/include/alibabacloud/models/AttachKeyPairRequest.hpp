@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the instances to which you want to attach the SSH key pair. The value can be a JSON array that consists of up to 50 instance IDs. Separate multiple IDs with commas (,).
+    // The IDs of the instances to which you want to attach the SSH key pair. The value can be a JSON array that consists of up to 50 instance IDs. Separate the IDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> instanceIds_ {};

@@ -115,11 +115,11 @@ namespace Models
 
 
     protected:
-      // > This parameter is not publicly available.
+      // > This parameter is not available for use.
       shared_ptr<int64_t> assumeRoleFor_ {};
-      // > This parameter is not publicly available.
+      // > This parameter is not available for use.
       shared_ptr<string> roleType_ {};
-      // > This parameter is not publicly available.
+      // > This parameter is not available for use.
       shared_ptr<string> rolearn_ {};
     };
 
@@ -151,20 +151,20 @@ namespace Models
 
 
     protected:
-      // The capacity of the new system disk. Unit: GiB. Valid values:
+      // The new capacity of the system disk. Unit: GiB. Valid values:
       // 
-      // - Basic disk: Max{20, size of the image specified by the ImageId parameter} to 500.
+      // - Basic disk: Max{20, image size specified by the ImageId parameter} to 500.
       // - Enterprise SSD:
-      //   - PL0: Max{1, size of the image specified by the ImageId parameter} to 2048.
-      //   - PL1: Max{20, size of the image specified by the ImageId parameter} to 2048.
-      //   - PL2: Max{461, size of the image specified by the ImageId parameter} to 2048.
-      //   - PL3: Max{1261, size of the image specified by the ImageId parameter} to 2048.
-      // - ESSD AutoPL disk: Max{1, size of the image specified by the ImageId parameter} to 2048.
-      // - Standard SSD and other disk types: Max{20, size of the image specified by the ImageId parameter} to 2048.
+      //   - PL0: Max{1, image size specified by the ImageId parameter} to 2048.
+      //   - PL1: Max{20, image size specified by the ImageId parameter} to 2048.
+      //   - PL2: Max{461, image size specified by the ImageId parameter} to 2048.
+      //   - PL3: Max{1261, image size specified by the ImageId parameter} to 2048.
+      // - ESSD AutoPL disk: Max{1, image size specified by the ImageId parameter} to 2048.
+      // - Other disk types: Max{20, image size specified by the ImageId parameter} to 2048.
       // 
-      // Default value: Max{40, size of the image specified by the ImageId parameter}.
+      // Default value: Max{40, image size specified by the ImageId parameter}.
       // 
-      // > You are charged additional fees for the disk capacity that exceeds `Max{20, capacity of the original system disk}`.
+      // > Disk capacity that exceeds `Max{20, original system disk capacity}` incurs additional charges.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -319,15 +319,15 @@ namespace Models
 
   protected:
     shared_ptr<ReplaceSystemDiskRequest::SystemDisk> systemDisk_ {};
-    // > This parameter is deprecated.
+    // > **[Deprecated]** This parameter is deprecated.
     shared_ptr<string> architecture_ {};
-    // This parameter is not publicly available.
+    // This parameter is not available for use.
     shared_ptr<vector<ReplaceSystemDiskRequest::Arn>> arn_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
     // > **[Deprecated]** This parameter is deprecated. To improve compatibility, use `ImageId` instead.
     shared_ptr<string> diskId_ {};
-    // > This parameter is not publicly available.
+    // > This parameter is not available for use.
     shared_ptr<string> encryptAlgorithm_ {};
     // Specifies whether to encrypt the disk. Valid values:
     // 
@@ -335,16 +335,15 @@ namespace Models
     // 
     // - false: does not encrypt the disk.
     // 
-    // 
     // Default value: false.
     // 
-    // >Notice: When you use a shared encrypted image to create a disk from an encrypted snapshot, you must set the request parameter Encrypted to true to ensure that the disk uses the key of the image recipient.
+    // >Notice: When you use a shared encrypted image to create a disk based on an encrypted snapshot, you must set the request parameter Encrypted=true for the disk to ensure that the disk uses the key of the account that receives the shared image.
     shared_ptr<bool> encrypted_ {};
-    // The ID of the image to use when you reset the system. This parameter is required.
+    // The ID of the image to use when resetting the system disk. This parameter is required.
     shared_ptr<string> imageId_ {};
-    // The ID of target instance.
+    // The ID of the target instance.
     // 
-    // > Before you send the request, make sure that the instance status of the target instance is `Stopped`.
+    // > Make sure that the target instance is in the `Stopped` instance status before you send the request.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -352,11 +351,11 @@ namespace Models
     shared_ptr<string> KMSKeyId_ {};
     // The name of the key pair. 
     // 
-    // > This parameter takes effect only for Linux instances. You can bind an SSH key pair to the ECS instance as a logon credential. After an SSH key pair is used, the username and password logon method is disabled.
+    // > This parameter applies only to Linux ECS instances. You can bind an SSH key pair to an ECS instance as a logon credential. After an SSH key pair is bound, username and password-based logon is disabled.
     shared_ptr<string> keyPairName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // Specifies whether to reset the username and password of the ECS instance. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
+    // Specifies whether to reset the password of the ECS instance. The password must be 8 to 30 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
     // 
     // ```
     // ()`~!@#$%^&*-_+=|{}[]:;\\"<>,.?/
@@ -366,29 +365,29 @@ namespace Models
     // 
     // Default value: The password remains unchanged.
     // 
-    // > If you specify the `Password` parameter, send the request over HTTPS to prevent password leaks.
+    // > If you specify the `Password` parameter, use HTTPS to send the request to prevent password leaks.
     shared_ptr<string> password_ {};
-    // Specifies whether to use the password preset in the image.
+    // Specifies whether to use the preset password of the image.
     // 
     // Default value: false.
     // 
-    // > If you use this parameter, the Password parameter must be empty. Make sure that the image you use has a password preset.
+    // > If you use this parameter, the Password parameter must be empty. Make sure that the image you use has a preset password.
     shared_ptr<bool> passwordInherit_ {};
-    // > This parameter is deprecated.
+    // > **[Deprecated]** This parameter is deprecated.
     shared_ptr<string> platform_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to use the free Security Center service after the system disk is replaced. Valid values: 
+    // Specifies whether to use Security Center for free after the system disk is replaced. Valid values: 
     // 
-    // - Active: Security Center is used. This value is applicable only to public images.
+    // - Active: Uses Security Center. This value is supported only for public images.
     // 
-    // - Deactive: Security Center is not used. This value is applicable to all images.
+    // - Deactive: Does not use Security Center. This value is supported for all images.
     // 
     // Default value: Deactive.
     shared_ptr<string> securityEnhancementStrategy_ {};
-    // Specifies whether to use the virtual machine system configuration provided by Alibaba Cloud (Windows: NTP and KMS. Linux: NTP and YUM).
+    // Specifies whether to use the virtual machine system configurations provided by Alibaba Cloud (Windows: NTP and KMS. Linux: NTP and YUM).
     // 
-    // > This parameter takes effect only when a system disk is attached (the device name is /dev/xvda).
+    // > This parameter takes effect only when the system disk is attached (that is, the device name is /dev/xvda).
     shared_ptr<bool> useAdditionalService_ {};
   };
 
