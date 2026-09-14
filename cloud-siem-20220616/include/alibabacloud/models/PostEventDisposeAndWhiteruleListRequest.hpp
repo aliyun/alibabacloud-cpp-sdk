@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_TO_JSON(RoleType, roleType_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(SyncAlertStatus, syncAlertStatus_);
       DARABONBA_PTR_TO_JSON(ThreatLevel, threatLevel_);
     };
     friend void from_json(const Darabonba::Json& j, PostEventDisposeAndWhiteruleListRequest& obj) { 
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RoleFor, roleFor_);
       DARABONBA_PTR_FROM_JSON(RoleType, roleType_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(SyncAlertStatus, syncAlertStatus_);
       DARABONBA_PTR_FROM_JSON(ThreatLevel, threatLevel_);
     };
     PostEventDisposeAndWhiteruleListRequest() = default ;
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { return this->clientToken_ == nullptr
         && this->disposeStrategyIds_ == nullptr && this->eventDispose_ == nullptr && this->incidentUuid_ == nullptr && this->owner_ == nullptr && this->receiverInfo_ == nullptr
         && this->regionId_ == nullptr && this->remark_ == nullptr && this->responseSource_ == nullptr && this->roleFor_ == nullptr && this->roleType_ == nullptr
-        && this->status_ == nullptr && this->threatLevel_ == nullptr; };
+        && this->status_ == nullptr && this->syncAlertStatus_ == nullptr && this->threatLevel_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -141,6 +143,13 @@ namespace Models
     inline PostEventDisposeAndWhiteruleListRequest& setStatus(int32_t status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // syncAlertStatus Field Functions 
+    bool hasSyncAlertStatus() const { return this->syncAlertStatus_ != nullptr;};
+    void deleteSyncAlertStatus() { this->syncAlertStatus_ = nullptr;};
+    inline bool getSyncAlertStatus() const { DARABONBA_PTR_GET_DEFAULT(syncAlertStatus_, false) };
+    inline PostEventDisposeAndWhiteruleListRequest& setSyncAlertStatus(bool syncAlertStatus) { DARABONBA_PTR_SET_VALUE(syncAlertStatus_, syncAlertStatus) };
+
+
     // threatLevel Field Functions 
     bool hasThreatLevel() const { return this->threatLevel_ != nullptr;};
     void deleteThreatLevel() { this->threatLevel_ = nullptr;};
@@ -149,53 +158,46 @@ namespace Models
 
 
   protected:
-    // 幂等令牌。
+    // The idempotency token.
     shared_ptr<string> clientToken_ {};
-    // A comma-separated list of response strategy IDs.
+    // The list of handling policy IDs.
     shared_ptr<string> disposeStrategyIds_ {};
-    // A JSON object that defines the incident response configuration.
+    // The incident handling configuration as a JSON object.
     shared_ptr<string> eventDispose_ {};
     // The globally unique UUID of the incident.
     shared_ptr<string> incidentUuid_ {};
-    // The UID of the incident owner.
+    // The account UID of the incident owner.
     shared_ptr<string> owner_ {};
-    // A JSON object that defines the alert recipient configuration.
+    // The alert recipient configuration as a JSON object.
     shared_ptr<string> receiverInfo_ {};
-    // The region where the Data Management service for threat analysis is deployed. Select a region based on where your assets are located. Valid values:
-    // 
-    // - cn-hangzhou: Assets in the Chinese mainland or Hong Kong (China)
-    // 
-    // - ap-southeast-1: Assets outside China
+    // The region where the threat analysis data management center resides. Specify the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: Your assets reside in regions in the Chinese mainland or China (Hong Kong).
+    // - ap-southeast-1: Your assets reside in regions outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // A note about the incident.
+    // The remarks for the incident.
     shared_ptr<string> remark_ {};
-    // The source of the response policy.
+    // The source of the handling policy.
     shared_ptr<string> responseSource_ {};
-    // The UID of the member whose perspective an administrator switches to.
+    // The ID of the user for whom the administrator switches to a member view.
     shared_ptr<int64_t> roleFor_ {};
     // The view type. Valid values:
     // 
-    // - 0: Current Alibaba Cloud account view
-    // 
-    // - 1: View for all accounts in your enterprise
+    // - 0: the China account view.
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
     // The incident status. Valid values:
     // 
-    // - 0: Not handled
-    // 
-    // - 1: Handling
-    // 
-    // - 5: Failed
-    // 
-    // - 10: Handled
+    // - 0: unhandled  
+    // - 1: handling 
+    // - 5: handling failed 
+    // - 10: handled
     shared_ptr<int32_t> status_ {};
+    // Specifies whether to restore associated handled alerts to unhandled status when reopening the incident.
+    shared_ptr<bool> syncAlertStatus_ {};
     // The threat level. Valid values:
-    // 
-    // - serious: Important
-    // 
-    // - suspicious: Medium
-    // 
-    // - remind: Low
+    // - serious: high
+    // - suspicious: medium
+    // - remind: low
     shared_ptr<string> threatLevel_ {};
   };
 

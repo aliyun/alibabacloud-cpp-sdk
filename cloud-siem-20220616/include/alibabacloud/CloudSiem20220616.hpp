@@ -361,7 +361,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsWithEntityResponse describeAlertsWithEntity(const Models::DescribeAlertsWithEntityRequest &request);
 
       /**
-       * @summary Retrieves alerts associated with a specific event.
+       * @summary Retrieves the list of alerts associated with an incident.
        *
        * @param request DescribeAlertsWithEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -370,7 +370,7 @@ namespace CloudSiem20220616
       Models::DescribeAlertsWithEventResponse describeAlertsWithEventWithOptions(const Models::DescribeAlertsWithEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves alerts associated with a specific event.
+       * @summary Retrieves the list of alerts associated with an incident.
        *
        * @param request DescribeAlertsWithEventRequest
        * @return DescribeAlertsWithEventResponse
@@ -633,7 +633,7 @@ namespace CloudSiem20220616
       Models::DescribeEntityInfoResponse describeEntityInfo(const Models::DescribeEntityInfoRequest &request);
 
       /**
-       * @summary You can obtain the count for each event type.
+       * @summary Retrieves the count of events by type.
        *
        * @param request DescribeEventCountByThreatLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -642,7 +642,7 @@ namespace CloudSiem20220616
       Models::DescribeEventCountByThreatLevelResponse describeEventCountByThreatLevelWithOptions(const Models::DescribeEventCountByThreatLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can obtain the count for each event type.
+       * @summary Retrieves the count of events by type.
        *
        * @param request DescribeEventCountByThreatLevelRequest
        * @return DescribeEventCountByThreatLevelResponse
@@ -837,6 +837,23 @@ namespace CloudSiem20220616
       Models::DescribeUserBuyStatusResponse describeUserBuyStatus(const Models::DescribeUserBuyStatusRequest &request);
 
       /**
+       * @summary Queries the purchase status of a user\\"s SIEM.
+       *
+       * @param request DescribeUserSiemOrderStatusRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeUserSiemOrderStatusResponse
+       */
+      Models::DescribeUserSiemOrderStatusResponse describeUserSiemOrderStatusWithOptions(const Models::DescribeUserSiemOrderStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the purchase status of a user\\"s SIEM.
+       *
+       * @param request DescribeUserSiemOrderStatusRequest
+       * @return DescribeUserSiemOrderStatusResponse
+       */
+      Models::DescribeUserSiemOrderStatusResponse describeUserSiemOrderStatus(const Models::DescribeUserSiemOrderStatusRequest &request);
+
+      /**
        * @summary Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
        *
        * @param request DescribeWafScopeRequest
@@ -924,7 +941,7 @@ namespace CloudSiem20220616
       /**
        * @summary Retrieves the details of user data storage on the Log Management page.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request GetDataStorageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -935,7 +952,7 @@ namespace CloudSiem20220616
       /**
        * @summary Retrieves the details of user data storage on the Log Management page.
        *
-       * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+       * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
        *
        * @param request GetDataStorageRequest
        * @return GetDataStorageResponse
@@ -1389,7 +1406,7 @@ namespace CloudSiem20220616
       Models::PostCustomizeRuleTestResponse postCustomizeRuleTest(const Models::PostCustomizeRuleTestRequest &request);
 
       /**
-       * @summary Submit incident response information to update the incident status and severity level.
+       * @summary Submits incident handling information, updates the incident status, and updates the incident severity level.
        *
        * @param request PostEventDisposeAndWhiteruleListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1398,7 +1415,7 @@ namespace CloudSiem20220616
       Models::PostEventDisposeAndWhiteruleListResponse postEventDisposeAndWhiteruleListWithOptions(const Models::PostEventDisposeAndWhiteruleListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submit incident response information to update the incident status and severity level.
+       * @summary Submits incident handling information, updates the incident status, and updates the incident severity level.
        *
        * @param request PostEventDisposeAndWhiteruleListRequest
        * @return PostEventDisposeAndWhiteruleListResponse

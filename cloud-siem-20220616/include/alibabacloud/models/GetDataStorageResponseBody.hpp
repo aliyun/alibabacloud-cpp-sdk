@@ -183,10 +183,10 @@ namespace Models
         // The log code.
         shared_ptr<string> logCode_ {};
         // The group to which the log belongs. Valid values:
-        // - host: host logs.
-        // - security: security logs.
+        // - host: Host logs.
+        // - security: Security logs.
         shared_ptr<string> logDeliveryGroup_ {};
-        // Indicates whether log delivery is allowed. Log delivery is not available if the service is not purchased. Valid values:
+        // Indicates whether log delivery can be toggled. Log delivery cannot be enabled if the service is not purchased. Valid values:
         // - allow: Allowed.
         // - deny: Not allowed.
         shared_ptr<string> logDeliveryPermission_ {};
@@ -194,7 +194,7 @@ namespace Models
         // - enable: Log delivery is enabled.
         // - disable: Log delivery is disabled.
         shared_ptr<string> logDeliveryStatus_ {};
-        // The time of the most recent log delivery operation.
+        // The time when the log delivery was last modified. The time is in the YYYY-MM-DDTHH:mm:ss format.
         shared_ptr<string> logDeliveryUpdateTime_ {};
         // The log name.
         shared_ptr<string> logName_ {};
@@ -453,11 +453,11 @@ namespace Models
       shared_ptr<double> coldStorageUsedCapacity_ {};
       // The storage region of user-side logs.
       shared_ptr<string> dataStorageRegionId_ {};
-      // Indicates whether the storage region can be modified. By default, the storage region cannot be modified. Contact your product manager to reset the region. The region can be reset only once. Valid values:
+      // Indicates whether the storage region can be modified. By default, the storage region cannot be modified. Contact the product manager to reset the region. The region can be reset only once. Valid values:
       // - allow: The storage region can be modified.
       // - deny: The storage region cannot be modified.
       shared_ptr<string> dataStorageRegionPermission_ {};
-      // The storage capacity purchased in the upfront billing scenario.
+      // The storage capacity purchased in the prepaid scenario.
       shared_ptr<int64_t> dataStorageTotalCapacity_ {};
       // The storage capacity used in user log management.
       shared_ptr<double> dataStorageUsedCapacity_ {};

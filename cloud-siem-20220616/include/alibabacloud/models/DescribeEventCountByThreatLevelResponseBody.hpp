@@ -118,11 +118,11 @@ namespace Models
 
 
       protected:
-        // Date.
+        // The date in the YYYY-MM-DD format.
         shared_ptr<string> date_ {};
-        // Total number of security events.
+        // The total number of security events.
         shared_ptr<int64_t> eventNum_ {};
-        // Number of unhandled security events.
+        // The number of unhandled security events.
         shared_ptr<int64_t> undealEventNum_ {};
       };
 
@@ -188,21 +188,21 @@ namespace Models
 
 
     protected:
-      // Daily event statistics.
+      // The daily event statistics.
       shared_ptr<vector<Data::EventDailyNum>> eventDailyNum_ {};
-      // Total number of events.
+      // The total number of events.
       shared_ptr<int64_t> eventNum_ {};
-      // Number of high-risk events.
+      // The number of high-risk events.
       shared_ptr<int64_t> highLevelEventNum_ {};
-      // Number of informational events.
+      // The number of informational-level events.
       shared_ptr<int64_t> infoLevelEventNum_ {};
-      // Number of low-risk events.
+      // The number of low-risk events.
       shared_ptr<int64_t> lowLevelEventNum_ {};
-      // Number of medium-risk events.
+      // The number of medium-risk events.
       shared_ptr<int64_t> mediumLevelEventNum_ {};
-      // Number of critical events.
+      // The number of critical-level events.
       shared_ptr<int64_t> seriousLevelEventNum_ {};
-      // Number of unhandled events.
+      // The number of unhandled events.
       shared_ptr<int64_t> undealEventNum_ {};
     };
 
@@ -246,19 +246,17 @@ namespace Models
 
 
   protected:
-    // HTTP status code.
+    // The response status code.
     shared_ptr<int32_t> code_ {};
-    // Response data.
+    // The response data.
     shared_ptr<DescribeEventCountByThreatLevelResponseBody::Data> data_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. Valid values:
-    // 
-    // - true: The request succeeded.
-    // 
-    // - false: The request failed.
+    // Indicates whether the request was successful. Valid values:
+    // - true: successful.
+    // - false: failed.
     shared_ptr<bool> success_ {};
   };
 

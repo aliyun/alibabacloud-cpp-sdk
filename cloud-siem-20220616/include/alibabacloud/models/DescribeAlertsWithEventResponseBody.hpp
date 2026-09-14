@@ -73,6 +73,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AlertNameEn, alertNameEn_);
           DARABONBA_PTR_TO_JSON(AlertSrcProd, alertSrcProd_);
           DARABONBA_PTR_TO_JSON(AlertSrcProdModule, alertSrcProdModule_);
+          DARABONBA_PTR_TO_JSON(AlertStatus, alertStatus_);
           DARABONBA_PTR_TO_JSON(AlertTitle, alertTitle_);
           DARABONBA_PTR_TO_JSON(AlertTitleEn, alertTitleEn_);
           DARABONBA_PTR_TO_JSON(AlertType, alertType_);
@@ -114,6 +115,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AlertNameEn, alertNameEn_);
           DARABONBA_PTR_FROM_JSON(AlertSrcProd, alertSrcProd_);
           DARABONBA_PTR_FROM_JSON(AlertSrcProdModule, alertSrcProdModule_);
+          DARABONBA_PTR_FROM_JSON(AlertStatus, alertStatus_);
           DARABONBA_PTR_FROM_JSON(AlertTitle, alertTitle_);
           DARABONBA_PTR_FROM_JSON(AlertTitleEn, alertTitleEn_);
           DARABONBA_PTR_FROM_JSON(AlertType, alertType_);
@@ -201,23 +203,23 @@ namespace Models
 
 
         protected:
-          // The key of the alert attribute.
+          // The key of the alert detail attribute.
           shared_ptr<string> key_ {};
-          // The display name of the alert attribute.
+          // The name of the alert detail.
           shared_ptr<string> keyName_ {};
-          // The value of the alert attribute.
+          // The value of the alert detail.
           shared_ptr<string> values_ {};
         };
 
         virtual bool empty() const override { return this->alertDesc_ == nullptr
         && this->alertDescCode_ == nullptr && this->alertDescEn_ == nullptr && this->alertDetail_ == nullptr && this->alertInfoList_ == nullptr && this->alertLevel_ == nullptr
         && this->alertName_ == nullptr && this->alertNameCode_ == nullptr && this->alertNameEn_ == nullptr && this->alertSrcProd_ == nullptr && this->alertSrcProdModule_ == nullptr
-        && this->alertTitle_ == nullptr && this->alertTitleEn_ == nullptr && this->alertType_ == nullptr && this->alertTypeCode_ == nullptr && this->alertTypeEn_ == nullptr
-        && this->alertUuid_ == nullptr && this->assetList_ == nullptr && this->attCk_ == nullptr && this->cloudCode_ == nullptr && this->detectionRuleId_ == nullptr
-        && this->endTime_ == nullptr && this->entityList_ == nullptr && this->extendContent_ == nullptr && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr
-        && this->id_ == nullptr && this->incidentUuid_ == nullptr && this->investigationReport_ == nullptr && this->isDefend_ == nullptr && this->logTime_ == nullptr
-        && this->logUuid_ == nullptr && this->mainUserId_ == nullptr && this->occurTime_ == nullptr && this->productId_ == nullptr && this->startTime_ == nullptr
-        && this->subUserId_ == nullptr && this->subUserName_ == nullptr && this->vendorId_ == nullptr; };
+        && this->alertStatus_ == nullptr && this->alertTitle_ == nullptr && this->alertTitleEn_ == nullptr && this->alertType_ == nullptr && this->alertTypeCode_ == nullptr
+        && this->alertTypeEn_ == nullptr && this->alertUuid_ == nullptr && this->assetList_ == nullptr && this->attCk_ == nullptr && this->cloudCode_ == nullptr
+        && this->detectionRuleId_ == nullptr && this->endTime_ == nullptr && this->entityList_ == nullptr && this->extendContent_ == nullptr && this->gmtCreate_ == nullptr
+        && this->gmtModified_ == nullptr && this->id_ == nullptr && this->incidentUuid_ == nullptr && this->investigationReport_ == nullptr && this->isDefend_ == nullptr
+        && this->logTime_ == nullptr && this->logUuid_ == nullptr && this->mainUserId_ == nullptr && this->occurTime_ == nullptr && this->productId_ == nullptr
+        && this->startTime_ == nullptr && this->subUserId_ == nullptr && this->subUserName_ == nullptr && this->vendorId_ == nullptr; };
         // alertDesc Field Functions 
         bool hasAlertDesc() const { return this->alertDesc_ != nullptr;};
         void deleteAlertDesc() { this->alertDesc_ = nullptr;};
@@ -295,6 +297,13 @@ namespace Models
         void deleteAlertSrcProdModule() { this->alertSrcProdModule_ = nullptr;};
         inline string getAlertSrcProdModule() const { DARABONBA_PTR_GET_DEFAULT(alertSrcProdModule_, "") };
         inline ResponseData& setAlertSrcProdModule(string alertSrcProdModule) { DARABONBA_PTR_SET_VALUE(alertSrcProdModule_, alertSrcProdModule) };
+
+
+        // alertStatus Field Functions 
+        bool hasAlertStatus() const { return this->alertStatus_ != nullptr;};
+        void deleteAlertStatus() { this->alertStatus_ = nullptr;};
+        inline string getAlertStatus() const { DARABONBA_PTR_GET_DEFAULT(alertStatus_, "") };
+        inline ResponseData& setAlertStatus(string alertStatus) { DARABONBA_PTR_SET_VALUE(alertStatus_, alertStatus) };
 
 
         // alertTitle Field Functions 
@@ -494,105 +503,97 @@ namespace Models
 
 
       protected:
-        // The description of the alert.
+        // The alert description.
         shared_ptr<string> alertDesc_ {};
         // The Medusa code of the alert description.
         shared_ptr<string> alertDescCode_ {};
         // The English description of the alert.
         shared_ptr<string> alertDescEn_ {};
-        // A JSON-formatted string that contains the alert details.
+        // The alert details.
         shared_ptr<string> alertDetail_ {};
-        // A list of objects that contain detailed alert attributes.
+        // The alert details.
         shared_ptr<vector<ResponseData::AlertInfoList>> alertInfoList_ {};
-        // The threat level of the alert. Valid values:
-        // 
-        // - `serious`: high
-        // 
-        // - `suspicious`: medium
-        // 
-        // - `remind`: low
+        // The threat level. Valid values:
+        // - serious: High.
+        // - suspicious: Medium.
+        // - remind: Low.
         shared_ptr<string> alertLevel_ {};
-        // The name of the alert.
+        // The alert name.
         shared_ptr<string> alertName_ {};
         // The Medusa code of the alert name.
         shared_ptr<string> alertNameCode_ {};
-        // The English name of the alert.
+        // The alert name.
         shared_ptr<string> alertNameEn_ {};
-        // The source product of the alert.
+        // The source product of the alert associated with the incident.
         shared_ptr<string> alertSrcProd_ {};
-        // The submodule of the source product.
+        // The submodule of the source product of the alert associated with the incident.
         shared_ptr<string> alertSrcProdModule_ {};
-        // The title of the alert.
+        // The alert status. Valid values: 0: Pending. 1: Handled. 2: Being handled. 3: Whitelisted, false positive, or rejected. 999: Unknown.
+        shared_ptr<string> alertStatus_ {};
+        // The alert title.
         shared_ptr<string> alertTitle_ {};
         // The English title of the alert.
         shared_ptr<string> alertTitleEn_ {};
-        // The type of the alert.
+        // The alert type.
         shared_ptr<string> alertType_ {};
         // The Medusa code of the alert type.
         shared_ptr<string> alertTypeCode_ {};
-        // The English type of the alert.
+        // The English alert type.
         shared_ptr<string> alertTypeEn_ {};
         // The UUID of the alert.
         shared_ptr<string> alertUuid_ {};
-        // A JSON-formatted string that lists the assets associated with the alert.
+        // The asset list.
         shared_ptr<string> assetList_ {};
-        // The ATT\\&CK tag.
+        // The ATT&CK attack technique tags.
         shared_ptr<string> attCk_ {};
-        // The cloud service provider. Valid values:
-        // 
-        // - `aliyun`: Alibaba Cloud
-        // 
-        // - `qcloud`: Tencent Cloud
-        // 
-        // - `hcloud`: Huawei Cloud
+        // The cloud code. Valid values:
+        // - aliyun: Alibaba Cloud.
+        // - qcloud: Tencent Cloud.
+        // - hcloud: Huawei Cloud.
         shared_ptr<string> cloudCode_ {};
-        // The ID of the detection rule.
+        // The detection rule ID.
         shared_ptr<string> detectionRuleId_ {};
-        // The end time of the alert.
+        // The time when the alert ended.
         shared_ptr<string> endTime_ {};
-        // A JSON-formatted string that lists the entities involved in the alert.
+        // The entity details.
         shared_ptr<string> entityList_ {};
-        // A JSON-formatted string that contains extended information about the alert.
+        // The extended information of the alert.
         shared_ptr<string> extendContent_ {};
-        // The time when the alert was created.
+        // The time when the alert was stored.
         shared_ptr<string> gmtCreate_ {};
         // The time when the alert was last updated.
         shared_ptr<string> gmtModified_ {};
         // The unique ID of the alert.
         shared_ptr<int64_t> id_ {};
-        // The universally unique identifier (UUID) of the event.
+        // The globally unique UUID of the incident.
         shared_ptr<string> incidentUuid_ {};
-        // A JSON-formatted string that contains the investigation report for the alert.
+        // The alert investigation report.
         shared_ptr<string> investigationReport_ {};
-        // Indicates whether the attack was blocked. Valid values:
+        // Indicates whether the threat has been defended against. Valid values:
         // 
-        // - `0`: detected
-        // 
-        // - `1`: blocked
+        // - 0: Detected.
+        // - 1: Blocked.
         shared_ptr<string> isDefend_ {};
-        // The time when the alert was recorded.
+        // The time when the alert was logged.
         shared_ptr<string> logTime_ {};
         // The UUID of the alert log.
         shared_ptr<string> logUuid_ {};
-        // The ID of the main account associated with the alert.
+        // The ID of the SIEM primary account associated with the alert.
         shared_ptr<int64_t> mainUserId_ {};
         // The time when the alert occurred.
         shared_ptr<string> occurTime_ {};
-        // The cloud service ID.
+        // The product ID.
         shared_ptr<string> productId_ {};
         // The time when the alert first occurred.
         shared_ptr<string> startTime_ {};
-        // The ID of the sub-account that generated the alert.
+        // The Alibaba Cloud account ID that generated the alert.
         shared_ptr<int64_t> subUserId_ {};
-        // The name of the sub-account that generated the alert.
+        // The Alibaba Cloud account ID that generated the alert.
         shared_ptr<string> subUserName_ {};
-        // The cloud service provider. Valid values:
-        // 
-        // - `aliyun`: Alibaba Cloud
-        // 
-        // - `qcloud`: Tencent Cloud
-        // 
-        // - `hcloud`: Huawei Cloud
+        // The cloud code. Valid values:
+        // - aliyun: Alibaba Cloud.
+        // - qcloud: Tencent Cloud.
+        // - hcloud: Huawei Cloud.
         shared_ptr<string> vendorId_ {};
       };
 
@@ -643,11 +644,11 @@ namespace Models
 
 
       protected:
-        // The current page number.
+        // The current page number of the list.
         shared_ptr<int32_t> currentPage_ {};
-        // The number of entries returned per page.
+        // The number of records returned per page.
         shared_ptr<int32_t> pageSize_ {};
-        // The total number of entries.
+        // The total number of records.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -674,7 +675,7 @@ namespace Models
     protected:
       // The pagination information.
       shared_ptr<Data::PageInfo> pageInfo_ {};
-      // The details of the alerts.
+      // The detailed data.
       shared_ptr<vector<Data::ResponseData>> responseData_ {};
     };
 
@@ -718,19 +719,17 @@ namespace Models
 
 
   protected:
-    // The status code of the request.
+    // The request status code.
     shared_ptr<int32_t> code_ {};
-    // The response payload.
+    // The request return value.
     shared_ptr<DescribeAlertsWithEventResponseBody::Data> data_ {};
-    // The response message.
+    // The request return message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // - `true`: The request was successful.
-    // 
-    // - `false`: The request failed.
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

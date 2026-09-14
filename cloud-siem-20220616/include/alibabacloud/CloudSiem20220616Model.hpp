@@ -147,6 +147,9 @@
 #include <alibabacloud/models/DescribeUserBuyStatusRequest.hpp>
 #include <alibabacloud/models/DescribeUserBuyStatusResponseBody.hpp>
 #include <alibabacloud/models/DescribeUserBuyStatusResponse.hpp>
+#include <alibabacloud/models/DescribeUserSiemOrderStatusRequest.hpp>
+#include <alibabacloud/models/DescribeUserSiemOrderStatusResponseBody.hpp>
+#include <alibabacloud/models/DescribeUserSiemOrderStatusResponse.hpp>
 #include <alibabacloud/models/DescribeWafScopeRequest.hpp>
 #include <alibabacloud/models/DescribeWafScopeResponseBody.hpp>
 #include <alibabacloud/models/DescribeWafScopeResponse.hpp>

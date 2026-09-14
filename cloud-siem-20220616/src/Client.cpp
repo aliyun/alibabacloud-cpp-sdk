@@ -18,10 +18,6 @@ namespace CloudSiem20220616
 
 AlibabaCloud::CloudSiem20220616::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shanghai" , "cloud-siem.cn-shanghai.aliyuncs.com"},
-    {"ap-southeast-1" , "cloud-siem.ap-southeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cloud-siem", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -1288,7 +1284,7 @@ DescribeAlertsWithEntityResponse Client::describeAlertsWithEntity(const Describe
 }
 
 /**
- * @summary Retrieves alerts associated with a specific event.
+ * @summary Retrieves the list of alerts associated with an incident.
  *
  * @param request DescribeAlertsWithEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1391,7 +1387,7 @@ DescribeAlertsWithEventResponse Client::describeAlertsWithEventWithOptions(const
 }
 
 /**
- * @summary Retrieves alerts associated with a specific event.
+ * @summary Retrieves the list of alerts associated with an incident.
  *
  * @param request DescribeAlertsWithEventRequest
  * @return DescribeAlertsWithEventResponse
@@ -2294,7 +2290,7 @@ DescribeEntityInfoResponse Client::describeEntityInfo(const DescribeEntityInfoRe
 }
 
 /**
- * @summary You can obtain the count for each event type.
+ * @summary Retrieves the count of events by type.
  *
  * @param request DescribeEventCountByThreatLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2341,7 +2337,7 @@ DescribeEventCountByThreatLevelResponse Client::describeEventCountByThreatLevelW
 }
 
 /**
- * @summary You can obtain the count for each event type.
+ * @summary Retrieves the count of events by type.
  *
  * @param request DescribeEventCountByThreatLevelRequest
  * @return DescribeEventCountByThreatLevelResponse
@@ -2918,6 +2914,56 @@ DescribeUserBuyStatusResponse Client::describeUserBuyStatus(const DescribeUserBu
 }
 
 /**
+ * @summary Queries the purchase status of a user\\"s SIEM.
+ *
+ * @param request DescribeUserSiemOrderStatusRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeUserSiemOrderStatusResponse
+ */
+DescribeUserSiemOrderStatusResponse Client::describeUserSiemOrderStatusWithOptions(const DescribeUserSiemOrderStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasRegionId()) {
+    body["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRoleFor()) {
+    body["RoleFor"] = request.getRoleFor();
+  }
+
+  if (!!request.hasRoleType()) {
+    body["RoleType"] = request.getRoleType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "DescribeUserSiemOrderStatus"},
+    {"version" , "2022-06-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeUserSiemOrderStatusResponse>();
+}
+
+/**
+ * @summary Queries the purchase status of a user\\"s SIEM.
+ *
+ * @param request DescribeUserSiemOrderStatusRequest
+ * @return DescribeUserSiemOrderStatusResponse
+ */
+DescribeUserSiemOrderStatusResponse Client::describeUserSiemOrderStatus(const DescribeUserSiemOrderStatusRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeUserSiemOrderStatusWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the list of domain names protected by Web Application Firewall (WAF) instances.
  *
  * @param request DescribeWafScopeRequest
@@ -3194,7 +3240,7 @@ GetCapacityResponse Client::getCapacity(const GetCapacityRequest &request) {
 /**
  * @summary Retrieves the details of user data storage on the Log Management page.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetDataStorageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3235,7 +3281,7 @@ GetDataStorageResponse Client::getDataStorageWithOptions(const GetDataStorageReq
 /**
  * @summary Retrieves the details of user data storage on the Log Management page.
  *
- * @description The input parameter JsonConfig is a complex JSON configuration. We provide a utility class to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
+ * @description The input parameter JsonConfig is a complex JSON configuration. A utility class is provided to help with specific configuration examples. For more information, see [Demo](https://github.com/aliyun/cloud-siem-client/blob/master/src/main/java/com/aliyun/security/cloudsiem/client/sample/JobBuilderSample.java).
  *
  * @param request GetDataStorageRequest
  * @return GetDataStorageResponse
@@ -5114,7 +5160,7 @@ PostCustomizeRuleTestResponse Client::postCustomizeRuleTest(const PostCustomizeR
 }
 
 /**
- * @summary Submit incident response information to update the incident status and severity level.
+ * @summary Submits incident handling information, updates the incident status, and updates the incident severity level.
  *
  * @param request PostEventDisposeAndWhiteruleListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5171,6 +5217,10 @@ PostEventDisposeAndWhiteruleListResponse Client::postEventDisposeAndWhiteruleLis
     body["Status"] = request.getStatus();
   }
 
+  if (!!request.hasSyncAlertStatus()) {
+    body["SyncAlertStatus"] = request.getSyncAlertStatus();
+  }
+
   if (!!request.hasThreatLevel()) {
     body["ThreatLevel"] = request.getThreatLevel();
   }
@@ -5193,7 +5243,7 @@ PostEventDisposeAndWhiteruleListResponse Client::postEventDisposeAndWhiteruleLis
 }
 
 /**
- * @summary Submit incident response information to update the incident status and severity level.
+ * @summary Submits incident handling information, updates the incident status, and updates the incident severity level.
  *
  * @param request PostEventDisposeAndWhiteruleListRequest
  * @return PostEventDisposeAndWhiteruleListResponse

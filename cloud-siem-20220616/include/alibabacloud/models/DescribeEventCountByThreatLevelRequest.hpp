@@ -75,23 +75,20 @@ namespace Models
 
 
   protected:
-    // End time of the query, in milliseconds.
+    // The end time of the query, in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // Region where the Data Management Center for threat analysis is located. Select a region based on the location of your assets. Valid values:
-    // 
-    // - cn-hangzhou: Assets are in the Chinese mainland or Hong Kong (China).
-    // 
-    // - ap-southeast-1: Assets are outside China.
+    // The region where the threat analysis data management center resides. Select the management center based on the region of your assets. Valid values:
+    // - cn-hangzhou: Your assets belong to the Chinese mainland or Hong Kong (China).
+    // - ap-southeast-1: Your assets belong to regions outside China.
     shared_ptr<string> regionId_ {};
-    // Resource directory member account ID.
+    // The ID of the member account in the resource directory.
     shared_ptr<int64_t> roleFor_ {};
-    // View type.
+    // The view type. Valid values:
     // 
-    // - 0: View for the current Alibaba Cloud account.
-    // 
-    // - 1: View for all accounts in your enterprise.
+    // - 0: the view of the current Alibaba Cloud account.
+    // - 1: the view of all accounts in the enterprise.
     shared_ptr<int32_t> roleType_ {};
-    // Start time of the query, in milliseconds.
+    // The start time of the query, in milliseconds.
     shared_ptr<int64_t> startTime_ {};
   };
 
