@@ -112,14 +112,23 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The response code.
     shared_ptr<string> code_ {};
+    // The error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic message. This parameter is not in use. Ignore it.
     shared_ptr<string> dynamicMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The returned message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
     shared_ptr<bool> success_ {};
+    // The user code.
     shared_ptr<string> userCode_ {};
   };
 

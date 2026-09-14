@@ -86,11 +86,11 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the dedicated block storage cluster.
+      // The tag key of the dedicated block storage cluster.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the dedicated block storage cluster.
+      // The tag value of the dedicated block storage cluster.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -172,13 +172,13 @@ namespace Models
 
 
   protected:
-    // The ID of the zone in which to create the dedicated block storage cluster. You can call the [DescribeZones](https://help.aliyun.com/document_detail/25610.html) operation to query the most recent zone list.
+    // The zone ID of the dedicated block storage cluster. You can call [DescribeZones](https://help.aliyun.com/document_detail/25610.html) to query the zone list.
     // 
     // This parameter is required.
     shared_ptr<string> azone_ {};
-    // The capacity of the dedicated block storage cluster. Valid values: 61440 to 2334720. Unit: GiB. 2,334,720 GiB is equal to 2,280 TiB. The capacity increases in a minimum increment of 12,288 GiB.
+    // The capacity of the dedicated block storage cluster. Valid values: 61440 to 2334720 GiB (2280 TiB). Minimum increment: 12288 GiB.
     // 
-    // >  If the capacity of a dedicated block storage cluster is less than 576 TiB, the maximum throughput per TiB cannot exceed 52 MB/s. If the capacity of a dedicated block storage cluster is greater than 576 TiB, the maximum throughput per TiB cannot exceed 26 MB/s.
+    // > When the capacity of the dedicated block storage cluster is less than 576 TiB, the maximum throughput per TiB does not exceed 52 MB/s. When the capacity of the dedicated block storage cluster is greater than 576 TiB, the maximum throughput per TiB does not exceed 26 MB/s.
     // 
     // This parameter is required.
     shared_ptr<int64_t> capacity_ {};
@@ -188,26 +188,26 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> dbscName_ {};
-    // The subscription duration of the dedicated block storage cluster. Valid values: 6, 7, 8, 9, 10, 11, 12, 24, and 36.
+    // The subscription duration of the instance. Valid values: 6, 7, 8, 9, 10, 11, 12, 24, and 36.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration specified by `Period`. Set the value to Month.
+    // The unit of the subscription duration specified by the `Period` parameter. Only Month is supported.
     shared_ptr<string> periodUnit_ {};
-    // The ID of the region in which to create the dedicated block storage cluster. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID of the dedicated block storage cluster. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which to assign the dedicated block storage cluster.
+    // The ID of the resource group to which the dedicated block storage cluster belongs.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags to add to the dedicated block storage cluster. You can specify up to 20 tags.
+    // The list of tags. A maximum of 20 tags can be specified.
     shared_ptr<vector<CreateDedicatedBlockStorageClusterRequest::Tag>> tag_ {};
-    // The type of the dedicated block storage cluster. Valid values:
+    // The performance type of the dedicated block storage cluster. Valid values:
     // 
-    // *   Standard: basic dedicated block storage cluster. Enterprise SSDs (ESSDs) at performance level 0 (PL0 ESSDs) can be created in basic dedicated block storage clusters.
-    // *   Premium: performance dedicated block storage cluster. ESSDs at performance level 1 (PL1 ESSDs) can be created in performance dedicated block storage clusters.
+    // - Standard: basic. You can create PL0 ESSDs in this type of dedicated block storage cluster.
+    // - Premium: performance. You can create PL1 ESSDs in this type of dedicated block storage cluster.
     // 
     // Default value: Premium.
     // 
-    // For more information about ESSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
+    // For more information about standard SSDs, see [ESSDs](https://help.aliyun.com/document_detail/122389.html).
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

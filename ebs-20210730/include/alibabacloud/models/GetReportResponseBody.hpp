@@ -95,9 +95,9 @@ namespace Models
 
 
       protected:
-        // Data Points.
+        // The data points.
         Darabonba::Json dataPoints_ {};
-        // Data Labels.
+        // The data labels.
         Darabonba::Json labels_ {};
       };
 
@@ -120,9 +120,9 @@ namespace Models
 
 
     protected:
-      // Data.
+      // The data.
       shared_ptr<vector<Datas::Data>> data_ {};
-      // Data Title.
+      // The data title.
       shared_ptr<string> title_ {};
     };
 
@@ -145,9 +145,9 @@ namespace Models
 
 
   protected:
-    // Data Details.
+    // The data details.
     shared_ptr<vector<GetReportResponseBody::Datas>> datas_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

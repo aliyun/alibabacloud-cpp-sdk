@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The app ID.
     shared_ptr<string> appId_ {};
+    // The app name.
     shared_ptr<string> appName_ {};
+    // The status code. A value of 200 indicates success.
     shared_ptr<string> code_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic message. This parameter is not in use. Ignore this parameter.
     shared_ptr<string> dynamicMessage_ {};
+    // The error code description.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The additional information. If the request is successful, "success" is returned. If the request fails, a specific error code is returned.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the app was created successfully. Valid values: true: The app was created successfully. false: The app failed to be created.
     shared_ptr<bool> success_ {};
+    // The status code.
     shared_ptr<string> userCode_ {};
   };
 

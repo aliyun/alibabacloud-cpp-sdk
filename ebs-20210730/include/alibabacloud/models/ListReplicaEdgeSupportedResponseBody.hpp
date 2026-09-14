@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // Indicates whether replication time control is supported.
         shared_ptr<bool> supportRtc_ {};
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -118,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The set of zone information.
       shared_ptr<vector<SupportedRegions::Zones>> zones_ {};
     };
 
@@ -155,9 +159,17 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries to return on each page.
+    // 
+    // Valid values: 1 to 500.
+    // 
+    // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The token that is used to start the next query. If NextToken is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The set of region information.
     shared_ptr<vector<ListReplicaEdgeSupportedResponseBody::SupportedRegions>> supportedRegions_ {};
   };
 

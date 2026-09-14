@@ -66,13 +66,16 @@ namespace Models
 
 
   protected:
-    // Optional, AppName only takes effect when ReportType=present.
+    // Optional. This parameter takes effect only when ReportType is set to present.
     shared_ptr<string> appName_ {};
-    // Region name.
+    // The region ID. This parameter is required.
     shared_ptr<string> regionId_ {};
-    // When ReportType=history, ReportId is required to query historical reports based on ReportId.
+    // When ReportType is set to history, this parameter is required. The system queries the historical report based on the specified ReportId.
     shared_ptr<string> reportId_ {};
-    // Optional values: history/present.
+    // Valid values:
+    // 
+    // - history
+    // - present
     shared_ptr<string> reportType_ {};
   };
 

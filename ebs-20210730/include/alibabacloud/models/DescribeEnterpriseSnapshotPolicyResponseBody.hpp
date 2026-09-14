@@ -127,9 +127,9 @@ namespace Models
 
 
       protected:
-        // The key of the tag of the enterprise-level snapshot policy.
+        // The tag key of the resource.
         shared_ptr<string> tagKey_ {};
-        // The value of the tag of the enterprise-level snapshot policy.
+        // The tag value of the resource.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -161,7 +161,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the instant access feature is enabled.
+        // Indicates whether instant access is enabled for snapshots.
         shared_ptr<bool> enableImmediateAccess_ {};
       };
 
@@ -233,11 +233,11 @@ namespace Models
 
 
         protected:
-          // The unit of the special retention period.
+          // The special period unit.
           shared_ptr<string> specialPeriodUnit_ {};
-          // The value of the retention period.
+          // The time interval of the retention rule. The unit is specified by the TimeUnit parameter. The value must be greater than 1.
           shared_ptr<int32_t> timeInterval_ {};
-          // The unit of the retention period.
+          // The retention time unit.
           shared_ptr<string> timeUnit_ {};
         };
 
@@ -260,7 +260,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether the special retention period is enabled.
+        // Indicates whether special retention is enabled.
         shared_ptr<bool> enabled_ {};
         // The special retention rules.
         shared_ptr<vector<SpecialRetainRules::Rules>> rules_ {};
@@ -294,7 +294,7 @@ namespace Models
 
 
       protected:
-        // The cron expression of the enterprise-level snapshot policy.
+        // The cron expression.
         shared_ptr<string> cronExpression_ {};
       };
 
@@ -345,11 +345,11 @@ namespace Models
 
 
       protected:
-        // The maximum number of snapshots that can be retained.
+        // The retention count.
         shared_ptr<int32_t> number_ {};
-        // The value of the retention period of snapshots.
+        // The time interval of the retention rule. The unit is specified by the TimeUnit parameter. The value must be greater than 1.
         shared_ptr<int32_t> timeInterval_ {};
-        // The unit of the retention period of snapshots.
+        // The retention time unit.
         shared_ptr<string> timeUnit_ {};
       };
 
@@ -412,9 +412,9 @@ namespace Models
 
 
         protected:
-          // The ID of the destination region.
+          // The snapshot copy destination region.
           shared_ptr<string> regionId_ {};
-          // The retention period of snapshot copies in the destination region. Unit: day.
+          // The number of days to retain snapshots at the destination region.
           shared_ptr<int32_t> retainDays_ {};
         };
 
@@ -437,9 +437,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether the cross-region replication feature is enabled.
+        // Indicates whether cross-region copy is enabled.
         shared_ptr<bool> enabled_ {};
-        // The destination regions that store snapshot copies.
+        // The destination region information.
         shared_ptr<vector<CrossRegionCopyInfo::Regions>> regions_ {};
       };
 
@@ -574,37 +574,42 @@ namespace Models
 
 
     protected:
-      // The time when the enterprise-level snapshot policy was created.
+      // The creation time in UTC ISO 8601 format.
       shared_ptr<string> createTime_ {};
-      // The replication rule of snapshots in the enterprise-level snapshot policy.
+      // The snapshot cross-region copy information.
       shared_ptr<Policies::CrossRegionCopyInfo> crossRegionCopyInfo_ {};
-      // The description of the enterprise-level snapshot policy.
+      // The snapshot policy description.
       shared_ptr<string> desc_ {};
-      // The disks that are associated with the snapshot policy.
+      // The list of bound cloud disk IDs.
       shared_ptr<vector<string>> diskIds_ {};
-      // Indicates whether snapshots are managed.
+      // The snapshot managed status.
       shared_ptr<bool> managedForEcs_ {};
-      // The name of the enterprise-level snapshot policy.
+      // The snapshot policy name.
       shared_ptr<string> name_ {};
-      // The ID of the enterprise-level snapshot policy.
+      // The snapshot policy ID.
       shared_ptr<string> policyId_ {};
       // the resource group
       shared_ptr<string> resourceGroupId_ {};
-      // The retention rule of the enterprise-level snapshot policy.
+      // The snapshot policy retention rule.
       shared_ptr<Policies::RetainRule> retainRule_ {};
-      // The scheduling rule of the enterprise-level snapshot policy.
+      // The snapshot policy schedule rule.
       shared_ptr<Policies::Schedule> schedule_ {};
-      // The special retention rules of the enterprise-level snapshot policy.
+      // The special retention rules for the snapshot policy.
       shared_ptr<Policies::SpecialRetainRules> specialRetainRules_ {};
-      // The status of the enterprise-level snapshot policy.
+      // The status. Valid values:
+      // 
+      // - DISABLED
+      // - ENABLED
       shared_ptr<string> state_ {};
-      // The storage rule of snapshots in the enterprise-level snapshot policy.
+      // The snapshot policy storage rule.
       shared_ptr<Policies::StorageRule> storageRule_ {};
       // the pair tags
       shared_ptr<vector<Policies::Tags>> tags_ {};
-      // The number of objects that are associated with the enterprise-level snapshot policy.
+      // The number of bound targets.
       shared_ptr<int32_t> targetCount_ {};
-      // The type of the enterprise-level snapshot policy.
+      // The type. Valid values:
+      // 
+      // - DISK
       shared_ptr<string> targetType_ {};
     };
 
@@ -655,17 +660,17 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token (Token) returned for the next query.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number for paged queries.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for paged queries.
     shared_ptr<int32_t> pageSize_ {};
-    // The returned snapshot policies.
+    // The list of policies.
     shared_ptr<vector<DescribeEnterpriseSnapshotPolicyResponseBody::Policies>> policies_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

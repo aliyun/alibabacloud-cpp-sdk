@@ -137,9 +137,9 @@ namespace Models
 
 
       protected:
-        // The tag key of the replication pair-consistent group.
+        // The key of the tag of the replication group.
         shared_ptr<string> tagKey_ {};
-        // The tag value of the replication pair-consistent group.
+        // The value of the tag of the replication group.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -300,69 +300,93 @@ namespace Models
 
 
     protected:
-      // The bandwidth value. Unit: Kbit/s. This parameter is not publicly available and has a system-preset value.
+      // The bandwidth. Unit: Kbit/s. This parameter is not yet available. The return value is preset by the system.
       shared_ptr<int64_t> bandwidth_ {};
       // The description of the replication pair-consistent group.
       shared_ptr<string> description_ {};
-      // The ID of the region in which the secondary site is deployed.
+      // The region ID of the disaster recovery site.
       shared_ptr<string> destinationRegionId_ {};
-      // The ID of the zone in which the secondary site is deployed.
+      // The zone ID of the disaster recovery site.
       shared_ptr<string> destinationZoneId_ {};
-      // Indicates whether to enable replication time control.
+      // Specifies whether to enable replication time control (RTC). Valid values:
+      // 
+      // - false: Disables RTC.
+      // 
+      // - true: Enables RTC.
+      // 
+      // > If you set this parameter to true, RTC is enabled for the replication pair-consistent group and all asynchronous replication pairs that are added to the group.
       shared_ptr<bool> enableRtc_ {};
       // The name of the replication pair-consistent group.
       shared_ptr<string> groupName_ {};
-      // The time when data was last replicated from the primary disks to the secondary disks in the replication pair-consistent group. The value of this parameter is a timestamp. Unit: seconds.
+      // The time when the last asynchronous replication was completed for the replication pair-consistent group. This parameter is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> lastRecoverPoint_ {};
-      // The IDs of replication pairs that belong to the replication pair-consistent group.
+      // The list of replication pair IDs in the replication pair-consistent group.
       shared_ptr<vector<Darabonba::Bytes>> pairIds_ {};
-      // The number of replication pairs that belong to the replication pair-consistent group.
+      // The number of replication pairs in the replication pair-consistent group.
       shared_ptr<int64_t> pairNumber_ {};
-      // The initial source region (primary region) of the replication pair-consistent group.
+      // The initial source region of the replication group.
       shared_ptr<string> primaryRegion_ {};
-      // The initial source zone (primary zone) of the replication pair-consistent group.
+      // The initial source zone of the replication group.
       shared_ptr<string> primaryZone_ {};
       // The recovery point objective (RPO) of the replication pair-consistent group. Unit: seconds.
       shared_ptr<int64_t> RPO_ {};
-      // The IDs of the replication pair-consistent groups.
+      // The ID of the replication pair-consistent group.
       shared_ptr<string> replicaGroupId_ {};
-      // The ID of the resource group to which the replication pair-consistent group belongs.
+      // The ID of the resource group to which the replication group belongs.
       shared_ptr<string> resourceGroupId_ {};
-      // The type of the site from which the information about the replication pairs and replication pair-consistent group was obtained. Valid values:
+      // The site of the replication pair and the replication pair-consistent group. Valid values:
       // 
-      // *   production: primary site
-      // *   backup: secondary site
+      // - production: The production site.
+      // 
+      // - backup: The disaster recovery site.
       shared_ptr<string> site_ {};
-      // The ID of the region in which the primary site is deployed.
+      // The region ID of the production site.
       shared_ptr<string> sourceRegionId_ {};
-      // The ID of the zone in which the primary site is deployed.
+      // The zone ID of the production site.
       shared_ptr<string> sourceZoneId_ {};
-      // The initial destination region (secondary region) of the replication pair-consistent group.
+      // The initial destination region of the replication group.
       shared_ptr<string> standbyRegion_ {};
-      // The initial destination zone (secondary zone) of the replication pair-consistent group.
+      // The initial destination zone of the replication group.
       shared_ptr<string> standbyZone_ {};
       // The status of the replication pair-consistent group. Valid values:
       // 
-      // *   invalid: The replication pair-consistent group is invalid, which indicates that abnormal replication pairs are present in the replication pair-consistent group.
-      // *   creating: The replication pair-consistent group is being created.
-      // *   created: The replication pair-consistent group was created.
-      // *   create_failed: The replication pair-consistent group failed to be created.
-      // *   manual_syncing: Data was being manually synchronized between the disks in the replication pair-consistent group. When data was being manually synchronized for the first time, the replication pair is in this state.
-      // *   syncing: Data was being synchronized between the disks. When data is being asynchronously replicated from the primary disk to the secondary disk again in subsequent operations, the replication pair is in this state.
-      // *   normal: The replication pair was working as expected. When the system finishes replicating data from the primary disk to the secondary disk within the current replication cycle, the replication pair enters this state.
-      // *   stopping: The replication pair was being stopped.
-      // *   stopped: The replication pair was stopped.
-      // *   stop_failed: The replication pair failed to be stopped.
-      // *   failovering: A failover was being performed.
-      // *   failovered: A failover was performed.
-      // *   failover_failed: A failover failed to be performed.
-      // *   reprotecting: A reverse replication was being performed.
-      // *   reprotect_failed: A reverse replication failed to be performed.
-      // *   deleting: The replication pair was being deleted.
-      // *   delete_failed: The replication pair failed to be deleted.
-      // *   deleted: The replication pair was deleted.
+      // - invalid: The replication pair-consistent group is invalid. This status indicates that a replication pair in the group is abnormal.
+      // 
+      // - creating: The replication pair-consistent group is being created.
+      // 
+      // - created: The replication pair-consistent group is created.
+      // 
+      // - create_failed: The replication pair-consistent group failed to be created.
+      // 
+      // - manual_syncing: The replication pair-consistent group is performing a one-time synchronization. The group is also in this state during the first one-time synchronization.
+      // 
+      // - syncing: The replication pair-consistent group is synchronizing data. The group is in this state when data is asynchronously replicated from the primary disk to the secondary disk for a subsequent time.
+      // 
+      // - normal: Normal. When data replication is complete in the current asynchronous replication cycle, the group is in this state.
+      // 
+      // - stopping: The replication pair-consistent group is being stopped.
+      // 
+      // - stopped: The replication pair-consistent group is stopped.
+      // 
+      // - stop_failed: The replication pair-consistent group failed to be stopped.
+      // 
+      // - failovering: A failover is being performed.
+      // 
+      // - failovered: The failover is complete.
+      // 
+      // - failover_failed: The failover failed.
+      // 
+      // - reprotecting: A reverse replication is being performed.
+      // 
+      // - reprotect_failed: The reverse replication failed.
+      // 
+      // - deleting: The replication pair-consistent group is being deleted.
+      // 
+      // - delete_failed: The replication pair-consistent group failed to be deleted.
+      // 
+      // - deleted: The replication pair-consistent group is deleted.
       shared_ptr<string> status_ {};
-      // The tags of the replication pair-consistent group.
+      // The tags of the replication group.
       shared_ptr<vector<ReplicaGroups::Tags>> tags_ {};
     };
 
@@ -413,7 +437,7 @@ namespace Models
 
 
   protected:
-    // A pagination token.
+    // The query token returned in this call.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};

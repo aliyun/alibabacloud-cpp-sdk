@@ -166,66 +166,64 @@ namespace Models
 
 
     protected:
-      // The description of the event.
+      // The event description.
       shared_ptr<string> description_ {};
-      // The end time of the event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+      // The end time of the event. This value is a timestamp in milliseconds.
       shared_ptr<string> endTime_ {};
-      // The level of the event. Valid values:
+      // The event level. Valid values:
       // 
-      // 1.  INFO
-      // 2.  WARN
-      // 3.  CRITICAL
+      // 1. INFO
+      // 2. WARN
+      // 3. CRITICAL
       shared_ptr<string> eventLevel_ {};
-      // The name of the event. Valid values:
+      // The event name. Valid values:
       // 
-      // *   NoSnapshot: indicates the event that is triggered because no snapshot is created for a disk to protect data on the disk.
-      // *   BurstIOTriggered: indicates the event that is triggered when a burst I/O operation is performed on a disk.
-      // *   CostOptimizationNeeded: indicates the event that is triggered when cost optimization is required.
-      // *   DiskSpecNotMatchedWithInstance: indicates the event that is triggered because the specifications of a disk do not match the instance to which the disk is attached.
-      // *   DiskIONo4kAligned: indicates the event that is triggered because the physical and logical sectors involved in a read or write operation are not 4K aligned.
-      // *   DiskIOHang: indicates the event that is triggered when an I/O hang occurs on a disk.
-      // *   InstanceIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on an instance reaches the upper limit.
-      // *   InstanceBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on an instance reaches the upper limit.
-      // *   DiskIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the associated instance.
-      // *   DiskBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the associated instance.
-      // *   DiskIOPSExceedDiskMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the disk.
-      // *   DiskBPSExceedDiskMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the disk.
+      // - NoSnapshot: data protection
+      // - BurstIOTriggered: burst I/O
+      // - CostOptimizationNeeded: cost optimization
+      // - DiskSpecNotMatchedWithInstance: instance and disk specification mismatch
+      // - DiskIONo4kAligned: non-4K aligned read/write
+      // - DiskIOHang: disk IOHang occurred
+      // - InstanceIOPSExceedInstanceMaxLimit: instance IOPS reached the upper limit
+      // - InstanceBPSExceedInstanceMaxLimit: instance BPS reached the upper limit
+      // - DiskIOPSExceedInstanceMaxLimit: disk IOPS reached the instance upper limit
+      // - DiskBPSExceedInstanceMaxLimit: disk BPS reached the instance upper limit
+      // - DiskIOPSExceedDiskMaxLimit: disk IOPS reached the disk upper limit
+      // - DiskBPSExceedDiskMaxLimit: disk BPS reached the disk upper limit
       shared_ptr<string> eventName_ {};
-      // The type of the event. Valid values:
-      // 
-      // 1.  Notification
-      // 2.  SystemException
-      // 3.  Alert
+      // The event type. Valid values:
+      // 1. Notification
+      // 2. SystemException
+      // 3. Alert
       shared_ptr<string> eventType_ {};
-      // Extra attributes of event, possible fields are:
+      // The additional properties. Possible fields:
       // 
-      // - EcsInstanceId: ECS instance ID where the cloud disk is mounted;
-      // - Adapter: cloud disk mount point.
+      // - EcsInstanceId: the ID of the ECS instance to which the cloud disk is attached.
+      // - Adapter: the mount point of the cloud disk.
       shared_ptr<string> extraAttributes_ {};
-      // The recommended action after the event occurred. Valid values:
+      // The recommended action after the event occurs. Valid values:
       // 
-      // *   ModifyDiskSpec
-      // *   CreateSnapshot
-      // *   ResizeDisk
-      // *   AdjustProvision
-      // *   ModifyInstanceSpec
+      // - ModifyDiskSpec: change disk specifications
+      // - CreateSnapshot: create a snapshot
+      // - ResizeDisk: expand disk capacity
+      // - AdjustProvision: adjust provisioned performance
+      // - ModifyInstanceSpec: change instance specifications
       shared_ptr<string> recommendAction_ {};
-      // The codes of the parameters for the recommended action after the event occurred.
+      // The parameters for the recommended action after the event occurs.
       shared_ptr<string> recommendParams_ {};
-      // The ID of the resource.
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The type of the resource.
+      // The resource type.
       shared_ptr<string> resourceType_ {};
-      // The start time of the event, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC.
+      // The start time of the event. This value is a timestamp in milliseconds.
       shared_ptr<string> startTime_ {};
-      // The status of the event. Valid values:
-      // 
-      // 1.  WillExecute
-      // 2.  Executing
-      // 3.  Executed
-      // 4.  Ignore
-      // 5.  Expired
-      // 6.  Deleted
+      // The event status. Valid values:
+      // 1. WillExecute: pending
+      // 2. Executing: processing
+      // 3. Executed: processed
+      // 4. Ignore: ignored
+      // 5. Expired: expired
+      // 6. Deleted: deleted
       shared_ptr<string> status_ {};
     };
 
@@ -262,13 +260,13 @@ namespace Models
 
 
   protected:
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The token for the next query. If NextToken is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The events.
+    // The list of events.
     shared_ptr<vector<DescribeEventsResponseBody::ResourceEvents>> resourceEvents_ {};
-    // The total number of entries returned.
+    // The total number of entries returned for the paged query.
     shared_ptr<int32_t> totalCount_ {};
   };
 

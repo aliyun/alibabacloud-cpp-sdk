@@ -130,34 +130,34 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // Ensures the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. The ClientToken value supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // Snapshot replication destination information.
+    // The cross-region copy destination information.
     shared_ptr<string> crossRegionCopyInfoShrink_ {};
-    // The description of the policy.
+    // The description of the snapshot policy.
     shared_ptr<string> desc_ {};
-    // The name of the policy.
+    // The ID of the policy to modify.
     shared_ptr<string> name_ {};
-    // The id of the policy.
+    // The snapshot policy ID.
     // 
     // This parameter is required.
     shared_ptr<string> policyId_ {};
-    // The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Snapshot retention rule.
+    // The retention rule.
     shared_ptr<string> retainRuleShrink_ {};
-    // The rule for scheduling.
+    // The schedule rule.
     shared_ptr<string> scheduleShrink_ {};
-    // The special snapshot retention rules.
+    // The special retention rules.
     shared_ptr<string> specialRetainRulesShrink_ {};
-    // The status of the policy. Valid values:
+    // The status of the snapshot policy. Valid values:
     // 
-    // *   **ENABLED**: Enable snapshot policy execution.
-    // *   **DISABLED**: Disable snapshot policy execution.
+    // - ENABLED
+    // - DISABLED
     shared_ptr<string> state_ {};
-    // Advanced snapshot features.
+    // The advanced snapshot feature.
     shared_ptr<string> storageRuleShrink_ {};
   };
 

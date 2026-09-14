@@ -57,23 +57,25 @@ namespace Models
 
 
   protected:
-    // The language in which the regions and zones are named. This parameter corresponds to the `LocalName` response parameter. Valid values:
+    // The language type for region and zone names. This parameter determines the value of `LocalName` in the response. Valid values:
     // 
-    // *   zh-CN: Chinese
-    // *   en-US: English
-    // *   ja: Japanese
+    // - zh-CN: Chinese.
+    // - en-US: English.
+    // - ja: Japanese.
     // 
     // Default value: zh-CN.
     shared_ptr<string> acceptLanguage_ {};
-    // The ID of the region.
+    // The region ID of the user access endpoint.
     shared_ptr<string> regionId_ {};
-    // The type of resource. Valid values:
+    // The resource type. Valid values:
     // 
-    // *   ear: async replication
-    // *   lens: CloudLens for EBS
-    // *   dbsc: Dedicated Block Storage Cluster
+    // - ear: asynchronous replication.
     // 
-    // Default value: ear.
+    // - lens: EBS Lens.
+    // 
+    // - dbsc: dedicated block storage cluster.
+    // 
+    // If you do not specify a resource type, region information for all resource types is returned.
     shared_ptr<string> resourceType_ {};
   };
 

@@ -92,15 +92,11 @@ namespace Models
 
 
     protected:
-      // The key of the tag.
+      // The tag key of the resource.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The tag value.
-      // 
-      // The tag value can be 0 to 128 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
-      // 
-      // Each tag key must have a unique tag value. You can specify at most 20 tag values in each call.
+      // The tag value of the resource.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -134,10 +130,9 @@ namespace Models
 
 
     protected:
-      // Whether to enable the rapid availability of snapshots. The range of values:
+      // Specifies whether to enable instant access for snapshots. Valid values:
       // 
       // - true
-      // 
       // - false
       shared_ptr<bool> enableImmediateAccess_ {};
     };
@@ -210,17 +205,17 @@ namespace Models
 
 
       protected:
-        // The periodic unit for specially retained snapshots. If configured to WEEKS, it provides special retention for the first snapshot of each week. The retention period is determined by TimeUnit and TimeInterval. The range of values are:
+        // The period unit for specially retained snapshots. For example, if this parameter is set to WEEKS, the first snapshot of each week is specially retained. The retention duration is determined by TimeUnit and TimeInterval. Valid values:
+        // 
         // - WEEKS
         // - MONTHS
         // - YEARS
         shared_ptr<string> specialPeriodUnit_ {};
-        // Retention Time Value. The range of values is greater than 1.
+        // The time interval of the retention rule. The unit is specified by the TimeUnit parameter. The value must be greater than 1.
         shared_ptr<int32_t> timeInterval_ {};
-        // Retention time unit for special snapshots. The range of values:
+        // The unit of the retention time for special snapshots. Valid values:
         // 
         // - DAYS
-        // 
         // - WEEKS
         shared_ptr<string> timeUnit_ {};
       };
@@ -244,12 +239,12 @@ namespace Models
 
 
     protected:
-      // Indicates whether the special retention is enabled.
+      // Specifies whether to enable special retention. Valid values:
       // 
-      // *   true: enable
-      // *   false: disable
+      // - true
+      // - false
       shared_ptr<bool> enabled_ {};
-      // The special retention rules.
+      // The list of special retention rules.
       shared_ptr<vector<SpecialRetainRules::Rules>> rules_ {};
     };
 
@@ -281,9 +276,9 @@ namespace Models
 
 
     protected:
-      // The time when the policy will to be scheduled. Valid values: Set the parameter in a cron expression.
+      // The cycle and time at which the policy is executed. Specify the value in a cron expression.
       // 
-      // For example, you can use 0 0 4 1/1 * ? to specify 04:00:00 (UTC+8) on the first day of each month.
+      // For example, `0 0 4 1/1 * ?` specifies that the snapshot operation is performed at 4:00 AM every day, starting from the first day of each month.
       // 
       // This parameter is required.
       shared_ptr<string> cronExpression_ {};
@@ -336,14 +331,13 @@ namespace Models
 
 
     protected:
-      // Maximum number of retained snapshots.
+      // The number of snapshots to retain. Valid values: 1 to 256.
       shared_ptr<int32_t> number_ {};
-      // The time interval , valid value greater than 1.
+      // The time interval of the retention rule. The unit is specified by the TimeUnit parameter. The value must be greater than 1.
       shared_ptr<int32_t> timeInterval_ {};
-      // The unit of time, valid values:
+      // The unit of the retention time. Valid values:
       // 
       // - DAYS
-      // 
       // - WEEKS
       shared_ptr<string> timeUnit_ {};
     };
@@ -407,9 +401,9 @@ namespace Models
 
 
       protected:
-        // The region ID of the destination. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+        // The ID of the destination region for snapshot replication. You can invoke [DescribeDiskReplicaPairs](https://help.aliyun.com/document_detail/354206.html) to query the region information of existing asynchronous replication relationships.
         shared_ptr<string> regionId_ {};
-        // Number of days to retain the destination snapshot. The range of values is greater than 1.
+        // The number of days to retain snapshots in the destination region. The value must be greater than 1.
         shared_ptr<int32_t> retainDays_ {};
       };
 
@@ -432,13 +426,12 @@ namespace Models
 
 
     protected:
-      // Whether cross-region replication is enabled. The range of values:
+      // Specifies whether to enable cross-region replication. Valid values:
       // 
       // - true
-      // 
       // - false
       shared_ptr<bool> enabled_ {};
-      // The list of destination regions.
+      // The destination region information.
       shared_ptr<vector<CrossRegionCopyInfo::Regions>> regions_ {};
     };
 
@@ -550,43 +543,42 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // Ensures the idempotence of the request. Generate a parameter value from your client that is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // Snapshot replication destination information.
+    // The snapshot replication information.
     shared_ptr<CreateEnterpriseSnapshotPolicyRequest::CrossRegionCopyInfo> crossRegionCopyInfo_ {};
-    // The description of the policy.
+    // The description.
     shared_ptr<string> desc_ {};
-    // The name of the policy.
+    // The Policy Name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions in which snapshot policy is supported.
+    // The region ID. You can call DescribeRegions to query the regions that support asynchronous replication.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which to assign the snapshot policy.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The snapshot retention rule.
+    // The retention rule.
     // 
     // This parameter is required.
     shared_ptr<CreateEnterpriseSnapshotPolicyRequest::RetainRule> retainRule_ {};
-    // The rule for scheduling.
+    // The schedule rule.
     // 
     // This parameter is required.
     shared_ptr<CreateEnterpriseSnapshotPolicyRequest::Schedule> schedule_ {};
-    // The special snapshot retention rules.
+    // The special retention rules.
     shared_ptr<CreateEnterpriseSnapshotPolicyRequest::SpecialRetainRules> specialRetainRules_ {};
-    // The status of the policy. Valid values:
+    // The status. Valid values:
     // 
-    // - ENABLED: Enable snapshot policy execution.
-    // 
-    // - DISABLED: Disable snapshot policy execution.
+    // - DISABLED
+    // - ENABLED
     shared_ptr<string> state_ {};
-    // Advanced snapshot features.
+    // The advanced snapshot feature.
     shared_ptr<CreateEnterpriseSnapshotPolicyRequest::StorageRule> storageRule_ {};
-    // The list of tags.
+    // The tag key-value pairs. Valid values of n: 1 to 20.
     shared_ptr<vector<CreateEnterpriseSnapshotPolicyRequest::Tag>> tag_ {};
-    // Binding target type, valid value:
+    // The type. Valid values:
     // 
     // - DISK
     // 

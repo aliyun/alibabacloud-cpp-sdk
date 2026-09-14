@@ -50,11 +50,13 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The state of CloudLens for EBS. Valid values:
+    // The status of EBS Lens. Valid values:
     // 
-    // *   Applying
-    // *   UnAvailable
-    // *   Available
+    // - Applying: The service is being applied for.
+    // 
+    // - UnAvailable: The service is unavailable.
+    // 
+    // - Available: The service is available.
     shared_ptr<string> status_ {};
   };
 

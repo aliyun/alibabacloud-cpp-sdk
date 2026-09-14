@@ -127,7 +127,9 @@ namespace Models
 
 
       protected:
+        // The tag key.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -222,17 +224,32 @@ namespace Models
 
 
     protected:
+      // The application ID.
       shared_ptr<string> appId_ {};
+      // The application name. This parameter takes effect only when ReportType is set to present.
       shared_ptr<string> appName_ {};
+      // The tags contained in the user application.
       shared_ptr<vector<AppInfos::AppTags>> appTags_ {};
+      // The default time zone.
       shared_ptr<bool> default_ {};
+      // The event description.
       shared_ptr<string> description_ {};
+      // Indicates whether delivery to EventBridge is enabled.
       shared_ptr<bool> eventBridgeSendEnabled_ {};
+      // The modification time in UTC.
       shared_ptr<int64_t> modifyTime_ {};
+      // Indicates whether delivery to CloudMonitor is enabled.
       shared_ptr<bool> monitorSendEnabled_ {};
+      // Indicates whether report sending is enabled.
       shared_ptr<bool> reportSendEnabled_ {};
+      // Indicates whether delivery to Simple Log Service (SLS) is enabled.
       shared_ptr<bool> slsSendEnabled_ {};
+      // The report subscription period.
       shared_ptr<string> subscribePeriod_ {};
+      // The subscription status. Valid values:
+      // 
+      // - Subscribe: subscribed.
+      // - UnSubscribe: not subscribed.
       shared_ptr<string> subscribeStatus_ {};
     };
 
@@ -312,15 +329,25 @@ namespace Models
 
 
   protected:
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
+    // The application information.
     shared_ptr<vector<DescribeAppsResponseBody::AppInfos>> appInfos_ {};
+    // The internal error code.
     shared_ptr<string> code_ {};
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
+    // The dynamic error message, which is used to replace the %s variable in the ErrMessage error message.
     shared_ptr<string> dynamicMessage_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
+    // The user error code.
     shared_ptr<string> userCode_ {};
   };
 

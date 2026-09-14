@@ -94,13 +94,25 @@ namespace Models
 
 
   protected:
+    // A client-generated token to ensure request idempotency. This lets you safely retry the request without creating a duplicate diagnostic report. The token can contain a maximum of 64 ASCII characters.
     shared_ptr<string> clientToken_ {};
+    // The diagnosis type. The only valid value is:
+    // 
+    // - Performance: performance diagnosis
+    // 
     // This parameter is required.
     shared_ptr<string> diagnoseType_ {};
+    // The end time for the diagnosis, in UTC. The time must be in the ISO 8601 format (yyyy-MM-ddTHH:mm:ssZ).
     shared_ptr<string> endTime_ {};
+    // The region ID. Call the [DescribeRegions](https://help.aliyun.com/zh/ecs/developer-reference/api-ebs-2021-07-30-describeregions?spm=a2c4g.11186623.0.i7) operation to find all regions supported by EBS Data Insight.
     shared_ptr<string> regionId_ {};
+    // The resource ID.
     shared_ptr<string> resourceId_ {};
+    // The resource type. The only valid value is:
+    // 
+    // - Disk: a cloud disk
     shared_ptr<string> resourceType_ {};
+    // The start time for the diagnosis, in UTC. The time must be in the ISO 8601 format (yyyy-MM-ddTHH:mm:ssZ).
     shared_ptr<string> startTime_ {};
   };
 

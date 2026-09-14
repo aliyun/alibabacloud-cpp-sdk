@@ -176,9 +176,9 @@ namespace Models
 
 
         protected:
-          // The tag key of the cloud disk.
+          // The tag key.
           shared_ptr<string> tagKey_ {};
-          // The tag value of the cloud disk.
+          // The tag value.
           shared_ptr<string> tagValue_ {};
         };
 
@@ -431,110 +431,122 @@ namespace Models
 
 
       protected:
-        // The time when the cloud disk was last attached. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
+        // The time when the cloud disk was last attached. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
         shared_ptr<string> attachedTime_ {};
-        // This parameter is currently in invitational preview and unavailable for general users.
+        // This parameter is in invitational preview and is not publicly available.
         shared_ptr<string> bdfId_ {};
-        // Whether the ESSD AutoPL disk is enabled burst IOPS / BPS. This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html).
+        // Indicates whether the burst (performance burst) feature is enabled. Valid values:
+        // 
+        // - true: Enabled.
+        // - false: Disabled.
+        // 
+        // This parameter is supported only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
         shared_ptr<bool> burstingEnabled_ {};
-        // The category of the disk. A value of cloud_essd indicates that the disk is an ESSD.
+        // The category of the cloud disk or local disk is cloud_essd, which indicates an ESSD.
         shared_ptr<string> category_ {};
-        // Indicates whether the automatic snapshots of the cloud disk are deleted when the disk is released. Valid values:
+        // Indicates whether automatic snapshots are deleted when the cloud disk is released. Valid values:
         // 
-        // *   true: The automatic snapshots of the cloud disk are deleted when the disk is released.
-        // *   false: The automatic snapshots of the cloud disk are retained when the disk is released.
+        // - true: Automatic snapshots are deleted when the cloud disk is released.
+        // - false: Automatic snapshots are retained when the cloud disk is released.
         // 
-        // Snapshots that are created by calling the [CreateSnapshot](https://help.aliyun.com/document_detail/25524.html) operation or by using the Elastic Compute Service (ECS) console are retained and not affected by this parameter.
+        // Snapshots created by calling [CreateSnapshot](https://help.aliyun.com/document_detail/25524.html) or by using the console are not affected by this parameter and are always retained.
         shared_ptr<bool> deleteAutoSnapshot_ {};
-        // Indicates whether the cloud disk is released when its associated instance is released. Valid values:
+        // Indicates whether the cloud disk is released when the instance is released. Valid values:
         // 
-        // *   true: The cloud disk is released when its associated instance is released.
-        // *   false: The cloud disk is retained when its associated instance is released.
+        // - true: The cloud disk is released when the instance is released.
+        // - false: The cloud disk is retained when the instance is released.
         shared_ptr<bool> deleteWithInstance_ {};
-        // The description of the cloud disk.
+        // The cloud disk description.
         shared_ptr<string> description_ {};
         // The time when the cloud disk was last detached.
         shared_ptr<string> detachedTime_ {};
-        // The device name of the cloud disk on its associated instance. Example: /dev/xvdb. Take note of the following items:
+        // The device name of the instance to which the cloud disk is attached, such as /dev/xvdb. Note the following items:
         // 
-        // *   This parameter has a value only when the `Status` value is `In_use`.
-        // *   This parameter is empty for cloud disks that have the multi-attach feature enabled. You can query the attachment information of the cloud disk based on the `Attachment` values.
+        // - This parameter has a value only when the `Status` parameter is set to `In_use`. This parameter is empty in other states.
         // 
-        // >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+        // - For cloud disks with the multi-attach feature enabled, this value is always empty. You can view all attachment information of the cloud disk from the returned `Attachment` list.
+        // 
+        // > This parameter will be deprecated. To ensure code compatibility, do not use this parameter.
         shared_ptr<string> device_ {};
         // The billing method of the cloud disk. Valid values:
         // 
-        // *   PrePaid: subscription
-        // *   PostPaid: pay-as-you-go
+        // - PrePaid: subscription.
+        // - PostPaid: pay-as-you-go.
         shared_ptr<string> diskChargeType_ {};
-        // The ID of the cloud disk.
+        // The cloud disk ID.
         shared_ptr<string> diskId_ {};
-        // The name of the cloud disk.
+        // The cloud disk name.
         shared_ptr<string> diskName_ {};
         // Indicates whether the automatic snapshot policy feature is enabled for the cloud disk.
+        // 
+        // >This parameter is deprecated. After a cloud disk is created, the automatic snapshot policy feature is enabled by default. You only need to associate an automatic snapshot policy with the cloud disk.
         shared_ptr<bool> enableAutoSnapshot_ {};
         // Indicates whether the cloud disk is encrypted.
         shared_ptr<bool> encrypted_ {};
-        // The maximum number of IOPS.
+        // The maximum number of read/write (I/O) operations per second. Unit: operations/s.
         shared_ptr<int64_t> IOPS_ {};
-        // The ID of the image that was used to create the instance. This parameter is empty unless the cloud disk was created from an image. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
+        // The ID of the image used to create the ECS instance. This parameter has a value only for cloud disks created from an image. Otherwise, this value is empty. This value remains unchanged throughout the lifecycle of the cloud disk.
         shared_ptr<string> imageId_ {};
-        // The ID of the instance to which the cloud disk is attached. Take note of the following items:
+        // The instance ID of the instance to which the cloud disk is mounted. Note the following items:
         // 
-        // *   This parameter has a value only when the `Status` value is `In_use`.
-        // *   This parameter is empty for cloud disks that have the multi-attach feature enabled. You can query the attachment information of the cloud disk based on the `Attachment` values.
+        // - This parameter has a value only when the `Status` parameter is set to `In_use`. This parameter is empty in other states.
+        // 
+        // - For cloud disks with the multi-attach attribute enabled, this value is always empty. You can view all mount information of the cloud disk from the returned `Attachment` list.
         shared_ptr<string> instanceId_ {};
-        // The ID of the Key Management Service (KMS) key used by the cloud disk.
+        // The KMS key ID used by the cloud disk.
         shared_ptr<string> KMSKeyId_ {};
-        // The number of instances to which the Shared Block Storage device is attached.
+        // The number of instances to which the shared storage is attached.
         shared_ptr<int32_t> mountInstanceNum_ {};
-        // Indicates whether the multi-attach feature was enabled for the cloud disk.
+        // Indicates whether the multi-attach feature is enabled for the cloud disk.
         shared_ptr<string> multiAttach_ {};
-        // The performance level of the enhanced SSD (ESSD). Valid values:
+        // The performance level of the ESSD. Valid values:
         // 
-        // *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-        // *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-        // *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-        // *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+        // - PL0: a maximum of 10,000 random read/write IOPS per cloud disk.
+        // - PL1: a maximum of 50,000 random read/write IOPS per cloud disk.
+        // - PL2: a maximum of 100,000 random read/write IOPS per cloud disk.
+        // - PL3: a maximum of 1,000,000 random read/write IOPS per cloud disk.
         shared_ptr<string> performanceLevel_ {};
         // Indicates whether the cloud disk is removable.
         shared_ptr<bool> portable_ {};
-        // The provisioned read/write IOPS of the ESSD AutoPL disk. 
-        // >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](https://help.aliyun.com/document_detail/368372.html) and [Modify the performance configurations of an ESSD AutoPL disk](https://help.aliyun.com/document_detail/413275.html).
+        // The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50000, 1000 × Capacity - Baseline performance}.
+        // 
+        // Baseline performance = min{1,800 + 50 × Capacity, 50,000}.
+        // 
+        // This parameter is supported only when `DiskCategory` is set to `cloud_auto`. For more information, see [ESSD AutoPL cloud disks](https://help.aliyun.com/document_detail/368372.html).
         shared_ptr<int64_t> provisionedIops_ {};
-        // The region ID of cloud disk.
+        // The region ID of the cloud disk.
         shared_ptr<string> regionId_ {};
-        // The size of the disk. Unit: GiB.
+        // The cloud disk size. Unit: GiB.
         shared_ptr<int32_t> size_ {};
-        // The ID of the snapshot that was used to create the cloud disk.
+        // The ID of the snapshot used to create the cloud disk.
         // 
-        // This parameter is empty unless the cloud disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
+        // If no snapshot was specified when the cloud disk was created, this value is empty. This value remains unchanged throughout the lifecycle of the cloud disk.
         shared_ptr<string> sourceSnapshotId_ {};
-        // The state of the cloud disk. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html). Valid values:
+        // The cloud disk status. For more information, see [Cloud disk status](https://help.aliyun.com/document_detail/25689.html). Valid values:
         // 
-        // *   In_use
-        // *   Available
-        // *   Attaching
-        // *   Detaching
-        // *   Creating
-        // *   ReIniting
+        // -   In_use.
+        // -   Available.
+        // -   Attaching.
+        // -   Detaching.
+        // -   Creating.
+        // -   ReIniting.
         shared_ptr<string> status_ {};
-        // The ID of the dedicated block storage cluster to which the cloud disk belongs. If your cloud disk belongs to the public block storage cluster, an empty value is returned.
+        // The ID of the dedicated block storage cluster to which the cloud disk belongs. If the cloud disk belongs to a public cloud block storage cluster, this value is empty.
         shared_ptr<string> storageClusterId_ {};
-        // The ID of the storage set.
+        // The storage set ID.
         shared_ptr<string> storageSetId_ {};
         // The maximum number of partitions in the storage set.
         shared_ptr<int32_t> storageSetPartitionNumber_ {};
         // The tags of the cloud disk.
         shared_ptr<vector<Disk::Tags>> tags_ {};
-        // The maximum number of BPS.
+        // The amount of data that can be transferred per unit of time. Unit: MB/s.
         shared_ptr<int64_t> throughput_ {};
-        // The type of the disk. Valid values:
+        // The type of the cloud disk. Valid values:
         // 
-        // *   system: system disk
-        // *   data: data disk
+        // - system: system cloud disk.
+        // - data: data cloud disk.
         shared_ptr<string> type_ {};
-        // The zone ID of cloud disk.
+        // The zone ID of the cloud disk.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -549,7 +561,7 @@ namespace Models
 
 
     protected:
-      // Details about the cloud disks.
+      // The collection of cloud disk information.
       shared_ptr<vector<Disks::Disk>> disk_ {};
     };
 
@@ -579,11 +591,11 @@ namespace Models
 
 
   protected:
-    // Details about the cloud disks.
+    // The collection of cloud disk information.
     shared_ptr<DescribeDedicatedBlockStorageClusterDisksResponseBody::Disks> disks_ {};
-    // The query token returned in this call.
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

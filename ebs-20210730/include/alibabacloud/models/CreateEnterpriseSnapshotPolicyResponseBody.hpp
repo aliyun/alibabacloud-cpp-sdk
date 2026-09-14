@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The id of a policy.
+    // The snapshot policy ID.
     shared_ptr<string> policyId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

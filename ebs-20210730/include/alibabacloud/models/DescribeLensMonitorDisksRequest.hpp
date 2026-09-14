@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DiskCategory, diskCategory_);
       DARABONBA_PTR_TO_JSON(DiskIdPattern, diskIdPattern_);
       DARABONBA_PTR_TO_JSON(DiskIds, diskIds_);
+      DARABONBA_PTR_TO_JSON(EcsInstanceId, ecsInstanceId_);
       DARABONBA_PTR_TO_JSON(LensTags, lensTags_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DiskCategory, diskCategory_);
       DARABONBA_PTR_FROM_JSON(DiskIdPattern, diskIdPattern_);
       DARABONBA_PTR_FROM_JSON(DiskIds, diskIds_);
+      DARABONBA_PTR_FROM_JSON(EcsInstanceId, ecsInstanceId_);
       DARABONBA_PTR_FROM_JSON(LensTags, lensTags_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
@@ -43,8 +45,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->diskCategory_ == nullptr
-        && this->diskIdPattern_ == nullptr && this->diskIds_ == nullptr && this->lensTags_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->diskIdPattern_ == nullptr && this->diskIds_ == nullptr && this->ecsInstanceId_ == nullptr && this->lensTags_ == nullptr && this->maxResults_ == nullptr
+        && this->nextToken_ == nullptr && this->regionId_ == nullptr; };
     // diskCategory Field Functions 
     bool hasDiskCategory() const { return this->diskCategory_ != nullptr;};
     void deleteDiskCategory() { this->diskCategory_ = nullptr;};
@@ -66,6 +68,13 @@ namespace Models
     inline vector<string> getDiskIds() { DARABONBA_PTR_GET(diskIds_, vector<string>) };
     inline DescribeLensMonitorDisksRequest& setDiskIds(const vector<string> & diskIds) { DARABONBA_PTR_SET_VALUE(diskIds_, diskIds) };
     inline DescribeLensMonitorDisksRequest& setDiskIds(vector<string> && diskIds) { DARABONBA_PTR_SET_RVALUE(diskIds_, diskIds) };
+
+
+    // ecsInstanceId Field Functions 
+    bool hasEcsInstanceId() const { return this->ecsInstanceId_ != nullptr;};
+    void deleteEcsInstanceId() { this->ecsInstanceId_ = nullptr;};
+    inline string getEcsInstanceId() const { DARABONBA_PTR_GET_DEFAULT(ecsInstanceId_, "") };
+    inline DescribeLensMonitorDisksRequest& setEcsInstanceId(string ecsInstanceId) { DARABONBA_PTR_SET_VALUE(ecsInstanceId_, ecsInstanceId) };
 
 
     // lensTags Field Functions 
@@ -99,40 +108,45 @@ namespace Models
 
 
   protected:
-    // The type of the disk. Valid values:
-    // - cloud
-    // - cloud_efficiency
-    // - cloud_ssd
-    // - cloud_essd
-    // - cloud_auto
-    // - cloud_essd_entry
+    // The cloud disk type. Valid values:
+    // 
+    // - cloud: basic cloud disk.
+    // - cloud_efficiency: ultra cloud disk.
+    // - cloud_ssd: standard SSD.
+    // - cloud_essd: Enterprise SSD (ESSD).
+    // - cloud_auto: ESSD AutoPL cloud disk.
+    // - cloud_essd_entry: ESSD Entry disk.
     shared_ptr<string> diskCategory_ {};
-    // Regular matching fuzzy query to filter cloud disk IDs.
+    // The regular expression pattern used for fuzzy match filtering of cloud disk IDs.
     shared_ptr<string> diskIdPattern_ {};
-    // The list of disks.
+    // The list of cloud disk IDs.
     shared_ptr<vector<string>> diskIds_ {};
-    // Event tags of the disk, which are used to filter the disks on which the events associated with the specified tags occurred in the previous 24 hours. Valid values:
-    // 
-    // *   NoSnapshot: specifies the event that is triggered because no snapshot is created for the disk to protect data on the disk.
-    // *   BurstIOTriggered: specifies the event that is triggered when a burst I/O operation is performed on the disk.
-    // *   CostOptimizationNeeded: specifies the event that is triggered when cost optimization is required.
-    // *   DiskSpecNotMatchedWithInstance: specifies the event that is triggered if the disk specifications do not match the instance to which the disk is attached.
-    // *   DiskIONo4kAligned: specifies the event that is triggered if the physical and logical sectors involved in a read or write operation are not 4K aligned.
-    // *   DiskIOHang: specifies the event that is triggered when an I/O hang occurs on the disk.
-    // *   InstanceIOPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of IOPS on the instance reaches the upper limit.
-    // *   InstanceBPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of BPS on the instance reaches the upper limit.
-    // *   DiskIOPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of IOPS on the disk reaches the upper limit of the instance.
-    // *   DiskBPSExceedInstanceMaxLimit: specifies the event that is triggered when the number of BPS on the disk reaches the upper limit of the instance.
-    // *   DiskIOPSExceedDiskMaxLimit: specifies the event that is triggered when the number of IOPS on the disk reaches the upper limit of the disk.
-    // *   DiskBPSExceedDiskMaxLimit: specifies the event that is triggered when the number of BPS on the disk reaches the upper limit of the disk.
+    // The ECS instance ID.
+    shared_ptr<string> ecsInstanceId_ {};
+    // The list of cloud disk event tags, used to filter cloud disks that have experienced these event types within the last 24 hours. Valid values:
+    // - NoSnapshot: data protection
+    // - BurstIOTriggered: burst I/O
+    // - CostOptimizationNeeded: cost optimization
+    // - DiskSpecNotMatchedWithInstance: instance and cloud disk specifications do not match
+    // - DiskIONo4kAligned: non-4K aligned read/write
+    // - DiskIOHang: I/O hang occurred on the cloud disk
+    // - InstanceIOPSExceedInstanceMaxLimit: instance IOPS reached the upper limit
+    // - InstanceBPSExceedInstanceMaxLimit: instance BPS reached the upper limit
+    // - DiskIOPSExceedInstanceMaxLimit: cloud disk IOPS reached the instance upper limit
+    // - DiskBPSExceedInstanceMaxLimit: cloud disk BPS reached the instance upper limit
+    // - DiskIOPSExceedDiskMaxLimit: cloud disk IOPS reached the disk upper limit
+    // - DiskBPSExceedDiskMaxLimit: cloud disk BPS reached the disk upper limit
     shared_ptr<vector<string>> lensTags_ {};
-    // The number of entries to return on each page. Valid values: 1 to 100. Default value: 10.
-    shared_ptr<int32_t> maxResults_ {};
-    // The token used to start the next query to retrieve more results.
+    // The maximum number of entries per page for a paged query. Maximum value: 100.
+    // Default value:
     // 
-    // >The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+    // - The default value is 10.
+    // 
+    // - If the specified value is greater than 100, the default value of 100 is used.
+    shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The region ID.
+    // The region ID. You can call DescribeRegions to query the list of regions supported by EBS Lens.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

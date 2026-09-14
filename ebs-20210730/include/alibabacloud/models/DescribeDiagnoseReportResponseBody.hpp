@@ -153,11 +153,40 @@ namespace Models
 
 
       protected:
+        // The event description.
         shared_ptr<string> description_ {};
+        // The issue name. Valid values:
+        // 
+        // - NoSnapshot: data protection
+        // - BurstIOTriggered: I/O burst
+        // - CostOptimizationNeeded: cost optimization
+        // - DiskSpecNotMatchedWithInstance: instance and cloud disk specification mismatch
+        // - DiskIONo4kAligned: non-4K-aligned read/write
+        // - DiskIOHang: IOHang occurred on the cloud disk
+        // - InstanceIOPSExceedInstanceMaxLimit: instance IOPS reached the upper limit
+        // - InstanceBPSExceedInstanceMaxLimit: instance BPS reached the upper limit
+        // - DiskIOPSExceedInstanceMaxLimit: cloud disk IOPS reached the instance upper limit
+        // - DiskBPSExceedInstanceMaxLimit: cloud disk BPS reached the instance upper limit
+        // - DiskIOPSExceedDiskMaxLimit: cloud disk IOPS reached the cloud disk upper limit
+        // - DiskBPSExceedDiskMaxLimit: cloud disk BPS reached the cloud disk upper limit
         shared_ptr<string> eventName_ {};
+        // The recommended action after the event occurs. Valid values:
+        // 
+        // - ModifyDiskSpec: change cloud disk specifications
+        // - CreateSnapshot: create a snapshot
+        // - ResizeDisk: expand the cloud disk
+        // - AdjustProvision: adjust provisioned performance
+        // - ModifyInstanceSpec: change instance specifications
         shared_ptr<string> recommendAction_ {};
+        // The parameters for the recommended action after the event occurs.
         shared_ptr<string> recommendParams_ {};
+        // The severity level of the diagnosed issue. The severity levels in ascending order are:
+        // 
+        // - Info: Associated information that may be related to an anomaly.
+        // - Warn: Associated information that may cause an anomaly.
+        // - Critical: A critical anomaly exists.
         shared_ptr<string> severity_ {};
+        // The start timestamp of the event, in milliseconds.
         shared_ptr<int64_t> startTime_ {};
       };
 
@@ -259,18 +288,43 @@ namespace Models
 
 
     protected:
+      // The user ID.
       shared_ptr<int64_t> aliUid_ {};
+      // The time when the diagnostic report was created, in Unix/POSIX timestamp (seconds).
       shared_ptr<int64_t> creationTime_ {};
+      // The end timestamp of the resource diagnosis.
       shared_ptr<int64_t> diagnoseEndTime_ {};
+      // The start timestamp of the resource diagnosis.
       shared_ptr<int64_t> diagnoseStartTime_ {};
+      // The type of diagnosis.
       shared_ptr<string> diagnoseType_ {};
+      // The list of diagnosed issues.
       shared_ptr<vector<Reports::Events>> events_ {};
+      // The time when the diagnostic report was completed, in Unix/POSIX timestamp (seconds).
       shared_ptr<int64_t> finishedTime_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The diagnostic report ID.
       shared_ptr<string> reportId_ {};
+      // The resource ID.
       shared_ptr<string> resourceId_ {};
+      // The resource type. Valid values:
+      // 
+      // - Disk
       shared_ptr<string> resourceType_ {};
+      // The severity level of the diagnosis. The severity levels in ascending order are:
+      // 
+      // - Info: Associated information that may be related to an anomaly.
+      // - Warn: Associated information that may cause an anomaly.
+      // - Critical: A critical anomaly exists.
       shared_ptr<string> severity_ {};
+      // The status of the diagnostic report. Valid values:
+      // - Running
+      // - Success
+      // - TimeOut
+      // - Fail
+      // 
+      // The Severity and Events fields are valid only when Status is set to Success.
       shared_ptr<string> status_ {};
     };
 
@@ -307,9 +361,13 @@ namespace Models
 
 
   protected:
+    // The pagination token returned in this call.
     shared_ptr<string> nextToken_ {};
+    // The list of diagnostic reports.
     shared_ptr<vector<DescribeDiagnoseReportResponseBody::Reports>> reports_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

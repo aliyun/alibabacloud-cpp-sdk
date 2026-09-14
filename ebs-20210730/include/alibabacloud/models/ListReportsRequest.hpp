@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     shared_ptr<string> appId_ {};
-    // Maximum number of items for Token-based pagination.
+    // The maximum number of entries to return when using token-based pagination.
     shared_ptr<int32_t> maxResults_ {};
-    // Query token (Token), the value is the NextToken parameter value returned from the previous API call.
+    // The pagination token. Set this parameter to the value of NextToken returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // Page number for paginated queries.
+    // The page number in paged queries.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of rows per page when performing paginated queries.
+    // The number of entries per page set in Settings for a paged query during paging.
     shared_ptr<int32_t> pageSize_ {};
-    // Region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) to query the list of regions supported by Block Storage Data Insights.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) to query the regions supported by EBS Lens.
     shared_ptr<string> regionId_ {};
   };
 

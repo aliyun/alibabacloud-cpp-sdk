@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // List of monitoring data, consisting of a series of consecutive second-level timestamps and the corresponding metric values at those times.
+      // A list of monitoring data. The list contains a series of consecutive second-level timestamps and the corresponding metric values.
       Darabonba::Json datapoints_ {};
-      // Labels.
+      // The labels.
       Darabonba::Json labels_ {};
     };
 
@@ -119,13 +119,13 @@ namespace Models
 
 
   protected:
-    // Collection of monitoring data for the cloud disk.
+    // A collection of monitoring data for the disk.
     shared_ptr<vector<DescribeMetricDataResponseBody::DataList>> dataList_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of data points queried.
+    // The total number of data entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // List of warning messages.
+    // A list of warning messages.
     shared_ptr<vector<string>> warnings_ {};
   };
 

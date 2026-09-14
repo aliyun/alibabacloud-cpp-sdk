@@ -86,11 +86,11 @@ namespace Models
 
 
     protected:
-      // The key of tag N of the enterprise-level snapshot policy.
+      // The tag key of the resource.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The value of tag N of the enterprise-level snapshot policy.
+      // The tag value of the resource.
       // 
       // This parameter is required.
       shared_ptr<string> value_ {};
@@ -176,27 +176,31 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request.
+    // Ensures the idempotence of the request. The value is generated from your client and must be unique among different requests. ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The IDs of disks.
+    // The list of cloud disk IDs.
     shared_ptr<vector<string>> diskIds_ {};
-    // The maximum number of entries per page.
+    // The maximum number of entries to return in this call. You can use this parameter together with NextToken.
+    // 
+    // Valid values: 1 to 500.
+    // 
+    // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken. If you specify NextToken, the PageSize and PageNumber request parameters do not take effect, and the TotalCount response parameter is invalid.
+    // The pagination token (Token). Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request. If NextToken is specified, the PageSize and PageNumber request parameters do not take effect, and the TotalCount value in the response is invalid.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number in a paging query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paging query. Valid values: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The IDs of enterprise-level snapshot policies.
+    // The list of snapshot policy IDs.
     shared_ptr<vector<string>> policyIds_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags of the enterprise-level snapshot policies. Valid values of N: 1 to 20.
+    // The tag key-value pairs. Valid values of N: 1 to 20.
     shared_ptr<vector<DescribeEnterpriseSnapshotPolicyRequest::Tag>> tag_ {};
   };
 

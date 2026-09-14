@@ -121,59 +121,54 @@ namespace Models
 
 
   protected:
-    // The end of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The end time of the event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> endTime_ {};
-    // The severity level of the event. Valid values:
-    // 
-    // *   **INFO**
-    // *   **WARN**
-    // *   **CRITICAL**
+    // The event level. Valid values:
+    // - **INFO**: Notification.
+    // - **WARN**: Warning.
+    // - **CRITICAL**: Critical.
     shared_ptr<string> eventLevel_ {};
-    // The name of the event. Valid values:
+    // The event name. Valid values:
     // 
-    // *   NoSnapshot: indicates the event that is triggered because no snapshot is created for a disk to protect data on the disk.
-    // *   BurstIOTriggered: indicates the event that is triggered when a burst I/O operation is performed on a disk.
-    // *   CostOptimizationNeeded: indicates the event that is triggered when cost optimization is required.
-    // *   DiskSpecNotMatchedWithInstance: indicates the event that is triggered because the specifications of a disk do not match the instance to which the disk is attached.
-    // *   DiskIONo4kAligned: indicates the event that is triggered because the physical and logical sectors involved in a read or write operation are not 4K aligned.
-    // *   DiskIOHang: indicates the event that is triggered when an I/O hang occurs on a disk.
-    // *   InstanceIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on an instance reaches the upper limit.
-    // *   InstanceBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on an instance reaches the upper limit.
-    // *   DiskIOPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the associated instance.
-    // *   DiskBPSExceedInstanceMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the associated instance.
-    // *   DiskIOPSExceedDiskMaxLimit: indicates the event that is triggered when the number of IOPS on a disk reaches the upper limit for the disk.
-    // *   DiskBPSExceedDiskMaxLimit: indicates the event that is triggered when the number of BPS on a disk reaches the upper limit for the disk.
+    // - NoSnapshot: data protection
+    // - BurstIOTriggered: burst I/O
+    // - CostOptimizationNeeded: cost optimization
+    // - DiskSpecNotMatchedWithInstance: instance and disk specification mismatch
+    // - DiskIONo4kAligned: non-4K aligned read/write
+    // - DiskIOHang: disk IOHang occurred
+    // - InstanceIOPSExceedInstanceMaxLimit: instance IOPS reached the upper limit
+    // - InstanceBPSExceedInstanceMaxLimit: instance BPS reached the upper limit
+    // - DiskIOPSExceedInstanceMaxLimit: disk IOPS reached the instance upper limit
+    // - DiskBPSExceedInstanceMaxLimit: disk BPS reached the instance upper limit
+    // - DiskIOPSExceedDiskMaxLimit: disk IOPS reached the disk upper limit
+    // - DiskBPSExceedDiskMaxLimit: disk BPS reached the disk upper limit
     shared_ptr<string> eventName_ {};
-    // The number of entries to return on each page. If you specify MaxResults, `MaxResults` and `NextToken` are used for a paged query.
+    // The maximum number of entries per page for a paged query. If you specify this parameter, the `MaxResults` and `NextToken` parameters are used together for the query.
     // 
     // Valid values: 1 to 100.
     // 
-    // Default value: 10
+    // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
-    // The region ID . You can call the [DescribeRegions](https://help.aliyun.com/document_detail/354276.html) operation to query the most recent list of regions supported.
+    // The region ID. You can call DescribeRegions to query the list of regions supported by EBS Lens.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     // The resource ID.
     shared_ptr<string> resourceId_ {};
-    // The type of resource. Valid values:
-    // 
-    // *   disk.
-    // 
-    // Default value: disk.
+    // The resource type. Valid values:
+    // - disk: cloud disk
     shared_ptr<string> resourceType_ {};
-    // The beginning of the time range to query. Specify the time in the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+    // The start time of the event. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
     shared_ptr<string> startTime_ {};
-    // The status of event. Valid values:
-    // 
-    // - WillExecute
-    // - Executing
-    // - Executed
-    // - Ignore
-    // - Expired
-    // - Deleted
+    // The event status. Valid values:
+    // - WillExecute: pending 
+    // - Executing: processing
+    // - Executed: processed
+    // - Ignore: ignored
+    // - Expired: expired
+    // - Deleted: deleted
     shared_ptr<string> status_ {};
   };
 

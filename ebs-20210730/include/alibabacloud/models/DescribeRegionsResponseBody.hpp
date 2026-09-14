@@ -106,11 +106,11 @@ namespace Models
 
 
       protected:
-        // The name of the zone.
+        // The zone name.
         shared_ptr<string> localName_ {};
-        // The type of resource list.
+        // The list of resource types.
         shared_ptr<vector<string>> resourceTypes_ {};
-        // The ID of the zone.
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -147,13 +147,13 @@ namespace Models
 
 
     protected:
-      // The name of the region.
+      // The region name.
       shared_ptr<string> localName_ {};
       // The endpoint of the region.
       shared_ptr<string> regionEndpoint_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Details about the zones.
+      // The collection of zone information.
       shared_ptr<vector<Regions::Zones>> zones_ {};
     };
 
@@ -176,9 +176,9 @@ namespace Models
 
 
   protected:
-    // Details about the regions.
+    // The collection of region and zone information.
     shared_ptr<vector<DescribeRegionsResponseBody::Regions>> regions_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

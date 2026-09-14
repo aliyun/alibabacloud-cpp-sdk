@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The ID of the replication pair-consistent group.
     shared_ptr<string> replicaGroupId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
