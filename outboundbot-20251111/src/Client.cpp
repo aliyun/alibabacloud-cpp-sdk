@@ -18,9 +18,6 @@ namespace OutboundBot20251111
 
 AlibabaCloud::OutboundBot20251111::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shanghai" , "outboundbot.cn-shanghai.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("outboundbot", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -39,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Stops an outbound call campaign.
+ * @summary Terminates an outbound call campaign.
  *
  * @description ****
  *
@@ -76,7 +73,7 @@ AbortCampaignResponse Client::abortCampaignWithOptions(const AbortCampaignReques
 }
 
 /**
- * @summary Stops an outbound call campaign.
+ * @summary Terminates an outbound call campaign.
  *
  * @description ****
  *
@@ -211,7 +208,7 @@ AppendCasesResponse Client::appendCases(const AppendCasesRequest &request) {
 }
 
 /**
- * @summary Creates an outbound call task.
+ * @summary Creates an outbound call campaign.
  *
  * @description ****
  *
@@ -328,7 +325,7 @@ CreateCampaignResponse Client::createCampaignWithOptions(const CreateCampaignReq
 }
 
 /**
- * @summary Creates an outbound call task.
+ * @summary Creates an outbound call campaign.
  *
  * @description ****
  *
@@ -1272,6 +1269,52 @@ GetInstanceResponse Client::getInstanceWithOptions(const GetInstanceRequest &req
 GetInstanceResponse Client::getInstance(const GetInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves a call recording.
+ *
+ * @param request GetRecordingRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetRecordingResponse
+ */
+GetRecordingResponse Client::getRecordingWithOptions(const GetRecordingRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasInstanceId()) {
+    body["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasSessionId()) {
+    body["SessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "GetRecording"},
+    {"version" , "2025-11-11"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetRecordingResponse>();
+}
+
+/**
+ * @summary Retrieves a call recording.
+ *
+ * @param request GetRecordingRequest
+ * @return GetRecordingResponse
+ */
+GetRecordingResponse Client::getRecording(const GetRecordingRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getRecordingWithOptions(request, runtime);
 }
 
 /**

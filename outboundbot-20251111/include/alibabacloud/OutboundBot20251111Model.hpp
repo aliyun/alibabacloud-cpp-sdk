@@ -76,6 +76,9 @@
 #include <alibabacloud/models/GetInstanceRequest.hpp>
 #include <alibabacloud/models/GetInstanceResponseBody.hpp>
 #include <alibabacloud/models/GetInstanceResponse.hpp>
+#include <alibabacloud/models/GetRecordingRequest.hpp>
+#include <alibabacloud/models/GetRecordingResponseBody.hpp>
+#include <alibabacloud/models/GetRecordingResponse.hpp>
 #include <alibabacloud/models/GetScriptProfileTemplateRequest.hpp>
 #include <alibabacloud/models/GetScriptProfileTemplateResponseBody.hpp>
 #include <alibabacloud/models/GetScriptProfileTemplateResponse.hpp>

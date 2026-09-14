@@ -21,7 +21,7 @@ namespace OutboundBot20251111
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Stops an outbound call campaign.
+       * @summary Terminates an outbound call campaign.
        *
        * @description ****
        *
@@ -32,7 +32,7 @@ namespace OutboundBot20251111
       Models::AbortCampaignResponse abortCampaignWithOptions(const Models::AbortCampaignRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Stops an outbound call campaign.
+       * @summary Terminates an outbound call campaign.
        *
        * @description ****
        *
@@ -84,7 +84,7 @@ namespace OutboundBot20251111
       Models::AppendCasesResponse appendCases(const Models::AppendCasesRequest &request);
 
       /**
-       * @summary Creates an outbound call task.
+       * @summary Creates an outbound call campaign.
        *
        * @description ****
        *
@@ -95,7 +95,7 @@ namespace OutboundBot20251111
       Models::CreateCampaignResponse createCampaignWithOptions(const Models::CreateCampaignRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an outbound call task.
+       * @summary Creates an outbound call campaign.
        *
        * @description ****
        *
@@ -417,6 +417,23 @@ namespace OutboundBot20251111
        * @return GetInstanceResponse
        */
       Models::GetInstanceResponse getInstance(const Models::GetInstanceRequest &request);
+
+      /**
+       * @summary Retrieves a call recording.
+       *
+       * @param request GetRecordingRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetRecordingResponse
+       */
+      Models::GetRecordingResponse getRecordingWithOptions(const Models::GetRecordingRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves a call recording.
+       *
+       * @param request GetRecordingRequest
+       * @return GetRecordingResponse
+       */
+      Models::GetRecordingResponse getRecording(const Models::GetRecordingRequest &request);
 
       /**
        * @summary Retrieves a prompt scenario template.

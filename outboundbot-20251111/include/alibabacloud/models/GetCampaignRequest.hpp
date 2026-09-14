@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> campaignId_ {};
-    // The outbound instance ID.
+    // The instance ID of the outbound robot.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

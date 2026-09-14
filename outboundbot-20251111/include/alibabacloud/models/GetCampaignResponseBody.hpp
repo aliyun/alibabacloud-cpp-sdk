@@ -290,7 +290,7 @@ namespace Models
       shared_ptr<int32_t> maxAttemptCount_ {};
       // The minimum retry interval.
       shared_ptr<int32_t> minAttemptInterval_ {};
-      // The campaign name.
+      // The name of the campaign.
       shared_ptr<string> name_ {};
       // The list of caller numbers.
       shared_ptr<vector<string>> numbers_ {};
@@ -302,13 +302,13 @@ namespace Models
       shared_ptr<bool> runUntilEndTime_ {};
       // The scenario ID.
       shared_ptr<string> scriptId_ {};
-      // The campaign state.
+      // The state of the campaign.
       shared_ptr<string> state_ {};
       // The total number of cases.
       shared_ptr<int32_t> totalCases_ {};
       // The time when the campaign was last updated.
       shared_ptr<int64_t> updatedTime_ {};
-      // The campaign weight.
+      // The weight of the campaign.
       shared_ptr<int32_t> weight_ {};
     };
 
