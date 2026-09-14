@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the Ray cluster.
+    // The Ray cluster ID.
     shared_ptr<string> clusterId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

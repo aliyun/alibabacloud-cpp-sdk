@@ -69,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(sparkConfigs, sparkConfigs_);
           DARABONBA_PTR_TO_JSON(startTime, startTime_);
           DARABONBA_PTR_TO_JSON(state, state_);
+          DARABONBA_PTR_TO_JSON(webUi, webUi_);
         };
         friend void from_json(const Darabonba::Json& j, KyuubiServices& obj) { 
           DARABONBA_PTR_FROM_JSON(computeInstance, computeInstance_);
@@ -86,6 +87,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(sparkConfigs, sparkConfigs_);
           DARABONBA_PTR_FROM_JSON(startTime, startTime_);
           DARABONBA_PTR_FROM_JSON(state, state_);
+          DARABONBA_PTR_FROM_JSON(webUi, webUi_);
         };
         KyuubiServices() = default ;
         KyuubiServices(const KyuubiServices &) = default ;
@@ -101,7 +103,7 @@ namespace Models
         virtual bool empty() const override { return this->computeInstance_ == nullptr
         && this->createTime_ == nullptr && this->creator_ == nullptr && this->innerEndpoint_ == nullptr && this->kyuubiConfigs_ == nullptr && this->kyuubiReleaseVersion_ == nullptr
         && this->kyuubiServiceId_ == nullptr && this->name_ == nullptr && this->publicEndpoint_ == nullptr && this->queue_ == nullptr && this->releaseVersion_ == nullptr
-        && this->replica_ == nullptr && this->sparkConfigs_ == nullptr && this->startTime_ == nullptr && this->state_ == nullptr; };
+        && this->replica_ == nullptr && this->sparkConfigs_ == nullptr && this->startTime_ == nullptr && this->state_ == nullptr && this->webUi_ == nullptr; };
         // computeInstance Field Functions 
         bool hasComputeInstance() const { return this->computeInstance_ != nullptr;};
         void deleteComputeInstance() { this->computeInstance_ = nullptr;};
@@ -207,37 +209,46 @@ namespace Models
         inline KyuubiServices& setState(string state) { DARABONBA_PTR_SET_VALUE(state_, state) };
 
 
+        // webUi Field Functions 
+        bool hasWebUi() const { return this->webUi_ != nullptr;};
+        void deleteWebUi() { this->webUi_ = nullptr;};
+        inline string getWebUi() const { DARABONBA_PTR_GET_DEFAULT(webUi_, "") };
+        inline KyuubiServices& setWebUi(string webUi) { DARABONBA_PTR_SET_VALUE(webUi_, webUi) };
+
+
       protected:
-        // The instance type of the Kyuubi server.
+        // The KyuubiServer instance type.
         shared_ptr<string> computeInstance_ {};
-        // The time when the server was created.
+        // The creation time.
         shared_ptr<string> createTime_ {};
-        // The UID of the user who created the server.
+        // The UID of the user who created the KyuubiServer.
         shared_ptr<string> creator_ {};
-        // The internal endpoint.
+        // The internal network endpoint.
         shared_ptr<string> innerEndpoint_ {};
-        // The Kyuubi server configurations.
+        // The KyuubiServer configurations.
         shared_ptr<string> kyuubiConfigs_ {};
-        // The version of the Kyuubi server.
+        // The KyuubiServer version.
         shared_ptr<string> kyuubiReleaseVersion_ {};
-        // The Kyuubi server ID.
+        // KyuubiServer ID。
         shared_ptr<string> kyuubiServiceId_ {};
-        // The name of the Kyuubi server.
+        // The KyuubiServer name.
         shared_ptr<string> name_ {};
-        // The public endpoint.
+        // The public domain name.
         shared_ptr<string> publicEndpoint_ {};
         // The queue name.
         shared_ptr<string> queue_ {};
-        // The version number of the Spark engine.
+        // The Spark DPI engine database engine version number.
         shared_ptr<string> releaseVersion_ {};
-        // The number of replicas for the Kyuubi server.
+        // The number of KyuubiServer replicas.
         shared_ptr<int32_t> replica_ {};
-        // The default configurations for Spark applications launched by the Kyuubi server.
+        // The default configurations for Spark applications started by KyuubiServer.
         shared_ptr<string> sparkConfigs_ {};
-        // The time when the Kyuubi server was last started.
+        // The most recent start time of KyuubiServer.
         shared_ptr<string> startTime_ {};
-        // The status of the Kyuubi server.
+        // The KyuubiServer status.
         shared_ptr<string> state_ {};
+        // The WebUI of the Kyuubi Gateway.
+        shared_ptr<string> webUi_ {};
       };
 
       virtual bool empty() const override { return this->kyuubiServices_ == nullptr; };
@@ -251,7 +262,7 @@ namespace Models
 
 
     protected:
-      // A list of Kyuubi servers.
+      // The list of KyuubiServer instances.
       shared_ptr<vector<Data::KyuubiServices>> kyuubiServices_ {};
     };
 
@@ -274,7 +285,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<ListKyuubiServicesResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -96,7 +96,7 @@ namespace Models
 
 
   protected:
-    // The return code from the backend.
+    // The return code of the API request backend.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     Darabonba::Json data_ {};
@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<bool> failed_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The detailed description of the return code.
+    // The detailed description corresponding to the request code.
     shared_ptr<string> msg_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

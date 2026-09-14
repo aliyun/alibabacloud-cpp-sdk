@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(action, action_);
       DARABONBA_PTR_TO_JSON(comments, comments_);
       DARABONBA_PTR_TO_JSON(email, email_);
+      DARABONBA_PTR_TO_JSON(expectedParallelismNumber, expectedParallelismNumber_);
       DARABONBA_PTR_TO_JSON(interval, interval_);
       DARABONBA_PTR_TO_JSON(isProd, isProd_);
       DARABONBA_PTR_TO_JSON(processDefinitionCode, processDefinitionCode_);
       DARABONBA_PTR_TO_JSON(productNamespace, productNamespace_);
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
+      DARABONBA_PTR_TO_JSON(runMode, runMode_);
       DARABONBA_PTR_TO_JSON(runtimeQueue, runtimeQueue_);
       DARABONBA_PTR_TO_JSON(versionHashCode, versionHashCode_);
       DARABONBA_PTR_TO_JSON(versionNumber, versionNumber_);
@@ -29,11 +31,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(action, action_);
       DARABONBA_PTR_FROM_JSON(comments, comments_);
       DARABONBA_PTR_FROM_JSON(email, email_);
+      DARABONBA_PTR_FROM_JSON(expectedParallelismNumber, expectedParallelismNumber_);
       DARABONBA_PTR_FROM_JSON(interval, interval_);
       DARABONBA_PTR_FROM_JSON(isProd, isProd_);
       DARABONBA_PTR_FROM_JSON(processDefinitionCode, processDefinitionCode_);
       DARABONBA_PTR_FROM_JSON(productNamespace, productNamespace_);
       DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(runMode, runMode_);
       DARABONBA_PTR_FROM_JSON(runtimeQueue, runtimeQueue_);
       DARABONBA_PTR_FROM_JSON(versionHashCode, versionHashCode_);
       DARABONBA_PTR_FROM_JSON(versionNumber, versionNumber_);
@@ -50,8 +54,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->action_ == nullptr
-        && this->comments_ == nullptr && this->email_ == nullptr && this->interval_ == nullptr && this->isProd_ == nullptr && this->processDefinitionCode_ == nullptr
-        && this->productNamespace_ == nullptr && this->regionId_ == nullptr && this->runtimeQueue_ == nullptr && this->versionHashCode_ == nullptr && this->versionNumber_ == nullptr; };
+        && this->comments_ == nullptr && this->email_ == nullptr && this->expectedParallelismNumber_ == nullptr && this->interval_ == nullptr && this->isProd_ == nullptr
+        && this->processDefinitionCode_ == nullptr && this->productNamespace_ == nullptr && this->regionId_ == nullptr && this->runMode_ == nullptr && this->runtimeQueue_ == nullptr
+        && this->versionHashCode_ == nullptr && this->versionNumber_ == nullptr; };
     // action Field Functions 
     bool hasAction() const { return this->action_ != nullptr;};
     void deleteAction() { this->action_ = nullptr;};
@@ -71,6 +76,13 @@ namespace Models
     void deleteEmail() { this->email_ = nullptr;};
     inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline StartProcessInstanceRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
+
+
+    // expectedParallelismNumber Field Functions 
+    bool hasExpectedParallelismNumber() const { return this->expectedParallelismNumber_ != nullptr;};
+    void deleteExpectedParallelismNumber() { this->expectedParallelismNumber_ = nullptr;};
+    inline int32_t getExpectedParallelismNumber() const { DARABONBA_PTR_GET_DEFAULT(expectedParallelismNumber_, 0) };
+    inline StartProcessInstanceRequest& setExpectedParallelismNumber(int32_t expectedParallelismNumber) { DARABONBA_PTR_SET_VALUE(expectedParallelismNumber_, expectedParallelismNumber) };
 
 
     // interval Field Functions 
@@ -108,6 +120,13 @@ namespace Models
     inline StartProcessInstanceRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // runMode Field Functions 
+    bool hasRunMode() const { return this->runMode_ != nullptr;};
+    void deleteRunMode() { this->runMode_ = nullptr;};
+    inline string getRunMode() const { DARABONBA_PTR_GET_DEFAULT(runMode_, "") };
+    inline StartProcessInstanceRequest& setRunMode(string runMode) { DARABONBA_PTR_SET_VALUE(runMode_, runMode) };
+
+
     // runtimeQueue Field Functions 
     bool hasRuntimeQueue() const { return this->runtimeQueue_ != nullptr;};
     void deleteRuntimeQueue() { this->runtimeQueue_ = nullptr;};
@@ -133,8 +152,10 @@ namespace Models
     shared_ptr<string> action_ {};
     shared_ptr<string> comments_ {};
     shared_ptr<string> email_ {};
+    // The expected concurrency.
+    shared_ptr<int32_t> expectedParallelismNumber_ {};
     shared_ptr<string> interval_ {};
-    // Specifies whether the workflow runs in a production environment.
+    // Specifies whether the workflow runs in the production environment.
     shared_ptr<bool> isProd_ {};
     // The workflow definition ID.
     // 
@@ -146,11 +167,13 @@ namespace Models
     shared_ptr<string> productNamespace_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // The execution policy.
+    shared_ptr<string> runMode_ {};
     // The runtime queue.
     shared_ptr<string> runtimeQueue_ {};
-    // The hash code of the version.
+    // The version hash code.
     shared_ptr<string> versionHashCode_ {};
-    // The version number of the workflow definition.
+    // The workflow definition version number.
     shared_ptr<int32_t> versionNumber_ {};
   };
 

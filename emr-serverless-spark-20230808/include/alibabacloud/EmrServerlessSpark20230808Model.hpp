@@ -154,6 +154,7 @@
 #include <alibabacloud/models/ListJobRunsShrinkRequest.hpp>
 #include <alibabacloud/models/ListJobRunsResponseBody.hpp>
 #include <alibabacloud/models/ListJobRunsResponse.hpp>
+#include <alibabacloud/models/ListKyuubiServicesRequest.hpp>
 #include <alibabacloud/models/ListKyuubiServicesResponseBody.hpp>
 #include <alibabacloud/models/ListKyuubiServicesResponse.hpp>
 #include <alibabacloud/models/ListKyuubiSparkApplicationsRequest.hpp>
@@ -210,6 +211,10 @@
 #include <alibabacloud/models/ListWorkspacesShrinkRequest.hpp>
 #include <alibabacloud/models/ListWorkspacesResponseBody.hpp>
 #include <alibabacloud/models/ListWorkspacesResponse.hpp>
+#include <alibabacloud/models/QueryApmGrafanaDataRequest.hpp>
+#include <alibabacloud/models/QueryApmGrafanaDataShrinkRequest.hpp>
+#include <alibabacloud/models/QueryApmGrafanaDataResponseBody.hpp>
+#include <alibabacloud/models/QueryApmGrafanaDataResponse.hpp>
 #include <alibabacloud/models/RefreshLivyComputeTokenRequest.hpp>
 #include <alibabacloud/models/RefreshLivyComputeTokenResponseBody.hpp>
 #include <alibabacloud/models/RefreshLivyComputeTokenResponse.hpp>

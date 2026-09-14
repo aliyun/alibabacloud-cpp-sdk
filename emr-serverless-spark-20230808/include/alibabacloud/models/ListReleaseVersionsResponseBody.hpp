@@ -47,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(fusion, fusion_);
         DARABONBA_PTR_TO_JSON(gmtCreate, gmtCreate_);
         DARABONBA_PTR_TO_JSON(iaasType, iaasType_);
+        DARABONBA_PTR_TO_JSON(isCustom, isCustom_);
         DARABONBA_PTR_TO_JSON(releaseVersion, releaseVersion_);
         DARABONBA_PTR_TO_JSON(scalaVersion, scalaVersion_);
         DARABONBA_PTR_TO_JSON(state, state_);
@@ -59,6 +60,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(fusion, fusion_);
         DARABONBA_PTR_FROM_JSON(gmtCreate, gmtCreate_);
         DARABONBA_PTR_FROM_JSON(iaasType, iaasType_);
+        DARABONBA_PTR_FROM_JSON(isCustom, isCustom_);
         DARABONBA_PTR_FROM_JSON(releaseVersion, releaseVersion_);
         DARABONBA_PTR_FROM_JSON(scalaVersion, scalaVersion_);
         DARABONBA_PTR_FROM_JSON(state, state_);
@@ -77,7 +79,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->communityVersion_ == nullptr
         && this->cpuArchitectures_ == nullptr && this->displayReleaseVersion_ == nullptr && this->fusion_ == nullptr && this->gmtCreate_ == nullptr && this->iaasType_ == nullptr
-        && this->releaseVersion_ == nullptr && this->scalaVersion_ == nullptr && this->state_ == nullptr && this->type_ == nullptr; };
+        && this->isCustom_ == nullptr && this->releaseVersion_ == nullptr && this->scalaVersion_ == nullptr && this->state_ == nullptr && this->type_ == nullptr; };
       // communityVersion Field Functions 
       bool hasCommunityVersion() const { return this->communityVersion_ != nullptr;};
       void deleteCommunityVersion() { this->communityVersion_ = nullptr;};
@@ -122,6 +124,13 @@ namespace Models
       inline ReleaseVersions& setIaasType(string iaasType) { DARABONBA_PTR_SET_VALUE(iaasType_, iaasType) };
 
 
+      // isCustom Field Functions 
+      bool hasIsCustom() const { return this->isCustom_ != nullptr;};
+      void deleteIsCustom() { this->isCustom_ = nullptr;};
+      inline bool getIsCustom() const { DARABONBA_PTR_GET_DEFAULT(isCustom_, false) };
+      inline ReleaseVersions& setIsCustom(bool isCustom) { DARABONBA_PTR_SET_VALUE(isCustom_, isCustom) };
+
+
       // releaseVersion Field Functions 
       bool hasReleaseVersion() const { return this->releaseVersion_ != nullptr;};
       void deleteReleaseVersion() { this->releaseVersion_ = nullptr;};
@@ -151,25 +160,27 @@ namespace Models
 
 
     protected:
-      // The community version number of Spark.
+      // The community Spark version number.
       shared_ptr<string> communityVersion_ {};
       // The list of CPU architectures.
       shared_ptr<vector<string>> cpuArchitectures_ {};
       // The version number.
       shared_ptr<string> displayReleaseVersion_ {};
-      // Indicates whether the Fusion engine is enabled for acceleration.
+      // Indicates whether Fusion engine acceleration is enabled.
       shared_ptr<bool> fusion_ {};
-      // The time when the version was created.
+      // The creation time.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The type of the IaaS layer.
+      // The IaaS layer type.
       shared_ptr<string> iaasType_ {};
+      // Indicates whether the version is a custom image.
+      shared_ptr<bool> isCustom_ {};
       // The version number.
       shared_ptr<string> releaseVersion_ {};
       // The Scala version.
       shared_ptr<string> scalaVersion_ {};
-      // The status of the version.
+      // The version status.
       shared_ptr<string> state_ {};
-      // The type of the version.
+      // The version type.
       shared_ptr<string> type_ {};
     };
 
@@ -213,9 +224,9 @@ namespace Models
 
 
   protected:
-    // The maximum number of records to return on a single page.
+    // The maximum number of records returned per request.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next page of results.
+    // The token for the next page.
     shared_ptr<string> nextToken_ {};
     // The list of versions.
     shared_ptr<vector<ListReleaseVersionsResponseBody::ReleaseVersions>> releaseVersions_ {};

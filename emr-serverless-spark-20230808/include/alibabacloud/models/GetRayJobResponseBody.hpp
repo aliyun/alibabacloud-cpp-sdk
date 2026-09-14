@@ -109,6 +109,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const WorkerSpecs& obj) { 
         DARABONBA_PTR_TO_JSON(cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(groupName, groupName_);
         DARABONBA_PTR_TO_JSON(maxReplica, maxReplica_);
@@ -119,6 +120,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, WorkerSpecs& obj) { 
         DARABONBA_PTR_FROM_JSON(cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(groupName, groupName_);
         DARABONBA_PTR_FROM_JSON(maxReplica, maxReplica_);
@@ -139,13 +141,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->gpuSpec_ == nullptr && this->groupName_ == nullptr && this->maxReplica_ == nullptr && this->memory_ == nullptr && this->minReplica_ == nullptr
-        && this->queueName_ == nullptr && this->replica_ == nullptr; };
+        && this->displayReleaseVersion_ == nullptr && this->gpuSpec_ == nullptr && this->groupName_ == nullptr && this->maxReplica_ == nullptr && this->memory_ == nullptr
+        && this->minReplica_ == nullptr && this->queueName_ == nullptr && this->replica_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
       inline string getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
       inline WorkerSpecs& setCpu(string cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // displayReleaseVersion Field Functions 
+      bool hasDisplayReleaseVersion() const { return this->displayReleaseVersion_ != nullptr;};
+      void deleteDisplayReleaseVersion() { this->displayReleaseVersion_ = nullptr;};
+      inline string getDisplayReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(displayReleaseVersion_, "") };
+      inline WorkerSpecs& setDisplayReleaseVersion(string displayReleaseVersion) { DARABONBA_PTR_SET_VALUE(displayReleaseVersion_, displayReleaseVersion) };
 
 
       // gpuSpec Field Functions 
@@ -200,6 +209,8 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
+      // The DPI engine version.
+      shared_ptr<string> displayReleaseVersion_ {};
       // The GPU type.
       shared_ptr<string> gpuSpec_ {};
       // The worker node group name.
@@ -220,6 +231,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const HeadSpec& obj) { 
         DARABONBA_PTR_TO_JSON(cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_TO_JSON(enableAutoScaling, enableAutoScaling_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
@@ -229,6 +241,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, HeadSpec& obj) { 
         DARABONBA_PTR_FROM_JSON(cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_FROM_JSON(enableAutoScaling, enableAutoScaling_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
@@ -248,13 +261,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->enableAutoScaling_ == nullptr && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr && this->queueName_ == nullptr
-        && this->replica_ == nullptr; };
+        && this->displayReleaseVersion_ == nullptr && this->enableAutoScaling_ == nullptr && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr
+        && this->queueName_ == nullptr && this->replica_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
       inline string getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
       inline HeadSpec& setCpu(string cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // displayReleaseVersion Field Functions 
+      bool hasDisplayReleaseVersion() const { return this->displayReleaseVersion_ != nullptr;};
+      void deleteDisplayReleaseVersion() { this->displayReleaseVersion_ = nullptr;};
+      inline string getDisplayReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(displayReleaseVersion_, "") };
+      inline HeadSpec& setDisplayReleaseVersion(string displayReleaseVersion) { DARABONBA_PTR_SET_VALUE(displayReleaseVersion_, displayReleaseVersion) };
 
 
       // enableAutoScaling Field Functions 
@@ -302,11 +322,13 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // Indicates whether auto scaling is enabled for worker nodes.
+      // The Ray DPI engine version.
+      shared_ptr<string> displayReleaseVersion_ {};
+      // Indicates whether automatic scaling is enabled for worker nodes.
       shared_ptr<bool> enableAutoScaling_ {};
       // The GPU type.
       shared_ptr<string> gpuSpec_ {};
-      // The idle timeout in seconds for worker nodes when auto scaling is enabled.
+      // The idle timeout for worker nodes when automatic scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
       // The memory size, in GiB.
       shared_ptr<string> memory_ {};
@@ -654,7 +676,7 @@ namespace Models
     shared_ptr<int32_t> backoffLimit_ {};
     // The status of the corresponding Ray cluster. Valid values:
     // - Deleted: Deleted.
-    // - Submitted: Submitted but not yet created.
+    // - Submitted: Submitted but creation has not started.
     // - Pending: Being created.
     // - Running: Running.
     shared_ptr<string> clusterState_ {};
@@ -662,15 +684,15 @@ namespace Models
     shared_ptr<string> creatorName_ {};
     // The consumed CU resources. This value is returned 10 minutes after the cluster is released.
     shared_ptr<double> cuHours_ {};
-    // The Ray cluster dashboard URL. When the Ray cluster is in Running state, this is the Runtime UI. After the cluster is deleted, this is the History UI. History UI is supported only in err-1.2.0 and later versions.
+    // The dashboard URL of the Ray cluster. When the Ray cluster is in the Running state, this is the Runtime UI. After the cluster enters the Deleted state, this is the History UI. History UI is supported only in err-1.2.0 and later versions.
     shared_ptr<string> dashboardUrl_ {};
-    // The extra dashboard UI URLs. Currently empty.
+    // The extra dashboard UI URLs. This field is currently empty.
     shared_ptr<vector<string>> dashboardUrlExtra_ {};
     // The Ray DPI engine version.
     shared_ptr<string> displayReleaseVersion_ {};
-    // The job duration, in seconds.
+    // The task duration, in seconds.
     shared_ptr<int64_t> duration_ {};
-    // The job end time. This value is a UNIX timestamp in milliseconds.
+    // The task end time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
     // The startup command.
     shared_ptr<string> entrypoint_ {};
@@ -684,19 +706,19 @@ namespace Models
     shared_ptr<string> entrypointResources_ {};
     // The extra parameters in JSON format.
     shared_ptr<string> extraParam_ {};
-    // The consumed GPU hours. Currently empty.
+    // The consumed GPU hours. This field is currently empty.
     shared_ptr<GetRayJobResponseBody::GuHours> guHours_ {};
-    // The Ray cluster head node parameters.
+    // The parameters of the Ray cluster head node.
     shared_ptr<GetRayJobResponseBody::HeadSpec> headSpec_ {};
     // The name of the bucket that stores logs.
     shared_ptr<string> logBucketName_ {};
     // The path where logs are stored.
     shared_ptr<string> logPath_ {};
-    // The execution message.
+    // The execution information.
     shared_ptr<string> message_ {};
-    // The job metadata JSON string.
+    // The task metadata JSON string.
     shared_ptr<string> metadataJson_ {};
-    // The Ray cluster name.
+    // The name of the Ray cluster.
     shared_ptr<string> name_ {};
     // The network connectivity name.
     shared_ptr<string> networkServiceName_ {};
@@ -704,29 +726,29 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The Ray runtime environment JSON string.
     shared_ptr<string> runtimeEnvJson_ {};
-    // Specifies whether to automatically destroy the temporary cluster after the job finishes. Default value: true.
+    // Specifies whether to automatically destroy the temporary cluster after the task is completed. Default value: true.
     shared_ptr<bool> shutdownAfterJobFinishes_ {};
     // The start time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // The job status. Valid values:
-    // - Submitted: Submitted.
+    // The task status. Valid values:
+    // - Submitted: The task is submitted.
     // - Pending: The cluster is being created.
-    // - Running: The job is running.
-    // - Succeeded: The job succeeded.
-    // - Failed: The job failed.
-    // - Cancelling: Cancelling.
-    // - Cancelled: Cancelled.
-    // - Timeout: Timed out and cancelled.
+    // - Running: The task is running.
+    // - Succeeded: The task succeeded.
+    // - Failed: The task failed.
+    // - Cancelling: The task is being canceled.
+    // - Cancelled: The task is canceled.
+    // - Timeout: The task timed out and was canceled.
     shared_ptr<string> status_ {};
     // The ID of the Ray Job.
     shared_ptr<string> submissionId_ {};
     // The job submission mode.
     shared_ptr<string> submissionMode_ {};
-    // The job submission time. This value is a UNIX timestamp in milliseconds.
+    // The task submission time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> submitTime_ {};
     // The tags.
     shared_ptr<vector<Tag>> tags_ {};
-    // The data development task ID.
+    // The ID of the data development node.
     shared_ptr<string> taskBizId_ {};
     // The number of seconds to wait before destroying the cluster. This parameter takes effect only when shutdownAfterJobFinishes is set to true.
     shared_ptr<int32_t> ttlSecondsAfterFinished_ {};
@@ -734,7 +756,7 @@ namespace Models
     shared_ptr<vector<string>> volumeIds_ {};
     // The Ray cluster worker node information.
     shared_ptr<vector<GetRayJobResponseBody::WorkerSpecs>> workerSpecs_ {};
-    // The URL of the job code working directory.
+    // The URL of the task code working directory.
     shared_ptr<string> workingDir_ {};
   };
 

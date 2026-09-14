@@ -59,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(stateChangeReason, stateChangeReason_);
         DARABONBA_PTR_TO_JSON(submitTime, submitTime_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
+        DARABONBA_PTR_TO_JSON(totalTokens, totalTokens_);
         DARABONBA_PTR_TO_JSON(webUI, webUI_);
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
@@ -83,6 +84,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(stateChangeReason, stateChangeReason_);
         DARABONBA_PTR_FROM_JSON(submitTime, submitTime_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
+        DARABONBA_PTR_FROM_JSON(totalTokens, totalTokens_);
         DARABONBA_PTR_FROM_JSON(webUI, webUI_);
         DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
       };
@@ -171,7 +173,7 @@ namespace Models
 
 
       protected:
-        // The configurations.
+        // The list of configurations.
         shared_ptr<vector<Configuration>> configurations_ {};
       };
 
@@ -179,8 +181,8 @@ namespace Models
         && this->configurationOverrides_ == nullptr && this->displayReleaseVersion_ == nullptr && this->endTime_ == nullptr && this->environmentId_ == nullptr && this->executionTimeoutSeconds_ == nullptr
         && this->fusion_ == nullptr && this->jobDriver_ == nullptr && this->jobRunId_ == nullptr && this->log_ == nullptr && this->name_ == nullptr
         && this->notebookAccessUrl_ == nullptr && this->priority_ == nullptr && this->releaseVersion_ == nullptr && this->resourceOwnerId_ == nullptr && this->resourceQueueId_ == nullptr
-        && this->state_ == nullptr && this->stateChangeReason_ == nullptr && this->submitTime_ == nullptr && this->tags_ == nullptr && this->webUI_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->state_ == nullptr && this->stateChangeReason_ == nullptr && this->submitTime_ == nullptr && this->tags_ == nullptr && this->totalTokens_ == nullptr
+        && this->webUI_ == nullptr && this->workspaceId_ == nullptr; };
       // codeType Field Functions 
       bool hasCodeType() const { return this->codeType_ != nullptr;};
       void deleteCodeType() { this->codeType_ = nullptr;};
@@ -331,6 +333,13 @@ namespace Models
       inline JobRun& setTags(vector<Tag> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
+      // totalTokens Field Functions 
+      bool hasTotalTokens() const { return this->totalTokens_ != nullptr;};
+      void deleteTotalTokens() { this->totalTokens_ = nullptr;};
+      inline int64_t getTotalTokens() const { DARABONBA_PTR_GET_DEFAULT(totalTokens_, 0L) };
+      inline JobRun& setTotalTokens(int64_t totalTokens) { DARABONBA_PTR_SET_VALUE(totalTokens_, totalTokens) };
+
+
       // webUI Field Functions 
       bool hasWebUI() const { return this->webUI_ != nullptr;};
       void deleteWebUI() { this->webUI_ = nullptr;};
@@ -354,44 +363,46 @@ namespace Models
       // 
       // - PYTHON
       shared_ptr<string> codeType_ {};
-      // The Spark configurations of the job.
+      // The Spark job configuration.
       shared_ptr<JobRun::ConfigurationOverrides> configurationOverrides_ {};
-      // The version that is displayed in the console.
+      // The version displayed in the console.
       shared_ptr<string> displayReleaseVersion_ {};
       // The time when the job ended.
       shared_ptr<int64_t> endTime_ {};
       // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The timeout period for the job execution.
+      // The execution timeout period, in seconds.
       shared_ptr<int32_t> executionTimeoutSeconds_ {};
-      // Indicates whether to enable the Fusion engine to accelerate the job execution.
+      // Indicates whether the Fusion engine acceleration is enabled.
       shared_ptr<bool> fusion_ {};
-      // The Spark driver information.
+      // The Spark Driver information.
       shared_ptr<JobDriver> jobDriver_ {};
       // The job run ID.
       shared_ptr<string> jobRunId_ {};
       // The path of the run log.
       shared_ptr<RunLog> log_ {};
-      // The name of the job.
+      // The job run name.
       shared_ptr<string> name_ {};
-      // The access URL for the notebook of the job run.
+      // The download URL of the NOTEBOOK file. This parameter is returned only when the job type is NOTEBOOK.
       shared_ptr<string> notebookAccessUrl_ {};
-      // The priority of the job run.
+      // The job priority.
       shared_ptr<string> priority_ {};
-      // The Spark engine version.
+      // The Spark DPI engine version used to run the job.
       shared_ptr<string> releaseVersion_ {};
-      // The UID of the user who creates the job.
+      // The UID of the user who created the job.
       shared_ptr<string> resourceOwnerId_ {};
-      // The name of the queue on which the job runs.
+      // The name of the queue used to run the job.
       shared_ptr<string> resourceQueueId_ {};
-      // The state of the job.
+      // The job run state.
       shared_ptr<string> state_ {};
       // The reason for the state change.
       shared_ptr<JobRun::StateChangeReason> stateChangeReason_ {};
       // The time when the job was submitted.
       shared_ptr<int64_t> submitTime_ {};
-      // The tags.
+      // The list of tags.
       shared_ptr<vector<Tag>> tags_ {};
+      // The total number of tokens consumed.
+      shared_ptr<int64_t> totalTokens_ {};
       // The web UI of the job.
       shared_ptr<string> webUI_ {};
       // The workspace ID.
@@ -417,7 +428,7 @@ namespace Models
 
 
   protected:
-    // The details of the job.
+    // The job run details.
     shared_ptr<GetJobRunResponseBody::JobRun> jobRun_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

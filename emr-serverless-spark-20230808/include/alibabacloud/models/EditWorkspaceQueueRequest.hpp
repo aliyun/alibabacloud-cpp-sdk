@@ -14,6 +14,7 @@ namespace Models
   class EditWorkspaceQueueRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const EditWorkspaceQueueRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(environments, environments_);
       DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(regionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, EditWorkspaceQueueRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(environments, environments_);
       DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
@@ -100,14 +102,24 @@ namespace Models
     protected:
       // The resource upper limit of the workspace queue.
       shared_ptr<int64_t> cu_ {};
+      // The number of GPU cards.
       shared_ptr<int32_t> gpu_ {};
+      // The number of GPU machines.
       shared_ptr<int32_t> gpuMachineNum_ {};
+      // The maximum number of CUs.
       shared_ptr<int64_t> maxCu_ {};
     };
 
-    virtual bool empty() const override { return this->environments_ == nullptr
-        && this->gpuSpec_ == nullptr && this->instanceId_ == nullptr && this->resourceSpec_ == nullptr && this->workspaceId_ == nullptr && this->workspaceQueueName_ == nullptr
-        && this->regionId_ == nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && this->environments_ == nullptr && this->gpuSpec_ == nullptr && this->instanceId_ == nullptr && this->resourceSpec_ == nullptr && this->workspaceId_ == nullptr
+        && this->workspaceQueueName_ == nullptr && this->regionId_ == nullptr; };
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline EditWorkspaceQueueRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
     // environments Field Functions 
     bool hasEnvironments() const { return this->environments_ != nullptr;};
     void deleteEnvironments() { this->environments_ = nullptr;};
@@ -164,15 +176,18 @@ namespace Models
 
 
   protected:
-    // The queue environment type.
+    // The description.
+    shared_ptr<string> description_ {};
+    // The environment type of the queue.
     shared_ptr<vector<string>> environments_ {};
+    // The list of GPU models.
     shared_ptr<vector<string>> gpuSpec_ {};
     shared_ptr<string> instanceId_ {};
-    // The resource specifications.
+    // The resource quota.
     shared_ptr<EditWorkspaceQueueRequest::ResourceSpec> resourceSpec_ {};
     // The workspace ID.
     shared_ptr<string> workspaceId_ {};
-    // The workspace queue name.
+    // The name of the workspace queue.
     shared_ptr<string> workspaceQueueName_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

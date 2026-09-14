@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const SubmitRayJobRequest& obj) { 
       DARABONBA_PTR_TO_JSON(activeDeadlineSeconds, activeDeadlineSeconds_);
+      DARABONBA_PTR_TO_JSON(clusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
       DARABONBA_PTR_TO_JSON(entrypoint, entrypoint_);
       DARABONBA_PTR_TO_JSON(entrypointMemory, entrypointMemory_);
@@ -37,6 +38,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, SubmitRayJobRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(activeDeadlineSeconds, activeDeadlineSeconds_);
+      DARABONBA_PTR_FROM_JSON(clusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
       DARABONBA_PTR_FROM_JSON(entrypoint, entrypoint_);
       DARABONBA_PTR_FROM_JSON(entrypointMemory, entrypointMemory_);
@@ -72,6 +74,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const WorkerSpec& obj) { 
         DARABONBA_PTR_TO_JSON(cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(groupName, groupName_);
         DARABONBA_PTR_TO_JSON(maxReplica, maxReplica_);
@@ -83,6 +86,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, WorkerSpec& obj) { 
         DARABONBA_PTR_FROM_JSON(cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(groupName, groupName_);
         DARABONBA_PTR_FROM_JSON(maxReplica, maxReplica_);
@@ -104,13 +108,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->gpuSpec_ == nullptr && this->groupName_ == nullptr && this->maxReplica_ == nullptr && this->memory_ == nullptr && this->minReplica_ == nullptr
-        && this->queueName_ == nullptr && this->replica_ == nullptr && this->workerType_ == nullptr; };
+        && this->displayReleaseVersion_ == nullptr && this->gpuSpec_ == nullptr && this->groupName_ == nullptr && this->maxReplica_ == nullptr && this->memory_ == nullptr
+        && this->minReplica_ == nullptr && this->queueName_ == nullptr && this->replica_ == nullptr && this->workerType_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
       inline string getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
       inline WorkerSpec& setCpu(string cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // displayReleaseVersion Field Functions 
+      bool hasDisplayReleaseVersion() const { return this->displayReleaseVersion_ != nullptr;};
+      void deleteDisplayReleaseVersion() { this->displayReleaseVersion_ = nullptr;};
+      inline string getDisplayReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(displayReleaseVersion_, "") };
+      inline WorkerSpec& setDisplayReleaseVersion(string displayReleaseVersion) { DARABONBA_PTR_SET_VALUE(displayReleaseVersion_, displayReleaseVersion) };
 
 
       // gpuSpec Field Functions 
@@ -172,13 +183,15 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
+      // The database engine version.
+      shared_ptr<string> displayReleaseVersion_ {};
       // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
       // The worker group name.
       shared_ptr<string> groupName_ {};
       // The maximum number of workers after automatic scaling is enabled.
       shared_ptr<int32_t> maxReplica_ {};
-      // The memory size. Unit: Gi.
+      // The memory size. Unit: GiB.
       shared_ptr<string> memory_ {};
       // The minimum number of workers after automatic scaling is enabled.
       shared_ptr<int32_t> minReplica_ {};
@@ -238,6 +251,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const HeadSpec& obj) { 
         DARABONBA_PTR_TO_JSON(cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_TO_JSON(enableAutoScaling, enableAutoScaling_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
@@ -246,6 +260,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, HeadSpec& obj) { 
         DARABONBA_PTR_FROM_JSON(cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(displayReleaseVersion, displayReleaseVersion_);
         DARABONBA_PTR_FROM_JSON(enableAutoScaling, enableAutoScaling_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
@@ -264,12 +279,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->enableAutoScaling_ == nullptr && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr && this->queueName_ == nullptr; };
+        && this->displayReleaseVersion_ == nullptr && this->enableAutoScaling_ == nullptr && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr
+        && this->queueName_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
       inline string getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
       inline HeadSpec& setCpu(string cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // displayReleaseVersion Field Functions 
+      bool hasDisplayReleaseVersion() const { return this->displayReleaseVersion_ != nullptr;};
+      void deleteDisplayReleaseVersion() { this->displayReleaseVersion_ = nullptr;};
+      inline string getDisplayReleaseVersion() const { DARABONBA_PTR_GET_DEFAULT(displayReleaseVersion_, "") };
+      inline HeadSpec& setDisplayReleaseVersion(string displayReleaseVersion) { DARABONBA_PTR_SET_VALUE(displayReleaseVersion_, displayReleaseVersion) };
 
 
       // enableAutoScaling Field Functions 
@@ -310,28 +333,37 @@ namespace Models
     protected:
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
-      // Specifies whether to enable automatic worker scaling.
+      // The Ray DPI engine version.
+      shared_ptr<string> displayReleaseVersion_ {};
+      // Specifies whether to enable automatic scaling for workers.
       shared_ptr<bool> enableAutoScaling_ {};
       // The GPU instance type.
       shared_ptr<string> gpuSpec_ {};
       // The worker idle timeout period after automatic scaling is enabled.
       shared_ptr<int32_t> idleTimeoutSeconds_ {};
-      // The memory size. Unit: Gi.
+      // The memory size. Unit: GiB.
       shared_ptr<string> memory_ {};
       // The queue name.
       shared_ptr<string> queueName_ {};
     };
 
     virtual bool empty() const override { return this->activeDeadlineSeconds_ == nullptr
-        && this->displayReleaseVersion_ == nullptr && this->entrypoint_ == nullptr && this->entrypointMemory_ == nullptr && this->entrypointNumCpus_ == nullptr && this->entrypointNumGpus_ == nullptr
-        && this->entrypointResources_ == nullptr && this->extraParam_ == nullptr && this->headSpec_ == nullptr && this->metadataJson_ == nullptr && this->name_ == nullptr
-        && this->networkServiceName_ == nullptr && this->runtimeEnvJson_ == nullptr && this->shutdownAfterJobFinishes_ == nullptr && this->submissionMode_ == nullptr && this->tags_ == nullptr
-        && this->ttlSecondsAfterFinished_ == nullptr && this->volumeIds_ == nullptr && this->workerSpec_ == nullptr && this->workingDir_ == nullptr; };
+        && this->clusterId_ == nullptr && this->displayReleaseVersion_ == nullptr && this->entrypoint_ == nullptr && this->entrypointMemory_ == nullptr && this->entrypointNumCpus_ == nullptr
+        && this->entrypointNumGpus_ == nullptr && this->entrypointResources_ == nullptr && this->extraParam_ == nullptr && this->headSpec_ == nullptr && this->metadataJson_ == nullptr
+        && this->name_ == nullptr && this->networkServiceName_ == nullptr && this->runtimeEnvJson_ == nullptr && this->shutdownAfterJobFinishes_ == nullptr && this->submissionMode_ == nullptr
+        && this->tags_ == nullptr && this->ttlSecondsAfterFinished_ == nullptr && this->volumeIds_ == nullptr && this->workerSpec_ == nullptr && this->workingDir_ == nullptr; };
     // activeDeadlineSeconds Field Functions 
     bool hasActiveDeadlineSeconds() const { return this->activeDeadlineSeconds_ != nullptr;};
     void deleteActiveDeadlineSeconds() { this->activeDeadlineSeconds_ = nullptr;};
     inline int32_t getActiveDeadlineSeconds() const { DARABONBA_PTR_GET_DEFAULT(activeDeadlineSeconds_, 0) };
     inline SubmitRayJobRequest& setActiveDeadlineSeconds(int32_t activeDeadlineSeconds) { DARABONBA_PTR_SET_VALUE(activeDeadlineSeconds_, activeDeadlineSeconds) };
+
+
+    // clusterId Field Functions 
+    bool hasClusterId() const { return this->clusterId_ != nullptr;};
+    void deleteClusterId() { this->clusterId_ = nullptr;};
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline SubmitRayJobRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // displayReleaseVersion Field Functions 
@@ -478,6 +510,8 @@ namespace Models
   protected:
     // The timeout period of the job, which includes the cluster creation time and job runtime. The job is canceled if this period is exceeded.
     shared_ptr<int32_t> activeDeadlineSeconds_ {};
+    // The ID of an existing Ray cluster to which the job is submitted.
+    shared_ptr<string> clusterId_ {};
     // The Ray DPI engine version number.
     shared_ptr<string> displayReleaseVersion_ {};
     // The startup command.
@@ -490,7 +524,7 @@ namespace Models
     shared_ptr<string> entrypointNumGpus_ {};
     // The custom resource request JSON string for the entrypoint task.
     shared_ptr<string> entrypointResources_ {};
-    // The extra parameter JSON string.
+    // The extra parameters in a JSON string.
     shared_ptr<string> extraParam_ {};
     // The Ray cluster head node parameters.
     shared_ptr<SubmitRayJobRequest::HeadSpec> headSpec_ {};
@@ -502,7 +536,7 @@ namespace Models
     shared_ptr<string> networkServiceName_ {};
     // The Ray runtime environment JSON string.
     shared_ptr<string> runtimeEnvJson_ {};
-    // Specifies whether to automatically destroy the temporary cluster after the job is completed. Default value: true.
+    // Specifies whether to automatically destroy the temporary cluster after the job finishes. Default value: true.
     shared_ptr<bool> shutdownAfterJobFinishes_ {};
     // The job submission mode.
     shared_ptr<string> submissionMode_ {};
@@ -510,9 +544,9 @@ namespace Models
     shared_ptr<vector<SubmitRayJobRequest::Tags>> tags_ {};
     // The number of seconds to wait before destroying the cluster. This parameter takes effect only when shutdownAfterJobFinishes is set to true.
     shared_ptr<int32_t> ttlSecondsAfterFinished_ {};
-    // The list of mount volume IDs.
+    // The list of mounted volume IDs.
     shared_ptr<vector<string>> volumeIds_ {};
-    // The Ray cluster worker node parameters.
+    // The parameters of the worker nodes in the Ray cluster.
     shared_ptr<vector<SubmitRayJobRequest::WorkerSpec>> workerSpec_ {};
     // The URL of the job code working directory.
     shared_ptr<string> workingDir_ {};

@@ -160,22 +160,28 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const RayWorkerSpec& obj) { 
         DARABONBA_PTR_TO_JSON(cpu, cpu_);
+        DARABONBA_PTR_TO_JSON(env, env_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(groupName, groupName_);
         DARABONBA_PTR_TO_JSON(maxReplica, maxReplica_);
         DARABONBA_PTR_TO_JSON(memory, memory_);
         DARABONBA_PTR_TO_JSON(minReplica, minReplica_);
         DARABONBA_PTR_TO_JSON(queueName, queueName_);
+        DARABONBA_PTR_TO_JSON(rayStartParams, rayStartParams_);
+        DARABONBA_PTR_TO_JSON(rayVersion, rayVersion_);
         DARABONBA_PTR_TO_JSON(replica, replica_);
       };
       friend void from_json(const Darabonba::Json& j, RayWorkerSpec& obj) { 
         DARABONBA_PTR_FROM_JSON(cpu, cpu_);
+        DARABONBA_PTR_FROM_JSON(env, env_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(groupName, groupName_);
         DARABONBA_PTR_FROM_JSON(maxReplica, maxReplica_);
         DARABONBA_PTR_FROM_JSON(memory, memory_);
         DARABONBA_PTR_FROM_JSON(minReplica, minReplica_);
         DARABONBA_PTR_FROM_JSON(queueName, queueName_);
+        DARABONBA_PTR_FROM_JSON(rayStartParams, rayStartParams_);
+        DARABONBA_PTR_FROM_JSON(rayVersion, rayVersion_);
         DARABONBA_PTR_FROM_JSON(replica, replica_);
       };
       RayWorkerSpec() = default ;
@@ -190,13 +196,20 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->gpuSpec_ == nullptr && this->groupName_ == nullptr && this->maxReplica_ == nullptr && this->memory_ == nullptr && this->minReplica_ == nullptr
-        && this->queueName_ == nullptr && this->replica_ == nullptr; };
+        && this->env_ == nullptr && this->gpuSpec_ == nullptr && this->groupName_ == nullptr && this->maxReplica_ == nullptr && this->memory_ == nullptr
+        && this->minReplica_ == nullptr && this->queueName_ == nullptr && this->rayStartParams_ == nullptr && this->rayVersion_ == nullptr && this->replica_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
       inline string getCpu() const { DARABONBA_PTR_GET_DEFAULT(cpu_, "") };
       inline RayWorkerSpec& setCpu(string cpu) { DARABONBA_PTR_SET_VALUE(cpu_, cpu) };
+
+
+      // env Field Functions 
+      bool hasEnv() const { return this->env_ != nullptr;};
+      void deleteEnv() { this->env_ = nullptr;};
+      inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+      inline RayWorkerSpec& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
       // gpuSpec Field Functions 
@@ -241,6 +254,20 @@ namespace Models
       inline RayWorkerSpec& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
+      // rayStartParams Field Functions 
+      bool hasRayStartParams() const { return this->rayStartParams_ != nullptr;};
+      void deleteRayStartParams() { this->rayStartParams_ = nullptr;};
+      inline string getRayStartParams() const { DARABONBA_PTR_GET_DEFAULT(rayStartParams_, "") };
+      inline RayWorkerSpec& setRayStartParams(string rayStartParams) { DARABONBA_PTR_SET_VALUE(rayStartParams_, rayStartParams) };
+
+
+      // rayVersion Field Functions 
+      bool hasRayVersion() const { return this->rayVersion_ != nullptr;};
+      void deleteRayVersion() { this->rayVersion_ = nullptr;};
+      inline string getRayVersion() const { DARABONBA_PTR_GET_DEFAULT(rayVersion_, "") };
+      inline RayWorkerSpec& setRayVersion(string rayVersion) { DARABONBA_PTR_SET_VALUE(rayVersion_, rayVersion) };
+
+
       // replica Field Functions 
       bool hasReplica() const { return this->replica_ != nullptr;};
       void deleteReplica() { this->replica_ = nullptr;};
@@ -250,12 +277,18 @@ namespace Models
 
     protected:
       shared_ptr<string> cpu_ {};
+      // The environment variables of Ray.
+      shared_ptr<string> env_ {};
       shared_ptr<string> gpuSpec_ {};
       shared_ptr<string> groupName_ {};
       shared_ptr<int32_t> maxReplica_ {};
       shared_ptr<string> memory_ {};
       shared_ptr<int32_t> minReplica_ {};
       shared_ptr<string> queueName_ {};
+      // The startup parameters of Ray.
+      shared_ptr<string> rayStartParams_ {};
+      // The DPI engine version of Ray.
+      shared_ptr<string> rayVersion_ {};
       shared_ptr<int32_t> replica_ {};
     };
 
@@ -264,19 +297,25 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const RayHeadSpec& obj) { 
         DARABONBA_PTR_TO_JSON(cpu, cpu_);
         DARABONBA_PTR_TO_JSON(enableAutoScaling, enableAutoScaling_);
+        DARABONBA_PTR_TO_JSON(env, env_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
         DARABONBA_PTR_TO_JSON(memory, memory_);
         DARABONBA_PTR_TO_JSON(queueName, queueName_);
+        DARABONBA_PTR_TO_JSON(rayStartParams, rayStartParams_);
+        DARABONBA_PTR_TO_JSON(rayVersion, rayVersion_);
         DARABONBA_PTR_TO_JSON(replica, replica_);
       };
       friend void from_json(const Darabonba::Json& j, RayHeadSpec& obj) { 
         DARABONBA_PTR_FROM_JSON(cpu, cpu_);
         DARABONBA_PTR_FROM_JSON(enableAutoScaling, enableAutoScaling_);
+        DARABONBA_PTR_FROM_JSON(env, env_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(idleTimeoutSeconds, idleTimeoutSeconds_);
         DARABONBA_PTR_FROM_JSON(memory, memory_);
         DARABONBA_PTR_FROM_JSON(queueName, queueName_);
+        DARABONBA_PTR_FROM_JSON(rayStartParams, rayStartParams_);
+        DARABONBA_PTR_FROM_JSON(rayVersion, rayVersion_);
         DARABONBA_PTR_FROM_JSON(replica, replica_);
       };
       RayHeadSpec() = default ;
@@ -291,8 +330,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cpu_ == nullptr
-        && this->enableAutoScaling_ == nullptr && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr && this->queueName_ == nullptr
-        && this->replica_ == nullptr; };
+        && this->enableAutoScaling_ == nullptr && this->env_ == nullptr && this->gpuSpec_ == nullptr && this->idleTimeoutSeconds_ == nullptr && this->memory_ == nullptr
+        && this->queueName_ == nullptr && this->rayStartParams_ == nullptr && this->rayVersion_ == nullptr && this->replica_ == nullptr; };
       // cpu Field Functions 
       bool hasCpu() const { return this->cpu_ != nullptr;};
       void deleteCpu() { this->cpu_ = nullptr;};
@@ -305,6 +344,13 @@ namespace Models
       void deleteEnableAutoScaling() { this->enableAutoScaling_ = nullptr;};
       inline bool getEnableAutoScaling() const { DARABONBA_PTR_GET_DEFAULT(enableAutoScaling_, false) };
       inline RayHeadSpec& setEnableAutoScaling(bool enableAutoScaling) { DARABONBA_PTR_SET_VALUE(enableAutoScaling_, enableAutoScaling) };
+
+
+      // env Field Functions 
+      bool hasEnv() const { return this->env_ != nullptr;};
+      void deleteEnv() { this->env_ = nullptr;};
+      inline string getEnv() const { DARABONBA_PTR_GET_DEFAULT(env_, "") };
+      inline RayHeadSpec& setEnv(string env) { DARABONBA_PTR_SET_VALUE(env_, env) };
 
 
       // gpuSpec Field Functions 
@@ -335,6 +381,20 @@ namespace Models
       inline RayHeadSpec& setQueueName(string queueName) { DARABONBA_PTR_SET_VALUE(queueName_, queueName) };
 
 
+      // rayStartParams Field Functions 
+      bool hasRayStartParams() const { return this->rayStartParams_ != nullptr;};
+      void deleteRayStartParams() { this->rayStartParams_ = nullptr;};
+      inline string getRayStartParams() const { DARABONBA_PTR_GET_DEFAULT(rayStartParams_, "") };
+      inline RayHeadSpec& setRayStartParams(string rayStartParams) { DARABONBA_PTR_SET_VALUE(rayStartParams_, rayStartParams) };
+
+
+      // rayVersion Field Functions 
+      bool hasRayVersion() const { return this->rayVersion_ != nullptr;};
+      void deleteRayVersion() { this->rayVersion_ = nullptr;};
+      inline string getRayVersion() const { DARABONBA_PTR_GET_DEFAULT(rayVersion_, "") };
+      inline RayHeadSpec& setRayVersion(string rayVersion) { DARABONBA_PTR_SET_VALUE(rayVersion_, rayVersion) };
+
+
       // replica Field Functions 
       bool hasReplica() const { return this->replica_ != nullptr;};
       void deleteReplica() { this->replica_ = nullptr;};
@@ -345,10 +405,16 @@ namespace Models
     protected:
       shared_ptr<string> cpu_ {};
       shared_ptr<bool> enableAutoScaling_ {};
+      // The environment variables of the Ray node.
+      shared_ptr<string> env_ {};
       shared_ptr<string> gpuSpec_ {};
       shared_ptr<int64_t> idleTimeoutSeconds_ {};
       shared_ptr<string> memory_ {};
       shared_ptr<string> queueName_ {};
+      // The startup parameters of Ray.
+      shared_ptr<string> rayStartParams_ {};
+      // The DPI engine version of Ray.
+      shared_ptr<string> rayVersion_ {};
       shared_ptr<int32_t> replica_ {};
     };
 
@@ -951,7 +1017,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
-    // The folder business ID.
+    // The business ID of the folder.
     shared_ptr<string> categoryBizId_ {};
     // The Spark job content.
     shared_ptr<string> content_ {};
@@ -959,13 +1025,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> creator_ {};
-    // The OSS direct upload credentials.
+    // The credential for direct OSS upload.
     shared_ptr<Task::Credential> credential_ {};
     // The default catalog ID.
     shared_ptr<string> defaultCatalogId_ {};
     // The default database.
     shared_ptr<string> defaultDatabase_ {};
-    // The default queue ID of the task.
+    // The ID of the default task queue.
     shared_ptr<string> defaultResourceQueueId_ {};
     // The default SQL session ID.
     shared_ptr<string> defaultSqlComputeId_ {};
@@ -973,23 +1039,23 @@ namespace Models
     shared_ptr<string> deploymentId_ {};
     // The environment ID.
     shared_ptr<string> environmentId_ {};
-    // The IDs of extra Spark resources.
+    // The IDs of extra Spark artifacts.
     shared_ptr<vector<string>> extraArtifactIds_ {};
-    // The custom Spark submit configuration parameters.
+    // The custom spark-submit configuration parameters.
     shared_ptr<string> extraSparkSubmitParams_ {};
     // The --files parameter.
     shared_ptr<vector<string>> files_ {};
-    // Indicates whether the fusion switch is enabled.
+    // Indicates whether the fusion feature is enabled.
     shared_ptr<bool> fusion_ {};
     // The creation time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtCreated_ {};
-    // The last modification time.
+    // The last modified time.
     // 
     // This parameter is required.
     shared_ptr<string> gmtModified_ {};
-    // Indicates whether the task has been changed since the last submission.
+    // Indicates whether the task has been changed after the last commit.
     shared_ptr<bool> hasChanged_ {};
     // Indicates whether the task has been submitted.
     // 
@@ -1011,7 +1077,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> name_ {};
     shared_ptr<map<string, string>> params_ {};
-    // The Spark PySpark dependency pyfiles.
+    // The PySpark dependency pyfiles for the Spark task.
     shared_ptr<vector<string>> pyFiles_ {};
     shared_ptr<int64_t> rayActiveDeadlineSeconds_ {};
     shared_ptr<int32_t> rayBackoffLimit_ {};
@@ -1033,7 +1099,7 @@ namespace Models
     shared_ptr<vector<Task::RayWorkerSpec>> rayWorkerSpec_ {};
     shared_ptr<string> rayWorkingDir_ {};
     shared_ptr<string> sessionClusterId_ {};
-    // The Spark parameters.
+    // The Spark arguments.
     shared_ptr<string> sparkArgs_ {};
     // The list of Spark configurations.
     shared_ptr<vector<SparkConf>> sparkConf_ {};
@@ -1045,7 +1111,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> sparkDriverMemory_ {};
-    // The Spark main class entry point.
+    // The Spark main class entrypoint.
     shared_ptr<string> sparkEntrypoint_ {};
     // The number of Spark executor cores.
     // 
@@ -1063,7 +1129,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sparkLogPath_ {};
-    // The Spark submit task submission statement.
+    // The spark-submit task submission clause.
     shared_ptr<string> sparkSubmitClause_ {};
     // The Spark version.
     // 

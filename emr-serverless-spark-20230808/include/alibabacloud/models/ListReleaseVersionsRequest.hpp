@@ -86,11 +86,11 @@ namespace Models
   protected:
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The type of the version.
+    // The version type.
     shared_ptr<string> releaseType_ {};
-    // The EMR Serverless Spark version.
+    // The Serverless Spark version.
     shared_ptr<string> releaseVersion_ {};
-    // The status of the version.
+    // The version status.
     shared_ptr<string> releaseVersionStatus_ {};
     shared_ptr<string> serviceFilter_ {};
     // The workspace ID.

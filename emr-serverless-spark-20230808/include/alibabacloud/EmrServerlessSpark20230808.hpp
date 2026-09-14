@@ -413,7 +413,7 @@ namespace EmrServerlessSpark20230808
       Models::DeleteWorkspaceQueueResponse deleteWorkspaceQueue(const string &workspaceId, const string &workspaceQueueName, const Models::DeleteWorkspaceQueueRequest &request);
 
       /**
-       * @summary Modifies a workspace queue.
+       * @summary Edits a workspace queue.
        *
        * @param request EditWorkspaceQueueRequest
        * @param headers map
@@ -423,7 +423,7 @@ namespace EmrServerlessSpark20230808
       Models::EditWorkspaceQueueResponse editWorkspaceQueueWithOptions(const Models::EditWorkspaceQueueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a workspace queue.
+       * @summary Edits a workspace queue.
        *
        * @param request EditWorkspaceQueueRequest
        * @return EditWorkspaceQueueResponse
@@ -521,7 +521,7 @@ namespace EmrServerlessSpark20230808
       Models::GetDoctorApplicationResponse getDoctorApplication(const string &workspaceId, const string &runId, const Models::GetDoctorApplicationRequest &request);
 
       /**
-       * @summary Get the details of a job.
+       * @summary Retrieves the details of a job run by calling GetJobRun.
        *
        * @param request GetJobRunRequest
        * @param headers map
@@ -531,7 +531,7 @@ namespace EmrServerlessSpark20230808
       Models::GetJobRunResponse getJobRunWithOptions(const string &workspaceId, const string &jobRunId, const Models::GetJobRunRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Get the details of a job.
+       * @summary Retrieves the details of a job run by calling GetJobRun.
        *
        * @param request GetJobRunRequest
        * @return GetJobRunResponse
@@ -609,7 +609,7 @@ namespace EmrServerlessSpark20230808
       Models::GetLivyComputeTokenResponse getLivyComputeToken(const string &workspaceBizId, const string &livyComputeId, const string &tokenId, const Models::GetLivyComputeTokenRequest &request);
 
       /**
-       * @summary Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
+       * @summary Retrieves a Ray cluster.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -618,7 +618,7 @@ namespace EmrServerlessSpark20230808
       Models::GetRayClusterResponse getRayClusterWithOptions(const string &workspaceId, const string &clusterId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
+       * @summary Retrieves a Ray cluster.
        *
        * @return GetRayClusterResponse
        */
@@ -825,18 +825,20 @@ namespace EmrServerlessSpark20230808
       /**
        * @summary Lists Kyuubi Gateways.
        *
+       * @param request ListKyuubiServicesRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListKyuubiServicesResponse
        */
-      Models::ListKyuubiServicesResponse listKyuubiServicesWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+      Models::ListKyuubiServicesResponse listKyuubiServicesWithOptions(const string &workspaceId, const Models::ListKyuubiServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Lists Kyuubi Gateways.
        *
+       * @param request ListKyuubiServicesRequest
        * @return ListKyuubiServicesResponse
        */
-      Models::ListKyuubiServicesResponse listKyuubiServices(const string &workspaceId);
+      Models::ListKyuubiServicesResponse listKyuubiServices(const string &workspaceId, const Models::ListKyuubiServicesRequest &request);
 
       /**
        * @summary Lists Kyuubi Spark applications.
@@ -1145,6 +1147,24 @@ namespace EmrServerlessSpark20230808
       Models::ListWorkspacesResponse listWorkspaces(const Models::ListWorkspacesRequest &request);
 
       /**
+       * @summary Queries APM Grafana panel data for Serverless Spark.
+       *
+       * @param tmpReq QueryApmGrafanaDataRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryApmGrafanaDataResponse
+       */
+      Models::QueryApmGrafanaDataResponse queryApmGrafanaDataWithOptions(const Models::QueryApmGrafanaDataRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries APM Grafana panel data for Serverless Spark.
+       *
+       * @param request QueryApmGrafanaDataRequest
+       * @return QueryApmGrafanaDataResponse
+       */
+      Models::QueryApmGrafanaDataResponse queryApmGrafanaData(const Models::QueryApmGrafanaDataRequest &request);
+
+      /**
        * @summary Refreshes the token for a Livy Gateway.
        *
        * @param request RefreshLivyComputeTokenRequest
@@ -1233,7 +1253,7 @@ namespace EmrServerlessSpark20230808
       Models::StartLivyComputeResponse startLivyCompute(const string &workspaceBizId, const string &livyComputeId, const Models::StartLivyComputeRequest &request);
 
       /**
-       * @summary Starts a workflow manually.
+       * @summary Manually runs a workflow.
        *
        * @param request StartProcessInstanceRequest
        * @param headers map
@@ -1243,7 +1263,7 @@ namespace EmrServerlessSpark20230808
       Models::StartProcessInstanceResponse startProcessInstanceWithOptions(const string &bizId, const Models::StartProcessInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a workflow manually.
+       * @summary Manually runs a workflow.
        *
        * @param request StartProcessInstanceRequest
        * @return StartProcessInstanceResponse

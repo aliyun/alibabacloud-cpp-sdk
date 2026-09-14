@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(allowActions, allowActions_);
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(creator, creator_);
+        DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(environments, environments_);
         DARABONBA_PTR_TO_JSON(gpuMachineNum, gpuMachineNum_);
         DARABONBA_PTR_TO_JSON(gpuSpec, gpuSpec_);
@@ -66,6 +67,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(allowActions, allowActions_);
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(creator, creator_);
+        DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(environments, environments_);
         DARABONBA_PTR_FROM_JSON(gpuMachineNum, gpuMachineNum_);
         DARABONBA_PTR_FROM_JSON(gpuSpec, gpuSpec_);
@@ -175,10 +177,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->allowActions_ == nullptr
-        && this->createTime_ == nullptr && this->creator_ == nullptr && this->environments_ == nullptr && this->gpuMachineNum_ == nullptr && this->gpuSpec_ == nullptr
-        && this->instanceId_ == nullptr && this->maxResource_ == nullptr && this->minResource_ == nullptr && this->paymentType_ == nullptr && this->preheat_ == nullptr
-        && this->properties_ == nullptr && this->queueCategory_ == nullptr && this->queueName_ == nullptr && this->queueScope_ == nullptr && this->queueStatus_ == nullptr
-        && this->queueType_ == nullptr && this->regionId_ == nullptr && this->usedResource_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->createTime_ == nullptr && this->creator_ == nullptr && this->description_ == nullptr && this->environments_ == nullptr && this->gpuMachineNum_ == nullptr
+        && this->gpuSpec_ == nullptr && this->instanceId_ == nullptr && this->maxResource_ == nullptr && this->minResource_ == nullptr && this->paymentType_ == nullptr
+        && this->preheat_ == nullptr && this->properties_ == nullptr && this->queueCategory_ == nullptr && this->queueName_ == nullptr && this->queueScope_ == nullptr
+        && this->queueStatus_ == nullptr && this->queueType_ == nullptr && this->regionId_ == nullptr && this->usedResource_ == nullptr && this->workspaceId_ == nullptr; };
       // allowActions Field Functions 
       bool hasAllowActions() const { return this->allowActions_ != nullptr;};
       void deleteAllowActions() { this->allowActions_ = nullptr;};
@@ -200,6 +202,13 @@ namespace Models
       void deleteCreator() { this->creator_ = nullptr;};
       inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
       inline Queues& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+      // description Field Functions 
+      bool hasDescription() const { return this->description_ != nullptr;};
+      void deleteDescription() { this->description_ = nullptr;};
+      inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+      inline Queues& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
       // environments Field Functions 
@@ -332,27 +341,32 @@ namespace Models
       shared_ptr<int64_t> createTime_ {};
       // The UID of the user who created the queue.
       shared_ptr<string> creator_ {};
+      // The description.
+      shared_ptr<string> description_ {};
       // The list of queue environment types.
       shared_ptr<vector<string>> environments_ {};
       shared_ptr<int32_t> gpuMachineNum_ {};
+      // The list of GPU models.
       shared_ptr<vector<string>> gpuSpec_ {};
       shared_ptr<string> instanceId_ {};
       // The maximum resource capacity of the queue.
       shared_ptr<string> maxResource_ {};
       // The minimum resource capacity of the queue.
       shared_ptr<string> minResource_ {};
-      // The billing method. Valid values:
+      // The billing type. Valid values:
       // 
-      // - PayAsYouGo: pay-as-you-go
-      // - Pre: subscription
+      // - PayAsYouGo: pay-as-you-go.
+      // - Pre: subscription.
       shared_ptr<string> paymentType_ {};
+      // Indicates whether resource prefetch is enabled.
       shared_ptr<bool> preheat_ {};
       // The queue label.
       shared_ptr<string> properties_ {};
+      // The queue category, CPU or GPU.
       shared_ptr<string> queueCategory_ {};
       // The queue name.
       shared_ptr<string> queueName_ {};
-      // The queue scope.
+      // The queue architecture.
       shared_ptr<string> queueScope_ {};
       // The queue status.
       shared_ptr<string> queueStatus_ {};
@@ -409,7 +423,7 @@ namespace Models
 
 
   protected:
-    // The maximum number of records returned at a time.
+    // The maximum number of records returned per request.
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next page.
     shared_ptr<string> nextToken_ {};

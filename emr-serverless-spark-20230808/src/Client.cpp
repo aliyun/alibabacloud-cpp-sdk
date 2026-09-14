@@ -19,23 +19,6 @@ namespace EmrServerlessSpark20230808
 
 AlibabaCloud::EmrServerlessSpark20230808::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shenzhen" , "emr-serverless-spark.cn-shenzhen.aliyuncs.com"},
-    {"cn-wulanchabu" , "emr-serverless-spark.cn-wulanchabu.aliyuncs.com"},
-    {"cn-beijing" , "emr-serverless-spark.cn-beijing.aliyuncs.com"},
-    {"ap-northeast-1" , "emr-serverless-spark.ap-northeast-1.aliyuncs.com"},
-    {"cn-chengdu" , "emr-serverless-spark.cn-chengdu.aliyuncs.com"},
-    {"cn-shanghai" , "emr-serverless-spark.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "emr-serverless-spark.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-1" , "emr-serverless-spark.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-5" , "emr-serverless-spark.ap-southeast-5.aliyuncs.com"},
-    {"cn-zhangjiakou" , "emr-serverless-spark.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-hangzhou" , "emr-serverless-spark.cn-hangzhou.aliyuncs.com"},
-    {"us-west-1" , "emr-serverless-spark.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "emr-serverless-spark.us-east-1.aliyuncs.com"},
-    {"eu-central-1" , "emr-serverless-spark.eu-central-1.aliyuncs.com"},
-    {"na-south-1" , "emr-serverless-spark.na-south-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("emr-serverless-spark", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -1456,7 +1439,7 @@ DeleteWorkspaceQueueResponse Client::deleteWorkspaceQueue(const string &workspac
 }
 
 /**
- * @summary Modifies a workspace queue.
+ * @summary Edits a workspace queue.
  *
  * @param request EditWorkspaceQueueRequest
  * @param headers map
@@ -1471,6 +1454,10 @@ EditWorkspaceQueueResponse Client::editWorkspaceQueueWithOptions(const EditWorks
   }
 
   json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
   if (!!request.hasEnvironments()) {
     body["environments"] = request.getEnvironments();
   }
@@ -1515,7 +1502,7 @@ EditWorkspaceQueueResponse Client::editWorkspaceQueueWithOptions(const EditWorks
 }
 
 /**
- * @summary Modifies a workspace queue.
+ * @summary Edits a workspace queue.
  *
  * @param request EditWorkspaceQueueRequest
  * @return EditWorkspaceQueueResponse
@@ -1766,7 +1753,7 @@ GetDoctorApplicationResponse Client::getDoctorApplication(const string &workspac
 }
 
 /**
- * @summary Get the details of a job.
+ * @summary Retrieves the details of a job run by calling GetJobRun.
  *
  * @param request GetJobRunRequest
  * @param headers map
@@ -1799,7 +1786,7 @@ GetJobRunResponse Client::getJobRunWithOptions(const string &workspaceId, const 
 }
 
 /**
- * @summary Get the details of a job.
+ * @summary Retrieves the details of a job run by calling GetJobRun.
  *
  * @param request GetJobRunRequest
  * @return GetJobRunResponse
@@ -1982,7 +1969,7 @@ GetLivyComputeTokenResponse Client::getLivyComputeToken(const string &workspaceB
 }
 
 /**
- * @summary Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
+ * @summary Retrieves a Ray cluster.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2007,7 +1994,7 @@ GetRayClusterResponse Client::getRayClusterWithOptions(const string &workspaceId
 }
 
 /**
- * @summary Retrieves the details of a Ray cluster, including its configuration, runtime state, node information, and connection endpoints.
+ * @summary Retrieves a Ray cluster.
  *
  * @return GetRayClusterResponse
  */
@@ -2645,13 +2632,21 @@ ListJobRunsResponse Client::listJobRuns(const string &workspaceId, const ListJob
 /**
  * @summary Lists Kyuubi Gateways.
  *
+ * @param request ListKyuubiServicesRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListKyuubiServicesResponse
  */
-ListKyuubiServicesResponse Client::listKyuubiServicesWithOptions(const string &workspaceId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+ListKyuubiServicesResponse Client::listKyuubiServicesWithOptions(const string &workspaceId, const ListKyuubiServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasToken()) {
+    query["token"] = request.getToken();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
-    {"headers" , headers}
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ListKyuubiServices"},
@@ -2670,12 +2665,13 @@ ListKyuubiServicesResponse Client::listKyuubiServicesWithOptions(const string &w
 /**
  * @summary Lists Kyuubi Gateways.
  *
+ * @param request ListKyuubiServicesRequest
  * @return ListKyuubiServicesResponse
  */
-ListKyuubiServicesResponse Client::listKyuubiServices(const string &workspaceId) {
+ListKyuubiServicesResponse Client::listKyuubiServices(const string &workspaceId, const ListKyuubiServicesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
-  return listKyuubiServicesWithOptions(workspaceId, headers, runtime);
+  return listKyuubiServicesWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -3662,6 +3658,105 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 }
 
 /**
+ * @summary Queries APM Grafana panel data for Serverless Spark.
+ *
+ * @param tmpReq QueryApmGrafanaDataRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryApmGrafanaDataResponse
+ */
+QueryApmGrafanaDataResponse Client::queryApmGrafanaDataWithOptions(const QueryApmGrafanaDataRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  QueryApmGrafanaDataShrinkRequest request = QueryApmGrafanaDataShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasQueryParams()) {
+    request.setQueryParamsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryParams(), "queryParams", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasComponentName()) {
+    query["componentName"] = request.getComponentName();
+  }
+
+  if (!!request.hasDashboardId()) {
+    query["dashboardId"] = request.getDashboardId();
+  }
+
+  if (!!request.hasEnd()) {
+    query["end"] = request.getEnd();
+  }
+
+  if (!!request.hasProvider()) {
+    query["provider"] = request.getProvider();
+  }
+
+  if (!!request.hasQuery()) {
+    query["query"] = request.getQuery();
+  }
+
+  if (!!request.hasQueryParamsShrink()) {
+    query["queryParams"] = request.getQueryParamsShrink();
+  }
+
+  if (!!request.hasQueryUrl()) {
+    query["queryUrl"] = request.getQueryUrl();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStart()) {
+    query["start"] = request.getStart();
+  }
+
+  if (!!request.hasStep()) {
+    query["step"] = request.getStep();
+  }
+
+  if (!!request.hasTime()) {
+    query["time"] = request.getTime();
+  }
+
+  if (!!request.hasVariables()) {
+    query["variables"] = request.getVariables();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["workspaceId"] = request.getWorkspaceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryApmGrafanaData"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/apm/action/queryApmGrafanaData")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryApmGrafanaDataResponse>();
+}
+
+/**
+ * @summary Queries APM Grafana panel data for Serverless Spark.
+ *
+ * @param request QueryApmGrafanaDataRequest
+ * @return QueryApmGrafanaDataResponse
+ */
+QueryApmGrafanaDataResponse Client::queryApmGrafanaData(const QueryApmGrafanaDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return queryApmGrafanaDataWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Refreshes the token for a Livy Gateway.
  *
  * @param request RefreshLivyComputeTokenRequest
@@ -3942,7 +4037,7 @@ StartLivyComputeResponse Client::startLivyCompute(const string &workspaceBizId, 
 }
 
 /**
- * @summary Starts a workflow manually.
+ * @summary Manually runs a workflow.
  *
  * @param request StartProcessInstanceRequest
  * @param headers map
@@ -3964,6 +4059,10 @@ StartProcessInstanceResponse Client::startProcessInstanceWithOptions(const strin
     query["email"] = request.getEmail();
   }
 
+  if (!!request.hasExpectedParallelismNumber()) {
+    query["expectedParallelismNumber"] = request.getExpectedParallelismNumber();
+  }
+
   if (!!request.hasInterval()) {
     query["interval"] = request.getInterval();
   }
@@ -3982,6 +4081,10 @@ StartProcessInstanceResponse Client::startProcessInstanceWithOptions(const strin
 
   if (!!request.hasRegionId()) {
     query["regionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasRunMode()) {
+    query["runMode"] = request.getRunMode();
   }
 
   if (!!request.hasRuntimeQueue()) {
@@ -4015,7 +4118,7 @@ StartProcessInstanceResponse Client::startProcessInstanceWithOptions(const strin
 }
 
 /**
- * @summary Starts a workflow manually.
+ * @summary Manually runs a workflow.
  *
  * @param request StartProcessInstanceRequest
  * @return StartProcessInstanceResponse
@@ -4365,6 +4468,10 @@ SubmitRayJobResponse Client::submitRayJobWithOptions(const string &workspaceId, 
   json body = {};
   if (!!request.hasActiveDeadlineSeconds()) {
     body["activeDeadlineSeconds"] = request.getActiveDeadlineSeconds();
+  }
+
+  if (!!request.hasClusterId()) {
+    body["clusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDisplayReleaseVersion()) {
