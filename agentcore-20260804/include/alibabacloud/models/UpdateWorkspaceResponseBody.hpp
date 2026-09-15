@@ -43,18 +43,24 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(authorizationStatus, authorizationStatus_);
+        DARABONBA_PTR_TO_JSON(bucketName, bucketName_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(status, status_);
+        DARABONBA_PTR_TO_JSON(storageType, storageType_);
         DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(authorizationStatus, authorizationStatus_);
+        DARABONBA_PTR_FROM_JSON(bucketName, bucketName_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(status, status_);
+        DARABONBA_PTR_FROM_JSON(storageType, storageType_);
         DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
         DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
       };
@@ -141,7 +147,7 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The ID of the user VPC.
+          // The VPC ID.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -156,12 +162,27 @@ namespace Models
 
 
       protected:
-        // The user VPC network configuration.
+        // The VPC network configuration.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
-      virtual bool empty() const override { return this->name_ == nullptr
-        && this->networkConfiguration_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
+      virtual bool empty() const override { return this->authorizationStatus_ == nullptr
+        && this->bucketName_ == nullptr && this->name_ == nullptr && this->networkConfiguration_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr
+        && this->storageType_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
+      // authorizationStatus Field Functions 
+      bool hasAuthorizationStatus() const { return this->authorizationStatus_ != nullptr;};
+      void deleteAuthorizationStatus() { this->authorizationStatus_ = nullptr;};
+      inline string getAuthorizationStatus() const { DARABONBA_PTR_GET_DEFAULT(authorizationStatus_, "") };
+      inline Data& setAuthorizationStatus(string authorizationStatus) { DARABONBA_PTR_SET_VALUE(authorizationStatus_, authorizationStatus) };
+
+
+      // bucketName Field Functions 
+      bool hasBucketName() const { return this->bucketName_ != nullptr;};
+      void deleteBucketName() { this->bucketName_ = nullptr;};
+      inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+      inline Data& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -192,6 +213,13 @@ namespace Models
       inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // storageType Field Functions 
+      bool hasStorageType() const { return this->storageType_ != nullptr;};
+      void deleteStorageType() { this->storageType_ = nullptr;};
+      inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+      inline Data& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
       // tenantId Field Functions 
       bool hasTenantId() const { return this->tenantId_ != nullptr;};
       void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -207,14 +235,20 @@ namespace Models
 
 
     protected:
+      // The OSS storage authorization status.
+      shared_ptr<string> authorizationStatus_ {};
+      // The name of the private OSS bucket.
+      shared_ptr<string> bucketName_ {};
       // The workspace name.
       shared_ptr<string> name_ {};
-      // The workspace network configuration.
+      // The network configuration of the workspace.
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
       // The region ID of the workspace.
       shared_ptr<string> regionId_ {};
       // The workspace status. Valid values: Initializing, Initialized, Deleting, Deleted.
       shared_ptr<string> status_ {};
+      // The storage type of the workspace.
+      shared_ptr<string> storageType_ {};
       // The ID of the tenant to which the workspace belongs.
       shared_ptr<string> tenantId_ {};
       // The workspace ID.

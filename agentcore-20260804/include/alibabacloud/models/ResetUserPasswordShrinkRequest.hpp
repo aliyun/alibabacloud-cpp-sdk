@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The request body for resetting the user password.
     shared_ptr<string> bodyShrink_ {};
   };
 

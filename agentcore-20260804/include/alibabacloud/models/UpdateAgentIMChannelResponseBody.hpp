@@ -289,13 +289,13 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The channel credential summary. Only non-sensitive fields and the names of configured secret fields are returned. Secret values are not returned.
       shared_ptr<Data::CredentialSummary> credentialSummary_ {};
-      // Specifies whether to enable the IM channel. Default value: true (when created).
+      // Specifies whether to enable the IM channel. Default value upon creation: true.
       shared_ptr<bool> enabled_ {};
       // The public network access URL of the attached ServiceEndpoint.
       shared_ptr<string> endpointUrl_ {};
       // The IM channel ID.
       shared_ptr<string> imChannelId_ {};
-      // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint address.
+      // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint.
       shared_ptr<string> serviceEndpointId_ {};
       // The IM channel status. Valid values:
       // - CREATING: Being created.
@@ -305,7 +305,7 @@ namespace Models
       // - DELETING: Being deleted.
       // - DELETE_FAILED: Deletion failed.
       shared_ptr<string> status_ {};
-      // The reason for the current status of the IM channel.
+      // The reason for the current IM channel status.
       shared_ptr<string> statusReason_ {};
       // The update time in RFC 3339 format.
       shared_ptr<string> updateTime_ {};
@@ -366,7 +366,7 @@ namespace Models
     shared_ptr<UpdateAgentIMChannelResponseBody::Data> data_ {};
     // The HTTP status code. The value 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The result message of the request.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

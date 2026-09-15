@@ -159,16 +159,27 @@ namespace Models
 
 
     protected:
+      // The user ID.
       shared_ptr<string> agentCoreUserId_ {};
+      // The authentication method of the user. password indicates local password authentication within the workspace. dingtalk and feishu indicate that the user is synchronized and authenticated by the corresponding external identity provider.
       shared_ptr<string> authMethod_ {};
+      // The creation time in UTC, formatted in RFC 3339.
       shared_ptr<string> createdAt_ {};
+      // The display name of the user. The name is 1 to 32 characters in length.
       shared_ptr<string> displayName_ {};
+      // The email address of the user. The address can be up to 256 characters in length.
       shared_ptr<string> email_ {};
+      // The username. The name must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 32 characters in length.
       shared_ptr<string> name_ {};
+      // The note for the user. The note can be up to 1,024 characters in length.
       shared_ptr<string> note_ {};
+      // The region ID of the resource.
       shared_ptr<string> regionId_ {};
+      // The user status. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
       shared_ptr<string> status_ {};
+      // The time of the last modification in UTC, formatted in RFC 3339.
       shared_ptr<string> updatedAt_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -219,11 +230,17 @@ namespace Models
 
 
   protected:
+    // The business status code.
     shared_ptr<string> code_ {};
+    // The updated user information.
     shared_ptr<UpdateUserResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message. An error description is returned if the request fails.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

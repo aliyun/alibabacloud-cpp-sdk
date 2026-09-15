@@ -108,7 +108,6 @@ namespace Models
         // This parameter is required.
         shared_ptr<string> name_ {};
         // The tool type. Valid values:
-        // 
         // - MCP: MCP tool.
         // 
         // This parameter is required.
@@ -177,6 +176,8 @@ namespace Models
           // This parameter is required.
           shared_ptr<string> name_ {};
           // The version of the template in AI Registry.
+          // 
+          // This parameter is required.
           shared_ptr<string> version_ {};
         };
 
@@ -361,12 +362,11 @@ namespace Models
       shared_ptr<string> description_ {};
       // The agent instruction that guides the behavior of the agent.
       shared_ptr<string> instruction_ {};
-      // The model configuration. This parameter is available only when modelSource is set to PLATFORM.
+      // The model configuration. Available only when modelSource is set to PLATFORM.
       shared_ptr<Body::Model> model_ {};
       // The source of the model configuration. Valid values:
-      // 
-      // - PLATFORM: The model configuration is parsed and distributed by the platform. You can specify the model parameter.
-      // - RUNTIME: The model is managed by the external runtime. You cannot specify the model parameter at the same time.
+      // - PLATFORM: The platform parses and delivers the model configuration.
+      // - RUNTIME: The external runtime manages the model on its own. You cannot specify model at the same time.
       shared_ptr<string> modelSource_ {};
       // The name of the external agent.
       shared_ptr<string> name_ {};
@@ -399,7 +399,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<UpdateExternalAgentRequest::Body> body_ {};
-    // A reserved idempotency token. The backend does not guarantee idempotency in the current version.
+    // The reserved idempotency token. The backend does not guarantee idempotence in the current phase.
     shared_ptr<string> clientToken_ {};
   };
 

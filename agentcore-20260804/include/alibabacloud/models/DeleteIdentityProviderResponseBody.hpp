@@ -86,17 +86,21 @@ namespace Models
 
 
     protected:
-      // The type of the external identity provider. Valid values: DingTalk, Feishu.
+      // The type of the external identity provider. Valid values:
+      // 
+      // - DingTalk
+      // - Feishu
       shared_ptr<string> identityProviderType_ {};
       // The status. Valid values:
+      // 
       // - CONFIGURED: The configuration has been accepted and is waiting for the user pool to be provisioned.
       // - SYNCING: Organization members are being synchronized.
       // - SYNCED: Organization member synchronization is complete.
       // - READY: The binding is in effect.
       // - SYNC_FAILED: Organization member synchronization failed.
       // - UPDATING: The configuration is being updated.
-      // - UPDATE_FAILED: Configuration update failed.
-      // - DISCONNECTING: The unbinding is in progress.
+      // - UPDATE_FAILED: The configuration update failed.
+      // - DISCONNECTING: The identity provider is being unbound.
       // - DISCONNECT_FAILED: The unbinding failed.
       shared_ptr<string> status_ {};
       // The workspace ID.
@@ -152,11 +156,11 @@ namespace Models
   protected:
     // The business status code.
     shared_ptr<string> code_ {};
-    // The binding information of the external identity provider after the unbinding operation is accepted.
+    // The binding information of the external identity provider after the unbinding request is accepted.
     shared_ptr<DeleteIdentityProviderResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. An error description is returned if the request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

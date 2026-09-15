@@ -37,10 +37,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(environment, environment_);
+        DARABONBA_PTR_TO_JSON(harness, harness_);
         DARABONBA_PTR_TO_JSON(instruction, instruction_);
         DARABONBA_PTR_TO_JSON(model, model_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(network, network_);
+        DARABONBA_PTR_TO_JSON(ossMounts, ossMounts_);
         DARABONBA_PTR_TO_JSON(runtime, runtime_);
         DARABONBA_PTR_TO_JSON(skills, skills_);
         DARABONBA_PTR_TO_JSON(subAgents, subAgents_);
@@ -50,10 +52,12 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(environment, environment_);
+        DARABONBA_PTR_FROM_JSON(harness, harness_);
         DARABONBA_PTR_FROM_JSON(instruction, instruction_);
         DARABONBA_PTR_FROM_JSON(model, model_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(network, network_);
+        DARABONBA_PTR_FROM_JSON(ossMounts, ossMounts_);
         DARABONBA_PTR_FROM_JSON(runtime, runtime_);
         DARABONBA_PTR_FROM_JSON(skills, skills_);
         DARABONBA_PTR_FROM_JSON(subAgents, subAgents_);
@@ -181,6 +185,8 @@ namespace Models
           // This parameter is required.
           shared_ptr<string> name_ {};
           // The version of the template in the AI registry.
+          // 
+          // This parameter is required.
           shared_ptr<string> version_ {};
         };
 
@@ -297,10 +303,12 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Runtime& obj) { 
           DARABONBA_PTR_TO_JSON(compute, compute_);
+          DARABONBA_PTR_TO_JSON(hpa, hpa_);
           DARABONBA_PTR_TO_JSON(sessionPolicy, sessionPolicy_);
         };
         friend void from_json(const Darabonba::Json& j, Runtime& obj) { 
           DARABONBA_PTR_FROM_JSON(compute, compute_);
+          DARABONBA_PTR_FROM_JSON(hpa, hpa_);
           DARABONBA_PTR_FROM_JSON(sessionPolicy, sessionPolicy_);
         };
         Runtime() = default ;
@@ -352,12 +360,89 @@ namespace Models
 
 
         protected:
-          // The HTTP header name used for session affinity. This parameter takes effect only when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+          // The HTTP header name used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
           shared_ptr<string> headerName_ {};
           // The session policy type.
           // 
           // This parameter is required.
           shared_ptr<string> type_ {};
+        };
+
+        class Hpa : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Hpa& obj) { 
+            DARABONBA_PTR_TO_JSON(enabled, enabled_);
+            DARABONBA_PTR_TO_JSON(maxConcurrentSessionsPerSandbox, maxConcurrentSessionsPerSandbox_);
+            DARABONBA_PTR_TO_JSON(maxSandboxCount, maxSandboxCount_);
+            DARABONBA_PTR_TO_JSON(minSandboxCount, minSandboxCount_);
+            DARABONBA_PTR_TO_JSON(sessionTtlSeconds, sessionTtlSeconds_);
+          };
+          friend void from_json(const Darabonba::Json& j, Hpa& obj) { 
+            DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+            DARABONBA_PTR_FROM_JSON(maxConcurrentSessionsPerSandbox, maxConcurrentSessionsPerSandbox_);
+            DARABONBA_PTR_FROM_JSON(maxSandboxCount, maxSandboxCount_);
+            DARABONBA_PTR_FROM_JSON(minSandboxCount, minSandboxCount_);
+            DARABONBA_PTR_FROM_JSON(sessionTtlSeconds, sessionTtlSeconds_);
+          };
+          Hpa() = default ;
+          Hpa(const Hpa &) = default ;
+          Hpa(Hpa &&) = default ;
+          Hpa(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Hpa() = default ;
+          Hpa& operator=(const Hpa &) = default ;
+          Hpa& operator=(Hpa &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->maxConcurrentSessionsPerSandbox_ == nullptr && this->maxSandboxCount_ == nullptr && this->minSandboxCount_ == nullptr && this->sessionTtlSeconds_ == nullptr; };
+          // enabled Field Functions 
+          bool hasEnabled() const { return this->enabled_ != nullptr;};
+          void deleteEnabled() { this->enabled_ = nullptr;};
+          inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+          inline Hpa& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+          // maxConcurrentSessionsPerSandbox Field Functions 
+          bool hasMaxConcurrentSessionsPerSandbox() const { return this->maxConcurrentSessionsPerSandbox_ != nullptr;};
+          void deleteMaxConcurrentSessionsPerSandbox() { this->maxConcurrentSessionsPerSandbox_ = nullptr;};
+          inline int32_t getMaxConcurrentSessionsPerSandbox() const { DARABONBA_PTR_GET_DEFAULT(maxConcurrentSessionsPerSandbox_, 0) };
+          inline Hpa& setMaxConcurrentSessionsPerSandbox(int32_t maxConcurrentSessionsPerSandbox) { DARABONBA_PTR_SET_VALUE(maxConcurrentSessionsPerSandbox_, maxConcurrentSessionsPerSandbox) };
+
+
+          // maxSandboxCount Field Functions 
+          bool hasMaxSandboxCount() const { return this->maxSandboxCount_ != nullptr;};
+          void deleteMaxSandboxCount() { this->maxSandboxCount_ = nullptr;};
+          inline int32_t getMaxSandboxCount() const { DARABONBA_PTR_GET_DEFAULT(maxSandboxCount_, 0) };
+          inline Hpa& setMaxSandboxCount(int32_t maxSandboxCount) { DARABONBA_PTR_SET_VALUE(maxSandboxCount_, maxSandboxCount) };
+
+
+          // minSandboxCount Field Functions 
+          bool hasMinSandboxCount() const { return this->minSandboxCount_ != nullptr;};
+          void deleteMinSandboxCount() { this->minSandboxCount_ = nullptr;};
+          inline int32_t getMinSandboxCount() const { DARABONBA_PTR_GET_DEFAULT(minSandboxCount_, 0) };
+          inline Hpa& setMinSandboxCount(int32_t minSandboxCount) { DARABONBA_PTR_SET_VALUE(minSandboxCount_, minSandboxCount) };
+
+
+          // sessionTtlSeconds Field Functions 
+          bool hasSessionTtlSeconds() const { return this->sessionTtlSeconds_ != nullptr;};
+          void deleteSessionTtlSeconds() { this->sessionTtlSeconds_ = nullptr;};
+          inline int32_t getSessionTtlSeconds() const { DARABONBA_PTR_GET_DEFAULT(sessionTtlSeconds_, 0) };
+          inline Hpa& setSessionTtlSeconds(int32_t sessionTtlSeconds) { DARABONBA_PTR_SET_VALUE(sessionTtlSeconds_, sessionTtlSeconds) };
+
+
+        protected:
+          // Specifies whether to enable auto-scaling. This parameter is required when hpa is present as validated by the backend.
+          shared_ptr<bool> enabled_ {};
+          // The maximum number of active sessions per Sandbox. This parameter is required when hpa is present as validated by the backend.
+          shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
+          // The maximum number of Sandboxes. This parameter is required when HPA is enabled and must be no less than the minimum value.
+          shared_ptr<int32_t> maxSandboxCount_ {};
+          // The minimum number of Sandboxes. This parameter is required when HPA is enabled.
+          shared_ptr<int32_t> minSandboxCount_ {};
+          // The session reclamation time after inactivity, in seconds. This parameter is required when hpa is present as validated by the backend.
+          shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
         class Compute : public Darabonba::Model {
@@ -395,7 +480,7 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->compute_ == nullptr
-        && this->sessionPolicy_ == nullptr; };
+        && this->hpa_ == nullptr && this->sessionPolicy_ == nullptr; };
         // compute Field Functions 
         bool hasCompute() const { return this->compute_ != nullptr;};
         void deleteCompute() { this->compute_ = nullptr;};
@@ -403,6 +488,15 @@ namespace Models
         inline Runtime::Compute getCompute() { DARABONBA_PTR_GET(compute_, Runtime::Compute) };
         inline Runtime& setCompute(const Runtime::Compute & compute) { DARABONBA_PTR_SET_VALUE(compute_, compute) };
         inline Runtime& setCompute(Runtime::Compute && compute) { DARABONBA_PTR_SET_RVALUE(compute_, compute) };
+
+
+        // hpa Field Functions 
+        bool hasHpa() const { return this->hpa_ != nullptr;};
+        void deleteHpa() { this->hpa_ = nullptr;};
+        inline const Runtime::Hpa & getHpa() const { DARABONBA_PTR_GET_CONST(hpa_, Runtime::Hpa) };
+        inline Runtime::Hpa getHpa() { DARABONBA_PTR_GET(hpa_, Runtime::Hpa) };
+        inline Runtime& setHpa(const Runtime::Hpa & hpa) { DARABONBA_PTR_SET_VALUE(hpa_, hpa) };
+        inline Runtime& setHpa(Runtime::Hpa && hpa) { DARABONBA_PTR_SET_RVALUE(hpa_, hpa) };
 
 
         // sessionPolicy Field Functions 
@@ -419,10 +513,78 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
+        // The Sandbox auto-scaling and session configuration.
+        shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
         // This parameter is required.
         shared_ptr<Runtime::SessionPolicy> sessionPolicy_ {};
+      };
+
+      class OssMounts : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const OssMounts& obj) { 
+          DARABONBA_PTR_TO_JSON(bucketName, bucketName_);
+          DARABONBA_PTR_TO_JSON(mountPath, mountPath_);
+          DARABONBA_PTR_TO_JSON(path, path_);
+          DARABONBA_PTR_TO_JSON(readOnly, readOnly_);
+        };
+        friend void from_json(const Darabonba::Json& j, OssMounts& obj) { 
+          DARABONBA_PTR_FROM_JSON(bucketName, bucketName_);
+          DARABONBA_PTR_FROM_JSON(mountPath, mountPath_);
+          DARABONBA_PTR_FROM_JSON(path, path_);
+          DARABONBA_PTR_FROM_JSON(readOnly, readOnly_);
+        };
+        OssMounts() = default ;
+        OssMounts(const OssMounts &) = default ;
+        OssMounts(OssMounts &&) = default ;
+        OssMounts(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~OssMounts() = default ;
+        OssMounts& operator=(const OssMounts &) = default ;
+        OssMounts& operator=(OssMounts &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->bucketName_ == nullptr
+        && this->mountPath_ == nullptr && this->path_ == nullptr && this->readOnly_ == nullptr; };
+        // bucketName Field Functions 
+        bool hasBucketName() const { return this->bucketName_ != nullptr;};
+        void deleteBucketName() { this->bucketName_ = nullptr;};
+        inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+        inline OssMounts& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
+
+
+        // mountPath Field Functions 
+        bool hasMountPath() const { return this->mountPath_ != nullptr;};
+        void deleteMountPath() { this->mountPath_ = nullptr;};
+        inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+        inline OssMounts& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
+
+
+        // path Field Functions 
+        bool hasPath() const { return this->path_ != nullptr;};
+        void deletePath() { this->path_ = nullptr;};
+        inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+        inline OssMounts& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
+        // readOnly Field Functions 
+        bool hasReadOnly() const { return this->readOnly_ != nullptr;};
+        void deleteReadOnly() { this->readOnly_ = nullptr;};
+        inline bool getReadOnly() const { DARABONBA_PTR_GET_DEFAULT(readOnly_, false) };
+        inline OssMounts& setReadOnly(bool readOnly) { DARABONBA_PTR_SET_VALUE(readOnly_, readOnly) };
+
+
+      protected:
+        // The OSS bucket name. This parameter is required for each mount entry as validated by the backend.
+        shared_ptr<string> bucketName_ {};
+        // The absolute mount path in the container. This parameter is required for each mount entry as validated by the backend.
+        shared_ptr<string> mountPath_ {};
+        // The relative object prefix in the bucket. If this parameter is not specified, the entire bucket is mounted.
+        shared_ptr<string> path_ {};
+        // Specifies whether to mount as read-only. Default value: false.
+        shared_ptr<bool> readOnly_ {};
       };
 
       class Network : public Darabonba::Model {
@@ -474,9 +636,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow access to the VPC.
-          // 
-          // This parameter is required.
+          // Specifies whether to allow VPC access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -508,9 +668,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether to allow access to the Internet.
-          // 
-          // This parameter is required.
+          // Specifies whether to allow public network access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -584,9 +742,97 @@ namespace Models
         // This parameter is required.
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
-        // 
-        // This parameter is required.
         shared_ptr<string> modelName_ {};
+      };
+
+      class Harness : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Harness& obj) { 
+          DARABONBA_PTR_TO_JSON(configuration, configuration_);
+          DARABONBA_PTR_TO_JSON(type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, Harness& obj) { 
+          DARABONBA_PTR_FROM_JSON(configuration, configuration_);
+          DARABONBA_PTR_FROM_JSON(type, type_);
+        };
+        Harness() = default ;
+        Harness(const Harness &) = default ;
+        Harness(Harness &&) = default ;
+        Harness(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Harness() = default ;
+        Harness& operator=(const Harness &) = default ;
+        Harness& operator=(Harness &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Configuration : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Configuration& obj) { 
+            DARABONBA_PTR_TO_JSON(connectorServiceAccountKey, connectorServiceAccountKey_);
+            DARABONBA_PTR_TO_JSON(connectorServiceAccountName, connectorServiceAccountName_);
+          };
+          friend void from_json(const Darabonba::Json& j, Configuration& obj) { 
+            DARABONBA_PTR_FROM_JSON(connectorServiceAccountKey, connectorServiceAccountKey_);
+            DARABONBA_PTR_FROM_JSON(connectorServiceAccountName, connectorServiceAccountName_);
+          };
+          Configuration() = default ;
+          Configuration(const Configuration &) = default ;
+          Configuration(Configuration &&) = default ;
+          Configuration(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Configuration() = default ;
+          Configuration& operator=(const Configuration &) = default ;
+          Configuration& operator=(Configuration &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->connectorServiceAccountKey_ == nullptr
+        && this->connectorServiceAccountName_ == nullptr; };
+          // connectorServiceAccountKey Field Functions 
+          bool hasConnectorServiceAccountKey() const { return this->connectorServiceAccountKey_ != nullptr;};
+          void deleteConnectorServiceAccountKey() { this->connectorServiceAccountKey_ = nullptr;};
+          inline string getConnectorServiceAccountKey() const { DARABONBA_PTR_GET_DEFAULT(connectorServiceAccountKey_, "") };
+          inline Configuration& setConnectorServiceAccountKey(string connectorServiceAccountKey) { DARABONBA_PTR_SET_VALUE(connectorServiceAccountKey_, connectorServiceAccountKey) };
+
+
+          // connectorServiceAccountName Field Functions 
+          bool hasConnectorServiceAccountName() const { return this->connectorServiceAccountName_ != nullptr;};
+          void deleteConnectorServiceAccountName() { this->connectorServiceAccountName_ = nullptr;};
+          inline string getConnectorServiceAccountName() const { DARABONBA_PTR_GET_DEFAULT(connectorServiceAccountName_, "") };
+          inline Configuration& setConnectorServiceAccountName(string connectorServiceAccountName) { DARABONBA_PTR_SET_VALUE(connectorServiceAccountName_, connectorServiceAccountName) };
+
+
+        protected:
+          // The Key ID used to bind a Service Account Key of the QoderCLI Connector. This parameter is optional when only one key exists, but required when multiple keys exist.
+          shared_ptr<string> connectorServiceAccountKey_ {};
+          // The Connector Key name that is populated during queries. This parameter is not used as a binding reference during writes.
+          shared_ptr<string> connectorServiceAccountName_ {};
+        };
+
+        virtual bool empty() const override { return this->configuration_ == nullptr
+        && this->type_ == nullptr; };
+        // configuration Field Functions 
+        bool hasConfiguration() const { return this->configuration_ != nullptr;};
+        void deleteConfiguration() { this->configuration_ = nullptr;};
+        inline const Harness::Configuration & getConfiguration() const { DARABONBA_PTR_GET_CONST(configuration_, Harness::Configuration) };
+        inline Harness::Configuration getConfiguration() { DARABONBA_PTR_GET(configuration_, Harness::Configuration) };
+        inline Harness& setConfiguration(const Harness::Configuration & configuration) { DARABONBA_PTR_SET_VALUE(configuration_, configuration) };
+        inline Harness& setConfiguration(Harness::Configuration && configuration) { DARABONBA_PTR_SET_RVALUE(configuration_, configuration) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Harness& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        // The Connector binding configuration for the qodercli harness.
+        shared_ptr<Harness::Configuration> configuration_ {};
+        // The runtime harness type. Valid values: qwenpaw and qodercli. When the type is qodercli, binding is performed based on configuration.connectorServiceAccountKey, and the name is also populated during queries.
+        shared_ptr<string> type_ {};
       };
 
       class Environment : public Darabonba::Model {
@@ -648,11 +894,11 @@ namespace Models
 
 
         protected:
-          // The environment variable name.
+          // The name of the environment variable.
           // 
           // This parameter is required.
           shared_ptr<string> name_ {};
-          // The environment variable value.
+          // The value of the environment variable.
           // 
           // This parameter is required.
           shared_ptr<string> value_ {};
@@ -720,8 +966,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->description_ == nullptr
-        && this->environment_ == nullptr && this->instruction_ == nullptr && this->model_ == nullptr && this->name_ == nullptr && this->network_ == nullptr
-        && this->runtime_ == nullptr && this->skills_ == nullptr && this->subAgents_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr; };
+        && this->environment_ == nullptr && this->harness_ == nullptr && this->instruction_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
+        && this->network_ == nullptr && this->ossMounts_ == nullptr && this->runtime_ == nullptr && this->skills_ == nullptr && this->subAgents_ == nullptr
+        && this->template_ == nullptr && this->tools_ == nullptr; };
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -736,6 +983,15 @@ namespace Models
       inline Body::Environment getEnvironment() { DARABONBA_PTR_GET(environment_, Body::Environment) };
       inline Body& setEnvironment(const Body::Environment & environment) { DARABONBA_PTR_SET_VALUE(environment_, environment) };
       inline Body& setEnvironment(Body::Environment && environment) { DARABONBA_PTR_SET_RVALUE(environment_, environment) };
+
+
+      // harness Field Functions 
+      bool hasHarness() const { return this->harness_ != nullptr;};
+      void deleteHarness() { this->harness_ = nullptr;};
+      inline const Body::Harness & getHarness() const { DARABONBA_PTR_GET_CONST(harness_, Body::Harness) };
+      inline Body::Harness getHarness() { DARABONBA_PTR_GET(harness_, Body::Harness) };
+      inline Body& setHarness(const Body::Harness & harness) { DARABONBA_PTR_SET_VALUE(harness_, harness) };
+      inline Body& setHarness(Body::Harness && harness) { DARABONBA_PTR_SET_RVALUE(harness_, harness) };
 
 
       // instruction Field Functions 
@@ -768,6 +1024,15 @@ namespace Models
       inline Body::Network getNetwork() { DARABONBA_PTR_GET(network_, Body::Network) };
       inline Body& setNetwork(const Body::Network & network) { DARABONBA_PTR_SET_VALUE(network_, network) };
       inline Body& setNetwork(Body::Network && network) { DARABONBA_PTR_SET_RVALUE(network_, network) };
+
+
+      // ossMounts Field Functions 
+      bool hasOssMounts() const { return this->ossMounts_ != nullptr;};
+      void deleteOssMounts() { this->ossMounts_ = nullptr;};
+      inline const vector<Body::OssMounts> & getOssMounts() const { DARABONBA_PTR_GET_CONST(ossMounts_, vector<Body::OssMounts>) };
+      inline vector<Body::OssMounts> getOssMounts() { DARABONBA_PTR_GET(ossMounts_, vector<Body::OssMounts>) };
+      inline Body& setOssMounts(const vector<Body::OssMounts> & ossMounts) { DARABONBA_PTR_SET_VALUE(ossMounts_, ossMounts) };
+      inline Body& setOssMounts(vector<Body::OssMounts> && ossMounts) { DARABONBA_PTR_SET_RVALUE(ossMounts_, ossMounts) };
 
 
       // runtime Field Functions 
@@ -820,6 +1085,8 @@ namespace Models
       shared_ptr<string> description_ {};
       // The environment configuration.
       shared_ptr<Body::Environment> environment_ {};
+      // The runtime harness of the managed agent. Valid values: qwenpaw and qodercli.
+      shared_ptr<Body::Harness> harness_ {};
       // The agent instruction that guides the behavior of the agent.
       shared_ptr<string> instruction_ {};
       // The model configuration.
@@ -832,6 +1099,8 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration.
       shared_ptr<Body::Network> network_ {};
+      // The OSS mount list. A maximum of 10 entries are supported.
+      shared_ptr<vector<Body::OssMounts>> ossMounts_ {};
       // The runtime configuration.
       // 
       // This parameter is required.

@@ -54,7 +54,6 @@ namespace Models
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(deployType, deployType_);
         DARABONBA_PTR_TO_JSON(description, description_);
-        DARABONBA_PTR_TO_JSON(effectiveSpecVersion, effectiveSpecVersion_);
         DARABONBA_PTR_TO_JSON(latestSpecVersion, latestSpecVersion_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(runtime, runtime_);
@@ -68,7 +67,6 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(deployType, deployType_);
         DARABONBA_PTR_FROM_JSON(description, description_);
-        DARABONBA_PTR_FROM_JSON(effectiveSpecVersion, effectiveSpecVersion_);
         DARABONBA_PTR_FROM_JSON(latestSpecVersion, latestSpecVersion_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(runtime, runtime_);
@@ -88,9 +86,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->effectiveSpecVersion_ == nullptr
-        && this->latestSpecVersion_ == nullptr && this->name_ == nullptr && this->runtime_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->latestSpecVersion_ == nullptr
+        && this->name_ == nullptr && this->runtime_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -124,13 +121,6 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Items& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
-
-
-      // effectiveSpecVersion Field Functions 
-      bool hasEffectiveSpecVersion() const { return this->effectiveSpecVersion_ != nullptr;};
-      void deleteEffectiveSpecVersion() { this->effectiveSpecVersion_ = nullptr;};
-      inline int64_t getEffectiveSpecVersion() const { DARABONBA_PTR_GET_DEFAULT(effectiveSpecVersion_, 0L) };
-      inline Items& setEffectiveSpecVersion(int64_t effectiveSpecVersion) { DARABONBA_PTR_SET_VALUE(effectiveSpecVersion_, effectiveSpecVersion) };
 
 
       // latestSpecVersion Field Functions 
@@ -184,17 +174,15 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The deployment type.
       shared_ptr<string> deployType_ {};
-      // The external agent description.
+      // The description of the external agent.
       shared_ptr<string> description_ {};
-      // The currently effective specification version number.
-      shared_ptr<int64_t> effectiveSpecVersion_ {};
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The external agent name.
+      // The name of the external agent.
       shared_ptr<string> name_ {};
       // The runtime type reported by the external agent.
       shared_ptr<string> runtime_ {};
-      // The external agent status. Valid values:
+      // The status of the external agent. Valid values:
       // - Creating: The agent is being created.
       // - Running: The agent is running.
       // - Failed: The agent has failed.
@@ -277,17 +265,17 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS indicates success.
+    // The business status code. The value SUCCESS is returned for a successful request.
     shared_ptr<string> code_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. The value 200 is returned for a successful request.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of external agents.
     shared_ptr<vector<ListExternalAgentsResponseBody::Items>> items_ {};
     // The maximum number of entries returned per page for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The message returned for the request.
+    // The message that indicates the result of the request.
     shared_ptr<string> message_ {};
-    // The token for the next page. An empty value indicates the last page.
+    // The token for the next page. An empty value indicates that the last page has been reached.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

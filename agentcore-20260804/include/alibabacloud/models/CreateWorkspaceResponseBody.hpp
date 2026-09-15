@@ -43,18 +43,36 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(aiRegistryNamespaceId, aiRegistryNamespaceId_);
+        DARABONBA_PTR_TO_JSON(authorizationStatus, authorizationStatus_);
+        DARABONBA_PTR_TO_JSON(bucketName, bucketName_);
+        DARABONBA_PTR_TO_JSON(cmsWorkspaceId, cmsWorkspaceId_);
+        DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
+        DARABONBA_PTR_TO_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(status, status_);
+        DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
+        DARABONBA_PTR_TO_JSON(storageType, storageType_);
+        DARABONBA_PTR_TO_JSON(tags, tags_);
         DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(aiRegistryNamespaceId, aiRegistryNamespaceId_);
+        DARABONBA_PTR_FROM_JSON(authorizationStatus, authorizationStatus_);
+        DARABONBA_PTR_FROM_JSON(bucketName, bucketName_);
+        DARABONBA_PTR_FROM_JSON(cmsWorkspaceId, cmsWorkspaceId_);
+        DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(resourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(status, status_);
+        DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
+        DARABONBA_PTR_FROM_JSON(storageType, storageType_);
+        DARABONBA_PTR_FROM_JSON(tags, tags_);
         DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
         DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
       };
@@ -69,6 +87,54 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(key, key_);
+          DARABONBA_PTR_TO_JSON(value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(key, key_);
+          DARABONBA_PTR_FROM_JSON(value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The tag key.
+        // 
+        // This parameter is required.
+        shared_ptr<string> key_ {};
+        // The tag value.
+        // 
+        // This parameter is required.
+        shared_ptr<string> value_ {};
+      };
+
       class NetworkConfiguration : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NetworkConfiguration& obj) { 
@@ -141,7 +207,7 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The ID of the VPC.
+          // The ID of the user VPC.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -160,8 +226,45 @@ namespace Models
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
-      virtual bool empty() const override { return this->name_ == nullptr
-        && this->networkConfiguration_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
+      virtual bool empty() const override { return this->aiRegistryNamespaceId_ == nullptr
+        && this->authorizationStatus_ == nullptr && this->bucketName_ == nullptr && this->cmsWorkspaceId_ == nullptr && this->createTime_ == nullptr && this->name_ == nullptr
+        && this->networkConfiguration_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr
+        && this->storageType_ == nullptr && this->tags_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
+      // aiRegistryNamespaceId Field Functions 
+      bool hasAiRegistryNamespaceId() const { return this->aiRegistryNamespaceId_ != nullptr;};
+      void deleteAiRegistryNamespaceId() { this->aiRegistryNamespaceId_ = nullptr;};
+      inline string getAiRegistryNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(aiRegistryNamespaceId_, "") };
+      inline Data& setAiRegistryNamespaceId(string aiRegistryNamespaceId) { DARABONBA_PTR_SET_VALUE(aiRegistryNamespaceId_, aiRegistryNamespaceId) };
+
+
+      // authorizationStatus Field Functions 
+      bool hasAuthorizationStatus() const { return this->authorizationStatus_ != nullptr;};
+      void deleteAuthorizationStatus() { this->authorizationStatus_ = nullptr;};
+      inline string getAuthorizationStatus() const { DARABONBA_PTR_GET_DEFAULT(authorizationStatus_, "") };
+      inline Data& setAuthorizationStatus(string authorizationStatus) { DARABONBA_PTR_SET_VALUE(authorizationStatus_, authorizationStatus) };
+
+
+      // bucketName Field Functions 
+      bool hasBucketName() const { return this->bucketName_ != nullptr;};
+      void deleteBucketName() { this->bucketName_ = nullptr;};
+      inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+      inline Data& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
+
+
+      // cmsWorkspaceId Field Functions 
+      bool hasCmsWorkspaceId() const { return this->cmsWorkspaceId_ != nullptr;};
+      void deleteCmsWorkspaceId() { this->cmsWorkspaceId_ = nullptr;};
+      inline string getCmsWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(cmsWorkspaceId_, "") };
+      inline Data& setCmsWorkspaceId(string cmsWorkspaceId) { DARABONBA_PTR_SET_VALUE(cmsWorkspaceId_, cmsWorkspaceId) };
+
+
+      // createTime Field Functions 
+      bool hasCreateTime() const { return this->createTime_ != nullptr;};
+      void deleteCreateTime() { this->createTime_ = nullptr;};
+      inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
+      inline Data& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -185,11 +288,41 @@ namespace Models
       inline Data& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline Data& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
       inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
       inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
+      // statusReason Field Functions 
+      bool hasStatusReason() const { return this->statusReason_ != nullptr;};
+      void deleteStatusReason() { this->statusReason_ = nullptr;};
+      inline string getStatusReason() const { DARABONBA_PTR_GET_DEFAULT(statusReason_, "") };
+      inline Data& setStatusReason(string statusReason) { DARABONBA_PTR_SET_VALUE(statusReason_, statusReason) };
+
+
+      // storageType Field Functions 
+      bool hasStorageType() const { return this->storageType_ != nullptr;};
+      void deleteStorageType() { this->storageType_ = nullptr;};
+      inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+      inline Data& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<Data::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Data::Tags>) };
+      inline vector<Data::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<Data::Tags>) };
+      inline Data& setTags(const vector<Data::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline Data& setTags(vector<Data::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
 
 
       // tenantId Field Functions 
@@ -207,14 +340,36 @@ namespace Models
 
 
     protected:
+      // The AI Registry namespace ID. This value is returned after the related resource binding is complete and may be empty during initialization.
+      shared_ptr<string> aiRegistryNamespaceId_ {};
+      // The OSS storage authorization status.
+      shared_ptr<string> authorizationStatus_ {};
+      // The name of the private OSS bucket.
+      shared_ptr<string> bucketName_ {};
+      // The CloudMonitor workspace ID. This value is returned after the related resource binding is complete and may be empty during initialization.
+      shared_ptr<string> cmsWorkspaceId_ {};
+      // The time when the workspace was created, in ISO-8601 format.
+      // 
+      // This parameter is required.
+      shared_ptr<string> createTime_ {};
       // The workspace name.
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
       // The region ID of the workspace.
       shared_ptr<string> regionId_ {};
+      // The ID of the resource group to which the workspace belongs. This value may be empty if no resource group is specified.
+      shared_ptr<string> resourceGroupId_ {};
       // The workspace status.
       shared_ptr<string> status_ {};
+      // The supplementary reason for the current workspace status. This value is used to display the specific reason when initialization fails or authorization is pending, and may be empty under normal conditions.
+      shared_ptr<string> statusReason_ {};
+      // The storage type of the workspace.
+      shared_ptr<string> storageType_ {};
+      // The list of workspace tags. An empty array is returned if no tags are set.
+      // 
+      // This parameter is required.
+      shared_ptr<vector<Data::Tags>> tags_ {};
       // The ID of the tenant to which the workspace belongs.
       shared_ptr<string> tenantId_ {};
       // The workspace ID.
@@ -278,7 +433,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

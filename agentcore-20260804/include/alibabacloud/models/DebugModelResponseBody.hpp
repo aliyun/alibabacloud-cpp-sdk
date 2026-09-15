@@ -150,18 +150,25 @@ namespace Models
 
 
     protected:
+      // The model connection ID.
       shared_ptr<string> connectionId_ {};
+      // Indicates whether the model debugging was successful.
       shared_ptr<bool> debugSuccess_ {};
-      // 调试失败时的错误码。取值：MODEL_CONNECTION_NOT_READY（模型连接尚未发布就绪）、MODEL_CONNECTION_TEST_FAILED（平台调用网关失败）、UPSTREAM_MODEL_NOT_FOUND（模型服务商侧不存在该模型）、UPSTREAM_UNAUTHORIZED（模型服务商拒绝所配置的凭证）、UPSTREAM_RATE_LIMITED（模型服务商限流）、UPSTREAM_SERVER_ERROR（模型服务商服务端错误）、UPSTREAM_HTTP_ERROR（模型服务商返回其它非成功状态）、UPSTREAM_EMPTY_RESPONSE（模型服务商返回空响应）、UPSTREAM_INVALID_RESPONSE（模型服务商响应格式非法）、UPSTREAM_MODEL_ERROR（模型服务商拒绝本次请求）、MODEL_RESPONSE_INVALID（响应解析失败）。
+      // The error code returned when debugging fails.
       shared_ptr<string> errorCode_ {};
-      // 调试失败时的错误描述，为固定脱敏文案，不透传模型服务商的原始错误详情。
+      // The error message returned when debugging fails.
       shared_ptr<string> errorMessage_ {};
+      // The number of input tokens consumed by this model debugging request.
       shared_ptr<int64_t> inputTokens_ {};
+      // The time consumed by this model debugging call, in milliseconds.
       shared_ptr<int64_t> latencyMs_ {};
+      // The model ID.
       shared_ptr<string> modelId_ {};
+      // The number of output tokens consumed by this model debugging response.
       shared_ptr<int64_t> outputTokens_ {};
+      // The text response returned by the model when debugging succeeds. This value is empty when debugging fails.
       shared_ptr<string> response_ {};
-      // 调试结果状态。取值：NORMAL（正常）、ABNORMAL（异常）。
+      // The debug result status.
       shared_ptr<string> status_ {};
     };
 
@@ -212,11 +219,17 @@ namespace Models
 
 
   protected:
+    // The business status code. The value SUCCESS indicates success.
     shared_ptr<string> code_ {};
+    // The model debugging result.
     shared_ptr<DebugModelResponseBody::Data> data_ {};
+    // The HTTP status code. The value 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The request processing result message.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

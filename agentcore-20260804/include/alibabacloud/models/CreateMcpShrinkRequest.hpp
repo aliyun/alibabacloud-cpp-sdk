@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<string> bodyShrink_ {};
-    // The client idempotency token.
+    // The client token that ensures idempotency of the request.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -119,7 +119,7 @@ namespace Models
       // - DISCONNECTING: The binding is being removed.
       // - DISCONNECT_FAILED: The unbinding failed.
       shared_ptr<string> status_ {};
-      // Specifies whether to enable organization member synchronization. After this feature is enabled, the external identity provider synchronizes organization members as workspace users.
+      // Specifies whether to enable organization member synchronization. When enabled, the external identity provider synchronizes organization members as workspace users.
       shared_ptr<bool> syncEnabled_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -178,7 +178,7 @@ namespace Models
     shared_ptr<UpdateIdentityProviderResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. An error description is returned if the request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

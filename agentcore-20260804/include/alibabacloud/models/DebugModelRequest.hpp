@@ -57,6 +57,8 @@ namespace Models
 
 
     protected:
+      // The prompt used to verify the model call chain.
+      // 
       // This parameter is required.
       shared_ptr<string> prompt_ {};
     };
@@ -72,6 +74,7 @@ namespace Models
 
 
   protected:
+    // The request body.
     shared_ptr<DebugModelRequest::Body> body_ {};
   };
 

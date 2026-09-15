@@ -86,8 +86,11 @@ namespace Models
 
 
     protected:
+      // The user ID.
       shared_ptr<string> agentCoreUserId_ {};
+      // The username. The username must be unique within the workspace. It can contain only lowercase letters, digits, and hyphens (-), and must start and end with a lowercase letter or digit. The username must be 1 to 32 characters in length.
       shared_ptr<string> name_ {};
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -138,11 +141,17 @@ namespace Models
 
 
   protected:
+    // The business status code.
     shared_ptr<string> code_ {};
+    // The information about the deleted user.
     shared_ptr<DeleteUserResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The response message. An error description is returned if the request fails.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

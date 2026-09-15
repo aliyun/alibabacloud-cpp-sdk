@@ -124,11 +124,11 @@ namespace Models
 
 
     protected:
-      // The channel behavior configuration. When provided, the entire configuration is replaced. An empty object restores default values.
+      // The channel behavior configuration. When specified, the entire configuration is replaced. An empty object restores default values.
       shared_ptr<Body::ChannelConfig> channelConfig_ {};
-      // Specifies whether to enable the IM channel. Default value: true (when created).
+      // Specifies whether to enable the IM channel. Default value upon creation: true.
       shared_ptr<bool> enabled_ {};
-      // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint address.
+      // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint.
       shared_ptr<string> serviceEndpointId_ {};
     };
 
@@ -153,7 +153,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<UpdateAgentIMChannelRequest::Body> body_ {};
-    // The reserved idempotency token. The backend does not provide persistent idempotency guarantees in this phase.
+    // The reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request body for updating a user.
     shared_ptr<string> bodyShrink_ {};
+    // Not supported.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -16,13 +16,17 @@ namespace Models
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_TO_JSON(officialTag, officialTag_);
       DARABONBA_PTR_TO_JSON(searchType, searchType_);
+      DARABONBA_PTR_TO_JSON(usageActive, usageActive_);
     };
     friend void from_json(const Darabonba::Json& j, ListMcpsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
+      DARABONBA_PTR_FROM_JSON(officialTag, officialTag_);
       DARABONBA_PTR_FROM_JSON(searchType, searchType_);
+      DARABONBA_PTR_FROM_JSON(usageActive, usageActive_);
     };
     ListMcpsRequest() = default ;
     ListMcpsRequest(const ListMcpsRequest &) = default ;
@@ -36,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->name_ == nullptr && this->nextToken_ == nullptr && this->searchType_ == nullptr; };
+        && this->name_ == nullptr && this->nextToken_ == nullptr && this->officialTag_ == nullptr && this->searchType_ == nullptr && this->usageActive_ == nullptr; };
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -58,6 +62,13 @@ namespace Models
     inline ListMcpsRequest& setNextToken(string nextToken) { DARABONBA_PTR_SET_VALUE(nextToken_, nextToken) };
 
 
+    // officialTag Field Functions 
+    bool hasOfficialTag() const { return this->officialTag_ != nullptr;};
+    void deleteOfficialTag() { this->officialTag_ = nullptr;};
+    inline string getOfficialTag() const { DARABONBA_PTR_GET_DEFAULT(officialTag_, "") };
+    inline ListMcpsRequest& setOfficialTag(string officialTag) { DARABONBA_PTR_SET_VALUE(officialTag_, officialTag) };
+
+
     // searchType Field Functions 
     bool hasSearchType() const { return this->searchType_ != nullptr;};
     void deleteSearchType() { this->searchType_ = nullptr;};
@@ -65,13 +76,30 @@ namespace Models
     inline ListMcpsRequest& setSearchType(string searchType) { DARABONBA_PTR_SET_VALUE(searchType_, searchType) };
 
 
+    // usageActive Field Functions 
+    bool hasUsageActive() const { return this->usageActive_ != nullptr;};
+    void deleteUsageActive() { this->usageActive_ = nullptr;};
+    inline bool getUsageActive() const { DARABONBA_PTR_GET_DEFAULT(usageActive_, false) };
+    inline ListMcpsRequest& setUsageActive(bool usageActive) { DARABONBA_PTR_SET_VALUE(usageActive_, usageActive) };
+
+
   protected:
-    // The maximum number of entries to return per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
+    // The MCP service name or service ID. Used together with SearchType.
     shared_ptr<string> name_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
+    // Filters results by official usage tag.
+    shared_ptr<string> officialTag_ {};
+    // The name matching method. Takes effect only when Name is specified. Valid values:
+    // - accurate: exact match.
+    // - blur: fuzzy match.
+    // 
+    // Default value: blur.
     shared_ptr<string> searchType_ {};
+    // Specifies whether the service is still bound by the official template usage constraint.
+    shared_ptr<bool> usageActive_ {};
   };
 
   } // namespace Models

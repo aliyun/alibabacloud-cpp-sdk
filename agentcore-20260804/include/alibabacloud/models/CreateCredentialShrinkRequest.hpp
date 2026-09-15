@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request body for creating a credential.
     shared_ptr<string> bodyShrink_ {};
+    // Not supported.
     shared_ptr<string> clientToken_ {};
   };
 

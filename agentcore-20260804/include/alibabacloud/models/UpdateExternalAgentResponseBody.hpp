@@ -48,8 +48,6 @@ namespace Models
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(deployType, deployType_);
         DARABONBA_PTR_TO_JSON(description, description_);
-        DARABONBA_PTR_TO_JSON(effectiveResult, effectiveResult_);
-        DARABONBA_PTR_TO_JSON(effectiveSpecVersion, effectiveSpecVersion_);
         DARABONBA_PTR_TO_JSON(externalAgentStatus, externalAgentStatus_);
         DARABONBA_PTR_TO_JSON(instruction, instruction_);
         DARABONBA_PTR_TO_JSON(latestSpecVersion, latestSpecVersion_);
@@ -72,8 +70,6 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(deployType, deployType_);
         DARABONBA_PTR_FROM_JSON(description, description_);
-        DARABONBA_PTR_FROM_JSON(effectiveResult, effectiveResult_);
-        DARABONBA_PTR_FROM_JSON(effectiveSpecVersion, effectiveSpecVersion_);
         DARABONBA_PTR_FROM_JSON(externalAgentStatus, externalAgentStatus_);
         DARABONBA_PTR_FROM_JSON(instruction, instruction_);
         DARABONBA_PTR_FROM_JSON(latestSpecVersion, latestSpecVersion_);
@@ -144,7 +140,6 @@ namespace Models
         // This parameter is required.
         shared_ptr<string> name_ {};
         // The tool type. Valid values:
-        // 
         // - MCP: MCP tool.
         // 
         // This parameter is required.
@@ -213,6 +208,8 @@ namespace Models
           // This parameter is required.
           shared_ptr<string> name_ {};
           // The version of the template in AI Registry.
+          // 
+          // This parameter is required.
           shared_ptr<string> version_ {};
         };
 
@@ -395,9 +392,9 @@ namespace Models
         // - STALE: Heartbeat expired.
         // - UNKNOWN: Unknown.
         shared_ptr<string> heartbeatStatus_ {};
-        // The time when the external agent was last active in RFC 3339 format.
+        // The last active time of the external agent in RFC 3339 format.
         shared_ptr<string> lastActiveAt_ {};
-        // The time of the most recent heartbeat from the external agent in RFC 3339 format.
+        // The last heartbeat time of the external agent in RFC 3339 format.
         shared_ptr<string> lastHeartbeat_ {};
         // The local IP address reported by the external agent.
         shared_ptr<string> localIP_ {};
@@ -405,100 +402,11 @@ namespace Models
         shared_ptr<string> runtime_ {};
       };
 
-      class EffectiveResult : public Darabonba::Model {
-      public:
-        friend void to_json(Darabonba::Json& j, const EffectiveResult& obj) { 
-          DARABONBA_PTR_TO_JSON(matrixUserId, matrixUserId_);
-          DARABONBA_PTR_TO_JSON(personalRoomId, personalRoomId_);
-          DARABONBA_PTR_TO_JSON(runtimeAcceptStatus, runtimeAcceptStatus_);
-          DARABONBA_PTR_TO_JSON(runtimeId, runtimeId_);
-          DARABONBA_PTR_TO_JSON(runtimeRequestVersion, runtimeRequestVersion_);
-          DARABONBA_PTR_TO_JSON(workspacePrefix, workspacePrefix_);
-        };
-        friend void from_json(const Darabonba::Json& j, EffectiveResult& obj) { 
-          DARABONBA_PTR_FROM_JSON(matrixUserId, matrixUserId_);
-          DARABONBA_PTR_FROM_JSON(personalRoomId, personalRoomId_);
-          DARABONBA_PTR_FROM_JSON(runtimeAcceptStatus, runtimeAcceptStatus_);
-          DARABONBA_PTR_FROM_JSON(runtimeId, runtimeId_);
-          DARABONBA_PTR_FROM_JSON(runtimeRequestVersion, runtimeRequestVersion_);
-          DARABONBA_PTR_FROM_JSON(workspacePrefix, workspacePrefix_);
-        };
-        EffectiveResult() = default ;
-        EffectiveResult(const EffectiveResult &) = default ;
-        EffectiveResult(EffectiveResult &&) = default ;
-        EffectiveResult(const Darabonba::Json & obj) { from_json(obj, *this); };
-        virtual ~EffectiveResult() = default ;
-        EffectiveResult& operator=(const EffectiveResult &) = default ;
-        EffectiveResult& operator=(EffectiveResult &&) = default ;
-        virtual void validate() const override {
-        };
-        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
-        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->matrixUserId_ == nullptr
-        && this->personalRoomId_ == nullptr && this->runtimeAcceptStatus_ == nullptr && this->runtimeId_ == nullptr && this->runtimeRequestVersion_ == nullptr && this->workspacePrefix_ == nullptr; };
-        // matrixUserId Field Functions 
-        bool hasMatrixUserId() const { return this->matrixUserId_ != nullptr;};
-        void deleteMatrixUserId() { this->matrixUserId_ = nullptr;};
-        inline string getMatrixUserId() const { DARABONBA_PTR_GET_DEFAULT(matrixUserId_, "") };
-        inline EffectiveResult& setMatrixUserId(string matrixUserId) { DARABONBA_PTR_SET_VALUE(matrixUserId_, matrixUserId) };
-
-
-        // personalRoomId Field Functions 
-        bool hasPersonalRoomId() const { return this->personalRoomId_ != nullptr;};
-        void deletePersonalRoomId() { this->personalRoomId_ = nullptr;};
-        inline string getPersonalRoomId() const { DARABONBA_PTR_GET_DEFAULT(personalRoomId_, "") };
-        inline EffectiveResult& setPersonalRoomId(string personalRoomId) { DARABONBA_PTR_SET_VALUE(personalRoomId_, personalRoomId) };
-
-
-        // runtimeAcceptStatus Field Functions 
-        bool hasRuntimeAcceptStatus() const { return this->runtimeAcceptStatus_ != nullptr;};
-        void deleteRuntimeAcceptStatus() { this->runtimeAcceptStatus_ = nullptr;};
-        inline string getRuntimeAcceptStatus() const { DARABONBA_PTR_GET_DEFAULT(runtimeAcceptStatus_, "") };
-        inline EffectiveResult& setRuntimeAcceptStatus(string runtimeAcceptStatus) { DARABONBA_PTR_SET_VALUE(runtimeAcceptStatus_, runtimeAcceptStatus) };
-
-
-        // runtimeId Field Functions 
-        bool hasRuntimeId() const { return this->runtimeId_ != nullptr;};
-        void deleteRuntimeId() { this->runtimeId_ = nullptr;};
-        inline string getRuntimeId() const { DARABONBA_PTR_GET_DEFAULT(runtimeId_, "") };
-        inline EffectiveResult& setRuntimeId(string runtimeId) { DARABONBA_PTR_SET_VALUE(runtimeId_, runtimeId) };
-
-
-        // runtimeRequestVersion Field Functions 
-        bool hasRuntimeRequestVersion() const { return this->runtimeRequestVersion_ != nullptr;};
-        void deleteRuntimeRequestVersion() { this->runtimeRequestVersion_ = nullptr;};
-        inline int64_t getRuntimeRequestVersion() const { DARABONBA_PTR_GET_DEFAULT(runtimeRequestVersion_, 0L) };
-        inline EffectiveResult& setRuntimeRequestVersion(int64_t runtimeRequestVersion) { DARABONBA_PTR_SET_VALUE(runtimeRequestVersion_, runtimeRequestVersion) };
-
-
-        // workspacePrefix Field Functions 
-        bool hasWorkspacePrefix() const { return this->workspacePrefix_ != nullptr;};
-        void deleteWorkspacePrefix() { this->workspacePrefix_ = nullptr;};
-        inline string getWorkspacePrefix() const { DARABONBA_PTR_GET_DEFAULT(workspacePrefix_, "") };
-        inline EffectiveResult& setWorkspacePrefix(string workspacePrefix) { DARABONBA_PTR_SET_VALUE(workspacePrefix_, workspacePrefix) };
-
-
-      protected:
-        // The user ID of the agent in Matrix.
-        shared_ptr<string> matrixUserId_ {};
-        // The Matrix personal room ID of the agent.
-        shared_ptr<string> personalRoomId_ {};
-        // The acceptance status of the runtime for the current request version.
-        shared_ptr<string> runtimeAcceptStatus_ {};
-        // The runtime instance ID.
-        shared_ptr<string> runtimeId_ {};
-        // The runtime request version number.
-        shared_ptr<int64_t> runtimeRequestVersion_ {};
-        // The storage prefix of the agent in the workspace.
-        shared_ptr<string> workspacePrefix_ {};
-      };
-
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->effectiveResult_ == nullptr
-        && this->effectiveSpecVersion_ == nullptr && this->externalAgentStatus_ == nullptr && this->instruction_ == nullptr && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr
-        && this->model_ == nullptr && this->modelSource_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->runtime_ == nullptr
-        && this->skills_ == nullptr && this->status_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr && this->updatedAt_ == nullptr
-        && this->workspaceId_ == nullptr; };
+        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->externalAgentStatus_ == nullptr
+        && this->instruction_ == nullptr && this->latestSpecVersion_ == nullptr && this->latestVersionStatus_ == nullptr && this->model_ == nullptr && this->modelSource_ == nullptr
+        && this->name_ == nullptr && this->regionId_ == nullptr && this->runtime_ == nullptr && this->skills_ == nullptr && this->status_ == nullptr
+        && this->template_ == nullptr && this->tools_ == nullptr && this->updatedAt_ == nullptr && this->workspaceId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -532,22 +440,6 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
-
-
-      // effectiveResult Field Functions 
-      bool hasEffectiveResult() const { return this->effectiveResult_ != nullptr;};
-      void deleteEffectiveResult() { this->effectiveResult_ = nullptr;};
-      inline const Data::EffectiveResult & getEffectiveResult() const { DARABONBA_PTR_GET_CONST(effectiveResult_, Data::EffectiveResult) };
-      inline Data::EffectiveResult getEffectiveResult() { DARABONBA_PTR_GET(effectiveResult_, Data::EffectiveResult) };
-      inline Data& setEffectiveResult(const Data::EffectiveResult & effectiveResult) { DARABONBA_PTR_SET_VALUE(effectiveResult_, effectiveResult) };
-      inline Data& setEffectiveResult(Data::EffectiveResult && effectiveResult) { DARABONBA_PTR_SET_RVALUE(effectiveResult_, effectiveResult) };
-
-
-      // effectiveSpecVersion Field Functions 
-      bool hasEffectiveSpecVersion() const { return this->effectiveSpecVersion_ != nullptr;};
-      void deleteEffectiveSpecVersion() { this->effectiveSpecVersion_ = nullptr;};
-      inline int64_t getEffectiveSpecVersion() const { DARABONBA_PTR_GET_DEFAULT(effectiveSpecVersion_, 0L) };
-      inline Data& setEffectiveSpecVersion(int64_t effectiveSpecVersion) { DARABONBA_PTR_SET_VALUE(effectiveSpecVersion_, effectiveSpecVersion) };
 
 
       // externalAgentStatus Field Functions 
@@ -676,10 +568,6 @@ namespace Models
       shared_ptr<string> deployType_ {};
       // The description of the external agent.
       shared_ptr<string> description_ {};
-      // The runtime result corresponding to the currently effective specification.
-      shared_ptr<Data::EffectiveResult> effectiveResult_ {};
-      // The currently effective specification version number.
-      shared_ptr<int64_t> effectiveSpecVersion_ {};
       // The runtime status information reported by the external agent.
       shared_ptr<Data::ExternalAgentStatus> externalAgentStatus_ {};
       // The agent instruction that guides the behavior of the agent.
@@ -687,19 +575,18 @@ namespace Models
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
       // The processing status of the latest specification version. Valid values:
-      // - pending: Pending processing.
-      // - processing: Being processed.
+      // - pending: Pending.
+      // - processing: Processing.
       // - waiting_retry: Waiting for retry.
       // - succeeded: Succeeded.
       // - failed: Failed.
       // - superseded: Superseded by a newer version.
       shared_ptr<string> latestVersionStatus_ {};
-      // The model configuration. This parameter is available only when modelSource is set to PLATFORM.
+      // The model configuration. Available only when modelSource is set to PLATFORM.
       shared_ptr<Data::Model> model_ {};
       // The source of the model configuration. Valid values:
-      // 
-      // - PLATFORM: The model configuration is parsed and distributed by the platform. You can specify the model parameter.
-      // - RUNTIME: The model is managed by the external runtime. You cannot specify the model parameter at the same time.
+      // - PLATFORM: The platform parses and delivers the model configuration.
+      // - RUNTIME: The external runtime manages the model on its own. You cannot specify model at the same time.
       shared_ptr<string> modelSource_ {};
       // The name of the external agent.
       shared_ptr<string> name_ {};
@@ -709,13 +596,13 @@ namespace Models
       shared_ptr<string> runtime_ {};
       // The list of skill configurations.
       shared_ptr<vector<Data::Skills>> skills_ {};
-      // The status of the external agent. Valid values:
-      // - Creating: The agent is being created.
-      // - Running: The agent is running.
-      // - Failed: The agent has failed.
-      // - Updating: The agent is being updated.
-      // - Deleting: The agent is being deleted.
-      // - Deleted: The agent has been deleted.
+      // The external agent status. Valid values:
+      // - Creating: Being created.
+      // - Running: Running.
+      // - Failed: Failed.
+      // - Updating: Being updated.
+      // - Deleting: Being deleted.
+      // - Deleted: Deleted.
       shared_ptr<string> status_ {};
       // The agent template configuration.
       shared_ptr<Data::Template> template_ {};
@@ -774,11 +661,11 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of SUCCESS indicates success.
+    // The business status code. The value is SUCCESS when the request succeeds.
     shared_ptr<string> code_ {};
     // The details of the updated external agent.
     shared_ptr<UpdateExternalAgentResponseBody::Data> data_ {};
-    // The HTTP status code. A value of 200 indicates success.
+    // The HTTP status code. The value is 200 when the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The message that indicates the result of the request.
     shared_ptr<string> message_ {};

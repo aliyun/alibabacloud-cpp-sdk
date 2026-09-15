@@ -190,11 +190,11 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS indicates success.
+    // The business status code. The value SUCCESS is returned if the request succeeds.
     shared_ptr<string> code_ {};
-    // The available network access information for the external agent.
+    // The network access information available for the external agent.
     shared_ptr<GetExternalAgentBootstrapOptionsResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. The value 200 is returned if the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The result message of the request.
     shared_ptr<string> message_ {};

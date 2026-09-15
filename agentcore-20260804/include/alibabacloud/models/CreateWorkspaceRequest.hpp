@@ -37,10 +37,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
+        DARABONBA_PTR_TO_JSON(storageType, storageType_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
+        DARABONBA_PTR_FROM_JSON(storageType, storageType_);
       };
       Body() = default ;
       Body(const Body &) = default ;
@@ -125,7 +127,7 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs. When VPC networking is enabled, at least one vSwitch must be included, and all vSwitches must belong to the VPC specified by VpcId.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The ID of the VPC.
+          // The ID of the user VPC.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -147,7 +149,7 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->name_ == nullptr
-        && this->networkConfiguration_ == nullptr; };
+        && this->networkConfiguration_ == nullptr && this->storageType_ == nullptr; };
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -164,6 +166,13 @@ namespace Models
       inline Body& setNetworkConfiguration(Body::NetworkConfiguration && networkConfiguration) { DARABONBA_PTR_SET_RVALUE(networkConfiguration_, networkConfiguration) };
 
 
+      // storageType Field Functions 
+      bool hasStorageType() const { return this->storageType_ != nullptr;};
+      void deleteStorageType() { this->storageType_ = nullptr;};
+      inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+      inline Body& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
     protected:
       // The workspace name.
       // 
@@ -171,6 +180,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Body::NetworkConfiguration> networkConfiguration_ {};
+      shared_ptr<string> storageType_ {};
     };
 
     virtual bool empty() const override { return this->body_ == nullptr

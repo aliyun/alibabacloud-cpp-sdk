@@ -123,9 +123,9 @@ namespace Models
         protected:
           // Specifies whether to enable VPC networking.
           shared_ptr<bool> enabled_ {};
-          // The list of vSwitch IDs. When VPC networking is enabled, at least one vSwitch must be included, and all vSwitches must belong to the VPC specified by VpcId.
+          // The list of vSwitch IDs. When VPC networking is enabled, at least one vSwitch must be specified, and all vSwitches must belong to the VPC specified by VpcId.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The ID of the user VPC.
+          // The VPC ID.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -140,7 +140,7 @@ namespace Models
 
 
       protected:
-        // The user VPC network configuration.
+        // The VPC network configuration.
         // 
         // This parameter is required.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
@@ -167,7 +167,7 @@ namespace Models
     protected:
       // The updated workspace name.
       shared_ptr<string> name_ {};
-      // The updated workspace network configuration.
+      // The updated network configuration of the workspace.
       shared_ptr<Body::NetworkConfiguration> networkConfiguration_ {};
     };
 

@@ -11,6 +11,9 @@
 #include <alibabacloud/models/BatchUploadSkillsViaOssShrinkRequest.hpp>
 #include <alibabacloud/models/BatchUploadSkillsViaOssResponseBody.hpp>
 #include <alibabacloud/models/BatchUploadSkillsViaOssResponse.hpp>
+#include <alibabacloud/models/ConvertMcpToFreeEditRequest.hpp>
+#include <alibabacloud/models/ConvertMcpToFreeEditResponseBody.hpp>
+#include <alibabacloud/models/ConvertMcpToFreeEditResponse.hpp>
 #include <alibabacloud/models/CreateAgentIMChannelRequest.hpp>
 #include <alibabacloud/models/CreateAgentIMChannelShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAgentIMChannelResponseBody.hpp>
@@ -119,12 +122,19 @@
 #include <alibabacloud/models/DeleteWorkspaceRequest.hpp>
 #include <alibabacloud/models/DeleteWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/DeleteWorkspaceResponse.hpp>
+#include <alibabacloud/models/DisableConnectorRequest.hpp>
+#include <alibabacloud/models/DisableConnectorResponseBody.hpp>
+#include <alibabacloud/models/DisableConnectorResponse.hpp>
 #include <alibabacloud/models/DownloadAgentSpecViaOssRequest.hpp>
 #include <alibabacloud/models/DownloadAgentSpecViaOssResponseBody.hpp>
 #include <alibabacloud/models/DownloadAgentSpecViaOssResponse.hpp>
 #include <alibabacloud/models/DownloadSkillVersionViaOssRequest.hpp>
 #include <alibabacloud/models/DownloadSkillVersionViaOssResponseBody.hpp>
 #include <alibabacloud/models/DownloadSkillVersionViaOssResponse.hpp>
+#include <alibabacloud/models/EnableConnectorRequest.hpp>
+#include <alibabacloud/models/EnableConnectorShrinkRequest.hpp>
+#include <alibabacloud/models/EnableConnectorResponseBody.hpp>
+#include <alibabacloud/models/EnableConnectorResponse.hpp>
 #include <alibabacloud/models/ForcePublishSkillVersionRequest.hpp>
 #include <alibabacloud/models/ForcePublishSkillVersionShrinkRequest.hpp>
 #include <alibabacloud/models/ForcePublishSkillVersionResponseBody.hpp>
@@ -162,6 +172,9 @@
 #include <alibabacloud/models/GetMcpRequest.hpp>
 #include <alibabacloud/models/GetMcpResponseBody.hpp>
 #include <alibabacloud/models/GetMcpResponse.hpp>
+#include <alibabacloud/models/GetMcpMarketItemRequest.hpp>
+#include <alibabacloud/models/GetMcpMarketItemResponseBody.hpp>
+#include <alibabacloud/models/GetMcpMarketItemResponse.hpp>
 #include <alibabacloud/models/GetModelRequest.hpp>
 #include <alibabacloud/models/GetModelResponseBody.hpp>
 #include <alibabacloud/models/GetModelResponse.hpp>
@@ -195,6 +208,10 @@
 #include <alibabacloud/models/GetWorkspacePluginRequest.hpp>
 #include <alibabacloud/models/GetWorkspacePluginResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspacePluginResponse.hpp>
+#include <alibabacloud/models/InstallMcpMarketItemRequest.hpp>
+#include <alibabacloud/models/InstallMcpMarketItemShrinkRequest.hpp>
+#include <alibabacloud/models/InstallMcpMarketItemResponseBody.hpp>
+#include <alibabacloud/models/InstallMcpMarketItemResponse.hpp>
 #include <alibabacloud/models/InstallWorkspacePluginRequest.hpp>
 #include <alibabacloud/models/InstallWorkspacePluginShrinkRequest.hpp>
 #include <alibabacloud/models/InstallWorkspacePluginResponseBody.hpp>
@@ -209,6 +226,12 @@
 #include <alibabacloud/models/ListAgentTeamsShrinkRequest.hpp>
 #include <alibabacloud/models/ListAgentTeamsResponseBody.hpp>
 #include <alibabacloud/models/ListAgentTeamsResponse.hpp>
+#include <alibabacloud/models/ListConnectorModelsRequest.hpp>
+#include <alibabacloud/models/ListConnectorModelsResponseBody.hpp>
+#include <alibabacloud/models/ListConnectorModelsResponse.hpp>
+#include <alibabacloud/models/ListConnectorsRequest.hpp>
+#include <alibabacloud/models/ListConnectorsResponseBody.hpp>
+#include <alibabacloud/models/ListConnectorsResponse.hpp>
 #include <alibabacloud/models/ListCredentialsRequest.hpp>
 #include <alibabacloud/models/ListCredentialsResponseBody.hpp>
 #include <alibabacloud/models/ListCredentialsResponse.hpp>
@@ -221,6 +244,9 @@
 #include <alibabacloud/models/ListManagedAgentsRequest.hpp>
 #include <alibabacloud/models/ListManagedAgentsResponseBody.hpp>
 #include <alibabacloud/models/ListManagedAgentsResponse.hpp>
+#include <alibabacloud/models/ListMcpMarketItemsRequest.hpp>
+#include <alibabacloud/models/ListMcpMarketItemsResponseBody.hpp>
+#include <alibabacloud/models/ListMcpMarketItemsResponse.hpp>
 #include <alibabacloud/models/ListMcpToolsRequest.hpp>
 #include <alibabacloud/models/ListMcpToolsResponseBody.hpp>
 #include <alibabacloud/models/ListMcpToolsResponse.hpp>
@@ -239,6 +265,12 @@
 #include <alibabacloud/models/ListPredefinedModelsRequest.hpp>
 #include <alibabacloud/models/ListPredefinedModelsResponseBody.hpp>
 #include <alibabacloud/models/ListPredefinedModelsResponse.hpp>
+#include <alibabacloud/models/ListSandboxSessionsRequest.hpp>
+#include <alibabacloud/models/ListSandboxSessionsResponseBody.hpp>
+#include <alibabacloud/models/ListSandboxSessionsResponse.hpp>
+#include <alibabacloud/models/ListSandboxesRequest.hpp>
+#include <alibabacloud/models/ListSandboxesResponseBody.hpp>
+#include <alibabacloud/models/ListSandboxesResponse.hpp>
 #include <alibabacloud/models/ListServiceEndpointsRequest.hpp>
 #include <alibabacloud/models/ListServiceEndpointsResponseBody.hpp>
 #include <alibabacloud/models/ListServiceEndpointsResponse.hpp>
@@ -298,6 +330,10 @@
 #include <alibabacloud/models/UpdateAgentSpecShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateAgentSpecResponseBody.hpp>
 #include <alibabacloud/models/UpdateAgentSpecResponse.hpp>
+#include <alibabacloud/models/UpdateConnectorRequest.hpp>
+#include <alibabacloud/models/UpdateConnectorShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateConnectorResponseBody.hpp>
+#include <alibabacloud/models/UpdateConnectorResponse.hpp>
 #include <alibabacloud/models/UpdateCredentialRequest.hpp>
 #include <alibabacloud/models/UpdateCredentialShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateCredentialResponseBody.hpp>
@@ -318,6 +354,10 @@
 #include <alibabacloud/models/UpdateMcpShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateMcpResponseBody.hpp>
 #include <alibabacloud/models/UpdateMcpResponse.hpp>
+#include <alibabacloud/models/UpdateMcpTemplateConfigRequest.hpp>
+#include <alibabacloud/models/UpdateMcpTemplateConfigShrinkRequest.hpp>
+#include <alibabacloud/models/UpdateMcpTemplateConfigResponseBody.hpp>
+#include <alibabacloud/models/UpdateMcpTemplateConfigResponse.hpp>
 #include <alibabacloud/models/UpdateModelRequest.hpp>
 #include <alibabacloud/models/UpdateModelShrinkRequest.hpp>
 #include <alibabacloud/models/UpdateModelResponseBody.hpp>
@@ -358,5 +398,12 @@
 #include <alibabacloud/models/UploadSkillViaOssShrinkRequest.hpp>
 #include <alibabacloud/models/UploadSkillViaOssResponseBody.hpp>
 #include <alibabacloud/models/UploadSkillViaOssResponse.hpp>
+#include <alibabacloud/models/VerifyConnectorRequest.hpp>
+#include <alibabacloud/models/VerifyConnectorShrinkRequest.hpp>
+#include <alibabacloud/models/VerifyConnectorResponseBody.hpp>
+#include <alibabacloud/models/VerifyConnectorResponse.hpp>
+#include <alibabacloud/models/VerifyWorkspaceOssMountRamAuthorizationRequest.hpp>
+#include <alibabacloud/models/VerifyWorkspaceOssMountRamAuthorizationResponseBody.hpp>
+#include <alibabacloud/models/VerifyWorkspaceOssMountRamAuthorizationResponse.hpp>
 
 #endif

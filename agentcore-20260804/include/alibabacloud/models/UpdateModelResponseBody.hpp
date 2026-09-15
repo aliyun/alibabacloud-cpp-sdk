@@ -173,13 +173,13 @@ namespace Models
         shared_ptr<bool> audio_ {};
         // Indicates whether the model supports document input.
         shared_ptr<bool> document_ {};
-        // Indicates whether the model is able to invoke multiple tool calling requests in a single response.
+        // Indicates whether the model supports invoking multiple tools in a single response.
         shared_ptr<bool> multiToolCall_ {};
-        // Indicates whether the model supports reasoning capabilities.
+        // Indicates whether the model supports reasoning.
         shared_ptr<bool> reasoning_ {};
-        // Indicates whether the model supports streaming tool calling.
+        // Indicates whether the model supports streaming tool invocation.
         shared_ptr<bool> streamToolCall_ {};
-        // Indicates whether the model supports tool calling.
+        // Indicates whether the model supports tool invocation.
         shared_ptr<bool> toolCall_ {};
         // Indicates whether the model supports video input.
         shared_ptr<bool> video_ {};
@@ -263,17 +263,17 @@ namespace Models
 
 
     protected:
-      // The model capability configurations.
+      // The model capability configuration.
       shared_ptr<Data::Capabilities> capabilities_ {};
       // The model connection ID.
       shared_ptr<string> connectionId_ {};
-      // The model context window size, in tokens. Must be a positive integer.
+      // The model context window size, in tokens. The value must be a positive integer.
       shared_ptr<int64_t> contextSize_ {};
       // The time when the resource was created, in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
-      // The model description. Maximum length: 255 characters.
+      // The model description. The maximum length is 255 characters.
       shared_ptr<string> description_ {};
-      // The maximum number of output tokens supported per model generation.
+      // The maximum number of output tokens supported per generation.
       shared_ptr<int64_t> maxTokens_ {};
       // The model ID.
       shared_ptr<string> modelId_ {};
@@ -332,13 +332,13 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS indicates success.
+    // The business status code. The value is SUCCESS when the request succeeds.
     shared_ptr<string> code_ {};
     // The updated model information.
     shared_ptr<UpdateModelResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. The value is 200 when the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message of the request processing result.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

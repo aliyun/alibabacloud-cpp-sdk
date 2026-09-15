@@ -76,8 +76,11 @@ namespace Models
 
 
     protected:
+      // The user ID. At least one of agentCoreUserId and username must be specified. If both are specified, agentCoreUserId takes precedence.
       shared_ptr<string> agentCoreUserId_ {};
+      // The new password after the reset. The password must be 8 to 32 characters in length and must contain uppercase letters, lowercase letters, digits, and special characters. The password cannot contain the username. If this parameter is not specified, the server generates a random password.
       shared_ptr<string> password_ {};
+      // The username. At least one of username and agentCoreUserId must be specified.
       shared_ptr<string> username_ {};
     };
 
@@ -92,6 +95,7 @@ namespace Models
 
 
   protected:
+    // The request body for resetting the user password.
     shared_ptr<ResetUserPasswordRequest::Body> body_ {};
   };
 

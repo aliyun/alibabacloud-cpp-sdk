@@ -54,7 +54,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(createdAt, createdAt_);
         DARABONBA_PTR_TO_JSON(deployType, deployType_);
         DARABONBA_PTR_TO_JSON(description, description_);
-        DARABONBA_PTR_TO_JSON(effectiveSpecVersion, effectiveSpecVersion_);
+        DARABONBA_PTR_TO_JSON(harness, harness_);
         DARABONBA_PTR_TO_JSON(latestSpecVersion, latestSpecVersion_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(runtime, runtime_);
@@ -68,7 +68,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(createdAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(deployType, deployType_);
         DARABONBA_PTR_FROM_JSON(description, description_);
-        DARABONBA_PTR_FROM_JSON(effectiveSpecVersion, effectiveSpecVersion_);
+        DARABONBA_PTR_FROM_JSON(harness, harness_);
         DARABONBA_PTR_FROM_JSON(latestSpecVersion, latestSpecVersion_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(runtime, runtime_);
@@ -87,8 +87,98 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Harness : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Harness& obj) { 
+          DARABONBA_PTR_TO_JSON(configuration, configuration_);
+          DARABONBA_PTR_TO_JSON(type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, Harness& obj) { 
+          DARABONBA_PTR_FROM_JSON(configuration, configuration_);
+          DARABONBA_PTR_FROM_JSON(type, type_);
+        };
+        Harness() = default ;
+        Harness(const Harness &) = default ;
+        Harness(Harness &&) = default ;
+        Harness(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Harness() = default ;
+        Harness& operator=(const Harness &) = default ;
+        Harness& operator=(Harness &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Configuration : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Configuration& obj) { 
+            DARABONBA_PTR_TO_JSON(connectorServiceAccountKey, connectorServiceAccountKey_);
+            DARABONBA_PTR_TO_JSON(connectorServiceAccountName, connectorServiceAccountName_);
+          };
+          friend void from_json(const Darabonba::Json& j, Configuration& obj) { 
+            DARABONBA_PTR_FROM_JSON(connectorServiceAccountKey, connectorServiceAccountKey_);
+            DARABONBA_PTR_FROM_JSON(connectorServiceAccountName, connectorServiceAccountName_);
+          };
+          Configuration() = default ;
+          Configuration(const Configuration &) = default ;
+          Configuration(Configuration &&) = default ;
+          Configuration(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Configuration() = default ;
+          Configuration& operator=(const Configuration &) = default ;
+          Configuration& operator=(Configuration &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->connectorServiceAccountKey_ == nullptr
+        && this->connectorServiceAccountName_ == nullptr; };
+          // connectorServiceAccountKey Field Functions 
+          bool hasConnectorServiceAccountKey() const { return this->connectorServiceAccountKey_ != nullptr;};
+          void deleteConnectorServiceAccountKey() { this->connectorServiceAccountKey_ = nullptr;};
+          inline string getConnectorServiceAccountKey() const { DARABONBA_PTR_GET_DEFAULT(connectorServiceAccountKey_, "") };
+          inline Configuration& setConnectorServiceAccountKey(string connectorServiceAccountKey) { DARABONBA_PTR_SET_VALUE(connectorServiceAccountKey_, connectorServiceAccountKey) };
+
+
+          // connectorServiceAccountName Field Functions 
+          bool hasConnectorServiceAccountName() const { return this->connectorServiceAccountName_ != nullptr;};
+          void deleteConnectorServiceAccountName() { this->connectorServiceAccountName_ = nullptr;};
+          inline string getConnectorServiceAccountName() const { DARABONBA_PTR_GET_DEFAULT(connectorServiceAccountName_, "") };
+          inline Configuration& setConnectorServiceAccountName(string connectorServiceAccountName) { DARABONBA_PTR_SET_VALUE(connectorServiceAccountName_, connectorServiceAccountName) };
+
+
+        protected:
+          // Binds a Service Account Key of the QoderCLI Connector by Key ID. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+          shared_ptr<string> connectorServiceAccountKey_ {};
+          // The Connector Key name populated during queries. This parameter is not used as a binding reference during writes.
+          shared_ptr<string> connectorServiceAccountName_ {};
+        };
+
+        virtual bool empty() const override { return this->configuration_ == nullptr
+        && this->type_ == nullptr; };
+        // configuration Field Functions 
+        bool hasConfiguration() const { return this->configuration_ != nullptr;};
+        void deleteConfiguration() { this->configuration_ = nullptr;};
+        inline const Harness::Configuration & getConfiguration() const { DARABONBA_PTR_GET_CONST(configuration_, Harness::Configuration) };
+        inline Harness::Configuration getConfiguration() { DARABONBA_PTR_GET(configuration_, Harness::Configuration) };
+        inline Harness& setConfiguration(const Harness::Configuration & configuration) { DARABONBA_PTR_SET_VALUE(configuration_, configuration) };
+        inline Harness& setConfiguration(Harness::Configuration && configuration) { DARABONBA_PTR_SET_RVALUE(configuration_, configuration) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Harness& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        // The Connector binding configuration for the qodercli framework.
+        shared_ptr<Harness::Configuration> configuration_ {};
+        // The runtime framework type. Valid values: qwenpaw and qodercli. The qodercli type binds by configuration.connectorServiceAccountKey, and the name is also populated during queries.
+        shared_ptr<string> type_ {};
+      };
+
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->effectiveSpecVersion_ == nullptr
+        && this->createMode_ == nullptr && this->createdAt_ == nullptr && this->deployType_ == nullptr && this->description_ == nullptr && this->harness_ == nullptr
         && this->latestSpecVersion_ == nullptr && this->name_ == nullptr && this->runtime_ == nullptr && this->status_ == nullptr && this->updatedAt_ == nullptr
         && this->workspaceId_ == nullptr; };
       // agentId Field Functions 
@@ -126,11 +216,13 @@ namespace Models
       inline Items& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
-      // effectiveSpecVersion Field Functions 
-      bool hasEffectiveSpecVersion() const { return this->effectiveSpecVersion_ != nullptr;};
-      void deleteEffectiveSpecVersion() { this->effectiveSpecVersion_ = nullptr;};
-      inline int64_t getEffectiveSpecVersion() const { DARABONBA_PTR_GET_DEFAULT(effectiveSpecVersion_, 0L) };
-      inline Items& setEffectiveSpecVersion(int64_t effectiveSpecVersion) { DARABONBA_PTR_SET_VALUE(effectiveSpecVersion_, effectiveSpecVersion) };
+      // harness Field Functions 
+      bool hasHarness() const { return this->harness_ != nullptr;};
+      void deleteHarness() { this->harness_ = nullptr;};
+      inline const Items::Harness & getHarness() const { DARABONBA_PTR_GET_CONST(harness_, Items::Harness) };
+      inline Items::Harness getHarness() { DARABONBA_PTR_GET(harness_, Items::Harness) };
+      inline Items& setHarness(const Items::Harness & harness) { DARABONBA_PTR_SET_VALUE(harness_, harness) };
+      inline Items& setHarness(Items::Harness && harness) { DARABONBA_PTR_SET_RVALUE(harness_, harness) };
 
 
       // latestSpecVersion Field Functions 
@@ -186,15 +278,21 @@ namespace Models
       shared_ptr<string> deployType_ {};
       // The description of the managed agent.
       shared_ptr<string> description_ {};
-      // The effective specification version number.
-      shared_ptr<int64_t> effectiveSpecVersion_ {};
+      // The agent runtime framework.
+      shared_ptr<Items::Harness> harness_ {};
       // The latest specification version number.
       shared_ptr<int64_t> latestSpecVersion_ {};
-      // The managed agent name.
+      // The name of the managed agent.
       shared_ptr<string> name_ {};
       // The runtime type.
       shared_ptr<string> runtime_ {};
-      // The status of the managed agent.
+      // The status of the managed agent. Valid values:
+      // - Creating: Being created.
+      // - Failed: Failed.
+      // - Running: Running.
+      // - Updating: Being updated.
+      // - Deleted: Deleted.
+      // - Deleting: Being deleted.
       shared_ptr<string> status_ {};
       // The update time in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
@@ -279,9 +377,9 @@ namespace Models
     shared_ptr<vector<ListManagedAgentsResponseBody::Items>> items_ {};
     // The maximum number of results returned for this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The message returned for the request.
+    // The result message of the request.
     shared_ptr<string> message_ {};
-    // The token for the next page. An empty value indicates that no more pages are available.
+    // The token for the next page. An empty value indicates that the last page has been reached.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

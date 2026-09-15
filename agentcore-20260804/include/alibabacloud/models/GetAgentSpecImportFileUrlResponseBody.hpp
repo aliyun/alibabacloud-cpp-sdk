@@ -87,7 +87,7 @@ namespace Models
 
 
     protected:
-      // The Content-Type used for the OSS PUT request.
+      // The Content-Type to use for the OSS PUT request.
       shared_ptr<string> contentType_ {};
       // The maximum number of bytes allowed for the upload.
       shared_ptr<string> maxSize_ {};

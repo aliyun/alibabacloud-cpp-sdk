@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Not supported.
     shared_ptr<string> clientToken_ {};
   };
 

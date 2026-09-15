@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The request body.
     shared_ptr<string> bodyShrink_ {};
   };
 

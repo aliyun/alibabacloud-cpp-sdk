@@ -209,18 +209,18 @@ namespace Models
     protected:
       // The creation time in UTC, formatted according to RFC 3339.
       shared_ptr<string> createdAt_ {};
-      // The event subscription callback URL. Configure this URL in the application on the external identity provider side to receive organization change events. An empty string is returned if the user pool has not been provisioned.
+      // The event subscription callback URL. Configure this URL in the external identity provider application to receive organization change events. An empty string is returned if the user pool has not been activated.
       shared_ptr<string> eventSubscriptionCallbackUrl_ {};
       // The type of the external identity provider. Valid values: DingTalk, Feishu.
       shared_ptr<string> identityProviderType_ {};
-      // The logon callback URL. Configure this URL in the application on the external identity provider side. An empty string is returned if the user pool has not been provisioned.
+      // The logon callback URL. Configure this URL in the external identity provider application. An empty string is returned if the user pool has not been activated.
       shared_ptr<string> loginCallbackUrl_ {};
       // Indicates whether workspace users are allowed to log on through this external identity provider.
       shared_ptr<bool> loginEnabled_ {};
       // The application configuration of the external identity provider. Application secret configurations are not returned.
       shared_ptr<Data::Metadata> metadata_ {};
       // The status. Valid values:
-      // - CONFIGURED: The configuration has been accepted and is waiting for the user pool to be provisioned.
+      // - CONFIGURED: The configuration has been accepted and is waiting for user pool activation.
       // - SYNCING: Organization members are being synchronized.
       // - SYNCED: Organization member synchronization is complete.
       // - READY: The binding is active.
@@ -291,7 +291,7 @@ namespace Models
     shared_ptr<GetIdentityProviderResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. An error description is returned if the request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

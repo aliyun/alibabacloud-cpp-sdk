@@ -80,9 +80,9 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> ossObjectName_ {};
-      // Specifies whether to overwrite existing drafts. Default value: false.
+      // Specifies whether to overwrite the existing draft. Default value: false.
       shared_ptr<bool> overwrite_ {};
-      // Specifies whether to publish immediately after upload. Default value: false.
+      // Specifies whether to publish directly after upload. Default value: false.
       shared_ptr<bool> publish_ {};
     };
 

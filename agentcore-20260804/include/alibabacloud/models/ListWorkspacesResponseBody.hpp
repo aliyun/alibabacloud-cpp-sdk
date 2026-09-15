@@ -223,9 +223,9 @@ namespace Models
 
 
     protected:
-      // The creation time of the workspace.
+      // The time when the workspace was created.
       shared_ptr<string> createTime_ {};
-      // The workspace name.
+      // The name of the workspace.
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Items::NetworkConfiguration> networkConfiguration_ {};
@@ -318,11 +318,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of workspaces.
     shared_ptr<vector<ListWorkspacesResponseBody::Items>> items_ {};
-    // The maximum number of records per page used for this request.
+    // The maximum number of records per page used in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. This value is empty if no more pages exist.
+    // The pagination token for the next page. This parameter is empty if no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

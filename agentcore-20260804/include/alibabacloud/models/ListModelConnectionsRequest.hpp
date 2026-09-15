@@ -94,12 +94,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to return associated model summaries for each model connection. By default, model summaries are not returned.
     shared_ptr<bool> includeModels_ {};
+    // The number of records per page. Valid values: 0 to 100. If this parameter is not set or is set to 0, the default value 10 is used.
     shared_ptr<int32_t> maxResults_ {};
+    // The model connection name. The name must be 1 to 128 non-whitespace characters in length.
     shared_ptr<string> name_ {};
+    // The pagination token. Pass the token returned in the previous query. An empty response indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The invocation protocol used to filter model connections.
     shared_ptr<string> protocol_ {};
+    // The model provider type used to filter model connections.
     shared_ptr<string> providerType_ {};
+    // The name matching mode. Takes effect only when Name is set. Valid values: accurate (exact match), blur (fuzzy match). Default value: blur.
     shared_ptr<string> searchType_ {};
   };
 

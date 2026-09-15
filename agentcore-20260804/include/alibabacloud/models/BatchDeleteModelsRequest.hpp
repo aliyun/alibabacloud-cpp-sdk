@@ -62,6 +62,8 @@ namespace Models
 
 
     protected:
+      // The list of model IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<string>> modelIds_ {};
     };
@@ -85,7 +87,9 @@ namespace Models
 
 
   protected:
+    // The request body.
     shared_ptr<BatchDeleteModelsRequest::Body> body_ {};
+    // The client token used for idempotence. Not supported.
     shared_ptr<string> clientToken_ {};
   };
 

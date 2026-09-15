@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 批量删除模型
+ * @summary Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
  *
  * @param tmpReq BatchDeleteModelsRequest
  * @param headers map
@@ -82,7 +82,7 @@ BatchDeleteModelsResponse Client::batchDeleteModelsWithOptions(const string &wor
 }
 
 /**
- * @summary 批量删除模型
+ * @summary Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
  *
  * @param request BatchDeleteModelsRequest
  * @return BatchDeleteModelsResponse
@@ -148,6 +148,55 @@ BatchUploadSkillsViaOssResponse Client::batchUploadSkillsViaOss(const string &wo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return batchUploadSkillsViaOssWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Converts an MCP to free editing.
+ *
+ * @description Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+ *
+ * @param request ConvertMcpToFreeEditRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ConvertMcpToFreeEditResponse
+ */
+ConvertMcpToFreeEditResponse Client::convertMcpToFreeEditWithOptions(const string &workspaceId, const string &mcpServerId, const ConvertMcpToFreeEditRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ConvertMcpToFreeEdit"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/mcp-servers/" , Darabonba::Encode::Encoder::percentEncode(mcpServerId) , "/convert-to-free-edit")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ConvertMcpToFreeEditResponse>();
+}
+
+/**
+ * @summary Converts an MCP to free editing.
+ *
+ * @description Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+ *
+ * @param request ConvertMcpToFreeEditRequest
+ * @return ConvertMcpToFreeEditResponse
+ */
+ConvertMcpToFreeEditResponse Client::convertMcpToFreeEdit(const string &workspaceId, const string &mcpServerId, const ConvertMcpToFreeEditRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return convertMcpToFreeEditWithOptions(workspaceId, mcpServerId, request, headers, runtime);
 }
 
 /**
@@ -326,7 +375,9 @@ CreateAgentSpecVersionResponse Client::createAgentSpecVersion(const string &work
 }
 
 /**
- * @summary 创建凭证
+ * @summary Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+ *
+ * @description Creates a credential in a workspace for authentication of services such as Connector.
  *
  * @param tmpReq CreateCredentialRequest
  * @param headers map
@@ -371,7 +422,9 @@ CreateCredentialResponse Client::createCredentialWithOptions(const string &works
 }
 
 /**
- * @summary 创建凭证
+ * @summary Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+ *
+ * @description Creates a credential in a workspace for authentication of services such as Connector.
  *
  * @param request CreateCredentialRequest
  * @return CreateCredentialResponse
@@ -721,7 +774,7 @@ CreateModelResponse Client::createModel(const string &workspaceId, const CreateM
 }
 
 /**
- * @summary 创建模型连接
+ * @summary Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
  *
  * @param tmpReq CreateModelConnectionRequest
  * @param headers map
@@ -766,7 +819,7 @@ CreateModelConnectionResponse Client::createModelConnectionWithOptions(const str
 }
 
 /**
- * @summary 创建模型连接
+ * @summary Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
  *
  * @param request CreateModelConnectionRequest
  * @return CreateModelConnectionResponse
@@ -835,7 +888,7 @@ CreateSkillDraftResponse Client::createSkillDraft(const string &workspaceId, con
 }
 
 /**
- * @summary 创建团队
+ * @summary Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
  *
  * @param tmpReq CreateTeamRequest
  * @param headers map
@@ -880,7 +933,7 @@ CreateTeamResponse Client::createTeamWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary 创建团队
+ * @summary Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
  *
  * @param request CreateTeamRequest
  * @return CreateTeamResponse
@@ -892,7 +945,7 @@ CreateTeamResponse Client::createTeam(const string &workspaceId, const CreateTea
 }
 
 /**
- * @summary 创建用户
+ * @summary Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
  *
  * @param tmpReq CreateUserRequest
  * @param headers map
@@ -937,7 +990,7 @@ CreateUserResponse Client::createUserWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary 创建用户
+ * @summary Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
  *
  * @param request CreateUserRequest
  * @return CreateUserResponse
@@ -1010,7 +1063,7 @@ CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &re
 }
 
 /**
- * @summary 调试模型
+ * @summary Calls a specified model through a published model connection to verify whether the model call chain is available.
  *
  * @param tmpReq DebugModelRequest
  * @param headers map
@@ -1049,7 +1102,7 @@ DebugModelResponse Client::debugModelWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary 调试模型
+ * @summary Calls a specified model through a published model connection to verify whether the model call chain is available.
  *
  * @param request DebugModelRequest
  * @return DebugModelResponse
@@ -1200,7 +1253,9 @@ DeleteAgentSpecVersionResponse Client::deleteAgentSpecVersion(const string &work
 }
 
 /**
- * @summary 删除凭证
+ * @summary Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+ *
+ * @description Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
  *
  * @param request DeleteCredentialRequest
  * @param headers map
@@ -1233,7 +1288,9 @@ DeleteCredentialResponse Client::deleteCredentialWithOptions(const string &works
 }
 
 /**
- * @summary 删除凭证
+ * @summary Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+ *
+ * @description Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
  *
  * @param request DeleteCredentialRequest
  * @return DeleteCredentialResponse
@@ -1288,7 +1345,7 @@ DeleteExternalAgentResponse Client::deleteExternalAgent(const string &workspaceI
 }
 
 /**
- * @summary Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+ * @summary Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
  *
  * @param request DeleteIdentityProviderRequest
  * @param headers map
@@ -1321,7 +1378,7 @@ DeleteIdentityProviderResponse Client::deleteIdentityProviderWithOptions(const s
 }
 
 /**
- * @summary Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+ * @summary Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
  *
  * @param request DeleteIdentityProviderRequest
  * @return DeleteIdentityProviderResponse
@@ -1374,7 +1431,7 @@ DeleteManagedAgentResponse Client::deleteManagedAgent(const string &workspaceId,
 /**
  * @summary Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
  *
  * @param request DeleteMcpRequest
@@ -1404,7 +1461,7 @@ DeleteMcpResponse Client::deleteMcpWithOptions(const string &mcpServerId, const 
 /**
  * @summary Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
  *
  * @param request DeleteMcpRequest
@@ -1417,7 +1474,7 @@ DeleteMcpResponse Client::deleteMcp(const string &mcpServerId, const string &wor
 }
 
 /**
- * @summary 删除模型
+ * @summary Deletes a model from a specified workspace. Models that are currently in use cannot be deleted.
  *
  * @param request DeleteModelRequest
  * @param headers map
@@ -1450,7 +1507,7 @@ DeleteModelResponse Client::deleteModelWithOptions(const string &workspaceId, co
 }
 
 /**
- * @summary 删除模型
+ * @summary Deletes a model from a specified workspace. Models that are currently in use cannot be deleted.
  *
  * @param request DeleteModelRequest
  * @return DeleteModelResponse
@@ -1462,7 +1519,7 @@ DeleteModelResponse Client::deleteModel(const string &workspaceId, const string 
 }
 
 /**
- * @summary 删除模型连接
+ * @summary Submits an asynchronous deletion task for a specified model connection. The connection cannot be deleted if it has associated models or runtime references.
  *
  * @param request DeleteModelConnectionRequest
  * @param headers map
@@ -1495,7 +1552,7 @@ DeleteModelConnectionResponse Client::deleteModelConnectionWithOptions(const str
 }
 
 /**
- * @summary 删除模型连接
+ * @summary Submits an asynchronous deletion task for a specified model connection. The connection cannot be deleted if it has associated models or runtime references.
  *
  * @param request DeleteModelConnectionRequest
  * @return DeleteModelConnectionResponse
@@ -1597,7 +1654,7 @@ DeleteSkillDraftResponse Client::deleteSkillDraft(const string &workspaceId, con
 }
 
 /**
- * @summary 删除团队
+ * @summary Deletes a team from a specified workspace. Deleting a team does not delete the users or agents within it. Only the membership associations are removed.
  *
  * @param request DeleteTeamRequest
  * @param headers map
@@ -1630,7 +1687,7 @@ DeleteTeamResponse Client::deleteTeamWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary 删除团队
+ * @summary Deletes a team from a specified workspace. Deleting a team does not delete the users or agents within it. Only the membership associations are removed.
  *
  * @param request DeleteTeamRequest
  * @return DeleteTeamResponse
@@ -1642,7 +1699,7 @@ DeleteTeamResponse Client::deleteTeam(const string &workspaceId, const string &t
 }
 
 /**
- * @summary 删除用户
+ * @summary Deletes a user from a specified workspace. A user cannot be deleted while the user is still a member of any team. Remove the user from all teams before deleting the user.
  *
  * @param request DeleteUserRequest
  * @param headers map
@@ -1675,7 +1732,7 @@ DeleteUserResponse Client::deleteUserWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary 删除用户
+ * @summary Deletes a user from a specified workspace. A user cannot be deleted while the user is still a member of any team. Remove the user from all teams before deleting the user.
  *
  * @param request DeleteUserRequest
  * @return DeleteUserResponse
@@ -1727,6 +1784,49 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceId, const
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteWorkspaceWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Disables a Connector.
+ *
+ * @description Disables a specified Connector in a workspace.
+ *
+ * @param request DisableConnectorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DisableConnectorResponse
+ */
+DisableConnectorResponse Client::disableConnectorWithOptions(const string &workspaceId, const string &connectorName, const DisableConnectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DisableConnector"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/connectors/" , Darabonba::Encode::Encoder::percentEncode(connectorName) , "/actions/disable")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DisableConnectorResponse>();
+}
+
+/**
+ * @summary Disables a Connector.
+ *
+ * @description Disables a specified Connector in a workspace.
+ *
+ * @param request DisableConnectorRequest
+ * @return DisableConnectorResponse
+ */
+DisableConnectorResponse Client::disableConnector(const string &workspaceId, const string &connectorName, const DisableConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return disableConnectorWithOptions(workspaceId, connectorName, request, headers, runtime);
 }
 
 /**
@@ -1823,6 +1923,61 @@ DownloadSkillVersionViaOssResponse Client::downloadSkillVersionViaOss(const stri
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return downloadSkillVersionViaOssWithOptions(workspaceId, skillName, skillVersion, request, headers, runtime);
+}
+
+/**
+ * @summary Enables a Connector.
+ *
+ * @description Enables a Connector in a specified workspace. Credential verification is required before enabling.
+ *
+ * @param tmpReq EnableConnectorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return EnableConnectorResponse
+ */
+EnableConnectorResponse Client::enableConnectorWithOptions(const string &workspaceId, const string &connectorName, const EnableConnectorRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  EnableConnectorShrinkRequest request = EnableConnectorShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "EnableConnector"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/connectors/" , Darabonba::Encode::Encoder::percentEncode(connectorName) , "/actions/enable")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<EnableConnectorResponse>();
+}
+
+/**
+ * @summary Enables a Connector.
+ *
+ * @description Enables a Connector in a specified workspace. Credential verification is required before enabling.
+ *
+ * @param request EnableConnectorRequest
+ * @return EnableConnectorResponse
+ */
+EnableConnectorResponse Client::enableConnector(const string &workspaceId, const string &connectorName, const EnableConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return enableConnectorWithOptions(workspaceId, connectorName, request, headers, runtime);
 }
 
 /**
@@ -1971,10 +2126,10 @@ GetAgentSpecResponse Client::getAgentSpec(const string &workspaceId, const strin
 }
 
 /**
- * @summary Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+ * @summary Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
  *
  * @description ## Operation description
- * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+ * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
  *
  * @param request GetAgentSpecImportFileUrlRequest
  * @param headers map
@@ -2007,10 +2162,10 @@ GetAgentSpecImportFileUrlResponse Client::getAgentSpecImportFileUrlWithOptions(c
 }
 
 /**
- * @summary Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+ * @summary Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
  *
  * @description ## Operation description
- * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+ * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
  *
  * @param request GetAgentSpecImportFileUrlRequest
  * @return GetAgentSpecImportFileUrlResponse
@@ -2112,7 +2267,9 @@ GetAgentSpecVersionResponse Client::getAgentSpecVersion(const string &workspaceI
 }
 
 /**
- * @summary 查询凭证
+ * @summary Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+ *
+ * @description Queries the details of a single credential. Sensitive fields are not returned.
  *
  * @param request GetCredentialRequest
  * @param headers map
@@ -2139,7 +2296,9 @@ GetCredentialResponse Client::getCredentialWithOptions(const string &workspaceId
 }
 
 /**
- * @summary 查询凭证
+ * @summary Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+ *
+ * @description Queries the details of a single credential. Sensitive fields are not returned.
  *
  * @param request GetCredentialRequest
  * @return GetCredentialResponse
@@ -2315,10 +2474,10 @@ GetManagedAgentResponse Client::getManagedAgent(const string &workspaceId, const
 }
 
 /**
- * @summary Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+ * @summary Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
  *
  * @description ## Operation description
- * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+ * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
  *
  * @param request GetMcpRequest
  * @param headers map
@@ -2345,10 +2504,10 @@ GetMcpResponse Client::getMcpWithOptions(const string &workspaceId, const string
 }
 
 /**
- * @summary Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+ * @summary Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
  *
  * @description ## Operation description
- * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+ * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
  *
  * @param request GetMcpRequest
  * @return GetMcpResponse
@@ -2357,6 +2516,49 @@ GetMcpResponse Client::getMcp(const string &workspaceId, const string &mcpServer
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getMcpWithOptions(workspaceId, mcpServerId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the details of an MCP marketplace template.
+ *
+ * @description Returns the current template version and installation form schema.
+ *
+ * @param request GetMcpMarketItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetMcpMarketItemResponse
+ */
+GetMcpMarketItemResponse Client::getMcpMarketItemWithOptions(const string &workspaceId, const string &marketItemId, const GetMcpMarketItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetMcpMarketItem"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/mcp-market/items/" , Darabonba::Encode::Encoder::percentEncode(marketItemId))},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetMcpMarketItemResponse>();
+}
+
+/**
+ * @summary Queries the details of an MCP marketplace template.
+ *
+ * @description Returns the current template version and installation form schema.
+ *
+ * @param request GetMcpMarketItemRequest
+ * @return GetMcpMarketItemResponse
+ */
+GetMcpMarketItemResponse Client::getMcpMarketItem(const string &workspaceId, const string &marketItemId, const GetMcpMarketItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getMcpMarketItemWithOptions(workspaceId, marketItemId, request, headers, runtime);
 }
 
 /**
@@ -2399,7 +2601,7 @@ GetModelResponse Client::getModel(const string &workspaceId, const string &model
 }
 
 /**
- * @summary 查询模型连接
+ * @summary Queries the detailed configuration, credential configuration status, publish status, and region of a specified model connection.
  *
  * @param request GetModelConnectionRequest
  * @param headers map
@@ -2426,7 +2628,7 @@ GetModelConnectionResponse Client::getModelConnectionWithOptions(const string &w
 }
 
 /**
- * @summary 查询模型连接
+ * @summary Queries the detailed configuration, credential configuration status, publish status, and region of a specified model connection.
  *
  * @param request GetModelConnectionRequest
  * @return GetModelConnectionResponse
@@ -2665,7 +2867,7 @@ GetSkillVersionDetailResponse Client::getSkillVersionDetail(const string &worksp
 }
 
 /**
- * @summary 查询团队
+ * @summary Queries the details of a specified team. The response includes the complete attributes and team roles of each user member and agent member in the team.
  *
  * @param request GetTeamRequest
  * @param headers map
@@ -2692,7 +2894,7 @@ GetTeamResponse Client::getTeamWithOptions(const string &workspaceId, const stri
 }
 
 /**
- * @summary 查询团队
+ * @summary Queries the details of a specified team. The response includes the complete attributes and team roles of each user member and agent member in the team.
  *
  * @param request GetTeamRequest
  * @return GetTeamResponse
@@ -2704,7 +2906,7 @@ GetTeamResponse Client::getTeam(const string &workspaceId, const string &teamId,
 }
 
 /**
- * @summary 查询用户
+ * @summary Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
  *
  * @param request GetUserRequest
  * @param headers map
@@ -2731,7 +2933,7 @@ GetUserResponse Client::getUserWithOptions(const string &workspaceId, const stri
 }
 
 /**
- * @summary 查询用户
+ * @summary Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -2743,9 +2945,9 @@ GetUserResponse Client::getUser(const string &workspaceId, const string &agentCo
 }
 
 /**
- * @summary Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+ * @summary Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
  *
- * @description ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+ * @description ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
  *
  * @param request GetWorkspaceRequest
  * @param headers map
@@ -2772,9 +2974,9 @@ GetWorkspaceResponse Client::getWorkspaceWithOptions(const string &workspaceId, 
 }
 
 /**
- * @summary Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+ * @summary Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
  *
- * @description ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+ * @description ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
  *
  * @param request GetWorkspaceRequest
  * @return GetWorkspaceResponse
@@ -2826,6 +3028,71 @@ GetWorkspacePluginResponse Client::getWorkspacePlugin(const string &workspaceId,
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getWorkspacePluginWithOptions(workspaceId, pluginName, request, headers, runtime);
+}
+
+/**
+ * @summary Installs an MCP marketplace template.
+ *
+ * @description Validates input based on the specified template version and creates an MCP in the workspace.
+ *
+ * @param tmpReq InstallMcpMarketItemRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallMcpMarketItemResponse
+ */
+InstallMcpMarketItemResponse Client::installMcpMarketItemWithOptions(const string &workspaceId, const string &marketItemId, const InstallMcpMarketItemRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  InstallMcpMarketItemShrinkRequest request = InstallMcpMarketItemShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasTemplateVersion()) {
+    query["templateVersion"] = request.getTemplateVersion();
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InstallMcpMarketItem"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/mcp-market/items/" , Darabonba::Encode::Encoder::percentEncode(marketItemId) , "/install")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallMcpMarketItemResponse>();
+}
+
+/**
+ * @summary Installs an MCP marketplace template.
+ *
+ * @description Validates input based on the specified template version and creates an MCP in the workspace.
+ *
+ * @param request InstallMcpMarketItemRequest
+ * @return InstallMcpMarketItemResponse
+ */
+InstallMcpMarketItemResponse Client::installMcpMarketItem(const string &workspaceId, const string &marketItemId, const InstallMcpMarketItemRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return installMcpMarketItemWithOptions(workspaceId, marketItemId, request, headers, runtime);
 }
 
 /**
@@ -3085,7 +3352,119 @@ ListAgentTeamsResponse Client::listAgentTeams(const string &workspaceId, const L
 }
 
 /**
- * @summary 查询凭证列表
+ * @summary Queries the list of models for a connector.
+ *
+ * @description Queries the list of available models for a specified connector. Pagination is supported.
+ *
+ * @param request ListConnectorModelsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConnectorModelsResponse
+ */
+ListConnectorModelsResponse Client::listConnectorModelsWithOptions(const string &workspaceId, const string &connectorName, const ListConnectorModelsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasConnectorKeyId()) {
+    query["connectorKeyId"] = request.getConnectorKeyId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConnectorModels"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/connectors/" , Darabonba::Encode::Encoder::percentEncode(connectorName) , "/models")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConnectorModelsResponse>();
+}
+
+/**
+ * @summary Queries the list of models for a connector.
+ *
+ * @description Queries the list of available models for a specified connector. Pagination is supported.
+ *
+ * @param request ListConnectorModelsRequest
+ * @return ListConnectorModelsResponse
+ */
+ListConnectorModelsResponse Client::listConnectorModels(const string &workspaceId, const string &connectorName, const ListConnectorModelsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listConnectorModelsWithOptions(workspaceId, connectorName, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of connectors.
+ *
+ * @description Queries the list of connectors in a specified workspace.
+ *
+ * @param request ListConnectorsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListConnectorsResponse
+ */
+ListConnectorsResponse Client::listConnectorsWithOptions(const string &workspaceId, const ListConnectorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListConnectors"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/connectors")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListConnectorsResponse>();
+}
+
+/**
+ * @summary Queries the list of connectors.
+ *
+ * @description Queries the list of connectors in a specified workspace.
+ *
+ * @param request ListConnectorsRequest
+ * @return ListConnectorsResponse
+ */
+ListConnectorsResponse Client::listConnectors(const string &workspaceId, const ListConnectorsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listConnectorsWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+ *
+ * @description Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
  *
  * @param request ListCredentialsRequest
  * @param headers map
@@ -3101,6 +3480,10 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const string &workspa
 
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasName()) {
+    query["name"] = request.getName();
   }
 
   if (!!request.hasNameLike()) {
@@ -3130,7 +3513,9 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const string &workspa
 }
 
 /**
- * @summary 查询凭证列表
+ * @summary Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+ *
+ * @description Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
  *
  * @param request ListCredentialsRequest
  * @return ListCredentialsResponse
@@ -3246,7 +3631,7 @@ ListIdentityProvidersResponse Client::listIdentityProviders(const string &worksp
 /**
  * @summary Queries the list of managed agents in a specified workspace.
  *
- * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+ * @description Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
  *
  * @param request ListManagedAgentsRequest
  * @param headers map
@@ -3285,7 +3670,7 @@ ListManagedAgentsResponse Client::listManagedAgentsWithOptions(const string &wor
 /**
  * @summary Queries the list of managed agents in a specified workspace.
  *
- * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+ * @description Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
  *
  * @param request ListManagedAgentsRequest
  * @return ListManagedAgentsResponse
@@ -3294,6 +3679,71 @@ ListManagedAgentsResponse Client::listManagedAgents(const string &workspaceId, c
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listManagedAgentsWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries MCP marketplace templates.
+ *
+ * @description Queries all online official MCP templates. You can filter results by keyword, usage tag, and MCP type.
+ *
+ * @param request ListMcpMarketItemsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListMcpMarketItemsResponse
+ */
+ListMcpMarketItemsResponse Client::listMcpMarketItemsWithOptions(const string &workspaceId, const ListMcpMarketItemsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasMcpType()) {
+    query["mcpType"] = request.getMcpType();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOfficialTag()) {
+    query["officialTag"] = request.getOfficialTag();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListMcpMarketItems"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/mcp-market/items")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListMcpMarketItemsResponse>();
+}
+
+/**
+ * @summary Queries MCP marketplace templates.
+ *
+ * @description Queries all online official MCP templates. You can filter results by keyword, usage tag, and MCP type.
+ *
+ * @param request ListMcpMarketItemsRequest
+ * @return ListMcpMarketItemsResponse
+ */
+ListMcpMarketItemsResponse Client::listMcpMarketItems(const string &workspaceId, const ListMcpMarketItemsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listMcpMarketItemsWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -3377,8 +3827,16 @@ ListMcpsResponse Client::listMcpsWithOptions(const string &workspaceId, const Li
     query["nextToken"] = request.getNextToken();
   }
 
+  if (!!request.hasOfficialTag()) {
+    query["officialTag"] = request.getOfficialTag();
+  }
+
   if (!!request.hasSearchType()) {
     query["searchType"] = request.getSearchType();
+  }
+
+  if (!!request.hasUsageActive()) {
+    query["usageActive"] = request.getUsageActive();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3415,9 +3873,9 @@ ListMcpsResponse Client::listMcps(const string &workspaceId, const ListMcpsReque
 }
 
 /**
- * @summary 查询模型连接列表
+ * @summary Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
  *
- * @description 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+ * @description Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
  *
  * @param request ListModelConnectionsRequest
  * @param headers map
@@ -3474,9 +3932,9 @@ ListModelConnectionsResponse Client::listModelConnectionsWithOptions(const strin
 }
 
 /**
- * @summary 查询模型连接列表
+ * @summary Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
  *
- * @description 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+ * @description Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
  *
  * @param request ListModelConnectionsRequest
  * @return ListModelConnectionsResponse
@@ -3620,6 +4078,120 @@ ListPredefinedModelsResponse Client::listPredefinedModels(const string &provider
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return listPredefinedModelsWithOptions(providerType, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the list of Sandbox sessions.
+ *
+ * @description Queries the list of active sessions in the Sandbox of a specified managed agent.
+ *
+ * @param request ListSandboxSessionsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSandboxSessionsResponse
+ */
+ListSandboxSessionsResponse Client::listSandboxSessionsWithOptions(const string &workspaceId, const string &agentId, const string &sandboxId, const ListSandboxSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSandboxSessions"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/managed-agents/" , Darabonba::Encode::Encoder::percentEncode(agentId) , "/sandboxes/" , Darabonba::Encode::Encoder::percentEncode(sandboxId) , "/sessions")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSandboxSessionsResponse>();
+}
+
+/**
+ * @summary Queries the list of Sandbox sessions.
+ *
+ * @description Queries the list of active sessions in the Sandbox of a specified managed agent.
+ *
+ * @param request ListSandboxSessionsRequest
+ * @return ListSandboxSessionsResponse
+ */
+ListSandboxSessionsResponse Client::listSandboxSessions(const string &workspaceId, const string &agentId, const string &sandboxId, const ListSandboxSessionsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSandboxSessionsWithOptions(workspaceId, agentId, sandboxId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries a list of sandboxes.
+ *
+ * @description Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+ *
+ * @param request ListSandboxesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSandboxesResponse
+ */
+ListSandboxesResponse Client::listSandboxesWithOptions(const string &workspaceId, const string &agentId, const ListSandboxesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasMaxResults()) {
+    query["maxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["nextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasSearchText()) {
+    query["searchText"] = request.getSearchText();
+  }
+
+  if (!!request.hasSessionId()) {
+    query["sessionId"] = request.getSessionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSandboxes"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/managed-agents/" , Darabonba::Encode::Encoder::percentEncode(agentId) , "/sandboxes")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSandboxesResponse>();
+}
+
+/**
+ * @summary Queries a list of sandboxes.
+ *
+ * @description Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+ *
+ * @param request ListSandboxesRequest
+ * @return ListSandboxesResponse
+ */
+ListSandboxesResponse Client::listSandboxes(const string &workspaceId, const string &agentId, const ListSandboxesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSandboxesWithOptions(workspaceId, agentId, request, headers, runtime);
 }
 
 /**
@@ -3783,7 +4355,7 @@ ListSkillsResponse Client::listSkills(const string &workspaceId, const ListSkill
 }
 
 /**
- * @summary 查询团队列表
+ * @summary Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
  *
  * @param request ListTeamsRequest
  * @param headers map
@@ -3824,7 +4396,7 @@ ListTeamsResponse Client::listTeamsWithOptions(const string &workspaceId, const 
 }
 
 /**
- * @summary 查询团队列表
+ * @summary Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
  *
  * @param request ListTeamsRequest
  * @return ListTeamsResponse
@@ -3893,9 +4465,9 @@ ListUsersResponse Client::listUsers(const string &workspaceId, const ListUsersRe
 }
 
 /**
- * @summary Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+ * @summary Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
  *
- * @description ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+ * @description ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
  *
  * @param request ListWorkspacesRequest
  * @param headers map
@@ -3936,9 +4508,9 @@ ListWorkspacesResponse Client::listWorkspacesWithOptions(const ListWorkspacesReq
 }
 
 /**
- * @summary Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+ * @summary Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
  *
- * @description ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+ * @description ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
  *
  * @param request ListWorkspacesRequest
  * @return ListWorkspacesResponse
@@ -4235,7 +4807,7 @@ RedraftSkillVersionResponse Client::redraftSkillVersion(const string &workspaceI
 }
 
 /**
- * @summary 重置用户密码
+ * @summary Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
  *
  * @param tmpReq ResetUserPasswordRequest
  * @param headers map
@@ -4274,7 +4846,7 @@ ResetUserPasswordResponse Client::resetUserPasswordWithOptions(const string &wor
 }
 
 /**
- * @summary 重置用户密码
+ * @summary Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
  *
  * @param request ResetUserPasswordRequest
  * @return ResetUserPasswordResponse
@@ -4579,7 +5151,64 @@ UpdateAgentSpecResponse Client::updateAgentSpec(const string &workspaceId, const
 }
 
 /**
- * @summary 更新凭证
+ * @summary Updates the credentials of a Connector.
+ *
+ * @description Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+ *
+ * @param tmpReq UpdateConnectorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateConnectorResponse
+ */
+UpdateConnectorResponse Client::updateConnectorWithOptions(const string &workspaceId, const string &connectorName, const UpdateConnectorRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateConnectorShrinkRequest request = UpdateConnectorShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateConnector"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/connectors/" , Darabonba::Encode::Encoder::percentEncode(connectorName) , "/actions/update")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateConnectorResponse>();
+}
+
+/**
+ * @summary Updates the credentials of a Connector.
+ *
+ * @description Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+ *
+ * @param request UpdateConnectorRequest
+ * @return UpdateConnectorResponse
+ */
+UpdateConnectorResponse Client::updateConnector(const string &workspaceId, const string &connectorName, const UpdateConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateConnectorWithOptions(workspaceId, connectorName, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+ *
+ * @description Updates the metadata or resource scope of a specified credential.
  *
  * @param tmpReq UpdateCredentialRequest
  * @param headers map
@@ -4624,7 +5253,9 @@ UpdateCredentialResponse Client::updateCredentialWithOptions(const string &works
 }
 
 /**
- * @summary 更新凭证
+ * @summary Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+ *
+ * @description Updates the metadata or resource scope of a specified credential.
  *
  * @param request UpdateCredentialRequest
  * @return UpdateCredentialResponse
@@ -4697,7 +5328,7 @@ UpdateExternalAgentResponse Client::updateExternalAgent(const string &workspaceI
 }
 
 /**
- * @summary Updates the login switch, member synchronization switch, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
+ * @summary Updates the login toggle, member synchronization toggle, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
  *
  * @param tmpReq UpdateIdentityProviderRequest
  * @param headers map
@@ -4736,7 +5367,7 @@ UpdateIdentityProviderResponse Client::updateIdentityProviderWithOptions(const s
 }
 
 /**
- * @summary Updates the login switch, member synchronization switch, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
+ * @summary Updates the login toggle, member synchronization toggle, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
  *
  * @param request UpdateIdentityProviderRequest
  * @return UpdateIdentityProviderResponse
@@ -4868,7 +5499,76 @@ UpdateMcpResponse Client::updateMcp(const string &workspaceId, const string &mcp
 }
 
 /**
- * @summary Updates the description of a specified model. Other model configurations cannot be modified through this operation.
+ * @summary Updates MCP parameters by template.
+ *
+ * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+ *
+ * @param tmpReq UpdateMcpTemplateConfigRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateMcpTemplateConfigResponse
+ */
+UpdateMcpTemplateConfigResponse Client::updateMcpTemplateConfigWithOptions(const string &workspaceId, const string &mcpServerId, const UpdateMcpTemplateConfigRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpdateMcpTemplateConfigShrinkRequest request = UpdateMcpTemplateConfigShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasTemplateVersion()) {
+    query["templateVersion"] = request.getTemplateVersion();
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateMcpTemplateConfig"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/mcp-servers/" , Darabonba::Encode::Encoder::percentEncode(mcpServerId) , "/template-config")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateMcpTemplateConfigResponse>();
+}
+
+/**
+ * @summary Updates MCP parameters by template.
+ *
+ * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+ *
+ * @param request UpdateMcpTemplateConfigRequest
+ * @return UpdateMcpTemplateConfigResponse
+ */
+UpdateMcpTemplateConfigResponse Client::updateMcpTemplateConfig(const string &workspaceId, const string &mcpServerId, const UpdateMcpTemplateConfigRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateMcpTemplateConfigWithOptions(workspaceId, mcpServerId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+ *
+ * @description This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+ * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+ * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
  *
  * @param tmpReq UpdateModelRequest
  * @param headers map
@@ -4913,7 +5613,11 @@ UpdateModelResponse Client::updateModelWithOptions(const string &workspaceId, co
 }
 
 /**
- * @summary Updates the description of a specified model. Other model configurations cannot be modified through this operation.
+ * @summary Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+ *
+ * @description This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+ * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+ * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
  *
  * @param request UpdateModelRequest
  * @return UpdateModelResponse
@@ -5153,7 +5857,7 @@ UpdateSkillScopeResponse Client::updateSkillScope(const string &workspaceId, con
 }
 
 /**
- * @summary 更新团队
+ * @summary Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
  *
  * @param tmpReq UpdateTeamRequest
  * @param headers map
@@ -5198,7 +5902,7 @@ UpdateTeamResponse Client::updateTeamWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary 更新团队
+ * @summary Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
  *
  * @param request UpdateTeamRequest
  * @return UpdateTeamResponse
@@ -5210,7 +5914,7 @@ UpdateTeamResponse Client::updateTeam(const string &workspaceId, const string &t
 }
 
 /**
- * @summary 更新用户
+ * @summary Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
  *
  * @param tmpReq UpdateUserRequest
  * @param headers map
@@ -5255,7 +5959,7 @@ UpdateUserResponse Client::updateUserWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary 更新用户
+ * @summary Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
  *
  * @param request UpdateUserRequest
  * @return UpdateUserResponse
@@ -5267,9 +5971,9 @@ UpdateUserResponse Client::updateUser(const string &workspaceId, const string &a
 }
 
 /**
- * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+ * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
  *
- * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+ * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
  *
  * @param tmpReq UpdateWorkspaceRequest
  * @param headers map
@@ -5314,9 +6018,9 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const string &workspa
 }
 
 /**
- * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+ * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
  *
- * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+ * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
  *
  * @param request UpdateWorkspaceRequest
  * @return UpdateWorkspaceResponse
@@ -5439,6 +6143,110 @@ UploadSkillViaOssResponse Client::uploadSkillViaOss(const string &workspaceId, c
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return uploadSkillViaOssWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Validates the credentials of a Connector.
+ *
+ * @description Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
+ *
+ * @param tmpReq VerifyConnectorRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyConnectorResponse
+ */
+VerifyConnectorResponse Client::verifyConnectorWithOptions(const string &workspaceId, const string &connectorName, const VerifyConnectorRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  VerifyConnectorShrinkRequest request = VerifyConnectorShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBody()) {
+    request.setBodyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBody(), "body", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasBodyShrink()) {
+    body["body"] = request.getBodyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "VerifyConnector"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/connectors/" , Darabonba::Encode::Encoder::percentEncode(connectorName) , "/actions/verify")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyConnectorResponse>();
+}
+
+/**
+ * @summary Validates the credentials of a Connector.
+ *
+ * @description Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
+ *
+ * @param request VerifyConnectorRequest
+ * @return VerifyConnectorResponse
+ */
+VerifyConnectorResponse Client::verifyConnector(const string &workspaceId, const string &connectorName, const VerifyConnectorRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return verifyConnectorWithOptions(workspaceId, connectorName, request, headers, runtime);
+}
+
+/**
+ * @summary Verifies the RAM authorization for an OSS mount in a workspace.
+ *
+ * @description Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+ *
+ * @param request VerifyWorkspaceOssMountRamAuthorizationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyWorkspaceOssMountRamAuthorizationResponse
+ */
+VerifyWorkspaceOssMountRamAuthorizationResponse Client::verifyWorkspaceOssMountRamAuthorizationWithOptions(const string &workspaceId, const VerifyWorkspaceOssMountRamAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasBucketName()) {
+    query["bucketName"] = request.getBucketName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "VerifyWorkspaceOssMountRamAuthorization"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/oss-mount/authorize/verify")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyWorkspaceOssMountRamAuthorizationResponse>();
+}
+
+/**
+ * @summary Verifies the RAM authorization for an OSS mount in a workspace.
+ *
+ * @description Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+ *
+ * @param request VerifyWorkspaceOssMountRamAuthorizationRequest
+ * @return VerifyWorkspaceOssMountRamAuthorizationResponse
+ */
+VerifyWorkspaceOssMountRamAuthorizationResponse Client::verifyWorkspaceOssMountRamAuthorization(const string &workspaceId, const VerifyWorkspaceOssMountRamAuthorizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return verifyWorkspaceOssMountRamAuthorizationWithOptions(workspaceId, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace AgentCore20260804

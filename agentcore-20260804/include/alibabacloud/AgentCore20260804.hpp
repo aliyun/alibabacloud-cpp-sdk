@@ -21,7 +21,7 @@ namespace AgentCore20260804
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 批量删除模型
+       * @summary Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
        *
        * @param tmpReq BatchDeleteModelsRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace AgentCore20260804
       Models::BatchDeleteModelsResponse batchDeleteModelsWithOptions(const string &workspaceId, const Models::BatchDeleteModelsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除模型
+       * @summary Deletes models in a specified workspace in batches. If any model is in use, the entire batch request fails.
        *
        * @param request BatchDeleteModelsRequest
        * @return BatchDeleteModelsResponse
@@ -61,6 +61,28 @@ namespace AgentCore20260804
        * @return BatchUploadSkillsViaOssResponse
        */
       Models::BatchUploadSkillsViaOssResponse batchUploadSkillsViaOss(const string &workspaceId, const Models::BatchUploadSkillsViaOssRequest &request);
+
+      /**
+       * @summary Converts an MCP to free editing.
+       *
+       * @description Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+       *
+       * @param request ConvertMcpToFreeEditRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ConvertMcpToFreeEditResponse
+       */
+      Models::ConvertMcpToFreeEditResponse convertMcpToFreeEditWithOptions(const string &workspaceId, const string &mcpServerId, const Models::ConvertMcpToFreeEditRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Converts an MCP to free editing.
+       *
+       * @description Disables template usage constraints. After the conversion, the MCP retains its source and tags but no longer appears on the usage page.
+       *
+       * @param request ConvertMcpToFreeEditRequest
+       * @return ConvertMcpToFreeEditResponse
+       */
+      Models::ConvertMcpToFreeEditResponse convertMcpToFreeEdit(const string &workspaceId, const string &mcpServerId, const Models::ConvertMcpToFreeEditRequest &request);
 
       /**
        * @summary Creates an IM channel for a specified agent and binds a publicly accessible ServiceEndpoint.
@@ -133,7 +155,9 @@ namespace AgentCore20260804
       Models::CreateAgentSpecVersionResponse createAgentSpecVersion(const string &workspaceId, const string &agentSpecName, const Models::CreateAgentSpecVersionRequest &request);
 
       /**
-       * @summary 创建凭证
+       * @summary Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+       *
+       * @description Creates a credential in a workspace for authentication of services such as Connector.
        *
        * @param tmpReq CreateCredentialRequest
        * @param headers map
@@ -143,7 +167,9 @@ namespace AgentCore20260804
       Models::CreateCredentialResponse createCredentialWithOptions(const string &workspaceId, const Models::CreateCredentialRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建凭证
+       * @summary Creates a credential in a specified workspace for authentication when an agent accesses external services. Currently, only the apiKey type is supported. The credential content is passed in as a JSON string through credentialMetadata and can only be queried in masked form after being written.
+       *
+       * @description Creates a credential in a workspace for authentication of services such as Connector.
        *
        * @param request CreateCredentialRequest
        * @return CreateCredentialResponse
@@ -273,7 +299,7 @@ namespace AgentCore20260804
       Models::CreateModelResponse createModel(const string &workspaceId, const Models::CreateModelRequest &request);
 
       /**
-       * @summary 创建模型连接
+       * @summary Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
        *
        * @param tmpReq CreateModelConnectionRequest
        * @param headers map
@@ -283,7 +309,7 @@ namespace AgentCore20260804
       Models::CreateModelConnectionResponse createModelConnectionWithOptions(const string &workspaceId, const Models::CreateModelConnectionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建模型连接
+       * @summary Creates a model connection in a specified workspace and configures the upstream model service address, invoke protocol, and access credentials.
        *
        * @param request CreateModelConnectionRequest
        * @return CreateModelConnectionResponse
@@ -315,7 +341,7 @@ namespace AgentCore20260804
       Models::CreateSkillDraftResponse createSkillDraft(const string &workspaceId, const Models::CreateSkillDraftRequest &request);
 
       /**
-       * @summary 创建团队
+       * @summary Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
        *
        * @param tmpReq CreateTeamRequest
        * @param headers map
@@ -325,7 +351,7 @@ namespace AgentCore20260804
       Models::CreateTeamResponse createTeamWithOptions(const string &workspaceId, const Models::CreateTeamRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建团队
+       * @summary Creates a team in a specified workspace and sets user members and agent members at the same time. The user members must include exactly one member with the ADMIN role. Agent members can only have the LEADER or WORKER role.
        *
        * @param request CreateTeamRequest
        * @return CreateTeamResponse
@@ -333,7 +359,7 @@ namespace AgentCore20260804
       Models::CreateTeamResponse createTeam(const string &workspaceId, const Models::CreateTeamRequest &request);
 
       /**
-       * @summary 创建用户
+       * @summary Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
        *
        * @param tmpReq CreateUserRequest
        * @param headers map
@@ -343,7 +369,7 @@ namespace AgentCore20260804
       Models::CreateUserResponse createUserWithOptions(const string &workspaceId, const Models::CreateUserRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建用户
+       * @summary Creates a user in a specified workspace. The username must be unique within the workspace and can contain only lowercase letters, digits, and hyphens. Reserved names such as manager, admin, or names starting with worker- cannot be used. If password is not specified, the server generates an initial password and returns it in the initialPassword field of the response.
        *
        * @param request CreateUserRequest
        * @return CreateUserResponse
@@ -373,7 +399,7 @@ namespace AgentCore20260804
       Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
 
       /**
-       * @summary 调试模型
+       * @summary Calls a specified model through a published model connection to verify whether the model call chain is available.
        *
        * @param tmpReq DebugModelRequest
        * @param headers map
@@ -383,7 +409,7 @@ namespace AgentCore20260804
       Models::DebugModelResponse debugModelWithOptions(const string &workspaceId, const string &modelId, const Models::DebugModelRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 调试模型
+       * @summary Calls a specified model through a published model connection to verify whether the model call chain is available.
        *
        * @param request DebugModelRequest
        * @return DebugModelResponse
@@ -461,7 +487,9 @@ namespace AgentCore20260804
       Models::DeleteAgentSpecVersionResponse deleteAgentSpecVersion(const string &workspaceId, const string &agentSpecName, const Models::DeleteAgentSpecVersionRequest &request);
 
       /**
-       * @summary 删除凭证
+       * @summary Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+       *
+       * @description Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
        *
        * @param request DeleteCredentialRequest
        * @param headers map
@@ -471,7 +499,9 @@ namespace AgentCore20260804
       Models::DeleteCredentialResponse deleteCredentialWithOptions(const string &workspaceId, const string &credentialId, const Models::DeleteCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除凭证
+       * @summary Deletes a credential from a specified workspace and removes the ciphertext hosted in the credential service. After deletion, agents that are bound to this credential can no longer retrieve the credential content.
+       *
+       * @description Deletes an access credential from a specified workspace. A credential cannot be deleted while it is still bound to an MCP service.
        *
        * @param request DeleteCredentialRequest
        * @return DeleteCredentialResponse
@@ -501,7 +531,7 @@ namespace AgentCore20260804
       Models::DeleteExternalAgentResponse deleteExternalAgent(const string &workspaceId, const string &agentId, const Models::DeleteExternalAgentRequest &request);
 
       /**
-       * @summary Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+       * @summary Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
        *
        * @param request DeleteIdentityProviderRequest
        * @param headers map
@@ -511,7 +541,7 @@ namespace AgentCore20260804
       Models::DeleteIdentityProviderResponse deleteIdentityProviderWithOptions(const string &workspaceId, const string &identityProviderType, const Models::DeleteIdentityProviderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+       * @summary Unbinds the external identity provider from a specified workspace and cleans up users synchronized by that identity provider. The unbinding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
        *
        * @param request DeleteIdentityProviderRequest
        * @return DeleteIdentityProviderResponse
@@ -539,7 +569,7 @@ namespace AgentCore20260804
       /**
        * @summary Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
        *
        * @param request DeleteMcpRequest
@@ -552,7 +582,7 @@ namespace AgentCore20260804
       /**
        * @summary Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * Deletes a specified MCP service. The deletion is an asynchronous process. After the deletion is complete, the MCP service is no longer returned.
        *
        * @param request DeleteMcpRequest
@@ -561,7 +591,7 @@ namespace AgentCore20260804
       Models::DeleteMcpResponse deleteMcp(const string &mcpServerId, const string &workspaceId, const Models::DeleteMcpRequest &request);
 
       /**
-       * @summary 删除模型
+       * @summary Deletes a model from a specified workspace. Models that are currently in use cannot be deleted.
        *
        * @param request DeleteModelRequest
        * @param headers map
@@ -571,7 +601,7 @@ namespace AgentCore20260804
       Models::DeleteModelResponse deleteModelWithOptions(const string &workspaceId, const string &modelId, const Models::DeleteModelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模型
+       * @summary Deletes a model from a specified workspace. Models that are currently in use cannot be deleted.
        *
        * @param request DeleteModelRequest
        * @return DeleteModelResponse
@@ -579,7 +609,7 @@ namespace AgentCore20260804
       Models::DeleteModelResponse deleteModel(const string &workspaceId, const string &modelId, const Models::DeleteModelRequest &request);
 
       /**
-       * @summary 删除模型连接
+       * @summary Submits an asynchronous deletion task for a specified model connection. The connection cannot be deleted if it has associated models or runtime references.
        *
        * @param request DeleteModelConnectionRequest
        * @param headers map
@@ -589,7 +619,7 @@ namespace AgentCore20260804
       Models::DeleteModelConnectionResponse deleteModelConnectionWithOptions(const string &workspaceId, const string &connectionId, const Models::DeleteModelConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除模型连接
+       * @summary Submits an asynchronous deletion task for a specified model connection. The connection cannot be deleted if it has associated models or runtime references.
        *
        * @param request DeleteModelConnectionRequest
        * @return DeleteModelConnectionResponse
@@ -645,7 +675,7 @@ namespace AgentCore20260804
       Models::DeleteSkillDraftResponse deleteSkillDraft(const string &workspaceId, const string &skillName, const Models::DeleteSkillDraftRequest &request);
 
       /**
-       * @summary 删除团队
+       * @summary Deletes a team from a specified workspace. Deleting a team does not delete the users or agents within it. Only the membership associations are removed.
        *
        * @param request DeleteTeamRequest
        * @param headers map
@@ -655,7 +685,7 @@ namespace AgentCore20260804
       Models::DeleteTeamResponse deleteTeamWithOptions(const string &workspaceId, const string &teamId, const Models::DeleteTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除团队
+       * @summary Deletes a team from a specified workspace. Deleting a team does not delete the users or agents within it. Only the membership associations are removed.
        *
        * @param request DeleteTeamRequest
        * @return DeleteTeamResponse
@@ -663,7 +693,7 @@ namespace AgentCore20260804
       Models::DeleteTeamResponse deleteTeam(const string &workspaceId, const string &teamId, const Models::DeleteTeamRequest &request);
 
       /**
-       * @summary 删除用户
+       * @summary Deletes a user from a specified workspace. A user cannot be deleted while the user is still a member of any team. Remove the user from all teams before deleting the user.
        *
        * @param request DeleteUserRequest
        * @param headers map
@@ -673,7 +703,7 @@ namespace AgentCore20260804
       Models::DeleteUserResponse deleteUserWithOptions(const string &workspaceId, const string &agentCoreUserId, const Models::DeleteUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除用户
+       * @summary Deletes a user from a specified workspace. A user cannot be deleted while the user is still a member of any team. Remove the user from all teams before deleting the user.
        *
        * @param request DeleteUserRequest
        * @return DeleteUserResponse
@@ -701,6 +731,28 @@ namespace AgentCore20260804
        * @return DeleteWorkspaceResponse
        */
       Models::DeleteWorkspaceResponse deleteWorkspace(const string &workspaceId, const Models::DeleteWorkspaceRequest &request);
+
+      /**
+       * @summary Disables a Connector.
+       *
+       * @description Disables a specified Connector in a workspace.
+       *
+       * @param request DisableConnectorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DisableConnectorResponse
+       */
+      Models::DisableConnectorResponse disableConnectorWithOptions(const string &workspaceId, const string &connectorName, const Models::DisableConnectorRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables a Connector.
+       *
+       * @description Disables a specified Connector in a workspace.
+       *
+       * @param request DisableConnectorRequest
+       * @return DisableConnectorResponse
+       */
+      Models::DisableConnectorResponse disableConnector(const string &workspaceId, const string &connectorName, const Models::DisableConnectorRequest &request);
 
       /**
        * @summary Retrieves a pre-signed OSS download URL for a specified AgentSpec ZIP package.
@@ -749,6 +801,28 @@ namespace AgentCore20260804
        * @return DownloadSkillVersionViaOssResponse
        */
       Models::DownloadSkillVersionViaOssResponse downloadSkillVersionViaOss(const string &workspaceId, const string &skillName, const string &skillVersion, const Models::DownloadSkillVersionViaOssRequest &request);
+
+      /**
+       * @summary Enables a Connector.
+       *
+       * @description Enables a Connector in a specified workspace. Credential verification is required before enabling.
+       *
+       * @param tmpReq EnableConnectorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return EnableConnectorResponse
+       */
+      Models::EnableConnectorResponse enableConnectorWithOptions(const string &workspaceId, const string &connectorName, const Models::EnableConnectorRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Enables a Connector.
+       *
+       * @description Enables a Connector in a specified workspace. Credential verification is required before enabling.
+       *
+       * @param request EnableConnectorRequest
+       * @return EnableConnectorResponse
+       */
+      Models::EnableConnectorResponse enableConnector(const string &workspaceId, const string &connectorName, const Models::EnableConnectorRequest &request);
 
       /**
        * @summary Skips the regular review process and forcibly publishes the specified Skill version.
@@ -821,10 +895,10 @@ namespace AgentCore20260804
       Models::GetAgentSpecResponse getAgentSpec(const string &workspaceId, const string &agentSpecName, const Models::GetAgentSpecRequest &request);
 
       /**
-       * @summary Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+       * @summary Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
        *
        * @description ## Operation description
-       * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+       * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
        *
        * @param request GetAgentSpecImportFileUrlRequest
        * @param headers map
@@ -834,10 +908,10 @@ namespace AgentCore20260804
       Models::GetAgentSpecImportFileUrlResponse getAgentSpecImportFileUrlWithOptions(const string &workspaceId, const Models::GetAgentSpecImportFileUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+       * @summary Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
        *
        * @description ## Operation description
-       * Retrieves the OSS pre-signed upload URL and object name required for importing an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
+       * Retrieves the OSS pre-signed upload URL and object name required to import an AgentSpec ZIP package. After the upload is complete, call the AgentSpec OSS upload operation to complete the import.
        *
        * @param request GetAgentSpecImportFileUrlRequest
        * @return GetAgentSpecImportFileUrlResponse
@@ -893,7 +967,9 @@ namespace AgentCore20260804
       Models::GetAgentSpecVersionResponse getAgentSpecVersion(const string &workspaceId, const string &agentSpecName, const string &agentSpecVersion, const Models::GetAgentSpecVersionRequest &request);
 
       /**
-       * @summary 查询凭证
+       * @summary Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+       *
+       * @description Queries the details of a single credential. Sensitive fields are not returned.
        *
        * @param request GetCredentialRequest
        * @param headers map
@@ -903,7 +979,9 @@ namespace AgentCore20260804
       Models::GetCredentialResponse getCredentialWithOptions(const string &workspaceId, const string &credentialId, const Models::GetCredentialRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询凭证
+       * @summary Queries the details of a specified credential and returns the list of agents bound to the credential. The credential content is returned in masked form.
+       *
+       * @description Queries the details of a single credential. Sensitive fields are not returned.
        *
        * @param request GetCredentialRequest
        * @return GetCredentialResponse
@@ -991,10 +1069,10 @@ namespace AgentCore20260804
       Models::GetManagedAgentResponse getManagedAgent(const string &workspaceId, const string &agentId, const Models::GetManagedAgentRequest &request);
 
       /**
-       * @summary Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+       * @summary Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
        *
        * @description ## Operation description
-       * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+       * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
        *
        * @param request GetMcpRequest
        * @param headers map
@@ -1004,15 +1082,37 @@ namespace AgentCore20260804
       Models::GetMcpResponse getMcpWithOptions(const string &workspaceId, const string &mcpServerId, const Models::GetMcpRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+       * @summary Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
        *
        * @description ## Operation description
-       * Queries the details of a specified MCP service, including its address, type, status, authentication configuration, and protocol.
+       * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
        *
        * @param request GetMcpRequest
        * @return GetMcpResponse
        */
       Models::GetMcpResponse getMcp(const string &workspaceId, const string &mcpServerId, const Models::GetMcpRequest &request);
+
+      /**
+       * @summary Queries the details of an MCP marketplace template.
+       *
+       * @description Returns the current template version and installation form schema.
+       *
+       * @param request GetMcpMarketItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetMcpMarketItemResponse
+       */
+      Models::GetMcpMarketItemResponse getMcpMarketItemWithOptions(const string &workspaceId, const string &marketItemId, const Models::GetMcpMarketItemRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an MCP marketplace template.
+       *
+       * @description Returns the current template version and installation form schema.
+       *
+       * @param request GetMcpMarketItemRequest
+       * @return GetMcpMarketItemResponse
+       */
+      Models::GetMcpMarketItemResponse getMcpMarketItem(const string &workspaceId, const string &marketItemId, const Models::GetMcpMarketItemRequest &request);
 
       /**
        * @summary Queries the detailed configuration and region of a model in a specified workspace.
@@ -1033,7 +1133,7 @@ namespace AgentCore20260804
       Models::GetModelResponse getModel(const string &workspaceId, const string &modelId, const Models::GetModelRequest &request);
 
       /**
-       * @summary 查询模型连接
+       * @summary Queries the detailed configuration, credential configuration status, publish status, and region of a specified model connection.
        *
        * @param request GetModelConnectionRequest
        * @param headers map
@@ -1043,7 +1143,7 @@ namespace AgentCore20260804
       Models::GetModelConnectionResponse getModelConnectionWithOptions(const string &workspaceId, const string &connectionId, const Models::GetModelConnectionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型连接
+       * @summary Queries the detailed configuration, credential configuration status, publish status, and region of a specified model connection.
        *
        * @param request GetModelConnectionRequest
        * @return GetModelConnectionResponse
@@ -1167,7 +1267,7 @@ namespace AgentCore20260804
       Models::GetSkillVersionDetailResponse getSkillVersionDetail(const string &workspaceId, const string &skillName, const string &skillVersion, const Models::GetSkillVersionDetailRequest &request);
 
       /**
-       * @summary 查询团队
+       * @summary Queries the details of a specified team. The response includes the complete attributes and team roles of each user member and agent member in the team.
        *
        * @param request GetTeamRequest
        * @param headers map
@@ -1177,7 +1277,7 @@ namespace AgentCore20260804
       Models::GetTeamResponse getTeamWithOptions(const string &workspaceId, const string &teamId, const Models::GetTeamRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询团队
+       * @summary Queries the details of a specified team. The response includes the complete attributes and team roles of each user member and agent member in the team.
        *
        * @param request GetTeamRequest
        * @return GetTeamResponse
@@ -1185,7 +1285,7 @@ namespace AgentCore20260804
       Models::GetTeamResponse getTeam(const string &workspaceId, const string &teamId, const Models::GetTeamRequest &request);
 
       /**
-       * @summary 查询用户
+       * @summary Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
        *
        * @param request GetUserRequest
        * @param headers map
@@ -1195,7 +1295,7 @@ namespace AgentCore20260804
       Models::GetUserResponse getUserWithOptions(const string &workspaceId, const string &agentCoreUserId, const Models::GetUserRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询用户
+       * @summary Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
        *
        * @param request GetUserRequest
        * @return GetUserResponse
@@ -1203,9 +1303,9 @@ namespace AgentCore20260804
       Models::GetUserResponse getUser(const string &workspaceId, const string &agentCoreUserId, const Models::GetUserRequest &request);
 
       /**
-       * @summary Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+       * @summary Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
        *
-       * @description ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+       * @description ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
        *
        * @param request GetWorkspaceRequest
        * @param headers map
@@ -1215,9 +1315,9 @@ namespace AgentCore20260804
       Models::GetWorkspaceResponse getWorkspaceWithOptions(const string &workspaceId, const Models::GetWorkspaceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
+       * @summary Queries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.
        *
-       * @description ## Operation description\\nQueries workspace details by workspace ID, including lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
+       * @description ## Operation description\\nQueries the details of a workspace by workspace ID, including the lifecycle status, CMS Workspace, AIRegistry Namespace, and current network policy.\\n.
        *
        * @param request GetWorkspaceRequest
        * @return GetWorkspaceResponse
@@ -1245,6 +1345,28 @@ namespace AgentCore20260804
        * @return GetWorkspacePluginResponse
        */
       Models::GetWorkspacePluginResponse getWorkspacePlugin(const string &workspaceId, const string &pluginName, const Models::GetWorkspacePluginRequest &request);
+
+      /**
+       * @summary Installs an MCP marketplace template.
+       *
+       * @description Validates input based on the specified template version and creates an MCP in the workspace.
+       *
+       * @param tmpReq InstallMcpMarketItemRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InstallMcpMarketItemResponse
+       */
+      Models::InstallMcpMarketItemResponse installMcpMarketItemWithOptions(const string &workspaceId, const string &marketItemId, const Models::InstallMcpMarketItemRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Installs an MCP marketplace template.
+       *
+       * @description Validates input based on the specified template version and creates an MCP in the workspace.
+       *
+       * @param request InstallMcpMarketItemRequest
+       * @return InstallMcpMarketItemResponse
+       */
+      Models::InstallMcpMarketItemResponse installMcpMarketItem(const string &workspaceId, const string &marketItemId, const Models::InstallMcpMarketItemRequest &request);
 
       /**
        * @summary Installs a plugin for a specified AgentCore workspace. Currently supports the collaboration plugin. The installation process is executed asynchronously.
@@ -1333,7 +1455,53 @@ namespace AgentCore20260804
       Models::ListAgentTeamsResponse listAgentTeams(const string &workspaceId, const Models::ListAgentTeamsRequest &request);
 
       /**
-       * @summary 查询凭证列表
+       * @summary Queries the list of models for a connector.
+       *
+       * @description Queries the list of available models for a specified connector. Pagination is supported.
+       *
+       * @param request ListConnectorModelsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListConnectorModelsResponse
+       */
+      Models::ListConnectorModelsResponse listConnectorModelsWithOptions(const string &workspaceId, const string &connectorName, const Models::ListConnectorModelsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of models for a connector.
+       *
+       * @description Queries the list of available models for a specified connector. Pagination is supported.
+       *
+       * @param request ListConnectorModelsRequest
+       * @return ListConnectorModelsResponse
+       */
+      Models::ListConnectorModelsResponse listConnectorModels(const string &workspaceId, const string &connectorName, const Models::ListConnectorModelsRequest &request);
+
+      /**
+       * @summary Queries the list of connectors.
+       *
+       * @description Queries the list of connectors in a specified workspace.
+       *
+       * @param request ListConnectorsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListConnectorsResponse
+       */
+      Models::ListConnectorsResponse listConnectorsWithOptions(const string &workspaceId, const Models::ListConnectorsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of connectors.
+       *
+       * @description Queries the list of connectors in a specified workspace.
+       *
+       * @param request ListConnectorsRequest
+       * @return ListConnectorsResponse
+       */
+      Models::ListConnectorsResponse listConnectors(const string &workspaceId, const Models::ListConnectorsRequest &request);
+
+      /**
+       * @summary Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+       *
+       * @description Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
        *
        * @param request ListCredentialsRequest
        * @param headers map
@@ -1343,7 +1511,9 @@ namespace AgentCore20260804
       Models::ListCredentialsResponse listCredentialsWithOptions(const string &workspaceId, const Models::ListCredentialsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询凭证列表
+       * @summary Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+       *
+       * @description Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
        *
        * @param request ListCredentialsRequest
        * @return ListCredentialsResponse
@@ -1393,7 +1563,7 @@ namespace AgentCore20260804
       /**
        * @summary Queries the list of managed agents in a specified workspace.
        *
-       * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+       * @description Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
        *
        * @param request ListManagedAgentsRequest
        * @param headers map
@@ -1405,12 +1575,34 @@ namespace AgentCore20260804
       /**
        * @summary Queries the list of managed agents in a specified workspace.
        *
-       * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
+       * @description Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
        *
        * @param request ListManagedAgentsRequest
        * @return ListManagedAgentsResponse
        */
       Models::ListManagedAgentsResponse listManagedAgents(const string &workspaceId, const Models::ListManagedAgentsRequest &request);
+
+      /**
+       * @summary Queries MCP marketplace templates.
+       *
+       * @description Queries all online official MCP templates. You can filter results by keyword, usage tag, and MCP type.
+       *
+       * @param request ListMcpMarketItemsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListMcpMarketItemsResponse
+       */
+      Models::ListMcpMarketItemsResponse listMcpMarketItemsWithOptions(const string &workspaceId, const Models::ListMcpMarketItemsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries MCP marketplace templates.
+       *
+       * @description Queries all online official MCP templates. You can filter results by keyword, usage tag, and MCP type.
+       *
+       * @param request ListMcpMarketItemsRequest
+       * @return ListMcpMarketItemsResponse
+       */
+      Models::ListMcpMarketItemsResponse listMcpMarketItems(const string &workspaceId, const Models::ListMcpMarketItemsRequest &request);
 
       /**
        * @summary Queries the list of tools exposed by a specified MCP service and their input/output schemas.
@@ -1461,9 +1653,9 @@ namespace AgentCore20260804
       Models::ListMcpsResponse listMcps(const string &workspaceId, const Models::ListMcpsRequest &request);
 
       /**
-       * @summary 查询模型连接列表
+       * @summary Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
        *
-       * @description 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+       * @description Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
        *
        * @param request ListModelConnectionsRequest
        * @param headers map
@@ -1473,9 +1665,9 @@ namespace AgentCore20260804
       Models::ListModelConnectionsResponse listModelConnectionsWithOptions(const string &workspaceId, const Models::ListModelConnectionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询模型连接列表
+       * @summary Queries model connections in a specified workspace with paging. Supports filtering by name, provider type, and invoke protocol.
        *
-       * @description 查询指定 AgentCore 工作空间中的模型连接。支持通过 `Name` 按名称筛选，并通过 `SearchType` 选择精确匹配或模糊匹配；支持按模型提供商类型和调用协议筛选，并支持分页查询。
+       * @description Queries model connections in a specified AgentCore workspace. Supports filtering by name through `Name` and selecting exact match or fuzzy match through `SearchType`. Also supports filtering by model provider type and invoke protocol, and supports paging.
        *
        * @param request ListModelConnectionsRequest
        * @return ListModelConnectionsResponse
@@ -1537,6 +1729,50 @@ namespace AgentCore20260804
       Models::ListPredefinedModelsResponse listPredefinedModels(const string &providerType, const Models::ListPredefinedModelsRequest &request);
 
       /**
+       * @summary Queries the list of Sandbox sessions.
+       *
+       * @description Queries the list of active sessions in the Sandbox of a specified managed agent.
+       *
+       * @param request ListSandboxSessionsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSandboxSessionsResponse
+       */
+      Models::ListSandboxSessionsResponse listSandboxSessionsWithOptions(const string &workspaceId, const string &agentId, const string &sandboxId, const Models::ListSandboxSessionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of Sandbox sessions.
+       *
+       * @description Queries the list of active sessions in the Sandbox of a specified managed agent.
+       *
+       * @param request ListSandboxSessionsRequest
+       * @return ListSandboxSessionsResponse
+       */
+      Models::ListSandboxSessionsResponse listSandboxSessions(const string &workspaceId, const string &agentId, const string &sandboxId, const Models::ListSandboxSessionsRequest &request);
+
+      /**
+       * @summary Queries a list of sandboxes.
+       *
+       * @description Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+       *
+       * @param request ListSandboxesRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListSandboxesResponse
+       */
+      Models::ListSandboxesResponse listSandboxesWithOptions(const string &workspaceId, const string &agentId, const Models::ListSandboxesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries a list of sandboxes.
+       *
+       * @description Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+       *
+       * @param request ListSandboxesRequest
+       * @return ListSandboxesResponse
+       */
+      Models::ListSandboxesResponse listSandboxes(const string &workspaceId, const string &agentId, const Models::ListSandboxesRequest &request);
+
+      /**
        * @summary Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
        *
        * @description ## Request description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
@@ -1583,7 +1819,7 @@ namespace AgentCore20260804
       Models::ListSkillsResponse listSkills(const string &workspaceId, const Models::ListSkillsRequest &request);
 
       /**
-       * @summary 查询团队列表
+       * @summary Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
        *
        * @param request ListTeamsRequest
        * @param headers map
@@ -1593,7 +1829,7 @@ namespace AgentCore20260804
       Models::ListTeamsResponse listTeamsWithOptions(const string &workspaceId, const Models::ListTeamsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询团队列表
+       * @summary Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
        *
        * @param request ListTeamsRequest
        * @return ListTeamsResponse
@@ -1619,9 +1855,9 @@ namespace AgentCore20260804
       Models::ListUsersResponse listUsers(const string &workspaceId, const Models::ListUsersRequest &request);
 
       /**
-       * @summary Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+       * @summary Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
        *
-       * @description ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+       * @description ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
        *
        * @param request ListWorkspacesRequest
        * @param headers map
@@ -1631,9 +1867,9 @@ namespace AgentCore20260804
       Models::ListWorkspacesResponse listWorkspacesWithOptions(const Models::ListWorkspacesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
+       * @summary Queries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of Deleted by default. Results are stably sorted by creation order on the server side.
        *
-       * @description ## Request description\\nQueries workspaces under the current tenant with paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per page, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
+       * @description ## Operation description\\nQueries workspaces under the current tenant by paging. The list does not return soft-deleted records with a status of `Deleted` by default. Results are stably sorted by creation order on the server side. Use `nextToken` to retrieve the next page, `skip` to skip a specified number of workspaces, `maxResults` to specify the maximum number of records per paging request, and `nameLike` to filter workspaces by name using fuzzy match. If `maxResults` is not specified or is set to 0, the server returns 20 records by default.\\n
        *
        * @param request ListWorkspacesRequest
        * @return ListWorkspacesResponse
@@ -1761,7 +1997,7 @@ namespace AgentCore20260804
       Models::RedraftSkillVersionResponse redraftSkillVersion(const string &workspaceId, const string &skillName, const string &skillVersion, const Models::RedraftSkillVersionRequest &request);
 
       /**
-       * @summary 重置用户密码
+       * @summary Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
        *
        * @param tmpReq ResetUserPasswordRequest
        * @param headers map
@@ -1771,7 +2007,7 @@ namespace AgentCore20260804
       Models::ResetUserPasswordResponse resetUserPasswordWithOptions(const string &workspaceId, const Models::ResetUserPasswordRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置用户密码
+       * @summary Resets the logon password of a specified user. Specify the user by agentCoreUserId or username. At least one of the two parameters must be specified. Only users who use workspace local password authentication can be reset. If password is not specified, the server generates a random password and returns it in the response.
        *
        * @param request ResetUserPasswordRequest
        * @return ResetUserPasswordResponse
@@ -1895,7 +2131,31 @@ namespace AgentCore20260804
       Models::UpdateAgentSpecResponse updateAgentSpec(const string &workspaceId, const string &agentSpecName, const Models::UpdateAgentSpecRequest &request);
 
       /**
-       * @summary 更新凭证
+       * @summary Updates the credentials of a Connector.
+       *
+       * @description Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+       *
+       * @param tmpReq UpdateConnectorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateConnectorResponse
+       */
+      Models::UpdateConnectorResponse updateConnectorWithOptions(const string &workspaceId, const string &connectorName, const Models::UpdateConnectorRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the credentials of a Connector.
+       *
+       * @description Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+       *
+       * @param request UpdateConnectorRequest
+       * @return UpdateConnectorResponse
+       */
+      Models::UpdateConnectorResponse updateConnector(const string &workspaceId, const string &connectorName, const Models::UpdateConnectorRequest &request);
+
+      /**
+       * @summary Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+       *
+       * @description Updates the metadata or resource scope of a specified credential.
        *
        * @param tmpReq UpdateCredentialRequest
        * @param headers map
@@ -1905,7 +2165,9 @@ namespace AgentCore20260804
       Models::UpdateCredentialResponse updateCredentialWithOptions(const string &workspaceId, const string &credentialId, const Models::UpdateCredentialRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新凭证
+       * @summary Updates the content or description of a specified credential. At least one of credentialMetadata and description must be specified. Unspecified properties remain unchanged. The credential name and credential type cannot be modified after creation.
+       *
+       * @description Updates the metadata or resource scope of a specified credential.
        *
        * @param request UpdateCredentialRequest
        * @return UpdateCredentialResponse
@@ -1935,7 +2197,7 @@ namespace AgentCore20260804
       Models::UpdateExternalAgentResponse updateExternalAgent(const string &workspaceId, const string &agentId, const Models::UpdateExternalAgentRequest &request);
 
       /**
-       * @summary Updates the login switch, member synchronization switch, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
+       * @summary Updates the login toggle, member synchronization toggle, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
        *
        * @param tmpReq UpdateIdentityProviderRequest
        * @param headers map
@@ -1945,7 +2207,7 @@ namespace AgentCore20260804
       Models::UpdateIdentityProviderResponse updateIdentityProviderWithOptions(const string &workspaceId, const string &identityProviderType, const Models::UpdateIdentityProviderRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the login switch, member synchronization switch, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
+       * @summary Updates the login toggle, member synchronization toggle, or application configuration of a specified external identity provider in a workspace. Unspecified properties remain unchanged. The update is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track progress.
        *
        * @param request UpdateIdentityProviderRequest
        * @return UpdateIdentityProviderResponse
@@ -1995,7 +2257,33 @@ namespace AgentCore20260804
       Models::UpdateMcpResponse updateMcp(const string &workspaceId, const string &mcpServerId, const Models::UpdateMcpRequest &request);
 
       /**
-       * @summary Updates the description of a specified model. Other model configurations cannot be modified through this operation.
+       * @summary Updates MCP parameters by template.
+       *
+       * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+       *
+       * @param tmpReq UpdateMcpTemplateConfigRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateMcpTemplateConfigResponse
+       */
+      Models::UpdateMcpTemplateConfigResponse updateMcpTemplateConfigWithOptions(const string &workspaceId, const string &mcpServerId, const Models::UpdateMcpTemplateConfigRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates MCP parameters by template.
+       *
+       * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+       *
+       * @param request UpdateMcpTemplateConfigRequest
+       * @return UpdateMcpTemplateConfigResponse
+       */
+      Models::UpdateMcpTemplateConfigResponse updateMcpTemplateConfig(const string &workspaceId, const string &mcpServerId, const Models::UpdateMcpTemplateConfigRequest &request);
+
+      /**
+       * @summary Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+       *
+       * @description This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+       * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+       * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
        *
        * @param tmpReq UpdateModelRequest
        * @param headers map
@@ -2005,7 +2293,11 @@ namespace AgentCore20260804
       Models::UpdateModelResponse updateModelWithOptions(const string &workspaceId, const string &modelId, const Models::UpdateModelRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the description of a specified model. Other model configurations cannot be modified through this operation.
+       * @summary Updates the description, context token limit, maximum output token count, or capability configuration of a specified model.
+       *
+       * @description This operation supports updating description, contextSize, maxTokens, and capabilities. At least one non-null parameter must be provided. Parameters that are not provided or set to null retain their original values. The capabilities object is replaced as a whole. Capability fields not included in the object are treated as false.
+       * Modifying only description does not refresh the model configuration of associated Agents. When contextSize, maxTokens, or capabilities actually change, the system asynchronously refreshes managed Agents that reference the model within the same workspace, as well as external Agents whose model source is PLATFORM. External Agents whose model source is RUNTIME are not affected. Submitting the same configuration repeatedly does not trigger a new model configuration refresh.
+       * A successful response indicates that the model configuration has been saved. It does not indicate that associated Agents have completed the configuration refresh or that the runtime has loaded the new configuration. Call GetModel to query the saved model configuration.
        *
        * @param request UpdateModelRequest
        * @return UpdateModelResponse
@@ -2103,7 +2395,7 @@ namespace AgentCore20260804
       Models::UpdateSkillScopeResponse updateSkillScope(const string &workspaceId, const string &skillName, const Models::UpdateSkillScopeRequest &request);
 
       /**
-       * @summary 更新团队
+       * @summary Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
        *
        * @param tmpReq UpdateTeamRequest
        * @param headers map
@@ -2113,7 +2405,7 @@ namespace AgentCore20260804
       Models::UpdateTeamResponse updateTeamWithOptions(const string &workspaceId, const string &teamId, const Models::UpdateTeamRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新团队
+       * @summary Updates the description and members of a specified team. When users or agents are passed in, the corresponding member list is replaced using full overwrite semantics. Member lists that are not passed in remain unchanged. The team name cannot be modified after creation.
        *
        * @param request UpdateTeamRequest
        * @return UpdateTeamResponse
@@ -2121,7 +2413,7 @@ namespace AgentCore20260804
       Models::UpdateTeamResponse updateTeam(const string &workspaceId, const string &teamId, const Models::UpdateTeamRequest &request);
 
       /**
-       * @summary 更新用户
+       * @summary Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
        *
        * @param tmpReq UpdateUserRequest
        * @param headers map
@@ -2131,7 +2423,7 @@ namespace AgentCore20260804
       Models::UpdateUserResponse updateUserWithOptions(const string &workspaceId, const string &agentCoreUserId, const Models::UpdateUserRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新用户
+       * @summary Updates the display name, email address, or note of a specified user. At least one of displayName, email, and note must be specified. Unspecified properties remain unchanged. The username cannot be modified after creation.
        *
        * @param request UpdateUserRequest
        * @return UpdateUserResponse
@@ -2139,9 +2431,9 @@ namespace AgentCore20260804
       Models::UpdateUserResponse updateUser(const string &workspaceId, const string &agentCoreUserId, const Models::UpdateUserRequest &request);
 
       /**
-       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
        *
-       * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+       * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
        *
        * @param tmpReq UpdateWorkspaceRequest
        * @param headers map
@@ -2151,9 +2443,9 @@ namespace AgentCore20260804
       Models::UpdateWorkspaceResponse updateWorkspaceWithOptions(const string &workspaceId, const Models::UpdateWorkspaceRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. Status, TenantId, and RegionId are maintained by the server and cannot be modified through this operation.
+       * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
        *
-       * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+       * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
        *
        * @param request UpdateWorkspaceRequest
        * @return UpdateWorkspaceResponse
@@ -2207,6 +2499,50 @@ namespace AgentCore20260804
        * @return UploadSkillViaOssResponse
        */
       Models::UploadSkillViaOssResponse uploadSkillViaOss(const string &workspaceId, const Models::UploadSkillViaOssRequest &request);
+
+      /**
+       * @summary Validates the credentials of a Connector.
+       *
+       * @description Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
+       *
+       * @param tmpReq VerifyConnectorRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return VerifyConnectorResponse
+       */
+      Models::VerifyConnectorResponse verifyConnectorWithOptions(const string &workspaceId, const string &connectorName, const Models::VerifyConnectorRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Validates the credentials of a Connector.
+       *
+       * @description Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
+       *
+       * @param request VerifyConnectorRequest
+       * @return VerifyConnectorResponse
+       */
+      Models::VerifyConnectorResponse verifyConnector(const string &workspaceId, const string &connectorName, const Models::VerifyConnectorRequest &request);
+
+      /**
+       * @summary Verifies the RAM authorization for an OSS mount in a workspace.
+       *
+       * @description Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+       *
+       * @param request VerifyWorkspaceOssMountRamAuthorizationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return VerifyWorkspaceOssMountRamAuthorizationResponse
+       */
+      Models::VerifyWorkspaceOssMountRamAuthorizationResponse verifyWorkspaceOssMountRamAuthorizationWithOptions(const string &workspaceId, const Models::VerifyWorkspaceOssMountRamAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Verifies the RAM authorization for an OSS mount in a workspace.
+       *
+       * @description Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+       *
+       * @param request VerifyWorkspaceOssMountRamAuthorizationRequest
+       * @return VerifyWorkspaceOssMountRamAuthorizationResponse
+       */
+      Models::VerifyWorkspaceOssMountRamAuthorizationResponse verifyWorkspaceOssMountRamAuthorization(const string &workspaceId, const Models::VerifyWorkspaceOssMountRamAuthorizationRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace AgentCore20260804

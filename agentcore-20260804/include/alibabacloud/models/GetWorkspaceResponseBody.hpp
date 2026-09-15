@@ -43,22 +43,28 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(authorizationStatus, authorizationStatus_);
+        DARABONBA_PTR_TO_JSON(bucketName, bucketName_);
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(networkConfiguration, networkConfiguration_);
         DARABONBA_PTR_TO_JSON(regionId, regionId_);
         DARABONBA_PTR_TO_JSON(status, status_);
         DARABONBA_PTR_TO_JSON(statusReason, statusReason_);
+        DARABONBA_PTR_TO_JSON(storageType, storageType_);
         DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(authorizationStatus, authorizationStatus_);
+        DARABONBA_PTR_FROM_JSON(bucketName, bucketName_);
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(networkConfiguration, networkConfiguration_);
         DARABONBA_PTR_FROM_JSON(regionId, regionId_);
         DARABONBA_PTR_FROM_JSON(status, status_);
         DARABONBA_PTR_FROM_JSON(statusReason, statusReason_);
+        DARABONBA_PTR_FROM_JSON(storageType, storageType_);
         DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
         DARABONBA_PTR_FROM_JSON(workspaceId, workspaceId_);
       };
@@ -76,9 +82,11 @@ namespace Models
       class NetworkConfiguration : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const NetworkConfiguration& obj) { 
+          DARABONBA_PTR_TO_JSON(publicEgressIp, publicEgressIp_);
           DARABONBA_PTR_TO_JSON(vpc, vpc_);
         };
         friend void from_json(const Darabonba::Json& j, NetworkConfiguration& obj) { 
+          DARABONBA_PTR_FROM_JSON(publicEgressIp, publicEgressIp_);
           DARABONBA_PTR_FROM_JSON(vpc, vpc_);
         };
         NetworkConfiguration() = default ;
@@ -141,7 +149,7 @@ namespace Models
 
 
         protected:
-          // Indicates whether the VPC network is enabled.
+          // Indicates whether VPC networking is enabled.
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
@@ -149,7 +157,15 @@ namespace Models
           shared_ptr<string> vpcId_ {};
         };
 
-        virtual bool empty() const override { return this->vpc_ == nullptr; };
+        virtual bool empty() const override { return this->publicEgressIp_ == nullptr
+        && this->vpc_ == nullptr; };
+        // publicEgressIp Field Functions 
+        bool hasPublicEgressIp() const { return this->publicEgressIp_ != nullptr;};
+        void deletePublicEgressIp() { this->publicEgressIp_ = nullptr;};
+        inline string getPublicEgressIp() const { DARABONBA_PTR_GET_DEFAULT(publicEgressIp_, "") };
+        inline NetworkConfiguration& setPublicEgressIp(string publicEgressIp) { DARABONBA_PTR_SET_VALUE(publicEgressIp_, publicEgressIp) };
+
+
         // vpc Field Functions 
         bool hasVpc() const { return this->vpc_ != nullptr;};
         void deleteVpc() { this->vpc_ = nullptr;};
@@ -160,13 +176,29 @@ namespace Models
 
 
       protected:
-        // The user VPC network configuration.
+        // The public egress IP address allocated to the workspace. You can use this IP address to configure IP address whitelists for external services. This field is returned only when the public egress resource is attached and an address is allocated. The field is empty if no address is allocated, the attachment is failed, or the address is being released. This address is independent of whether VPC networking is active.
+        shared_ptr<string> publicEgressIp_ {};
+        // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->name_ == nullptr && this->networkConfiguration_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr && this->statusReason_ == nullptr
-        && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
+      virtual bool empty() const override { return this->authorizationStatus_ == nullptr
+        && this->bucketName_ == nullptr && this->createTime_ == nullptr && this->name_ == nullptr && this->networkConfiguration_ == nullptr && this->regionId_ == nullptr
+        && this->status_ == nullptr && this->statusReason_ == nullptr && this->storageType_ == nullptr && this->tenantId_ == nullptr && this->workspaceId_ == nullptr; };
+      // authorizationStatus Field Functions 
+      bool hasAuthorizationStatus() const { return this->authorizationStatus_ != nullptr;};
+      void deleteAuthorizationStatus() { this->authorizationStatus_ = nullptr;};
+      inline string getAuthorizationStatus() const { DARABONBA_PTR_GET_DEFAULT(authorizationStatus_, "") };
+      inline Data& setAuthorizationStatus(string authorizationStatus) { DARABONBA_PTR_SET_VALUE(authorizationStatus_, authorizationStatus) };
+
+
+      // bucketName Field Functions 
+      bool hasBucketName() const { return this->bucketName_ != nullptr;};
+      void deleteBucketName() { this->bucketName_ = nullptr;};
+      inline string getBucketName() const { DARABONBA_PTR_GET_DEFAULT(bucketName_, "") };
+      inline Data& setBucketName(string bucketName) { DARABONBA_PTR_SET_VALUE(bucketName_, bucketName) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -211,6 +243,13 @@ namespace Models
       inline Data& setStatusReason(string statusReason) { DARABONBA_PTR_SET_VALUE(statusReason_, statusReason) };
 
 
+      // storageType Field Functions 
+      bool hasStorageType() const { return this->storageType_ != nullptr;};
+      void deleteStorageType() { this->storageType_ = nullptr;};
+      inline string getStorageType() const { DARABONBA_PTR_GET_DEFAULT(storageType_, "") };
+      inline Data& setStorageType(string storageType) { DARABONBA_PTR_SET_VALUE(storageType_, storageType) };
+
+
       // tenantId Field Functions 
       bool hasTenantId() const { return this->tenantId_ != nullptr;};
       void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -226,18 +265,29 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The OSS storage authorization status.
+      shared_ptr<string> authorizationStatus_ {};
+      // The name of the private OSS bucket.
+      shared_ptr<string> bucketName_ {};
+      // The time when the workspace was created.
       shared_ptr<string> createTime_ {};
       // The workspace name.
       shared_ptr<string> name_ {};
-      // The workspace network configuration.
+      // The network configuration of the workspace.
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
       // The region ID of the workspace.
       shared_ptr<string> regionId_ {};
-      // The workspace status. Valid values: Initializing, InitializationFailed, Initialized, Deleting, Deleted.
+      // The workspace status. Valid values:
+      // - Initializing
+      // - InitializationFailed
+      // - Initialized
+      // - Deleting
+      // - Deleted
       shared_ptr<string> status_ {};
       // The reason for the workspace status.
       shared_ptr<string> statusReason_ {};
+      // The storage type of the workspace.
+      shared_ptr<string> storageType_ {};
       // The ID of the tenant to which the workspace belongs.
       shared_ptr<string> tenantId_ {};
       // The workspace ID.
