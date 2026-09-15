@@ -42,6 +42,23 @@ namespace Yike20260707
       Models::BatchGetMediasResponse batchGetMedias(const Models::BatchGetMediasRequest &request);
 
       /**
+       * @summary 取消生成任务接口
+       *
+       * @param request CancelGenerationJobRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelGenerationJobResponse
+       */
+      Models::CancelGenerationJobResponse cancelGenerationJobWithOptions(const Models::CancelGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 取消生成任务接口
+       *
+       * @param request CancelGenerationJobRequest
+       * @return CancelGenerationJobResponse
+       */
+      Models::CancelGenerationJobResponse cancelGenerationJob(const Models::CancelGenerationJobRequest &request);
+
+      /**
        * @summary Creates a media asset category.
        *
        * @description Categories support up to three levels, and each level supports up to 100 subcategories.
@@ -362,7 +379,7 @@ namespace Yike20260707
       /**
        * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
        *
-       * @description Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
+       * @description Queries the status, input, parameters, and final results of a video translation job by `JobId`.
        *
        * @param request GetVideoTranslationJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -373,7 +390,7 @@ namespace Yike20260707
       /**
        * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
        *
-       * @description Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
+       * @description Queries the status, input, parameters, and final results of a video translation job by `JobId`.
        *
        * @param request GetVideoTranslationJobRequest
        * @return GetVideoTranslationJobResponse
@@ -573,9 +590,9 @@ namespace Yike20260707
       Models::SubmitRemakeScriptJobResponse submitRemakeScriptJob(const Models::SubmitRemakeScriptJobRequest &request);
 
       /**
-       * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+       * @summary Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
        *
-       * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
+       * @description Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
        *
        * @param request SubmitVideoDetextJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -584,9 +601,9 @@ namespace Yike20260707
       Models::SubmitVideoDetextJobResponse submitVideoDetextJobWithOptions(const Models::SubmitVideoDetextJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+       * @summary Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
        *
-       * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
+       * @description Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
        *
        * @param request SubmitVideoDetextJobRequest
        * @return SubmitVideoDetextJobResponse

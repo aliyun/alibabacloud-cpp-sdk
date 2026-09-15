@@ -94,6 +94,48 @@ BatchGetMediasResponse Client::batchGetMedias(const BatchGetMediasRequest &reque
 }
 
 /**
+ * @summary 取消生成任务接口
+ *
+ * @param request CancelGenerationJobRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelGenerationJobResponse
+ */
+CancelGenerationJobResponse Client::cancelGenerationJobWithOptions(const CancelGenerationJobRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelGenerationJob"},
+    {"version" , "2026-07-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelGenerationJobResponse>();
+}
+
+/**
+ * @summary 取消生成任务接口
+ *
+ * @param request CancelGenerationJobRequest
+ * @return CancelGenerationJobResponse
+ */
+CancelGenerationJobResponse Client::cancelGenerationJob(const CancelGenerationJobRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelGenerationJobWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates a media asset category.
  *
  * @description Categories support up to three levels, and each level supports up to 100 subcategories.
@@ -886,7 +928,7 @@ GetVideoRenderJobResponse Client::getVideoRenderJob(const GetVideoRenderJobReque
 /**
  * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
  *
- * @description Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
+ * @description Queries the status, input, parameters, and final results of a video translation job by `JobId`.
  *
  * @param request GetVideoTranslationJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -919,7 +961,7 @@ GetVideoTranslationJobResponse Client::getVideoTranslationJobWithOptions(const G
 /**
  * @summary Queries the status, input parameters, and multilingual outputs of a video translation job.
  *
- * @description Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
+ * @description Queries the status, input, parameters, and final results of a video translation job by `JobId`.
  *
  * @param request GetVideoTranslationJobRequest
  * @return GetVideoTranslationJobResponse
@@ -1549,9 +1591,9 @@ SubmitRemakeScriptJobResponse Client::submitRemakeScriptJob(const SubmitRemakeSc
 }
 
 /**
- * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+ * @summary Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
  *
- * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
+ * @description Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
  *
  * @param request SubmitVideoDetextJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1598,9 +1640,9 @@ SubmitVideoDetextJobResponse Client::submitVideoDetextJobWithOptions(const Submi
 }
 
 /**
- * @summary Submits an asynchronous video text erasure task that supports full-video erasure, time range-based erasure, and region-specific erasure.
+ * @summary Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
  *
- * @description Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text regions.
+ * @description Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
  *
  * @param request SubmitVideoDetextJobRequest
  * @return SubmitVideoDetextJobResponse

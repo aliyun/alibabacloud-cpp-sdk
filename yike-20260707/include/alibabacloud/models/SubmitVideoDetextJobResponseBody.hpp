@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The video text erasure job ID. Use this ID to call GetVideoDetextJob to query the job.
+    // The ID of the video text removal job. Use this ID to call GetVideoDetextJob to query the job.
     shared_ptr<string> jobId_ {};
-    // The request ID, which is used for Tracing Analysis and troubleshooting.
+    // The request ID, used for Tracing Analysis and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

@@ -142,13 +142,13 @@ namespace Models
 
 
     protected:
-      // The input video duration, in seconds.
+      // The duration of the input video, in seconds.
       shared_ptr<double> duration_ {};
-      // The editing project ID for a single-target-language job. For multi-target-language results, retrieve the ID from Output.AiResult.ResultMap.
+      // The editing project ID for single-target-language jobs. For multi-target-language results, retrieve the value from Output.AiResult.ResultMap.
       shared_ptr<string> editingProjectId_ {};
-      // The business error code returned when the job fails. This field is typically not returned for non-failed states.
+      // The business error code returned when the job fails. This field is not returned when the job is not in a failed state.
       shared_ptr<string> errorCode_ {};
-      // The business error message returned when the job fails. This field is typically not returned for non-failed states.
+      // The business error message returned when the job fails. This field is not returned when the job is not in a failed state.
       shared_ptr<string> errorMessage_ {};
       // The normalized input configuration JSON string saved at submission time.
       shared_ptr<string> input_ {};
@@ -158,7 +158,7 @@ namespace Models
       shared_ptr<string> jobParameters_ {};
       // The normalized job type.
       shared_ptr<string> jobType_ {};
-      // The job output JSON string. When the job succeeds, AiResult.ResultMap organizes the final video, subtitle, and audio outputs by target language.
+      // The job output JSON string. On success, AiResult.ResultMap organizes the final video, subtitle, and audio outputs by target language.
       shared_ptr<string> output_ {};
       // The job status. Valid values: Created, Queuing, Executing, Finished, or Failed.
       shared_ptr<string> status_ {};

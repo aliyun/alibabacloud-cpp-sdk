@@ -5,6 +5,9 @@
 #include <alibabacloud/models/BatchGetMediasRequest.hpp>
 #include <alibabacloud/models/BatchGetMediasResponseBody.hpp>
 #include <alibabacloud/models/BatchGetMediasResponse.hpp>
+#include <alibabacloud/models/CancelGenerationJobRequest.hpp>
+#include <alibabacloud/models/CancelGenerationJobResponseBody.hpp>
+#include <alibabacloud/models/CancelGenerationJobResponse.hpp>
 #include <alibabacloud/models/CreateAssetCategoryRequest.hpp>
 #include <alibabacloud/models/CreateAssetCategoryResponseBody.hpp>
 #include <alibabacloud/models/CreateAssetCategoryResponse.hpp>
