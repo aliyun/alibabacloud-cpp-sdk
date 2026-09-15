@@ -133,7 +133,7 @@ namespace Models
         shared_ptr<string> securityGroupId_ {};
         // The list of vSwitches.
         shared_ptr<vector<string>> vSwitchIds_ {};
-        // The virtual private cloud (VPC) ID.
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -156,9 +156,9 @@ namespace Models
 
 
     protected:
-      // The RAM role that the user grants to the sandboxed container. After this role is set, the sandboxed container assumes the role to generate temporary access credentials. You can use the temporary access credentials of this role to mount storage in the sandboxed container, such as OSS and AgenticFS.
+      // The RAM role that the user grants to the cloud sandbox. After this role is set, the cloud sandbox assumes the role to generate temporary access credentials. You can use the temporary access credentials of this role to mount storage in the cloud sandbox, such as OSS and AgenticFS.
       shared_ptr<string> role_ {};
-      // The virtual private cloud (VPC) ID.
+      // The VPC ID.
       shared_ptr<MountConfig::VpcConfig> vpcConfig_ {};
     };
 
@@ -273,10 +273,11 @@ namespace Models
 
 
   protected:
+    // The AgenticBucket configuration.
     shared_ptr<AgenticBucketVolumeConfig> agenticBucketVolumeConfig_ {};
     // The AgenticFS configuration.
     shared_ptr<AgenticFSVolumeConfig> agenticFSVolumeConfig_ {};
-    // The time when the volume was created.
+    // The creation time.
     shared_ptr<string> createdAt_ {};
     // The mount configuration.
     shared_ptr<E2BVolume::MountConfig> mountConfig_ {};
@@ -290,7 +291,7 @@ namespace Models
     // - ERROR
     // - DELETING
     shared_ptr<string> status_ {};
-    // The reason for the status.
+    // The status reason.
     shared_ptr<string> statusReason_ {};
     // The storage type. Valid values:
     // - OSS
@@ -298,7 +299,7 @@ namespace Models
     shared_ptr<string> storageClass_ {};
     // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
-    // The time when the volume was last updated.
+    // The update time.
     shared_ptr<string> updatedAt_ {};
     // The UID of the creator.
     shared_ptr<string> userID_ {};

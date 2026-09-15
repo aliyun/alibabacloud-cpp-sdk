@@ -75,10 +75,15 @@ namespace Models
 
 
   protected:
+    // AgenticBucket
     shared_ptr<string> agenticBucket_ {};
+    // The BucketSpace of the agentic child.
     shared_ptr<string> bucketName_ {};
+    // The file path under the BucketSpace.
     shared_ptr<string> bucketPath_ {};
+    // Agentic Bucket Endpoint
     shared_ptr<string> endpoint_ {};
+    // Indicates whether the bucket is read-only.
     shared_ptr<bool> readOnly_ {};
   };
 

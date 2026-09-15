@@ -1083,6 +1083,52 @@ UpdateTeamResponse Client::updateTeam(const string &teamID, const UpdateTeamRequ
 }
 
 /**
+ * @summary Updates a template.
+ *
+ * @param request UpdateTemplateRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateTemplateResponse
+ */
+UpdateTemplateResponse Client::updateTemplateWithOptions(const string &templateID, const UpdateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTeamID()) {
+    query["teamID"] = request.getTeamID();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(request.getBody())}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateTemplate"},
+    {"version" , "2026-05-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/2026-05-09/templates/" , Darabonba::Encode::Encoder::percentEncode(templateID))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateTemplateResponse>();
+}
+
+/**
+ * @summary Updates a template.
+ *
+ * @param request UpdateTemplateRequest
+ * @return UpdateTemplateResponse
+ */
+UpdateTemplateResponse Client::updateTemplate(const string &templateID, const UpdateTemplateRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateTemplateWithOptions(templateID, request, headers, runtime);
+}
+
+/**
  * @summary Updates a volume.
  *
  * @param request UpdateVolumeRequest

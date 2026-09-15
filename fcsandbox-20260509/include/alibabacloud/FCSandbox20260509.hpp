@@ -435,6 +435,24 @@ namespace FCSandbox20260509
       Models::UpdateTeamResponse updateTeam(const string &teamID, const Models::UpdateTeamRequest &request);
 
       /**
+       * @summary Updates a template.
+       *
+       * @param request UpdateTemplateRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateTemplateResponse
+       */
+      Models::UpdateTemplateResponse updateTemplateWithOptions(const string &templateID, const Models::UpdateTemplateRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates a template.
+       *
+       * @param request UpdateTemplateRequest
+       * @return UpdateTemplateResponse
+       */
+      Models::UpdateTemplateResponse updateTemplate(const string &templateID, const Models::UpdateTemplateRequest &request);
+
+      /**
        * @summary Updates a volume.
        *
        * @param request UpdateVolumeRequest

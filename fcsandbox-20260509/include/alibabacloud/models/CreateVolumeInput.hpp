@@ -140,7 +140,7 @@ namespace Models
 
 
     protected:
-      // The RAM role that the user grants to the cloud sandbox. After this role is set, the cloud sandbox assumes the role to generate temporary access credentials. You can use the temporary access credentials of this role to mount storage in the cloud sandbox, such as OSS and AgenticFS.
+      // The RAM role that the user grants to the cloud sandbox. After the role is set, the cloud sandbox assumes this role to generate temporary access credentials. You can use the temporary access credentials of this role to mount storage in the cloud sandbox, such as OSS and AgenticFS.
       shared_ptr<string> role_ {};
       // The VPC configuration.
       shared_ptr<MountConfig::VpcConfig> vpcConfig_ {};
@@ -199,6 +199,7 @@ namespace Models
 
 
   protected:
+    // The AgenticBucket configuration.
     shared_ptr<AgenticBucketVolumeConfig> agenticBucketVolumeConfig_ {};
     // The AgenticFS configuration.
     shared_ptr<AgenticFSVolumeConfig> agenticFSVolumeConfig_ {};
