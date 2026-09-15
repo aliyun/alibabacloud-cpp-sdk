@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(ThemeFrom, themeFrom_);
       DARABONBA_PTR_TO_JSON(ThemeType, themeType_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListDataAgentThemeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Category, category_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(ThemeFrom, themeFrom_);
       DARABONBA_PTR_FROM_JSON(ThemeType, themeType_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ListDataAgentThemeRequest() = default ;
     ListDataAgentThemeRequest(const ListDataAgentThemeRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
         && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->themeFrom_ == nullptr
-        && this->themeType_ == nullptr; };
+        && this->themeType_ == nullptr && this->workspaceId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -93,19 +95,26 @@ namespace Models
     inline ListDataAgentThemeRequest& setThemeType(string themeType) { DARABONBA_PTR_SET_VALUE(themeType_, themeType) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListDataAgentThemeRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // The common scenarios. Valid values: report, infographic, and others.
+    // The common scenario of the theme. Valid values: report, infographic, and others.
     shared_ptr<string> category_ {};
-    // **[Not supported]** The page size. Maximum value: 100.
+    // **[Not currently supported]** The maximum number of entries per page. Maximum value: 100.
     shared_ptr<int32_t> maxResults_ {};
-    // **[Not supported]** The pagination token for the next query. Valid values:
+    // **[Not currently supported]** The pagination token for the next query. Valid values:
     // 
     // - If **NextToken** is empty, no next query exists.
-    // - If **NextToken** has a return value, the value indicates the token for the next query.
+    // - If **NextToken** has a return value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The current page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The source of the theme. Valid values:
     // 
@@ -115,9 +124,11 @@ namespace Models
     shared_ptr<string> themeFrom_ {};
     // The theme stage. Valid values:
     // 
-    // - design: contains only design.md.
-    // - template: complete and renderable.
+    // - design: The theme contains only design.md.
+    // - template: The theme is complete and renderable.
     shared_ptr<string> themeType_ {};
+    // The workspace context. If this parameter is left empty or set to personal, the personal workspace is used. To query themes in a collaborative workspace, specify the workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

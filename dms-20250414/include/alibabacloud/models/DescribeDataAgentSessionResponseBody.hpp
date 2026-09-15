@@ -222,8 +222,8 @@ namespace Models
         // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
         // The stage of the custom agent. Valid values:
-        // - **debug**: test stage.
-        // - **prod**: production stage.
+        // - **debug**: The debug stage.
+        // - **prod**: The production stage.
         shared_ptr<string> customAgentStage_ {};
         // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
@@ -240,16 +240,15 @@ namespace Models
         // The list of MCP server IDs in the session configuration.
         shared_ptr<vector<string>> mcpServerIds_ {};
         // The mode. Valid values:
-        //  - **ASK_DATA**: ask data mode.
-        //  - **ANALYSIS**: analysis mode.
-        //  - **INSIGHT**: insight mode.
+        // - **ASK_DATA**: The ask-data mode.
+        // - **ANALYSIS**: The analysis mode.
+        // - **INSIGHT**: The insight mode.
         shared_ptr<string> mode_ {};
         // The report page width.
         shared_ptr<int64_t> reportPageWidth_ {};
         // The report watermark.
         shared_ptr<string> reportWaterMark_ {};
-        // The name of the user OSS bucket.
-        // - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
+        // The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -302,7 +301,7 @@ namespace Models
       protected:
         // The content of the recalled knowledge chunk.
         shared_ptr<string> content_ {};
-        // The similarity score of this data entry. The scoring algorithm is related to the algorithm (l2/ip/cosine) specified when the index was created.
+        // The similarity score of this record. The scoring algorithm is related to the algorithm (l2/ip/cosine) specified when the index was created.
         shared_ptr<double> score_ {};
         // The type of the recalled knowledge.
         shared_ptr<string> type_ {};
@@ -348,9 +347,9 @@ namespace Models
       protected:
         // The data source category. Valid values:
         // 
-        // - **CHAT**: specified through the CreateDataAgentSession or SendChatMessage operation during a conversation.
+        // - **CHAT**: Specified through the CreateDataAgentSession or SendChatMessage operation during a conversation.
         // 
-        // - **CUSTOM_AGENT**: from the preset analysis data scope in a custom agent.
+        // - **CUSTOM_AGENT**: From the preset analysis data scope in a custom agent.
         shared_ptr<string> category_ {};
         // The data source details.
         // 
@@ -396,9 +395,9 @@ namespace Models
 
 
       protected:
-        // The key of the chat replay history.
+        // The key of the chat history replay record.
         shared_ptr<string> key_ {};
-        // The OSS download URL of the chat replay history.
+        // The OSS download URL of the chat history replay record.
         shared_ptr<string> url_ {};
       };
 
@@ -497,15 +496,15 @@ namespace Models
       protected:
         // The brief description of the artifact. This value may be empty.
         shared_ptr<string> description_ {};
-        // The time when the backend completed the artifact task. This is a UNIX timestamp accurate to the second.
+        // The time when the backend completed the artifact task. The value is a UNIX timestamp accurate to seconds.
         shared_ptr<string> finishTime_ {};
-        // The globally unique artifact ID. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId in the response of the SendChatMessage operation.
+        // The artifact ID, which is globally unique. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId in the response of the SendChatMessage operation.
         shared_ptr<string> id_ {};
-        // The artifact name. This is typically a string concatenated by the system and is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
+        // The artifact name, which is typically a string concatenated by the system. This name is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
         shared_ptr<string> name_ {};
-        // The time when the backend received the artifact request. This is a UNIX timestamp accurate to the second.
+        // The time when the backend received the artifact request. The value is a UNIX timestamp accurate to seconds.
         shared_ptr<string> receiveTime_ {};
-        // The time when the backend actually started running the artifact task. This is a UNIX timestamp accurate to the second.
+        // The time when the backend actually started running the artifact task. The value is a UNIX timestamp accurate to seconds.
         shared_ptr<string> startTime_ {};
         // The artifact status. Valid values:
         // 
@@ -647,7 +646,7 @@ namespace Models
       shared_ptr<string> agentStatus_ {};
       // The list of artifacts produced by the session. Currently, only reports are included.
       shared_ptr<vector<Data::Artifacts>> artifacts_ {};
-      // The chat replay history.
+      // The chat history replay records.
       shared_ptr<vector<Data::ChatHistoryLocations>> chatHistoryLocations_ {};
       // The time when the session was created.
       shared_ptr<int64_t> createTime_ {};
@@ -723,7 +722,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The return value. Valid values:
     // 
-    // - **true**: Succeeded.
+    // - **true**: Successful.
     // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };

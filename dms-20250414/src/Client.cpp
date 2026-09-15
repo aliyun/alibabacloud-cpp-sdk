@@ -519,6 +519,60 @@ ConfigDataAgentMemoryResponse Client::configDataAgentMemory(const ConfigDataAgen
 }
 
 /**
+ * @summary 创建 Agent
+ *
+ * @param request CreateAgentRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgentResponse
+ */
+CreateAgentResponse Client::createAgentWithOptions(const CreateAgentRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAgentName()) {
+    query["AgentName"] = request.getAgentName();
+  }
+
+  if (!!request.hasAgentType()) {
+    query["AgentType"] = request.getAgentType();
+  }
+
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasExpireAfterSeconds()) {
+    query["ExpireAfterSeconds"] = request.getExpireAfterSeconds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAgent"},
+    {"version" , "2025-04-14"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgentResponse>();
+}
+
+/**
+ * @summary 创建 Agent
+ *
+ * @param request CreateAgentRequest
+ * @return CreateAgentResponse
+ */
+CreateAgentResponse Client::createAgent(const CreateAgentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAgentWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates an Airflow instance in a workspace.
  *
  * @description Creates an Airflow instance in a workspace.
@@ -1043,7 +1097,7 @@ CreateDataAgentKnowledgeBaseResponse Client::createDataAgentKnowledgeBase(const 
 }
 
 /**
- * @summary Create a DataAgent session
+ * @summary Creates a DataAgent session.
  *
  * @param tmpReq CreateDataAgentSessionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1096,7 +1150,7 @@ CreateDataAgentSessionResponse Client::createDataAgentSessionWithOptions(const C
 }
 
 /**
- * @summary Create a DataAgent session
+ * @summary Creates a DataAgent session.
  *
  * @param request CreateDataAgentSessionRequest
  * @return CreateDataAgentSessionResponse
@@ -1192,6 +1246,10 @@ CreateDataAgentThemeResponse Client::createDataAgentThemeWithOptions(const Creat
 
   if (!!request.hasThemeType()) {
     query["ThemeType"] = request.getThemeType();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2751,7 +2809,7 @@ DescribeDataAgentSessionResponse Client::describeDataAgentSession(const Describe
 }
 
 /**
- * @summary Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+ * @summary Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
  *
  * @param request DescribeDataAgentThemeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2782,7 +2840,7 @@ DescribeDataAgentThemeResponse Client::describeDataAgentThemeWithOptions(const D
 }
 
 /**
- * @summary Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+ * @summary Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
  *
  * @param request DescribeDataAgentThemeRequest
  * @return DescribeDataAgentThemeResponse
@@ -5210,7 +5268,7 @@ ListDataAgentSkillMetaResponse Client::listDataAgentSkillMeta(const ListDataAgen
 }
 
 /**
- * @summary Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+ * @summary Calls the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter results by theme stage, source, and common scenario.
  *
  * @param request ListDataAgentThemeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5247,6 +5305,10 @@ ListDataAgentThemeResponse Client::listDataAgentThemeWithOptions(const ListDataA
     query["ThemeType"] = request.getThemeType();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -5265,7 +5327,7 @@ ListDataAgentThemeResponse Client::listDataAgentThemeWithOptions(const ListDataA
 }
 
 /**
- * @summary Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+ * @summary Calls the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter results by theme stage, source, and common scenario.
  *
  * @param request ListDataAgentThemeRequest
  * @return ListDataAgentThemeResponse

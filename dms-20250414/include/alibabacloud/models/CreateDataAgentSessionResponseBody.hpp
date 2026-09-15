@@ -210,37 +210,34 @@ namespace Models
         // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
         // The stage of the custom agent. Valid values:
-        // 
-        // - **debug**: Debug stage
-        // 
-        // - **prod**: Production stage
+        // - **debug**: Debug stage.
+        // - **prod**: Production stage.
         shared_ptr<string> customAgentStage_ {};
-        // Indicates whether web search is enabled.
+        // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
+        // The encryption key.
         shared_ptr<string> encryptKey_ {};
+        // The encryption type.
         shared_ptr<string> encryptType_ {};
+        // The list of knowledge base IDs.
         shared_ptr<vector<string>> kbUuidList_ {};
         // The language. Valid values:
-        // 
-        // - **CHINESE**: Chinese
-        // 
-        // - **ENGLISH**: English
+        // - **CHINESE**: Chinese.
+        // - **ENGLISH**: English.
         shared_ptr<string> language_ {};
-        // A list of MCP server IDs.
+        // The list of MCP server IDs in the session configuration.
         shared_ptr<vector<string>> mcpServerIds_ {};
         // The mode. Valid values:
-        // 
-        // - **ASK_DATA**: Quick Inquiry Mode
-        // 
-        // - **ANALYSIS**: Analysis Mode
-        // 
-        // - **INSIGHT**: Insight Mode
+        // - **ASK_DATA**: Ask data mode.
+        // - **ANALYSIS**: Analysis mode.
+        // - **INSIGHT**: Insight mode.
         shared_ptr<string> mode_ {};
+        // The report page width.
         shared_ptr<int64_t> reportPageWidth_ {};
+        // The report watermark.
         shared_ptr<string> reportWaterMark_ {};
-        // The name of the user\\"s OSS bucket.
-        // 
-        // - Analysis files and report artifacts can be uploaded to this OSS bucket.
+        // The name of the user OSS bucket.
+        // - Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -313,15 +310,15 @@ namespace Models
 
 
     protected:
-      // The agent ID.
+      // Agent Id
       shared_ptr<string> agentId_ {};
       // The agent status.
       shared_ptr<string> agentStatus_ {};
-      // The time when the session was created, in Unix milliseconds.
+      // The time when the session was created.
       shared_ptr<int64_t> createTime_ {};
-      // The ID of the associated file.
+      // The basic information about the file.
       shared_ptr<string> file_ {};
-      // Indicates whether the current user has favorited the session.
+      // Indicates whether the session is saved to the favorites of the current user.
       shared_ptr<bool> saved_ {};
       // The session configuration.
       shared_ptr<Data::SessionConfig> sessionConfig_ {};
@@ -329,7 +326,7 @@ namespace Models
       shared_ptr<string> sessionId_ {};
       // The session status.
       shared_ptr<string> sessionStatus_ {};
-      // The session title.
+      // The title.
       shared_ptr<string> title_ {};
     };
 
@@ -373,18 +370,17 @@ namespace Models
 
 
   protected:
-    // The response structure.
+    // The response struct.
     shared_ptr<CreateDataAgentSessionResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned if the request fails.
+    // The error message returned when the request failed.
     shared_ptr<string> errorMessage_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
     // - **true**: The request was successful.
-    // 
     // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };

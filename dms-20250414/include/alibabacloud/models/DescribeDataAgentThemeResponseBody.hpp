@@ -147,21 +147,17 @@ namespace Models
       shared_ptr<string> description_ {};
       // The modification time in ISO 8601 format.
       shared_ptr<string> modifiedAt_ {};
-      // The theme tracing information. This field is currently not enabled.
+      // The tracing information of the theme. This field is currently not enabled.
       shared_ptr<string> referTo_ {};
-      // The source of the theme. Valid values:
-      // 
-      // - system
-      // - custom
+      // The source of the theme. Valid values: system, custom.
       shared_ptr<string> themeFrom_ {};
       // The business ID of the theme.
       shared_ptr<string> themeId_ {};
       // The display name of the theme.
       shared_ptr<string> themeName_ {};
-      // The theme stage. Valid values:
-      // 
-      // - design: design.md only.
-      // - template: complete and renderable.
+      // The stage of the theme. Valid values:
+      // - design: The theme contains only design.md.
+      // - template: The theme is complete and renderable.
       shared_ptr<string> themeType_ {};
     };
 
@@ -207,16 +203,16 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<DescribeDataAgentThemeResponseBody::Data> data_ {};
-    // The error code returned when the request is abnormal.
+    // The error code returned when the request fails.
     shared_ptr<string> errorCode_ {};
     // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};
     // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

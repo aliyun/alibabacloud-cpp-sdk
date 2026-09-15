@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ThemeId, themeId_);
       DARABONBA_PTR_TO_JSON(ThemeName, themeName_);
       DARABONBA_PTR_TO_JSON(ThemeType, themeType_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDataAgentThemeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Category, category_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ThemeId, themeId_);
       DARABONBA_PTR_FROM_JSON(ThemeName, themeName_);
       DARABONBA_PTR_FROM_JSON(ThemeType, themeType_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     CreateDataAgentThemeRequest() = default ;
     CreateDataAgentThemeRequest(const CreateDataAgentThemeRequest &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->category_ == nullptr
-        && this->description_ == nullptr && this->fileFrom_ == nullptr && this->themeId_ == nullptr && this->themeName_ == nullptr && this->themeType_ == nullptr; };
+        && this->description_ == nullptr && this->fileFrom_ == nullptr && this->themeId_ == nullptr && this->themeName_ == nullptr && this->themeType_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // category Field Functions 
     bool hasCategory() const { return this->category_ != nullptr;};
     void deleteCategory() { this->category_ = nullptr;};
@@ -83,30 +86,39 @@ namespace Models
     inline CreateDataAgentThemeRequest& setThemeType(string themeType) { DARABONBA_PTR_SET_VALUE(themeType_, themeType) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateDataAgentThemeRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // The application scenario, which affects filtering when viewing the theme list in the console. Valid values:
+    // The scenario, which affects the filtering when you view the theme list in the console. Valid values:
     // 
-    // - (Recommended) custom: a user-uploaded custom theme with no preset style or information organization structure.
-    // - report: a web report that conforms to the DataAgent information organization structure.
-    // - (Not supported) infographic: an infographic that conforms to the DataAgent information organization structure.
+    // - (Recommended) custom: A user-uploaded custom theme with no preset style or information organization structure.
+    // - report: A web report that conforms to the DataAgent information organization structure.
+    // - (Not supported) infographic: An infographic that conforms to the DataAgent information organization structure.
     shared_ptr<string> category_ {};
     // The description. The value can be up to 255 characters in length.
     shared_ptr<string> description_ {};
     // The file source, which affects the backend logic for determining whether the theme is valid. Valid values:
     // 
-    // - upload: uploaded through OSS.
-    // - (Not supported) public_url: provided through an OSS URL that allows public network access.
-    // - (Not supported) user_oss: provided through a user OSS URL.
+    // - upload: The file is uploaded through OSS.
+    // - (Not supported) public_url: The file is provided through a public network access OSS URL.
+    // - (Not supported) user_oss: The file is provided through a user OSS URL.
     shared_ptr<string> fileFrom_ {};
     // The UUID of the theme. The value must be returned by GetDataAgentThemeUploadSignature, and the file must have been uploaded. If the UUID is forged or the file has not been uploaded, the creation fails.
     shared_ptr<string> themeId_ {};
-    // The display name of the theme. The value can be up to 64 characters in length. This parameter is required during creation.
+    // The display name of the theme. The value can be up to 64 characters in length. This parameter is required when you create a theme.
     shared_ptr<string> themeName_ {};
     // The type of the custom theme. Valid values:
     // 
     // - (Default) template: The theme is a template.
     // - (Not supported) design: The theme is a DESIGN.md file.
     shared_ptr<string> themeType_ {};
+    // The workspace to which the theme belongs. If this parameter is not specified or is set to personal, the personal workspace is used. You can also specify a collaboration workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

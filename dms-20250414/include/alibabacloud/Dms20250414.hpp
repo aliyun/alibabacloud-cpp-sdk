@@ -161,6 +161,23 @@ namespace Dms20250414
       Models::ConfigDataAgentMemoryResponse configDataAgentMemory(const Models::ConfigDataAgentMemoryRequest &request);
 
       /**
+       * @summary 创建 Agent
+       *
+       * @param request CreateAgentRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAgentResponse
+       */
+      Models::CreateAgentResponse createAgentWithOptions(const Models::CreateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建 Agent
+       *
+       * @param request CreateAgentRequest
+       * @return CreateAgentResponse
+       */
+      Models::CreateAgentResponse createAgent(const Models::CreateAgentRequest &request);
+
+      /**
        * @summary Creates an Airflow instance in a workspace.
        *
        * @description Creates an Airflow instance in a workspace.
@@ -267,7 +284,7 @@ namespace Dms20250414
       Models::CreateDataAgentKnowledgeBaseResponse createDataAgentKnowledgeBase(const Models::CreateDataAgentKnowledgeBaseRequest &request);
 
       /**
-       * @summary Create a DataAgent session
+       * @summary Creates a DataAgent session.
        *
        * @param tmpReq CreateDataAgentSessionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -276,7 +293,7 @@ namespace Dms20250414
       Models::CreateDataAgentSessionResponse createDataAgentSessionWithOptions(const Models::CreateDataAgentSessionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a DataAgent session
+       * @summary Creates a DataAgent session.
        *
        * @param request CreateDataAgentSessionRequest
        * @return CreateDataAgentSessionResponse
@@ -802,7 +819,7 @@ namespace Dms20250414
       Models::DescribeDataAgentSessionResponse describeDataAgentSession(const Models::DescribeDataAgentSessionRequest &request);
 
       /**
-       * @summary Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+       * @summary Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
        *
        * @param request DescribeDataAgentThemeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -811,7 +828,7 @@ namespace Dms20250414
       Models::DescribeDataAgentThemeResponse describeDataAgentThemeWithOptions(const Models::DescribeDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes the DescribeDataAgentTheme operation to query the details of a single DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
+       * @summary Invokes the DescribeDataAgentTheme operation to query the details of a specific DataAgent theme, including the theme name, stage, source, common scenarios, description, and creation and modification time.
        *
        * @param request DescribeDataAgentThemeRequest
        * @return DescribeDataAgentThemeResponse
@@ -1583,7 +1600,7 @@ namespace Dms20250414
       Models::ListDataAgentSkillMetaResponse listDataAgentSkillMeta(const Models::ListDataAgentSkillMetaRequest &request);
 
       /**
-       * @summary Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+       * @summary Calls the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter results by theme stage, source, and common scenario.
        *
        * @param request ListDataAgentThemeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1592,7 +1609,7 @@ namespace Dms20250414
       Models::ListDataAgentThemeResponse listDataAgentThemeWithOptions(const Models::ListDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Invokes the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter themes by theme stage, source, and common scenarios.
+       * @summary Calls the ListDataAgentTheme operation to query the DataAgent theme list by paging. You can filter results by theme stage, source, and common scenario.
        *
        * @param request ListDataAgentThemeRequest
        * @return ListDataAgentThemeResponse

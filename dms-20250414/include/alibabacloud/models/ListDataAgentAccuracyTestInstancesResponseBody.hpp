@@ -195,6 +195,7 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The UID of the workspace creator.
       shared_ptr<string> creator_ {};
+      // The data source.
       shared_ptr<string> datasource_ {};
       // The ID of the test set file.
       shared_ptr<string> fileId_ {};
@@ -210,7 +211,7 @@ namespace Models
       shared_ptr<int32_t> mode_ {};
       // The custom agent name.
       shared_ptr<string> name_ {};
-      // Specifies whether sessions are displayed after analysis. This parameter is not supported.
+      // Specifies whether sessions are displayed after analysis. This feature is not supported.
       shared_ptr<string> needDelete_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};

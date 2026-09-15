@@ -84,6 +84,9 @@
 #include <alibabacloud/models/ConfigDataAgentMemoryRequest.hpp>
 #include <alibabacloud/models/ConfigDataAgentMemoryResponseBody.hpp>
 #include <alibabacloud/models/ConfigDataAgentMemoryResponse.hpp>
+#include <alibabacloud/models/CreateAgentRequest.hpp>
+#include <alibabacloud/models/CreateAgentResponseBody.hpp>
+#include <alibabacloud/models/CreateAgentResponse.hpp>
 #include <alibabacloud/models/CreateAirflowRequest.hpp>
 #include <alibabacloud/models/CreateAirflowShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAirflowResponseBody.hpp>

@@ -152,7 +152,7 @@ namespace Models
 
 
     protected:
-      // The common scenarios. Valid values: report, infographic, and others.
+      // The common scenario of the theme. Valid values: report, infographic, and others.
       shared_ptr<string> category_ {};
       // The creation time in ISO 8601 format.
       shared_ptr<string> createdAt_ {};
@@ -160,7 +160,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The modification time in ISO 8601 format.
       shared_ptr<string> modifiedAt_ {};
-      // The tracing reference that points to the UUID of the source theme.
+      // The traceability reference that points to the UUID of the source theme.
       shared_ptr<string> referTo_ {};
       // The source of the theme. Valid values:
       // 
@@ -174,8 +174,8 @@ namespace Models
       shared_ptr<string> themeName_ {};
       // The theme stage. Valid values:
       // 
-      // - design: contains only design.md.
-      // - template: complete and renderable.
+      // - design: The theme contains only design.md.
+      // - template: The theme is complete and renderable.
       shared_ptr<string> themeType_ {};
     };
 
@@ -264,17 +264,17 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<vector<ListDataAgentThemeResponseBody::Data>> data_ {};
-    // The error code returned when the request failed.
+    // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the request failed.
+    // The error message returned if the request failed.
     shared_ptr<string> errorMessage_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The current page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
