@@ -1,3 +1,7 @@
+2026-09-15 Version: 5.3.0
+- Support API SubmitProductMatch.
+
+
 2026-09-03 Version: 5.2.2
 - Generated cpp 2026-04-28 for Aidge.
 

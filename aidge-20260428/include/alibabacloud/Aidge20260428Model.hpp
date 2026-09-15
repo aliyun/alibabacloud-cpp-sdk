@@ -83,6 +83,9 @@
 #include <alibabacloud/models/SizeChartExtractShrinkRequest.hpp>
 #include <alibabacloud/models/SizeChartExtractResponseBody.hpp>
 #include <alibabacloud/models/SizeChartExtractResponse.hpp>
+#include <alibabacloud/models/SubmitProductMatchRequest.hpp>
+#include <alibabacloud/models/SubmitProductMatchResponseBody.hpp>
+#include <alibabacloud/models/SubmitProductMatchResponse.hpp>
 #include <alibabacloud/models/TextCorrectRequest.hpp>
 #include <alibabacloud/models/TextCorrectResponseBody.hpp>
 #include <alibabacloud/models/TextCorrectResponse.hpp>

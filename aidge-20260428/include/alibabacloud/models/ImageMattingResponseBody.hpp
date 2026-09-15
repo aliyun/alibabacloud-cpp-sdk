@@ -107,9 +107,9 @@ namespace Models
     protected:
       // The height of the result image in pixels.
       shared_ptr<int32_t> height_ {};
-      // The URL of the matting result image.
+      // The URL of the image matting result.
       shared_ptr<string> imageUrl_ {};
-      // The matting quality score.
+      // The quality score of the image matting result.
       shared_ptr<double> score_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -166,7 +166,6 @@ namespace Models
     // Id of the request
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. Valid values:
-    // 
     // - true: Successful.
     // - false: Failed.
     shared_ptr<bool> success_ {};

@@ -150,7 +150,7 @@ namespace Models
 
 
     protected:
-      // The detection boxes for the current SKU. Coordinate values range from 0 to 1000.
+      // The instance boxes for the current SKU. The coordinate range is 0 to 1000.
       // 
       // This parameter is required.
       shared_ptr<vector<Products::Boxes>> boxes_ {};
@@ -197,7 +197,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<DiduiAreaDeductionRequest::Products>> products_ {};
-    // The ID of the customer-specific SKU vector store that determines which store is used for retrieval. The store must be created in advance through the store creation process.
+    // The ID of the customer-specific SKU vector database that determines which database is used for recall. The database must be created in advance through the database creation process.
     shared_ptr<string> ragId_ {};
     // The optional business request ID used for Tracing Analysis.
     shared_ptr<string> reqId_ {};

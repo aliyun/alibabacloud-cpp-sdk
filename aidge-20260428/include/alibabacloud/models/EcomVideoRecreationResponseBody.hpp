@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID for QueryAsyncTaskResult queries.
+      // The asynchronous task ID used to query results with QueryAsyncTaskResult.
       shared_ptr<string> taskId_ {};
     };
 
@@ -109,7 +109,7 @@ namespace Models
 
 
   protected:
-    // The result code. `success` indicates success. An error code is returned upon failure.
+    // The result code. A value of `success` indicates success. An error code is returned upon failure.
     shared_ptr<string> code_ {};
     // The asynchronous task submit status.
     shared_ptr<EcomVideoRecreationResponseBody::Data> data_ {};

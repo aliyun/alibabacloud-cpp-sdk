@@ -49,8 +49,8 @@ namespace Models
 
   protected:
     // The call type. Valid values:
-    // - true: asynchronous.
-    // - false: synchronous.
+    // - true: Asynchronous.
+    // - false: Synchronous.
     // 
     // Default value: false.
     shared_ptr<bool> async_ {};

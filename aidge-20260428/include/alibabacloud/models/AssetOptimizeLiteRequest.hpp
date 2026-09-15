@@ -116,7 +116,7 @@ namespace Models
     shared_ptr<string> glossary_ {};
     // Specifies whether product area translation is included.
     shared_ptr<bool> includingProductArea_ {};
-    // Specifies whether translation is needed.
+    // Specifies whether translation is required.
     // 
     // This parameter is required.
     shared_ptr<bool> needTrans_ {};

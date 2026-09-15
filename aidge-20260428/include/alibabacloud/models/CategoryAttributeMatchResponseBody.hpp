@@ -307,7 +307,7 @@ namespace Models
       shared_ptr<bool> matched_ {};
       // The total number of attributes under the category.
       shared_ptr<int32_t> totalAttributes_ {};
-      // The usage information.
+      // The usage fields.
       shared_ptr<Data::UsageMap> usageMap_ {};
     };
 
@@ -353,7 +353,7 @@ namespace Models
   protected:
     // The error code. This parameter is not returned for successful calls.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The returned result.
     shared_ptr<CategoryAttributeMatchResponseBody::Data> data_ {};
     // The error message. This parameter is not returned for successful calls.
     shared_ptr<string> message_ {};

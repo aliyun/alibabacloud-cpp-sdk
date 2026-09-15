@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID, used to query processing results through QueryAsyncTaskResult.
+      // The asynchronous task ID. Use this ID to query the processing result by calling QueryAsyncTaskResult.
       shared_ptr<string> taskId_ {};
     };
 
@@ -111,13 +111,13 @@ namespace Models
   protected:
     // The status code. The value "success" is returned for a successful call.
     shared_ptr<string> code_ {};
-    // The asynchronous task submission result data, which contains the asynchronous task ID.
+    // The submit result of the asynchronous task, which contains the asynchronous task ID.
     shared_ptr<AssetOptimizeProResponseBody::Data> data_ {};
     // The error message. The value "Success" is returned for a successful call.
     shared_ptr<string> message_ {};
-    // The request ID, used to uniquely identify a single API call.
+    // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. A value of true indicates success. A value of false indicates failure.
+    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
   };
 

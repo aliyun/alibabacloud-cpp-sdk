@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The input parameters for video remix.
+    // The input parameters for video multiplication.
     // 
     // This parameter is required.
     shared_ptr<string> inputShrink_ {};

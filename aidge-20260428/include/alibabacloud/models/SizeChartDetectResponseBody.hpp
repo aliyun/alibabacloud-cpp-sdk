@@ -80,7 +80,7 @@ namespace Models
     protected:
       // Indicates whether the image is a size chart.
       shared_ptr<bool> isSizeChart_ {};
-      // The usage information. The key is the usage name, and the value is the count.
+      // The usage information. The key is the usage name and the value is the count.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -132,9 +132,8 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // 
-    // - true: The call is successful.
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
     // - false: The call failed.
     shared_ptr<bool> success_ {};
   };

@@ -175,7 +175,7 @@ namespace Models
 
 
       protected:
-        // The bounding boxes of the product instances.
+        // The bounding boxes of the detected product instances.
         shared_ptr<vector<Products::Boxes>> boxes_ {};
         // The product name.
         shared_ptr<string> label_ {};
@@ -204,7 +204,7 @@ namespace Models
 
 
     protected:
-      // The list of recognized products and their bounding boxes.
+      // The list of detected products and their bounding boxes.
       shared_ptr<vector<Data::Products>> products_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};

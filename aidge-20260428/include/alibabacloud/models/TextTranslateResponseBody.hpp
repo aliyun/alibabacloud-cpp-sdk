@@ -186,7 +186,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The translation result data, including the translation list and usage information.
     shared_ptr<TextTranslateResponseBody::Data> data_ {};
-    // The error message. The value "Success" is returned for successful calls. For exceptions, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
+    // The error message. The value "Success" is returned for successful calls. For failed calls, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
     shared_ptr<string> message_ {};
     // The request ID, which uniquely identifies a single API call.
     shared_ptr<string> requestId_ {};

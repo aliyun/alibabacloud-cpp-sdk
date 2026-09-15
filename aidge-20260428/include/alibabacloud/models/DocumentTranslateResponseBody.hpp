@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the asynchronous task, used to query the task status and result.
+      // The unique identifier of the asynchronous task. Use this ID to query the task status and result.
       shared_ptr<string> taskId_ {};
     };
 
@@ -116,9 +116,9 @@ namespace Models
     // The error message, such as "The parameters contain sensitive information. Try other input."
     // This parameter is not returned for successful calls.
     shared_ptr<string> message_ {};
-    // The unique identity of this request, used for troubleshooting and Tracing Analysis.
+    // The unique request identity, used for troubleshooting and Tracing Analysis.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values: true: The call is successful. false: The call failed.
+    // Indicates whether the call is successful. true: The call is successful. false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The intervention glossary ID. Optional. Create the glossary separately in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
+    // The intervention glossary ID. Optional. You must create the glossary separately in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
     shared_ptr<string> glossary_ {};
     // - Image URL: Must be publicly accessible.
     // - Format: png, jpeg, jpg, bmp, webp
@@ -103,7 +103,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to translate text on the image subject. Optional. Default value: false. This helps protect information by avoiding translation of embedded information such as product names.
+    // Specifies whether to translate text on the product area of an image. Optional. Default value: false. This helps protect information by avoiding translation of embedded information such as product names.
     shared_ptr<bool> includingProductArea_ {};
     // The source language code. Required. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
     // 

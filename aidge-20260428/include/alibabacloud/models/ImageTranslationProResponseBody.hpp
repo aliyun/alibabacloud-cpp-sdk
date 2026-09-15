@@ -102,7 +102,7 @@ namespace Models
 
 
       protected:
-        // The URL of the image translation result image.
+        // The URL of the translated result image.
         shared_ptr<string> fileUrl_ {};
         // The target language for image translation.
         shared_ptr<string> language_ {};
@@ -504,13 +504,13 @@ namespace Models
 
 
             protected:
-              // The color of the translated text.
+              // The text color after translation.
               shared_ptr<string> color_ {};
               // The font size of the translated text.
               shared_ptr<int32_t> fontsize_ {};
-              // The horizontal layout. Valid values: center, left, right.
+              // The horizontal layout mode. Valid values: center, left, right.
               shared_ptr<string> horizontalLayout_ {};
-              // The coordinates of the image inpainting area.
+              // The coordinates of the image repair area.
               shared_ptr<Texts::ImageRect> imageRect_ {};
               // The target language code for translation.
               shared_ptr<string> language_ {};
@@ -518,11 +518,11 @@ namespace Models
               shared_ptr<int32_t> lineCount_ {};
               // The coordinates of the text box area.
               shared_ptr<Texts::TextRect> textRect_ {};
-              // Indicates whether the TextItem is valid. The item is invalid if this value does not exist or is set to false.
+              // Indicates whether the TextItem is valid. The TextItem is invalid if this value does not exist or is set to false.
               shared_ptr<bool> valid_ {};
               // The translated text content.
               shared_ptr<string> value_ {};
-              // The vertical layout. Valid values: center, top, down.
+              // The vertical layout mode. Valid values: center, top, and down.
               shared_ptr<string> verticalLayout_ {};
             };
 
@@ -587,13 +587,13 @@ namespace Models
             shared_ptr<string> content_ {};
             // The font size.
             shared_ptr<int32_t> fontsize_ {};
-            // The horizontal layout. Valid values: center, left, right.
+            // The horizontal layout mode. Valid values: center, left, right.
             shared_ptr<string> horizontalLayout_ {};
             // The number of lines in the text box.
             shared_ptr<int32_t> lineCount_ {};
             // The list of translated texts. Each element corresponds to the translation result for a target language.
             shared_ptr<vector<TextAreas::Texts>> texts_ {};
-            // The vertical layout. Valid values: center, top, down.
+            // The vertical layout mode. Valid values: center, top, and down.
             shared_ptr<string> verticalLayout_ {};
           };
 
@@ -737,7 +737,7 @@ namespace Models
           shared_ptr<vector<string>> languages_ {};
           // The URL of the image after all text has been inpainted.
           shared_ptr<string> repairedUrl_ {};
-          // The collection of global IDs of translated images.
+          // The collection of global IDs for the translated images.
           shared_ptr<vector<string>> resultImageIds_ {};
           // The list of text boxes, which contains information about all recognized text areas.
           shared_ptr<vector<EditInfo::TextAreas>> textAreas_ {};
@@ -822,7 +822,7 @@ namespace Models
       shared_ptr<vector<Data::ResultList>> resultList_ {};
       // The asynchronous task ID. This parameter is not returned for synchronous calls.
       shared_ptr<string> taskId_ {};
-      // The usage information, including the number of processed images.
+      // The usage information, such as the number of processed images.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 
@@ -868,11 +868,11 @@ namespace Models
   protected:
     // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
     shared_ptr<string> code_ {};
-    // The translation result data. ResultList contains the URL of the translation result. EditInfo in GenFiles contains the recognized text information.
+    // The translation result data. ResultList contains the URLs of the translation results. GenFiles contains EditInfo, which includes the recognized text information.
     shared_ptr<ImageTranslationProResponseBody::Data> data_ {};
-    // The error message. Returns "Success" for a successful call. Returns a specific error message for an exception, such as "The content contains sensitive data. Try other input."
+    // The error message. "Success" is returned for successful calls. A specific error message is returned for failed calls, such as "The content contains sensitive data. Try other input."
     shared_ptr<string> message_ {};
-    // The request ID. Used to uniquely identify a request.
+    // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};

@@ -100,17 +100,17 @@ namespace Models
     shared_ptr<string> description_ {};
     // The product attributes that describe the characteristics of the product, such as material. Provide the attribute names and values.
     shared_ptr<string> itemSpec_ {};
-    // The product SKU title.
+    // The SKU title of the product.
     shared_ptr<string> sku_ {};
     // The product category on the source platform.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCategory_ {};
-    // The source platform where products are sourced from.
+    // The source platform from which products are sourced.
     // 
     // This parameter is required.
     shared_ptr<string> sourcePlatform_ {};
-    // The target listing platform. Currently only temu is supported.
+    // The target listing platform. Currently, only temu is supported.
     // 
     // This parameter is required.
     shared_ptr<string> targetPlatform_ {};

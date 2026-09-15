@@ -125,10 +125,7 @@ namespace Models
 
 
         protected:
-          // The determination result of the step. Valid values:
-          // - PASS: The step is compliant.
-          // - FAIL: The step is non-compliant.
-          // - UNABLE_TO_JUDGE: The system cannot determine the result.
+          // The determination result of the step. Valid values: PASS, FAIL, and UNABLE_TO_JUDGE.
           shared_ptr<string> result_ {};
           // The step ID.
           shared_ptr<string> stepId_ {};
@@ -174,17 +171,15 @@ namespace Models
 
 
       protected:
-        // The natural language summary of the inspection result, such as "1 rule: 1 PASS, all inspection items are compliant."
+        // The natural language summary, such as "1 rule: 1 PASS, all inspection items are compliant."
         shared_ptr<string> evidence_ {};
-        // The overall determination result. Valid values:
-        // - PASS: All inspection items are compliant.
-        // - FAIL: One or more inspection items are non-compliant.
+        // The overall determination result. Valid values: PASS and FAIL.
         shared_ptr<string> overallResult_ {};
-        // The request ID returned as-is from the input.
+        // The request ID returned as-is from the request.
         shared_ptr<string> reqId_ {};
         // The list of detection steps.
         shared_ptr<vector<Result::Steps>> steps_ {};
-        // The detection type that indicates the identified material category.
+        // The detection type.
         shared_ptr<string> type_ {};
       };
 

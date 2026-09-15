@@ -251,7 +251,7 @@ namespace Models
 
 
     protected:
-      // The number of downstream call attempts.
+      // The number of downstream calls.
       shared_ptr<int32_t> attempts_ {};
       // The workflow error code.
       shared_ptr<string> code_ {};
@@ -259,7 +259,7 @@ namespace Models
       shared_ptr<int32_t> httpStatus_ {};
       // The downstream call latency, in milliseconds.
       shared_ptr<int64_t> latencyMs_ {};
-      // The workflow description message.
+      // The workflow description.
       shared_ptr<string> message_ {};
       // The model request ID.
       shared_ptr<string> modelRequestId_ {};
@@ -269,7 +269,7 @@ namespace Models
       shared_ptr<Data::Result> result_ {};
       // The workflow status.
       shared_ptr<string> status_ {};
-      // The workflow business status.
+      // Indicates whether the workflow execution is successful.
       shared_ptr<bool> success_ {};
       // The usage information.
       shared_ptr<map<string, int64_t>> usageMap_ {};
@@ -323,7 +323,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 
