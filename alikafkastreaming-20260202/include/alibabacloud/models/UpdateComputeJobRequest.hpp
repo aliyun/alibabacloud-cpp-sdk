@@ -13,20 +13,16 @@ namespace Models
   class UpdateComputeJobRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateComputeJobRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(JobName, jobName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
-      DARABONBA_PTR_TO_JSON(UpgradeMode, upgradeMode_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateComputeJobRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(JobName, jobName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
-      DARABONBA_PTR_FROM_JSON(UpgradeMode, upgradeMode_);
     };
     UpdateComputeJobRequest() = default ;
     UpdateComputeJobRequest(const UpdateComputeJobRequest &) = default ;
@@ -39,15 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->instanceId_ == nullptr && this->jobName_ == nullptr && this->regionId_ == nullptr && this->remark_ == nullptr && this->upgradeMode_ == nullptr; };
-    // clientToken Field Functions 
-    bool hasClientToken() const { return this->clientToken_ != nullptr;};
-    void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
-    inline UpdateComputeJobRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
-
-
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->jobName_ == nullptr && this->regionId_ == nullptr && this->remark_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -76,15 +65,7 @@ namespace Models
     inline UpdateComputeJobRequest& setRemark(string remark) { DARABONBA_PTR_SET_VALUE(remark_, remark) };
 
 
-    // upgradeMode Field Functions 
-    bool hasUpgradeMode() const { return this->upgradeMode_ != nullptr;};
-    void deleteUpgradeMode() { this->upgradeMode_ = nullptr;};
-    inline string getUpgradeMode() const { DARABONBA_PTR_GET_DEFAULT(upgradeMode_, "") };
-    inline UpdateComputeJobRequest& setUpgradeMode(string upgradeMode) { DARABONBA_PTR_SET_VALUE(upgradeMode_, upgradeMode) };
-
-
   protected:
-    shared_ptr<string> clientToken_ {};
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
     // This parameter is required.
@@ -92,7 +73,6 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> remark_ {};
-    shared_ptr<string> upgradeMode_ {};
   };
 
   } // namespace Models

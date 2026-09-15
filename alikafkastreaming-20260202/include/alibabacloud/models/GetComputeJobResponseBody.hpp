@@ -45,9 +45,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DebugMode, debugMode_);
         DARABONBA_PTR_TO_JSON(DeployedSql, deployedSql_);
         DARABONBA_PTR_TO_JSON(DraftSql, draftSql_);
-        DARABONBA_PTR_TO_JSON(HistoryInfos, historyInfos_);
+        DARABONBA_PTR_TO_JSON(ErrorMsg, errorMsg_);
+        DARABONBA_PTR_TO_JSON(ExpirationTime, expirationTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
-        DARABONBA_PTR_TO_JSON(JobConfig, jobConfig_);
         DARABONBA_PTR_TO_JSON(JobName, jobName_);
         DARABONBA_PTR_TO_JSON(Owner, owner_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -63,9 +63,9 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DebugMode, debugMode_);
         DARABONBA_PTR_FROM_JSON(DeployedSql, deployedSql_);
         DARABONBA_PTR_FROM_JSON(DraftSql, draftSql_);
-        DARABONBA_PTR_FROM_JSON(HistoryInfos, historyInfos_);
+        DARABONBA_PTR_FROM_JSON(ErrorMsg, errorMsg_);
+        DARABONBA_PTR_FROM_JSON(ExpirationTime, expirationTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
-        DARABONBA_PTR_FROM_JSON(JobConfig, jobConfig_);
         DARABONBA_PTR_FROM_JSON(JobName, jobName_);
         DARABONBA_PTR_FROM_JSON(Owner, owner_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -86,7 +86,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createTime_ == nullptr
         && this->cuLimit_ == nullptr && this->cuReserved_ == nullptr && this->cuUsed_ == nullptr && this->debugMode_ == nullptr && this->deployedSql_ == nullptr
-        && this->draftSql_ == nullptr && this->historyInfos_ == nullptr && this->instanceId_ == nullptr && this->jobConfig_ == nullptr && this->jobName_ == nullptr
+        && this->draftSql_ == nullptr && this->errorMsg_ == nullptr && this->expirationTime_ == nullptr && this->instanceId_ == nullptr && this->jobName_ == nullptr
         && this->owner_ == nullptr && this->regionId_ == nullptr && this->remark_ == nullptr && this->status_ == nullptr && this->upgradeMode_ == nullptr; };
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
@@ -137,11 +137,18 @@ namespace Models
       inline Data& setDraftSql(string draftSql) { DARABONBA_PTR_SET_VALUE(draftSql_, draftSql) };
 
 
-      // historyInfos Field Functions 
-      bool hasHistoryInfos() const { return this->historyInfos_ != nullptr;};
-      void deleteHistoryInfos() { this->historyInfos_ = nullptr;};
-      inline string getHistoryInfos() const { DARABONBA_PTR_GET_DEFAULT(historyInfos_, "") };
-      inline Data& setHistoryInfos(string historyInfos) { DARABONBA_PTR_SET_VALUE(historyInfos_, historyInfos) };
+      // errorMsg Field Functions 
+      bool hasErrorMsg() const { return this->errorMsg_ != nullptr;};
+      void deleteErrorMsg() { this->errorMsg_ = nullptr;};
+      inline string getErrorMsg() const { DARABONBA_PTR_GET_DEFAULT(errorMsg_, "") };
+      inline Data& setErrorMsg(string errorMsg) { DARABONBA_PTR_SET_VALUE(errorMsg_, errorMsg) };
+
+
+      // expirationTime Field Functions 
+      bool hasExpirationTime() const { return this->expirationTime_ != nullptr;};
+      void deleteExpirationTime() { this->expirationTime_ = nullptr;};
+      inline string getExpirationTime() const { DARABONBA_PTR_GET_DEFAULT(expirationTime_, "") };
+      inline Data& setExpirationTime(string expirationTime) { DARABONBA_PTR_SET_VALUE(expirationTime_, expirationTime) };
 
 
       // instanceId Field Functions 
@@ -149,13 +156,6 @@ namespace Models
       void deleteInstanceId() { this->instanceId_ = nullptr;};
       inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
       inline Data& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
-
-
-      // jobConfig Field Functions 
-      bool hasJobConfig() const { return this->jobConfig_ != nullptr;};
-      void deleteJobConfig() { this->jobConfig_ = nullptr;};
-      inline string getJobConfig() const { DARABONBA_PTR_GET_DEFAULT(jobConfig_, "") };
-      inline Data& setJobConfig(string jobConfig) { DARABONBA_PTR_SET_VALUE(jobConfig_, jobConfig) };
 
 
       // jobName Field Functions 
@@ -209,9 +209,10 @@ namespace Models
       shared_ptr<int32_t> debugMode_ {};
       shared_ptr<string> deployedSql_ {};
       shared_ptr<string> draftSql_ {};
-      shared_ptr<string> historyInfos_ {};
+      shared_ptr<string> errorMsg_ {};
+      // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
+      shared_ptr<string> expirationTime_ {};
       shared_ptr<string> instanceId_ {};
-      shared_ptr<string> jobConfig_ {};
       shared_ptr<string> jobName_ {};
       shared_ptr<string> owner_ {};
       shared_ptr<string> regionId_ {};

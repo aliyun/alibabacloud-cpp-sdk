@@ -47,9 +47,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(AutoRenewFlag, autoRenewFlag_);
         DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
-        DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
-        DARABONBA_PTR_TO_JSON(Cu, cu_);
         DARABONBA_PTR_TO_JSON(CuLimitSum, cuLimitSum_);
         DARABONBA_PTR_TO_JSON(CuReservedSum, cuReservedSum_);
         DARABONBA_PTR_TO_JSON(CuUsedSum, cuUsedSum_);
@@ -62,15 +60,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(TotalJobs, totalJobs_);
         DARABONBA_PTR_TO_JSON(TotalRunningJobs, totalRunningJobs_);
         DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
-        DARABONBA_PTR_TO_JSON(Version, version_);
         DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AutoRenewFlag, autoRenewFlag_);
         DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
-        DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
-        DARABONBA_PTR_FROM_JSON(Cu, cu_);
         DARABONBA_PTR_FROM_JSON(CuLimitSum, cuLimitSum_);
         DARABONBA_PTR_FROM_JSON(CuReservedSum, cuReservedSum_);
         DARABONBA_PTR_FROM_JSON(CuUsedSum, cuUsedSum_);
@@ -83,7 +78,6 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(TotalJobs, totalJobs_);
         DARABONBA_PTR_FROM_JSON(TotalRunningJobs, totalRunningJobs_);
         DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
-        DARABONBA_PTR_FROM_JSON(Version, version_);
         DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
       };
       Data() = default ;
@@ -98,10 +92,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->autoRenewFlag_ == nullptr
-        && this->chargeType_ == nullptr && this->commodityCode_ == nullptr && this->createTime_ == nullptr && this->cu_ == nullptr && this->cuLimitSum_ == nullptr
-        && this->cuReservedSum_ == nullptr && this->cuUsedSum_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
-        && this->owner_ == nullptr && this->regionId_ == nullptr && this->serviceStatus_ == nullptr && this->totalJobs_ == nullptr && this->totalRunningJobs_ == nullptr
-        && this->vSwitchIds_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr; };
+        && this->chargeType_ == nullptr && this->createTime_ == nullptr && this->cuLimitSum_ == nullptr && this->cuReservedSum_ == nullptr && this->cuUsedSum_ == nullptr
+        && this->expireTime_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->owner_ == nullptr && this->regionId_ == nullptr
+        && this->serviceStatus_ == nullptr && this->totalJobs_ == nullptr && this->totalRunningJobs_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
       // autoRenewFlag Field Functions 
       bool hasAutoRenewFlag() const { return this->autoRenewFlag_ != nullptr;};
       void deleteAutoRenewFlag() { this->autoRenewFlag_ = nullptr;};
@@ -116,25 +109,11 @@ namespace Models
       inline Data& setChargeType(string chargeType) { DARABONBA_PTR_SET_VALUE(chargeType_, chargeType) };
 
 
-      // commodityCode Field Functions 
-      bool hasCommodityCode() const { return this->commodityCode_ != nullptr;};
-      void deleteCommodityCode() { this->commodityCode_ = nullptr;};
-      inline string getCommodityCode() const { DARABONBA_PTR_GET_DEFAULT(commodityCode_, "") };
-      inline Data& setCommodityCode(string commodityCode) { DARABONBA_PTR_SET_VALUE(commodityCode_, commodityCode) };
-
-
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
       inline string getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, "") };
       inline Data& setCreateTime(string createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
-
-
-      // cu Field Functions 
-      bool hasCu() const { return this->cu_ != nullptr;};
-      void deleteCu() { this->cu_ = nullptr;};
-      inline int32_t getCu() const { DARABONBA_PTR_GET_DEFAULT(cu_, 0) };
-      inline Data& setCu(int32_t cu) { DARABONBA_PTR_SET_VALUE(cu_, cu) };
 
 
       // cuLimitSum Field Functions 
@@ -223,13 +202,6 @@ namespace Models
       inline Data& setVSwitchIds(vector<string> && vSwitchIds) { DARABONBA_PTR_SET_RVALUE(vSwitchIds_, vSwitchIds) };
 
 
-      // version Field Functions 
-      bool hasVersion() const { return this->version_ != nullptr;};
-      void deleteVersion() { this->version_ = nullptr;};
-      inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
-      inline Data& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
-
-
       // vpcId Field Functions 
       bool hasVpcId() const { return this->vpcId_ != nullptr;};
       void deleteVpcId() { this->vpcId_ = nullptr;};
@@ -240,10 +212,8 @@ namespace Models
     protected:
       shared_ptr<bool> autoRenewFlag_ {};
       shared_ptr<string> chargeType_ {};
-      shared_ptr<string> commodityCode_ {};
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
-      shared_ptr<int32_t> cu_ {};
       shared_ptr<double> cuLimitSum_ {};
       shared_ptr<double> cuReservedSum_ {};
       shared_ptr<double> cuUsedSum_ {};
@@ -257,7 +227,6 @@ namespace Models
       shared_ptr<int64_t> totalJobs_ {};
       shared_ptr<int64_t> totalRunningJobs_ {};
       shared_ptr<vector<string>> vSwitchIds_ {};
-      shared_ptr<string> version_ {};
       shared_ptr<string> vpcId_ {};
     };
 

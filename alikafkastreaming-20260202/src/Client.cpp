@@ -17,7 +17,7 @@ namespace AlikafkaStreaming20260202
 {
 
 AlibabaCloud::AlikafkaStreaming20260202::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("alikafkastreaming", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,6 +37,14 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 
 /**
  * @summary 检查sql语法
+ *
+ * @description ## 请求说明
+ * - 该接口支持通过 GET 或 POST 方法调用。
+ * - 必须提供 `InstanceId`、`JobName` 和 `SqlContent` 参数，其中 `SqlContent` 是待校验的 Flink SQL 语句。
+ * - 返回结果中，`Data.Valid` 字段指示 SQL 是否通过校验；若未通过，则错误详情位于 `Data.ErrorList` 中。
+ * - 当前版本要求同时传入实例 ID (`InstanceId`) 和作业名称 (`JobName`) 以构建作业上下文。
+ * - 接口返回成功仅表示校验流程执行完成，并不直接反映 SQL 的有效性，请检查 `Data.Valid` 字段来确定 SQL 是否有效。
+ * - 错误码和异常处理请参考文档中的“错误码”部分。
  *
  * @param request CheckSqlContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -81,6 +89,14 @@ CheckSqlContentResponse Client::checkSqlContentWithOptions(const CheckSqlContent
 /**
  * @summary 检查sql语法
  *
+ * @description ## 请求说明
+ * - 该接口支持通过 GET 或 POST 方法调用。
+ * - 必须提供 `InstanceId`、`JobName` 和 `SqlContent` 参数，其中 `SqlContent` 是待校验的 Flink SQL 语句。
+ * - 返回结果中，`Data.Valid` 字段指示 SQL 是否通过校验；若未通过，则错误详情位于 `Data.ErrorList` 中。
+ * - 当前版本要求同时传入实例 ID (`InstanceId`) 和作业名称 (`JobName`) 以构建作业上下文。
+ * - 接口返回成功仅表示校验流程执行完成，并不直接反映 SQL 的有效性，请检查 `Data.Valid` 字段来确定 SQL 是否有效。
+ * - 错误码和异常处理请参考文档中的“错误码”部分。
+ *
  * @param request CheckSqlContentRequest
  * @return CheckSqlContentResponse
  */
@@ -91,6 +107,10 @@ CheckSqlContentResponse Client::checkSqlContent(const CheckSqlContentRequest &re
 
 /**
  * @summary 创建 流计算实例
+ *
+ * @description 创建一个计算实例。接口只完成购买阶段；创建成功后需调用 StartComputeInstance 完成网络配置和部署。
+ * - API 版本：2026-02-02
+ * - Action：CreateComputeInstance
  *
  * @param request CreateComputeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -109,10 +129,6 @@ CreateComputeInstanceResponse Client::createComputeInstanceWithOptions(const Cre
 
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
-  }
-
-  if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -135,6 +151,10 @@ CreateComputeInstanceResponse Client::createComputeInstanceWithOptions(const Cre
 /**
  * @summary 创建 流计算实例
  *
+ * @description 创建一个计算实例。接口只完成购买阶段；创建成功后需调用 StartComputeInstance 完成网络配置和部署。
+ * - API 版本：2026-02-02
+ * - Action：CreateComputeInstance
+ *
  * @param request CreateComputeInstanceRequest
  * @return CreateComputeInstanceResponse
  */
@@ -145,6 +165,15 @@ CreateComputeInstanceResponse Client::createComputeInstance(const CreateComputeI
 
 /**
  * @summary 创建 JOB
+ *
+ * @description ## 请求说明
+ * - 该API用于在指定的运行中的计算实例上创建一个新的Flink SQL作业。
+ * - 创建后的作业将处于`INIT`状态。
+ * - 用户可以通过设置`CuLimit`和`CuReserved`来控制作业的资源使用情况。
+ * - `Remark`字段允许用户为作业添加备注信息，便于管理和识别。
+ * - 确保提供的`RegionId`、`InstanceId`以及`JobName`参数准确无误，否则可能导致请求失败。
+ * - 如果尝试创建同名作业，则会返回错误提示。
+ * - 计算实例必须处于运行状态才能成功创建作业。
  *
  * @param request CreateComputeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -161,16 +190,8 @@ CreateComputeJobResponse Client::createComputeJobWithOptions(const CreateCompute
     query["CuReserved"] = request.getCuReserved();
   }
 
-  if (!!request.hasDraftSql()) {
-    query["DraftSql"] = request.getDraftSql();
-  }
-
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
-  }
-
-  if (!!request.hasJobConfig()) {
-    query["JobConfig"] = request.getJobConfig();
   }
 
   if (!!request.hasJobName()) {
@@ -185,23 +206,9 @@ CreateComputeJobResponse Client::createComputeJobWithOptions(const CreateCompute
     query["Remark"] = request.getRemark();
   }
 
-  if (!!request.hasUpgradeMode()) {
-    query["UpgradeMode"] = request.getUpgradeMode();
-  }
-
-  if (!!request.hasUserId()) {
-    query["UserId"] = request.getUserId();
-  }
-
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "CreateComputeJob"},
     {"version" , "2026-02-02"},
@@ -219,6 +226,15 @@ CreateComputeJobResponse Client::createComputeJobWithOptions(const CreateCompute
 /**
  * @summary 创建 JOB
  *
+ * @description ## 请求说明
+ * - 该API用于在指定的运行中的计算实例上创建一个新的Flink SQL作业。
+ * - 创建后的作业将处于`INIT`状态。
+ * - 用户可以通过设置`CuLimit`和`CuReserved`来控制作业的资源使用情况。
+ * - `Remark`字段允许用户为作业添加备注信息，便于管理和识别。
+ * - 确保提供的`RegionId`、`InstanceId`以及`JobName`参数准确无误，否则可能导致请求失败。
+ * - 如果尝试创建同名作业，则会返回错误提示。
+ * - 计算实例必须处于运行状态才能成功创建作业。
+ *
  * @param request CreateComputeJobRequest
  * @return CreateComputeJobResponse
  */
@@ -229,6 +245,10 @@ CreateComputeJobResponse Client::createComputeJob(const CreateComputeJobRequest 
 
 /**
  * @summary  删除实例
+ *
+ * @description 删除处于待部署、已停止或已释放状态的计算实例。
+ * - API版本：2026-02-02
+ * - Action：DeleteComputeInstance
  *
  * @param request DeleteComputeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -243,10 +263,6 @@ DeleteComputeInstanceResponse Client::deleteComputeInstanceWithOptions(const Del
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
-  }
-
-  if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -269,6 +285,10 @@ DeleteComputeInstanceResponse Client::deleteComputeInstanceWithOptions(const Del
 /**
  * @summary  删除实例
  *
+ * @description 删除处于待部署、已停止或已释放状态的计算实例。
+ * - API版本：2026-02-02
+ * - Action：DeleteComputeInstance
+ *
  * @param request DeleteComputeInstanceRequest
  * @return DeleteComputeInstanceResponse
  */
@@ -279,6 +299,13 @@ DeleteComputeInstanceResponse Client::deleteComputeInstance(const DeleteComputeI
 
 /**
  * @summary 删除 JOB
+ *
+ * @description ## 请求说明
+ * - 该接口用于删除一个特定的计算作业。
+ * - 成功调用此接口仅表示删除请求已被系统接受，并非立即完成删除操作。
+ * - 确保提供的`RegionId`、`InstanceId`以及`JobName`参数准确无误，否则可能导致请求失败。
+ * - 如果计算实例或作业处于不允许删除的状态（例如：非运行状态），则会返回相应的错误信息。
+ * - 删除操作不可逆，请谨慎使用。
  *
  * @param request DeleteComputeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -319,6 +346,13 @@ DeleteComputeJobResponse Client::deleteComputeJobWithOptions(const DeleteCompute
 /**
  * @summary 删除 JOB
  *
+ * @description ## 请求说明
+ * - 该接口用于删除一个特定的计算作业。
+ * - 成功调用此接口仅表示删除请求已被系统接受，并非立即完成删除操作。
+ * - 确保提供的`RegionId`、`InstanceId`以及`JobName`参数准确无误，否则可能导致请求失败。
+ * - 如果计算实例或作业处于不允许删除的状态（例如：非运行状态），则会返回相应的错误信息。
+ * - 删除操作不可逆，请谨慎使用。
+ *
  * @param request DeleteComputeJobRequest
  * @return DeleteComputeJobResponse
  */
@@ -339,10 +373,6 @@ GetComputeInstanceResponse Client::getComputeInstanceWithOptions(const GetComput
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
-  }
-
-  if (!!request.hasOrderId()) {
-    query["OrderId"] = request.getOrderId();
   }
 
   if (!!request.hasRegionId()) {
@@ -379,6 +409,13 @@ GetComputeInstanceResponse Client::getComputeInstance(const GetComputeInstanceRe
 
 /**
  * @summary 查询 JOB 详情
+ *
+ * @description ## 请求说明
+ * - 本接口用于查询指定计算作业的详情。
+ * - 支持使用 GET 或 POST 方法进行请求。
+ * - 所有时间字段以 Unix 时间戳形式返回，单位为毫秒。
+ * - 必须提供 `RegionId`、`InstanceId` 和 `JobName` 参数。
+ * - 授权操作为 `alikafkastreaming:GetComputeJob`，访问级别为读取（Read）。
  *
  * @param request GetComputeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -418,6 +455,13 @@ GetComputeJobResponse Client::getComputeJobWithOptions(const GetComputeJobReques
 
 /**
  * @summary 查询 JOB 详情
+ *
+ * @description ## 请求说明
+ * - 本接口用于查询指定计算作业的详情。
+ * - 支持使用 GET 或 POST 方法进行请求。
+ * - 所有时间字段以 Unix 时间戳形式返回，单位为毫秒。
+ * - 必须提供 `RegionId`、`InstanceId` 和 `JobName` 参数。
+ * - 授权操作为 `alikafkastreaming:GetComputeJob`，访问级别为读取（Read）。
  *
  * @param request GetComputeJobRequest
  * @return GetComputeJobResponse
@@ -581,16 +625,8 @@ ListComputeInstancesInPageResponse Client::listComputeInstancesInPageWithOptions
     query["CurrentPage"] = request.getCurrentPage();
   }
 
-  if (!!request.hasInstanceId()) {
-    query["InstanceId"] = request.getInstanceId();
-  }
-
   if (!!request.hasInstanceIdsShrink()) {
     query["InstanceIds"] = request.getInstanceIdsShrink();
-  }
-
-  if (!!request.hasOrderId()) {
-    query["OrderId"] = request.getOrderId();
   }
 
   if (!!request.hasPageSize()) {
@@ -599,6 +635,10 @@ ListComputeInstancesInPageResponse Client::listComputeInstancesInPageWithOptions
 
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasResourceGroupId()) {
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -632,6 +672,13 @@ ListComputeInstancesInPageResponse Client::listComputeInstancesInPage(const List
 /**
  * @summary 分页查询 JOB 列表
  *
+ * @description ## 请求说明
+ * - 该接口支持通过 `MaxResults` 和 `NextToken` 参数进行游标分页查询。
+ * - 首次请求时不需要传递 `NextToken`，后续请求需使用上一次响应中返回的 `NextToken` 值。
+ * - 支持按作业名称或备注搜索，并可选择不同的排序字段和方向。
+ * - 返回的时间字段均为 Unix 时间戳（单位：毫秒）。
+ * - 授权操作为 `alikafkastreaming:ListComputeJobs`，访问级别为列出（List），适用于全部资源。
+ *
  * @param request ListComputeJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListComputeJobsResponse
@@ -639,10 +686,6 @@ ListComputeInstancesInPageResponse Client::listComputeInstancesInPage(const List
 ListComputeJobsResponse Client::listComputeJobsWithOptions(const ListComputeJobsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
-  if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.getCurrentPage();
-  }
-
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -653,10 +696,6 @@ ListComputeJobsResponse Client::listComputeJobsWithOptions(const ListComputeJobs
 
   if (!!request.hasNextToken()) {
     query["NextToken"] = request.getNextToken();
-  }
-
-  if (!!request.hasPageSize()) {
-    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
@@ -694,6 +733,13 @@ ListComputeJobsResponse Client::listComputeJobsWithOptions(const ListComputeJobs
 
 /**
  * @summary 分页查询 JOB 列表
+ *
+ * @description ## 请求说明
+ * - 该接口支持通过 `MaxResults` 和 `NextToken` 参数进行游标分页查询。
+ * - 首次请求时不需要传递 `NextToken`，后续请求需使用上一次响应中返回的 `NextToken` 值。
+ * - 支持按作业名称或备注搜索，并可选择不同的排序字段和方向。
+ * - 返回的时间字段均为 Unix 时间戳（单位：毫秒）。
+ * - 授权操作为 `alikafkastreaming:ListComputeJobs`，访问级别为列出（List），适用于全部资源。
  *
  * @param request ListComputeJobsRequest
  * @return ListComputeJobsResponse
@@ -752,6 +798,10 @@ ListSupportedConnectorsResponse Client::listSupportedConnectors(const ListSuppor
 /**
  * @summary 重新启动后付费实例
  *
+ * @description 重新启用一个已停止的后付费计算实例。接口返回成功表示启用请求已受理。
+ * - API版本：2026-02-02
+ * - Action：ReopenComputeInstance
+ *
  * @param request ReopenComputeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ReopenComputeInstanceResponse
@@ -767,15 +817,9 @@ ReopenComputeInstanceResponse Client::reopenComputeInstanceWithOptions(const Reo
     query["RegionId"] = request.getRegionId();
   }
 
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "ReopenComputeInstance"},
     {"version" , "2026-02-02"},
@@ -792,6 +836,10 @@ ReopenComputeInstanceResponse Client::reopenComputeInstanceWithOptions(const Reo
 
 /**
  * @summary 重新启动后付费实例
+ *
+ * @description 重新启用一个已停止的后付费计算实例。接口返回成功表示启用请求已受理。
+ * - API版本：2026-02-02
+ * - Action：ReopenComputeInstance
  *
  * @param request ReopenComputeInstanceRequest
  * @return ReopenComputeInstanceResponse
@@ -860,6 +908,10 @@ RestartComputeJobResponse Client::restartComputeJob(const RestartComputeJobReque
 /**
  * @summary 部署实例
  *
+ * @description 为处于待部署状态的计算实例配置网络并发起部署。
+ * - API 版本：2026-02-02
+ * - Action：StartComputeInstance
+ *
  * @param tmpReq StartComputeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StartComputeInstanceResponse
@@ -885,14 +937,6 @@ StartComputeInstanceResponse Client::startComputeInstanceWithOptions(const Start
     query["RegionId"] = request.getRegionId();
   }
 
-  if (!!request.hasSelectedZones()) {
-    query["SelectedZones"] = request.getSelectedZones();
-  }
-
-  if (!!request.hasServiceVersion()) {
-    query["ServiceVersion"] = request.getServiceVersion();
-  }
-
   if (!!request.hasVSwitchIdsShrink()) {
     query["VSwitchIds"] = request.getVSwitchIdsShrink();
   }
@@ -901,15 +945,9 @@ StartComputeInstanceResponse Client::startComputeInstanceWithOptions(const Start
     query["VpcId"] = request.getVpcId();
   }
 
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartComputeInstance"},
     {"version" , "2026-02-02"},
@@ -927,6 +965,10 @@ StartComputeInstanceResponse Client::startComputeInstanceWithOptions(const Start
 /**
  * @summary 部署实例
  *
+ * @description 为处于待部署状态的计算实例配置网络并发起部署。
+ * - API 版本：2026-02-02
+ * - Action：StartComputeInstance
+ *
  * @param request StartComputeInstanceRequest
  * @return StartComputeInstanceResponse
  */
@@ -937,6 +979,11 @@ StartComputeInstanceResponse Client::startComputeInstance(const StartComputeInst
 
 /**
  * @summary 创建 JOB
+ *
+ * @description ## 请求说明
+ * - `RecoveryMode` 支持两种模式：`savepoint` 和 `stateless`。如果选择 `savepoint` 模式但没有可用的 savepoint，则会返回错误。
+ * - `CuLimit` 和 `CuReserved` 参数分别用来设定作业的 CU 上限和预留 CU 数量，支持整数或小数形式输入。
+ * - 确保提供的 `RegionId`, `InstanceId`, 和 `JobName` 参数值正确且存在，否则将导致请求失败。
  *
  * @param request StartComputeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -957,10 +1004,6 @@ StartComputeJobResponse Client::startComputeJobWithOptions(const StartComputeJob
     query["DraftSql"] = request.getDraftSql();
   }
 
-  if (!!request.hasDraftSqlStart()) {
-    query["DraftSqlStart"] = request.getDraftSqlStart();
-  }
-
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -977,15 +1020,9 @@ StartComputeJobResponse Client::startComputeJobWithOptions(const StartComputeJob
     query["RegionId"] = request.getRegionId();
   }
 
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StartComputeJob"},
     {"version" , "2026-02-02"},
@@ -1003,6 +1040,11 @@ StartComputeJobResponse Client::startComputeJobWithOptions(const StartComputeJob
 /**
  * @summary 创建 JOB
  *
+ * @description ## 请求说明
+ * - `RecoveryMode` 支持两种模式：`savepoint` 和 `stateless`。如果选择 `savepoint` 模式但没有可用的 savepoint，则会返回错误。
+ * - `CuLimit` 和 `CuReserved` 参数分别用来设定作业的 CU 上限和预留 CU 数量，支持整数或小数形式输入。
+ * - 确保提供的 `RegionId`, `InstanceId`, 和 `JobName` 参数值正确且存在，否则将导致请求失败。
+ *
  * @param request StartComputeJobRequest
  * @return StartComputeJobResponse
  */
@@ -1013,6 +1055,10 @@ StartComputeJobResponse Client::startComputeJob(const StartComputeJobRequest &re
 
 /**
  * @summary 停用/释放后付费实例
+ *
+ * @description 停止一个正在运行的后付费计算实例。接口返回成功表示停止请求已受理。
+ * - API 版本：2026-02-02
+ * - Action：StopComputeInstance
  *
  * @param request StopComputeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1029,15 +1075,9 @@ StopComputeInstanceResponse Client::stopComputeInstanceWithOptions(const StopCom
     query["RegionId"] = request.getRegionId();
   }
 
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopComputeInstance"},
     {"version" , "2026-02-02"},
@@ -1055,6 +1095,10 @@ StopComputeInstanceResponse Client::stopComputeInstanceWithOptions(const StopCom
 /**
  * @summary 停用/释放后付费实例
  *
+ * @description 停止一个正在运行的后付费计算实例。接口返回成功表示停止请求已受理。
+ * - API 版本：2026-02-02
+ * - Action：StopComputeInstance
+ *
  * @param request StopComputeInstanceRequest
  * @return StopComputeInstanceResponse
  */
@@ -1065,6 +1109,10 @@ StopComputeInstanceResponse Client::stopComputeInstance(const StopComputeInstanc
 
 /**
  * @summary 停止 JOB
+ *
+ * @description ## 请求说明
+ * - 该接口用于停止指定的计算作业生产或 Debug 运行实例。
+ * - 接口返回成功表示停止请求已被受理，但并不意味着作业立即停止。
  *
  * @param request StopComputeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1085,15 +1133,9 @@ StopComputeJobResponse Client::stopComputeJobWithOptions(const StopComputeJobReq
     query["RegionId"] = request.getRegionId();
   }
 
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "StopComputeJob"},
     {"version" , "2026-02-02"},
@@ -1111,6 +1153,10 @@ StopComputeJobResponse Client::stopComputeJobWithOptions(const StopComputeJobReq
 /**
  * @summary 停止 JOB
  *
+ * @description ## 请求说明
+ * - 该接口用于停止指定的计算作业生产或 Debug 运行实例。
+ * - 接口返回成功表示停止请求已被受理，但并不意味着作业立即停止。
+ *
  * @param request StopComputeJobRequest
  * @return StopComputeJobResponse
  */
@@ -1121,6 +1167,10 @@ StopComputeJobResponse Client::stopComputeJob(const StopComputeJobRequest &reque
 
 /**
  * @summary 更新实例名称
+ *
+ * @description 修改计算实例名称。实例需处于部署准备阶段或运行中状态。
+ * - API 版本：2026-02-02
+ * - Action：UpdateComputeInstanceName
  *
  * @param request UpdateComputeInstanceNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1141,15 +1191,9 @@ UpdateComputeInstanceNameResponse Client::updateComputeInstanceNameWithOptions(c
     query["RegionId"] = request.getRegionId();
   }
 
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateComputeInstanceName"},
     {"version" , "2026-02-02"},
@@ -1167,6 +1211,10 @@ UpdateComputeInstanceNameResponse Client::updateComputeInstanceNameWithOptions(c
 /**
  * @summary 更新实例名称
  *
+ * @description 修改计算实例名称。实例需处于部署准备阶段或运行中状态。
+ * - API 版本：2026-02-02
+ * - Action：UpdateComputeInstanceName
+ *
  * @param request UpdateComputeInstanceNameRequest
  * @return UpdateComputeInstanceNameResponse
  */
@@ -1177,6 +1225,11 @@ UpdateComputeInstanceNameResponse Client::updateComputeInstanceName(const Update
 
 /**
  * @summary 更新 JOB
+ *
+ * @description ## 请求说明
+ * - 确保提供的 `InstanceId` 和 `JobName` 是有效的，否则将返回错误。
+ * - 如果实例状态不在运行中，则不允许执行此操作。
+ * - 当前作业状态如果为调试任务正在运行或变更中，则不支持修改。
  *
  * @param request UpdateComputeJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1201,19 +1254,9 @@ UpdateComputeJobResponse Client::updateComputeJobWithOptions(const UpdateCompute
     query["Remark"] = request.getRemark();
   }
 
-  if (!!request.hasUpgradeMode()) {
-    query["UpgradeMode"] = request.getUpgradeMode();
-  }
-
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateComputeJob"},
     {"version" , "2026-02-02"},
@@ -1231,6 +1274,11 @@ UpdateComputeJobResponse Client::updateComputeJobWithOptions(const UpdateCompute
 /**
  * @summary 更新 JOB
  *
+ * @description ## 请求说明
+ * - 确保提供的 `InstanceId` 和 `JobName` 是有效的，否则将返回错误。
+ * - 如果实例状态不在运行中，则不允许执行此操作。
+ * - 当前作业状态如果为调试任务正在运行或变更中，则不支持修改。
+ *
  * @param request UpdateComputeJobRequest
  * @return UpdateComputeJobResponse
  */
@@ -1241,6 +1289,9 @@ UpdateComputeJobResponse Client::updateComputeJob(const UpdateComputeJobRequest 
 
 /**
  * @summary 更新 JOB 的 CU 配额
+ *
+ * @description ## 请求说明
+ * 本API允许用户修改特定计算作业的计算单元（CU）上限和预留CU数量。在调用此接口前，请确保提供的`InstanceId`和`JobName`正确无误，并且实例处于运行状态。此外，注意检查`CuLimit`与`CuReserved`参数的有效性和合理性，避免因超出限制或不符合业务逻辑导致请求失败。
  *
  * @param request UpdateComputeJobCuRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1269,15 +1320,9 @@ UpdateComputeJobCuResponse Client::updateComputeJobCuWithOptions(const UpdateCom
     query["RegionId"] = request.getRegionId();
   }
 
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateComputeJobCu"},
     {"version" , "2026-02-02"},
@@ -1295,6 +1340,9 @@ UpdateComputeJobCuResponse Client::updateComputeJobCuWithOptions(const UpdateCom
 /**
  * @summary 更新 JOB 的 CU 配额
  *
+ * @description ## 请求说明
+ * 本API允许用户修改特定计算作业的计算单元（CU）上限和预留CU数量。在调用此接口前，请确保提供的`InstanceId`和`JobName`正确无误，并且实例处于运行状态。此外，注意检查`CuLimit`与`CuReserved`参数的有效性和合理性，避免因超出限制或不符合业务逻辑导致请求失败。
+ *
  * @param request UpdateComputeJobCuRequest
  * @return UpdateComputeJobCuResponse
  */
@@ -1305,6 +1353,13 @@ UpdateComputeJobCuResponse Client::updateComputeJobCu(const UpdateComputeJobCuRe
 
 /**
  * @summary 更新 JOB 的 SQL
+ *
+ * @description ## 请求说明
+ * 本接口用于更新特定计算实例下的某个计算作业所保存的Flink SQL草稿内容。请确保提供的`InstanceId`和`JobName`准确无误，并且该作业当前状态支持进行SQL修改操作。
+ * - **注意事项**：
+ *   - 确保目标实例处于运行状态。
+ *   - 当前作业状态需允许修改SQL，即作业不应处于调试或变更过程中。
+ *   - `DraftSql`参数应包含完整的、格式正确的Flink SQL语句。
  *
  * @param request UpdateComputeJobDraftSqlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1329,15 +1384,9 @@ UpdateComputeJobDraftSqlResponse Client::updateComputeJobDraftSqlWithOptions(con
     query["RegionId"] = request.getRegionId();
   }
 
-  json body = {};
-  if (!!request.hasClientToken()) {
-    body["ClientToken"] = request.getClientToken();
-  }
-
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "UpdateComputeJobDraftSql"},
     {"version" , "2026-02-02"},
@@ -1354,6 +1403,13 @@ UpdateComputeJobDraftSqlResponse Client::updateComputeJobDraftSqlWithOptions(con
 
 /**
  * @summary 更新 JOB 的 SQL
+ *
+ * @description ## 请求说明
+ * 本接口用于更新特定计算实例下的某个计算作业所保存的Flink SQL草稿内容。请确保提供的`InstanceId`和`JobName`准确无误，并且该作业当前状态支持进行SQL修改操作。
+ * - **注意事项**：
+ *   - 确保目标实例处于运行状态。
+ *   - 当前作业状态需允许修改SQL，即作业不应处于调试或变更过程中。
+ *   - `DraftSql`参数应包含完整的、格式正确的Flink SQL语句。
  *
  * @param request UpdateComputeJobDraftSqlRequest
  * @return UpdateComputeJobDraftSqlResponse

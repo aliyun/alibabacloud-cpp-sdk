@@ -14,19 +14,17 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ListComputeInstancesInPageShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
-      DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIdsShrink_);
-      DARABONBA_PTR_TO_JSON(OrderId, orderId_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
     };
     friend void from_json(const Darabonba::Json& j, ListComputeInstancesInPageShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
-      DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIdsShrink_);
-      DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
     };
     ListComputeInstancesInPageShrinkRequest() = default ;
     ListComputeInstancesInPageShrinkRequest(const ListComputeInstancesInPageShrinkRequest &) = default ;
@@ -40,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->currentPage_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceIdsShrink_ == nullptr && this->orderId_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr; };
+        && this->instanceIdsShrink_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
@@ -48,25 +46,11 @@ namespace Models
     inline ListComputeInstancesInPageShrinkRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
-    // instanceId Field Functions 
-    bool hasInstanceId() const { return this->instanceId_ != nullptr;};
-    void deleteInstanceId() { this->instanceId_ = nullptr;};
-    inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
-    inline ListComputeInstancesInPageShrinkRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
-
-
     // instanceIdsShrink Field Functions 
     bool hasInstanceIdsShrink() const { return this->instanceIdsShrink_ != nullptr;};
     void deleteInstanceIdsShrink() { this->instanceIdsShrink_ = nullptr;};
     inline string getInstanceIdsShrink() const { DARABONBA_PTR_GET_DEFAULT(instanceIdsShrink_, "") };
     inline ListComputeInstancesInPageShrinkRequest& setInstanceIdsShrink(string instanceIdsShrink) { DARABONBA_PTR_SET_VALUE(instanceIdsShrink_, instanceIdsShrink) };
-
-
-    // orderId Field Functions 
-    bool hasOrderId() const { return this->orderId_ != nullptr;};
-    void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
-    inline ListComputeInstancesInPageShrinkRequest& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
 
 
     // pageSize Field Functions 
@@ -83,14 +67,20 @@ namespace Models
     inline ListComputeInstancesInPageShrinkRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // resourceGroupId Field Functions 
+    bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+    void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline ListComputeInstancesInPageShrinkRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
   protected:
     shared_ptr<int32_t> currentPage_ {};
-    shared_ptr<string> instanceId_ {};
     shared_ptr<string> instanceIdsShrink_ {};
-    shared_ptr<string> orderId_ {};
     shared_ptr<int32_t> pageSize_ {};
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

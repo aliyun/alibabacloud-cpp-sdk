@@ -47,10 +47,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
-        DARABONBA_PTR_TO_JSON(OrderId, orderId_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(ServiceStatus, serviceStatus_);
-        DARABONBA_PTR_TO_JSON(ServiceVersion, serviceVersion_);
         DARABONBA_PTR_TO_JSON(TotalJobs, totalJobs_);
         DARABONBA_PTR_TO_JSON(TotalRunningJobs, totalRunningJobs_);
         DARABONBA_PTR_TO_JSON(VSwitchIds, vSwitchIds_);
@@ -65,10 +63,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
-        DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(ServiceStatus, serviceStatus_);
-        DARABONBA_PTR_FROM_JSON(ServiceVersion, serviceVersion_);
         DARABONBA_PTR_FROM_JSON(TotalJobs, totalJobs_);
         DARABONBA_PTR_FROM_JSON(TotalRunningJobs, totalRunningJobs_);
         DARABONBA_PTR_FROM_JSON(VSwitchIds, vSwitchIds_);
@@ -87,8 +83,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->chargeType_ == nullptr
         && this->createTime_ == nullptr && this->cuLimitSum_ == nullptr && this->cuReservedSum_ == nullptr && this->cuUsedSum_ == nullptr && this->expireTime_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->orderId_ == nullptr && this->regionId_ == nullptr && this->serviceStatus_ == nullptr
-        && this->serviceVersion_ == nullptr && this->totalJobs_ == nullptr && this->totalRunningJobs_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->serviceStatus_ == nullptr && this->totalJobs_ == nullptr
+        && this->totalRunningJobs_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
       // chargeType Field Functions 
       bool hasChargeType() const { return this->chargeType_ != nullptr;};
       void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -145,13 +141,6 @@ namespace Models
       inline Data& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
-      // orderId Field Functions 
-      bool hasOrderId() const { return this->orderId_ != nullptr;};
-      void deleteOrderId() { this->orderId_ = nullptr;};
-      inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
-      inline Data& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
-
-
       // regionId Field Functions 
       bool hasRegionId() const { return this->regionId_ != nullptr;};
       void deleteRegionId() { this->regionId_ = nullptr;};
@@ -164,13 +153,6 @@ namespace Models
       void deleteServiceStatus() { this->serviceStatus_ = nullptr;};
       inline string getServiceStatus() const { DARABONBA_PTR_GET_DEFAULT(serviceStatus_, "") };
       inline Data& setServiceStatus(string serviceStatus) { DARABONBA_PTR_SET_VALUE(serviceStatus_, serviceStatus) };
-
-
-      // serviceVersion Field Functions 
-      bool hasServiceVersion() const { return this->serviceVersion_ != nullptr;};
-      void deleteServiceVersion() { this->serviceVersion_ = nullptr;};
-      inline string getServiceVersion() const { DARABONBA_PTR_GET_DEFAULT(serviceVersion_, "") };
-      inline Data& setServiceVersion(string serviceVersion) { DARABONBA_PTR_SET_VALUE(serviceVersion_, serviceVersion) };
 
 
       // totalJobs Field Functions 
@@ -214,10 +196,8 @@ namespace Models
       shared_ptr<string> expireTime_ {};
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> instanceName_ {};
-      shared_ptr<string> orderId_ {};
       shared_ptr<string> regionId_ {};
       shared_ptr<string> serviceStatus_ {};
-      shared_ptr<string> serviceVersion_ {};
       shared_ptr<int64_t> totalJobs_ {};
       shared_ptr<int64_t> totalRunningJobs_ {};
       shared_ptr<vector<string>> vSwitchIds_ {};

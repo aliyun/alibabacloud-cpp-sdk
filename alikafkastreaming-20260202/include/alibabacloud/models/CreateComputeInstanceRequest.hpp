@@ -16,13 +16,11 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PaidType, paidType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateComputeInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(PaidType, paidType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
-      DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
     };
     CreateComputeInstanceRequest() = default ;
     CreateComputeInstanceRequest(const CreateComputeInstanceRequest &) = default ;
@@ -36,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->paidType_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceType_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr; };
     // paidType Field Functions 
     bool hasPaidType() const { return this->paidType_ != nullptr;};
     void deletePaidType() { this->paidType_ = nullptr;};
@@ -58,20 +56,12 @@ namespace Models
     inline CreateComputeInstanceRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
-    // resourceType Field Functions 
-    bool hasResourceType() const { return this->resourceType_ != nullptr;};
-    void deleteResourceType() { this->resourceType_ = nullptr;};
-    inline string getResourceType() const { DARABONBA_PTR_GET_DEFAULT(resourceType_, "") };
-    inline CreateComputeInstanceRequest& setResourceType(string resourceType) { DARABONBA_PTR_SET_VALUE(resourceType_, resourceType) };
-
-
   protected:
     // This parameter is required.
     shared_ptr<int64_t> paidType_ {};
     // This parameter is required.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceGroupId_ {};
-    shared_ptr<string> resourceType_ {};
   };
 
   } // namespace Models

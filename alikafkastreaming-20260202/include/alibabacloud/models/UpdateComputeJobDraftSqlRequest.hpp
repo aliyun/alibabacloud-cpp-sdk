@@ -13,14 +13,12 @@ namespace Models
   class UpdateComputeJobDraftSqlRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateComputeJobDraftSqlRequest& obj) { 
-      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(DraftSql, draftSql_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(JobName, jobName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateComputeJobDraftSqlRequest& obj) { 
-      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(DraftSql, draftSql_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(JobName, jobName_);
@@ -37,15 +35,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->draftSql_ == nullptr && this->instanceId_ == nullptr && this->jobName_ == nullptr && this->regionId_ == nullptr; };
-    // clientToken Field Functions 
-    bool hasClientToken() const { return this->clientToken_ != nullptr;};
-    void deleteClientToken() { this->clientToken_ = nullptr;};
-    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
-    inline UpdateComputeJobDraftSqlRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
-
-
+    virtual bool empty() const override { return this->draftSql_ == nullptr
+        && this->instanceId_ == nullptr && this->jobName_ == nullptr && this->regionId_ == nullptr; };
     // draftSql Field Functions 
     bool hasDraftSql() const { return this->draftSql_ != nullptr;};
     void deleteDraftSql() { this->draftSql_ = nullptr;};
@@ -75,7 +66,6 @@ namespace Models
 
 
   protected:
-    shared_ptr<string> clientToken_ {};
     // This parameter is required.
     shared_ptr<string> draftSql_ {};
     // This parameter is required.
