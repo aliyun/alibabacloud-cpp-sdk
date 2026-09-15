@@ -84,12 +84,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> operateType_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource directory.
+    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The type of vulnerability to fix. Set the value to **cve**, which indicates a Linux software vulnerability.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UUIDs of the servers on which you want to fix the vulnerabilities.
+    // The UUIDs of the servers on which you want to fix vulnerabilities.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> uuids_ {};

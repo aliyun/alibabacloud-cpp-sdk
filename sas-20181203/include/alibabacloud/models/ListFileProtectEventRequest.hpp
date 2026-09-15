@@ -154,7 +154,7 @@ namespace Models
   protected:
     // The list of alert notification levels.
     shared_ptr<vector<int32_t>> alertLevels_ {};
-    // The page number of the current page in a paging query.
+    // The number of the page to return in a paged query.
     shared_ptr<int32_t> currentPage_ {};
     // The timestamp of the end time.
     shared_ptr<int64_t> endTime_ {};
@@ -168,13 +168,13 @@ namespace Models
     shared_ptr<string> intranetIp_ {};
     // The type of operation performed on the file. Valid values:
     // 
-    // - **DELETE**: deletes the file.
-    // - **WRITE**: writes to the file.
-    // - **READ**: reads the file.
-    // - **RENAME**: renames the file.
-    // - **CHOWN**: changes the file owner and associated group.
+    // - **DELETE**: Delete the file.
+    // - **WRITE**: Write to the file.
+    // - **READ**: Read the file.
+    // - **RENAME**: Rename the file.
+    // - **CHOWN**: Change the file owner and associated group.
     shared_ptr<string> operation_ {};
-    // The maximum number of entries to return on each page in a paging query.
+    // The maximum number of entries to return on each page in a paged query.
     shared_ptr<string> pageSize_ {};
     // The rule name.
     shared_ptr<string> ruleName_ {};

@@ -79,10 +79,10 @@ namespace Models
     shared_ptr<string> anomalyId_ {};
     // The UUID of the asset associated with the alert event. You can call [DescribeSuspEvents](~~DescribeSuspEvents~~) to obtain the asset UUID. The value is in the data.SuspEvents[index].Uuid path.
     shared_ptr<string> anomalyUuid_ {};
-    // The language type for the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The namespace of the graph. Set this parameter to hundun_dc_online.
     // 

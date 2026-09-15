@@ -153,10 +153,13 @@ namespace Models
   protected:
     // The alert notification level. Valid values:
     // 
-    // - 0: no alert
-    // - 1: reminder
-    // - 2: suspicious
-    // - 3: high-risk.
+    // - 0: No alert.
+    // 
+    // - 1: Reminder.
+    // 
+    // - 2: Suspicious.
+    // 
+    // - 3: High-risk.
     shared_ptr<int32_t> alertLevel_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
@@ -193,14 +196,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
-    // The status of the rule. Valid values:
+    // The rule status. Valid values:
     // 
     // - **0**: Disabled.
     // - **1**: Enabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};
-    // The switch ID associated with the rule.
+    // The switch ID that corresponds to the rule.
     shared_ptr<string> switchId_ {};
   };
 

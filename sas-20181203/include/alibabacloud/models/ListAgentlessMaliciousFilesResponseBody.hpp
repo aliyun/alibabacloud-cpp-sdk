@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of malicious file entries displayed on the current page in a paging query.
+      // The number of malicious files displayed on the current page in a paged query.
       shared_ptr<int32_t> count_ {};
       // The current page number in the returned results.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries returned per page in a paging query.
+      // The maximum number of entries to return per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of malicious files found.
       shared_ptr<int32_t> totalCount_ {};
@@ -212,7 +212,7 @@ namespace Models
         shared_ptr<string> note_ {};
         // The ID of the remark record.
         shared_ptr<string> noteId_ {};
-        // The time of the remark record.
+        // The time of the remark record. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> noteTime_ {};
       };
 
@@ -453,7 +453,7 @@ namespace Models
       shared_ptr<string> downloadUrl_ {};
       // The file path.
       shared_ptr<int64_t> filePath_ {};
-      // The timestamp of the first scan, in milliseconds.
+      // The timestamp of the first scan. Unit: milliseconds.
       shared_ptr<int64_t> firstScanTimestamp_ {};
       // The highlighted text, in JSON string format.
       shared_ptr<string> highLight_ {};
@@ -465,13 +465,13 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp of the latest scan, in milliseconds.
+      // The timestamp of the latest scan. Unit: milliseconds.
       shared_ptr<int64_t> latestScanTimestamp_ {};
       // The severity level. Valid values:
       // 
       // - serious: urgent
       // - suspicious: suspicious
-      // - remind: reminder.
+      // - remind: reminder
       shared_ptr<string> level_ {};
       // The MD5 hash of the malicious file.
       shared_ptr<string> maliciousMd5_ {};
@@ -483,7 +483,7 @@ namespace Models
       shared_ptr<vector<List::Notes>> notes_ {};
       // The alert handling result.
       shared_ptr<string> operateResult_ {};
-      // The timestamp when the alert was handled, in milliseconds.
+      // The timestamp when the alert was handled. Unit: milliseconds.
       shared_ptr<string> operateTimestamp_ {};
       // The disk partition.
       shared_ptr<string> partition_ {};
@@ -493,7 +493,7 @@ namespace Models
       shared_ptr<string> targetName_ {};
       // The object type of the scan target. Valid values:
       // 
-      // - 2: image.
+      // - 2: image
       shared_ptr<string> targetType_ {};
       // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};

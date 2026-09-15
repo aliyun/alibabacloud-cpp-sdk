@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The name of the temporary repair parameter.
+      // The name of the temporary remediation parameter.
       shared_ptr<string> name_ {};
-      // The value of the temporary repair parameter.
+      // The value of the temporary remediation parameter.
       shared_ptr<string> value_ {};
     };
 
@@ -144,15 +144,15 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       // The region ID of the server.
       shared_ptr<string> regionId_ {};
-      // The ID of the task that you want to roll back
+      // The task ID to roll back when performing a rollback task.
       shared_ptr<string> taskId_ {};
-      // The service provider of the asset. Valid values:
+      // The asset vendor. Valid values:
       // 
-      // *   **0**: an asset provided by Alibaba Cloud.
-      // *   **1**: an asset outside Alibaba Cloud.
-      // *   **2**: an asset in a data center.
-      // *   **3**, **4**, **5**, and **7**: an asset from a third-party cloud service provider.
-      // *   **8**: a lightweight asset.
+      // - **0**: Alibaba Cloud asset
+      // - **1**: asset outside the cloud
+      // - **2**: IDC asset
+      // - **3**, **4**, **5**, **7**: asset from another cloud provider
+      // - **8**: lightweight asset
       shared_ptr<string> vendor_ {};
     };
 
@@ -207,27 +207,24 @@ namespace Models
   protected:
     // The ID of the check item.
     // 
-    // >  You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the ID of the check item.
+    // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the check item ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> checkId_ {};
-    // The dimension of the task that you want to submit. Valid values:
-    // 
-    // *   Instance dimension: INSTANCE
-    // *   Check item dimension: CHECK_ID
+    // The task dimension for the submitted operation task. Valid values:
+    // - INSTANCE: instance dimension
+    // - CHECK_ID: check item dimension
     shared_ptr<string> dimensionType_ {};
-    // The asset information required to submit the tasks for instances.
+    // The asset information required to submit instance tasks.
     shared_ptr<vector<SubmitOperationTaskRequest::OperationTaskInstances>> operationTaskInstances_ {};
-    // The key linked to cross-page selections during task submission.
-    // 
-    // >  You can call the [CreateAssetSelectionConfig](~~CreateAssetSelectionConfig~~) operation to query the associated key from the BusinessType field.
+    // The relation key associated with cross-page selection when submitting the operation.
+    // > Call the [CreateAssetSelectionConfig](~~CreateAssetSelectionConfig~~) operation and use the BusinessType field to obtain the relation key.
     shared_ptr<string> relationKey_ {};
-    // The temporary parameters required for the repair task.
+    // The temporary parameters required for the remediation task.
     shared_ptr<vector<SubmitOperationTaskRequest::RepairTempParam>> repairTempParam_ {};
-    // The type of the task that you want to submit. Valid values:
-    // 
-    // *   Repair task: REPAIR
-    // *   Rollback task: ROLLBACK
+    // The task type for the submitted task. Valid values:
+    // - REPAIR: remediation task
+    // - ROLLBACK: rollback task
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

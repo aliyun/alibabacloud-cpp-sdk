@@ -84,11 +84,11 @@ namespace Models
 
 
     protected:
-      // The number of alerts whose Emergency level is Reminder.
+      // The number of security alerts with the Reminder severity level.
       shared_ptr<int32_t> remind_ {};
-      // The number of alerts whose Emergency level is Urgent.
+      // The number of security alerts with the Urgent severity level.
       shared_ptr<int32_t> serious_ {};
-      // The number of alerts whose Emergency level is Suspicious.
+      // The number of security alerts with the Suspicious severity level.
       shared_ptr<int32_t> suspicious_ {};
     };
 
@@ -132,18 +132,17 @@ namespace Models
 
 
   protected:
-    // The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+    // The response code. The value **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
-    // The statistics of alerts by risk level.
+    // The statistics of security alerts by severity level.
     shared_ptr<DescribeEventLevelCountResponseBody::EventLevels> eventLevels_ {};
-    // The error message returned.
+    // The returned message.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

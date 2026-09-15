@@ -119,34 +119,38 @@ namespace Models
 
 
   protected:
-    // The severity of alerts. Valid values:
+    // The alert notification level. Valid values:
     // 
-    // *   0: does not generate alerts
-    // *   1: sends notifications
-    // *   2: suspicious
-    // *   3: high-risk
+    // - 0: no alert
+    // 
+    // - 1: reminder
+    // 
+    // - 2: suspicious
+    // 
+    // - 3: high-risk
     shared_ptr<int32_t> alertLevel_ {};
-    // The operations that you want to perform on the files.
+    // The list of file operations.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> fileOps_ {};
-    // The paths to the files that you want to monitor. Wildcard characters are supported.
+    // The list of file paths to monitor. Wildcards are supported.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> filePaths_ {};
-    // The type of the operating system. Valid values:
+    // The operating system type. Valid values:
     // 
-    // *   **windows**: Windows
-    // *   **linux**: Linux
+    // - **windows**: Windows
+    // - **linux**: Linux
     shared_ptr<string> platform_ {};
-    // The paths to the processes that you want to monitor. Wildcard characters are supported.
+    // The list of process paths to monitor. Wildcards are supported.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> procPaths_ {};
-    // The handling method of the rule. Valid values:
+    // The action that the rule takes on the client. Valid values:
     // 
-    // *   pass: allow
-    // *   alert
+    // - pass: allow
+    // 
+    // - alert: alert
     // 
     // This parameter is required.
     shared_ptr<string> ruleAction_ {};
@@ -154,12 +158,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
-    // Specifies whether to enable the rule. Valid values:
-    // 
-    // *   **1**: yes
-    // *   **0**: no
+    // The rule status. Valid values:
+    // - **1**: Enabled.
+    // - **0**: Disabled.
     shared_ptr<int32_t> status_ {};
-    // The switch ID of the rule.
+    // The switch ID associated with the rule.
     shared_ptr<string> switchId_ {};
   };
 

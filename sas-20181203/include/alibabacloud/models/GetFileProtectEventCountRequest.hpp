@@ -38,10 +38,11 @@ namespace Models
 
 
   protected:
-    // The status of the event. Valid values:
+    // The event filter status. Valid values:
     // 
-    // *   0: unhandled
-    // *   1: handled
+    // - 0: Unhandled.
+    // 
+    // - 1: Handled.
     shared_ptr<int32_t> status_ {};
   };
 

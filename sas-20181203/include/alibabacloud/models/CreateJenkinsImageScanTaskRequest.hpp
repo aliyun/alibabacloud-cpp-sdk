@@ -140,27 +140,27 @@ namespace Models
 
 
   protected:
-    // The digest of the image.
+    // The image summary.
     shared_ptr<string> digest_ {};
-    // The time when the image was created.
+    // The image creation time.
     shared_ptr<int64_t> imageCreate_ {};
-    // The ID of the image.
+    // The image ID.
     shared_ptr<string> imageId_ {};
-    // The size of the image. Unit: bytes.
+    // The image size. Unit: bytes.
     shared_ptr<int64_t> imageSize_ {};
-    // The time when the image was updated.
+    // The image update time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> imageUpdate_ {};
-    // The information about the Jenkins environment.
+    // The Jenkins environment context. Leave this parameter empty or set it to the fixed value: **release**.
     shared_ptr<string> jenkinsEnv_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The name of the image repository.
+    // The repository name.
     shared_ptr<string> repoName_ {};
-    // The source IP address of the request.
+    // The access source IP address.
     shared_ptr<string> sourceIp_ {};
-    // The tag of the image.
+    // The image label.
     shared_ptr<string> tag_ {};
-    // The token that is used to access the Jenkins image repository.
+    // The access token for the Jenkins image repository. Obtain the token from the homepage of the Chinese documentation center > Security Center > User Guide > Container Protection > CI/CD Access Settings. You can also invoke CreateJenkinsImageRegistry to create a CI/CD image repository and obtain the token from the response parameter Data.Token. For an existing repository, invoke PageImageRegistry to query the token.
     shared_ptr<string> token_ {};
     // The UUID of the image asset.
     shared_ptr<string> uuid_ {};

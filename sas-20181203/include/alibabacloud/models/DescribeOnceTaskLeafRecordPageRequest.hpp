@@ -133,12 +133,12 @@ namespace Models
     shared_ptr<string> source_ {};
     // The timestamp of the start time.
     shared_ptr<int64_t> startTime_ {};
-    // The list of statuses.
+    // The status list.
     shared_ptr<vector<string>> statusList_ {};
     // The ID of the task to retrieve.
     shared_ptr<string> taskId_ {};
     // The task type. Valid values:
-    // - **IMAGE_SCAN**: image scanning
+    // - **IMAGE_SCAN**: image scanning.
     // - **IMAGE_REGISTRY_PULL**: image asset synchronization.
     // 
     // This parameter is required.

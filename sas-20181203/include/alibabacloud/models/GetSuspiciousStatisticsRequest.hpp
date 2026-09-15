@@ -62,6 +62,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupIdList_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};

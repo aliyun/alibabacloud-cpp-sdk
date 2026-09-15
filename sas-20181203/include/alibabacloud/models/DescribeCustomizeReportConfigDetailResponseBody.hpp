@@ -241,29 +241,29 @@ namespace Models
 
 
   protected:
-    // The report chart configuration IDs, separated by commas.
+    // The IDs of report chart configurations. Multiple IDs are separated by commas (,).
     shared_ptr<string> chartIds_ {};
     // The group type. Valid values:
     // - **ALIYUN_RG**: ALIYUN_RG.
     // - **SAS_GROUP**: SAS_GROUP.
     shared_ptr<string> groupType_ {};
     // Indicates whether the report is a default report. Valid values:
-    // - **0**: Not a default report.
-    // - **1**: A default report.
+    // - **0**: The report is not a default report.
+    // - **1**: The report is a default report.
     shared_ptr<int32_t> isDefault_ {};
-    // Specifies whether newly added accounts are included by default. Valid values:
+    // Indicates whether newly added accounts are included by default. Valid values:
     // 
-    // - **true**: Included.
-    // - **false**: Not included.
+    // - **true**: Yes.
+    // - **false**: No.
     // > Only version 2.0.0 supports this parameter.
     shared_ptr<bool> memberAccountSyncFlag_ {};
-    // The pinned time.
+    // The pinned time. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> pinnedTime_ {};
-    // The recipient email addresses, separated by commas.
+    // The email addresses of contacts. Multiple email addresses are separated by commas (,).
     shared_ptr<string> recipients_ {};
     // The number of recent days covered by the report statistics.
     shared_ptr<int32_t> reportDays_ {};
-    // The end date for report delivery.
+    // The end date for report sending. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<string> reportEndDate_ {};
     // The report ID.
     shared_ptr<int64_t> reportId_ {};
@@ -271,13 +271,13 @@ namespace Models
     // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> reportLang_ {};
-    // The report delivery time range. Valid values:
+    // The report sending type. Valid values:
     // - **1**: 0:00 to 6:00.
     // - **2**: 6:00 to 12:00.
     // - **3**: 12:00 to 18:00.
     // - **4**: 18:00 to 24:00.
     shared_ptr<string> reportSendType_ {};
-    // The start date for report delivery.
+    // The start date for report sending. The value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<string> reportStartDate_ {};
     // The report status. Valid values:
     //  - **0**: Disabled.
@@ -292,22 +292,22 @@ namespace Models
     shared_ptr<string> reportType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The delivery end time, in the format of HH:mm:ss.
+    // The end time for sending. Format: HH:mm:ss.
     shared_ptr<string> sendEndTime_ {};
-    // The specific execution dates within the delivery period.
+    // The specific execution dates within the sending period.
     shared_ptr<int32_t> sendPeriodDays_ {};
-    // The delivery period type. Valid values:
+    // The sending period type. Valid values:
     // - **DAY**: day.
     // - **WEEK**: week.
     // - **MONTH**: month.
     shared_ptr<string> sendPeriodType_ {};
-    // The delivery start time, in the format of HH:mm:ss.
+    // The start time for sending. Format: HH:mm:ss.
     shared_ptr<string> sendStartTime_ {};
-    // The delivery time, in the format of HH:mm:ss.
+    // The sending time. Format: HH:mm:ss.
     shared_ptr<string> sendTime_ {};
     // The targets within the group.
     shared_ptr<string> targetGroups_ {};
-    // The list of target UIDs, separated by commas.
+    // The list of target UIDs. Multiple UIDs are separated by commas (,).
     shared_ptr<string> targetUids_ {};
     // The title.
     shared_ptr<string> title_ {};

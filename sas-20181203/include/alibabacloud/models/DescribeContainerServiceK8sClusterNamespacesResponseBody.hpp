@@ -83,9 +83,9 @@ namespace Models
 
 
   protected:
-    // The namespaces.
+    // The list of namespaces.
     shared_ptr<vector<DescribeContainerServiceK8sClusterNamespacesResponseBody::K8sClusterNamespaces>> k8sClusterNamespaces_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

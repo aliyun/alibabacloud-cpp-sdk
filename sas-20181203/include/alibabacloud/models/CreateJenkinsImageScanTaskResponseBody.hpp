@@ -105,15 +105,15 @@ namespace Models
 
 
     protected:
-      // The quota for image scan.
+      // The number of scan authorizations.
       shared_ptr<int64_t> imageScanCapacity_ {};
-      // The ID of the image repository.
+      // The repository ID.
       shared_ptr<string> repoId_ {};
-      // The instance ID of the image repository.
+      // The repository instance ID.
       shared_ptr<string> repoInstanceId_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> repoRegionId_ {};
-      // The ID of the scan task.
+      // The scan node ID.
       shared_ptr<string> taskId_ {};
       // The UUID of the image asset.
       shared_ptr<string> uuid_ {};
@@ -138,7 +138,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<CreateJenkinsImageScanTaskResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

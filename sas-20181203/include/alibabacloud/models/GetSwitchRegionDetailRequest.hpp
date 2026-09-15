@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The service switchover type. Valid values:
     // 

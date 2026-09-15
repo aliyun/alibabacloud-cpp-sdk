@@ -103,28 +103,27 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number of the file list to view.
     shared_ptr<string> currentPage_ {};
-    // The ID of the request source. Set the value to **sas**.
+    // The identifier of the request source. Set the value to **sas**.
     shared_ptr<string> from_ {};
     // The ID of the asset group.
     shared_ptr<string> groupId_ {};
-    // The ID of the server group to which the server belongs. The quarantined file is located on the server.
+    // The ID of the server group where the quarantined file is located.
     shared_ptr<int64_t> groupingId_ {};
-    // The number of entries to return on each page.
+    // The maximum number of entries per page in a paged query.
     shared_ptr<string> pageSize_ {};
-    // The unique ID of the quarantined file.
+    // The unique identifier of the quarantined file.
     shared_ptr<string> quaraTag_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // The status of the quarantined file that you want to query. Valid values:
-    // 
-    // *   **quaraFailed**: The file fails to be quarantined.
-    // *   **quaraDone**: The file is quarantined.
-    // *   **quaraing**: The file is being quarantined.
-    // *   **rollbackFailed**: The system fails to cancel quarantining the file.
-    // *   **rollbackDone**: The system cancelled quarantining the file.
-    // *   **rollbacking**: The system is cancelling quarantining the file.
+    // The status of the quarantined files to query. Valid values:  
+    // - **quaraFailed**: Quarantine failed.
+    // - **quaraDone**: Quarantine succeeded.
+    // - **quaraing**: Quarantine in progress.
+    // - **rollbackFailed**: Quarantine rollback failed.
+    // - **rollbackDone**: Quarantine rollback succeeded.
+    // - **rollbacking**: Quarantine rollback in progress.
     shared_ptr<string> status_ {};
   };
 

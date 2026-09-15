@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTAGENTLESSTASKRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_LISTAGENTLESSTASKRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 #include <vector>
 using namespace std;
 using json = nlohmann::json;
@@ -81,9 +82,9 @@ namespace Models
 
 
     protected:
-      // The page number of the current page in a paged query. Paging starts from page 1.
+      // The page number of the current page in a paged query. This parameter implements paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries per page in a paged query. Paging is performed based on this value.
+      // The maximum number of entries per page in a paged query. This parameter implements paging.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -93,6 +94,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const List& obj) { 
         DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+        DARABONBA_PTR_TO_JSON(Extension, extension_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(InternetIp, internetIp_);
@@ -113,6 +115,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, List& obj) { 
         DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+        DARABONBA_PTR_FROM_JSON(Extension, extension_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(InternetIp, internetIp_);
@@ -143,15 +146,24 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->measureSpace_ == nullptr
-        && this->progress_ == nullptr && this->progressByProject_ == nullptr && this->reportDownloadUrl_ == nullptr && this->reportStatus_ == nullptr && this->result_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->targetName_ == nullptr && this->targetType_ == nullptr && this->taskId_ == nullptr
-        && this->taskName_ == nullptr && this->uuid_ == nullptr; };
+        && this->extension_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr
+        && this->measureSpace_ == nullptr && this->progress_ == nullptr && this->progressByProject_ == nullptr && this->reportDownloadUrl_ == nullptr && this->reportStatus_ == nullptr
+        && this->result_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->targetName_ == nullptr && this->targetType_ == nullptr
+        && this->taskId_ == nullptr && this->taskName_ == nullptr && this->uuid_ == nullptr; };
       // endTime Field Functions 
       bool hasEndTime() const { return this->endTime_ != nullptr;};
       void deleteEndTime() { this->endTime_ = nullptr;};
       inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
       inline List& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+      // extension Field Functions 
+      bool hasExtension() const { return this->extension_ != nullptr;};
+      void deleteExtension() { this->extension_ = nullptr;};
+      inline const map<string, string> & getExtension() const { DARABONBA_PTR_GET_CONST(extension_, map<string, string>) };
+      inline map<string, string> getExtension() { DARABONBA_PTR_GET(extension_, map<string, string>) };
+      inline List& setExtension(const map<string, string> & extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
+      inline List& setExtension(map<string, string> && extension) { DARABONBA_PTR_SET_RVALUE(extension_, extension) };
 
 
       // instanceId Field Functions 
@@ -276,6 +288,8 @@ namespace Models
     protected:
       // The end timestamp of the task, in milliseconds.
       shared_ptr<int64_t> endTime_ {};
+      // The extended information of the task. For image security fix subtasks, this field returns the selected vulnerability identifiers and the name of the fixed image. The keys include vulnerabilityIds and outputImageName.
+      shared_ptr<map<string, string>> extension_ {};
       // The instance ID of the asset.
       shared_ptr<string> instanceId_ {};
       // The name of the asset instance.
@@ -284,7 +298,7 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The amount of detected data, in MB.
+      // The amount of data scanned, in MB.
       shared_ptr<int64_t> measureSpace_ {};
       // The task progress.
       shared_ptr<int32_t> progress_ {};
@@ -299,7 +313,7 @@ namespace Models
       //  - **TIMEOUT**: Timed out.
       //  - **FAILED**: Failed.
       shared_ptr<string> reportStatus_ {};
-      // The detection result.
+      // The check result.
       shared_ptr<string> result_ {};
       // The start timestamp of the task, in milliseconds.
       shared_ptr<int64_t> startTime_ {};
@@ -315,7 +329,7 @@ namespace Models
       // The object type. Valid values:
       // 
       // - **1**: snapshot
-      // - **2**: image.
+      // - **2**: image
       shared_ptr<int32_t> targetType_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};

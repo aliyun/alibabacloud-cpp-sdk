@@ -108,13 +108,15 @@ namespace Models
 
 
   protected:
-    // The reason why the vulnerability can be automatically fixed.
+    // The reason for adding the vulnerabilities that can be automatically fixed.
     shared_ptr<string> reason_ {};
-    // The type of the vulnerability. Valid values: -**cve**: Linux software vulnerability -**sys**: Windows system vulnerability
+    // The type of the vulnerability. Valid values:
+    // - **cve**: Linux software vulnerability.
+    // - **sys**: Windows system vulnerability.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The vulnerabilities that can be automatically fixed.
+    // The list of vulnerabilities that can be automatically fixed.
     // 
     // This parameter is required.
     shared_ptr<vector<CreateVulAutoRepairConfigRequest::VulAutoRepairConfigList>> vulAutoRepairConfigList_ {};

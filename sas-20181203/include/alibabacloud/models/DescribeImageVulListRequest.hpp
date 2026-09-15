@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_TO_JSON(Dealed, dealed_);
       DARABONBA_PTR_TO_JSON(Digest, digest_);
+      DARABONBA_PTR_TO_JSON(GroupByAsset, groupByAsset_);
       DARABONBA_PTR_TO_JSON(Image, image_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
       DARABONBA_PTR_FROM_JSON(Dealed, dealed_);
       DARABONBA_PTR_FROM_JSON(Digest, digest_);
+      DARABONBA_PTR_FROM_JSON(GroupByAsset, groupByAsset_);
       DARABONBA_PTR_FROM_JSON(Image, image_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
@@ -86,11 +88,11 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->aliasName_ == nullptr
         && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->containerId_ == nullptr && this->currentPage_ == nullptr && this->dealed_ == nullptr
-        && this->digest_ == nullptr && this->image_ == nullptr && this->instanceId_ == nullptr && this->lang_ == nullptr && this->name_ == nullptr
-        && this->namespace_ == nullptr && this->necessity_ == nullptr && this->pageSize_ == nullptr && this->pod_ == nullptr && this->regionId_ == nullptr
-        && this->repoId_ == nullptr && this->repoInstanceId_ == nullptr && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->repoRegionId_ == nullptr
-        && this->resourceDirectoryAccountId_ == nullptr && this->ruleTag_ == nullptr && this->scanRange_ == nullptr && this->statusList_ == nullptr && this->tag_ == nullptr
-        && this->type_ == nullptr && this->uuids_ == nullptr; };
+        && this->digest_ == nullptr && this->groupByAsset_ == nullptr && this->image_ == nullptr && this->instanceId_ == nullptr && this->lang_ == nullptr
+        && this->name_ == nullptr && this->namespace_ == nullptr && this->necessity_ == nullptr && this->pageSize_ == nullptr && this->pod_ == nullptr
+        && this->regionId_ == nullptr && this->repoId_ == nullptr && this->repoInstanceId_ == nullptr && this->repoName_ == nullptr && this->repoNamespace_ == nullptr
+        && this->repoRegionId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->ruleTag_ == nullptr && this->scanRange_ == nullptr && this->statusList_ == nullptr
+        && this->tag_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr; };
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -138,6 +140,13 @@ namespace Models
     void deleteDigest() { this->digest_ = nullptr;};
     inline string getDigest() const { DARABONBA_PTR_GET_DEFAULT(digest_, "") };
     inline DescribeImageVulListRequest& setDigest(string digest) { DARABONBA_PTR_SET_VALUE(digest_, digest) };
+
+
+    // groupByAsset Field Functions 
+    bool hasGroupByAsset() const { return this->groupByAsset_ != nullptr;};
+    void deleteGroupByAsset() { this->groupByAsset_ = nullptr;};
+    inline bool getGroupByAsset() const { DARABONBA_PTR_GET_DEFAULT(groupByAsset_, false) };
+    inline DescribeImageVulListRequest& setGroupByAsset(bool groupByAsset) { DARABONBA_PTR_SET_VALUE(groupByAsset_, groupByAsset) };
 
 
     // image Field Functions 
@@ -298,32 +307,34 @@ namespace Models
     shared_ptr<string> clusterName_ {};
     // The ID of the container.
     shared_ptr<string> containerId_ {};
-    // The page number of the page to return in a paginated query. Default value: **1**, which indicates the first page.
+    // The page number of the page to return in the query results. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
     // Specifies whether the vulnerability has been handled. Valid values:
-    // - **y**: handled
-    // - **n**: not handled.
+    // - **y**: Handled.
+    // - **n**: Not handled.
     shared_ptr<string> dealed_ {};
     // The unique identifier of the container image.
     shared_ptr<string> digest_ {};
+    // Specifies whether to group results by image asset before pagination. If set to true, one vulnerability record is returned for each asset, and TotalCount indicates the total number of assets. If set to false or not specified, results are paginated by vulnerability record. Asset grouping is not applied when MaxId is specified.
+    shared_ptr<bool> groupByAsset_ {};
     // The name of the container image.
     shared_ptr<string> image_ {};
     // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
-    // The language type of the request and response messages. Default value: **zh**. Valid values:
+    // The language type of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The name of the vulnerability to query.
     shared_ptr<string> name_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The priority level of vulnerability fixing. Valid values:
-    // - **asap**: high-priority vulnerability
-    // - **later**: medium-priority vulnerability
-    // - **nntf**: low-priority vulnerability.
+    // The priority level for fixing the vulnerability. Valid values:
+    // - **asap**: High-priority vulnerability that must be fixed as soon as possible.
+    // - **later**: Medium-priority vulnerability that can be fixed later.
+    // - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
     shared_ptr<string> necessity_ {};
-    // Settings for the number of vulnerabilities to display on each page in a paged query. Default value: **10**, which indicates that 10 vulnerabilities are displayed on each page.
+    // The number of entries per page in a paged query. Default value: **10**, which indicates 10 vulnerability entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The pod.
     shared_ptr<string> pod_ {};
@@ -339,17 +350,19 @@ namespace Models
     shared_ptr<string> repoNamespace_ {};
     // The region ID of the container image repository.
     shared_ptr<string> repoRegionId_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource directory.
+    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The vulnerability tag. Valid values:
     // 
-    // - **AI**: vulnerability related to AI components.
+    // - **AI**: vulnerabilities related to AI components
     shared_ptr<string> ruleTag_ {};
     // The collection of scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
     // The fix status of the vulnerability. Valid values:
-    // - **1**: unfixed
-    // - **4**: being fixed
-    // - **7**: fixed.
+    // - **1**: Unfixed.
+    // - **4**: Being fixed.
+    // - **7**: Fixed.
     shared_ptr<string> statusList_ {};
     // The tag of the container image.
     shared_ptr<string> tag_ {};

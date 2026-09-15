@@ -167,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paged query. Paging starts from page 1.
+    // The page number of the current page in a paged query. This parameter implements paging.
     shared_ptr<int32_t> currentPage_ {};
     // The timestamp of the end time.
     shared_ptr<int64_t> endTime_ {};
@@ -178,11 +178,11 @@ namespace Models
     // The language type. Valid values:  
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The name of the instance.
     shared_ptr<string> machineName_ {};
-    // The maximum number of entries per page in a paged query. Paging is performed based on this value.
+    // The maximum number of entries per page in a paged query. This parameter implements paging.
     shared_ptr<int32_t> pageSize_ {};
     // Specifies whether to query the root task list. Valid values:
     // 
@@ -205,7 +205,7 @@ namespace Models
     // The scan object type. Valid values:
     // 
     // - **1**: snapshot 
-    // - **2**: image.
+    // - **2**: image
     shared_ptr<int32_t> targetType_ {};
     // The ID of the root task. Specify this parameter to query the subtask list of a root task.
     shared_ptr<string> taskId_ {};

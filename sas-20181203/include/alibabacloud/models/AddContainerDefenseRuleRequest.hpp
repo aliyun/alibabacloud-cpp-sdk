@@ -97,13 +97,11 @@ namespace Models
 
 
     protected:
-      // The hash values of the files that need to be added to the whitelist.
-      // 
-      // > This parameter is not supported.
+      // The file hash.>Notice: This parameter is not supported.
       shared_ptr<vector<string>> hash_ {};
-      // The images that need to be added to the whitelist.
+      // The list of images to whitelist.
       shared_ptr<vector<string>> image_ {};
-      // The paths to the files that need to be added to the whitelist.
+      // The list of file paths to whitelist.
       shared_ptr<vector<string>> path_ {};
     };
 
@@ -158,14 +156,14 @@ namespace Models
     protected:
       // Specifies whether to include all namespaces. Valid values:
       // 
-      // *   **0**: You can use the Namespaces parameter to specify the namespaces to include.
-      // *   **1**: All namespaces are included.
-      shared_ptr<int32_t> allNamespace_ {};
-      // The ID of the cluster.
+      // - **0**: Specifies the namespaces to include by using the Namespaces parameter.
       // 
-      // >  You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
+      // - **1**: Includes all namespaces.
+      shared_ptr<int32_t> allNamespace_ {};
+      // The cluster ID.
+      // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
       shared_ptr<string> clusterId_ {};
-      // The namespaces to include.
+      // The list of included namespaces.
       shared_ptr<vector<string>> namespaces_ {};
     };
 
@@ -233,29 +231,30 @@ namespace Models
 
 
   protected:
-    // The description of the rule.
+    // The description.
     shared_ptr<string> description_ {};
-    // The action that is performed when the rule is hit. Valid values:
+    // The action to take when the rule is matched. Valid values:
     // 
-    // *   **1**: alert
-    // *   **2**: block
+    // - **1**: Alert.
+    // 
+    // - **2**: Block.
     shared_ptr<int32_t> ruleAction_ {};
-    // The ID of the rule. You do not need to manually specify the ID.
+    // The rule ID. You do not need to specify this parameter when creating a rule.
     shared_ptr<int64_t> ruleId_ {};
-    // The name of the rule.
+    // The rule name.
     shared_ptr<string> ruleName_ {};
-    // The switch of the rule. Valid values:
+    // The rule switch. Valid values:
     // 
-    // *   **0**: off
-    // *   **1**: on
+    // - **0**: Disabled.
+    // 
+    // - **1**: Enabled.
     shared_ptr<int32_t> ruleSwitch_ {};
     // The rule type. Valid values:
+    // - 2: user rule
     // 
-    // *   2: user-defined rules
-    // 
-    // > Only the value 2 is supported.
+    // >Notice: Only the value 2 is supported.
     shared_ptr<int32_t> ruleType_ {};
-    // The scope.
+    // The scope. This parameter is required. Specify at least one Scope entry, such as Scope.1.AllNamespace=1, which indicates that the rule applies to all namespaces. If this parameter is not specified, the API returns a 400 error.
     shared_ptr<vector<AddContainerDefenseRuleRequest::Scope>> scope_ {};
     // The whitelist.
     shared_ptr<AddContainerDefenseRuleRequest::Whitelist> whitelist_ {};

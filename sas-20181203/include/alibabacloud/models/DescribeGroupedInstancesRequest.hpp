@@ -130,54 +130,56 @@ namespace Models
 
 
   protected:
-    // The page number from which query results start to be displayed. Default value: **1**, indicating that query results are displayed starting from page 1.
+    // The page number of the first page to return. Default value: **1**, which indicates that the query results are returned starting from page 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the asset group to query. Fuzzy search is supported.
+    // The name of the asset group to query. Fuzzy match is supported.
     shared_ptr<string> fieldValue_ {};
     // The filter condition for querying assets. Valid values:
     // 
-    // - **groupId**: queries assets by group.
+    // - **groupId**: queries assets by asset group.
     // - **regionId**: queries assets by region.
-    // - **vpcInstanceId**: queries assets by Virtual Private Cloud (VPC).
+    // - **vpcInstanceId**: queries assets by virtual private cloud (VPC).
     // 
     // This parameter is required.
     shared_ptr<string> groupField_ {};
-    // The language type for requests and responses. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The type of assets to query. Fixed value: **ecs**, indicating Elastic Compute Service (ECS) instances.
+    // The type of assets to query. Set the value to **ecs**, which indicates Elastic Compute Service (ECS) instances.
     shared_ptr<string> machineTypes_ {};
-    // Specifies whether to enable paginated queries. Default value: **true**. Valid values:
-    // - **true**: enables paginated queries.
-    // - **false**: disables paginated queries.
+    // Settings for whether to enable paged query. Default value: **true**. Valid values:
+    // - **true**: Paged query is enabled.
+    // - **false**: Paged query is disabled. Paging is not performed.
     shared_ptr<bool> noPage_ {};
-    // The number of entries per page in a paginated query. Default value: **20**, indicating that 20 entries of asset information are displayed per page.
+    // The number of entries per page in a paged query. Default value: **20**, which indicates that 20 entries of asset information are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The ID of the Alibaba Cloud account that is added as a member of a resource folder for member accounts.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The edition filter for querying assets. Valid values:
+    // The edition-based filter condition for querying assets. Valid values:
     // 
-    // - **sas_gte_advanced**: Advanced edition or higher
-    // - **sas_gte_enterprise**: Enterprise edition or higher
-    // - **sas_gt_basic**: paid editions
-    // - **sas_eq_advanced**: Advanced edition only
-    // - **sas_gt_anti_virus**: editions higher than Anti-virus edition
+    // - **sas_gte_advanced**: Advanced Edition or higher
+    // - **sas_gte_enterprise**: Enterprise Edition or higher
+    // - **sas_gt_basic**: paid edition
+    // - **sas_eq_advanced**: Advanced Edition
+    // - **sas_gt_anti_virus**: higher than Anti-virus Edition
     shared_ptr<string> saleVersionCheckCode_ {};
     // The server vendor. Valid values:
     // 
-    // - **0**: Alibaba Cloud assets
-    // - **1**: non-cloud assets
-    // - **2**: IDC assets
-    // - **3**, **4**, **5**, **7**: assets from other cloud providers
-    // - **8**: lightweight assets
+    // - **0**: Alibaba Cloud asset
+    // - **1**: non-cloud asset
+    // - **2**: IDC asset
+    // - **3**, **4**, **5**, **7**: third-party cloud asset
+    // - **8**: lightweight asset
     shared_ptr<int32_t> vendor_ {};
     // The server vendors. Separate multiple vendors with commas (,). Valid values:
     // 
-    // - **0**: Alibaba Cloud assets
-    // - **1**: non-cloud assets
-    // - **2**: IDC assets
-    // - **3**, **4**, **5**, **7**: assets from other cloud providers
-    // - **8**: lightweight assets
+    // - **0**: Alibaba Cloud asset
+    // - **1**: non-cloud asset
+    // - **2**: IDC asset
+    // - **3**, **4**, **5**, **7**: third-party cloud asset
+    // - **8**: lightweight asset
     shared_ptr<string> vendors_ {};
   };
 

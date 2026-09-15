@@ -81,9 +81,9 @@ namespace Models
 
 
     protected:
-      // The page number of the current page in a paging query.
+      // The number of the page to return in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries returned per page in a paging query.
+      // The maximum number of entries returned per page in a paged query.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -276,19 +276,19 @@ namespace Models
     protected:
       // The alert notification level. Valid values:
       // 
-      // - 0: no alert
+      // - 0: No alert.
       // 
-      // - 1: reminder
+      // - 1: Reminder.
       // 
-      // - 2: suspicious
+      // - 2: Suspicious.
       // 
-      // - 3: high-risk.
+      // - 3: High-risk.
       shared_ptr<int32_t> alertLevel_ {};
       // The command line of the event.
       shared_ptr<string> cmdLine_ {};
-      // The file path on which the process operates.
+      // The file path on which the process operated.
       shared_ptr<string> filePath_ {};
-      // The time when the event was handled.
+      // The time when the event was handled. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> handleTime_ {};
       // The event ID.
       shared_ptr<int64_t> id_ {};
@@ -298,13 +298,13 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address of the asset.
       shared_ptr<string> intranetIp_ {};
-      // The most recent time when the event occurred.
+      // The most recent time when the event occurred. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> latestTime_ {};
       // The operation performed by the process on the file.
       shared_ptr<string> operation_ {};
       // The operating system type. Valid values:
       // 
-      // - **windows**: Windows
+      // - **windows**: Windows.
       // - **linux**: Linux.
       shared_ptr<string> platform_ {};
       // The process path.
@@ -360,7 +360,7 @@ namespace Models
     shared_ptr<vector<ListFileProtectEventResponseBody::EventList>> eventList_ {};
     // The pagination information of the query result.
     shared_ptr<ListFileProtectEventResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

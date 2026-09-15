@@ -75,36 +75,39 @@ namespace Models
 
 
   protected:
-    // The alert name.
+    // The alert name. The EventName and EventType parameters must be specified together. If only one of them is specified, the API returns a 400 error.
     shared_ptr<string> eventName_ {};
-    // The alert event type. Valid values:
+    // The type of the alerting event. Valid values:
     // 
-    // *   Suspicious process
-    // *   Webshell
-    // *   Unusual logon
-    // *   Exception
-    // *   Sensitive file tampering
-    // *   Malicious process (cloud threat detection)
-    // *   Unusual network connection
-    // *   Abnormal account
-    // *   Application intrusion event
-    // *   Cloud threat detection
-    // *   Precision defense
-    // *   Application whitelist
-    // *   Persistent webshell
-    // *   Web application threat detection
-    // *   Malicious script
-    // *   Threat intelligence
-    // *   Malicious network activity
-    // *   Cluster exception
-    // *   Webshell (on-premises threat detection)
-    // *   Vulnerability exploitation
-    // *   Malicious process (on-premises threat detection)
-    // *   Trusted exception
-    // *   Others
+    // - Abnormal process behavior
+    // - Web shell
+    // - Unusual logon
+    // - Abnormal event
+    // - Sensitive file tampering
+    // - Malicious process (cloud scan)
+    // - Suspicious network connection
+    // - Abnormal account
+    // - Application intrusion event
+    // - Cloud service threat detection
+    // - Precise defense
+    // - Application whitelist
+    // - Persistent backdoor
+    // - Web application threat detection
+    // - Malicious script
+    // - Threat intelligence
+    // - Malicious network behavior
+    // - Container cluster exception
+    // - Web shell (local scan)
+    // - Vulnerability exploits
+    // - Malicious process (local scan)
+    // - Trusted exception
+    // - Other
     // 
-    // For more information about alert types, see [Alerts](https://help.aliyun.com/document_detail/68388.html).
+    // For more information about alert types, see [Security alert check items](https://help.aliyun.com/document_detail/68388.html).
+    // 
+    // The EventName and EventType parameters must be specified together. If only one of them is specified, the API returns a 400 error.
     shared_ptr<string> eventType_ {};
+    // The member account ID in the resource directory (Alibaba Cloud account).
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The rule ID.

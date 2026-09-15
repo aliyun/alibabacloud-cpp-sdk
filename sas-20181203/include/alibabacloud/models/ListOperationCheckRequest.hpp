@@ -87,11 +87,11 @@ namespace Models
 
 
     protected:
-      // Cloud asset instance ID.
+      // The cloud asset instance ID.
       shared_ptr<string> instanceId_ {};
-      // Region ID.
+      // The region ID.
       shared_ptr<string> regionId_ {};
-      // Asset vendor. Values:
+      // The asset vendor. Valid values:
       // 
       // - **ALIYUN**: Alibaba Cloud
       shared_ptr<string> vendor_ {};
@@ -144,24 +144,25 @@ namespace Models
 
 
   protected:
-    // Check item ID.
-    // > Obtain this parameter by calling the [ListCheckResult](~~ListCheckResult~~) interface.
+    // The check item ID.
+    // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain this parameter.
+    // This parameter is required. If you do not specify this parameter, the API returns a 400 error.
     shared_ptr<int64_t> checkId_ {};
-    // Timestamp (in milliseconds) of the end time of the queried task.
+    // The timestamp of the task end time to query. Unit: milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // Language type for request and response messages, default value is zh. Values:
+    // The language of the request and response. Default value: zh. Valid values:
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // Information about the operated instances.
+    // The information about the instances on which the operation is performed.
     // 
     // This parameter is required.
     shared_ptr<vector<ListOperationCheckRequest::OperationTaskInstances>> operationTaskInstances_ {};
-    // Timestamp (in milliseconds) of the start time of the queried task.
+    // The timestamp of the task start time to query. Unit: milliseconds.
     shared_ptr<int64_t> startTime_ {};
-    // Task type corresponding to the task:
-    // - **REPAIR**: Repair task
-    // - **ROLLBACK**: Rollback task
+    // The task type. Valid values:
+    // - **REPAIR**: fix task
+    // - **ROLLBACK**: rollback task
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

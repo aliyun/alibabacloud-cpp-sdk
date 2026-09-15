@@ -57,23 +57,30 @@ namespace Models
 
 
   protected:
-    // The AccessKey ID.
+    // The unique ID of the AccessKey pair.
     // 
-    // >  [](#-describecloudvendoraccountaklist--authid)You can call the [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) operation to query the AccessKey ID.
+    // > You can call [DescribeCloudVendorAccountAKList](~~DescribeCloudVendorAccountAKList~~) to obtain the AuthId.
+    // > -
     // 
     // This parameter is required.
     shared_ptr<int64_t> authId_ {};
-    // The configurations of the third-party cloud asset. Valid values:
-    // 
-    // *   *AWS*: Configure the sqsQueueName and sqsRegion parameters.
-    // *   *Tencent*: Configure the kafkaUserName, kafkaBootstrapServers, and kafkaTopic parameters.
+    // The multi-cloud configuration information:
+    // - *AWS*: Input parameters sqsQueueName and sqsRegion.
+    // - *Tencent*: Input parameters kafkaUserName, kafkaBootstrapServers, and kafkaTopic.
     // 
     // This parameter is required.
     shared_ptr<string> authInfo_ {};
-    // The service provider of the cloud asset. Valid values:
+    // The cloud asset vendor. Valid values:
     // 
-    // *   **Tencent**: Tencent Cloud.
-    // *   **AWS**: Amazon Web Services (AWS).
+    // - **Tencent**: Tencent Cloud.
+    // - **HUAWEICLOUD**: Huawei Cloud.
+    // - **Azure**: Azure.
+    // - **AWS**: AWS.
+    // - **VOLCENGINE**: Volcengine.
+    // - **google**: Google Cloud.
+    // - **CHAITIN**: Chaitin Technology.
+    // - **FORTINET**: Fortinet.
+    // - **THREATBOOK**: ThreatBook.
     // 
     // This parameter is required.
     shared_ptr<string> vendor_ {};

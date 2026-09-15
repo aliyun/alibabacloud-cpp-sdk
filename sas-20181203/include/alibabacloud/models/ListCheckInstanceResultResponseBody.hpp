@@ -96,11 +96,11 @@ namespace Models
     protected:
       // The number of entries returned on the current page.
       shared_ptr<string> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page in a paged query. This parameter is used for paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page in a paged query. This parameter is used for paging.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -180,15 +180,14 @@ namespace Models
 
 
       protected:
-        // The search condition.
+        // The search value.
         shared_ptr<string> key_ {};
-        // The display name of the search condition.
+        // The search display name.
         shared_ptr<string> showName_ {};
-        // The format of the check result for the instance. Valid values:
+        // The type of the check instance result. Valid values:
         // 
-        // - **text**
-        // 
-        // - **link**
+        // - **text**: text
+        // - **link**: link
         shared_ptr<string> type_ {};
       };
 
@@ -239,25 +238,22 @@ namespace Models
 
 
     protected:
-      // The metadata information about the details of the instance.
+      // The list of list-type metadata.
       shared_ptr<vector<Columns::Grids>> grids_ {};
-      // The search condition.
+      // The key of the list property.
       shared_ptr<string> key_ {};
-      // Indicates whether the search condition is used. Valid values:
-      // 
-      // - **true**
-      // 
-      // - **false**
+      // Indicates whether search is supported. Valid values:
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> search_ {};
-      // The search key.
+      // The key used for search.
       shared_ptr<string> searchKey_ {};
-      // The display name of the search condition.
+      // The display name.
       shared_ptr<string> showName_ {};
-      // The type of the check result for the instance. Valid values:
+      // The property type of the check instance result. Valid values:
       // 
-      // - **text**
-      // 
-      // - **link**
+      // - **text**: text
+      // - **link**: link
       shared_ptr<string> type_ {};
     };
 
@@ -364,11 +360,11 @@ namespace Models
 
 
         protected:
-          // The name of the configuration item, which is unique.
+          // The unique name of the corresponding configuration.
           shared_ptr<string> name_ {};
-          // The display name of the configuration item for internationalization.
+          // The internationalized name of the corresponding configuration item.
           shared_ptr<string> showName_ {};
-          // The value of the configuration item specified for the instance.
+          // The value of the corresponding configuration for the current asset.
           shared_ptr<string> value_ {};
         };
 
@@ -398,11 +394,11 @@ namespace Models
 
 
       protected:
-        // The information about the configuration item whose risks are fixed for the instance.
+        // The current instance information displayed for the corresponding remediation configuration.
         shared_ptr<vector<InstanceInfo::Config>> config_ {};
-        // The time of the first check.
+        // The time of the first check. The value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> firstUpdateTime_ {};
-        // The time of the last check.
+        // The time of the latest check. The value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> lastUpdateTime_ {};
       };
 
@@ -468,31 +464,28 @@ namespace Models
 
 
     protected:
-      // The ID of the check result for the instance.
+      // The check result ID of the instance.
       shared_ptr<int64_t> id_ {};
       // The instance ID of the server.
       shared_ptr<string> instanceId_ {};
-      // The information about the instance on which the check item is used.
+      // The instance information displayed for the corresponding check item.
       shared_ptr<BasicData::InstanceInfo> instanceInfo_ {};
-      // The instance name of the server.
+      // The name of the server instance.
       shared_ptr<string> instanceName_ {};
       // The region ID of the instance.
       shared_ptr<string> regionId_ {};
-      // The states of check items. Multiple states are separated with commas (,). Valid values:
+      // The status list of the check item. Multiple statuses are separated by commas (,). Valid values:
       // 
-      // - **PASS**: passed
-      // 
-      // - **NOT_PASS**: failed
-      // 
-      // - **CHECKING**: being checked
-      // 
-      // - **NOT_CHECK**: not checked
-      // 
-      // - **WHITELIST**: added to the whitelist
+      // - **PASS**: Passed.
+      // - **NOT_PASS**: Failed.
+      // - **CHECKING**: Being checked.
+      // - **NOT_CHECK**: Not checked.
+      // - **WHITELIST**: Whitelisted.
+      // - **FAILED**: Failed.
       shared_ptr<string> status_ {};
-      // The exception message of the check item.
+      // The exception status message of the check item.
       shared_ptr<string> statusMessage_ {};
-      // The multi-cloud provider account name.
+      // The multi-cloud vendor account name.
       shared_ptr<string> vendorUserName_ {};
     };
 
@@ -542,15 +535,15 @@ namespace Models
 
 
   protected:
-    // The basic information about the affected instances.
+    // The list of basic information about affected instances.
     shared_ptr<vector<ListCheckInstanceResultResponseBody::BasicData>> basicData_ {};
-    // The extended information about the instances.
+    // The list of extended information about affected instances.
     shared_ptr<vector<Darabonba::Json>> checks_ {};
-    // The metadata information about the search conditions that can be used to filter instances.
+    // The metadata of the affected instance information display list.
     shared_ptr<vector<ListCheckInstanceResultResponseBody::Columns>> columns_ {};
-    // The pagination information.
+    // The paging information displayed on the page in a paged query.
     shared_ptr<ListCheckInstanceResultResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

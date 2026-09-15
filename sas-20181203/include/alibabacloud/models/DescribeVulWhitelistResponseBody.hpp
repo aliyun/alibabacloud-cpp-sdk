@@ -201,17 +201,17 @@ namespace Models
 
 
   protected:
-    // The number of entries on the current page in paging.
+    // The number of entries on the current page when paging.
     shared_ptr<int32_t> count_ {};
-    // The page number of the current page in paging.
+    // The current page number when paging.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page in paging.
+    // The number of entries per page when paging.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of whitelisted vulnerabilities.
+    // The list of vulnerability whitelist entries.
     shared_ptr<vector<DescribeVulWhitelistResponseBody::VulWhitelists>> vulWhitelists_ {};
   };
 

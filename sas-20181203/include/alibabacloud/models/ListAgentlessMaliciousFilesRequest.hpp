@@ -143,14 +143,14 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paging query.
+    // The page number of the current page in a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
     // Specifies whether the alert has been handled. Valid values:
     // 
     // - Y: handled
-    // - N: not handled.
+    // - N: not handled
     shared_ptr<string> dealed_ {};
     // The event ID.
     shared_ptr<int64_t> eventId_ {};
@@ -159,17 +159,17 @@ namespace Models
     shared_ptr<string> fuzzyMaliciousName_ {};
     // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The severity levels. Separate multiple values with commas (,). Valid values:
     // 
     // - serious: urgent
     // - suspicious: suspicious
-    // - remind: reminder.
+    // - remind: reminder
     shared_ptr<string> levels_ {};
     // The MD5 hash of the malicious file.
     shared_ptr<string> maliciousMd5_ {};
-    // The Alarm Metric.
+    // The alerting type.
     // 
     // If Lang is set to zh, valid values:
     // 
@@ -181,15 +181,15 @@ namespace Models
     // 
     // - WebShell: WebShell
     // - Malicious Software: malware
-    // - Malicious Script: malicious script.
+    // - Malicious Script: malicious script
     shared_ptr<string> maliciousType_ {};
-    // The maximum number of entries to return per page in a paging query.
+    // The maximum number of entries to return per page in a paged query.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};
     // The asset information to query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
-    // The file source.
+    // The file sources.
     shared_ptr<vector<string>> scanRange_ {};
     // The unique identifier of the asset.
     shared_ptr<string> uuid_ {};

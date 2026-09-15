@@ -57,16 +57,14 @@ namespace Models
 
 
   protected:
-    // The ID of the cluster to which the container belongs.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to query the IDs of clusters.
+    // The ID of the container cluster.
+    // > You can call the [DescribeGroupedContainerInstances](https://help.aliyun.com/document_detail/182997.html) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The ID of the container.
+    // The container ID.
     shared_ptr<string> containerIds_ {};
     // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
   };
 

@@ -199,20 +199,20 @@ namespace Models
       shared_ptr<int32_t> assetVendor_ {};
       // The list of check items associated with the operation subtask.
       shared_ptr<vector<ProcessDetails::Checks>> checks_ {};
-      // The timestamp when the task was created, in milliseconds.
+      // The timestamp when the task was created. Unit: milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The operation subtask ID.
       shared_ptr<string> detailTaskId_ {};
-      // The timestamp when the operation subtask ended, in milliseconds.
+      // The timestamp when the operation subtask ended. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
-      // The timestamp when the operation subtask started, in milliseconds.
+      // The timestamp when the operation subtask started. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
       // The operation subtask status code. Valid values:
-      // - 0: not started.
-      // - 1: checking.
-      // - 2: succeeded.
-      // - 3: timed out.
-      // - 4: failed.
+      // - 0: Not started.
+      // - 1: Checking.
+      // - 2: Succeeded.
+      // - 3: Timed out.
+      // - 4: Failed.
       shared_ptr<int32_t> statusCode_ {};
       // The operation subtask ID.
       shared_ptr<string> taskId_ {};
@@ -278,7 +278,7 @@ namespace Models
       shared_ptr<int32_t> count_ {};
       // The page number of the current page in a paged query.
       shared_ptr<int32_t> currentPage_ {};
-      // The page size.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -316,7 +316,7 @@ namespace Models
     shared_ptr<ListOperationProcessDetailResponseBody::PageInfo> pageInfo_ {};
     // The list of operation subtask information.
     shared_ptr<vector<ListOperationProcessDetailResponseBody::ProcessDetails>> processDetails_ {};
-    // The unique request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

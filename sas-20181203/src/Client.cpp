@@ -427,7 +427,7 @@ AddClientUserDefineRuleResponse Client::addClientUserDefineRule(const AddClientU
 }
 
 /**
- * @summary Adds the configuration information of multi-cloud assets.
+ * @summary Adds multi-cloud asset configuration information.
  *
  * @param request AddCloudVendorAccountAKRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -506,7 +506,7 @@ AddCloudVendorAccountAKResponse Client::addCloudVendorAccountAKWithOptions(const
 }
 
 /**
- * @summary Adds the configuration information of multi-cloud assets.
+ * @summary Adds multi-cloud asset configuration information.
  *
  * @param request AddCloudVendorAccountAKRequest
  * @return AddCloudVendorAccountAKResponse
@@ -517,7 +517,7 @@ AddCloudVendorAccountAKResponse Client::addCloudVendorAccountAK(const AddCloudVe
 }
 
 /**
- * @summary Adds configurations of connecting the audit logs of a third-party cloud asset.
+ * @summary Adds an audit log access configuration for third-party cloud assets.
  *
  * @param request AddCloudVendorTrialConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -556,7 +556,7 @@ AddCloudVendorTrialConfigResponse Client::addCloudVendorTrialConfigWithOptions(c
 }
 
 /**
- * @summary Adds configurations of connecting the audit logs of a third-party cloud asset.
+ * @summary Adds an audit log access configuration for third-party cloud assets.
  *
  * @param request AddCloudVendorTrialConfigRequest
  * @return AddCloudVendorTrialConfigResponse
@@ -567,7 +567,7 @@ AddCloudVendorTrialConfigResponse Client::addCloudVendorTrialConfig(const AddClo
 }
 
 /**
- * @summary Creates a rule for non-image program defense.
+ * @summary Creates a non-image process defense rule.
  *
  * @param tmpReq AddContainerDefenseRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -632,7 +632,7 @@ AddContainerDefenseRuleResponse Client::addContainerDefenseRuleWithOptions(const
 }
 
 /**
- * @summary Creates a rule for non-image program defense.
+ * @summary Creates a non-image process defense rule.
  *
  * @param request AddContainerDefenseRuleRequest
  * @return AddContainerDefenseRuleResponse
@@ -1517,7 +1517,7 @@ AddVpcHoneyPotResponse Client::addVpcHoneyPot(const AddVpcHoneyPotRequest &reque
 }
 
 /**
- * @summary Queries the configurations of an advanced whitelist rule.
+ * @summary Queries the advanced whitelist editing information.
  *
  * @param request AdvanceSecurityEventOperationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1564,7 +1564,7 @@ AdvanceSecurityEventOperationsResponse Client::advanceSecurityEventOperationsWit
 }
 
 /**
- * @summary Queries the configurations of an advanced whitelist rule.
+ * @summary Queries the advanced whitelist editing information.
  *
  * @param request AdvanceSecurityEventOperationsRequest
  * @return AdvanceSecurityEventOperationsResponse
@@ -2083,7 +2083,7 @@ ChangeCheckConfigResponse Client::changeCheckConfig(const ChangeCheckConfigReque
 }
 
 /**
- * @summary Modifies the custom configuration items of a check item.
+ * @summary Modifies the custom configuration of a check item.
  *
  * @param request ChangeCheckCustomConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2126,7 +2126,7 @@ ChangeCheckCustomConfigResponse Client::changeCheckCustomConfigWithOptions(const
 }
 
 /**
- * @summary Modifies the custom configuration items of a check item.
+ * @summary Modifies the custom configuration of a check item.
  *
  * @param request ChangeCheckCustomConfigRequest
  * @return ChangeCheckCustomConfigResponse
@@ -2137,7 +2137,7 @@ ChangeCheckCustomConfigResponse Client::changeCheckCustomConfig(const ChangeChec
 }
 
 /**
- * @summary Modifies the configuration instance of a check scope.
+ * @summary Modifies the check scope configuration instance.
  *
  * @param request ChangeCheckScopeConfigInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2158,6 +2158,10 @@ ChangeCheckScopeConfigInstanceResponse Client::changeCheckScopeConfigInstanceWit
     query["DeleteAssetUuids"] = request.getDeleteAssetUuids();
   }
 
+  if (!!request.hasSelectionKey()) {
+    query["SelectionKey"] = request.getSelectionKey();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2176,7 +2180,7 @@ ChangeCheckScopeConfigInstanceResponse Client::changeCheckScopeConfigInstanceWit
 }
 
 /**
- * @summary Modifies the configuration instance of a check scope.
+ * @summary Modifies the check scope configuration instance.
  *
  * @param request ChangeCheckScopeConfigInstanceRequest
  * @return ChangeCheckScopeConfigInstanceResponse
@@ -2187,7 +2191,7 @@ ChangeCheckScopeConfigInstanceResponse Client::changeCheckScopeConfigInstance(co
 }
 
 /**
- * @summary Modifies the details of the deduction modules of the security score feature, including custom settings.
+ * @summary Modifies custom security score rules.
  *
  * @param request ChangeSecurityScoreRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2234,7 +2238,7 @@ ChangeSecurityScoreRuleResponse Client::changeSecurityScoreRuleWithOptions(const
 }
 
 /**
- * @summary Modifies the details of the deduction modules of the security score feature, including custom settings.
+ * @summary Modifies custom security score rules.
  *
  * @param request ChangeSecurityScoreRuleRequest
  * @return ChangeSecurityScoreRuleResponse
@@ -2465,7 +2469,7 @@ CheckUserHasEcsResponse Client::checkUserHasEcs(const CheckUserHasEcsRequest &re
 }
 
 /**
- * @summary Confirms the alert events that you want to handle.
+ * @summary Confirms the handling of a trojan scan alert.
  *
  * @param request ConfirmVirusEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2504,7 +2508,7 @@ ConfirmVirusEventsResponse Client::confirmVirusEventsWithOptions(const ConfirmVi
 }
 
 /**
- * @summary Confirms the alert events that you want to handle.
+ * @summary Confirms the handling of a trojan scan alert.
  *
  * @param request ConfirmVirusEventsRequest
  * @return ConfirmVirusEventsResponse
@@ -2586,6 +2590,10 @@ CreateAgentlessScanTaskResponse Client::createAgentlessScanTaskWithOptions(const
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasFrom()) {
+    query["From"] = request.getFrom();
+  }
+
   if (!!request.hasRegionId()) {
     query["RegionId"] = request.getRegionId();
   }
@@ -2594,12 +2602,20 @@ CreateAgentlessScanTaskResponse Client::createAgentlessScanTaskWithOptions(const
     query["ReleaseAfterScan"] = request.getReleaseAfterScan();
   }
 
+  if (!!request.hasResourceRegionId()) {
+    query["ResourceRegionId"] = request.getResourceRegionId();
+  }
+
   if (!!request.hasScanDataDisk()) {
     query["ScanDataDisk"] = request.getScanDataDisk();
   }
 
   if (!!request.hasTargetType()) {
     query["TargetType"] = request.getTargetType();
+  }
+
+  if (!!request.hasTargets()) {
+    query["Targets"] = request.getTargets();
   }
 
   if (!!request.hasUuidList()) {
@@ -2815,7 +2831,7 @@ CreateAttackPathSensitiveAssetConfigResponse Client::createAttackPathSensitiveAs
 }
 
 /**
- * @summary Create Attack Path Whitelist.
+ * @summary Creates an attack path whitelist.
  *
  * @param request CreateAttackPathWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2866,7 +2882,7 @@ CreateAttackPathWhitelistResponse Client::createAttackPathWhitelistWithOptions(c
 }
 
 /**
- * @summary Create Attack Path Whitelist.
+ * @summary Creates an attack path whitelist.
  *
  * @param request CreateAttackPathWhitelistRequest
  * @return CreateAttackPathWhitelistResponse
@@ -2943,7 +2959,7 @@ CreateAttestorResponse Client::createAttestor(const CreateAttestorRequest &reque
 }
 
 /**
- * @summary Creates an anti-ransomware policy for server protection.
+ * @summary Creates an anti-ransomware policy for servers.
  *
  * @param tmpReq CreateBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3004,7 +3020,7 @@ CreateBackupPolicyResponse Client::createBackupPolicyWithOptions(const CreateBac
 }
 
 /**
- * @summary Creates an anti-ransomware policy for server protection.
+ * @summary Creates an anti-ransomware policy for servers.
  *
  * @param request CreateBackupPolicyRequest
  * @return CreateBackupPolicyResponse
@@ -3127,7 +3143,7 @@ CreateBinarySecurityPolicyResponse Client::createBinarySecurityPolicy(const Crea
 }
 
 /**
- * @summary User creates a custom check item
+ * @summary Creates a custom check item in the Cloud Security Posture Management (CSPM) custom check item feature.
  *
  * @param tmpReq CreateCheckItemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3216,7 +3232,7 @@ CreateCheckItemResponse Client::createCheckItemWithOptions(const CreateCheckItem
 }
 
 /**
- * @summary User creates a custom check item
+ * @summary Creates a custom check item in the Cloud Security Posture Management (CSPM) custom check item feature.
  *
  * @param request CreateCheckItemRequest
  * @return CreateCheckItemResponse
@@ -3331,7 +3347,7 @@ CreateContainerScanTaskResponse Client::createContainerScanTask(const CreateCont
 }
 
 /**
- * @summary Creates a scan task for a running container application based on the application name.
+ * @summary Creates a container runtime scan task in the appNames dimension.
  *
  * @param request CreateContainerScanTaskByAppNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3370,7 +3386,7 @@ CreateContainerScanTaskByAppNameResponse Client::createContainerScanTaskByAppNam
 }
 
 /**
- * @summary Creates a scan task for a running container application based on the application name.
+ * @summary Creates a container runtime scan task in the appNames dimension.
  *
  * @param request CreateContainerScanTaskByAppNameRequest
  * @return CreateContainerScanTaskByAppNameResponse
@@ -3381,7 +3397,7 @@ CreateContainerScanTaskByAppNameResponse Client::createContainerScanTaskByAppNam
 }
 
 /**
- * @summary Creates an IP address blocking policy for one or more servers.
+ * @summary Adds custom IP blocking policies for one or more specific servers based on your requirements.
  *
  * @param request CreateCustomBlockRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3428,7 +3444,7 @@ CreateCustomBlockRecordResponse Client::createCustomBlockRecordWithOptions(const
 }
 
 /**
- * @summary Creates an IP address blocking policy for one or more servers.
+ * @summary Adds custom IP blocking policies for one or more specific servers based on your requirements.
  *
  * @param request CreateCustomBlockRecordRequest
  * @return CreateCustomBlockRecordResponse
@@ -3489,7 +3505,7 @@ CreateCustomizedDictResponse Client::createCustomizedDict(const CreateCustomized
 }
 
 /**
- * @summary Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
+ * @summary Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
  *
  * @param request CreateCycleTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3560,7 +3576,7 @@ CreateCycleTaskResponse Client::createCycleTaskWithOptions(const CreateCycleTask
 }
 
 /**
- * @summary Creates a periodic scan task, including image scan, emergency vulnerability scanning, and virus scan.
+ * @summary Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
  *
  * @param request CreateCycleTaskRequest
  * @return CreateCycleTaskResponse
@@ -3626,15 +3642,15 @@ CreateDynamicDictResponse Client::createDynamicDict(const CreateDynamicDictReque
  * @description Pushes a file to the cloud for detection.
  * ### File upload methods
  * Two file upload methods are supported: pre-upload and download URL.
- * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+ * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For more information about how to upload a file, see the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
  * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
- * ### File unique identifier
- * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
- * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
- * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+ * ### Unique file identifier
+ * All file detection operations include the HashKey parameter, which specifies the unique identifier of the file to be detected and is used to query detection results.
+ * Calculate the HashKey before you call this operation. Only the MD5 or SHA-256 hash of the complete file content is supported.
+ * To calculate the MD5 or SHA-256 hash of the file content, perform the following steps:
  * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
- * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
- * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
+ * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and the Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 hash is 32 characters long, and the SHA-256 hash is 64 characters long.
+ * The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
  *
  * @param request CreateFileDetectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3698,15 +3714,15 @@ CreateFileDetectResponse Client::createFileDetectWithOptions(const CreateFileDet
  * @description Pushes a file to the cloud for detection.
  * ### File upload methods
  * Two file upload methods are supported: pre-upload and download URL.
- * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For information about how to upload a file, refer to the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+ * If you use the pre-upload method, confirm that the file is uploaded before you invoke this operation. For more information about how to upload a file, see the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
  * If you use the download URL method, pass in a download URL that supports public network access by using the DownloadUrl parameter.
- * ### File unique identifier
- * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results.
- * Calculate the HashKey before calling the operation. Only the MD5 or SHA-256 of the complete file content is supported.
- * To calculate the MD5 or SHA-256 value of the file content, follow these two steps:
+ * ### Unique file identifier
+ * All file detection operations include the HashKey parameter, which specifies the unique identifier of the file to be detected and is used to query detection results.
+ * Calculate the HashKey before you call this operation. Only the MD5 or SHA-256 hash of the complete file content is supported.
+ * To calculate the MD5 or SHA-256 hash of the file content, perform the following steps:
  * 1. Use the MD5 or SHA-256 algorithm to encrypt the data and generate a 128-bit or 256-bit hash value. Available libraries include Java MessageDigest and Python hashlib.
- * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 string is 32 characters, and the SHA-256 string is 64 characters.
- * Note: The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
+ * 2. Encode the generated hash value as a hexadecimal string. Available libraries include Java Codec and the Python hex function. Make sure the final string is a combination of digits and lowercase letters. The MD5 hash is 32 characters long, and the SHA-256 hash is 64 characters long.
+ * The push and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly pushed and the results cannot be queried.
  *
  * @param request CreateFileDetectRequest
  * @return CreateFileDetectResponse
@@ -3863,7 +3879,7 @@ CreateFileProtectClientRuleResponse Client::createFileProtectClientRule(const Cr
 }
 
 /**
- * @summary Creates a core file monitoring rule.
+ * @summary Creates a core file protection rule.
  *
  * @param request CreateFileProtectRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3926,7 +3942,7 @@ CreateFileProtectRuleResponse Client::createFileProtectRuleWithOptions(const Cre
 }
 
 /**
- * @summary Creates a core file monitoring rule.
+ * @summary Creates a core file protection rule.
  *
  * @param request CreateFileProtectRuleRequest
  * @return CreateFileProtectRuleResponse
@@ -3979,7 +3995,12 @@ CreateFileUploadLimitResponse Client::createFileUploadLimit(const CreateFileUplo
 }
 
 /**
- * @summary Creates a honeypot.
+ * @summary Creates a honeypot instance.
+ *
+ * @description Before calling this operation to create a honeypot instance, complete the following steps:
+ * 1. If no honeypot management node exists in your account, call the CreateHoneypotNode operation to create a honeypot management node.
+ * 2. Call the ListHoneypotNode operation to obtain the NodeId of the honeypot management node.
+ * 3. Use the obtained NodeId to call this operation (CreateHoneypot) to create a honeypot instance.
  *
  * @param request CreateHoneypotRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4026,7 +4047,12 @@ CreateHoneypotResponse Client::createHoneypotWithOptions(const CreateHoneypotReq
 }
 
 /**
- * @summary Creates a honeypot.
+ * @summary Creates a honeypot instance.
+ *
+ * @description Before calling this operation to create a honeypot instance, complete the following steps:
+ * 1. If no honeypot management node exists in your account, call the CreateHoneypotNode operation to create a honeypot management node.
+ * 2. Call the ListHoneypotNode operation to obtain the NodeId of the honeypot management node.
+ * 3. Use the obtained NodeId to call this operation (CreateHoneypot) to create a honeypot instance.
  *
  * @param request CreateHoneypotRequest
  * @return CreateHoneypotResponse
@@ -4037,7 +4063,7 @@ CreateHoneypotResponse Client::createHoneypot(const CreateHoneypotRequest &reque
 }
 
 /**
- * @summary Creates a management node.
+ * @summary Creates a honeypot management node.
  *
  * @param request CreateHoneypotNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4080,7 +4106,7 @@ CreateHoneypotNodeResponse Client::createHoneypotNodeWithOptions(const CreateHon
 }
 
 /**
- * @summary Creates a management node.
+ * @summary Creates a honeypot management node.
  *
  * @param request CreateHoneypotNodeRequest
  * @return CreateHoneypotNodeResponse
@@ -4149,7 +4175,7 @@ CreateHoneypotPresetResponse Client::createHoneypotPreset(const CreateHoneypotPr
 }
 
 /**
- * @summary Creates a probe.
+ * @summary Creates a honeypot probe.
  *
  * @param request CreateHoneypotProbeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4220,7 +4246,7 @@ CreateHoneypotProbeResponse Client::createHoneypotProbeWithOptions(const CreateH
 }
 
 /**
- * @summary Creates a probe.
+ * @summary Creates a honeypot probe.
  *
  * @param request CreateHoneypotProbeRequest
  * @return CreateHoneypotProbeResponse
@@ -4231,7 +4257,9 @@ CreateHoneypotProbeResponse Client::createHoneypotProbe(const CreateHoneypotProb
 }
 
 /**
- * @summary Creates a monitoring or forwarding service for a probe.
+ * @summary Creates a listener or forwarding service for a specified probe.
+ *
+ * @description Before calling this operation to create a probe service, prepare the honeypot infrastructure: purchase a probe authorization quota, and then call the CreateHoneypotNode operation to create a honeypot management node, the CreateHoneypotProbe operation to create a honeypot probe, and the CreateHoneypot operation to create a honeypot instance. After creating these resources, you can call this operation.
  *
  * @param request CreateHoneypotProbeBindRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4278,7 +4306,9 @@ CreateHoneypotProbeBindResponse Client::createHoneypotProbeBindWithOptions(const
 }
 
 /**
- * @summary Creates a monitoring or forwarding service for a probe.
+ * @summary Creates a listener or forwarding service for a specified probe.
+ *
+ * @description Before calling this operation to create a probe service, prepare the honeypot infrastructure: purchase a probe authorization quota, and then call the CreateHoneypotNode operation to create a honeypot management node, the CreateHoneypotProbe operation to create a honeypot probe, and the CreateHoneypot operation to create a honeypot instance. After creating these resources, you can call this operation.
  *
  * @param request CreateHoneypotProbeBindRequest
  * @return CreateHoneypotProbeBindResponse
@@ -5175,7 +5205,14 @@ CreateOrUpdateDingTalkResponse Client::createOrUpdateDingTalk(const CreateOrUpda
 }
 
 /**
- * @summary Creates a bucket detection task.
+ * @summary Creates a bucket scan task.
+ *
+ * @description Before calling this operation to create an OSS bucket malicious file scan task, complete the following prerequisites in order:
+ * 1. The OSS malicious file detection feature is activated for the Security Center instance.
+ * 2. The service-linked role AliyunServiceRoleForSas is created.
+ * 3. The OSS bucket to be scanned is created.
+ * 4. The RefreshOssBucketScanInfo operation is called to synchronize the OSS bucket information to Security Center.
+ * After completing the preceding steps, you can call this operation to create a scan task.
  *
  * @param request CreateOssBucketScanTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5246,7 +5283,14 @@ CreateOssBucketScanTaskResponse Client::createOssBucketScanTaskWithOptions(const
 }
 
 /**
- * @summary Creates a bucket detection task.
+ * @summary Creates a bucket scan task.
+ *
+ * @description Before calling this operation to create an OSS bucket malicious file scan task, complete the following prerequisites in order:
+ * 1. The OSS malicious file detection feature is activated for the Security Center instance.
+ * 2. The service-linked role AliyunServiceRoleForSas is created.
+ * 3. The OSS bucket to be scanned is created.
+ * 4. The RefreshOssBucketScanInfo operation is called to synchronize the OSS bucket information to Security Center.
+ * After completing the preceding steps, you can call this operation to create a scan task.
  *
  * @param request CreateOssBucketScanTaskRequest
  * @return CreateOssBucketScanTaskResponse
@@ -5925,7 +5969,7 @@ CreateUniBackupPolicyResponse Client::createUniBackupPolicy(const CreateUniBacku
 }
 
 /**
- * @summary Creates a database anti-ransomware restoration task.
+ * @summary Creates a restoration task for anti-ransomware database protection.
  *
  * @param request CreateUniRestorePlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5980,7 +6024,7 @@ CreateUniRestorePlanResponse Client::createUniRestorePlanWithOptions(const Creat
 }
 
 /**
- * @summary Creates a database anti-ransomware restoration task.
+ * @summary Creates a restoration task for anti-ransomware database protection.
  *
  * @param request CreateUniRestorePlanRequest
  * @return CreateUniRestorePlanResponse
@@ -6157,7 +6201,7 @@ CreateVirusScanOnceTaskResponse Client::createVirusScanOnceTask(const CreateViru
 }
 
 /**
- * @summary Creates a list of vulnerabilities that can be automatically fixed. After the list is created, you can select the list when you create a vulnerability fixing task on the Playbook page.
+ * @summary Creates a batch list of vulnerabilities that can be automatically fixed. After creation, the list is used for vulnerability selection in vulnerability fix tasks in the task center.
  *
  * @param request CreateVulAutoRepairConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6196,7 +6240,7 @@ CreateVulAutoRepairConfigResponse Client::createVulAutoRepairConfigWithOptions(c
 }
 
 /**
- * @summary Creates a list of vulnerabilities that can be automatically fixed. After the list is created, you can select the list when you create a vulnerability fixing task on the Playbook page.
+ * @summary Creates a batch list of vulnerabilities that can be automatically fixed. After creation, the list is used for vulnerability selection in vulnerability fix tasks in the task center.
  *
  * @param request CreateVulAutoRepairConfigRequest
  * @return CreateVulAutoRepairConfigResponse
@@ -7157,7 +7201,7 @@ DeleteDingTalkResponse Client::deleteDingTalk(const DeleteDingTalkRequest &reque
 }
 
 /**
- * @summary Deletes a file protection rule.
+ * @summary Deletes a web tamper-proofing rule.
  *
  * @param request DeleteFileProtectClientRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7212,7 +7256,7 @@ DeleteFileProtectClientRuleResponse Client::deleteFileProtectClientRuleWithOptio
 }
 
 /**
- * @summary Deletes a file protection rule.
+ * @summary Deletes a web tamper-proofing rule.
  *
  * @param request DeleteFileProtectClientRuleRequest
  * @return DeleteFileProtectClientRuleResponse
@@ -7721,7 +7765,7 @@ DeleteImageEventOperationResponse Client::deleteImageEventOperation(const Delete
 }
 
 /**
- * @summary Deletes an image vulnerability whitelist.
+ * @summary Deletes image vulnerability whitelists.
  *
  * @param request DeleteImageVulWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7756,7 +7800,7 @@ DeleteImageVulWhitelistResponse Client::deleteImageVulWhitelistWithOptions(const
 }
 
 /**
- * @summary Deletes an image vulnerability whitelist.
+ * @summary Deletes image vulnerability whitelists.
  *
  * @param request DeleteImageVulWhitelistRequest
  * @return DeleteImageVulWhitelistResponse
@@ -8351,7 +8395,7 @@ DeleteSearchConditionResponse Client::deleteSearchCondition(const DeleteSearchCo
 /**
  * @deprecated OpenAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead.
  *
- * @summary Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+ * @summary Deletes alert whitelisting configurations in batches.
  *
  * @param request DeleteSecurityEventMarkMissListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8392,7 +8436,7 @@ DeleteSecurityEventMarkMissListResponse Client::deleteSecurityEventMarkMissListW
 /**
  * @deprecated OpenAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead.
  *
- * @summary Deletes multiple custom defense rules at a time. The custom defense rules are used to add false positive alerts to the whitelist.
+ * @summary Deletes alert whitelisting configurations in batches.
  *
  * @param request DeleteSecurityEventMarkMissListRequest
  * @return DeleteSecurityEventMarkMissListResponse
@@ -8541,7 +8585,7 @@ DeleteStrategyResponse Client::deleteStrategy(const DeleteStrategyRequest &reque
 }
 
 /**
- * @summary Deletes the description of an alert.
+ * @summary Deletes a note from a security alert.
  *
  * @param request DeleteSuspEventNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8576,7 +8620,7 @@ DeleteSuspEventNodeResponse Client::deleteSuspEventNodeWithOptions(const DeleteS
 }
 
 /**
- * @summary Deletes the description of an alert.
+ * @summary Deletes a note from a security alert.
  *
  * @param request DeleteSuspEventNodeRequest
  * @return DeleteSuspEventNodeResponse
@@ -9319,7 +9363,7 @@ DescribeAgentlessSensitiveFileByKeyResponse Client::describeAgentlessSensitiveFi
 }
 
 /**
- * @summary Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+ * @summary Retrieves the details of a security alert event. Alert events are categorized into alerts and exceptions. An alert event contains multiple exception events.
  *
  * @param request DescribeAlarmEventDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9366,7 +9410,7 @@ DescribeAlarmEventDetailResponse Client::describeAlarmEventDetailWithOptions(con
 }
 
 /**
- * @summary Queries the details about an alert event. An alert event consists of an alert and exceptions. Each alert event is associated with multiple exceptions.
+ * @summary Retrieves the details of a security alert event. Alert events are categorized into alerts and exceptions. An alert event contains multiple exception events.
  *
  * @param request DescribeAlarmEventDetailRequest
  * @return DescribeAlarmEventDetailResponse
@@ -9559,7 +9603,7 @@ DescribeAllImageBaselineResponse Client::describeAllImageBaseline(const Describe
 }
 
 /**
- * @summary Queries the statistics on global security events, including the numbers of unfixed vulnerabilities, baseline risks, and alerts.
+ * @summary Retrieves global security event statistics, including the number of unfixed vulnerabilities, baseline checks, and alerts.
  *
  * @param request DescribeAllRegionsStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9606,7 +9650,7 @@ DescribeAllRegionsStatisticsResponse Client::describeAllRegionsStatisticsWithOpt
 }
 
 /**
- * @summary Queries the statistics on global security events, including the numbers of unfixed vulnerabilities, baseline risks, and alerts.
+ * @summary Retrieves global security event statistics, including the number of unfixed vulnerabilities, baseline checks, and alerts.
  *
  * @param request DescribeAllRegionsStatisticsRequest
  * @return DescribeAllRegionsStatisticsResponse
@@ -10277,7 +10321,7 @@ DescribeBackupFilesResponse Client::describeBackupFiles(const DescribeBackupFile
 }
 
 /**
- * @summary Queries the backup status of servers that are associated with an anti-ransomware backup policy.
+ * @summary Queries the backup status of servers associated with an anti-ransomware backup policy.
  *
  * @param request DescribeBackupMachineStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10316,7 +10360,7 @@ DescribeBackupMachineStatusResponse Client::describeBackupMachineStatusWithOptio
 }
 
 /**
- * @summary Queries the backup status of servers that are associated with an anti-ransomware backup policy.
+ * @summary Queries the backup status of servers associated with an anti-ransomware backup policy.
  *
  * @param request DescribeBackupMachineStatusRequest
  * @return DescribeBackupMachineStatusResponse
@@ -12487,7 +12531,7 @@ DescribeConcernNecessityResponse Client::describeConcernNecessity(const Describe
 }
 
 /**
- * @summary Queries the information about a containerized application.
+ * @summary Retrieves the list of apps in a cluster.
  *
  * @param request DescribeContainerAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12530,7 +12574,7 @@ DescribeContainerAppsResponse Client::describeContainerAppsWithOptions(const Des
 }
 
 /**
- * @summary Queries the information about a containerized application.
+ * @summary Retrieves the list of apps in a cluster.
  *
  * @param request DescribeContainerAppsRequest
  * @return DescribeContainerAppsResponse
@@ -12619,7 +12663,7 @@ DescribeContainerFieldStatisticsResponse Client::describeContainerFieldStatistic
 }
 
 /**
- * @summary Queries the attribute details of containers.
+ * @summary Queries the details of container properties.
  *
  * @param request DescribeContainerGroupedFieldDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12654,7 +12698,7 @@ DescribeContainerGroupedFieldDetailResponse Client::describeContainerGroupedFiel
 }
 
 /**
- * @summary Queries the attribute details of containers.
+ * @summary Queries the details of container properties.
  *
  * @param request DescribeContainerGroupedFieldDetailRequest
  * @return DescribeContainerGroupedFieldDetailResponse
@@ -12811,7 +12855,9 @@ DescribeContainerServiceK8sClusterKritisStatusResponse Client::describeContainer
 }
 
 /**
- * @summary Queries the namespace of a Container Service for Kubernetes (ACK) cluster.
+ * @summary Queries the namespaces of a Container Service for Kubernetes (ACK) cluster.
+ *
+ * @description Before you call this operation to query the namespaces of a Container Service for Kubernetes (ACK) cluster, make sure that the following prerequisites are met: An ACK cluster exists within the current account. How to obtain the ClusterId: View the cluster ID in the Container Service console, or call the DescribeClustersV1 operation of Container Service to obtain the ID of the ACK managed cluster.
  *
  * @param request DescribeContainerServiceK8sClusterNamespacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12850,7 +12896,9 @@ DescribeContainerServiceK8sClusterNamespacesResponse Client::describeContainerSe
 }
 
 /**
- * @summary Queries the namespace of a Container Service for Kubernetes (ACK) cluster.
+ * @summary Queries the namespaces of a Container Service for Kubernetes (ACK) cluster.
+ *
+ * @description Before you call this operation to query the namespaces of a Container Service for Kubernetes (ACK) cluster, make sure that the following prerequisites are met: An ACK cluster exists within the current account. How to obtain the ClusterId: View the cluster ID in the Container Service console, or call the DescribeClustersV1 operation of Container Service to obtain the ID of the ACK managed cluster.
  *
  * @param request DescribeContainerServiceK8sClusterNamespacesRequest
  * @return DescribeContainerServiceK8sClusterNamespacesResponse
@@ -13257,7 +13305,7 @@ DescribeCustomBlockRecordsResponse Client::describeCustomBlockRecords(const Desc
 }
 
 /**
- * @summary Retrieves the details of a report delivery configuration.
+ * @summary Retrieves the details of a report sending configuration.
  *
  * @param request DescribeCustomizeReportConfigDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13300,7 +13348,7 @@ DescribeCustomizeReportConfigDetailResponse Client::describeCustomizeReportConfi
 }
 
 /**
- * @summary Retrieves the details of a report delivery configuration.
+ * @summary Retrieves the details of a report sending configuration.
  *
  * @param request DescribeCustomizeReportConfigDetailRequest
  * @return DescribeCustomizeReportConfigDetailResponse
@@ -14375,7 +14423,7 @@ DescribeEmgVulItemResponse Client::describeEmgVulItem(const DescribeEmgVulItemRe
 }
 
 /**
- * @summary Queries the statistics of alert events by risk level.
+ * @summary Queries the total number of security alerts by severity level.
  *
  * @param request DescribeEventLevelCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14434,7 +14482,7 @@ DescribeEventLevelCountResponse Client::describeEventLevelCountWithOptions(const
 }
 
 /**
- * @summary Queries the statistics of alert events by risk level.
+ * @summary Queries the total number of security alerts by severity level.
  *
  * @param request DescribeEventLevelCountRequest
  * @return DescribeEventLevelCountResponse
@@ -15231,7 +15279,7 @@ DescribeGroupedContainerInstancesResponse Client::describeGroupedContainerInstan
 }
 
 /**
- * @summary Query asset statistics by specified aggregation dimensions.
+ * @summary Queries statistics information of assets based on specified aggregation dimensions.
  *
  * @param request DescribeGroupedInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15302,7 +15350,7 @@ DescribeGroupedInstancesResponse Client::describeGroupedInstancesWithOptions(con
 }
 
 /**
- * @summary Query asset statistics by specified aggregation dimensions.
+ * @summary Queries statistics information of assets based on specified aggregation dimensions.
  *
  * @param request DescribeGroupedInstancesRequest
  * @return DescribeGroupedInstancesResponse
@@ -16819,7 +16867,7 @@ DescribeImageFixTaskResponse Client::describeImageFixTask(const DescribeImageFix
 }
 
 /**
- * @summary Queries the list of image vulnerabilities.
+ * @summary Queries a list of image vulnerabilities.
  *
  * @param request DescribeImageGroupedVulListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16828,6 +16876,10 @@ DescribeImageFixTaskResponse Client::describeImageFixTask(const DescribeImageFix
 DescribeImageGroupedVulListResponse Client::describeImageGroupedVulListWithOptions(const DescribeImageGroupedVulListRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentlessCanFix()) {
+    query["AgentlessCanFix"] = request.getAgentlessCanFix();
+  }
+
   if (!!request.hasAliasName()) {
     query["AliasName"] = request.getAliasName();
   }
@@ -16942,7 +16994,7 @@ DescribeImageGroupedVulListResponse Client::describeImageGroupedVulListWithOptio
 }
 
 /**
- * @summary Queries the list of image vulnerabilities.
+ * @summary Queries a list of image vulnerabilities.
  *
  * @param request DescribeImageGroupedVulListRequest
  * @return DescribeImageGroupedVulListResponse
@@ -16953,7 +17005,7 @@ DescribeImageGroupedVulListResponse Client::describeImageGroupedVulList(const De
 }
 
 /**
- * @summary Query the image list.
+ * @summary Queries the list of images.
  *
  * @param request DescribeImageInfoListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16984,7 +17036,7 @@ DescribeImageInfoListResponse Client::describeImageInfoListWithOptions(const Des
 }
 
 /**
- * @summary Query the image list.
+ * @summary Queries the list of images.
  *
  * @param request DescribeImageInfoListRequest
  * @return DescribeImageInfoListResponse
@@ -17053,7 +17105,7 @@ DescribeImageInstancesResponse Client::describeImageInstances(const DescribeImag
 }
 
 /**
- * @summary Queries the most recent scan task for an image.
+ * @summary Queries the most recent image scan task.
  *
  * @param request DescribeImageLatestScanTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17084,7 +17136,7 @@ DescribeImageLatestScanTaskResponse Client::describeImageLatestScanTaskWithOptio
 }
 
 /**
- * @summary Queries the most recent scan task for an image.
+ * @summary Queries the most recent image scan task.
  *
  * @param request DescribeImageLatestScanTaskRequest
  * @return DescribeImageLatestScanTaskResponse
@@ -17863,7 +17915,7 @@ DescribeImageStatisticsResponse Client::describeImageStatistics() {
 /**
  * @summary Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
  *
- * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to view the container image vulnerability list.
+ * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
  *
  * @param request DescribeImageVulListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17898,6 +17950,10 @@ DescribeImageVulListResponse Client::describeImageVulListWithOptions(const Descr
 
   if (!!request.hasDigest()) {
     query["Digest"] = request.getDigest();
+  }
+
+  if (!!request.hasGroupByAsset()) {
+    query["GroupByAsset"] = request.getGroupByAsset();
   }
 
   if (!!request.hasImage()) {
@@ -18012,7 +18068,7 @@ DescribeImageVulListResponse Client::describeImageVulListWithOptions(const Descr
 /**
  * @summary Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
  *
- * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to view the container image vulnerability list.
+ * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
  *
  * @param request DescribeImageVulListRequest
  * @return DescribeImageVulListResponse
@@ -19291,7 +19347,7 @@ DescribePropertyCountResponse Client::describePropertyCount(const DescribeProper
 }
 
 /**
- * @summary Query Asset Fingerprint Scheduled Task Details
+ * @summary Queries the details of the scheduled task list in host assets.
  *
  * @param request DescribePropertyCronDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19358,7 +19414,7 @@ DescribePropertyCronDetailResponse Client::describePropertyCronDetailWithOptions
 }
 
 /**
- * @summary Query Asset Fingerprint Scheduled Task Details
+ * @summary Queries the details of the scheduled task list in host assets.
  *
  * @param request DescribePropertyCronDetailRequest
  * @return DescribePropertyCronDetailResponse
@@ -19559,7 +19615,7 @@ DescribePropertyPortItemResponse Client::describePropertyPortItem(const Describe
 }
 
 /**
- * @summary Query Details of Asset Fingerprint Collection Process
+ * @summary Queries the Asset Fingerprints information of process assets on a server.
  *
  * @param request DescribePropertyProcDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19638,7 +19694,7 @@ DescribePropertyProcDetailResponse Client::describePropertyProcDetailWithOptions
 }
 
 /**
- * @summary Query Details of Asset Fingerprint Collection Process
+ * @summary Queries the Asset Fingerprints information of process assets on a server.
  *
  * @param request DescribePropertyProcDetailRequest
  * @return DescribePropertyProcDetailResponse
@@ -21239,7 +21295,7 @@ DescribeScanTaskStatisticsResponse Client::describeScanTaskStatistics(const Desc
 }
 
 /**
- * @summary Queries the security score trend on the security dashboard.
+ * @summary Queries the security score trends on the security dashboard.
  *
  * @param request DescribeScreenScoreThreadRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21282,7 +21338,7 @@ DescribeScreenScoreThreadResponse Client::describeScreenScoreThreadWithOptions(c
 }
 
 /**
- * @summary Queries the security score trend on the security dashboard.
+ * @summary Queries the security score trends on the security dashboard.
  *
  * @param request DescribeScreenScoreThreadRequest
  * @return DescribeScreenScoreThreadResponse
@@ -22747,7 +22803,7 @@ DescribeSuspEventExportInfoResponse Client::describeSuspEventExportInfo(const De
 }
 
 /**
- * @summary Queries quarantined files by page.
+ * @summary Queries quarantined files in the file quarantine box by paging.
  *
  * @param request DescribeSuspEventQuaraFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22806,7 +22862,7 @@ DescribeSuspEventQuaraFilesResponse Client::describeSuspEventQuaraFilesWithOptio
 }
 
 /**
- * @summary Queries quarantined files by page.
+ * @summary Queries quarantined files in the file quarantine box by paging.
  *
  * @param request DescribeSuspEventQuaraFilesRequest
  * @return DescribeSuspEventQuaraFilesResponse
@@ -22867,7 +22923,7 @@ DescribeSuspEventUserSettingResponse Client::describeSuspEventUserSetting(const 
 }
 
 /**
- * @summary Queries the list of security alert events that have not been aggregated.
+ * @summary Queries a list of security alert events that have not been aggregated.
  *
  * @param tmpReq DescribeSuspEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23050,7 +23106,7 @@ DescribeSuspEventsResponse Client::describeSuspEventsWithOptions(const DescribeS
 }
 
 /**
- * @summary Queries the list of security alert events that have not been aggregated.
+ * @summary Queries a list of security alert events that have not been aggregated.
  *
  * @param request DescribeSuspEventsRequest
  * @return DescribeSuspEventsResponse
@@ -23637,7 +23693,7 @@ DescribeUniBackupDatabaseResponse Client::describeUniBackupDatabase(const Descri
 }
 
 /**
- * @summary Queries the list of database anti-ransomware policies.
+ * @summary Queries the list of anti-ransomware policies for databases.
  *
  * @param request DescribeUniBackupPoliciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23676,7 +23732,7 @@ DescribeUniBackupPoliciesResponse Client::describeUniBackupPoliciesWithOptions(c
 }
 
 /**
- * @summary Queries the list of database anti-ransomware policies.
+ * @summary Queries the list of anti-ransomware policies for databases.
  *
  * @param request DescribeUniBackupPoliciesRequest
  * @return DescribeUniBackupPoliciesResponse
@@ -24017,7 +24073,7 @@ DescribeUuidVulNumClassifyStatisticResponse Client::describeUuidVulNumClassifySt
 }
 
 /**
- * @summary Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
+ * @summary Retrieves the list of servers that support vulnerability fix based on vulnerability names.
  *
  * @param request DescribeUuidsByVulNamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24108,7 +24164,7 @@ DescribeUuidsByVulNamesResponse Client::describeUuidsByVulNamesWithOptions(const
 }
 
 /**
- * @summary Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
+ * @summary Retrieves the list of servers that support vulnerability fix based on vulnerability names.
  *
  * @param request DescribeUuidsByVulNamesRequest
  * @return DescribeUuidsByVulNamesResponse
@@ -24383,7 +24439,7 @@ DescribeVpcListResponse Client::describeVpcList() {
 }
 
 /**
- * @summary Queries the status information about vulnerability scan tasks on a server.
+ * @summary Queries the status of a vulnerability scanning node for a specified server.
  *
  * @param request DescribeVulCheckTaskStatusDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24426,7 +24482,7 @@ DescribeVulCheckTaskStatusDetailResponse Client::describeVulCheckTaskStatusDetai
 }
 
 /**
- * @summary Queries the status information about vulnerability scan tasks on a server.
+ * @summary Queries the status of a vulnerability scanning node for a specified server.
  *
  * @param request DescribeVulCheckTaskStatusDetailRequest
  * @return DescribeVulCheckTaskStatusDetailResponse
@@ -26721,7 +26777,7 @@ ExportRecordResponse Client::exportRecord(const ExportRecordRequest &request) {
 }
 
 /**
- * @summary Exports the information about exceptions to a file.
+ * @summary Exports anomaly alert information.
  *
  * @param request ExportSuspEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26844,7 +26900,7 @@ ExportSuspEventsResponse Client::exportSuspEventsWithOptions(const ExportSuspEve
 }
 
 /**
- * @summary Exports the information about exceptions to a file.
+ * @summary Exports anomaly alert information.
  *
  * @param request ExportSuspEventsRequest
  * @return ExportSuspEventsResponse
@@ -27373,7 +27429,7 @@ GenerateDynamicDictResponse Client::generateDynamicDict(const GenerateDynamicDic
 }
 
 /**
- * @summary Generate commands for connecting self-built Kubernetes clusters.
+ * @summary Generates an access command for a self-managed Kubernetes cluster.
  *
  * @param request GenerateK8sAccessInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27444,7 +27500,7 @@ GenerateK8sAccessInfoResponse Client::generateK8sAccessInfoWithOptions(const Gen
 }
 
 /**
- * @summary Generate commands for connecting self-built Kubernetes clusters.
+ * @summary Generates an access command for a self-managed Kubernetes cluster.
  *
  * @param request GenerateK8sAccessInfoRequest
  * @return GenerateK8sAccessInfoResponse
@@ -27555,9 +27611,9 @@ GetAccountLabelResponse Client::getAccountLabel(const GetAccountLabelRequest &re
 }
 
 /**
- * @summary Queries the details of a container escape prevention rule.
+ * @summary Queries the details of a container anti-escape rule.
  *
- * @description Only Security Center Ultimate users can call this operation.
+ * @description Only users of the Ultimate edition of Security Center can call this operation.
  *
  * @param request GetAegisContainerPluginRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -27596,9 +27652,9 @@ GetAegisContainerPluginRuleResponse Client::getAegisContainerPluginRuleWithOptio
 }
 
 /**
- * @summary Queries the details of a container escape prevention rule.
+ * @summary Queries the details of a container anti-escape rule.
  *
- * @description Only Security Center Ultimate users can call this operation.
+ * @description Only users of the Ultimate edition of Security Center can call this operation.
  *
  * @param request GetAegisContainerPluginRuleRequest
  * @return GetAegisContainerPluginRuleResponse
@@ -28115,6 +28171,8 @@ GetAttackEventDashboardResponse Client::getAttackEventDashboard(const GetAttackE
 /**
  * @summary Retrieves the details of an attack analysis event.
  *
+ * @description Before calling this operation to retrieve the details of an attack analysis event, call the ListAttackEventInfo operation to obtain a valid attack analysis event ID.
+ *
  * @param request GetAttackEventDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAttackEventDetailResponse
@@ -28149,6 +28207,8 @@ GetAttackEventDetailResponse Client::getAttackEventDetailWithOptions(const GetAt
 
 /**
  * @summary Retrieves the details of an attack analysis event.
+ *
+ * @description Before calling this operation to retrieve the details of an attack analysis event, call the ListAttackEventInfo operation to obtain a valid attack analysis event ID.
  *
  * @param request GetAttackEventDetailRequest
  * @return GetAttackEventDetailResponse
@@ -30320,7 +30380,7 @@ GetFileProtectEventResponse Client::getFileProtectEvent(const GetFileProtectEven
 }
 
 /**
- * @summary Queries the total number of core file monitoring events by filter condition.
+ * @summary Queries the total number of monitoring events for core files of the current user based on specified filter conditions.
  *
  * @param request GetFileProtectEventCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30351,7 +30411,7 @@ GetFileProtectEventCountResponse Client::getFileProtectEventCountWithOptions(con
 }
 
 /**
- * @summary Queries the total number of core file monitoring events by filter condition.
+ * @summary Queries the total number of monitoring events for core files of the current user based on specified filter conditions.
  *
  * @param request GetFileProtectEventCountRequest
  * @return GetFileProtectEventCountResponse
@@ -31244,7 +31304,7 @@ GetInterceptionTargetDetailResponse Client::getInterceptionTargetDetail(const Ge
 }
 
 /**
- * @summary Retrieves runtime information for the latest scan task to check its completion status.
+ * @summary Queries the running information of the latest scan task to determine whether the task is complete.
  *
  * @param request GetLastOnceTaskInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31283,7 +31343,7 @@ GetLastOnceTaskInfoResponse Client::getLastOnceTaskInfoWithOptions(const GetLast
 }
 
 /**
- * @summary Retrieves runtime information for the latest scan task to check its completion status.
+ * @summary Queries the running information of the latest scan task to determine whether the task is complete.
  *
  * @param request GetLastOnceTaskInfoRequest
  * @return GetLastOnceTaskInfoResponse
@@ -31294,7 +31354,7 @@ GetLastOnceTaskInfoResponse Client::getLastOnceTaskInfo(const GetLastOnceTaskInf
 }
 
 /**
- * @summary Retrieves the default synchronization region for external asset synchronization.
+ * @summary Retrieves the default synchronization region for synchronizing off-cloud assets.
  *
  * @param request GetLocalDefaultRegionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31325,7 +31385,7 @@ GetLocalDefaultRegionResponse Client::getLocalDefaultRegionWithOptions(const Get
 }
 
 /**
- * @summary Retrieves the default synchronization region for external asset synchronization.
+ * @summary Retrieves the default synchronization region for synchronizing off-cloud assets.
  *
  * @param request GetLocalDefaultRegionRequest
  * @return GetLocalDefaultRegionResponse
@@ -32282,7 +32342,7 @@ GetSasContainerWebDefenseRuleResponse Client::getSasContainerWebDefenseRule(cons
 }
 
 /**
- * @summary Retrieves the list of applications for container file defense configurations.
+ * @summary Retrieves the application list of container file defense configurations.
  *
  * @param request GetSasContainerWebDefenseRuleApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32313,7 +32373,7 @@ GetSasContainerWebDefenseRuleApplicationResponse Client::getSasContainerWebDefen
 }
 
 /**
- * @summary Retrieves the list of applications for container file defense configurations.
+ * @summary Retrieves the application list of container file defense configurations.
  *
  * @param request GetSasContainerWebDefenseRuleApplicationRequest
  * @return GetSasContainerWebDefenseRuleApplicationResponse
@@ -32366,7 +32426,7 @@ GetSasContainerWebDefenseRuleCriteriaResponse Client::getSasContainerWebDefenseR
 }
 
 /**
- * @summary Queries the details of custom security scoring rules.
+ * @summary Queries the details of custom security score rules.
  *
  * @param request GetSecurityScoreRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32405,7 +32465,7 @@ GetSecurityScoreRuleResponse Client::getSecurityScoreRuleWithOptions(const GetSe
 }
 
 /**
- * @summary Queries the details of custom security scoring rules.
+ * @summary Queries the details of custom security score rules.
  *
  * @param request GetSecurityScoreRuleRequest
  * @return GetSecurityScoreRuleResponse
@@ -32462,7 +32522,7 @@ GetSensitiveDefineRuleConfigResponse Client::getSensitiveDefineRuleConfig(const 
 }
 
 /**
- * @summary Retrieves the authorization details of a serverless application.
+ * @summary Retrieves the authorization details of a Serverless application.
  *
  * @param request GetServerlessAppAuthDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32505,7 +32565,7 @@ GetServerlessAppAuthDetailResponse Client::getServerlessAppAuthDetailWithOptions
 }
 
 /**
- * @summary Retrieves the authorization details of a serverless application.
+ * @summary Retrieves the authorization details of a Serverless application.
  *
  * @param request GetServerlessAppAuthDetailRequest
  * @return GetServerlessAppAuthDetailResponse
@@ -32742,7 +32802,7 @@ GetSuspiciousStatisticsResponse Client::getSuspiciousStatistics(const GetSuspici
 }
 
 /**
- * @summary Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, this operation retrieves the migration progress and status.
+ * @summary Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, you can retrieve the migration progress and status.
  *
  * @param request GetSwitchRegionDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32777,7 +32837,7 @@ GetSwitchRegionDetailResponse Client::getSwitchRegionDetailWithOptions(const Get
 }
 
 /**
- * @summary Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, this operation retrieves the migration progress and status.
+ * @summary Queries the progress of a service switchover. For example, when a server connection is being migrated from China to Singapore, you can retrieve the migration progress and status.
  *
  * @param request GetSwitchRegionDetailRequest
  * @return GetSwitchRegionDetailResponse
@@ -33925,7 +33985,7 @@ InstallHybridProxyResponse Client::installHybridProxy(const InstallHybridProxyRe
 }
 
 /**
- * @summary Installs the CloudMonitor agent on a server that is not deployed on Alibaba Cloud.
+ * @summary Installs the CloudMonitor agent on non-Alibaba Cloud ECS servers.
  *
  * @param request InstallPmAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -33968,7 +34028,7 @@ InstallPmAgentResponse Client::installPmAgentWithOptions(const InstallPmAgentReq
 }
 
 /**
- * @summary Installs the CloudMonitor agent on a server that is not deployed on Alibaba Cloud.
+ * @summary Installs the CloudMonitor agent on non-Alibaba Cloud ECS servers.
  *
  * @param request InstallPmAgentRequest
  * @return InstallPmAgentResponse
@@ -34667,7 +34727,7 @@ ListAssetCleanConfigResponse Client::listAssetCleanConfig() {
 }
 
 /**
- * @summary Queries the custom upgrade information about assets.
+ * @summary Retrieves the list of custom upgrade information for a specified asset of the user.
  *
  * @param request ListAssetInfoPublishRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34702,7 +34762,7 @@ ListAssetInfoPublishResponse Client::listAssetInfoPublishWithOptions(const ListA
 }
 
 /**
- * @summary Queries the custom upgrade information about assets.
+ * @summary Retrieves the list of custom upgrade information for a specified asset of the user.
  *
  * @param request ListAssetInfoPublishRequest
  * @return ListAssetInfoPublishResponse
@@ -35341,7 +35401,7 @@ ListBaselineCheckWhiteRecordResponse Client::listBaselineCheckWhiteRecord(const 
 }
 
 /**
- * @summary Queries the instances that failed a specified check item of configuration assessment.
+ * @summary Retrieves instances that failed a cloud platform configuration check item.
  *
  * @param request ListCheckInstanceResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35408,7 +35468,7 @@ ListCheckInstanceResultResponse Client::listCheckInstanceResultWithOptions(const
 }
 
 /**
- * @summary Queries the instances that failed a specified check item of configuration assessment.
+ * @summary Retrieves instances that failed a cloud platform configuration check item.
  *
  * @param request ListCheckInstanceResultRequest
  * @return ListCheckInstanceResultResponse
@@ -35563,7 +35623,7 @@ ListCheckItemWarningMachineResponse Client::listCheckItemWarningMachine(const Li
 }
 
 /**
- * @summary Queries the risk statistics of check items by page.
+ * @summary Queries statistics on risks generated by check items by paging.
  *
  * @param request ListCheckItemWarningSummaryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -35654,7 +35714,7 @@ ListCheckItemWarningSummaryResponse Client::listCheckItemWarningSummaryWithOptio
 }
 
 /**
- * @summary Queries the risk statistics of check items by page.
+ * @summary Queries statistics on risks generated by check items by paging.
  *
  * @param request ListCheckItemWarningSummaryRequest
  * @return ListCheckItemWarningSummaryResponse
@@ -36063,7 +36123,7 @@ ListCheckTypesResponse Client::listCheckTypes(const ListCheckTypesRequest &reque
 }
 
 /**
- * @summary Queries the alert settings of assets. The default alert setting for assets is balance mode. The detailed asset list is returned only in strict mode.
+ * @summary Queries the alert settings of assets. The default alert setting for assets is balance mode. Only strict mode returns a detailed asset list.
  *
  * @param request ListClientAlertModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36090,7 +36150,7 @@ ListClientAlertModeResponse Client::listClientAlertModeWithOptions(const ListCli
 }
 
 /**
- * @summary Queries the alert settings of assets. The default alert setting for assets is balance mode. The detailed asset list is returned only in strict mode.
+ * @summary Queries the alert settings of assets. The default alert setting for assets is balance mode. Only strict mode returns a detailed asset list.
  *
  * @param request ListClientAlertModeRequest
  * @return ListClientAlertModeResponse
@@ -36187,7 +36247,7 @@ ListClientUserDefineRulesResponse Client::listClientUserDefineRules(const ListCl
 }
 
 /**
- * @summary Queries the list of cloud service assets.
+ * @summary Retrieves the list of cloud service assets.
  *
  * @param request ListCloudAssetInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36250,7 +36310,7 @@ ListCloudAssetInstancesResponse Client::listCloudAssetInstancesWithOptions(const
 }
 
 /**
- * @summary Queries the list of cloud service assets.
+ * @summary Retrieves the list of cloud service assets.
  *
  * @param request ListCloudAssetInstancesRequest
  * @return ListCloudAssetInstancesResponse
@@ -36639,13 +36699,19 @@ ListClusterPluginInfoResponse Client::listClusterPluginInfo(const ListClusterPlu
 }
 
 /**
- * @summary Retrieves a list of file detection results from an archive.
+ * @summary Retrieves the detection results of files within a compressed archive.
  *
- * @description Use this API to retrieve detection results for files within a compressed file that has been submitted for detection. The system retains detection results for 5 hours, during which you can query them multiple times. To submit a file for detection, use the `CreateFileDetect` API. To retrieve the detection result for the compressed file itself, use the `GetFileDetectResult` API.
- * All file detection APIs include the `HashKey` parameter, which is the unique file identifier.
- * For malicious file detection (when `Type` is `0`), you must provide the MD5 or SHA-256 hash of the complete file content. Calculate this value before you call the API.
- * For Skill compressed file detection (when `Type` is `6`), obtain the `HashKey` from the return value of the `CreateFileDetect` API.
- * Note: You must use the same `HashKey` for the submission and query requests for a single detection. Otherwise, you cannot correctly submit the file for detection or retrieve its results.
+ * @description Only files that have been submitted for detection and identified as compressed archives can be queried through this operation. Detection results are retained for 5 hours and can be queried repeatedly within that period. To submit a file for detection, refer to [CreateFileDetect](~~CreateFileDetect~~). To retrieve the detection result of the compressed archive file itself, refer to [GetFileDetectResult](~~GetFileDetectResult~~).
+ * All file detection operations include the HashKey parameter, which represents the unique identifier of a file.
+ * In the malicious file detection scenario (Type is 0), only the MD5 or SHA-256 hash of the complete file content is supported. Calculate this value before calling the operation.
+ * In the Skill compressed archive detection scenario (Type is 6), obtain the value from the response of the CreateFileDetect operation.
+ * Note that the submission and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly submitted or the results cannot be correctly queried.
+ * ### Compressed archive detection workflow
+ * To retrieve the detection results of files within a compressed archive, complete the following four steps in order:
+ * 1. Call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to obtain a file upload URL.
+ * 2. Upload the file to be detected to OSS.
+ * 3. Call the [CreateFileDetect](~~CreateFileDetect~~) operation to submit the file for detection, and set the Decompress parameter to true.
+ * 4. Call this operation (ListCompressFileDetectResult) to query the detection results of files within the compressed archive.
  *
  * @param request ListCompressFileDetectResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -36688,13 +36754,19 @@ ListCompressFileDetectResultResponse Client::listCompressFileDetectResultWithOpt
 }
 
 /**
- * @summary Retrieves a list of file detection results from an archive.
+ * @summary Retrieves the detection results of files within a compressed archive.
  *
- * @description Use this API to retrieve detection results for files within a compressed file that has been submitted for detection. The system retains detection results for 5 hours, during which you can query them multiple times. To submit a file for detection, use the `CreateFileDetect` API. To retrieve the detection result for the compressed file itself, use the `GetFileDetectResult` API.
- * All file detection APIs include the `HashKey` parameter, which is the unique file identifier.
- * For malicious file detection (when `Type` is `0`), you must provide the MD5 or SHA-256 hash of the complete file content. Calculate this value before you call the API.
- * For Skill compressed file detection (when `Type` is `6`), obtain the `HashKey` from the return value of the `CreateFileDetect` API.
- * Note: You must use the same `HashKey` for the submission and query requests for a single detection. Otherwise, you cannot correctly submit the file for detection or retrieve its results.
+ * @description Only files that have been submitted for detection and identified as compressed archives can be queried through this operation. Detection results are retained for 5 hours and can be queried repeatedly within that period. To submit a file for detection, refer to [CreateFileDetect](~~CreateFileDetect~~). To retrieve the detection result of the compressed archive file itself, refer to [GetFileDetectResult](~~GetFileDetectResult~~).
+ * All file detection operations include the HashKey parameter, which represents the unique identifier of a file.
+ * In the malicious file detection scenario (Type is 0), only the MD5 or SHA-256 hash of the complete file content is supported. Calculate this value before calling the operation.
+ * In the Skill compressed archive detection scenario (Type is 6), obtain the value from the response of the CreateFileDetect operation.
+ * Note that the submission and query operations for a single detection must use the same HashKey. Otherwise, the detection cannot be correctly submitted or the results cannot be correctly queried.
+ * ### Compressed archive detection workflow
+ * To retrieve the detection results of files within a compressed archive, complete the following four steps in order:
+ * 1. Call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to obtain a file upload URL.
+ * 2. Upload the file to be detected to OSS.
+ * 3. Call the [CreateFileDetect](~~CreateFileDetect~~) operation to submit the file for detection, and set the Decompress parameter to true.
+ * 4. Call this operation (ListCompressFileDetectResult) to query the detection results of files within the compressed archive.
  *
  * @param request ListCompressFileDetectResultRequest
  * @return ListCompressFileDetectResultResponse
@@ -37212,7 +37284,7 @@ ListFileProtectPluginStatusResponse Client::listFileProtectPluginStatus(const Li
 }
 
 /**
- * @summary Queries core file monitoring rules.
+ * @summary Retrieves the list of rules for the core file protection feature.
  *
  * @param request ListFileProtectRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -37263,7 +37335,7 @@ ListFileProtectRuleResponse Client::listFileProtectRuleWithOptions(const ListFil
 }
 
 /**
- * @summary Queries core file monitoring rules.
+ * @summary Retrieves the list of rules for the core file protection feature.
  *
  * @param request ListFileProtectRuleRequest
  * @return ListFileProtectRuleResponse
@@ -38922,9 +38994,9 @@ ListOpaClusterStrategyNewResponse Client::listOpaClusterStrategyNew(const ListOp
 }
 
 /**
- * @summary Query the list of instance results under the operation check item
+ * @summary Queries the details of a one-click fix or rollback task for cloud platform configuration checks.
  *
- * @description This interface is only available to users who have purchased the cloud platform configuration check authorization or enabled the pay-as-you-go service for cloud platform configuration checks.
+ * @description Only users who have purchased the cloud platform configuration check quota or enabled pay-as-you-go billing for cloud platform configuration checks can call this operation.
  *
  * @param request ListOperationCheckRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -38951,9 +39023,9 @@ ListOperationCheckResponse Client::listOperationCheckWithOptions(const ListOpera
 }
 
 /**
- * @summary Query the list of instance results under the operation check item
+ * @summary Queries the details of a one-click fix or rollback task for cloud platform configuration checks.
  *
- * @description This interface is only available to users who have purchased the cloud platform configuration check authorization or enabled the pay-as-you-go service for cloud platform configuration checks.
+ * @description Only users who have purchased the cloud platform configuration check quota or enabled pay-as-you-go billing for cloud platform configuration checks can call this operation.
  *
  * @param request ListOperationCheckRequest
  * @return ListOperationCheckResponse
@@ -39040,7 +39112,7 @@ ListOperationProcessResponse Client::listOperationProcess(const ListOperationPro
 /**
  * @summary Queries the subtask list of an operation task.
  *
- * @description Currently, only check operation subtask queries are supported.
+ * @description Currently, only check operation subtask queries are supported. Before calling this operation, call the ListOperationProcess operation to obtain operation tasks. The TaskIds parameter of this operation can be obtained from the ListOperationProcess operation.
  *
  * @param request ListOperationProcessDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -39097,7 +39169,7 @@ ListOperationProcessDetailResponse Client::listOperationProcessDetailWithOptions
 /**
  * @summary Queries the subtask list of an operation task.
  *
- * @description Currently, only check operation subtask queries are supported.
+ * @description Currently, only check operation subtask queries are supported. Before calling this operation, call the ListOperationProcess operation to obtain operation tasks. The TaskIds parameter of this operation can be obtained from the ListOperationProcess operation.
  *
  * @param request ListOperationProcessDetailRequest
  * @return ListOperationProcessDetailResponse
@@ -41810,7 +41882,7 @@ ModifyClientConfSetupResponse Client::modifyClientConfSetup(const ModifyClientCo
 }
 
 /**
- * @summary Modifies an agent configuration policy.
+ * @summary Modifies a client configuration policy.
  *
  * @param request ModifyClientConfStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -41857,7 +41929,7 @@ ModifyClientConfStrategyResponse Client::modifyClientConfStrategyWithOptions(con
 }
 
 /**
- * @summary Modifies an agent configuration policy.
+ * @summary Modifies a client configuration policy.
  *
  * @param request ModifyClientConfStrategyRequest
  * @return ModifyClientConfStrategyResponse
@@ -44126,7 +44198,7 @@ ModifySecurityCheckScheduleConfigResponse Client::modifySecurityCheckScheduleCon
 }
 
 /**
- * @summary Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+ * @summary Adjusts advanced whitelisting rules for security alerts by asset dimension.
  *
  * @param request ModifySecurityEventMarkMissIndividuallyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -44179,7 +44251,7 @@ ModifySecurityEventMarkMissIndividuallyResponse Client::modifySecurityEventMarkM
 }
 
 /**
- * @summary Modifies the alert handling rule for alerts that are added to the whitelist by asset.
+ * @summary Adjusts advanced whitelisting rules for security alerts by asset dimension.
  *
  * @param request ModifySecurityEventMarkMissIndividuallyRequest
  * @return ModifySecurityEventMarkMissIndividuallyResponse
@@ -44342,7 +44414,7 @@ ModifySoarStrategySubscribeResponse Client::modifySoarStrategySubscribe(const Mo
 }
 
 /**
- * @summary Starts the one-click scan feature on the vulnerability management page of the console.
+ * @summary Enables the one-click scan feature on the vulnerability management page of the console.
  *
  * @param request ModifyStartVulScanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -44385,7 +44457,7 @@ ModifyStartVulScanResponse Client::modifyStartVulScanWithOptions(const ModifySta
 }
 
 /**
- * @summary Starts the one-click scan feature on the vulnerability management page of the console.
+ * @summary Enables the one-click scan feature on the vulnerability management page of the console.
  *
  * @param request ModifyStartVulScanRequest
  * @return ModifyStartVulScanResponse
@@ -44724,7 +44796,7 @@ ModifyVpcHoneyPotResponse Client::modifyVpcHoneyPot(const ModifyVpcHoneyPotReque
 }
 
 /**
- * @summary Modifies the vulnerability scanning switch configuration.
+ * @summary Modifies the vulnerability scanning toggle configuration.
  *
  * @param request ModifyVulConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -44763,7 +44835,7 @@ ModifyVulConfigResponse Client::modifyVulConfigWithOptions(const ModifyVulConfig
 }
 
 /**
- * @summary Modifies the vulnerability scanning switch configuration.
+ * @summary Modifies the vulnerability scanning toggle configuration.
  *
  * @param request ModifyVulConfigRequest
  * @return ModifyVulConfigResponse
@@ -45716,7 +45788,12 @@ OperateApplicationResponse Client::operateApplication(const OperateApplicationRe
 }
 
 /**
- * @summary Operates on a bucket detection task.
+ * @summary Operates on a bucket scan task.
+ *
+ * @description Before calling this operation, the following prerequisites must be met:
+ * 1. The OSS bucket has been discovered by Security Center (SAS). You can call the ListOssBucket operation to query the bucket.
+ * 2. An active scan task exists for the bucket. You can call the CreateOssBucketScanTask operation to create a scan task.
+ * The complete API call chain is: PutBucket → RefreshOssBucketScanInfo → CreateOssBucketScanTask → OperateBucketScanTask. Additional implicit prerequisites, such as activating the service in the console, may also apply.
  *
  * @param request OperateBucketScanTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -45755,7 +45832,12 @@ OperateBucketScanTaskResponse Client::operateBucketScanTaskWithOptions(const Ope
 }
 
 /**
- * @summary Operates on a bucket detection task.
+ * @summary Operates on a bucket scan task.
+ *
+ * @description Before calling this operation, the following prerequisites must be met:
+ * 1. The OSS bucket has been discovered by Security Center (SAS). You can call the ListOssBucket operation to query the bucket.
+ * 2. An active scan task exists for the bucket. You can call the CreateOssBucketScanTask operation to create a scan task.
+ * The complete API call chain is: PutBucket → RefreshOssBucketScanInfo → CreateOssBucketScanTask → OperateBucketScanTask. Additional implicit prerequisites, such as activating the service in the console, may also apply.
  *
  * @param request OperateBucketScanTaskRequest
  * @return OperateBucketScanTaskResponse
@@ -45766,7 +45848,7 @@ OperateBucketScanTaskResponse Client::operateBucketScanTask(const OperateBucketS
 }
 
 /**
- * @summary Sets a global switch by type.
+ * @summary Configures a global switch based on the specified type.
  *
  * @param request OperateCommonOverallConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -45813,7 +45895,7 @@ OperateCommonOverallConfigResponse Client::operateCommonOverallConfigWithOptions
 }
 
 /**
- * @summary Sets a global switch by type.
+ * @summary Configures a global switch based on the specified type.
  *
  * @param request OperateCommonOverallConfigRequest
  * @return OperateCommonOverallConfigResponse
@@ -46256,7 +46338,7 @@ OperateVirusEventsResponse Client::operateVirusEvents(const OperateVirusEventsRe
 }
 
 /**
- * @summary Fixes a Linux software vulnerability.
+ * @summary Fixes Linux software vulnerabilities.
  *
  * @param request OperateVulsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46303,7 +46385,7 @@ OperateVulsResponse Client::operateVulsWithOptions(const OperateVulsRequest &req
 }
 
 /**
- * @summary Fixes a Linux software vulnerability.
+ * @summary Fixes Linux software vulnerabilities.
  *
  * @param request OperateVulsRequest
  * @return OperateVulsResponse
@@ -46364,7 +46446,7 @@ OperateWebLockFileEventsResponse Client::operateWebLockFileEvents(const OperateW
 }
 
 /**
- * @summary Cancels ignoring alert events.
+ * @summary Unmarks ignored anomaly alert events.
  *
  * @param request OperationCancelIgnoreSuspEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46403,7 +46485,7 @@ OperationCancelIgnoreSuspEventResponse Client::operationCancelIgnoreSuspEventWit
 }
 
 /**
- * @summary Cancels ignoring alert events.
+ * @summary Unmarks ignored anomaly alert events.
  *
  * @param request OperationCancelIgnoreSuspEventRequest
  * @return OperationCancelIgnoreSuspEventResponse
@@ -46638,7 +46720,7 @@ PauseClientResponse Client::pauseClient(const PauseClientRequest &request) {
 /**
  * @summary Executes a policy task in the task center.
  *
- * @description Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions do not support this operation.
+ * @description Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions are not supported.
  *
  * @param request ProcessSoarStrategyTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46675,7 +46757,7 @@ ProcessSoarStrategyTaskResponse Client::processSoarStrategyTaskWithOptions(const
 /**
  * @summary Executes a policy task in the task center.
  *
- * @description Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions do not support this operation.
+ * @description Only the Enterprise and Ultimate editions of Security Center support this API call. Other editions are not supported.
  *
  * @param request ProcessSoarStrategyTaskRequest
  * @return ProcessSoarStrategyTaskResponse
@@ -47192,7 +47274,7 @@ QueryJenkinsImageRegistryPersistenceDayResponse Client::queryJenkinsImageRegistr
 }
 
 /**
- * @summary Queries the task result of a database dry run node.
+ * @summary Queries the node result of a database dry run.
  *
  * @param request QueryPreCheckDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -47231,7 +47313,7 @@ QueryPreCheckDatabaseResponse Client::queryPreCheckDatabaseWithOptions(const Que
 }
 
 /**
- * @summary Queries the task result of a database dry run node.
+ * @summary Queries the node result of a database dry run.
  *
  * @param request QueryPreCheckDatabaseRequest
  * @return QueryPreCheckDatabaseResponse
@@ -47330,7 +47412,7 @@ ReceiveFunctionTrialRewardByAliUidResponse Client::receiveFunctionTrialRewardByA
 }
 
 /**
- * @summary Synchronizes assets.
+ * @summary Synchronizes asset data.
  *
  * @param request RefreshAssetsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -47377,7 +47459,7 @@ RefreshAssetsResponse Client::refreshAssetsWithOptions(const RefreshAssetsReques
 }
 
 /**
- * @summary Synchronizes assets.
+ * @summary Synchronizes asset data.
  *
  * @param request RefreshAssetsRequest
  * @return RefreshAssetsResponse
@@ -49052,7 +49134,7 @@ SubmitCheckResponse Client::submitCheck(const SubmitCheckRequest &request) {
 }
 
 /**
- * @summary Submits a repair task of risk items detected in configuration assessment or rolls back a repair task that is executed.
+ * @summary Submits a remediation task for risky check items in cloud product configuration checks, or rolls back a remediation task that has been executed.
  *
  * @param request SubmitOperationTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -49103,7 +49185,7 @@ SubmitOperationTaskResponse Client::submitOperationTaskWithOptions(const SubmitO
 }
 
 /**
- * @summary Submits a repair task of risk items detected in configuration assessment or rolls back a repair task that is executed.
+ * @summary Submits a remediation task for risky check items in cloud product configuration checks, or rolls back a remediation task that has been executed.
  *
  * @param request SubmitOperationTaskRequest
  * @return SubmitOperationTaskResponse
@@ -49646,7 +49728,7 @@ UpdateBaselineCheckWhiteRecordResponse Client::updateBaselineCheckWhiteRecord(co
 }
 
 /**
- * @summary User creates a custom check item
+ * @summary Updates a custom check item in the Cloud Security Posture Management (CSPM) custom check item feature.
  *
  * @param tmpReq UpdateCheckItemRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -49739,7 +49821,7 @@ UpdateCheckItemResponse Client::updateCheckItemWithOptions(const UpdateCheckItem
 }
 
 /**
- * @summary User creates a custom check item
+ * @summary Updates a custom check item in the Cloud Security Posture Management (CSPM) custom check item feature.
  *
  * @param request UpdateCheckItemRequest
  * @return UpdateCheckItemResponse
@@ -49866,7 +49948,7 @@ UpdateCheckScopeConfigResponse Client::updateCheckScopeConfig(const UpdateCheckS
 }
 
 /**
- * @summary Modifies alerting settings for servers.
+ * @summary Modifies the alert settings for servers.
  *
  * @param request UpdateClientAlertModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -49901,7 +49983,7 @@ UpdateClientAlertModeResponse Client::updateClientAlertModeWithOptions(const Upd
 }
 
 /**
- * @summary Modifies alerting settings for servers.
+ * @summary Modifies the alert settings for servers.
  *
  * @param request UpdateClientAlertModeRequest
  * @return UpdateClientAlertModeResponse
@@ -50196,7 +50278,7 @@ UpdateFileProtectClientRuleResponse Client::updateFileProtectClientRule(const Up
 }
 
 /**
- * @summary Updates the status of file tamper-proofing rules in batches.
+ * @summary Updates the status of file tamper-proofing rules.
  *
  * @param request UpdateFileProtectClientRuleStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50255,7 +50337,7 @@ UpdateFileProtectClientRuleStatusResponse Client::updateFileProtectClientRuleSta
 }
 
 /**
- * @summary Updates the status of file tamper-proofing rules in batches.
+ * @summary Updates the status of file tamper-proofing rules.
  *
  * @param request UpdateFileProtectClientRuleStatusRequest
  * @return UpdateFileProtectClientRuleStatusResponse
@@ -50266,7 +50348,7 @@ UpdateFileProtectClientRuleStatusResponse Client::updateFileProtectClientRuleSta
 }
 
 /**
- * @summary Modifies the status of core file monitoring events reported by the Security Center agent.
+ * @summary Modifies the status of core file monitoring events reported by the client.
  *
  * @param request UpdateFileProtectEventStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50345,7 +50427,7 @@ UpdateFileProtectEventStatusResponse Client::updateFileProtectEventStatusWithOpt
 }
 
 /**
- * @summary Modifies the status of core file monitoring events reported by the Security Center agent.
+ * @summary Modifies the status of core file monitoring events reported by the client.
  *
  * @param request UpdateFileProtectEventStatusRequest
  * @return UpdateFileProtectEventStatusResponse
@@ -50356,7 +50438,7 @@ UpdateFileProtectEventStatusResponse Client::updateFileProtectEventStatus(const 
 }
 
 /**
- * @summary Modify Alert Remarks
+ * @summary Adds remarks to core file monitoring events reported by the client.
  *
  * @param request UpdateFileProtectRemarkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50439,7 +50521,7 @@ UpdateFileProtectRemarkResponse Client::updateFileProtectRemarkWithOptions(const
 }
 
 /**
- * @summary Modify Alert Remarks
+ * @summary Adds remarks to core file monitoring events reported by the client.
  *
  * @param request UpdateFileProtectRemarkRequest
  * @return UpdateFileProtectRemarkResponse
@@ -50450,7 +50532,7 @@ UpdateFileProtectRemarkResponse Client::updateFileProtectRemark(const UpdateFile
 }
 
 /**
- * @summary Modifies the content of a core file monitoring rule based on the ID of the rule.
+ * @summary Modifies the content of a core file monitoring rule based on the rule ID.
  *
  * @param request UpdateFileProtectRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -50509,7 +50591,7 @@ UpdateFileProtectRuleResponse Client::updateFileProtectRuleWithOptions(const Upd
 }
 
 /**
- * @summary Modifies the content of a core file monitoring rule based on the ID of the rule.
+ * @summary Modifies the content of a core file monitoring rule based on the rule ID.
  *
  * @param request UpdateFileProtectRuleRequest
  * @return UpdateFileProtectRuleResponse
@@ -51720,7 +51802,7 @@ UpdatePublishGraySwitchResponse Client::updatePublishGraySwitch(const UpdatePubl
 }
 
 /**
- * @summary Modifies the key corresponding to a specified type.
+ * @summary Modifies the key that corresponds to a specified type.
  *
  * @param request UpdateSelectionKeyByTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -51759,7 +51841,7 @@ UpdateSelectionKeyByTypeResponse Client::updateSelectionKeyByTypeWithOptions(con
 }
 
 /**
- * @summary Modifies the key corresponding to a specified type.
+ * @summary Modifies the key that corresponds to a specified type.
  *
  * @param request UpdateSelectionKeyByTypeRequest
  * @return UpdateSelectionKeyByTypeResponse
@@ -52118,6 +52200,11 @@ UpgradeBackupPolicyVersionResponse Client::upgradeBackupPolicyVersion(const Upgr
 /**
  * @summary Upgrades the version of a specified honeypot management node.
  *
+ * @description Before calling this operation to upgrade a honeypot management node version, ensure the following prerequisites are met:
+ * 1. A honeypot management node already exists. If no node exists, call the CreateHoneypotNode operation to create one first.
+ * 2. The probe quota is greater than zero (TotalProbeCount is greater than 0). The probe quota is allocated by purchasing a Security Center honeypot subscription.
+ * 3. You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the NodeId of the management node to be upgraded.
+ *
  * @param request UpgradeHoneypotNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpgradeHoneypotNodeResponse
@@ -52156,6 +52243,11 @@ UpgradeHoneypotNodeResponse Client::upgradeHoneypotNodeWithOptions(const Upgrade
 
 /**
  * @summary Upgrades the version of a specified honeypot management node.
+ *
+ * @description Before calling this operation to upgrade a honeypot management node version, ensure the following prerequisites are met:
+ * 1. A honeypot management node already exists. If no node exists, call the CreateHoneypotNode operation to create one first.
+ * 2. The probe quota is greater than zero (TotalProbeCount is greater than 0). The probe quota is allocated by purchasing a Security Center honeypot subscription.
+ * 3. You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain the NodeId of the management node to be upgraded.
  *
  * @param request UpgradeHoneypotNodeRequest
  * @return UpgradeHoneypotNodeResponse
@@ -52396,7 +52488,7 @@ VerifyCheckCustomConfigResponse Client::verifyCheckCustomConfig(const VerifyChec
 }
 
 /**
- * @summary Verifies instances under a check item.
+ * @summary Performs instance-level verification for a check item.
  *
  * @param request VerifyCheckInstanceResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -52443,7 +52535,7 @@ VerifyCheckInstanceResultResponse Client::verifyCheckInstanceResultWithOptions(c
 }
 
 /**
- * @summary Verifies instances under a check item.
+ * @summary Performs instance-level verification for a check item.
  *
  * @param request VerifyCheckInstanceResultRequest
  * @return VerifyCheckInstanceResultResponse

@@ -71,12 +71,14 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The task IDs.
+    // The list of task IDs.
     shared_ptr<vector<string>> taskIds_ {};
-    // The types of the vulnerabilities that are detected by the tasks.
+    // The list of vulnerability types for the one-click scan.
     shared_ptr<vector<string>> types_ {};
-    // The UUID of the server.
+    // The UUID of the server to query.
     shared_ptr<string> uuid_ {};
   };
 

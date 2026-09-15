@@ -94,29 +94,29 @@ namespace Models
 
 
   protected:
-    // The search conditions for assets. This parameter is in JSON format. Parameter names are case-sensitive.
+    // The search conditions for assets. This parameter is in JSON format. The parameter names are case-sensitive.
     // > You can search for assets by instance ID, instance name, VPC ID, region, or public IP address.
     shared_ptr<string> criteria_ {};
-    // The page number of the current page in a paged query.
+    // The page number in a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time of the scan discovery period.
+    // The end time of the scan discovery. Specify a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> foundEndTime_ {};
-    // The start time of the scan discovery period.
+    // The start time of the scan discovery. Specify a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> foundStartTime_ {};
-    // The logical relationship between multiple search conditions. Valid values:
+    // The logical relationship among multiple search conditions. Valid values:
     // 
     // - **OR**: The search conditions are in a logical **OR** relationship.
     // - **AND**: The search conditions are in a logical **AND** relationship.
     shared_ptr<string> logicalExp_ {};
-    // The maximum number of entries per page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
-    // > Do not leave PageSize empty.
+    // The maximum number of entries per page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
+    // > Specify a value for PageSize.
     shared_ptr<int32_t> pageSize_ {};
     // The status list of the corresponding probes. Separate multiple values with commas. Valid values:
     // - **0**: active
     // - **1**: ignored
     // - **2**: invalid
     // - **3**: expired
-    // - **4**: probe does not exist.
+    // - **4**: probe does not exist
     shared_ptr<string> status_ {};
   };
 

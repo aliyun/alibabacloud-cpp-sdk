@@ -57,53 +57,33 @@ namespace Models
 
 
   protected:
-    // The source that initiated the task.
+    // The source from which the task was added.
     shared_ptr<string> source_ {};
-    // The name of the task. Valid values:
-    // 
-    // - `CLIENT_PROBLEM_CHECK`: client troubleshooting task
-    // 
-    // - `CLIENT_DEV_OPS`: O\\&M task
-    // 
-    // - `ASSET_SECURITY_CHECK`: asset collection task
-    // 
-    // - `ASSETS_COLLECTION`: asset fingerprint collection task
-    // 
-    // - `IMAGE_SCAN`: container image scan task
-    // 
-    // - `AI_SECURITY_CHECK`: AI asset synchronization task
-    // 
-    // - `IDC_PROBE_SCAN`: IDC probe scan task
-    // 
-    // - `ATTACK_SURFACE_SCAN`: attack surface boundary asset scan task
-    // 
-    // - `ASSET_EXPOSURE_SCAN`: asset exposure scan task
-    // 
-    // - `VUL_CHECK_TASK`: vulnerability scan task
+    // The task name. Valid values:
+    // - **CLIENT_PROBLEM_CHECK**: client problem troubleshooting task
+    // - **CLIENT_DEV_OPS**: cloud O&M task
+    // - **ASSET_SECURITY_CHECK**: asset collection task
+    // - **ASSETS_COLLECTION**: Asset Fingerprints collection task
+    // - **IMAGE_SCAN**: container image scan task
+    // - **AI_SECURITY_CHECK**: AI asset synchronization task
+    // - **IDC_PROBE_SCAN**: IDC probe scan task
+    // - **ATTACK_SURFACE_SCAN**: attack surface boundary asset scan task
+    // - **ASSET_EXPOSURE_SCAN**: asset exposure scan task
+    // - **VUL_CHECK_TASK**: vulnerability scanning task
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
-    // The type of the task. Valid values:
-    // 
-    // - `CLIENT_PROBLEM_CHECK`: client troubleshooting task
-    // 
-    // - `CLIENT_DEV_OPS`: O\\&M task
-    // 
-    // - `ASSET_SECURITY_CHECK`: asset collection task
-    // 
-    // - `ASSETS_COLLECTION`: asset fingerprint collection task
-    // 
-    // - `IMAGE_SCAN`: container image scan task
-    // 
-    // - `AI_SECURITY_CHECK`: AI asset synchronization task
-    // 
-    // - `IDC_PROBE_SCAN`: IDC probe scan task
-    // 
-    // - `ATTACK_SURFACE_SCAN`: attack surface boundary asset scan task
-    // 
-    // - `ASSET_EXPOSURE_SCAN`: asset exposure scan task
-    // 
-    // - `VUL_CHECK_TASK`: vulnerability scan task
+    // The task type. Valid values:
+    // - **CLIENT_PROBLEM_CHECK**: client problem troubleshooting task
+    // - **CLIENT_DEV_OPS**: cloud O&M task
+    // - **ASSET_SECURITY_CHECK**: asset collection task
+    // - **ASSETS_COLLECTION**: Asset Fingerprints collection task
+    // - **IMAGE_SCAN**: container image scan task
+    // - **AI_SECURITY_CHECK**: AI asset synchronization task
+    // - **IDC_PROBE_SCAN**: IDC probe scan task
+    // - **ATTACK_SURFACE_SCAN**: attack surface boundary asset scan task
+    // - **ASSET_EXPOSURE_SCAN**: asset exposure scan task
+    // - **VUL_CHECK_TASK**: vulnerability scanning task
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

@@ -41,6 +41,7 @@ namespace Models
     class VulRecords : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const VulRecords& obj) { 
+        DARABONBA_PTR_TO_JSON(AgentlessCanFix, agentlessCanFix_);
         DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
         DARABONBA_PTR_TO_JSON(CanFix, canFix_);
         DARABONBA_PTR_TO_JSON(CanUpdate, canUpdate_);
@@ -77,6 +78,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Uuid, uuid_);
       };
       friend void from_json(const Darabonba::Json& j, VulRecords& obj) { 
+        DARABONBA_PTR_FROM_JSON(AgentlessCanFix, agentlessCanFix_);
         DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
         DARABONBA_PTR_FROM_JSON(CanFix, canFix_);
         DARABONBA_PTR_FROM_JSON(CanUpdate, canUpdate_);
@@ -243,7 +245,7 @@ namespace Models
         protected:
           // The full version number of the software package.
           shared_ptr<string> fullVersion_ {};
-          // The SHA256 value of the container image layer digest.
+          // The SHA256 digest of the container image layer.
           shared_ptr<string> layer_ {};
           // The details of the vulnerability match.
           shared_ptr<string> matchDetail_ {};
@@ -251,7 +253,7 @@ namespace Models
           shared_ptr<vector<string>> matchList_ {};
           // The name of the software package.
           shared_ptr<string> name_ {};
-          // The path of the software that contains the vulnerability.
+          // The path of the vulnerable software.
           shared_ptr<string> path_ {};
           // The command to fix the vulnerability.
           shared_ptr<string> updateCmd_ {};
@@ -287,20 +289,27 @@ namespace Models
       protected:
         // The name of the operating system.
         shared_ptr<string> os_ {};
-        // The release version of the operating system corresponding to the container image.
+        // The operating system release version corresponding to the container image.
         shared_ptr<string> osRelease_ {};
-        // The list of software packages that cause the vulnerability.
+        // The list of software packages that caused the vulnerability.
         shared_ptr<vector<ExtendContentJson::RpmEntityList>> rpmEntityList_ {};
       };
 
-      virtual bool empty() const override { return this->aliasName_ == nullptr
-        && this->canFix_ == nullptr && this->canUpdate_ == nullptr && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->containerId_ == nullptr
-        && this->extendContentJson_ == nullptr && this->firstTs_ == nullptr && this->image_ == nullptr && this->imageDigest_ == nullptr && this->instanceName_ == nullptr
-        && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->lastTs_ == nullptr && this->layers_ == nullptr && this->maliciousSource_ == nullptr
-        && this->modifyTs_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->necessity_ == nullptr && this->pod_ == nullptr
-        && this->primaryId_ == nullptr && this->related_ == nullptr && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->ruleTag_ == nullptr
-        && this->scanTime_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->targetId_ == nullptr && this->targetName_ == nullptr
-        && this->targetType_ == nullptr && this->type_ == nullptr && this->uuid_ == nullptr; };
+      virtual bool empty() const override { return this->agentlessCanFix_ == nullptr
+        && this->aliasName_ == nullptr && this->canFix_ == nullptr && this->canUpdate_ == nullptr && this->clusterId_ == nullptr && this->clusterName_ == nullptr
+        && this->containerId_ == nullptr && this->extendContentJson_ == nullptr && this->firstTs_ == nullptr && this->image_ == nullptr && this->imageDigest_ == nullptr
+        && this->instanceName_ == nullptr && this->internetIp_ == nullptr && this->intranetIp_ == nullptr && this->lastTs_ == nullptr && this->layers_ == nullptr
+        && this->maliciousSource_ == nullptr && this->modifyTs_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->necessity_ == nullptr
+        && this->pod_ == nullptr && this->primaryId_ == nullptr && this->related_ == nullptr && this->repoName_ == nullptr && this->repoNamespace_ == nullptr
+        && this->ruleTag_ == nullptr && this->scanTime_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->targetId_ == nullptr
+        && this->targetName_ == nullptr && this->targetType_ == nullptr && this->type_ == nullptr && this->uuid_ == nullptr; };
+      // agentlessCanFix Field Functions 
+      bool hasAgentlessCanFix() const { return this->agentlessCanFix_ != nullptr;};
+      void deleteAgentlessCanFix() { this->agentlessCanFix_ = nullptr;};
+      inline bool getAgentlessCanFix() const { DARABONBA_PTR_GET_DEFAULT(agentlessCanFix_, false) };
+      inline VulRecords& setAgentlessCanFix(bool agentlessCanFix) { DARABONBA_PTR_SET_VALUE(agentlessCanFix_, agentlessCanFix) };
+
+
       // aliasName Field Functions 
       bool hasAliasName() const { return this->aliasName_ != nullptr;};
       void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -544,19 +553,21 @@ namespace Models
 
 
     protected:
+      // Indicates whether the vulnerability supports agentless remediation. true: supported. false: not supported. If this field is not returned, no corresponding remediation capability information is available.
+      shared_ptr<bool> agentlessCanFix_ {};
       // The alias of the vulnerability.
       shared_ptr<string> aliasName_ {};
-      // Indicates whether the vulnerability can be fixed from the console. Valid values:
+      // Indicates whether the vulnerability can be fixed in the console. Valid values:
       // 
-      // - **yes**: can be fixed
-      // - **no**: cannot be fixed.
+      // - **yes**: Can be fixed.
+      // - **no**: Cannot be fixed.
       shared_ptr<string> canFix_ {};
-      // Indicates whether the software package that causes the vulnerability can be upgraded through Security Center. Valid values:
+      // Indicates whether the software package that caused the vulnerability can be upgraded through Security Center. Valid values:
       // 
-      // - **true**: Supported.
-      // - **false**: Not supported.
+      // - **true**: Upgrade is supported.
+      // - **false**: Upgrade is not supported.
       shared_ptr<bool> canUpdate_ {};
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
       // The name of the cluster.
       shared_ptr<string> clusterName_ {};
@@ -564,9 +575,9 @@ namespace Models
       shared_ptr<string> containerId_ {};
       // The extended content of the vulnerability information.
       shared_ptr<VulRecords::ExtendContentJson> extendContentJson_ {};
-      // The timestamp of the first scan. Unit: milliseconds.
+      // The timestamp of the first scan, in milliseconds.
       shared_ptr<int64_t> firstTs_ {};
-      // The name of the image.
+      // The image name.
       shared_ptr<string> image_ {};
       // The unique identifier of the container image.
       shared_ptr<string> imageDigest_ {};
@@ -576,26 +587,26 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address of the server.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp of the latest scan. Unit: milliseconds.
+      // The timestamp of the most recent scan, in milliseconds.
       shared_ptr<int64_t> lastTs_ {};
       // The list of container image layers.
       shared_ptr<vector<string>> layers_ {};
       // The source of the malicious file. Valid values:
       // 
-      // - **agentless**: agentless detection
-      // - **image**: image
-      // - **container**: container.
+      // - **agentless**: Agentless detection.
+      // - **image**: Image.
+      // - **container**: Container.
       shared_ptr<string> maliciousSource_ {};
-      // The timestamp when the vulnerability record was last updated. Unit: milliseconds.
+      // The timestamp when the vulnerability record was updated, in milliseconds.
       shared_ptr<int64_t> modifyTs_ {};
       // The name of the vulnerability.
       shared_ptr<string> name_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The priority level of vulnerability fixing. Valid values:
-      // - **asap**: high-priority vulnerability
-      // - **later**: medium-priority vulnerability
-      // - **nntf**: low-priority vulnerability.
+      // The priority level for fixing the vulnerability. Valid values:
+      // - **asap**: High-priority vulnerability that must be fixed as soon as possible.
+      // - **later**: Medium-priority vulnerability that can be fixed later.
+      // - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
       shared_ptr<string> necessity_ {};
       // The pod.
       shared_ptr<string> pod_ {};
@@ -609,13 +620,13 @@ namespace Models
       shared_ptr<string> repoNamespace_ {};
       // The vulnerability tag. Valid values:
       // 
-      //  - **AI**: vulnerability related to AI components.
+      //  - **AI**: Vulnerability related to AI components.
       shared_ptr<string> ruleTag_ {};
-      // The timestamp of the scan. Unit: milliseconds.
+      // The timestamp of the scan, in milliseconds.
       shared_ptr<int64_t> scanTime_ {};
       // The fix status of the vulnerability. Valid values:
-      // - **1**: unfixed
-      // - **7**: fixed.
+      // - **1**: Not fixed.
+      // - **7**: Fixed.
       shared_ptr<int32_t> status_ {};
       // The tag of the container image vulnerability.
       shared_ptr<string> tag_ {};
@@ -625,10 +636,10 @@ namespace Models
       shared_ptr<string> targetName_ {};
       // The object type of the scan target. Valid values:
       // 
-      // - **ECS_IMAGE**: image.
-      // - **ECS_SNAPSHOT**: snapshot.
+      // - **ECS_IMAGE**: Image.
+      // - **ECS_SNAPSHOT**: Snapshot.
       shared_ptr<string> targetType_ {};
-      // The type of vulnerability queried. The value is fixed as cve, which indicates container image vulnerabilities.
+      // The type of the vulnerability queried. The value is fixed as cve, which indicates container image vulnerabilities.
       shared_ptr<string> type_ {};
       // The UUID of the server.
       shared_ptr<string> uuid_ {};
@@ -674,13 +685,13 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paged query.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of vulnerabilities displayed on each page in a paged query. Default value: **10**.
+    // The number of vulnerabilities displayed per page in a paging query. Default value: **10**, which indicates that 10 vulnerabilities are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use this ID to troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The total number of vulnerabilities returned.
+    // The total number of vulnerabilities returned by the query.
     shared_ptr<int32_t> totalCount_ {};
     // The list of vulnerability information.
     shared_ptr<vector<DescribeImageVulListResponseBody::VulRecords>> vulRecords_ {};

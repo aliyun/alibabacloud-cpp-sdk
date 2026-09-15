@@ -54,8 +54,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
-    // The ID of the member account in the resource directory (Alibaba Cloud account).
-    // > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the member accounts in the resource folder (Alibaba Cloud account).
+    // > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

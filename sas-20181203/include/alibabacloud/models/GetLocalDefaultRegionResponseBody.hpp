@@ -51,7 +51,7 @@ namespace Models
     // The unique identifier that Alibaba Cloud generates for the request.
     shared_ptr<string> requestId_ {};
     // The access type of the multi-cloud site. Valid values:
-    // - **0**: No default site exists. You can select one.
+    // - **0**: No default site exists. You can select a site as the default site.
     // - **1**: The current site is already the default site.
     // - **2**: Another site is already set as the default site.
     shared_ptr<int32_t> status_ {};

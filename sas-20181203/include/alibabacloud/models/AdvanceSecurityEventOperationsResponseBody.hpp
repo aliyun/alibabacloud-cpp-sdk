@@ -117,19 +117,19 @@ namespace Models
 
 
       protected:
-        // The alias of the field that can be used in the whitelist rule.
+        // The name of the whitelist field that can be configured in a whitelist rule.
         shared_ptr<string> filedAliasName_ {};
-        // The field that can be used in the whitelist rule.
+        // The whitelist field that can be configured in a whitelist rule.
         shared_ptr<string> filedName_ {};
-        // The value of the field that can be used in the whitelist rule.
+        // The rule value of the whitelist rule.
         shared_ptr<string> markMisValue_ {};
-        // The operation that is supported in the whitelist rule. Valid values:
+        // The supported wildcards in the whitelist rule. Valid values:
         // 
-        // *   **contains**: contains
-        // *   **notContains**: does not contain
-        // *   **regex**: regular expression
-        // *   **strEqual**: equals
-        // *   **strNotEqual**: does not equal
+        // - **contains**: contains
+        // - **notContains**: does not contain
+        // - **regex**: regular expression
+        // - **strEqual**: equals
+        // - **strNotEqual**: does not equal
         shared_ptr<vector<string>> supportedMisType_ {};
       };
 
@@ -200,27 +200,26 @@ namespace Models
 
 
       protected:
-        // The alias of the field that is used in the whitelist rule.
+        // The name of the whitelist field in the configured whitelist rule.
         shared_ptr<string> filedAliasName_ {};
-        // The field that is used in the whitelist rule.
+        // The whitelist field in the configured whitelist rule.
         shared_ptr<string> filedName_ {};
-        // The operation that is used in the whitelist rule. Valid values:
-        // 
-        // *   **contains**: contains
-        // *   **notContains**: does not contain
-        // *   **regex**: regular expression
-        // *   **strEqual**: equals
-        // *   **strNotEqual**: does not equal
+        // The wildcard in the configured whitelist rule. Valid values:
+        // - **contains**: contains
+        // - **notContains**: does not contain
+        // - **regex**: regular expression
+        // - **strEqual**: equals
+        // - **strNotEqual**: does not equal
         shared_ptr<string> markMisType_ {};
-        // The value of the field that is used in the whitelist rule.
+        // The rule value of the configured whitelist rule.
         shared_ptr<string> markMisValue_ {};
-        // The operation that is used and can be modified in the whitelist rule. Valid values:
+        // The wildcard types that can be modified in the configured whitelist rule. Valid values:
         // 
-        // *   **contains**: contains
-        // *   **notContains**: does not contain
-        // *   **regex**: regular expression
-        // *   **strEqual**: equals
-        // *   **strNotEqual**: does not equal
+        // - **contains**: contains
+        // - **notContains**: does not contain
+        // - **regex**: regular expression
+        // - **strEqual**: equals
+        // - **strNotEqual**: does not equal
         shared_ptr<vector<string>> supportedMisType_ {};
       };
 
@@ -266,29 +265,29 @@ namespace Models
 
 
     protected:
-      // The object on which the operation is performed. This parameter is required when you set the OperationCode parameter to **advance_mark_mis_info**.
+      // The configuration information when the handling method is **advance_mark_mis_info**.
       shared_ptr<vector<SecurityEventOperationsResponse::MarkField>> markField_ {};
-      // The metadata configuration returned by the advanced whitelist rule.
+      // The metadata configuration information returned for the advanced whitelist.
       shared_ptr<vector<SecurityEventOperationsResponse::MarkFieldsSource>> markFieldsSource_ {};
-      // The operation performed to handle the alert. Valid values:
+      // The handling method for the alert. Valid values:
       // 
-      // *   **block_ip**: blocks the alert.
-      // *   **advance_mark_mis_info**: adds the alert to the whitelist.
-      // *   **ignore**: ignores the alert.
-      // *   **manual_handled**: marks the alert as manually handled.
-      // *   **kill_process**: terminates the malicious process.
-      // *   **cleanup**: performs in-depth virus detection and removal.
-      // *   **kill_and_quara**: performs virus detection and removal.
-      // *   **disable_malicious_defense**: turns off malicious defense behavior.
-      // *   **client_problem_check**: performs troubleshooting.
-      // *   **quara**: performs quarantine operations.
+      // - **block_ip**: Block.
+      // - **advance_mark_mis_info**: Add to whitelist.
+      // - **ignore**: Ignore.
+      // - **manual_handled**: Manually handled.
+      // - **kill_process**: Terminate process.
+      // - **cleanup**: Deep scan and removal.
+      // - **kill_and_quara**: Virus scan and quarantine.
+      // - **disable_malicious_defense**: Disable malicious behavior defense.
+      // - **client_problem_check**: Troubleshoot.
+      // - **quara**: Quarantine.
       shared_ptr<string> operationCode_ {};
-      // The configuration of the operation performed to handle the alert event.
+      // The configuration of the sub-operation for the alert event handling method.
       shared_ptr<string> operationParams_ {};
-      // Indicates whether the operation can be performed.
+      // Indicates whether the operation is available.
       // 
-      // *   **true**: The operation can be performed.
-      // *   **false**: The operation cannot be performed.
+      // - **true**: Available.
+      // - **false**: Not available.
       shared_ptr<bool> userCanOperate_ {};
     };
 
@@ -313,7 +312,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The operation performed on the alert event.
+    // The operation types for handling alert events.
     shared_ptr<vector<AdvanceSecurityEventOperationsResponseBody::SecurityEventOperationsResponse>> securityEventOperationsResponse_ {};
   };
 

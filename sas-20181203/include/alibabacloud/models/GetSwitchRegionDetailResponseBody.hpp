@@ -121,13 +121,13 @@ namespace Models
       protected:
         // The number of ECS instances.
         shared_ptr<int32_t> ecsCount_ {};
-        // The planned migration time.
+        // The planned migration time. The value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> gmtPlanSwitchTime_ {};
         // The region where the server resides.
         shared_ptr<string> regionId_ {};
         // The migration status. Valid values:
         // - **0**: waiting for migration
-        // - **1**: switchover succeeded.
+        // - **1**: switchover succeeded
         shared_ptr<int32_t> status_ {};
       };
 
@@ -229,9 +229,9 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The returned data.
     shared_ptr<GetSwitchRegionDetailResponseBody::Data> data_ {};
-    // The ID of the request. The China Chinese mainland generates a unique identifier for each request, which can be used for troubleshooting and diagnostics.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

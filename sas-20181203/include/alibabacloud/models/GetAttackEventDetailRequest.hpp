@@ -49,6 +49,8 @@ namespace Models
 
   protected:
     // The unique ID of the alert event.
+    // 
+    // Note: This parameter is required. If this parameter is not specified, the API returns a 400 error.
     shared_ptr<string> id_ {};
     // The language of the request and response. Valid values:
     // - **zh**: Chinese.

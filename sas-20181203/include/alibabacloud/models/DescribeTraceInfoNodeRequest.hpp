@@ -111,19 +111,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> from_ {};
-    // The time when the event was first detected.
+    // The time when the event was first detected. This value is a UNIX timestamp. Unit: milliseconds.
     shared_ptr<int64_t> incidentTime_ {};
     // The language type of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
+    // The source IP address of the request. You do not need to specify this parameter. The system automatically obtains this value.
     shared_ptr<string> sourceIp_ {};
-    // The vertex type. You can call the [DescribeTraceInfoDetail](~~DescribeTraceInfoDetail~~) operation to obtain this parameter.
+    // The vertex type. You can obtain this value by calling the [DescribeTraceInfoDetail](~~DescribeTraceInfoDetail~~) operation. Valid values: **SAS_ASSET**: indicates a server asset. In this case, VertexId is the UUID of the server, which can be obtained by calling the DescribeCloudCenterInstances operation. If no security events exist for the account, you can obtain the VertexId by calling the DescribeCloudCenterInstances operation.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UUID of the server to query. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain this parameter.
+    // The UUID of the server to query. You can obtain this parameter by calling the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

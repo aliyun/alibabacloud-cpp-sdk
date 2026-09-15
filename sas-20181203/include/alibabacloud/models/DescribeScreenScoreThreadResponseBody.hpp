@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The security score trend list.
+      // The list of security score trends.
       shared_ptr<vector<string>> socreThread_ {};
-      // The security score trend date list.
+      // The list of dates for security score trends.
       shared_ptr<vector<string>> socreThreadDate_ {};
     };
 

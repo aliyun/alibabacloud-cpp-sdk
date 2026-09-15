@@ -84,26 +84,30 @@ namespace Models
 
 
   protected:
-    // The severity of alerts. Valid values:
+    // The alert notification level. Valid values:
     // 
-    // *   0: does not generate alerts
-    // *   1: sends notifications
-    // *   2: suspicious
-    // *   3: high-risk
+    // - 0: No alert.
+    // 
+    // - 1: Reminder.
+    // 
+    // - 2: Suspicious.
+    // 
+    // - 3: High-risk.
     shared_ptr<int32_t> alertLevel_ {};
-    // The page number.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the operating system. Valid values:
+    // The operating system type. Valid values:
     // 
-    // *   **windows**: Windows
-    // *   **linux**: Linux
+    // - **windows**: Windows
+    // - **linux**: Linux
     shared_ptr<string> platform_ {};
-    // The handling method of the rule. Valid values:
+    // The action of the rule on the client. Valid values:
     // 
-    // *   pass: allow
-    // *   alert
+    // - pass: allow
+    // 
+    // - alert: alert
     shared_ptr<string> ruleAction_ {};
     // The name of the rule.
     shared_ptr<string> ruleName_ {};

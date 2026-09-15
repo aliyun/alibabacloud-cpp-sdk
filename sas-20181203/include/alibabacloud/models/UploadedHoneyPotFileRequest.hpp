@@ -95,7 +95,7 @@ namespace Models
 
   protected:
     // The FileKey used to upload the file.
-    // > Format: HONEYPOT_FILE/{timestamp}_{custom_file_name}.
+    // > Format: HONEYPOT_FILE/{timestamp}_{custom_file_name}
     // 
     // This parameter is required.
     shared_ptr<string> fileKey_ {};
@@ -114,12 +114,13 @@ namespace Models
     // The language type of the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The ID of the honeypot management node.
     // > Call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to obtain this value.
+    // Note: This parameter is required. If this parameter is not specified, the API returns InvalidParam (400). Call ListHoneypotNode to obtain a valid NodeId.
     shared_ptr<string> nodeId_ {};
-    // The template prompt corresponding to the uploaded file.
+    // The template prompt for the uploaded file.
     // 
     // This parameter is required.
     shared_ptr<string> templateExtra_ {};

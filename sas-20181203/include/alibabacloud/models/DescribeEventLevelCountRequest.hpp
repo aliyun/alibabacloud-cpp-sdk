@@ -103,41 +103,41 @@ namespace Models
 
 
   protected:
-    // The ID of the container cluster.
-    // 
-    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+    // The ID of the container cluster that you want to query.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The key of the condition that is used to query alert events on containers. Valid values:
+    // The container search field. Valid values:
     // 
-    // *   **instanceId**: the ID of the asset
-    // *   **appName**: the name of the application
-    // *   **clusterId**: the ID of the cluster
-    // *   **regionId**: the ID of the region
-    // *   **nodeName**: the name of the node
-    // *   **namespace**: the namespace
-    // *   **clusterName**: the name of the cluster
-    // *   **image**: the name of the image
-    // *   **imageRepoName**: the name of the image repository
-    // *   **imageRepoNamespace**: the namespace to which the image repository belongs
-    // *   **imageRepoTag**: the tag that is added to the image
-    // *   **imageDigest**: the digest of the image
+    // - **instanceId**: instance ID
+    // - **appName**: application name
+    // - **clusterId**: cluster ID
+    // - **regionId**: region
+    // - **nodeName**: node name
+    // - **namespace**: namespace
+    // - **clusterName**: cluster name
+    // - **image**: image name
+    // - **imageRepoName**: image repository name
+    // - **imageRepoNamespace**: image repository namespace
+    // - **imageRepoTag**: image tag
+    // - **imageDigest**: image digest
     shared_ptr<string> containerFieldName_ {};
-    // The value of the condition that is used to query alert events on containers. If you specify multiple values, separate them with commas (,).
+    // The value of the field that you want to query. Separate multiple values with commas (,).
     shared_ptr<string> containerFieldValue_ {};
-    // The ID of the container.
+    // The container IDs.
     shared_ptr<string> containerIds_ {};
-    // The ID of the request source. Set the value to **sas**.
+    // The source identifier of the request. Set this parameter to **sas**.
     shared_ptr<string> from_ {};
-    // The type of the accounts that you want to query. Default value: **0**. Valid values:
-    // 
-    // *   **0**: the current account.
-    // *   **1**: all accounts.
+    // The multi-account query type. Default value: **0**. Valid values:
+    // - **0**: Query data of the current account.
+    // - **1**: Query data of all accounts.
     shared_ptr<int32_t> multiAccountActionType_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The type of the query condition. Valid values:
+    // The query type. Valid values:
     // 
-    // *   **containerId**: the ID of the container
-    // *   **uuid**: the UUID of the asset
+    // - **containerId**: container ID
+    // - **uuid**: asset ID
     shared_ptr<string> targetType_ {};
   };
 

@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // Indicates whether the request was successful. Valid values:
+    // The returned data. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Succeeded.
+    // - **false**: Failed.
     shared_ptr<bool> data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

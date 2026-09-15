@@ -355,7 +355,7 @@ namespace Models
       shared_ptr<string> configPath_ {};
       // The container name.
       shared_ptr<string> containerName_ {};
-      // The timestamp of the latest scan, which indicates the most recent time when Security Center collected middleware, database, or web service information. Unit: milliseconds.
+      // The timestamp of the latest scan, which is the most recent time when Security Center collected the middleware, database, or web service information. Unit: milliseconds.
       shared_ptr<int64_t> createTimestamp_ {};
       // The image name.
       shared_ptr<string> imageName_ {};
@@ -376,8 +376,8 @@ namespace Models
       // - **TCP**
       shared_ptr<string> listenProtocol_ {};
       // The listening status of the process. Valid values:
-      // - **NONE**: not listening
-      // - **LISTEN**: listening
+      // - **NONE**: Not listening.
+      // - **LISTEN**: Listening.
       shared_ptr<string> listenStatus_ {};
       // The name of the middleware, database, or web service.
       shared_ptr<string> name_ {};
@@ -481,7 +481,7 @@ namespace Models
       shared_ptr<int32_t> currentPage_ {};
       // The NextToken value returned when the NextToken method is used.
       shared_ptr<string> nextToken_ {};
-      // The number of entries per page in the paged query for Asset Fingerprints information. Default value: **10**, which indicates that 10 entries of Asset Fingerprints information are displayed per page.
+      // The number of entries per page in the paged query. Default value: **10**, which indicates that 10 entries of Asset Fingerprints information are displayed per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of Asset Fingerprints entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -519,7 +519,7 @@ namespace Models
     shared_ptr<DescribePropertyScaDetailResponseBody::PageInfo> pageInfo_ {};
     // The details of the Asset Fingerprints list.
     shared_ptr<vector<DescribePropertyScaDetailResponseBody::Propertys>> propertys_ {};
-    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
+    // The ID of the request. The China Chinese Cloud generates a unique identifier for the request, which can be used to troubleshoot and locate issues.
     shared_ptr<string> requestId_ {};
   };
 

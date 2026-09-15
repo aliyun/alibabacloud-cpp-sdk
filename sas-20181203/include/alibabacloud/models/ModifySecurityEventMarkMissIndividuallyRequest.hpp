@@ -84,19 +84,21 @@ namespace Models
 
 
   protected:
-    // The alert handling rule that you want to delete.
+    // The alert whitelisting rule to delete.
     shared_ptr<string> deleteMarkMissParam_ {};
-    // The ID of the request source. Set the value to **sas**.
+    // The source identifier of the request. Set the value to **sas**.
     shared_ptr<string> from_ {};
-    // The alert handling that you want to add.
+    // The alert whitelisting rule to add.
     shared_ptr<string> insertMarkMissParam_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
+    // The source IP address of the request. You do not need to specify this parameter. The system automatically obtains the value.
     shared_ptr<string> sourceIp_ {};
   };
 

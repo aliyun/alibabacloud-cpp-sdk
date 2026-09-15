@@ -57,10 +57,10 @@ namespace Models
 
 
   protected:
-    // The cluster ID.
+    // The ID of the cluster. Note: This parameter is required. If this parameter is not specified, the API returns InvalidParam (400).
     shared_ptr<string> clusterId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source IP address.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

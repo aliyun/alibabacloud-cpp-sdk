@@ -110,40 +110,43 @@ namespace Models
 
 
   protected:
-    // The severity of alerts. Valid values:
+    // The alert notification level. Valid values:
     // 
-    // *   0: does not generate alerts
-    // *   1: sends notifications
-    // *   2: suspicious
-    // *   3: high-risk
+    // - 0: no alert
+    // 
+    // - 1: reminder
+    // 
+    // - 2: suspicious
+    // 
+    // - 3: high-risk
     shared_ptr<int32_t> alertLevel_ {};
-    // The operations that you want to perform on the files.
+    // The list of operations performed on files.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> fileOps_ {};
-    // The paths to the monitored files. Wildcard characters are supported.
+    // The list of monitored file paths. Wildcards are supported.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> filePaths_ {};
-    // The ID of the rule.
+    // The rule ID.
     shared_ptr<int64_t> id_ {};
-    // The paths to the monitored processes.
+    // The list of process listening paths.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> procPaths_ {};
-    // The handling method of the rule. Valid values:
+    // The behavior of the rule on the client. Valid values:
     // 
-    // *   pass: allow
-    // *   alert
+    // - pass: allow
+    // 
+    // - alert: alert
     shared_ptr<string> ruleAction_ {};
-    // The name of the rule.
+    // The rule name.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};
-    // The status of the rule. Valid values:
-    // 
-    // *   **0**: disabled
-    // *   **1**: enabled
+    // The rule status. Valid values:
+    // - **0**: disabled
+    // - **1**: enabled
     shared_ptr<int32_t> status_ {};
   };
 

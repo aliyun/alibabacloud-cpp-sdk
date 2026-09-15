@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The page number. Default value: 1.
+    // The page number of the current page in a paging query. Default value: 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The unique identifier for the file.
+    // The unique identifier of the file. This parameter is required in practice. If this parameter is not specified, the API returns ServerError(400). The value must be the MD5 or SHA-256 hash of the file.
     shared_ptr<string> hashKey_ {};
-    // The number of entries per page. Default value: 20.
+    // The maximum number of entries per page in a paging query. Default value: 20.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

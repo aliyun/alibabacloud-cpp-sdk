@@ -79,13 +79,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> blockIp_ {};
-    // The direction in which the brute-force attacks blocking policy blocks the IP address on the server. Valid values:
+    // The direction in which the server brute-force attacks blocking policy blocks the IP address.
+    // 
+    // Valid values:
     // - **in**: inbound
-    // - **out**: outbound.
+    // - **out**: outbound
     // 
     // This parameter is required.
     shared_ptr<string> bound_ {};
-    // The expiration time of the blocking record.
+    // The expiration time of the blocking record. The value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expireTime_ {};

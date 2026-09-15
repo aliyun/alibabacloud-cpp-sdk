@@ -75,23 +75,24 @@ namespace Models
 
 
   protected:
-    // The IP address that you want to specify in the policy.
+    // The IP address to block. Traffic from this IP address to the server is blocked.
     // 
     // This parameter is required.
     shared_ptr<string> blockIp_ {};
-    // The traffic direction that you want to specify in the policy. Valid values:
+    // The direction of traffic to block between the custom IP address and the server.
     // 
-    // *   **in**: inbound
-    // *   **out**: outbound
+    // Valid values:
+    // - **in**: inbound
+    // - **out**: outbound
     // 
     // This parameter is required.
     shared_ptr<string> bound_ {};
-    // The expiration time of the policy.
+    // The expiration time of the policy. This value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expireTime_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The UUIDs of the servers. Separate multiple UUIDs with commas (,).
+    // The UUIDs of the asset instances. Separate multiple UUIDs with commas (,). You can call DescribeCloudCenterInstances to obtain the UUIDs of asset instances.
     // 
     // This parameter is required.
     shared_ptr<string> uuids_ {};

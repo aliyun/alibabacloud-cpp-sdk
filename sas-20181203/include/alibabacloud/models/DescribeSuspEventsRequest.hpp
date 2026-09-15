@@ -381,11 +381,11 @@ namespace Models
   protected:
     // The unique ID of the alert event.
     // 
-    // > To query the exception information of a single alert event, provide the unique ID of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the ID.
+    // > To query the exception information of a single alert event, provide the unique ID of the alert event. You can obtain this ID by calling the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation.
     shared_ptr<string> alarmUniqueInfo_ {};
     // The collection of asset types.
     shared_ptr<vector<string>> assetsTypeList_ {};
-    // The ID of the cluster for which you want to query alert events.
+    // The cluster ID for which you want to query alert events.
     shared_ptr<string> clusterId_ {};
     // The container search field. Valid values:
     // 
@@ -404,11 +404,13 @@ namespace Models
     shared_ptr<string> containerFieldName_ {};
     // The value of the container search field.
     shared_ptr<string> containerFieldValue_ {};
-    // The page number of the results to return. Default value: **1**.
+    // The page number of the page to return in a paged query. Default value: **1**, which indicates that the results start from page 1.
     shared_ptr<string> currentPage_ {};
     // Specifies whether the alert events to query have been handled. Valid values:
+    // - **N**: Unhandled.
+    // - **Y**: Handled.
     shared_ptr<string> dealed_ {};
-    // The discovery source. This parameter is invalid.
+    // The discovery source. This is an invalid field.
     shared_ptr<string> detectSource_ {};
     // The subtypes of the alert events. Separate multiple subtypes with commas (,).
     shared_ptr<string> eventNames_ {};
@@ -419,18 +421,17 @@ namespace Models
     // The unique ID that identifies the alert event record.
     shared_ptr<int64_t> id_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
-    // - **zh**: Chinese
-    // - **en**: English
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The severity levels of the security alerts that you want to query. Separate multiple severity levels with commas (,). The severity levels are listed in descending order. Valid values:
-    // 
-    // - **serious**: Critical.
+    // The severity levels of the alert events to query. Separate multiple severity levels with commas (,). The severity levels are listed in descending order. Valid values:
+    // - **serious**: Urgent.
     // - **suspicious**: Suspicious.
-    // - **remind**: Informational.
+    // - **remind**: Reminder.
     shared_ptr<string> levels_ {};
     // The multi-account query type. Default value: **0**. Valid values:
-    // - **0**: Queries data of the current account.
-    // - **1**: Queries data of all accounts.
+    // - **0**: Query data of the current account.
+    // - **1**: Query data of all accounts.
     shared_ptr<int32_t> multiAccountActionType_ {};
     // The name of the asset affected by the alert event.
     shared_ptr<string> name_ {};
@@ -440,28 +441,54 @@ namespace Models
     shared_ptr<string> operateTimeEnd_ {};
     // The start timestamp of the handling time.
     shared_ptr<string> operateTimeStart_ {};
-    // The number of alert events to display on each page in a paged query. Default value: **20**. Maximum value: 100.
+    // The number of alert events to display on each page in a paged query. Default value: **20**, which indicates that 20 alert events are displayed on each page. Maximum value: 100.
     shared_ptr<string> pageSize_ {};
-    // The Alarm Metric of the alerting events to query. Valid values:
+    // The alerting type of the alert events to query. Valid values:
+    // 
+    // - **Abnormal process behavior**
+    // - **Web shell**
+    // - **Unusual logon**
+    // - **Abnormal event**
+    // - **Sensitive file tampering**
+    // - **Malicious process (cloud scan)**
+    // - **Suspicious network connectivity**
+    // - **Abnormal account**
+    // - **Application intrusion event**
+    // - **Cloud service threat detection**
+    // - **Precise defense**
+    // - **Application whitelist**
+    // - **Persistent backdoor**
+    // - **Web application threat detection**
+    // - **Malicious script**
+    // - **Threat intelligence**
+    // - **Malicious network behavior**
+    // - **Container cluster exception**
+    // - **Web shell (local scan)**
+    // - **Vulnerability exploits**
+    // - **Malicious process (local scan)**
+    // - **Trusted exception**
+    // - **Other**
     shared_ptr<string> parentEventTypes_ {};
     // The alert name or asset information to query.
+    // 
+    // > Fuzzy match is supported. Asset information includes the asset name, public IP address, and private IP address.
     shared_ptr<string> remark_ {};
-    // The China site (Chinese mainland) account ID of the member account in the resource directory.
+    // The Alibaba Cloud account ID of the member accounts in the resource directory.
     // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The custom sort field. Default value: **operateTime**. Valid values:
     // 
-    // - **lastTime**: the most recent occurrence time.
-    // - **operateTime**: the processing time.
+    // - **lastTime**: Latest occurrence time.
+    // - **operateTime**: Handling time.
     // 
     // > This field takes effect only when **Dealed** is set to Y.
     shared_ptr<string> sortColumn_ {};
-    // The custom sort type. Default value: **desc**. Valid values:
+    // The custom sort order. Default value: **desc**. Valid values:
     // 
-    // - **asc**: ascending order.
-    // - **desc**: descending order.
+    // - **asc**: Ascending order.
+    // - **desc**: Descending order.
     // 
-    // > This parameter takes effect only when **Dealed** is set to Y.
+    // > This field takes effect only when **Dealed** is set to Y.
     shared_ptr<string> sortType_ {};
     // The alert source.
     shared_ptr<string> source_ {};
@@ -470,22 +497,34 @@ namespace Models
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
     // The status of the alert events to query. Valid values:
+    // - **0**: All.
+    // - **1**: Unhandled.
+    // - **2**: Ignored.
+    // - **4**: Confirmed.
+    // - **8**: Marked as false positive.
+    // - **16**: Handling.
+    // - **32**: Handled.
+    // - **64**: Expired.
+    // - **128**: Deleted.
+    // - **512**: Automatic blocking in progress.
+    // - **513**: Automatic blocking completed.
     shared_ptr<string> status_ {};
-    // Specifies whether the alert is identified in strict mode.
+    // Specifies whether the alert is in strict mode. Valid values:
+    // - N: No.
+    // - Y: Yes.
     shared_ptr<string> strictMode_ {};
     // The list of operation types supported by the alert.
     shared_ptr<vector<string>> supportOperateCodeList_ {};
-    // The tactic ID in ATT&CK.
+    // The ATT&CK tactic ID.
     shared_ptr<string> tacticId_ {};
-    // The type of the container search target. Valid values:
-    // 
-    // - **containerId**: container ID.
-    // - **uuid**: server UUID.
-    // - **imageUuid**: image UUID.
+    // The target type for container search. Valid values:
+    // - **containerId**: container ID
+    // - **uuid**: server UUID
+    // - **imageUuid**: image UUID
     shared_ptr<string> targetType_ {};
-    // The end time of the latest occurrence time range.
+    // The end time of the latest occurrence. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> timeEnd_ {};
-    // The start time of the latest occurrence time range.
+    // The start time of the latest occurrence. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> timeStart_ {};
     // The unique key of the security alert.
     shared_ptr<string> uniqueInfo_ {};

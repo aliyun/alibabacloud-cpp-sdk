@@ -175,7 +175,7 @@ namespace Models
       shared_ptr<string> create_ {};
       // The number of completed image tasks.
       shared_ptr<int32_t> finish_ {};
-      // The time when the task ended. This parameter is returned only when the task status is Finished. Otherwise, an empty value is returned.
+      // The time when the task ended. This parameter is returned only when the task status is Finished. Otherwise, an empty value is returned. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> finishTime_ {};
       // The task ID.
       shared_ptr<int64_t> id_ {};
@@ -183,12 +183,12 @@ namespace Models
       shared_ptr<string> modified_ {};
       // The task name.
       shared_ptr<string> name_ {};
-      // The creation method. Valid values:
+      // The creation method. The task can be created from the console or by calling an API operation. Valid values:
       // 
       // - **console_batch**: console
-      // - **openapi**: API.
+      // - **openapi**: API
       shared_ptr<string> source_ {};
-      // The time when the task started.
+      // The time when the task started. This value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
       // The task status. Valid values:
       // 
@@ -204,12 +204,12 @@ namespace Models
       shared_ptr<string> target_ {};
       // The scan target type. Valid values:
       // 
-      // - **IMAGE**: image.
+      // - **IMAGE**: image
       shared_ptr<string> targetType_ {};
       // The ID of the scan task.
       shared_ptr<string> taskId_ {};
       // The task type. Valid values:
-      // - **IMAGE_SCAN**: image scan.
+      // - **IMAGE_SCAN**: image scan
       shared_ptr<string> taskType_ {};
     };
 

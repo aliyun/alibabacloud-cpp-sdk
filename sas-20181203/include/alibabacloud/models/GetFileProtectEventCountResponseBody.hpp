@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The data returned if the request is successful.
+    // The data returned when the API call is successful.
     shared_ptr<int32_t> data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

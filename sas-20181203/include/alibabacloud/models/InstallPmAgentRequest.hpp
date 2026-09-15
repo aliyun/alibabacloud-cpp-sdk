@@ -66,21 +66,18 @@ namespace Models
 
 
   protected:
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // The type of the client.
-    // 
-    // *   **aliyun_assist**: Cloud Assistant client
-    // *   **aliyun_monitor**: CloudMonitor client
+    // The type of the O&M plugin. Valid values:
+    // - **aliyun_monitor**: CloudMonitor agent.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UUID of the server. If you specify multiple UUIDs, separate the UUIDs with commas (,).
+    // The list of server UUIDs. Separate multiple UUIDs with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> uuids_ {};

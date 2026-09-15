@@ -179,53 +179,55 @@ namespace Models
 
 
   protected:
-    // Specifies whether the vulnerability has been handled. Valid values:
-    // - **y**: handled
-    // - **n**: not handled.
+    // Specifies whether the vulnerability is handled. Valid values:
+    // - **y**: Handled.
+    // - **n**: Not handled.
     shared_ptr<string> dealed_ {};
-    // The container search field name.
+    // The name of the container search field.
     shared_ptr<string> fieldName_ {};
-    // The container search field value.
+    // The value of the container search field.
     shared_ptr<string> fieldValue_ {};
     // The ID of the asset group.
     shared_ptr<int64_t> groupId_ {};
     // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The vulnerability level. Separate multiple levels with commas (,). Valid values:
     // 
-    // - **high**: high
-    // - **medium**: medium
-    // - **low**: low.
+    // - **high**: High.
+    // - **medium**: Medium.
+    // - **low**: Low.
     shared_ptr<string> level_ {};
-    // The priority level of vulnerability fixing. Separate multiple levels with commas (,). Valid values:
+    // The priority level of the vulnerability fix. Separate multiple levels with commas (,). Valid values:
     // 
-    // - **asap**: high
-    // - **later**: medium
-    // - **nntf**: low.
+    // - **asap**: High.
+    // - **later**: Medium.
+    // - **nntf**: Low.
     shared_ptr<string> necessity_ {};
     // The asset information for the vulnerability query. You can set this parameter to the asset name, public IP address, or private IP address. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource directory.
+    // > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The tag for querying vulnerabilities.
     shared_ptr<string> searchTags_ {};
     // The fix status of the vulnerability. Separate multiple statuses with commas (,). Valid values:
     // 
-    // - **1**: unfixed
-    // - **2**: fix failed.
+    // - **1**: Unfixed.
+    // - **2**: Fix failed.
     shared_ptr<string> statusList_ {};
     // The vulnerability tag.
     shared_ptr<string> tag_ {};
     // The query type. Valid values:
     // 
     // - **containerId**: container ID
-    // - **uuid**: asset ID.
+    // - **uuid**: asset ID
     shared_ptr<string> targetType_ {};
     // The type of vulnerability to query. Valid values:
     // 
     // - **cve**: Linux software vulnerability
-    // - **sys**: Windows system vulnerability.
+    // - **sys**: Windows system vulnerability
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -68,18 +68,18 @@ namespace Models
   protected:
     // The SAE application ID.
     // 
-    // > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain the ID.
+    // > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain this value.
     shared_ptr<string> appId_ {};
     // The region ID of the application.
     shared_ptr<string> appRegionId_ {};
     // The server type. Valid values:
     // - **RunD**
-    // - **ECI**.
+    // - **ECI**
     shared_ptr<string> machineType_ {};
     // The cloud service to which the application belongs. Valid values:
     // - **ASK**
     // - **SAE**
-    // - **ACS**.
+    // - **ACS**
     shared_ptr<string> vendorType_ {};
   };
 

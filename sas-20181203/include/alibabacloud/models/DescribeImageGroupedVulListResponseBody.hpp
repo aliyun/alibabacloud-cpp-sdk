@@ -41,28 +41,34 @@ namespace Models
     class GroupedVulItems : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const GroupedVulItems& obj) { 
+        DARABONBA_PTR_TO_JSON(AgentlessCanFix, agentlessCanFix_);
         DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
         DARABONBA_PTR_TO_JSON(AsapCount, asapCount_);
         DARABONBA_PTR_TO_JSON(CanFix, canFix_);
+        DARABONBA_PTR_TO_JSON(CveScore, cveScore_);
         DARABONBA_PTR_TO_JSON(GmtLast, gmtLast_);
         DARABONBA_PTR_TO_JSON(LastScanTime, lastScanTime_);
         DARABONBA_PTR_TO_JSON(LaterCount, laterCount_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NntfCount, nntfCount_);
+        DARABONBA_PTR_TO_JSON(Related, related_);
         DARABONBA_PTR_TO_JSON(RuleTag, ruleTag_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(Type, type_);
       };
       friend void from_json(const Darabonba::Json& j, GroupedVulItems& obj) { 
+        DARABONBA_PTR_FROM_JSON(AgentlessCanFix, agentlessCanFix_);
         DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
         DARABONBA_PTR_FROM_JSON(AsapCount, asapCount_);
         DARABONBA_PTR_FROM_JSON(CanFix, canFix_);
+        DARABONBA_PTR_FROM_JSON(CveScore, cveScore_);
         DARABONBA_PTR_FROM_JSON(GmtLast, gmtLast_);
         DARABONBA_PTR_FROM_JSON(LastScanTime, lastScanTime_);
         DARABONBA_PTR_FROM_JSON(LaterCount, laterCount_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NntfCount, nntfCount_);
+        DARABONBA_PTR_FROM_JSON(Related, related_);
         DARABONBA_PTR_FROM_JSON(RuleTag, ruleTag_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -79,10 +85,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->aliasName_ == nullptr
-        && this->asapCount_ == nullptr && this->canFix_ == nullptr && this->gmtLast_ == nullptr && this->lastScanTime_ == nullptr && this->laterCount_ == nullptr
-        && this->name_ == nullptr && this->nntfCount_ == nullptr && this->ruleTag_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr
-        && this->type_ == nullptr; };
+      virtual bool empty() const override { return this->agentlessCanFix_ == nullptr
+        && this->aliasName_ == nullptr && this->asapCount_ == nullptr && this->canFix_ == nullptr && this->cveScore_ == nullptr && this->gmtLast_ == nullptr
+        && this->lastScanTime_ == nullptr && this->laterCount_ == nullptr && this->name_ == nullptr && this->nntfCount_ == nullptr && this->related_ == nullptr
+        && this->ruleTag_ == nullptr && this->status_ == nullptr && this->tags_ == nullptr && this->type_ == nullptr; };
+      // agentlessCanFix Field Functions 
+      bool hasAgentlessCanFix() const { return this->agentlessCanFix_ != nullptr;};
+      void deleteAgentlessCanFix() { this->agentlessCanFix_ = nullptr;};
+      inline string getAgentlessCanFix() const { DARABONBA_PTR_GET_DEFAULT(agentlessCanFix_, "") };
+      inline GroupedVulItems& setAgentlessCanFix(string agentlessCanFix) { DARABONBA_PTR_SET_VALUE(agentlessCanFix_, agentlessCanFix) };
+
+
       // aliasName Field Functions 
       bool hasAliasName() const { return this->aliasName_ != nullptr;};
       void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -102,6 +115,13 @@ namespace Models
       void deleteCanFix() { this->canFix_ = nullptr;};
       inline string getCanFix() const { DARABONBA_PTR_GET_DEFAULT(canFix_, "") };
       inline GroupedVulItems& setCanFix(string canFix) { DARABONBA_PTR_SET_VALUE(canFix_, canFix) };
+
+
+      // cveScore Field Functions 
+      bool hasCveScore() const { return this->cveScore_ != nullptr;};
+      void deleteCveScore() { this->cveScore_ = nullptr;};
+      inline string getCveScore() const { DARABONBA_PTR_GET_DEFAULT(cveScore_, "") };
+      inline GroupedVulItems& setCveScore(string cveScore) { DARABONBA_PTR_SET_VALUE(cveScore_, cveScore) };
 
 
       // gmtLast Field Functions 
@@ -139,6 +159,13 @@ namespace Models
       inline GroupedVulItems& setNntfCount(int32_t nntfCount) { DARABONBA_PTR_SET_VALUE(nntfCount_, nntfCount) };
 
 
+      // related Field Functions 
+      bool hasRelated() const { return this->related_ != nullptr;};
+      void deleteRelated() { this->related_ = nullptr;};
+      inline string getRelated() const { DARABONBA_PTR_GET_DEFAULT(related_, "") };
+      inline GroupedVulItems& setRelated(string related) { DARABONBA_PTR_SET_VALUE(related_, related) };
+
+
       // ruleTag Field Functions 
       bool hasRuleTag() const { return this->ruleTag_ != nullptr;};
       void deleteRuleTag() { this->ruleTag_ = nullptr;};
@@ -168,27 +195,33 @@ namespace Models
 
 
     protected:
+      // Indicates whether the vulnerability supports agentless fix. true: supported. false: not supported. If this field is not returned, no corresponding fix capability information is available.
+      shared_ptr<string> agentlessCanFix_ {};
       // The alias of the vulnerability.
       shared_ptr<string> aliasName_ {};
-      // The number of high-risk vulnerabilities.
+      // The number of high-priority vulnerabilities.
       shared_ptr<int32_t> asapCount_ {};
       // Indicates whether the vulnerability can be fixed. Valid values:
       // - **yes**: The vulnerability can be fixed.
       // - **no**: The vulnerability cannot be fixed.
       shared_ptr<string> canFix_ {};
+      // The CVSS score of the vulnerability, which measures the vulnerability severity. The value ranges from 0 to 10. A higher score indicates a higher severity.
+      shared_ptr<string> cveScore_ {};
       // The timestamp of the first scan, in milliseconds.
       shared_ptr<int64_t> gmtLast_ {};
       // The timestamp of the latest scan, in milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
-      // The number of medium-risk vulnerabilities.
+      // The number of medium-priority vulnerabilities.
       shared_ptr<int32_t> laterCount_ {};
       // The name of the vulnerability.
       shared_ptr<string> name_ {};
-      // The number of low-risk vulnerabilities.
+      // The number of low-priority vulnerabilities.
       shared_ptr<int32_t> nntfCount_ {};
+      // The associated vulnerability IDs, such as CVE IDs. Multiple IDs are separated by commas (,). Some vulnerabilities return the corresponding vulnerability advisory IDs.
+      shared_ptr<string> related_ {};
       // The vulnerability tag. Valid values:
       // 
-      //  - **AI**: vulnerabilities related to AI components.
+      //  - **AI**: vulnerabilities related to AI components
       shared_ptr<string> ruleTag_ {};
       // The processing status of the vulnerability. Valid values:
       // 
@@ -197,18 +230,28 @@ namespace Models
       // - **2**: Verifying.
       // - **3**: Added to the whitelist.
       shared_ptr<int32_t> status_ {};
-      // The label of the vulnerability. Valid values:
+      // The labels of the vulnerability. Valid values:
       // 
+      // <props="china">
       // - Restart required
       // - Remote utilization
       // - EXP exists
-      // - Available
+      // - Exploitable
       // - Privilege escalation
       // - Code execution
+      // 
+      // 
+      // <props="intl">
+      // - Restart required
+      // - Remote utilization
+      // - EXP exists
+      // - Exploitable
+      // - Privilege escalation
+      // - Code Execution
       shared_ptr<string> tags_ {};
       // The type of vulnerability to query. Valid values:
       // - **cve**: image system vulnerability
-      // - **sca**: image application vulnerability.
+      // - **sca**: image application vulnerability
       shared_ptr<string> type_ {};
     };
 
@@ -252,13 +295,13 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in the paging query.
+    // The page number of the current page in a paging query.
     shared_ptr<int32_t> currentPage_ {};
     // The list of image vulnerabilities.
     shared_ptr<vector<DescribeImageGroupedVulListResponseBody::GroupedVulItems>> groupedVulItems_ {};
-    // The number of image vulnerabilities returned on each page in the paging query. Default value: **20**, which indicates that 20 image vulnerability records are returned on each page.
+    // The number of image vulnerabilities displayed on each page in a paging query. Default value: **20**, which indicates 20 image vulnerability records per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of image system vulnerabilities.
     shared_ptr<int32_t> totalCount_ {};

@@ -121,27 +121,31 @@ namespace Models
 
 
   protected:
-    // The number of the page to return. Default value: **1**.
+    // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
-    // Specifies whether fuzzy search by path to the scheduled task is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+    // Specifies whether fuzzy match is supported for the scheduled task path. Set this parameter to **1** to enable fuzzy match. Other values or an empty value indicate that fuzzy match is not supported.
     shared_ptr<string> extend_ {};
-    // The value of NextToken that is returned when the NextToken method is used. You do not need to specify this parameter for the first request.
-    shared_ptr<string> nextToken_ {};
-    // The number of entries to return on each page. Default value: **10**.
-    shared_ptr<int32_t> pageSize_ {};
-    // The name or IP address of the server.
-    shared_ptr<string> remark_ {};
-    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The path to the scheduled task.
-    shared_ptr<string> source_ {};
-    // Specifies whether to use the NextToken method to retrieve a new page of results. If you set UseNextToken to true, the value of TotalCount is not returned. Valid values:
+    // The pagination token that marks the position from which you want to start reading. Leave this parameter empty to read from the beginning.
     // 
-    // - **true**: The NextToken method is used.
-    // - **false**: The NextToken method is not used.
+    // > You do not need to specify this parameter for the first call. The response includes the NextToken value for the second call. Each subsequent response includes the NextToken value for the next call.
+    shared_ptr<string> nextToken_ {};
+    // Settings the number of scheduled task asset fingerprint information entries displayed per page in a paging query. Default value: **10**, which indicates that 10 entries of scheduled task asset fingerprint information are displayed per page.
+    shared_ptr<int32_t> pageSize_ {};
+    // The name or IP address of the server that you want to query.
+    shared_ptr<string> remark_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
+    // The task path that you want to query.
+    shared_ptr<string> source_ {};
+    // Specifies whether to use the NextToken method to retrieve the vulnerability list data. If you use this parameter, TotalCount is no longer returned. Valid values:
+    // 
+    // - **true**: Use the NextToken method.
+    // - **false**: Do not use the NextToken method.
     shared_ptr<bool> useNextToken_ {};
-    // The username of the account that runs the scheduled task.
+    // The account name of the scheduled task that you want to query.
     shared_ptr<string> user_ {};
-    // The UUID of the server.
+    // The UUID of the server that you want to query.
     shared_ptr<string> uuid_ {};
   };
 

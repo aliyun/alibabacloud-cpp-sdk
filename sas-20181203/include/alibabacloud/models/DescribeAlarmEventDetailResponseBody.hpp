@@ -171,14 +171,13 @@ namespace Models
 
 
         protected:
-          // The name of the field that displays the tracing information.
+          // The name of the tracing information field.
           shared_ptr<string> name_ {};
-          // The type of the field that displays the tracing information. Valid values:
-          // 
-          // *   **text**
-          // *   **html**
+          // The display type of the tracing information field. Valid values:
+          // - **text**: plain text.
+          // - **html**: rich text.
           shared_ptr<string> type_ {};
-          // The value of the field that displays the tracing information.
+          // The value of the tracing information field.
           shared_ptr<string> value_ {};
         };
 
@@ -201,9 +200,9 @@ namespace Models
 
 
       protected:
-        // The key that is used to trace the alert event.
+        // The key of the alert event tracing information.
         shared_ptr<string> key_ {};
-        // The value that is used to trace the alert event.
+        // The value of the alert event tracing information.
         shared_ptr<vector<CauseDetails::Value>> value_ {};
       };
 
@@ -412,33 +411,35 @@ namespace Models
       shared_ptr<string> alarmEventDesc_ {};
       // The unique identifier of the alert event.
       // 
-      // > To query the details of an alert event, you must provide the unique identifier of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the identifier.
+      // > To query the details of an alert event, you must provide the unique identifier of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain this identifier.
       shared_ptr<string> alarmUniqueInfo_ {};
       // The name of the container application.
       shared_ptr<string> appName_ {};
-      // Indicates whether the online handling of the alert event is supported. Valid values:
+      // Indicates whether the alert can be handled online. Valid values:  
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: The alert can be marked as handled online.
+      // 
+      // - **false**: The alert cannot be unmarked as handled online.
       shared_ptr<bool> canBeDealOnLine_ {};
-      // Indicates whether you can cancel marking the alert event as a false positive. Valid values:
+      // Indicates whether the alert can be canceled. Valid values:  
       // 
-      // *   **true**: yes
-      // *   **false**: no
+      // - **true**: The alert can be unmarked as a false positive.
+      // 
+      // - **false**: The alert cannot be unmarked as a false positive.
       shared_ptr<bool> canCancelFault_ {};
-      // An array consisting of the cause of the alert event, which can be used to trace the alert event.
+      // The cause of the alert event (tracing information).
       shared_ptr<vector<Data::CauseDetails>> causeDetails_ {};
-      // Indicates whether the Safeguard Mode For Major Activities mode is enabled.
+      // Indicates whether the important activity protection mode is enabled.
       shared_ptr<bool> containHwMode_ {};
       // The ID of the container application.
       shared_ptr<string> containerId_ {};
-      // The ID of the image to which the container belongs.
+      // The ID of the container image.
       shared_ptr<string> containerImageId_ {};
-      // The name of the image to which the container belongs.
+      // The name of the container image.
       shared_ptr<string> containerImageName_ {};
       // The data source of the alert event.
       shared_ptr<string> dataSource_ {};
-      // The timestamp when the alert event ends. Unit: milliseconds.
+      // The timestamp when the alert event ended. Unit: milliseconds.
       shared_ptr<int64_t> endTime_ {};
       // The name of the instance.
       shared_ptr<string> instanceName_ {};
@@ -450,51 +451,72 @@ namespace Models
       shared_ptr<string> k8sClusterId_ {};
       // The name of the Kubernetes cluster.
       shared_ptr<string> k8sClusterName_ {};
-      // The namespace of the Kubernetes cluster.
+      // The Kubernetes namespace.
       shared_ptr<string> k8sNamespace_ {};
-      // The ID of the Kubernetes cluster node.
+      // The ID of the Kubernetes node.
       shared_ptr<string> k8sNodeId_ {};
-      // The name of the Kubernetes cluster node.
+      // The name of the Kubernetes node.
       shared_ptr<string> k8sNodeName_ {};
       // The name of the Kubernetes pod.
       shared_ptr<string> k8sPodName_ {};
-      // The severity of the alert event. Valid values:
-      // 
-      // *   **serious**
-      // *   **suspicious**
-      // *   **remind**
+      // The severity level of the alert event. Valid values:
+      // - **serious**: Critical.
+      // - **suspicious**: Suspicious.
+      // - **remind**: Reminder.
       shared_ptr<string> level_ {};
-      // The solution to the alert event.
+      // The solution for the alert event.
       shared_ptr<string> solution_ {};
-      // The timestamp when the alert event starts. Unit: milliseconds.
+      // The timestamp when the alert event started. Unit: milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The alert type of the alert event. Valid values:
+      // The alerting type. Valid values:
+      // <props="china">
+      // - Suspicious Process
+      // - Web shell
+      // - Unusual Logon
+      // - Unusual Event
+      // - Sensitive File Tampering
+      // - Malicious Process (Cloud Scan)
+      // - Suspicious Network Connection
+      // - Other
+      // - Suspicious Account
+      // - Application Intrusion Event
+      // - Cloud Product Threat Detection
+      // - Precision Defense
+      // - Application Whitelist
+      // - Persistence Backdoor
+      // - Web Application Threat Detection
+      // - Malicious Script
+      // - Threat Intelligence
+      // - Malicious Network Activity
+      // - Container Cluster Exception
+      // - Web shell (Local Scan)
+      // - Vulnerability Exploits
+      // - Malicious Process (Local Scan)
+      // - Trusted Exception
       // 
-      // *   Suspicious process
-      // *   Webshell
-      // *   Unusual logon
-      // *   Exception
-      // *   Sensitive file tampering
-      // *   Malicious process (cloud threat detection)
-      // *   Suspicious network connection
-      // *   Other
-      // *   Abnormal account
-      // *   Application intrusion event
-      // *   Cloud threat detection
-      // *   Precise defense
-      // *   Application whitelist
-      // *   Persistent webshell
-      // *   Web application threat detection
-      // *   Malicious script
-      // *   Threat intelligence
-      // *   Malicious network activity
-      // *   Cluster exception
-      // *   Webshell (on-premises threat detection)
-      // *   Vulnerability exploitation
-      // *   Malicious process (on-premises threat detection)
-      // *   Trusted exception
+      // <props="intl">
+      // - Suspicious Process
+      // - Webshell
+      // - Unusual Logon
+      // - Malicious Software
+      // - Sensitive File Tampering
+      // - Unusual Network Connection
+      // - Other
+      // - Suspicious Account
+      // - Cloud threat detection
+      // - Precision defense
+      // - Application Whitelist
+      // - Persistence
+      // - Web Application Threat Detection
+      // - Malicious scripts
+      // - Malicious Network Activity
+      // - K8s Abnormal Behavior
+      // - Website backdoor (local engine)
+      // - Exploit
+      // - Image Scan
+      // - Trusted exception
       shared_ptr<string> type_ {};
-      // The instance UUID of the asset.
+      // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -519,7 +541,7 @@ namespace Models
   protected:
     // The details of the alert event.
     shared_ptr<DescribeAlarmEventDetailResponseBody::Data> data_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for the request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

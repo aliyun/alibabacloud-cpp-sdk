@@ -69,18 +69,18 @@ namespace Models
 
 
   protected:
-    // Specifies whether to allow honeypots to access the Internet. Valid values:
+    // Specifies whether to allow the honeypot to access the Internet. Valid values:
     // 
-    // *   **true**: allows honeypots to access the Internet.
-    // *   **false**: does not allow honeypots to access the Internet.
+    // - **true**: Allowed.
+    // - **false**: Not allowed.
     shared_ptr<bool> allowHoneypotAccessInternet_ {};
-    // The number of available probes.
+    // The number of available probes. This parameter is required. If this parameter is not specified, the API returns InvalidParam (400). The minimum value is 20. If the value is less than 20, the API returns InvalidProbeNum (400).
     shared_ptr<int32_t> availableProbeNum_ {};
     // The name of the management node.
     // 
     // This parameter is required.
     shared_ptr<string> nodeName_ {};
-    // The CIDR blocks that are allowed to access the management node.
+    // The list of allowed CIDR blocks. This parameter is required. At least one allowed CIDR block must be specified (such as 0.0.0.0/0). If this parameter is not specified, the API returns InvalidParam (400).
     shared_ptr<vector<string>> securityGroupProbeIpList_ {};
   };
 

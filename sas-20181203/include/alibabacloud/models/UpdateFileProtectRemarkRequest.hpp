@@ -165,41 +165,41 @@ namespace Models
 
 
   protected:
-    // Alert notification level list.
+    // The list of alert notification levels.
     shared_ptr<vector<int32_t>> alertLevels_ {};
-    // End time timestamp.
+    // The timestamp of the end time.
     shared_ptr<int64_t> endTime_ {};
-    // The ID of the event.
+    // The event ID.
     shared_ptr<int64_t> id_ {};
-    // Event ID list.
+    // The list of event IDs.
     shared_ptr<vector<int64_t>> idList_ {};
-    // Asset instance ID.
+    // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
-    // Asset instance name.
+    // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
-    // Public IP.
+    // The public IP address.
     shared_ptr<string> internetIp_ {};
-    // Private IP.
+    // The internal IP address.
     shared_ptr<string> intranetIp_ {};
-    // File operation type. Values:
+    // The type of operation performed on the file. Valid values:
     // 
-    // - **DELETE**: File deletion operation.
-    // - **WRITE**: File write operation.
-    // - **READ**: File read operation.
-    // - **RENAME**: File rename operation.
-    // - **CHOWN**: Set file owner and associated group operation.
+    // - **DELETE**: Delete the file.
+    // - **WRITE**: Write to the file.
+    // - **READ**: Read the file.
+    // - **RENAME**: Rename the file.
+    // - **CHOWN**: Change the file owner and file group.
     shared_ptr<string> operation_ {};
     // The remarks.
     shared_ptr<vector<string>> remark_ {};
-    // Rule name.
+    // The rule name.
     shared_ptr<string> ruleName_ {};
-    // Cross-page select all indicator. Values:
-    // - **true**: Yes
-    // - **false**: No
+    // Specifies whether to select all items across pages. Valid values:
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> selectAllAcrossPages_ {};
-    // Start time timestamp.
+    // The timestamp of the start time.
     shared_ptr<int64_t> startTime_ {};
-    // Server UUID.
+    // The UUID of the server.
     shared_ptr<string> uuid_ {};
   };
 

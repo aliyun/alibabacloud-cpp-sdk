@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The source of the request. Default value: **aqs**. Valid values:
-    // 
-    // *   **sas**: Security Center.
-    // *   **aqs**: Server Guard.
+    // The source of the data request. Default value: **aqs**. Valid values:
+    // - **sas**: The data request comes from Security Center.
+    // - **aqs**: The data request comes from Server Guard.
     shared_ptr<string> from_ {};
-    // The ID of the asset group that you want to query.
-    // 
-    // >  You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to query the ID.
+    // The ID of the asset group to query.
+    // > You can call the [DescribeAllGroups](https://help.aliyun.com/document_detail/130972.html) operation to obtain this parameter.
     shared_ptr<int64_t> groupId_ {};
-    // The name or public IP address of the asset.
+    // The asset name or public IP address.
     shared_ptr<string> remark_ {};
+    // The ID of the Alibaba Cloud account of the member accounts in the resource folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The source IP address of the request.
+    // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
   };
 

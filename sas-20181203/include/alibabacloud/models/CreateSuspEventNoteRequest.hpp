@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the security alert event to which you want to add a note. Call [DescribeSuspEvents](https://help.aliyun.com/document_detail/251497.html) to obtain the ID of the alert event.
+    // The ID of the alert event for which you want to add a note. Call [DescribeSuspEvents](https://help.aliyun.com/document_detail/251497.html) to obtain the alert event ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> eventId_ {};
@@ -65,6 +65,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> note_ {};
+    // The ID of the member accounts in the resource folder.
+    // >Invoke [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

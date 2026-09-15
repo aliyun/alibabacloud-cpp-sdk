@@ -135,36 +135,36 @@ namespace Models
 
 
     protected:
-      // Indicates whether you can create more scan tasks. Valid values:
+      // Indicates whether more scan tasks can be created. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: More scan tasks can be created.
+      // - **false**: No more scan tasks can be created.
       shared_ptr<bool> canCreate_ {};
-      // The timestamp generated when the image information was collected. Unit: milliseconds.
+      // The timestamp when image information was collected, in milliseconds.
       shared_ptr<int64_t> collectTime_ {};
-      // The timestamp generated when the scan task started. Unit: milliseconds.
+      // The timestamp when the scan task started running, in milliseconds.
       shared_ptr<int64_t> execTime_ {};
-      // The number of container applications that are scanned.
+      // The number of containers that have been scanned.
       shared_ptr<int32_t> finishCount_ {};
-      // The progress of the scan task in percentage.
+      // The progress percentage of the scan task.
       shared_ptr<int32_t> progress_ {};
-      // The result of the scan task. Valid values:
+      // The execution result of the scan task. Valid values:
       // 
-      // *   **SUCCESS**: The task is successful.
-      // *   **TASK_NOT_SUPPORT_REGION**: The task is not supported in the region where the image is deployed.
+      // - **SUCCESS**: The scan task was executed successfully.
+      // - **TASK_NOT_SUPPORT_REGION**: The image is in a region that does not support scanning.
       // 
-      // >
+      // > For the regions that support image security scanning, refer to the table of supported regions after the response parameters table in this document.
       shared_ptr<string> result_ {};
       // The status of the scan task. Valid values:
       // 
-      // *   **INIT**: The task is being initialized.
-      // *   **PRE_ANALYZER**: The task is being pre-processed.
-      // *   **SUCCESS**: The task succeeds.
-      // *   **FAIL**: The task fails.
+      // - **INIT**: Initializing.
+      // - **PRE_ANALYZER**: Pre-analyzing.
+      // - **SUCCESS**: Execution succeeded.
+      // - **FAIL**: Execution failed.
       shared_ptr<string> status_ {};
       // The ID of the scan task.
       shared_ptr<string> taskId_ {};
-      // The total number of container applications that you want to scan.
+      // The total number of containers to scan.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -194,11 +194,11 @@ namespace Models
 
 
   protected:
-    // The data returned if the request was successful.
+    // The data returned when the call is successful.
     shared_ptr<CreateContainerScanTaskByAppNameResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

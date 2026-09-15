@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The name of the exported file.
     shared_ptr<string> fileName_ {};
-    // The ID of the export record of the anomalous event.
+    // The export record ID of the anomaly event.
     shared_ptr<int32_t> id_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -114,29 +114,29 @@ namespace Models
 
 
     protected:
-      // Subtype of the cloud product asset.
+      // The subtype of the cloud service asset.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the subtype of the cloud product asset.
+      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the subtype of the cloud service asset.
       shared_ptr<int32_t> assetSubType_ {};
-      // Type of the cloud product asset.
+      // The type of the cloud service asset.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the type of the cloud product asset.
+      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the type of the cloud service asset.
       shared_ptr<int32_t> assetType_ {};
-      // Cloud product asset instance ID.
+      // The instance ID of the cloud service asset.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the cloud product asset instance ID.
+      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the instance ID of the cloud service asset.
       shared_ptr<string> instanceId_ {};
-      // Node type, with values:
-      // - **start**: Start point.
-      // - **end**: End point.
+      // The node type. Valid values:
+      // - **start**: start node.
+      // - **end**: end node.
       shared_ptr<string> nodeType_ {};
-      // Region ID of the cloud product asset instance.
+      // The region ID of the cloud service asset instance.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the region ID of the cloud product asset instance.
+      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the region ID of the cloud service asset instance.
       shared_ptr<string> regionId_ {};
-      // Vendor of the cloud product asset.
+      // The vendor of the cloud service asset.
       // 
-      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the vendor of the cloud product asset.
+      // > You can call [ListCloudAssetInstances](~~ListCloudAssetInstances~~) to query the vendor of the cloud service asset.
       shared_ptr<int32_t> vendor_ {};
     };
 
@@ -187,27 +187,28 @@ namespace Models
 
 
   protected:
-    // List of cloud product assets in the attack path.
+    // The list of cloud service assets in the attack path.
     shared_ptr<vector<CreateAttackPathWhitelistRequest::AttackPathAssetList>> attackPathAssetList_ {};
-    // Path name.
+    // The path name.
     // 
     // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path name.
+    // > This parameter is required. If this parameter is not specified, the API returns a 400 InvalidParam error.
     shared_ptr<string> pathName_ {};
-    // Path type.
+    // The path type.
     // > You can call [ListAvailableAttackPath](~~ListAvailableAttackPath~~) to query the path type.
     // 
     // This parameter is required.
     shared_ptr<string> pathType_ {};
-    // Remark information.
+    // The remarks.
     shared_ptr<string> remark_ {};
-    // Whitelist name.
+    // The whitelist name.
     // 
     // This parameter is required.
     shared_ptr<string> whitelistName_ {};
-    // Whitelist type. Values:
+    // The whitelist type. Valid values:
     // 
-    // - **ALL_ASSET**: All assets
-    // - **PART_ASSET**: Partial assets
+    // - **ALL_ASSET**: all assets.
+    // - **PART_ASSET**: partial assets.
     // 
     // This parameter is required.
     shared_ptr<string> whitelistType_ {};

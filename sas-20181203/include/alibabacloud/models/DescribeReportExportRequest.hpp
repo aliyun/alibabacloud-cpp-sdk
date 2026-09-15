@@ -58,14 +58,16 @@ namespace Models
 
   protected:
     // The ID of the export task.
-    // > Call [ExportCustomizeReport](~~ExportCustomizeReport~~) to obtain this parameter.
+    // > You can call [ExportCustomizeReport](~~ExportCustomizeReport~~) to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> exportId_ {};
     // The language type for the request and response messages. Default value: **zh**. Valid values:
-    // - **zh**: Chinese
+    // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource directory.
+    // > You can call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

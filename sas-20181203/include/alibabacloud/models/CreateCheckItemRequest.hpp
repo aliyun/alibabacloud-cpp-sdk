@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // Type of the solution information for the check item. Values:
+      // The type of the check item solution information. Valid values:
       // 
-      // - **text**: Text
+      // - **text**: text
       shared_ptr<string> type_ {};
-      // Content of the solution for the check item risk.
+      // The content of the solution for the check item risk.
       shared_ptr<string> value_ {};
     };
 
@@ -136,11 +136,11 @@ namespace Models
 
 
     protected:
-      // Type of the check item description information. Values:
+      // The type of the check item description. Valid values:
       // 
-      // - **text**: Text
+      // - **text**: text
       shared_ptr<string> type_ {};
-      // Specific content of the description.
+      // The content of the description.
       shared_ptr<string> value_ {};
     };
 
@@ -182,11 +182,11 @@ namespace Models
 
 
     protected:
-      // Type of the help information for the check item risk. Values:
+      // The type of the help information for the check item risk. Valid values:
       // 
-      // - **text**: Text
+      // - **text**: text
       shared_ptr<string> type_ {};
-      // Content of the help information for the check item risk.
+      // The content of the help information for the check item risk.
       shared_ptr<string> value_ {};
     };
 
@@ -287,54 +287,54 @@ namespace Models
 
 
   protected:
-    // Help information for the check item.
+    // The help information of the check item.
     shared_ptr<CreateCheckItemRequest::AssistInfo> assistInfo_ {};
-    // Definition rule for the custom check item.
+    // The rule definition of the custom check item.
     // 
     // This parameter is required.
     shared_ptr<string> checkRule_ {};
-    // Name of the custom check item.
+    // The name of the custom check item.
     // 
     // This parameter is required.
     shared_ptr<string> checkShowName_ {};
-    // Description information of the check item.
+    // The description of the check item.
     shared_ptr<CreateCheckItemRequest::Description> description_ {};
-    // Sub-asset type of the cloud product.
-    // > You can call the [ListCloudAssetSchemas](~~ListCloudAssetSchemas~~) API to get this parameter.
+    // The asset subtype of the cloud service.
+    // > You can call the [ListCloudAssetSchemas](~~ListCloudAssetSchemas~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceSubType_ {};
-    // Asset type of the cloud product.
-    // > You can call the [ListCloudAssetSchemas](~~ListCloudAssetSchemas~~) API to get this parameter.
+    // The asset type of the cloud service.
+    // > You can call the [ListCloudAssetSchemas](~~ListCloudAssetSchemas~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
-    // Remark information.
+    // The remarks.
     shared_ptr<string> remark_ {};
-    // Risk level of the check item. Values:
-    // - **HIGH**: High risk
-    // - **MEDIUM**: Medium risk
-    // - **LOW**: Low risk
+    // The risk level of the check item. Valid values:
+    // - **HIGH**: High risk.
+    // - **MEDIUM**: Medium risk.
+    // - **LOW**: Low risk.
     // 
     // This parameter is required.
     shared_ptr<string> riskLevel_ {};
-    // Array of section IDs associated with the check item.
+    // The IDs of the sections associated with the check item.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> sectionIds_ {};
-    // Solution information for the check item.
+    // The solution information of the check item.
     shared_ptr<CreateCheckItemRequest::Solution> solution_ {};
-    // Status of the check item. Values:
-    // - **EDIT**: In editing
-    // - **RELEASE**: Released
+    // The status of the check item. Valid values:
+    // - **EDIT**: Being edited.
+    // - **RELEASE**: Published.
     // 
-    // > - Changing from **Released** to **In editing** will clear all historical records
-    // > - Only the **Released** status allows the use of the check item for inspection.
+    // > - Changing the status from **Published** to **Being edited** will purge all historical records.
+    // > - Only check items in the **Published** status can be used for checks.
     // 
     // This parameter is required.
     shared_ptr<string> status_ {};
-    // Cloud asset vendor.
-    // > You can call the [ListCloudAssetSchemas](~~ListCloudAssetSchemas~~) API to get the available vendors.
+    // The cloud asset vendor.
+    // > You can call the [ListCloudAssetSchemas](~~ListCloudAssetSchemas~~) operation to obtain the available vendors.
     // 
     // This parameter is required.
     shared_ptr<string> vendor_ {};

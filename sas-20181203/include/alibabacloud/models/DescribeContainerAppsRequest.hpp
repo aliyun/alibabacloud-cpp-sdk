@@ -66,17 +66,16 @@ namespace Models
 
 
   protected:
-    // The ID of the container cluster.
+    // The ID of the container cluster. Note: This parameter is required. If this parameter is not specified, the service returns a 400 error.
     shared_ptr<string> clusterId_ {};
-    // The page number.
+    // The page number for a paged query.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The application value that you want to query. Fuzzy match is supported.
+    // The application value to query. Fuzzy match is supported.
     shared_ptr<string> fieldValue_ {};
-    // The number of entries per page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
-    // 
-    // >  We recommend that you do not leave this parameter empty.
+    // The maximum number of entries per page for a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned.
+    // > Do not leave PageSize empty.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

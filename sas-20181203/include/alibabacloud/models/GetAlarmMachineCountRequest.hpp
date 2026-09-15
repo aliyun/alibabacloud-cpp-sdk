@@ -48,8 +48,10 @@ namespace Models
 
 
   protected:
-    // The source identifier of the request. Set this parameter to sas.
+    // The request source identifier. Set this parameter to sas.
     shared_ptr<string> from_ {};
+    // The Alibaba Cloud account ID of the member account in the resource directory.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

@@ -209,48 +209,46 @@ namespace Models
     protected:
       // The number of alerts.
       shared_ptr<int32_t> alarmCount_ {};
-      // The name of the application.
+      // The application name.
       shared_ptr<string> appName_ {};
       // The version of the current online server in the cluster.
       shared_ptr<string> clusterCurrentVersion_ {};
-      // The ID of the cluster.
+      // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The status of the cluster. Valid values:
-      // 
-      // *   STARTING: The cluster is being started.
-      // *   START_FAILED: The cluster fails to be started.
-      // *   BOOTSTRAPPING: The bootstrap action is being performed for the cluster.
-      // *   RUNNING: The cluster is running.
-      // *   TERMINATING: The cluster is being terminated.
-      // *   TERMINATED: The cluster is terminated.
-      // *   TERMINATED_WITH_ERRORS: The cluster is terminated due to an exception.
-      // *   TERMINATE_FAILED: The cluster fails to be terminated.
+      // The cluster status. Valid values:
+      // - STARTING: Starting.
+      // - START_FAILED: Failed to start.
+      // - BOOTSTRAPPING: Initializing bootstrap actions.
+      // - RUNNING: Running.
+      // - TERMINATING: Terminating.
+      // - TERMINATED: Terminated.
+      // - TERMINATED_WITH_ERRORS: Terminated due to an exception.
+      // - TERMINATE_FAILED: Failed to terminate.
       shared_ptr<string> clusterState_ {};
-      // The type of the cluster. Valid values:
-      // 
-      // *   **Kubernetes**: dedicated Kubernetes cluster.
-      // *   **ManagedKubernetes**: standard managed cluster (edge cluster).
-      // *   **Ask**: serverless Kubernetes (ASK) cluster.
+      // The cluster type. Valid values:
+      // - **Kubernetes**: dedicated Kubernetes cluster.
+      // - **ManagedKubernetes**: standard managed cluster (edge cluster).
+      // - **Ask**: standard serverless cluster.
       shared_ptr<string> clusterType_ {};
       // The number of containers.
       shared_ptr<int32_t> containerCount_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
       // The number of instances.
       shared_ptr<int32_t> instanceCount_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The name of the node.
+      // The node name.
       shared_ptr<string> nodeName_ {};
-      // The name of the pod.
+      // The POD name.
       shared_ptr<string> pod_ {};
-      // The number of pods.
+      // The number of PODs.
       shared_ptr<int32_t> podCount_ {};
-      // The IP address of the pod.
+      // The IP address of the POD.
       shared_ptr<string> podIp_ {};
-      // The ID of the region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       // The number of vulnerabilities.
       shared_ptr<int32_t> vulCount_ {};
@@ -275,7 +273,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeContainerGroupedFieldDetailResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

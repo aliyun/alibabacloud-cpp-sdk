@@ -109,23 +109,25 @@ namespace Models
     shared_ptr<bool> decompress_ {};
     // The maximum number of files to decompress. Maximum value: 1000.
     // 
-    // This parameter is required when Decompress is set to true.
+    // This parameter is required if Decompress is set to true.
     shared_ptr<int32_t> decompressMaxFileCount_ {};
     // The maximum number of decompression layers when compressed files are nested within a compressed package. Maximum value: 5.
     // 
-    // This parameter is required when Decompress is set to true.
+    // This parameter is required if Decompress is set to true.
     shared_ptr<int32_t> decompressMaxLayer_ {};
     // The download URL of the file. You can pass in a file download URL (public URL) to directly trigger file detection without uploading the file in advance.
     shared_ptr<string> downloadUrl_ {};
-    // The unique identifier of the file. This parameter is required and must be the MD5 or SHA-256 of the file.
+    // The unique identifier of the file. This parameter is required and must be the MD5 or SHA-256 hash of the file.
     shared_ptr<string> hashKey_ {};
     // The storage key of the file in the OSS bucket.
     // 
-    // If you push the file for detection by using DownloadUrl, this parameter is optional. This parameter is obtained from the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+    // If you push the file for detection by using DownloadUrl, this parameter is optional. You can obtain this parameter by calling the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation.
+    // 
+    // Note: If Type is set to 0 and DownloadUrl is not provided, this parameter is required and must be obtained by calling the CreateFileDetectUploadUrl operation.
     shared_ptr<string> ossKey_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
-    // The type of file to detect. Valid values:
+    // The type of the file to be detected. Valid values:
     // 
     // - **0**: malicious file detection
     // 

@@ -143,35 +143,35 @@ namespace Models
   protected:
     // Specifies whether to match all prefixes. If this parameter is set to true, the KeyPrefixList parameter does not take effect.
     shared_ptr<bool> allKeyPrefix_ {};
-    // The list of bucket names.
+    // The list of bucket names. The specified buckets must already exist in OSS and must have been synchronized to Security Center by calling the RefreshOssBucketScanInfo operation. You can call the ListOssBucket operation to obtain the list of managed buckets.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> bucketNameList_ {};
-    // The maximum number of files to decompress. The minimum value is 1 and the maximum value is 1000. When the maximum number of decompressed files is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
+    // The maximum number of files to decompress. The minimum value is 1 and the maximum value is 1000. When the maximum number of decompressed files is exceeded, the decompression operation stops immediately. The scanning of files that have already been decompressed is not affected.
     shared_ptr<int32_t> decompressMaxFileCount_ {};
-    // The maximum number of decompression layers when multiple levels of compressed packages are nested. The minimum value is 1 and the maximum value is 5. When the maximum number of decompression layers is exceeded, the decompression operation ends immediately. The detection of files that have already been decompressed is not affected.
+    // The maximum number of decompression layers when multiple levels of nested compressed files exist. The minimum value is 1 and the maximum value is 5. When the maximum number of decompression layers is exceeded, the decompression operation stops immediately. The scanning of files that have already been decompressed is not affected.
     shared_ptr<int32_t> decompressMaxLayer_ {};
     // The list of decryption types.
     shared_ptr<vector<string>> decryptionList_ {};
-    // The list of file suffixes to exclude from detection.
+    // The list of file suffixes to exclude from scanning.
     shared_ptr<vector<string>> excludeKeySuffixList_ {};
     // The prefix list of files.
     shared_ptr<vector<string>> keyPrefixList_ {};
     // The list of file suffixes.
     shared_ptr<vector<string>> keySuffixList_ {};
-    // Specifies that only files whose last modification time is after the specified timestamp are detected. Unit: milliseconds.
+    // Specifies that only files whose last modification time is after the specified timestamp are scanned. Unit: milliseconds.
     shared_ptr<int64_t> lastModifiedStartTime_ {};
-    // The detection mode. Valid values:
+    // The scan mode. Valid values:
     // 
-    // - **1**: Full file detection.
+    // - **1**: Full file scan.
     // 
-    // - **2**: Incremental file detection.
+    // - **2**: Incremental file scan.
     // 
     // This parameter is required.
     shared_ptr<int32_t> scanMode_ {};
     // The business source. Valid values:
-    // - **OSS**: OSS
-    // - **NAS**: NAS
+    // - **OSS**: OSS.
+    // - **NAS**: NAS.
     shared_ptr<string> source_ {};
   };
 

@@ -97,24 +97,23 @@ namespace Models
 
 
     protected:
-      // The version of the Security Center agent.
+      // The current client version.
       shared_ptr<string> curVersion_ {};
-      // The time when the Security Center agent was last upgraded.
+      // The time of the last upgrade. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> lastUpgradeTime_ {};
-      // The publish status of the Security Center agent. Valid values:
+      // The client release status. Valid values:
       // 
-      // *   **0**: not started.
-      // *   **1**: publishing.
-      // *   **2**: published.
-      // *   **3**: publish suspended.
-      // *   **4**: forcibly upgrading.
+      // - **0**: Not started.
+      // - **1**: Publishing.
+      // - **2**: Publishing completed.
+      // - **3**: Publishing paused.
+      // - **4**: Force upgrading.
       shared_ptr<int32_t> status_ {};
-      // Indicates whether automatic upgrade is enabled. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
+      // Indicates whether the upgrade is enabled. Valid values:
+      // - **true**: Enabled.
+      // - **false**: Not enabled.
       shared_ptr<bool> upgradeEnable_ {};
-      // The UUID of the asset.
+      // The UUID of the Security Center asset.
       shared_ptr<string> uuid_ {};
     };
 
@@ -137,9 +136,9 @@ namespace Models
 
 
   protected:
-    // The servers.
+    // The server list information.
     shared_ptr<vector<ListAssetInfoPublishResponseBody::AssetList>> assetList_ {};
-    // The request ID.
+    // The ID of the request. The ID is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

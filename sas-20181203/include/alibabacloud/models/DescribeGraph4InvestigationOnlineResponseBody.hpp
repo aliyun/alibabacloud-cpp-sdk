@@ -200,7 +200,7 @@ namespace Models
         shared_ptr<vector<VertexList::NeighborList>> neighborList_ {};
         // The properties.
         shared_ptr<string> properties_ {};
-        // The time.
+        // The time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> time_ {};
         // The type of the vertex.
         shared_ptr<string> type_ {};
@@ -266,7 +266,7 @@ namespace Models
       protected:
         // The direction of the edge. Valid values:
         // - **1**: forward
-        // - **0**: reverse.
+        // - **0**: reverse
         shared_ptr<int32_t> directed_ {};
         // The rendering color of the edge.
         shared_ptr<string> displayColor_ {};
@@ -444,7 +444,7 @@ namespace Models
         // - **file**: file
         // - **alert**: alert
         // - **ip**: IP address
-        // - **domain**: domain name.
+        // - **domain**: domain name
         shared_ptr<string> endType_ {};
         // The name of the edge.
         shared_ptr<string> name_ {};
@@ -455,9 +455,9 @@ namespace Models
         // - **file**: file
         // - **alert**: alert
         // - **ip**: IP address
-        // - **domain**: domain name.
+        // - **domain**: domain name
         shared_ptr<string> startType_ {};
-        // The time when the edge was created.
+        // The time when the edge was established. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> time_ {};
         // The type of the edge.
         shared_ptr<string> type_ {};
@@ -556,13 +556,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<DescribeGraph4InvestigationOnlineResponseBody::Data> data_ {};
-    // The returned message.
+    // The message returned for the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - **true**: The call was successful.
-    // - **false**: The call failed.
+    // Indicates whether the API call was successful. Valid values:
+    // - **true**: The API call was successful.
+    // - **false**: The API call failed.
     shared_ptr<bool> success_ {};
   };
 

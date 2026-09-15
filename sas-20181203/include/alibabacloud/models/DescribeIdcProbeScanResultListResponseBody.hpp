@@ -92,7 +92,7 @@ namespace Models
     protected:
       // The number of entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page in a paged query.
+      // The page number in a paging query.
       shared_ptr<int32_t> currentPage_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
@@ -235,15 +235,15 @@ namespace Models
       // - **online**: The Agent client on the asset is enabled.
       // - **offline**: The Agent client on the asset is disabled.
       shared_ptr<string> clientStatus_ {};
-      // The name of the IDC server room.
+      // The IDC name.
       shared_ptr<string> idcName_ {};
       // The IP segment list.
       shared_ptr<string> ipSegment_ {};
-      // The timestamp of the latest scan, in milliseconds.
+      // The timestamp of the latest scan. Unit: milliseconds.
       shared_ptr<int64_t> lastScanTime_ {};
       // The operating system type of the asset. Valid values:
       // - **windows**
-      // - **linux**.
+      // - **linux**
       shared_ptr<string> os_ {};
       // The public IP address of the associated machine instance.
       shared_ptr<string> probeInternetIp_ {};

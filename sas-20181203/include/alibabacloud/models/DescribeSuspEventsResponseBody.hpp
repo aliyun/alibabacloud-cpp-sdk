@@ -264,11 +264,11 @@ namespace Models
 
 
       protected:
-        // The remark information.
+        // The note information.
         shared_ptr<string> note_ {};
         // The event record ID.
         shared_ptr<int64_t> noteId_ {};
-        // The event record time.
+        // The event record time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> noteTime_ {};
       };
 
@@ -328,13 +328,13 @@ namespace Models
 
 
       protected:
-        // The display name of the security alert.
+        // The display name of the alert event.
         shared_ptr<string> nameDisplay_ {};
         // The alerting event type.
         shared_ptr<string> type_ {};
-        // The path where the security alert occurred.
+        // The path where the alert event occurred.
         shared_ptr<string> value_ {};
-        // The path where the security alert occurred.
+        // The path where the alert event occurred.
         shared_ptr<string> valueDisplay_ {};
       };
 
@@ -766,11 +766,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether this is an offline analysis alert.
+      // Indicates whether the alert is from offline analysis.
       shared_ptr<bool> advanced_ {};
-      // The name of the security alert.
+      // The name of the alert event.
       shared_ptr<string> alarmEventName_ {};
-      // The alert name.
+      // The display name of the alert.
       shared_ptr<string> alarmEventNameDisplay_ {};
       // The alerting event type.
       shared_ptr<string> alarmEventType_ {};
@@ -778,7 +778,7 @@ namespace Models
       shared_ptr<string> alarmEventTypeDisplay_ {};
       // The unique ID of the alert event.
       shared_ptr<string> alarmUniqueInfo_ {};
-      // The name of the application to which the security alert belongs.
+      // The name of the application to which the alert event belongs.
       shared_ptr<string> appName_ {};
       // Indicates whether automatic defense is enabled.
       shared_ptr<bool> autoBreaking_ {};
@@ -787,7 +787,9 @@ namespace Models
       // - **true**: Online handling is supported.
       // - **false**: Online handling is not supported.
       shared_ptr<bool> canBeDealOnLine_ {};
-      // Indicates whether the false positive mark can be unmarked. Valid values:
+      // Indicates whether the false positive marking can be unmarked. Valid values:
+      // - **true**: Can be unmarked.
+      // - **false**: Cannot be unmarked.
       shared_ptr<bool> canCancelFault_ {};
       // Indicates whether critical event protection mode is enabled for the server. Valid values:
       // - **true**: Enabled.
@@ -801,29 +803,45 @@ namespace Models
       shared_ptr<string> containerImageName_ {};
       // The data source. You can ignore this parameter.
       shared_ptr<string> dataSource_ {};
-      // The download URL of the file deep analysis report.
+      // The download URL of the deep file analysis report.
+      // 
+      // > Deep file analysis is triggered only for machines that have the AgenticEDR feature enabled.
       shared_ptr<string> deepAnalyzeReportUrl_ {};
-      // The description of the impact of the security alert.
+      // The description of the impact of the alert event.
       shared_ptr<string> desc_ {};
-      // The details of the security alert.
+      // The details of the alert event.
       shared_ptr<vector<SuspEvents::Details>> details_ {};
-      // The discovery source. This parameter is invalid.
+      // The discovery source. This is an invalid field.
       shared_ptr<string> detectSource_ {};
       // Indicates whether cloud sandbox detection is supported. Valid values:
+      // 
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> displaySandboxResult_ {};
-      // The remarks of the security alert.
+      // The notes of the alert event.
       shared_ptr<vector<SuspEvents::EventNotes>> eventNotes_ {};
-      // The status of the security alert. Valid values:
+      // The status of the alert event. Valid values:
+      // - **1**: PENDING.
+      // - **2**: IGNORE (ignored).
+      // - **4**: HANDLED (confirmed).
+      // - **8**: FAULT (marked as false positive).
+      // - **16**: DEALING (being handled).
+      // - **32**: DONE (handling completed).
+      // - **64**: EXPIRE (expired).
+      // - **604**: SYSTEM_FAULT (marked as false positive by the system).
       shared_ptr<int32_t> eventStatus_ {};
-      // The subtype of the security alert.
+      // The subtype of the alert event.
       shared_ptr<string> eventSubType_ {};
-      // Indicates whether the security alert has tracing information. Valid values:
+      // Indicates whether the alert event has tracing information. Valid values:
+      // 
+      // - **true**: Has tracing information.
+      // - **false**: Does not have tracing information.
       shared_ptr<bool> hasTraceInfo_ {};
       // The unique ID of the alert event.
       shared_ptr<int64_t> id_ {};
-      // The image UUID.
+      // The UUID of the image.
       shared_ptr<string> imageUuid_ {};
-      // The ID of the asset instance affected by the security alert.
+      // The ID of the asset instance affected by the alert event.
       shared_ptr<string> instanceId_ {};
       // The name of the associated instance.
       shared_ptr<string> instanceName_ {};
@@ -831,65 +849,68 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address of the associated instance.
       shared_ptr<string> intranetIp_ {};
-      // The Kubernetes cluster ID.
+      // The ID of the Kubernetes cluster.
       shared_ptr<string> k8sClusterId_ {};
       // The name of the Kubernetes cluster.
       shared_ptr<string> k8sClusterName_ {};
       // The Kubernetes namespace.
       shared_ptr<string> k8sNamespace_ {};
-      // The Kubernetes node ID.
+      // The ID of the Kubernetes node.
       shared_ptr<string> k8sNodeId_ {};
-      // The Kubernetes node name.
+      // The name of the Kubernetes node.
       shared_ptr<string> k8sNodeName_ {};
-      // The Kubernetes pod name.
+      // The name of the Kubernetes pod.
       shared_ptr<string> k8sPodName_ {};
-      // Indicates whether large model analysis tags are supported. Valid values:
+      // Indicates whether large model analysis tagging is supported. Valid values:
       // 
       // - **true**: Supported.
       // - **false**: Not supported.
       shared_ptr<bool> largeModel_ {};
-      // The most recent time when the security alert occurred.
+      // The most recent time when the alert event occurred. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> lastTime_ {};
       // The timestamp of the last occurrence, in milliseconds.
       shared_ptr<int64_t> lastTimeStamp_ {};
-      // The risk level of the alert event. Valid values:
-      // 
-      // - **serious**: critical
-      // - **suspicious**: suspicious
-      // - **remind**: reminder
+      // The severity level of the alert event. Valid values:
+      // - **serious**: Critical.
+      // - **suspicious**: Suspicious.
+      // - **remind**: Reminder.
       shared_ptr<string> level_ {};
       // The status of the malicious behavior defense rule. Valid values:
+      // - **open**: Enabled.
+      // - **close**: Disabled.
       shared_ptr<string> maliciousRuleStatus_ {};
-      // The collection of security alert tags.
+      // The collection of alert event tags.
       shared_ptr<vector<string>> markList_ {};
       // The advanced whitelisting rules.
       shared_ptr<string> markMisRules_ {};
-      // The full name of the security alert.
+      // The full name of the alert event.
       shared_ptr<string> name_ {};
-      // The time when the security alert first occurred.
+      // The time when the alert event first occurred. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> occurrenceTime_ {};
       // The timestamp of the first occurrence, in milliseconds.
       shared_ptr<int64_t> occurrenceTimeStamp_ {};
-      // The error code of the security alert operation.
+      // The error code of the alert event operation.
       shared_ptr<string> operateErrorCode_ {};
-      // The remarks of the security alert operation.
+      // The remarks of the alert event operation.
       shared_ptr<string> operateMsg_ {};
-      // The timestamp of the security alert operation, in milliseconds.
+      // The timestamp of the alert event operation, in milliseconds.
       shared_ptr<int64_t> operateTime_ {};
-      // The product edition that supports the detection of this security alert. Valid values:
+      // The product edition that supports the alert event detection. Valid values:
+      // - **0**: Basic edition.
+      // - **1**: Enterprise edition.
       shared_ptr<string> saleVersion_ {};
-      // The IDs of the security alerts associated with this security alert.
+      // The IDs of the alert events associated with this alert event.
       shared_ptr<string> securityEventIds_ {};
       // The Alibaba Cloud account ID that generated the alert.
       shared_ptr<int64_t> sourceAliUid_ {};
-      // The attack stage.
+      // The attack stages.
       shared_ptr<string> stages_ {};
-      // The operation types supported by the alert. Valid values:
-      // - **AI.false_positive**: suspected false positive.
-      // - **AI.real_attack**: real attack.
-      // - **AI.Insufficient_information_to_evaluate**: unable to determine.
+      // The operation type supported by the alert. Valid values:
+      // - **AI.false_positive**: Suspected false positive.
+      // - **AI.real_attack**: Real attack.
+      // - **AI.Insufficient_information_to_evaluate**: Unable to determine.
       shared_ptr<string> supportOperateCode_ {};
-      // The display name of the attack stage.
+      // The display names of the attack stages.
       shared_ptr<vector<SuspEvents::TacticItems>> tacticItems_ {};
       // The unique key of the security alert.
       shared_ptr<string> uniqueInfo_ {};
@@ -946,17 +967,17 @@ namespace Models
 
 
   protected:
-    // The number of entries on the current page in a paging query.
+    // The number of entries returned on the current page in a paged query.
     shared_ptr<int32_t> count_ {};
-    // The page number of the current page in a paging query.
+    // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The maximum number of entries per page in a paging query.
+    // The maximum number of entries per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The security alert information.
     shared_ptr<vector<DescribeSuspEventsResponseBody::SuspEvents>> suspEvents_ {};
-    // The total number of security alerts.
+    // The total number of alert events.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -14,6 +14,7 @@ namespace Models
   class DescribeImageGroupedVulListRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeImageGroupedVulListRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentlessCanFix, agentlessCanFix_);
       DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
       DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(CurrentPage, currentPage_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Uuids, uuids_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeImageGroupedVulListRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentlessCanFix, agentlessCanFix_);
       DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
       DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(CurrentPage, currentPage_);
@@ -76,12 +78,19 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->aliasName_ == nullptr
-        && this->clusterId_ == nullptr && this->currentPage_ == nullptr && this->cveId_ == nullptr && this->groupId_ == nullptr && this->imageDigest_ == nullptr
-        && this->imageLayer_ == nullptr && this->imageTag_ == nullptr && this->isLatest_ == nullptr && this->lang_ == nullptr && this->name_ == nullptr
-        && this->necessity_ == nullptr && this->pageSize_ == nullptr && this->patchId_ == nullptr && this->repoId_ == nullptr && this->repoInstanceId_ == nullptr
-        && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->repoRegionId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->ruleTag_ == nullptr
-        && this->scanRange_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr; };
+    virtual bool empty() const override { return this->agentlessCanFix_ == nullptr
+        && this->aliasName_ == nullptr && this->clusterId_ == nullptr && this->currentPage_ == nullptr && this->cveId_ == nullptr && this->groupId_ == nullptr
+        && this->imageDigest_ == nullptr && this->imageLayer_ == nullptr && this->imageTag_ == nullptr && this->isLatest_ == nullptr && this->lang_ == nullptr
+        && this->name_ == nullptr && this->necessity_ == nullptr && this->pageSize_ == nullptr && this->patchId_ == nullptr && this->repoId_ == nullptr
+        && this->repoInstanceId_ == nullptr && this->repoName_ == nullptr && this->repoNamespace_ == nullptr && this->repoRegionId_ == nullptr && this->resourceDirectoryAccountId_ == nullptr
+        && this->ruleTag_ == nullptr && this->scanRange_ == nullptr && this->type_ == nullptr && this->uuids_ == nullptr; };
+    // agentlessCanFix Field Functions 
+    bool hasAgentlessCanFix() const { return this->agentlessCanFix_ != nullptr;};
+    void deleteAgentlessCanFix() { this->agentlessCanFix_ = nullptr;};
+    inline bool getAgentlessCanFix() const { DARABONBA_PTR_GET_DEFAULT(agentlessCanFix_, false) };
+    inline DescribeImageGroupedVulListRequest& setAgentlessCanFix(bool agentlessCanFix) { DARABONBA_PTR_SET_VALUE(agentlessCanFix_, agentlessCanFix) };
+
+
     // aliasName Field Functions 
     bool hasAliasName() const { return this->aliasName_ != nullptr;};
     void deleteAliasName() { this->aliasName_ = nullptr;};
@@ -253,12 +262,14 @@ namespace Models
 
 
   protected:
+    // Specifies whether to filter by agentless fix capability. true: queries only vulnerabilities that support agentless fix. false: queries vulnerabilities that are not marked as supporting agentless fix. If this parameter is not specified, no filtering is applied based on this condition.
+    shared_ptr<bool> agentlessCanFix_ {};
     // The alias of the vulnerability.
     shared_ptr<string> aliasName_ {};
     // The ID of the container cluster to query.
-    // > Call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
+    // > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to obtain this parameter.
     shared_ptr<string> clusterId_ {};
-    // The page number of the page to return in the query results. Default value: **1**, which indicates that the first page is returned.
+    // The page number of the page to return in a paginated query. Default value: **1**, which indicates the first page.
     shared_ptr<int32_t> currentPage_ {};
     // The CVE ID of the vulnerability.
     shared_ptr<string> cveId_ {};
@@ -270,23 +281,23 @@ namespace Models
     shared_ptr<string> imageLayer_ {};
     // The tag of the image.
     shared_ptr<string> imageTag_ {};
-    // Specifies whether to query vulnerabilities of only the latest image. If this parameter is not set, vulnerabilities of all images are queried. Valid values:
+    // Specifies whether to query vulnerabilities only for the latest image. If this parameter is not set, vulnerabilities for all images are queried. Valid values:
     // 
     // - **0**: No.
     // - **1**: Yes.
     shared_ptr<int32_t> isLatest_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The name of the vulnerability.
     shared_ptr<string> name_ {};
     // The priority level for fixing the vulnerability. Valid values:
-    // - **asap**: high-priority vulnerability (typically a high-risk vulnerability)
-    // - **later**: medium-priority vulnerability (typically a medium-risk vulnerability)
-    // - **nntf**: low-priority vulnerability (typically a low-risk vulnerability).
+    // - **asap**: High-priority vulnerability that must be fixed as soon as possible.
+    // - **later**: Medium-priority vulnerability that can be fixed later.
+    // - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
     shared_ptr<string> necessity_ {};
-    // The number of image vulnerabilities to display on each page during a paging query. Default value: **20**, which indicates that 20 image vulnerabilities are displayed on each page.
+    // The number of image vulnerabilities to display on each page in a paging query. Default value: **20**, which indicates 20 image vulnerabilities per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the vulnerability patch.
     shared_ptr<int64_t> patchId_ {};
@@ -300,16 +311,18 @@ namespace Models
     shared_ptr<string> repoNamespace_ {};
     // The region ID of the image repository.
     shared_ptr<string> repoRegionId_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The vulnerability tag. Valid values:
     // 
-    //  - **AI**: vulnerabilities related to AI components.
+    //  - **AI**: vulnerabilities related to AI components
     shared_ptr<string> ruleTag_ {};
     // The collection of scan ranges.
     shared_ptr<vector<string>> scanRange_ {};
     // The type of vulnerability to query. Valid values:
     // - **cve**: image system vulnerability
-    // - **sca**: image application vulnerability.
+    // - **sca**: image application vulnerability
     shared_ptr<string> type_ {};
     // The list of unique IDs of asset instances. Separate multiple IDs with commas (,).
     shared_ptr<string> uuids_ {};

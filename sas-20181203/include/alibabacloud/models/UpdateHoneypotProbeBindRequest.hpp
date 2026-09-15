@@ -153,7 +153,7 @@ namespace Models
       // The protocol type. Valid values:
       // 
       // - **tcp**
-      // - **udp**.
+      // - **udp**
       shared_ptr<string> proto_ {};
       // The start port that the probe listens on.
       shared_ptr<int32_t> startPort_ {};
@@ -260,10 +260,10 @@ namespace Models
     shared_ptr<vector<UpdateHoneypotProbeBindRequest::BindPortList>> bindPortList_ {};
     // The service binding type. Valid values:
     // 
-    // - **forward_honey**: forward to honeypot
-    // - **scan_port**: listen for scans.
+    // - **forward_honey**: forwards traffic to the honeypot.
+    // - **scan_port**: listens for scans.
     shared_ptr<string> bindType_ {};
-    // The page number of the page to return. Minimum value: **1**. Default value: **1**.
+    // The page number of the page to return. The value starts from **1**. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
     // The honeypot ID.
     // > You can call the [ListHoneypot](~~ListHoneypot~~) operation to obtain this value.
@@ -271,10 +271,10 @@ namespace Models
     // The probe service port ID.
     shared_ptr<int64_t> id_ {};
     // The language of the request and response. Valid values:
-    // - **zh**: Chinese
+    // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return on each page when using paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by paging.
+    // The maximum number of entries to return on each page in a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page by default.
     // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
     // The listening port range.

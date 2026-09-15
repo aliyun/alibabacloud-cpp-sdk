@@ -55,7 +55,7 @@ namespace Models
     shared_ptr<int64_t> strategyTaskId_ {};
     // The action status of the task. Valid values:
     // - SCHEDULE: scheduling
-    // - PAUSE: pause.
+    // - PAUSE: pause
     // 
     // This parameter is required.
     shared_ptr<string> taskAction_ {};

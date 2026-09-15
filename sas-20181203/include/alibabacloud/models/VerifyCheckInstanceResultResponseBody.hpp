@@ -85,8 +85,8 @@ namespace Models
       shared_ptr<vector<string>> failInstances_ {};
       // The operation code of the cloud service configuration check task. Valid values:
       // 
-      // - **Throttling**: rate limit.
-      // - **ActionTrialUnauthorized**: unauthorized error.
+      // - **Throttling**: Rate limited.
+      // - **ActionTrialUnauthorized**: Unauthorized error.
       shared_ptr<string> operateCode_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -113,7 +113,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<VerifyCheckInstanceResultResponseBody::Data> data_ {};
-    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

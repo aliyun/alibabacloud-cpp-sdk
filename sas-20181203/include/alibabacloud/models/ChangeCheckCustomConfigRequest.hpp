@@ -92,13 +92,13 @@ namespace Models
 
 
     protected:
-      // The ID of the fixing process.
+      // The ID of the repair flow used during the repair process.
       shared_ptr<string> flowId_ {};
-      // The name of the parameter required for fixing a risk item, which is unique in a check item.
+      // The name of the repair parameter, which is unique within the check item.
       shared_ptr<string> name_ {};
-      // The operation that you want to perform on the custom configuration item. This parameter is required only if you want to delete the custom configuration item. To delete the custom configuration item, set the value to DELETE.
+      // The operation type of the custom configuration item. Set this parameter to DELETE only when deleting a configuration item. You do not need to specify this parameter for create or update operations.
       shared_ptr<string> operation_ {};
-      // The value of the parameter required for fixing a risk item. The value is a string.
+      // The user-configured value string of the repair configuration item.
       shared_ptr<string> value_ {};
     };
 
@@ -149,11 +149,11 @@ namespace Models
 
 
     protected:
-      // The name of the custom configuration item. The name of a custom configuration item is unique in a check item.
+      // The name of the custom configuration item, which is unique within the check item.
       shared_ptr<string> name_ {};
-      // The operation that you want to perform on the custom configuration item. This parameter is required only if you want to delete the custom configuration item. To delete the custom configuration item, set the value to DELETE.
+      // The operation type of the custom configuration item. Set this parameter to DELETE only when deleting a configuration item. You do not need to specify this parameter for create or update operations.
       shared_ptr<string> operation_ {};
-      // The value of the custom configuration item. The value is a string.
+      // The user-configured value string of the custom configuration item.
       shared_ptr<string> value_ {};
     };
 
@@ -194,16 +194,16 @@ namespace Models
   protected:
     // The ID of the check item.
     // 
-    // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
+    // > You can call the [ListCheckResult](~~ListCheckResult~~) operation to obtain the check item ID.
     shared_ptr<int64_t> checkId_ {};
-    // The custom configuration items of the check item.
+    // The list of custom configuration items for the check item.
     shared_ptr<vector<ChangeCheckCustomConfigRequest::CustomConfigs>> customConfigs_ {};
-    // The region where the Security Center instance is deployed. Valid values:
+    // The region of the Security Center instance. Valid values:
     // 
-    // *   **cn-hangzhou**: International
-    // *   **ap-southeast-1**: Singapore
+    // - **cn-hangzhou:** China
+    // - **ap-southeast-1:** Singapore
     shared_ptr<string> regionId_ {};
-    // The parameters required for fixing risk items.
+    // The repair parameters supported by the repair feature of the check item.
     shared_ptr<vector<ChangeCheckCustomConfigRequest::RepairConfigs>> repairConfigs_ {};
   };
 

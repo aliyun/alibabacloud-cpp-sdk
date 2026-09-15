@@ -102,22 +102,21 @@ namespace Models
 
 
       protected:
-        // The error code returned.
+        // The failure code.
         shared_ptr<string> code_ {};
-        // The status of the subtask. Valid values:
+        // The completion status of the check. Valid values:
         // 
-        // *   **0**: unhandled
-        // *   **1**: collecting
-        // *   **2**: collected
-        // *   **3**: matching
-        // *   **4**: complete
+        // - **0**: Unprocessed.
+        // - **1**: Collecting.
+        // - **2**: Collection completed.
+        // - **3**: Matching.
+        // - **4**: Completed.
         shared_ptr<string> status_ {};
-        // The type of the vulnerability. Valid values:
-        // 
-        // *   **cve**: Linux software vulnerability
-        // *   **sys**: Windows system vulnerability
-        // *   **cms**: Web-CMS vulnerability
-        // *   **sca**: vulnerability that is detected based on software component analysis
+        // The vulnerability type. Valid values:
+        // - **cve**: Linux software vulnerability
+        // - **sys**: Windows system vulnerability
+        // - **cms**: Web-CMS vulnerability
+        // - **sca**: sca vulnerability
         shared_ptr<string> type_ {};
       };
 
@@ -140,9 +139,9 @@ namespace Models
 
 
     protected:
-      // The ID of the main task.
+      // The main task ID.
       shared_ptr<string> taskId_ {};
-      // An array that consists of status information about the vulnerability scan subtask.
+      // The list of vulnerability detection task statuses.
       shared_ptr<vector<TaskStatuses::TaskStatusList>> taskStatusList_ {};
     };
 
@@ -172,11 +171,11 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the status information about the vulnerability scan tasks on the server.
+    // The list of vulnerability task statuses for the server.
     shared_ptr<vector<DescribeVulCheckTaskStatusDetailResponseBody::TaskStatuses>> taskStatuses_ {};
-    // The total number of vulnerability scan tasks on the server.
+    // The total number of vulnerability subtasks for the server.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The ID of the China account in the resource folder for member accounts.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

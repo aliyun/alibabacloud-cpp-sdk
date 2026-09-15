@@ -58,10 +58,11 @@ namespace Models
 
   protected:
     // The bucket name.
+    // > Note: This parameter is required. If this parameter is not specified, the API returns the InvalidBucketName (400) error.
     shared_ptr<string> bucketName_ {};
     // The operation to perform on the bucket. Valid values:
     // 
-    // - **1**: Cancel detection.
+    // - **1**: Cancel the scan task.
     shared_ptr<int32_t> operateCode_ {};
     // The business source. Valid values:
     // - **OSS**: OSS

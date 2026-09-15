@@ -143,27 +143,25 @@ namespace Models
 
 
       protected:
-        // The error message of the module.
+        // The module exception information.
         shared_ptr<string> message_ {};
-        // The code of the module. Valid values:
-        // 
-        // *   **HOST**: host
-        // *   **CSPM**: configuration assessment
-        // *   **SIEM**: CloudSiem
-        // *   **TRIAL**: log audit
+        // The module code. Valid values:
+        // - **HOST**: Host
+        // - **CSPM**: Cloud product configuration check
+        // - **SIEM**: CloudSiem
+        // - **TRIAL**: Log audit
         shared_ptr<string> module_ {};
-        // The cloud asset that is associated with the module.
+        // The cloud asset description associated with the module.
         shared_ptr<string> moduleAssetType_ {};
         // The display name of the module.
         shared_ptr<string> moduleDisp_ {};
-        // The service status of the module. Valid values:
-        // 
-        // *   **0**: being used
-        // *   **1**: exception occurred
-        // *   **2**: being validated
-        // *   **3**: validation timed out
+        // The module status. Valid values:
+        // - **0**: In use.
+        // - **1**: Usage exception.
+        // - **2**: Validity verification in progress.
+        // - **3**: Validity verification timed out.
         shared_ptr<int32_t> moduleServiceStatus_ {};
-        // The permission description of the module.
+        // The description of permissions associated with the module.
         shared_ptr<string> moduleStatement_ {};
       };
 
@@ -243,45 +241,46 @@ namespace Models
 
 
     protected:
-      // The type of the account to which the AccessKey pair belongs. Valid values:
+      // The AK type. Valid values:
       // 
-      // *   **primary**: a primary account
-      // *   **sub**: a sub-account
+      // - **primary**: Primary account.
+      // - **sub**: Sub-account.
       shared_ptr<string> akType_ {};
-      // The unique ID of the AccessKey pair.
+      // The unique ID of the AK.
       shared_ptr<int64_t> authId_ {};
-      // The modules that are associated with the AccessKey pair.
+      // The list of AK-associated modules.
       shared_ptr<vector<Data::AuthModules>> authModules_ {};
-      // Account ID. 
+      // The account ID.
       // 
-      // > The account ID of the cloud provider being integrated.
+      // > The account ID of the connected cloud vendor.
       shared_ptr<string> ctdrCloudUserId_ {};
-      // The error message of the AccessKey pair.
+      // The AK exception information.
       shared_ptr<string> message_ {};
-      // The AccessKey ID.
+      // The AK parameter ID.
       shared_ptr<string> secretId_ {};
-      // The service status of the AccessKey pair. Valid values:
-      // 
-      // *   **0**: being used
-      // *   **1**: exception occurred
-      // *   **2**: being validated
-      // *   **3**: validation timed out
+      // The AK usage status. Valid values:
+      // - **0**: In use.
+      // - **1**: Usage exception.
+      // - **2**: Validity verification in progress.
+      // - **3**: Validity verification timed out.
       shared_ptr<int32_t> serviceStatus_ {};
-      // The status of the AccessKey pair. Valid values:
-      // 
-      // *   **0**: enabled
-      // *   **1**: disabled
+      // The AK status. Valid values:
+      // - **0**: Enabled.
+      // - **1**: Not enabled.
       shared_ptr<int32_t> status_ {};
-      // The cloud service provider. Valid values:
-      // 
-      // *   **Tencent**: Tencent Cloud
-      // *   **HUAWEICLOUD**: Huawei Cloud
-      // *   **Azure**: Microsoft Azure
-      // *   **AWS**: AWS
+      // The cloud asset vendor. Valid values:
+      // - **Tencent**: Tencent Cloud
+      // - **HUAWEICLOUD**: Huawei Cloud
+      // - **Azure**: Azure
+      // - **AWS**: AWS
+      // - **VOLCENGINE**: Volcengine
+      // - **google**: Google Cloud
+      // - **CHAITIN**: Chaitin Technology
+      // - **FORTINET**: Fortinet
+      // - **THREATBOOK**: ThreatBook
       shared_ptr<string> vendor_ {};
-      // The name of the AccessKey pair.
-      // 
-      // >  The account information of the third-party cloud servers.
+      // The AK account name.
+      // >Used to identify the account to which third-party host assets belong.
       shared_ptr<string> vendorAuthAlias_ {};
     };
 
@@ -304,7 +303,7 @@ namespace Models
 
 
   protected:
-    // The information about the AccessKey pair that is added.
+    // The information about the added AK.
     shared_ptr<AddCloudVendorAccountAKResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

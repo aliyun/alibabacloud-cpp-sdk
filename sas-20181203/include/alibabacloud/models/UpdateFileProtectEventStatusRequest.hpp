@@ -154,46 +154,43 @@ namespace Models
 
 
   protected:
-    // The severities of alerts.
+    // The list of alert notification levels.
     shared_ptr<vector<int32_t>> alertLevels_ {};
-    // The end of the time range to query. Unit: milliseconds.
+    // The end timestamp of the query.
     shared_ptr<int64_t> endTime_ {};
-    // The IDs of the events.
+    // The list of event IDs.
     shared_ptr<vector<int64_t>> id_ {};
-    // The instance ID of the asset.
+    // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
-    // The name of the server.
+    // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
-    // The public IP address of the server.
+    // The public IP address.
     shared_ptr<string> internetIp_ {};
-    // The private IP address of the server.
+    // The internal IP address.
     shared_ptr<string> intranetIp_ {};
-    // Type of operation on a file. eg:
+    // The type of operation performed on the file. Valid values:
     // 
-    // - **DELETE**: delete the file.
-    // - **WRITE**: write the file.
-    // - **READ**: read the file.
-    // - **RENAME**: rename the file.
-    // - **CHOWN**: set the file owner and file association group operations.
+    // - **DELETE**: Deletes a file.
+    // - **WRITE**: Writes to a file.
+    // - **READ**: Reads a file.
+    // - **RENAME**: Renames a file.
+    // - **CHOWN**: Changes the file owner and associated file group.
     shared_ptr<string> operation_ {};
-    // The name of the defense rule.
+    // The rule name.
     shared_ptr<string> ruleName_ {};
-    // Whether to choose all fields across industries.
-    // 
-    // - **true**: yes
-    // - **false**: no
+    // Specifies whether to select all items across pages. Valid values:
+    // - **true**: Selected.
+    // - **false**: Not selected.
     shared_ptr<bool> selectAllAcrossPages_ {};
-    // The beginning of the time range to query. Unit: milliseconds.
+    // The start timestamp of the query.
     shared_ptr<int64_t> startTime_ {};
-    // The handling status of the event. Valid values:
-    // 
-    // *   **0**: unhandled
-    // *   **1**: handled
-    // *   **2**: added to the whitelist
+    // The event handling status.
+    // - **0**: Unhandled
+    // - **1**: Manually handled
+    // - **2**: Added to whitelist
+    // - **3**: Ignored
     shared_ptr<int32_t> status_ {};
     // The UUID of the server.
-    // 
-    // > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
     shared_ptr<string> uuid_ {};
   };
 

@@ -110,13 +110,13 @@ namespace Models
   protected:
     // The alert notification level. Valid values:
     // 
-    // - 0: no alert
+    // - 0: No alert.
     // 
-    // - 1: reminder
+    // - 1: Reminder.
     // 
-    // - 2: suspicious
+    // - 2: Suspicious.
     // 
-    // - 3: high-risk.
+    // - 3: High-risk.
     shared_ptr<int32_t> alertLevel_ {};
     // The list of excluded rule IDs.
     shared_ptr<vector<int64_t>> excludeIdList_ {};
@@ -124,7 +124,7 @@ namespace Models
     shared_ptr<vector<int64_t>> idList_ {};
     // The operating system type. Valid values:
     // 
-    // - **windows**: Windows
+    // - **windows**: Windows.
     // - **linux**: Linux.
     shared_ptr<string> platform_ {};
     // The rule action. Valid values:
@@ -142,8 +142,8 @@ namespace Models
     // This parameter is required.
     shared_ptr<bool> selectAll_ {};
     // The policy status. Valid values:
-    // - **0**: disabled.
-    // - **1**: enabled.
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     // 
     // This parameter is required.
     shared_ptr<int32_t> status_ {};

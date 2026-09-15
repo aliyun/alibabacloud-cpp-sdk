@@ -148,20 +148,20 @@ namespace Models
 
 
       protected:
-        // The number of consumed quotas in the current metering cycle.
+        // The number of consumed authorizations in the current metering cycle.
         shared_ptr<int64_t> currentPeriodUsed_ {};
-        // The end time.
+        // The end time. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> endTime_ {};
         // The total capacity of the resource plan.
         shared_ptr<double> initCapacity_ {};
-        // The resource plan instance ID.
+        // The instance ID of the resource plan.
         shared_ptr<string> instanceId_ {};
         // The module code. Valid values:
-        // - **POST_HOST**: host and container protection
-        // - **CSPM**: cloud product configuration check
-        // - **VUL**: vulnerability scanning
+        // - **POST_HOST**: Host and container protection.
+        // - **CSPM**: Cloud product configuration check.
+        // - **VUL**: Vulnerability scanning.
         shared_ptr<string> module_ {};
-        // The number of consumed quotas up to the previous billing cycle.
+        // The number of consumed authorizations up to the end of the previous billing cycle.
         shared_ptr<double> periodCapacity_ {};
         // The start timestamp, in milliseconds.
         shared_ptr<int64_t> startTime_ {};
@@ -203,6 +203,7 @@ namespace Models
       shared_ptr<bool> canTry_ {};
       // The list of resource plan usage details.
       shared_ptr<vector<Data::DeductPackageList>> deductPackageList_ {};
+      // The trial version.
       shared_ptr<int32_t> trialVersion_ {};
     };
 

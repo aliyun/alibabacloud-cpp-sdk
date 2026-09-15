@@ -103,25 +103,24 @@ namespace Models
 
 
   protected:
-    // The download URL of the security report.
+    // The download URL of the report.
     shared_ptr<string> downloadUrl_ {};
-    // The time when the security report was exported.
+    // The time when the report was generated. Format: YYYY-MM-DD.
     shared_ptr<string> exportDate_ {};
-    // The ID of the export task.
+    // The ID of the export report task.
     shared_ptr<int64_t> exportId_ {};
-    // The status of the export task. Valid values:
-    // 
-    // *   **fail**: The export task fails.
-    // *   **exporting**: The export task is being executed.
-    // *   **success**: The export task is successful.
+    // The status of the export node. Valid values:
+    // - **fail**: The export failed.
+    // - **exporting**: The export is in progress.
+    // - **success**: The export succeeded.
     shared_ptr<string> exportStatus_ {};
-    // The name of the report file that is exported.
+    // The name of the exported file.
     shared_ptr<string> fileName_ {};
     // The ID of the security report.
     shared_ptr<int64_t> reportId_ {};
-    // The request ID.
+    // The request ID, which is a unique identifier that Alibaba Cloud generates for the request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The timestamp when the download URL expires. Unit: seconds.
+    // The UNIX timestamp when the report download URL expires. Unit: seconds.
     shared_ptr<int64_t> urlExpiredTime_ {};
   };
 

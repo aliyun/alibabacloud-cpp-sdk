@@ -70,8 +70,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource directory folder.
+    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The source of the security score. If left empty, the default value is Security Center. Valid values:
+    // The source of the security score. If this parameter is left empty, the default value is Security Center. Valid values:
     // 
     // 0: Security Center.
     // 

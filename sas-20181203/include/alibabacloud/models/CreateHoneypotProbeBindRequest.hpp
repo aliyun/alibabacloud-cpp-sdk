@@ -114,22 +114,22 @@ namespace Models
     protected:
       // Specifies whether to bind the port. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The port is bound.
+      // - **false**: The port is not bound.
       shared_ptr<bool> bindPort_ {};
-      // The end port on which the probe monitors.
+      // The end port of the probe listener.
       shared_ptr<int32_t> endPort_ {};
-      // Specifies whether the port is a fixed port. Valid values:
+      // Specifies whether the port is fixed. Valid values:
       // 
-      // *   **true**
-      // *   **false**
+      // - **true**: The port is fixed.
+      // - **false**: The port is not fixed.
       shared_ptr<bool> fixed_ {};
-      // The type of the protocol. Valid values:
+      // The protocol type. Valid values:
       // 
-      // *   **tcp**
-      // *   **udp**
+      // - **tcp**: TCP protocol.
+      // - **udp**: UDP protocol.
       shared_ptr<string> proto_ {};
-      // The start port on which the probe monitors.
+      // The start port of the probe listener.
       shared_ptr<int32_t> startPort_ {};
       // The destination port.
       shared_ptr<int32_t> targetPort_ {};
@@ -177,22 +177,21 @@ namespace Models
 
 
   protected:
-    // The ports that are bound to the probe.
+    // The list of port bindings.
     shared_ptr<vector<CreateHoneypotProbeBindRequest::BindPortList>> bindPortList_ {};
     // The honeypot ID.
-    // 
-    // >  You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
+    // > Call the [ListHoneypot](~~ListHoneypot~~) operation to obtain this value.
+    // This parameter is required. If this parameter is not specified, the API returns InternalError (400).
     shared_ptr<string> honeypotId_ {};
-    // The language of the content within the request and response. Default value: **zh**. Valid values:
-    // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // The language of the request and response. Default value: **zh**. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The probe ID.
-    // 
-    // >  You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
+    // >Call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to obtain this parameter.
+    // This parameter is required. If this parameter is not specified, the API returns InvalidParam (400).
     shared_ptr<string> probeId_ {};
-    // The IP addresses that are monitored.
+    // The list of listener IP addresses.
     shared_ptr<vector<string>> serviceIpList_ {};
   };
 

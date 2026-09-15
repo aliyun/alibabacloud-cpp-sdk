@@ -130,15 +130,15 @@ namespace Models
 
 
   protected:
-    // This parameter is deprecated and does not need to be specified.
+    // **[Deprecated]** This parameter is deprecated and does not need to be specified.
     shared_ptr<string> aliyunYundunGatewayApiName_ {};
-    // This parameter is deprecated and does not need to be specified.
+    // **[Deprecated]** This parameter is deprecated and does not need to be specified.
     shared_ptr<string> aliyunYundunGatewayPopName_ {};
-    // This parameter is deprecated and does not need to be specified.
+    // **[Deprecated]** This parameter is deprecated and does not need to be specified.
     shared_ptr<string> aliyunYundunGatewayProjectName_ {};
-    // The SLS Logstore of the audit log.
+    // The SLS Logstore for audit logs.
     shared_ptr<string> auditLogStore_ {};
-    // The SLS project of the audit log.
+    // The Simple Log Service (SLS) project for audit logs.
     shared_ptr<string> auditProject_ {};
     // The region of the audit log.
     shared_ptr<string> auditRegionId_ {};
@@ -146,13 +146,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> clusterName_ {};
-    // The CPU architecture, which can be ARM or x86.
+    // The CPU architecture, which can be ARM architecture or x86 architecture.
     shared_ptr<string> cpuArch_ {};
-    // The expiration time for container access.
+    // The expiration time for container access. This value is a UNIX timestamp in milliseconds.
     // 
     // This parameter is required.
     shared_ptr<int64_t> expireDate_ {};
-    // The queried group ID.
+    // The ID of the server group.
     // 
     // This parameter is required.
     shared_ptr<int64_t> groupId_ {};

@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return. Minimum value: **1**. Default value: **1**.
+    // The page number of the page to return. Minimum value: **1**. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
-    // The name of the probe.
+    // The probe name.
     shared_ptr<string> displayName_ {};
     // The language of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return on each page in a paged query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page during paging.
+    // The maximum number of entries per page for a paging query. Default value: 20. If you leave this parameter empty, 20 entries are returned per page.
     // > Do not leave PageSize empty.
     shared_ptr<int32_t> pageSize_ {};
     // The probe status. Valid values:
@@ -110,7 +110,7 @@ namespace Models
     // The probe type. Valid values:
     // 
     // - **host_probe**: host probe
-    // - **vpc_black_hole_probe**: VPC blackhole probe.
+    // - **vpc_black_hole_probe**: VPC blackhole probe
     shared_ptr<string> probeType_ {};
   };
 

@@ -58,17 +58,17 @@ namespace Models
 
   protected:
     // The ID of the anti-ransomware backup policy.
-    // >You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to obtain this parameter.
+    // >Call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<int64_t> policyId_ {};
-    // The version of the protection policy. Valid values:
+    // The version of the mitigation policies. Valid values:
     // 
-    // - **1.0.0**: The version of the protection policy is 1.0.0.
-    // - **2.0.0**: The version of the protection policy is 2.0.0.
+    // - **1.0.0**: The version of the mitigation policies is 1.0.0.
+    // - **2.0.0**: The version of the mitigation policies is 2.0.0.
     shared_ptr<string> policyVersion_ {};
     // The UUID of the server to query.
-    // >You can call the [DescribeBackupPolicy](~~DescribeBackupPolicy~~) operation to obtain this parameter.
+    // >Call the [DescribeBackupPolicy](~~DescribeBackupPolicy~~) operation to obtain this parameter.
     // 
     // This parameter is required.
     shared_ptr<string> uuid_ {};

@@ -48,12 +48,13 @@ namespace Models
 
 
   protected:
-    // The ID of the description.
-    // 
-    // > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the ID of the description by using the EventNotes field.
+    // The ID of the note.
+    // >Call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain this parameter from the EventNotes field.
     // 
     // This parameter is required.
     shared_ptr<int64_t> noteId_ {};
+    // The Alibaba Cloud account ID of the member account in the resource directory.
+    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

@@ -71,10 +71,12 @@ namespace Models
     // - **en**: English.
     shared_ptr<string> lang_ {};
     // The report ID.\\
-    // The ReportId returned by calling the [DescribeCustomizeReportList](https://help.aliyun.com/document_detail/271655.html) operation.
+    // Call the [DescribeCustomizeReportList](https://help.aliyun.com/document_detail/271655.html) operation to obtain the value of ReportId from the response.
     // 
     // This parameter is required.
     shared_ptr<int64_t> reportId_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};

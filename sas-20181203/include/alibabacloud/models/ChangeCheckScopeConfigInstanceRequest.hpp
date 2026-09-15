@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AddAssetUuids, addAssetUuids_);
       DARABONBA_PTR_TO_JSON(ConfigId, configId_);
       DARABONBA_PTR_TO_JSON(DeleteAssetUuids, deleteAssetUuids_);
+      DARABONBA_PTR_TO_JSON(SelectionKey, selectionKey_);
     };
     friend void from_json(const Darabonba::Json& j, ChangeCheckScopeConfigInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AddAssetUuids, addAssetUuids_);
       DARABONBA_PTR_FROM_JSON(ConfigId, configId_);
       DARABONBA_PTR_FROM_JSON(DeleteAssetUuids, deleteAssetUuids_);
+      DARABONBA_PTR_FROM_JSON(SelectionKey, selectionKey_);
     };
     ChangeCheckScopeConfigInstanceRequest() = default ;
     ChangeCheckScopeConfigInstanceRequest(const ChangeCheckScopeConfigInstanceRequest &) = default ;
@@ -35,7 +37,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->addAssetUuids_ == nullptr
-        && this->configId_ == nullptr && this->deleteAssetUuids_ == nullptr; };
+        && this->configId_ == nullptr && this->deleteAssetUuids_ == nullptr && this->selectionKey_ == nullptr; };
     // addAssetUuids Field Functions 
     bool hasAddAssetUuids() const { return this->addAssetUuids_ != nullptr;};
     void deleteAddAssetUuids() { this->addAssetUuids_ = nullptr;};
@@ -61,6 +63,13 @@ namespace Models
     inline ChangeCheckScopeConfigInstanceRequest& setDeleteAssetUuids(vector<string> && deleteAssetUuids) { DARABONBA_PTR_SET_RVALUE(deleteAssetUuids_, deleteAssetUuids) };
 
 
+    // selectionKey Field Functions 
+    bool hasSelectionKey() const { return this->selectionKey_ != nullptr;};
+    void deleteSelectionKey() { this->selectionKey_ = nullptr;};
+    inline string getSelectionKey() const { DARABONBA_PTR_GET_DEFAULT(selectionKey_, "") };
+    inline ChangeCheckScopeConfigInstanceRequest& setSelectionKey(string selectionKey) { DARABONBA_PTR_SET_VALUE(selectionKey_, selectionKey) };
+
+
   protected:
     // The list of unique IDs of cloud assets to add.
     shared_ptr<vector<string>> addAssetUuids_ {};
@@ -71,6 +80,8 @@ namespace Models
     shared_ptr<string> configId_ {};
     // The list of unique IDs of cloud assets to delete.
     shared_ptr<vector<string>> deleteAssetUuids_ {};
+    // The key for cross-page select-all.
+    shared_ptr<string> selectionKey_ {};
   };
 
   } // namespace Models
