@@ -17,6 +17,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateDigitalEmployeeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(attributes, attributes_);
+      DARABONBA_PTR_TO_JSON(channel, channel_);
       DARABONBA_PTR_TO_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
@@ -30,6 +31,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateDigitalEmployeeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(attributes, attributes_);
+      DARABONBA_PTR_FROM_JSON(channel, channel_);
       DARABONBA_PTR_FROM_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
@@ -400,8 +402,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->attributes_ == nullptr
-        && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->knowledges_ == nullptr && this->name_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->roleArn_ == nullptr && this->sandboxNetworkPolicy_ == nullptr && this->tags_ == nullptr && this->toolPolicy_ == nullptr; };
+        && this->channel_ == nullptr && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->knowledges_ == nullptr
+        && this->name_ == nullptr && this->resourceGroupId_ == nullptr && this->roleArn_ == nullptr && this->sandboxNetworkPolicy_ == nullptr && this->tags_ == nullptr
+        && this->toolPolicy_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
@@ -409,6 +412,13 @@ namespace Models
     inline map<string, string> getAttributes() { DARABONBA_PTR_GET(attributes_, map<string, string>) };
     inline CreateDigitalEmployeeRequest& setAttributes(const map<string, string> & attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
     inline CreateDigitalEmployeeRequest& setAttributes(map<string, string> && attributes) { DARABONBA_PTR_SET_RVALUE(attributes_, attributes) };
+
+
+    // channel Field Functions 
+    bool hasChannel() const { return this->channel_ != nullptr;};
+    void deleteChannel() { this->channel_ = nullptr;};
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline CreateDigitalEmployeeRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
     // defaultRule Field Functions 
@@ -492,6 +502,8 @@ namespace Models
   protected:
     // The attributes.
     shared_ptr<map<string, string>> attributes_ {};
+    // 数字员工渠道类型。不填时使用默认渠道。
+    shared_ptr<string> channel_ {};
     // The default rule of the digital employee.
     shared_ptr<string> defaultRule_ {};
     // The description of the digital employee.

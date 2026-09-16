@@ -235,6 +235,10 @@ CreateDigitalEmployeeResponse Client::createDigitalEmployeeWithOptions(const Cre
     body["attributes"] = request.getAttributes();
   }
 
+  if (!!request.hasChannel()) {
+    body["channel"] = request.getChannel();
+  }
+
   if (!!request.hasDefaultRule()) {
     body["defaultRule"] = request.getDefaultRule();
   }
