@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(ServiceStatus, serviceStatus_);
         DARABONBA_PTR_TO_JSON(TotalJobs, totalJobs_);
         DARABONBA_PTR_TO_JSON(TotalRunningJobs, totalRunningJobs_);
@@ -64,6 +65,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(ServiceStatus, serviceStatus_);
         DARABONBA_PTR_FROM_JSON(TotalJobs, totalJobs_);
         DARABONBA_PTR_FROM_JSON(TotalRunningJobs, totalRunningJobs_);
@@ -83,8 +85,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->chargeType_ == nullptr
         && this->createTime_ == nullptr && this->cuLimitSum_ == nullptr && this->cuReservedSum_ == nullptr && this->cuUsedSum_ == nullptr && this->expireTime_ == nullptr
-        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->serviceStatus_ == nullptr && this->totalJobs_ == nullptr
-        && this->totalRunningJobs_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->serviceStatus_ == nullptr
+        && this->totalJobs_ == nullptr && this->totalRunningJobs_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr; };
       // chargeType Field Functions 
       bool hasChargeType() const { return this->chargeType_ != nullptr;};
       void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -148,6 +150,13 @@ namespace Models
       inline Data& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline Data& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
       // serviceStatus Field Functions 
       bool hasServiceStatus() const { return this->serviceStatus_ != nullptr;};
       void deleteServiceStatus() { this->serviceStatus_ = nullptr;};
@@ -197,6 +206,7 @@ namespace Models
       shared_ptr<string> instanceId_ {};
       shared_ptr<string> instanceName_ {};
       shared_ptr<string> regionId_ {};
+      shared_ptr<string> resourceGroupId_ {};
       shared_ptr<string> serviceStatus_ {};
       shared_ptr<int64_t> totalJobs_ {};
       shared_ptr<int64_t> totalRunningJobs_ {};
