@@ -79,6 +79,7 @@ namespace Models
     shared_ptr<bool> enableTools_ {};
     // The name of the agent.
     shared_ptr<string> name_ {};
+    // The list of associated skill IDs.
     shared_ptr<string> skillIdsShrink_ {};
     // The system prompt.
     // 

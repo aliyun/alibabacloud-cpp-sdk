@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Limit, limit_);
       DARABONBA_PTR_TO_JSON(Pinned, pinned_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetConversationsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(LastId, lastId_);
       DARABONBA_PTR_FROM_JSON(Limit, limit_);
       DARABONBA_PTR_FROM_JSON(Pinned, pinned_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     GetConversationsRequest() = default ;
     GetConversationsRequest(const GetConversationsRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->lastId_ == nullptr
-        && this->limit_ == nullptr && this->pinned_ == nullptr && this->sortBy_ == nullptr; };
+        && this->limit_ == nullptr && this->pinned_ == nullptr && this->sortBy_ == nullptr && this->workspaceId_ == nullptr; };
     // lastId Field Functions 
     bool hasLastId() const { return this->lastId_ != nullptr;};
     void deleteLastId() { this->lastId_ = nullptr;};
@@ -65,15 +67,24 @@ namespace Models
     inline GetConversationsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline GetConversationsRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // The ID of the last conversation record.
     shared_ptr<string> lastId_ {};
     // The number of entries per page for a paged query. Valid values: 1 to 100.
     shared_ptr<string> limit_ {};
-    // The favorite pinning flag for the application.
+    // The pinned bookmark flag for the application.
     shared_ptr<string> pinned_ {};
     // The sorting criterion.
     shared_ptr<string> sortBy_ {};
+    // The ContextDB workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

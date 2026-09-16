@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The content of the skill.
+    // The content.
     shared_ptr<string> contentShrink_ {};
-    // The list of database engines.
+    // The list of database types.
     shared_ptr<string> dbtypesShrink_ {};
-    // The description of the Skill. It can be up to 1000 characters in length.
+    // The skill description. The description can be up to 1000 characters in length.
     shared_ptr<string> description_ {};
-    // The name of the skill, which can contain only lowercase letters, numbers, and hyphens.
+    // The skill name. The name can contain only lowercase letters, digits, and hyphens.
     shared_ptr<string> name_ {};
     // The unique identifier of the skill.
     // 

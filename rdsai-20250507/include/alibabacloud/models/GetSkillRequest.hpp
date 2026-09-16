@@ -15,10 +15,12 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const GetSkillRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(SkillId, skillId_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetSkillRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     GetSkillRequest() = default ;
     GetSkillRequest(const GetSkillRequest &) = default ;
@@ -32,7 +34,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->language_ == nullptr
-        && this->skillId_ == nullptr; };
+        && this->skillId_ == nullptr && this->workspaceId_ == nullptr; };
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
@@ -47,18 +49,26 @@ namespace Models
     inline GetSkillRequest& setSkillId(string skillId) { DARABONBA_PTR_SET_VALUE(skillId_, skillId) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline GetSkillRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // The languages supported by the skill. Valid values:
-    // 
-    // *   zh-CN: Simplified Chinese
-    // *   zh-TW: Traditional Chinese
-    // *   en-US: English
-    // *   ja-JP: Japanese
+    // The supported languages. Valid values:
+    // * zh-CN: Simplified Chinese
+    // * zh-TW: Traditional Chinese
+    // * en-US: English
+    // * ja-JP: Japanese
     shared_ptr<string> language_ {};
-    // The unique identifier of the skill.
+    // The unique identifier of the Skill.
     // 
     // This parameter is required.
     shared_ptr<string> skillId_ {};
+    // The ContextDB workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

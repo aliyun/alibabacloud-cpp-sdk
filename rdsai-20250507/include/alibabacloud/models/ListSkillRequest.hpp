@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListSkillRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ListSkillRequest() = default ;
     ListSkillRequest(const ListSkillRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->language_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->workspaceId_ == nullptr; };
     // language Field Functions 
     bool hasLanguage() const { return this->language_ != nullptr;};
     void deleteLanguage() { this->language_ = nullptr;};
@@ -56,18 +58,27 @@ namespace Models
     inline ListSkillRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ListSkillRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // The languages supported by the skills.
+    // The supported languages. Valid values:
     // 
-    // *   zh-CN: Simplified Chinese
-    // *   zh-TW: Traditional Chinese
-    // *   en-US: English
-    // *   ja-JP: Japanese
+    // * zh-CN: Simplified Chinese
+    // * zh-TW: Traditional Chinese
+    // * en-US: English
+    // * ja-JP: Japanese
     shared_ptr<string> language_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records to return on each page. Default value: 20. Maximum value: 100.
+    // The number of entries per page. Default value: 20. Maximum value: 100.
     shared_ptr<int64_t> pageSize_ {};
+    // The ContextDB workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

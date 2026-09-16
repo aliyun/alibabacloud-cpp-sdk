@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DeleteSkillRequest& obj) { 
       DARABONBA_PTR_TO_JSON(SkillId, skillId_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, DeleteSkillRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(SkillId, skillId_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     DeleteSkillRequest() = default ;
     DeleteSkillRequest(const DeleteSkillRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->skillId_ == nullptr; };
+    virtual bool empty() const override { return this->skillId_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // skillId Field Functions 
     bool hasSkillId() const { return this->skillId_ != nullptr;};
     void deleteSkillId() { this->skillId_ = nullptr;};
@@ -37,11 +40,18 @@ namespace Models
     inline DeleteSkillRequest& setSkillId(string skillId) { DARABONBA_PTR_SET_VALUE(skillId_, skillId) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline DeleteSkillRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // The unique identifier of the skill.
-    // 
-    // This parameter is required.
+    // The unique identifier of the Skill.
     shared_ptr<string> skillId_ {};
+    // The ContextDB workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

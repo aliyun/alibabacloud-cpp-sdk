@@ -57,16 +57,11 @@ namespace Models
 
 
   protected:
-    // The rating of the message.
-    // 
-    // Valid values:
-    // 
-    // *   like
-    // *   dislike
+    // The feedback content.
     shared_ptr<string> content_ {};
-    // The operation that you want to perform. Set the value to **ModifyMessagesFeedbacks**.
-    shared_ptr<string> messageId_ {};
     // The message ID.
+    shared_ptr<string> messageId_ {};
+    // The rating.
     shared_ptr<string> rating_ {};
   };
 

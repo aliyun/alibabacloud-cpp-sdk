@@ -161,18 +161,19 @@ namespace Models
 
 
   protected:
-    // Indicates whether tools are enabled.
+    // Specifies whether to enable tools.
     shared_ptr<string> enableTools_ {};
-    // AgentId.
+    // AgentId。
     shared_ptr<string> id_ {};
-    // The name of the custom agent.
+    // The name of the dedicated agent.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of associated skill details.
     shared_ptr<vector<UpdateCustomAgentResponseBody::Skills>> skills_ {};
     // The system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // The tools that the custom agent can use.
+    // The tool information.
     shared_ptr<vector<string>> tools_ {};
   };
 

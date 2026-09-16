@@ -131,14 +131,15 @@ namespace Models
 
 
       protected:
+        // The instance type.
         shared_ptr<string> chargeType_ {};
-        // The instance end time (format: Timestamp).
+        // The end time of the instance. Format: Timestamp.
         shared_ptr<int64_t> endTime_ {};
-        // instance type
+        // The instance type.
         shared_ptr<string> instanceClass_ {};
         // The instance name.
         shared_ptr<string> instanceId_ {};
-        // The instance start time (format: Timestamp).
+        // The start time of the instance. Format: Timestamp.
         shared_ptr<int64_t> startTime_ {};
         // The instance status.
         shared_ptr<string> status_ {};
@@ -165,7 +166,7 @@ namespace Models
     protected:
       // Indicates whether a valid order exists.
       shared_ptr<bool> hasValidOrder_ {};
-      // The instance list.
+      // The list of instances.
       shared_ptr<vector<Data::InstanceList>> instanceList_ {};
     };
 
@@ -204,11 +205,11 @@ namespace Models
   protected:
     // The query result.
     shared_ptr<GetModelOperatorOrderResponseBody::Data> data_ {};
-    // The returned message.
+    // The response message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Request result.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

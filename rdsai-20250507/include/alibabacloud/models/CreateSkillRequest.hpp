@@ -18,12 +18,18 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Dbtypes, dbtypes_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(UploadId, uploadId_);
+      DARABONBA_PTR_TO_JSON(UploadToken, uploadToken_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateSkillRequest& obj) { 
       DARABONBA_ANY_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(Dbtypes, dbtypes_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(UploadId, uploadId_);
+      DARABONBA_PTR_FROM_JSON(UploadToken, uploadToken_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     CreateSkillRequest() = default ;
     CreateSkillRequest(const CreateSkillRequest &) = default ;
@@ -37,7 +43,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->dbtypes_ == nullptr && this->description_ == nullptr && this->name_ == nullptr; };
+        && this->dbtypes_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->uploadId_ == nullptr && this->uploadToken_ == nullptr
+        && this->workspaceId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -70,21 +77,42 @@ namespace Models
     inline CreateSkillRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // uploadId Field Functions 
+    bool hasUploadId() const { return this->uploadId_ != nullptr;};
+    void deleteUploadId() { this->uploadId_ = nullptr;};
+    inline string getUploadId() const { DARABONBA_PTR_GET_DEFAULT(uploadId_, "") };
+    inline CreateSkillRequest& setUploadId(string uploadId) { DARABONBA_PTR_SET_VALUE(uploadId_, uploadId) };
+
+
+    // uploadToken Field Functions 
+    bool hasUploadToken() const { return this->uploadToken_ != nullptr;};
+    void deleteUploadToken() { this->uploadToken_ = nullptr;};
+    inline string getUploadToken() const { DARABONBA_PTR_GET_DEFAULT(uploadToken_, "") };
+    inline CreateSkillRequest& setUploadToken(string uploadToken) { DARABONBA_PTR_SET_VALUE(uploadToken_, uploadToken) };
+
+
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline CreateSkillRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
-    // The content of the skill.
+    // The content.
     Darabonba::Json content_ {};
-    // The list of database engines.
-    // 
-    // This parameter is required.
+    // The list of database types.
     shared_ptr<vector<string>> dbtypes_ {};
-    // The description of the skill. It can be up to 1000 characters in length.
-    // 
-    // This parameter is required.
+    // The Skill description. The description can be up to 1000 characters in length.
     shared_ptr<string> description_ {};
-    // The name of the skill, which can contain only lowercase letters, numbers, and hyphens.
-    // 
-    // This parameter is required.
+    // The Skill name. The name can contain only lowercase letters, digits, and hyphens.
     shared_ptr<string> name_ {};
+    // The Skill upload session ID.
+    shared_ptr<string> uploadId_ {};
+    // The Skill upload session token.
+    shared_ptr<string> uploadToken_ {};
+    // The ContextDB workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

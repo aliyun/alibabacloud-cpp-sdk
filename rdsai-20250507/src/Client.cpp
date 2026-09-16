@@ -23,17 +23,9 @@ AlibabaCloud::RdsAi20250507::Client::Client(Config &config): OpenApiClient(confi
     {"cn-wulanchabu" , "rdsai.aliyuncs.com"},
     {"cn-shenzhen" , "rdsai.aliyuncs.com"},
     {"cn-beijing" , "rdsai.aliyuncs.com"},
-    {"ap-northeast-1" , "rdsai.ap-northeast-1.aliyuncs.com"},
-    {"cn-chengdu" , "rdsai.cn-chengdu.aliyuncs.com"},
     {"cn-shanghai" , "rdsai.aliyuncs.com"},
     {"cn-guangzhou" , "rdsai.aliyuncs.com"},
-    {"cn-hongkong" , "rdsai.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-1" , "rdsai.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "rdsai.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-5" , "rdsai.ap-southeast-5.aliyuncs.com"},
-    {"cn-hangzhou" , "rdsai.aliyuncs.com"},
-    {"us-west-1" , "rdsai.us-west-1.aliyuncs.com"},
-    {"eu-central-1" , "rdsai.eu-central-1.aliyuncs.com"}
+    {"cn-hangzhou" , "rdsai.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("rdsai", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -211,6 +203,10 @@ ChatMessagesTaskStopResponse Client::chatMessagesTaskStopWithOptions(const ChatM
   json query = {};
   if (!!request.hasTaskId()) {
     query["TaskId"] = request.getTaskId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1012,7 +1008,7 @@ CreateScheduledTaskResponse Client::createScheduledTask(const CreateScheduledTas
 }
 
 /**
- * @summary Create a user-defined skill.
+ * @summary Creates a user-defined Skill.
  *
  * @param tmpReq CreateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1047,6 +1043,18 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &tmp
     query["Name"] = request.getName();
   }
 
+  if (!!request.hasUploadId()) {
+    query["UploadId"] = request.getUploadId();
+  }
+
+  if (!!request.hasUploadToken()) {
+    query["UploadToken"] = request.getUploadToken();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1065,7 +1073,7 @@ CreateSkillResponse Client::createSkillWithOptions(const CreateSkillRequest &tmp
 }
 
 /**
- * @summary Create a user-defined skill.
+ * @summary Creates a user-defined Skill.
  *
  * @param request CreateSkillRequest
  * @return CreateSkillResponse
@@ -1292,7 +1300,7 @@ DeleteContextDatabaseWorkspaceResponse Client::deleteContextDatabaseWorkspace(co
 }
 
 /**
- * @summary Deletes the dedicated agent created by a user.
+ * @summary Deletes a dedicated agent created by the user.
  *
  * @param request DeleteCustomAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1323,7 +1331,7 @@ DeleteCustomAgentResponse Client::deleteCustomAgentWithOptions(const DeleteCusto
 }
 
 /**
- * @summary Deletes the dedicated agent created by a user.
+ * @summary Deletes a dedicated agent created by the user.
  *
  * @param request DeleteCustomAgentRequest
  * @return DeleteCustomAgentResponse
@@ -1436,7 +1444,7 @@ DeleteScheduledTaskResponse Client::deleteScheduledTask(const DeleteScheduledTas
 }
 
 /**
- * @summary Deletes the specified skill.
+ * @summary Deletes a specified Skill.
  *
  * @param request DeleteSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1447,6 +1455,10 @@ DeleteSkillResponse Client::deleteSkillWithOptions(const DeleteSkillRequest &req
   json query = {};
   if (!!request.hasSkillId()) {
     query["SkillId"] = request.getSkillId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1467,7 +1479,7 @@ DeleteSkillResponse Client::deleteSkillWithOptions(const DeleteSkillRequest &req
 }
 
 /**
- * @summary Deletes the specified skill.
+ * @summary Deletes a specified Skill.
  *
  * @param request DeleteSkillRequest
  * @return DeleteSkillResponse
@@ -2288,10 +2300,10 @@ DescribeMOUsageDetailExportResponse Client::describeMOUsageDetailExport(const De
 }
 
 /**
- * @summary View basic information and usage for the RDS AI Assistant Ultimate Edition.
+ * @summary Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
  *
- * @description ### Supported engines
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeModelOperatorRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2302,6 +2314,10 @@ DescribeModelOperatorResponse Client::describeModelOperatorWithOptions(const Des
   json query = {};
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasRegion()) {
+    query["Region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2322,10 +2338,10 @@ DescribeModelOperatorResponse Client::describeModelOperatorWithOptions(const Des
 }
 
 /**
- * @summary View basic information and usage for the RDS AI Assistant Ultimate Edition.
+ * @summary Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
  *
- * @description ### Supported engines
- * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request DescribeModelOperatorRequest
  * @return DescribeModelOperatorResponse
@@ -2784,6 +2800,10 @@ GetConversationsResponse Client::getConversationsWithOptions(const GetConversati
     query["SortBy"] = request.getSortBy();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2930,6 +2950,10 @@ GetMessagesResponse Client::getMessagesWithOptions(const GetMessagesRequest &req
     query["Limit"] = request.getLimit();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -2959,9 +2983,10 @@ GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
 }
 
 /**
- * @summary Obtain RDS AI Assistant Ultimate order information
+ * @summary Retrieves order information for the RDS AI Assistant Ultimate Edition.
  *
- * @description ### Applicable DPI engine
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request GetModelOperatorOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2969,7 +2994,14 @@ GetMessagesResponse Client::getMessages(const GetMessagesRequest &request) {
  */
 GetModelOperatorOrderResponse Client::getModelOperatorOrderWithOptions(const GetModelOperatorOrderRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  OpenApiRequest req = OpenApiRequest();
+  json query = {};
+  if (!!request.hasRegion()) {
+    query["Region"] = request.getRegion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetModelOperatorOrder"},
     {"version" , "2025-05-07"},
@@ -2985,9 +3017,10 @@ GetModelOperatorOrderResponse Client::getModelOperatorOrderWithOptions(const Get
 }
 
 /**
- * @summary Obtain RDS AI Assistant Ultimate order information
+ * @summary Retrieves order information for the RDS AI Assistant Ultimate Edition.
  *
- * @description ### Applicable DPI engine
+ * @description ### Applicable engine
+ * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
  *
  * @param request GetModelOperatorOrderRequest
  * @return GetModelOperatorOrderResponse
@@ -3106,7 +3139,7 @@ GetScheduledReportsResponse Client::getScheduledReports(const GetScheduledReport
 }
 
 /**
- * @summary Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
+ * @summary Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
  *
  * @param request GetSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3121,6 +3154,10 @@ GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, con
 
   if (!!request.hasSkillId()) {
     query["SkillId"] = request.getSkillId();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3141,7 +3178,7 @@ GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, con
 }
 
 /**
- * @summary Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
+ * @summary Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
  *
  * @param request GetSkillRequest
  * @return GetSkillResponse
@@ -3628,7 +3665,7 @@ ListScheduledTasksResponse Client::listScheduledTasks(const ListScheduledTasksRe
 }
 
 /**
- * @summary Obtains the user-defined skills and all system preset skills of the current user.
+ * @summary Retrieves the custom skills of the current user and all system-preset skills.
  *
  * @param request ListSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3649,6 +3686,10 @@ ListSkillResponse Client::listSkillWithOptions(const ListSkillRequest &request, 
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -3667,7 +3708,7 @@ ListSkillResponse Client::listSkillWithOptions(const ListSkillRequest &request, 
 }
 
 /**
- * @summary Obtains the user-defined skills and all system preset skills of the current user.
+ * @summary Retrieves the custom skills of the current user and all system-preset skills.
  *
  * @param request ListSkillRequest
  * @return ListSkillResponse
@@ -4266,7 +4307,7 @@ ModifyInstancesSSLResponse Client::modifyInstancesSSL(const ModifyInstancesSSLRe
 }
 
 /**
- * @summary Modifies the returned messages.
+ * @summary Modifies message feedback.
  *
  * @param request ModifyMessagesFeedbacksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4305,7 +4346,7 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacksWithOptions(const
 }
 
 /**
- * @summary Modifies the returned messages.
+ * @summary Modifies message feedback.
  *
  * @param request ModifyMessagesFeedbacksRequest
  * @return ModifyMessagesFeedbacksResponse
@@ -5370,7 +5411,7 @@ UpdateMOQuotaAlertThresholdResponse Client::updateMOQuotaAlertThreshold(const Up
 }
 
 /**
- * @summary Updates the information about a specified skill.
+ * @summary Updates the information of a specified skill.
  *
  * @param tmpReq UpdateSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5427,7 +5468,7 @@ UpdateSkillResponse Client::updateSkillWithOptions(const UpdateSkillRequest &tmp
 }
 
 /**
- * @summary Updates the information about a specified skill.
+ * @summary Updates the information of a specified skill.
  *
  * @param request UpdateSkillRequest
  * @return UpdateSkillResponse

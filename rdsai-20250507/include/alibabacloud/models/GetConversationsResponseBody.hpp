@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Introduction, introduction_);
         DARABONBA_PTR_TO_JSON(IsRunning, isRunning_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(UpdatedAt, updatedAt_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Introduction, introduction_);
         DARABONBA_PTR_FROM_JSON(IsRunning, isRunning_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(UpdatedAt, updatedAt_);
       };
       Data() = default ;
@@ -66,7 +68,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdAt_ == nullptr
-        && this->id_ == nullptr && this->introduction_ == nullptr && this->isRunning_ == nullptr && this->name_ == nullptr && this->updatedAt_ == nullptr; };
+        && this->id_ == nullptr && this->introduction_ == nullptr && this->isRunning_ == nullptr && this->name_ == nullptr && this->status_ == nullptr
+        && this->updatedAt_ == nullptr; };
       // createdAt Field Functions 
       bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
       void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -102,6 +105,13 @@ namespace Models
       inline Data& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // status Field Functions 
+      bool hasStatus() const { return this->status_ != nullptr;};
+      void deleteStatus() { this->status_ = nullptr;};
+      inline string getStatus() const { DARABONBA_PTR_GET_DEFAULT(status_, "") };
+      inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
+
+
       // updatedAt Field Functions 
       bool hasUpdatedAt() const { return this->updatedAt_ != nullptr;};
       void deleteUpdatedAt() { this->updatedAt_ = nullptr;};
@@ -112,13 +122,20 @@ namespace Models
     protected:
       // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The ID of the historical conversation.
+      // The historical conversation ID.
       shared_ptr<string> id_ {};
       // The conversation introduction.
       shared_ptr<string> introduction_ {};
       shared_ptr<bool> isRunning_ {};
-      // The name of the historical conversation.
+      // The historical conversation name.
       shared_ptr<string> name_ {};
+      // The session status. Valid values:
+      // - idle: The session is idle.
+      // - running: The session is generating a response.
+      // - pending_approval: The session is waiting for approval or manual review.
+      // 
+      // If both pending_approval and running conditions are met, pending_approval is returned.
+      shared_ptr<string> status_ {};
       shared_ptr<string> updatedAt_ {};
     };
 

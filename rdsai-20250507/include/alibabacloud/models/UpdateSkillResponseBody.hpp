@@ -108,21 +108,21 @@ namespace Models
 
 
   protected:
-    // The content of the skill.
+    // The content.
     Darabonba::Json content_ {};
-    // The list of database engines.
+    // The list of database types.
     shared_ptr<vector<string>> dbtypes_ {};
-    // The description of the skill. It can be up to 1000 characters in length.
+    // The skill description. The description can be up to 1000 characters in length.
     shared_ptr<string> description_ {};
     // The unique identifier of the skill.
     shared_ptr<string> id_ {};
-    // The name of the skill, which can contain only lowercase letters, numbers, and hyphens.
+    // The skill name. The name can contain only lowercase letters, digits, and hyphens.
     shared_ptr<string> name_ {};
-    // The request ID.
+    // The unique identifier of the request.
     shared_ptr<string> requestId_ {};
     // The skill type.
     shared_ptr<string> skillType_ {};
-    // The update time of the skill.
+    // The time when the skill was last updated.
     shared_ptr<string> updatedAt_ {};
   };
 

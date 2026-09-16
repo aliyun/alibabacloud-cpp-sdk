@@ -41,23 +41,37 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(ActiveVersionId, activeVersionId_);
+        DARABONBA_PTR_TO_JSON(Category, category_);
         DARABONBA_ANY_TO_JSON(Content, content_);
         DARABONBA_PTR_TO_JSON(CreatedAt, createdAt_);
         DARABONBA_PTR_TO_JSON(Dbtypes, dbtypes_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+        DARABONBA_PTR_TO_JSON(Icon, icon_);
         DARABONBA_PTR_TO_JSON(Id, id_);
+        DARABONBA_PTR_TO_JSON(IsDeleted, isDeleted_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(Scope, scope_);
         DARABONBA_PTR_TO_JSON(SkillType, skillType_);
+        DARABONBA_PTR_TO_JSON(Slug, slug_);
         DARABONBA_PTR_TO_JSON(UpdatedAt, updatedAt_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(ActiveVersionId, activeVersionId_);
+        DARABONBA_PTR_FROM_JSON(Category, category_);
         DARABONBA_ANY_FROM_JSON(Content, content_);
         DARABONBA_PTR_FROM_JSON(CreatedAt, createdAt_);
         DARABONBA_PTR_FROM_JSON(Dbtypes, dbtypes_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+        DARABONBA_PTR_FROM_JSON(Icon, icon_);
         DARABONBA_PTR_FROM_JSON(Id, id_);
+        DARABONBA_PTR_FROM_JSON(IsDeleted, isDeleted_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(Scope, scope_);
         DARABONBA_PTR_FROM_JSON(SkillType, skillType_);
+        DARABONBA_PTR_FROM_JSON(Slug, slug_);
         DARABONBA_PTR_FROM_JSON(UpdatedAt, updatedAt_);
       };
       Data() = default ;
@@ -71,9 +85,24 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->content_ == nullptr
-        && this->createdAt_ == nullptr && this->dbtypes_ == nullptr && this->description_ == nullptr && this->id_ == nullptr && this->name_ == nullptr
-        && this->skillType_ == nullptr && this->updatedAt_ == nullptr; };
+      virtual bool empty() const override { return this->activeVersionId_ == nullptr
+        && this->category_ == nullptr && this->content_ == nullptr && this->createdAt_ == nullptr && this->dbtypes_ == nullptr && this->description_ == nullptr
+        && this->displayName_ == nullptr && this->icon_ == nullptr && this->id_ == nullptr && this->isDeleted_ == nullptr && this->name_ == nullptr
+        && this->scope_ == nullptr && this->skillType_ == nullptr && this->slug_ == nullptr && this->updatedAt_ == nullptr; };
+      // activeVersionId Field Functions 
+      bool hasActiveVersionId() const { return this->activeVersionId_ != nullptr;};
+      void deleteActiveVersionId() { this->activeVersionId_ = nullptr;};
+      inline string getActiveVersionId() const { DARABONBA_PTR_GET_DEFAULT(activeVersionId_, "") };
+      inline Data& setActiveVersionId(string activeVersionId) { DARABONBA_PTR_SET_VALUE(activeVersionId_, activeVersionId) };
+
+
+      // category Field Functions 
+      bool hasCategory() const { return this->category_ != nullptr;};
+      void deleteCategory() { this->category_ = nullptr;};
+      inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+      inline Data& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
       // content Field Functions 
       bool hasContent() const { return this->content_ != nullptr;};
       void deleteContent() { this->content_ = nullptr;};
@@ -106,11 +135,32 @@ namespace Models
       inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
+      // displayName Field Functions 
+      bool hasDisplayName() const { return this->displayName_ != nullptr;};
+      void deleteDisplayName() { this->displayName_ = nullptr;};
+      inline string getDisplayName() const { DARABONBA_PTR_GET_DEFAULT(displayName_, "") };
+      inline Data& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
+
+
+      // icon Field Functions 
+      bool hasIcon() const { return this->icon_ != nullptr;};
+      void deleteIcon() { this->icon_ = nullptr;};
+      inline string getIcon() const { DARABONBA_PTR_GET_DEFAULT(icon_, "") };
+      inline Data& setIcon(string icon) { DARABONBA_PTR_SET_VALUE(icon_, icon) };
+
+
       // id Field Functions 
       bool hasId() const { return this->id_ != nullptr;};
       void deleteId() { this->id_ = nullptr;};
       inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
       inline Data& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+      // isDeleted Field Functions 
+      bool hasIsDeleted() const { return this->isDeleted_ != nullptr;};
+      void deleteIsDeleted() { this->isDeleted_ = nullptr;};
+      inline bool getIsDeleted() const { DARABONBA_PTR_GET_DEFAULT(isDeleted_, false) };
+      inline Data& setIsDeleted(bool isDeleted) { DARABONBA_PTR_SET_VALUE(isDeleted_, isDeleted) };
 
 
       // name Field Functions 
@@ -120,11 +170,25 @@ namespace Models
       inline Data& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // scope Field Functions 
+      bool hasScope() const { return this->scope_ != nullptr;};
+      void deleteScope() { this->scope_ = nullptr;};
+      inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+      inline Data& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
+
+
       // skillType Field Functions 
       bool hasSkillType() const { return this->skillType_ != nullptr;};
       void deleteSkillType() { this->skillType_ = nullptr;};
       inline string getSkillType() const { DARABONBA_PTR_GET_DEFAULT(skillType_, "") };
       inline Data& setSkillType(string skillType) { DARABONBA_PTR_SET_VALUE(skillType_, skillType) };
+
+
+      // slug Field Functions 
+      bool hasSlug() const { return this->slug_ != nullptr;};
+      void deleteSlug() { this->slug_ = nullptr;};
+      inline string getSlug() const { DARABONBA_PTR_GET_DEFAULT(slug_, "") };
+      inline Data& setSlug(string slug) { DARABONBA_PTR_SET_VALUE(slug_, slug) };
 
 
       // updatedAt Field Functions 
@@ -135,21 +199,35 @@ namespace Models
 
 
     protected:
-      // The content of the skill.
+      // The ID of the currently active version.
+      shared_ptr<string> activeVersionId_ {};
+      // The skill category.
+      shared_ptr<string> category_ {};
+      // The data content.
       Darabonba::Json content_ {};
-      // The creation time of the skill.
+      // The creation time.
       shared_ptr<string> createdAt_ {};
-      // The list of database engines.
+      // The list of database types.
       shared_ptr<vector<string>> dbtypes_ {};
-      // The description of the skill.
+      // The description.
       shared_ptr<string> description_ {};
+      // The display name of the skill.
+      shared_ptr<string> displayName_ {};
+      // The public HTTPS URL of the current icon. Empty if not configured.
+      shared_ptr<string> icon_ {};
       // The unique identifier of the skill.
       shared_ptr<string> id_ {};
-      // The name of the skill.
+      // Indicates whether the skill is deleted.
+      shared_ptr<bool> isDeleted_ {};
+      // The skill name.
       shared_ptr<string> name_ {};
-      // The type of the skill.
+      // The visibility scope of the skill.
+      shared_ptr<string> scope_ {};
+      // The skill type.
       shared_ptr<string> skillType_ {};
-      // The update time of the skill.
+      // The stable identifier of the skill.
+      shared_ptr<string> slug_ {};
+      // The update time.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -193,15 +271,15 @@ namespace Models
 
 
   protected:
-    // The list of skills.
+    // The skill list.
     shared_ptr<vector<ListSkillResponseBody::Data>> data_ {};
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of records returned on each page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The request ID.
+    // The unique request identifier.
     shared_ptr<string> requestId_ {};
-    // The total number of returned records.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -290,7 +290,7 @@ namespace RdsAi20250507
       Models::CreateScheduledTaskResponse createScheduledTask(const Models::CreateScheduledTaskRequest &request);
 
       /**
-       * @summary Create a user-defined skill.
+       * @summary Creates a user-defined Skill.
        *
        * @param tmpReq CreateSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -299,7 +299,7 @@ namespace RdsAi20250507
       Models::CreateSkillResponse createSkillWithOptions(const Models::CreateSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a user-defined skill.
+       * @summary Creates a user-defined Skill.
        *
        * @param request CreateSkillRequest
        * @return CreateSkillResponse
@@ -403,7 +403,7 @@ namespace RdsAi20250507
       Models::DeleteContextDatabaseWorkspaceResponse deleteContextDatabaseWorkspace(const Models::DeleteContextDatabaseWorkspaceRequest &request);
 
       /**
-       * @summary Deletes the dedicated agent created by a user.
+       * @summary Deletes a dedicated agent created by the user.
        *
        * @param request DeleteCustomAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -412,7 +412,7 @@ namespace RdsAi20250507
       Models::DeleteCustomAgentResponse deleteCustomAgentWithOptions(const Models::DeleteCustomAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the dedicated agent created by a user.
+       * @summary Deletes a dedicated agent created by the user.
        *
        * @param request DeleteCustomAgentRequest
        * @return DeleteCustomAgentResponse
@@ -464,7 +464,7 @@ namespace RdsAi20250507
       Models::DeleteScheduledTaskResponse deleteScheduledTask(const Models::DeleteScheduledTaskRequest &request);
 
       /**
-       * @summary Deletes the specified skill.
+       * @summary Deletes a specified Skill.
        *
        * @param request DeleteSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -473,7 +473,7 @@ namespace RdsAi20250507
       Models::DeleteSkillResponse deleteSkillWithOptions(const Models::DeleteSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes the specified skill.
+       * @summary Deletes a specified Skill.
        *
        * @param request DeleteSkillRequest
        * @return DeleteSkillResponse
@@ -802,10 +802,10 @@ namespace RdsAi20250507
       Models::DescribeMOUsageDetailExportResponse describeMOUsageDetailExport(const Models::DescribeMOUsageDetailExportRequest &request);
 
       /**
-       * @summary View basic information and usage for the RDS AI Assistant Ultimate Edition.
+       * @summary Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
        *
-       * @description ### Supported engines
-       * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request DescribeModelOperatorRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -814,10 +814,10 @@ namespace RdsAi20250507
       Models::DescribeModelOperatorResponse describeModelOperatorWithOptions(const Models::DescribeModelOperatorRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary View basic information and usage for the RDS AI Assistant Ultimate Edition.
+       * @summary Queries the basic information and usage of RDS AI Assistant Ultimate Edition.
        *
-       * @description ### Supported engines
-       * [RDS AI Assistant Enterprise Edition](https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request DescribeModelOperatorRequest
        * @return DescribeModelOperatorResponse
@@ -1054,9 +1054,10 @@ namespace RdsAi20250507
       Models::GetMessagesResponse getMessages(const Models::GetMessagesRequest &request);
 
       /**
-       * @summary Obtain RDS AI Assistant Ultimate order information
+       * @summary Retrieves order information for the RDS AI Assistant Ultimate Edition.
        *
-       * @description ### Applicable DPI engine
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request GetModelOperatorOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1065,9 +1066,10 @@ namespace RdsAi20250507
       Models::GetModelOperatorOrderResponse getModelOperatorOrderWithOptions(const Models::GetModelOperatorOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain RDS AI Assistant Ultimate order information
+       * @summary Retrieves order information for the RDS AI Assistant Ultimate Edition.
        *
-       * @description ### Applicable DPI engine
+       * @description ### Applicable engine
+       * [RDS AI Assistant Ultimate Edition](https://www.alibabacloud.com/help/en/rds/apsaradb-rds-for-mysql/rds-copilot-ultra)
        *
        * @param request GetModelOperatorOrderRequest
        * @return GetModelOperatorOrderResponse
@@ -1109,7 +1111,7 @@ namespace RdsAi20250507
       Models::GetScheduledReportsResponse getScheduledReports(const Models::GetScheduledReportsRequest &request);
 
       /**
-       * @summary Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
+       * @summary Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
        *
        * @param request GetSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1118,7 +1120,7 @@ namespace RdsAi20250507
       Models::GetSkillResponse getSkillWithOptions(const Models::GetSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the details of a specified skill. You can obtain the details of user-defined skills or the system preset skills.
+       * @summary Retrieves the details of a specified Skill. You can retrieve your own Skills or system preset Skills.
        *
        * @param request GetSkillRequest
        * @return GetSkillResponse
@@ -1301,7 +1303,7 @@ namespace RdsAi20250507
       Models::ListScheduledTasksResponse listScheduledTasks(const Models::ListScheduledTasksRequest &request);
 
       /**
-       * @summary Obtains the user-defined skills and all system preset skills of the current user.
+       * @summary Retrieves the custom skills of the current user and all system-preset skills.
        *
        * @param request ListSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1310,7 +1312,7 @@ namespace RdsAi20250507
       Models::ListSkillResponse listSkillWithOptions(const Models::ListSkillRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains the user-defined skills and all system preset skills of the current user.
+       * @summary Retrieves the custom skills of the current user and all system-preset skills.
        *
        * @param request ListSkillRequest
        * @return ListSkillResponse
@@ -1516,7 +1518,7 @@ namespace RdsAi20250507
       Models::ModifyInstancesSSLResponse modifyInstancesSSL(const Models::ModifyInstancesSSLRequest &request);
 
       /**
-       * @summary Modifies the returned messages.
+       * @summary Modifies message feedback.
        *
        * @param request ModifyMessagesFeedbacksRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1525,7 +1527,7 @@ namespace RdsAi20250507
       Models::ModifyMessagesFeedbacksResponse modifyMessagesFeedbacksWithOptions(const Models::ModifyMessagesFeedbacksRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the returned messages.
+       * @summary Modifies message feedback.
        *
        * @param request ModifyMessagesFeedbacksRequest
        * @return ModifyMessagesFeedbacksResponse
@@ -1930,7 +1932,7 @@ namespace RdsAi20250507
       Models::UpdateMOQuotaAlertThresholdResponse updateMOQuotaAlertThreshold(const Models::UpdateMOQuotaAlertThresholdRequest &request);
 
       /**
-       * @summary Updates the information about a specified skill.
+       * @summary Updates the information of a specified skill.
        *
        * @param tmpReq UpdateSkillRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1939,7 +1941,7 @@ namespace RdsAi20250507
       Models::UpdateSkillResponse updateSkillWithOptions(const Models::UpdateSkillRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information about a specified skill.
+       * @summary Updates the information of a specified skill.
        *
        * @param request UpdateSkillRequest
        * @return UpdateSkillResponse

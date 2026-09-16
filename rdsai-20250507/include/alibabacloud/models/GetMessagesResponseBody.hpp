@@ -87,11 +87,13 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(PreviewUrl, previewUrl_);
           DARABONBA_PTR_TO_JSON(Type, type_);
+          DARABONBA_PTR_TO_JSON(UploadFileId, uploadFileId_);
         };
         friend void from_json(const Darabonba::Json& j, MessageFiles& obj) { 
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(PreviewUrl, previewUrl_);
           DARABONBA_PTR_FROM_JSON(Type, type_);
+          DARABONBA_PTR_FROM_JSON(UploadFileId, uploadFileId_);
         };
         MessageFiles() = default ;
         MessageFiles(const MessageFiles &) = default ;
@@ -105,7 +107,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->id_ == nullptr
-        && this->previewUrl_ == nullptr && this->type_ == nullptr; };
+        && this->previewUrl_ == nullptr && this->type_ == nullptr && this->uploadFileId_ == nullptr; };
         // id Field Functions 
         bool hasId() const { return this->id_ != nullptr;};
         void deleteId() { this->id_ = nullptr;};
@@ -127,19 +129,44 @@ namespace Models
         inline MessageFiles& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+        // uploadFileId Field Functions 
+        bool hasUploadFileId() const { return this->uploadFileId_ != nullptr;};
+        void deleteUploadFileId() { this->uploadFileId_ = nullptr;};
+        inline string getUploadFileId() const { DARABONBA_PTR_GET_DEFAULT(uploadFileId_, "") };
+        inline MessageFiles& setUploadFileId(string uploadFileId) { DARABONBA_PTR_SET_VALUE(uploadFileId_, uploadFileId) };
+
+
       protected:
         shared_ptr<string> id_ {};
         shared_ptr<string> previewUrl_ {};
         shared_ptr<string> type_ {};
+        // The upload file ID.
+        shared_ptr<string> uploadFileId_ {};
       };
 
       class Events : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Events& obj) { 
+          DARABONBA_PTR_TO_JSON(ApprovalStatus, approvalStatus_);
+          DARABONBA_PTR_TO_JSON(CallId, callId_);
+          DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
+          DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(MessageId, messageId_);
+          DARABONBA_PTR_TO_JSON(RoundId, roundId_);
+          DARABONBA_ANY_TO_JSON(ToolArguments, toolArguments_);
+          DARABONBA_PTR_TO_JSON(ToolName, toolName_);
           DARABONBA_PTR_TO_JSON(answer, answer_);
           DARABONBA_PTR_TO_JSON(event, event_);
         };
         friend void from_json(const Darabonba::Json& j, Events& obj) { 
+          DARABONBA_PTR_FROM_JSON(ApprovalStatus, approvalStatus_);
+          DARABONBA_PTR_FROM_JSON(CallId, callId_);
+          DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
+          DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(MessageId, messageId_);
+          DARABONBA_PTR_FROM_JSON(RoundId, roundId_);
+          DARABONBA_ANY_FROM_JSON(ToolArguments, toolArguments_);
+          DARABONBA_PTR_FROM_JSON(ToolName, toolName_);
           DARABONBA_PTR_FROM_JSON(answer, answer_);
           DARABONBA_PTR_FROM_JSON(event, event_);
         };
@@ -154,8 +181,67 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->answer_ == nullptr
-        && this->event_ == nullptr; };
+        virtual bool empty() const override { return this->approvalStatus_ == nullptr
+        && this->callId_ == nullptr && this->conversationId_ == nullptr && this->description_ == nullptr && this->messageId_ == nullptr && this->roundId_ == nullptr
+        && this->toolArguments_ == nullptr && this->toolName_ == nullptr && this->answer_ == nullptr && this->event_ == nullptr; };
+        // approvalStatus Field Functions 
+        bool hasApprovalStatus() const { return this->approvalStatus_ != nullptr;};
+        void deleteApprovalStatus() { this->approvalStatus_ = nullptr;};
+        inline string getApprovalStatus() const { DARABONBA_PTR_GET_DEFAULT(approvalStatus_, "") };
+        inline Events& setApprovalStatus(string approvalStatus) { DARABONBA_PTR_SET_VALUE(approvalStatus_, approvalStatus) };
+
+
+        // callId Field Functions 
+        bool hasCallId() const { return this->callId_ != nullptr;};
+        void deleteCallId() { this->callId_ = nullptr;};
+        inline string getCallId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
+        inline Events& setCallId(string callId) { DARABONBA_PTR_SET_VALUE(callId_, callId) };
+
+
+        // conversationId Field Functions 
+        bool hasConversationId() const { return this->conversationId_ != nullptr;};
+        void deleteConversationId() { this->conversationId_ = nullptr;};
+        inline string getConversationId() const { DARABONBA_PTR_GET_DEFAULT(conversationId_, "") };
+        inline Events& setConversationId(string conversationId) { DARABONBA_PTR_SET_VALUE(conversationId_, conversationId) };
+
+
+        // description Field Functions 
+        bool hasDescription() const { return this->description_ != nullptr;};
+        void deleteDescription() { this->description_ = nullptr;};
+        inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+        inline Events& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // messageId Field Functions 
+        bool hasMessageId() const { return this->messageId_ != nullptr;};
+        void deleteMessageId() { this->messageId_ = nullptr;};
+        inline string getMessageId() const { DARABONBA_PTR_GET_DEFAULT(messageId_, "") };
+        inline Events& setMessageId(string messageId) { DARABONBA_PTR_SET_VALUE(messageId_, messageId) };
+
+
+        // roundId Field Functions 
+        bool hasRoundId() const { return this->roundId_ != nullptr;};
+        void deleteRoundId() { this->roundId_ = nullptr;};
+        inline string getRoundId() const { DARABONBA_PTR_GET_DEFAULT(roundId_, "") };
+        inline Events& setRoundId(string roundId) { DARABONBA_PTR_SET_VALUE(roundId_, roundId) };
+
+
+        // toolArguments Field Functions 
+        bool hasToolArguments() const { return this->toolArguments_ != nullptr;};
+        void deleteToolArguments() { this->toolArguments_ = nullptr;};
+        inline         const Darabonba::Json & getToolArguments() const { DARABONBA_GET(toolArguments_) };
+        Darabonba::Json & getToolArguments() { DARABONBA_GET(toolArguments_) };
+        inline Events& setToolArguments(const Darabonba::Json & toolArguments) { DARABONBA_SET_VALUE(toolArguments_, toolArguments) };
+        inline Events& setToolArguments(Darabonba::Json && toolArguments) { DARABONBA_SET_RVALUE(toolArguments_, toolArguments) };
+
+
+        // toolName Field Functions 
+        bool hasToolName() const { return this->toolName_ != nullptr;};
+        void deleteToolName() { this->toolName_ = nullptr;};
+        inline string getToolName() const { DARABONBA_PTR_GET_DEFAULT(toolName_, "") };
+        inline Events& setToolName(string toolName) { DARABONBA_PTR_SET_VALUE(toolName_, toolName) };
+
+
         // answer Field Functions 
         bool hasAnswer() const { return this->answer_ != nullptr;};
         void deleteAnswer() { this->answer_ = nullptr;};
@@ -171,6 +257,22 @@ namespace Models
 
 
       protected:
+        // The approval status of the tool calling.
+        shared_ptr<string> approvalStatus_ {};
+        // The tool calling ID.
+        shared_ptr<string> callId_ {};
+        // The session ID.
+        shared_ptr<string> conversationId_ {};
+        // The description of the tool calling.
+        shared_ptr<string> description_ {};
+        // The message ID.
+        shared_ptr<string> messageId_ {};
+        // The tool approval round ID.
+        shared_ptr<string> roundId_ {};
+        // The parameters of the tool calling.
+        Darabonba::Json toolArguments_ {};
+        // The tool name.
+        shared_ptr<string> toolName_ {};
         shared_ptr<string> answer_ {};
         shared_ptr<string> event_ {};
       };
@@ -286,7 +388,7 @@ namespace Models
     protected:
       // The answer.
       shared_ptr<string> answer_ {};
-      // The conversation ID.
+      // The session ID.
       shared_ptr<string> conversationId_ {};
       // The creation time.
       shared_ptr<string> createdAt_ {};

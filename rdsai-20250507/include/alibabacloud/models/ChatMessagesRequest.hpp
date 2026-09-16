@@ -48,8 +48,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Language, language_);
         DARABONBA_PTR_TO_JSON(ModelId, modelId_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+        DARABONBA_PTR_TO_JSON(ResumeCallId, resumeCallId_);
         DARABONBA_PTR_TO_JSON(ThinkEffort, thinkEffort_);
         DARABONBA_PTR_TO_JSON(Timezone, timezone_);
+        DARABONBA_PTR_TO_JSON(ToolApprovalMode, toolApprovalMode_);
+        DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Inputs& obj) { 
         DARABONBA_PTR_FROM_JSON(CustomAgentId, customAgentId_);
@@ -57,8 +60,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Language, language_);
         DARABONBA_PTR_FROM_JSON(ModelId, modelId_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+        DARABONBA_PTR_FROM_JSON(ResumeCallId, resumeCallId_);
         DARABONBA_PTR_FROM_JSON(ThinkEffort, thinkEffort_);
         DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
+        DARABONBA_PTR_FROM_JSON(ToolApprovalMode, toolApprovalMode_);
+        DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
       };
       Inputs() = default ;
       Inputs(const Inputs &) = default ;
@@ -72,8 +78,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->customAgentId_ == nullptr
-        && this->enableThinking_ == nullptr && this->language_ == nullptr && this->modelId_ == nullptr && this->regionId_ == nullptr && this->thinkEffort_ == nullptr
-        && this->timezone_ == nullptr; };
+        && this->enableThinking_ == nullptr && this->language_ == nullptr && this->modelId_ == nullptr && this->regionId_ == nullptr && this->resumeCallId_ == nullptr
+        && this->thinkEffort_ == nullptr && this->timezone_ == nullptr && this->toolApprovalMode_ == nullptr && this->workspaceId_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -109,6 +115,13 @@ namespace Models
       inline Inputs& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+      // resumeCallId Field Functions 
+      bool hasResumeCallId() const { return this->resumeCallId_ != nullptr;};
+      void deleteResumeCallId() { this->resumeCallId_ = nullptr;};
+      inline string getResumeCallId() const { DARABONBA_PTR_GET_DEFAULT(resumeCallId_, "") };
+      inline Inputs& setResumeCallId(string resumeCallId) { DARABONBA_PTR_SET_VALUE(resumeCallId_, resumeCallId) };
+
+
       // thinkEffort Field Functions 
       bool hasThinkEffort() const { return this->thinkEffort_ != nullptr;};
       void deleteThinkEffort() { this->thinkEffort_ = nullptr;};
@@ -123,6 +136,20 @@ namespace Models
       inline Inputs& setTimezone(string timezone) { DARABONBA_PTR_SET_VALUE(timezone_, timezone) };
 
 
+      // toolApprovalMode Field Functions 
+      bool hasToolApprovalMode() const { return this->toolApprovalMode_ != nullptr;};
+      void deleteToolApprovalMode() { this->toolApprovalMode_ = nullptr;};
+      inline string getToolApprovalMode() const { DARABONBA_PTR_GET_DEFAULT(toolApprovalMode_, "") };
+      inline Inputs& setToolApprovalMode(string toolApprovalMode) { DARABONBA_PTR_SET_VALUE(toolApprovalMode_, toolApprovalMode) };
+
+
+      // workspaceId Field Functions 
+      bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+      void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+      inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+      inline Inputs& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
     protected:
       // The custom agent ID for the user.
       shared_ptr<string> customAgentId_ {};
@@ -134,10 +161,16 @@ namespace Models
       shared_ptr<string> modelId_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
+      // The tool approval call ID for resuming execution. Pass this parameter after all decisions in the current approval round are completed in the console to continue the interrupted ChatMessage Loop. Do not pass this parameter for regular conversations.
+      shared_ptr<string> resumeCallId_ {};
       // The thinking depth.
       shared_ptr<string> thinkEffort_ {};
       // The time zone. Default value: **Asia/Shanghai**.
       shared_ptr<string> timezone_ {};
+      // The tool approval mode for the current conversation. Valid values: read_only (read-only, write tools are rejected), manual (write tools require manual approval), and auto (the approval sub-agent automatically determines the action. If the result is needs_human, the approval is escalated to manual review). When this parameter is passed, the approval mode of the current conversation is updated.
+      shared_ptr<string> toolApprovalMode_ {};
+      // The ContextDB workspace ID.
+      shared_ptr<string> workspaceId_ {};
     };
 
     class Files : public Darabonba::Model {
@@ -243,16 +276,14 @@ namespace Models
   protected:
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
-    // The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of event = message. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
+    // The event output type. Valid values: inline and separate. Default value: inline. When set to inline, tool invocation events, sub-node events, and document events are included in the answer field of the event = message response. When set to separate, tool invocation events, sub-node events, and document events each have their own event.
     shared_ptr<string> eventMode_ {};
     shared_ptr<vector<ChatMessagesRequest::Files>> files_ {};
-    // The task input.
+    // The task inputs.
     shared_ptr<ChatMessagesRequest::Inputs> inputs_ {};
     // The parent message ID.
     shared_ptr<string> parentMessageId_ {};
     // The query content.
-    // 
-    // This parameter is required.
     shared_ptr<string> query_ {};
   };
 

@@ -84,18 +84,18 @@ namespace Models
 
 
   protected:
-    // The agent ID.
+    // AgentId。
     // 
     // This parameter is required.
     shared_ptr<string> customAgentId_ {};
     // Specifies whether to enable tools.
     shared_ptr<bool> enableTools_ {};
-    // The name of the custom agent.
+    // The name of the dedicated agent.
     shared_ptr<string> name_ {};
     shared_ptr<string> skillIdsShrink_ {};
     // The system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // The tools that the custom agent can use.
+    // The tool information.
     shared_ptr<string> toolsShrink_ {};
   };
 

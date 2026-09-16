@@ -152,9 +152,9 @@ namespace Models
 
 
         protected:
-          // The date of the usage record.
+          // The date (accurate to the day).
           shared_ptr<string> date_ {};
-          // The number of tokens used by the API key on this date.
+          // The number of tokens used.
           shared_ptr<string> usage_ {};
         };
 
@@ -213,19 +213,19 @@ namespace Models
 
 
       protected:
-        // The API key.
+        // API Key
         shared_ptr<string> apiKey_ {};
-        // The daily usage for the API key.
+        // The daily usage of the API key.
         shared_ptr<vector<KeyUsageList::DailyUsage>> dailyUsage_ {};
-        // Indicates whether the API key has been deleted.
+        // Indicates whether the API key is deleted.
         shared_ptr<bool> deleted_ {};
-        // The name of the API key.
+        // The API key name.
         shared_ptr<string> keyName_ {};
-        // The type of the API key.
+        // The key type.
         shared_ptr<string> keyType_ {};
-        // The total number of tokens used by this API key.
+        // The total token usage.
         shared_ptr<string> keyUsed_ {};
-        // The token usage for the current cycle.
+        // The used token quota.
         shared_ptr<string> usedQuota_ {};
       };
 
@@ -267,9 +267,9 @@ namespace Models
 
 
       protected:
-        // The date of the usage record.
+        // The date (accurate to the day).
         shared_ptr<string> date_ {};
-        // The number of tokens used on this date.
+        // The token usage.
         shared_ptr<int64_t> usage_ {};
       };
 
@@ -389,38 +389,38 @@ namespace Models
 
 
     protected:
-      // The API key.
+      // The system API key.
       shared_ptr<string> apiKey_ {};
       // Indicates whether auto-renewal is enabled for the instance. Valid values:
       // 
-      // - **true**: Enabled.
-      // 
-      // - **false** (default): Disabled.
+      // * **true**: Enabled.
+      // * **false** (default): Disabled.
       shared_ptr<bool> autoRenew_ {};
-      // The endpoint URL for model requests.
+      // The URL for model invocation.
       shared_ptr<string> baseUrl_ {};
-      // The billing method. Valid values: `PREPAY` (subscription) and `POSTPAY` (pay-as-you-go).
+      // The billing type.
       shared_ptr<string> chargeType_ {};
-      // The daily token usage.
+      // The daily usage list.
       shared_ptr<vector<Data::DailyUsage>> dailyUsage_ {};
-      // The UNIX timestamp, in milliseconds, indicating when the instance expires.
+      // The end time of the instance. Format: Timestamp.
       shared_ptr<int64_t> endTime_ {};
       // The instance type.
       shared_ptr<string> instanceClass_ {};
-      // The instance ID.
+      // The instance name.
       shared_ptr<string> instanceId_ {};
-      // The usage of each API key, including deleted keys.
+      // The usage of each key (including deleted keys).
       shared_ptr<vector<Data::KeyUsageList>> keyUsageList_ {};
-      // Indicates whether prefix caching is enabled.
+      // Indicates whether the prefix routing persistence feature is enabled.
       shared_ptr<bool> prefixCacheEnabled_ {};
+      // The list of headers used for routing persistence. The headers consist of lowercase letters, digits, and hyphens (-).
       shared_ptr<vector<string>> sessionIds_ {};
-      // The UNIX timestamp, in milliseconds, indicating when the instance started.
+      // The start time of the instance. Format: Timestamp.
       shared_ptr<int64_t> startTime_ {};
-      // The status.
+      // The module status.
       shared_ptr<string> status_ {};
-      // The total quota for the current cycle, such as the monthly quota.
+      // The total quota for the current cycle (such as the monthly total).
       shared_ptr<int64_t> totalQuota_ {};
-      // The usage in the current cycle, such as the monthly usage.
+      // The used quota for the current cycle (such as the monthly usage).
       shared_ptr<int64_t> usedQuota_ {};
     };
 
@@ -457,13 +457,13 @@ namespace Models
 
 
   protected:
-    // The response data.
+    // The request result.
     shared_ptr<DescribeModelOperatorResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // The request result.
     shared_ptr<bool> success_ {};
   };
 

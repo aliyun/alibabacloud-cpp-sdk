@@ -17,12 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EventMode, eventMode_);
       DARABONBA_PTR_TO_JSON(FirstId, firstId_);
       DARABONBA_PTR_TO_JSON(Limit, limit_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, GetMessagesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
       DARABONBA_PTR_FROM_JSON(EventMode, eventMode_);
       DARABONBA_PTR_FROM_JSON(FirstId, firstId_);
       DARABONBA_PTR_FROM_JSON(Limit, limit_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     GetMessagesRequest() = default ;
     GetMessagesRequest(const GetMessagesRequest &) = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->conversationId_ == nullptr
-        && this->eventMode_ == nullptr && this->firstId_ == nullptr && this->limit_ == nullptr; };
+        && this->eventMode_ == nullptr && this->firstId_ == nullptr && this->limit_ == nullptr && this->workspaceId_ == nullptr; };
     // conversationId Field Functions 
     bool hasConversationId() const { return this->conversationId_ != nullptr;};
     void deleteConversationId() { this->conversationId_ = nullptr;};
@@ -65,14 +67,23 @@ namespace Models
     inline GetMessagesRequest& setLimit(int64_t limit) { DARABONBA_PTR_SET_VALUE(limit_, limit) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline GetMessagesRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // The conversation ID.
     shared_ptr<string> conversationId_ {};
     shared_ptr<string> eventMode_ {};
     // The ID of the first message.
     shared_ptr<string> firstId_ {};
-    // The number of entries per page in a paging query. Valid values: 1 to 100. Default value: 100.
+    // The number of entries per page for a paged query. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int64_t> limit_ {};
+    // The ContextDB workspace ID.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models

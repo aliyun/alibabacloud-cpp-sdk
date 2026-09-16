@@ -14,9 +14,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeModelOperatorRequest& obj) { 
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(Region, region_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeModelOperatorRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(Region, region_);
     };
     DescribeModelOperatorRequest() = default ;
     DescribeModelOperatorRequest(const DescribeModelOperatorRequest &) = default ;
@@ -29,7 +31,8 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr; };
+    virtual bool empty() const override { return this->instanceId_ == nullptr
+        && this->region_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -37,9 +40,18 @@ namespace Models
     inline DescribeModelOperatorRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
 
 
+    // region Field Functions 
+    bool hasRegion() const { return this->region_ != nullptr;};
+    void deleteRegion() { this->region_ = nullptr;};
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline DescribeModelOperatorRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
   protected:
-    // The instance ID.
+    // The instance name.
     shared_ptr<string> instanceId_ {};
+    // The region.
+    shared_ptr<string> region_ {};
   };
 
   } // namespace Models
