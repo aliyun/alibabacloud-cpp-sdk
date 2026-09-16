@@ -10872,7 +10872,7 @@ GetFormationCrawlerResponse Client::getFormationCrawler(const GetFormationCrawle
 }
 
 /**
- * @summary Adds a knowledge base document.
+ * @summary Performs knowledge base recall.
  *
  * @param request GetKnowledgeRecallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10885,8 +10885,16 @@ GetKnowledgeRecallResponse Client::getKnowledgeRecallWithOptions(const GetKnowle
     query["DBClusterId"] = request.getDBClusterId();
   }
 
+  if (!!request.hasPath()) {
+    query["Path"] = request.getPath();
+  }
+
   if (!!request.hasQuestion()) {
     query["Question"] = request.getQuestion();
+  }
+
+  if (!!request.hasTags()) {
+    query["Tags"] = request.getTags();
   }
 
   if (!!request.hasTopk()) {
@@ -10915,7 +10923,7 @@ GetKnowledgeRecallResponse Client::getKnowledgeRecallWithOptions(const GetKnowle
 }
 
 /**
- * @summary Adds a knowledge base document.
+ * @summary Performs knowledge base recall.
  *
  * @param request GetKnowledgeRecallRequest
  * @return GetKnowledgeRecallResponse
@@ -14974,7 +14982,7 @@ ModifyMaterializedViewResponse Client::modifyMaterializedView(const ModifyMateri
 }
 
 /**
- * @summary Modifies an automatic materialized view recommendation task.
+ * @summary Modifies a materialized view automatic recommendation task.
  *
  * @param request ModifyMaterializedViewRecommendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15061,7 +15069,7 @@ ModifyMaterializedViewRecommendResponse Client::modifyMaterializedViewRecommendW
 }
 
 /**
- * @summary Modifies an automatic materialized view recommendation task.
+ * @summary Modifies a materialized view automatic recommendation task.
  *
  * @param request ModifyMaterializedViewRecommendRequest
  * @return ModifyMaterializedViewRecommendResponse
@@ -15651,6 +15659,56 @@ RemoveKnowledgeTagsResponse Client::removeKnowledgeTagsWithOptions(const RemoveK
 RemoveKnowledgeTagsResponse Client::removeKnowledgeTags(const RemoveKnowledgeTagsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return removeKnowledgeTagsWithOptions(request, runtime);
+}
+
+/**
+ * @summary Deletes authorized users from a knowledge base document.
+ *
+ * @param request RemoveKnowledgeUploadUserRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RemoveKnowledgeUploadUserResponse
+ */
+RemoveKnowledgeUploadUserResponse Client::removeKnowledgeUploadUserWithOptions(const RemoveKnowledgeUploadUserRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileLocation()) {
+    query["FileLocation"] = request.getFileLocation();
+  }
+
+  if (!!request.hasUsers()) {
+    query["Users"] = request.getUsers();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RemoveKnowledgeUploadUser"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RemoveKnowledgeUploadUserResponse>();
+}
+
+/**
+ * @summary Deletes authorized users from a knowledge base document.
+ *
+ * @param request RemoveKnowledgeUploadUserRequest
+ * @return RemoveKnowledgeUploadUserResponse
+ */
+RemoveKnowledgeUploadUserResponse Client::removeKnowledgeUploadUser(const RemoveKnowledgeUploadUserRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return removeKnowledgeUploadUserWithOptions(request, runtime);
 }
 
 /**

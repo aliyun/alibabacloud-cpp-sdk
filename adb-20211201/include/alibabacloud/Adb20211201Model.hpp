@@ -771,6 +771,9 @@
 #include <alibabacloud/models/RemoveKnowledgeTagsRequest.hpp>
 #include <alibabacloud/models/RemoveKnowledgeTagsResponseBody.hpp>
 #include <alibabacloud/models/RemoveKnowledgeTagsResponse.hpp>
+#include <alibabacloud/models/RemoveKnowledgeUploadUserRequest.hpp>
+#include <alibabacloud/models/RemoveKnowledgeUploadUserResponseBody.hpp>
+#include <alibabacloud/models/RemoveKnowledgeUploadUserResponse.hpp>
 #include <alibabacloud/models/RenameSemanticViewRequest.hpp>
 #include <alibabacloud/models/RenameSemanticViewResponseBody.hpp>
 #include <alibabacloud/models/RenameSemanticViewResponse.hpp>

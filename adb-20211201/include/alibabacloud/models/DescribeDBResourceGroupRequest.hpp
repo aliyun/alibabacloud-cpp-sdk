@@ -81,7 +81,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
     // The name of the resource group.
-    // > If you do not specify this parameter, information about all resource groups in the specified cluster is returned.
+    // > If you do not specify this parameter, the information about all resource groups in the specified cluster is returned.
     shared_ptr<string> groupName_ {};
     // The type of the resource group. Valid values:
     // - **Interactive**

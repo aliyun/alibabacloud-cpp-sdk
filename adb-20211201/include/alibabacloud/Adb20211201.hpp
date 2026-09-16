@@ -3286,7 +3286,7 @@ namespace Adb20211201
       Models::GetFormationCrawlerResponse getFormationCrawler(const Models::GetFormationCrawlerRequest &request);
 
       /**
-       * @summary Adds a knowledge base document.
+       * @summary Performs knowledge base recall.
        *
        * @param request GetKnowledgeRecallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3295,7 +3295,7 @@ namespace Adb20211201
       Models::GetKnowledgeRecallResponse getKnowledgeRecallWithOptions(const Models::GetKnowledgeRecallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds a knowledge base document.
+       * @summary Performs knowledge base recall.
        *
        * @param request GetKnowledgeRecallRequest
        * @return GetKnowledgeRecallResponse
@@ -4712,7 +4712,7 @@ namespace Adb20211201
       Models::ModifyMaterializedViewResponse modifyMaterializedView(const Models::ModifyMaterializedViewRequest &request);
 
       /**
-       * @summary Modifies an automatic materialized view recommendation task.
+       * @summary Modifies a materialized view automatic recommendation task.
        *
        * @param request ModifyMaterializedViewRecommendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4721,7 +4721,7 @@ namespace Adb20211201
       Models::ModifyMaterializedViewRecommendResponse modifyMaterializedViewRecommendWithOptions(const Models::ModifyMaterializedViewRecommendRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an automatic materialized view recommendation task.
+       * @summary Modifies a materialized view automatic recommendation task.
        *
        * @param request ModifyMaterializedViewRecommendRequest
        * @return ModifyMaterializedViewRecommendResponse
@@ -4921,6 +4921,23 @@ namespace Adb20211201
        * @return RemoveKnowledgeTagsResponse
        */
       Models::RemoveKnowledgeTagsResponse removeKnowledgeTags(const Models::RemoveKnowledgeTagsRequest &request);
+
+      /**
+       * @summary Deletes authorized users from a knowledge base document.
+       *
+       * @param request RemoveKnowledgeUploadUserRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RemoveKnowledgeUploadUserResponse
+       */
+      Models::RemoveKnowledgeUploadUserResponse removeKnowledgeUploadUserWithOptions(const Models::RemoveKnowledgeUploadUserRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes authorized users from a knowledge base document.
+       *
+       * @param request RemoveKnowledgeUploadUserRequest
+       * @return RemoveKnowledgeUploadUserResponse
+       */
+      Models::RemoveKnowledgeUploadUserResponse removeKnowledgeUploadUser(const Models::RemoveKnowledgeUploadUserRequest &request);
 
       /**
        * @summary Modifies the name of a semantic view.

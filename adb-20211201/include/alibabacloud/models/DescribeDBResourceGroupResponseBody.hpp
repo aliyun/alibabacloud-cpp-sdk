@@ -293,7 +293,7 @@ namespace Models
         protected:
           // The allocation unit.
           shared_ptr<string> allocateUnit_ {};
-          // The Ray worker group name.
+          // The name of the Ray worker group.
           shared_ptr<string> groupName_ {};
           // The maximum number of workers.
           shared_ptr<int32_t> maxWorkerQuantity_ {};
@@ -586,9 +586,9 @@ namespace Models
         shared_ptr<RayConfig::AppConfig> appConfig_ {};
         // The Ray cluster type. Valid values:
         // 
-        // - BASIC: basic type, non-high-availability
+        // - BASIC: basic type, non-high-availability.
         // 
-        // - HIGH_AVAILABILITY: high-availability type
+        // - HIGH_AVAILABILITY: high-availability type.
         shared_ptr<string> category_ {};
         // Indicates whether ENI is enabled.
         shared_ptr<bool> enableUserEni_ {};
@@ -674,9 +674,9 @@ namespace Models
 
 
         protected:
-          // The end time in Cron expression format. The interval must be at least 1 hour.
+          // The end time in cron expression format. The interval must be at least 1 hour.
           shared_ptr<string> endCronExpression_ {};
-          // The start time in Cron expression format. The interval must be at least 1 hour.
+          // The start time in cron expression format. The interval must be at least 1 hour.
           shared_ptr<string> startCronExpression_ {};
         };
 
@@ -827,17 +827,17 @@ namespace Models
       protected:
         // The number of authentication nodes.
         shared_ptr<string> authNodeNum_ {};
-        // The authentication node specifications.
+        // The node specifications of authentication nodes.
         shared_ptr<string> authNodeSpec_ {};
         // The number of write nodes.
         shared_ptr<string> insertNodeNum_ {};
-        // The write node specifications.
+        // The node specifications of write nodes.
         shared_ptr<string> insertNodeSpec_ {};
         // The cache size of query nodes.
         shared_ptr<string> selectNodeCacheSize_ {};
         // The number of query nodes.
         shared_ptr<string> selectNodeNum_ {};
-        // The query node specifications.
+        // The node specifications of query nodes.
         shared_ptr<string> selectNodeSpec_ {};
         // The disk size of storage nodes.
         shared_ptr<string> storageNodeDiskSize_ {};
@@ -845,7 +845,7 @@ namespace Models
         shared_ptr<string> storageNodeDiskType_ {};
         // The number of storage nodes.
         shared_ptr<string> storageNodeNum_ {};
-        // The storage node specifications.
+        // The node specifications of storage nodes.
         shared_ptr<string> storageNodeSpec_ {};
       };
 
@@ -1089,7 +1089,7 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The minimum elastic computing resources, in ACUs.
       shared_ptr<string> elasticMinComputeResource_ {};
-      // Indicates whether the spot instance feature is enabled for the resource group. When the spot instance feature is enabled, the unit price of resources is reduced, but instances may be released. Valid values:
+      // Indicates whether the spot instance feature is enabled for the resource group. After the spot instance feature is enabled, the unit price of resources is reduced, but the resources may be released. Valid values:
       // - **True**: The spot instance feature is enabled.
       // - **False**: The spot instance feature is disabled.
       // 
@@ -1106,7 +1106,7 @@ namespace Models
       // The resource group type. Valid values:
       // - **Interactive**
       // - **Job**
-      // > For more information about resource groups in Data Lakehouse Edition, see [Resource group introduction (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
+      // > For more information about resource groups of the Data Lakehouse Edition, see [Resource group introduction (Data Lakehouse Edition)](https://help.aliyun.com/document_detail/428610.html).
       shared_ptr<string> groupType_ {};
       // The Resource Access Management (RAM) users attached to the resource group.
       shared_ptr<string> groupUsers_ {};
@@ -1141,9 +1141,11 @@ namespace Models
       // The specification name.
       shared_ptr<string> specName_ {};
       // The resource group status. Valid values:
-      // - **creating**: being created
-      // - **ok**: created
-      // - **pendingdelete**: pending deletion
+      // - **Pending**: being created.
+      // - **Running**: running.
+      // - **Scaling**: being scaled.
+      // - **Deleting**: being deleted.
+      // - **Deleted**: deleted.
       shared_ptr<string> status_ {};
       // The name of the target resource group.
       shared_ptr<string> targetResourceGroupName_ {};

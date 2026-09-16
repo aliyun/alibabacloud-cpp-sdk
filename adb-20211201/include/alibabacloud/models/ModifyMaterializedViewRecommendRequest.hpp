@@ -173,7 +173,7 @@ namespace Models
     shared_ptr<string> DBClusterId_ {};
     // The description of the recommendation task.
     shared_ptr<string> description_ {};
-    // The minimum number of slow queries matched by a pattern.
+    // The minimum number of slow queries that a pattern must match.
     shared_ptr<int32_t> minRewriteQueryCount_ {};
     // The minimum number of patterns that can be accelerated.
     shared_ptr<int32_t> minRewriteQueryPattern_ {};
@@ -183,7 +183,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The scan time range, in days. Default value: 3.
+    // The time range to scan, in days. Default value: 3.
     shared_ptr<int32_t> scanQueriesRange_ {};
     // Valid only when SchedulingPolicy is set to weekly. Valid values:
     // - Monday
@@ -197,12 +197,12 @@ namespace Models
     // Separate multiple days with commas.
     shared_ptr<string> schedulingDay_ {};
     // The recommendation policy. Valid values: 
-    // - daliy: scheduled on a daily basis.
-    // - weekly: scheduled on a weekly basis.
+    // - daily: schedules the task on a daily basis.
+    // - weekly: schedules the task on a weekly basis.
     shared_ptr<string> schedulingPolicy_ {};
     // The slow query threshold.
     shared_ptr<int32_t> slowQueryThreshold_ {};
-    // The execution time of the task in the format HH:MM:SS.
+    // The execution time of the task in HH:MM:SS format.
     shared_ptr<string> specifiedTime_ {};
     // The name of the materialized view recommendation task.
     // 
