@@ -360,7 +360,7 @@ namespace Models
 
 
         protected:
-          // The HTTP header name used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+          // The name of the HTTP header used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
           shared_ptr<string> headerName_ {};
           // The session policy type.
           // 
@@ -433,15 +433,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable auto-scaling. This parameter is required when hpa is present as validated by the backend.
+          // Specifies whether to enable auto scaling. This parameter is required by backend validation when hpa is present.
           shared_ptr<bool> enabled_ {};
-          // The maximum number of active sessions per Sandbox. This parameter is required when hpa is present as validated by the backend.
+          // The maximum number of active sessions per sandbox. This parameter is required by backend validation when hpa is present.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
-          // The maximum number of Sandboxes. This parameter is required when HPA is enabled and must be no less than the minimum value.
+          // The maximum number of sandboxes. This parameter is required when HPA is enabled and the value must be no less than the minimum value.
           shared_ptr<int32_t> maxSandboxCount_ {};
-          // The minimum number of Sandboxes. This parameter is required when HPA is enabled.
+          // The minimum number of sandboxes. This parameter is required when HPA is enabled.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The session reclamation time after inactivity, in seconds. This parameter is required when hpa is present as validated by the backend.
+          // The session reclamation time after inactivity, in seconds. This parameter is required by backend validation when hpa is present.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -473,7 +473,7 @@ namespace Models
 
 
         protected:
-          // The compute specification.
+          // The compute class.
           // 
           // This parameter is required.
           shared_ptr<string> computeClass_ {};
@@ -513,7 +513,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The Sandbox auto-scaling and session configuration.
+        // The sandbox auto scaling and session configuration.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
@@ -577,13 +577,13 @@ namespace Models
 
 
       protected:
-        // The OSS bucket name. This parameter is required for each mount entry as validated by the backend.
+        // The OSS bucket name. This parameter is required by backend validation for each mount entry.
         shared_ptr<string> bucketName_ {};
-        // The absolute mount path in the container. This parameter is required for each mount entry as validated by the backend.
+        // The absolute mount path inside the container. This parameter is required by backend validation for each mount entry.
         shared_ptr<string> mountPath_ {};
-        // The relative object prefix in the bucket. If this parameter is not specified, the entire bucket is mounted.
+        // The relative object prefix within the bucket. If this parameter is not specified, the entire bucket is mounted.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount as read-only. Default value: false.
+        // Specifies whether to mount in read-only mode. Default value: false.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -704,10 +704,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Model& obj) { 
           DARABONBA_PTR_TO_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_TO_JSON(modelName, modelName_);
+          DARABONBA_PTR_TO_JSON(quota, quota_);
         };
         friend void from_json(const Darabonba::Json& j, Model& obj) { 
           DARABONBA_PTR_FROM_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_FROM_JSON(modelName, modelName_);
+          DARABONBA_PTR_FROM_JSON(quota, quota_);
         };
         Model() = default ;
         Model(const Model &) = default ;
@@ -720,8 +722,76 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Quota : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Quota& obj) { 
+            DARABONBA_PTR_TO_JSON(enabled, enabled_);
+            DARABONBA_PTR_TO_JSON(limitType, limitType_);
+            DARABONBA_PTR_TO_JSON(periodType, periodType_);
+            DARABONBA_PTR_TO_JSON(usageLimit, usageLimit_);
+          };
+          friend void from_json(const Darabonba::Json& j, Quota& obj) { 
+            DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+            DARABONBA_PTR_FROM_JSON(limitType, limitType_);
+            DARABONBA_PTR_FROM_JSON(periodType, periodType_);
+            DARABONBA_PTR_FROM_JSON(usageLimit, usageLimit_);
+          };
+          Quota() = default ;
+          Quota(const Quota &) = default ;
+          Quota(Quota &&) = default ;
+          Quota(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Quota() = default ;
+          Quota& operator=(const Quota &) = default ;
+          Quota& operator=(Quota &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->limitType_ == nullptr && this->periodType_ == nullptr && this->usageLimit_ == nullptr; };
+          // enabled Field Functions 
+          bool hasEnabled() const { return this->enabled_ != nullptr;};
+          void deleteEnabled() { this->enabled_ = nullptr;};
+          inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+          inline Quota& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+          // limitType Field Functions 
+          bool hasLimitType() const { return this->limitType_ != nullptr;};
+          void deleteLimitType() { this->limitType_ = nullptr;};
+          inline string getLimitType() const { DARABONBA_PTR_GET_DEFAULT(limitType_, "") };
+          inline Quota& setLimitType(string limitType) { DARABONBA_PTR_SET_VALUE(limitType_, limitType) };
+
+
+          // periodType Field Functions 
+          bool hasPeriodType() const { return this->periodType_ != nullptr;};
+          void deletePeriodType() { this->periodType_ = nullptr;};
+          inline string getPeriodType() const { DARABONBA_PTR_GET_DEFAULT(periodType_, "") };
+          inline Quota& setPeriodType(string periodType) { DARABONBA_PTR_SET_VALUE(periodType_, periodType) };
+
+
+          // usageLimit Field Functions 
+          bool hasUsageLimit() const { return this->usageLimit_ != nullptr;};
+          void deleteUsageLimit() { this->usageLimit_ = nullptr;};
+          inline int64_t getUsageLimit() const { DARABONBA_PTR_GET_DEFAULT(usageLimit_, 0L) };
+          inline Quota& setUsageLimit(int64_t usageLimit) { DARABONBA_PTR_SET_VALUE(usageLimit_, usageLimit) };
+
+
+        protected:
+          // Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the token quota is disabled and existing quota rules are deleted.
+          shared_ptr<bool> enabled_ {};
+          // The quota limit type. This parameter is required by backend validation when the quota is enabled. Fixed value: token.
+          shared_ptr<string> limitType_ {};
+          // The quota statistical period. This parameter is required by backend validation when the quota is enabled. Valid values:
+          // - day: daily.
+          // - month: monthly.
+          shared_ptr<string> periodType_ {};
+          // The maximum number of tokens that can be consumed within a single period. This parameter is required by backend validation when the quota is enabled. The value must be greater than 0.
+          shared_ptr<int64_t> usageLimit_ {};
+        };
+
         virtual bool empty() const override { return this->modelConnectionId_ == nullptr
-        && this->modelName_ == nullptr; };
+        && this->modelName_ == nullptr && this->quota_ == nullptr; };
         // modelConnectionId Field Functions 
         bool hasModelConnectionId() const { return this->modelConnectionId_ != nullptr;};
         void deleteModelConnectionId() { this->modelConnectionId_ = nullptr;};
@@ -736,6 +806,15 @@ namespace Models
         inline Model& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
+        // quota Field Functions 
+        bool hasQuota() const { return this->quota_ != nullptr;};
+        void deleteQuota() { this->quota_ = nullptr;};
+        inline const Model::Quota & getQuota() const { DARABONBA_PTR_GET_CONST(quota_, Model::Quota) };
+        inline Model::Quota getQuota() { DARABONBA_PTR_GET(quota_, Model::Quota) };
+        inline Model& setQuota(const Model::Quota & quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
+        inline Model& setQuota(Model::Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
+
+
       protected:
         // The model connection ID.
         // 
@@ -743,6 +822,8 @@ namespace Models
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
         shared_ptr<string> modelName_ {};
+        // The model token quota configuration. If this parameter is not specified, no quota is configured.
+        shared_ptr<Model::Quota> quota_ {};
       };
 
       class Harness : public Darabonba::Model {
@@ -804,9 +885,9 @@ namespace Models
 
 
         protected:
-          // The Key ID used to bind a Service Account Key of the QoderCLI Connector. This parameter is optional when only one key exists, but required when multiple keys exist.
+          // The Key ID used to bind a Service Account Key of the QoderCLI Connector. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
           shared_ptr<string> connectorServiceAccountKey_ {};
-          // The Connector Key name that is populated during queries. This parameter is not used as a binding reference during writes.
+          // The Connector Key name that is populated during queries. This parameter is not used as a binding criterion during writes.
           shared_ptr<string> connectorServiceAccountName_ {};
         };
 
@@ -831,7 +912,7 @@ namespace Models
       protected:
         // The Connector binding configuration for the qodercli harness.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // The runtime harness type. Valid values: qwenpaw and qodercli. When the type is qodercli, binding is performed based on configuration.connectorServiceAccountKey, and the name is also populated during queries.
+        // The harness type. Valid values: qwenpaw and qodercli. When the type is qodercli, binding is performed based on configuration.connectorServiceAccountKey, and the name is also populated during queries.
         shared_ptr<string> type_ {};
       };
 
@@ -1085,7 +1166,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The environment configuration.
       shared_ptr<Body::Environment> environment_ {};
-      // The runtime harness of the managed agent. Valid values: qwenpaw and qodercli.
+      // The harness for the managed agent. Valid values: qwenpaw and qodercli.
       shared_ptr<Body::Harness> harness_ {};
       // The agent instruction that guides the behavior of the agent.
       shared_ptr<string> instruction_ {};
@@ -1099,7 +1180,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration.
       shared_ptr<Body::Network> network_ {};
-      // The OSS mount list. A maximum of 10 entries are supported.
+      // The list of OSS mounts. A maximum of 10 entries are supported.
       shared_ptr<vector<Body::OssMounts>> ossMounts_ {};
       // The runtime configuration.
       // 
@@ -1111,7 +1192,7 @@ namespace Models
       shared_ptr<vector<Body::SubAgents>> subAgents_ {};
       // The agent template configuration.
       shared_ptr<Body::Template> template_ {};
-      // The list of tool configurations.
+      // The tool configuration list.
       shared_ptr<vector<Body::Tools>> tools_ {};
     };
 
@@ -1136,7 +1217,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateManagedAgentRequest::Body> body_ {};
-    // The reserved idempotency token. The backend does not provide idempotency guarantees in the current phase.
+    // The reserved idempotency token. The backend does not provide idempotency guarantees in the current version.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -108,7 +108,6 @@ namespace Models
         // This parameter is required.
         shared_ptr<string> name_ {};
         // The tool type. Valid values:
-        // 
         // - MCP: MCP tool.
         // 
         // This parameter is required.
@@ -248,10 +247,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Model& obj) { 
           DARABONBA_PTR_TO_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_TO_JSON(modelName, modelName_);
+          DARABONBA_PTR_TO_JSON(quota, quota_);
         };
         friend void from_json(const Darabonba::Json& j, Model& obj) { 
           DARABONBA_PTR_FROM_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_FROM_JSON(modelName, modelName_);
+          DARABONBA_PTR_FROM_JSON(quota, quota_);
         };
         Model() = default ;
         Model(const Model &) = default ;
@@ -264,8 +265,74 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Quota : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Quota& obj) { 
+            DARABONBA_PTR_TO_JSON(enabled, enabled_);
+            DARABONBA_PTR_TO_JSON(limitType, limitType_);
+            DARABONBA_PTR_TO_JSON(periodType, periodType_);
+            DARABONBA_PTR_TO_JSON(usageLimit, usageLimit_);
+          };
+          friend void from_json(const Darabonba::Json& j, Quota& obj) { 
+            DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+            DARABONBA_PTR_FROM_JSON(limitType, limitType_);
+            DARABONBA_PTR_FROM_JSON(periodType, periodType_);
+            DARABONBA_PTR_FROM_JSON(usageLimit, usageLimit_);
+          };
+          Quota() = default ;
+          Quota(const Quota &) = default ;
+          Quota(Quota &&) = default ;
+          Quota(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Quota() = default ;
+          Quota& operator=(const Quota &) = default ;
+          Quota& operator=(Quota &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->limitType_ == nullptr && this->periodType_ == nullptr && this->usageLimit_ == nullptr; };
+          // enabled Field Functions 
+          bool hasEnabled() const { return this->enabled_ != nullptr;};
+          void deleteEnabled() { this->enabled_ = nullptr;};
+          inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+          inline Quota& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+          // limitType Field Functions 
+          bool hasLimitType() const { return this->limitType_ != nullptr;};
+          void deleteLimitType() { this->limitType_ = nullptr;};
+          inline string getLimitType() const { DARABONBA_PTR_GET_DEFAULT(limitType_, "") };
+          inline Quota& setLimitType(string limitType) { DARABONBA_PTR_SET_VALUE(limitType_, limitType) };
+
+
+          // periodType Field Functions 
+          bool hasPeriodType() const { return this->periodType_ != nullptr;};
+          void deletePeriodType() { this->periodType_ = nullptr;};
+          inline string getPeriodType() const { DARABONBA_PTR_GET_DEFAULT(periodType_, "") };
+          inline Quota& setPeriodType(string periodType) { DARABONBA_PTR_SET_VALUE(periodType_, periodType) };
+
+
+          // usageLimit Field Functions 
+          bool hasUsageLimit() const { return this->usageLimit_ != nullptr;};
+          void deleteUsageLimit() { this->usageLimit_ = nullptr;};
+          inline int64_t getUsageLimit() const { DARABONBA_PTR_GET_DEFAULT(usageLimit_, 0L) };
+          inline Quota& setUsageLimit(int64_t usageLimit) { DARABONBA_PTR_SET_VALUE(usageLimit_, usageLimit) };
+
+
+        protected:
+          // Specifies whether to enable token quota. Defaults to true if not specified. Set to false to disable and delete existing quota rules.
+          shared_ptr<bool> enabled_ {};
+          // The quota limit type. Required by backend validation when quota is enabled. Fixed value: token.
+          shared_ptr<string> limitType_ {};
+          // The quota statistical period. Required by backend validation when quota is enabled. Valid values: day (daily) and month (monthly).
+          shared_ptr<string> periodType_ {};
+          // The maximum number of tokens that can be consumed within a single period. Required by backend validation when quota is enabled. The value must be greater than 0.
+          shared_ptr<int64_t> usageLimit_ {};
+        };
+
         virtual bool empty() const override { return this->modelConnectionId_ == nullptr
-        && this->modelName_ == nullptr; };
+        && this->modelName_ == nullptr && this->quota_ == nullptr; };
         // modelConnectionId Field Functions 
         bool hasModelConnectionId() const { return this->modelConnectionId_ != nullptr;};
         void deleteModelConnectionId() { this->modelConnectionId_ = nullptr;};
@@ -280,6 +347,15 @@ namespace Models
         inline Model& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
+        // quota Field Functions 
+        bool hasQuota() const { return this->quota_ != nullptr;};
+        void deleteQuota() { this->quota_ = nullptr;};
+        inline const Model::Quota & getQuota() const { DARABONBA_PTR_GET_CONST(quota_, Model::Quota) };
+        inline Model::Quota getQuota() { DARABONBA_PTR_GET(quota_, Model::Quota) };
+        inline Model& setQuota(const Model::Quota & quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
+        inline Model& setQuota(Model::Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
+
+
       protected:
         // The model connection ID.
         // 
@@ -289,6 +365,8 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<string> modelName_ {};
+        // The model token quota configuration. If not specified, no quota is configured.
+        shared_ptr<Model::Quota> quota_ {};
       };
 
       virtual bool empty() const override { return this->description_ == nullptr
@@ -365,10 +443,9 @@ namespace Models
       shared_ptr<string> instruction_ {};
       // The model configuration. Available only when modelSource is set to PLATFORM.
       shared_ptr<Body::Model> model_ {};
-      // The source of the model configuration. Valid values:
-      // 
-      // - PLATFORM: The platform parses and delivers the model configuration.
-      // - RUNTIME: The external runtime manages the model on its own. You cannot specify model at the same time.
+      // The model configuration source. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model independently, and the model parameter cannot be specified at the same time. Valid values:
+      // - PLATFORM: platform model.
+      // - RUNTIME: runtime model.
       shared_ptr<string> modelSource_ {};
       // The name of the external agent.
       // 
@@ -403,7 +480,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateExternalAgentRequest::Body> body_ {};
-    // The reserved idempotency token. The backend does not provide idempotency guarantees in the current version.
+    // The reserved idempotency token. The backend does not provide idempotency guarantee in the current phase.
     shared_ptr<string> clientToken_ {};
   };
 

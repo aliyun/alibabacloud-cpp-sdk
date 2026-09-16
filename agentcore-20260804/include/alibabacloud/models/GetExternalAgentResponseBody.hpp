@@ -279,10 +279,12 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Model& obj) { 
           DARABONBA_PTR_TO_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_TO_JSON(modelName, modelName_);
+          DARABONBA_PTR_TO_JSON(quota, quota_);
         };
         friend void from_json(const Darabonba::Json& j, Model& obj) { 
           DARABONBA_PTR_FROM_JSON(modelConnectionId, modelConnectionId_);
           DARABONBA_PTR_FROM_JSON(modelName, modelName_);
+          DARABONBA_PTR_FROM_JSON(quota, quota_);
         };
         Model() = default ;
         Model(const Model &) = default ;
@@ -295,8 +297,101 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Quota : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Quota& obj) { 
+            DARABONBA_PTR_TO_JSON(enabled, enabled_);
+            DARABONBA_PTR_TO_JSON(limitType, limitType_);
+            DARABONBA_PTR_TO_JSON(overLimit, overLimit_);
+            DARABONBA_PTR_TO_JSON(periodType, periodType_);
+            DARABONBA_PTR_TO_JSON(ruleStatus, ruleStatus_);
+            DARABONBA_PTR_TO_JSON(usageLimit, usageLimit_);
+            DARABONBA_PTR_TO_JSON(usedAmount, usedAmount_);
+          };
+          friend void from_json(const Darabonba::Json& j, Quota& obj) { 
+            DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+            DARABONBA_PTR_FROM_JSON(limitType, limitType_);
+            DARABONBA_PTR_FROM_JSON(overLimit, overLimit_);
+            DARABONBA_PTR_FROM_JSON(periodType, periodType_);
+            DARABONBA_PTR_FROM_JSON(ruleStatus, ruleStatus_);
+            DARABONBA_PTR_FROM_JSON(usageLimit, usageLimit_);
+            DARABONBA_PTR_FROM_JSON(usedAmount, usedAmount_);
+          };
+          Quota() = default ;
+          Quota(const Quota &) = default ;
+          Quota(Quota &&) = default ;
+          Quota(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Quota() = default ;
+          Quota& operator=(const Quota &) = default ;
+          Quota& operator=(Quota &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->enabled_ == nullptr
+        && this->limitType_ == nullptr && this->overLimit_ == nullptr && this->periodType_ == nullptr && this->ruleStatus_ == nullptr && this->usageLimit_ == nullptr
+        && this->usedAmount_ == nullptr; };
+          // enabled Field Functions 
+          bool hasEnabled() const { return this->enabled_ != nullptr;};
+          void deleteEnabled() { this->enabled_ = nullptr;};
+          inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+          inline Quota& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+          // limitType Field Functions 
+          bool hasLimitType() const { return this->limitType_ != nullptr;};
+          void deleteLimitType() { this->limitType_ = nullptr;};
+          inline string getLimitType() const { DARABONBA_PTR_GET_DEFAULT(limitType_, "") };
+          inline Quota& setLimitType(string limitType) { DARABONBA_PTR_SET_VALUE(limitType_, limitType) };
+
+
+          // overLimit Field Functions 
+          bool hasOverLimit() const { return this->overLimit_ != nullptr;};
+          void deleteOverLimit() { this->overLimit_ = nullptr;};
+          inline bool getOverLimit() const { DARABONBA_PTR_GET_DEFAULT(overLimit_, false) };
+          inline Quota& setOverLimit(bool overLimit) { DARABONBA_PTR_SET_VALUE(overLimit_, overLimit) };
+
+
+          // periodType Field Functions 
+          bool hasPeriodType() const { return this->periodType_ != nullptr;};
+          void deletePeriodType() { this->periodType_ = nullptr;};
+          inline string getPeriodType() const { DARABONBA_PTR_GET_DEFAULT(periodType_, "") };
+          inline Quota& setPeriodType(string periodType) { DARABONBA_PTR_SET_VALUE(periodType_, periodType) };
+
+
+          // ruleStatus Field Functions 
+          bool hasRuleStatus() const { return this->ruleStatus_ != nullptr;};
+          void deleteRuleStatus() { this->ruleStatus_ = nullptr;};
+          inline string getRuleStatus() const { DARABONBA_PTR_GET_DEFAULT(ruleStatus_, "") };
+          inline Quota& setRuleStatus(string ruleStatus) { DARABONBA_PTR_SET_VALUE(ruleStatus_, ruleStatus) };
+
+
+          // usageLimit Field Functions 
+          bool hasUsageLimit() const { return this->usageLimit_ != nullptr;};
+          void deleteUsageLimit() { this->usageLimit_ = nullptr;};
+          inline int64_t getUsageLimit() const { DARABONBA_PTR_GET_DEFAULT(usageLimit_, 0L) };
+          inline Quota& setUsageLimit(int64_t usageLimit) { DARABONBA_PTR_SET_VALUE(usageLimit_, usageLimit) };
+
+
+          // usedAmount Field Functions 
+          bool hasUsedAmount() const { return this->usedAmount_ != nullptr;};
+          void deleteUsedAmount() { this->usedAmount_ = nullptr;};
+          inline int64_t getUsedAmount() const { DARABONBA_PTR_GET_DEFAULT(usedAmount_, 0L) };
+          inline Quota& setUsedAmount(int64_t usedAmount) { DARABONBA_PTR_SET_VALUE(usedAmount_, usedAmount) };
+
+
+        protected:
+          shared_ptr<bool> enabled_ {};
+          shared_ptr<string> limitType_ {};
+          shared_ptr<bool> overLimit_ {};
+          shared_ptr<string> periodType_ {};
+          shared_ptr<string> ruleStatus_ {};
+          shared_ptr<int64_t> usageLimit_ {};
+          shared_ptr<int64_t> usedAmount_ {};
+        };
+
         virtual bool empty() const override { return this->modelConnectionId_ == nullptr
-        && this->modelName_ == nullptr; };
+        && this->modelName_ == nullptr && this->quota_ == nullptr; };
         // modelConnectionId Field Functions 
         bool hasModelConnectionId() const { return this->modelConnectionId_ != nullptr;};
         void deleteModelConnectionId() { this->modelConnectionId_ = nullptr;};
@@ -311,15 +406,21 @@ namespace Models
         inline Model& setModelName(string modelName) { DARABONBA_PTR_SET_VALUE(modelName_, modelName) };
 
 
+        // quota Field Functions 
+        bool hasQuota() const { return this->quota_ != nullptr;};
+        void deleteQuota() { this->quota_ = nullptr;};
+        inline const Model::Quota & getQuota() const { DARABONBA_PTR_GET_CONST(quota_, Model::Quota) };
+        inline Model::Quota getQuota() { DARABONBA_PTR_GET(quota_, Model::Quota) };
+        inline Model& setQuota(const Model::Quota & quota) { DARABONBA_PTR_SET_VALUE(quota_, quota) };
+        inline Model& setQuota(Model::Quota && quota) { DARABONBA_PTR_SET_RVALUE(quota_, quota) };
+
+
       protected:
         // The model connection ID.
-        // 
-        // This parameter is required.
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
-        // 
-        // This parameter is required.
         shared_ptr<string> modelName_ {};
+        shared_ptr<Model::Quota> quota_ {};
       };
 
       class ExternalAgentStatus : public Darabonba::Model {
