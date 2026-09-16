@@ -1,3 +1,7 @@
+2026-09-16 Version: 4.10.0
+- Support API ListKnowledgeFiles.
+
+
 2026-09-16 Version: 4.9.1
 - Generated cpp 2021-12-01 for adb.
 

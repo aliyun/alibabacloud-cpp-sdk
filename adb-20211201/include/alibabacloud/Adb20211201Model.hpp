@@ -627,6 +627,9 @@
 #include <alibabacloud/models/ListApsWebhookRequest.hpp>
 #include <alibabacloud/models/ListApsWebhookResponseBody.hpp>
 #include <alibabacloud/models/ListApsWebhookResponse.hpp>
+#include <alibabacloud/models/ListKnowledgeFilesRequest.hpp>
+#include <alibabacloud/models/ListKnowledgeFilesResponseBody.hpp>
+#include <alibabacloud/models/ListKnowledgeFilesResponse.hpp>
 #include <alibabacloud/models/ListKnowledgeTagsRequest.hpp>
 #include <alibabacloud/models/ListKnowledgeTagsResponseBody.hpp>
 #include <alibabacloud/models/ListKnowledgeTagsResponse.hpp>

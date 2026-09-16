@@ -12662,6 +12662,68 @@ ListApsWebhookResponse Client::listApsWebhook(const ListApsWebhookRequest &reque
 }
 
 /**
+ * @summary 查询知识库文件
+ *
+ * @param request ListKnowledgeFilesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListKnowledgeFilesResponse
+ */
+ListKnowledgeFilesResponse Client::listKnowledgeFilesWithOptions(const ListKnowledgeFilesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasFileIds()) {
+    query["FileIds"] = request.getFileIds();
+  }
+
+  if (!!request.hasPage()) {
+    query["Page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatus()) {
+    query["Status"] = request.getStatus();
+  }
+
+  if (!!request.hasUser()) {
+    query["User"] = request.getUser();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListKnowledgeFiles"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListKnowledgeFilesResponse>();
+}
+
+/**
+ * @summary 查询知识库文件
+ *
+ * @param request ListKnowledgeFilesRequest
+ * @return ListKnowledgeFilesResponse
+ */
+ListKnowledgeFilesResponse Client::listKnowledgeFiles(const ListKnowledgeFilesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listKnowledgeFilesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the tags of a knowledge base document.
  *
  * @param request ListKnowledgeTagsRequest

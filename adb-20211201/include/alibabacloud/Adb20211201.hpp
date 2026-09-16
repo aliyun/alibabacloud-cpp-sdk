@@ -4001,6 +4001,23 @@ namespace Adb20211201
       Models::ListApsWebhookResponse listApsWebhook(const Models::ListApsWebhookRequest &request);
 
       /**
+       * @summary 查询知识库文件
+       *
+       * @param request ListKnowledgeFilesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListKnowledgeFilesResponse
+       */
+      Models::ListKnowledgeFilesResponse listKnowledgeFilesWithOptions(const Models::ListKnowledgeFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询知识库文件
+       *
+       * @param request ListKnowledgeFilesRequest
+       * @return ListKnowledgeFilesResponse
+       */
+      Models::ListKnowledgeFilesResponse listKnowledgeFiles(const Models::ListKnowledgeFilesRequest &request);
+
+      /**
        * @summary Queries the tags of a knowledge base document.
        *
        * @param request ListKnowledgeTagsRequest
