@@ -117,9 +117,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the node was created successfully. Valid values:
+    // Indicates whether the node was created. Valid values:
     // 
-    // - **true**: The node was created successfully.
+    // - **true**: The node was created.
     // - **false**: The node failed to be created.
     shared_ptr<bool> success_ {};
   };

@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DataOffset, dataOffset_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(DispatcherSize, dispatcherSize_);
+      DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(ExecuteMode, executeMode_);
       DARABONBA_PTR_TO_JSON(FailEnable, failEnable_);
       DARABONBA_PTR_TO_JSON(FailTimes, failTimes_);
@@ -63,6 +64,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DataOffset, dataOffset_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(DispatcherSize, dispatcherSize_);
+      DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(ExecuteMode, executeMode_);
       DARABONBA_PTR_FROM_JSON(FailEnable, failEnable_);
       DARABONBA_PTR_FROM_JSON(FailTimes, failTimes_);
@@ -160,25 +162,25 @@ namespace Models
 
 
     protected:
-      // The webhook URL of the DingTalk chatbot for the alert contact\\"s DingTalk group. References: [DingTalk development documentation](https://open.dingtalk.com/document/org/application-types).
+      // The webhook URL of the DingTalk chatbot in the DingTalk group for alert contacts. References: [DingTalk development documentation](https://open.dingtalk.com/document/org/application-types).
       shared_ptr<string> ding_ {};
       // The email address of the alert contact.
       shared_ptr<string> userMail_ {};
       // The name of the alert contact.
       shared_ptr<string> userName_ {};
-      // The mobile phone number of the alert recipient.
+      // The phone number for receiving alerts.
       shared_ptr<string> userPhone_ {};
     };
 
     virtual bool empty() const override { return this->attemptInterval_ == nullptr
         && this->calendar_ == nullptr && this->className_ == nullptr && this->consumerSize_ == nullptr && this->contactInfo_ == nullptr && this->content_ == nullptr
-        && this->dataOffset_ == nullptr && this->description_ == nullptr && this->dispatcherSize_ == nullptr && this->executeMode_ == nullptr && this->failEnable_ == nullptr
-        && this->failTimes_ == nullptr && this->groupId_ == nullptr && this->jobType_ == nullptr && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr
-        && this->missWorkerEnable_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->namespaceSource_ == nullptr && this->pageSize_ == nullptr
-        && this->parameters_ == nullptr && this->priority_ == nullptr && this->queueSize_ == nullptr && this->regionId_ == nullptr && this->sendChannel_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->successNoticeEnable_ == nullptr && this->taskAttemptInterval_ == nullptr && this->taskMaxAttempt_ == nullptr
-        && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timeout_ == nullptr && this->timeoutEnable_ == nullptr && this->timeoutKillEnable_ == nullptr
-        && this->timezone_ == nullptr && this->XAttrs_ == nullptr; };
+        && this->dataOffset_ == nullptr && this->description_ == nullptr && this->dispatcherSize_ == nullptr && this->endTime_ == nullptr && this->executeMode_ == nullptr
+        && this->failEnable_ == nullptr && this->failTimes_ == nullptr && this->groupId_ == nullptr && this->jobType_ == nullptr && this->maxAttempt_ == nullptr
+        && this->maxConcurrency_ == nullptr && this->missWorkerEnable_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr && this->namespaceSource_ == nullptr
+        && this->pageSize_ == nullptr && this->parameters_ == nullptr && this->priority_ == nullptr && this->queueSize_ == nullptr && this->regionId_ == nullptr
+        && this->sendChannel_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->successNoticeEnable_ == nullptr && this->taskAttemptInterval_ == nullptr
+        && this->taskMaxAttempt_ == nullptr && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timeout_ == nullptr && this->timeoutEnable_ == nullptr
+        && this->timeoutKillEnable_ == nullptr && this->timezone_ == nullptr && this->XAttrs_ == nullptr; };
     // attemptInterval Field Functions 
     bool hasAttemptInterval() const { return this->attemptInterval_ != nullptr;};
     void deleteAttemptInterval() { this->attemptInterval_ = nullptr;};
@@ -242,6 +244,13 @@ namespace Models
     void deleteDispatcherSize() { this->dispatcherSize_ = nullptr;};
     inline int32_t getDispatcherSize() const { DARABONBA_PTR_GET_DEFAULT(dispatcherSize_, 0) };
     inline CreateJobRequest& setDispatcherSize(int32_t dispatcherSize) { DARABONBA_PTR_SET_VALUE(dispatcherSize_, dispatcherSize) };
+
+
+    // endTime Field Functions 
+    bool hasEndTime() const { return this->endTime_ != nullptr;};
+    void deleteEndTime() { this->endTime_ = nullptr;};
+    inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+    inline CreateJobRequest& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
     // executeMode Field Functions 
@@ -450,27 +459,29 @@ namespace Models
   protected:
     // The retry interval on failure. Unit: seconds. Default value: 30.
     shared_ptr<int32_t> attemptInterval_ {};
-    // The custom calendar. This parameter is available for the cron time type.
+    // The custom calendar. This parameter is optional for the cron time type.
     shared_ptr<string> calendar_ {};
     // The full path of the node interface class.
     // 
-    // This field is required only when you select the Java node type. Specify the full path.
+    // This field is available and required only when you select the Java node type. Specify the full path.
     shared_ptr<string> className_ {};
-    // The advanced configuration for parallel grid nodes. The number of threads triggered for a single execution on a single machine. Default value: 5.
+    // Advanced configuration for parallel grid nodes. The number of threads for a single trigger on a single machine. Default value: 5.
     shared_ptr<int32_t> consumerSize_ {};
     // The node contact information.
     // 
-    // >Notice: This field is deprecated.</notice>
+    // >Notice: This parameter is deprecated.
     shared_ptr<vector<CreateJobRequest::ContactInfo>> contactInfo_ {};
     // - If the node type is python, shell, or k8s, specify the corresponding script content.
     // - If the node type is golang, the content format example is {"jobName":"HelloWorld"}.
     shared_ptr<string> content_ {};
-    // The time offset. Unit: seconds. This parameter is available for the cron time type.
+    // The time offset for the cron time type. Unit: seconds.
     shared_ptr<int32_t> dataOffset_ {};
     // The node description.
     shared_ptr<string> description_ {};
-    // The advanced configuration for parallel grid nodes. The number of subtask dispatch threads. Default value: 5.
+    // Advanced configuration for parallel grid nodes. The number of threads for subtask dispatching. Default value: 5.
     shared_ptr<int32_t> dispatcherSize_ {};
+    // The node expiration timestamp in milliseconds. The value must be greater than the current time and the start time. A value of -1 indicates no expiration.
+    shared_ptr<int64_t> endTime_ {};
     // The node execution mode. The following execution modes are supported:
     // 
     // - **Standalone**: standalone
@@ -508,7 +519,7 @@ namespace Models
     shared_ptr<string> jobType_ {};
     // The maximum number of retries on failure. Set this parameter based on your business requirements. Default value: 0.
     shared_ptr<int32_t> maxAttempt_ {};
-    // The maximum number of concurrently running instances. Default value: 1. This means that if the previous trigger has not finished running, the next trigger is not performed even if the scheduled time arrives.
+    // The maximum number of concurrently running instances. Default value: 1. A value of 1 indicates that if the previous trigger has not finished running, the next trigger is skipped even if the scheduled time has arrived.
     shared_ptr<int32_t> maxConcurrency_ {};
     // Specifies whether to enable the no-available-machine alert. Valid values:
     // - **true**: Enables the no-available-machine alert.
@@ -524,7 +535,7 @@ namespace Models
     shared_ptr<string> namespace_ {};
     // This parameter is required only for special third-party users.
     shared_ptr<string> namespaceSource_ {};
-    // The advanced configuration for parallel grid nodes. The number of subtasks pulled in a single request. Default value: 100.
+    // Advanced configuration for parallel grid nodes. The number of subtasks pulled per request. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The user-defined parameters that can be obtained at runtime.
     shared_ptr<string> parameters_ {};
@@ -534,7 +545,7 @@ namespace Models
     // - **10**: high
     // - **15**: very high
     shared_ptr<int32_t> priority_ {};
-    // The advanced configuration for parallel grid nodes. The maximum cache size of the subtask queue. Default value: 10000.
+    // Advanced configuration for parallel grid nodes. The maximum number of subtasks that can be cached in the queue. Default value: 10000.
     shared_ptr<int32_t> queueSize_ {};
     // The region ID.
     // 
@@ -543,24 +554,25 @@ namespace Models
     // The alert notification channel.
     // 
     // - Use the default channel of the application group: default.
-    // - Specify a notification channel for the node: sms, mail, phone, or webhook.
+    // - Specify the notification channel for the node: sms,mail,phone,webhook.
     shared_ptr<string> sendChannel_ {};
+    // The start timestamp in milliseconds. The value must be greater than the current time. A value of -1 indicates immediate start.
     shared_ptr<int64_t> startTime_ {};
-    // The node status. Valid values: 0: disabled. 1: enabled. Default value: 1 (enabled).
+    // The node status. 0: disabled. 1: enabled. Default value: enabled.
     shared_ptr<int32_t> status_ {};
     // Specifies whether to enable the success notification.
     shared_ptr<bool> successNoticeEnable_ {};
-    // The advanced configuration for parallel grid nodes. The retry interval for a failed subtask. Default value: 0.
+    // Advanced configuration for parallel grid nodes. The retry interval for a subtask on failure. Default value: 0.
     shared_ptr<int32_t> taskAttemptInterval_ {};
-    // The advanced configuration for parallel grid nodes. The number of retries for a failed subtask. Default value: 0.
+    // Advanced configuration for parallel grid nodes. The maximum number of retries for a subtask on failure. Default value: 0.
     shared_ptr<int32_t> taskMaxAttempt_ {};
     // The time expression. Set the time expression based on the selected time type.
     // 
     // - **cron**: Specify a standard cron expression. Online verification is supported.
     // - **api**: No time expression is required.
     // - **fixed_rate**: Specify a fixed frequency value in seconds. For example, 30 indicates that the node is triggered every 30 seconds.
-    // - **second_delay**: Specify a fixed delay in seconds before each execution (1s to 60s).
-    // - **one_time**: Specify a time in the format of yyyy-MM-dd HH:mm:ss or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
+    // - **second_delay**: Specify a fixed delay in seconds before each execution (valid values: 1 to 60).
+    // - **one_time**: Specify a time in the yyyy-MM-dd HH:mm:ss format or a timestamp in milliseconds. For example, "2022-10-10 10:10:00".
     shared_ptr<string> timeExpression_ {};
     // The time type. The following time types are supported:
     // 

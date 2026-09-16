@@ -23,26 +23,26 @@ AlibabaCloud::Schedulerx220190430::Client::Client(Config &config): OpenApiClient
     {"cn-hangzhou" , "schedulerx.cn-hangzhou.aliyuncs.com"},
     {"cn-shanghai" , "schedulerx.cn-shanghai.aliyuncs.com"},
     {"cn-shenzhen" , "schedulerx.cn-shenzhen.aliyuncs.com"},
+    {"ap-southeast-8" , "schedulerx.aliyuncs.com"},
+    {"cn-wulanchabu" , "schedulerx.aliyuncs.com"},
+    {"ap-northeast-1" , "schedulerx.aliyuncs.com"},
+    {"cn-chengdu" , "schedulerx.aliyuncs.com"},
+    {"cn-qingdao" , "schedulerx.aliyuncs.com"},
+    {"cn-guangzhou" , "schedulerx.aliyuncs.com"},
+    {"cn-hongkong" , "schedulerx.aliyuncs.com"},
+    {"ap-southeast-1" , "schedulerx.aliyuncs.com"},
+    {"ap-southeast-3" , "schedulerx.aliyuncs.com"},
+    {"cn-huhehaote" , "schedulerx.aliyuncs.com"},
+    {"ap-southeast-5" , "schedulerx.aliyuncs.com"},
+    {"ap-southeast-6" , "schedulerx.aliyuncs.com"},
+    {"cn-zhangjiakou" , "schedulerx.aliyuncs.com"},
+    {"ap-southeast-7" , "schedulerx.aliyuncs.com"},
     {"us-west-1" , "schedulerx.aliyuncs.com"},
     {"us-east-1" , "schedulerx.aliyuncs.com"},
-    {"public" , "schedulerx.aliyuncs.com"},
-    {"eu-west-1" , "schedulerx.aliyuncs.com"},
     {"eu-central-1" , "schedulerx.aliyuncs.com"},
-    {"cn-zhangjiakou" , "schedulerx.aliyuncs.com"},
-    {"cn-wulanchabu" , "schedulerx.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "schedulerx.aliyuncs.com"},
-    {"cn-qingdao" , "schedulerx.aliyuncs.com"},
-    {"cn-huhehaote" , "schedulerx.aliyuncs.com"},
-    {"cn-hongkong" , "schedulerx.aliyuncs.com"},
-    {"cn-guangzhou" , "schedulerx.aliyuncs.com"},
-    {"cn-chengdu" , "schedulerx.aliyuncs.com"},
-    {"ap-southeast-8" , "schedulerx.aliyuncs.com"},
-    {"ap-southeast-7" , "schedulerx.aliyuncs.com"},
-    {"ap-southeast-6" , "schedulerx.aliyuncs.com"},
-    {"ap-southeast-5" , "schedulerx.aliyuncs.com"},
-    {"ap-southeast-3" , "schedulerx.aliyuncs.com"},
-    {"ap-southeast-1" , "schedulerx.aliyuncs.com"},
-    {"ap-northeast-1" , "schedulerx.aliyuncs.com"}
+    {"eu-west-1" , "schedulerx.aliyuncs.com"},
+    {"public" , "schedulerx.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "schedulerx.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("schedulerx2", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -442,6 +442,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 
   if (!!request.hasDispatcherSize()) {
     body["DispatcherSize"] = request.getDispatcherSize();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasExecuteMode()) {
@@ -1584,7 +1588,7 @@ GetAppGroupResponse Client::getAppGroup(const GetAppGroupRequest &request) {
 }
 
 /**
- * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+ * @summary Retrieves the details of a specified node by job ID. This operation is typically used to update a node.
  *
  * @param request GetJobInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1611,7 +1615,7 @@ GetJobInfoResponse Client::getJobInfoWithOptions(const GetJobInfoRequest &reques
 }
 
 /**
- * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+ * @summary Retrieves the details of a specified node by job ID. This operation is typically used to update a node.
  *
  * @param request GetJobInfoRequest
  * @return GetJobInfoResponse
@@ -2116,7 +2120,7 @@ ListJobScriptHistoryResponse Client::listJobScriptHistory(const ListJobScriptHis
 }
 
 /**
- * @summary Retrieves a list of nodes.
+ * @summary Retrieves a list of jobs.
  *
  * @description Before calling this operation, add the following dependency to the POM file:
  * ```
@@ -2152,7 +2156,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 }
 
 /**
- * @summary Retrieves a list of nodes.
+ * @summary Retrieves a list of jobs.
  *
  * @description Before calling this operation, add the following dependency to the POM file:
  * ```
@@ -3198,7 +3202,7 @@ UpdateAppGroupResponse Client::updateAppGroup(const UpdateAppGroupRequest &reque
 }
 
 /**
- * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
+ * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields before making modifications.
  *
  * @param request UpdateJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3250,6 +3254,10 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &request, 
 
   if (!!request.hasDispatcherSize()) {
     body["DispatcherSize"] = request.getDispatcherSize();
+  }
+
+  if (!!request.hasEndTime()) {
+    body["EndTime"] = request.getEndTime();
   }
 
   if (!!request.hasExecuteMode()) {
@@ -3383,7 +3391,7 @@ UpdateJobResponse Client::updateJobWithOptions(const UpdateJobRequest &request, 
 }
 
 /**
- * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
+ * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields before making modifications.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse

@@ -542,7 +542,7 @@ namespace Schedulerx220190430
       Models::GetAppGroupResponse getAppGroup(const Models::GetAppGroupRequest &request);
 
       /**
-       * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+       * @summary Retrieves the details of a specified node by job ID. This operation is typically used to update a node.
        *
        * @param request GetJobInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -551,7 +551,7 @@ namespace Schedulerx220190430
       Models::GetJobInfoResponse getJobInfoWithOptions(const Models::GetJobInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a job based on the job ID. In most cases, the obtained information is used to update jobs.
+       * @summary Retrieves the details of a specified node by job ID. This operation is typically used to update a node.
        *
        * @param request GetJobInfoRequest
        * @return GetJobInfoResponse
@@ -747,7 +747,7 @@ namespace Schedulerx220190430
       Models::ListJobScriptHistoryResponse listJobScriptHistory(const Models::ListJobScriptHistoryRequest &request);
 
       /**
-       * @summary Retrieves a list of nodes.
+       * @summary Retrieves a list of jobs.
        *
        * @description Before calling this operation, add the following dependency to the POM file:
        * ```
@@ -765,7 +765,7 @@ namespace Schedulerx220190430
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of nodes.
+       * @summary Retrieves a list of jobs.
        *
        * @description Before calling this operation, add the following dependency to the POM file:
        * ```
@@ -1085,7 +1085,7 @@ namespace Schedulerx220190430
       Models::UpdateAppGroupResponse updateAppGroup(const Models::UpdateAppGroupRequest &request);
 
       /**
-       * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
+       * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields before making modifications.
        *
        * @param request UpdateJobRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1094,7 +1094,7 @@ namespace Schedulerx220190430
       Models::UpdateJobResponse updateJobWithOptions(const Models::UpdateJobRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields to modify.
+       * @summary Updates the configuration of a node. By default, call the get node operation first to find the corresponding fields before making modifications.
        *
        * @param request UpdateJobRequest
        * @return UpdateJobResponse

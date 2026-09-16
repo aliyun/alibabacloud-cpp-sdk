@@ -84,21 +84,21 @@ namespace Models
 
 
   protected:
-    // The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
+    // The application ID. You can obtain the ID on the Application Management page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The job ID. You can obtain the job ID on the Task Management page in the SchedulerX console.
+    // The node ID. You can obtain the ID on the Task Management page in the console.
     // 
     // This parameter is required.
     shared_ptr<int64_t> jobId_ {};
-    // The job name.
+    // The node name.
     shared_ptr<string> jobName_ {};
-    // The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+    // The namespace ID. You can obtain the ID on the Namespace page in the console.
     // 
     // This parameter is required.
     shared_ptr<string> namespace_ {};
-    // The namespace source. This parameter is required only for a special third party.
+    // This parameter is required only for special third-party users.
     shared_ptr<string> namespaceSource_ {};
     // The region ID.
     // 

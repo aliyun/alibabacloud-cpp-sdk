@@ -70,6 +70,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ClassName, className_);
           DARABONBA_PTR_TO_JSON(Content, content_);
           DARABONBA_PTR_TO_JSON(Description, description_);
+          DARABONBA_PTR_TO_JSON(EndTime, endTime_);
           DARABONBA_PTR_TO_JSON(ExecuteMode, executeMode_);
           DARABONBA_PTR_TO_JSON(JarUrl, jarUrl_);
           DARABONBA_PTR_TO_JSON(JobId, jobId_);
@@ -90,6 +91,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ClassName, className_);
           DARABONBA_PTR_FROM_JSON(Content, content_);
           DARABONBA_PTR_FROM_JSON(Description, description_);
+          DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
           DARABONBA_PTR_FROM_JSON(ExecuteMode, executeMode_);
           DARABONBA_PTR_FROM_JSON(JarUrl, jarUrl_);
           DARABONBA_PTR_FROM_JSON(JobId, jobId_);
@@ -174,19 +176,19 @@ namespace Models
         protected:
           // The custom calendar that can be specified for the cron type.
           shared_ptr<string> calendar_ {};
-          // The time offset that can be specified for the cron type, in seconds.
+          // The time offset that can be specified for the cron type. Unit: seconds.
           shared_ptr<int32_t> dataOffset_ {};
-          // The time expression. Valid values:
+          // The time expression. The following time expression types are supported:
           // 
           // - **api**: No time expression.
           // 
-          // - **fix_rate**: A specific fixed frequency value. For example, 30 indicates that the node is triggered every 30 seconds.
+          // - **fix_rate**: A fixed frequency value. For example, 30 indicates that the job is triggered every 30 seconds.
           // 
           // - **cron**: A standard cron expression.
           // 
           // - **second_delay**: A fixed delay in seconds before each execution (1s to 60s).
           shared_ptr<string> timeExpression_ {};
-          // The time configuration type. Valid values:
+          // The time configuration type. The following time types are supported:
           // 
           // - **1**: cron
           // 
@@ -276,13 +278,13 @@ namespace Models
           shared_ptr<int32_t> consumerSize_ {};
           // The number of subtask dispatch threads. Default value: 5.
           shared_ptr<int32_t> dispatcherSize_ {};
-          // The number of subtasks pulled per batch for a parallel node. Default value: 100.
+          // The number of subtasks pulled per request for parallel jobs. Default value: 100.
           shared_ptr<int32_t> pageSize_ {};
           // The upper limit of the subtask queue cache. Default value: 10000.
           shared_ptr<int32_t> queueSize_ {};
-          // The retry interval for a subtask on failure.
+          // The retry interval for failed subtasks.
           shared_ptr<int32_t> taskAttemptInterval_ {};
-          // The number of retries for a subtask on failure.
+          // The maximum number of retries for failed subtasks.
           shared_ptr<int32_t> taskMaxAttempt_ {};
         };
 
@@ -381,25 +383,25 @@ namespace Models
 
 
           protected:
-            // Specifies whether to enable the failure alert switch. Valid values:
+            // Indicates whether the failure alert is enabled. Valid values:
             // 
             // - **true**: Enabled.
             // 
             // - **false**: Disabled.
             shared_ptr<bool> failEnable_ {};
-            // Specifies whether to enable the no-available-machine alert.
+            // Indicates whether the no-available-machine alert is enabled.
             shared_ptr<bool> missWorkerEnable_ {};
             // The alert notification method. Currently, only sms is supported.
             shared_ptr<string> sendChannel_ {};
-            // The timeout threshold, in seconds. Default value: 7200.
+            // The timeout threshold. Unit: seconds. Default value: 7200.
             shared_ptr<int64_t> timeout_ {};
-            // Specifies whether to enable the timeout alert switch. Valid values:
+            // Indicates whether the timeout alert is enabled. Valid values:
             // 
             // - **true**: Enabled.
             // 
             // - **false**: Disabled.
             shared_ptr<bool> timeoutEnable_ {};
-            // Specifies whether to enable the timeout termination switch for the current trigger. This is disabled by default. Valid values:
+            // Specifies whether to terminate the current trigger upon timeout. This feature is disabled by default. Valid values:
             // 
             // - **true**: Enabled.
             // 
@@ -496,15 +498,15 @@ namespace Models
         protected:
           // The contact information.
           shared_ptr<vector<JobMonitorInfo::ContactInfo>> contactInfo_ {};
-          // The alert switch and threshold configuration.
+          // The alert switch and threshold configurations.
           shared_ptr<JobMonitorInfo::MonitorConfig> monitorConfig_ {};
         };
 
         virtual bool empty() const override { return this->attemptInterval_ == nullptr
-        && this->className_ == nullptr && this->content_ == nullptr && this->description_ == nullptr && this->executeMode_ == nullptr && this->jarUrl_ == nullptr
-        && this->jobId_ == nullptr && this->jobMonitorInfo_ == nullptr && this->jobType_ == nullptr && this->mapTaskXAttrs_ == nullptr && this->maxAttempt_ == nullptr
-        && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->parameters_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr
-        && this->timeConfig_ == nullptr && this->XAttrs_ == nullptr; };
+        && this->className_ == nullptr && this->content_ == nullptr && this->description_ == nullptr && this->endTime_ == nullptr && this->executeMode_ == nullptr
+        && this->jarUrl_ == nullptr && this->jobId_ == nullptr && this->jobMonitorInfo_ == nullptr && this->jobType_ == nullptr && this->mapTaskXAttrs_ == nullptr
+        && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr && this->parameters_ == nullptr && this->startTime_ == nullptr
+        && this->status_ == nullptr && this->timeConfig_ == nullptr && this->XAttrs_ == nullptr; };
         // attemptInterval Field Functions 
         bool hasAttemptInterval() const { return this->attemptInterval_ != nullptr;};
         void deleteAttemptInterval() { this->attemptInterval_ = nullptr;};
@@ -531,6 +533,13 @@ namespace Models
         void deleteDescription() { this->description_ = nullptr;};
         inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
         inline Jobs& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+        // endTime Field Functions 
+        bool hasEndTime() const { return this->endTime_ != nullptr;};
+        void deleteEndTime() { this->endTime_ = nullptr;};
+        inline int64_t getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, 0L) };
+        inline Jobs& setEndTime(int64_t endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
 
 
         // executeMode Field Functions 
@@ -638,15 +647,17 @@ namespace Models
 
 
       protected:
-        // The retry interval on error, in seconds. Default value: 30.
+        // The error retry interval. Unit: seconds. Default value: 30.
         shared_ptr<int32_t> attemptInterval_ {};
-        // The full path of the node interface class. This field is returned only when the node is of the Java type.
+        // The full path of the job interface class. This field is returned only when the job is of the Java type.
         shared_ptr<string> className_ {};
-        // The script code content for Python, Shell, or Go node types.
+        // The script code content for Python, Shell, or Go job types.
         shared_ptr<string> content_ {};
-        // The node description.
+        // The job description.
         shared_ptr<string> description_ {};
-        // The node execution mode. Valid values:
+        // The job expiration time.
+        shared_ptr<int64_t> endTime_ {};
+        // The job execution mode. Valid values:
         // 
         // - **standalone**: standalone
         // 
@@ -662,32 +673,33 @@ namespace Models
         shared_ptr<string> executeMode_ {};
         // The full path of the JAR package in OSS.
         shared_ptr<string> jarUrl_ {};
-        // The node ID.
+        // The job ID.
         shared_ptr<int64_t> jobId_ {};
-        // The node monitoring information.
+        // The job monitoring information.
         shared_ptr<Jobs::JobMonitorInfo> jobMonitorInfo_ {};
-        // The node type.
+        // The job type.
         shared_ptr<string> jobType_ {};
-        // The advanced configuration. This is used only for parallel computing, memory grid, and grid computing.
+        // The advanced configurations. This parameter is applicable only to parallel computing, memory grid, and grid computing.
         shared_ptr<Jobs::MapTaskXAttrs> mapTaskXAttrs_ {};
-        // The maximum number of retries on error. Set this based on business requirements. Default value: 0.
+        // The maximum number of error retries. Set this parameter based on your business requirements. Default value: 0.
         shared_ptr<int32_t> maxAttempt_ {};
-        // The maximum number of concurrently running instances. Default value: 1. This means that if the previous trigger has not finished running, the next trigger will not be initiated even if the scheduled time has arrived.
+        // The maximum number of concurrently running instances. Default value: 1. This means that if the previous trigger has not finished running, the next trigger is skipped even if the scheduled time has arrived.
         shared_ptr<string> maxConcurrency_ {};
-        // The node name.
+        // The job name.
         shared_ptr<string> name_ {};
-        // The user-defined parameters that can be obtained at runtime.
+        // The custom parameters that can be retrieved at runtime.
         shared_ptr<string> parameters_ {};
+        // The start timestamp in milliseconds. A value of -1 indicates immediate start.
         shared_ptr<int64_t> startTime_ {};
-        // The node status. Valid values:
+        // The job status. Valid values:
         // 
-        // - **1**: Enabled. The node can be triggered normally.
+        // - **1**: Enabled. The job can be triggered normally.
         // 
-        // - **0**: Disabled. The node will not be triggered.
+        // - **0**: Disabled. The job is not triggered.
         shared_ptr<int32_t> status_ {};
         // The time configuration information.
         shared_ptr<Jobs::TimeConfig> timeConfig_ {};
-        // The node extension field.
+        // The extended fields of the job.
         shared_ptr<string> XAttrs_ {};
       };
 
@@ -724,7 +736,7 @@ namespace Models
 
 
     protected:
-      // The node list and node details.
+      // The job list and job details.
       shared_ptr<vector<Data::Jobs>> jobs_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
@@ -776,17 +788,17 @@ namespace Models
   protected:
     // The request status code.
     shared_ptr<int32_t> code_ {};
-    // The node list information.
+    // The job list information.
     shared_ptr<ListJobsResponseBody::Data> data_ {};
-    // The error message. This parameter is returned only if an error occurs.
+    // The error message. This parameter is returned only when an error occurs.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
     // 
-    // - **true**: The call was successful.
+    // - **true**: Successful.
     // 
-    // - **false**: The call failed.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

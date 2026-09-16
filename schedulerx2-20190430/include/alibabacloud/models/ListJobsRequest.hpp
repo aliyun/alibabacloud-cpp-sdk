@@ -107,7 +107,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> groupId_ {};
-    // The node name.
+    // The job name.
     shared_ptr<string> jobName_ {};
     // The namespace. You can obtain the namespace on the **Namespace** page in the console.
     // 
@@ -123,7 +123,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The node status.
+    // The job status. Valid values:
     // 
     // - **0**: disabled
     // 
