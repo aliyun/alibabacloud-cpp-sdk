@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyPostPayModuleSwitchRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EdrModuleSwitch, edrModuleSwitch_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyPostPayModuleSwitchRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EdrModuleSwitch, edrModuleSwitch_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
@@ -194,7 +196,7 @@ namespace Models
       // - **0**: Disabled.
       // - **1**: Enabled.
       // 
-      // >Notice: The basic service module switch cannot be manually modified. This module is enabled when any other module is enabled, and is disabled when all other modules are disabled.
+      // >Notice: The basic service module switch cannot be manually modified. This module is in the enabling status when any other module is enabled, and is in the shutdown status only when all other modules are disabled.</notice>
       shared_ptr<int32_t> basicService_ {};
       // The cloud security configuration check module. Valid values:
       // - **0**: Disabled.
@@ -277,13 +279,20 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->edrModuleSwitch_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr
-        && this->postPayModuleSwitchObj_ == nullptr; };
+        && this->dryRun_ == nullptr && this->edrModuleSwitch_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr
+        && this->postPayModuleSwitch_ == nullptr && this->postPayModuleSwitchObj_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyPostPayModuleSwitchRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyPostPayModuleSwitchRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // edrModuleSwitch Field Functions 
@@ -335,6 +344,8 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform a dry run. Valid values: true: performs a check without executing the operation. false: executes the operation. Default value: false.
+    shared_ptr<bool> dryRun_ {};
     shared_ptr<ModifyPostPayModuleSwitchRequest::EdrModuleSwitch> edrModuleSwitch_ {};
     // Specifies whether to automatically bind new assets for host and container protection. Valid values:
     // 

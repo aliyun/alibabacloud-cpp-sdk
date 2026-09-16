@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BindUuidList, bindUuidList_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Criteria, criteria_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_TO_JSON(NtmVersion, ntmVersion_);
       DARABONBA_PTR_TO_JSON(PreBind, preBind_);
@@ -41,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BindUuidList, bindUuidList_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_FROM_JSON(NtmVersion, ntmVersion_);
       DARABONBA_PTR_FROM_JSON(PreBind, preBind_);
@@ -62,8 +64,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appCriteria_ == nullptr
         && this->authItem_ == nullptr && this->autoBind_ == nullptr && this->bindAll_ == nullptr && this->bindAppList_ == nullptr && this->bindAssetType_ == nullptr
-        && this->bindUuidList_ == nullptr && this->clientToken_ == nullptr && this->criteria_ == nullptr && this->logicalExp_ == nullptr && this->ntmVersion_ == nullptr
-        && this->preBind_ == nullptr && this->preBindOrderId_ == nullptr && this->resourceDirectoryUid_ == nullptr && this->unBindAppList_ == nullptr && this->unBindUuidList_ == nullptr; };
+        && this->bindUuidList_ == nullptr && this->clientToken_ == nullptr && this->criteria_ == nullptr && this->dryRun_ == nullptr && this->logicalExp_ == nullptr
+        && this->ntmVersion_ == nullptr && this->preBind_ == nullptr && this->preBindOrderId_ == nullptr && this->resourceDirectoryUid_ == nullptr && this->unBindAppList_ == nullptr
+        && this->unBindUuidList_ == nullptr; };
     // appCriteria Field Functions 
     bool hasAppCriteria() const { return this->appCriteria_ != nullptr;};
     void deleteAppCriteria() { this->appCriteria_ = nullptr;};
@@ -129,6 +132,13 @@ namespace Models
     void deleteCriteria() { this->criteria_ = nullptr;};
     inline string getCriteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
     inline ModifyServerlessAuthToMachineRequest& setCriteria(string criteria) { DARABONBA_PTR_SET_VALUE(criteria_, criteria) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyServerlessAuthToMachineRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // logicalExp Field Functions 
@@ -204,17 +214,19 @@ namespace Models
     // 
     // > Obtain the IDs by calling the [ListMachineApps](~~ListMachineApps~~) operation.
     shared_ptr<vector<string>> bindAppList_ {};
-    // The Asset Type. Valid values:
+    // The Asset Type for the operation. Valid values:
     // - **INSTANCE**: Instance.
     // - **APP**: Application.
     shared_ptr<string> bindAssetType_ {};
     // The list of asset UUIDs to bind.
     shared_ptr<vector<string>> bindUuidList_ {};
-    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The search conditions for assets. This parameter is in JSON format. Pay attention to the letter case when you enter the parameter.
+    // The search conditions for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
     // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
+    // Specifies whether to perform a dry run. true: performs only a check without executing the actual operation. false: performs the actual operation. Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // The logical relationship among multiple search conditions. Valid values:
     // - **OR**: Multiple conditions are evaluated using a logical OR.
     // - **AND**: Multiple conditions are evaluated using a logical AND.

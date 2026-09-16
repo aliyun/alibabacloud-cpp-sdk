@@ -573,7 +573,7 @@ namespace Sas20181203
       Models::ChangeAssetRefreshTaskConfigResponse changeAssetRefreshTaskConfig(const Models::ChangeAssetRefreshTaskConfigRequest &request);
 
       /**
-       * @summary Modifies the configuration of a cloud platform configuration check.
+       * @summary Modifies the configuration items for cloud platform configuration checks.
        *
        * @param tmpReq ChangeCheckConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -582,7 +582,7 @@ namespace Sas20181203
       Models::ChangeCheckConfigResponse changeCheckConfigWithOptions(const Models::ChangeCheckConfigRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration of a cloud platform configuration check.
+       * @summary Modifies the configuration items for cloud platform configuration checks.
        *
        * @param request ChangeCheckConfigRequest
        * @return ChangeCheckConfigResponse
@@ -1017,7 +1017,7 @@ namespace Sas20181203
       Models::CreateCustomizedDictResponse createCustomizedDict(const Models::CreateCustomizedDictRequest &request);
 
       /**
-       * @summary Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
+       * @summary Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
        *
        * @param request CreateCycleTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1026,7 +1026,7 @@ namespace Sas20181203
       Models::CreateCycleTaskResponse createCycleTaskWithOptions(const Models::CreateCycleTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
+       * @summary Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
        *
        * @param request CreateCycleTaskRequest
        * @return CreateCycleTaskResponse
@@ -1657,7 +1657,7 @@ namespace Sas20181203
       Models::CreateServiceTrailResponse createServiceTrail(const Models::CreateServiceTrailRequest &request);
 
       /**
-       * @summary Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
+       * @summary Creates a node to query alerting events triggered by the same rule or Alarm Metric.
        *
        * @param request CreateSimilarSecurityEventsQueryTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1666,7 +1666,7 @@ namespace Sas20181203
       Models::CreateSimilarSecurityEventsQueryTaskResponse createSimilarSecurityEventsQueryTaskWithOptions(const Models::CreateSimilarSecurityEventsQueryTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
+       * @summary Creates a node to query alerting events triggered by the same rule or Alarm Metric.
        *
        * @param request CreateSimilarSecurityEventsQueryTaskRequest
        * @return CreateSimilarSecurityEventsQueryTaskResponse
@@ -13050,7 +13050,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectMachineResponse listUnknownThreatDetectMachine(const Models::ListUnknownThreatDetectMachineRequest &request);
 
       /**
-       * @summary Retrieve the list of processes from unknown threat detections.
+       * @summary Queries the process list of intelligent behavior analytics.
        *
        * @param request ListUnknownThreatDetectProcessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13059,7 +13059,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectProcessResponse listUnknownThreatDetectProcessWithOptions(const Models::ListUnknownThreatDetectProcessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve the list of processes from unknown threat detections.
+       * @summary Queries the process list of intelligent behavior analytics.
        *
        * @param request ListUnknownThreatDetectProcessRequest
        * @return ListUnknownThreatDetectProcessResponse

@@ -98,6 +98,10 @@ AddAssetSelectionCriteriaResponse Client::addAssetSelectionCriteriaWithOptions(c
     query["CriteriaOperation"] = request.getCriteriaOperation();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasSelectionKey()) {
     query["SelectionKey"] = request.getSelectionKey();
   }
@@ -214,6 +218,10 @@ AddCheckInstanceResultWhiteListResponse Client::addCheckInstanceResultWhiteListW
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasInstanceIds()) {
     query["InstanceIds"] = request.getInstanceIds();
   }
@@ -274,6 +282,10 @@ AddCheckResultWhiteListResponse Client::addCheckResultWhiteListWithOptions(const
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasInstanceIds()) {
@@ -1780,6 +1792,10 @@ BindAuthToMachineResponse Client::bindAuthToMachineWithOptions(const BindAuthToM
     query["Criteria"] = request.getCriteria();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasIsPreBind()) {
     query["IsPreBind"] = request.getIsPreBind();
   }
@@ -1971,7 +1987,7 @@ ChangeAssetRefreshTaskConfigResponse Client::changeAssetRefreshTaskConfig(const 
 }
 
 /**
- * @summary Modifies the configuration of a cloud platform configuration check.
+ * @summary Modifies the configuration items for cloud platform configuration checks.
  *
  * @param tmpReq ChangeCheckConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2012,6 +2028,10 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
 
   if (!!request.hasCycleDays()) {
     query["CycleDays"] = request.getCycleDays();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEnableAddCheck()) {
@@ -2072,7 +2092,7 @@ ChangeCheckConfigResponse Client::changeCheckConfigWithOptions(const ChangeCheck
 }
 
 /**
- * @summary Modifies the configuration of a cloud platform configuration check.
+ * @summary Modifies the configuration items for cloud platform configuration checks.
  *
  * @param request ChangeCheckConfigRequest
  * @return ChangeCheckConfigResponse
@@ -2746,6 +2766,10 @@ CreateAssetSelectionConfigResponse Client::createAssetSelectionConfigWithOptions
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasPlatform()) {
@@ -3505,7 +3529,7 @@ CreateCustomizedDictResponse Client::createCustomizedDict(const CreateCustomized
 }
 
 /**
- * @summary Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
+ * @summary Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
  *
  * @param request CreateCycleTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3516,6 +3540,10 @@ CreateCycleTaskResponse Client::createCycleTaskWithOptions(const CreateCycleTask
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEnable()) {
@@ -3576,7 +3604,7 @@ CreateCycleTaskResponse Client::createCycleTaskWithOptions(const CreateCycleTask
 }
 
 /**
- * @summary Creates an epoch-based scan node, including image scans, emergency vulnerability scanning, and virus scans.
+ * @summary Creates an epoch scan task, including image scans, emergency vulnerability scans, and virus scans.
  *
  * @param request CreateCycleTaskRequest
  * @return CreateCycleTaskResponse
@@ -5340,6 +5368,10 @@ CreateOssScanConfigResponse Client::createOssScanConfigWithOptions(const CreateO
     query["DecryptionList"] = request.getDecryptionList();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasEnable()) {
     query["Enable"] = request.getEnable();
   }
@@ -5546,6 +5578,10 @@ CreateSasTrialResponse Client::createSasTrialWithOptions(const CreateSasTrialReq
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   json body = {};
   if (!!request.hasFromEcs()) {
     body["FromEcs"] = request.getFromEcs();
@@ -5610,6 +5646,10 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRoleWithOptions(const
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasServiceLinkedRole()) {
@@ -5699,7 +5739,7 @@ CreateServiceTrailResponse Client::createServiceTrail(const CreateServiceTrailRe
 }
 
 /**
- * @summary Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
+ * @summary Creates a node to query alerting events triggered by the same rule or Alarm Metric.
  *
  * @param request CreateSimilarSecurityEventsQueryTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5710,6 +5750,10 @@ CreateSimilarSecurityEventsQueryTaskResponse Client::createSimilarSecurityEvents
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasResourceDirectoryAccountId()) {
@@ -5750,7 +5794,7 @@ CreateSimilarSecurityEventsQueryTaskResponse Client::createSimilarSecurityEvents
 }
 
 /**
- * @summary Creates a node to query alerting events triggered by the same rule hits or Alarm Metric.
+ * @summary Creates a node to query alerting events triggered by the same rule or Alarm Metric.
  *
  * @param request CreateSimilarSecurityEventsQueryTaskRequest
  * @return CreateSimilarSecurityEventsQueryTaskResponse
@@ -6154,6 +6198,10 @@ CreateVirusScanOnceTaskResponse Client::createVirusScanOnceTaskWithOptions(const
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasParam()) {
@@ -40440,7 +40488,7 @@ ListUnknownThreatDetectMachineResponse Client::listUnknownThreatDetectMachine(co
 }
 
 /**
- * @summary Retrieve the list of processes from unknown threat detections.
+ * @summary Queries the process list of intelligent behavior analytics.
  *
  * @param request ListUnknownThreatDetectProcessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40489,6 +40537,10 @@ ListUnknownThreatDetectProcessResponse Client::listUnknownThreatDetectProcessWit
     query["Sha256"] = request.getSha256();
   }
 
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
   if (!!request.hasUuid()) {
     query["Uuid"] = request.getUuid();
   }
@@ -40511,7 +40563,7 @@ ListUnknownThreatDetectProcessResponse Client::listUnknownThreatDetectProcessWit
 }
 
 /**
- * @summary Retrieve the list of processes from unknown threat detections.
+ * @summary Queries the process list of intelligent behavior analytics.
  *
  * @param request ListUnknownThreatDetectProcessRequest
  * @return ListUnknownThreatDetectProcessResponse
@@ -42533,6 +42585,10 @@ ModifyCreateVulWhitelistResponse Client::modifyCreateVulWhitelistWithOptions(con
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasReason()) {
     query["Reason"] = request.getReason();
   }
@@ -42775,6 +42831,10 @@ ModifyEmgVulSubmitResponse Client::modifyEmgVulSubmitWithOptions(const ModifyEmg
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasLang()) {
@@ -43573,6 +43633,10 @@ ModifyNoticeConfigResponse Client::modifyNoticeConfigWithOptions(const ModifyNot
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasFocusLevel()) {
     query["FocusLevel"] = request.getFocusLevel();
   }
@@ -43695,6 +43759,10 @@ ModifyOperateVulResponse Client::modifyOperateVulWithOptions(const ModifyOperate
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasFrom()) {
     query["From"] = request.getFrom();
   }
@@ -43769,6 +43837,10 @@ ModifyPostPayModuleSwitchResponse Client::modifyPostPayModuleSwitchWithOptions(c
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasEdrModuleSwitchShrink()) {
@@ -44307,6 +44379,10 @@ ModifyServerlessAuthToMachineResponse Client::modifyServerlessAuthToMachineWithO
     query["Criteria"] = request.getCriteria();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasLogicalExp()) {
     query["LogicalExp"] = request.getLogicalExp();
   }
@@ -44425,6 +44501,10 @@ ModifyStartVulScanResponse Client::modifyStartVulScanWithOptions(const ModifySta
   json query = {};
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasResourceDirectoryAccountId()) {
@@ -44811,6 +44891,10 @@ ModifyVulConfigResponse Client::modifyVulConfigWithOptions(const ModifyVulConfig
 
   if (!!request.hasConfig()) {
     query["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasType()) {
@@ -45863,6 +45947,10 @@ OperateCommonOverallConfigResponse Client::operateCommonOverallConfigWithOptions
 
   if (!!request.hasConfig()) {
     query["Config"] = request.getConfig();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasNoTargetAsOn()) {
@@ -51567,6 +51655,10 @@ UpdatePostPaidBindRelResponse Client::updatePostPaidBindRelWithOptions(const Upd
     query["ClientToken"] = request.getClientToken();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasProductCode()) {
     query["ProductCode"] = request.getProductCode();
   }
@@ -51817,6 +51909,10 @@ UpdateSelectionKeyByTypeResponse Client::updateSelectionKeyByTypeWithOptions(con
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasSelectionKey()) {
@@ -52507,6 +52603,10 @@ VerifyCheckInstanceResultResponse Client::verifyCheckInstanceResultWithOptions(c
 
   if (!!request.hasClientToken()) {
     query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasInstanceIds()) {

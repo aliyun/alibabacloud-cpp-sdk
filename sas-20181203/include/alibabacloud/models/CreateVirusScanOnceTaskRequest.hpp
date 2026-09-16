@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateVirusScanOnceTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Param, param_);
       DARABONBA_PTR_TO_JSON(ScanPath, scanPath_);
       DARABONBA_PTR_TO_JSON(ScanType, scanType_);
@@ -22,6 +23,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateVirusScanOnceTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Param, param_);
       DARABONBA_PTR_FROM_JSON(ScanPath, scanPath_);
       DARABONBA_PTR_FROM_JSON(ScanType, scanType_);
@@ -39,12 +41,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->param_ == nullptr && this->scanPath_ == nullptr && this->scanType_ == nullptr && this->selectionKey_ == nullptr; };
+        && this->dryRun_ == nullptr && this->param_ == nullptr && this->scanPath_ == nullptr && this->scanType_ == nullptr && this->selectionKey_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateVirusScanOnceTaskRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateVirusScanOnceTaskRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // param Field Functions 
@@ -80,6 +89,12 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform only a dry run of the request. Valid values:
+    // - true: performs only a dry run without executing the actual operation.
+    // - false: performs the actual request.
+    // 
+    // Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // The extended information field:
     // - **additionType**: the extended scan type
     shared_ptr<string> param_ {};
@@ -87,7 +102,7 @@ namespace Models
     shared_ptr<vector<string>> scanPath_ {};
     // The scan type of the virus scan. Valid values:
     // - **system**: system scan
-    // - **user**: custom scan.
+    // - **user**: custom scan
     shared_ptr<string> scanType_ {};
     // The key that stores asset information.
     // > You can call the [GetAssetSelectionConfig](~~GetAssetSelectionConfig~~) operation to obtain this parameter.

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CheckGroupId, checkGroupId_);
       DARABONBA_PTR_TO_JSON(CheckId, checkId_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(InstanceList, instanceList_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CheckGroupId, checkGroupId_);
       DARABONBA_PTR_FROM_JSON(CheckId, checkId_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(InstanceList, instanceList_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
@@ -89,8 +91,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->checkGroupId_ == nullptr
-        && this->checkId_ == nullptr && this->clientToken_ == nullptr && this->instanceIds_ == nullptr && this->instanceList_ == nullptr && this->remark_ == nullptr
-        && this->ruleType_ == nullptr; };
+        && this->checkId_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->instanceIds_ == nullptr && this->instanceList_ == nullptr
+        && this->remark_ == nullptr && this->ruleType_ == nullptr; };
     // checkGroupId Field Functions 
     bool hasCheckGroupId() const { return this->checkGroupId_ != nullptr;};
     void deleteCheckGroupId() { this->checkGroupId_ = nullptr;};
@@ -110,6 +112,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline AddCheckInstanceResultWhiteListRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline AddCheckInstanceResultWhiteListRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // instanceIds Field Functions 
@@ -152,6 +161,8 @@ namespace Models
     shared_ptr<int64_t> checkId_ {};
     // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    shared_ptr<bool> dryRun_ {};
     // The collection of asset instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
     // The collection of asset instance information.

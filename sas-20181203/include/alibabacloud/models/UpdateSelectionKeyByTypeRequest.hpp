@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const UpdateSelectionKeyByTypeRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BusinessType, businessType_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(SelectionKey, selectionKey_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateSelectionKeyByTypeRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BusinessType, businessType_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(SelectionKey, selectionKey_);
     };
     UpdateSelectionKeyByTypeRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessType_ == nullptr
-        && this->clientToken_ == nullptr && this->selectionKey_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->selectionKey_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
@@ -47,6 +49,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdateSelectionKeyByTypeRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline UpdateSelectionKeyByTypeRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // selectionKey Field Functions 
@@ -67,6 +76,13 @@ namespace Models
     shared_ptr<string> businessType_ {};
     // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+    // 
+    // - true: performs only a dry run without performing the actual operation.
+    // - false: performs the actual request.
+    // 
+    // Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // The unique identifier of the asset selection.
     shared_ptr<string> selectionKey_ {};
   };

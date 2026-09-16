@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateCycleTaskRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Enable, enable_);
       DARABONBA_PTR_TO_JSON(FirstDateStr, firstDateStr_);
       DARABONBA_PTR_TO_JSON(IntervalPeriod, intervalPeriod_);
@@ -27,6 +28,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateCycleTaskRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Enable, enable_);
       DARABONBA_PTR_FROM_JSON(FirstDateStr, firstDateStr_);
       DARABONBA_PTR_FROM_JSON(IntervalPeriod, intervalPeriod_);
@@ -50,13 +52,21 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->enable_ == nullptr && this->firstDateStr_ == nullptr && this->intervalPeriod_ == nullptr && this->param_ == nullptr && this->periodUnit_ == nullptr
-        && this->source_ == nullptr && this->targetEndTime_ == nullptr && this->targetStartTime_ == nullptr && this->taskName_ == nullptr && this->taskType_ == nullptr; };
+        && this->dryRun_ == nullptr && this->enable_ == nullptr && this->firstDateStr_ == nullptr && this->intervalPeriod_ == nullptr && this->param_ == nullptr
+        && this->periodUnit_ == nullptr && this->source_ == nullptr && this->targetEndTime_ == nullptr && this->targetStartTime_ == nullptr && this->taskName_ == nullptr
+        && this->taskType_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateCycleTaskRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateCycleTaskRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // enable Field Functions 
@@ -132,6 +142,8 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual operation. false: performs the actual request. Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable the task. Valid values:
     // - **1**: Enable.
     // - **0**: Disable.
@@ -148,7 +160,7 @@ namespace Models
     shared_ptr<int32_t> intervalPeriod_ {};
     // The extended information field.
     // 
-    // Note: This parameter is actually required. If this parameter is not specified, the API returns an error. The value is a JSON-formatted string that must contain at least the targetInfo array.
+    // > Note: This parameter is required. If you do not specify this parameter, the API returns an error. The value is a JSON-formatted string that must contain at least the targetInfo array.
     shared_ptr<string> param_ {};
     // The unit of the scan period. Valid values:
     // - **day**: day.
@@ -156,13 +168,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};
-    // The source from which the task is added.
+    // The source from which the task is created.
     shared_ptr<string> source_ {};
-    // The task end time, in hours.
+    // The end time of the task, in hours.
     // 
     // This parameter is required.
     shared_ptr<int32_t> targetEndTime_ {};
-    // The task start time, in hours.
+    // The start time of the task, in hours.
     // 
     // This parameter is required.
     shared_ptr<int32_t> targetStartTime_ {};
@@ -170,10 +182,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
-    // The node type. Valid values:
+    // The task type. Valid values:
     // - **VIRUS_VUL_SCHEDULE_SCAN**: virus scan.
     // - **IMAGE_SCAN**: image scan.
-    // - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scanning.
+    // - **EMG_VUL_SCHEDULE_SCAN**: emergency vulnerability scan.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

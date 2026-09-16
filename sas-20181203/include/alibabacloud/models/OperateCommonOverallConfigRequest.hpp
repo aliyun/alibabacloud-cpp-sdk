@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const OperateCommonOverallConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Config, config_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(NoTargetAsOn, noTargetAsOn_);
       DARABONBA_PTR_TO_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_TO_JSON(Type, type_);
@@ -22,6 +23,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, OperateCommonOverallConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Config, config_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(NoTargetAsOn, noTargetAsOn_);
       DARABONBA_PTR_FROM_JSON(SourceIp, sourceIp_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->config_ == nullptr && this->noTargetAsOn_ == nullptr && this->sourceIp_ == nullptr && this->type_ == nullptr; };
+        && this->config_ == nullptr && this->dryRun_ == nullptr && this->noTargetAsOn_ == nullptr && this->sourceIp_ == nullptr && this->type_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -51,6 +53,13 @@ namespace Models
     void deleteConfig() { this->config_ = nullptr;};
     inline string getConfig() const { DARABONBA_PTR_GET_DEFAULT(config_, "") };
     inline OperateCommonOverallConfigRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline OperateCommonOverallConfigRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // noTargetAsOn Field Functions 
@@ -75,15 +84,17 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The switch status. Valid values:
     // 
-    // - **on**: Enabled.
-    // - **off**: Disabled.
+    // - **on**: enabled
+    // - **off**: disabled
     // 
     // This parameter is required.
     shared_ptr<string> config_ {};
+    // Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual request. false: performs the actual request. Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether asset configuration is required. Default value: **false**. Valid values:
     // - **true**: Required.
     // - **false**: Not required.
@@ -93,8 +104,8 @@ namespace Models
     shared_ptr<string> sourceIp_ {};
     // The configuration type. Valid values:
     // 
-    // - **kdump_switch**: proactive defense experience optimization
-    // - **threat_detect**: adaptive threat detection capability
+    // - **kdump_switch**: proactive defense optimization
+    // - **threat_detect**: adaptive threat detection
     // - **suspicious_aggregation**: alert association
     // - **alidetect**: file detection
     // - **USER-ENABLE-SWITCH-TYPE_38857**: Linux entry service performs high-risk operations
@@ -132,8 +143,8 @@ namespace Models
     // - **USER-ENABLE-SWITCH-TYPE_54369**: Windows creates WMI auto-start items
     // - **USER-ENABLE-SWITCH-TYPE_50869**: Linux privilege escalation to execute high-risk commands
     // - **USER-ENABLE-SWITCH-TYPE_53272**: Linux kernel vulnerability exploitation for privilege escalation
-    // - **USER-ENABLE-SWITCH-TYPE_54395**: Linux privilege escalation to read/write sensitive files
-    // - **USER-ENABLE-SWITCH-TYPE_57897**: Linux suspected privilege escalation behavior
+    // - **USER-ENABLE-SWITCH-TYPE_54395**: Linux privilege escalation to read or write sensitive files
+    // - **USER-ENABLE-SWITCH-TYPE_57897**: Linux suspected privilege escalation
     // - **USER-ENABLE-SWITCH-TYPE_52825**: Windows privilege escalation to execute high-risk commands
     // - **USER-ENABLE-SWITCH-TYPE_5507**: Linux malicious driver
     // - **USER-ENABLE-SWITCH-TYPE_50876**: Linux anti-security software

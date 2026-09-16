@@ -15,11 +15,13 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyVulConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Config, config_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyVulConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Config, config_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     ModifyVulConfigRequest() = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->config_ == nullptr && this->type_ == nullptr; };
+        && this->config_ == nullptr && this->dryRun_ == nullptr && this->type_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     inline ModifyVulConfigRequest& setConfig(string config) { DARABONBA_PTR_SET_VALUE(config_, config) };
 
 
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyVulConfigRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -57,17 +66,19 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // Specifies whether to enable or disable vulnerability detection. Valid values:
     // 
-    // - **on**: Enable vulnerability detection.
-    // - **off**: Disable vulnerability detection.
+    // - **on**: Enables vulnerability detection.
+    // - **off**: Disables vulnerability detection.
     // 
     // > If the type is set to real risk, valid values:
     // > - **real**: Real risk vulnerabilities.
     // > - **all**: All vulnerabilities.
     shared_ptr<string> config_ {};
+    // Specifies whether to perform only a dry run of the request. Valid values: true: performs only a dry run without performing the actual operation. false: performs the actual request. Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // The type of vulnerability to modify. Valid values:
     // 
     // - **cve**: Linux software vulnerability

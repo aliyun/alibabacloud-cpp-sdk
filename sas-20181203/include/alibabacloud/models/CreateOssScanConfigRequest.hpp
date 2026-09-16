@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DecompressMaxFileCount, decompressMaxFileCount_);
       DARABONBA_PTR_TO_JSON(DecompressMaxLayer, decompressMaxLayer_);
       DARABONBA_PTR_TO_JSON(DecryptionList, decryptionList_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Enable, enable_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(KeyPrefixList, keyPrefixList_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DecompressMaxFileCount, decompressMaxFileCount_);
       DARABONBA_PTR_FROM_JSON(DecompressMaxLayer, decompressMaxLayer_);
       DARABONBA_PTR_FROM_JSON(DecryptionList, decryptionList_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Enable, enable_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(KeyPrefixList, keyPrefixList_);
@@ -64,9 +66,9 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->allKeyPrefix_ == nullptr
         && this->autoAdd_ == nullptr && this->bucketNameList_ == nullptr && this->clientToken_ == nullptr && this->decompressMaxFileCount_ == nullptr && this->decompressMaxLayer_ == nullptr
-        && this->decryptionList_ == nullptr && this->enable_ == nullptr && this->endTime_ == nullptr && this->keyPrefixList_ == nullptr && this->keySuffixList_ == nullptr
-        && this->lastModifiedStartTime_ == nullptr && this->name_ == nullptr && this->realTimeIncr_ == nullptr && this->scanDayList_ == nullptr && this->source_ == nullptr
-        && this->startTime_ == nullptr; };
+        && this->decryptionList_ == nullptr && this->dryRun_ == nullptr && this->enable_ == nullptr && this->endTime_ == nullptr && this->keyPrefixList_ == nullptr
+        && this->keySuffixList_ == nullptr && this->lastModifiedStartTime_ == nullptr && this->name_ == nullptr && this->realTimeIncr_ == nullptr && this->scanDayList_ == nullptr
+        && this->source_ == nullptr && this->startTime_ == nullptr; };
     // allKeyPrefix Field Functions 
     bool hasAllKeyPrefix() const { return this->allKeyPrefix_ != nullptr;};
     void deleteAllKeyPrefix() { this->allKeyPrefix_ = nullptr;};
@@ -118,6 +120,13 @@ namespace Models
     inline vector<string> getDecryptionList() { DARABONBA_PTR_GET(decryptionList_, vector<string>) };
     inline CreateOssScanConfigRequest& setDecryptionList(const vector<string> & decryptionList) { DARABONBA_PTR_SET_VALUE(decryptionList_, decryptionList) };
     inline CreateOssScanConfigRequest& setDecryptionList(vector<string> && decryptionList) { DARABONBA_PTR_SET_RVALUE(decryptionList_, decryptionList) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateOssScanConfigRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // enable Field Functions 
@@ -213,6 +222,8 @@ namespace Models
     shared_ptr<int32_t> decompressMaxLayer_ {};
     // The list of decryption types.
     shared_ptr<vector<string>> decryptionList_ {};
+    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable the policy. Valid values:
     // - **1**: Enabled.
     // - **0**: Disabled.

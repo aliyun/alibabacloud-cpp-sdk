@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyCreateVulWhitelistRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Reason, reason_);
       DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(TargetInfo, targetInfo_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyCreateVulWhitelistRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Reason, reason_);
       DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(TargetInfo, targetInfo_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->reason_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->targetInfo_ == nullptr && this->whitelist_ == nullptr; };
+        && this->dryRun_ == nullptr && this->reason_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->targetInfo_ == nullptr && this->whitelist_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyCreateVulWhitelistRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyCreateVulWhitelistRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // reason Field Functions 
@@ -75,8 +84,14 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform only a dry run. Valid values:
+    // - true: performs only a dry run without executing the actual operation.
+    // - false: performs the actual operation.
+    // 
+    // Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // The reason for adding the vulnerability whitelist.
     shared_ptr<string> reason_ {};
     // The Alibaba Cloud account ID of the member accounts in the resource folder.
@@ -88,16 +103,16 @@ namespace Models
     //     - **Uuid**: host asset
     // - **uuids**: The collection of host asset UUIDs. The field type is String.
     // - **groupIds**: The collection of server group IDs. The field type is Long.
-    // > If this value is empty, the whitelist applies to all hosts. If **type** is set to **GroupId**, **groupIds** cannot be empty. If **type** is set to **Uuid**, **uuids** cannot be empty.
+    // > If this parameter is left empty, the whitelist takes effect on all hosts. If **type** is set to **GroupId**, **groupIds** cannot be empty. If **type** is set to **Uuid**, **uuids** cannot be empty.
     shared_ptr<string> targetInfo_ {};
     // The information about the vulnerability to add to the whitelist. The value is a JSON string that contains the following fields:
     // 
-    // - **Status**: The vulnerability status.
+    // - **Status**: The status of the vulnerability.
     // - **GmtLast**: The timestamp when the vulnerability was last detected. Unit: milliseconds.
     // - **LaterCount**: The number of medium-priority vulnerabilities.
     // - **AsapCount**: The number of high-priority vulnerabilities.
-    // - **Name**: The vulnerability name.
-    // - **Type**: The vulnerability type. Valid values:
+    // - **Name**: The name of the vulnerability.
+    // - **Type**: The type of the vulnerability. Valid values:
     // 
     //     - **cve**: Linux software vulnerability
     //     - **sys**: Windows system vulnerability
@@ -111,7 +126,7 @@ namespace Models
     // - **RuleModifyTime**: The time when the vulnerability was last published.
     // - **NntfCount**: The number of low-priority vulnerabilities.
     // - **TotalFixCount**: The total number of fixed vulnerabilities.
-    // - **Tags**: The vulnerability tags.
+    // - **Tags**: The tags of the vulnerability.
     // 
     // > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) operation to obtain the vulnerability information to add to the whitelist.
     // 

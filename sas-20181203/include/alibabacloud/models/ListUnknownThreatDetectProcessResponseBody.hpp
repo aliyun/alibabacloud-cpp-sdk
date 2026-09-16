@@ -92,9 +92,9 @@ namespace Models
     protected:
       // The number of entries on the current page.
       shared_ptr<string> count_ {};
-      // The current page number.
+      // The page number of the current page in a paged query. This is used for paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries to return on each page.
+      // The maximum number of entries per page in a paged query. This is used for paging.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
@@ -112,6 +112,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ProcessPath, processPath_);
         DARABONBA_PTR_TO_JSON(Remark, remark_);
         DARABONBA_PTR_TO_JSON(Sha256, sha256_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(AnalyzeResult, analyzeResult_);
@@ -123,6 +124,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ProcessPath, processPath_);
         DARABONBA_PTR_FROM_JSON(Remark, remark_);
         DARABONBA_PTR_FROM_JSON(Sha256, sha256_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
       };
       Data() = default ;
       Data(const Data &) = default ;
@@ -135,9 +137,53 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(TagEn, tagEn_);
+          DARABONBA_PTR_TO_JSON(TagZh, tagZh_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(TagEn, tagEn_);
+          DARABONBA_PTR_FROM_JSON(TagZh, tagZh_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->tagEn_ == nullptr
+        && this->tagZh_ == nullptr; };
+        // tagEn Field Functions 
+        bool hasTagEn() const { return this->tagEn_ != nullptr;};
+        void deleteTagEn() { this->tagEn_ = nullptr;};
+        inline string getTagEn() const { DARABONBA_PTR_GET_DEFAULT(tagEn_, "") };
+        inline Tags& setTagEn(string tagEn) { DARABONBA_PTR_SET_VALUE(tagEn_, tagEn) };
+
+
+        // tagZh Field Functions 
+        bool hasTagZh() const { return this->tagZh_ != nullptr;};
+        void deleteTagZh() { this->tagZh_ = nullptr;};
+        inline string getTagZh() const { DARABONBA_PTR_GET_DEFAULT(tagZh_, "") };
+        inline Tags& setTagZh(string tagZh) { DARABONBA_PTR_SET_VALUE(tagZh_, tagZh) };
+
+
+      protected:
+        // The English label of the process.
+        shared_ptr<string> tagEn_ {};
+        // The Chinese label of the process.
+        shared_ptr<string> tagZh_ {};
+      };
+
       virtual bool empty() const override { return this->analyzeResult_ == nullptr
         && this->explanationEn_ == nullptr && this->explanationZh_ == nullptr && this->firstTime_ == nullptr && this->md5_ == nullptr && this->processId_ == nullptr
-        && this->processPath_ == nullptr && this->remark_ == nullptr && this->sha256_ == nullptr; };
+        && this->processPath_ == nullptr && this->remark_ == nullptr && this->sha256_ == nullptr && this->tags_ == nullptr; };
       // analyzeResult Field Functions 
       bool hasAnalyzeResult() const { return this->analyzeResult_ != nullptr;};
       void deleteAnalyzeResult() { this->analyzeResult_ = nullptr;};
@@ -201,29 +247,38 @@ namespace Models
       inline Data& setSha256(string sha256) { DARABONBA_PTR_SET_VALUE(sha256_, sha256) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<Data::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<Data::Tags>) };
+      inline vector<Data::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<Data::Tags>) };
+      inline Data& setTags(const vector<Data::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline Data& setTags(vector<Data::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
     protected:
       // The analysis result. Valid values:
       // 
-      // - **black**: A malicious process.
-      // 
-      // - **white**: A normal process.
-      // 
-      // - **abnormal**: An abnormal process.
+      // - **black**: Malicious process.
+      // - **white**: Normal process.
+      // - **abnormal**: Abnormal process.
       shared_ptr<string> analyzeResult_ {};
       shared_ptr<string> explanationEn_ {};
       shared_ptr<string> explanationZh_ {};
-      // The timestamp of the first occurrence.
+      // The timestamp when the process was first detected.
       shared_ptr<int64_t> firstTime_ {};
       // The MD5 hash of the file.
       shared_ptr<string> md5_ {};
-      // The process ID.
+      // The process ID of the event.
       shared_ptr<string> processId_ {};
       // The process path.
       shared_ptr<string> processPath_ {};
-      // Remarks about the process.
+      // The remarks.
       shared_ptr<string> remark_ {};
       // The SHA-256 hash of the file.
       shared_ptr<string> sha256_ {};
+      // The process labels.
+      shared_ptr<vector<Data::Tags>> tags_ {};
     };
 
     virtual bool empty() const override { return this->data_ == nullptr
@@ -254,11 +309,11 @@ namespace Models
 
 
   protected:
-    // An array of process details.
+    // The returned data.
     shared_ptr<vector<ListUnknownThreatDetectProcessResponseBody::Data>> data_ {};
     // The pagination information.
     shared_ptr<ListUnknownThreatDetectProcessResponseBody::PageInfo> pageInfo_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

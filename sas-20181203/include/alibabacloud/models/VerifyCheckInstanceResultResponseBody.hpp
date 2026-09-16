@@ -85,8 +85,8 @@ namespace Models
       shared_ptr<vector<string>> failInstances_ {};
       // The operation code of the cloud service configuration check task. Valid values:
       // 
-      // - **Throttling**: Rate limited.
-      // - **ActionTrialUnauthorized**: Unauthorized error.
+      // - **Throttling**: rate limit.
+      // - **ActionTrialUnauthorized**: unauthorized error.
       shared_ptr<string> operateCode_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};

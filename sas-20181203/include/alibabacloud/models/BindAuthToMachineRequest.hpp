@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BindAll, bindAll_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Criteria, criteria_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(IsPreBind, isPreBind_);
       DARABONBA_PTR_TO_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_TO_JSON(NtmVersion, ntmVersion_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BindAll, bindAll_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(IsPreBind, isPreBind_);
       DARABONBA_PTR_FROM_JSON(LogicalExp, logicalExp_);
       DARABONBA_PTR_FROM_JSON(NtmVersion, ntmVersion_);
@@ -56,8 +58,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->authVersion_ == nullptr
         && this->autoBind_ == nullptr && this->bind_ == nullptr && this->bindAll_ == nullptr && this->clientToken_ == nullptr && this->criteria_ == nullptr
-        && this->isPreBind_ == nullptr && this->logicalExp_ == nullptr && this->ntmVersion_ == nullptr && this->preBindOrderId_ == nullptr && this->productCode_ == nullptr
-        && this->resourceDirectoryAccountId_ == nullptr && this->unBind_ == nullptr; };
+        && this->dryRun_ == nullptr && this->isPreBind_ == nullptr && this->logicalExp_ == nullptr && this->ntmVersion_ == nullptr && this->preBindOrderId_ == nullptr
+        && this->productCode_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->unBind_ == nullptr; };
     // authVersion Field Functions 
     bool hasAuthVersion() const { return this->authVersion_ != nullptr;};
     void deleteAuthVersion() { this->authVersion_ = nullptr;};
@@ -100,6 +102,13 @@ namespace Models
     void deleteCriteria() { this->criteria_ = nullptr;};
     inline string getCriteria() const { DARABONBA_PTR_GET_DEFAULT(criteria_, "") };
     inline BindAuthToMachineRequest& setCriteria(string criteria) { DARABONBA_PTR_SET_VALUE(criteria_, criteria) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline BindAuthToMachineRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // isPreBind Field Functions 
@@ -155,16 +164,16 @@ namespace Models
 
   protected:
     // The authorization version of the asset. Valid values:
-    // - **6**: Anti-virus Edition.
-    // - **5**: Premium Edition.
-    // - **3**: Enterprise Edition.
-    // - **7**: Ultimate Edition.
-    // - **10**: Value-added service Edition.
+    // - **6**: Anti-virus Edition
+    // - **5**: Advanced Edition
+    // - **3**: Enterprise Edition
+    // - **7**: Ultimate Edition
+    // - **10**: Value-added Service Edition
     shared_ptr<int32_t> authVersion_ {};
     // Specifies whether to enable automatic binding. Valid values:
     // 
-    // - **0**: Disable automatic binding.
-    // - **1**: Enable automatic binding.
+    // - **0**: Disabled.
+    // - **1**: Enabled.
     shared_ptr<int32_t> autoBind_ {};
     // The collection of UUIDs to bind.
     // 
@@ -177,9 +186,11 @@ namespace Models
     shared_ptr<bool> bindAll_ {};
     // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The conditions for searching assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
-    // > You can search for assets by instance ID, instance name, VPC ID, region, or public IP address. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
+    // The conditions for searching for assets. This parameter is in JSON format. Pay attention to letter case when you specify this parameter.
+    // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
+    // Specifies whether to perform a dry run. Valid values: true: performs a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // Specifies whether this is a pre-binding operation. Valid values:
     // 
     // - **0**: No.
@@ -189,22 +200,22 @@ namespace Models
     // > After pre-binding is enabled, the corresponding authorization quota is automatically bound to the specified servers after the purchase is completed.
     shared_ptr<int32_t> isPreBind_ {};
     // The logical relationship among multiple search conditions. Default value: **OR**. Valid values:
-    // - **OR**: The search conditions are evaluated using a logical OR.
-    // - **AND**: The search conditions are evaluated using a logical AND.
+    // - **OR**: The search conditions are evaluated with a logical OR.
+    // - **AND**: The search conditions are evaluated with a logical AND.
     shared_ptr<string> logicalExp_ {};
-    // The order version associated with the pre-binding operation. Valid values:
+    // The order version associated with the pre-binding. Valid values:
     // 
-    // - **level7**: Anti-virus Edition.
-    // - **level3**: Premium Edition.
-    // - **level2**: Enterprise Edition.
-    // - **level8**: Ultimate Edition.
-    // - **level10**: Value-added service only.
+    // - **level7**: Anti-virus Edition
+    // - **level3**: Advanced Edition
+    // - **level2**: Enterprise Edition
+    // - **level8**: Ultimate Edition
+    // - **level10**: Value-added service only
     shared_ptr<string> ntmVersion_ {};
-    // The order ID associated with the pre-binding operation.
+    // The order ID associated with the pre-binding.
     shared_ptr<int64_t> preBindOrderId_ {};
     shared_ptr<string> productCode_ {};
-    // The ID of the member accounts (Alibaba Cloud account) in the resource directory.
-    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the member account in the resource folder (Alibaba Cloud account).
+    // > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The collection of UUIDs to unbind.
     // > **Bind** and **UnBind** cannot both be empty.

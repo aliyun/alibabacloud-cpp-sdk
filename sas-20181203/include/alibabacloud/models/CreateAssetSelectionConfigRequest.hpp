@@ -15,12 +15,14 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateAssetSelectionConfigRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BusinessType, businessType_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
       DARABONBA_PTR_TO_JSON(TargetType, targetType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAssetSelectionConfigRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BusinessType, businessType_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
       DARABONBA_PTR_FROM_JSON(TargetType, targetType_);
     };
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->businessType_ == nullptr
-        && this->clientToken_ == nullptr && this->platform_ == nullptr && this->targetType_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->platform_ == nullptr && this->targetType_ == nullptr; };
     // businessType Field Functions 
     bool hasBusinessType() const { return this->businessType_ != nullptr;};
     void deleteBusinessType() { this->businessType_ = nullptr;};
@@ -49,6 +51,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline CreateAssetSelectionConfigRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateAssetSelectionConfigRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // platform Field Functions 
@@ -78,6 +87,8 @@ namespace Models
     shared_ptr<string> businessType_ {};
     // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    shared_ptr<bool> dryRun_ {};
     // The operating system of the target asset. Valid values:
     // 
     // - **all**: all operating systems.

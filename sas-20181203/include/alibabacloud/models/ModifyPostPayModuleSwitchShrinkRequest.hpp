@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyPostPayModuleSwitchShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EdrModuleSwitch, edrModuleSwitchShrink_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_TO_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyPostPayModuleSwitchShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EdrModuleSwitch, edrModuleSwitchShrink_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBind, postPaidHostAutoBind_);
       DARABONBA_PTR_FROM_JSON(PostPaidHostAutoBindVersion, postPaidHostAutoBindVersion_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->edrModuleSwitchShrink_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr && this->postPayModuleSwitch_ == nullptr
-        && this->postPayModuleSwitchObjShrink_ == nullptr; };
+        && this->dryRun_ == nullptr && this->edrModuleSwitchShrink_ == nullptr && this->postPaidHostAutoBind_ == nullptr && this->postPaidHostAutoBindVersion_ == nullptr && this->postPayInstanceId_ == nullptr
+        && this->postPayModuleSwitch_ == nullptr && this->postPayModuleSwitchObjShrink_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyPostPayModuleSwitchShrinkRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyPostPayModuleSwitchShrinkRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // edrModuleSwitchShrink Field Functions 
@@ -96,6 +105,8 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform a dry run. Valid values: true: performs a check without executing the operation. false: executes the operation. Default value: false.
+    shared_ptr<bool> dryRun_ {};
     shared_ptr<string> edrModuleSwitchShrink_ {};
     // Specifies whether to automatically bind new assets for host and container protection. Valid values:
     // 

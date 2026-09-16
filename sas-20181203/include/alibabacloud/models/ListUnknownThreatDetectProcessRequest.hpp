@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProcessPath, processPath_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(Sha256, sha256_);
+      DARABONBA_PTR_TO_JSON(Tag, tag_);
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, ListUnknownThreatDetectProcessRequest& obj) { 
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProcessPath, processPath_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(Sha256, sha256_);
+      DARABONBA_PTR_FROM_JSON(Tag, tag_);
       DARABONBA_PTR_FROM_JSON(Uuid, uuid_);
     };
     ListUnknownThreatDetectProcessRequest() = default ;
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->analyzeResult_ == nullptr
         && this->currentPage_ == nullptr && this->firstTimeEnd_ == nullptr && this->firstTimeStart_ == nullptr && this->md5_ == nullptr && this->pageSize_ == nullptr
-        && this->path_ == nullptr && this->processPath_ == nullptr && this->remark_ == nullptr && this->sha256_ == nullptr && this->uuid_ == nullptr; };
+        && this->path_ == nullptr && this->processPath_ == nullptr && this->remark_ == nullptr && this->sha256_ == nullptr && this->tag_ == nullptr
+        && this->uuid_ == nullptr; };
     // analyzeResult Field Functions 
     bool hasAnalyzeResult() const { return this->analyzeResult_ != nullptr;};
     void deleteAnalyzeResult() { this->analyzeResult_ = nullptr;};
@@ -122,6 +125,13 @@ namespace Models
     inline ListUnknownThreatDetectProcessRequest& setSha256(string sha256) { DARABONBA_PTR_SET_VALUE(sha256_, sha256) };
 
 
+    // tag Field Functions 
+    bool hasTag() const { return this->tag_ != nullptr;};
+    void deleteTag() { this->tag_ = nullptr;};
+    inline string getTag() const { DARABONBA_PTR_GET_DEFAULT(tag_, "") };
+    inline ListUnknownThreatDetectProcessRequest& setTag(string tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+
+
     // uuid Field Functions 
     bool hasUuid() const { return this->uuid_ != nullptr;};
     void deleteUuid() { this->uuid_ = nullptr;};
@@ -133,18 +143,17 @@ namespace Models
     // The analysis result. Valid values:
     // 
     // - **black**: abnormal process
-    // 
     // - **white**: normal process
     shared_ptr<string> analyzeResult_ {};
-    // The page number to return.
+    // The page number of the current page when using paged query. This is used for paging.
     shared_ptr<int32_t> currentPage_ {};
-    // The end of the time range for the first detection, in milliseconds.
+    // The end of the time range during which the process was first detected. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> firstTimeEnd_ {};
-    // The start of the time range for the first detection, in milliseconds.
+    // The start of the time range during which the process was first detected. The value is a timestamp in milliseconds.
     shared_ptr<int64_t> firstTimeStart_ {};
-    // The MD5 value of the file.
+    // The MD5 hash of the file.
     shared_ptr<string> md5_ {};
-    // The number of entries to return per page.
+    // The maximum number of entries per page when using paged query. This is used for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The file path.
     shared_ptr<string> path_ {};
@@ -152,8 +161,10 @@ namespace Models
     shared_ptr<string> processPath_ {};
     // The server name or IP address.
     shared_ptr<string> remark_ {};
-    // The SHA-256 value of the file.
+    // The SHA-256 hash of the file.
     shared_ptr<string> sha256_ {};
+    // The label.
+    shared_ptr<string> tag_ {};
     // The UUID of the server to query.
     shared_ptr<string> uuid_ {};
   };

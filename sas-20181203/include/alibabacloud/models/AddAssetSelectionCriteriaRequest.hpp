@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Criteria, criteria_);
       DARABONBA_PTR_TO_JSON(CriteriaOperation, criteriaOperation_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(SelectionKey, selectionKey_);
       DARABONBA_PTR_TO_JSON(TargetOperationList, targetOperationList_);
     };
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Criteria, criteria_);
       DARABONBA_PTR_FROM_JSON(CriteriaOperation, criteriaOperation_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(SelectionKey, selectionKey_);
       DARABONBA_PTR_FROM_JSON(TargetOperationList, targetOperationList_);
     };
@@ -86,7 +88,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->criteria_ == nullptr && this->criteriaOperation_ == nullptr && this->selectionKey_ == nullptr && this->targetOperationList_ == nullptr; };
+        && this->criteria_ == nullptr && this->criteriaOperation_ == nullptr && this->dryRun_ == nullptr && this->selectionKey_ == nullptr && this->targetOperationList_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
@@ -106,6 +108,13 @@ namespace Models
     void deleteCriteriaOperation() { this->criteriaOperation_ = nullptr;};
     inline string getCriteriaOperation() const { DARABONBA_PTR_GET_DEFAULT(criteriaOperation_, "") };
     inline AddAssetSelectionCriteriaRequest& setCriteriaOperation(string criteriaOperation) { DARABONBA_PTR_SET_VALUE(criteriaOperation_, criteriaOperation) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline AddAssetSelectionCriteriaRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // selectionKey Field Functions 
@@ -135,6 +144,8 @@ namespace Models
     // - **add**: adds assets.
     // - **del**: deletes assets.
     shared_ptr<string> criteriaOperation_ {};
+    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    shared_ptr<bool> dryRun_ {};
     // The unique identifier of the asset selection.
     // 
     // This parameter is required.

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoBindVersion, autoBindVersion_);
       DARABONBA_PTR_TO_JSON(BindAction, bindAction_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
       DARABONBA_PTR_TO_JSON(UpdateIfNecessary, updateIfNecessary_);
     };
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoBindVersion, autoBindVersion_);
       DARABONBA_PTR_FROM_JSON(BindAction, bindAction_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
       DARABONBA_PTR_FROM_JSON(UpdateIfNecessary, updateIfNecessary_);
     };
@@ -117,7 +119,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->autoBind_ == nullptr
-        && this->autoBindVersion_ == nullptr && this->bindAction_ == nullptr && this->clientToken_ == nullptr && this->productCode_ == nullptr && this->updateIfNecessary_ == nullptr; };
+        && this->autoBindVersion_ == nullptr && this->bindAction_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->productCode_ == nullptr
+        && this->updateIfNecessary_ == nullptr; };
     // autoBind Field Functions 
     bool hasAutoBind() const { return this->autoBind_ != nullptr;};
     void deleteAutoBind() { this->autoBind_ = nullptr;};
@@ -146,6 +149,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline UpdatePostPaidBindRelRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline UpdatePostPaidBindRelRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // productCode Field Functions 
@@ -179,6 +189,8 @@ namespace Models
     shared_ptr<vector<UpdatePostPaidBindRelRequest::BindAction>> bindAction_ {};
     // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    shared_ptr<bool> dryRun_ {};
     // The abbreviated name of the cloud service. Valid values:
     // - **sas**: Security Center
     shared_ptr<string> productCode_ {};

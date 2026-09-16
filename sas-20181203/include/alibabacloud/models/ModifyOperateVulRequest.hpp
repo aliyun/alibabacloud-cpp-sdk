@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyOperateVulRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(From, from_);
       DARABONBA_PTR_TO_JSON(Info, info_);
       DARABONBA_PTR_TO_JSON(OperateType, operateType_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyOperateVulRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(From, from_);
       DARABONBA_PTR_FROM_JSON(Info, info_);
       DARABONBA_PTR_FROM_JSON(OperateType, operateType_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clientToken_ == nullptr
-        && this->from_ == nullptr && this->info_ == nullptr && this->operateType_ == nullptr && this->reason_ == nullptr && this->resourceDirectoryAccountId_ == nullptr
-        && this->type_ == nullptr; };
+        && this->dryRun_ == nullptr && this->from_ == nullptr && this->info_ == nullptr && this->operateType_ == nullptr && this->reason_ == nullptr
+        && this->resourceDirectoryAccountId_ == nullptr && this->type_ == nullptr; };
     // clientToken Field Functions 
     bool hasClientToken() const { return this->clientToken_ != nullptr;};
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline ModifyOperateVulRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyOperateVulRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // from Field Functions 
@@ -96,6 +105,8 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    shared_ptr<bool> dryRun_ {};
     // The source identifier of the request. Set the value to **sas**.
     shared_ptr<string> from_ {};
     // The information about the vulnerability to handle. This parameter is in JSON format and contains the following fields:

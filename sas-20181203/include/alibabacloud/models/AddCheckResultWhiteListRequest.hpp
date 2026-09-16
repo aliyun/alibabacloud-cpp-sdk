@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const AddCheckResultWhiteListRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CheckIds, checkIds_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(Remark, remark_);
       DARABONBA_PTR_TO_JSON(RuleType, ruleType_);
@@ -23,6 +24,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, AddCheckResultWhiteListRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CheckIds, checkIds_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(Remark, remark_);
       DARABONBA_PTR_FROM_JSON(RuleType, ruleType_);
@@ -39,7 +41,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkIds_ == nullptr
-        && this->clientToken_ == nullptr && this->instanceIds_ == nullptr && this->remark_ == nullptr && this->ruleType_ == nullptr; };
+        && this->clientToken_ == nullptr && this->dryRun_ == nullptr && this->instanceIds_ == nullptr && this->remark_ == nullptr && this->ruleType_ == nullptr; };
     // checkIds Field Functions 
     bool hasCheckIds() const { return this->checkIds_ != nullptr;};
     void deleteCheckIds() { this->checkIds_ = nullptr;};
@@ -54,6 +56,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline AddCheckResultWhiteListRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline AddCheckResultWhiteListRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // instanceIds Field Functions 
@@ -83,14 +92,16 @@ namespace Models
     // The IDs of the check items.
     // > Call the [ListCheckResult](~~ListCheckResult~~) operation to obtain this parameter.
     shared_ptr<vector<int64_t>> checkIds_ {};
-    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform only a dry run. Valid values: true: performs only a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
+    shared_ptr<bool> dryRun_ {};
     // The instance IDs of the cloud service instances to add to the whitelist. Separate multiple instance IDs with commas (,).
     shared_ptr<vector<string>> instanceIds_ {};
     // The remarks. Maximum length: 65,535 bytes.
     shared_ptr<string> remark_ {};
     // The rule type. Default value: **WHITE**. Valid values:
-    // - **WHITE**: adds to the whitelist.
+    // - **WHITE**: Add to whitelist.
     shared_ptr<string> ruleType_ {};
   };
 
