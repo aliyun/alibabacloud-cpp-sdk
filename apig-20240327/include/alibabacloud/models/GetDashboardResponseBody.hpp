@@ -95,13 +95,13 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the gateway.
+      // The unique ID of the gateway.
       shared_ptr<string> gatewayId_ {};
       // The dashboard name.
       shared_ptr<string> name_ {};
       // The dashboard title.
       shared_ptr<string> title_ {};
-      // The dashboard URL.
+      // The URL of the dashboard.
       shared_ptr<string> url_ {};
     };
 

@@ -101,7 +101,7 @@ namespace Models
       shared_ptr<string> exposedUriPath_ {};
       // Specifies whether to enable MCP observability. Default value: false.
       shared_ptr<bool> mcpStatisticsEnable_ {};
-      // The service protocol. Valid values:
+      // The Terms of Service. Valid values:
       // - TCP.
       // - HTTP.
       // - DUBBO.
@@ -246,13 +246,13 @@ namespace Models
         shared_ptr<string> groupName_ {};
         // The HTTP-to-Dubbo protocol transcoding configuration. Only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
         shared_ptr<HttpDubboTranscoder> httpDubboTranscoder_ {};
-        // The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not specified for the AiAutoRouter scenario, the default model of the AI service is used.
+        // The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewrite semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If not specified in the AiAutoRouter scenario, the default model of the AI service is used.
         shared_ptr<string> modelName_ {};
         // The service namespace. Used in HTTP-to-Dubbo transcoding scenarios.
         shared_ptr<string> namespace_ {};
         // The service port. Do not specify this parameter for dynamic ports.
         shared_ptr<int32_t> port_ {};
-        // The service protocol. Valid values:
+        // The Terms of Service. Valid values:
         // - HTTP.
         // - HTTPS.
         shared_ptr<string> protocol_ {};
@@ -260,7 +260,7 @@ namespace Models
         shared_ptr<string> serviceId_ {};
         // The service source type. Used in HTTP-to-Dubbo transcoding scenarios.
         shared_ptr<string> sourceType_ {};
-        // The service version. This parameter takes effect only in the tag-based scenario.
+        // The service version. This parameter takes effect only in tag-based scenarios.
         shared_ptr<string> version_ {};
         // The percentage value of the traffic ratio.
         shared_ptr<int32_t> weight_ {};

@@ -171,9 +171,8 @@ namespace Models
     // The environment context.
     shared_ptr<EnvironmentInfo> environmentInfo_ {};
     // The expiration mode. Valid values:
-    // 
-    // - LongTerm
-    // - ShortTerm
+    // - LongTerm: long-term
+    // - ShortTerm: short-term
     shared_ptr<string> expireMode_ {};
     // The expiration status.
     shared_ptr<string> expireStatus_ {};

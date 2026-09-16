@@ -344,7 +344,7 @@ namespace Models
 
 
     protected:
-      // The capability tier of the intelligent routing candidate. Specify this parameter only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, and premium.
+      // The capability tier for intelligent routing candidates. Specify this parameter only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, and premium.
       shared_ptr<string> capabilityTier_ {};
       // The gateway service ID.
       shared_ptr<string> gatewayServiceId_ {};
@@ -681,9 +681,9 @@ namespace Models
     shared_ptr<Backend> routeBackend_ {};
     // The list of service configurations.
     shared_ptr<vector<HttpApiDeployConfig::ServiceConfigs>> serviceConfigs_ {};
-    // The list of subdomain content.
+    // The list of second-level domain name content.
     shared_ptr<vector<HttpApiDeployConfig::SubDomains>> subDomains_ {};
-    // The set of explicitly enabled gateway system model capability tiers. Takes effect only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, premium. An explicit empty array indicates that no system model is enabled.
+    // The set of explicitly enabled gateway system model capability tiers. Takes effect only when the publishing scenario is AiAutoRouter. Valid values: economy, standard, and premium. An explicitly empty array indicates that no system models are enabled.
     shared_ptr<vector<string>> systemModelTiers_ {};
   };
 

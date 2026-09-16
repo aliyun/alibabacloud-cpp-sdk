@@ -36,6 +36,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(strategy, strategy_);
       DARABONBA_PTR_TO_JSON(type, type_);
       DARABONBA_PTR_TO_JSON(versionConfig, versionConfig_);
+      DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
     };
     friend void from_json(const Darabonba::Json& j, CreateHttpApiRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(agentProtocols, agentProtocols_);
@@ -57,6 +58,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(strategy, strategy_);
       DARABONBA_PTR_FROM_JSON(type, type_);
       DARABONBA_PTR_FROM_JSON(versionConfig, versionConfig_);
+      DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
     };
     CreateHttpApiRequest() = default ;
     CreateHttpApiRequest(const CreateHttpApiRequest &) = default ;
@@ -161,7 +163,7 @@ namespace Models
         && this->aiProtocols_ == nullptr && this->authConfig_ == nullptr && this->basePath_ == nullptr && this->belongGatewayId_ == nullptr && this->deployConfigs_ == nullptr
         && this->description_ == nullptr && this->dryRun_ == nullptr && this->enableAuth_ == nullptr && this->firstByteTimeout_ == nullptr && this->ingressConfig_ == nullptr
         && this->modelCategory_ == nullptr && this->name_ == nullptr && this->protocols_ == nullptr && this->removeBasePathOnForward_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->strategy_ == nullptr && this->type_ == nullptr && this->versionConfig_ == nullptr; };
+        && this->strategy_ == nullptr && this->type_ == nullptr && this->versionConfig_ == nullptr && this->clientToken_ == nullptr; };
     // agentProtocols Field Functions 
     bool hasAgentProtocols() const { return this->agentProtocols_ != nullptr;};
     void deleteAgentProtocols() { this->agentProtocols_ = nullptr;};
@@ -309,40 +311,47 @@ namespace Models
     inline CreateHttpApiRequest& setVersionConfig(HttpApiVersionConfig && versionConfig) { DARABONBA_PTR_SET_RVALUE(versionConfig_, versionConfig) };
 
 
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline CreateHttpApiRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
   protected:
-    // The list of protocols supported by the agent. Required when type is Agent. This field is not required for other types.
+    // The list of protocols supported by the agent. This parameter is required when type is set to Agent. You do not need to specify this parameter for other types.
     shared_ptr<vector<string>> agentProtocols_ {};
-    // The list of AI API protocols. Required when type is LLM (only one protocol allowed) or Ai (multiple protocols allowed). Not required for other types. Example protocol: OpenAI/v1.
+    // The list of AI API protocols. This parameter is required when type is set to LLM, and only one protocol can be specified. This parameter is required when type is set to Ai, and multiple protocols can be specified. You do not need to specify this parameter for other types. Example protocol entry: OpenAI/v1.
     shared_ptr<vector<string>> aiProtocols_ {};
-    // The authentication configuration. Required when enableAuth is set to true.
+    // The authentication configuration. This parameter is required when enableAuth is set to true.
     shared_ptr<AuthConfig> authConfig_ {};
-    // The base path of the API. Must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. Required when type is Rest. Optional when type is LLM, Ai, or Agent. Defaults to /.
+    // The base path of the API. The value must start with a forward slash (/), cannot exceed 256 bytes in length, and cannot contain spaces. This parameter is required when type is set to Rest. When type is set to LLM, Ai, or Agent, this parameter is optional and defaults to /.
     shared_ptr<string> basePath_ {};
     // The ID of the gateway to which the API belongs.
     shared_ptr<string> belongGatewayId_ {};
-    // The list of deployment configurations for the HTTP API. Required when type is LLM or Ai (only one deployment configuration allowed). Not validated at the request level for other types.
+    // The list of deployment configurations for the HTTP API. This parameter is required when type is set to LLM or Ai, and only one deployment configuration can be specified. This parameter is not validated at the request level for other types.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The API description.
+    // The description of the API.
     shared_ptr<string> description_ {};
-    // Specifies whether to preview only without executing.
+    // Specifies whether to perform a dry run without executing the operation.
     shared_ptr<bool> dryRun_ {};
-    // Specifies whether to enable authentication. Validated when type is LLM, Ai, or Agent. Not validated at the request level when type is Rest.
+    // Specifies whether to enable authentication. This parameter is validated when type is set to LLM, Ai, or Agent. This parameter is not validated at the request level when type is set to Rest.
     shared_ptr<bool> enableAuth_ {};
-    // The timeout period for waiting for the backend to return the first byte.
+    // The timeout period for waiting for the first byte from the backend.
     shared_ptr<int32_t> firstByteTimeout_ {};
-    // The HTTP Ingress API configuration. Required when type is HttpIngress and cannot be null. Not required for other types.
+    // The HTTP Ingress API configuration. This parameter is required and cannot be nil when type is set to HttpIngress. You do not need to specify this parameter for other types.
     shared_ptr<CreateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // The AI model category. Optional when type is LLM or Ai. Not required for other types. Valid values:
+    // The AI model category. This parameter is optional when type is set to LLM or Ai. You do not need to specify this parameter for other types. Valid values:
     // - Text: text generation.
     // - Image: image generation.
     // - Audio: audio processing.
-    // - Video: video generation.
+    // - Video: AI video generation.
     // - MultiModal: multimodal.
-    // - Embedding: vector embedding.
+    // - Embedding: embedding.
     // - Rerank: reranking.
-    // - Others: others.
+    // - Others: other.
     shared_ptr<string> modelCategory_ {};
-    // The name of the HTTP API, used to identify the current API resource. For example, test-api.
+    // The name of the HTTP API, which identifies the API resource. Example: test-api.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
@@ -352,7 +361,7 @@ namespace Models
     shared_ptr<bool> removeBasePathOnForward_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The conflict resolution strategy for imports.
+    // The conflict merge strategy for import.
     shared_ptr<string> strategy_ {};
     // The HTTP API type. Valid values:
     // - Http: a standard HTTP API.
@@ -360,12 +369,14 @@ namespace Models
     // - WebSocket: a WebSocket API.
     // - HttpIngress: an HTTP API accessed through Ingress.
     // - LLM: a large language model API.
-    // - Agent: an Agent proxy API.
+    // - Agent: an agent proxy API.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
     // The API versioning configuration.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
+    // The idempotency token, which is a globally unique value generated by the caller. We recommend that you use a UUID. The value cannot exceed 64 characters in length. Within approximately 24 hours after the first successful request, a duplicate request that carries the same ClientToken and identical request parameters directly returns the httpApiId created by the first request without creating a duplicate HTTP API. If the same ClientToken is carried but the request parameters are different, the IdempotentParameterMismatch error is returned. If the first request is still being processed, the IdempotentProcessing error is returned. If this parameter is not specified, idempotency control is not enabled, and the behavior is consistent with the existing version.
+    shared_ptr<string> clientToken_ {};
   };
 
   } // namespace Models

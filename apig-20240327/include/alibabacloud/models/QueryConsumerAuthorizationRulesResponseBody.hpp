@@ -163,7 +163,7 @@ namespace Models
 
 
         protected:
-          // The operation information.
+          // The API operation information.
           shared_ptr<HttpApiOperationInfo> operationInfo_ {};
           // The routing rule.
           shared_ptr<HttpRoute> route_ {};
@@ -313,7 +313,7 @@ namespace Models
 
 
       protected:
-        // The API information details.
+        // The API information.
         shared_ptr<HttpApiApiInfo> apiInfo_ {};
         // The consumer authorization rule ID.
         shared_ptr<string> consumerAuthorizationRuleId_ {};
@@ -323,17 +323,15 @@ namespace Models
         shared_ptr<ConsumerGroupInfo> consumerGroupInfo_ {};
         // The consumer ID.
         shared_ptr<string> consumerId_ {};
-        // The consumer information details.
+        // The consumer information.
         shared_ptr<ConsumerInfo> consumerInfo_ {};
         // The creation timestamp. Unit: milliseconds.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The publish status of the API in the current environment.
+        // The deployment status of the API in the current environment.
         shared_ptr<string> deployStatus_ {};
         // The environment context.
         shared_ptr<EnvironmentInfo> environmentInfo_ {};
-        // The expiration mode. Valid values:
-        // - LongTerm
-        // - ShortTerm
+        // The expiration mode. Valid values: LongTerm and ShortTerm.
         shared_ptr<string> expireMode_ {};
         // The expiration status.
         shared_ptr<string> expireStatus_ {};
@@ -341,11 +339,11 @@ namespace Models
         shared_ptr<int64_t> expireTimestamp_ {};
         // The gateway information.
         shared_ptr<GatewayInfo> gatewayInfo_ {};
-        // The principal type. Valid values: Consumer or ConsumerGroup.
+        // The principal type. Valid values: Consumer and ConsumerGroup.
         shared_ptr<string> principalType_ {};
         // The resource ID.
         shared_ptr<string> resourceId_ {};
-        // The resource information details.
+        // The resource information.
         shared_ptr<Items::ResourceInfo> resourceInfo_ {};
         // The resource type.
         shared_ptr<string> resourceType_ {};
@@ -386,7 +384,7 @@ namespace Models
 
 
     protected:
-      // The list of consumer rules.
+      // The list of consumer authorization rules.
       shared_ptr<vector<Data::Items>> items_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};

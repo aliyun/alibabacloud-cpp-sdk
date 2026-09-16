@@ -126,9 +126,9 @@ namespace Models
     protected:
       // The environment ID.
       shared_ptr<string> environmentId_ {};
-      // The Ingress Class to listen on.
+      // The Ingress class to listen on.
       shared_ptr<string> ingressClass_ {};
-      // Specifies whether to update the address in the Ingress Status.
+      // Specifies whether to update the address in the Ingress status.
       shared_ptr<bool> overrideIngressIp_ {};
       // The source ID.
       shared_ptr<string> sourceId_ {};
@@ -265,7 +265,7 @@ namespace Models
     shared_ptr<string> basePath_ {};
     // The list of API deployment configurations.
     shared_ptr<vector<HttpApiDeployConfig>> deployConfigs_ {};
-    // The description of the API.
+    // The API description.
     shared_ptr<string> description_ {};
     // Specifies whether to enable authentication.
     shared_ptr<bool> enableAuth_ {};
@@ -279,9 +279,9 @@ namespace Models
     shared_ptr<vector<string>> protocols_ {};
     // Specifies whether to remove the base path when forwarding requests.
     shared_ptr<bool> removeBasePathOnForward_ {};
-    // The versioning configuration of the API.
+    // The API versioning configuration.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
-    // Specifies whether to perform only a dry run. If set to true, all synchronous validations identical to a real update are performed without updating any configurations or producing side effects. If not specified or set to false, the behavior is the same as the existing version.
+    // Specifies whether to perform only a dry run. If set to true, all synchronous validations identical to an actual update are performed, but no configurations are modified and no side effects are produced. If set to false or left empty, the behavior is the same as the existing version.
     shared_ptr<bool> dryRun_ {};
   };
 

@@ -425,7 +425,7 @@ namespace APIG20240327
       Models::CreateHttpApiResponse createHttpApi(const Models::CreateHttpApiRequest &request);
 
       /**
-       * @summary Creates an operation for an HTTP API.
+       * @summary Creates operations for an HTTP API.
        *
        * @param request CreateHttpApiOperationRequest
        * @param headers map
@@ -435,7 +435,7 @@ namespace APIG20240327
       Models::CreateHttpApiOperationResponse createHttpApiOperationWithOptions(const string &httpApiId, const Models::CreateHttpApiOperationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an operation for an HTTP API.
+       * @summary Creates operations for an HTTP API.
        *
        * @param request CreateHttpApiOperationRequest
        * @return CreateHttpApiOperationResponse
@@ -843,7 +843,7 @@ namespace APIG20240327
       /**
        * @summary Deletes a quota throttling rule for a gateway.
        *
-       * @description Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+       * @description Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
        *
        * @param request DeleteGatewayQuotaRuleRequest
        * @param headers map
@@ -855,7 +855,7 @@ namespace APIG20240327
       /**
        * @summary Deletes a quota throttling rule for a gateway.
        *
-       * @description Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+       * @description Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
        *
        * @param request DeleteGatewayQuotaRuleRequest
        * @return DeleteGatewayQuotaRuleResponse
@@ -1467,7 +1467,7 @@ namespace APIG20240327
       Models::GetHttpApiResponse getHttpApi(const string &httpApiId, const Models::GetHttpApiRequest &request);
 
       /**
-       * @summary Retrieves the API operation information.
+       * @summary Retrieves operation information.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1476,7 +1476,7 @@ namespace APIG20240327
       Models::GetHttpApiOperationResponse getHttpApiOperationWithOptions(const string &httpApiId, const string &operationId, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the API operation information.
+       * @summary Retrieves operation information.
        *
        * @return GetHttpApiOperationResponse
        */

@@ -160,11 +160,11 @@ namespace Models
   protected:
     // The API name.
     shared_ptr<string> apiNameLike_ {};
-    // The consumer group ID. If specified, the authorization rules of this consumer group are queried.
+    // The consumer group ID. If specified, the authorization rules of the consumer group are queried. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
     shared_ptr<string> consumerGroupId_ {};
     // The consumer group name for fuzzy match.
     shared_ptr<string> consumerGroupNameLike_ {};
-    // The consumer ID.
+    // The consumer ID. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
     shared_ptr<string> consumerId_ {};
     // The consumer name for fuzzy match.
     shared_ptr<string> consumerNameLike_ {};
@@ -176,15 +176,15 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The parent resource ID.
+    // The parent resource ID. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
     shared_ptr<string> parentResourceId_ {};
-    // The principal type. Valid values: Consumer or ConsumerGroup.
+    // The principal type. Valid values: Consumer and ConsumerGroup.
     shared_ptr<string> principalType_ {};
-    // The resource ID.
+    // The resource ID. At least one of the following parameters must be specified: resourceId, parentResourceId, consumerId, and consumerGroupId.
     shared_ptr<string> resourceId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};
-    // The service source types.
+    // The service source type.
     shared_ptr<string> resourceTypes_ {};
   };
 

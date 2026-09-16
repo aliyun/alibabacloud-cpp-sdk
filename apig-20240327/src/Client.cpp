@@ -1328,6 +1328,11 @@ CreateGatewayResponse Client::createGateway(const CreateGatewayRequest &request)
  */
 CreateHttpApiResponse Client::createHttpApiWithOptions(const CreateHttpApiRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["clientToken"] = request.getClientToken();
+  }
+
   json body = {};
   if (!!request.hasAgentProtocols()) {
     body["agentProtocols"] = request.getAgentProtocols();
@@ -1407,6 +1412,7 @@ CreateHttpApiResponse Client::createHttpApiWithOptions(const CreateHttpApiReques
 
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
     {"body" , Utils::Utils::parseToMap(body)}
   }));
   Params params = Params(json({
@@ -1436,7 +1442,7 @@ CreateHttpApiResponse Client::createHttpApi(const CreateHttpApiRequest &request)
 }
 
 /**
- * @summary Creates an operation for an HTTP API.
+ * @summary Creates operations for an HTTP API.
  *
  * @param request CreateHttpApiOperationRequest
  * @param headers map
@@ -1469,7 +1475,7 @@ CreateHttpApiOperationResponse Client::createHttpApiOperationWithOptions(const s
 }
 
 /**
- * @summary Creates an operation for an HTTP API.
+ * @summary Creates operations for an HTTP API.
  *
  * @param request CreateHttpApiOperationRequest
  * @return CreateHttpApiOperationResponse
@@ -2686,7 +2692,7 @@ DeleteGatewayResponse Client::deleteGateway(const string &gatewayId) {
 /**
  * @summary Deletes a quota throttling rule for a gateway.
  *
- * @description Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+ * @description Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @param headers map
@@ -2715,7 +2721,7 @@ DeleteGatewayQuotaRuleResponse Client::deleteGatewayQuotaRuleWithOptions(const s
 /**
  * @summary Deletes a quota throttling rule for a gateway.
  *
- * @description Deletes a quota rule based on an API consumer or consumer group for an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
+ * @description Deletes a quota rule based on an API consumer or consumer group from an AI gateway. This operation only takes effect on AI gateways with a version later than 2.1.19.
  *
  * @param request DeleteGatewayQuotaRuleRequest
  * @return DeleteGatewayQuotaRuleResponse
@@ -4193,7 +4199,7 @@ GetHttpApiResponse Client::getHttpApi(const string &httpApiId, const GetHttpApiR
 }
 
 /**
- * @summary Retrieves the API operation information.
+ * @summary Retrieves operation information.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -4218,7 +4224,7 @@ GetHttpApiOperationResponse Client::getHttpApiOperationWithOptions(const string 
 }
 
 /**
- * @summary Retrieves the API operation information.
+ * @summary Retrieves operation information.
  *
  * @return GetHttpApiOperationResponse
  */
