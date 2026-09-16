@@ -66,10 +66,15 @@ namespace Models
 
 
   protected:
+    // The agent name. The name must be unique within the same tenant. Maximum length: 128 characters.
+    // 
     // This parameter is required.
     shared_ptr<string> agentName_ {};
+    // The permission inheritance type of the agent, which specifies the permission source. Default value: HUMAN_BOUND.
     shared_ptr<string> agentType_ {};
+    // The description of the agent. Maximum length: 512 characters.
     shared_ptr<string> description_ {};
+    // The validity period of the automatically issued API key, in seconds. Valid values: 1 to 31536000 (up to 1 year).
     shared_ptr<int32_t> expireAfterSeconds_ {};
   };
 

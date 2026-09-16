@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The theme UUID. By default, you do not need to specify this parameter because the backend automatically generates and returns a UUID. Specify this parameter to regenerate a signature only when the previous signature has expired.
+    // The UUID of the theme. By default, you do not need to specify this parameter because the backend automatically generates and returns a UUID. Specify this parameter to regenerate the signature only when the previous signature has expired.
     shared_ptr<string> themeId_ {};
   };
 

@@ -210,8 +210,8 @@ namespace Models
         // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
         // The stage of the custom agent. Valid values:
-        // - **debug**: Debug stage.
-        // - **prod**: Production stage.
+        // - **debug**: the debugging stage.
+        // - **prod**: the production stage.
         shared_ptr<string> customAgentStage_ {};
         // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
@@ -228,16 +228,15 @@ namespace Models
         // The list of MCP server IDs in the session configuration.
         shared_ptr<vector<string>> mcpServerIds_ {};
         // The mode. Valid values:
-        // - **ASK_DATA**: Ask data mode.
-        // - **ANALYSIS**: Analysis mode.
-        // - **INSIGHT**: Insight mode.
+        //  - **ASK_DATA**: the data query mode.
+        //  - **ANALYSIS**: the analysis mode.
+        //  - **INSIGHT**: the insight mode.
         shared_ptr<string> mode_ {};
         // The report page width.
         shared_ptr<int64_t> reportPageWidth_ {};
         // The report watermark.
         shared_ptr<string> reportWaterMark_ {};
-        // The name of the user OSS bucket.
-        // - Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
+        // The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -314,9 +313,9 @@ namespace Models
       shared_ptr<string> agentId_ {};
       // The agent status.
       shared_ptr<string> agentStatus_ {};
-      // The time when the session was created.
+      // The creation time of the session.
       shared_ptr<int64_t> createTime_ {};
-      // The basic information about the file.
+      // The basic information of the file.
       shared_ptr<string> file_ {};
       // Indicates whether the session is saved to the favorites of the current user.
       shared_ptr<bool> saved_ {};
@@ -374,7 +373,7 @@ namespace Models
     shared_ptr<CreateDataAgentSessionResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the request failed.
+    // The error message returned if the request failed.
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

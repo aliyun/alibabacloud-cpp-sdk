@@ -66,9 +66,9 @@ namespace Models
 
 
   protected:
-    // The error code returned when the request is abnormal.
+    // The error code returned if the request failed.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned if the request failed.
     shared_ptr<string> errorMessage_ {};
     // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};

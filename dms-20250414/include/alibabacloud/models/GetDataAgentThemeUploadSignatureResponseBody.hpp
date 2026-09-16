@@ -159,7 +159,7 @@ namespace Models
     protected:
       // The policy expiration time in ISO 8601 UTC format.
       shared_ptr<string> expireTime_ {};
-      // The target object key, which is exactly locked by the policy.
+      // The target object key that is exactly locked by the policy.
       shared_ptr<string> objectKey_ {};
       // The parameter set that specifies the derived key.
       shared_ptr<string> ossCredential_ {};
@@ -173,11 +173,11 @@ namespace Models
       shared_ptr<string> ossSignatureVersion_ {};
       // The Base64-encoded value of the policy JSON.
       shared_ptr<string> policy_ {};
-      // The theme business identifier generated or reused for this request. Pass this identifier to the CreateDataAgentTheme operation after the upload is complete to register the metadata.
+      // The theme business ID generated or reused for this request. After the upload is complete, pass this ID to the CreateDataAgentTheme operation to register the metadata.
       shared_ptr<string> themeId_ {};
       // The upload directory prefix.
       shared_ptr<string> uploadDir_ {};
-      // The PostObject destination address over the public network.
+      // The PostObject target address over the public network.
       shared_ptr<string> uploadHost_ {};
     };
 
@@ -223,9 +223,9 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<GetDataAgentThemeUploadSignatureResponseBody::Data> data_ {};
-    // The error code returned when the request fails.
+    // The error code. This parameter is returned only if the request fails.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the call fails.
+    // The error message returned if the request fails.
     shared_ptr<string> errorMessage_ {};
     // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};

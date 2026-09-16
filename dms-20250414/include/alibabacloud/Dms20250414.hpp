@@ -161,7 +161,7 @@ namespace Dms20250414
       Models::ConfigDataAgentMemoryResponse configDataAgentMemory(const Models::ConfigDataAgentMemoryRequest &request);
 
       /**
-       * @summary 创建 Agent
+       * @summary Creates a Database Gateway agent identity.
        *
        * @param request CreateAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -170,7 +170,7 @@ namespace Dms20250414
       Models::CreateAgentResponse createAgentWithOptions(const Models::CreateAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建 Agent
+       * @summary Creates a Database Gateway agent identity.
        *
        * @param request CreateAgentRequest
        * @return CreateAgentResponse
@@ -1087,7 +1087,7 @@ namespace Dms20250414
 
       /**
        * @summary Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
-       * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+       * For more information, see https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/.
        *
        * @param request GetDataAgentThemeUploadSignatureRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1097,7 +1097,7 @@ namespace Dms20250414
 
       /**
        * @summary Calls the GetDataAgentThemeUploadSignature operation to obtain OSS direct upload credentials for uploading a DataAgent theme file. After obtaining the credentials, use the PostObject method to upload the theme file directly to OSS. After the upload is complete, call the CreateDataAgentTheme operation with the returned ThemeId to complete theme creation.
-       * Refer to https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/ for instructions on uploading the theme file.
+       * For more information, see https://www.alibabacloud.com/help/en/oss/user-guide/client-direct-transmission/.
        *
        * @param request GetDataAgentThemeUploadSignatureRequest
        * @return GetDataAgentThemeUploadSignatureResponse
@@ -2016,7 +2016,7 @@ namespace Dms20250414
       Models::ModifyDataAgentMcpResponse modifyDataAgentMcp(const Models::ModifyDataAgentMcpRequest &request);
 
       /**
-       * @summary Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
+       * @summary Modifies the display name and description of a DataAgent theme. A null parameter value indicates that the corresponding field is not modified, and an empty string clears the field.
        *
        * @param request ModifyDataAgentThemeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2025,7 +2025,7 @@ namespace Dms20250414
       Models::ModifyDataAgentThemeResponse modifyDataAgentThemeWithOptions(const Models::ModifyDataAgentThemeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Calls the ModifyDataAgentTheme operation to modify the display name and description of a DataAgent theme. Passing null for a parameter value indicates that the corresponding field is not modified. Passing an empty string clears the field.
+       * @summary Modifies the display name and description of a DataAgent theme. A null parameter value indicates that the corresponding field is not modified, and an empty string clears the field.
        *
        * @param request ModifyDataAgentThemeRequest
        * @return ModifyDataAgentThemeResponse

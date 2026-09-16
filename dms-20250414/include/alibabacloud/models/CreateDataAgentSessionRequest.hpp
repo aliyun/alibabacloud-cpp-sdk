@@ -48,6 +48,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EncryptType, encryptType_);
         DARABONBA_PTR_TO_JSON(KbUuidList, kbUuidList_);
         DARABONBA_PTR_TO_JSON(Language, language_);
+        DARABONBA_PTR_TO_JSON(McpHeaders, mcpHeaders_);
         DARABONBA_PTR_TO_JSON(McpServerIds, mcpServerIds_);
         DARABONBA_PTR_TO_JSON(Mode, mode_);
         DARABONBA_PTR_TO_JSON(ReportPageWidth, reportPageWidth_);
@@ -62,6 +63,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EncryptType, encryptType_);
         DARABONBA_PTR_FROM_JSON(KbUuidList, kbUuidList_);
         DARABONBA_PTR_FROM_JSON(Language, language_);
+        DARABONBA_PTR_FROM_JSON(McpHeaders, mcpHeaders_);
         DARABONBA_PTR_FROM_JSON(McpServerIds, mcpServerIds_);
         DARABONBA_PTR_FROM_JSON(Mode, mode_);
         DARABONBA_PTR_FROM_JSON(ReportPageWidth, reportPageWidth_);
@@ -79,10 +81,100 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class McpHeaders : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const McpHeaders& obj) { 
+          DARABONBA_PTR_TO_JSON(McpHeader, mcpHeader_);
+          DARABONBA_PTR_TO_JSON(McpServerId, mcpServerId_);
+        };
+        friend void from_json(const Darabonba::Json& j, McpHeaders& obj) { 
+          DARABONBA_PTR_FROM_JSON(McpHeader, mcpHeader_);
+          DARABONBA_PTR_FROM_JSON(McpServerId, mcpServerId_);
+        };
+        McpHeaders() = default ;
+        McpHeaders(const McpHeaders &) = default ;
+        McpHeaders(McpHeaders &&) = default ;
+        McpHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~McpHeaders() = default ;
+        McpHeaders& operator=(const McpHeaders &) = default ;
+        McpHeaders& operator=(McpHeaders &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class McpHeader : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const McpHeader& obj) { 
+            DARABONBA_PTR_TO_JSON(Key, key_);
+            DARABONBA_PTR_TO_JSON(Value, value_);
+          };
+          friend void from_json(const Darabonba::Json& j, McpHeader& obj) { 
+            DARABONBA_PTR_FROM_JSON(Key, key_);
+            DARABONBA_PTR_FROM_JSON(Value, value_);
+          };
+          McpHeader() = default ;
+          McpHeader(const McpHeader &) = default ;
+          McpHeader(McpHeader &&) = default ;
+          McpHeader(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~McpHeader() = default ;
+          McpHeader& operator=(const McpHeader &) = default ;
+          McpHeader& operator=(McpHeader &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+          // key Field Functions 
+          bool hasKey() const { return this->key_ != nullptr;};
+          void deleteKey() { this->key_ = nullptr;};
+          inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+          inline McpHeader& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+          // value Field Functions 
+          bool hasValue() const { return this->value_ != nullptr;};
+          void deleteValue() { this->value_ = nullptr;};
+          inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+          inline McpHeader& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+        protected:
+          // The key to add to the header.
+          shared_ptr<string> key_ {};
+          // The value to add to the header.
+          shared_ptr<string> value_ {};
+        };
+
+        virtual bool empty() const override { return this->mcpHeader_ == nullptr
+        && this->mcpServerId_ == nullptr; };
+        // mcpHeader Field Functions 
+        bool hasMcpHeader() const { return this->mcpHeader_ != nullptr;};
+        void deleteMcpHeader() { this->mcpHeader_ = nullptr;};
+        inline const vector<McpHeaders::McpHeader> & getMcpHeader() const { DARABONBA_PTR_GET_CONST(mcpHeader_, vector<McpHeaders::McpHeader>) };
+        inline vector<McpHeaders::McpHeader> getMcpHeader() { DARABONBA_PTR_GET(mcpHeader_, vector<McpHeaders::McpHeader>) };
+        inline McpHeaders& setMcpHeader(const vector<McpHeaders::McpHeader> & mcpHeader) { DARABONBA_PTR_SET_VALUE(mcpHeader_, mcpHeader) };
+        inline McpHeaders& setMcpHeader(vector<McpHeaders::McpHeader> && mcpHeader) { DARABONBA_PTR_SET_RVALUE(mcpHeader_, mcpHeader) };
+
+
+        // mcpServerId Field Functions 
+        bool hasMcpServerId() const { return this->mcpServerId_ != nullptr;};
+        void deleteMcpServerId() { this->mcpServerId_ = nullptr;};
+        inline string getMcpServerId() const { DARABONBA_PTR_GET_DEFAULT(mcpServerId_, "") };
+        inline McpHeaders& setMcpServerId(string mcpServerId) { DARABONBA_PTR_SET_VALUE(mcpServerId_, mcpServerId) };
+
+
+      protected:
+        // The MCP header configuration.
+        shared_ptr<vector<McpHeaders::McpHeader>> mcpHeader_ {};
+        // The ID of the MCP server.
+        shared_ptr<string> mcpServerId_ {};
+      };
+
       virtual bool empty() const override { return this->customAgentId_ == nullptr
         && this->customAgentStage_ == nullptr && this->enableSearch_ == nullptr && this->encryptKey_ == nullptr && this->encryptType_ == nullptr && this->kbUuidList_ == nullptr
-        && this->language_ == nullptr && this->mcpServerIds_ == nullptr && this->mode_ == nullptr && this->reportPageWidth_ == nullptr && this->reportWaterMark_ == nullptr
-        && this->userOssBucket_ == nullptr; };
+        && this->language_ == nullptr && this->mcpHeaders_ == nullptr && this->mcpServerIds_ == nullptr && this->mode_ == nullptr && this->reportPageWidth_ == nullptr
+        && this->reportWaterMark_ == nullptr && this->userOssBucket_ == nullptr; };
       // customAgentId Field Functions 
       bool hasCustomAgentId() const { return this->customAgentId_ != nullptr;};
       void deleteCustomAgentId() { this->customAgentId_ = nullptr;};
@@ -134,6 +226,15 @@ namespace Models
       inline SessionConfig& setLanguage(string language) { DARABONBA_PTR_SET_VALUE(language_, language) };
 
 
+      // mcpHeaders Field Functions 
+      bool hasMcpHeaders() const { return this->mcpHeaders_ != nullptr;};
+      void deleteMcpHeaders() { this->mcpHeaders_ = nullptr;};
+      inline const vector<SessionConfig::McpHeaders> & getMcpHeaders() const { DARABONBA_PTR_GET_CONST(mcpHeaders_, vector<SessionConfig::McpHeaders>) };
+      inline vector<SessionConfig::McpHeaders> getMcpHeaders() { DARABONBA_PTR_GET(mcpHeaders_, vector<SessionConfig::McpHeaders>) };
+      inline SessionConfig& setMcpHeaders(const vector<SessionConfig::McpHeaders> & mcpHeaders) { DARABONBA_PTR_SET_VALUE(mcpHeaders_, mcpHeaders) };
+      inline SessionConfig& setMcpHeaders(vector<SessionConfig::McpHeaders> && mcpHeaders) { DARABONBA_PTR_SET_RVALUE(mcpHeaders_, mcpHeaders) };
+
+
       // mcpServerIds Field Functions 
       bool hasMcpServerIds() const { return this->mcpServerIds_ != nullptr;};
       void deleteMcpServerIds() { this->mcpServerIds_ = nullptr;};
@@ -175,8 +276,8 @@ namespace Models
       // The custom agent ID.
       shared_ptr<string> customAgentId_ {};
       // The stage of the custom agent. Valid values:
-      // - **debug**: Debug stage.
-      // - **prod**: Production stage.
+      // - **debug**: the debugging stage.
+      // - **prod**: the production stage.
       shared_ptr<string> customAgentStage_ {};
       // Specifies whether to enable web search.
       shared_ptr<bool> enableSearch_ {};
@@ -190,19 +291,20 @@ namespace Models
       // - **CHINESE**: Chinese.
       // - **ENGLISH**: English.
       shared_ptr<string> language_ {};
+      // The list of MCP header configurations.
+      shared_ptr<vector<SessionConfig::McpHeaders>> mcpHeaders_ {};
       // The list of MCP server IDs in the session configuration.
       shared_ptr<vector<string>> mcpServerIds_ {};
       // The mode. Valid values:
-      // - **ASK_DATA**: Ask data mode.
-      // - **ANALYSIS**: Analysis mode.
-      // - **INSIGHT**: Insight mode.
+      //  - **ASK_DATA**: the data query mode.
+      //  - **ANALYSIS**: the analysis mode.
+      //  - **INSIGHT**: the insight mode.
       shared_ptr<string> mode_ {};
       // The report page width.
       shared_ptr<int64_t> reportPageWidth_ {};
       // The report watermark.
       shared_ptr<string> reportWaterMark_ {};
-      // The name of the user OSS bucket.
-      // - Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
+      // The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the specified OSS bucket.
       shared_ptr<string> userOssBucket_ {};
     };
 
