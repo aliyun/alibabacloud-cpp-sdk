@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(kmsKeyId, kmsKeyId_);
       DARABONBA_PTR_TO_JSON(loadReplicas, loadReplicas_);
       DARABONBA_PTR_TO_JSON(multiZoneMode, multiZoneMode_);
+      DARABONBA_PTR_TO_JSON(nodeType, nodeType_);
       DARABONBA_PTR_TO_JSON(paymentDuration, paymentDuration_);
       DARABONBA_PTR_TO_JSON(paymentDurationUnit, paymentDurationUnit_);
       DARABONBA_PTR_TO_JSON(paymentType, paymentType_);
@@ -60,6 +61,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(kmsKeyId, kmsKeyId_);
       DARABONBA_PTR_FROM_JSON(loadReplicas, loadReplicas_);
       DARABONBA_PTR_FROM_JSON(multiZoneMode, multiZoneMode_);
+      DARABONBA_PTR_FROM_JSON(nodeType, nodeType_);
       DARABONBA_PTR_FROM_JSON(paymentDuration, paymentDuration_);
       DARABONBA_PTR_FROM_JSON(paymentDurationUnit, paymentDurationUnit_);
       DARABONBA_PTR_FROM_JSON(paymentType, paymentType_);
@@ -255,9 +257,13 @@ namespace Models
 
 
       protected:
+        // Specifies whether to enable the QueryNode data cloud disk.
         shared_ptr<bool> enabled_ {};
+        // The ESSD performance level (PL). Valid values: PL0, PL1, PL2, and PL3. If StorageClass is not specified, this parameter is used for parsing.
         shared_ptr<string> performanceLevel_ {};
+        // The data cloud disk capacity. Unit: GiB.
         shared_ptr<int32_t> size_ {};
+        // The StorageClass of the data cloud disk. Valid values: alicloud-disk-essd-pl0, alicloud-disk-essd-pl1, alicloud-disk-essd-pl2, and alicloud-disk-essd-pl3.
         shared_ptr<string> storageClass_ {};
       };
 
@@ -314,8 +320,9 @@ namespace Models
       shared_ptr<int32_t> cuNum_ {};
       // The CU type.
       shared_ptr<string> cuType_ {};
+      // The QueryNode data cloud disk configuration. This parameter is supported only when type is set to query.
       shared_ptr<Components::DataDisk> dataDisk_ {};
-      // The disk size type for Query Node. Set to Large for storage-optimized, and Normal for compute-optimized or other configurations.
+      // The disk size type for the Query Node. Set this parameter to Large for storage-optimized instances, and to Normal for compute-optimized and other instance types.
       shared_ptr<string> diskSizeType_ {};
       // The number of replicas.
       // 
@@ -378,7 +385,7 @@ namespace Models
       shared_ptr<string> backupId_ {};
       // The backup name.
       shared_ptr<string> backupName_ {};
-      // The ID of the source backup cluster.
+      // The ID of the source cluster for the backup.
       shared_ptr<string> sourceClusterId_ {};
     };
 
@@ -386,9 +393,9 @@ namespace Models
         && this->aiFunction_ == nullptr && this->autoBackup_ == nullptr && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->backupRestoreInfo_ == nullptr
         && this->components_ == nullptr && this->configuration_ == nullptr && this->dbAdminPassword_ == nullptr && this->dbVersion_ == nullptr && this->encrypted_ == nullptr
         && this->ha_ == nullptr && this->instanceName_ == nullptr && this->isMultiAzStorage_ == nullptr && this->kmsKeyId_ == nullptr && this->loadReplicas_ == nullptr
-        && this->multiZoneMode_ == nullptr && this->paymentDuration_ == nullptr && this->paymentDurationUnit_ == nullptr && this->paymentType_ == nullptr && this->promotionNo_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr
-        && this->clientToken_ == nullptr; };
+        && this->multiZoneMode_ == nullptr && this->nodeType_ == nullptr && this->paymentDuration_ == nullptr && this->paymentDurationUnit_ == nullptr && this->paymentType_ == nullptr
+        && this->promotionNo_ == nullptr && this->resourceGroupId_ == nullptr && this->tags_ == nullptr && this->vSwitchIds_ == nullptr && this->vpcId_ == nullptr
+        && this->zoneId_ == nullptr && this->clientToken_ == nullptr; };
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -512,6 +519,13 @@ namespace Models
     inline CreateInstanceRequest& setMultiZoneMode(string multiZoneMode) { DARABONBA_PTR_SET_VALUE(multiZoneMode_, multiZoneMode) };
 
 
+    // nodeType Field Functions 
+    bool hasNodeType() const { return this->nodeType_ != nullptr;};
+    void deleteNodeType() { this->nodeType_ = nullptr;};
+    inline string getNodeType() const { DARABONBA_PTR_GET_DEFAULT(nodeType_, "") };
+    inline CreateInstanceRequest& setNodeType(string nodeType) { DARABONBA_PTR_SET_VALUE(nodeType_, nodeType) };
+
+
     // paymentDuration Field Functions 
     bool hasPaymentDuration() const { return this->paymentDuration_ != nullptr;};
     void deletePaymentDuration() { this->paymentDuration_ = nullptr;};
@@ -594,8 +608,10 @@ namespace Models
     // Specifies whether to enable automatic backup.
     shared_ptr<bool> autoBackup_ {};
     // Specifies whether to enable automatic payment. Default value: true. Valid values:
+    // - true: Automatic payment is enabled.
+    // - false: Only an order is generated. No payment is made.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal. This parameter takes effect only when the payment type is set to Subscription.
+    // Specifies whether to enable auto-renewal. This parameter takes effect only when the billing method of the instance is Subscription.
     shared_ptr<bool> autoRenew_ {};
     // The backup and restoration information.
     shared_ptr<CreateInstanceRequest::BackupRestoreInfo> backupRestoreInfo_ {};
@@ -603,7 +619,7 @@ namespace Models
     shared_ptr<vector<CreateInstanceRequest::Components>> components_ {};
     // The configuration items.
     shared_ptr<string> configuration_ {};
-    // The database administrator password.
+    // The database password.
     shared_ptr<string> dbAdminPassword_ {};
     // The Milvus version.
     // 
@@ -611,7 +627,7 @@ namespace Models
     shared_ptr<string> dbVersion_ {};
     // Specifies whether to enable OSS encryption.
     shared_ptr<bool> encrypted_ {};
-    // Specifies whether to enable high availability.
+    // Specifies whether to enable high availability (HA).
     shared_ptr<bool> ha_ {};
     // The instance name.
     shared_ptr<string> instanceName_ {};
@@ -623,9 +639,11 @@ namespace Models
     shared_ptr<int32_t> loadReplicas_ {};
     // The zone configuration.
     shared_ptr<string> multiZoneMode_ {};
+    // The node type. Valid values for Milvus standalone: perf, enhanced, and cap. Default value: perf.
+    shared_ptr<string> nodeType_ {};
     // The payment duration.
     shared_ptr<int32_t> paymentDuration_ {};
-    // The payment duration unit.
+    // The unit of the payment duration.
     shared_ptr<string> paymentDurationUnit_ {};
     // The payment type.
     // 

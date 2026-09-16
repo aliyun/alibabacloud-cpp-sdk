@@ -324,25 +324,25 @@ namespace Models
 
 
       protected:
-        // The number of CUs for the Data node.
+        // The number of CUs for data nodes.
         shared_ptr<int32_t> dataNodeCuNum_ {};
-        // The number of replicas for the Data node.
+        // The number of replicas for data nodes.
         shared_ptr<int32_t> dataNodeReplica_ {};
-        // The number of CUs for the Index node.
+        // The number of CUs for index nodes.
         shared_ptr<int32_t> indexNodeCuNum_ {};
-        // The number of replicas for the Index node.
+        // The number of replicas for index nodes.
         shared_ptr<int32_t> indexNodeReplica_ {};
-        // The number of CUs for the MixCoordinator node.
+        // The number of CUs for MixCoordinator nodes.
         shared_ptr<int32_t> mixCoodinatorNodeCuNum_ {};
-        // The number of replicas for the MixCoordinator node.
+        // The number of replicas for MixCoordinator nodes.
         shared_ptr<int32_t> mixCoodinatorNodeReplica_ {};
-        // The number of CUs for the Proxy node.
+        // The number of CUs for proxy nodes.
         shared_ptr<int32_t> proxyNodeCuNum_ {};
-        // The number of replicas for the Proxy node.
+        // The number of replicas for proxy nodes.
         shared_ptr<int32_t> proxyNodeReplica_ {};
-        // The number of CUs for the Query node.
+        // The number of CUs for query nodes.
         shared_ptr<int32_t> queryNodeCuNum_ {};
-        // The number of replicas for the Query node.
+        // The number of replicas for query nodes.
         shared_ptr<int32_t> queryNodeReplica_ {};
       };
 
@@ -412,23 +412,33 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const ClusterInfo& obj) { 
           DARABONBA_PTR_TO_JSON(AttuPort, attuPort_);
+          DARABONBA_PTR_TO_JSON(CaCertUrl, caCertUrl_);
+          DARABONBA_PTR_TO_JSON(CertificateTrust, certificateTrust_);
           DARABONBA_PTR_TO_JSON(InternetUrl, internetUrl_);
           DARABONBA_PTR_TO_JSON(IntranetUrl, intranetUrl_);
           DARABONBA_PTR_TO_JSON(MilvusResourceInfoList, milvusResourceInfoList_);
           DARABONBA_PTR_TO_JSON(OssStorageSize, ossStorageSize_);
           DARABONBA_PTR_TO_JSON(OssStorageTimestamp, ossStorageTimestamp_);
           DARABONBA_PTR_TO_JSON(ProxyPort, proxyPort_);
+          DARABONBA_PTR_TO_JSON(SecureInternetUrl, secureInternetUrl_);
+          DARABONBA_PTR_TO_JSON(SecureIntranetUrl, secureIntranetUrl_);
+          DARABONBA_PTR_TO_JSON(SecureProxyPort, secureProxyPort_);
           DARABONBA_PTR_TO_JSON(TotalCuNum, totalCuNum_);
           DARABONBA_PTR_TO_JSON(TotalDiskSize, totalDiskSize_);
         };
         friend void from_json(const Darabonba::Json& j, ClusterInfo& obj) { 
           DARABONBA_PTR_FROM_JSON(AttuPort, attuPort_);
+          DARABONBA_PTR_FROM_JSON(CaCertUrl, caCertUrl_);
+          DARABONBA_PTR_FROM_JSON(CertificateTrust, certificateTrust_);
           DARABONBA_PTR_FROM_JSON(InternetUrl, internetUrl_);
           DARABONBA_PTR_FROM_JSON(IntranetUrl, intranetUrl_);
           DARABONBA_PTR_FROM_JSON(MilvusResourceInfoList, milvusResourceInfoList_);
           DARABONBA_PTR_FROM_JSON(OssStorageSize, ossStorageSize_);
           DARABONBA_PTR_FROM_JSON(OssStorageTimestamp, ossStorageTimestamp_);
           DARABONBA_PTR_FROM_JSON(ProxyPort, proxyPort_);
+          DARABONBA_PTR_FROM_JSON(SecureInternetUrl, secureInternetUrl_);
+          DARABONBA_PTR_FROM_JSON(SecureIntranetUrl, secureIntranetUrl_);
+          DARABONBA_PTR_FROM_JSON(SecureProxyPort, secureProxyPort_);
           DARABONBA_PTR_FROM_JSON(TotalCuNum, totalCuNum_);
           DARABONBA_PTR_FROM_JSON(TotalDiskSize, totalDiskSize_);
         };
@@ -618,10 +628,18 @@ namespace Models
 
         protected:
           // The component type. Valid values:
+          // - standalone
+          // - proxy
+          // - mix_coordinator
+          // - query
+          // - index
+          // - data
           shared_ptr<string> componentType_ {};
           // The number of compute units (CUs).
           shared_ptr<int32_t> cuNum_ {};
-          // The CU specifications. Valid values:
+          // The CU specification. Valid values:
+          // * 4: 1 core corresponds to 4 GB.
+          // * 8: 1 core corresponds to 8 GB.
           shared_ptr<int32_t> cuRatio_ {};
           // The disk size.
           shared_ptr<int32_t> diskSize_ {};
@@ -631,20 +649,38 @@ namespace Models
           // The number of replicas.
           shared_ptr<int32_t> replica_ {};
           shared_ptr<string> zoneId_ {};
+          // Indicates whether the data cloud disk is enabled.
           shared_ptr<bool> dataDiskEnabled_ {};
+          // The data cloud disk capacity, in GiB.
           shared_ptr<int32_t> dataDiskSize_ {};
+          // The StorageClass of the data cloud disk.
           shared_ptr<string> dataDiskStorageClass_ {};
           shared_ptr<vector<MilvusResourceInfoList::PodsList>> podsList_ {};
         };
 
         virtual bool empty() const override { return this->attuPort_ == nullptr
-        && this->internetUrl_ == nullptr && this->intranetUrl_ == nullptr && this->milvusResourceInfoList_ == nullptr && this->ossStorageSize_ == nullptr && this->ossStorageTimestamp_ == nullptr
-        && this->proxyPort_ == nullptr && this->totalCuNum_ == nullptr && this->totalDiskSize_ == nullptr; };
+        && this->caCertUrl_ == nullptr && this->certificateTrust_ == nullptr && this->internetUrl_ == nullptr && this->intranetUrl_ == nullptr && this->milvusResourceInfoList_ == nullptr
+        && this->ossStorageSize_ == nullptr && this->ossStorageTimestamp_ == nullptr && this->proxyPort_ == nullptr && this->secureInternetUrl_ == nullptr && this->secureIntranetUrl_ == nullptr
+        && this->secureProxyPort_ == nullptr && this->totalCuNum_ == nullptr && this->totalDiskSize_ == nullptr; };
         // attuPort Field Functions 
         bool hasAttuPort() const { return this->attuPort_ != nullptr;};
         void deleteAttuPort() { this->attuPort_ = nullptr;};
         inline int32_t getAttuPort() const { DARABONBA_PTR_GET_DEFAULT(attuPort_, 0) };
         inline ClusterInfo& setAttuPort(int32_t attuPort) { DARABONBA_PTR_SET_VALUE(attuPort_, attuPort) };
+
+
+        // caCertUrl Field Functions 
+        bool hasCaCertUrl() const { return this->caCertUrl_ != nullptr;};
+        void deleteCaCertUrl() { this->caCertUrl_ = nullptr;};
+        inline string getCaCertUrl() const { DARABONBA_PTR_GET_DEFAULT(caCertUrl_, "") };
+        inline ClusterInfo& setCaCertUrl(string caCertUrl) { DARABONBA_PTR_SET_VALUE(caCertUrl_, caCertUrl) };
+
+
+        // certificateTrust Field Functions 
+        bool hasCertificateTrust() const { return this->certificateTrust_ != nullptr;};
+        void deleteCertificateTrust() { this->certificateTrust_ = nullptr;};
+        inline string getCertificateTrust() const { DARABONBA_PTR_GET_DEFAULT(certificateTrust_, "") };
+        inline ClusterInfo& setCertificateTrust(string certificateTrust) { DARABONBA_PTR_SET_VALUE(certificateTrust_, certificateTrust) };
 
 
         // internetUrl Field Functions 
@@ -691,6 +727,27 @@ namespace Models
         inline ClusterInfo& setProxyPort(int32_t proxyPort) { DARABONBA_PTR_SET_VALUE(proxyPort_, proxyPort) };
 
 
+        // secureInternetUrl Field Functions 
+        bool hasSecureInternetUrl() const { return this->secureInternetUrl_ != nullptr;};
+        void deleteSecureInternetUrl() { this->secureInternetUrl_ = nullptr;};
+        inline string getSecureInternetUrl() const { DARABONBA_PTR_GET_DEFAULT(secureInternetUrl_, "") };
+        inline ClusterInfo& setSecureInternetUrl(string secureInternetUrl) { DARABONBA_PTR_SET_VALUE(secureInternetUrl_, secureInternetUrl) };
+
+
+        // secureIntranetUrl Field Functions 
+        bool hasSecureIntranetUrl() const { return this->secureIntranetUrl_ != nullptr;};
+        void deleteSecureIntranetUrl() { this->secureIntranetUrl_ = nullptr;};
+        inline string getSecureIntranetUrl() const { DARABONBA_PTR_GET_DEFAULT(secureIntranetUrl_, "") };
+        inline ClusterInfo& setSecureIntranetUrl(string secureIntranetUrl) { DARABONBA_PTR_SET_VALUE(secureIntranetUrl_, secureIntranetUrl) };
+
+
+        // secureProxyPort Field Functions 
+        bool hasSecureProxyPort() const { return this->secureProxyPort_ != nullptr;};
+        void deleteSecureProxyPort() { this->secureProxyPort_ = nullptr;};
+        inline int32_t getSecureProxyPort() const { DARABONBA_PTR_GET_DEFAULT(secureProxyPort_, 0) };
+        inline ClusterInfo& setSecureProxyPort(int32_t secureProxyPort) { DARABONBA_PTR_SET_VALUE(secureProxyPort_, secureProxyPort) };
+
+
         // totalCuNum Field Functions 
         bool hasTotalCuNum() const { return this->totalCuNum_ != nullptr;};
         void deleteTotalCuNum() { this->totalCuNum_ = nullptr;};
@@ -708,18 +765,28 @@ namespace Models
       protected:
         // The Attu component port.
         shared_ptr<int32_t> attuPort_ {};
-        // The public network address.
+        // The HTTPS download URL of the CA certificate.
+        shared_ptr<string> caCertUrl_ {};
+        // The certificate trust type.
+        shared_ptr<string> certificateTrust_ {};
+        // The public endpoint.
         shared_ptr<string> internetUrl_ {};
-        // The internal network address.
+        // The internal endpoint.
         shared_ptr<string> intranetUrl_ {};
         // The resource details.
         shared_ptr<vector<ClusterInfo::MilvusResourceInfoList>> milvusResourceInfoList_ {};
         // The OSS storage data size.
         shared_ptr<string> ossStorageSize_ {};
-        // The timestamp of the OSS storage metric.
+        // The OSS storage metric timestamp.
         shared_ptr<int64_t> ossStorageTimestamp_ {};
         // The proxy port.
         shared_ptr<int32_t> proxyPort_ {};
+        // The TLS public domain name.
+        shared_ptr<string> secureInternetUrl_ {};
+        // The TLS internal domain name.
+        shared_ptr<string> secureIntranetUrl_ {};
+        // The TLS connection port.
+        shared_ptr<int32_t> secureProxyPort_ {};
         // The total number of CUs.
         shared_ptr<int32_t> totalCuNum_ {};
         // The total disk size.
@@ -983,7 +1050,7 @@ namespace Models
 
 
     protected:
-      // The ACL ID for public network access control.
+      // The public network access control ACL ID.
       shared_ptr<string> aclId_ {};
       // The start time.
       shared_ptr<int64_t> beginTime_ {};
@@ -995,7 +1062,7 @@ namespace Models
       shared_ptr<Data::ClusterInfo> clusterInfo_ {};
       // The instance name.
       shared_ptr<string> clusterName_ {};
-      // Indicates whether high availability is enabled.
+      // Indicates whether high availability (HA) is enabled.
       shared_ptr<bool> enableHa_ {};
       shared_ptr<string> encrypted_ {};
       // The expiration time.
@@ -1004,23 +1071,37 @@ namespace Models
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance status. Valid values:
+      // - creating: Being created.
+      // - running: Running.
+      // - updating: Being upgraded. This includes specification changes, configuration changes, and public network access toggling.
+      // - disable: Unavailable. The cluster has expired and requires renewal to reactivate.
+      // - deleting: Being deleted.
+      // - deleted: Deleted.
       shared_ptr<string> instanceStatus_ {};
       shared_ptr<string> kmsKeyId_ {};
       shared_ptr<string> maintainablePeriod_ {};
       // The configuration information.
       shared_ptr<Data::MeasureConfig> measureConfig_ {};
+      // Single,Two,Three
       shared_ptr<string> multiZoneMode_ {};
       // The node type. Valid values:
+      // * perf: compute-optimized instance.
+      // * cap: storage-optimized.
       shared_ptr<string> nodeType_ {};
       // Indicates whether public network access is enabled.
       shared_ptr<bool> openPublicNet_ {};
-      // The specification details. Valid values:
+      // The edition. Valid values:
+      // 
+      // - trial: Trial Edition.
+      // - standard: Standard Edition.
       shared_ptr<string> packageType_ {};
       // The billing type. Valid values:
+      // - 0: pay-as-you-go.
+      // - 1: subscription.
       shared_ptr<int32_t> payType_ {};
       // The commodity code.
       shared_ptr<string> productCode_ {};
-      // The region.
+      // The region ID.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
@@ -1041,7 +1122,7 @@ namespace Models
       shared_ptr<string> vpcId_ {};
       // The vSwitch ID.
       shared_ptr<string> vswId_ {};
-      // The zone.
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
       shared_ptr<string> maintainablePeriodTimeZone_ {};
     };
@@ -1101,7 +1182,7 @@ namespace Models
 
 
   protected:
-    // The details of the permission verification failure.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The response data.
     shared_ptr<GetInstanceDetailResponseBody::Data> data_ {};

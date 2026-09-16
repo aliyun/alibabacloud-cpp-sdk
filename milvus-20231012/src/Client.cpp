@@ -18,17 +18,6 @@ namespace Milvus20231012
 
 AlibabaCloud::Milvus20231012::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"eu-central-1" , "milvus.eu-central-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "milvus.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu" , "milvus.cn-wulanchabu.aliyuncs.com"},
-    {"cn-shenzhen" , "milvus.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "milvus.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "milvus.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "milvus.cn-hangzhou.aliyuncs.com"},
-    {"cn-beijing" , "milvus.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-1" , "milvus.ap-southeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("milvus", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -282,6 +271,10 @@ CreateInstanceResponse Client::createInstanceWithOptions(const CreateInstanceReq
 
   if (!!request.hasMultiZoneMode()) {
     body["multiZoneMode"] = request.getMultiZoneMode();
+  }
+
+  if (!!request.hasNodeType()) {
+    body["nodeType"] = request.getNodeType();
   }
 
   if (!!request.hasPaymentDuration()) {
