@@ -199,7 +199,7 @@ namespace Models
     // 
     // - **ipv6**: IPv6.
     shared_ptr<string> ipVersion_ {};
-    // The number of entries per page. Valid values: **1** to **100**. Default value: **10**.
+    // The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **10**.
     shared_ptr<int32_t> maxResult_ {};
     // The instance ID of the next hop.
     shared_ptr<string> nextHopId_ {};
@@ -215,7 +215,7 @@ namespace Models
     // 
     // - **NetworkInterface**: secondary elastic network interface controller (NIC).
     // 
-    // - **RouterInterface**: routing interface.
+    // - **RouterInterface**: vRouter interface.
     // 
     // - **IPv6Gateway**: IPv6 gateway.
     // 
@@ -224,15 +224,15 @@ namespace Models
     // - **GatewayEndpoint**: gateway endpoint.
     // - **Ecr**: Express Connect Router (ECR).
     shared_ptr<string> nextHopType_ {};
-    // The pagination token. Valid values:
-    // - If this is the first request or no subsequent query exists, leave this parameter empty.
-    // - If a subsequent query exists, set the value to the NextToken value returned by the previous API call.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - You do not need to specify this parameter for the first request or if no subsequent request exists.
+    // - If a subsequent request exists, set the value to the NextToken value that is returned from the last call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the route table to which the route belongs.
     // 
-    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+    // You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

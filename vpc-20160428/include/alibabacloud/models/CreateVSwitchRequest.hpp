@@ -15,9 +15,11 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateVSwitchRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CidrBlock, cidrBlock_);
+      DARABONBA_PTR_TO_JSON(CidrMask, cidrMask_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+      DARABONBA_PTR_TO_JSON(Ipv6CidrMask, ipv6CidrMask_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -31,9 +33,11 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateVSwitchRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CidrBlock, cidrBlock_);
+      DARABONBA_PTR_FROM_JSON(CidrMask, cidrMask_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+      DARABONBA_PTR_FROM_JSON(Ipv6CidrMask, ipv6CidrMask_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -105,14 +109,21 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->cidrBlock_ == nullptr
-        && this->clientToken_ == nullptr && this->description_ == nullptr && this->ipv6CidrBlock_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->tag_ == nullptr && this->vSwitchName_ == nullptr
-        && this->vpcId_ == nullptr && this->vpcIpv6CidrBlock_ == nullptr && this->zoneId_ == nullptr; };
+        && this->cidrMask_ == nullptr && this->clientToken_ == nullptr && this->description_ == nullptr && this->ipv6CidrBlock_ == nullptr && this->ipv6CidrMask_ == nullptr
+        && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->tag_ == nullptr && this->vSwitchName_ == nullptr && this->vpcId_ == nullptr && this->vpcIpv6CidrBlock_ == nullptr && this->zoneId_ == nullptr; };
     // cidrBlock Field Functions 
     bool hasCidrBlock() const { return this->cidrBlock_ != nullptr;};
     void deleteCidrBlock() { this->cidrBlock_ = nullptr;};
     inline string getCidrBlock() const { DARABONBA_PTR_GET_DEFAULT(cidrBlock_, "") };
     inline CreateVSwitchRequest& setCidrBlock(string cidrBlock) { DARABONBA_PTR_SET_VALUE(cidrBlock_, cidrBlock) };
+
+
+    // cidrMask Field Functions 
+    bool hasCidrMask() const { return this->cidrMask_ != nullptr;};
+    void deleteCidrMask() { this->cidrMask_ = nullptr;};
+    inline int32_t getCidrMask() const { DARABONBA_PTR_GET_DEFAULT(cidrMask_, 0) };
+    inline CreateVSwitchRequest& setCidrMask(int32_t cidrMask) { DARABONBA_PTR_SET_VALUE(cidrMask_, cidrMask) };
 
 
     // clientToken Field Functions 
@@ -134,6 +145,13 @@ namespace Models
     void deleteIpv6CidrBlock() { this->ipv6CidrBlock_ = nullptr;};
     inline int32_t getIpv6CidrBlock() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrBlock_, 0) };
     inline CreateVSwitchRequest& setIpv6CidrBlock(int32_t ipv6CidrBlock) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlock_, ipv6CidrBlock) };
+
+
+    // ipv6CidrMask Field Functions 
+    bool hasIpv6CidrMask() const { return this->ipv6CidrMask_ != nullptr;};
+    void deleteIpv6CidrMask() { this->ipv6CidrMask_ = nullptr;};
+    inline int32_t getIpv6CidrMask() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrMask_, 0) };
+    inline CreateVSwitchRequest& setIpv6CidrMask(int32_t ipv6CidrMask) { DARABONBA_PTR_SET_VALUE(ipv6CidrMask_, ipv6CidrMask) };
 
 
     // ownerAccount Field Functions 
@@ -209,36 +227,41 @@ namespace Models
 
 
   protected:
-    // The CIDR block of the vSwitch. The following requirements apply: 
+    // The CIDR block of the vSwitch. The vSwitch CIDR block must meet the following requirements: 
     // 
     // - The mask length of the vSwitch CIDR block must be 16 to 29 bits.  
     // 
-    // - The CIDR block of the vSwitch must be a subset of the CIDR block of the VPC to which the vSwitch belongs. 
+    // - The vSwitch CIDR block must be a subset of the CIDR block of the VPC to which the vSwitch belongs. 
     // 
-    // - The CIDR block of the vSwitch cannot be the same as the destination CIDR block of a route in the VPC, but can be a subset of the destination CIDR block. 
+    // - The vSwitch CIDR block cannot be the same as the destination CIDR block of a route entry in the VPC, but can be a subset of the destination CIDR block. 
     // 
-    // - The CIDR block of the vSwitch cannot be within the following reserved address ranges: 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, or 224.0.0.0/4.
+    // - The vSwitch CIDR block cannot be within the following reserved address ranges: 100.64.0.0/10, 127.0.0.0/8, 169.254.0.0/16, or 224.0.0.0/4.
     // 
     // > After a vSwitch is created, you cannot modify its CIDR block.
-    // 
-    // This parameter is required.
     shared_ptr<string> cidrBlock_ {};
+    // The mask length of the IPv4 CIDR block of the vSwitch.
+    // > The mask length of the vSwitch IPv4 CIDR block must be 16 to 29 bits. You must specify at least one of CidrBlock and CidrMask.
+    shared_ptr<int32_t> cidrMask_ {};
     // The client token that is used to ensure the idempotence of the request.
     // 
     // You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
     // 
-    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may differ for each API request.
+    // > If you do not specify this parameter, the system uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may vary for each API request.
     shared_ptr<string> clientToken_ {};
     // The description of the vSwitch.  
     // 
     // The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
     shared_ptr<string> description_ {};
     // The last 8 bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
-    // You can specify this parameter only when the VPC to which the vSwitch belongs has IPv6 enabled. This allows you to assign an IPv6 CIDR block to the vSwitch. After the IPv6 CIDR block is allocated, it cannot be changed. Make sure that the CIDR block does not overlap with those of other vSwitches in the VPC.
+    // You can specify this parameter to assign an IPv6 CIDR block to the vSwitch only when the VPC to which the vSwitch belongs has IPv6 enabled. After the IPv6 CIDR block is assigned, it cannot be changed to another CIDR block. Make sure that the CIDR block does not overlap with those of other vSwitches in the VPC.
     shared_ptr<int32_t> ipv6CidrBlock_ {};
+    // The subnet mask of the IPv6 CIDR block of the vSwitch. You can specify this parameter to assign an IPv6 CIDR block to the vSwitch only when the VPC to which the vSwitch belongs has IPv6 enabled.
+    // 
+    // > Only 64 is supported.
+    shared_ptr<int32_t> ipv6CidrMask_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the vSwitch that you want to create.
+    // The region ID of the vSwitch to create.
     // 
     // You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
     shared_ptr<string> regionId_ {};

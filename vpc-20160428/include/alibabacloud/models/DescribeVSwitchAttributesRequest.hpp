@@ -95,8 +95,8 @@ namespace Models
 
   protected:
     // Specifies whether to perform a dry run. Valid values:
-    // - **true**: performs a dry run without querying the vSwitch configuration. The system checks the required parameters, request format, and service limits. If the request fails the dry run, the corresponding error is returned. If the request passes the dry run, the error code `DryRunOperation` is returned.
-    // - **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the vSwitch configuration is queried.
+    // - **true**: performs a dry run without querying the vSwitch configuration. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the error code `DryRunOperation` is returned.
+    // - **false** (default): performs a dry run and sends the request. After the request passes the check, an HTTP 2xx status code is returned and the vSwitch configuration is queried.
     shared_ptr<bool> dryRun_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

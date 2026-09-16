@@ -17,11 +17,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(NextToken, nextToken_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(RouteEntrys, routeEntrys_);
+      DARABONBA_PTR_TO_JSON(TotalCount, totalCount_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeRouteEntryListResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(NextToken, nextToken_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(RouteEntrys, routeEntrys_);
+      DARABONBA_PTR_FROM_JSON(TotalCount, totalCount_);
     };
     DescribeRouteEntryListResponseBody() = default ;
     DescribeRouteEntryListResponseBody(const DescribeRouteEntryListResponseBody &) = default ;
@@ -384,7 +386,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->nextToken_ == nullptr
-        && this->requestId_ == nullptr && this->routeEntrys_ == nullptr; };
+        && this->requestId_ == nullptr && this->routeEntrys_ == nullptr && this->totalCount_ == nullptr; };
     // nextToken Field Functions 
     bool hasNextToken() const { return this->nextToken_ != nullptr;};
     void deleteNextToken() { this->nextToken_ = nullptr;};
@@ -408,14 +410,22 @@ namespace Models
     inline DescribeRouteEntryListResponseBody& setRouteEntrys(DescribeRouteEntryListResponseBody::RouteEntrys && routeEntrys) { DARABONBA_PTR_SET_RVALUE(routeEntrys_, routeEntrys) };
 
 
+    // totalCount Field Functions 
+    bool hasTotalCount() const { return this->totalCount_ != nullptr;};
+    void deleteTotalCount() { this->totalCount_ = nullptr;};
+    inline int32_t getTotalCount() const { DARABONBA_PTR_GET_DEFAULT(totalCount_, 0) };
+    inline DescribeRouteEntryListResponseBody& setTotalCount(int32_t totalCount) { DARABONBA_PTR_SET_VALUE(totalCount_, totalCount) };
+
+
   protected:
-    // The pagination token. Valid values:
-    // - If **NextToken** is empty, no subsequent query exists.
+    // The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+    // - If **NextToken** is empty, no subsequent request exists.
     // - If **NextToken** is returned, the value indicates the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeRouteEntryListResponseBody::RouteEntrys> routeEntrys_ {};
+    shared_ptr<int32_t> totalCount_ {};
   };
 
   } // namespace Models

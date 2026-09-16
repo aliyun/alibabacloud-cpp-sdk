@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EnableIPv6, enableIPv6_);
       DARABONBA_PTR_TO_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+      DARABONBA_PTR_TO_JSON(Ipv6CidrMask, ipv6CidrMask_);
       DARABONBA_PTR_TO_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EnableIPv6, enableIPv6_);
       DARABONBA_PTR_FROM_JSON(Ipv6CidrBlock, ipv6CidrBlock_);
+      DARABONBA_PTR_FROM_JSON(Ipv6CidrMask, ipv6CidrMask_);
       DARABONBA_PTR_FROM_JSON(OwnerAccount, ownerAccount_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->enableIPv6_ == nullptr && this->ipv6CidrBlock_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr && this->vpcIpv6CidrBlock_ == nullptr; };
+        && this->enableIPv6_ == nullptr && this->ipv6CidrBlock_ == nullptr && this->ipv6CidrMask_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->vSwitchId_ == nullptr && this->vSwitchName_ == nullptr
+        && this->vpcIpv6CidrBlock_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -71,6 +74,13 @@ namespace Models
     void deleteIpv6CidrBlock() { this->ipv6CidrBlock_ = nullptr;};
     inline int32_t getIpv6CidrBlock() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrBlock_, 0) };
     inline ModifyVSwitchAttributeRequest& setIpv6CidrBlock(int32_t ipv6CidrBlock) { DARABONBA_PTR_SET_VALUE(ipv6CidrBlock_, ipv6CidrBlock) };
+
+
+    // ipv6CidrMask Field Functions 
+    bool hasIpv6CidrMask() const { return this->ipv6CidrMask_ != nullptr;};
+    void deleteIpv6CidrMask() { this->ipv6CidrMask_ = nullptr;};
+    inline int32_t getIpv6CidrMask() const { DARABONBA_PTR_GET_DEFAULT(ipv6CidrMask_, 0) };
+    inline ModifyVSwitchAttributeRequest& setIpv6CidrMask(int32_t ipv6CidrMask) { DARABONBA_PTR_SET_VALUE(ipv6CidrMask_, ipv6CidrMask) };
 
 
     // ownerAccount Field Functions 
@@ -136,13 +146,17 @@ namespace Models
     shared_ptr<string> description_ {};
     // Specifies whether to enable IPv6 for the vSwitch. Valid values:
     // 
-    // - **true**: enables IPv6. The VPC to which the vSwitch belongs must have IPv6 enabled. You must also specify Ipv6CidrBlock to assign an IPv6 CIDR block to the vSwitch.
-    // - **false** (default): disables IPv6. When you disable IPv6 for the vSwitch, make sure that no IPv6 addresses are in use. You cannot specify Ipv6CidrBlock at the same time.
+    // - **true**: Enables IPv6. IPv6 must be enabled for the VPC to which the vSwitch belongs. You must also specify Ipv6CidrBlock to allocate an IPv6 CIDR block to the vSwitch.
+    // - **false** (default): Disables IPv6. Before you disable IPv6 for the vSwitch, make sure that no IPv6 addresses are in use. You cannot specify Ipv6CidrBlock at the same time.
     shared_ptr<bool> enableIPv6_ {};
     // The last 8 bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
     // 
-    // You can specify this parameter only when the VPC to which the vSwitch belongs has IPv6 enabled. This parameter is used to assign an IPv6 CIDR block to the vSwitch. After the IPv6 CIDR block is allocated, it cannot be changed to another CIDR block. Make sure that the CIDR block does not overlap with those of other vSwitches in the same VPC.
+    // You can set this parameter only when IPv6 is enabled for the VPC to which the vSwitch belongs. This parameter allows you to allocate an IPv6 CIDR block to the vSwitch. After the IPv6 CIDR block is allocated, it cannot be changed to another CIDR block. Make sure that the CIDR block does not overlap with those of other vSwitches in the same VPC.
     shared_ptr<int32_t> ipv6CidrBlock_ {};
+    // The IPv6 CIDR block mask of the vSwitch. You can set this parameter only when IPv6 is enabled for the VPC to which the vSwitch belongs.
+    // 
+    // > Only 64 is supported.
+    shared_ptr<int32_t> ipv6CidrMask_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the vSwitch. You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the most recent region list.

@@ -332,7 +332,7 @@ namespace Models
 
 
   protected:
-    // The number of active IP addresses.
+    // The active IP address count.
     shared_ptr<int64_t> availableIpAddressCount_ {};
     // The private network address range of the vSwitch.
     shared_ptr<string> cidrBlock_ {};

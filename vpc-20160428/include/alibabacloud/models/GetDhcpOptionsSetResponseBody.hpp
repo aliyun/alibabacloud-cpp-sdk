@@ -307,7 +307,7 @@ namespace Models
     shared_ptr<vector<GetDhcpOptionsSetResponseBody::AssociateVpcs>> associateVpcs_ {};
     // The creation time.
     shared_ptr<string> creationTime_ {};
-    // The DHCP options configuration.
+    // The DHCP options configuration information.
     shared_ptr<GetDhcpOptionsSetResponseBody::DhcpOptions> dhcpOptions_ {};
     // The description of the DHCP options set.
     shared_ptr<string> dhcpOptionsSetDescription_ {};

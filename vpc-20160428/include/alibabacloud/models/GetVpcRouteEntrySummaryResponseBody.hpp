@@ -95,16 +95,16 @@ namespace Models
         shared_ptr<int32_t> count_ {};
         // The type of the route. Valid values:
         // - **all**: all route types.
-        // - **custom**: custom route.
-        // - **system**: system route.
-        // - **bgp**: BGP route.
-        // - **cen**: Cloud Enterprise Network (CEN) route.
-        // - **type_vpn_bgp_internal**: VPN BGP route.
-        // - **ECR**: Express Connect Router (ECR) route.
+        // - **custom**: custom routes.
+        // - **system**: system routes.
+        // - **bgp**: BGP routes.
+        // - **cen**: Cloud Enterprise Network (CEN) routes.
+        // - **type_vpn_bgp_internal**: BGP routes of VPN.
+        // - **ECR**: Express Connect Router (ECR) routes.
         // 
         // 
         // 
-        // > The returned system routes are the system routes in the system route table.
+        // > The returned system routes are the system routes under the system route table.
         shared_ptr<string> routeEntryType_ {};
       };
 
@@ -154,7 +154,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about all route tables returned.
+    // The information about all queried route tables.
     shared_ptr<vector<GetVpcRouteEntrySummaryResponseBody::RouteEntrySummarys>> routeEntrySummarys_ {};
   };
 

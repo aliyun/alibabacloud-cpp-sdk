@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
         DARABONBA_PTR_TO_JSON(ResourceUid, resourceUid_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(SuppressedList, suppressedList_);
       };
       friend void from_json(const Darabonba::Json& j, PrefixListAssociation& obj) { 
         DARABONBA_PTR_FROM_JSON(CidrList, cidrList_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
         DARABONBA_PTR_FROM_JSON(ResourceUid, resourceUid_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(SuppressedList, suppressedList_);
       };
       PrefixListAssociation() = default ;
       PrefixListAssociation(const PrefixListAssociation &) = default ;
@@ -75,7 +77,7 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->cidrList_ == nullptr
         && this->ownerId_ == nullptr && this->prefixListId_ == nullptr && this->reason_ == nullptr && this->regionId_ == nullptr && this->resourceId_ == nullptr
-        && this->resourceType_ == nullptr && this->resourceUid_ == nullptr && this->status_ == nullptr; };
+        && this->resourceType_ == nullptr && this->resourceUid_ == nullptr && this->status_ == nullptr && this->suppressedList_ == nullptr; };
       // cidrList Field Functions 
       bool hasCidrList() const { return this->cidrList_ != nullptr;};
       void deleteCidrList() { this->cidrList_ = nullptr;};
@@ -139,6 +141,13 @@ namespace Models
       inline PrefixListAssociation& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // suppressedList Field Functions 
+      bool hasSuppressedList() const { return this->suppressedList_ != nullptr;};
+      void deleteSuppressedList() { this->suppressedList_ = nullptr;};
+      inline string getSuppressedList() const { DARABONBA_PTR_GET_DEFAULT(suppressedList_, "") };
+      inline PrefixListAssociation& setSuppressedList(string suppressedList) { DARABONBA_PTR_SET_VALUE(suppressedList_, suppressedList) };
+
+
     protected:
       // The list of CIDR blocks in the prefix list that are effective for the associated resource.
       shared_ptr<string> cidrList_ {};
@@ -161,13 +170,15 @@ namespace Models
       shared_ptr<string> resourceUid_ {};
       // The association status of the prefix list. Valid values:
       // 
-      // - **Created**: succeeded.
-      // - **ModifyFailed**: not associated with the latest version.
-      // - **Creating**: being created.
-      // - **Modifying**: being modified.
-      // - **Deleting**: being deleted.
-      // - **Deleted**: deleted.
+      // - **Created**: Succeeded.
+      // - **ModifyFailed**: Not associated with the latest version.
+      // - **Creating**: Being created.
+      // - **Modifying**: Being modified.
+      // - **Deleting**: Being deleted.
+      // - **Deleted**: Deleted.
       shared_ptr<string> status_ {};
+      // The list of CIDR blocks in the prefix list that are not effective for the associated resource.
+      shared_ptr<string> suppressedList_ {};
     };
 
     virtual bool empty() const override { return this->count_ == nullptr
@@ -212,9 +223,9 @@ namespace Models
   protected:
     // The number of entries returned.
     shared_ptr<int64_t> count_ {};
-    // The pagination token. Valid values:
-    // - If **NextToken** is empty, no subsequent query is required.
-    // - If **NextToken** is returned, the value indicates the token for the next query.
+    // The token for the next query. Valid values:
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** has a return value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The association information of the prefix list.
     shared_ptr<vector<GetVpcPrefixListAssociationsResponseBody::PrefixListAssociation>> prefixListAssociation_ {};
