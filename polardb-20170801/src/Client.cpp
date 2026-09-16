@@ -7016,6 +7016,56 @@ DeleteAIDBClusterApiKeyResponse Client::deleteAIDBClusterApiKey(const DeleteAIDB
 }
 
 /**
+ * @summary Deletes a custom model registration from an AI cluster.
+ *
+ * @param request DeleteAIDBClusterCustomModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAIDBClusterCustomModelResponse
+ */
+DeleteAIDBClusterCustomModelResponse Client::deleteAIDBClusterCustomModelWithOptions(const DeleteAIDBClusterCustomModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAIDBClusterCustomModel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAIDBClusterCustomModelResponse>();
+}
+
+/**
+ * @summary Deletes a custom model registration from an AI cluster.
+ *
+ * @param request DeleteAIDBClusterCustomModelRequest
+ * @return DeleteAIDBClusterCustomModelResponse
+ */
+DeleteAIDBClusterCustomModelResponse Client::deleteAIDBClusterCustomModel(const DeleteAIDBClusterCustomModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAIDBClusterCustomModelWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes a dataset.
  *
  * @param request DeleteAIDBClusterDatasetRequest
@@ -23595,6 +23645,64 @@ ModifyAIDBClusterDescriptionResponse Client::modifyAIDBClusterDescription(const 
 }
 
 /**
+ * @summary Changes the model or the customer-facing invocation name of an AI cluster.
+ *
+ * @param request ModifyAIDBClusterModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ModifyAIDBClusterModelResponse
+ */
+ModifyAIDBClusterModelResponse Client::modifyAIDBClusterModelWithOptions(const ModifyAIDBClusterModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDisplayModelName()) {
+    query["DisplayModelName"] = request.getDisplayModelName();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ModifyAIDBClusterModel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ModifyAIDBClusterModelResponse>();
+}
+
+/**
+ * @summary Changes the model or the customer-facing invocation name of an AI cluster.
+ *
+ * @param request ModifyAIDBClusterModelRequest
+ * @return ModifyAIDBClusterModelResponse
+ */
+ModifyAIDBClusterModelResponse Client::modifyAIDBClusterModel(const ModifyAIDBClusterModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return modifyAIDBClusterModelWithOptions(request, runtime);
+}
+
+/**
  * @summary Modifies the description of a PolarDB database account.
  *
  * @param request ModifyAccountDescriptionRequest
@@ -29256,6 +29364,68 @@ RefreshDBClusterStorageUsageResponse Client::refreshDBClusterStorageUsageWithOpt
 RefreshDBClusterStorageUsageResponse Client::refreshDBClusterStorageUsage(const RefreshDBClusterStorageUsageRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return refreshDBClusterStorageUsageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Registers a custom model for an AI cluster.
+ *
+ * @param request RegisterAIDBClusterCustomModelRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RegisterAIDBClusterCustomModelResponse
+ */
+RegisterAIDBClusterCustomModelResponse Client::registerAIDBClusterCustomModelWithOptions(const RegisterAIDBClusterCustomModelRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCustomOssBucketName()) {
+    query["CustomOssBucketName"] = request.getCustomOssBucketName();
+  }
+
+  if (!!request.hasCustomOssBucketPath()) {
+    query["CustomOssBucketPath"] = request.getCustomOssBucketPath();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasDisplayModelName()) {
+    query["DisplayModelName"] = request.getDisplayModelName();
+  }
+
+  if (!!request.hasModelName()) {
+    query["ModelName"] = request.getModelName();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RegisterAIDBClusterCustomModel"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RegisterAIDBClusterCustomModelResponse>();
+}
+
+/**
+ * @summary Registers a custom model for an AI cluster.
+ *
+ * @param request RegisterAIDBClusterCustomModelRequest
+ * @return RegisterAIDBClusterCustomModelResponse
+ */
+RegisterAIDBClusterCustomModelResponse Client::registerAIDBClusterCustomModel(const RegisterAIDBClusterCustomModelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return registerAIDBClusterCustomModelWithOptions(request, runtime);
 }
 
 /**

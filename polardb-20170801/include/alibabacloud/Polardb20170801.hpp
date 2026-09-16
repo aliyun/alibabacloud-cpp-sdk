@@ -1723,6 +1723,23 @@ namespace Polardb20170801
       Models::DeleteAIDBClusterApiKeyResponse deleteAIDBClusterApiKey(const Models::DeleteAIDBClusterApiKeyRequest &request);
 
       /**
+       * @summary Deletes a custom model registration from an AI cluster.
+       *
+       * @param request DeleteAIDBClusterCustomModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAIDBClusterCustomModelResponse
+       */
+      Models::DeleteAIDBClusterCustomModelResponse deleteAIDBClusterCustomModelWithOptions(const Models::DeleteAIDBClusterCustomModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a custom model registration from an AI cluster.
+       *
+       * @param request DeleteAIDBClusterCustomModelRequest
+       * @return DeleteAIDBClusterCustomModelResponse
+       */
+      Models::DeleteAIDBClusterCustomModelResponse deleteAIDBClusterCustomModel(const Models::DeleteAIDBClusterCustomModelRequest &request);
+
+      /**
        * @summary Deletes a dataset.
        *
        * @param request DeleteAIDBClusterDatasetRequest
@@ -6405,6 +6422,23 @@ namespace Polardb20170801
       Models::ModifyAIDBClusterDescriptionResponse modifyAIDBClusterDescription(const Models::ModifyAIDBClusterDescriptionRequest &request);
 
       /**
+       * @summary Changes the model or the customer-facing invocation name of an AI cluster.
+       *
+       * @param request ModifyAIDBClusterModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ModifyAIDBClusterModelResponse
+       */
+      Models::ModifyAIDBClusterModelResponse modifyAIDBClusterModelWithOptions(const Models::ModifyAIDBClusterModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Changes the model or the customer-facing invocation name of an AI cluster.
+       *
+       * @param request ModifyAIDBClusterModelRequest
+       * @return ModifyAIDBClusterModelResponse
+       */
+      Models::ModifyAIDBClusterModelResponse modifyAIDBClusterModel(const Models::ModifyAIDBClusterModelRequest &request);
+
+      /**
        * @summary Modifies the description of a PolarDB database account.
        *
        * @param request ModifyAccountDescriptionRequest
@@ -7792,6 +7826,23 @@ namespace Polardb20170801
        * @return RefreshDBClusterStorageUsageResponse
        */
       Models::RefreshDBClusterStorageUsageResponse refreshDBClusterStorageUsage(const Models::RefreshDBClusterStorageUsageRequest &request);
+
+      /**
+       * @summary Registers a custom model for an AI cluster.
+       *
+       * @param request RegisterAIDBClusterCustomModelRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RegisterAIDBClusterCustomModelResponse
+       */
+      Models::RegisterAIDBClusterCustomModelResponse registerAIDBClusterCustomModelWithOptions(const Models::RegisterAIDBClusterCustomModelRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Registers a custom model for an AI cluster.
+       *
+       * @param request RegisterAIDBClusterCustomModelRequest
+       * @return RegisterAIDBClusterCustomModelResponse
+       */
+      Models::RegisterAIDBClusterCustomModelResponse registerAIDBClusterCustomModel(const Models::RegisterAIDBClusterCustomModelRequest &request);
 
       /**
        * @summary Registers an OSS file in a knowledge base.

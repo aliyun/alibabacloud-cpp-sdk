@@ -272,6 +272,9 @@
 #include <alibabacloud/models/DeleteAIDBClusterApiKeyRequest.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterApiKeyResponseBody.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterApiKeyResponse.hpp>
+#include <alibabacloud/models/DeleteAIDBClusterCustomModelRequest.hpp>
+#include <alibabacloud/models/DeleteAIDBClusterCustomModelResponseBody.hpp>
+#include <alibabacloud/models/DeleteAIDBClusterCustomModelResponse.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterDatasetRequest.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterDatasetResponseBody.hpp>
 #include <alibabacloud/models/DeleteAIDBClusterDatasetResponse.hpp>
@@ -1045,6 +1048,9 @@
 #include <alibabacloud/models/ModifyAIDBClusterDescriptionRequest.hpp>
 #include <alibabacloud/models/ModifyAIDBClusterDescriptionResponseBody.hpp>
 #include <alibabacloud/models/ModifyAIDBClusterDescriptionResponse.hpp>
+#include <alibabacloud/models/ModifyAIDBClusterModelRequest.hpp>
+#include <alibabacloud/models/ModifyAIDBClusterModelResponseBody.hpp>
+#include <alibabacloud/models/ModifyAIDBClusterModelResponse.hpp>
 #include <alibabacloud/models/ModifyAccountDescriptionRequest.hpp>
 #include <alibabacloud/models/ModifyAccountDescriptionResponseBody.hpp>
 #include <alibabacloud/models/ModifyAccountDescriptionResponse.hpp>
@@ -1281,6 +1287,9 @@
 #include <alibabacloud/models/RefreshDBClusterStorageUsageRequest.hpp>
 #include <alibabacloud/models/RefreshDBClusterStorageUsageResponseBody.hpp>
 #include <alibabacloud/models/RefreshDBClusterStorageUsageResponse.hpp>
+#include <alibabacloud/models/RegisterAIDBClusterCustomModelRequest.hpp>
+#include <alibabacloud/models/RegisterAIDBClusterCustomModelResponseBody.hpp>
+#include <alibabacloud/models/RegisterAIDBClusterCustomModelResponse.hpp>
 #include <alibabacloud/models/RegisterKnowledgeBaseFileRequest.hpp>
 #include <alibabacloud/models/RegisterKnowledgeBaseFileResponseBody.hpp>
 #include <alibabacloud/models/RegisterKnowledgeBaseFileResponse.hpp>
