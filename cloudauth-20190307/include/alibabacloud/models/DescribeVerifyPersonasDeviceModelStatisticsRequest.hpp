@@ -72,11 +72,11 @@ namespace Models
     shared_ptr<int64_t> sceneId_ {};
     // The service type. Valid values:
     // - **antcloudauth**: financial-grade ID Verification.
-    // - **cloudauthst** (discontinued): enhanced ID Verification.
+    // - **cloudauthst** (discontinued): ID Verification enhanced edition.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // The time range for the query, specified as the number of preceding days.
+    // The time range for the query, indicating the number of preceding days. Format: a numeric string. Unit: days (d). A value of 30 indicates the preceding 30 days.
     // 
     // This parameter is required.
     shared_ptr<string> timeRange_ {};

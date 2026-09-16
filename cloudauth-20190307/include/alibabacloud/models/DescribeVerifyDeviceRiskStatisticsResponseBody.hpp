@@ -121,7 +121,7 @@ namespace Models
       protected:
         // The number of daily transactions.
         shared_ptr<int64_t> dailyCallCount_ {};
-        // The date.
+        // The date. Format: YYYY-MM-DD, such as 2025-10-10.
         shared_ptr<string> date_ {};
         // The abnormal device risk ratio.
         shared_ptr<string> deviceRiskRate_ {};
@@ -188,7 +188,7 @@ namespace Models
       shared_ptr<string> faceAttackRate_ {};
       // The total number of suspected fake identities.
       shared_ptr<string> idFakeRate_ {};
-      // The data items in the response.
+      // The data items of the returned result.
       shared_ptr<vector<ResultObject::Items>> items_ {};
       // The number of risks.
       shared_ptr<int64_t> riskCount_ {};

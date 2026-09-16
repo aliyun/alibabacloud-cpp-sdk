@@ -197,6 +197,10 @@
 #include <alibabacloud/models/Id3MetaVerifyAdvanceRequest.hpp>
 #include <alibabacloud/models/Id3MetaVerifyResponseBody.hpp>
 #include <alibabacloud/models/Id3MetaVerifyResponse.hpp>
+#include <alibabacloud/models/Id3MetaVerifyPRORequest.hpp>
+#include <alibabacloud/models/Id3MetaVerifyPROAdvanceRequest.hpp>
+#include <alibabacloud/models/Id3MetaVerifyPROResponseBody.hpp>
+#include <alibabacloud/models/Id3MetaVerifyPROResponse.hpp>
 #include <alibabacloud/models/Id3MetaVerifyWithOCRRequest.hpp>
 #include <alibabacloud/models/Id3MetaVerifyWithOCRAdvanceRequest.hpp>
 #include <alibabacloud/models/Id3MetaVerifyWithOCRResponseBody.hpp>

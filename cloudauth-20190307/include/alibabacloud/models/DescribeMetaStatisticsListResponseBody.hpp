@@ -180,7 +180,7 @@ namespace Models
 
 
     protected:
-      // The commodity (product) code.
+      // The product code.
       shared_ptr<string> api_ {};
       // The name corresponding to the API. Valid values:
       // - **ID_CARD_2_META**: ID card two-element verification
@@ -191,27 +191,27 @@ namespace Models
       // - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
       // - **MOBILE_2_META**: mobile number two-element verification
       // - **BANK_CARD_N_META**: bank card verification (detailed edition)
-      // - **MOBILE_DETECT**: phone number detection
+      // - **MOBILE_DETECT**: number detection
       // - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
       // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
       // - **VEHICLE_LICENSE_INFO**: vehicle information recognition
       // - **VEHICLE_INSURE_DATE**: vehicle insurance date query
-      // - **VEHICLE_CHECK**: vehicle element verification.
+      // - **VEHICLE_CHECK**: vehicle element verification
       shared_ptr<string> apiName_ {};
       // The number of successful queries (billable).
       shared_ptr<int64_t> billCount_ {};
       // The query hit rate (%).
       shared_ptr<string> billRate_ {};
-      // The number of successful phone number queries (exclusive to phone number detection).
+      // The number of successful mobile number queries (exclusive to number detection).
       shared_ptr<int64_t> chargeCount_ {};
-      // The date.
+      // The date. Format: YYYY-MM-DD, such as 2015-08-24.
       shared_ptr<string> date_ {};
-      // The name of the telecommunications service provider. Valid values:
+      // The carrier name. Valid values:
       // - **CMCC**: China Mobile
       // - **CUCC**: China Unicom
-      // - **CTCC**: China Telecom.
+      // - **CTCC**: China Telecom
       shared_ptr<string> ispName_ {};
-      // The number of calls with no education information found.
+      // The number of calls with no education record information.
       shared_ptr<int64_t> noRecordCount_ {};
       // The number of authentication-passed transactions.
       shared_ptr<int64_t> passedCount_ {};

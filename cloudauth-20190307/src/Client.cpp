@@ -28,32 +28,9 @@ namespace Cloudauth20190307
 {
 
 AlibabaCloud::Cloudauth20190307::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
-  this->_endpointRule = "regional";
+  this->_endpointRule = "central";
   this->_endpointMap = json({
-    {"us-west-1" , "cloudauth.aliyuncs.com"},
-    {"us-east-1" , "cloudauth.aliyuncs.com"},
-    {"me-east-1" , "cloudauth.aliyuncs.com"},
-    {"eu-west-1" , "cloudauth.aliyuncs.com"},
-    {"eu-central-1" , "cloudauth.aliyuncs.com"},
-    {"cn-zhangjiakou" , "cloudauth.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "cloudauth.aliyuncs.com"},
-    {"cn-shenzhen" , "cloudauth.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "cloudauth.aliyuncs.com"},
-    {"cn-shanghai" , "cloudauth.aliyuncs.com"},
-    {"cn-qingdao" , "cloudauth.cn-qingdao.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "cloudauth.aliyuncs.com"},
-    {"cn-huhehaote" , "cloudauth.aliyuncs.com"},
-    {"cn-hongkong" , "cloudauth.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "cloudauth.aliyuncs.com"},
-    {"cn-hangzhou" , "cloudauth.aliyuncs.com"},
-    {"cn-chengdu" , "cloudauth.aliyuncs.com"},
-    {"cn-beijing" , "cloudauth.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-5" , "cloudauth.aliyuncs.com"},
-    {"ap-southeast-3" , "cloudauth.aliyuncs.com"},
-    {"ap-southeast-2" , "cloudauth.aliyuncs.com"},
-    {"ap-southeast-1" , "cloudauth.aliyuncs.com"},
-    {"ap-south-1" , "cloudauth.aliyuncs.com"},
-    {"ap-northeast-1" , "cloudauth.aliyuncs.com"}
+    {"cn-beijing" , "cloudauth.cn-beijing.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cloudauth", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -756,6 +733,18 @@ CreateAntCloudAuthSceneResponse Client::createAntCloudAuthSceneWithOptions(const
     query["CheckFileName"] = request.getCheckFileName();
   }
 
+  if (!!request.hasDegradeAppScheme()) {
+    query["DegradeAppScheme"] = request.getDegradeAppScheme();
+  }
+
+  if (!!request.hasDegradeSubCodes()) {
+    query["DegradeSubCodes"] = request.getDegradeSubCodes();
+  }
+
+  if (!!request.hasDegradeType()) {
+    query["DegradeType"] = request.getDegradeType();
+  }
+
   if (!!request.hasDeviceRiskPlus()) {
     query["DeviceRiskPlus"] = request.getDeviceRiskPlus();
   }
@@ -782,6 +771,10 @@ CreateAntCloudAuthSceneResponse Client::createAntCloudAuthSceneWithOptions(const
 
   if (!!request.hasStoreImage()) {
     query["StoreImage"] = request.getStoreImage();
+  }
+
+  if (!!request.hasUseDegrade()) {
+    query["UseDegrade"] = request.getUseDegrade();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1056,7 +1049,7 @@ CreateVerifySettingResponse Client::createVerifySetting(const CreateVerifySettin
 }
 
 /**
- * @summary Creates an authentication whitelist.
+ * @summary Creates a whitelist for ID Verification.
  *
  * @description Request method: Only HTTPS POST requests are supported.
  *
@@ -1121,7 +1114,7 @@ CreateWhitelistSettingResponse Client::createWhitelistSettingWithOptions(const C
 }
 
 /**
- * @summary Creates an authentication whitelist.
+ * @summary Creates a whitelist for ID Verification.
  *
  * @description Request method: Only HTTPS POST requests are supported.
  *
@@ -2446,7 +2439,7 @@ DescribeFaceGuardRiskResponse Client::describeFaceGuardRisk(const DescribeFaceGu
 }
 
 /**
- * @summary After the China site (Chinese mainland) mobile client receives a callback, the China site (Chinese mainland) server can call this operation to obtain the corresponding verification status and verification materials.
+ * @summary Retrieves the verification status and verification materials after the China-based mobile client receives a callback.
  *
  * @description - Service endpoint: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
@@ -2488,7 +2481,7 @@ DescribeFaceVerifyResponse Client::describeFaceVerifyWithOptions(const DescribeF
 }
 
 /**
- * @summary After the China site (Chinese mainland) mobile client receives a callback, the China site (Chinese mainland) server can call this operation to obtain the corresponding verification status and verification materials.
+ * @summary Retrieves the verification status and verification materials after the China-based mobile client receives a callback.
  *
  * @description - Service endpoint: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
@@ -2502,9 +2495,9 @@ DescribeFaceVerifyResponse Client::describeFaceVerify(const DescribeFaceVerifyRe
 }
 
 /**
- * @summary Queries information verification export tasks by page.
+ * @summary Queries export tasks for information verification in a paged manner.
  *
- * @description Request method: Supports sending requests by using the HTTPS POST and GET methods.
+ * @description Request method: Supports sending requests by using HTTPS POST and GET methods.
  *
  * @param request DescribeInfoCheckExportRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2551,9 +2544,9 @@ DescribeInfoCheckExportRecordResponse Client::describeInfoCheckExportRecordWithO
 }
 
 /**
- * @summary Queries information verification export tasks by page.
+ * @summary Queries export tasks for information verification in a paged manner.
  *
- * @description Request method: Supports sending requests by using the HTTPS POST and GET methods.
+ * @description Request method: Supports sending requests by using HTTPS POST and GET methods.
  *
  * @param request DescribeInfoCheckExportRecordRequest
  * @return DescribeInfoCheckExportRecordResponse
@@ -2564,9 +2557,9 @@ DescribeInfoCheckExportRecordResponse Client::describeInfoCheckExportRecord(cons
 }
 
 /**
- * @summary Queries a specified.
+ * @summary Queries the list of financial-grade authentication scenarios.
  *
- * @description Request method: Supports HTTPS POST and GET methods.
+ * @description Request method: Supports sending requests by using HTTPS POST and GET methods.
  * > The authorization key is valid for 30 minutes and cannot be reused. Obtain a new key before each activation.
  *
  * @param request DescribeListAntCloudAuthScenesRequest
@@ -2598,9 +2591,9 @@ DescribeListAntCloudAuthScenesResponse Client::describeListAntCloudAuthScenesWit
 }
 
 /**
- * @summary Queries a specified.
+ * @summary Queries the list of financial-grade authentication scenarios.
  *
- * @description Request method: Supports HTTPS POST and GET methods.
+ * @description Request method: Supports sending requests by using HTTPS POST and GET methods.
  * > The authorization key is valid for 30 minutes and cannot be reused. Obtain a new key before each activation.
  *
  * @param request DescribeListAntCloudAuthScenesRequest
@@ -2746,7 +2739,7 @@ DescribeListFaceVerifyInfosResponse Client::describeListFaceVerifyInfos(const De
 /**
  * @summary Queries information verification details by paging.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeMetaSearchPageListRequest
@@ -2832,7 +2825,7 @@ DescribeMetaSearchPageListResponse Client::describeMetaSearchPageListWithOptions
 /**
  * @summary Queries information verification details by paging.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeMetaSearchPageListRequest
@@ -2844,9 +2837,9 @@ DescribeMetaSearchPageListResponse Client::describeMetaSearchPageList(const Desc
 }
 
 /**
- * @summary Queries statistics information for information verification and authentication.
+ * @summary Queries statistics information for information verification authentication.
  *
- * @description - Request method: HTTPS POST and GET methods are supported.
+ * @description - Request method: Supports sending requests by using HTTPS POST and GET methods.
  * - Service address: cloudauth.aliyuncs.com.
  *
  * @param request DescribeMetaStatisticsListRequest
@@ -2886,9 +2879,9 @@ DescribeMetaStatisticsListResponse Client::describeMetaStatisticsListWithOptions
 }
 
 /**
- * @summary Queries statistics information for information verification and authentication.
+ * @summary Queries statistics information for information verification authentication.
  *
- * @description - Request method: HTTPS POST and GET methods are supported.
+ * @description - Request method: Supports sending requests by using HTTPS POST and GET methods.
  * - Service address: cloudauth.aliyuncs.com.
  *
  * @param request DescribeMetaStatisticsListRequest
@@ -2900,9 +2893,9 @@ DescribeMetaStatisticsListResponse Client::describeMetaStatisticsList(const Desc
 }
 
 /**
- * @summary Queries information verification and authentication data with pagination.
+ * @summary Queries information verification data by paging.
  *
- * @description - Request method: Supports sending requests using HTTPS POST and GET methods.
+ * @description - Request method: HTTPS POST and GET methods are supported.
  * - Service address: cloudauth.aliyuncs.com.
  *
  * @param request DescribeMetaStatisticsPageListRequest
@@ -2950,9 +2943,9 @@ DescribeMetaStatisticsPageListResponse Client::describeMetaStatisticsPageListWit
 }
 
 /**
- * @summary Queries information verification and authentication data with pagination.
+ * @summary Queries information verification data by paging.
  *
- * @description - Request method: Supports sending requests using HTTPS POST and GET methods.
+ * @description - Request method: HTTPS POST and GET methods are supported.
  * - Service address: cloudauth.aliyuncs.com.
  *
  * @param request DescribeMetaStatisticsPageListRequest
@@ -3096,7 +3089,7 @@ DescribeOssUploadTokenResponse Client::describeOssUploadToken() {
 }
 
 /**
- * @summary Queries financial-grade ID Verification call statistics by using a paging query operation.
+ * @summary Queries the paging statistics of financial-grade ID Verification invocations.
  *
  * @param request DescribePageFaceVerifyDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3147,7 +3140,7 @@ DescribePageFaceVerifyDataResponse Client::describePageFaceVerifyDataWithOptions
 }
 
 /**
- * @summary Queries financial-grade ID Verification call statistics by using a paging query operation.
+ * @summary Queries the paging statistics of financial-grade ID Verification invocations.
  *
  * @param request DescribePageFaceVerifyDataRequest
  * @return DescribePageFaceVerifyDataResponse
@@ -3294,7 +3287,7 @@ DescribeSmartStatisticsPageListResponse Client::describeSmartStatisticsPageList(
 /**
  * @summary Retrieves statistics of verification devices.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifyDeviceRiskStatisticsRequest
@@ -3344,7 +3337,7 @@ DescribeVerifyDeviceRiskStatisticsResponse Client::describeVerifyDeviceRiskStati
 /**
  * @summary Retrieves statistics of verification devices.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifyDeviceRiskStatisticsRequest
@@ -3488,9 +3481,9 @@ DescribeVerifyPersonasDeviceModelStatisticsResponse Client::describeVerifyPerson
 }
 
 /**
- * @summary Queries the distribution data of ID Verification devices.
+ * @summary Queries the distribution data of authenticated devices.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifyPersonasOsStatisticsRequest
@@ -3534,9 +3527,9 @@ DescribeVerifyPersonasOsStatisticsResponse Client::describeVerifyPersonasOsStati
 }
 
 /**
- * @summary Queries the distribution data of ID Verification devices.
+ * @summary Queries the distribution data of authenticated devices.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifyPersonasOsStatisticsRequest
@@ -3548,9 +3541,9 @@ DescribeVerifyPersonasOsStatisticsResponse Client::describeVerifyPersonasOsStati
 }
 
 /**
- * @summary Queries authentication statistics by province of the individual.
+ * @summary Queries authentication statistics by province where individuals are located.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifyPersonasProvinceStatisticsRequest
@@ -3594,9 +3587,9 @@ DescribeVerifyPersonasProvinceStatisticsResponse Client::describeVerifyPersonasP
 }
 
 /**
- * @summary Queries authentication statistics by province of the individual.
+ * @summary Queries authentication statistics by province where individuals are located.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifyPersonasProvinceStatisticsRequest
@@ -3610,7 +3603,7 @@ DescribeVerifyPersonasProvinceStatisticsResponse Client::describeVerifyPersonasP
 /**
  * @summary Queries ID Verification statistics by gender.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifyPersonasSexStatisticsRequest
@@ -3656,7 +3649,7 @@ DescribeVerifyPersonasSexStatisticsResponse Client::describeVerifyPersonasSexSta
 /**
  * @summary Queries ID Verification statistics by gender.
  *
- * @description - Service endpoint: cloudauth.aliyuncs.com.
+ * @description - Service address: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifyPersonasSexStatisticsRequest
@@ -3774,10 +3767,10 @@ DescribeVerifySDKResponse Client::describeVerifySDK(const DescribeVerifySDKReque
 }
 
 /**
- * @summary Query authentication details by page with conditions.
+ * @summary Queries the details of authentication records with paging and conditional query.
  *
  * @description - Service endpoint: cloudauth.aliyuncs.com.
- * - Request methods: HTTPS POST and GET.
+ * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifySearchPageListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3892,10 +3885,10 @@ DescribeVerifySearchPageListResponse Client::describeVerifySearchPageListWithOpt
 }
 
 /**
- * @summary Query authentication details by page with conditions.
+ * @summary Queries the details of authentication records with paging and conditional query.
  *
  * @description - Service endpoint: cloudauth.aliyuncs.com.
- * - Request methods: HTTPS POST and GET.
+ * - Request method: HTTPS POST and GET.
  *
  * @param request DescribeVerifySearchPageListRequest
  * @return DescribeVerifySearchPageListResponse
@@ -4090,7 +4083,7 @@ DescribeVerifyTokenResponse Client::describeVerifyToken(const DescribeVerifyToke
 }
 
 /**
- * @summary Queries the whitelist of a scenario.
+ * @summary Queries the whitelist of a specified scenario.
  *
  * @description Request method: Only HTTPS POST requests are supported.
  *
@@ -4167,7 +4160,7 @@ DescribeWhitelistSettingResponse Client::describeWhitelistSettingWithOptions(con
 }
 
 /**
- * @summary Queries the whitelist of a scenario.
+ * @summary Queries the whitelist of a specified scenario.
  *
  * @description Request method: Only HTTPS POST requests are supported.
  *
@@ -4793,9 +4786,175 @@ Id3MetaVerifyResponse Client::id3MetaVerifyAdvance(const Id3MetaVerifyAdvanceReq
 }
 
 /**
- * @summary Accepts images of the front and back of an ID card, extracts the name, ID number, and facial photo by using OCR, and verifies the authenticity and consistency of the three facial elements against an authoritative source.
+ * @summary Three-factor verification (premium edition).
  *
- * @description Submits images of the front and back of an ID card and returns the verification result of the three facial elements from an authoritative data source.
+ * @description Verifies the authenticity and consistency of a name, ID card number, and facial photo against an authoritative source.
+ *
+ * @param request Id3MetaVerifyPRORequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return Id3MetaVerifyPROResponse
+ */
+Id3MetaVerifyPROResponse Client::id3MetaVerifyPROWithOptions(const Id3MetaVerifyPRORequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnableFallback()) {
+    query["EnableFallback"] = request.getEnableFallback();
+  }
+
+  json body = {};
+  if (!!request.hasCrop()) {
+    body["Crop"] = request.getCrop();
+  }
+
+  if (!!request.hasFaceFile()) {
+    body["FaceFile"] = request.getFaceFile();
+  }
+
+  if (!!request.hasFacePicture()) {
+    body["FacePicture"] = request.getFacePicture();
+  }
+
+  if (!!request.hasFaceUrl()) {
+    body["FaceUrl"] = request.getFaceUrl();
+  }
+
+  if (!!request.hasIdentifyNum()) {
+    body["IdentifyNum"] = request.getIdentifyNum();
+  }
+
+  if (!!request.hasLivenessCheck()) {
+    body["LivenessCheck"] = request.getLivenessCheck();
+  }
+
+  if (!!request.hasParamType()) {
+    body["ParamType"] = request.getParamType();
+  }
+
+  if (!!request.hasUserName()) {
+    body["UserName"] = request.getUserName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "Id3MetaVerifyPRO"},
+    {"version" , "2019-03-07"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<Id3MetaVerifyPROResponse>();
+}
+
+/**
+ * @summary Three-factor verification (premium edition).
+ *
+ * @description Verifies the authenticity and consistency of a name, ID card number, and facial photo against an authoritative source.
+ *
+ * @param request Id3MetaVerifyPRORequest
+ * @return Id3MetaVerifyPROResponse
+ */
+Id3MetaVerifyPROResponse Client::id3MetaVerifyPRO(const Id3MetaVerifyPRORequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return id3MetaVerifyPROWithOptions(request, runtime);
+}
+
+Id3MetaVerifyPROResponse Client::id3MetaVerifyPROAdvance(const Id3MetaVerifyPROAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  Id3MetaVerifyPRORequest id3MetaVerifyPROReq = Id3MetaVerifyPRORequest();
+  Utils::Utils::convert(request, id3MetaVerifyPROReq);
+  if (!!request.hasFaceFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getFaceFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    id3MetaVerifyPROReq.setFaceFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  Id3MetaVerifyPROResponse id3MetaVerifyPROResp = id3MetaVerifyPROWithOptions(id3MetaVerifyPROReq, runtime);
+  return id3MetaVerifyPROResp;
+}
+
+/**
+ * @summary Verifies the authenticity and consistency of facial recognition three-factor elements by accepting front and back images of an ID card, extracting the name, ID number, and facial photo through OCR, and checking them against an authoritative source.
+ *
+ * @description Accepts front and back images of an ID card and returns the verification result of the facial recognition three-factor elements from an authoritative data source.
  *
  * @param request Id3MetaVerifyWithOCRRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4838,9 +4997,9 @@ Id3MetaVerifyWithOCRResponse Client::id3MetaVerifyWithOCRWithOptions(const Id3Me
 }
 
 /**
- * @summary Accepts images of the front and back of an ID card, extracts the name, ID number, and facial photo by using OCR, and verifies the authenticity and consistency of the three facial elements against an authoritative source.
+ * @summary Verifies the authenticity and consistency of facial recognition three-factor elements by accepting front and back images of an ID card, extracting the name, ID number, and facial photo through OCR, and checking them against an authoritative source.
  *
- * @description Submits images of the front and back of an ID card and returns the verification result of the three facial elements from an authoritative data source.
+ * @description Accepts front and back images of an ID card and returns the verification result of the facial recognition three-factor elements from an authoritative data source.
  *
  * @param request Id3MetaVerifyWithOCRRequest
  * @return Id3MetaVerifyWithOCRResponse
@@ -5120,18 +5279,18 @@ InitCardVerifyResponse Client::initCardVerify(const InitCardVerifyRequest &reque
 }
 
 /**
- * @summary Obtains a CertifyId before each authentication to link the interfaces in the authentication request.
+ * @summary Obtains a CertifyId before each authentication session, which is used to correlate the various API operations in the authentication request.
  *
  * @description - Service endpoint: cloudauth.aliyuncs.com
  * - Request method: HTTPS POST and GET.
  * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
  * #### Image format requirements
  * When performing ID Verification, submit images that meet all of the following conditions:
- * - A recent photo with a complete, clear, and unobstructed face, a natural expression, and the subject facing the camera directly.
- * - A clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
- * - Resolution must not exceed 1920×1080 and must be at least 640×480. Scale the short side to 720 pixels and use a compression ratio greater than 0.9.
+ * - A recent photo with a complete, clear, and unobstructed face, natural expression, and facing the camera directly.
+ * - Clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
+ * - Resolution must not exceed 1920×1080, must be at least 640×480. We recommend scaling the short edge to 720 pixels with a compression ratio greater than 0.9.
  * - Photo size: < 1 MB.
- * - Photos rotated 90, 180, and 270 degrees are supported. For photos with multiple faces, the largest face is selected.
+ * - Photos rotated 90, 180, and 270 degrees are supported. For multiple faces, the largest face is selected.
  *
  * @param request InitFaceVerifyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5320,18 +5479,18 @@ InitFaceVerifyResponse Client::initFaceVerifyWithOptions(const InitFaceVerifyReq
 }
 
 /**
- * @summary Obtains a CertifyId before each authentication to link the interfaces in the authentication request.
+ * @summary Obtains a CertifyId before each authentication session, which is used to correlate the various API operations in the authentication request.
  *
  * @description - Service endpoint: cloudauth.aliyuncs.com
  * - Request method: HTTPS POST and GET.
  * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
  * #### Image format requirements
  * When performing ID Verification, submit images that meet all of the following conditions:
- * - A recent photo with a complete, clear, and unobstructed face, a natural expression, and the subject facing the camera directly.
- * - A clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
- * - Resolution must not exceed 1920×1080 and must be at least 640×480. Scale the short side to 720 pixels and use a compression ratio greater than 0.9.
+ * - A recent photo with a complete, clear, and unobstructed face, natural expression, and facing the camera directly.
+ * - Clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
+ * - Resolution must not exceed 1920×1080, must be at least 640×480. We recommend scaling the short edge to 720 pixels with a compression ratio greater than 0.9.
  * - Photo size: < 1 MB.
- * - Photos rotated 90, 180, and 270 degrees are supported. For photos with multiple faces, the largest face is selected.
+ * - Photos rotated 90, 180, and 270 degrees are supported. For multiple faces, the largest face is selected.
  *
  * @param request InitFaceVerifyRequest
  * @return InitFaceVerifyResponse
@@ -6232,7 +6391,7 @@ ModifyDeviceInfoResponse Client::modifyDeviceInfo(const ModifyDeviceInfoRequest 
 }
 
 /**
- * @summary Queries ID Verification whitelist configurations by using paging.
+ * @summary Queries ID Verification whitelist configurations by paging.
  *
  * @param request PageQueryWhiteListSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6295,7 +6454,7 @@ PageQueryWhiteListSettingResponse Client::pageQueryWhiteListSettingWithOptions(c
 }
 
 /**
- * @summary Queries ID Verification whitelist configurations by using paging.
+ * @summary Queries ID Verification whitelist configurations by paging.
  *
  * @param request PageQueryWhiteListSettingRequest
  * @return PageQueryWhiteListSettingResponse
@@ -6568,7 +6727,7 @@ QueryVerifyDownloadTaskResponse Client::queryVerifyDownloadTask(const QueryVerif
  *
  * @description - Service endpoint: cloudauth.aliyuncs.com
  * - Request method: HTTPS POST and GET.
- * - This operation uses different parameters for different product plans. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
+ * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
  *
  * @param request QueryVerifyFlowPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6603,7 +6762,7 @@ QueryVerifyFlowPackageResponse Client::queryVerifyFlowPackageWithOptions(const Q
  *
  * @description - Service endpoint: cloudauth.aliyuncs.com
  * - Request method: HTTPS POST and GET.
- * - This operation uses different parameters for different product plans. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
+ * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
  *
  * @param request QueryVerifyFlowPackageRequest
  * @return QueryVerifyFlowPackageResponse
@@ -6618,7 +6777,7 @@ QueryVerifyFlowPackageResponse Client::queryVerifyFlowPackage(const QueryVerifyF
  *
  * @description - Request endpoint: cloudauth.aliyuncs.com
  * - Request method: HTTPS POST and GET.
- * > ID Verification counts call volume by CertifyId. To facilitate reconciliation, retain the CertifyId field in your system.
+ * > ID Verification products use CertifyId to calculate call volume. To facilitate reconciliation, retain the CertifyId field in your system.
  *
  * @param request QueryVerifyInvokeSatisticRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6681,7 +6840,7 @@ QueryVerifyInvokeSatisticResponse Client::queryVerifyInvokeSatisticWithOptions(c
  *
  * @description - Request endpoint: cloudauth.aliyuncs.com
  * - Request method: HTTPS POST and GET.
- * > ID Verification counts call volume by CertifyId. To facilitate reconciliation, retain the CertifyId field in your system.
+ * > ID Verification products use CertifyId to calculate call volume. To facilitate reconciliation, retain the CertifyId field in your system.
  *
  * @param request QueryVerifyInvokeSatisticRequest
  * @return QueryVerifyInvokeSatisticResponse
@@ -6744,9 +6903,9 @@ RemoveWhiteListSettingResponse Client::removeWhiteListSetting(const RemoveWhiteL
 }
 
 /**
- * @summary Updates a China Finance Certification Initiative (CFCI) scenario.
+ * @summary Updates a China Finance Certification scenario.
  *
- * @description Updates the information of a China Finance Certification Initiative (CFCI) scenario based on the scenario ID.
+ * @description Updates the information of a China Finance Certification scenario based on the scenario ID.
  * - Service endpoint: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST.
  *
@@ -6767,6 +6926,18 @@ UpdateAntCloudAuthSceneResponse Client::updateAntCloudAuthSceneWithOptions(const
 
   if (!!request.hasCheckFileName()) {
     query["CheckFileName"] = request.getCheckFileName();
+  }
+
+  if (!!request.hasDegradeAppScheme()) {
+    query["DegradeAppScheme"] = request.getDegradeAppScheme();
+  }
+
+  if (!!request.hasDegradeSubCodes()) {
+    query["DegradeSubCodes"] = request.getDegradeSubCodes();
+  }
+
+  if (!!request.hasDegradeType()) {
+    query["DegradeType"] = request.getDegradeType();
   }
 
   if (!!request.hasDeviceRiskPlus()) {
@@ -6805,6 +6976,10 @@ UpdateAntCloudAuthSceneResponse Client::updateAntCloudAuthSceneWithOptions(const
     query["StoreImage"] = request.getStoreImage();
   }
 
+  if (!!request.hasUseDegrade()) {
+    query["UseDegrade"] = request.getUseDegrade();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -6823,9 +6998,9 @@ UpdateAntCloudAuthSceneResponse Client::updateAntCloudAuthSceneWithOptions(const
 }
 
 /**
- * @summary Updates a China Finance Certification Initiative (CFCI) scenario.
+ * @summary Updates a China Finance Certification scenario.
  *
- * @description Updates the information of a China Finance Certification Initiative (CFCI) scenario based on the scenario ID.
+ * @description Updates the information of a China Finance Certification scenario based on the scenario ID.
  * - Service endpoint: cloudauth.aliyuncs.com.
  * - Request method: HTTPS POST.
  *

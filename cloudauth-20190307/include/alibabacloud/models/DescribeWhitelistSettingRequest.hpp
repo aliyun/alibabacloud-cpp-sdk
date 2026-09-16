@@ -148,7 +148,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The language of the query result. Valid values:
+    // The language of the query results. Valid values:
     // - **zh**: Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
@@ -159,8 +159,8 @@ namespace Models
     // The scene ID.
     shared_ptr<int64_t> sceneId_ {};
     // The service code. Valid values:
-    // - **cloudauthst**: enhanced financial-grade edition.
-    // - **antcloudauth**: financial-grade edition.
+    // - **cloudauthst**: Enhanced Finance Edition.
+    // - **antcloudauth**: Finance Edition.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
@@ -171,10 +171,11 @@ namespace Models
     // - **INVALID**: invalid.
     // - **DELETED**: deleted.
     shared_ptr<string> status_ {};
-    // The end time of the validity period.
+    // The end time of the validity period. Format: UNIX timestamp. Unit: milliseconds. Example: 1730304000000.
     shared_ptr<int64_t> validEndDate_ {};
-    // The start time of the validity period. The value is a UNIX timestamp in seconds.
+    // The start time of the validity period. Format: UNIX timestamp. Unit: milliseconds. Example: 1759939200000.
     shared_ptr<int64_t> validStartDate_ {};
+    // The whitelist type.
     shared_ptr<string> whitelistType_ {};
   };
 

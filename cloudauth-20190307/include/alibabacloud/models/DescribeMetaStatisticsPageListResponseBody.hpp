@@ -188,50 +188,50 @@ namespace Models
 
 
     protected:
-      // API.
+      // Api。
       shared_ptr<string> api_ {};
-      // Name corresponding to the API:
-      // - **ID_CARD_2_META**: ID Card Two-Element Verification
-      // - **ID_PERIOD**: ID Card Validity Verification Period
-      // - **MOBILE_ONLINE_LENGTH**: Mobile Online Duration
-      // - **MOBILE_ONLINE_STATUS**: Mobile Online Status
-      // - **MOBILE_3_META_SIMPLE**: Mobile Number Three-Element Verification (Simple)
-      // - **MOBILE_3_META**: Mobile Number Three-Element Verification (Detailed)
-      // - **MOBILE_2_META**: Mobile Number Two-Element Verification
-      // - **BANK_CARD_N_META**: Bank Card Verification (Detailed)
-      // - **MOBILE_DETECT**: Number Detection
-      //  -**VEHICLE_N_META**: Vehicle Element Verification (Enhanced)
-      // - **VEHICLE_PENTA_INFO**: Vehicle Five-Element Information Recognition
-      // - **VEHICLE_LICENSE_INFO**: Vehicle Information Recognition
-      // - **VEHICLE_INSURE_DATE**: Vehicle Insurance Date Query
-      // - **VEHICLE_CHECK**: Vehicle Element Verification
+      // The name corresponding to the API. Valid values:
+      // - **ID_CARD_2_META**: ID card two-element verification
+      // - **ID_PERIOD**: ID card validity period verification
+      // - **MOBILE_ONLINE_LENGTH**: mobile number online duration
+      // - **MOBILE_ONLINE_STATUS**: mobile number online status
+      // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition)
+      // - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
+      // - **MOBILE_2_META**: mobile number two-element verification
+      // - **BANK_CARD_N_META**: bank card verification (detailed edition)
+      // - **MOBILE_DETECT**: phone number detection
+      // - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
+      // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
+      // - **VEHICLE_LICENSE_INFO**: vehicle information recognition
+      // - **VEHICLE_INSURE_DATE**: vehicle insurance date query
+      // - **VEHICLE_CHECK**: vehicle element verification
       shared_ptr<string> apiName_ {};
-      // Number of hits (billed).
+      // The number of successful queries (billable).
       shared_ptr<int64_t> billCount_ {};
-      // Hit rate (%).
+      // The query hit rate (%).
       shared_ptr<string> billRate_ {};
-      // Number of successful mobile number queries (exclusive to Number Detection).
+      // The number of successful phone number queries (exclusive to phone number detection).
       shared_ptr<int64_t> chargeCount_ {};
-      // Date.
+      // The date. Format: M/d (month/day). For example, 11/8 indicates November 8.
       shared_ptr<string> date_ {};
-      // Carrier name:
+      // The carrier name. Valid values:
       // - **CMCC**: China Mobile
       // - **CUCC**: China Unicom
       // - **CTCC**: China Telecom
       shared_ptr<string> ispName_ {};
-      // Number of calls with no record information.
+      // The number of calls with no education information found.
       shared_ptr<int64_t> noRecordCount_ {};
-      // Number of passed authentications.
+      // The number of authentication-passed transactions.
       shared_ptr<int64_t> passedCount_ {};
-      // Authentication pass rate (%).
+      // The authentication pass rate (%).
       shared_ptr<string> passedRate_ {};
-      // Number of successful requests.
+      // The number of successful requests.
       shared_ptr<int64_t> successCount_ {};
-      // Call success rate (%).
+      // The call success rate (%).
       shared_ptr<string> successRate_ {};
-      // Total number of entries.
+      // The total number of entries.
       shared_ptr<int64_t> totalCount_ {};
-      // Number of failed calls.
+      // The number of authentication-failed calls.
       shared_ptr<int64_t> unpassedCount_ {};
     };
 
@@ -282,17 +282,17 @@ namespace Models
 
 
   protected:
-    // Current page number.
+    // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // Paginated list data.
+    // The paginated list data.
     shared_ptr<vector<DescribeMetaStatisticsPageListResponseBody::Items>> items_ {};
-    // Number of data entries per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of this request.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

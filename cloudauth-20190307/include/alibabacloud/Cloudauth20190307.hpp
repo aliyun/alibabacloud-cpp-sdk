@@ -315,7 +315,7 @@ namespace Cloudauth20190307
       Models::CreateVerifySettingResponse createVerifySetting(const Models::CreateVerifySettingRequest &request);
 
       /**
-       * @summary Creates an authentication whitelist.
+       * @summary Creates a whitelist for ID Verification.
        *
        * @description Request method: Only HTTPS POST requests are supported.
        *
@@ -326,7 +326,7 @@ namespace Cloudauth20190307
       Models::CreateWhitelistSettingResponse createWhitelistSettingWithOptions(const Models::CreateWhitelistSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an authentication whitelist.
+       * @summary Creates a whitelist for ID Verification.
        *
        * @description Request method: Only HTTPS POST requests are supported.
        *
@@ -757,7 +757,7 @@ namespace Cloudauth20190307
       Models::DescribeFaceGuardRiskResponse describeFaceGuardRisk(const Models::DescribeFaceGuardRiskRequest &request);
 
       /**
-       * @summary After the China site (Chinese mainland) mobile client receives a callback, the China site (Chinese mainland) server can call this operation to obtain the corresponding verification status and verification materials.
+       * @summary Retrieves the verification status and verification materials after the China-based mobile client receives a callback.
        *
        * @description - Service endpoint: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
@@ -769,7 +769,7 @@ namespace Cloudauth20190307
       Models::DescribeFaceVerifyResponse describeFaceVerifyWithOptions(const Models::DescribeFaceVerifyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary After the China site (Chinese mainland) mobile client receives a callback, the China site (Chinese mainland) server can call this operation to obtain the corresponding verification status and verification materials.
+       * @summary Retrieves the verification status and verification materials after the China-based mobile client receives a callback.
        *
        * @description - Service endpoint: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
@@ -780,9 +780,9 @@ namespace Cloudauth20190307
       Models::DescribeFaceVerifyResponse describeFaceVerify(const Models::DescribeFaceVerifyRequest &request);
 
       /**
-       * @summary Queries information verification export tasks by page.
+       * @summary Queries export tasks for information verification in a paged manner.
        *
-       * @description Request method: Supports sending requests by using the HTTPS POST and GET methods.
+       * @description Request method: Supports sending requests by using HTTPS POST and GET methods.
        *
        * @param request DescribeInfoCheckExportRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -791,9 +791,9 @@ namespace Cloudauth20190307
       Models::DescribeInfoCheckExportRecordResponse describeInfoCheckExportRecordWithOptions(const Models::DescribeInfoCheckExportRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information verification export tasks by page.
+       * @summary Queries export tasks for information verification in a paged manner.
        *
-       * @description Request method: Supports sending requests by using the HTTPS POST and GET methods.
+       * @description Request method: Supports sending requests by using HTTPS POST and GET methods.
        *
        * @param request DescribeInfoCheckExportRecordRequest
        * @return DescribeInfoCheckExportRecordResponse
@@ -801,9 +801,9 @@ namespace Cloudauth20190307
       Models::DescribeInfoCheckExportRecordResponse describeInfoCheckExportRecord(const Models::DescribeInfoCheckExportRecordRequest &request);
 
       /**
-       * @summary Queries a specified.
+       * @summary Queries the list of financial-grade authentication scenarios.
        *
-       * @description Request method: Supports HTTPS POST and GET methods.
+       * @description Request method: Supports sending requests by using HTTPS POST and GET methods.
        * > The authorization key is valid for 30 minutes and cannot be reused. Obtain a new key before each activation.
        *
        * @param request DescribeListAntCloudAuthScenesRequest
@@ -813,9 +813,9 @@ namespace Cloudauth20190307
       Models::DescribeListAntCloudAuthScenesResponse describeListAntCloudAuthScenesWithOptions(const Models::DescribeListAntCloudAuthScenesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a specified.
+       * @summary Queries the list of financial-grade authentication scenarios.
        *
-       * @description Request method: Supports HTTPS POST and GET methods.
+       * @description Request method: Supports sending requests by using HTTPS POST and GET methods.
        * > The authorization key is valid for 30 minutes and cannot be reused. Obtain a new key before each activation.
        *
        * @param request DescribeListAntCloudAuthScenesRequest
@@ -872,7 +872,7 @@ namespace Cloudauth20190307
       /**
        * @summary Queries information verification details by paging.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeMetaSearchPageListRequest
@@ -884,7 +884,7 @@ namespace Cloudauth20190307
       /**
        * @summary Queries information verification details by paging.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeMetaSearchPageListRequest
@@ -893,9 +893,9 @@ namespace Cloudauth20190307
       Models::DescribeMetaSearchPageListResponse describeMetaSearchPageList(const Models::DescribeMetaSearchPageListRequest &request);
 
       /**
-       * @summary Queries statistics information for information verification and authentication.
+       * @summary Queries statistics information for information verification authentication.
        *
-       * @description - Request method: HTTPS POST and GET methods are supported.
+       * @description - Request method: Supports sending requests by using HTTPS POST and GET methods.
        * - Service address: cloudauth.aliyuncs.com.
        *
        * @param request DescribeMetaStatisticsListRequest
@@ -905,9 +905,9 @@ namespace Cloudauth20190307
       Models::DescribeMetaStatisticsListResponse describeMetaStatisticsListWithOptions(const Models::DescribeMetaStatisticsListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries statistics information for information verification and authentication.
+       * @summary Queries statistics information for information verification authentication.
        *
-       * @description - Request method: HTTPS POST and GET methods are supported.
+       * @description - Request method: Supports sending requests by using HTTPS POST and GET methods.
        * - Service address: cloudauth.aliyuncs.com.
        *
        * @param request DescribeMetaStatisticsListRequest
@@ -916,9 +916,9 @@ namespace Cloudauth20190307
       Models::DescribeMetaStatisticsListResponse describeMetaStatisticsList(const Models::DescribeMetaStatisticsListRequest &request);
 
       /**
-       * @summary Queries information verification and authentication data with pagination.
+       * @summary Queries information verification data by paging.
        *
-       * @description - Request method: Supports sending requests using HTTPS POST and GET methods.
+       * @description - Request method: HTTPS POST and GET methods are supported.
        * - Service address: cloudauth.aliyuncs.com.
        *
        * @param request DescribeMetaStatisticsPageListRequest
@@ -928,9 +928,9 @@ namespace Cloudauth20190307
       Models::DescribeMetaStatisticsPageListResponse describeMetaStatisticsPageListWithOptions(const Models::DescribeMetaStatisticsPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries information verification and authentication data with pagination.
+       * @summary Queries information verification data by paging.
        *
-       * @description - Request method: Supports sending requests using HTTPS POST and GET methods.
+       * @description - Request method: HTTPS POST and GET methods are supported.
        * - Service address: cloudauth.aliyuncs.com.
        *
        * @param request DescribeMetaStatisticsPageListRequest
@@ -1000,7 +1000,7 @@ namespace Cloudauth20190307
       Models::DescribeOssUploadTokenResponse describeOssUploadToken();
 
       /**
-       * @summary Queries financial-grade ID Verification call statistics by using a paging query operation.
+       * @summary Queries the paging statistics of financial-grade ID Verification invocations.
        *
        * @param request DescribePageFaceVerifyDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1009,7 +1009,7 @@ namespace Cloudauth20190307
       Models::DescribePageFaceVerifyDataResponse describePageFaceVerifyDataWithOptions(const Models::DescribePageFaceVerifyDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries financial-grade ID Verification call statistics by using a paging query operation.
+       * @summary Queries the paging statistics of financial-grade ID Verification invocations.
        *
        * @param request DescribePageFaceVerifyDataRequest
        * @return DescribePageFaceVerifyDataResponse
@@ -1074,7 +1074,7 @@ namespace Cloudauth20190307
       /**
        * @summary Retrieves statistics of verification devices.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifyDeviceRiskStatisticsRequest
@@ -1086,7 +1086,7 @@ namespace Cloudauth20190307
       /**
        * @summary Retrieves statistics of verification devices.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifyDeviceRiskStatisticsRequest
@@ -1141,9 +1141,9 @@ namespace Cloudauth20190307
       Models::DescribeVerifyPersonasDeviceModelStatisticsResponse describeVerifyPersonasDeviceModelStatistics(const Models::DescribeVerifyPersonasDeviceModelStatisticsRequest &request);
 
       /**
-       * @summary Queries the distribution data of ID Verification devices.
+       * @summary Queries the distribution data of authenticated devices.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifyPersonasOsStatisticsRequest
@@ -1153,9 +1153,9 @@ namespace Cloudauth20190307
       Models::DescribeVerifyPersonasOsStatisticsResponse describeVerifyPersonasOsStatisticsWithOptions(const Models::DescribeVerifyPersonasOsStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the distribution data of ID Verification devices.
+       * @summary Queries the distribution data of authenticated devices.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifyPersonasOsStatisticsRequest
@@ -1164,9 +1164,9 @@ namespace Cloudauth20190307
       Models::DescribeVerifyPersonasOsStatisticsResponse describeVerifyPersonasOsStatistics(const Models::DescribeVerifyPersonasOsStatisticsRequest &request);
 
       /**
-       * @summary Queries authentication statistics by province of the individual.
+       * @summary Queries authentication statistics by province where individuals are located.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifyPersonasProvinceStatisticsRequest
@@ -1176,9 +1176,9 @@ namespace Cloudauth20190307
       Models::DescribeVerifyPersonasProvinceStatisticsResponse describeVerifyPersonasProvinceStatisticsWithOptions(const Models::DescribeVerifyPersonasProvinceStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries authentication statistics by province of the individual.
+       * @summary Queries authentication statistics by province where individuals are located.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifyPersonasProvinceStatisticsRequest
@@ -1189,7 +1189,7 @@ namespace Cloudauth20190307
       /**
        * @summary Queries ID Verification statistics by gender.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifyPersonasSexStatisticsRequest
@@ -1201,7 +1201,7 @@ namespace Cloudauth20190307
       /**
        * @summary Queries ID Verification statistics by gender.
        *
-       * @description - Service endpoint: cloudauth.aliyuncs.com.
+       * @description - Service address: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifyPersonasSexStatisticsRequest
@@ -1262,10 +1262,10 @@ namespace Cloudauth20190307
       Models::DescribeVerifySDKResponse describeVerifySDK(const Models::DescribeVerifySDKRequest &request);
 
       /**
-       * @summary Query authentication details by page with conditions.
+       * @summary Queries the details of authentication records with paging and conditional query.
        *
        * @description - Service endpoint: cloudauth.aliyuncs.com.
-       * - Request methods: HTTPS POST and GET.
+       * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifySearchPageListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1274,10 +1274,10 @@ namespace Cloudauth20190307
       Models::DescribeVerifySearchPageListResponse describeVerifySearchPageListWithOptions(const Models::DescribeVerifySearchPageListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query authentication details by page with conditions.
+       * @summary Queries the details of authentication records with paging and conditional query.
        *
        * @description - Service endpoint: cloudauth.aliyuncs.com.
-       * - Request methods: HTTPS POST and GET.
+       * - Request method: HTTPS POST and GET.
        *
        * @param request DescribeVerifySearchPageListRequest
        * @return DescribeVerifySearchPageListResponse
@@ -1347,7 +1347,7 @@ namespace Cloudauth20190307
       Models::DescribeVerifyTokenResponse describeVerifyToken(const Models::DescribeVerifyTokenRequest &request);
 
       /**
-       * @summary Queries the whitelist of a scenario.
+       * @summary Queries the whitelist of a specified scenario.
        *
        * @description Request method: Only HTTPS POST requests are supported.
        *
@@ -1358,7 +1358,7 @@ namespace Cloudauth20190307
       Models::DescribeWhitelistSettingResponse describeWhitelistSettingWithOptions(const Models::DescribeWhitelistSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the whitelist of a scenario.
+       * @summary Queries the whitelist of a specified scenario.
        *
        * @description Request method: Only HTTPS POST requests are supported.
        *
@@ -1539,9 +1539,32 @@ namespace Cloudauth20190307
       Models::Id3MetaVerifyResponse id3MetaVerifyAdvance(const Models::Id3MetaVerifyAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Accepts images of the front and back of an ID card, extracts the name, ID number, and facial photo by using OCR, and verifies the authenticity and consistency of the three facial elements against an authoritative source.
+       * @summary Three-factor verification (premium edition).
        *
-       * @description Submits images of the front and back of an ID card and returns the verification result of the three facial elements from an authoritative data source.
+       * @description Verifies the authenticity and consistency of a name, ID card number, and facial photo against an authoritative source.
+       *
+       * @param request Id3MetaVerifyPRORequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return Id3MetaVerifyPROResponse
+       */
+      Models::Id3MetaVerifyPROResponse id3MetaVerifyPROWithOptions(const Models::Id3MetaVerifyPRORequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Three-factor verification (premium edition).
+       *
+       * @description Verifies the authenticity and consistency of a name, ID card number, and facial photo against an authoritative source.
+       *
+       * @param request Id3MetaVerifyPRORequest
+       * @return Id3MetaVerifyPROResponse
+       */
+      Models::Id3MetaVerifyPROResponse id3MetaVerifyPRO(const Models::Id3MetaVerifyPRORequest &request);
+
+      Models::Id3MetaVerifyPROResponse id3MetaVerifyPROAdvance(const Models::Id3MetaVerifyPROAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Verifies the authenticity and consistency of facial recognition three-factor elements by accepting front and back images of an ID card, extracting the name, ID number, and facial photo through OCR, and checking them against an authoritative source.
+       *
+       * @description Accepts front and back images of an ID card and returns the verification result of the facial recognition three-factor elements from an authoritative data source.
        *
        * @param request Id3MetaVerifyWithOCRRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1550,9 +1573,9 @@ namespace Cloudauth20190307
       Models::Id3MetaVerifyWithOCRResponse id3MetaVerifyWithOCRWithOptions(const Models::Id3MetaVerifyWithOCRRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Accepts images of the front and back of an ID card, extracts the name, ID number, and facial photo by using OCR, and verifies the authenticity and consistency of the three facial elements against an authoritative source.
+       * @summary Verifies the authenticity and consistency of facial recognition three-factor elements by accepting front and back images of an ID card, extracting the name, ID number, and facial photo through OCR, and checking them against an authoritative source.
        *
-       * @description Submits images of the front and back of an ID card and returns the verification result of the three facial elements from an authoritative data source.
+       * @description Accepts front and back images of an ID card and returns the verification result of the facial recognition three-factor elements from an authoritative data source.
        *
        * @param request Id3MetaVerifyWithOCRRequest
        * @return Id3MetaVerifyWithOCRResponse
@@ -1600,18 +1623,18 @@ namespace Cloudauth20190307
       Models::InitCardVerifyResponse initCardVerify(const Models::InitCardVerifyRequest &request);
 
       /**
-       * @summary Obtains a CertifyId before each authentication to link the interfaces in the authentication request.
+       * @summary Obtains a CertifyId before each authentication session, which is used to correlate the various API operations in the authentication request.
        *
        * @description - Service endpoint: cloudauth.aliyuncs.com
        * - Request method: HTTPS POST and GET.
        * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
        * #### Image format requirements
        * When performing ID Verification, submit images that meet all of the following conditions:
-       * - A recent photo with a complete, clear, and unobstructed face, a natural expression, and the subject facing the camera directly.
-       * - A clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
-       * - Resolution must not exceed 1920×1080 and must be at least 640×480. Scale the short side to 720 pixels and use a compression ratio greater than 0.9.
+       * - A recent photo with a complete, clear, and unobstructed face, natural expression, and facing the camera directly.
+       * - Clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
+       * - Resolution must not exceed 1920×1080, must be at least 640×480. We recommend scaling the short edge to 720 pixels with a compression ratio greater than 0.9.
        * - Photo size: < 1 MB.
-       * - Photos rotated 90, 180, and 270 degrees are supported. For photos with multiple faces, the largest face is selected.
+       * - Photos rotated 90, 180, and 270 degrees are supported. For multiple faces, the largest face is selected.
        *
        * @param request InitFaceVerifyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1620,18 +1643,18 @@ namespace Cloudauth20190307
       Models::InitFaceVerifyResponse initFaceVerifyWithOptions(const Models::InitFaceVerifyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtains a CertifyId before each authentication to link the interfaces in the authentication request.
+       * @summary Obtains a CertifyId before each authentication session, which is used to correlate the various API operations in the authentication request.
        *
        * @description - Service endpoint: cloudauth.aliyuncs.com
        * - Request method: HTTPS POST and GET.
        * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
        * #### Image format requirements
        * When performing ID Verification, submit images that meet all of the following conditions:
-       * - A recent photo with a complete, clear, and unobstructed face, a natural expression, and the subject facing the camera directly.
-       * - A clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
-       * - Resolution must not exceed 1920×1080 and must be at least 640×480. Scale the short side to 720 pixels and use a compression ratio greater than 0.9.
+       * - A recent photo with a complete, clear, and unobstructed face, natural expression, and facing the camera directly.
+       * - Clear photo with normal exposure. The face must not be too dark, too bright, or have glare, and the angle must not deviate significantly.
+       * - Resolution must not exceed 1920×1080, must be at least 640×480. We recommend scaling the short edge to 720 pixels with a compression ratio greater than 0.9.
        * - Photo size: < 1 MB.
-       * - Photos rotated 90, 180, and 270 degrees are supported. For photos with multiple faces, the largest face is selected.
+       * - Photos rotated 90, 180, and 270 degrees are supported. For multiple faces, the largest face is selected.
        *
        * @param request InitFaceVerifyRequest
        * @return InitFaceVerifyResponse
@@ -1954,7 +1977,7 @@ namespace Cloudauth20190307
       Models::ModifyDeviceInfoResponse modifyDeviceInfo(const Models::ModifyDeviceInfoRequest &request);
 
       /**
-       * @summary Queries ID Verification whitelist configurations by using paging.
+       * @summary Queries ID Verification whitelist configurations by paging.
        *
        * @param request PageQueryWhiteListSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1963,7 +1986,7 @@ namespace Cloudauth20190307
       Models::PageQueryWhiteListSettingResponse pageQueryWhiteListSettingWithOptions(const Models::PageQueryWhiteListSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries ID Verification whitelist configurations by using paging.
+       * @summary Queries ID Verification whitelist configurations by paging.
        *
        * @param request PageQueryWhiteListSettingRequest
        * @return PageQueryWhiteListSettingResponse
@@ -2100,7 +2123,7 @@ namespace Cloudauth20190307
        *
        * @description - Service endpoint: cloudauth.aliyuncs.com
        * - Request method: HTTPS POST and GET.
-       * - This operation uses different parameters for different product plans. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
+       * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
        *
        * @param request QueryVerifyFlowPackageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2113,7 +2136,7 @@ namespace Cloudauth20190307
        *
        * @description - Service endpoint: cloudauth.aliyuncs.com
        * - Request method: HTTPS POST and GET.
-       * - This operation uses different parameters for different product plans. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
+       * - This operation uses different parameters for different product plans. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/financial-grade-id-verification/product-overview/introduction/).
        *
        * @param request QueryVerifyFlowPackageRequest
        * @return QueryVerifyFlowPackageResponse
@@ -2125,7 +2148,7 @@ namespace Cloudauth20190307
        *
        * @description - Request endpoint: cloudauth.aliyuncs.com
        * - Request method: HTTPS POST and GET.
-       * > ID Verification counts call volume by CertifyId. To facilitate reconciliation, retain the CertifyId field in your system.
+       * > ID Verification products use CertifyId to calculate call volume. To facilitate reconciliation, retain the CertifyId field in your system.
        *
        * @param request QueryVerifyInvokeSatisticRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2138,7 +2161,7 @@ namespace Cloudauth20190307
        *
        * @description - Request endpoint: cloudauth.aliyuncs.com
        * - Request method: HTTPS POST and GET.
-       * > ID Verification counts call volume by CertifyId. To facilitate reconciliation, retain the CertifyId field in your system.
+       * > ID Verification products use CertifyId to calculate call volume. To facilitate reconciliation, retain the CertifyId field in your system.
        *
        * @param request QueryVerifyInvokeSatisticRequest
        * @return QueryVerifyInvokeSatisticResponse
@@ -2163,9 +2186,9 @@ namespace Cloudauth20190307
       Models::RemoveWhiteListSettingResponse removeWhiteListSetting(const Models::RemoveWhiteListSettingRequest &request);
 
       /**
-       * @summary Updates a China Finance Certification Initiative (CFCI) scenario.
+       * @summary Updates a China Finance Certification scenario.
        *
-       * @description Updates the information of a China Finance Certification Initiative (CFCI) scenario based on the scenario ID.
+       * @description Updates the information of a China Finance Certification scenario based on the scenario ID.
        * - Service endpoint: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST.
        *
@@ -2176,9 +2199,9 @@ namespace Cloudauth20190307
       Models::UpdateAntCloudAuthSceneResponse updateAntCloudAuthSceneWithOptions(const Models::UpdateAntCloudAuthSceneRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a China Finance Certification Initiative (CFCI) scenario.
+       * @summary Updates a China Finance Certification scenario.
        *
-       * @description Updates the information of a China Finance Certification Initiative (CFCI) scenario based on the scenario ID.
+       * @description Updates the information of a China Finance Certification scenario based on the scenario ID.
        * - Service endpoint: cloudauth.aliyuncs.com.
        * - Request method: HTTPS POST.
        *

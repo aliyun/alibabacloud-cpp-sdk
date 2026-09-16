@@ -134,6 +134,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> validDay_ {};
+    // The whitelist type.
     shared_ptr<string> whitelistType_ {};
   };
 

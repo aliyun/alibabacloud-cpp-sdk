@@ -77,9 +77,9 @@ namespace Models
   protected:
     // Specifies whether the age is older than 14. Valid values:
     // - **T**: older than 14
-    // - **F**: younger than 14.
+    // - **F**: younger than 14
     shared_ptr<string> ageGt_ {};
-    // The end time of the query.
+    // The end time of the query. Format: UNIX timestamp. Unit: milliseconds. Example: 1760630399999.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
@@ -87,12 +87,12 @@ namespace Models
     shared_ptr<string> productCode_ {};
     // The service type. Valid values:
     // - **antcloudauth**: financial-grade ID Verification.
-    // - **cloudauthst** (discontinued): enhanced ID Verification.
+    // - **cloudauthst** (discontinued): ID Verification - Enhanced Edition.
     // - **cloudauth** (discontinued): ID Verification.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // The start time of the query.
+    // The start time of the query. Format: UNIX timestamp. Unit: milliseconds. Example: 1760025600000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};

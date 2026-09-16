@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The scene ID.
+    // The scenario ID.
     shared_ptr<int64_t> sceneId_ {};
   };
 

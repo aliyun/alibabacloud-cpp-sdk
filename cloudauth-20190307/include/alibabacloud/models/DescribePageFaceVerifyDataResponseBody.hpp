@@ -120,7 +120,7 @@ namespace Models
 
 
     protected:
-      // The date.
+      // The date. The value is in ISO 8601/RFC 3339 format, UTC time zone (Z indicates +00:00), with millisecond precision, such as 2024-03-24T00:00:00.000Z.
       shared_ptr<string> date_ {};
       // The product solution code. For more information, refer to the financial-grade ID Verification documentation.
       shared_ptr<string> productCode_ {};
@@ -213,7 +213,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};
-    // The ID of the request.
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the response is successful.
     shared_ptr<string> success_ {};

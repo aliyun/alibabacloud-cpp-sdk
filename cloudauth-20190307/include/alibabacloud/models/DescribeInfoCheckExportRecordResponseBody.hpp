@@ -139,7 +139,7 @@ namespace Models
 
 
     protected:
-      // The download date.
+      // The download time. The value is a UNIX timestamp in milliseconds (ms), for example, 1758250979000.
       shared_ptr<string> downloadDate_ {};
       // The ID of the download task.
       shared_ptr<string> downloadTaskId_ {};
@@ -152,23 +152,23 @@ namespace Models
       // The product type name. Valid values:
       // - **ID_CARD_2_META**: ID card two-element verification.
       // - **ID_PERIOD**: ID card validity period verification.
-      // - **MOBILE_ONLINE_LENGTH**: mobile number online duration.
-      // - **MOBILE_ONLINE_STATUS**: mobile number online status.
-      // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition).
-      // - **MOBILE_3_META**: mobile number three-element verification (detailed edition).
-      // - **MOBILE_2_META**: mobile number two-element verification.
-      // - **BANK_CARD_N_META**: bank card verification (detailed edition).
-      // - **MOBILE_DETECT**: phone number detection.
-      // - **VEHICLE_N_META**: vehicle element verification (enhanced edition).
-      // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition.
-      // - **VEHICLE_LICENSE_INFO**: vehicle information recognition.
-      // - **VEHICLE_INSURE_DATE**: vehicle insurance date query.
-      // - **VEHICLE_CHECK**: vehicle element verification.
+      // - **MOBILE_ONLINE_LENGTH**: Mobile number online duration.
+      // - **MOBILE_ONLINE_STATUS**: Mobile number online status.
+      // - **MOBILE_3_META_SIMPLE**: Mobile number three-element verification (simple edition).
+      // - **MOBILE_3_META**: Mobile number three-element verification (detailed edition).
+      // - **MOBILE_2_META**: Mobile number two-element verification.
+      // - **BANK_CARD_N_META**: Bank card verification (detailed edition).
+      // - **MOBILE_DETECT**: Number detection.
+      // - **VEHICLE_N_META**: Vehicle element verification (enhanced edition).
+      // - **VEHICLE_PENTA_INFO**: Vehicle five-element information recognition.
+      // - **VEHICLE_LICENSE_INFO**: Vehicle information recognition.
+      // - **VEHICLE_INSURE_DATE**: Vehicle insurance date query.
+      // - **VEHICLE_CHECK**: Vehicle element verification.
       shared_ptr<string> productType_ {};
       // The task status. Valid values:
-      // - **1**: The file is being generated.
-      // - **2**: The file has been generated.
-      // - **3**: The file failed to be generated.
+      // - **1**: File is being generated.
+      // - **2**: File generation is complete.
+      // - **3**: File generation failed.
       shared_ptr<int32_t> status_ {};
       // The task URL.
       shared_ptr<string> url_ {};
@@ -247,15 +247,15 @@ namespace Models
     shared_ptr<string> code_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The list of results.
+    // The result list.
     shared_ptr<vector<DescribeInfoCheckExportRecordResponseBody::Items>> items_ {};
-    // The error code.
+    // The error message.
     shared_ptr<string> message_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the response is successful.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

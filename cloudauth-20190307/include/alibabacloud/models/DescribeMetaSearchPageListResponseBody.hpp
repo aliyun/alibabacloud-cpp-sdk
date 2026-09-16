@@ -380,14 +380,14 @@ namespace Models
           shared_ptr<string> backWheelDistance_ {};
           // The bank card number.
           shared_ptr<string> bankCard_ {};
-          // The verification status. Valid values:
-          // - **1**: Verification passed.
-          // - **2**: Verification failed.
+          // The authentication status. Valid values:
+          // - **1**: Authentication passed.
+          // - **2**: Authentication failed.
           // - **3**: No record found.
           shared_ptr<string> bizCode_ {};
           // The brand name.
           shared_ptr<string> brand_ {};
-          // The body color.
+          // The vehicle body color.
           shared_ptr<string> color_ {};
           // The displacement.
           shared_ptr<string> displacement_ {};
@@ -399,19 +399,19 @@ namespace Models
           shared_ptr<string> frontWheelDistance_ {};
           // The fuel type.
           shared_ptr<string> fuelType_ {};
-          // The inspection validity expiration date.
+          // The inspection validity expiration date. Format: YYYY-MM-DD HH:mm:ss, for example, 2026-07-31 00:00:00.
           shared_ptr<string> inspectionDate_ {};
           // The vehicle model number.
           shared_ptr<string> modelNum_ {};
           // The power.
           shared_ptr<string> power_ {};
-          // The initial registration date.
+          // The initial registration date. Format: YYYY-MM-DD HH:mm:ss, for example, 2015-08-24 00:00:00.
           shared_ptr<string> registrationDate_ {};
-          // The manufacturing date.
+          // The manufacturing date. Format: YYYY-MM-DD HH:mm:ss, for example, 2022-08-13 00:00:00.
           shared_ptr<string> releaseDate_ {};
-          // The mandatory retirement date.
+          // The mandatory retirement date. Format: YYYY-MM-DD HH:mm:ss, for example, 2099-12-31 00:00:00.
           shared_ptr<string> retirementDate_ {};
-          // The gross mass.
+          // The total mass.
           shared_ptr<string> totalMass_ {};
           // The vehicle type.
           shared_ptr<string> type_ {};
@@ -511,29 +511,29 @@ namespace Models
         // The vehicle number.
         shared_ptr<string> vehicleNum_ {};
         // The vehicle type. Valid values:
-        // - **01**: large vehicle  
-        // - **02**: small vehicle  
-        // - **03**: embassy vehicle  
-        // - **04**: consulate vehicle  
-        // - **05**: overseas vehicle  
-        // - **06**: foreign vehicle  
-        // - **07**: standard motorcycle  
-        // - **08**: light motorcycle  
-        // - **09**: embassy motorcycle  
-        // - **10**: consulate motorcycle  
-        // - **11**: overseas motorcycle  
-        // - **12**: foreign motorcycle  
-        // - **13**: low-speed vehicle  
-        // - **14**: tractor  
-        // - **15**: trailer  
-        // - **16**: training vehicle  
-        // - **17**: training motorcycle  
-        // - **20**: temporary entry vehicle  
-        // - **21**: temporary entry motorcycle  
-        // - **22**: temporary driving vehicle  
-        // - **23**: police vehicle  
-        // - **24**: police motorcycle  
-        // - **51**: new energy large vehicle  
+        // - **01**: large vehicle.  
+        // - **02**: small vehicle.  
+        // - **03**: embassy vehicle.  
+        // - **04**: consulate vehicle.  
+        // - **05**: overseas vehicle.  
+        // - **06**: foreign vehicle.  
+        // - **07**: standard motorcycle.  
+        // - **08**: light motorcycle.  
+        // - **09**: embassy motorcycle.  
+        // - **10**: consulate motorcycle.  
+        // - **11**: overseas motorcycle.  
+        // - **12**: foreign motorcycle.  
+        // - **13**: low-speed vehicle.  
+        // - **14**: tractor.  
+        // - **15**: trailer.  
+        // - **16**: training vehicle.  
+        // - **17**: training motorcycle.  
+        // - **20**: temporary entry vehicle.  
+        // - **21**: temporary entry motorcycle.  
+        // - **22**: temporary driving vehicle.  
+        // - **23**: police vehicle.  
+        // - **24**: police motorcycle.  
+        // - **51**: new energy large vehicle.  
         // - **52**: new energy small vehicle.
         shared_ptr<string> vehicleType_ {};
         // The vehicle type name.
@@ -662,51 +662,51 @@ namespace Models
 
     protected:
       // The product API. Valid values:
-      // - **ID_CARD_2_META**: ID card two-element verification
-      // - **ID_PERIOD**: ID card validity period verification
-      // - **MOBILE_ONLINE_LENGTH**: mobile number online duration
-      // - **MOBILE_ONLINE_STATUS**: mobile number online status
-      // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition)
-      // - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
-      // - **MOBILE_2_META**: mobile number two-element verification
-      // - **BANK_CARD_N_META**: bank card verification (detailed edition)
-      // - **MOBILE_DETECT**: phone number detection 
-      // - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
-      // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
-      // - **VEHICLE_LICENSE_INFO**: vehicle information recognition
-      // - **VEHICLE_INSURE_DATE**: vehicle insurance date query
+      // - **ID_CARD_2_META**: ID card two-element verification.
+      // - **ID_PERIOD**: ID card validity period verification.
+      // - **MOBILE_ONLINE_LENGTH**: mobile number online duration.
+      // - **MOBILE_ONLINE_STATUS**: mobile number online status.
+      // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition).
+      // - **MOBILE_3_META**: mobile number three-element verification (detailed edition).
+      // - **MOBILE_2_META**: mobile number two-element verification.
+      // - **BANK_CARD_N_META**: bank card verification (detailed edition).
+      // - **MOBILE_DETECT**: phone number detection. 
+      // - **VEHICLE_N_META**: vehicle element verification (enhanced edition).
+      // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition.
+      // - **VEHICLE_LICENSE_INFO**: vehicle information recognition.
+      // - **VEHICLE_INSURE_DATE**: vehicle insurance date query.
       // - **VEHICLE_CHECK**: vehicle element verification.
       shared_ptr<string> api_ {};
       // The name corresponding to the API. Valid values:
-      // - **ID_CARD_2_META**: ID card two-element verification
-      // - **ID_PERIOD**: ID card validity period verification
-      // - **MOBILE_ONLINE_LENGTH**: mobile number online duration
-      // - **MOBILE_ONLINE_STATUS**: mobile number online status
-      // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition)
-      // - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
-      // - **MOBILE_2_META**: mobile number two-element verification
-      // - **BANK_CARD_N_META**: bank card verification (detailed edition)
-      // - **MOBILE_DETECT**: phone number detection 
-      // - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
-      // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
-      // - **VEHICLE_LICENSE_INFO**: vehicle information recognition
-      // - **VEHICLE_INSURE_DATE**: vehicle insurance date query
-      // - **VEHICLE_CHECK**: vehicle element verification.
+      // - **ID_CARD_2_META**: ID card two-element verification.
+      // - **ID_PERIOD**: ID card validity period verification.
+      // - **MOBILE_ONLINE_LENGTH**: Mobile number online duration.
+      // - **MOBILE_ONLINE_STATUS**: Mobile number online status.
+      // - **MOBILE_3_META_SIMPLE**: Mobile number three-element verification (simple edition).
+      // - **MOBILE_3_META**: Mobile number three-element verification (detailed edition).
+      // - **MOBILE_2_META**: Mobile number two-element verification.
+      // - **BANK_CARD_N_META**: Bank card verification (detailed edition).
+      // - **MOBILE_DETECT**: Number detection. 
+      // - **VEHICLE_N_META**: Vehicle element verification (enhanced edition).
+      // - **VEHICLE_PENTA_INFO**: Vehicle five-element information recognition.
+      // - **VEHICLE_LICENSE_INFO**: Vehicle information recognition.
+      // - **VEHICLE_INSURE_DATE**: Vehicle insurance date query.
+      // - **VEHICLE_CHECK**: Vehicle element verification.
       shared_ptr<string> apiName_ {};
       // The bank card ID.
       shared_ptr<string> bankCard_ {};
-      // The verification status. Valid values:
-      // - **1**: Verification passed.
-      // - **2**: Verification failed.
+      // The authentication status. Valid values:
+      // - **1**: Authentication passed.
+      // - **2**: Authentication failed.
       // - **3**: No record found.
       shared_ptr<string> bizCode_ {};
-      // The verification date.
+      // The authentication date. Format: YYYY-MM-DD HH:mm:ss, for example, 2025-10-17 10:00:11.
       shared_ptr<string> date_ {};
       // The ID card number.
       shared_ptr<string> identifyNum_ {};
-      // The name of the telecommunications service provider. Valid values:
-      // - **CMCC**: China Mobile
-      // - **CUCC**: China Unicom
+      // The telecommunications service provider name. Valid values:
+      // - **CMCC**: China Mobile.
+      // - **CUCC**: China Unicom.
       // - **CTCC**: China Telecom.
       shared_ptr<string> ispName_ {};
       // The mobile phone number.
@@ -721,7 +721,7 @@ namespace Models
       shared_ptr<Items::Response> response_ {};
       // The response content.
       shared_ptr<string> responseJson_ {};
-      // The result code. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/information-verification/).
+      // The result code. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/information-verification/).
       shared_ptr<string> subCode_ {};
       // The name.
       shared_ptr<string> userName_ {};

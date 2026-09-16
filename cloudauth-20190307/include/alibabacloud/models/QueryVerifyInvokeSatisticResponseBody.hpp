@@ -103,7 +103,7 @@ namespace Models
 
 
       protected:
-        // The count of the statistical value.
+        // The count of the statistics value.
         shared_ptr<string> statisticsCount_ {};
         // The product code.
         shared_ptr<string> statisticsType_ {};
@@ -130,7 +130,7 @@ namespace Models
     protected:
       // The list of statistics data.
       shared_ptr<vector<Items::Data>> data_ {};
-      // The statistics date.
+      // The statistics date. Format: YYYY-MM-DD. Example: 2025-10-16.
       shared_ptr<string> statisticsDate_ {};
     };
 
@@ -206,7 +206,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the response is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

@@ -258,29 +258,29 @@ namespace Models
 
 
       protected:
-        // The desensitized name.
+        // The masked name.
         shared_ptr<string> certName_ {};
-        // The Face Guard tags.
+        // The face guard label.
         shared_ptr<string> deviceRisk_ {};
-        // Specifies whether a face attack is detected:
+        // Indicates whether a face attack is detected. Valid values:
         // - **T**: Yes.
         // - **F**: No.
         shared_ptr<string> faceAttack_ {};
-        // The face attack score. The value ranges from 0 to 1. A value closer to 1 indicates a higher likelihood of an attack.
+        // The face attack score. Valid values: 0 to 1. A value closer to 1 indicates a higher likelihood of an attack.
         shared_ptr<float> faceAttackScore_ {};
-        // Specifies whether the face is occluded. T indicates occlusion detected. F indicates no occlusion.
+        // Indicates whether the face is occluded. T indicates occluded. F indicates not occluded.
         shared_ptr<string> faceOcclusion_ {};
-        // The face-to-ID card comparison score.
+        // The face-to-ID-card comparison score.
         shared_ptr<float> idCardVerifyScore_ {};
         // The OSS bucket for photos.
         shared_ptr<string> ossBucketName_ {};
-        // The file name of the OCR ID card face image.
+        // The OSS file name of the OCR ID card face image.
         shared_ptr<string> ossIdFaceObjectName_ {};
-        // The file name of the OCR ID card national emblem image.
+        // The OSS file name of the OCR ID card national emblem image.
         shared_ptr<string> ossIdNationalEmblemObjectName_ {};
         // The storage object name.
         shared_ptr<string> ossObjectName_ {};
-        // The liveness face quality score.
+        // The face quality score from liveness detection.
         shared_ptr<float> qualityScore_ {};
         // The face comparison score.
         shared_ptr<float> verifyScore_ {};
@@ -433,55 +433,55 @@ namespace Models
 
 
     protected:
-      // The desensitized ID card number.
+      // The masked ID card number.
       shared_ptr<string> certNo_ {};
-      // The certification ID.
+      // The authentication ID.
       shared_ptr<string> certifyId_ {};
       // The extended information.
       shared_ptr<Items::ExtInfo> extInfo_ {};
-      // The verification time of this authentication record.
+      // The verification time of the authentication record.
       shared_ptr<string> gmtVerify_ {};
       // The liveness detection scheme.
       shared_ptr<string> model_ {};
-      // The unique identifier for the customer request.
+      // The unique identifier of the customer request.
       shared_ptr<string> outerOrderNo_ {};
-      // Specifies whether the authentication passed. Valid values:
+      // Indicates whether the authentication is passed. Valid values:
       // - **T**: Passed.
-      // - **F**: Failed.
+      // - **F**: Not passed.
       shared_ptr<string> passed_ {};
       // The product code.
       shared_ptr<string> productCode_ {};
-      // The business scenario risk:
+      // The business scenario risk. Valid values:
       // - **0**: No risk.
-      // - **1**: Risk detected.
+      // - **1**: Risk exists.
       shared_ptr<int32_t> riskBizScenario_ {};
-      // The device risk:
+      // The device risk. Valid values:
       // - **0**: No risk.
-      // - **1**: Risk detected.
+      // - **1**: Risk exists.
       shared_ptr<int32_t> riskDevice_ {};
-      // The DeviceToken risk:
+      // The DeviceToken risk. Valid values:
       // - **0**: No risk.
-      // - **1**: Risk detected.
+      // - **1**: Risk exists.
       shared_ptr<int32_t> riskDeviceToken_ {};
-      // The generic risk:
+      // The generic risk. Valid values:
       // - **0**: No risk.
-      // - **1**: Risk detected.
+      // - **1**: Risk exists.
       shared_ptr<int32_t> riskGeneric_ {};
-      // The large model mining risk:
+      // The large model mining risk. Valid values:
       // - **0**: No risk.
-      // - **1**: Risk detected.
+      // - **1**: Risk exists.
       shared_ptr<int32_t> riskModelMining_ {};
-      // Specifies whether the device is rooted. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the identity tag risk type.
+      // Specifies whether the device is rooted. Set this parameter to 1 if selected. Otherwise, do not pass this parameter. This corresponds to the identity tag risk type.
       shared_ptr<int32_t> root_ {};
       // The scene ID.
       shared_ptr<int64_t> sceneId_ {};
-      // Specifies whether the device is a simulator. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the device tag risk type.
+      // Specifies whether the device is a simulator. Set this parameter to 1 if selected. Otherwise, do not pass this parameter. This corresponds to the device tag risk type.
       shared_ptr<int32_t> simulator_ {};
       // The error code returned by the system.
       shared_ptr<string> subCode_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
-      // Specifies whether virtual video is used. Set to 1 if selected; otherwise, do not pass this parameter. This parameter corresponds to the behavior tag risk type.
+      // Specifies whether virtual video adaptation is used. Set this parameter to 1 if selected. Otherwise, do not pass this parameter. This corresponds to the behavior tag risk type.
       shared_ptr<int32_t> virtualVideo_ {};
     };
 
@@ -540,7 +540,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of pages.
     shared_ptr<int32_t> totalCount_ {};
     // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};

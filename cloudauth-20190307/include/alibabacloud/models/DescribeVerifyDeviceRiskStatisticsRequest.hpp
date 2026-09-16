@@ -75,22 +75,22 @@ namespace Models
 
 
   protected:
-    // The end time.
+    // The end time. The value is a UNIX timestamp in milliseconds, such as 1748624399999.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
-    // The code of the cloud service.
+    // The cloud product code.
     shared_ptr<string> productCode_ {};
     // The scene ID.
     shared_ptr<string> sceneId_ {};
     // The service type. Valid values:
     // - **antcloudauth**: financial-grade ID Verification.
-    // - **cloudauthst** (discontinued): ID Verification - Enhanced Edition.
+    // - **cloudauthst** (discontinued): ID Verification Enhanced Edition.
     // - **cloudauth** (discontinued): ID Verification.
     // 
     // This parameter is required.
     shared_ptr<string> serviceCode_ {};
-    // The start time of the query. The value is a UNIX timestamp in milliseconds.
+    // The start time of the query. The value is a UNIX timestamp in milliseconds, such as 1746720000000.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};

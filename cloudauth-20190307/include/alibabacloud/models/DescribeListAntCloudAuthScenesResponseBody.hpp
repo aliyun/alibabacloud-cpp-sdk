@@ -39,6 +39,9 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BindMiniProgram, bindMiniProgram_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Creator, creator_);
+        DARABONBA_PTR_TO_JSON(DegradeAppScheme, degradeAppScheme_);
+        DARABONBA_PTR_TO_JSON(DegradeSubCodes, degradeSubCodes_);
+        DARABONBA_PTR_TO_JSON(DegradeType, degradeType_);
         DARABONBA_PTR_TO_JSON(DeviceRiskPlus, deviceRiskPlus_);
         DARABONBA_PTR_TO_JSON(Domain, domain_);
         DARABONBA_PTR_TO_JSON(MiniProgramName, miniProgramName_);
@@ -51,12 +54,16 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(StoreImage, storeImage_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
+        DARABONBA_PTR_TO_JSON(UseDegrade, useDegrade_);
       };
       friend void from_json(const Darabonba::Json& j, Scenes& obj) { 
         DARABONBA_PTR_FROM_JSON(AppId, appId_);
         DARABONBA_PTR_FROM_JSON(BindMiniProgram, bindMiniProgram_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Creator, creator_);
+        DARABONBA_PTR_FROM_JSON(DegradeAppScheme, degradeAppScheme_);
+        DARABONBA_PTR_FROM_JSON(DegradeSubCodes, degradeSubCodes_);
+        DARABONBA_PTR_FROM_JSON(DegradeType, degradeType_);
         DARABONBA_PTR_FROM_JSON(DeviceRiskPlus, deviceRiskPlus_);
         DARABONBA_PTR_FROM_JSON(Domain, domain_);
         DARABONBA_PTR_FROM_JSON(MiniProgramName, miniProgramName_);
@@ -69,6 +76,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(StoreImage, storeImage_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
+        DARABONBA_PTR_FROM_JSON(UseDegrade, useDegrade_);
       };
       Scenes() = default ;
       Scenes(const Scenes &) = default ;
@@ -82,9 +90,10 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appId_ == nullptr
-        && this->bindMiniProgram_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->deviceRiskPlus_ == nullptr && this->domain_ == nullptr
-        && this->miniProgramName_ == nullptr && this->modifier_ == nullptr && this->platform_ == nullptr && this->returnPicCount_ == nullptr && this->returnVideoLength_ == nullptr
-        && this->sceneId_ == nullptr && this->sceneName_ == nullptr && this->status_ == nullptr && this->storeImage_ == nullptr && this->updateTime_ == nullptr; };
+        && this->bindMiniProgram_ == nullptr && this->createTime_ == nullptr && this->creator_ == nullptr && this->degradeAppScheme_ == nullptr && this->degradeSubCodes_ == nullptr
+        && this->degradeType_ == nullptr && this->deviceRiskPlus_ == nullptr && this->domain_ == nullptr && this->miniProgramName_ == nullptr && this->modifier_ == nullptr
+        && this->platform_ == nullptr && this->returnPicCount_ == nullptr && this->returnVideoLength_ == nullptr && this->sceneId_ == nullptr && this->sceneName_ == nullptr
+        && this->status_ == nullptr && this->storeImage_ == nullptr && this->updateTime_ == nullptr && this->useDegrade_ == nullptr; };
       // appId Field Functions 
       bool hasAppId() const { return this->appId_ != nullptr;};
       void deleteAppId() { this->appId_ = nullptr;};
@@ -111,6 +120,27 @@ namespace Models
       void deleteCreator() { this->creator_ = nullptr;};
       inline string getCreator() const { DARABONBA_PTR_GET_DEFAULT(creator_, "") };
       inline Scenes& setCreator(string creator) { DARABONBA_PTR_SET_VALUE(creator_, creator) };
+
+
+      // degradeAppScheme Field Functions 
+      bool hasDegradeAppScheme() const { return this->degradeAppScheme_ != nullptr;};
+      void deleteDegradeAppScheme() { this->degradeAppScheme_ = nullptr;};
+      inline string getDegradeAppScheme() const { DARABONBA_PTR_GET_DEFAULT(degradeAppScheme_, "") };
+      inline Scenes& setDegradeAppScheme(string degradeAppScheme) { DARABONBA_PTR_SET_VALUE(degradeAppScheme_, degradeAppScheme) };
+
+
+      // degradeSubCodes Field Functions 
+      bool hasDegradeSubCodes() const { return this->degradeSubCodes_ != nullptr;};
+      void deleteDegradeSubCodes() { this->degradeSubCodes_ = nullptr;};
+      inline string getDegradeSubCodes() const { DARABONBA_PTR_GET_DEFAULT(degradeSubCodes_, "") };
+      inline Scenes& setDegradeSubCodes(string degradeSubCodes) { DARABONBA_PTR_SET_VALUE(degradeSubCodes_, degradeSubCodes) };
+
+
+      // degradeType Field Functions 
+      bool hasDegradeType() const { return this->degradeType_ != nullptr;};
+      void deleteDegradeType() { this->degradeType_ = nullptr;};
+      inline string getDegradeType() const { DARABONBA_PTR_GET_DEFAULT(degradeType_, "") };
+      inline Scenes& setDegradeType(string degradeType) { DARABONBA_PTR_SET_VALUE(degradeType_, degradeType) };
 
 
       // deviceRiskPlus Field Functions 
@@ -197,6 +227,13 @@ namespace Models
       inline Scenes& setUpdateTime(string updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
 
 
+      // useDegrade Field Functions 
+      bool hasUseDegrade() const { return this->useDegrade_ != nullptr;};
+      void deleteUseDegrade() { this->useDegrade_ = nullptr;};
+      inline string getUseDegrade() const { DARABONBA_PTR_GET_DEFAULT(useDegrade_, "") };
+      inline Scenes& setUseDegrade(string useDegrade) { DARABONBA_PTR_SET_VALUE(useDegrade_, useDegrade) };
+
+
     protected:
       // The application ID.
       shared_ptr<int64_t> appId_ {};
@@ -204,10 +241,16 @@ namespace Models
       // - **Y**: Enabled.
       // - **N (default)**: Disabled.
       shared_ptr<string> bindMiniProgram_ {};
-      // The creation time.
+      // The creation time. The value is a UNIX timestamp in milliseconds (ms), such as 1740389697000.
       shared_ptr<string> createTime_ {};
       // The creator.
       shared_ptr<string> creator_ {};
+      // The iOS scheme for degradation.
+      shared_ptr<string> degradeAppScheme_ {};
+      // The list of SubCodes that trigger degradation.
+      shared_ptr<string> degradeSubCodes_ {};
+      // The degraded authentication type.
+      shared_ptr<string> degradeType_ {};
       // Specifies whether to enable enhanced device risk detection. Valid values:
       // - **Y**: Enabled.
       // - **N**: Disabled.
@@ -219,26 +262,28 @@ namespace Models
       // The modifier.
       shared_ptr<string> modifier_ {};
       // The mini program platform. Valid values:
-      // - **WECHAT**: WeChat
-      // - **ALIPAY**: Alipay
+      // - **WECHAT**: WeChat.
+      // - **ALIPAY**: Alipay.
       // - **TIKTOK**: TikTok.
       shared_ptr<string> platform_ {};
-      // The number of evidence face photos (1 to 5).
+      // The number of evidence face photos (1-5).
       shared_ptr<int64_t> returnPicCount_ {};
-      // The duration of the evidence video, in seconds.
+      // The evidence video duration in seconds.
       shared_ptr<int64_t> returnVideoLength_ {};
-      // The scene ID.
+      // The scenario ID.
       shared_ptr<int64_t> sceneId_ {};
-      // The scene name.
+      // The scenario name.
       shared_ptr<string> sceneName_ {};
-      // Indicates whether the scene is enabled. The value 1 indicates enabled.
+      // Indicates whether the scenario is enabled. The value is 1.
       shared_ptr<int32_t> status_ {};
       // Specifies whether to deliver files generated during authentication to the customer\\"s OSS. Valid values:
       // - **Y**: Enabled.
       // - **N**: Disabled.
       shared_ptr<string> storeImage_ {};
-      // The time when the instance was last updated.
+      // The last update time of the instance. The value is a UNIX timestamp in milliseconds (ms), such as 1740541510000.
       shared_ptr<string> updateTime_ {};
+      // Specifies whether to enable degraded authentication.
+      shared_ptr<string> useDegrade_ {};
     };
 
     virtual bool empty() const override { return this->requestId_ == nullptr
@@ -260,9 +305,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of scenes.
+    // The list of scenarios.
     shared_ptr<vector<DescribeListAntCloudAuthScenesResponseBody::Scenes>> scenes_ {};
   };
 

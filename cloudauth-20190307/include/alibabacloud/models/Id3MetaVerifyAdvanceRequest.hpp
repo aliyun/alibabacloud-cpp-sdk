@@ -95,25 +95,26 @@ namespace Models
 
   protected:
     // Specifies whether to allow cropping of the facial photo. By default, cropping is not allowed. Valid values:
-    // - T: Cropping is allowed.
-    // - F: Cropping is not allowed.
+    // - T: allows cropping.
+    // - F: does not allow cropping.
     // 
     // **Note**
     // 
-    // If the requested image is not captured by a standard liveness detection SDK, allow cropping of the facial photo. After this feature is enabled, the requested image is first cropped and corrected for the face before the request is sent to the service.
+    // If the requested image is not captured by a standard liveness detection SDK, allow cropping of the facial photo. After this feature is enabled, the requested image is first cropped and corrected for face alignment before the service request is initiated.
     shared_ptr<string> crop_ {};
-    // The input stream of the ID card portrait side photo. Specify either CertUrl or CertFile.
+    // The input stream of the ID card portrait photo. Specify either CertUrl or CertFile.
     shared_ptr<Darabonba::IStream> faceFileObject_ {};
+    // The Base64-encoded facial photo.
     shared_ptr<string> facePicture_ {};
-    // The photo of the ID card portrait side. Specify a publicly accessible HTTP or HTTPS URL. Specify either CertUrl or CertFile.
+    // The URL of the ID card portrait photo. The URL must be a publicly accessible HTTP or HTTPS link. Specify either CertUrl or CertFile.
     shared_ptr<string> faceUrl_ {};
     // The ID card number:
     // - If paramType is set to normal: enter the ID card number in plaintext.
-    // - If paramType is set to md5: the first 6 digits of the ID card number (plaintext) + date of birth (ciphertext) + the last 4 digits of the ID card number (plaintext).
+    // - If paramType is set to md5: first 6 digits of the ID card number (plaintext) + date of birth (ciphertext) + last 4 digits of the ID card number (plaintext).
     shared_ptr<string> identifyNum_ {};
     // The encryption method. Valid values:
-    // - normal: plaintext without encryption
-    // - md5: MD5 encryption
+    // - normal: plaintext without encryption.
+    // - md5: MD5 encryption.
     // 
     // **Important**
     // 
@@ -122,7 +123,7 @@ namespace Models
     shared_ptr<string> paramType_ {};
     // The name:
     // - If paramType is set to normal: enter the name in plaintext.
-    // - If paramType is set to md5: the first character of the name (ciphertext) + the remaining characters of the name (plaintext).
+    // - If paramType is set to md5: ciphertext of the first character of the name + plaintext of the remaining characters.
     shared_ptr<string> userName_ {};
   };
 

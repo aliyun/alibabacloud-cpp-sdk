@@ -132,11 +132,12 @@ namespace Models
       shared_ptr<string> certNo_ {};
       // The certificate ID.
       shared_ptr<string> certifyId_ {};
-      // The creation time of the facial recognition record.
+      // The creation time of the facial recognition record. The value is a UNIX timestamp in milliseconds (ms), such as 1740389697000.
       shared_ptr<string> createTime_ {};
       // The scene ID.
       shared_ptr<int64_t> sceneId_ {};
       // The authentication status. Valid values:
+      // 
       // - **1**: Authentication passed.
       // - **2**: Authentication failed.
       shared_ptr<int32_t> status_ {};

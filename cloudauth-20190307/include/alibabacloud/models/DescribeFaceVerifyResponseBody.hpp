@@ -38,6 +38,7 @@ namespace Models
     class ResultObject : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const ResultObject& obj) { 
+        DARABONBA_PTR_TO_JSON(DegradeInfo, degradeInfo_);
         DARABONBA_PTR_TO_JSON(DeviceRisk, deviceRisk_);
         DARABONBA_PTR_TO_JSON(DeviceToken, deviceToken_);
         DARABONBA_PTR_TO_JSON(IdentityInfo, identityInfo_);
@@ -48,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UserInfo, userInfo_);
       };
       friend void from_json(const Darabonba::Json& j, ResultObject& obj) { 
+        DARABONBA_PTR_FROM_JSON(DegradeInfo, degradeInfo_);
         DARABONBA_PTR_FROM_JSON(DeviceRisk, deviceRisk_);
         DARABONBA_PTR_FROM_JSON(DeviceToken, deviceToken_);
         DARABONBA_PTR_FROM_JSON(IdentityInfo, identityInfo_);
@@ -68,9 +70,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->deviceRisk_ == nullptr
-        && this->deviceToken_ == nullptr && this->identityInfo_ == nullptr && this->materialInfo_ == nullptr && this->passed_ == nullptr && this->subCode_ == nullptr
-        && this->success_ == nullptr && this->userInfo_ == nullptr; };
+      virtual bool empty() const override { return this->degradeInfo_ == nullptr
+        && this->deviceRisk_ == nullptr && this->deviceToken_ == nullptr && this->identityInfo_ == nullptr && this->materialInfo_ == nullptr && this->passed_ == nullptr
+        && this->subCode_ == nullptr && this->success_ == nullptr && this->userInfo_ == nullptr; };
+      // degradeInfo Field Functions 
+      bool hasDegradeInfo() const { return this->degradeInfo_ != nullptr;};
+      void deleteDegradeInfo() { this->degradeInfo_ = nullptr;};
+      inline string getDegradeInfo() const { DARABONBA_PTR_GET_DEFAULT(degradeInfo_, "") };
+      inline ResultObject& setDegradeInfo(string degradeInfo) { DARABONBA_PTR_SET_VALUE(degradeInfo_, degradeInfo) };
+
+
       // deviceRisk Field Functions 
       bool hasDeviceRisk() const { return this->deviceRisk_ != nullptr;};
       void deleteDeviceRisk() { this->deviceRisk_ = nullptr;};
@@ -128,11 +137,13 @@ namespace Models
 
 
     protected:
+      // The result of degraded verification.
+      shared_ptr<string> degradeInfo_ {};
       // The device risk label.
       shared_ptr<string> deviceRisk_ {};
       // The device token.
       shared_ptr<string> deviceToken_ {};
-      // The identity information of the verification subject. This field is empty in common verification scenarios.
+      // The identity information of the verification subject. This field is empty for common verification scenarios.
       shared_ptr<string> identityInfo_ {};
       // The supplementary material information of the verification subject, primarily image-based materials. The value is in JSON format. See the example below.
       shared_ptr<string> materialInfo_ {};
@@ -142,13 +153,13 @@ namespace Models
       shared_ptr<string> subCode_ {};
       // Indicates whether the response is successful.
       shared_ptr<string> success_ {};
-      // The identity information and corresponding encoding entered by the user in rare character mode. The value is a JSON-formatted string. An empty string is returned if the name does not contain rare characters.
+      // Records the identity information and corresponding encoding entered by the user in rare character mode. The return data is a JSON-formatted string. An empty string is returned if the name does not contain rare characters.
       // 
       // - name: the name entered by the user.
       // 
-      // - verifyName: the final name encoding that passed verification. For example, if a rare character is verified through transcoding: "王先生", the actual verified name is "王先升".
+      // - verifyName: the final name encoding that passed verification. For example, if a rare character is verified through transcoding: "Wang Xiansheng", the actual verified name is "Wang Xiansheng" (with a different character).
       // 
-      // - number: the ID number entered by the user.
+      // - number: the ID card number entered by the user.
       shared_ptr<string> userInfo_ {};
     };
 
@@ -191,7 +202,7 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The returned result information.
+    // The result information.
     shared_ptr<DescribeFaceVerifyResponseBody::ResultObject> resultObject_ {};
   };
 

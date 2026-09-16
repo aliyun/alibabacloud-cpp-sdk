@@ -96,13 +96,13 @@ namespace Models
 
 
     protected:
-      // The total number of devices used for ID Verification.
+      // The total number of authenticated devices.
       shared_ptr<int64_t> allDeviceCnt_ {};
-      // The number of Android devices used for ID Verification.
+      // The number of authenticated Android devices.
       shared_ptr<int64_t> deviceAndroidCnt_ {};
       // The proportion of Android devices.
       shared_ptr<string> deviceAndroidRate_ {};
-      // The number of iOS devices used for ID Verification.
+      // The number of authenticated iOS devices.
       shared_ptr<int64_t> deviceIosCnt_ {};
       // The proportion of iOS devices.
       shared_ptr<string> deviceIosRate_ {};

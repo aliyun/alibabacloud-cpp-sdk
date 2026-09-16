@@ -155,13 +155,13 @@ namespace Models
       protected:
         // The date.
         shared_ptr<string> date_ {};
-        // The client-side initialization pass rate.
+        // The client-side init pass rate.
         shared_ptr<string> initDevicePassRate_ {};
-        // The number of server-side initializations.
+        // The number of server-side init requests.
         shared_ptr<int64_t> initService_ {};
-        // The server-side initialization conversion rate.
+        // The server-side init conversion rate.
         shared_ptr<string> initServiceConversionRate_ {};
-        // The server-side initialization pass rate.
+        // The server-side init pass rate.
         shared_ptr<string> initServicePassRate_ {};
         // The pass rate.
         shared_ptr<string> passRate_ {};
@@ -279,31 +279,31 @@ namespace Models
 
 
     protected:
-      // The number of client-side initializations.
+      // The number of client-side init attempts.
       shared_ptr<int64_t> initDevice_ {};
-      // The number of client-side initializations for identity deduplication.
+      // The number of identity deduplication client-side init requests.
       shared_ptr<int64_t> initDeviceId_ {};
-      // The number of successful client-side initializations for identity deduplication.
+      // The number of successful identity deduplication client-side init requests.
       shared_ptr<int64_t> initDeviceIdSuccess_ {};
-      // The number of successful client-side initialization calls.
+      // The number of client-side init calls.
       shared_ptr<int64_t> initDeviceSuccess_ {};
-      // The number of server-side initializations.
+      // The number of server-side init attempts.
       shared_ptr<int64_t> initService_ {};
-      // The total number of server-side initialization requests for identity deduplication.
+      // The total number of identity deduplication server-side init requests.
       shared_ptr<int64_t> initServiceId_ {};
-      // The number of successful server-side initializations for identity deduplication.
+      // The number of successful identity deduplication server-side init requests.
       shared_ptr<int64_t> initServiceIdSuccess_ {};
-      // The number of successful server-side initialization authentications.
+      // The number of successful server-side init authentications.
       shared_ptr<int64_t> initServiceSuccess_ {};
-      // The daily pass/conversion rates (PV).
+      // The daily pass rate and conversion rate statistics (PV).
       shared_ptr<vector<ResultObject::Items>> items_ {};
-      // The number of client-side verifications.
+      // The number of client-side verification attempts.
       shared_ptr<int64_t> verifyDevice_ {};
-      // The number of client-side authentication attempts for identity deduplication.
+      // The number of identity deduplication client-side authentication attempts.
       shared_ptr<int64_t> verifyDeviceId_ {};
-      // The number of successful client-side verifications for identity deduplication.
+      // The number of successful identity deduplication client-side verifications.
       shared_ptr<int64_t> verifyDeviceIdSuccess_ {};
-      // The number of successful client-side authentications for identity deduplication.
+      // The number of successful identity deduplication client-side authentications.
       shared_ptr<int64_t> verifyDeviceIdSuccessPassed_ {};
       // The number of successful client-side authentications.
       shared_ptr<int64_t> verifyDeviceSuccess_ {};

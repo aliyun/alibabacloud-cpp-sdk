@@ -170,13 +170,13 @@ namespace Models
         shared_ptr<double> currCapacity_ {};
         // The ratio of the remaining capacity to the total capacity.
         shared_ptr<string> currProportion_ {};
-        // The expiration time.
+        // The expiration time. Format: YYYY-MM-DD HH:mm:ss, for example, 2025-10-10 00:00:00.
         shared_ptr<string> expireDate_ {};
         // The instance name.
         shared_ptr<string> instanceName_ {};
         // The status.
         shared_ptr<string> status_ {};
-        // The effective period.
+        // The effective period. Format: YYYY-MM-DD HH:mm:ss, for example, 2025-10-10 00:00:00.
         shared_ptr<string> takeEffectDate_ {};
       };
 
@@ -233,7 +233,7 @@ namespace Models
       shared_ptr<double> currCapacity_ {};
       // The ratio of the current remaining capacity to the total capacity.
       shared_ptr<string> currProportion_ {};
-      // The data transfer plan details.
+      // The details of the data transfer plan.
       shared_ptr<vector<Items::FlowDetails>> flowDetails_ {};
       // The total quota.
       shared_ptr<double> totalCapacity_ {};
@@ -298,7 +298,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<string> totalCount_ {};
   };
 

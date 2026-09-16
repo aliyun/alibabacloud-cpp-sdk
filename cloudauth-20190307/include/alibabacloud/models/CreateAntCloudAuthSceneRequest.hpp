@@ -16,6 +16,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BindMiniProgram, bindMiniProgram_);
       DARABONBA_PTR_TO_JSON(CheckFileBody, checkFileBody_);
       DARABONBA_PTR_TO_JSON(CheckFileName, checkFileName_);
+      DARABONBA_PTR_TO_JSON(DegradeAppScheme, degradeAppScheme_);
+      DARABONBA_PTR_TO_JSON(DegradeSubCodes, degradeSubCodes_);
+      DARABONBA_PTR_TO_JSON(DegradeType, degradeType_);
       DARABONBA_PTR_TO_JSON(DeviceRiskPlus, deviceRiskPlus_);
       DARABONBA_PTR_TO_JSON(MiniProgramName, miniProgramName_);
       DARABONBA_PTR_TO_JSON(Platform, platform_);
@@ -23,11 +26,15 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ReturnVideoLength, returnVideoLength_);
       DARABONBA_PTR_TO_JSON(SceneName, sceneName_);
       DARABONBA_PTR_TO_JSON(StoreImage, storeImage_);
+      DARABONBA_PTR_TO_JSON(UseDegrade, useDegrade_);
     };
     friend void from_json(const Darabonba::Json& j, CreateAntCloudAuthSceneRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BindMiniProgram, bindMiniProgram_);
       DARABONBA_PTR_FROM_JSON(CheckFileBody, checkFileBody_);
       DARABONBA_PTR_FROM_JSON(CheckFileName, checkFileName_);
+      DARABONBA_PTR_FROM_JSON(DegradeAppScheme, degradeAppScheme_);
+      DARABONBA_PTR_FROM_JSON(DegradeSubCodes, degradeSubCodes_);
+      DARABONBA_PTR_FROM_JSON(DegradeType, degradeType_);
       DARABONBA_PTR_FROM_JSON(DeviceRiskPlus, deviceRiskPlus_);
       DARABONBA_PTR_FROM_JSON(MiniProgramName, miniProgramName_);
       DARABONBA_PTR_FROM_JSON(Platform, platform_);
@@ -35,6 +42,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ReturnVideoLength, returnVideoLength_);
       DARABONBA_PTR_FROM_JSON(SceneName, sceneName_);
       DARABONBA_PTR_FROM_JSON(StoreImage, storeImage_);
+      DARABONBA_PTR_FROM_JSON(UseDegrade, useDegrade_);
     };
     CreateAntCloudAuthSceneRequest() = default ;
     CreateAntCloudAuthSceneRequest(const CreateAntCloudAuthSceneRequest &) = default ;
@@ -48,8 +56,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindMiniProgram_ == nullptr
-        && this->checkFileBody_ == nullptr && this->checkFileName_ == nullptr && this->deviceRiskPlus_ == nullptr && this->miniProgramName_ == nullptr && this->platform_ == nullptr
-        && this->returnPicCount_ == nullptr && this->returnVideoLength_ == nullptr && this->sceneName_ == nullptr && this->storeImage_ == nullptr; };
+        && this->checkFileBody_ == nullptr && this->checkFileName_ == nullptr && this->degradeAppScheme_ == nullptr && this->degradeSubCodes_ == nullptr && this->degradeType_ == nullptr
+        && this->deviceRiskPlus_ == nullptr && this->miniProgramName_ == nullptr && this->platform_ == nullptr && this->returnPicCount_ == nullptr && this->returnVideoLength_ == nullptr
+        && this->sceneName_ == nullptr && this->storeImage_ == nullptr && this->useDegrade_ == nullptr; };
     // bindMiniProgram Field Functions 
     bool hasBindMiniProgram() const { return this->bindMiniProgram_ != nullptr;};
     void deleteBindMiniProgram() { this->bindMiniProgram_ = nullptr;};
@@ -69,6 +78,27 @@ namespace Models
     void deleteCheckFileName() { this->checkFileName_ = nullptr;};
     inline string getCheckFileName() const { DARABONBA_PTR_GET_DEFAULT(checkFileName_, "") };
     inline CreateAntCloudAuthSceneRequest& setCheckFileName(string checkFileName) { DARABONBA_PTR_SET_VALUE(checkFileName_, checkFileName) };
+
+
+    // degradeAppScheme Field Functions 
+    bool hasDegradeAppScheme() const { return this->degradeAppScheme_ != nullptr;};
+    void deleteDegradeAppScheme() { this->degradeAppScheme_ = nullptr;};
+    inline string getDegradeAppScheme() const { DARABONBA_PTR_GET_DEFAULT(degradeAppScheme_, "") };
+    inline CreateAntCloudAuthSceneRequest& setDegradeAppScheme(string degradeAppScheme) { DARABONBA_PTR_SET_VALUE(degradeAppScheme_, degradeAppScheme) };
+
+
+    // degradeSubCodes Field Functions 
+    bool hasDegradeSubCodes() const { return this->degradeSubCodes_ != nullptr;};
+    void deleteDegradeSubCodes() { this->degradeSubCodes_ = nullptr;};
+    inline string getDegradeSubCodes() const { DARABONBA_PTR_GET_DEFAULT(degradeSubCodes_, "") };
+    inline CreateAntCloudAuthSceneRequest& setDegradeSubCodes(string degradeSubCodes) { DARABONBA_PTR_SET_VALUE(degradeSubCodes_, degradeSubCodes) };
+
+
+    // degradeType Field Functions 
+    bool hasDegradeType() const { return this->degradeType_ != nullptr;};
+    void deleteDegradeType() { this->degradeType_ = nullptr;};
+    inline string getDegradeType() const { DARABONBA_PTR_GET_DEFAULT(degradeType_, "") };
+    inline CreateAntCloudAuthSceneRequest& setDegradeType(string degradeType) { DARABONBA_PTR_SET_VALUE(degradeType_, degradeType) };
 
 
     // deviceRiskPlus Field Functions 
@@ -120,24 +150,37 @@ namespace Models
     inline CreateAntCloudAuthSceneRequest& setStoreImage(string storeImage) { DARABONBA_PTR_SET_VALUE(storeImage_, storeImage) };
 
 
+    // useDegrade Field Functions 
+    bool hasUseDegrade() const { return this->useDegrade_ != nullptr;};
+    void deleteUseDegrade() { this->useDegrade_ = nullptr;};
+    inline string getUseDegrade() const { DARABONBA_PTR_GET_DEFAULT(useDegrade_, "") };
+    inline CreateAntCloudAuthSceneRequest& setUseDegrade(string useDegrade) { DARABONBA_PTR_SET_VALUE(useDegrade_, useDegrade) };
+
+
   protected:
     // Specifies whether to enable mini program binding. Valid values:
-    // - **Y**: enabled
-    // - **N (default)**: disabled.
+    // - **Y**: Enabled.
+    // - **N (default)**: Disabled.
     shared_ptr<string> bindMiniProgram_ {};
     // The content of the uploaded verification file.
     shared_ptr<string> checkFileBody_ {};
     // The name of the uploaded verification file.
     shared_ptr<string> checkFileName_ {};
+    // The iOS app scheme for degradation redirect.
+    shared_ptr<string> degradeAppScheme_ {};
+    // The SubCode that triggers degradation.
+    shared_ptr<string> degradeSubCodes_ {};
+    // The degradation verification type.
+    shared_ptr<string> degradeType_ {};
     // Specifies whether to enable enhanced device risk detection. Valid values:
-    // - **Y**: enabled
-    // - **N**: disabled.
+    // - **Y**: Enabled.
+    // - **N**: Disabled.
     shared_ptr<string> deviceRiskPlus_ {};
     // The mini program name.
     shared_ptr<string> miniProgramName_ {};
     // The mini program platform to bind. Valid values:
-    // - **WECHAT**: WeChat
-    // - **ALIPAY**: Alipay
+    // - **WECHAT**: WeChat.
+    // - **ALIPAY**: Alipay.
     // - **TIKTOK**: TikTok.
     shared_ptr<string> platform_ {};
     // The number of face photos for evidence storage (1-5).
@@ -148,10 +191,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sceneName_ {};
-    // Specifies whether to deliver the files generated during authentication to the customer\\"s OSS. Valid values:
+    // Specifies whether to deliver files generated during verification to the customer\\"s OSS. Valid values:
     // - **Y**: Yes.
     // - **N**: No.
     shared_ptr<string> storeImage_ {};
+    // Specifies whether to enable degradation.
+    shared_ptr<string> useDegrade_ {};
   };
 
   } // namespace Models

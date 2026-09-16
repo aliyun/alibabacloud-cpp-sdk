@@ -164,7 +164,7 @@ namespace Models
       shared_ptr<string> certifyId_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The update time.
+      // The modification time.
       shared_ptr<string> gmtModified_ {};
       // The whitelist ID.
       shared_ptr<int64_t> id_ {};
@@ -177,10 +177,11 @@ namespace Models
       // - **INVALID**: Invalid.
       // - **DELETED**: Deleted.
       shared_ptr<string> status_ {};
-      // The expiration date.
+      // The effective end date. Format: YYYY-MM-DD HH:mm:ss. Example: 2025-10-16 17:28:03.
       shared_ptr<string> validEndDate_ {};
       // The effective period.
       shared_ptr<string> validStartDate_ {};
+      // The whitelist type.
       shared_ptr<string> whitelistType_ {};
     };
 

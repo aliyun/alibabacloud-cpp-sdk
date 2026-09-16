@@ -105,23 +105,23 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int64_t> currentPage_ {};
-    // The end time of the query.
+    // The query end time. Format: UNIX timestamp. Unit: milliseconds. Example: 1761926399999.
     shared_ptr<int64_t> endDate_ {};
     // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The list of product codes to query. For more information, refer to the productCode under the corresponding ProductType.
+    // The list of product codes to query. For specific values, refer to the productCode under the corresponding ProductType.
     shared_ptr<string> productProgramList_ {};
     // The product type. Valid values:
-    // - **FINANCE_VERIFY**: financial-grade ID Verification
-    // - **SMART_VERIFY**: enhanced ID Verification (discontinued)
+    // - **FINANCE_VERIFY**: Finance-grade ID Verification.
+    // - **SMART_VERIFY**: Enhanced ID Verification (discontinued).
     // - **FACE_VERIFY**: ID Verification (discontinued).
     shared_ptr<string> productType_ {};
     // The list of common scenarios.
     shared_ptr<string> sceneIdList_ {};
-    // The start time of the query.
+    // The query start time. Format: UNIX timestamp. Unit: milliseconds. Example: 1743436800000.
     shared_ptr<int64_t> startDate_ {};
-    // The statistical dimension. Valid values:
-    // - **day**: daily
+    // The statistics dimension. Valid values:
+    // - **day**: daily.
     // - **month**: monthly.
     shared_ptr<string> statisticsType_ {};
   };

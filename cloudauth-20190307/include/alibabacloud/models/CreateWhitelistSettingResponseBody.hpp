@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The ID of this request.
     shared_ptr<string> requestId_ {};
     // The returned result that indicates whether the whitelist is created. Valid values:
     // - true: Succeeded.

@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> certifyId_ {};
     // The image return type.
     shared_ptr<string> pictureReturnType_ {};
-    // The ID of the verification scenario.
+    // The verification scenario ID.
     shared_ptr<int64_t> sceneId_ {};
   };
 

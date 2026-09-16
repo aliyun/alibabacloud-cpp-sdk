@@ -168,7 +168,7 @@ namespace Models
     protected:
       // The certificate number.
       shared_ptr<string> certNo_ {};
-      // The unique identifier of the ID Verification request.
+      // The unique identifier of the ID Verification.
       shared_ptr<string> certifyId_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
@@ -186,11 +186,11 @@ namespace Models
       // 
       // - DELETE: Deleted.
       // - VALID: Not deleted and within the validity period (valid).
-      // - INVALID: Not deleted but outside the validity period (invalid).
+      // - INVALID: Not deleted but not within the validity period (invalid).
       shared_ptr<string> status_ {};
-      // The end date of the validity period.
+      // The end date of the validity period. Format: YYYY-MM-DD HH:mm:ss, for example, 2024-09-02 13:57:51.
       shared_ptr<string> validEndDate_ {};
-      // The start date of the validity period.
+      // The start date of the validity period. Format: YYYY-MM-DD HH:mm:ss, for example, 2024-08-30 13:57:51.
       shared_ptr<string> validStartDate_ {};
     };
 

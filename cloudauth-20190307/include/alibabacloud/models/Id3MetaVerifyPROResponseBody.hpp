@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_ID3METAVERIFYRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_ID3METAVERIFYRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_ID3METAVERIFYPRORESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_ID3METAVERIFYPRORESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,27 +10,27 @@ namespace Cloudauth20190307
 {
 namespace Models
 {
-  class Id3MetaVerifyResponseBody : public Darabonba::Model {
+  class Id3MetaVerifyPROResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const Id3MetaVerifyResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const Id3MetaVerifyPROResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(ResultObject, resultObject_);
     };
-    friend void from_json(const Darabonba::Json& j, Id3MetaVerifyResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, Id3MetaVerifyPROResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(ResultObject, resultObject_);
     };
-    Id3MetaVerifyResponseBody() = default ;
-    Id3MetaVerifyResponseBody(const Id3MetaVerifyResponseBody &) = default ;
-    Id3MetaVerifyResponseBody(Id3MetaVerifyResponseBody &&) = default ;
-    Id3MetaVerifyResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~Id3MetaVerifyResponseBody() = default ;
-    Id3MetaVerifyResponseBody& operator=(const Id3MetaVerifyResponseBody &) = default ;
-    Id3MetaVerifyResponseBody& operator=(Id3MetaVerifyResponseBody &&) = default ;
+    Id3MetaVerifyPROResponseBody() = default ;
+    Id3MetaVerifyPROResponseBody(const Id3MetaVerifyPROResponseBody &) = default ;
+    Id3MetaVerifyPROResponseBody(Id3MetaVerifyPROResponseBody &&) = default ;
+    Id3MetaVerifyPROResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~Id3MetaVerifyPROResponseBody() = default ;
+    Id3MetaVerifyPROResponseBody& operator=(const Id3MetaVerifyPROResponseBody &) = default ;
+    Id3MetaVerifyPROResponseBody& operator=(Id3MetaVerifyPROResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -40,11 +40,13 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ResultObject& obj) { 
         DARABONBA_PTR_TO_JSON(BizCode, bizCode_);
         DARABONBA_PTR_TO_JSON(FaceDetail, faceDetail_);
+        DARABONBA_PTR_TO_JSON(HitWhitelist, hitWhitelist_);
         DARABONBA_PTR_TO_JSON(SubCode, subCode_);
       };
       friend void from_json(const Darabonba::Json& j, ResultObject& obj) { 
         DARABONBA_PTR_FROM_JSON(BizCode, bizCode_);
         DARABONBA_PTR_FROM_JSON(FaceDetail, faceDetail_);
+        DARABONBA_PTR_FROM_JSON(HitWhitelist, hitWhitelist_);
         DARABONBA_PTR_FROM_JSON(SubCode, subCode_);
       };
       ResultObject() = default ;
@@ -59,7 +61,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->bizCode_ == nullptr
-        && this->faceDetail_ == nullptr && this->subCode_ == nullptr; };
+        && this->faceDetail_ == nullptr && this->hitWhitelist_ == nullptr && this->subCode_ == nullptr; };
       // bizCode Field Functions 
       bool hasBizCode() const { return this->bizCode_ != nullptr;};
       void deleteBizCode() { this->bizCode_ = nullptr;};
@@ -74,6 +76,13 @@ namespace Models
       inline ResultObject& setFaceDetail(string faceDetail) { DARABONBA_PTR_SET_VALUE(faceDetail_, faceDetail) };
 
 
+      // hitWhitelist Field Functions 
+      bool hasHitWhitelist() const { return this->hitWhitelist_ != nullptr;};
+      void deleteHitWhitelist() { this->hitWhitelist_ = nullptr;};
+      inline string getHitWhitelist() const { DARABONBA_PTR_GET_DEFAULT(hitWhitelist_, "") };
+      inline ResultObject& setHitWhitelist(string hitWhitelist) { DARABONBA_PTR_SET_VALUE(hitWhitelist_, hitWhitelist) };
+
+
       // subCode Field Functions 
       bool hasSubCode() const { return this->subCode_ != nullptr;};
       void deleteSubCode() { this->subCode_ = nullptr;};
@@ -82,37 +91,43 @@ namespace Models
 
 
     protected:
-      // The identity verification result. Valid values:
+      // The authoritative source verification result. Valid values:
       // 
-      // - 1: verification is consistent.
-      // - 2: verification is inconsistent.
-      // - 3: no record found.
+      // - **1**: Verification is consistent (billable).
+      // - **2**: Verification is inconsistent (billable).
+      // - **3**: No record found (not billable).
       shared_ptr<string> bizCode_ {};
-      // The face comparison score.
+      // - **verifyScore**: The face comparison score. Value range: 0 to 1000. A higher score indicates a higher probability of the same face. A score >= 700.0 confirms the same person.
+      // 
+      // - **faceAttack**: Returned when liveness detection is enabled (does not participate in the verification result decision).
+      // 
+      // - **invokeChannel**: The identifier of the actual invocation channel. 1: authoritative source. 0: comprehensive source.
       shared_ptr<string> faceDetail_ {};
+      // Indicates whether the whitelist is hit: **Y**.
+      shared_ptr<string> hitWhitelist_ {};
       // The authoritative source verification details. Valid values:
       // 
-      // - 101: authentication passed.
+      // - **101**: Authentication passed.
       // 
-      // - 201: authentication failed. The name does not match the ID card number.
+      // - **201**: Authentication failed. The name does not match the ID card number.
       // 
-      // - 202: authentication failed. The person is suspected to be the ID holder.
+      // - **202**: Authentication failed. Suspected to be the person.
       // 
-      // - 203: authentication failed. No photo exists in the database.
+      // - **203**: Authentication failed. No photo in the database.
       // 
-      // - 204: authentication failed. The person is not the same individual.
+      // - **204**: Authentication failed. Not the same person.
       // 
-      // - 205: authentication failed. Modeling of the image to be compared failed.
+      // - **205**: Authentication failed. Modeling of the image to be compared failed.
       // 
-      // - 206: authentication failed. The image format is incorrect.
+      // - **206**: Authentication failed. The image format is incorrect.
       // 
-      // - 207: authentication failed. The uploaded image is too small. Upload a new image.
+      // - **207**: Authentication failed. The uploaded image is too small. Upload the image again.
       // 
-      // - 208: authentication failed. The quality of the uploaded portrait photo is poor. Upload a new photo.
+      // - **208**: Authentication failed. The quality of the uploaded portrait photo is poor. Upload the photo again.
       // 
-      // - 301: no record found. The ID number does not exist in the database.
+      // - **301**: No record found. The ID number does not exist in the database.
       // 
-      // - 302: no record found. Verification cannot be performed.
+      // - **302**: No record found. Verification is not possible.
       shared_ptr<string> subCode_ {};
     };
 
@@ -122,50 +137,42 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline Id3MetaVerifyResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline Id3MetaVerifyPROResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline Id3MetaVerifyResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline Id3MetaVerifyPROResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline Id3MetaVerifyResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline Id3MetaVerifyPROResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // resultObject Field Functions 
     bool hasResultObject() const { return this->resultObject_ != nullptr;};
     void deleteResultObject() { this->resultObject_ = nullptr;};
-    inline const Id3MetaVerifyResponseBody::ResultObject & getResultObject() const { DARABONBA_PTR_GET_CONST(resultObject_, Id3MetaVerifyResponseBody::ResultObject) };
-    inline Id3MetaVerifyResponseBody::ResultObject getResultObject() { DARABONBA_PTR_GET(resultObject_, Id3MetaVerifyResponseBody::ResultObject) };
-    inline Id3MetaVerifyResponseBody& setResultObject(const Id3MetaVerifyResponseBody::ResultObject & resultObject) { DARABONBA_PTR_SET_VALUE(resultObject_, resultObject) };
-    inline Id3MetaVerifyResponseBody& setResultObject(Id3MetaVerifyResponseBody::ResultObject && resultObject) { DARABONBA_PTR_SET_RVALUE(resultObject_, resultObject) };
+    inline const Id3MetaVerifyPROResponseBody::ResultObject & getResultObject() const { DARABONBA_PTR_GET_CONST(resultObject_, Id3MetaVerifyPROResponseBody::ResultObject) };
+    inline Id3MetaVerifyPROResponseBody::ResultObject getResultObject() { DARABONBA_PTR_GET(resultObject_, Id3MetaVerifyPROResponseBody::ResultObject) };
+    inline Id3MetaVerifyPROResponseBody& setResultObject(const Id3MetaVerifyPROResponseBody::ResultObject & resultObject) { DARABONBA_PTR_SET_VALUE(resultObject_, resultObject) };
+    inline Id3MetaVerifyPROResponseBody& setResultObject(Id3MetaVerifyPROResponseBody::ResultObject && resultObject) { DARABONBA_PTR_SET_RVALUE(resultObject_, resultObject) };
 
 
   protected:
-    // The response code. 200 indicates success. Other values indicate failure.
-    // 
-    // **Important**
-    // 
-    // - This parameter indicates whether the API call is successful. For more information about return codes, see error codes.
-    // - Check the business verification result in the fields of ResultObject.
+    // The response code. **200** indicates that the API call is successful.
     shared_ptr<string> code_ {};
-    // The response message.
-    // 
-    // **Important**
-    // 
-    // This parameter only indicates whether the API call is abnormal.
+    // The response message of the API call.
+    // >Notice: This parameter only indicates whether the API call is abnormal.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The result object.
-    shared_ptr<Id3MetaVerifyResponseBody::ResultObject> resultObject_ {};
+    // The returned result.
+    shared_ptr<Id3MetaVerifyPROResponseBody::ResultObject> resultObject_ {};
   };
 
   } // namespace Models

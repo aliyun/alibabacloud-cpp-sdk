@@ -146,7 +146,7 @@ namespace Models
             shared_ptr<string> code_ {};
             // The count.
             shared_ptr<int64_t> count_ {};
-            // The date.
+            // The date. Format: YYYY-MM-DD, such as 2025-10-16.
             shared_ptr<string> date_ {};
           };
 
@@ -171,7 +171,7 @@ namespace Models
         protected:
           // The error code.
           shared_ptr<string> code_ {};
-          // The returned count data.
+          // The count data returned.
           shared_ptr<vector<Items::Data>> data_ {};
         };
 
@@ -347,7 +347,7 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The authentication result.
     shared_ptr<DescribeVerifyFailStatisticsResponseBody::ResultObject> resultObject_ {};

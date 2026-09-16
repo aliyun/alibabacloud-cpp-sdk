@@ -70,9 +70,9 @@ namespace Models
     shared_ptr<string> certFile_ {};
     // The image of the national emblem side of the ID card. Specify either CertNationalUrl or CertNationalFile, or leave both empty.
     shared_ptr<string> certNationalFile_ {};
-    // The URL of the national emblem side image of the ID card. Specify a publicly accessible HTTP or HTTPS URL. Specify either CertNationalUrl or CertNationalFile, or leave both empty.
+    // The URL of the national emblem side image of the ID card. A publicly accessible HTTP or HTTPS URL. Specify either CertNationalUrl or CertNationalFile, or leave both empty.
     shared_ptr<string> certNationalUrl_ {};
-    // The image of the portrait side of the ID card. Specify a publicly accessible HTTP or HTTPS URL. Specify either CertUrl or CertFile.
+    // The image of the portrait side of the ID card. A publicly accessible HTTP or HTTPS URL. Specify either CertUrl or CertFile.
     shared_ptr<string> certUrl_ {};
   };
 

@@ -107,6 +107,7 @@ namespace Models
     // The scene ID.
     shared_ptr<int64_t> sceneId_ {};
     // The authentication status. Valid values:
+    // 
     // - **1**: Authentication passed.
     // - **2**: Authentication failed.
     shared_ptr<int32_t> status_ {};

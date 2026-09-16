@@ -104,7 +104,7 @@ namespace Models
         shared_ptr<int64_t> deviceCnt_ {};
         // The device model.
         shared_ptr<string> deviceModel_ {};
-        // The ratio of devices of this model to the total number of devices.
+        // The ratio of this device model to the total number of devices.
         shared_ptr<string> deviceRate_ {};
       };
 
@@ -129,7 +129,7 @@ namespace Models
     protected:
       // The total number of devices.
       shared_ptr<int64_t> allDeviceCnt_ {};
-      // The list of data for different phone models.
+      // The data list of different phone models.
       shared_ptr<vector<ResultObject::Items>> items_ {};
     };
 

@@ -107,9 +107,9 @@ namespace Models
     // The file name in the authorized OSS bucket.
     // > You can use one of the following methods to pass in the image: FaceContrastPicture, FaceContrastPictureUrl, or OSS.
     shared_ptr<string> ossObjectName_ {};
-    // The custom business unique identifier on the client side, used for subsequent troubleshooting. The value can contain up to 32 characters, including letters and digits. Make sure the value is unique.
+    // The custom business unique identifier on the client side, which is used for subsequent troubleshooting. The value can contain up to 32 characters, including letters and digits. Make sure the value is unique.
     shared_ptr<string> outerOrderNo_ {};
-    // The product plan.
+    // The product solution.
     shared_ptr<string> productCode_ {};
     // The ID of the verification scenario. This ID is automatically generated after you create a verification scenario in the console. For more information about how to create a verification scenario, refer to Add a verification scenario.
     shared_ptr<int64_t> sceneId_ {};

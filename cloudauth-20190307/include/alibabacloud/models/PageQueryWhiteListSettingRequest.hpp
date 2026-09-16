@@ -114,13 +114,13 @@ namespace Models
   protected:
     // The certificate number.
     shared_ptr<string> certNo_ {};
-    // The unique identifier of the ID Verification request.
+    // The unique identifier of the ID Verification.
     shared_ptr<string> certifyId_ {};
     // The current page number. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The verification scenario ID. This ID is automatically generated after you create a verification scenario in the console. For more information about how to create a verification scenario, refer to Add a verification scenario.
+    // The verification scenario ID. This ID is automatically generated after you create a verification scenario in the console. For information about how to create a verification scenario, see Add a verification scenario.
     shared_ptr<int64_t> sceneId_ {};
     // The ServiceCode of the ID Verification cloud service. Value: **antcloudauth**.
     shared_ptr<string> serviceCode_ {};
@@ -128,7 +128,7 @@ namespace Models
     // 
     // - DELETE: Deleted.
     // - VALID: Not deleted and within the validity period (valid).
-    // - INVALID: Not deleted but outside the validity period (invalid).
+    // - INVALID: Not deleted but not within the validity period (invalid).
     shared_ptr<string> status_ {};
     // The end date of the validity period (timestamp in milliseconds).
     shared_ptr<string> validEndDate_ {};

@@ -159,28 +159,28 @@ namespace Models
 
   protected:
     // The product API. Valid values:
-    // - **ID_CARD_2_META**: ID card two-element verification
-    // - **ID_PERIOD**: ID card validity period verification
-    // - **MOBILE_ONLINE_LENGTH**: mobile number online duration
-    // - **MOBILE_ONLINE_STATUS**: mobile number online status
-    // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition)
-    // - **MOBILE_3_META**: mobile number three-element verification (detailed edition)
-    // - **MOBILE_2_META**: mobile number two-element verification
-    // - **BANK_CARD_N_META**: bank card verification (detailed edition)
-    // - **MOBILE_DETECT**: phone number detection 
-    // - **VEHICLE_N_META**: vehicle element verification (enhanced edition)
-    // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition
-    // - **VEHICLE_LICENSE_INFO**: vehicle information recognition
-    // - **VEHICLE_INSURE_DATE**: vehicle insurance date query
+    // - **ID_CARD_2_META**: ID card two-element verification.
+    // - **ID_PERIOD**: ID card validity period verification.
+    // - **MOBILE_ONLINE_LENGTH**: mobile number online duration.
+    // - **MOBILE_ONLINE_STATUS**: mobile number online status.
+    // - **MOBILE_3_META_SIMPLE**: mobile number three-element verification (simple edition).
+    // - **MOBILE_3_META**: mobile number three-element verification (detailed edition).
+    // - **MOBILE_2_META**: mobile number two-element verification.
+    // - **BANK_CARD_N_META**: bank card verification (detailed edition).
+    // - **MOBILE_DETECT**: phone number detection. 
+    // - **VEHICLE_N_META**: vehicle element verification (enhanced edition).
+    // - **VEHICLE_PENTA_INFO**: vehicle five-element information recognition.
+    // - **VEHICLE_LICENSE_INFO**: vehicle information recognition.
+    // - **VEHICLE_INSURE_DATE**: vehicle insurance date query.
     // - **VEHICLE_CHECK**: vehicle element verification.
     // 
     // This parameter is required.
     shared_ptr<string> api_ {};
     // The bank card number.
     shared_ptr<string> bankCard_ {};
-    // The verification status. Valid values:
-    // - **1**: Verification passed.
-    // - **2**: Verification failed.
+    // The authentication status. Valid values:
+    // - **1**: Authentication passed.
+    // - **2**: Authentication failed.
     // - **3**: No record found.
     shared_ptr<string> bizCode_ {};
     // The current page number.
@@ -193,12 +193,12 @@ namespace Models
     shared_ptr<int64_t> endDate_ {};
     // The ID card number.
     shared_ptr<string> identifyNum_ {};
-    // The name of the telecommunications service provider. Valid values:
-    // - **CMCC**: China Mobile
-    // - **CUCC**: China Unicom
+    // The telecommunications service provider name. Valid values:
+    // - **CMCC**: China Mobile.
+    // - **CUCC**: China Unicom.
     // - **CTCC**: China Telecom.
     shared_ptr<string> ispName_ {};
-    // The mobile phone number.
+    // The mobile number.
     shared_ptr<string> mobile_ {};
     // The number of entries per page.
     // 
@@ -210,7 +210,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};
-    // The result code. For more information, see [official documentation](https://www.alibabacloud.com/help/en/id-verification/information-verification/).
+    // The result code. For more information, refer to the [official documentation](https://www.alibabacloud.com/help/en/id-verification/information-verification/).
     shared_ptr<string> subCode_ {};
     // The name.
     shared_ptr<string> userName_ {};
