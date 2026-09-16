@@ -75,20 +75,25 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Synchronization tasks with the same priority are executed in random order.
+    // 
+    // Valid values: 1 to 5.
+    // 
+    // Default value: 3.
     shared_ptr<int32_t> priority_ {};
-    // The ID of the image repository.
+    // The image repository ID.
     // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};
-    // The ID of the synchronization rule.
+    // The synchronization rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> syncRuleId_ {};
-    // The version of the image to be synchronized.
+    // The image version to be synchronized.
     // 
     // This parameter is required.
     shared_ptr<string> tag_ {};

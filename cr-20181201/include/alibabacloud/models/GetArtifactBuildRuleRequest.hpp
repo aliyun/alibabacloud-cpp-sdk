@@ -75,23 +75,22 @@ namespace Models
 
 
   protected:
-    // The type of the artifact.
+    // The type of the accelerated image. Valid values:
     // 
-    // *   `ACCELERATED_IMAGE`: accelerated images.
+    // - `ACCELERATED_IMAGE`: generates an accelerated image.
     shared_ptr<string> artifactType_ {};
-    // The ID of the artifact building rule.
+    // The build rule ID.
     shared_ptr<string> buildRuleId_ {};
-    // The ID of the Container Registry instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The ID of the effective range of the artifact building rule.
+    // The ID of the scope in which the rule takes effect. Valid values:
     // 
-    // *   Set the value to the ID of the image repository.
+    // - ScopeId: the image repository ID.
     shared_ptr<string> scopeId_ {};
-    // The effective range of the artifact building rule. Valid values:
-    // 
-    // *   `REPOSITORY`: The artifact building rule is effective in the repository level.
+    // The scope of the rule. Valid values:
+    // - `REPOSITORY`: repository level.
     shared_ptr<string> scopeType_ {};
   };
 

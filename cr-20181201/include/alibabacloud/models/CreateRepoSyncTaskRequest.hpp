@@ -130,46 +130,51 @@ namespace Models
 
 
   protected:
-    // Source instance ID
+    // The source instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Specifies whether to overwrite an existing image:
+    // Specifies whether to forcibly overwrite existing images. Valid values:
     // 
-    // - `true`: Overwrite the existing image.
+    // - `true`: Forcibly overwrites existing images.
     // 
-    // - `false`: Do not overwrite the existing image.
+    // - `false`: Does not forcibly overwrite existing images.
     shared_ptr<bool> override_ {};
+    // The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
+    // 
+    // Valid values: 1 to 5.
+    // 
+    // Default value: 3.
     shared_ptr<int32_t> priority_ {};
-    // Image repository ID in the source instance
+    // The ID of the image repository in the source instance.
     // 
     // This parameter is required.
     shared_ptr<string> repoId_ {};
-    // Image tag in the source instance
+    // The image tag in the source instance.
     // 
     // This parameter is required.
     shared_ptr<string> tag_ {};
-    // Target instance ID
+    // The target instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> targetInstanceId_ {};
-    // Namespace in the target instance
+    // The namespace of the target instance.
     // 
     // This parameter is required.
     shared_ptr<string> targetNamespace_ {};
-    // Region ID of the target instance
+    // The region ID of the target instance.
     // 
     // This parameter is required.
     shared_ptr<string> targetRegionId_ {};
-    // Name of the image repository in the target instance
+    // The name of the image repository in the target instance.
     // 
     // This parameter is required.
     shared_ptr<string> targetRepoName_ {};
-    // Image tag in the target instance
+    // The image tag in the target instance.
     // 
     // This parameter is required.
     shared_ptr<string> targetTag_ {};
-    // UID of the account to which the target instance belongs
+    // The UID of the account to which the target instance belongs.
     shared_ptr<string> targetUserId_ {};
   };
 

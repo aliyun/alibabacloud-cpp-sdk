@@ -176,11 +176,11 @@ namespace Models
 
 
     protected:
-      // The creation time.
+      // The time when the repository was created.
       shared_ptr<int64_t> createTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last modification time.
+      // The time when the repository was last modified.
       shared_ptr<int64_t> modifiedTime_ {};
       // The repository build type. Valid values:
       // 
@@ -204,9 +204,9 @@ namespace Models
       shared_ptr<string> repoType_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The summary information.
+      // The summary.
       shared_ptr<string> summary_ {};
-      // The image tag immutability.
+      // The tag immutability of the image.
       shared_ptr<bool> tagImmutability_ {};
     };
 
@@ -281,9 +281,11 @@ namespace Models
   protected:
     // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> isSuccess_ {};
+    // The maximum number of entries returned.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token. If a next page exists, the service returns a NextToken value. Pass this value in the next request.
     shared_ptr<string> nextToken_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};

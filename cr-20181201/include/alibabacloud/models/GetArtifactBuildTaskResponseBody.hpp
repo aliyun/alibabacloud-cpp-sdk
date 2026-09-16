@@ -15,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetArtifactBuildTaskResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(ArtifactBuildType, artifactBuildType_);
+      DARABONBA_PTR_TO_JSON(ArtifactCompression, artifactCompression_);
       DARABONBA_PTR_TO_JSON(BuildTaskId, buildTaskId_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(Instructions, instructions_);
       DARABONBA_PTR_TO_JSON(IsSuccess, isSuccess_);
+      DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(SourceArtifact, sourceArtifact_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
@@ -28,11 +30,13 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetArtifactBuildTaskResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(ArtifactBuildType, artifactBuildType_);
+      DARABONBA_PTR_FROM_JSON(ArtifactCompression, artifactCompression_);
       DARABONBA_PTR_FROM_JSON(BuildTaskId, buildTaskId_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(Instructions, instructions_);
       DARABONBA_PTR_FROM_JSON(IsSuccess, isSuccess_);
+      DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(SourceArtifact, sourceArtifact_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
@@ -54,12 +58,16 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const TargetArtifact& obj) { 
         DARABONBA_PTR_TO_JSON(ArtifactType, artifactType_);
+        DARABONBA_PTR_TO_JSON(LayerCount, layerCount_);
         DARABONBA_PTR_TO_JSON(RepoId, repoId_);
+        DARABONBA_PTR_TO_JSON(Size, size_);
         DARABONBA_PTR_TO_JSON(Version, version_);
       };
       friend void from_json(const Darabonba::Json& j, TargetArtifact& obj) { 
         DARABONBA_PTR_FROM_JSON(ArtifactType, artifactType_);
+        DARABONBA_PTR_FROM_JSON(LayerCount, layerCount_);
         DARABONBA_PTR_FROM_JSON(RepoId, repoId_);
+        DARABONBA_PTR_FROM_JSON(Size, size_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
       };
       TargetArtifact() = default ;
@@ -74,7 +82,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->artifactType_ == nullptr
-        && this->repoId_ == nullptr && this->version_ == nullptr; };
+        && this->layerCount_ == nullptr && this->repoId_ == nullptr && this->size_ == nullptr && this->version_ == nullptr; };
       // artifactType Field Functions 
       bool hasArtifactType() const { return this->artifactType_ != nullptr;};
       void deleteArtifactType() { this->artifactType_ = nullptr;};
@@ -82,11 +90,25 @@ namespace Models
       inline TargetArtifact& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
+      // layerCount Field Functions 
+      bool hasLayerCount() const { return this->layerCount_ != nullptr;};
+      void deleteLayerCount() { this->layerCount_ = nullptr;};
+      inline int32_t getLayerCount() const { DARABONBA_PTR_GET_DEFAULT(layerCount_, 0) };
+      inline TargetArtifact& setLayerCount(int32_t layerCount) { DARABONBA_PTR_SET_VALUE(layerCount_, layerCount) };
+
+
       // repoId Field Functions 
       bool hasRepoId() const { return this->repoId_ != nullptr;};
       void deleteRepoId() { this->repoId_ = nullptr;};
       inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
       inline TargetArtifact& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
+
+
+      // size Field Functions 
+      bool hasSize() const { return this->size_ != nullptr;};
+      void deleteSize() { this->size_ = nullptr;};
+      inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+      inline TargetArtifact& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
       // version Field Functions 
@@ -97,11 +119,15 @@ namespace Models
 
 
     protected:
-      // The artifact type. Currently, only `IMAGE` is supported.
+      // The artifact type. Only IMAGE is supported.
       shared_ptr<string> artifactType_ {};
-      // The repository ID. It must be the same as the repository ID of the source artifact. Only image repositories are supported.
+      // The number of artifact layers.
+      shared_ptr<int32_t> layerCount_ {};
+      // The repository ID. Only image repositories are supported. The repository ID of the target artifact must be the same as that of the source artifact.
       shared_ptr<string> repoId_ {};
-      // The artifact version. Currently, only image versions are supported.
+      // The artifact size, in bytes.
+      shared_ptr<int64_t> size_ {};
+      // The artifact version. Only images are supported.
       shared_ptr<string> version_ {};
     };
 
@@ -109,12 +135,16 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const SourceArtifact& obj) { 
         DARABONBA_PTR_TO_JSON(ArtifactType, artifactType_);
+        DARABONBA_PTR_TO_JSON(LayerCount, layerCount_);
         DARABONBA_PTR_TO_JSON(RepoId, repoId_);
+        DARABONBA_PTR_TO_JSON(Size, size_);
         DARABONBA_PTR_TO_JSON(Version, version_);
       };
       friend void from_json(const Darabonba::Json& j, SourceArtifact& obj) { 
         DARABONBA_PTR_FROM_JSON(ArtifactType, artifactType_);
+        DARABONBA_PTR_FROM_JSON(LayerCount, layerCount_);
         DARABONBA_PTR_FROM_JSON(RepoId, repoId_);
+        DARABONBA_PTR_FROM_JSON(Size, size_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
       };
       SourceArtifact() = default ;
@@ -129,7 +159,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->artifactType_ == nullptr
-        && this->repoId_ == nullptr && this->version_ == nullptr; };
+        && this->layerCount_ == nullptr && this->repoId_ == nullptr && this->size_ == nullptr && this->version_ == nullptr; };
       // artifactType Field Functions 
       bool hasArtifactType() const { return this->artifactType_ != nullptr;};
       void deleteArtifactType() { this->artifactType_ = nullptr;};
@@ -137,11 +167,25 @@ namespace Models
       inline SourceArtifact& setArtifactType(string artifactType) { DARABONBA_PTR_SET_VALUE(artifactType_, artifactType) };
 
 
+      // layerCount Field Functions 
+      bool hasLayerCount() const { return this->layerCount_ != nullptr;};
+      void deleteLayerCount() { this->layerCount_ = nullptr;};
+      inline int32_t getLayerCount() const { DARABONBA_PTR_GET_DEFAULT(layerCount_, 0) };
+      inline SourceArtifact& setLayerCount(int32_t layerCount) { DARABONBA_PTR_SET_VALUE(layerCount_, layerCount) };
+
+
       // repoId Field Functions 
       bool hasRepoId() const { return this->repoId_ != nullptr;};
       void deleteRepoId() { this->repoId_ = nullptr;};
       inline string getRepoId() const { DARABONBA_PTR_GET_DEFAULT(repoId_, "") };
       inline SourceArtifact& setRepoId(string repoId) { DARABONBA_PTR_SET_VALUE(repoId_, repoId) };
+
+
+      // size Field Functions 
+      bool hasSize() const { return this->size_ != nullptr;};
+      void deleteSize() { this->size_ = nullptr;};
+      inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+      inline SourceArtifact& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
 
 
       // version Field Functions 
@@ -152,22 +196,91 @@ namespace Models
 
 
     protected:
-      // The artifact type. Currently, only `IMAGE` is supported.
+      // The artifact type. Only IMAGE is supported.
       shared_ptr<string> artifactType_ {};
-      // The repository ID. Currently, only image repositories are supported.
+      // The number of artifact layers.
+      shared_ptr<int32_t> layerCount_ {};
+      // The repository ID. Only image repositories are supported.
       shared_ptr<string> repoId_ {};
-      // The artifact version. Currently, only image versions are supported.
+      // The artifact size, in bytes.
+      shared_ptr<int64_t> size_ {};
+      // The artifact version. Only image versions are supported.
       shared_ptr<string> version_ {};
     };
 
+    class ArtifactCompression : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ArtifactCompression& obj) { 
+        DARABONBA_PTR_TO_JSON(Platform, platform_);
+        DARABONBA_PTR_TO_JSON(SquashKeepLayers, squashKeepLayers_);
+        DARABONBA_PTR_TO_JSON(StartLayerDigest, startLayerDigest_);
+      };
+      friend void from_json(const Darabonba::Json& j, ArtifactCompression& obj) { 
+        DARABONBA_PTR_FROM_JSON(Platform, platform_);
+        DARABONBA_PTR_FROM_JSON(SquashKeepLayers, squashKeepLayers_);
+        DARABONBA_PTR_FROM_JSON(StartLayerDigest, startLayerDigest_);
+      };
+      ArtifactCompression() = default ;
+      ArtifactCompression(const ArtifactCompression &) = default ;
+      ArtifactCompression(ArtifactCompression &&) = default ;
+      ArtifactCompression(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ArtifactCompression() = default ;
+      ArtifactCompression& operator=(const ArtifactCompression &) = default ;
+      ArtifactCompression& operator=(ArtifactCompression &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->platform_ == nullptr
+        && this->squashKeepLayers_ == nullptr && this->startLayerDigest_ == nullptr; };
+      // platform Field Functions 
+      bool hasPlatform() const { return this->platform_ != nullptr;};
+      void deletePlatform() { this->platform_ = nullptr;};
+      inline string getPlatform() const { DARABONBA_PTR_GET_DEFAULT(platform_, "") };
+      inline ArtifactCompression& setPlatform(string platform) { DARABONBA_PTR_SET_VALUE(platform_, platform) };
+
+
+      // squashKeepLayers Field Functions 
+      bool hasSquashKeepLayers() const { return this->squashKeepLayers_ != nullptr;};
+      void deleteSquashKeepLayers() { this->squashKeepLayers_ = nullptr;};
+      inline int32_t getSquashKeepLayers() const { DARABONBA_PTR_GET_DEFAULT(squashKeepLayers_, 0) };
+      inline ArtifactCompression& setSquashKeepLayers(int32_t squashKeepLayers) { DARABONBA_PTR_SET_VALUE(squashKeepLayers_, squashKeepLayers) };
+
+
+      // startLayerDigest Field Functions 
+      bool hasStartLayerDigest() const { return this->startLayerDigest_ != nullptr;};
+      void deleteStartLayerDigest() { this->startLayerDigest_ = nullptr;};
+      inline string getStartLayerDigest() const { DARABONBA_PTR_GET_DEFAULT(startLayerDigest_, "") };
+      inline ArtifactCompression& setStartLayerDigest(string startLayerDigest) { DARABONBA_PTR_SET_VALUE(startLayerDigest_, startLayerDigest) };
+
+
+    protected:
+      // The operating system and architecture.
+      shared_ptr<string> platform_ {};
+      // The number of layers to retain after compression.
+      shared_ptr<int32_t> squashKeepLayers_ {};
+      // The digest of the starting layer for compression.
+      shared_ptr<string> startLayerDigest_ {};
+    };
+
     virtual bool empty() const override { return this->artifactBuildType_ == nullptr
-        && this->buildTaskId_ == nullptr && this->code_ == nullptr && this->endTime_ == nullptr && this->instructions_ == nullptr && this->isSuccess_ == nullptr
-        && this->requestId_ == nullptr && this->sourceArtifact_ == nullptr && this->startTime_ == nullptr && this->targetArtifact_ == nullptr && this->taskStatus_ == nullptr; };
+        && this->artifactCompression_ == nullptr && this->buildTaskId_ == nullptr && this->code_ == nullptr && this->endTime_ == nullptr && this->instructions_ == nullptr
+        && this->isSuccess_ == nullptr && this->priority_ == nullptr && this->requestId_ == nullptr && this->sourceArtifact_ == nullptr && this->startTime_ == nullptr
+        && this->targetArtifact_ == nullptr && this->taskStatus_ == nullptr; };
     // artifactBuildType Field Functions 
     bool hasArtifactBuildType() const { return this->artifactBuildType_ != nullptr;};
     void deleteArtifactBuildType() { this->artifactBuildType_ = nullptr;};
     inline string getArtifactBuildType() const { DARABONBA_PTR_GET_DEFAULT(artifactBuildType_, "") };
     inline GetArtifactBuildTaskResponseBody& setArtifactBuildType(string artifactBuildType) { DARABONBA_PTR_SET_VALUE(artifactBuildType_, artifactBuildType) };
+
+
+    // artifactCompression Field Functions 
+    bool hasArtifactCompression() const { return this->artifactCompression_ != nullptr;};
+    void deleteArtifactCompression() { this->artifactCompression_ = nullptr;};
+    inline const GetArtifactBuildTaskResponseBody::ArtifactCompression & getArtifactCompression() const { DARABONBA_PTR_GET_CONST(artifactCompression_, GetArtifactBuildTaskResponseBody::ArtifactCompression) };
+    inline GetArtifactBuildTaskResponseBody::ArtifactCompression getArtifactCompression() { DARABONBA_PTR_GET(artifactCompression_, GetArtifactBuildTaskResponseBody::ArtifactCompression) };
+    inline GetArtifactBuildTaskResponseBody& setArtifactCompression(const GetArtifactBuildTaskResponseBody::ArtifactCompression & artifactCompression) { DARABONBA_PTR_SET_VALUE(artifactCompression_, artifactCompression) };
+    inline GetArtifactBuildTaskResponseBody& setArtifactCompression(GetArtifactBuildTaskResponseBody::ArtifactCompression && artifactCompression) { DARABONBA_PTR_SET_RVALUE(artifactCompression_, artifactCompression) };
 
 
     // buildTaskId Field Functions 
@@ -205,6 +318,13 @@ namespace Models
     void deleteIsSuccess() { this->isSuccess_ = nullptr;};
     inline bool getIsSuccess() const { DARABONBA_PTR_GET_DEFAULT(isSuccess_, false) };
     inline GetArtifactBuildTaskResponseBody& setIsSuccess(bool isSuccess) { DARABONBA_PTR_SET_VALUE(isSuccess_, isSuccess) };
+
+
+    // priority Field Functions 
+    bool hasPriority() const { return this->priority_ != nullptr;};
+    void deletePriority() { this->priority_ = nullptr;};
+    inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+    inline GetArtifactBuildTaskResponseBody& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
     // requestId Field Functions 
@@ -249,36 +369,39 @@ namespace Models
   protected:
     // The artifact build type. Valid values:
     // 
-    // - `IMAGE_TO_ACCELERATED_IMAGE`: an accelerated image for ACK.
+    // - `IMAGE_TO_ACCELERATED_IMAGE`: Accelerated image creation optimized for ACK scenarios.
     // 
-    // - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: an accelerated image for ECI.
+    // - `IMAGE_TO_ECI_ACCELERATED_IMAGE`: Accelerated image artifact optimized for ECI scenarios.
     shared_ptr<string> artifactBuildType_ {};
+    // The artifact compression parameters.
+    shared_ptr<GetArtifactBuildTaskResponseBody::ArtifactCompression> artifactCompression_ {};
     // The ID of the artifact build task.
     shared_ptr<string> buildTaskId_ {};
-    // The response code.
+    // The return code.
     shared_ptr<string> code_ {};
-    // The Unix timestamp in seconds when the task ended.
+    // The end time. The value is a UNIX timestamp in seconds.
     shared_ptr<int32_t> endTime_ {};
+    // The reserved field list of the artifact build task. The list elements should be empty.
     shared_ptr<vector<string>> instructions_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The ID of the request.
+    shared_ptr<int32_t> priority_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The source artifact.
     shared_ptr<GetArtifactBuildTaskResponseBody::SourceArtifact> sourceArtifact_ {};
-    // The Unix timestamp in seconds when the task started.
+    // The start time. The value is a UNIX timestamp in seconds.
     shared_ptr<int32_t> startTime_ {};
     // The target artifact.
     shared_ptr<GetArtifactBuildTaskResponseBody::TargetArtifact> targetArtifact_ {};
-    // The status of the artifact build task. Valid values:
+    // The artifact build status. Valid values:
+    // - `PENDING`: Scheduling in progress.
     // 
-    // - `PENDING`: The task is being scheduled.
+    // - `BUILDING`: Building in progress.
     // 
-    // - `BUILDING`: The task is in progress.
+    // - `SUCCESS`: Build succeeded.
     // 
-    // - `SUCCESS`: The task is successful.
-    // 
-    // - `FAILED`: The task failed.
+    // - `FAILED`: Build failed.
     shared_ptr<string> taskStatus_ {};
   };
 

@@ -18,49 +18,6 @@ namespace Cr20181201
 
 AlibabaCloud::Cr20181201::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"us-west-1" , "cr.us-west-1.aliyuncs.com"},
-    {"us-southeast-1" , "cr.us-southeast-1.aliyuncs.com"},
-    {"us-east-1" , "cr.us-east-1.aliyuncs.com"},
-    {"na-south-1" , "cr.na-south-1.aliyuncs.com"},
-    {"me-east-1" , "cr.me-east-1.aliyuncs.com"},
-    {"me-central-1" , "cr.me-central-1.aliyuncs.com"},
-    {"eu-west-2" , "cr.eu-west-2.aliyuncs.com"},
-    {"eu-west-1" , "cr.eu-west-1.aliyuncs.com"},
-    {"eu-central-1" , "cr.eu-central-1.aliyuncs.com"},
-    {"cn-zhongwei" , "cr.cn-zhongwei.aliyuncs.com"},
-    {"cn-zhengzhou-jva" , "cr.cn-zhengzhou-jva.aliyuncs.com"},
-    {"cn-zhangjiakou" , "cr.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-wulanchabu-gic-1" , "cr.cn-wulanchabu-gic-1.aliyuncs.com"},
-    {"cn-wulanchabu" , "cr.cn-wulanchabu.aliyuncs.com"},
-    {"cn-wuhan-lr" , "cr.cn-wuhan-lr.aliyuncs.com"},
-    {"cn-shenzhen-finance-1" , "cr.cn-shenzhen-finance-1.aliyuncs.com"},
-    {"cn-shenzhen" , "cr.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "cr.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-shanghai" , "cr.cn-shanghai.aliyuncs.com"},
-    {"cn-qingdao" , "cr.cn-qingdao.aliyuncs.com"},
-    {"cn-north-2-gov-1" , "cr.cn-north-2-gov-1.aliyuncs.com"},
-    {"cn-nanjing" , "cr.cn-nanjing.aliyuncs.com"},
-    {"cn-huhehaote" , "cr.cn-huhehaote.aliyuncs.com"},
-    {"cn-hongkong" , "cr.cn-hongkong.aliyuncs.com"},
-    {"cn-heyuan-acdr-1" , "cr.cn-heyuan-acdr-1.aliyuncs.com"},
-    {"cn-heyuan" , "cr.cn-heyuan.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "cr.cn-hangzhou-finance.aliyuncs.com"},
-    {"cn-hangzhou" , "cr.cn-hangzhou.aliyuncs.com"},
-    {"cn-guangzhou" , "cr.cn-guangzhou.aliyuncs.com"},
-    {"cn-fuzhou" , "cr.cn-fuzhou.aliyuncs.com"},
-    {"cn-chengdu" , "cr.cn-chengdu.aliyuncs.com"},
-    {"cn-beijing-finance-1" , "cr.cn-beijing-finance-1.aliyuncs.com"},
-    {"cn-beijing" , "cr.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-8" , "cr.ap-southeast-8.aliyuncs.com"},
-    {"ap-southeast-7" , "cr.ap-southeast-7.aliyuncs.com"},
-    {"ap-southeast-6" , "cr.ap-southeast-6.aliyuncs.com"},
-    {"ap-southeast-5" , "cr.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "cr.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "cr.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "cr.ap-northeast-2.aliyuncs.com"},
-    {"ap-northeast-1" , "cr.ap-northeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cr", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -354,8 +311,16 @@ CreateArtifactLifecycleRuleResponse Client::createArtifactLifecycleRuleWithOptio
     query["Auto"] = request.getAuto();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasEnableDeleteTag()) {
     query["EnableDeleteTag"] = request.getEnableDeleteTag();
+  }
+
+  if (!!request.hasEnableDeleteUntaggedManifest()) {
+    query["EnableDeleteUntaggedManifest"] = request.getEnableDeleteUntaggedManifest();
   }
 
   if (!!request.hasInstanceId()) {
@@ -1217,7 +1182,7 @@ CreateRepoSourceCodeRepoResponse Client::createRepoSourceCodeRepo(const CreateRe
 }
 
 /**
- * @summary Creates an image synchronization rule for an image repository.
+ * @summary Creates a synchronization rule for an image repository.
  *
  * @param request CreateRepoSyncRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1308,7 +1273,7 @@ CreateRepoSyncRuleResponse Client::createRepoSyncRuleWithOptions(const CreateRep
 }
 
 /**
- * @summary Creates an image synchronization rule for an image repository.
+ * @summary Creates a synchronization rule for an image repository.
  *
  * @param request CreateRepoSyncRuleRequest
  * @return CreateRepoSyncRuleResponse
@@ -1319,7 +1284,7 @@ CreateRepoSyncRuleResponse Client::createRepoSyncRule(const CreateRepoSyncRuleRe
 }
 
 /**
- * @summary Manually create a sync task.
+ * @summary Manually creates a synchronization task.
  *
  * @param request CreateRepoSyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1390,7 +1355,7 @@ CreateRepoSyncTaskResponse Client::createRepoSyncTaskWithOptions(const CreateRep
 }
 
 /**
- * @summary Manually create a sync task.
+ * @summary Manually creates a synchronization task.
  *
  * @param request CreateRepoSyncTaskRequest
  * @return CreateRepoSyncTaskResponse
@@ -1401,7 +1366,7 @@ CreateRepoSyncTaskResponse Client::createRepoSyncTask(const CreateRepoSyncTaskRe
 }
 
 /**
- * @summary Creates an image replication task based on a manual replication rule.
+ * @summary Creates a synchronization task for an image repository based on a synchronization rule (manual synchronization rules only).
  *
  * @param request CreateRepoSyncTaskByRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1448,7 +1413,7 @@ CreateRepoSyncTaskByRuleResponse Client::createRepoSyncTaskByRuleWithOptions(con
 }
 
 /**
- * @summary Creates an image replication task based on a manual replication rule.
+ * @summary Creates a synchronization task for an image repository based on a synchronization rule (manual synchronization rules only).
  *
  * @param request CreateRepoSyncTaskByRuleRequest
  * @return CreateRepoSyncTaskByRuleResponse
@@ -2761,7 +2726,7 @@ DeleteStorageDomainRoutingRuleResponse Client::deleteStorageDomainRoutingRule(co
 }
 
 /**
- * @summary Queries the details of an artifact building rule.
+ * @summary Retrieves an artifact build rule.
  *
  * @param request GetArtifactBuildRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2788,7 +2753,7 @@ GetArtifactBuildRuleResponse Client::getArtifactBuildRuleWithOptions(const GetAr
 }
 
 /**
- * @summary Queries the details of an artifact building rule.
+ * @summary Retrieves an artifact build rule.
  *
  * @param request GetArtifactBuildRuleRequest
  * @return GetArtifactBuildRuleResponse
@@ -2799,7 +2764,7 @@ GetArtifactBuildRuleResponse Client::getArtifactBuildRule(const GetArtifactBuild
 }
 
 /**
- * @summary Retrieves the details of an artifact build task.
+ * @summary Retrieves the build task of an artifact.
  *
  * @param request GetArtifactBuildTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2826,7 +2791,7 @@ GetArtifactBuildTaskResponse Client::getArtifactBuildTaskWithOptions(const GetAr
 }
 
 /**
- * @summary Retrieves the details of an artifact build task.
+ * @summary Retrieves the build task of an artifact.
  *
  * @param request GetArtifactBuildTaskRequest
  * @return GetArtifactBuildTaskResponse
@@ -2837,7 +2802,7 @@ GetArtifactBuildTaskResponse Client::getArtifactBuildTask(const GetArtifactBuild
 }
 
 /**
- * @summary Lists artifact lifecycle management rules.
+ * @summary Queries the lifecycle management rules of artifacts.
  *
  * @param request GetArtifactLifecycleRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2864,7 +2829,7 @@ GetArtifactLifecycleRuleResponse Client::getArtifactLifecycleRuleWithOptions(con
 }
 
 /**
- * @summary Lists artifact lifecycle management rules.
+ * @summary Queries the lifecycle management rules of artifacts.
  *
  * @param request GetArtifactLifecycleRuleRequest
  * @return GetArtifactLifecycleRuleResponse
@@ -3645,7 +3610,7 @@ GetRepoSourceCodeRepoResponse Client::getRepoSourceCodeRepo(const GetRepoSourceC
 }
 
 /**
- * @summary Queries an image synchronization task in an instance.
+ * @summary Queries a repository synchronization task.
  *
  * @param request GetRepoSyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3680,7 +3645,7 @@ GetRepoSyncTaskResponse Client::getRepoSyncTaskWithOptions(const GetRepoSyncTask
 }
 
 /**
- * @summary Queries an image synchronization task in an instance.
+ * @summary Queries a repository synchronization task.
  *
  * @param request GetRepoSyncTaskRequest
  * @return GetRepoSyncTaskResponse
@@ -4899,7 +4864,7 @@ ListRepoBuildRuleResponse Client::listRepoBuildRule(const ListRepoBuildRuleReque
 }
 
 /**
- * @summary Returns a list of repository synchronization rules.
+ * @summary Queries the list of repository synchronization rules.
  *
  * @param request ListRepoSyncRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4954,7 +4919,7 @@ ListRepoSyncRuleResponse Client::listRepoSyncRuleWithOptions(const ListRepoSyncR
 }
 
 /**
- * @summary Returns a list of repository synchronization rules.
+ * @summary Queries the list of repository synchronization rules.
  *
  * @param request ListRepoSyncRuleRequest
  * @return ListRepoSyncRuleResponse
@@ -4965,7 +4930,7 @@ ListRepoSyncRuleResponse Client::listRepoSyncRule(const ListRepoSyncRuleRequest 
 }
 
 /**
- * @summary Lists repository synchronization tasks.
+ * @summary Queries the list of repository synchronization tasks.
  *
  * @param request ListRepoSyncTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5020,7 +4985,7 @@ ListRepoSyncTaskResponse Client::listRepoSyncTaskWithOptions(const ListRepoSyncT
 }
 
 /**
- * @summary Lists repository synchronization tasks.
+ * @summary Queries the list of repository synchronization tasks.
  *
  * @param request ListRepoSyncTaskRequest
  * @return ListRepoSyncTaskResponse
@@ -5645,7 +5610,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Updates a lifecycle management rule of an artifact.
+ * @summary Updates an artifact lifecycle management rule.
  *
  * @param request UpdateArtifactLifecycleRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5658,8 +5623,16 @@ UpdateArtifactLifecycleRuleResponse Client::updateArtifactLifecycleRuleWithOptio
     query["Auto"] = request.getAuto();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasEnableDeleteTag()) {
     query["EnableDeleteTag"] = request.getEnableDeleteTag();
+  }
+
+  if (!!request.hasEnableDeleteUntaggedManifest()) {
+    query["EnableDeleteUntaggedManifest"] = request.getEnableDeleteUntaggedManifest();
   }
 
   if (!!request.hasInstanceId()) {
@@ -5712,7 +5685,7 @@ UpdateArtifactLifecycleRuleResponse Client::updateArtifactLifecycleRuleWithOptio
 }
 
 /**
- * @summary Updates a lifecycle management rule of an artifact.
+ * @summary Updates an artifact lifecycle management rule.
  *
  * @param request UpdateArtifactLifecycleRuleRequest
  * @return UpdateArtifactLifecycleRuleResponse

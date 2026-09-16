@@ -254,64 +254,73 @@ namespace Models
 
 
     protected:
-      // The time when the synchronization rule was created. This value is a UNIX timestamp. Unit: milliseconds.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // Indicates whether images are synchronized across different Alibaba Cloud accounts. Valid values:
+      // Indicates whether images are synchronized across accounts. Valid values:
       // 
-      // - `true`
+      // - `true`: Images are synchronized across accounts.
       // 
-      // - `false`
+      // - `false`: Images are synchronized within the same account.
       // 
-      // Default value: `false`.
+      // Default value: `false`
       shared_ptr<bool> crossUser_ {};
+      // The custom synchronization link ID.
       shared_ptr<string> linkId_ {};
-      // The ID of the source instance.
+      // The source instance ID.
       shared_ptr<string> localInstanceId_ {};
-      // The name of the namespace in the source instance.
+      // The namespace name of the source instance.
       shared_ptr<string> localNamespaceName_ {};
       // The region ID of the source instance.
       shared_ptr<string> localRegionId_ {};
-      // The name of the repository in the source instance.
+      // The repository name of the source instance.
       shared_ptr<string> localRepoName_ {};
-      // The time when the synchronization rule was last modified. This value is a UNIX timestamp. Unit: milliseconds.
+      // The modification time.
       shared_ptr<int64_t> modifiedTime_ {};
+      // The namespace regex at the instance level.
+      // > This parameter is valid only when SyncScope is set to `INSTANCE`.
       shared_ptr<string> namespaceNameFilter_ {};
-      shared_ptr<int32_t> priority_ {};
-      // The regular expression that is used to filter repositories.
+      // The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
       // 
-      // > This parameter is valid only when `SyncScope` is set to `NAMESPACE`.
+      // Valid values: 1 to 5.
+      // 
+      // Default value: 3.
+      shared_ptr<int32_t> priority_ {};
+      // The repository filtering rule.
+      // > This parameter is valid only when SyncScope is set to `INSTANCE` or `NAMESPACE`.
       shared_ptr<string> repoNameFilter_ {};
       // The synchronization direction. Valid values:
       // 
-      // - `FROM`: from the source instance to the target instance.
+      // - `FROM`: synchronizes from the source instance to the target instance
       // 
-      // - `TO`: from the target instance to the source instance.
+      // - `TO`: synchronizes from the target instance to the source instance
       shared_ptr<string> syncDirection_ {};
-      // The ID of the synchronization rule.
+      // The synchronization rule ID.
       shared_ptr<string> syncRuleId_ {};
-      // The name of the synchronization rule.
+      // The synchronization rule name.
       shared_ptr<string> syncRuleName_ {};
       // The synchronization scope. Valid values:
       // 
-      // - `NAMESPACE`: Synchronizes resources by namespace.
+      // - `INSTANCE`: synchronizes based on namespace regex and repository regex rules
       // 
-      // - `REPO`: Synchronizes resources by repository.
+      // - `NAMESPACE`: synchronizes by namespace
+      // 
+      // - `REPO`: synchronizes by image repository
       shared_ptr<string> syncScope_ {};
       // The trigger policy. Valid values:
       // 
-      // - `INITIATIVE`: The synchronization is actively triggered.
+      // - `INITIATIVE`: proactive trigger
       // 
-      // - `PASSIVE`: The synchronization is passively triggered.
+      // - `PASSIVE`: passive trigger
       shared_ptr<string> syncTrigger_ {};
-      // The regular expression that is used to filter tags.
+      // The tag filtering rule.
       shared_ptr<string> tagFilter_ {};
-      // The ID of the target instance.
+      // The target instance ID.
       shared_ptr<string> targetInstanceId_ {};
-      // The name of the namespace in the target instance.
+      // The namespace name of the target instance.
       shared_ptr<string> targetNamespaceName_ {};
       // The region ID of the target instance.
       shared_ptr<string> targetRegionId_ {};
-      // The name of the repository in the target instance.
+      // The repository name of the target instance.
       shared_ptr<string> targetRepoName_ {};
     };
 
@@ -370,13 +379,13 @@ namespace Models
 
 
   protected:
-    // The response code.
+    // The return value.
     shared_ptr<string> code_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

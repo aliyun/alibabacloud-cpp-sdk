@@ -158,9 +158,9 @@ namespace Models
       protected:
         // The image tag.
         shared_ptr<string> imageTag_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The ID of the region.
+        // The region ID.
         shared_ptr<string> regionId_ {};
         // The repository name.
         shared_ptr<string> repoName_ {};
@@ -235,9 +235,9 @@ namespace Models
       protected:
         // The image tag.
         shared_ptr<string> imageTag_ {};
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The ID of the region.
+        // The region ID.
         shared_ptr<string> regionId_ {};
         // The repository name.
         shared_ptr<string> repoName_ {};
@@ -366,9 +366,9 @@ namespace Models
 
 
     protected:
-      // The creation time of the task.
+      // The creation time.
       shared_ptr<int64_t> createTime_ {};
-      // Whether the image is synchronized across accounts. Valid values:
+      // Indicates whether the image is synchronized across accounts. Valid values:
       // 
       // - `true`: The image is synchronized across accounts.
       // 
@@ -376,40 +376,43 @@ namespace Models
       // 
       // Default value: `false`
       shared_ptr<bool> crossUser_ {};
-      // Whether a custom sync link is used.
+      // Indicates whether a custom synchronization link is used.
       shared_ptr<bool> customLink_ {};
       // The source image.
       shared_ptr<SyncTasks::ImageFrom> imageFrom_ {};
       // The destination image.
       shared_ptr<SyncTasks::ImageTo> imageTo_ {};
-      // The ID of the custom sync link.
+      // The custom synchronization link ID.
       shared_ptr<string> linkId_ {};
-      // This parameter is deprecated due to a typo. Use `ModifiedTime` instead.
+      // The modification time.
       shared_ptr<int64_t> modifedTime_ {};
-      // The modification time of the task.
+      // The modification time.
       shared_ptr<int64_t> modifiedTime_ {};
-      shared_ptr<int32_t> priority_ {};
-      // The ID of the batch sync task. This ID is the same as the sync record ID (`SyncRecordId`).
+      // The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
       // 
-      // > If an image matches multiple sync rules, multiple sync tasks are generated. These tasks share the same `SyncBatchTaskId`.
+      // Valid values: 1 to 5.
+      // 
+      // Default value: 3.
+      shared_ptr<int32_t> priority_ {};
+      // The batch synchronization task ID for images, which corresponds to the SyncRecordId (synchronization task record ID) in the request parameters.
+      // > When an image matches multiple synchronization rules and generates multiple synchronization tasks, these tasks share the same SyncBatchTaskId.
       shared_ptr<string> syncBatchTaskId_ {};
-      // The ID of the sync rule.
+      // The synchronization rule ID.
       shared_ptr<string> syncRuleId_ {};
-      // The ID of the sync task.
+      // The synchronization task ID.
       shared_ptr<string> syncTaskId_ {};
-      // Whether transfer acceleration is enabled for the sync task.
+      // The synchronization transfer acceleration status.
       shared_ptr<bool> syncTransAccelerate_ {};
       // The task failure information.
-      // 
-      // > If the sync task fails, this field returns details about the failure.
+      // > When a synchronization task fails, this field returns information about the failure.
       shared_ptr<string> taskIssue_ {};
       // The task status.
       shared_ptr<string> taskStatus_ {};
       // The trigger policy. Valid values:
       // 
-      // - `PASSIVE`: The sync task is automatically triggered.
+      // - `PASSIVE`: Synchronization is automatically triggered.
       // 
-      // - `INITIATIVE`: The sync task is manually triggered.
+      // - `INITIATIVE`: Synchronization is manually triggered.
       // 
       // Default value: `PASSIVE`
       shared_ptr<string> taskTrigger_ {};
@@ -470,9 +473,9 @@ namespace Models
 
 
   protected:
-    // The return code.
+    // The return value.
     shared_ptr<string> code_ {};
-    // Whether the request was successful.
+    // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
@@ -480,7 +483,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // A list of sync tasks.
+    // The list of synchronization tasks.
     shared_ptr<vector<ListRepoSyncTaskResponseBody::SyncTasks>> syncTasks_ {};
     // The total number of entries.
     shared_ptr<string> totalCount_ {};

@@ -354,7 +354,7 @@ namespace Cr20181201
       Models::CreateRepoSourceCodeRepoResponse createRepoSourceCodeRepo(const Models::CreateRepoSourceCodeRepoRequest &request);
 
       /**
-       * @summary Creates an image synchronization rule for an image repository.
+       * @summary Creates a synchronization rule for an image repository.
        *
        * @param request CreateRepoSyncRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -363,7 +363,7 @@ namespace Cr20181201
       Models::CreateRepoSyncRuleResponse createRepoSyncRuleWithOptions(const Models::CreateRepoSyncRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an image synchronization rule for an image repository.
+       * @summary Creates a synchronization rule for an image repository.
        *
        * @param request CreateRepoSyncRuleRequest
        * @return CreateRepoSyncRuleResponse
@@ -371,7 +371,7 @@ namespace Cr20181201
       Models::CreateRepoSyncRuleResponse createRepoSyncRule(const Models::CreateRepoSyncRuleRequest &request);
 
       /**
-       * @summary Manually create a sync task.
+       * @summary Manually creates a synchronization task.
        *
        * @param request CreateRepoSyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -380,7 +380,7 @@ namespace Cr20181201
       Models::CreateRepoSyncTaskResponse createRepoSyncTaskWithOptions(const Models::CreateRepoSyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Manually create a sync task.
+       * @summary Manually creates a synchronization task.
        *
        * @param request CreateRepoSyncTaskRequest
        * @return CreateRepoSyncTaskResponse
@@ -388,7 +388,7 @@ namespace Cr20181201
       Models::CreateRepoSyncTaskResponse createRepoSyncTask(const Models::CreateRepoSyncTaskRequest &request);
 
       /**
-       * @summary Creates an image replication task based on a manual replication rule.
+       * @summary Creates a synchronization task for an image repository based on a synchronization rule (manual synchronization rules only).
        *
        * @param request CreateRepoSyncTaskByRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -397,7 +397,7 @@ namespace Cr20181201
       Models::CreateRepoSyncTaskByRuleResponse createRepoSyncTaskByRuleWithOptions(const Models::CreateRepoSyncTaskByRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an image replication task based on a manual replication rule.
+       * @summary Creates a synchronization task for an image repository based on a synchronization rule (manual synchronization rules only).
        *
        * @param request CreateRepoSyncTaskByRuleRequest
        * @return CreateRepoSyncTaskByRuleResponse
@@ -841,7 +841,7 @@ namespace Cr20181201
       Models::DeleteStorageDomainRoutingRuleResponse deleteStorageDomainRoutingRule(const Models::DeleteStorageDomainRoutingRuleRequest &request);
 
       /**
-       * @summary Queries the details of an artifact building rule.
+       * @summary Retrieves an artifact build rule.
        *
        * @param request GetArtifactBuildRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -850,7 +850,7 @@ namespace Cr20181201
       Models::GetArtifactBuildRuleResponse getArtifactBuildRuleWithOptions(const Models::GetArtifactBuildRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of an artifact building rule.
+       * @summary Retrieves an artifact build rule.
        *
        * @param request GetArtifactBuildRuleRequest
        * @return GetArtifactBuildRuleResponse
@@ -858,7 +858,7 @@ namespace Cr20181201
       Models::GetArtifactBuildRuleResponse getArtifactBuildRule(const Models::GetArtifactBuildRuleRequest &request);
 
       /**
-       * @summary Retrieves the details of an artifact build task.
+       * @summary Retrieves the build task of an artifact.
        *
        * @param request GetArtifactBuildTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -867,7 +867,7 @@ namespace Cr20181201
       Models::GetArtifactBuildTaskResponse getArtifactBuildTaskWithOptions(const Models::GetArtifactBuildTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of an artifact build task.
+       * @summary Retrieves the build task of an artifact.
        *
        * @param request GetArtifactBuildTaskRequest
        * @return GetArtifactBuildTaskResponse
@@ -875,7 +875,7 @@ namespace Cr20181201
       Models::GetArtifactBuildTaskResponse getArtifactBuildTask(const Models::GetArtifactBuildTaskRequest &request);
 
       /**
-       * @summary Lists artifact lifecycle management rules.
+       * @summary Queries the lifecycle management rules of artifacts.
        *
        * @param request GetArtifactLifecycleRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -884,7 +884,7 @@ namespace Cr20181201
       Models::GetArtifactLifecycleRuleResponse getArtifactLifecycleRuleWithOptions(const Models::GetArtifactLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists artifact lifecycle management rules.
+       * @summary Queries the lifecycle management rules of artifacts.
        *
        * @param request GetArtifactLifecycleRuleRequest
        * @return GetArtifactLifecycleRuleResponse
@@ -1193,7 +1193,7 @@ namespace Cr20181201
       Models::GetRepoSourceCodeRepoResponse getRepoSourceCodeRepo(const Models::GetRepoSourceCodeRepoRequest &request);
 
       /**
-       * @summary Queries an image synchronization task in an instance.
+       * @summary Queries a repository synchronization task.
        *
        * @param request GetRepoSyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1202,7 +1202,7 @@ namespace Cr20181201
       Models::GetRepoSyncTaskResponse getRepoSyncTaskWithOptions(const Models::GetRepoSyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries an image synchronization task in an instance.
+       * @summary Queries a repository synchronization task.
        *
        * @param request GetRepoSyncTaskRequest
        * @return GetRepoSyncTaskResponse
@@ -1626,7 +1626,7 @@ namespace Cr20181201
       Models::ListRepoBuildRuleResponse listRepoBuildRule(const Models::ListRepoBuildRuleRequest &request);
 
       /**
-       * @summary Returns a list of repository synchronization rules.
+       * @summary Queries the list of repository synchronization rules.
        *
        * @param request ListRepoSyncRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1635,7 +1635,7 @@ namespace Cr20181201
       Models::ListRepoSyncRuleResponse listRepoSyncRuleWithOptions(const Models::ListRepoSyncRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns a list of repository synchronization rules.
+       * @summary Queries the list of repository synchronization rules.
        *
        * @param request ListRepoSyncRuleRequest
        * @return ListRepoSyncRuleResponse
@@ -1643,7 +1643,7 @@ namespace Cr20181201
       Models::ListRepoSyncRuleResponse listRepoSyncRule(const Models::ListRepoSyncRuleRequest &request);
 
       /**
-       * @summary Lists repository synchronization tasks.
+       * @summary Queries the list of repository synchronization tasks.
        *
        * @param request ListRepoSyncTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1652,7 +1652,7 @@ namespace Cr20181201
       Models::ListRepoSyncTaskResponse listRepoSyncTaskWithOptions(const Models::ListRepoSyncTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists repository synchronization tasks.
+       * @summary Queries the list of repository synchronization tasks.
        *
        * @param request ListRepoSyncTaskRequest
        * @return ListRepoSyncTaskResponse
@@ -1871,7 +1871,7 @@ namespace Cr20181201
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Updates a lifecycle management rule of an artifact.
+       * @summary Updates an artifact lifecycle management rule.
        *
        * @param request UpdateArtifactLifecycleRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1880,7 +1880,7 @@ namespace Cr20181201
       Models::UpdateArtifactLifecycleRuleResponse updateArtifactLifecycleRuleWithOptions(const Models::UpdateArtifactLifecycleRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a lifecycle management rule of an artifact.
+       * @summary Updates an artifact lifecycle management rule.
        *
        * @param request UpdateArtifactLifecycleRuleRequest
        * @return UpdateArtifactLifecycleRuleResponse

@@ -176,56 +176,67 @@ namespace Models
 
 
   protected:
-    // The source instance ID.
+    // The ID of the source instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The ID of the custom synchronization link.
     shared_ptr<string> linkId_ {};
     // The namespace name of the source instance.
     shared_ptr<string> namespaceName_ {};
+    // The instance-level namespace regex filter.
+    // > This parameter takes effect only when SyncScope is set to `INSTANCE`.
     shared_ptr<string> namespaceNameFilter_ {};
-    shared_ptr<int32_t> priority_ {};
-    // The name of the image repository in the source instance.
-    shared_ptr<string> repoName_ {};
-    // The regular expression that is used to filter repositories.
+    // The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
     // 
-    // >  This parameter is valid only when SyncScope is set to `NAMESPACE`.
+    // Valid values: 1 to 5.
+    // 
+    // Default value: 3.
+    shared_ptr<int32_t> priority_ {};
+    // The repository name of the source instance.
+    shared_ptr<string> repoName_ {};
+    // The repository filter rule.
+    // > This parameter takes effect only when SyncScope is set to `INSTANCE` or `NAMESPACE`.
     shared_ptr<string> repoNameFilter_ {};
-    // The name of the image synchronization rule.
+    // The name of the synchronization rule.
     // 
     // This parameter is required.
     shared_ptr<string> syncRuleName_ {};
-    // The synchronization scope. Valid values:
+    // The synchronization type. Valid values:
     // 
-    // *   `REPO`: synchronizes the image tags in an image repository that meet the synchronization rule.
-    // *   `NAMESPACE`: synchronizes the image tags in a namespace that meet the synchronization rule.
+    // - `REPO`: Synchronizes by image repository.
+    // 
+    // - `NAMESPACE`: Synchronizes by namespace.
+    // 
+    // - `INSTANCE`: Synchronizes by namespace regex and repository regex.
     // 
     // This parameter is required.
     shared_ptr<string> syncScope_ {};
-    // The mode of triggering the synchronization rule. Valid values:
+    // The trigger for the synchronization action. Valid values:
     // 
-    // *   `INITIATIVE`: manually triggers the synchronization rule.
-    // *   `PASSIVE`: automatically triggers the synchronization rule.
+    // - `INITIATIVE`: Manual trigger.
+    //  
+    // - `PASSIVE`: Automatic trigger.
     shared_ptr<string> syncTrigger_ {};
-    // The regular expression that is used to filter image tags.
+    // The tag filter rule.
     // 
     // This parameter is required.
     shared_ptr<string> tagFilter_ {};
-    // The destination instance ID.
+    // The ID of the target instance.
     // 
     // This parameter is required.
     shared_ptr<string> targetInstanceId_ {};
-    // The namespace name of the destination instance.
+    // The namespace name of the target instance.
     shared_ptr<string> targetNamespaceName_ {};
-    // The region ID of the destination instance.
+    // The region ID of the target instance.
     // 
     // This parameter is required.
     shared_ptr<string> targetRegionId_ {};
-    // The name of the image repository in the destination instance.
+    // The image repository name of the target instance.
     shared_ptr<string> targetRepoName_ {};
-    // The user ID (UID) of the account to which the destination instance belongs.
+    // The UID of the account to which the target instance belongs.
     // 
-    // >  If you synchronize images across accounts, you must use the UID.
+    // > This parameter is required for cross-account image synchronization.
     shared_ptr<string> targetUserId_ {};
   };
 

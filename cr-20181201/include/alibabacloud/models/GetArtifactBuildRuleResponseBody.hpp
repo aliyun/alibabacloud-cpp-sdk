@@ -47,10 +47,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Parameters& obj) { 
         DARABONBA_PTR_TO_JSON(ImageIndexOnly, imageIndexOnly_);
+        DARABONBA_PTR_TO_JSON(Priority, priority_);
         DARABONBA_PTR_TO_JSON(PriorityFile, priorityFile_);
       };
       friend void from_json(const Darabonba::Json& j, Parameters& obj) { 
         DARABONBA_PTR_FROM_JSON(ImageIndexOnly, imageIndexOnly_);
+        DARABONBA_PTR_FROM_JSON(Priority, priority_);
         DARABONBA_PTR_FROM_JSON(PriorityFile, priorityFile_);
       };
       Parameters() = default ;
@@ -65,12 +67,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->imageIndexOnly_ == nullptr
-        && this->priorityFile_ == nullptr; };
+        && this->priority_ == nullptr && this->priorityFile_ == nullptr; };
       // imageIndexOnly Field Functions 
       bool hasImageIndexOnly() const { return this->imageIndexOnly_ != nullptr;};
       void deleteImageIndexOnly() { this->imageIndexOnly_ = nullptr;};
       inline bool getImageIndexOnly() const { DARABONBA_PTR_GET_DEFAULT(imageIndexOnly_, false) };
       inline Parameters& setImageIndexOnly(bool imageIndexOnly) { DARABONBA_PTR_SET_VALUE(imageIndexOnly_, imageIndexOnly) };
+
+
+      // priority Field Functions 
+      bool hasPriority() const { return this->priority_ != nullptr;};
+      void deletePriority() { this->priority_ = nullptr;};
+      inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
+      inline Parameters& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
 
 
       // priorityFile Field Functions 
@@ -83,7 +92,9 @@ namespace Models
     protected:
       // Indicates whether the index-only mode is enabled.
       shared_ptr<bool> imageIndexOnly_ {};
-      // The list of files that you want to prefetch when you use the image acceleration feature. Each entry contains the Base64-encoded absolute path of a file.
+      // The task priority. Valid values: [1, 5].
+      shared_ptr<int32_t> priority_ {};
+      // The list of prefetch files for the accelerated image. Each line contains an absolute path. The list is Base64-encoded.
       shared_ptr<string> priorityFile_ {};
     };
 
@@ -149,32 +160,33 @@ namespace Models
 
 
   protected:
-    // The type of the artifact. Valid values:
+    // The type of the accelerated image. Valid values:
     // 
-    // *   `ACCELERATED_IMAGE`: accelerated images.
+    // - `ACCELERATED_IMAGE`: generates an accelerated image.
     shared_ptr<string> artifactType_ {};
-    // The ID of the artifact building rule.
+    // The build rule ID.
     shared_ptr<string> buildRuleId_ {};
-    // The API return code:
-    // - **200**: Indicates success.
-    // - Others: Indicate error codes.
-    shared_ptr<string> code_ {};
-    // Indicates whether the API request is successful. Valid values:
+    // The response code. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - **200**: success.
+    // - Other values: error codes.
+    shared_ptr<string> code_ {};
+    // Indicates whether the API call is successful. Valid values:
+    // 
+    // - `true`: The API call is successful.
+    // 
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
-    // Additional parameters.
+    // The additional parameters.
     shared_ptr<GetArtifactBuildRuleResponseBody::Parameters> parameters_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the effective range of the artifact building rule.
+    // The ID of the scope in which the rule takes effect. Valid values:
     // 
-    // *   The parameter value is the ID of the image repository.
+    // - ScopeId: the image repository ID.
     shared_ptr<string> scopeId_ {};
-    // The effective range of the artifact building rule. Valid values:
-    // 
-    // *   `REPOSITORY`: The artifact building rule is effective in the repository level.
+    // The scope of the rule. Valid values:
+    // - `REPOSITORY`: repository level.
     shared_ptr<string> scopeType_ {};
   };
 

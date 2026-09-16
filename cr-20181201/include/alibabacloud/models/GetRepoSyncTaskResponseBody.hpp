@@ -136,17 +136,17 @@ namespace Models
 
 
     protected:
-      // The digest of the artifact.
+      // The digest value of the artifact.
       shared_ptr<string> artifactDigest_ {};
-      // The digest of the image layer.
+      // The image digest value.
       shared_ptr<string> digest_ {};
-      // The size of synchronized image layers.
+      // The size.
       shared_ptr<int64_t> size_ {};
-      // The ID of the synchronization task for the image layer.
+      // The synchronization layer task ID.
       shared_ptr<string> syncLayerTaskId_ {};
-      // The size of the image layer that is synchronized.
+      // The synchronized size.
       shared_ptr<int64_t> syncedSize_ {};
-      // The status of the synchronization task. Valid values:
+      // The task status.
       shared_ptr<string> taskStatus_ {};
     };
 
@@ -215,15 +215,15 @@ namespace Models
 
 
     protected:
-      // The tag of the image.
+      // The image tag.
       shared_ptr<string> imageTag_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The region ID.
+      // The region.
       shared_ptr<string> regionId_ {};
-      // The name of the image repository.
+      // The repository name.
       shared_ptr<string> repoName_ {};
-      // The name of the namespace.
+      // The namespace name.
       shared_ptr<string> repoNamespaceName_ {};
     };
 
@@ -292,15 +292,15 @@ namespace Models
 
 
     protected:
-      // The tag of the image.
+      // The image tag.
       shared_ptr<string> imageTag_ {};
-      // The ID of the instance.
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The region ID.
+      // The region.
       shared_ptr<string> regionId_ {};
-      // The name of the image repository.
+      // The repository name.
       shared_ptr<string> repoName_ {};
-      // The name of the namespace.
+      // The namespace name.
       shared_ptr<string> repoNamespaceName_ {};
     };
 
@@ -437,50 +437,60 @@ namespace Models
   protected:
     // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the synchronization task is performed across Alibaba Cloud accounts.
+    // Indicates whether the synchronization is cross-account.
     shared_ptr<bool> crossUser_ {};
-    // The source address of the image.
+    // The source image.
     shared_ptr<GetRepoSyncTaskResponseBody::ImageFrom> imageFrom_ {};
-    // The destination address of the image.
+    // The destination image.
     shared_ptr<GetRepoSyncTaskResponseBody::ImageTo> imageTo_ {};
     // Indicates whether the request is successful.
     shared_ptr<bool> isSuccess_ {};
-    // The synchronization tasks for the image layer.
+    // The list of image layer synchronization tasks.
     shared_ptr<vector<GetRepoSyncTaskResponseBody::LayerTasks>> layerTasks_ {};
+    // The execution priority of the synchronization task. Synchronization tasks are executed in descending order of priority. Tasks with the same priority are executed in random order.
+    // 
+    // Valid values: 1 to 5.
+    // 
+    // Default value: 3.
     shared_ptr<int32_t> priority_ {};
     // The synchronization progress. Valid values:
     // 
-    // *   `0`: The synchronization starts or failed.
-    // *   `1`: The synchronization is successful.
+    // - `0`: The synchronization has just started or failed.
+    // 
+    // - `1`: The synchronization succeeded.
     shared_ptr<int64_t> progress_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the synchronization task in which multiple images are synchronized at a time.
+    // The synchronization batch task ID.
     shared_ptr<string> syncBatchTaskId_ {};
-    // The ID of the synchronization rule.
+    // The synchronization rule ID.
     shared_ptr<string> syncRuleId_ {};
-    // The ID of the synchronization task.
+    // The synchronization task ID.
     shared_ptr<string> syncTaskId_ {};
-    // Indicates whether transfer acceleration is enabled in the synchronization process.
+    // Indicates whether transfer acceleration is enabled for synchronization.
     shared_ptr<bool> syncTransAccelerate_ {};
-    // The size of the image layer that is synchronized. Unit: bytes.
+    // The synchronized size, in bytes.
     shared_ptr<int64_t> syncedSize_ {};
-    // The error message that is returned if the synchronization task fails.
-    // 
-    // >  The system uses this parameter to return an error message if the synchronization task fails.
-    // 
-    // Valid values:
-    // 
-    // *   OSS_POLICY_UNAUTHORIZED: Container Registry is not granted permissions to use Object Storage Service (OSS).
-    // *   TAG_CONFLICT: The destination repository contains an image that has the same tag as the source image, and image tag immutability is enabled for the destination repository.
-    // *   UNSUPPORTED_FORMAT: The manifest and config formats of the image to be synchronized are not supported.
-    // *   INTERNAL_ERROR: The synchronization task failed due to internal issues on the server.
-    // *   NETWORK_ERROR: The synchronization task failed due to unstable network connection.
-    // *   DATA_LENGTH_EXCEEDED: The manifest or config of the image is oversized.
+    // The task failure information.
+    // > When the synchronization task fails, this field returns information about the failure.
     shared_ptr<string> taskIssue_ {};
-    // The status of the task. Valid values:
+    // The task status. Valid values:
+    // 
+    // `PENDING`: The synchronization is pending.
+    // 
+    // `SYNCHRONIZING`: The synchronization is in progress.
+    // 
+    // `SUCCESS`: The synchronization succeeded.
+    // 
+    // `ERROR`: The synchronization failed.
+    // 
+    // `CANCELED`: The synchronization task is canceled.
     shared_ptr<string> taskStatus_ {};
-    // The policy that is used to trigger the synchronization task.
+    // The trigger type of the synchronization task. Valid values:
+    // 
+    // `PASSIVE`: The synchronization task is automatically triggered.
+    // 
+    // `INITIATIVE`: The synchronization task is manually triggered.
     shared_ptr<string> taskTrigger_ {};
   };
 

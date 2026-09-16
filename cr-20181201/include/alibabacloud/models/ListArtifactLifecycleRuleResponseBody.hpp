@@ -47,7 +47,9 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Rules& obj) { 
         DARABONBA_PTR_TO_JSON(Auto, auto_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
         DARABONBA_PTR_TO_JSON(EnableDeleteTag, enableDeleteTag_);
+        DARABONBA_PTR_TO_JSON(EnableDeleteUntaggedManifest, enableDeleteUntaggedManifest_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_TO_JSON(ModifiedTime, modifiedTime_);
         DARABONBA_PTR_TO_JSON(NamespaceName, namespaceName_);
@@ -63,7 +65,9 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Rules& obj) { 
         DARABONBA_PTR_FROM_JSON(Auto, auto_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+        DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
         DARABONBA_PTR_FROM_JSON(EnableDeleteTag, enableDeleteTag_);
+        DARABONBA_PTR_FROM_JSON(EnableDeleteUntaggedManifest, enableDeleteUntaggedManifest_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
         DARABONBA_PTR_FROM_JSON(ModifiedTime, modifiedTime_);
         DARABONBA_PTR_FROM_JSON(NamespaceName, namespaceName_);
@@ -138,6 +142,7 @@ namespace Models
 
 
         protected:
+          // The wildcard used to match image versions.
           shared_ptr<string> tagWildcard_ {};
         };
 
@@ -188,8 +193,11 @@ namespace Models
 
 
         protected:
+          // The number of days since the last pull.
           shared_ptr<int32_t> lastPullOlderThanDays_ {};
+          // The number of days since the last push.
           shared_ptr<int32_t> lastPushOlderThanDays_ {};
+          // The number of latest image versions to retain.
           shared_ptr<int32_t> latestTagCount_ {};
         };
 
@@ -221,15 +229,18 @@ namespace Models
 
 
       protected:
+        // The trigger condition of the lifecycle policy.
         shared_ptr<Policies::Condition> condition_ {};
+        // The image version filter condition.
         shared_ptr<Policies::Filter> filter_ {};
+        // The lifecycle policy type.
         shared_ptr<string> type_ {};
       };
 
       virtual bool empty() const override { return this->auto_ == nullptr
-        && this->createTime_ == nullptr && this->enableDeleteTag_ == nullptr && this->instanceId_ == nullptr && this->modifiedTime_ == nullptr && this->namespaceName_ == nullptr
-        && this->nextTime_ == nullptr && this->policies_ == nullptr && this->repoName_ == nullptr && this->retentionTagCount_ == nullptr && this->ruleId_ == nullptr
-        && this->scheduleTime_ == nullptr && this->scope_ == nullptr && this->tagRegexp_ == nullptr; };
+        && this->createTime_ == nullptr && this->dryRun_ == nullptr && this->enableDeleteTag_ == nullptr && this->enableDeleteUntaggedManifest_ == nullptr && this->instanceId_ == nullptr
+        && this->modifiedTime_ == nullptr && this->namespaceName_ == nullptr && this->nextTime_ == nullptr && this->policies_ == nullptr && this->repoName_ == nullptr
+        && this->retentionTagCount_ == nullptr && this->ruleId_ == nullptr && this->scheduleTime_ == nullptr && this->scope_ == nullptr && this->tagRegexp_ == nullptr; };
       // auto Field Functions 
       bool hasAuto() const { return this->auto_ != nullptr;};
       void deleteAuto() { this->auto_ = nullptr;};
@@ -244,11 +255,25 @@ namespace Models
       inline Rules& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+      // dryRun Field Functions 
+      bool hasDryRun() const { return this->dryRun_ != nullptr;};
+      void deleteDryRun() { this->dryRun_ = nullptr;};
+      inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+      inline Rules& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
       // enableDeleteTag Field Functions 
       bool hasEnableDeleteTag() const { return this->enableDeleteTag_ != nullptr;};
       void deleteEnableDeleteTag() { this->enableDeleteTag_ = nullptr;};
       inline bool getEnableDeleteTag() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteTag_, false) };
       inline Rules& setEnableDeleteTag(bool enableDeleteTag) { DARABONBA_PTR_SET_VALUE(enableDeleteTag_, enableDeleteTag) };
+
+
+      // enableDeleteUntaggedManifest Field Functions 
+      bool hasEnableDeleteUntaggedManifest() const { return this->enableDeleteUntaggedManifest_ != nullptr;};
+      void deleteEnableDeleteUntaggedManifest() { this->enableDeleteUntaggedManifest_ = nullptr;};
+      inline bool getEnableDeleteUntaggedManifest() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteUntaggedManifest_, false) };
+      inline Rules& setEnableDeleteUntaggedManifest(bool enableDeleteUntaggedManifest) { DARABONBA_PTR_SET_VALUE(enableDeleteUntaggedManifest_, enableDeleteUntaggedManifest) };
 
 
       // instanceId Field Functions 
@@ -331,32 +356,41 @@ namespace Models
 
 
     protected:
-      // Indicates whether the rule runs automatically.
+      // Indicates whether the rule is automatically executed.
       shared_ptr<bool> auto_ {};
-      // The creation time of the rule.
+      // The creation time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> createTime_ {};
-      // Indicates whether the rule is configured to delete tags.
+      // Indicates whether DryRun mode is enabled. When DryRun mode is enabled, only lifecycle task scanning is performed and no actual data cleanup is executed. This mode is disabled by default.
+      shared_ptr<bool> dryRun_ {};
+      // Indicates whether lifecycle management is enabled.
+      // 
+      // Only one of this parameter and EnableDeleteUntaggedManifest can be set to true.
       shared_ptr<bool> enableDeleteTag_ {};
+      // Indicates whether artifact cleanup is enabled.
+      // 
+      // Only one of this parameter and EnableDeleteTag can be set to true.
+      shared_ptr<bool> enableDeleteUntaggedManifest_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The last modification time of the rule.
+      // The modification time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> modifiedTime_ {};
       // The namespace name.
       shared_ptr<string> namespaceName_ {};
-      // The next execution time.
+      // The next execution time. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> nextTime_ {};
+      // The list of lifecycle policies.
       shared_ptr<vector<Rules::Policies>> policies_ {};
       // The repository name.
       shared_ptr<string> repoName_ {};
-      // The number of image tags to retain.
+      // The number of retained images.
       shared_ptr<int64_t> retentionTagCount_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};
-      // The execution schedule.
+      // The execution cycle.
       shared_ptr<string> scheduleTime_ {};
-      // The scope of the rule.
+      // The cleanup scope.
       shared_ptr<string> scope_ {};
-      // The regular expression that matches image tags to retain.
+      // The regular expression for retaining image versions.
       shared_ptr<string> tagRegexp_ {};
     };
 
@@ -417,21 +451,21 @@ namespace Models
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // Indicates whether the request succeeded. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // - `true`: The request succeeded.
+    // - `true`: The call was successful.
     // 
-    // - `false`: The request failed.
+    // - `false`: The call failed.
     shared_ptr<bool> isSuccess_ {};
     // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries returned on each page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of lifecycle management rules.
+    // The list of rules.
     shared_ptr<vector<ListArtifactLifecycleRuleResponseBody::Rules>> rules_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

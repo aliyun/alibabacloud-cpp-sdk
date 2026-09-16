@@ -14,7 +14,9 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateArtifactLifecycleRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Auto, auto_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EnableDeleteTag, enableDeleteTag_);
+      DARABONBA_PTR_TO_JSON(EnableDeleteUntaggedManifest, enableDeleteUntaggedManifest_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_TO_JSON(RepoName, repoName_);
@@ -26,7 +28,9 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UpdateArtifactLifecycleRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Auto, auto_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EnableDeleteTag, enableDeleteTag_);
+      DARABONBA_PTR_FROM_JSON(EnableDeleteUntaggedManifest, enableDeleteUntaggedManifest_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
@@ -48,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auto_ == nullptr
-        && this->enableDeleteTag_ == nullptr && this->instanceId_ == nullptr && this->namespaceName_ == nullptr && this->repoName_ == nullptr && this->retentionTagCount_ == nullptr
-        && this->ruleId_ == nullptr && this->scheduleTime_ == nullptr && this->scope_ == nullptr && this->tagRegexp_ == nullptr; };
+        && this->dryRun_ == nullptr && this->enableDeleteTag_ == nullptr && this->enableDeleteUntaggedManifest_ == nullptr && this->instanceId_ == nullptr && this->namespaceName_ == nullptr
+        && this->repoName_ == nullptr && this->retentionTagCount_ == nullptr && this->ruleId_ == nullptr && this->scheduleTime_ == nullptr && this->scope_ == nullptr
+        && this->tagRegexp_ == nullptr; };
     // auto Field Functions 
     bool hasAuto() const { return this->auto_ != nullptr;};
     void deleteAuto() { this->auto_ = nullptr;};
@@ -57,11 +62,25 @@ namespace Models
     inline UpdateArtifactLifecycleRuleRequest& setAuto(bool _auto) { DARABONBA_PTR_SET_VALUE(auto_, _auto) };
 
 
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline UpdateArtifactLifecycleRuleRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // enableDeleteTag Field Functions 
     bool hasEnableDeleteTag() const { return this->enableDeleteTag_ != nullptr;};
     void deleteEnableDeleteTag() { this->enableDeleteTag_ = nullptr;};
     inline bool getEnableDeleteTag() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteTag_, false) };
     inline UpdateArtifactLifecycleRuleRequest& setEnableDeleteTag(bool enableDeleteTag) { DARABONBA_PTR_SET_VALUE(enableDeleteTag_, enableDeleteTag) };
+
+
+    // enableDeleteUntaggedManifest Field Functions 
+    bool hasEnableDeleteUntaggedManifest() const { return this->enableDeleteUntaggedManifest_ != nullptr;};
+    void deleteEnableDeleteUntaggedManifest() { this->enableDeleteUntaggedManifest_ = nullptr;};
+    inline bool getEnableDeleteUntaggedManifest() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteUntaggedManifest_, false) };
+    inline UpdateArtifactLifecycleRuleRequest& setEnableDeleteUntaggedManifest(bool enableDeleteUntaggedManifest) { DARABONBA_PTR_SET_VALUE(enableDeleteUntaggedManifest_, enableDeleteUntaggedManifest) };
 
 
     // instanceId Field Functions 
@@ -121,29 +140,37 @@ namespace Models
 
 
   protected:
-    // Specifies whether to automatically execute the lifecycle management rule.
+    // Specifies whether to automatically execute the rule.
     shared_ptr<bool> auto_ {};
-    // Specifies whether to enable lifecycle management for the artifact.
+    // Specifies whether to enable DryRun mode. If DryRun mode is enabled, only the lifecycle task scan is performed and no actual data cleanup is performed. DryRun mode is disabled by default.
+    shared_ptr<bool> dryRun_ {};
+    // Specifies whether to enable lifecycle management.
+    // 
+    // Only one of this parameter and EnableDeleteUntaggedManifest can be set to true.
     shared_ptr<bool> enableDeleteTag_ {};
+    // Specifies whether to enable artifact cleanup.
+    // 
+    // Only one of this parameter and EnableDeleteTag can be set to true.
+    shared_ptr<bool> enableDeleteUntaggedManifest_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the namespace.
+    // The namespace name.
     shared_ptr<string> namespaceName_ {};
-    // The name of the image repository.
+    // The image repository name.
     shared_ptr<string> repoName_ {};
-    // The number of images that you want to retain.
+    // The number of images to retain.
     shared_ptr<int64_t> retentionTagCount_ {};
     // The rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> ruleId_ {};
-    // The execution cycle of the lifecycle management rule.
+    // The execution cycle.
     shared_ptr<string> scheduleTime_ {};
-    // The deletion scope of artifacts.
+    // The cleanup scope.
     shared_ptr<string> scope_ {};
-    // The regular expression that indicates which image tags you want to retain.
+    // The regular expression used to retain image versions.
     shared_ptr<string> tagRegexp_ {};
   };
 

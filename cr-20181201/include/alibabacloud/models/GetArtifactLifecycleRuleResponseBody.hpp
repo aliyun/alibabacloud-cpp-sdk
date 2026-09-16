@@ -17,7 +17,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Auto, auto_);
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EnableDeleteTag, enableDeleteTag_);
+      DARABONBA_PTR_TO_JSON(EnableDeleteUntaggedManifest, enableDeleteUntaggedManifest_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(IsSuccess, isSuccess_);
       DARABONBA_PTR_TO_JSON(ModifiedTime, modifiedTime_);
@@ -36,7 +38,9 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Auto, auto_);
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EnableDeleteTag, enableDeleteTag_);
+      DARABONBA_PTR_FROM_JSON(EnableDeleteUntaggedManifest, enableDeleteUntaggedManifest_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(IsSuccess, isSuccess_);
       DARABONBA_PTR_FROM_JSON(ModifiedTime, modifiedTime_);
@@ -113,6 +117,7 @@ namespace Models
 
 
       protected:
+        // The wildcard used to match image versions.
         shared_ptr<string> tagWildcard_ {};
       };
 
@@ -163,8 +168,11 @@ namespace Models
 
 
       protected:
+        // The number of days since the last pull.
         shared_ptr<int32_t> lastPullOlderThanDays_ {};
+        // The number of days since the last push.
         shared_ptr<int32_t> lastPushOlderThanDays_ {};
+        // The number of latest image versions to retain.
         shared_ptr<int32_t> latestTagCount_ {};
       };
 
@@ -196,16 +204,19 @@ namespace Models
 
 
     protected:
+      // The trigger condition of the lifecycle policy.
       shared_ptr<Policies::Condition> condition_ {};
+      // The image version filter condition.
       shared_ptr<Policies::Filter> filter_ {};
+      // The lifecycle policy type.
       shared_ptr<string> type_ {};
     };
 
     virtual bool empty() const override { return this->auto_ == nullptr
-        && this->code_ == nullptr && this->createTime_ == nullptr && this->enableDeleteTag_ == nullptr && this->instanceId_ == nullptr && this->isSuccess_ == nullptr
-        && this->modifiedTime_ == nullptr && this->namespaceName_ == nullptr && this->nextTime_ == nullptr && this->policies_ == nullptr && this->repoName_ == nullptr
-        && this->requestId_ == nullptr && this->retentionTagCount_ == nullptr && this->ruleId_ == nullptr && this->scheduleTime_ == nullptr && this->scope_ == nullptr
-        && this->tagRegexp_ == nullptr; };
+        && this->code_ == nullptr && this->createTime_ == nullptr && this->dryRun_ == nullptr && this->enableDeleteTag_ == nullptr && this->enableDeleteUntaggedManifest_ == nullptr
+        && this->instanceId_ == nullptr && this->isSuccess_ == nullptr && this->modifiedTime_ == nullptr && this->namespaceName_ == nullptr && this->nextTime_ == nullptr
+        && this->policies_ == nullptr && this->repoName_ == nullptr && this->requestId_ == nullptr && this->retentionTagCount_ == nullptr && this->ruleId_ == nullptr
+        && this->scheduleTime_ == nullptr && this->scope_ == nullptr && this->tagRegexp_ == nullptr; };
     // auto Field Functions 
     bool hasAuto() const { return this->auto_ != nullptr;};
     void deleteAuto() { this->auto_ = nullptr;};
@@ -227,11 +238,25 @@ namespace Models
     inline GetArtifactLifecycleRuleResponseBody& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline GetArtifactLifecycleRuleResponseBody& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // enableDeleteTag Field Functions 
     bool hasEnableDeleteTag() const { return this->enableDeleteTag_ != nullptr;};
     void deleteEnableDeleteTag() { this->enableDeleteTag_ = nullptr;};
     inline bool getEnableDeleteTag() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteTag_, false) };
     inline GetArtifactLifecycleRuleResponseBody& setEnableDeleteTag(bool enableDeleteTag) { DARABONBA_PTR_SET_VALUE(enableDeleteTag_, enableDeleteTag) };
+
+
+    // enableDeleteUntaggedManifest Field Functions 
+    bool hasEnableDeleteUntaggedManifest() const { return this->enableDeleteUntaggedManifest_ != nullptr;};
+    void deleteEnableDeleteUntaggedManifest() { this->enableDeleteUntaggedManifest_ = nullptr;};
+    inline bool getEnableDeleteUntaggedManifest() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteUntaggedManifest_, false) };
+    inline GetArtifactLifecycleRuleResponseBody& setEnableDeleteUntaggedManifest(bool enableDeleteUntaggedManifest) { DARABONBA_PTR_SET_VALUE(enableDeleteUntaggedManifest_, enableDeleteUntaggedManifest) };
 
 
     // instanceId Field Functions 
@@ -328,42 +353,47 @@ namespace Models
 
 
   protected:
-    // Specifies if the rule is executed automatically.
+    // Indicates whether automatic execution is enabled.
     shared_ptr<bool> auto_ {};
-    // The return code.
+    // The return value.
     shared_ptr<string> code_ {};
-    // The creation time.
+    // The creation time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
-    // Specifies if lifecycle management is enabled.
+    shared_ptr<bool> dryRun_ {};
+    // Indicates whether lifecycle management is enabled.
+    // 
+    // Only one of this parameter and EnableDeleteUntaggedManifest can be set to true.
     shared_ptr<bool> enableDeleteTag_ {};
+    shared_ptr<bool> enableDeleteUntaggedManifest_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // Indicates whether the request succeeded. Valid values:
+    // Indicates whether the API call is successful. Valid values:
     // 
-    // - `true`: The request succeeded.
+    // - `true`: The API call is successful.
     // 
-    // - `false`: The request failed.
+    // - `false`: The API call failed.
     shared_ptr<bool> isSuccess_ {};
-    // The last modified time.
+    // The last modification time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifiedTime_ {};
     // The namespace name.
     shared_ptr<string> namespaceName_ {};
-    // The timestamp of the next scheduled execution.
+    // The next execution time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> nextTime_ {};
+    // The list of lifecycle policies.
     shared_ptr<vector<GetArtifactLifecycleRuleResponseBody::Policies>> policies_ {};
-    // The repository name.
+    // The image repository name.
     shared_ptr<string> repoName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of image versions to retain.
+    // The number of images to retain.
     shared_ptr<int64_t> retentionTagCount_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
-    // The execution schedule.
+    // The execution cycle.
     shared_ptr<string> scheduleTime_ {};
-    // The scope of the rule.
+    // The cleanup scope.
     shared_ptr<string> scope_ {};
-    // The regular expression that matches image tags to select versions for retention.
+    // The regular expression used to match image versions to retain.
     shared_ptr<string> tagRegexp_ {};
   };
 

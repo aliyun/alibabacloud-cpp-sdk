@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The name of the namespace.
+    // The namespace name.
     shared_ptr<string> namespaceName_ {};
-    // The number of the page to return.
+    // The page number.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of entries to return on each page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the image repository.
+    // The image repository name.
     shared_ptr<string> repoName_ {};
-    // The ID of the target instance.
+    // The target instance ID.
     shared_ptr<string> targetInstanceId_ {};
-    // The ID of the target region.
+    // The target region ID.
     shared_ptr<string> targetRegionId_ {};
   };
 

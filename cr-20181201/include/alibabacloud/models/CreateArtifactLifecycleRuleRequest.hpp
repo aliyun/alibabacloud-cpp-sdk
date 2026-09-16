@@ -14,7 +14,9 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateArtifactLifecycleRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Auto, auto_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(EnableDeleteTag, enableDeleteTag_);
+      DARABONBA_PTR_TO_JSON(EnableDeleteUntaggedManifest, enableDeleteUntaggedManifest_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_TO_JSON(RepoName, repoName_);
@@ -25,7 +27,9 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateArtifactLifecycleRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Auto, auto_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(EnableDeleteTag, enableDeleteTag_);
+      DARABONBA_PTR_FROM_JSON(EnableDeleteUntaggedManifest, enableDeleteUntaggedManifest_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(NamespaceName, namespaceName_);
       DARABONBA_PTR_FROM_JSON(RepoName, repoName_);
@@ -46,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->auto_ == nullptr
-        && this->enableDeleteTag_ == nullptr && this->instanceId_ == nullptr && this->namespaceName_ == nullptr && this->repoName_ == nullptr && this->retentionTagCount_ == nullptr
-        && this->scheduleTime_ == nullptr && this->scope_ == nullptr && this->tagRegexp_ == nullptr; };
+        && this->dryRun_ == nullptr && this->enableDeleteTag_ == nullptr && this->enableDeleteUntaggedManifest_ == nullptr && this->instanceId_ == nullptr && this->namespaceName_ == nullptr
+        && this->repoName_ == nullptr && this->retentionTagCount_ == nullptr && this->scheduleTime_ == nullptr && this->scope_ == nullptr && this->tagRegexp_ == nullptr; };
     // auto Field Functions 
     bool hasAuto() const { return this->auto_ != nullptr;};
     void deleteAuto() { this->auto_ = nullptr;};
@@ -55,11 +59,25 @@ namespace Models
     inline CreateArtifactLifecycleRuleRequest& setAuto(bool _auto) { DARABONBA_PTR_SET_VALUE(auto_, _auto) };
 
 
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateArtifactLifecycleRuleRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // enableDeleteTag Field Functions 
     bool hasEnableDeleteTag() const { return this->enableDeleteTag_ != nullptr;};
     void deleteEnableDeleteTag() { this->enableDeleteTag_ = nullptr;};
     inline bool getEnableDeleteTag() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteTag_, false) };
     inline CreateArtifactLifecycleRuleRequest& setEnableDeleteTag(bool enableDeleteTag) { DARABONBA_PTR_SET_VALUE(enableDeleteTag_, enableDeleteTag) };
+
+
+    // enableDeleteUntaggedManifest Field Functions 
+    bool hasEnableDeleteUntaggedManifest() const { return this->enableDeleteUntaggedManifest_ != nullptr;};
+    void deleteEnableDeleteUntaggedManifest() { this->enableDeleteUntaggedManifest_ = nullptr;};
+    inline bool getEnableDeleteUntaggedManifest() const { DARABONBA_PTR_GET_DEFAULT(enableDeleteUntaggedManifest_, false) };
+    inline CreateArtifactLifecycleRuleRequest& setEnableDeleteUntaggedManifest(bool enableDeleteUntaggedManifest) { DARABONBA_PTR_SET_VALUE(enableDeleteUntaggedManifest_, enableDeleteUntaggedManifest) };
 
 
     // instanceId Field Functions 
@@ -114,8 +132,10 @@ namespace Models
   protected:
     // Specify whether to automatically execute the lifecycle management rule.
     shared_ptr<bool> auto_ {};
+    shared_ptr<bool> dryRun_ {};
     // Specify whether to enable lifecycle management for the artifact.
     shared_ptr<bool> enableDeleteTag_ {};
+    shared_ptr<bool> enableDeleteUntaggedManifest_ {};
     // The instance ID.
     // 
     // This parameter is required.

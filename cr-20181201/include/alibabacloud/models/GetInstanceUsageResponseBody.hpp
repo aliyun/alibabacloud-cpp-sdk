@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(IsSuccess, isSuccess_);
       DARABONBA_PTR_TO_JSON(NamespaceQuota, namespaceQuota_);
       DARABONBA_PTR_TO_JSON(NamespaceUsage, namespaceUsage_);
+      DARABONBA_PTR_TO_JSON(PerformanceUnits, performanceUnits_);
       DARABONBA_PTR_TO_JSON(RepoQuota, repoQuota_);
       DARABONBA_PTR_TO_JSON(RepoUsage, repoUsage_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -36,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(IsSuccess, isSuccess_);
       DARABONBA_PTR_FROM_JSON(NamespaceQuota, namespaceQuota_);
       DARABONBA_PTR_FROM_JSON(NamespaceUsage, namespaceUsage_);
+      DARABONBA_PTR_FROM_JSON(PerformanceUnits, performanceUnits_);
       DARABONBA_PTR_FROM_JSON(RepoQuota, repoQuota_);
       DARABONBA_PTR_FROM_JSON(RepoUsage, repoUsage_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -55,8 +57,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chartNamespaceQuota_ == nullptr
         && this->chartNamespaceUsage_ == nullptr && this->chartRepoQuota_ == nullptr && this->chartRepoUsage_ == nullptr && this->code_ == nullptr && this->isSuccess_ == nullptr
-        && this->namespaceQuota_ == nullptr && this->namespaceUsage_ == nullptr && this->repoQuota_ == nullptr && this->repoUsage_ == nullptr && this->requestId_ == nullptr
-        && this->vpcQuota_ == nullptr && this->vpcUsage_ == nullptr; };
+        && this->namespaceQuota_ == nullptr && this->namespaceUsage_ == nullptr && this->performanceUnits_ == nullptr && this->repoQuota_ == nullptr && this->repoUsage_ == nullptr
+        && this->requestId_ == nullptr && this->vpcQuota_ == nullptr && this->vpcUsage_ == nullptr; };
     // chartNamespaceQuota Field Functions 
     bool hasChartNamespaceQuota() const { return this->chartNamespaceQuota_ != nullptr;};
     void deleteChartNamespaceQuota() { this->chartNamespaceQuota_ = nullptr;};
@@ -113,6 +115,13 @@ namespace Models
     inline GetInstanceUsageResponseBody& setNamespaceUsage(string namespaceUsage) { DARABONBA_PTR_SET_VALUE(namespaceUsage_, namespaceUsage) };
 
 
+    // performanceUnits Field Functions 
+    bool hasPerformanceUnits() const { return this->performanceUnits_ != nullptr;};
+    void deletePerformanceUnits() { this->performanceUnits_ = nullptr;};
+    inline int32_t getPerformanceUnits() const { DARABONBA_PTR_GET_DEFAULT(performanceUnits_, 0) };
+    inline GetInstanceUsageResponseBody& setPerformanceUnits(int32_t performanceUnits) { DARABONBA_PTR_SET_VALUE(performanceUnits_, performanceUnits) };
+
+
     // repoQuota Field Functions 
     bool hasRepoQuota() const { return this->repoQuota_ != nullptr;};
     void deleteRepoQuota() { this->repoQuota_ = nullptr;};
@@ -149,34 +158,37 @@ namespace Models
 
 
   protected:
-    // The quota of chart namespaces.
+    // The quota of Chart namespaces.
     shared_ptr<string> chartNamespaceQuota_ {};
-    // The number of chart namespaces that are created in the instance.
+    // The number of Chart namespaces created.
     shared_ptr<string> chartNamespaceUsage_ {};
-    // The quota of chart repositories for the instance.
+    // The quota of Chart repositories.
     shared_ptr<string> chartRepoQuota_ {};
-    // The number of chart repositories that are created.
+    // The number of Chart repositories created.
     shared_ptr<string> chartRepoUsage_ {};
     // The return value.
     shared_ptr<string> code_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // *   `true`: The request is successful.
-    // *   `false`: The request fails.
+    // - `true`: The call was successful.
+    // 
+    // - `false`: The call failed.
     shared_ptr<bool> isSuccess_ {};
-    // The quota of image namespaces for the instance.
+    // The quota of image namespaces.
     shared_ptr<string> namespaceQuota_ {};
-    // The number of image namespaces that are created in the instance.
+    // The number of image namespaces used.
     shared_ptr<string> namespaceUsage_ {};
-    // The quota of image repositories for the instance.
+    // The number of performance units, which indicates the additional instance capacity purchased on top of the Advanced Edition.
+    shared_ptr<int32_t> performanceUnits_ {};
+    // The quota of image repositories.
     shared_ptr<string> repoQuota_ {};
-    // The number of image repositories that are created in the instance.
+    // The number of image repositories used.
     shared_ptr<string> repoUsage_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // VPC quota
+    // The VPC quota.
     shared_ptr<string> vpcQuota_ {};
-    // Number of bound VPCs
+    // The number of bound VPCs.
     shared_ptr<string> vpcUsage_ {};
   };
 
