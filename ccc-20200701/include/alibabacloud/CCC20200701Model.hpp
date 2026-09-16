@@ -76,6 +76,9 @@
 #include <alibabacloud/models/ChangeWorkModeRequest.hpp>
 #include <alibabacloud/models/ChangeWorkModeResponseBody.hpp>
 #include <alibabacloud/models/ChangeWorkModeResponse.hpp>
+#include <alibabacloud/models/CheckBusinessHoursRequest.hpp>
+#include <alibabacloud/models/CheckBusinessHoursResponseBody.hpp>
+#include <alibabacloud/models/CheckBusinessHoursResponse.hpp>
 #include <alibabacloud/models/ClaimCallRequest.hpp>
 #include <alibabacloud/models/ClaimCallResponseBody.hpp>
 #include <alibabacloud/models/ClaimCallResponse.hpp>

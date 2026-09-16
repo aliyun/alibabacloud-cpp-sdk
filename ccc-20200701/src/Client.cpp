@@ -1394,6 +1394,56 @@ ChangeWorkModeResponse Client::changeWorkMode(const ChangeWorkModeRequest &reque
 }
 
 /**
+ * @summary 假期工作日检查
+ *
+ * @description 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+ *
+ * @param request CheckBusinessHoursRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckBusinessHoursResponse
+ */
+CheckBusinessHoursResponse Client::checkBusinessHoursWithOptions(const CheckBusinessHoursRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasTime()) {
+    query["Time"] = request.getTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CheckBusinessHours"},
+    {"version" , "2020-07-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckBusinessHoursResponse>();
+}
+
+/**
+ * @summary 假期工作日检查
+ *
+ * @description 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+ *
+ * @param request CheckBusinessHoursRequest
+ * @return CheckBusinessHoursResponse
+ */
+CheckBusinessHoursResponse Client::checkBusinessHours(const CheckBusinessHoursRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkBusinessHoursWithOptions(request, runtime);
+}
+
+/**
  * @summary Call the `ClaimCall` API to assign a call to an agent.
  *
  * @param request ClaimCallRequest

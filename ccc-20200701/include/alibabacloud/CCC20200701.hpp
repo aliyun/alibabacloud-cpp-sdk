@@ -420,6 +420,27 @@ namespace CCC20200701
       Models::ChangeWorkModeResponse changeWorkMode(const Models::ChangeWorkModeRequest &request);
 
       /**
+       * @summary 假期工作日检查
+       *
+       * @description 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+       *
+       * @param request CheckBusinessHoursRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckBusinessHoursResponse
+       */
+      Models::CheckBusinessHoursResponse checkBusinessHoursWithOptions(const Models::CheckBusinessHoursRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 假期工作日检查
+       *
+       * @description 拥有RAM权限的账号可以到RAM控制台查询阿里云主账号下管理的所有RAM子账号，RAM控制台地址：https://ram.console.aliyun.com/users
+       *
+       * @param request CheckBusinessHoursRequest
+       * @return CheckBusinessHoursResponse
+       */
+      Models::CheckBusinessHoursResponse checkBusinessHours(const Models::CheckBusinessHoursRequest &request);
+
+      /**
        * @summary Call the `ClaimCall` API to assign a call to an agent.
        *
        * @param request ClaimCallRequest
