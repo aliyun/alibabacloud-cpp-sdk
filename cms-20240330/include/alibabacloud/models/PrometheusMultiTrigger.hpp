@@ -121,7 +121,7 @@ namespace Models
     shared_ptr<string> operator_ {};
     // The referenced query name. This parameter is used when expressionType is set to SIMPLE. The value corresponds to QueryConfigUnified.queries[].name.
     shared_ptr<string> queryName_ {};
-    // The alert severity level. Severity levels in descending priority: CRITICAL > ERROR > WARN / WARNING > INFO. When multiple triggers are configured, they are sorted by this priority, and the first match fires the alert.
+    // The alert severity level. The priority order is CRITICAL > ERROR > WARN / WARNING > INFO. When multiple triggers are defined, they are sorted by this priority, and the first match fires the alert.
     shared_ptr<string> severity_ {};
     // The comparison threshold. This parameter is used when expressionType is set to SIMPLE.
     shared_ptr<double> threshold_ {};

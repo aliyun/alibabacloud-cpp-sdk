@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The region IDs for filtering, separated by commas.
+    // The region IDs for filtering, separated by commas. Currently, only a single region ID is supported.
     shared_ptr<string> filterRegionIds_ {};
     // The maximum number of records to return.
     shared_ptr<int32_t> maxResults_ {};
@@ -137,9 +137,7 @@ namespace Models
     shared_ptr<string> resourceType_ {};
     // The tags.
     shared_ptr<string> tagShrink_ {};
-    // The instance version. Valid values:
-    // - V1: V1 version.
-    // - V2: V2 version.
+    // The instance version. Valid values: V1 and V2.
     shared_ptr<string> version_ {};
     // The workspace to which the instance belongs.
     shared_ptr<string> workspace_ {};

@@ -397,13 +397,13 @@ namespace Models
 
 
   protected:
-    // The aggregate functions. Used when type=UMODEL_METRICSET_QUERY / UMODEL_LOGSET_QUERY.
+    // The aggregate functions. Used when type is set to UMODEL_METRICSET_QUERY or UMODEL_LOGSET_QUERY.
     shared_ptr<string> aggregate_ {};
-    // **[Deprecated]** Specifies whether to perform alert detection only after data is complete (originally used when type=PROMETHEUS_MULTI_QUERY). This field overlaps with enableDataCompleteCheck. Using this field on write path returns 400.
+    // **[Deprecated]** Specifies whether to perform alert detection only after data is complete (originally used when type is set to PROMETHEUS_MULTI_QUERY). This field overlaps with enableDataCompleteCheck. Using this field on write paths returns 400.
     shared_ptr<bool> checkAfterDataComplete_ {};
-    // The list of dimensions. This parameter is used when type is set to CLOUD_MONITORING_QUERY. Each dimension is a key/value string mapping.
+    // The dimension list. This parameter is used when type is set to CLOUD_MONITORING_QUERY. Each dimension is a key/value string mapping.
     shared_ptr<vector<map<string, string>>> dimensions_ {};
-    // The duration in seconds. Used when type=PROMETHEUS_MULTI_QUERY.
+    // The duration in seconds. Used when type is set to PROMETHEUS_MULTI_QUERY.
     shared_ptr<int64_t> durationSecs_ {};
     // Indicates whether data integrity check is enabled.
     shared_ptr<bool> enableDataCompleteCheck_ {};
@@ -415,31 +415,31 @@ namespace Models
     shared_ptr<vector<EntityFilters>> entityFilters_ {};
     // The entity type.
     shared_ptr<string> entityType_ {};
-    // The query expression or SPL statement. Recommended when type=PROMETHEUS_SINGLE_QUERY. Optional when type=UMODEL_METRICSET_QUERY for custom SPL. Required when type=UMODEL_LOGSET_QUERY, where an SPL query statement must be provided (the business layer enforces this requirement).
+    // The query expression or SPL statement. Recommended when type is set to PROMETHEUS_SINGLE_QUERY. Optional when type is set to UMODEL_METRICSET_QUERY for custom SPL. Required when type is set to UMODEL_LOGSET_QUERY, where an SPL query statement must be provided (the business layer enforces this requirement).
     shared_ptr<string> expr_ {};
     // The APM filter condition list.
     shared_ptr<vector<FilterList>> filterList_ {};
     // The predefined metric filter value list (type=PROMETHEUS_PREDEFINED_METRIC_QUERY / PROMETHEUS_METRIC_GROUP_QUERY [deprecated]).
     shared_ptr<vector<PrometheusMetricFilterValue>> filterValues_ {};
-    // The list of group fields. This parameter is used when type is set to SLS_MULTI_QUERY and groupType is set to custom.
+    // The group field list. This parameter is used when type is set to SLS_MULTI_QUERY and groupType is set to custom.
     shared_ptr<vector<string>> groupFieldList_ {};
-    // The group ID (type=CLOUD_MONITORING_QUERY). Dual semantics: og- prefix = observation group (GROUP_V2. The prefix itself conveys the semantics. relationType is not required. The backend resolves members through the entity store). Numeric only = application group (GROUP_V1 legacy resource group. Requires relationType=GROUP).
+    // The group ID (type=CLOUD_MONITORING_QUERY). Dual semantics: an og- prefix indicates an observation group (GROUP_V2, the prefix itself conveys the semantics, no relationType is needed, and the backend resolves members through the entity store). A numeric-only value indicates an application group (GROUP_V1 legacy resource group, requires relationType=GROUP).
     shared_ptr<string> groupId_ {};
-    // The grouping policy (used when type=SLS_MULTI_QUERY): none / label / custom.
+    // The grouping policy (used when type is set to SLS_MULTI_QUERY): none / label / custom.
     shared_ptr<string> groupType_ {};
-    // The join list (used when type=SLS_MULTI_QUERY. Maximum of 2: joinings[0] corresponds to the set operation between query 0 and query 1. joinings[1] corresponds to the set operation between query 1 and query 2).
+    // The join list (used when type is set to SLS_MULTI_QUERY, with a maximum of 2 entries: joinings[0] corresponds to the set operation between query 0 and query 1, and joinings[1] corresponds to the set operation between query 1 and query 2).
     shared_ptr<vector<Joinings>> joinings_ {};
     // The label filter conditions.
     shared_ptr<vector<LabelFilters>> labelFilters_ {};
-    // The original V1 query JSON string returned as a fallback when type=UNKNOWN_QUERY and read path parsing fails. Contains the field values that triggered the failure, such as filter.operator=ABC. When the frontend detects that this field is not empty, display it as read-only.
+    // The raw V1 query JSON string returned as a fallback when type is set to UNKNOWN_QUERY and the read path fails to parse (contains the field values that triggered the failure, such as filter.operator=ABC). When the frontend detects that this field is not empty, display it as read-only.
     shared_ptr<string> legacyRaw_ {};
-    // Returned when type=UNKNOWN_QUERY. Indicates that this rule cannot be edited through the new API. Submit a ticket to contact the CloudMonitor product team.
+    // Returned when type is set to UNKNOWN_QUERY, indicating that this rule cannot be edited through the new API. Submit a ticket to contact the CloudMonitor product team.
     shared_ptr<string> legacyType_ {};
     // The log set name (type=UMODEL_LOGSET_QUERY).
     shared_ptr<string> logSet_ {};
-    // The measure group key. This parameter is optional when type is set to APM_MULTI_QUERY. It corresponds to alertMetricInput.groupKey in V1.
+    // The metric group key. This parameter is optional when type is set to APM_MULTI_QUERY. It corresponds to alertMetricInput.groupKey in V1.
     shared_ptr<string> measureGroupKey_ {};
-    // The APM measure configuration list.
+    // The APM metric configuration list.
     shared_ptr<vector<MeasureList>> measureList_ {};
     // The metric name (type=UMODEL_METRICSET_QUERY).
     shared_ptr<string> metric_ {};
@@ -453,13 +453,13 @@ namespace Models
     shared_ptr<string> metricSet_ {};
     // The CloudMonitor namespace (Alibaba Cloud service name, type=CLOUD_MONITORING_QUERY).
     shared_ptr<string> namespace_ {};
-    // The query time offset in seconds. Used when type=UMODEL_METRICSET_QUERY / UMODEL_LOGSET_QUERY. Works with windowSecs to implement an offset query over the range [T - windowSecs - offsetSecs, T - offsetSecs]. Valid range: [0, 86400].
+    // The query time offset in seconds. Used when type is set to UMODEL_METRICSET_QUERY or UMODEL_LOGSET_QUERY. Works with windowSecs to implement an offset query over the range [T - windowSecs - offsetSecs, T - offsetSecs]. Valid range: [0, 86400].
     shared_ptr<int64_t> offsetSecs_ {};
     // The predefined metric parameter value list (type=PROMETHEUS_PREDEFINED_METRIC_QUERY / PROMETHEUS_METRIC_GROUP_QUERY [deprecated]).
     shared_ptr<vector<PrometheusMetricParamValue>> paramValues_ {};
     // The Prometheus query statement (type=PROMETHEUS_SINGLE_QUERY).
     shared_ptr<string> promQl_ {};
-    // The subquery list (polymorphic by type): When type=SLS_MULTI_QUERY, each entry is a SlsNamedQueryEntry (timeUnit/start/end/window/expr). When type=PROMETHEUS_MULTI_QUERY, each entry is a PrometheusNamedQueryEntry (name/expr). When type=UMODEL_METRICSET_MULTI_QUERY, each entry is a MetricSetNamedQueryEntry.
+    // The subquery list (polymorphic by type): when type is set to SLS_MULTI_QUERY, each entry is a SlsNamedQueryEntry (timeUnit/start/end/window/expr). When type is set to PROMETHEUS_MULTI_QUERY, each entry is a PrometheusNamedQueryEntry (name/expr). When type is set to UMODEL_METRICSET_MULTI_QUERY, each entry is a MetricSetNamedQueryEntry.
     shared_ptr<vector<Queries>> queries_ {};
     // The resource association type (type=CLOUD_MONITORING_QUERY).
     shared_ptr<string> relationType_ {};
@@ -469,7 +469,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The aggregation time window in seconds. Used when type=UMODEL_METRICSET_QUERY / UMODEL_LOGSET_QUERY. Valid range: [60, 86400].
+    // The aggregation time window in seconds. Used when type is set to UMODEL_METRICSET_QUERY or UMODEL_LOGSET_QUERY. Valid range: [60, 86400].
     shared_ptr<int64_t> windowSecs_ {};
   };
 

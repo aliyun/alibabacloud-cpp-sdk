@@ -37,6 +37,7 @@ namespace Models
     class PrometheusDashboards : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const PrometheusDashboards& obj) { 
+        DARABONBA_PTR_TO_JSON(folderUid, folderUid_);
         DARABONBA_PTR_TO_JSON(id, id_);
         DARABONBA_PTR_TO_JSON(name, name_);
         DARABONBA_PTR_TO_JSON(tags, tags_);
@@ -45,6 +46,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(url, url_);
       };
       friend void from_json(const Darabonba::Json& j, PrometheusDashboards& obj) { 
+        DARABONBA_PTR_FROM_JSON(folderUid, folderUid_);
         DARABONBA_PTR_FROM_JSON(id, id_);
         DARABONBA_PTR_FROM_JSON(name, name_);
         DARABONBA_PTR_FROM_JSON(tags, tags_);
@@ -63,8 +65,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->id_ == nullptr
-        && this->name_ == nullptr && this->tags_ == nullptr && this->title_ == nullptr && this->uid_ == nullptr && this->url_ == nullptr; };
+      virtual bool empty() const override { return this->folderUid_ == nullptr
+        && this->id_ == nullptr && this->name_ == nullptr && this->tags_ == nullptr && this->title_ == nullptr && this->uid_ == nullptr
+        && this->url_ == nullptr; };
+      // folderUid Field Functions 
+      bool hasFolderUid() const { return this->folderUid_ != nullptr;};
+      void deleteFolderUid() { this->folderUid_ = nullptr;};
+      inline string getFolderUid() const { DARABONBA_PTR_GET_DEFAULT(folderUid_, "") };
+      inline PrometheusDashboards& setFolderUid(string folderUid) { DARABONBA_PTR_SET_VALUE(folderUid_, folderUid) };
+
+
       // id Field Functions 
       bool hasId() const { return this->id_ != nullptr;};
       void deleteId() { this->id_ = nullptr;};
@@ -110,6 +120,8 @@ namespace Models
 
 
     protected:
+      // The UID of the dashboard folder.
+      shared_ptr<string> folderUid_ {};
       // The dashboard ID.
       shared_ptr<string> id_ {};
       // The dashboard name.
@@ -120,7 +132,7 @@ namespace Models
       shared_ptr<string> title_ {};
       // The dashboard UID.
       shared_ptr<string> uid_ {};
-      // The URL of the dashboard.
+      // The dashboard URL.
       shared_ptr<string> url_ {};
     };
 
@@ -150,9 +162,9 @@ namespace Models
 
 
   protected:
-    // A list of dashboards for the Prometheus instance.
+    // The list of dashboards for the Managed Service for Prometheus instance.
     shared_ptr<vector<ListPrometheusDashboardsResponseBody::PrometheusDashboards>> prometheusDashboards_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};

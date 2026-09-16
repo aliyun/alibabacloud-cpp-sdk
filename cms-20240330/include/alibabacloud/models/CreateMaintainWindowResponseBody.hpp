@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the created silence policy.
     shared_ptr<string> maintainWindowId_ {};
+    // The unique ID of the request. You can use this ID for troubleshooting and ticket tracking.
     shared_ptr<string> requestId_ {};
   };
 

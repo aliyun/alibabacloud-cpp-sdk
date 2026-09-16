@@ -206,11 +206,11 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
-      // The billing method. Valid values:
-      // - POSTPAY: pay-as-you-go by metric volume.
-      // - POSTPAY_GB: pay-as-you-go by write volume.
-      // - PREPAY: subscription.
-      // - FREE: free.
+      // The payment type. Valid values:
+      // - POSTPAY: Pay-as-you-go by metric volume.
+      // - POSTPAY_GB: Pay-as-you-go by write volume.
+      // - PREPAY: Subscription.
+      // - FREE: Free.
       shared_ptr<string> paymentType_ {};
       // The product to which the Prometheus instance belongs.
       shared_ptr<string> product_ {};

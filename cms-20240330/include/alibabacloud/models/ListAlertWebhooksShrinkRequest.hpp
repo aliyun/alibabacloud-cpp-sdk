@@ -83,6 +83,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The unique ID of the webhook.
     shared_ptr<string> webhookIdsShrink_ {};
+    // The workspace name.
     shared_ptr<string> workspace_ {};
   };
 

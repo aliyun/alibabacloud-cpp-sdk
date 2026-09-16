@@ -153,6 +153,7 @@ namespace Models
       shared_ptr<string> url_ {};
       // The unique ID of the webhook.
       shared_ptr<string> webhookId_ {};
+      // The workspace name.
       shared_ptr<string> workspace_ {};
     };
 

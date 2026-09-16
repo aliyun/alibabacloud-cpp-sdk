@@ -153,9 +153,9 @@ namespace Models
 
 
   protected:
-    // The minimum deviation or absolute deviation dead zone for the dynamic baseline. Takes effect only with baseline operators. The unit is the same as the metric. The value must be greater than or equal to 0. A value of 0 means no restriction.
+    // The dynamic baseline minimum deviation or absolute deviation dead zone. Effective only for baseline operators. The unit is the same as the metric. The value must be greater than or equal to 0. A value of 0 means no restriction.
     shared_ptr<double> absDeviation_ {};
-    // The baseline period. Takes effect only with baseline operators. Valid values: AUTO (automatic detection), DAILY (daily), WEEKLY (weekly), and NONE (no period). When set to WEEKLY, the backend automatically expands the historical training window to at least 14 days.
+    // The baseline period. Effective only for baseline operators. Valid values: AUTO (automatic detection), DAILY (daily), WEEKLY (weekly), and NONE (no period). When set to WEEKLY, the backend automatically expands the historical training window to at least 14 days.
     shared_ptr<string> baselinePeriod_ {};
     // The list of sub-conditions. Used when expressionType is COMPOSITE. Each item contains queryName, operator, and threshold.
     shared_ptr<vector<MetricSetTriggerSimpleExpression>> conditions_ {};
@@ -165,15 +165,15 @@ namespace Models
     shared_ptr<string> expressionType_ {};
     // The logical operator. Used when expressionType is COMPOSITE. Valid values: AND (all conditions met), OR (any condition met), and UNLESS (first condition met and all others not met).
     shared_ptr<string> logicOperator_ {};
-    // The upper bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE or OUT_OF_RANGE. The value must be greater than or equal to min.
+    // The upper bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE/OUT_OF_RANGE. The value must be greater than or equal to min.
     shared_ptr<double> max_ {};
-    // The lower bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE or OUT_OF_RANGE.
+    // The lower bound of the range. Required when expressionType is SIMPLE and operator is IN_RANGE/OUT_OF_RANGE.
     shared_ptr<double> min_ {};
     // The comparison operator (used when expressionType is SIMPLE). Valid values: GT (greater than), GE (greater than or equal to), LT (less than), LE (less than or equal to), EQ (equal to), NE (not equal to), IN_RANGE (within range, requires min/max), OUT_OF_RANGE (outside range, requires min/max), PRESENT (field exists, no threshold/min/max required), NOT_PRESENT (field does not exist, no threshold/min/max required), ABOVE_UPPER/BELOW_LOWER/OUT_OF_BAND (dynamic baseline spike/drop/bidirectional, requires sensitivity, no threshold/min/max).
     shared_ptr<string> operator_ {};
     // The referenced query name (used when expressionType is SIMPLE), corresponding to QueryConfigUnified.queries[].name.
     shared_ptr<string> queryName_ {};
-    // The dynamic baseline sensitivity. Takes effect when expressionType is SIMPLE and a baseline operator is used. Valid values: HIGH (narrowest and most sensitive band), MEDIUM, and LOW (widest and least sensitive band).
+    // The dynamic baseline sensitivity. Effective when expressionType is SIMPLE and a baseline operator is used. Valid values: HIGH (narrowest band, most sensitive), MEDIUM, and LOW (widest band, least sensitive).
     shared_ptr<string> sensitivity_ {};
     // The alert severity level: CRITICAL > ERROR > WARN / WARNING > INFO. Multiple triggers are sorted by this priority, and the first match fires.
     shared_ptr<string> severity_ {};

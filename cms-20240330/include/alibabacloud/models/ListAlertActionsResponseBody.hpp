@@ -136,13 +136,13 @@ namespace Models
 
 
       protected:
-        // The data format. This parameter is valid only when the request method is POST.
+        // The data format. This parameter takes effect only when the request method is POST.
         shared_ptr<string> contentType_ {};
         // The request headers.
         shared_ptr<map<string, string>> headers_ {};
-        // The request method of the webhook.
+        // The webhook request method.
         shared_ptr<string> method_ {};
-        // The callback URL for alerts.
+        // The alert callback URL.
         shared_ptr<string> url_ {};
       };
 
@@ -241,7 +241,7 @@ namespace Models
       protected:
         // The integration key of PagerDuty.
         shared_ptr<string> key_ {};
-        // The integration webhook of PagerDuty. Versions 1 and 2 are supported.
+        // The integration webhook of PagerDuty. V1 and V2 versions are supported.
         shared_ptr<string> url_ {};
       };
 
@@ -294,11 +294,10 @@ namespace Models
       protected:
         // The resource type of Simple Message Queue (formerly MNS).
         shared_ptr<string> mnsType_ {};
-        // The name of the resource.
+        // The resource name.
         // 
-        // - If the resource type is \\`queue\\`, this parameter specifies the queue name.
-        // 
-        // - If the resource type is \\`topic\\`, this parameter specifies the topic name.
+        // - If the resource type is queue, the resource name is the queue name.
+        // - If the resource type is topic, the resource name is the topic name.
         shared_ptr<string> name_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -461,9 +460,9 @@ namespace Models
 
 
       protected:
-        // The ID of the Auto Scaling group.
+        // The ID of the elastic scaling group.
         shared_ptr<string> essGroupId_ {};
-        // The ID of the scaling rule.
+        // The ID of the elastic scaling rule.
         shared_ptr<string> essRuleId_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -525,7 +524,7 @@ namespace Models
 
 
       protected:
-        // The event provider.
+        // The event source.
         shared_ptr<string> ebSource_ {};
         // The name of the event bus.
         shared_ptr<string> eventBusName_ {};
@@ -632,25 +631,25 @@ namespace Models
 
 
     protected:
-      // The unique ID of the alert action integration.
+      // The unique IDs of the action integrations.
       shared_ptr<string> alertActionId_ {};
-      // The name of the alert action integration.
+      // The name of the action integration.
       shared_ptr<string> alertActionName_ {};
-      // Specifies the event bus.
+      // The EventBridge parameters.
       shared_ptr<AlertActions::EbParam> ebParam_ {};
-      // The parameters of Auto Scaling.
+      // The elastic scaling parameters.
       shared_ptr<AlertActions::EssParam> essParam_ {};
-      // The parameters of Function Compute 3.0.
+      // The Function Compute 3.0 parameters.
       shared_ptr<AlertActions::Fc3Param> fc3Param_ {};
-      // The parameters of Function Compute.
+      // The Function Compute parameters.
       shared_ptr<AlertActions::FcParam> fcParam_ {};
-      // The parameters of Simple Message Queue (formerly MNS).
+      // The Simple Message Queue (formerly MNS) parameters.
       shared_ptr<AlertActions::MnsParam> mnsParam_ {};
       // The PagerDuty parameters.
       shared_ptr<AlertActions::PagerDutyParam> pagerDutyParam_ {};
-      // The parameters of Simple Log Service.
+      // The Simple Log Service parameters.
       shared_ptr<AlertActions::SlsParam> slsParam_ {};
-      // The type of the alert action integration.
+      // The type of the action integration.
       shared_ptr<string> type_ {};
       // The webhook parameters.
       shared_ptr<AlertActions::WebhookParam> webhookParam_ {};
@@ -696,7 +695,7 @@ namespace Models
 
 
   protected:
-    // The list of alert action integration configurations.
+    // The list of action integration configurations.
     shared_ptr<vector<ListAlertActionsResponseBody::AlertActions>> alertActions_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

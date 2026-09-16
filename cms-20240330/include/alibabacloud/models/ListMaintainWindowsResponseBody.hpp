@@ -70,10 +70,13 @@ namespace Models
 
 
   protected:
+    // The list of silence policies. An empty list is returned when no items match. The list items do not include workspaceFilterSetting.
     shared_ptr<vector<MaintainWindowForView>> maintainWindowList_ {};
+    // The maximum number of records returned in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token for the next page. A non-empty value indicates that more results may be available, but the next page may still be empty. An empty value indicates the end of pagination.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The unique ID of this request, used for troubleshooting and ticket tracking.
     shared_ptr<string> requestId_ {};
   };
 

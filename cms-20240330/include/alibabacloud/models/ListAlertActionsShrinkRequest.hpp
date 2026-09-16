@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The unique IDs of the alert action integrations.
+    // The unique IDs of the action integrations.
     shared_ptr<string> alertActionIdsShrink_ {};
-    // The name of the alert action integration.
+    // The name of the action integration.
     shared_ptr<string> alertActionName_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the alert action integration.
+    // The type of the action integration.
     shared_ptr<string> type_ {};
   };
 

@@ -86,6 +86,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The unique ID of the webhook.
     shared_ptr<vector<string>> webhookIds_ {};
+    // The workspace name.
     shared_ptr<string> workspace_ {};
   };
 

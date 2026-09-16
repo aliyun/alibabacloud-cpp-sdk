@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The workspace name. This parameter is required by the backend and is used to isolate silence policy resources across different business workspaces.
     shared_ptr<string> workspace_ {};
   };
 

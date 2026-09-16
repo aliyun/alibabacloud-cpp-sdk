@@ -112,21 +112,21 @@ namespace Models
 
 
   protected:
-    // The contact IDs.
+    // The IDs of the alert contacts.
     shared_ptr<string> contactIdsShrink_ {};
-    // The email address of the contact.
+    // The email address of the alert contact.
     shared_ptr<string> email_ {};
-    // The ID of the contact group to which the contact belongs.
+    // The ID of the contact group to which the alert contact belongs.
     shared_ptr<string> groupId_ {};
-    // The contact name.
+    // The name of the alert contact.
     shared_ptr<string> name_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The phone number of the contact.
+    // The phone number of the alert contact.
     shared_ptr<string> phone_ {};
-    // Specifies whether to query only ungrouped contacts.
+    // Specifies whether to query only ungrouped alert contacts.
     shared_ptr<bool> queryUngroupedContacts_ {};
     // The workspace name.
     shared_ptr<string> workspace_ {};

@@ -131,7 +131,7 @@ namespace Models
 
 
     protected:
-      // The digital employee name.
+      // The name of the digital employee.
       shared_ptr<string> digitalEmployeeName_ {};
       // The language.
       shared_ptr<string> lang_ {};
@@ -139,6 +139,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The unique ID of the robot.
       shared_ptr<string> robotId_ {};
+      // The signature key of the robot.
       shared_ptr<string> robotSignKey_ {};
       // The robot type.
       shared_ptr<string> type_ {};
@@ -190,11 +191,11 @@ namespace Models
   protected:
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The robot IDs.
+    // The robot ID.
     shared_ptr<vector<ListAlertRobotsResponseBody::Robots>> robots_ {};
     // The total number of records.
     shared_ptr<int64_t> total_ {};
