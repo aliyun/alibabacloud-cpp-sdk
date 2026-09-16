@@ -22,10 +22,6 @@ namespace STAROps20260428
 
 AlibabaCloud::STAROps20260428::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-beijing" , "starops.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-1" , "starops.ap-southeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("starops", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -646,6 +642,45 @@ DeleteDigitalEmployeeSkillResponse Client::deleteDigitalEmployeeSkill(const stri
 }
 
 /**
+ * @summary Deletes a public schema reference from a digital employee UModel.
+ *
+ * @param request DeleteDigitalEmployeeUmodelCommonSchemaRefRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+ */
+DeleteDigitalEmployeeUmodelCommonSchemaRefResponse Client::deleteDigitalEmployeeUmodelCommonSchemaRefWithOptions(const string &name, const string &group, const DeleteDigitalEmployeeUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteDigitalEmployeeUmodelCommonSchemaRef"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/umodel/commonSchemaRefs/" , Darabonba::Encode::Encoder::percentEncode(group))},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteDigitalEmployeeUmodelCommonSchemaRefResponse>();
+}
+
+/**
+ * @summary Deletes a public schema reference from a digital employee UModel.
+ *
+ * @param request DeleteDigitalEmployeeUmodelCommonSchemaRefRequest
+ * @return DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+ */
+DeleteDigitalEmployeeUmodelCommonSchemaRefResponse Client::deleteDigitalEmployeeUmodelCommonSchemaRef(const string &name, const string &group, const DeleteDigitalEmployeeUmodelCommonSchemaRefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteDigitalEmployeeUmodelCommonSchemaRefWithOptions(name, group, request, headers, runtime);
+}
+
+/**
  * @summary Deletes an MCP service.
  *
  * @param request DeleteMcpServiceRequest
@@ -935,6 +970,59 @@ GetDigitalEmployeeResponse Client::getDigitalEmployee(const string &name, const 
 }
 
 /**
+ * @summary Queries the entity data of a digital employee.
+ *
+ * @param request GetDigitalEmployeeEntityDataRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDigitalEmployeeEntityDataResponse
+ */
+GetDigitalEmployeeEntityDataResponse Client::getDigitalEmployeeEntityDataWithOptions(const string &name, const GetDigitalEmployeeEntityDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasFrom()) {
+    body["from"] = request.getFrom();
+  }
+
+  if (!!request.hasQuery()) {
+    body["query"] = request.getQuery();
+  }
+
+  if (!!request.hasTo()) {
+    body["to"] = request.getTo();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetDigitalEmployeeEntityData"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/entities/query")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDigitalEmployeeEntityDataResponse>();
+}
+
+/**
+ * @summary Queries the entity data of a digital employee.
+ *
+ * @param request GetDigitalEmployeeEntityDataRequest
+ * @return GetDigitalEmployeeEntityDataResponse
+ */
+GetDigitalEmployeeEntityDataResponse Client::getDigitalEmployeeEntityData(const string &name, const GetDigitalEmployeeEntityDataRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDigitalEmployeeEntityDataWithOptions(name, request, headers, runtime);
+}
+
+/**
  * @summary Retrieves the details of a specific skill.
  *
  * @description Retrieves the details of a specified skill for a digital employee.
@@ -981,6 +1069,45 @@ GetDigitalEmployeeSkillResponse Client::getDigitalEmployeeSkill(const string &na
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getDigitalEmployeeSkillWithOptions(name, skillName, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the UModel of a digital employee.
+ *
+ * @param request GetDigitalEmployeeUmodelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetDigitalEmployeeUmodelResponse
+ */
+GetDigitalEmployeeUmodelResponse Client::getDigitalEmployeeUmodelWithOptions(const string &name, const GetDigitalEmployeeUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetDigitalEmployeeUmodel"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/umodel")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetDigitalEmployeeUmodelResponse>();
+}
+
+/**
+ * @summary Queries the UModel of a digital employee.
+ *
+ * @param request GetDigitalEmployeeUmodelRequest
+ * @return GetDigitalEmployeeUmodelResponse
+ */
+GetDigitalEmployeeUmodelResponse Client::getDigitalEmployeeUmodel(const string &name, const GetDigitalEmployeeUmodelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getDigitalEmployeeUmodelWithOptions(name, request, headers, runtime);
 }
 
 /**
@@ -1294,6 +1421,10 @@ ListDigitalEmployeesResponse Client::listDigitalEmployeesWithOptions(const ListD
   }
 
   json query = {};
+  if (!!request.hasChannel()) {
+    query["channel"] = request.getChannel();
+  }
+
   if (!!request.hasDisplayName()) {
     query["displayName"] = request.getDisplayName();
   }
@@ -1621,6 +1752,51 @@ UpdateDigitalEmployeeSkillResponse Client::updateDigitalEmployeeSkill(const stri
 }
 
 /**
+ * @summary Updates the UModel of a digital human.
+ *
+ * @param request UpdateDigitalEmployeeUmodelRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateDigitalEmployeeUmodelResponse
+ */
+UpdateDigitalEmployeeUmodelResponse Client::updateDigitalEmployeeUmodelWithOptions(const string &name, const UpdateDigitalEmployeeUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateDigitalEmployeeUmodel"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/umodel")},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateDigitalEmployeeUmodelResponse>();
+}
+
+/**
+ * @summary Updates the UModel of a digital human.
+ *
+ * @param request UpdateDigitalEmployeeUmodelRequest
+ * @return UpdateDigitalEmployeeUmodelResponse
+ */
+UpdateDigitalEmployeeUmodelResponse Client::updateDigitalEmployeeUmodel(const string &name, const UpdateDigitalEmployeeUmodelRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateDigitalEmployeeUmodelWithOptions(name, request, headers, runtime);
+}
+
+/**
  * @summary Updates an MCP service.
  *
  * @param request UpdateMcpServiceRequest
@@ -1740,6 +1916,51 @@ UpdateThreadResponse Client::updateThread(const string &name, const string &thre
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateThreadWithOptions(name, threadId, request, headers, runtime);
+}
+
+/**
+ * @summary Creates or updates a public schema reference for a digital employee UModel.
+ *
+ * @param request UpsertDigitalEmployeeUmodelCommonSchemaRefRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+ */
+UpsertDigitalEmployeeUmodelCommonSchemaRefResponse Client::upsertDigitalEmployeeUmodelCommonSchemaRefWithOptions(const string &name, const string &group, const UpsertDigitalEmployeeUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasVersion()) {
+    body["version"] = request.getVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpsertDigitalEmployeeUmodelCommonSchemaRef"},
+    {"version" , "2026-04-28"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/digitalEmployee/" , Darabonba::Encode::Encoder::percentEncode(name) , "/umodel/commonSchemaRefs/" , Darabonba::Encode::Encoder::percentEncode(group))},
+    {"method" , "PUT"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpsertDigitalEmployeeUmodelCommonSchemaRefResponse>();
+}
+
+/**
+ * @summary Creates or updates a public schema reference for a digital employee UModel.
+ *
+ * @param request UpsertDigitalEmployeeUmodelCommonSchemaRefRequest
+ * @return UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+ */
+UpsertDigitalEmployeeUmodelCommonSchemaRefResponse Client::upsertDigitalEmployeeUmodelCommonSchemaRef(const string &name, const string &group, const UpsertDigitalEmployeeUmodelCommonSchemaRefRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return upsertDigitalEmployeeUmodelCommonSchemaRefWithOptions(name, group, request, headers, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace STAROps20260428

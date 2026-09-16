@@ -2,6 +2,13 @@
 #ifndef ALIBABACLOUD_STAROPS20260428MODEL_HPP_
 #define ALIBABACLOUD_STAROPS20260428MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/ConnectorAuthentication.hpp>
+#include <alibabacloud/models/ConnectorAuthenticationInput.hpp>
+#include <alibabacloud/models/ConnectorAuthenticationUpdateInput.hpp>
+#include <alibabacloud/models/ConnectorRuntime.hpp>
+#include <alibabacloud/models/ConnectorCreateInput.hpp>
+#include <alibabacloud/models/ConnectorInfo.hpp>
+#include <alibabacloud/models/ConnectorUpdateInput.hpp>
 #include <alibabacloud/models/Tag.hpp>
 #include <alibabacloud/models/CreateArtifactUploadTokenRequest.hpp>
 #include <alibabacloud/models/CreateArtifactUploadTokenResponseBody.hpp>
@@ -30,6 +37,9 @@
 #include <alibabacloud/models/DeleteDigitalEmployeeSkillRequest.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeSkillResponseBody.hpp>
 #include <alibabacloud/models/DeleteDigitalEmployeeSkillResponse.hpp>
+#include <alibabacloud/models/DeleteDigitalEmployeeUmodelCommonSchemaRefRequest.hpp>
+#include <alibabacloud/models/DeleteDigitalEmployeeUmodelCommonSchemaRefResponseBody.hpp>
+#include <alibabacloud/models/DeleteDigitalEmployeeUmodelCommonSchemaRefResponse.hpp>
 #include <alibabacloud/models/DeleteMcpServiceRequest.hpp>
 #include <alibabacloud/models/DeleteMcpServiceResponseBody.hpp>
 #include <alibabacloud/models/DeleteMcpServiceResponse.hpp>
@@ -47,9 +57,15 @@
 #include <alibabacloud/models/GetDigitalEmployeeRequest.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponseBody.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeResponse.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeEntityDataRequest.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeEntityDataResponseBody.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeEntityDataResponse.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeSkillRequest.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeSkillResponseBody.hpp>
 #include <alibabacloud/models/GetDigitalEmployeeSkillResponse.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeUmodelRequest.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeUmodelResponseBody.hpp>
+#include <alibabacloud/models/GetDigitalEmployeeUmodelResponse.hpp>
 #include <alibabacloud/models/GetMcpServiceRequest.hpp>
 #include <alibabacloud/models/GetMcpServiceResponseBody.hpp>
 #include <alibabacloud/models/GetMcpServiceResponse.hpp>
@@ -85,11 +101,17 @@
 #include <alibabacloud/models/UpdateDigitalEmployeeSkillRequest.hpp>
 #include <alibabacloud/models/UpdateDigitalEmployeeSkillResponseBody.hpp>
 #include <alibabacloud/models/UpdateDigitalEmployeeSkillResponse.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeUmodelRequest.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeUmodelResponseBody.hpp>
+#include <alibabacloud/models/UpdateDigitalEmployeeUmodelResponse.hpp>
 #include <alibabacloud/models/UpdateMcpServiceRequest.hpp>
 #include <alibabacloud/models/UpdateMcpServiceResponseBody.hpp>
 #include <alibabacloud/models/UpdateMcpServiceResponse.hpp>
 #include <alibabacloud/models/UpdateThreadRequest.hpp>
 #include <alibabacloud/models/UpdateThreadResponseBody.hpp>
 #include <alibabacloud/models/UpdateThreadResponse.hpp>
+#include <alibabacloud/models/UpsertDigitalEmployeeUmodelCommonSchemaRefRequest.hpp>
+#include <alibabacloud/models/UpsertDigitalEmployeeUmodelCommonSchemaRefResponseBody.hpp>
+#include <alibabacloud/models/UpsertDigitalEmployeeUmodelCommonSchemaRefResponse.hpp>
 
 #endif

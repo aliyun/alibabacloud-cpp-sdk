@@ -455,6 +455,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> endpoint_ {};
+      // The custom headers.
       shared_ptr<map<string, string>> headers_ {};
       // The platform type of the MCP service. Valid values: AIGateway and Custom.
       // 

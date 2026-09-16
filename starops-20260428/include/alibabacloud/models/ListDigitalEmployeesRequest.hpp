@@ -15,6 +15,7 @@ namespace Models
   class ListDigitalEmployeesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListDigitalEmployeesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(channel, channel_);
       DARABONBA_PTR_TO_JSON(displayName, displayName_);
       DARABONBA_PTR_TO_JSON(employeeType, employeeType_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(tags, tags_);
     };
     friend void from_json(const Darabonba::Json& j, ListDigitalEmployeesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(channel, channel_);
       DARABONBA_PTR_FROM_JSON(displayName, displayName_);
       DARABONBA_PTR_FROM_JSON(employeeType, employeeType_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
@@ -43,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->displayName_ == nullptr
-        && this->employeeType_ == nullptr && this->maxResults_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->tags_ == nullptr; };
+    virtual bool empty() const override { return this->channel_ == nullptr
+        && this->displayName_ == nullptr && this->employeeType_ == nullptr && this->maxResults_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->tags_ == nullptr; };
+    // channel Field Functions 
+    bool hasChannel() const { return this->channel_ != nullptr;};
+    void deleteChannel() { this->channel_ = nullptr;};
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline ListDigitalEmployeesRequest& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
+
+
     // displayName Field Functions 
     bool hasDisplayName() const { return this->displayName_ != nullptr;};
     void deleteDisplayName() { this->displayName_ = nullptr;};
@@ -98,6 +107,8 @@ namespace Models
 
 
   protected:
+    // Filters digital employees by channel type. If this parameter is not specified, the default channel is used.
+    shared_ptr<string> channel_ {};
     // The display name of the digital employee.
     shared_ptr<string> displayName_ {};
     // The type of the digital employee.

@@ -1,0 +1,223 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_GETDIGITALEMPLOYEEENTITYDATARESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETDIGITALEMPLOYEEENTITYDATARESPONSEBODY_HPP_
+#include <darabonba/Core.hpp>
+#include <vector>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace STAROps20260428
+{
+namespace Models
+{
+  class GetDigitalEmployeeEntityDataResponseBody : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const GetDigitalEmployeeEntityDataResponseBody& obj) { 
+      DARABONBA_PTR_TO_JSON(data, data_);
+      DARABONBA_PTR_TO_JSON(header, header_);
+      DARABONBA_PTR_TO_JSON(requestId, requestId_);
+      DARABONBA_PTR_TO_JSON(responseStatus, responseStatus_);
+    };
+    friend void from_json(const Darabonba::Json& j, GetDigitalEmployeeEntityDataResponseBody& obj) { 
+      DARABONBA_PTR_FROM_JSON(data, data_);
+      DARABONBA_PTR_FROM_JSON(header, header_);
+      DARABONBA_PTR_FROM_JSON(requestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(responseStatus, responseStatus_);
+    };
+    GetDigitalEmployeeEntityDataResponseBody() = default ;
+    GetDigitalEmployeeEntityDataResponseBody(const GetDigitalEmployeeEntityDataResponseBody &) = default ;
+    GetDigitalEmployeeEntityDataResponseBody(GetDigitalEmployeeEntityDataResponseBody &&) = default ;
+    GetDigitalEmployeeEntityDataResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetDigitalEmployeeEntityDataResponseBody() = default ;
+    GetDigitalEmployeeEntityDataResponseBody& operator=(const GetDigitalEmployeeEntityDataResponseBody &) = default ;
+    GetDigitalEmployeeEntityDataResponseBody& operator=(GetDigitalEmployeeEntityDataResponseBody &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class ResponseStatus : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const ResponseStatus& obj) { 
+        DARABONBA_PTR_TO_JSON(level, level_);
+        DARABONBA_PTR_TO_JSON(result, result_);
+        DARABONBA_PTR_TO_JSON(retryPolicy, retryPolicy_);
+        DARABONBA_PTR_TO_JSON(statusItem, statusItem_);
+      };
+      friend void from_json(const Darabonba::Json& j, ResponseStatus& obj) { 
+        DARABONBA_PTR_FROM_JSON(level, level_);
+        DARABONBA_PTR_FROM_JSON(result, result_);
+        DARABONBA_PTR_FROM_JSON(retryPolicy, retryPolicy_);
+        DARABONBA_PTR_FROM_JSON(statusItem, statusItem_);
+      };
+      ResponseStatus() = default ;
+      ResponseStatus(const ResponseStatus &) = default ;
+      ResponseStatus(ResponseStatus &&) = default ;
+      ResponseStatus(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~ResponseStatus() = default ;
+      ResponseStatus& operator=(const ResponseStatus &) = default ;
+      ResponseStatus& operator=(ResponseStatus &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class StatusItem : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const StatusItem& obj) { 
+          DARABONBA_PTR_TO_JSON(code, code_);
+          DARABONBA_PTR_TO_JSON(level, level_);
+          DARABONBA_PTR_TO_JSON(message, message_);
+          DARABONBA_PTR_TO_JSON(suggestion, suggestion_);
+        };
+        friend void from_json(const Darabonba::Json& j, StatusItem& obj) { 
+          DARABONBA_PTR_FROM_JSON(code, code_);
+          DARABONBA_PTR_FROM_JSON(level, level_);
+          DARABONBA_PTR_FROM_JSON(message, message_);
+          DARABONBA_PTR_FROM_JSON(suggestion, suggestion_);
+        };
+        StatusItem() = default ;
+        StatusItem(const StatusItem &) = default ;
+        StatusItem(StatusItem &&) = default ;
+        StatusItem(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~StatusItem() = default ;
+        StatusItem& operator=(const StatusItem &) = default ;
+        StatusItem& operator=(StatusItem &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->code_ == nullptr
+        && this->level_ == nullptr && this->message_ == nullptr && this->suggestion_ == nullptr; };
+        // code Field Functions 
+        bool hasCode() const { return this->code_ != nullptr;};
+        void deleteCode() { this->code_ = nullptr;};
+        inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
+        inline StatusItem& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+        // level Field Functions 
+        bool hasLevel() const { return this->level_ != nullptr;};
+        void deleteLevel() { this->level_ = nullptr;};
+        inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+        inline StatusItem& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
+        // message Field Functions 
+        bool hasMessage() const { return this->message_ != nullptr;};
+        void deleteMessage() { this->message_ = nullptr;};
+        inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+        inline StatusItem& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+
+
+        // suggestion Field Functions 
+        bool hasSuggestion() const { return this->suggestion_ != nullptr;};
+        void deleteSuggestion() { this->suggestion_ = nullptr;};
+        inline string getSuggestion() const { DARABONBA_PTR_GET_DEFAULT(suggestion_, "") };
+        inline StatusItem& setSuggestion(string suggestion) { DARABONBA_PTR_SET_VALUE(suggestion_, suggestion) };
+
+
+      protected:
+        // The status code.
+        shared_ptr<string> code_ {};
+        // The status level.
+        shared_ptr<string> level_ {};
+        // The status message.
+        shared_ptr<string> message_ {};
+        // The suggestion for handling the issue.
+        shared_ptr<string> suggestion_ {};
+      };
+
+      virtual bool empty() const override { return this->level_ == nullptr
+        && this->result_ == nullptr && this->retryPolicy_ == nullptr && this->statusItem_ == nullptr; };
+      // level Field Functions 
+      bool hasLevel() const { return this->level_ != nullptr;};
+      void deleteLevel() { this->level_ = nullptr;};
+      inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+      inline ResponseStatus& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
+      // result Field Functions 
+      bool hasResult() const { return this->result_ != nullptr;};
+      void deleteResult() { this->result_ = nullptr;};
+      inline string getResult() const { DARABONBA_PTR_GET_DEFAULT(result_, "") };
+      inline ResponseStatus& setResult(string result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+
+
+      // retryPolicy Field Functions 
+      bool hasRetryPolicy() const { return this->retryPolicy_ != nullptr;};
+      void deleteRetryPolicy() { this->retryPolicy_ = nullptr;};
+      inline string getRetryPolicy() const { DARABONBA_PTR_GET_DEFAULT(retryPolicy_, "") };
+      inline ResponseStatus& setRetryPolicy(string retryPolicy) { DARABONBA_PTR_SET_VALUE(retryPolicy_, retryPolicy) };
+
+
+      // statusItem Field Functions 
+      bool hasStatusItem() const { return this->statusItem_ != nullptr;};
+      void deleteStatusItem() { this->statusItem_ = nullptr;};
+      inline const vector<ResponseStatus::StatusItem> & getStatusItem() const { DARABONBA_PTR_GET_CONST(statusItem_, vector<ResponseStatus::StatusItem>) };
+      inline vector<ResponseStatus::StatusItem> getStatusItem() { DARABONBA_PTR_GET(statusItem_, vector<ResponseStatus::StatusItem>) };
+      inline ResponseStatus& setStatusItem(const vector<ResponseStatus::StatusItem> & statusItem) { DARABONBA_PTR_SET_VALUE(statusItem_, statusItem) };
+      inline ResponseStatus& setStatusItem(vector<ResponseStatus::StatusItem> && statusItem) { DARABONBA_PTR_SET_RVALUE(statusItem_, statusItem) };
+
+
+    protected:
+      // The status level.
+      shared_ptr<string> level_ {};
+      // The query result status.
+      shared_ptr<string> result_ {};
+      // The retry suggestion.
+      shared_ptr<string> retryPolicy_ {};
+      // The list of status details.
+      shared_ptr<vector<ResponseStatus::StatusItem>> statusItem_ {};
+    };
+
+    virtual bool empty() const override { return this->data_ == nullptr
+        && this->header_ == nullptr && this->requestId_ == nullptr && this->responseStatus_ == nullptr; };
+    // data Field Functions 
+    bool hasData() const { return this->data_ != nullptr;};
+    void deleteData() { this->data_ = nullptr;};
+    inline const vector<vector<string>> & getData() const { DARABONBA_PTR_GET_CONST(data_, vector<vector<string>>) };
+    inline vector<vector<string>> getData() { DARABONBA_PTR_GET(data_, vector<vector<string>>) };
+    inline GetDigitalEmployeeEntityDataResponseBody& setData(const vector<vector<string>> & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetDigitalEmployeeEntityDataResponseBody& setData(vector<vector<string>> && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+
+
+    // header Field Functions 
+    bool hasHeader() const { return this->header_ != nullptr;};
+    void deleteHeader() { this->header_ = nullptr;};
+    inline const vector<string> & getHeader() const { DARABONBA_PTR_GET_CONST(header_, vector<string>) };
+    inline vector<string> getHeader() { DARABONBA_PTR_GET(header_, vector<string>) };
+    inline GetDigitalEmployeeEntityDataResponseBody& setHeader(const vector<string> & header) { DARABONBA_PTR_SET_VALUE(header_, header) };
+    inline GetDigitalEmployeeEntityDataResponseBody& setHeader(vector<string> && header) { DARABONBA_PTR_SET_RVALUE(header_, header) };
+
+
+    // requestId Field Functions 
+    bool hasRequestId() const { return this->requestId_ != nullptr;};
+    void deleteRequestId() { this->requestId_ = nullptr;};
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline GetDigitalEmployeeEntityDataResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // responseStatus Field Functions 
+    bool hasResponseStatus() const { return this->responseStatus_ != nullptr;};
+    void deleteResponseStatus() { this->responseStatus_ = nullptr;};
+    inline const GetDigitalEmployeeEntityDataResponseBody::ResponseStatus & getResponseStatus() const { DARABONBA_PTR_GET_CONST(responseStatus_, GetDigitalEmployeeEntityDataResponseBody::ResponseStatus) };
+    inline GetDigitalEmployeeEntityDataResponseBody::ResponseStatus getResponseStatus() { DARABONBA_PTR_GET(responseStatus_, GetDigitalEmployeeEntityDataResponseBody::ResponseStatus) };
+    inline GetDigitalEmployeeEntityDataResponseBody& setResponseStatus(const GetDigitalEmployeeEntityDataResponseBody::ResponseStatus & responseStatus) { DARABONBA_PTR_SET_VALUE(responseStatus_, responseStatus) };
+    inline GetDigitalEmployeeEntityDataResponseBody& setResponseStatus(GetDigitalEmployeeEntityDataResponseBody::ResponseStatus && responseStatus) { DARABONBA_PTR_SET_RVALUE(responseStatus_, responseStatus) };
+
+
+  protected:
+    // The query results in the form of a two-dimensional array. Each cell is returned as a string.
+    shared_ptr<vector<vector<string>>> data_ {};
+    // The name of each column in the query results.
+    shared_ptr<vector<string>> header_ {};
+    // The unique identifier of the request, which is generated by the STAROps access layer.
+    shared_ptr<string> requestId_ {};
+    // The completion status, retry suggestions, and execution status of the query.
+    shared_ptr<GetDigitalEmployeeEntityDataResponseBody::ResponseStatus> responseStatus_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace STAROps20260428
+#endif

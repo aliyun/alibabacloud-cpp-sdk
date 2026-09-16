@@ -17,6 +17,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const GetDigitalEmployeeResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(attributes, attributes_);
+      DARABONBA_PTR_TO_JSON(channel, channel_);
       DARABONBA_PTR_TO_JSON(createTime, createTime_);
       DARABONBA_PTR_TO_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_TO_JSON(description, description_);
@@ -35,6 +36,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, GetDigitalEmployeeResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(attributes, attributes_);
+      DARABONBA_PTR_FROM_JSON(channel, channel_);
       DARABONBA_PTR_FROM_JSON(createTime, createTime_);
       DARABONBA_PTR_FROM_JSON(defaultRule, defaultRule_);
       DARABONBA_PTR_FROM_JSON(description, description_);
@@ -213,13 +215,13 @@ namespace Models
 
 
       protected:
-        // The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched requests are automatically approved without human confirmation. If empty or not configured, built-in read-only operations (Get*, List*, Describe*) are automatically approved. Unmatched requests require human-in-the-loop (HIL) confirmation.
+        // The auto-pass policy. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. Matched actions are automatically approved without human confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, Describe*) are automatically approved. Unmatched actions require human-in-the-loop (HIL) confirmation.
         shared_ptr<vector<string>> autoPassPolicy_ {};
-        // The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If empty or not configured, no operations are actively denied. STAROps directly rejects matched requests. The Pop side performs a secondary fallback check.
+        // The explicit deny policy with the highest priority. Each entry is a RAM Action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no actions are actively denied. STAROps directly denies matched actions. The Pop side performs secondary fallback enforcement.
         shared_ptr<vector<string>> denyPolicy_ {};
         // Indicates whether the policy is enabled.
         shared_ptr<bool> enable_ {};
-        // The list of Aliyun CLI tool policy statements.
+        // The list of Alibaba Cloud CLI tool policy statements.
         shared_ptr<vector<Aliyun::Statements>> statements_ {};
       };
 
@@ -234,7 +236,7 @@ namespace Models
 
 
     protected:
-      // The security policy configuration for Aliyun CLI tool calling.
+      // The security policy configuration for Alibaba Cloud CLI tool calling invokes.
       shared_ptr<ToolPolicy::Aliyun> aliyun_ {};
     };
 
@@ -412,9 +414,10 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->attributes_ == nullptr
-        && this->createTime_ == nullptr && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->employeeType_ == nullptr
-        && this->knowledges_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->roleArn_ == nullptr && this->sandboxNetworkPolicy_ == nullptr && this->tags_ == nullptr && this->toolPolicy_ == nullptr && this->updateTime_ == nullptr; };
+        && this->channel_ == nullptr && this->createTime_ == nullptr && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr
+        && this->employeeType_ == nullptr && this->knowledges_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->roleArn_ == nullptr && this->sandboxNetworkPolicy_ == nullptr && this->tags_ == nullptr && this->toolPolicy_ == nullptr
+        && this->updateTime_ == nullptr; };
     // attributes Field Functions 
     bool hasAttributes() const { return this->attributes_ != nullptr;};
     void deleteAttributes() { this->attributes_ = nullptr;};
@@ -422,6 +425,13 @@ namespace Models
     inline map<string, string> getAttributes() { DARABONBA_PTR_GET(attributes_, map<string, string>) };
     inline GetDigitalEmployeeResponseBody& setAttributes(const map<string, string> & attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
     inline GetDigitalEmployeeResponseBody& setAttributes(map<string, string> && attributes) { DARABONBA_PTR_SET_RVALUE(attributes_, attributes) };
+
+
+    // channel Field Functions 
+    bool hasChannel() const { return this->channel_ != nullptr;};
+    void deleteChannel() { this->channel_ = nullptr;};
+    inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+    inline GetDigitalEmployeeResponseBody& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
     // createTime Field Functions 
@@ -540,6 +550,8 @@ namespace Models
   protected:
     // The attributes.
     shared_ptr<map<string, string>> attributes_ {};
+    // The channel type.
+    shared_ptr<string> channel_ {};
     // The creation time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
@@ -564,13 +576,13 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     // The Alibaba Cloud Resource Name (ARN) of the RAM role.
     shared_ptr<string> roleArn_ {};
-    // The sandbox network ACL policy configuration for the digital employee.
+    // The sandbox network ACL policy configuration of the digital employee.
     shared_ptr<GetDigitalEmployeeResponseBody::SandboxNetworkPolicy> sandboxNetworkPolicy_ {};
     // The tags.
     shared_ptr<vector<Tag>> tags_ {};
     // The tool policy.
     shared_ptr<GetDigitalEmployeeResponseBody::ToolPolicy> toolPolicy_ {};
-    // The update time.
+    // The modification time.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
     shared_ptr<string> updateTime_ {};

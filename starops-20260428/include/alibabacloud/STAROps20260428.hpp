@@ -227,6 +227,24 @@ namespace STAROps20260428
       Models::DeleteDigitalEmployeeSkillResponse deleteDigitalEmployeeSkill(const string &name, const string &skillName, const Models::DeleteDigitalEmployeeSkillRequest &request);
 
       /**
+       * @summary Deletes a public schema reference from a digital employee UModel.
+       *
+       * @param request DeleteDigitalEmployeeUmodelCommonSchemaRefRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+       */
+      Models::DeleteDigitalEmployeeUmodelCommonSchemaRefResponse deleteDigitalEmployeeUmodelCommonSchemaRefWithOptions(const string &name, const string &group, const Models::DeleteDigitalEmployeeUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes a public schema reference from a digital employee UModel.
+       *
+       * @param request DeleteDigitalEmployeeUmodelCommonSchemaRefRequest
+       * @return DeleteDigitalEmployeeUmodelCommonSchemaRefResponse
+       */
+      Models::DeleteDigitalEmployeeUmodelCommonSchemaRefResponse deleteDigitalEmployeeUmodelCommonSchemaRef(const string &name, const string &group, const Models::DeleteDigitalEmployeeUmodelCommonSchemaRefRequest &request);
+
+      /**
        * @summary Deletes an MCP service.
        *
        * @param request DeleteMcpServiceRequest
@@ -351,6 +369,24 @@ namespace STAROps20260428
       Models::GetDigitalEmployeeResponse getDigitalEmployee(const string &name, const Models::GetDigitalEmployeeRequest &request);
 
       /**
+       * @summary Queries the entity data of a digital employee.
+       *
+       * @param request GetDigitalEmployeeEntityDataRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDigitalEmployeeEntityDataResponse
+       */
+      Models::GetDigitalEmployeeEntityDataResponse getDigitalEmployeeEntityDataWithOptions(const string &name, const Models::GetDigitalEmployeeEntityDataRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the entity data of a digital employee.
+       *
+       * @param request GetDigitalEmployeeEntityDataRequest
+       * @return GetDigitalEmployeeEntityDataResponse
+       */
+      Models::GetDigitalEmployeeEntityDataResponse getDigitalEmployeeEntityData(const string &name, const Models::GetDigitalEmployeeEntityDataRequest &request);
+
+      /**
        * @summary Retrieves the details of a specific skill.
        *
        * @description Retrieves the details of a specified skill for a digital employee.
@@ -371,6 +407,24 @@ namespace STAROps20260428
        * @return GetDigitalEmployeeSkillResponse
        */
       Models::GetDigitalEmployeeSkillResponse getDigitalEmployeeSkill(const string &name, const string &skillName, const Models::GetDigitalEmployeeSkillRequest &request);
+
+      /**
+       * @summary Queries the UModel of a digital employee.
+       *
+       * @param request GetDigitalEmployeeUmodelRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetDigitalEmployeeUmodelResponse
+       */
+      Models::GetDigitalEmployeeUmodelResponse getDigitalEmployeeUmodelWithOptions(const string &name, const Models::GetDigitalEmployeeUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the UModel of a digital employee.
+       *
+       * @param request GetDigitalEmployeeUmodelRequest
+       * @return GetDigitalEmployeeUmodelResponse
+       */
+      Models::GetDigitalEmployeeUmodelResponse getDigitalEmployeeUmodel(const string &name, const Models::GetDigitalEmployeeUmodelRequest &request);
 
       /**
        * @summary Queries an MCP service.
@@ -607,6 +661,24 @@ namespace STAROps20260428
       Models::UpdateDigitalEmployeeSkillResponse updateDigitalEmployeeSkill(const string &name, const string &skillName, const Models::UpdateDigitalEmployeeSkillRequest &request);
 
       /**
+       * @summary Updates the UModel of a digital human.
+       *
+       * @param request UpdateDigitalEmployeeUmodelRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateDigitalEmployeeUmodelResponse
+       */
+      Models::UpdateDigitalEmployeeUmodelResponse updateDigitalEmployeeUmodelWithOptions(const string &name, const Models::UpdateDigitalEmployeeUmodelRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates the UModel of a digital human.
+       *
+       * @param request UpdateDigitalEmployeeUmodelRequest
+       * @return UpdateDigitalEmployeeUmodelResponse
+       */
+      Models::UpdateDigitalEmployeeUmodelResponse updateDigitalEmployeeUmodel(const string &name, const Models::UpdateDigitalEmployeeUmodelRequest &request);
+
+      /**
        * @summary Updates an MCP service.
        *
        * @param request UpdateMcpServiceRequest
@@ -645,6 +717,24 @@ namespace STAROps20260428
        * @return UpdateThreadResponse
        */
       Models::UpdateThreadResponse updateThread(const string &name, const string &threadId, const Models::UpdateThreadRequest &request);
+
+      /**
+       * @summary Creates or updates a public schema reference for a digital employee UModel.
+       *
+       * @param request UpsertDigitalEmployeeUmodelCommonSchemaRefRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+       */
+      Models::UpsertDigitalEmployeeUmodelCommonSchemaRefResponse upsertDigitalEmployeeUmodelCommonSchemaRefWithOptions(const string &name, const string &group, const Models::UpsertDigitalEmployeeUmodelCommonSchemaRefRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates or updates a public schema reference for a digital employee UModel.
+       *
+       * @param request UpsertDigitalEmployeeUmodelCommonSchemaRefRequest
+       * @return UpsertDigitalEmployeeUmodelCommonSchemaRefResponse
+       */
+      Models::UpsertDigitalEmployeeUmodelCommonSchemaRefResponse upsertDigitalEmployeeUmodelCommonSchemaRef(const string &name, const string &group, const Models::UpsertDigitalEmployeeUmodelCommonSchemaRefRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace STAROps20260428

@@ -44,6 +44,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const DigitalEmployees& obj) { 
         DARABONBA_PTR_TO_JSON(attributes, attributes_);
+        DARABONBA_PTR_TO_JSON(channel, channel_);
         DARABONBA_PTR_TO_JSON(createTime, createTime_);
         DARABONBA_PTR_TO_JSON(defaultRule, defaultRule_);
         DARABONBA_PTR_TO_JSON(description, description_);
@@ -58,6 +59,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, DigitalEmployees& obj) { 
         DARABONBA_PTR_FROM_JSON(attributes, attributes_);
+        DARABONBA_PTR_FROM_JSON(channel, channel_);
         DARABONBA_PTR_FROM_JSON(createTime, createTime_);
         DARABONBA_PTR_FROM_JSON(defaultRule, defaultRule_);
         DARABONBA_PTR_FROM_JSON(description, description_);
@@ -158,7 +160,7 @@ namespace Models
 
 
         protected:
-          // The attributes of the knowledge base.
+          // The knowledge base attributes.
           shared_ptr<string> attributes_ {};
           // The Bailian index ID.
           shared_ptr<string> indexId_ {};
@@ -196,9 +198,9 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->attributes_ == nullptr
-        && this->createTime_ == nullptr && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr && this->employeeType_ == nullptr
-        && this->knowledges_ == nullptr && this->name_ == nullptr && this->resourceGroupId_ == nullptr && this->roleArn_ == nullptr && this->tags_ == nullptr
-        && this->updateTime_ == nullptr; };
+        && this->channel_ == nullptr && this->createTime_ == nullptr && this->defaultRule_ == nullptr && this->description_ == nullptr && this->displayName_ == nullptr
+        && this->employeeType_ == nullptr && this->knowledges_ == nullptr && this->name_ == nullptr && this->resourceGroupId_ == nullptr && this->roleArn_ == nullptr
+        && this->tags_ == nullptr && this->updateTime_ == nullptr; };
       // attributes Field Functions 
       bool hasAttributes() const { return this->attributes_ != nullptr;};
       void deleteAttributes() { this->attributes_ = nullptr;};
@@ -206,6 +208,13 @@ namespace Models
       inline map<string, string> getAttributes() { DARABONBA_PTR_GET(attributes_, map<string, string>) };
       inline DigitalEmployees& setAttributes(const map<string, string> & attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
       inline DigitalEmployees& setAttributes(map<string, string> && attributes) { DARABONBA_PTR_SET_RVALUE(attributes_, attributes) };
+
+
+      // channel Field Functions 
+      bool hasChannel() const { return this->channel_ != nullptr;};
+      void deleteChannel() { this->channel_ = nullptr;};
+      inline string getChannel() const { DARABONBA_PTR_GET_DEFAULT(channel_, "") };
+      inline DigitalEmployees& setChannel(string channel) { DARABONBA_PTR_SET_VALUE(channel_, channel) };
 
 
       // createTime Field Functions 
@@ -290,7 +299,10 @@ namespace Models
 
 
     protected:
+      // The attributes.
       shared_ptr<map<string, string>> attributes_ {};
+      // The channel type of the digital employee.
+      shared_ptr<string> channel_ {};
       // The creation time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
@@ -313,7 +325,7 @@ namespace Models
       shared_ptr<string> roleArn_ {};
       // The tags.
       shared_ptr<vector<Tag>> tags_ {};
-      // The modification time.
+      // The update time.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
