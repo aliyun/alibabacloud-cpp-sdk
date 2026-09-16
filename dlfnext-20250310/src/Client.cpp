@@ -2436,7 +2436,7 @@ ListPartitionSummariesResponse Client::listPartitionSummaries(const string &cata
 }
 
 /**
- * @summary Lists partitions.
+ * @summary Lists the partitions of a data table.
  *
  * @param request ListPartitionsRequest
  * @param headers map
@@ -2477,7 +2477,7 @@ ListPartitionsResponse Client::listPartitionsWithOptions(const string &catalogId
 }
 
 /**
- * @summary Lists partitions.
+ * @summary Lists the partitions of a data table.
  *
  * @param request ListPartitionsRequest
  * @return ListPartitionsResponse

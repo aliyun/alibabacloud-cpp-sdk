@@ -959,7 +959,7 @@ namespace DlfNext20250310
       Models::ListPartitionSummariesResponse listPartitionSummaries(const string &catalogId, const string &database, const string &table, const Models::ListPartitionSummariesRequest &request);
 
       /**
-       * @summary Lists partitions.
+       * @summary Lists the partitions of a data table.
        *
        * @param request ListPartitionsRequest
        * @param headers map
@@ -969,7 +969,7 @@ namespace DlfNext20250310
       Models::ListPartitionsResponse listPartitionsWithOptions(const string &catalogId, const string &database, const string &table, const Models::ListPartitionsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Lists partitions.
+       * @summary Lists the partitions of a data table.
        *
        * @param request ListPartitionsRequest
        * @return ListPartitionsResponse

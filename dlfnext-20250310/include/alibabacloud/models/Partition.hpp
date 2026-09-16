@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_PARTITION_HPP_
 #define ALIBABACLOUD_MODELS_PARTITION_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -19,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(fileCount, fileCount_);
       DARABONBA_PTR_TO_JSON(fileSizeInBytes, fileSizeInBytes_);
       DARABONBA_PTR_TO_JSON(lastFileCreationTime, lastFileCreationTime_);
+      DARABONBA_PTR_TO_JSON(options, options_);
       DARABONBA_PTR_TO_JSON(recordCount, recordCount_);
       DARABONBA_ANY_TO_JSON(spec, spec_);
       DARABONBA_PTR_TO_JSON(storageAction, storageAction_);
@@ -35,6 +37,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(fileCount, fileCount_);
       DARABONBA_PTR_FROM_JSON(fileSizeInBytes, fileSizeInBytes_);
       DARABONBA_PTR_FROM_JSON(lastFileCreationTime, lastFileCreationTime_);
+      DARABONBA_PTR_FROM_JSON(options, options_);
       DARABONBA_PTR_FROM_JSON(recordCount, recordCount_);
       DARABONBA_ANY_FROM_JSON(spec, spec_);
       DARABONBA_PTR_FROM_JSON(storageAction, storageAction_);
@@ -57,8 +60,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->createdAt_ == nullptr
         && this->createdBy_ == nullptr && this->done_ == nullptr && this->fileCount_ == nullptr && this->fileSizeInBytes_ == nullptr && this->lastFileCreationTime_ == nullptr
-        && this->recordCount_ == nullptr && this->spec_ == nullptr && this->storageAction_ == nullptr && this->storageActionTimestamp_ == nullptr && this->storageClass_ == nullptr
-        && this->totalBuckets_ == nullptr && this->updatedAt_ == nullptr && this->updatedBy_ == nullptr; };
+        && this->options_ == nullptr && this->recordCount_ == nullptr && this->spec_ == nullptr && this->storageAction_ == nullptr && this->storageActionTimestamp_ == nullptr
+        && this->storageClass_ == nullptr && this->totalBuckets_ == nullptr && this->updatedAt_ == nullptr && this->updatedBy_ == nullptr; };
     // createdAt Field Functions 
     bool hasCreatedAt() const { return this->createdAt_ != nullptr;};
     void deleteCreatedAt() { this->createdAt_ = nullptr;};
@@ -99,6 +102,15 @@ namespace Models
     void deleteLastFileCreationTime() { this->lastFileCreationTime_ = nullptr;};
     inline int64_t getLastFileCreationTime() const { DARABONBA_PTR_GET_DEFAULT(lastFileCreationTime_, 0L) };
     inline Partition& setLastFileCreationTime(int64_t lastFileCreationTime) { DARABONBA_PTR_SET_VALUE(lastFileCreationTime_, lastFileCreationTime) };
+
+
+    // options Field Functions 
+    bool hasOptions() const { return this->options_ != nullptr;};
+    void deleteOptions() { this->options_ = nullptr;};
+    inline const map<string, string> & getOptions() const { DARABONBA_PTR_GET_CONST(options_, map<string, string>) };
+    inline map<string, string> getOptions() { DARABONBA_PTR_GET(options_, map<string, string>) };
+    inline Partition& setOptions(const map<string, string> & options) { DARABONBA_PTR_SET_VALUE(options_, options) };
+    inline Partition& setOptions(map<string, string> && options) { DARABONBA_PTR_SET_RVALUE(options_, options) };
 
 
     // recordCount Field Functions 
@@ -172,6 +184,7 @@ namespace Models
     shared_ptr<int64_t> fileSizeInBytes_ {};
     // The time when the latest file was created.
     shared_ptr<int64_t> lastFileCreationTime_ {};
+    shared_ptr<map<string, string>> options_ {};
     // The number of records.
     shared_ptr<int64_t> recordCount_ {};
     // The key-value pairs of the partition values.
