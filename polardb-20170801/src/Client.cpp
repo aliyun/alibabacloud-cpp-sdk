@@ -10120,7 +10120,7 @@ DescribeAIDBClusterApiKeysResponse Client::describeAIDBClusterApiKeys(const Desc
 }
 
 /**
- * @summary Queries the detailed attributes of a custom instance.
+ * @summary Queries the details of a custom instance.
  *
  * @param request DescribeAIDBClusterAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10167,7 +10167,7 @@ DescribeAIDBClusterAttributeResponse Client::describeAIDBClusterAttributeWithOpt
 }
 
 /**
- * @summary Queries the detailed attributes of a custom instance.
+ * @summary Queries the details of a custom instance.
  *
  * @param request DescribeAIDBClusterAttributeRequest
  * @return DescribeAIDBClusterAttributeResponse
@@ -12578,7 +12578,7 @@ DescribeAvailableCrossRegionsResponse Client::describeAvailableCrossRegions(cons
 }
 
 /**
- * @summary Retrieves the list of AI cluster models.
+ * @summary Retrieves the list of models in an AI cluster.
  *
  * @param request DescribeAvailableModelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12589,6 +12589,10 @@ DescribeAvailableModelsResponse Client::describeAvailableModelsWithOptions(const
   json query = {};
   if (!!request.hasKubeType()) {
     query["KubeType"] = request.getKubeType();
+  }
+
+  if (!!request.hasModelType()) {
+    query["ModelType"] = request.getModelType();
   }
 
   if (!!request.hasRegionId()) {
@@ -12613,7 +12617,7 @@ DescribeAvailableModelsResponse Client::describeAvailableModelsWithOptions(const
 }
 
 /**
- * @summary Retrieves the list of AI cluster models.
+ * @summary Retrieves the list of models in an AI cluster.
  *
  * @param request DescribeAvailableModelsRequest
  * @return DescribeAvailableModelsResponse

@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AiNodeType, aiNodeType_);
       DARABONBA_PTR_TO_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_TO_JSON(CreationTime, creationTime_);
+      DARABONBA_PTR_TO_JSON(CustomOssPath, customOssPath_);
       DARABONBA_PTR_TO_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_TO_JSON(DBClusterStatus, DBClusterStatus_);
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ModelSpaceName, modelSpaceName_);
       DARABONBA_PTR_TO_JSON(ModelType, modelType_);
       DARABONBA_PTR_TO_JSON(PayType, payType_);
+      DARABONBA_PTR_TO_JSON(PreviousCustomOssPath, previousCustomOssPath_);
       DARABONBA_PTR_TO_JSON(PublicIp, publicIp_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -58,6 +60,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AiNodeType, aiNodeType_);
       DARABONBA_PTR_FROM_JSON(ApiKey, apiKey_);
       DARABONBA_PTR_FROM_JSON(CreationTime, creationTime_);
+      DARABONBA_PTR_FROM_JSON(CustomOssPath, customOssPath_);
       DARABONBA_PTR_FROM_JSON(DBClusterDescription, DBClusterDescription_);
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
       DARABONBA_PTR_FROM_JSON(DBClusterStatus, DBClusterStatus_);
@@ -81,6 +84,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ModelSpaceName, modelSpaceName_);
       DARABONBA_PTR_FROM_JSON(ModelType, modelType_);
       DARABONBA_PTR_FROM_JSON(PayType, payType_);
+      DARABONBA_PTR_FROM_JSON(PreviousCustomOssPath, previousCustomOssPath_);
       DARABONBA_PTR_FROM_JSON(PublicIp, publicIp_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -173,13 +177,13 @@ namespace Models
     protected:
       // The mount path inside the container.
       shared_ptr<string> mountPath_ {};
-      // The disk name.
+      // The cloud disk name.
       shared_ptr<string> name_ {};
       // The storage size.
       shared_ptr<string> sizeGB_ {};
       // The storage type.
       shared_ptr<string> storageCategory_ {};
-      // The storage class.
+      // The storage category.
       shared_ptr<string> storageType_ {};
     };
 
@@ -467,9 +471,9 @@ namespace Models
         // The database connection address.
         shared_ptr<string> connectionString_ {};
         // The network type of the connection string. Valid values:
-        // * **Public**: public endpoint.
-        // * **Private**: private endpoint.
-        // * **Inner**: private endpoint (classic network).
+        // * **Public**: public endpoint
+        // * **Private**: private endpoint
+        // * **Inner**: private endpoint (classic network)
         shared_ptr<string> netType_ {};
         // The port number.
         shared_ptr<string> port_ {};
@@ -673,13 +677,13 @@ namespace Models
       protected:
         // The actual mount path.
         shared_ptr<string> mountPath_ {};
-        // The disk name.
+        // The cloud disk name.
         shared_ptr<string> name_ {};
-        // The storage size.
+        // The size of the storage cloud disk.
         shared_ptr<string> sizeGB_ {};
         // The storage type.
         shared_ptr<string> storageCategory_ {};
-        // The storage class.
+        // The storage category.
         shared_ptr<string> storageType_ {};
       };
 
@@ -825,16 +829,16 @@ namespace Models
       // The node ID.
       shared_ptr<string> DBNodeId_ {};
       // The node status. Valid values:
-      // * **Creating**: Being created. 
-      // * **Running**: Running. 
-      // * **Deleting**: Being deleted.  
-      // * **Rebooting**: Restarting.  
-      // * **DBNodeCreating**: Adding a node.  
-      // * **DBNodeDeleting**: Deleting a node. 
-      // * **ClassChanging**: Changing node specifications.  
-      // * **MinorVersionUpgrading**: Performing a minor version upgrade.
-      // * **Maintaining**: Under maintenance.  
-      // * **Switching**: Switching.
+      // * **Creating**: The node is being created. 
+      // * **Running**: The node is running. 
+      // * **Deleting**: The node is being deleted.  
+      // * **Rebooting**: The node is being restarted.  
+      // * **DBNodeCreating**: A node is being added.  
+      // * **DBNodeDeleting**: A node is being deleted. 
+      // * **ClassChanging**: The node specifications are being changed.  
+      // * **MinorVersionUpgrading**: A minor engine version update is in progress.
+      // * **Maintaining**: The instance is under maintenance.  
+      // * **Switching**: A switchover is in progress.
       shared_ptr<string> DBNodeStatus_ {};
       // The number of GPU cards.
       shared_ptr<string> GPU_ {};
@@ -847,7 +851,7 @@ namespace Models
       shared_ptr<string> publicIp_ {};
       // The supported APIs.
       shared_ptr<vector<DBNodes::SupportedApis>> supportedApis_ {};
-      // The Kubernetes virtual node ID.
+      // The ID of the Kubernetes virtual node.
       shared_ptr<string> VNodeId_ {};
       // The VPC ID.
       shared_ptr<string> VPCId_ {};
@@ -858,14 +862,14 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->aiNodeType_ == nullptr
-        && this->apiKey_ == nullptr && this->creationTime_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr && this->DBClusterStatus_ == nullptr
-        && this->DBInstanceStatusDesc_ == nullptr && this->DBNodes_ == nullptr && this->DBVersion_ == nullptr && this->dedicatedHostModel_ == nullptr && this->ecsSecurityGroupId_ == nullptr
-        && this->endpointList_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->gatewayId_ == nullptr && this->inferenceEngine_ == nullptr
-        && this->internalIp_ == nullptr && this->KVCacheInstanceId_ == nullptr && this->kubeClusterId_ == nullptr && this->lockMode_ == nullptr && this->maxQPM_ == nullptr
-        && this->maxTPM_ == nullptr && this->modelName_ == nullptr && this->modelSpaceName_ == nullptr && this->modelType_ == nullptr && this->payType_ == nullptr
-        && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->runType_ == nullptr && this->storageType_ == nullptr
-        && this->timeSlicesInfo_ == nullptr && this->timeSlicesType_ == nullptr && this->VPCId_ == nullptr && this->vSwitchId_ == nullptr && this->vnodeKubernetesConfig_ == nullptr
-        && this->volumes_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
+        && this->apiKey_ == nullptr && this->creationTime_ == nullptr && this->customOssPath_ == nullptr && this->DBClusterDescription_ == nullptr && this->DBClusterId_ == nullptr
+        && this->DBClusterStatus_ == nullptr && this->DBInstanceStatusDesc_ == nullptr && this->DBNodes_ == nullptr && this->DBVersion_ == nullptr && this->dedicatedHostModel_ == nullptr
+        && this->ecsSecurityGroupId_ == nullptr && this->endpointList_ == nullptr && this->expireTime_ == nullptr && this->expired_ == nullptr && this->gatewayId_ == nullptr
+        && this->inferenceEngine_ == nullptr && this->internalIp_ == nullptr && this->KVCacheInstanceId_ == nullptr && this->kubeClusterId_ == nullptr && this->lockMode_ == nullptr
+        && this->maxQPM_ == nullptr && this->maxTPM_ == nullptr && this->modelName_ == nullptr && this->modelSpaceName_ == nullptr && this->modelType_ == nullptr
+        && this->payType_ == nullptr && this->previousCustomOssPath_ == nullptr && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr
+        && this->runType_ == nullptr && this->storageType_ == nullptr && this->timeSlicesInfo_ == nullptr && this->timeSlicesType_ == nullptr && this->VPCId_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vnodeKubernetesConfig_ == nullptr && this->volumes_ == nullptr && this->zoneId_ == nullptr && this->zoneIds_ == nullptr; };
     // aiNodeType Field Functions 
     bool hasAiNodeType() const { return this->aiNodeType_ != nullptr;};
     void deleteAiNodeType() { this->aiNodeType_ = nullptr;};
@@ -885,6 +889,13 @@ namespace Models
     void deleteCreationTime() { this->creationTime_ = nullptr;};
     inline string getCreationTime() const { DARABONBA_PTR_GET_DEFAULT(creationTime_, "") };
     inline DescribeAIDBClusterAttributeResponseBody& setCreationTime(string creationTime) { DARABONBA_PTR_SET_VALUE(creationTime_, creationTime) };
+
+
+    // customOssPath Field Functions 
+    bool hasCustomOssPath() const { return this->customOssPath_ != nullptr;};
+    void deleteCustomOssPath() { this->customOssPath_ = nullptr;};
+    inline string getCustomOssPath() const { DARABONBA_PTR_GET_DEFAULT(customOssPath_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setCustomOssPath(string customOssPath) { DARABONBA_PTR_SET_VALUE(customOssPath_, customOssPath) };
 
 
     // DBClusterDescription Field Functions 
@@ -1052,6 +1063,13 @@ namespace Models
     inline DescribeAIDBClusterAttributeResponseBody& setPayType(string payType) { DARABONBA_PTR_SET_VALUE(payType_, payType) };
 
 
+    // previousCustomOssPath Field Functions 
+    bool hasPreviousCustomOssPath() const { return this->previousCustomOssPath_ != nullptr;};
+    void deletePreviousCustomOssPath() { this->previousCustomOssPath_ = nullptr;};
+    inline string getPreviousCustomOssPath() const { DARABONBA_PTR_GET_DEFAULT(previousCustomOssPath_, "") };
+    inline DescribeAIDBClusterAttributeResponseBody& setPreviousCustomOssPath(string previousCustomOssPath) { DARABONBA_PTR_SET_VALUE(previousCustomOssPath_, previousCustomOssPath) };
+
+
     // publicIp Field Functions 
     bool hasPublicIp() const { return this->publicIp_ != nullptr;};
     void deletePublicIp() { this->publicIp_ = nullptr;};
@@ -1151,30 +1169,32 @@ namespace Models
 
   protected:
     // The node type. Valid values:
-    // - vnode: ACK-managed.
-    // - container: loginable container.
-    // - maas: model service.
+    // - vnode: managed by ACK
+    // - container: loginable container
+    // - maas: model service
     shared_ptr<string> aiNodeType_ {};
     // The API key.
     shared_ptr<string> apiKey_ {};
-    // The cluster creation time.
+    // The time when the cluster was created.
     shared_ptr<string> creationTime_ {};
+    // The custom model OSS path currently used by the instance.
+    shared_ptr<string> customOssPath_ {};
     // The cluster description. Fuzzy match is supported.
     shared_ptr<string> DBClusterDescription_ {};
     // The cluster ID.
     shared_ptr<string> DBClusterId_ {};
     // The cluster status. Valid values:
     // 
-    // - **Creating**: Being created.
-    // - **Running**: Running.
-    // - **Deleting**: Being released.
-    // - **DBNodeCreating**: Adding a node.
-    // - **DBNodeDeleting**: Deleting a node.
-    // - **ClassChanging**: Changing node specifications. 
-    // - **Deleted**: Released.
+    // - **Creating**: The cluster is being created.
+    // - **Running**: The cluster is running.
+    // - **Deleting**: The cluster is being released.
+    // - **DBNodeCreating**: A node is being added.
+    // - **DBNodeDeleting**: A node is being deleted.
+    // - **ClassChanging**: The node specifications are being changed. 
+    // - **Deleted**: The cluster has been released.
     shared_ptr<string> DBClusterStatus_ {};
     shared_ptr<string> DBInstanceStatusDesc_ {};
-    // The node information.
+    // The details of the nodes.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::DBNodes>> DBNodes_ {};
     // The cluster version. Valid values:
     // 
@@ -1189,9 +1209,9 @@ namespace Models
     shared_ptr<string> ecsSecurityGroupId_ {};
     // The list of network connection addresses of the instance.
     shared_ptr<vector<DescribeAIDBClusterAttributeResponseBody::EndpointList>> endpointList_ {};
-    // The cluster expiration time.
+    // The expiration time of the cluster.
     // 
-    // > Only clusters with the billing method set to **Prepaid** (subscription) return a specific value. **Postpaid** (pay-as-you-go) clusters return an empty value.
+    // > Only clusters whose billing method is **Prepaid** (subscription) return a specific value. **Postpaid** (pay-as-you-go) clusters return an empty value.
     shared_ptr<string> expireTime_ {};
     // Indicates whether the cluster has expired. Valid values:
     // 
@@ -1207,7 +1227,7 @@ namespace Models
     shared_ptr<string> KVCacheInstanceId_ {};
     // The ACK cluster ID.
     shared_ptr<string> kubeClusterId_ {};
-    // The instance lock mode. The value **lock** indicates that the instance is automatically expired or has an overdue payment.
+    // The lock mode of the instance. The value **lock** indicates that the instance is automatically expired or has an overdue payment.
     shared_ptr<string> lockMode_ {};
     // The maximum number of requests per minute.
     shared_ptr<string> maxQPM_ {};
@@ -1222,6 +1242,8 @@ namespace Models
     // - **Postpaid**: pay-as-you-go.
     // - **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
+    // The custom model OSS path before the last change.
+    shared_ptr<string> previousCustomOssPath_ {};
     // The public IP address.
     shared_ptr<string> publicIp_ {};
     // The region ID.
@@ -1229,14 +1251,14 @@ namespace Models
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The architecture type. Valid values:
-    // - container: AI container.
-    // - ainode: AI node.
+    // - container: AI container
+    // - ainode: AI node
     shared_ptr<string> runType_ {};
-    // The storage type for Enterprise Edition. Valid values:
+    // Valid values for Enterprise Edition storage type:
     // - **PSL5**
     // - **PSL4**
     // 
-    // The storage type for Standard Edition. Valid values:
+    // Valid values for Standard Edition storage type:
     // - **ESSDPL0**
     // - **ESSDPL1**
     // - **ESSDPL2**
@@ -1245,7 +1267,7 @@ namespace Models
     shared_ptr<string> storageType_ {};
     shared_ptr<DescribeAIDBClusterAttributeResponseBody::TimeSlicesInfo> timeSlicesInfo_ {};
     shared_ptr<string> timeSlicesType_ {};
-    // The VPC ID specified for the zone switchover.
+    // The VPC ID that can be specified for cross-zone switchover.
     shared_ptr<string> VPCId_ {};
     // The vSwitch ID.
     // 

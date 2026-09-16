@@ -2732,7 +2732,7 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterApiKeysResponse describeAIDBClusterApiKeys(const Models::DescribeAIDBClusterApiKeysRequest &request);
 
       /**
-       * @summary Queries the detailed attributes of a custom instance.
+       * @summary Queries the details of a custom instance.
        *
        * @param request DescribeAIDBClusterAttributeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2741,7 +2741,7 @@ namespace Polardb20170801
       Models::DescribeAIDBClusterAttributeResponse describeAIDBClusterAttributeWithOptions(const Models::DescribeAIDBClusterAttributeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the detailed attributes of a custom instance.
+       * @summary Queries the details of a custom instance.
        *
        * @param request DescribeAIDBClusterAttributeRequest
        * @return DescribeAIDBClusterAttributeResponse
@@ -3385,7 +3385,7 @@ namespace Polardb20170801
       Models::DescribeAvailableCrossRegionsResponse describeAvailableCrossRegions(const Models::DescribeAvailableCrossRegionsRequest &request);
 
       /**
-       * @summary Retrieves the list of AI cluster models.
+       * @summary Retrieves the list of models in an AI cluster.
        *
        * @param request DescribeAvailableModelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3394,7 +3394,7 @@ namespace Polardb20170801
       Models::DescribeAvailableModelsResponse describeAvailableModelsWithOptions(const Models::DescribeAvailableModelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of AI cluster models.
+       * @summary Retrieves the list of models in an AI cluster.
        *
        * @param request DescribeAvailableModelsRequest
        * @return DescribeAvailableModelsResponse

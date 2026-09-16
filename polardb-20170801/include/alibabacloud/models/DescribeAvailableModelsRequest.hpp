@@ -14,10 +14,12 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const DescribeAvailableModelsRequest& obj) { 
       DARABONBA_PTR_TO_JSON(KubeType, kubeType_);
+      DARABONBA_PTR_TO_JSON(ModelType, modelType_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeAvailableModelsRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(KubeType, kubeType_);
+      DARABONBA_PTR_FROM_JSON(ModelType, modelType_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
     };
     DescribeAvailableModelsRequest() = default ;
@@ -32,12 +34,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->kubeType_ == nullptr
-        && this->regionId_ == nullptr; };
+        && this->modelType_ == nullptr && this->regionId_ == nullptr; };
     // kubeType Field Functions 
     bool hasKubeType() const { return this->kubeType_ != nullptr;};
     void deleteKubeType() { this->kubeType_ = nullptr;};
     inline string getKubeType() const { DARABONBA_PTR_GET_DEFAULT(kubeType_, "") };
     inline DescribeAvailableModelsRequest& setKubeType(string kubeType) { DARABONBA_PTR_SET_VALUE(kubeType_, kubeType) };
+
+
+    // modelType Field Functions 
+    bool hasModelType() const { return this->modelType_ != nullptr;};
+    void deleteModelType() { this->modelType_ = nullptr;};
+    inline string getModelType() const { DARABONBA_PTR_GET_DEFAULT(modelType_, "") };
+    inline DescribeAvailableModelsRequest& setModelType(string modelType) { DARABONBA_PTR_SET_VALUE(modelType_, modelType) };
 
 
     // regionId Field Functions 
@@ -50,6 +59,8 @@ namespace Models
   protected:
     // aideploy
     shared_ptr<string> kubeType_ {};
+    // The model type. Valid values: custom or public. If this parameter is not specified, all models are returned.
+    shared_ptr<string> modelType_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
   };
