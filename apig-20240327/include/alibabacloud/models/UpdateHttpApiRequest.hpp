@@ -30,6 +30,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(protocols, protocols_);
       DARABONBA_PTR_TO_JSON(removeBasePathOnForward, removeBasePathOnForward_);
       DARABONBA_PTR_TO_JSON(versionConfig, versionConfig_);
+      DARABONBA_PTR_TO_JSON(clientToken, clientToken_);
       DARABONBA_PTR_TO_JSON(dryRun, dryRun_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateHttpApiRequest& obj) { 
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(protocols, protocols_);
       DARABONBA_PTR_FROM_JSON(removeBasePathOnForward, removeBasePathOnForward_);
       DARABONBA_PTR_FROM_JSON(versionConfig, versionConfig_);
+      DARABONBA_PTR_FROM_JSON(clientToken, clientToken_);
       DARABONBA_PTR_FROM_JSON(dryRun, dryRun_);
     };
     UpdateHttpApiRequest() = default ;
@@ -139,7 +141,7 @@ namespace Models
     virtual bool empty() const override { return this->agentProtocols_ == nullptr
         && this->aiProtocols_ == nullptr && this->authConfig_ == nullptr && this->basePath_ == nullptr && this->deployConfigs_ == nullptr && this->description_ == nullptr
         && this->enableAuth_ == nullptr && this->firstByteTimeout_ == nullptr && this->ingressConfig_ == nullptr && this->onlyChangeConfig_ == nullptr && this->protocols_ == nullptr
-        && this->removeBasePathOnForward_ == nullptr && this->versionConfig_ == nullptr && this->dryRun_ == nullptr; };
+        && this->removeBasePathOnForward_ == nullptr && this->versionConfig_ == nullptr && this->clientToken_ == nullptr && this->dryRun_ == nullptr; };
     // agentProtocols Field Functions 
     bool hasAgentProtocols() const { return this->agentProtocols_ != nullptr;};
     void deleteAgentProtocols() { this->agentProtocols_ = nullptr;};
@@ -245,6 +247,13 @@ namespace Models
     inline UpdateHttpApiRequest& setVersionConfig(HttpApiVersionConfig && versionConfig) { DARABONBA_PTR_SET_RVALUE(versionConfig_, versionConfig) };
 
 
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline UpdateHttpApiRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
     // dryRun Field Functions 
     bool hasDryRun() const { return this->dryRun_ != nullptr;};
     void deleteDryRun() { this->dryRun_ = nullptr;};
@@ -273,7 +282,7 @@ namespace Models
     shared_ptr<int32_t> firstByteTimeout_ {};
     // The configuration of the HTTP Ingress API.
     shared_ptr<UpdateHttpApiRequest::IngressConfig> ingressConfig_ {};
-    // Specifies whether to only modify the configuration. If set to true, only the configuration is modified without triggering a redeployment.
+    // Specifies whether to only modify the configuration. If this parameter is set to true, only the configuration is modified without triggering redeployment.
     shared_ptr<bool> onlyChangeConfig_ {};
     // The list of API access protocols.
     shared_ptr<vector<string>> protocols_ {};
@@ -281,7 +290,9 @@ namespace Models
     shared_ptr<bool> removeBasePathOnForward_ {};
     // The API versioning configuration.
     shared_ptr<HttpApiVersionConfig> versionConfig_ {};
-    // Specifies whether to perform only a dry run. If set to true, all synchronous validations identical to an actual update are performed, but no configurations are modified and no side effects are produced. If set to false or left empty, the behavior is the same as the existing version.
+    // The idempotent request identifier. If you call this operation for the same HTTP API with the same clientToken value and request parameters, the result of the first successful call is returned.
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform only a dry run. If this parameter is set to true, all synchronous validations identical to an actual update are performed, but no configurations are updated and no side effects are produced. If this parameter is not specified or is set to false, the behavior is the same as the existing version.
     shared_ptr<bool> dryRun_ {};
   };
 
