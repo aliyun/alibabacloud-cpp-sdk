@@ -231,9 +231,8 @@ namespace Models
         // The risk event name.
         shared_ptr<string> eventName_ {};
         // The event status. Valid values:
-        // 
-        // - **unhandled**: Not handled.
-        // - **resolved**: Handled.
+        // - **unhandled**: Unhandled.
+        // - **resolved**: Resolved.
         shared_ptr<string> eventStatus_ {};
         // The list of label items.
         shared_ptr<vector<RiskEvents::Labels>> labels_ {};
@@ -323,7 +322,7 @@ namespace Models
       shared_ptr<string> appStatus_ {};
       // The channel.
       shared_ptr<string> channel_ {};
-      // The last active time.
+      // The last active time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> lastTraceTime_ {};
       // The risk events.
       shared_ptr<vector<Items::RiskEvents>> riskEvents_ {};

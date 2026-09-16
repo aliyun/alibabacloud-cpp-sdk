@@ -206,7 +206,7 @@ namespace Models
     shared_ptr<vector<QueryCallbackByPageResponseBody::Items>> items_ {};
     // The page size.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int64_t> totalCount_ {};

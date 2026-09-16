@@ -150,7 +150,7 @@ namespace Models
 
 
       protected:
-        // The confidence score.
+        // The confidence level.
         shared_ptr<float> confidence_ {};
         // The label description.
         shared_ptr<string> description_ {};
@@ -205,7 +205,7 @@ namespace Models
 
 
       protected:
-        // The confidence score.
+        // The confidence level.
         shared_ptr<float> confidence_ {};
         // The label description.
         shared_ptr<string> description_ {};
@@ -396,7 +396,7 @@ namespace Models
 
 
     protected:
-      // The storage bucket.
+      // The OSS bucket.
       shared_ptr<string> bucket_ {};
       // The error code.
       shared_ptr<string> code_ {};
@@ -418,7 +418,7 @@ namespace Models
       shared_ptr<vector<string>> labels2_ {};
       // The manual disposition status.
       shared_ptr<string> manualFreezeAction_ {};
-      // The disposition time.
+      // The disposition time. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> manualOperateTime_ {};
       // The operator who performed the disposition.
       shared_ptr<string> manualOperator_ {};
@@ -438,7 +438,7 @@ namespace Models
       shared_ptr<string> scanResult_ {};
       // Service code。
       shared_ptr<string> serviceCode_ {};
-      // The automatic system freeze operation.
+      // The automatic freeze operation performed by the system.
       shared_ptr<string> sysDisposalStatus_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
@@ -490,9 +490,9 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The data on the current page.
     shared_ptr<vector<DescribeOssV2ResultResponseBody::Items>> items_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

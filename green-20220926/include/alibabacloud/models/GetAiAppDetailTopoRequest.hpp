@@ -82,9 +82,9 @@ namespace Models
     protected:
       // The dimension.
       shared_ptr<string> dimension_ {};
-      // The end time.
+      // The end time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
-      // The start time.
+      // The start time. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> startTime_ {};
     };
 

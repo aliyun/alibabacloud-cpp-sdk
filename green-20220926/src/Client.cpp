@@ -1808,7 +1808,7 @@ DescribeOnlineTestResultResponse Client::describeOnlineTestResult(const Describe
 /**
  * @summary Retrieves OSS moderation results v2.
  *
- * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
+ * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
  *
  * @param request DescribeOssV2ResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1865,7 +1865,7 @@ DescribeOssV2ResultResponse Client::describeOssV2ResultWithOptions(const Describ
 /**
  * @summary Retrieves OSS moderation results v2.
  *
- * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
+ * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
  *
  * @param request DescribeOssV2ResultRequest
  * @return DescribeOssV2ResultResponse
@@ -2384,7 +2384,7 @@ GetAiAppDetailResponse Client::getAiAppDetail(const GetAiAppDetailRequest &reque
 }
 
 /**
- * @summary Retrieves statistics for AI application details.
+ * @summary Retrieves statistics for the details of an AI application.
  *
  * @param request GetAiAppDetailStatRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2427,7 +2427,7 @@ GetAiAppDetailStatResponse Client::getAiAppDetailStatWithOptions(const GetAiAppD
 }
 
 /**
- * @summary Retrieves statistics for AI application details.
+ * @summary Retrieves statistics for the details of an AI application.
  *
  * @param request GetAiAppDetailStatRequest
  * @return GetAiAppDetailStatResponse
@@ -2610,7 +2610,7 @@ GetAiAppOverviewResponse Client::getAiAppOverview(const GetAiAppOverviewRequest 
 }
 
 /**
- * @summary Retrieves statistics data for AI applications.
+ * @summary Retrieves statistics for AI application risk reports.
  *
  * @param request GetAiAppStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2661,7 +2661,7 @@ GetAiAppStatsResponse Client::getAiAppStatsWithOptions(const GetAiAppStatsReques
 }
 
 /**
- * @summary Retrieves statistics data for AI applications.
+ * @summary Retrieves statistics for AI application risk reports.
  *
  * @param request GetAiAppStatsRequest
  * @return GetAiAppStatsResponse
@@ -3010,7 +3010,7 @@ GetBucketsListResponse Client::getBucketsList(const GetBucketsListRequest &reque
 }
 
 /**
- * @summary Queries the call volume.
+ * @summary Queries the call volume statistics.
  *
  * @param request GetCipStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3079,7 +3079,7 @@ GetCipStatsResponse Client::getCipStatsWithOptions(const GetCipStatsRequest &req
 }
 
 /**
- * @summary Queries the call volume.
+ * @summary Queries the call volume statistics.
  *
  * @param request GetCipStatsRequest
  * @return GetCipStatsResponse
@@ -3200,7 +3200,14 @@ GetFeatureConfigResponse Client::getFeatureConfig(const GetFeatureConfigRequest 
  */
 GetGuardLogStatsResponse Client::getGuardLogStatsWithOptions(const GetGuardLogStatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
-  OpenApiRequest req = OpenApiRequest();
+  json query = {};
+  if (!!request.hasCommodityCode()) {
+    query["CommodityCode"] = request.getCommodityCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
     {"action" , "GetGuardLogStats"},
     {"version" , "2022-09-26"},
@@ -4767,7 +4774,7 @@ ListAiAppByPageResponse Client::listAiAppByPage(const ListAiAppByPageRequest &re
 }
 
 /**
- * @summary Retrieves the list of risk events for AI applications.
+ * @summary Retrieves the list of risk events for an AI application.
  *
  * @param request ListAiAppRiskEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4810,7 +4817,7 @@ ListAiAppRiskEventResponse Client::listAiAppRiskEventWithOptions(const ListAiApp
 }
 
 /**
- * @summary Retrieves the list of risk events for AI applications.
+ * @summary Retrieves the list of risk events for an AI application.
  *
  * @param request ListAiAppRiskEventRequest
  * @return ListAiAppRiskEventResponse
@@ -5632,7 +5639,7 @@ LlmStreamChatResponse Client::llmStreamChat(const LlmStreamChatRequest &request)
 /**
  * @summary Provides feedback on OSS detection results.
  *
- * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
+ * @description This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
  *
  * @param request MarkOssV2ResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5685,7 +5692,7 @@ MarkOssV2ResultResponse Client::markOssV2ResultWithOptions(const MarkOssV2Result
 /**
  * @summary Provides feedback on OSS detection results.
  *
- * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
+ * @description This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
  *
  * @param request MarkOssV2ResultRequest
  * @return MarkOssV2ResultResponse
@@ -6324,7 +6331,7 @@ QueryCallbackResponse Client::queryCallback(const QueryCallbackRequest &request)
 }
 
 /**
- * @summary Message notification.
+ * @summary Queries the list of message notifications by paging.
  *
  * @param request QueryCallbackByPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6365,7 +6372,7 @@ QueryCallbackByPageResponse Client::queryCallbackByPageWithOptions(const QueryCa
 }
 
 /**
- * @summary Message notification.
+ * @summary Queries the list of message notifications by paging.
  *
  * @param request QueryCallbackByPageRequest
  * @return QueryCallbackByPageResponse
@@ -7248,6 +7255,14 @@ UpdateServiceConfigResponse Client::updateServiceConfigWithOptions(const UpdateS
   }
 
   json body = {};
+  if (!!request.hasClientToken()) {
+    body["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasDryRun()) {
+    body["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasFileConfig()) {
     body["FileConfig"] = request.getFileConfig();
   }

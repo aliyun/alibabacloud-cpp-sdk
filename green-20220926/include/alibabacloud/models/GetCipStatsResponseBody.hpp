@@ -541,9 +541,9 @@ namespace Models
         shared_ptr<vector<LabelStatChart::TextTreeChart>> textTreeChart_ {};
         // The total count.
         shared_ptr<int64_t> totalCount_ {};
-        // The tree view.
+        // The tree chart.
         shared_ptr<vector<LabelStatChart::TreeChart>> treeChart_ {};
-        // The audio tree view.
+        // The audio tree chart.
         shared_ptr<vector<LabelStatChart::VoiceTreeChart>> voiceTreeChart_ {};
         // The X value of the coordinate point.
         shared_ptr<vector<string>> x_ {};
@@ -669,7 +669,7 @@ namespace Models
 
 
   protected:
-    // The error code, which is the same as the HTTP status code.
+    // The error code, which is consistent with the HTTP status code.
     shared_ptr<int32_t> code_ {};
     // The returned data.
     shared_ptr<GetCipStatsResponseBody::Data> data_ {};
@@ -677,7 +677,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The further description of the error code.
     shared_ptr<string> msg_ {};
-    // The request ID assigned by the backend. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

@@ -70,11 +70,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The end time.
+    // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time.
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
   };
 

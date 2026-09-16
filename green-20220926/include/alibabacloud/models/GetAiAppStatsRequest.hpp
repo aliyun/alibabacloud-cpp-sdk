@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to aggregate by month. Default value: false.
+    // Specifies whether to aggregate statistics by month. Default value: false.
     shared_ptr<bool> byMonth_ {};
-    // The query end date.
+    // The end date of the query. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endDate_ {};
     // The query condition.
     shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The query start date.
+    // The start date of the query. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startDate_ {};
     // The type.
     shared_ptr<string> type_ {};

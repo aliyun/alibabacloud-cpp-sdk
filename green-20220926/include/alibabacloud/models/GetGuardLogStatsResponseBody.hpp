@@ -214,7 +214,7 @@ namespace Models
   protected:
     // The data.
     shared_ptr<vector<GetGuardLogStatsResponseBody::Data>> data_ {};
-    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

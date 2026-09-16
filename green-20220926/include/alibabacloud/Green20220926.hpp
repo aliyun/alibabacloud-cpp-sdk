@@ -526,7 +526,7 @@ namespace Green20220926
       /**
        * @summary Retrieves OSS moderation results v2.
        *
-       * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
+       * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
        *
        * @param request DescribeOssV2ResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -537,7 +537,7 @@ namespace Green20220926
       /**
        * @summary Retrieves OSS moderation results v2.
        *
-       * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation information. API operation is free of charge.
+       * @description API operation is used together with the Image Moderation Enhanced API. After you call the Image Moderation Enhanced API, you can call API operation to obtain more moderation details. API operation is free of charge.
        *
        * @param request DescribeOssV2ResultRequest
        * @return DescribeOssV2ResultResponse
@@ -681,7 +681,7 @@ namespace Green20220926
       Models::GetAiAppDetailResponse getAiAppDetail(const Models::GetAiAppDetailRequest &request);
 
       /**
-       * @summary Retrieves statistics for AI application details.
+       * @summary Retrieves statistics for the details of an AI application.
        *
        * @param request GetAiAppDetailStatRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -690,7 +690,7 @@ namespace Green20220926
       Models::GetAiAppDetailStatResponse getAiAppDetailStatWithOptions(const Models::GetAiAppDetailStatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves statistics for AI application details.
+       * @summary Retrieves statistics for the details of an AI application.
        *
        * @param request GetAiAppDetailStatRequest
        * @return GetAiAppDetailStatResponse
@@ -749,7 +749,7 @@ namespace Green20220926
       Models::GetAiAppOverviewResponse getAiAppOverview(const Models::GetAiAppOverviewRequest &request);
 
       /**
-       * @summary Retrieves statistics data for AI applications.
+       * @summary Retrieves statistics for AI application risk reports.
        *
        * @param request GetAiAppStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -758,7 +758,7 @@ namespace Green20220926
       Models::GetAiAppStatsResponse getAiAppStatsWithOptions(const Models::GetAiAppStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves statistics data for AI applications.
+       * @summary Retrieves statistics for AI application risk reports.
        *
        * @param request GetAiAppStatsRequest
        * @return GetAiAppStatsResponse
@@ -885,7 +885,7 @@ namespace Green20220926
       Models::GetBucketsListResponse getBucketsList(const Models::GetBucketsListRequest &request);
 
       /**
-       * @summary Queries the call volume.
+       * @summary Queries the call volume statistics.
        *
        * @param request GetCipStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -894,7 +894,7 @@ namespace Green20220926
       Models::GetCipStatsResponse getCipStatsWithOptions(const Models::GetCipStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the call volume.
+       * @summary Queries the call volume statistics.
        *
        * @param request GetCipStatsRequest
        * @return GetCipStatsResponse
@@ -1433,7 +1433,7 @@ namespace Green20220926
       Models::ListAiAppByPageResponse listAiAppByPage(const Models::ListAiAppByPageRequest &request);
 
       /**
-       * @summary Retrieves the list of risk events for AI applications.
+       * @summary Retrieves the list of risk events for an AI application.
        *
        * @param request ListAiAppRiskEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1442,7 +1442,7 @@ namespace Green20220926
       Models::ListAiAppRiskEventResponse listAiAppRiskEventWithOptions(const Models::ListAiAppRiskEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of risk events for AI applications.
+       * @summary Retrieves the list of risk events for an AI application.
        *
        * @param request ListAiAppRiskEventRequest
        * @return ListAiAppRiskEventResponse
@@ -1682,7 +1682,7 @@ namespace Green20220926
       /**
        * @summary Provides feedback on OSS detection results.
        *
-       * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
+       * @description This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
        *
        * @param request MarkOssV2ResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1693,7 +1693,7 @@ namespace Green20220926
       /**
        * @summary Provides feedback on OSS detection results.
        *
-       * @description This operation is not billed. Set the polling interval to 30 seconds (query results 30 seconds after submitting an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, results are automatically deleted.
+       * @description This operation is free of charge. Set the query interval to 30 seconds (that is, query results 30 seconds after you submit an asynchronous detection task). The maximum interval cannot exceed 24 hours. Otherwise, the results are automatically deleted.
        *
        * @param request MarkOssV2ResultRequest
        * @return MarkOssV2ResultResponse
@@ -1871,7 +1871,7 @@ namespace Green20220926
       Models::QueryCallbackResponse queryCallback(const Models::QueryCallbackRequest &request);
 
       /**
-       * @summary Message notification.
+       * @summary Queries the list of message notifications by paging.
        *
        * @param request QueryCallbackByPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1880,7 +1880,7 @@ namespace Green20220926
       Models::QueryCallbackByPageResponse queryCallbackByPageWithOptions(const Models::QueryCallbackByPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Message notification.
+       * @summary Queries the list of message notifications by paging.
        *
        * @param request QueryCallbackByPageRequest
        * @return QueryCallbackByPageResponse

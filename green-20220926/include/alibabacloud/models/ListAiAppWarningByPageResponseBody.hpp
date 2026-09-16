@@ -204,7 +204,7 @@ namespace Models
       shared_ptr<string> traceId_ {};
       // The number of alerts.
       shared_ptr<int64_t> warningCount_ {};
-      // The time when the alert was triggered.
+      // The alert time in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> warningTime_ {};
     };
 

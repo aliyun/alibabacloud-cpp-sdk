@@ -77,11 +77,11 @@ namespace Models
   protected:
     // The classification.
     shared_ptr<string> classify_ {};
-    // The end time.
+    // The end time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The start time.
+    // The start time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
     // The type.
     // 

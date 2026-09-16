@@ -86,9 +86,9 @@ namespace Models
   protected:
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The maximum number of results to return per request.
+    // The maximum number of results to return.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query.
+    // The token for the next query.
     shared_ptr<string> nextToken_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

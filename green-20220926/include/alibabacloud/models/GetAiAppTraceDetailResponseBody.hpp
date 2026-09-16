@@ -182,11 +182,11 @@ namespace Models
     shared_ptr<string> channel_ {};
     // The list of labels.
     shared_ptr<vector<GetAiAppTraceDetailResponseBody::Labels>> labels_ {};
-    // The backend-assigned ID that uniquely identifies a request. You can use this ID for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The trace ID used to correlate and track alert events.
+    // The trace ID, which is used to correlate and track alert events.
     shared_ptr<string> traceId_ {};
-    // The alert time.
+    // The alert time. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> warningTime_ {};
   };
 

@@ -193,7 +193,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The risk level.
       shared_ptr<string> riskLevel_ {};
-      // The time when the event occurred.
+      // The time when the event occurred. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> time_ {};
       // The trace ID, which is used to query the exact call information.
       shared_ptr<string> traceId_ {};

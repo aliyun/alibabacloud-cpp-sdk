@@ -214,7 +214,7 @@ namespace Models
       shared_ptr<string> appName_ {};
       // The channel source.
       shared_ptr<string> channel_ {};
-      // The end time that indicates when the event was resolved.
+      // The time when the event was resolved. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
       // The event code that identifies the type or category of the event.
       shared_ptr<string> eventCode_ {};
@@ -224,19 +224,19 @@ namespace Models
       shared_ptr<string> eventDescEn_ {};
       // The event ID that uniquely identifies a risk event.
       shared_ptr<string> eventId_ {};
-      // The brief name that describes the risk event.
+      // The name that briefly describes the risk event.
       shared_ptr<string> eventName_ {};
-      // The time when the event was handled.
+      // The time when the event was handled. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> handleTime_ {};
-      // The label used to mark or categorize the event.
+      // The label used to tag or categorize the event.
       shared_ptr<string> label_ {};
       // The detailed description of the label.
       shared_ptr<string> labelDesc_ {};
       // The risk level that indicates the severity of the event, such as high, medium, or low.
       shared_ptr<string> level_ {};
-      // The start time that indicates when the event occurred.
+      // The time when the event occurred. Format: YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> startTime_ {};
-      // The event status that indicates the current processing state of the event, such as pending or resolved.
+      // The event status that indicates the current processing state, such as pending or resolved.
       shared_ptr<string> status_ {};
       // The event type that indicates the category of the risk event, such as security or performance.
       shared_ptr<string> type_ {};
@@ -303,11 +303,11 @@ namespace Models
     shared_ptr<vector<ListAiAppRiskEventByPageResponseBody::Items>> items_ {};
     // The maximum number of results returned per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. An empty value indicates that no more pages exist.
+    // The token for the next page. An empty value indicates that no more pages exist.
     shared_ptr<string> nextToken_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of records.
     shared_ptr<int64_t> totalCount_ {};

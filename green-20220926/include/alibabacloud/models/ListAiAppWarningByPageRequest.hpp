@@ -85,7 +85,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The query condition. This parameter is required and cannot be empty.
+    // The query condition. This parameter is required.
     // 
     // This parameter is required.
     shared_ptr<string> query_ {};

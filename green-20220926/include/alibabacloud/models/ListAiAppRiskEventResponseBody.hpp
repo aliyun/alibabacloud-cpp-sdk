@@ -209,7 +209,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<vector<ListAiAppRiskEventResponseBody::Data>> data_ {};
-    // The ID assigned by the backend to uniquely identify a request. This ID can be used for troubleshooting.
+    // The ID assigned by the backend that uniquely identifies a request. This ID can be used for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

@@ -70,11 +70,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
-    // The end time of the query.
+    // The end time of the query. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> endTime_ {};
     // The ID of the region where the application resides.
     shared_ptr<string> regionId_ {};
-    // The start time of the query.
+    // The start time of the query. Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> startTime_ {};
   };
 

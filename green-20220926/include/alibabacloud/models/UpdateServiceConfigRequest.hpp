@@ -13,6 +13,8 @@ namespace Models
   class UpdateServiceConfigRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const UpdateServiceConfigRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(FileConfig, fileConfig_);
       DARABONBA_PTR_TO_JSON(KeywordFilterLibs, keywordFilterLibs_);
       DARABONBA_PTR_TO_JSON(KeywordHitLibs, keywordHitLibs_);
@@ -26,6 +28,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VideoConfig, videoConfig_);
     };
     friend void from_json(const Darabonba::Json& j, UpdateServiceConfigRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(FileConfig, fileConfig_);
       DARABONBA_PTR_FROM_JSON(KeywordFilterLibs, keywordFilterLibs_);
       DARABONBA_PTR_FROM_JSON(KeywordHitLibs, keywordHitLibs_);
@@ -49,9 +53,24 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->fileConfig_ == nullptr
-        && this->keywordFilterLibs_ == nullptr && this->keywordHitLibs_ == nullptr && this->manualMachineConfig_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr
-        && this->scene_ == nullptr && this->sceneConfig_ == nullptr && this->serviceCode_ == nullptr && this->serviceConfig_ == nullptr && this->videoConfig_ == nullptr; };
+    virtual bool empty() const override { return this->clientToken_ == nullptr
+        && this->dryRun_ == nullptr && this->fileConfig_ == nullptr && this->keywordFilterLibs_ == nullptr && this->keywordHitLibs_ == nullptr && this->manualMachineConfig_ == nullptr
+        && this->regionId_ == nullptr && this->resourceType_ == nullptr && this->scene_ == nullptr && this->sceneConfig_ == nullptr && this->serviceCode_ == nullptr
+        && this->serviceConfig_ == nullptr && this->videoConfig_ == nullptr; };
+    // clientToken Field Functions 
+    bool hasClientToken() const { return this->clientToken_ != nullptr;};
+    void deleteClientToken() { this->clientToken_ = nullptr;};
+    inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
+    inline UpdateServiceConfigRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline UpdateServiceConfigRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // fileConfig Field Functions 
     bool hasFileConfig() const { return this->fileConfig_ != nullptr;};
     void deleteFileConfig() { this->fileConfig_ = nullptr;};
@@ -130,13 +149,17 @@ namespace Models
 
 
   protected:
+    // The client-generated idempotency token used to prevent duplicate operations caused by network retries. The token must be unique across requests and contain only printable ASCII characters (ASCII 32-126).
+    shared_ptr<string> clientToken_ {};
+    // Specifies whether to perform a dry run. When set to true, only parameter validation and business logic checks are performed without actually creating or updating resources.
+    shared_ptr<bool> dryRun_ {};
     // The document configuration.
     shared_ptr<string> fileConfig_ {};
     // The keyword filter libraries.
     shared_ptr<string> keywordFilterLibs_ {};
     // The keyword hit libraries.
     shared_ptr<string> keywordHitLibs_ {};
-    // The machine-assisted moderation configuration.
+    // The human-machine moderation configuration.
     shared_ptr<string> manualMachineConfig_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

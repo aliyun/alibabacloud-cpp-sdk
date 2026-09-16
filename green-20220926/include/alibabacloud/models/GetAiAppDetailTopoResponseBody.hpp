@@ -126,9 +126,9 @@ namespace Models
       // 
       // - Others
       shared_ptr<string> nodeCategory_ {};
-      // The ID of the node.
+      // The node ID.
       shared_ptr<string> nodeId_ {};
-      // The name of the node.
+      // The node name.
       shared_ptr<string> nodeName_ {};
       // The node type. Valid values:
       // 
@@ -140,7 +140,7 @@ namespace Models
       shared_ptr<int64_t> requestCount_ {};
       // The risk level.
       shared_ptr<string> riskLevel_ {};
-      // The number of alerts.
+      // The alert count.
       shared_ptr<int32_t> warningCount_ {};
     };
 

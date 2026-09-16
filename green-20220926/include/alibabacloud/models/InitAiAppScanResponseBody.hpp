@@ -166,7 +166,7 @@ namespace Models
     shared_ptr<string> openStatus_ {};
     // The ready status.
     shared_ptr<string> readyStatus_ {};
-    // The ID assigned by the backend to uniquely identify a request. Used for troubleshooting.
+    // The ID assigned by the backend to uniquely identify a request. You can use this ID for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

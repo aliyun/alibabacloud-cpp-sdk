@@ -98,13 +98,13 @@ namespace Models
     shared_ptr<string> bucket_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};
-    // The end time.
+    // The end time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The risk level.
     shared_ptr<string> riskLevel_ {};
-    // The start time.
+    // The start time. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> startDate_ {};
     // The task name.
     shared_ptr<string> taskName_ {};
