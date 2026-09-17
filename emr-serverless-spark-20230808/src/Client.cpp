@@ -1187,6 +1187,89 @@ CreateWorkspaceResponse Client::createWorkspace(const CreateWorkspaceRequest &re
 }
 
 /**
+ * @summary Creates a workspace queue.
+ *
+ * @param request CreateWorkspaceQueueRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateWorkspaceQueueResponse
+ */
+CreateWorkspaceQueueResponse Client::createWorkspaceQueueWithOptions(const CreateWorkspaceQueueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasGpuSpec()) {
+    body["gpuSpec"] = request.getGpuSpec();
+  }
+
+  if (!!request.hasInstanceId()) {
+    body["instanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasPaymentType()) {
+    body["paymentType"] = request.getPaymentType();
+  }
+
+  if (!!request.hasPreheat()) {
+    body["preheat"] = request.getPreheat();
+  }
+
+  if (!!request.hasQueueCategory()) {
+    body["queueCategory"] = request.getQueueCategory();
+  }
+
+  if (!!request.hasResourceSpec()) {
+    body["resourceSpec"] = request.getResourceSpec();
+  }
+
+  if (!!request.hasWorkspaceId()) {
+    body["workspaceId"] = request.getWorkspaceId();
+  }
+
+  if (!!request.hasWorkspaceQueueName()) {
+    body["workspaceQueueName"] = request.getWorkspaceQueueName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateWorkspaceQueue"},
+    {"version" , "2023-08-08"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/v1/workspaces/queues")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateWorkspaceQueueResponse>();
+}
+
+/**
+ * @summary Creates a workspace queue.
+ *
+ * @param request CreateWorkspaceQueueRequest
+ * @return CreateWorkspaceQueueResponse
+ */
+CreateWorkspaceQueueResponse Client::createWorkspaceQueue(const CreateWorkspaceQueueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createWorkspaceQueueWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Deletes a Kyuubi gateway.
  *
  * @param headers map

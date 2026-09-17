@@ -70,6 +70,9 @@
 #include <alibabacloud/models/CreateWorkspaceRequest.hpp>
 #include <alibabacloud/models/CreateWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/CreateWorkspaceResponse.hpp>
+#include <alibabacloud/models/CreateWorkspaceQueueRequest.hpp>
+#include <alibabacloud/models/CreateWorkspaceQueueResponseBody.hpp>
+#include <alibabacloud/models/CreateWorkspaceQueueResponse.hpp>
 #include <alibabacloud/models/DeleteKyuubiServiceResponseBody.hpp>
 #include <alibabacloud/models/DeleteKyuubiServiceResponse.hpp>
 #include <alibabacloud/models/DeleteKyuubiTokenRequest.hpp>

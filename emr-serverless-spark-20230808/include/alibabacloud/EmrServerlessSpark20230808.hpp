@@ -309,6 +309,24 @@ namespace EmrServerlessSpark20230808
       Models::CreateWorkspaceResponse createWorkspace(const Models::CreateWorkspaceRequest &request);
 
       /**
+       * @summary Creates a workspace queue.
+       *
+       * @param request CreateWorkspaceQueueRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateWorkspaceQueueResponse
+       */
+      Models::CreateWorkspaceQueueResponse createWorkspaceQueueWithOptions(const Models::CreateWorkspaceQueueRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a workspace queue.
+       *
+       * @param request CreateWorkspaceQueueRequest
+       * @return CreateWorkspaceQueueResponse
+       */
+      Models::CreateWorkspaceQueueResponse createWorkspaceQueue(const Models::CreateWorkspaceQueueRequest &request);
+
+      /**
        * @summary Deletes a Kyuubi gateway.
        *
        * @param headers map
