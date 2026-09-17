@@ -21,6 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PkgFormat, pkgFormat_);
       DARABONBA_PTR_TO_JSON(PkgLabels, pkgLabelsShrink_);
       DARABONBA_PTR_TO_JSON(PkgType, pkgType_);
+      DARABONBA_PTR_TO_JSON(PostCommandPath, postCommandPath_);
+      DARABONBA_PTR_TO_JSON(PostCommandTimeoutSec, postCommandTimeoutSec_);
     };
     friend void from_json(const Darabonba::Json& j, UploadCloudAppShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppName, appName_);
@@ -31,6 +33,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PkgFormat, pkgFormat_);
       DARABONBA_PTR_FROM_JSON(PkgLabels, pkgLabelsShrink_);
       DARABONBA_PTR_FROM_JSON(PkgType, pkgType_);
+      DARABONBA_PTR_FROM_JSON(PostCommandPath, postCommandPath_);
+      DARABONBA_PTR_FROM_JSON(PostCommandTimeoutSec, postCommandTimeoutSec_);
     };
     UploadCloudAppShrinkRequest() = default ;
     UploadCloudAppShrinkRequest(const UploadCloudAppShrinkRequest &) = default ;
@@ -45,7 +49,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appName_ == nullptr
         && this->appVersion_ == nullptr && this->description_ == nullptr && this->downloadUrl_ == nullptr && this->md5_ == nullptr && this->pkgFormat_ == nullptr
-        && this->pkgLabelsShrink_ == nullptr && this->pkgType_ == nullptr; };
+        && this->pkgLabelsShrink_ == nullptr && this->pkgType_ == nullptr && this->postCommandPath_ == nullptr && this->postCommandTimeoutSec_ == nullptr; };
     // appName Field Functions 
     bool hasAppName() const { return this->appName_ != nullptr;};
     void deleteAppName() { this->appName_ = nullptr;};
@@ -102,57 +106,59 @@ namespace Models
     inline UploadCloudAppShrinkRequest& setPkgType(string pkgType) { DARABONBA_PTR_SET_VALUE(pkgType_, pkgType) };
 
 
+    // postCommandPath Field Functions 
+    bool hasPostCommandPath() const { return this->postCommandPath_ != nullptr;};
+    void deletePostCommandPath() { this->postCommandPath_ = nullptr;};
+    inline string getPostCommandPath() const { DARABONBA_PTR_GET_DEFAULT(postCommandPath_, "") };
+    inline UploadCloudAppShrinkRequest& setPostCommandPath(string postCommandPath) { DARABONBA_PTR_SET_VALUE(postCommandPath_, postCommandPath) };
+
+
+    // postCommandTimeoutSec Field Functions 
+    bool hasPostCommandTimeoutSec() const { return this->postCommandTimeoutSec_ != nullptr;};
+    void deletePostCommandTimeoutSec() { this->postCommandTimeoutSec_ = nullptr;};
+    inline int32_t getPostCommandTimeoutSec() const { DARABONBA_PTR_GET_DEFAULT(postCommandTimeoutSec_, 0) };
+    inline UploadCloudAppShrinkRequest& setPostCommandTimeoutSec(int32_t postCommandTimeoutSec) { DARABONBA_PTR_SET_VALUE(postCommandTimeoutSec_, postCommandTimeoutSec) };
+
+
   protected:
-    // The application name. For Android apps, use the package name, such as com.aaa.bbb.
+    // The application name. For Android applications, use the package name, such as com.aaa.bbb.
     // 
-    // Value requirements:
-    // 
-    // 1. Length: 4–50 characters
-    // 
-    // 2. Allowed characters: lowercase letters, digits, underscores (_), hyphens (-), and dots (.)
-    // 
-    // 3. The first and last characters must be a letter or digit
+    // Value rules:
+    // 1. Length: 4 to 50 characters.
+    // 2. Lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
+    // 3. The first and last characters must be letters or digits.
     // 
     // This parameter is required.
     shared_ptr<string> appName_ {};
-    // Value requirements:
+    // The application version. For Android applications, use the VersionName, such as 1.1.1.
     // 
-    // 1. Length: 1–50 characters
-    // 
-    // 2. Allowed characters: lowercase letters, digits, underscores (_), hyphens (-), and dots (.)
-    // 
-    // 3. The first and last characters must be a letter or digit
+    // Value rules:
+    // 1. Length: 1 to 50 characters.
+    // 2. Lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
+    // 3. The first and last characters must be letters or digits.
     // 
     // This parameter is required.
     shared_ptr<string> appVersion_ {};
-    // A description of the application.
+    // The description of the application.
     shared_ptr<string> description_ {};
     // The download URL of the application package.
     // 
     // This parameter is required.
     shared_ptr<string> downloadUrl_ {};
-    // The MD5 hash of the application package, used to verify package integrity.
+    // The MD5 checksum of the application package, used to verify package integrity.
     // 
     // This parameter is required.
     shared_ptr<string> md5_ {};
-    // The package format. By default, this is inferred from the file extension in the DownloadUrl. Valid values:
-    // 
+    // The package format. The default value is the file extension of the download URL. Valid values:
     // 1. apk
-    // 
     // 2. tar.gz
-    // 
     // 3. tar
-    // 
     // 4. zip
-    // 
     // 5. rar
     shared_ptr<string> pkgFormat_ {};
-    // Cloud application labels. You can select multiple. Valid values:
-    // 
+    // The cloud application labels. You can select multiple values. Valid values:
     // 1. hot
-    // 
     // 2. game
-    // 
     // 3. app
     shared_ptr<string> pkgLabelsShrink_ {};
     // The package type.
@@ -160,23 +166,21 @@ namespace Models
     // ## Valid values:
     // 
     // 1. android
-    // 
     // 2. win
+    // 3. android_appmarket: corresponds to the Android app marketplace scenario. In this scenario, the actual APK PackageName is restricted:
+    // a. Different AppName values cannot share the same PackageName.
+    // b. The same AppName with different AppVersion values can be associated with different PackageName values.
     // 
-    // 3. android_appmarket: for Android app marketplace scenarios. This scenario enforces real APK PackageName restrictions:
-    //    a. PackageNames must be unique across different AppNames.
-    //    b. The same AppName with different AppVersions can map to different PackageNames.
-    // 
-    // ## Default behavior:
-    // 
-    // If not specified, the system automatically maps the package type based on PkgFormat (or infers PkgFormat from the DownloadUrl file extension). The default mapping is:
-    // 
-    // 1. android: apk
-    // 
-    // 2. win: tar.gz, tar, zip, rar
-    // 
-    // 3. android_appmarket: apk
+    // ## Default value:
+    // If not specified, the package type is automatically mapped based on PkgFormat (or the file extension of DownloadUrl). Default mappings between PkgFormat and package type:
+    // 1. android: apk (the apk format is mapped to android by default).
+    // 2. win: tar.gz, tar, zip, rar.
+    // 3. android_appmarket: apk.
     shared_ptr<string> pkgType_ {};
+    // The relative path of the post-installation command within the application package. Only supported for win type applications.
+    shared_ptr<string> postCommandPath_ {};
+    // The timeout period (in seconds) for the post-installation command. Only supported for win type applications.
+    shared_ptr<int32_t> postCommandTimeoutSec_ {};
   };
 
   } // namespace Models

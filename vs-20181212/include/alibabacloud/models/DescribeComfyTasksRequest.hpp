@@ -13,6 +13,7 @@ namespace Models
   class DescribeComfyTasksRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeComfyTasksRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(HiveId, hiveId_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeComfyTasksRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(HiveId, hiveId_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->taskId_ == nullptr && this->taskState_ == nullptr && this->workflowId_ == nullptr; };
+    virtual bool empty() const override { return this->hiveId_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->taskId_ == nullptr && this->taskState_ == nullptr && this->workflowId_ == nullptr; };
+    // hiveId Field Functions 
+    bool hasHiveId() const { return this->hiveId_ != nullptr;};
+    void deleteHiveId() { this->hiveId_ = nullptr;};
+    inline string getHiveId() const { DARABONBA_PTR_GET_DEFAULT(hiveId_, "") };
+    inline DescribeComfyTasksRequest& setHiveId(string hiveId) { DARABONBA_PTR_SET_VALUE(hiveId_, hiveId) };
+
+
     // pageNumber Field Functions 
     bool hasPageNumber() const { return this->pageNumber_ != nullptr;};
     void deletePageNumber() { this->pageNumber_ = nullptr;};
@@ -75,9 +84,11 @@ namespace Models
 
 
   protected:
+    // The HiveId used as a filter condition to query tasks executed under the specified HiveId.
+    shared_ptr<string> hiveId_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records to display per page.
+    // The number of records per page.
     shared_ptr<int32_t> pageSize_ {};
     // The Comfy workflow ID used as a filter condition.
     shared_ptr<string> taskId_ {};

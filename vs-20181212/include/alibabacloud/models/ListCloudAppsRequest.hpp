@@ -130,47 +130,41 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud application. This ID corresponds to a unique application package.
+    // The cloud application ID, which corresponds to a unique application package.
     shared_ptr<string> appId_ {};
-    // Application name.
+    // The application name.
     shared_ptr<string> appName_ {};
-    // Application version.
+    // The application version.
     shared_ptr<string> appVersion_ {};
-    // The time range filter parameter. Express it in ISO8601 standard format, using UTC time: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time for time range filtering. Specify the time in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> endTime_ {};
-    // Return only the latest submitted version of the application. Default value: false.
+    // Specifies whether to return only the latest submitted version of each application. Default value: false.
     shared_ptr<bool> latestVersionOnly_ {};
-    // The page number for the query list. The starting value is 1. Default value: 1.
+    // The page number of the query list. Minimum value: 1.
+    // Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of rows per page for paged queries. Valid values: 1 to 100. Default value: 10.
+    // The number of entries per page for a paged query. Valid values: 1 to 100.
+    // Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // Valid values:
-    // 
+    // The cloud application label.
     // 1. Valid values:
     //    a. hot
     //    b. game
     //    c. app
-    // 
-    // 2. Special case:a. To list applications that have no tags, enter NULL.
+    // 2. Special case:
+    //    a. To query applications without a label, enter "NULL".
     shared_ptr<string> pkgLabel_ {};
-    // The package type. Valid values:
-    // 
+    // The installation package type. Valid values:
     // 1. android
-    // 
     // 2. win
-    // 
     // 3. android_appmarket
     shared_ptr<string> pkgType_ {};
-    // The time range filter parameter. Express it in ISO8601 standard format, using UTC time: yyyy-MM-ddTHH:mm:ssZ.
+    // The start time for time range filtering. Specify the time in the ISO 8601 standard in UTC. Format: yyyy-MM-ddTHH:mm:ssZ.
     shared_ptr<string> startTime_ {};
     // The application upload status. Valid values:
-    // 
-    // 1. Success: The desired state, indicating success.
-    // 
-    // 2. Failed: The desired state, indicating failure.
-    // 
+    // 1. Success: desired state, succeeded.
+    // 2. Failed: desired state, failed.
     // 3. Created
-    // 
     // 4. Doing
     shared_ptr<string> status_ {};
   };

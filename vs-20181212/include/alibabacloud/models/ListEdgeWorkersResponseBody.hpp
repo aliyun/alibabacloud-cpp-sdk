@@ -128,7 +128,7 @@ namespace Models
       shared_ptr<string> expireTime_ {};
       // The cluster ID.
       shared_ptr<string> hiveId_ {};
-      // The workload ID.
+      // The load ID.
       shared_ptr<string> instanceId_ {};
       // The plan ID.
       shared_ptr<string> planId_ {};
@@ -178,15 +178,15 @@ namespace Models
 
 
   protected:
-    // The workload list.
+    // The list of loads.
     shared_ptr<vector<ListEdgeWorkersResponseBody::Instances>> instances_ {};
-    // The page number of the query list. Minimum value: 1. Default value: 1.
+    // The page number of the query list. The value starts from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for a paginated query. Maximum value: 100. Default value: 100.
+    // The number of entries per page in a paged query. Settings for paging. Maximum value: 100. Default value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of workloads.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

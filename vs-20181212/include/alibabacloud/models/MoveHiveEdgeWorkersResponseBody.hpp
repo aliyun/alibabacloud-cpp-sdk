@@ -168,13 +168,13 @@ namespace Models
 
 
   protected:
-    // The number of failed operations.
+    // The number of workloads that failed to be moved.
     shared_ptr<int32_t> failedInstanceCount_ {};
     // The list of workloads that failed to be moved.
     shared_ptr<vector<MoveHiveEdgeWorkersResponseBody::FailedInstances>> failedInstances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The number of successful operations.
+    // The number of workloads that were successfully moved.
     shared_ptr<int32_t> successInstanceCount_ {};
     // The list of workloads that were successfully moved.
     shared_ptr<vector<MoveHiveEdgeWorkersResponseBody::SuccessInstances>> successInstances_ {};

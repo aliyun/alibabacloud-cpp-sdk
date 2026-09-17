@@ -214,6 +214,9 @@
 #include <alibabacloud/models/DescribeComfyProductionsRequest.hpp>
 #include <alibabacloud/models/DescribeComfyProductionsResponseBody.hpp>
 #include <alibabacloud/models/DescribeComfyProductionsResponse.hpp>
+#include <alibabacloud/models/DescribeComfyTaskWaitingQueueRequest.hpp>
+#include <alibabacloud/models/DescribeComfyTaskWaitingQueueResponseBody.hpp>
+#include <alibabacloud/models/DescribeComfyTaskWaitingQueueResponse.hpp>
 #include <alibabacloud/models/DescribeComfyTasksRequest.hpp>
 #include <alibabacloud/models/DescribeComfyTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeComfyTasksResponse.hpp>
@@ -438,6 +441,9 @@
 #include <alibabacloud/models/ListRenderingDataPackagesRequest.hpp>
 #include <alibabacloud/models/ListRenderingDataPackagesResponseBody.hpp>
 #include <alibabacloud/models/ListRenderingDataPackagesResponse.hpp>
+#include <alibabacloud/models/ListRenderingImagesRequest.hpp>
+#include <alibabacloud/models/ListRenderingImagesResponseBody.hpp>
+#include <alibabacloud/models/ListRenderingImagesResponse.hpp>
 #include <alibabacloud/models/ListRenderingInstanceGatewayRequest.hpp>
 #include <alibabacloud/models/ListRenderingInstanceGatewayResponseBody.hpp>
 #include <alibabacloud/models/ListRenderingInstanceGatewayResponse.hpp>
@@ -641,6 +647,10 @@
 #include <alibabacloud/models/UpdateVsPullStreamInfoConfigRequest.hpp>
 #include <alibabacloud/models/UpdateVsPullStreamInfoConfigResponseBody.hpp>
 #include <alibabacloud/models/UpdateVsPullStreamInfoConfigResponse.hpp>
+#include <alibabacloud/models/UpgradeRenderingInstanceImageRequest.hpp>
+#include <alibabacloud/models/UpgradeRenderingInstanceImageShrinkRequest.hpp>
+#include <alibabacloud/models/UpgradeRenderingInstanceImageResponseBody.hpp>
+#include <alibabacloud/models/UpgradeRenderingInstanceImageResponse.hpp>
 #include <alibabacloud/models/UploadCloudAppRequest.hpp>
 #include <alibabacloud/models/UploadCloudAppShrinkRequest.hpp>
 #include <alibabacloud/models/UploadCloudAppResponseBody.hpp>

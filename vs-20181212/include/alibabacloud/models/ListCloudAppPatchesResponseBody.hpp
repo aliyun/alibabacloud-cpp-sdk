@@ -43,6 +43,8 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Patches& obj) { 
         DARABONBA_PTR_TO_JSON(PatchId, patchId_);
         DARABONBA_PTR_TO_JSON(PatchName, patchName_);
+        DARABONBA_PTR_TO_JSON(PostCommandPath, postCommandPath_);
+        DARABONBA_PTR_TO_JSON(PostCommandTimeoutSec, postCommandTimeoutSec_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(StatusDescription, statusDescription_);
         DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
@@ -51,6 +53,8 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Patches& obj) { 
         DARABONBA_PTR_FROM_JSON(PatchId, patchId_);
         DARABONBA_PTR_FROM_JSON(PatchName, patchName_);
+        DARABONBA_PTR_FROM_JSON(PostCommandPath, postCommandPath_);
+        DARABONBA_PTR_FROM_JSON(PostCommandTimeoutSec, postCommandTimeoutSec_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(StatusDescription, statusDescription_);
         DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
@@ -68,7 +72,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->patchId_ == nullptr
-        && this->patchName_ == nullptr && this->status_ == nullptr && this->statusDescription_ == nullptr && this->updateTime_ == nullptr && this->uploadTime_ == nullptr; };
+        && this->patchName_ == nullptr && this->postCommandPath_ == nullptr && this->postCommandTimeoutSec_ == nullptr && this->status_ == nullptr && this->statusDescription_ == nullptr
+        && this->updateTime_ == nullptr && this->uploadTime_ == nullptr; };
       // patchId Field Functions 
       bool hasPatchId() const { return this->patchId_ != nullptr;};
       void deletePatchId() { this->patchId_ = nullptr;};
@@ -81,6 +86,20 @@ namespace Models
       void deletePatchName() { this->patchName_ = nullptr;};
       inline string getPatchName() const { DARABONBA_PTR_GET_DEFAULT(patchName_, "") };
       inline Patches& setPatchName(string patchName) { DARABONBA_PTR_SET_VALUE(patchName_, patchName) };
+
+
+      // postCommandPath Field Functions 
+      bool hasPostCommandPath() const { return this->postCommandPath_ != nullptr;};
+      void deletePostCommandPath() { this->postCommandPath_ = nullptr;};
+      inline string getPostCommandPath() const { DARABONBA_PTR_GET_DEFAULT(postCommandPath_, "") };
+      inline Patches& setPostCommandPath(string postCommandPath) { DARABONBA_PTR_SET_VALUE(postCommandPath_, postCommandPath) };
+
+
+      // postCommandTimeoutSec Field Functions 
+      bool hasPostCommandTimeoutSec() const { return this->postCommandTimeoutSec_ != nullptr;};
+      void deletePostCommandTimeoutSec() { this->postCommandTimeoutSec_ = nullptr;};
+      inline int32_t getPostCommandTimeoutSec() const { DARABONBA_PTR_GET_DEFAULT(postCommandTimeoutSec_, 0) };
+      inline Patches& setPostCommandTimeoutSec(int32_t postCommandTimeoutSec) { DARABONBA_PTR_SET_VALUE(postCommandTimeoutSec_, postCommandTimeoutSec) };
 
 
       // status Field Functions 
@@ -116,23 +135,21 @@ namespace Models
       shared_ptr<string> patchId_ {};
       // The name of the patch package.
       shared_ptr<string> patchName_ {};
-      // The upload status of the application. Valid values:
-      // 
+      // The relative path of the post-command within the application package. Only Windows-type applications are supported.
+      shared_ptr<string> postCommandPath_ {};
+      // The timeout period for the post-command execution, in seconds. Only Windows-type applications are supported.
+      shared_ptr<int32_t> postCommandTimeoutSec_ {};
+      // The application upload status. Valid values:
       // 1. Created
-      // 
       // 2. Doing
-      // 
-      // 3. Success: A final state.
-      // 
-      // 4. Failed: A final state.
-      // 
+      // 3. Success: desired state.
+      // 4. Failed: desired state.
       // 5. Deleting
-      // 
-      // 6. DeleteFailed: A final state.
+      // 6. DeleteFailed: desired state.
       shared_ptr<string> status_ {};
-      // The description of the status.
+      // The status description.
       shared_ptr<string> statusDescription_ {};
-      // The time when the status was last updated.
+      // The most recent time when the status was updated.
       shared_ptr<string> updateTime_ {};
       // The time when the patch was uploaded.
       shared_ptr<string> uploadTime_ {};
@@ -178,11 +195,11 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The page number of the query list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned on each page.
+    // The number of entries per page for the paged query.
     shared_ptr<int64_t> pageSize_ {};
-    // The list of cloud application patches.
+    // The list of patches for the cloud application.
     shared_ptr<vector<ListCloudAppPatchesResponseBody::Patches>> patches_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

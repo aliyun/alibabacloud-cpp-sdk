@@ -18,12 +18,6 @@ namespace Vs20181212
 
 AlibabaCloud::Vs20181212::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shenzhen" , "vs.cn-shenzhen.aliyuncs.com"},
-    {"cn-qingdao" , "vs.cn-qingdao.aliyuncs.com"},
-    {"cn-beijing" , "vs.cn-beijing.aliyuncs.com"},
-    {"cn-shanghai" , "vs.cn-shanghai.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("vs", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -2747,7 +2741,7 @@ CreateTemplateResponse Client::createTemplate(const CreateTemplateRequest &reque
  * @description ## Request description
  * - **HiveId** is a required parameter that specifies the ID of the cluster to operate on.
  * - **InstanceIds** is a required parameter that specifies a list of workload IDs to unbind from the cluster.
- * - After the unbind operation succeeds, the response returns lists of successful and failed workload instances along with related information.
+ * - After the unbind operation is complete, the response returns lists of successful and failed workload instances along with related information.
  *
  * @param tmpReq DelHiveEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2793,7 +2787,7 @@ DelHiveEdgeWorkersResponse Client::delHiveEdgeWorkersWithOptions(const DelHiveEd
  * @description ## Request description
  * - **HiveId** is a required parameter that specifies the ID of the cluster to operate on.
  * - **InstanceIds** is a required parameter that specifies a list of workload IDs to unbind from the cluster.
- * - After the unbind operation succeeds, the response returns lists of successful and failed workload instances along with related information.
+ * - After the unbind operation is complete, the response returns lists of successful and failed workload instances along with related information.
  *
  * @param request DelHiveEdgeWorkersRequest
  * @return DelHiveEdgeWorkersResponse
@@ -3167,8 +3161,8 @@ DeleteGroupResponse Client::deleteGroup(const DeleteGroupRequest &request) {
  * @summary Deletes an empty cluster by the specified ID.
  *
  * @description ## Operation description
- * - Ensure that all application services in the cluster have been removed. Otherwise, the delete operation cannot be performed.
- * - `HiveId` is a required parameter that identifies the cluster to be deleted.
+ * - Ensure that all workloads in the cluster have been cleared. Otherwise, the delete operation cannot be performed.
+ * - HiveId is a required parameter that identifies the cluster to be deleted.
  *
  * @param request DeleteHiveRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3202,8 +3196,8 @@ DeleteHiveResponse Client::deleteHiveWithOptions(const DeleteHiveRequest &reques
  * @summary Deletes an empty cluster by the specified ID.
  *
  * @description ## Operation description
- * - Ensure that all application services in the cluster have been removed. Otherwise, the delete operation cannot be performed.
- * - `HiveId` is a required parameter that identifies the cluster to be deleted.
+ * - Ensure that all workloads in the cluster have been cleared. Otherwise, the delete operation cannot be performed.
+ * - HiveId is a required parameter that identifies the cluster to be deleted.
  *
  * @param request DeleteHiveRequest
  * @return DeleteHiveResponse
@@ -3842,9 +3836,51 @@ DescribeComfyProductionsResponse Client::describeComfyProductions(const Describe
 }
 
 /**
+ * @summary Queries the waiting queue information of Comfy tasks. The maximum length of a single Hive waiting queue is 100 by default.
+ *
+ * @param request DescribeComfyTaskWaitingQueueRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeComfyTaskWaitingQueueResponse
+ */
+DescribeComfyTaskWaitingQueueResponse Client::describeComfyTaskWaitingQueueWithOptions(const DescribeComfyTaskWaitingQueueRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasHiveId()) {
+    query["HiveId"] = request.getHiveId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeComfyTaskWaitingQueue"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeComfyTaskWaitingQueueResponse>();
+}
+
+/**
+ * @summary Queries the waiting queue information of Comfy tasks. The maximum length of a single Hive waiting queue is 100 by default.
+ *
+ * @param request DescribeComfyTaskWaitingQueueRequest
+ * @return DescribeComfyTaskWaitingQueueResponse
+ */
+DescribeComfyTaskWaitingQueueResponse Client::describeComfyTaskWaitingQueue(const DescribeComfyTaskWaitingQueueRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeComfyTaskWaitingQueueWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of Comfy tasks.
  *
- * @description > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
+ * @description > Screenshot queries do not support pagination. Only iteration-based queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
  *
  * @param request DescribeComfyTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3853,6 +3889,10 @@ DescribeComfyProductionsResponse Client::describeComfyProductions(const Describe
 DescribeComfyTasksResponse Client::describeComfyTasksWithOptions(const DescribeComfyTasksRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasHiveId()) {
+    query["HiveId"] = request.getHiveId();
+  }
+
   if (!!request.hasPageNumber()) {
     query["PageNumber"] = request.getPageNumber();
   }
@@ -3893,7 +3933,7 @@ DescribeComfyTasksResponse Client::describeComfyTasksWithOptions(const DescribeC
 /**
  * @summary Queries the list of Comfy tasks.
  *
- * @description > Currently, screenshot queries do not support pagination. Only iterative queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
+ * @description > Screenshot queries do not support pagination. Only iteration-based queries are supported. Use the extStartTime parameter value from the response as the StartTime for a new request to retrieve the next page.
  *
  * @param request DescribeComfyTasksRequest
  * @return DescribeComfyTasksResponse
@@ -7552,9 +7592,9 @@ ListCloudAppInstallationsResponse Client::listCloudAppInstallations(const ListCl
 }
 
 /**
- * @summary Queries the list of patches for a cloud application.
+ * @summary Queries the patch list of a cloud application.
  *
- * @description > Specify at least one of the template ID or the template type.
+ * @description >You must specify at least one of the template ID and templatetype.
  *
  * @param request ListCloudAppPatchesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7609,9 +7649,9 @@ ListCloudAppPatchesResponse Client::listCloudAppPatchesWithOptions(const ListClo
 }
 
 /**
- * @summary Queries the list of patches for a cloud application.
+ * @summary Queries the patch list of a cloud application.
  *
- * @description > Specify at least one of the template ID or the template type.
+ * @description >You must specify at least one of the template ID and templatetype.
  *
  * @param request ListCloudAppPatchesRequest
  * @return ListCloudAppPatchesResponse
@@ -7622,7 +7662,7 @@ ListCloudAppPatchesResponse Client::listCloudAppPatches(const ListCloudAppPatche
 }
 
 /**
- * @summary Queries a list of cloud applications. This operation supports paged queries.
+ * @summary Queries a list of cloud applications. Paging is supported.
  *
  * @param request ListCloudAppsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7649,7 +7689,7 @@ ListCloudAppsResponse Client::listCloudAppsWithOptions(const ListCloudAppsReques
 }
 
 /**
- * @summary Queries a list of cloud applications. This operation supports paged queries.
+ * @summary Queries a list of cloud applications. Paging is supported.
  *
  * @param request ListCloudAppsRequest
  * @return ListCloudAppsResponse
@@ -7660,13 +7700,13 @@ ListCloudAppsResponse Client::listCloudApps(const ListCloudAppsRequest &request)
 }
 
 /**
- * @summary Queries workload information with pagination.
+ * @summary Queries load information with paged query and paging support.
  *
- * @description ## Description
- * - This API operation queries workload information and supports filtering and pagination by using multiple parameters.
+ * @description ## Operation description
+ * - This API operation queries load information. You can filter results by using various parameters and perform paged query operations.
  * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
- * - For pagination, use the PageNumber and PageSize parameters to control the amount of returned data. By default, 10 records are returned per page and a maximum of 100 records are supported per page.
- * - Use the StartTime and EndTime parameters to specify the time range for queries.
+ * - For paged query operations, use the PageNumber and PageSize parameters to control the data volume of returned results. The default page size is 10 records, and the maximum is 100 records. Paging is supported.
+ * - To query by time range, specify the StartTime and EndTime parameters.
  *
  * @param tmpReq ListEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7747,13 +7787,13 @@ ListEdgeWorkersResponse Client::listEdgeWorkersWithOptions(const ListEdgeWorkers
 }
 
 /**
- * @summary Queries workload information with pagination.
+ * @summary Queries load information with paged query and paging support.
  *
- * @description ## Description
- * - This API operation queries workload information and supports filtering and pagination by using multiple parameters.
+ * @description ## Operation description
+ * - This API operation queries load information. You can filter results by using various parameters and perform paged query operations.
  * - Optional parameters include Spec (specification), Statuses (status list), InstanceIds (instance ID list), PlanIds (plan ID list), and HiveIds (cluster ID list).
- * - For pagination, use the PageNumber and PageSize parameters to control the amount of returned data. By default, 10 records are returned per page and a maximum of 100 records are supported per page.
- * - Use the StartTime and EndTime parameters to specify the time range for queries.
+ * - For paged query operations, use the PageNumber and PageSize parameters to control the data volume of returned results. The default page size is 10 records, and the maximum is 100 records. Paging is supported.
+ * - To query by time range, specify the StartTime and EndTime parameters.
  *
  * @param request ListEdgeWorkersRequest
  * @return ListEdgeWorkersResponse
@@ -7840,13 +7880,13 @@ ListFilesResponse Client::listFiles(const ListFilesRequest &request) {
 }
 
 /**
- * @summary Queries all cluster information by using paging and supports filtering by conditions.
+ * @summary Queries all cluster information by paging and supports filtering by conditions.
  *
  * @description ## Operation description
  * - This API operation queries information about all clusters created by the user.
  * - You can use the `HiveId` and `Name` parameters to filter query results.
- * - The pagination parameters `PageNumber` and `PageSize` control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
- * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information, but they are optional.
+ * - The `PageNumber` and `PageSize` pagination parameters control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
+ * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information. These parameters are optional.
  *
  * @param request ListHivesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7897,13 +7937,13 @@ ListHivesResponse Client::listHivesWithOptions(const ListHivesRequest &request, 
 }
 
 /**
- * @summary Queries all cluster information by using paging and supports filtering by conditions.
+ * @summary Queries all cluster information by paging and supports filtering by conditions.
  *
  * @description ## Operation description
  * - This API operation queries information about all clusters created by the user.
  * - You can use the `HiveId` and `Name` parameters to filter query results.
- * - The pagination parameters `PageNumber` and `PageSize` control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
- * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information, but they are optional.
+ * - The `PageNumber` and `PageSize` pagination parameters control the number of results and page number. By default, 10 records are displayed per page, with a maximum of 100.
+ * - The `StartTime` and `EndTime` parameters specify a time range for querying cluster information. These parameters are optional.
  *
  * @param request ListHivesRequest
  * @return ListHivesResponse
@@ -8019,6 +8059,64 @@ ListRenderingDataPackagesResponse Client::listRenderingDataPackagesWithOptions(c
 ListRenderingDataPackagesResponse Client::listRenderingDataPackages(const ListRenderingDataPackagesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listRenderingDataPackagesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries a list of images.
+ *
+ * @description ## Operation description
+ * - This operation supports filtering and paged query of rendering session lists by using various parameter combinations.
+ * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, more precise matching is performed based on the two parameters.
+ *
+ * @param request ListRenderingImagesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListRenderingImagesResponse
+ */
+ListRenderingImagesResponse Client::listRenderingImagesWithOptions(const ListRenderingImagesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListRenderingImages"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListRenderingImagesResponse>();
+}
+
+/**
+ * @summary Queries a list of images.
+ *
+ * @description ## Operation description
+ * - This operation supports filtering and paged query of rendering session lists by using various parameter combinations.
+ * - You must specify at least one of the `SessionId` and `ClientId` parameters, but neither is required. If both parameters are specified, more precise matching is performed based on the two parameters.
+ *
+ * @param request ListRenderingImagesRequest
+ * @return ListRenderingImagesResponse
+ */
+ListRenderingImagesResponse Client::listRenderingImages(const ListRenderingImagesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listRenderingImagesWithOptions(request, runtime);
 }
 
 /**
@@ -8358,7 +8456,7 @@ ListRenderingSessionsResponse Client::listRenderingSessions(const ListRenderingS
 }
 
 /**
- * @summary Queries all cloud application service specification information. Paging is supported.
+ * @summary Queries the specifications of all cloud application services. Paging is supported.
  *
  * @description ## Operation description
  * - This API operation queries all active cloud application service specifications.
@@ -8402,7 +8500,7 @@ ListSpecificationsResponse Client::listSpecificationsWithOptions(const ListSpeci
 }
 
 /**
- * @summary Queries all cloud application service specification information. Paging is supported.
+ * @summary Queries the specifications of all cloud application services. Paging is supported.
  *
  * @description ## Operation description
  * - This API operation queries all active cloud application service specifications.
@@ -8968,10 +9066,10 @@ ModifyGroupResponse Client::modifyGroup(const ModifyGroupRequest &request) {
 /**
  * @summary Updates the name or description of a specified cluster.
  *
- * @description ## Request
- * - This API modifies the name and/or description of an existing cluster.
- * - `HiveId` is a required parameter that identifies the cluster to modify.
- * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
+ * @description ## Operation description
+ * - This API operation modifies the basic attributes of an existing cluster, including the name and description.
+ * - HiveId is a required parameter that identifies the cluster to modify.
+ * - The Name and Description parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
  *
  * @param request ModifyHiveAttributeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9012,10 +9110,10 @@ ModifyHiveAttributeResponse Client::modifyHiveAttributeWithOptions(const ModifyH
 /**
  * @summary Updates the name or description of a specified cluster.
  *
- * @description ## Request
- * - This API modifies the name and/or description of an existing cluster.
- * - `HiveId` is a required parameter that identifies the cluster to modify.
- * - The `Name` and `Description` parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
+ * @description ## Operation description
+ * - This API operation modifies the basic attributes of an existing cluster, including the name and description.
+ * - HiveId is a required parameter that identifies the cluster to modify.
+ * - The Name and Description parameters are optional. You can specify either or both to update the corresponding attributes of the cluster.
  *
  * @param request ModifyHiveAttributeRequest
  * @return ModifyHiveAttributeResponse
@@ -9436,11 +9534,11 @@ ModifyTemplateResponse Client::modifyTemplate(const ModifyTemplateRequest &reque
 /**
  * @summary Moves specified workloads to a target cluster.
  *
- * @description ## Request description
- * - **HiveId**: The target cluster ID. Required.
- * - **InstanceIds**: The list of workload IDs to move. Required.
+ * @description ## Operation description
+ * - **HiveId**: The ID of the target cluster. This parameter is required.
+ * - **InstanceIds**: The list of workload IDs to move. This parameter is required.
  * - This operation moves the specified workloads from the current cluster to the target cluster.
- * - Ensure that the target cluster exists to accept the new workloads.
+ * - Make sure the target cluster exists to accept the new workloads.
  *
  * @param tmpReq MoveHiveEdgeWorkersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9483,11 +9581,11 @@ MoveHiveEdgeWorkersResponse Client::moveHiveEdgeWorkersWithOptions(const MoveHiv
 /**
  * @summary Moves specified workloads to a target cluster.
  *
- * @description ## Request description
- * - **HiveId**: The target cluster ID. Required.
- * - **InstanceIds**: The list of workload IDs to move. Required.
+ * @description ## Operation description
+ * - **HiveId**: The ID of the target cluster. This parameter is required.
+ * - **InstanceIds**: The list of workload IDs to move. This parameter is required.
  * - This operation moves the specified workloads from the current cluster to the target cluster.
- * - Ensure that the target cluster exists to accept the new workloads.
+ * - Make sure the target cluster exists to accept the new workloads.
  *
  * @param request MoveHiveEdgeWorkersRequest
  * @return MoveHiveEdgeWorkersResponse
@@ -9618,7 +9716,7 @@ RebootRenderingInstanceResponse Client::rebootRenderingInstance(const RebootRend
 }
 
 /**
- * @summary Restarts the host of a cloud application service instance.
+ * @summary Restarts the hosts of cloud application service instances.
  *
  * @param tmpReq RebootRenderingServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9633,6 +9731,10 @@ RebootRenderingServerResponse Client::rebootRenderingServerWithOptions(const Reb
   }
 
   json query = {};
+  if (!!request.hasPrecheck()) {
+    query["Precheck"] = request.getPrecheck();
+  }
+
   if (!!request.hasRenderingInstanceIdsShrink()) {
     query["RenderingInstanceIds"] = request.getRenderingInstanceIdsShrink();
   }
@@ -9655,7 +9757,7 @@ RebootRenderingServerResponse Client::rebootRenderingServerWithOptions(const Reb
 }
 
 /**
- * @summary Restarts the host of a cloud application service instance.
+ * @summary Restarts the hosts of cloud application service instances.
  *
  * @param request RebootRenderingServerRequest
  * @return RebootRenderingServerResponse
@@ -11436,7 +11538,8 @@ UnlockDeviceResponse Client::unlockDevice(const UnlockDeviceRequest &request) {
 }
 
 /**
- * @summary Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
+ * @summary Updates the information of a cloud application, such as the description, application labels, and patches.
+ * You can upload patches or hot update packages, and create hot update packages for Android cloud application marketplace applications. Each cloud application supports up to 20 patches, and only one patch can be in the uploading state at a time for a single cloud application.
  *
  * @param tmpReq UpdateCloudAppInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11495,7 +11598,8 @@ UpdateCloudAppInfoResponse Client::updateCloudAppInfoWithOptions(const UpdateClo
 }
 
 /**
- * @summary Updates information for a cloud application, such as its description and tags. You can upload patch or hotfix packages and create hotfix packages for the Android cloud application marketplace. A cloud application supports up to 20 patch packages, but only one package can be in the uploading state at a time.
+ * @summary Updates the information of a cloud application, such as the description, application labels, and patches.
+ * You can upload patches or hot update packages, and create hot update packages for Android cloud application marketplace applications. Each cloud application supports up to 20 patches, and only one patch can be in the uploading state at a time for a single cloud application.
  *
  * @param request UpdateCloudAppInfoRequest
  * @return UpdateCloudAppInfoResponse
@@ -11792,7 +11896,59 @@ UpdateVsPullStreamInfoConfigResponse Client::updateVsPullStreamInfoConfig(const 
 }
 
 /**
- * @summary Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
+ * @summary Upgrades instance images in batch.
+ *
+ * @param tmpReq UpgradeRenderingInstanceImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpgradeRenderingInstanceImageResponse
+ */
+UpgradeRenderingInstanceImageResponse Client::upgradeRenderingInstanceImageWithOptions(const UpgradeRenderingInstanceImageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  UpgradeRenderingInstanceImageShrinkRequest request = UpgradeRenderingInstanceImageShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRenderingInstanceIds()) {
+    request.setRenderingInstanceIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRenderingInstanceIds(), "RenderingInstanceIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasRenderingInstanceIdsShrink()) {
+    query["RenderingInstanceIds"] = request.getRenderingInstanceIdsShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpgradeRenderingInstanceImage"},
+    {"version" , "2018-12-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpgradeRenderingInstanceImageResponse>();
+}
+
+/**
+ * @summary Upgrades instance images in batch.
+ *
+ * @param request UpgradeRenderingInstanceImageRequest
+ * @return UpgradeRenderingInstanceImageResponse
+ */
+UpgradeRenderingInstanceImageResponse Client::upgradeRenderingInstanceImage(const UpgradeRenderingInstanceImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return upgradeRenderingInstanceImageWithOptions(request, runtime);
+}
+
+/**
+ * @summary Uploads a cloud application package for listing. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
  *
  * @param tmpReq UploadCloudAppRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11839,6 +11995,14 @@ UploadCloudAppResponse Client::uploadCloudAppWithOptions(const UploadCloudAppReq
     query["PkgType"] = request.getPkgType();
   }
 
+  if (!!request.hasPostCommandPath()) {
+    query["PostCommandPath"] = request.getPostCommandPath();
+  }
+
+  if (!!request.hasPostCommandTimeoutSec()) {
+    query["PostCommandTimeoutSec"] = request.getPostCommandTimeoutSec();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -11857,7 +12021,7 @@ UploadCloudAppResponse Client::uploadCloudAppWithOptions(const UploadCloudAppReq
 }
 
 /**
- * @summary Upload or list a cloud application package. This is an asynchronous API. Use the ListCloudApps API to check upload progress.
+ * @summary Uploads a cloud application package for listing. This is an asynchronous operation. You can call the ListCloudApps operation to query the upload progress.
  *
  * @param request UploadCloudAppRequest
  * @return UploadCloudAppResponse

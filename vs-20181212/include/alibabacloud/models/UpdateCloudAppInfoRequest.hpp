@@ -46,6 +46,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Md5, md5_);
         DARABONBA_PTR_TO_JSON(PatchName, patchName_);
         DARABONBA_PTR_TO_JSON(PkgFormat, pkgFormat_);
+        DARABONBA_PTR_TO_JSON(PostCommandPath, postCommandPath_);
+        DARABONBA_PTR_TO_JSON(PostCommandTimeoutSec, postCommandTimeoutSec_);
         DARABONBA_PTR_TO_JSON(RenderingInstanceId, renderingInstanceId_);
       };
       friend void from_json(const Darabonba::Json& j, Patch& obj) { 
@@ -54,6 +56,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Md5, md5_);
         DARABONBA_PTR_FROM_JSON(PatchName, patchName_);
         DARABONBA_PTR_FROM_JSON(PkgFormat, pkgFormat_);
+        DARABONBA_PTR_FROM_JSON(PostCommandPath, postCommandPath_);
+        DARABONBA_PTR_FROM_JSON(PostCommandTimeoutSec, postCommandTimeoutSec_);
         DARABONBA_PTR_FROM_JSON(RenderingInstanceId, renderingInstanceId_);
       };
       Patch() = default ;
@@ -68,7 +72,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->asStablePatch_ == nullptr
-        && this->downloadURL_ == nullptr && this->md5_ == nullptr && this->patchName_ == nullptr && this->pkgFormat_ == nullptr && this->renderingInstanceId_ == nullptr; };
+        && this->downloadURL_ == nullptr && this->md5_ == nullptr && this->patchName_ == nullptr && this->pkgFormat_ == nullptr && this->postCommandPath_ == nullptr
+        && this->postCommandTimeoutSec_ == nullptr && this->renderingInstanceId_ == nullptr; };
       // asStablePatch Field Functions 
       bool hasAsStablePatch() const { return this->asStablePatch_ != nullptr;};
       void deleteAsStablePatch() { this->asStablePatch_ = nullptr;};
@@ -104,6 +109,20 @@ namespace Models
       inline Patch& setPkgFormat(string pkgFormat) { DARABONBA_PTR_SET_VALUE(pkgFormat_, pkgFormat) };
 
 
+      // postCommandPath Field Functions 
+      bool hasPostCommandPath() const { return this->postCommandPath_ != nullptr;};
+      void deletePostCommandPath() { this->postCommandPath_ = nullptr;};
+      inline string getPostCommandPath() const { DARABONBA_PTR_GET_DEFAULT(postCommandPath_, "") };
+      inline Patch& setPostCommandPath(string postCommandPath) { DARABONBA_PTR_SET_VALUE(postCommandPath_, postCommandPath) };
+
+
+      // postCommandTimeoutSec Field Functions 
+      bool hasPostCommandTimeoutSec() const { return this->postCommandTimeoutSec_ != nullptr;};
+      void deletePostCommandTimeoutSec() { this->postCommandTimeoutSec_ = nullptr;};
+      inline int32_t getPostCommandTimeoutSec() const { DARABONBA_PTR_GET_DEFAULT(postCommandTimeoutSec_, 0) };
+      inline Patch& setPostCommandTimeoutSec(int32_t postCommandTimeoutSec) { DARABONBA_PTR_SET_VALUE(postCommandTimeoutSec_, postCommandTimeoutSec) };
+
+
       // renderingInstanceId Field Functions 
       bool hasRenderingInstanceId() const { return this->renderingInstanceId_ != nullptr;};
       void deleteRenderingInstanceId() { this->renderingInstanceId_ = nullptr;};
@@ -112,36 +131,31 @@ namespace Models
 
 
     protected:
-      // Specifies whether to automatically set the patch as the stable version after it is successfully uploaded. The default value is false.
+      // Specifies whether to automatically set the patch as the stable patch after a successful upload. Default value: false.
       shared_ptr<bool> asStablePatch_ {};
-      // The download URL for the patch package.
-      // You must specify either RenderingInstanceId or DownloadURL.
-      // DownloadURL takes precedence.
+      // The download URL of the patch package.
+      // Either RenderingInstanceId or DownloadURL is required. DownloadURL takes priority.
       shared_ptr<string> downloadURL_ {};
-      // The MD5 hash of the patch package, used to verify integrity. This parameter is valid only if DownloadURL is not empty. It is required if DownloadURL is not empty.
+      // The MD5 hash of the patch package, used for integrity verification. Valid only when DownloadURL is not empty. Required when DownloadURL is not empty.
       shared_ptr<string> md5_ {};
-      // The name or description of the patch package. This is a unique identifier under the AppId.
-      // Default naming conventions:
-      // 
-      // 1. Cannot be origin or all.
-      // 
+      // The name or description of the patch package, which serves as a unique identifier under the AppId.
+      // Naming conventions:
+      // 1. Cannot be set to origin or all.
       // 2. Must be 1 to 50 characters in length.
-      // 
       // 3. Can contain lowercase letters, digits, underscores (_), hyphens (-), and periods (.).
-      // 
-      // 4. The first and last characters must be a letter or a digit.
+      // 4. Must start and end with a letter or digit.
       shared_ptr<string> patchName_ {};
-      // The format of the installation package. By default, the system uses the file extension from the download URL. This parameter is valid only if DownloadURL is not empty. Valid values:
-      // 
+      // The format of the installation package. The default value is the file extension of the download URL. Valid only when DownloadURL is not empty. Valid values:
       // 1. tar.gz
-      // 
       // 2. tar
-      // 
       // 3. zip
-      // 
       // 4. rar
       shared_ptr<string> pkgFormat_ {};
-      // The instance ID required to create the patch package. This parameter is valid only in the Android application marketplace scenario (PkgType=andrpid_appmarket). Specify either RenderingInstanceId or DownloadURL. DownloadURL takes precedence.
+      // The relative path of the post-command within the application package. Only supported for Windows applications.
+      shared_ptr<string> postCommandPath_ {};
+      // The timeout period for the post-command execution, in seconds. Only supported for Windows applications.
+      shared_ptr<int32_t> postCommandTimeoutSec_ {};
+      // The instance ID of the instance used to create the patch package. Valid only for Android application marketplace scenarios (PkgType=andrpid_appmarket). Either RenderingInstanceId or DownloadURL is required. DownloadURL takes priority.
       shared_ptr<string> renderingInstanceId_ {};
     };
 
@@ -187,30 +201,27 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud application, which corresponds to a unique application package.
+    // The cloud application ID, which corresponds to a unique application package.
     // 
     // This parameter is required.
     shared_ptr<string> appId_ {};
     // The description of the application.
     shared_ptr<string> description_ {};
-    // Information about the patch package to upload.
-    // 
-    // 1. This parameter is not supported when PkgType is android.
-    // 
-    // 2. For the same AppId, only one patch can be in the process of uploading at a time. This means only one patch can be in a state other than its desired state.
+    // The information about the patch package to upload.
+    // 1. Not supported when PkgType is set to android.
+    // 2. Only one patch can be in the uploading state at a time for the same AppId (only one patch in a non-final state is allowed per AppId).
     shared_ptr<UpdateCloudAppInfoRequest::Patch> patch_ {};
-    // The tags for the cloud application. You can select multiple tags. This action resets all existing tags for the cloud application.
-    // 
+    // The cloud application labels. You can select multiple labels. This operation resets the cloud application labels.
     // 1. Valid values:
-    //    hot, game, and app.
-    // 
-    // 2. Special case:
-    //    To delete all tags, enter ["NULL"].
+    //   a. hot
+    //   b. game
+    //   c. app
+    // 2. Special cases:
+    //   a. To delete all labels, set this parameter to ["NULL"].
     shared_ptr<vector<string>> pkgLabels_ {};
-    // The ID of the stable patch. This patch is used by default if you do not specify a PatchId when the application is in use, such as during a session startup. This parameter is not supported when PkgType is android.
-    // Special value:
-    // 
-    // 1. If you set this parameter to origin, the patch version is removed and the initial version is used.
+    // The stable PatchId. When a PatchId is not specified during business operations (such as session startup), this PatchId is used by default. Not supported when PkgType is set to android.
+    // Special values:
+    // 1. origin: cancels the patch version and uses the initial version by default.
     shared_ptr<string> stablePatchId_ {};
   };
 

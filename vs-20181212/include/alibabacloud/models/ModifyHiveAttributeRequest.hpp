@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The new description of the cluster.
+    // The description.
     shared_ptr<string> description_ {};
-    // The ID of the cluster.
+    // ID
     // 
     // This parameter is required.
     shared_ptr<string> hiveId_ {};
-    // The new name of the cluster.
+    // The name.
     shared_ptr<string> name_ {};
   };
 

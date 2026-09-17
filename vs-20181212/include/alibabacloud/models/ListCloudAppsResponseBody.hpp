@@ -47,6 +47,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(PkgFormat, pkgFormat_);
         DARABONBA_PTR_TO_JSON(PkgType, pkgType_);
+        DARABONBA_PTR_TO_JSON(PostCommandPath, postCommandPath_);
+        DARABONBA_PTR_TO_JSON(PostCommandTimeoutSec, postCommandTimeoutSec_);
         DARABONBA_PTR_TO_JSON(StablePatchId, stablePatchId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(StatusDescription, statusDescription_);
@@ -60,6 +62,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(PkgFormat, pkgFormat_);
         DARABONBA_PTR_FROM_JSON(PkgType, pkgType_);
+        DARABONBA_PTR_FROM_JSON(PostCommandPath, postCommandPath_);
+        DARABONBA_PTR_FROM_JSON(PostCommandTimeoutSec, postCommandTimeoutSec_);
         DARABONBA_PTR_FROM_JSON(StablePatchId, stablePatchId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(StatusDescription, statusDescription_);
@@ -79,7 +83,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appId_ == nullptr
         && this->appName_ == nullptr && this->appVersion_ == nullptr && this->description_ == nullptr && this->pkgFormat_ == nullptr && this->pkgType_ == nullptr
-        && this->stablePatchId_ == nullptr && this->status_ == nullptr && this->statusDescription_ == nullptr && this->updateTime_ == nullptr && this->uploadTime_ == nullptr; };
+        && this->postCommandPath_ == nullptr && this->postCommandTimeoutSec_ == nullptr && this->stablePatchId_ == nullptr && this->status_ == nullptr && this->statusDescription_ == nullptr
+        && this->updateTime_ == nullptr && this->uploadTime_ == nullptr; };
       // appId Field Functions 
       bool hasAppId() const { return this->appId_ != nullptr;};
       void deleteAppId() { this->appId_ = nullptr;};
@@ -122,6 +127,20 @@ namespace Models
       inline CloudApps& setPkgType(string pkgType) { DARABONBA_PTR_SET_VALUE(pkgType_, pkgType) };
 
 
+      // postCommandPath Field Functions 
+      bool hasPostCommandPath() const { return this->postCommandPath_ != nullptr;};
+      void deletePostCommandPath() { this->postCommandPath_ = nullptr;};
+      inline string getPostCommandPath() const { DARABONBA_PTR_GET_DEFAULT(postCommandPath_, "") };
+      inline CloudApps& setPostCommandPath(string postCommandPath) { DARABONBA_PTR_SET_VALUE(postCommandPath_, postCommandPath) };
+
+
+      // postCommandTimeoutSec Field Functions 
+      bool hasPostCommandTimeoutSec() const { return this->postCommandTimeoutSec_ != nullptr;};
+      void deletePostCommandTimeoutSec() { this->postCommandTimeoutSec_ = nullptr;};
+      inline int32_t getPostCommandTimeoutSec() const { DARABONBA_PTR_GET_DEFAULT(postCommandTimeoutSec_, 0) };
+      inline CloudApps& setPostCommandTimeoutSec(int32_t postCommandTimeoutSec) { DARABONBA_PTR_SET_VALUE(postCommandTimeoutSec_, postCommandTimeoutSec) };
+
+
       // stablePatchId Field Functions 
       bool hasStablePatchId() const { return this->stablePatchId_ != nullptr;};
       void deleteStablePatchId() { this->stablePatchId_ = nullptr;};
@@ -158,35 +177,37 @@ namespace Models
 
 
     protected:
-      // Application ID.
+      // The application ID.
       shared_ptr<string> appId_ {};
-      // Application name.
+      // The application name.
       shared_ptr<string> appName_ {};
-      // Application version.
+      // The application version.
       shared_ptr<string> appVersion_ {};
-      // Application description.
+      // The application description.
       shared_ptr<string> description_ {};
-      // Package format.
+      // The installation package format.
       shared_ptr<string> pkgFormat_ {};
-      // Package type: android/win.
+      // The installation package type. Valid values: android and win.
       shared_ptr<string> pkgType_ {};
-      // Stable patch package ID.
+      // The relative path of the post-command within the application package. Only win type applications are supported.
+      shared_ptr<string> postCommandPath_ {};
+      // The timeout period for post-command execution, in seconds. Only win type applications are supported.
+      shared_ptr<int32_t> postCommandTimeoutSec_ {};
+      // The ID of the stable version patch package.
       shared_ptr<string> stablePatchId_ {};
       // The application upload status. Valid values:
-      // 
       // 1. Created
-      // 
       // 2. Doing
-      // 
-      // 3. Success: The desired state.
-      // 
-      // 4. Failed: The desired state.
+      // 3. Success: desired state.
+      // 4. Failed: desired state.
+      // 5. Deleting
+      // 6. DeleteFailed: desired state.
       shared_ptr<string> status_ {};
-      // Status description.
+      // The status description.
       shared_ptr<string> statusDescription_ {};
-      // Latest status update time.
+      // The latest status update time.
       shared_ptr<string> updateTime_ {};
-      // Application upload time.
+      // The application upload time.
       shared_ptr<string> uploadTime_ {};
     };
 
@@ -230,15 +251,15 @@ namespace Models
 
 
   protected:
-    // List of cloud application information.
+    // The list of cloud application information.
     shared_ptr<vector<ListCloudAppsResponseBody::CloudApps>> cloudApps_ {};
-    // Page number of the query list.
+    // The page number of the query list.
     shared_ptr<int64_t> pageNumber_ {};
-    // Number of rows per page for paged queries.
+    // The number of entries per page for the paged query.
     shared_ptr<int64_t> pageSize_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of matching cloud application entries.
+    // The total number of matched cloud applications.
     shared_ptr<int64_t> totalCount_ {};
   };
 

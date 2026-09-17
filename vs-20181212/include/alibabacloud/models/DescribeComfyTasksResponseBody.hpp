@@ -226,13 +226,13 @@ namespace Models
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The page size.
-    // > Only applicable to recording queries.
+    // > Only available for recording queries.
     shared_ptr<int32_t> pageSize_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The task list.
     shared_ptr<vector<DescribeComfyTasksResponseBody::Tasks>> tasks_ {};
-    // The number of tasks.
+    // The total number of tasks.
     shared_ptr<int32_t> total_ {};
   };
 

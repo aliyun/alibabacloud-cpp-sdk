@@ -118,9 +118,9 @@ namespace Models
       shared_ptr<int32_t> cores_ {};
       // The memory size.
       shared_ptr<int32_t> memory_ {};
-      // The number of cards per single load.
+      // The number of cards per workload.
       shared_ptr<int32_t> shard_ {};
-      // `RenderingSpec`
+      // The specification.
       shared_ptr<string> specification_ {};
       // The maximum storage capacity. Unit: GB.
       shared_ptr<int32_t> storage_ {};

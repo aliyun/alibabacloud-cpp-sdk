@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the cloud application service group.
+    // The cluster ID.
     // 
     // This parameter is required.
     shared_ptr<string> hiveId_ {};

@@ -14,9 +14,11 @@ namespace Models
   class RebootRenderingServerRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const RebootRenderingServerRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Precheck, precheck_);
       DARABONBA_PTR_TO_JSON(RenderingInstanceIds, renderingInstanceIds_);
     };
     friend void from_json(const Darabonba::Json& j, RebootRenderingServerRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Precheck, precheck_);
       DARABONBA_PTR_FROM_JSON(RenderingInstanceIds, renderingInstanceIds_);
     };
     RebootRenderingServerRequest() = default ;
@@ -30,7 +32,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->renderingInstanceIds_ == nullptr; };
+    virtual bool empty() const override { return this->precheck_ == nullptr
+        && this->renderingInstanceIds_ == nullptr; };
+    // precheck Field Functions 
+    bool hasPrecheck() const { return this->precheck_ != nullptr;};
+    void deletePrecheck() { this->precheck_ = nullptr;};
+    inline bool getPrecheck() const { DARABONBA_PTR_GET_DEFAULT(precheck_, false) };
+    inline RebootRenderingServerRequest& setPrecheck(bool precheck) { DARABONBA_PTR_SET_VALUE(precheck_, precheck) };
+
+
     // renderingInstanceIds Field Functions 
     bool hasRenderingInstanceIds() const { return this->renderingInstanceIds_ != nullptr;};
     void deleteRenderingInstanceIds() { this->renderingInstanceIds_ = nullptr;};
@@ -41,7 +51,9 @@ namespace Models
 
 
   protected:
-    // List of cloud application service instance IDs
+    // Specifies whether to perform only an admission check without actually restarting the hosts. Default value: false.
+    shared_ptr<bool> precheck_ {};
+    // The list of cloud application service instance IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> renderingInstanceIds_ {};
