@@ -1068,6 +1068,10 @@
 #include <alibabacloud/models/RenameWorkflowDefinitionRequest.hpp>
 #include <alibabacloud/models/RenameWorkflowDefinitionResponseBody.hpp>
 #include <alibabacloud/models/RenameWorkflowDefinitionResponse.hpp>
+#include <alibabacloud/models/ReplyAgentSessionRequest.hpp>
+#include <alibabacloud/models/ReplyAgentSessionShrinkRequest.hpp>
+#include <alibabacloud/models/ReplyAgentSessionResponseBody.hpp>
+#include <alibabacloud/models/ReplyAgentSessionResponse.hpp>
 #include <alibabacloud/models/RerunTaskInstancesRequest.hpp>
 #include <alibabacloud/models/RerunTaskInstancesShrinkRequest.hpp>
 #include <alibabacloud/models/RerunTaskInstancesResponseBody.hpp>
