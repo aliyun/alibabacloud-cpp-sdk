@@ -236,19 +236,19 @@ namespace Models
         protected:
           // The cached token consumption.
           shared_ptr<int64_t> cachedAmount_ {};
-          // The exact value of cached consumption. Supports decimals in credit scenarios.
+          // The exact value of cached consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> cachedAmountDecimal_ {};
           // The consumer name.
           shared_ptr<string> consumer_ {};
           // The input token consumption.
           shared_ptr<int64_t> inputAmount_ {};
-          // The exact value of input consumption. Supports decimals in credit scenarios.
+          // The exact value of input consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> inputAmountDecimal_ {};
           // The model name.
           shared_ptr<string> model_ {};
           // The output token consumption.
           shared_ptr<int64_t> outputAmount_ {};
-          // The exact value of output consumption. Supports decimals in credit scenarios.
+          // The exact value of output consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> outputAmountDecimal_ {};
           // The request ID.
           shared_ptr<string> requestId_ {};
@@ -256,7 +256,7 @@ namespace Models
           shared_ptr<string> startTime_ {};
           // The total consumption.
           shared_ptr<int64_t> usedAmount_ {};
-          // The exact value of total consumption. Supports decimals in credit scenarios.
+          // The exact value of total consumption. Decimals are supported in credit scenarios.
           shared_ptr<double> usedAmountDecimal_ {};
         };
 
@@ -403,17 +403,17 @@ namespace Models
     protected:
       // The total cached token consumption.
       shared_ptr<int64_t> cachedAmount_ {};
-      // The exact value of total cached consumption. Supports decimals in credit scenarios.
+      // The exact value of total cached consumption. Decimals are supported in credit scenarios.
       shared_ptr<double> cachedAmountDecimal_ {};
       // The paginated consumption details.
       shared_ptr<Data::Details> details_ {};
       // The total input token consumption.
       shared_ptr<int64_t> inputAmount_ {};
-      // The exact value of total input consumption. Supports decimals in credit scenarios.
+      // The exact value of total input consumption. Decimals are supported in credit scenarios.
       shared_ptr<double> inputAmountDecimal_ {};
       // The total output token consumption.
       shared_ptr<int64_t> outputAmount_ {};
-      // The exact value of total output consumption. Supports decimals in credit scenarios.
+      // The exact value of total output consumption. Decimals are supported in credit scenarios.
       shared_ptr<double> outputAmountDecimal_ {};
       // Indicates whether the quota limit is exceeded.
       shared_ptr<bool> overLimit_ {};
@@ -425,7 +425,7 @@ namespace Models
       shared_ptr<int64_t> totalQuota_ {};
       // The total used amount of the subject.
       shared_ptr<int64_t> usedAmount_ {};
-      // The exact value of the total used amount of the subject. Supports decimals in credit scenarios.
+      // The exact value of the total used amount of the subject. Decimals are supported in credit scenarios.
       shared_ptr<double> usedAmountDecimal_ {};
     };
 
@@ -468,7 +468,7 @@ namespace Models
     shared_ptr<GetGatewayQuotaRuleSubjectUsageResponseBody::Data> data_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

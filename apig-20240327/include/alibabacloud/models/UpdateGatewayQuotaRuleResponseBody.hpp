@@ -168,19 +168,19 @@ namespace Models
 
 
         protected:
-          // The period type of the existing conflicting rule on the consumer principal. Valid values: day, week, and month, which indicate that the period of the conflicting rule is daily, weekly, or monthly.
+          // The period type of the existing conflicting rule on the consumer subject. Valid values: day (daily), week (weekly), month (monthly).
           shared_ptr<string> conflictPeriodType_ {};
-          // The type of the existing conflicting rule on the consumer principal. Valid values: calendar (the conflicting rule uses a calendar period) and epoch (the conflicting rule uses a custom period).
+          // The type of the existing conflicting rule on the consumer subject. Valid values: calendar (calendar period) and epoch (custom period).
           shared_ptr<string> conflictType_ {};
-          // The consumer ID. You can use subjectId instead.
+          // The consumer ID. Use subjectId instead.
           shared_ptr<string> consumerId_ {};
-          // The consumer name. You can use subjectName instead.
+          // The consumer name. Use subjectName instead.
           shared_ptr<string> consumerName_ {};
-          // The ID of the conflicting principal.
+          // The ID of the conflicting subject.
           shared_ptr<string> subjectId_ {};
-          // The name of the conflicting principal.
+          // The name of the conflicting subject.
           shared_ptr<string> subjectName_ {};
-          // The type of the conflicting principal. Valid values: consumer and consumer_group.
+          // The type of the conflicting subject. Valid values: consumer and consumer_group.
           shared_ptr<string> subjectType_ {};
         };
 
@@ -210,9 +210,9 @@ namespace Models
 
 
       protected:
-        // The hash of the conflict snapshot.
+        // The conflict hash.
         shared_ptr<string> conflictHash_ {};
-        // The list of conflicting principals (consumers or consumer groups).
+        // The list of conflicting subjects (consumers or consumer groups).
         shared_ptr<vector<ConflictPreview::Items>> items_ {};
         // The total number of conflicts.
         shared_ptr<int32_t> totalConflictCount_ {};
@@ -251,11 +251,11 @@ namespace Models
 
 
     protected:
-      // Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario such as an unconfirmed conflict overwrite.
+      // Indicates whether the write request is accepted by the system. A value of false typically indicates a retryable scenario, such as an unconfirmed conflict overwrite.
       shared_ptr<bool> accepted_ {};
       // The conflict preview.
       shared_ptr<Data::ConflictPreview> conflictPreview_ {};
-      // Indicates whether the request is a dry run.
+      // Indicates whether this is a dry run.
       shared_ptr<bool> dryRun_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};
@@ -296,9 +296,9 @@ namespace Models
   protected:
     // The status code or error code.
     shared_ptr<string> code_ {};
-    // The response data content.
+    // The response data.
     shared_ptr<UpdateGatewayQuotaRuleResponseBody::Data> data_ {};
-    // The message content.
+    // The response message.
     shared_ptr<string> message_ {};
     // The unique identifier of the request.
     shared_ptr<string> requestId_ {};

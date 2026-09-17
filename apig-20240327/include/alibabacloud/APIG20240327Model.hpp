@@ -313,6 +313,9 @@
 #include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageRequest.hpp>
 #include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageResponseBody.hpp>
 #include <alibabacloud/models/GetGatewayQuotaRuleSubjectUsageResponse.hpp>
+#include <alibabacloud/models/GetGatewayResourceQuotaUsageRequest.hpp>
+#include <alibabacloud/models/GetGatewayResourceQuotaUsageResponseBody.hpp>
+#include <alibabacloud/models/GetGatewayResourceQuotaUsageResponse.hpp>
 #include <alibabacloud/models/GetHttpApiRequest.hpp>
 #include <alibabacloud/models/GetHttpApiResponseBody.hpp>
 #include <alibabacloud/models/GetHttpApiResponse.hpp>

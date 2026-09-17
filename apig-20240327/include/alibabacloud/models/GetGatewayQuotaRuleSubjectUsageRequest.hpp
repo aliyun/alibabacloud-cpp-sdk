@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The end time for querying consumption record details, in UNIX timestamp format (seconds). If only this parameter is specified, the system automatically calculates startTime based on the rule cycle.
+    // The end time for querying consumption record details. Specify a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates startTime based on the rule cycle.
     shared_ptr<int64_t> endTime_ {};
     // Specifies whether to filter out zero values.
     shared_ptr<bool> filterFailedRequests_ {};
     // The page number of the detailed consumption (request) records of the subject within the cycle.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of detailed consumption (request) records per page for the subject within the cycle. Maximum value: 10.
+    // The number of entries per page for the detailed consumption (request) records of the subject within the cycle. Maximum value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The start time for querying consumption record details, in UNIX timestamp format (seconds). If only this parameter is specified, the system automatically calculates endTime based on the rule cycle.
+    // The start time for querying consumption record details. Specify a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates endTime based on the rule cycle.
     shared_ptr<int64_t> startTime_ {};
   };
 

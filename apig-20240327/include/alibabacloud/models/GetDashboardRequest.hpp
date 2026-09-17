@@ -146,7 +146,7 @@ namespace Models
 
 
   protected:
-    // The language. Valid values:
+    // The language of the response. Valid values:
     // 
     // - zh: Chinese
     // - en: English
@@ -155,10 +155,12 @@ namespace Models
     shared_ptr<string> apiId_ {};
     // The filter configuration.
     shared_ptr<GetDashboardRequest::Filter> filter_ {};
-    // The dashboard name. Valid values:
+    // The name of the dashboard. Valid values:
     // 
-    // - LOG: access log
-    // - PLUGIN: plugin log
+    // - LOG: Access log.
+    // - PLUGIN: Plugin log.
+    // 
+    // > Note: This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty (400).
     shared_ptr<string> name_ {};
     // The plugin type ID.
     shared_ptr<string> pluginClassId_ {};
@@ -166,9 +168,11 @@ namespace Models
     shared_ptr<string> pluginId_ {};
     // The route ID.
     shared_ptr<string> routeId_ {};
-    // The dashboard source. Valid values:
+    // The source of the dashboard. Valid values:
     // 
-    // - SLS: log dashboard
+    // - SLS: Log dashboard.
+    // 
+    // > Note: This parameter is required. If this parameter is not specified, the API returns InvalidParameter.IsEmpty (400).
     shared_ptr<string> source_ {};
     // The AI service identifier.
     shared_ptr<string> upstreamCluster_ {};

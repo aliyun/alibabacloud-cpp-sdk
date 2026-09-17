@@ -1429,7 +1429,8 @@ namespace APIG20240327
       /**
        * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
-       * @description Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+       * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+       * Before you begin: Before calling this operation, make sure that Simple Log Service log delivery is enabled for the target gateway by calling UpdateGatewayFeature (name=log-config, value={"enable":true}). Otherwise, the error CloudProductInactive.LogDeliveryNotEnabled is returned.
        *
        * @param request GetGatewayQuotaRuleSubjectUsageRequest
        * @param headers map
@@ -1441,12 +1442,35 @@ namespace APIG20240327
       /**
        * @summary Queries the usage details of a subject under a gateway quota throttling rule, including used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
        *
-       * @description Queries the usage details of a specific subject under a quota rule. This operation takes effect only for AI gateways with a version later than 2.1.19.
+       * @description Queries the usage details of a specific subject under a quota rule. This operation applies only to AI gateways with a version later than 2.1.19.
+       * Before you begin: Before calling this operation, make sure that Simple Log Service log delivery is enabled for the target gateway by calling UpdateGatewayFeature (name=log-config, value={"enable":true}). Otherwise, the error CloudProductInactive.LogDeliveryNotEnabled is returned.
        *
        * @param request GetGatewayQuotaRuleSubjectUsageRequest
        * @return GetGatewayQuotaRuleSubjectUsageResponse
        */
       Models::GetGatewayQuotaRuleSubjectUsageResponse getGatewayQuotaRuleSubjectUsage(const string &gatewayId, const string &ruleId, const string &subjectId, const Models::GetGatewayQuotaRuleSubjectUsageRequest &request);
+
+      /**
+       * @summary 查询网关资源配额与用量
+       *
+       * @description 查询指定 API 网关或 AI 网关的九项资源配额用量、有效上限及统计范围。接口只读，成功响应包含全部九项；自定义插件配额暂不展示数值。该结果是各来源独立读取的当前观测，不保证新增资源一定成功。
+       *
+       * @param request GetGatewayResourceQuotaUsageRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetGatewayResourceQuotaUsageResponse
+       */
+      Models::GetGatewayResourceQuotaUsageResponse getGatewayResourceQuotaUsageWithOptions(const string &gatewayId, const Models::GetGatewayResourceQuotaUsageRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询网关资源配额与用量
+       *
+       * @description 查询指定 API 网关或 AI 网关的九项资源配额用量、有效上限及统计范围。接口只读，成功响应包含全部九项；自定义插件配额暂不展示数值。该结果是各来源独立读取的当前观测，不保证新增资源一定成功。
+       *
+       * @param request GetGatewayResourceQuotaUsageRequest
+       * @return GetGatewayResourceQuotaUsageResponse
+       */
+      Models::GetGatewayResourceQuotaUsageResponse getGatewayResourceQuotaUsage(const string &gatewayId, const Models::GetGatewayResourceQuotaUsageRequest &request);
 
       /**
        * @summary Retrieves the information of an HTTP API.
@@ -3149,12 +3173,12 @@ namespace APIG20240327
       /**
        * @summary Edits a quota throttling rule on a gateway.
        *
-       * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21. Editing a rule preserves the historical usage of consumer principals bound to the rule.
+       * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
        * >  Recommended call sequence:
        * > - Step 1: Perform a dry run to check for rule conflicts.
        * > - - Set dryRun to true.
-       * > - - The response returns a conflict preview that contains conflictHash.
-       * > - Step 2: Confirm and submit the request.
+       * > - - The response contains a conflict preview with a conflictHash value.
+       * > - Step 2: Confirm and submit the changes.
        * > - - No conflicts: Set dryRun to false and overwrite to false.
        * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
@@ -3168,12 +3192,12 @@ namespace APIG20240327
       /**
        * @summary Edits a quota throttling rule on a gateway.
        *
-       * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways with a version later than 2.1.21. Editing a rule preserves the historical usage of consumer principals bound to the rule.
+       * @description Edits a quota rule on a gateway. This operation takes effect only on AI gateways running version 2.1.21 or later. Editing a rule preserves the historical usage of consumer subjects bound to the rule.
        * >  Recommended call sequence:
        * > - Step 1: Perform a dry run to check for rule conflicts.
        * > - - Set dryRun to true.
-       * > - - The response returns a conflict preview that contains conflictHash.
-       * > - Step 2: Confirm and submit the request.
+       * > - - The response contains a conflict preview with a conflictHash value.
+       * > - Step 2: Confirm and submit the changes.
        * > - - No conflicts: Set dryRun to false and overwrite to false.
        * > - - Conflicts exist and you confirm the overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
        *
