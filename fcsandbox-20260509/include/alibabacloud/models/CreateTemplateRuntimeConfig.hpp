@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The number of CPU cores.
     shared_ptr<float> cpu_ {};
-    // The disk size. Unit: GB.
+    // The disk size. Unit: MB.
     shared_ptr<int32_t> diskSize_ {};
     // Specifies whether to allow access to the Internet.
     shared_ptr<bool> internetAccess_ {};
