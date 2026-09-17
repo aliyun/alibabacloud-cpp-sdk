@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREDENTIALSUBMITINTLRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CREDENTIALSUBMITINTLRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREDENTIALSUBMITINTLV2RESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREDENTIALSUBMITINTLV2RESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,27 +10,27 @@ namespace CloudauthIntl20220809
 {
 namespace Models
 {
-  class CredentialSubmitIntlResponseBody : public Darabonba::Model {
+  class CredentialSubmitIntlV2ResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CredentialSubmitIntlResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const CredentialSubmitIntlV2ResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Result, result_);
     };
-    friend void from_json(const Darabonba::Json& j, CredentialSubmitIntlResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, CredentialSubmitIntlV2ResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Result, result_);
     };
-    CredentialSubmitIntlResponseBody() = default ;
-    CredentialSubmitIntlResponseBody(const CredentialSubmitIntlResponseBody &) = default ;
-    CredentialSubmitIntlResponseBody(CredentialSubmitIntlResponseBody &&) = default ;
-    CredentialSubmitIntlResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CredentialSubmitIntlResponseBody() = default ;
-    CredentialSubmitIntlResponseBody& operator=(const CredentialSubmitIntlResponseBody &) = default ;
-    CredentialSubmitIntlResponseBody& operator=(CredentialSubmitIntlResponseBody &&) = default ;
+    CredentialSubmitIntlV2ResponseBody() = default ;
+    CredentialSubmitIntlV2ResponseBody(const CredentialSubmitIntlV2ResponseBody &) = default ;
+    CredentialSubmitIntlV2ResponseBody(CredentialSubmitIntlV2ResponseBody &&) = default ;
+    CredentialSubmitIntlV2ResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CredentialSubmitIntlV2ResponseBody() = default ;
+    CredentialSubmitIntlV2ResponseBody& operator=(const CredentialSubmitIntlV2ResponseBody &) = default ;
+    CredentialSubmitIntlV2ResponseBody& operator=(CredentialSubmitIntlV2ResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The unique identifier of the authentication request.
+      // The unique identifier of the verification request.
       shared_ptr<string> transactionId_ {};
     };
 
@@ -73,41 +73,41 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline CredentialSubmitIntlResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline CredentialSubmitIntlV2ResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline CredentialSubmitIntlResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline CredentialSubmitIntlV2ResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CredentialSubmitIntlResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline CredentialSubmitIntlV2ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const CredentialSubmitIntlResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, CredentialSubmitIntlResponseBody::Result) };
-    inline CredentialSubmitIntlResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, CredentialSubmitIntlResponseBody::Result) };
-    inline CredentialSubmitIntlResponseBody& setResult(const CredentialSubmitIntlResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline CredentialSubmitIntlResponseBody& setResult(CredentialSubmitIntlResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const CredentialSubmitIntlV2ResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, CredentialSubmitIntlV2ResponseBody::Result) };
+    inline CredentialSubmitIntlV2ResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, CredentialSubmitIntlV2ResponseBody::Result) };
+    inline CredentialSubmitIntlV2ResponseBody& setResult(const CredentialSubmitIntlV2ResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline CredentialSubmitIntlV2ResponseBody& setResult(CredentialSubmitIntlV2ResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
     // The return code.
     shared_ptr<string> code_ {};
-    // The response message.
+    // The return message.
     shared_ptr<string> message_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The returned result.
-    shared_ptr<CredentialSubmitIntlResponseBody::Result> result_ {};
+    shared_ptr<CredentialSubmitIntlV2ResponseBody::Result> result_ {};
   };
 
   } // namespace Models

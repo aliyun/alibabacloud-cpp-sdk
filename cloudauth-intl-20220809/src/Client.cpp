@@ -2,12 +2,12 @@
 #include <alibabacloud/CloudauthIntl20220809.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
-#include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/policy/Retry.hpp>
 #include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
 #include <darabonba/http/Form.hpp>
+#include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
 #include <alibabacloud/credentials/Client.hpp>
@@ -29,12 +29,6 @@ namespace CloudauthIntl20220809
 
 AlibabaCloud::CloudauthIntl20220809::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-hongkong" , "cloudauth-intl.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-5" , "cloudauth-intl.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-3" , "cloudauth-intl.ap-southeast-3.aliyuncs.com"},
-    {"ap-southeast-1" , "cloudauth-intl.ap-southeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("cloudauth-intl", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -804,9 +798,9 @@ CredentialGetResultIntlResponse Client::credentialGetResultIntl(const Credential
 }
 
 /**
- * @summary An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
+ * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
  *
- * @description Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
+ * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
  *
  * @param request CredentialRecognitionIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -817,6 +811,10 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
   json query = {};
   if (!!request.hasDocType()) {
     query["DocType"] = request.getDocType();
+  }
+
+  if (!!request.hasFileInputType()) {
+    query["FileInputType"] = request.getFileInputType();
   }
 
   if (!!request.hasFraudCheck()) {
@@ -875,9 +873,9 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntlWithOptions(c
 }
 
 /**
- * @summary An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
+ * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
  *
- * @description Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
+ * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
  *
  * @param request CredentialRecognitionIntlRequest
  * @return CredentialRecognitionIntlResponse
@@ -888,9 +886,187 @@ CredentialRecognitionIntlResponse Client::credentialRecognitionIntl(const Creden
 }
 
 /**
+ * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+ *
+ * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+ *
+ * @param request CredentialRecognitionIntlV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CredentialRecognitionIntlV2Response
+ */
+CredentialRecognitionIntlV2Response Client::credentialRecognitionIntlV2WithOptions(const CredentialRecognitionIntlV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialOcrPictureFile()) {
+    query["CredentialOcrPictureFile"] = request.getCredentialOcrPictureFile();
+  }
+
+  if (!!request.hasDocType()) {
+    query["DocType"] = request.getDocType();
+  }
+
+  if (!!request.hasFileInputType()) {
+    query["FileInputType"] = request.getFileInputType();
+  }
+
+  if (!!request.hasFraudCheck()) {
+    query["FraudCheck"] = request.getFraudCheck();
+  }
+
+  if (!!request.hasIdQuality()) {
+    query["IdQuality"] = request.getIdQuality();
+  }
+
+  if (!!request.hasOcrArea()) {
+    query["OcrArea"] = request.getOcrArea();
+  }
+
+  if (!!request.hasOcrTranslation()) {
+    query["OcrTranslation"] = request.getOcrTranslation();
+  }
+
+  if (!!request.hasOcrValueStandard()) {
+    query["OcrValueStandard"] = request.getOcrValueStandard();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  json body = {};
+  if (!!request.hasCheckRuleConfig()) {
+    body["CheckRuleConfig"] = request.getCheckRuleConfig();
+  }
+
+  if (!!request.hasCredentialOcrPictureBase64()) {
+    body["CredentialOcrPictureBase64"] = request.getCredentialOcrPictureBase64();
+  }
+
+  if (!!request.hasCredentialOcrPictureUrl()) {
+    body["CredentialOcrPictureUrl"] = request.getCredentialOcrPictureUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CredentialRecognitionIntlV2"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CredentialRecognitionIntlV2Response>();
+}
+
+/**
+ * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+ *
+ * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+ *
+ * @param request CredentialRecognitionIntlV2Request
+ * @return CredentialRecognitionIntlV2Response
+ */
+CredentialRecognitionIntlV2Response Client::credentialRecognitionIntlV2(const CredentialRecognitionIntlV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return credentialRecognitionIntlV2WithOptions(request, runtime);
+}
+
+CredentialRecognitionIntlV2Response Client::credentialRecognitionIntlV2Advance(const CredentialRecognitionIntlV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  CredentialRecognitionIntlV2Request credentialRecognitionIntlV2Req = CredentialRecognitionIntlV2Request();
+  Utils::Utils::convert(request, credentialRecognitionIntlV2Req);
+  if (!!request.hasCredentialOcrPictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getCredentialOcrPictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    credentialRecognitionIntlV2Req.setCredentialOcrPictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  CredentialRecognitionIntlV2Response credentialRecognitionIntlV2Resp = credentialRecognitionIntlV2WithOptions(credentialRecognitionIntlV2Req, runtime);
+  return credentialRecognitionIntlV2Resp;
+}
+
+/**
  * @summary Submits credential recognition information.
  *
- * @description Initializes the credential recognition OCR operation and returns a transactionId.
+ * @description Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
  *
  * @param request CredentialSubmitIntlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -901,6 +1077,10 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
   json query = {};
   if (!!request.hasDocType()) {
     query["DocType"] = request.getDocType();
+  }
+
+  if (!!request.hasFileInputType()) {
+    query["FileInputType"] = request.getFileInputType();
   }
 
   if (!!request.hasFraudCheck()) {
@@ -969,7 +1149,7 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
 /**
  * @summary Submits credential recognition information.
  *
- * @description Initializes the credential recognition OCR operation and returns a transactionId.
+ * @description Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
  *
  * @param request CredentialSubmitIntlRequest
  * @return CredentialSubmitIntlResponse
@@ -977,6 +1157,192 @@ CredentialSubmitIntlResponse Client::credentialSubmitIntlWithOptions(const Crede
 CredentialSubmitIntlResponse Client::credentialSubmitIntl(const CredentialSubmitIntlRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return credentialSubmitIntlWithOptions(request, runtime);
+}
+
+/**
+ * @summary Submits a credential recognition request.
+ *
+ * @description Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+ *
+ * @param request CredentialSubmitIntlV2Request
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CredentialSubmitIntlV2Response
+ */
+CredentialSubmitIntlV2Response Client::credentialSubmitIntlV2WithOptions(const CredentialSubmitIntlV2Request &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCredentialOcrPictureFile()) {
+    query["CredentialOcrPictureFile"] = request.getCredentialOcrPictureFile();
+  }
+
+  if (!!request.hasDocType()) {
+    query["DocType"] = request.getDocType();
+  }
+
+  if (!!request.hasFileInputType()) {
+    query["FileInputType"] = request.getFileInputType();
+  }
+
+  if (!!request.hasFraudCheck()) {
+    query["FraudCheck"] = request.getFraudCheck();
+  }
+
+  if (!!request.hasIdQuality()) {
+    query["IdQuality"] = request.getIdQuality();
+  }
+
+  if (!!request.hasMerchantBizId()) {
+    query["MerchantBizId"] = request.getMerchantBizId();
+  }
+
+  if (!!request.hasOcrArea()) {
+    query["OcrArea"] = request.getOcrArea();
+  }
+
+  if (!!request.hasOcrTranslation()) {
+    query["OcrTranslation"] = request.getOcrTranslation();
+  }
+
+  if (!!request.hasOcrValueStandard()) {
+    query["OcrValueStandard"] = request.getOcrValueStandard();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasSceneCode()) {
+    query["SceneCode"] = request.getSceneCode();
+  }
+
+  json body = {};
+  if (!!request.hasCheckRuleConfig()) {
+    body["CheckRuleConfig"] = request.getCheckRuleConfig();
+  }
+
+  if (!!request.hasCredentialOcrPictureBase64()) {
+    body["CredentialOcrPictureBase64"] = request.getCredentialOcrPictureBase64();
+  }
+
+  if (!!request.hasCredentialOcrPictureUrl()) {
+    body["CredentialOcrPictureUrl"] = request.getCredentialOcrPictureUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CredentialSubmitIntlV2"},
+    {"version" , "2022-08-09"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CredentialSubmitIntlV2Response>();
+}
+
+/**
+ * @summary Submits a credential recognition request.
+ *
+ * @description Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+ *
+ * @param request CredentialSubmitIntlV2Request
+ * @return CredentialSubmitIntlV2Response
+ */
+CredentialSubmitIntlV2Response Client::credentialSubmitIntlV2(const CredentialSubmitIntlV2Request &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return credentialSubmitIntlV2WithOptions(request, runtime);
+}
+
+CredentialSubmitIntlV2Response Client::credentialSubmitIntlV2Advance(const CredentialSubmitIntlV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  // Step 0: init client
+  if (Darabonba::isNull(_credential)) {
+    throw ClientException(json({
+      {"code" , "InvalidCredentials"},
+      {"message" , "Please set up the credentials correctly. If you are setting them through environment variables, please ensure that ALIBABA_CLOUD_ACCESS_KEY_ID and ALIBABA_CLOUD_ACCESS_KEY_SECRET are set correctly. See https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems for more details."}
+    }).get<map<string, string>>());
+  }
+
+  CredentialModel credentialModel = _credential->getCredential();
+  string accessKeyId = credentialModel.getAccessKeyId();
+  string accessKeySecret = credentialModel.getAccessKeySecret();
+  string securityToken = credentialModel.getSecurityToken();
+  string credentialType = credentialModel.getType();
+  string openPlatformEndpoint = _openPlatformEndpoint;
+  if (Darabonba::isNull(openPlatformEndpoint) || openPlatformEndpoint == "") {
+    openPlatformEndpoint = "openplatform.aliyuncs.com";
+  }
+
+  if (Darabonba::isNull(credentialType)) {
+    credentialType = "access_key";
+  }
+
+  AlibabaCloud::OpenApi::Utils::Models::Config authConfig = AlibabaCloud::OpenApi::Utils::Models::Config(json({
+    {"accessKeyId" , accessKeyId},
+    {"accessKeySecret" , accessKeySecret},
+    {"securityToken" , securityToken},
+    {"type" , credentialType},
+    {"endpoint" , openPlatformEndpoint},
+    {"protocol" , _protocol},
+    {"regionId" , _regionId}
+  }).get<map<string, string>>());
+  shared_ptr<OpenApiClient> authClient = make_shared<OpenApiClient>(authConfig);
+  map<string, string> authRequest = json({
+    {"Product" , "Cloudauth-intl"},
+    {"RegionId" , _regionId}
+  }).get<map<string, string>>();
+  OpenApiRequest authReq = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(authRequest)}
+  }).get<map<string, map<string, string>>>());
+  Params authParams = Params(json({
+    {"action" , "AuthorizeFileUpload"},
+    {"version" , "2019-12-19"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  json authResponse = {};
+  Darabonba::Http::FileField fileObj = FileField();
+  json ossHeader = {};
+  json tmpBody = {};
+  bool useAccelerate = false;
+  map<string, string> authResponseBody = {};
+  CredentialSubmitIntlV2Request credentialSubmitIntlV2Req = CredentialSubmitIntlV2Request();
+  Utils::Utils::convert(request, credentialSubmitIntlV2Req);
+  if (!!request.hasCredentialOcrPictureFileObject()) {
+    authResponse = authClient->callApi(authParams, authReq, runtime);
+    tmpBody = json(authResponse.at("body"));
+    useAccelerate = Darabonba::Convert::boolVal(tmpBody.at("UseAccelerate"));
+    authResponseBody = Utils::Utils::stringifyMapValue(tmpBody);
+    fileObj = FileField(json({
+      {"filename" , authResponseBody.at("ObjectKey")},
+      {"content" , request.getCredentialOcrPictureFileObject()},
+      {"contentType" , ""}
+    }));
+    ossHeader = json({
+      {"host" , Utils::Utils::getEndpoint(authResponseBody.at("Endpoint"), useAccelerate, _endpointType)},
+      {"OSSAccessKeyId" , authResponseBody.at("AccessKeyId")},
+      {"policy" , authResponseBody.at("EncodedPolicy")},
+      {"Signature" , authResponseBody.at("Signature")},
+      {"key" , authResponseBody.at("ObjectKey")},
+      {"file" , fileObj},
+      {"success_action_status" , "201"}
+    });
+    _postOSSObject(authResponseBody.at("Bucket"), ossHeader, runtime);
+    credentialSubmitIntlV2Req.setCredentialOcrPictureFile(DARA_STRING_TEMPLATE("http://" , authResponseBody.at("Bucket") , "." , authResponseBody.at("Endpoint") , "/" , authResponseBody.at("ObjectKey")));
+  }
+
+  CredentialSubmitIntlV2Response credentialSubmitIntlV2Resp = credentialSubmitIntlV2WithOptions(credentialSubmitIntlV2Req, runtime);
+  return credentialSubmitIntlV2Resp;
 }
 
 /**

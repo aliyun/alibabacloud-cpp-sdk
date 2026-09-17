@@ -33,9 +33,17 @@
 #include <alibabacloud/models/CredentialRecognitionIntlRequest.hpp>
 #include <alibabacloud/models/CredentialRecognitionIntlResponseBody.hpp>
 #include <alibabacloud/models/CredentialRecognitionIntlResponse.hpp>
+#include <alibabacloud/models/CredentialRecognitionIntlV2Request.hpp>
+#include <alibabacloud/models/CredentialRecognitionIntlV2AdvanceRequest.hpp>
+#include <alibabacloud/models/CredentialRecognitionIntlV2ResponseBody.hpp>
+#include <alibabacloud/models/CredentialRecognitionIntlV2Response.hpp>
 #include <alibabacloud/models/CredentialSubmitIntlRequest.hpp>
 #include <alibabacloud/models/CredentialSubmitIntlResponseBody.hpp>
 #include <alibabacloud/models/CredentialSubmitIntlResponse.hpp>
+#include <alibabacloud/models/CredentialSubmitIntlV2Request.hpp>
+#include <alibabacloud/models/CredentialSubmitIntlV2AdvanceRequest.hpp>
+#include <alibabacloud/models/CredentialSubmitIntlV2ResponseBody.hpp>
+#include <alibabacloud/models/CredentialSubmitIntlV2Response.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlRequest.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlAdvanceRequest.hpp>
 #include <alibabacloud/models/CredentialVerifyIntlResponseBody.hpp>

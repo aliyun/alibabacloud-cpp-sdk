@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CredentialOcrPictureBase64, credentialOcrPictureBase64_);
       DARABONBA_PTR_TO_JSON(CredentialOcrPictureUrl, credentialOcrPictureUrl_);
       DARABONBA_PTR_TO_JSON(DocType, docType_);
+      DARABONBA_PTR_TO_JSON(FileInputType, fileInputType_);
       DARABONBA_PTR_TO_JSON(FraudCheck, fraudCheck_);
       DARABONBA_PTR_TO_JSON(IdQuality, idQuality_);
       DARABONBA_PTR_TO_JSON(OcrArea, ocrArea_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CredentialOcrPictureBase64, credentialOcrPictureBase64_);
       DARABONBA_PTR_FROM_JSON(CredentialOcrPictureUrl, credentialOcrPictureUrl_);
       DARABONBA_PTR_FROM_JSON(DocType, docType_);
+      DARABONBA_PTR_FROM_JSON(FileInputType, fileInputType_);
       DARABONBA_PTR_FROM_JSON(FraudCheck, fraudCheck_);
       DARABONBA_PTR_FROM_JSON(IdQuality, idQuality_);
       DARABONBA_PTR_FROM_JSON(OcrArea, ocrArea_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->checkRuleConfig_ == nullptr
-        && this->credentialOcrPictureBase64_ == nullptr && this->credentialOcrPictureUrl_ == nullptr && this->docType_ == nullptr && this->fraudCheck_ == nullptr && this->idQuality_ == nullptr
-        && this->ocrArea_ == nullptr && this->ocrTranslation_ == nullptr && this->ocrValueStandard_ == nullptr && this->productCode_ == nullptr; };
+        && this->credentialOcrPictureBase64_ == nullptr && this->credentialOcrPictureUrl_ == nullptr && this->docType_ == nullptr && this->fileInputType_ == nullptr && this->fraudCheck_ == nullptr
+        && this->idQuality_ == nullptr && this->ocrArea_ == nullptr && this->ocrTranslation_ == nullptr && this->ocrValueStandard_ == nullptr && this->productCode_ == nullptr; };
     // checkRuleConfig Field Functions 
     bool hasCheckRuleConfig() const { return this->checkRuleConfig_ != nullptr;};
     void deleteCheckRuleConfig() { this->checkRuleConfig_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteDocType() { this->docType_ = nullptr;};
     inline string getDocType() const { DARABONBA_PTR_GET_DEFAULT(docType_, "") };
     inline CredentialRecognitionIntlRequest& setDocType(string docType) { DARABONBA_PTR_SET_VALUE(docType_, docType) };
+
+
+    // fileInputType Field Functions 
+    bool hasFileInputType() const { return this->fileInputType_ != nullptr;};
+    void deleteFileInputType() { this->fileInputType_ = nullptr;};
+    inline string getFileInputType() const { DARABONBA_PTR_GET_DEFAULT(fileInputType_, "") };
+    inline CredentialRecognitionIntlRequest& setFileInputType(string fileInputType) { DARABONBA_PTR_SET_VALUE(fileInputType_, fileInputType) };
 
 
     // fraudCheck Field Functions 
@@ -127,29 +136,41 @@ namespace Models
     shared_ptr<string> credentialOcrPictureBase64_ {};
     // The URL of the image. The URL must be a publicly accessible HTTP or HTTPS link.
     shared_ptr<string> credentialOcrPictureUrl_ {};
-    // The credential type.
-    // - Transaction credential: 01 (includes various electronic bill images such as water, electricity, gas, and credit card bills)
+    // The credential type. Valid values:
+    // - 01: transaction credential (including electronic bill images for water, electricity, gas, credit card, and other types)
     // 
     // This parameter is required.
     shared_ptr<string> docType_ {};
+    // The input file type. Valid values:
+    // 
+    // - IMAGE (default): image.
+    // 
+    // - PDF: PDF format.
+    shared_ptr<string> fileInputType_ {};
     // Specifies whether to enable tampering detection. Valid values:
     // - true: Enabled.
     // - false: Disabled.
     // 
     // This parameter is required.
     shared_ptr<string> fraudCheck_ {};
-    // Specifies whether to enable quality detection. Valid values: Y (enabled) and N (disabled).
+    // Specifies whether to enable quality detection. Valid values:
+    // - Y: Enabled.
+    // - N: Disabled.
     shared_ptr<string> idQuality_ {};
-    // The extraction type:
-    // - 0101: Electronic bill address and name module (extracts address and name through intelligent analysis)
+    // The extraction type. Valid values:
+    // - 0101: electronic bill address and name module (extracts the address and name module through intelligent analysis)
     // 
     // This parameter is required.
     shared_ptr<string> ocrArea_ {};
-    // Specifies whether to enable translation. Valid values: 0 (disabled) and 1 (enabled).
+    // Specifies whether to enable translation. Valid values:
+    // - 0: Disabled.
+    // - 1: Enabled.
     shared_ptr<string> ocrTranslation_ {};
-    // Specifies whether to enable OCR result standardization. Valid values: 0 (disabled) and 1 (enabled).
+    // Specifies whether to enable OCR result normalization. Valid values:
+    // - 0: Disabled.
+    // - 1: Enabled.
     shared_ptr<string> ocrValueStandard_ {};
-    // The product solution to use. Set this to CREDENTIAL_RECOGNITION.
+    // The product solution to use. Set the value to CREDENTIAL_RECOGNITION.
     // 
     // This parameter is required.
     shared_ptr<string> productCode_ {};

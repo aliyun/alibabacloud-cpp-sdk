@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREDENTIALRECOGNITIONINTLRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CREDENTIALRECOGNITIONINTLRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREDENTIALRECOGNITIONINTLV2RESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CREDENTIALRECOGNITIONINTLV2RESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,27 +10,27 @@ namespace CloudauthIntl20220809
 {
 namespace Models
 {
-  class CredentialRecognitionIntlResponseBody : public Darabonba::Model {
+  class CredentialRecognitionIntlV2ResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CredentialRecognitionIntlResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const CredentialRecognitionIntlV2ResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Result, result_);
     };
-    friend void from_json(const Darabonba::Json& j, CredentialRecognitionIntlResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, CredentialRecognitionIntlV2ResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Result, result_);
     };
-    CredentialRecognitionIntlResponseBody() = default ;
-    CredentialRecognitionIntlResponseBody(const CredentialRecognitionIntlResponseBody &) = default ;
-    CredentialRecognitionIntlResponseBody(CredentialRecognitionIntlResponseBody &&) = default ;
-    CredentialRecognitionIntlResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CredentialRecognitionIntlResponseBody() = default ;
-    CredentialRecognitionIntlResponseBody& operator=(const CredentialRecognitionIntlResponseBody &) = default ;
-    CredentialRecognitionIntlResponseBody& operator=(CredentialRecognitionIntlResponseBody &&) = default ;
+    CredentialRecognitionIntlV2ResponseBody() = default ;
+    CredentialRecognitionIntlV2ResponseBody(const CredentialRecognitionIntlV2ResponseBody &) = default ;
+    CredentialRecognitionIntlV2ResponseBody(CredentialRecognitionIntlV2ResponseBody &&) = default ;
+    CredentialRecognitionIntlV2ResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CredentialRecognitionIntlV2ResponseBody() = default ;
+    CredentialRecognitionIntlV2ResponseBody& operator=(const CredentialRecognitionIntlV2ResponseBody &) = default ;
+    CredentialRecognitionIntlV2ResponseBody& operator=(CredentialRecognitionIntlV2ResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -84,7 +84,13 @@ namespace Models
     protected:
       // The recognized key information, in JSON format.
       shared_ptr<string> extIdInfo_ {};
-      // The description of the authentication result.
+      // The result code. Valid values:
+      // 
+      // - 200: OCR extraction succeeded and all rule checks passed.
+      // - 204: Validation result is inconsistent. OCR extraction succeeded, but some fields in CheckRuleConfig did not pass (N).
+      // - 211: Quality does not meet requirements. Quality detection did not pass when idQuality is set to Y (not yet supported in the current version).
+      // - 212: Anti-forgery check did not pass. fraudCheck was triggered and anti-forgery verification failed.
+      // - 213: No text was extracted, or the credential type check did not pass.
       shared_ptr<string> subCode_ {};
       // The extraction result. Valid values:
       // - S: Succeeded.
@@ -98,41 +104,41 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline CredentialRecognitionIntlResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline CredentialRecognitionIntlV2ResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline CredentialRecognitionIntlResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline CredentialRecognitionIntlV2ResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CredentialRecognitionIntlResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline CredentialRecognitionIntlV2ResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // result Field Functions 
     bool hasResult() const { return this->result_ != nullptr;};
     void deleteResult() { this->result_ = nullptr;};
-    inline const CredentialRecognitionIntlResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, CredentialRecognitionIntlResponseBody::Result) };
-    inline CredentialRecognitionIntlResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, CredentialRecognitionIntlResponseBody::Result) };
-    inline CredentialRecognitionIntlResponseBody& setResult(const CredentialRecognitionIntlResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
-    inline CredentialRecognitionIntlResponseBody& setResult(CredentialRecognitionIntlResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
+    inline const CredentialRecognitionIntlV2ResponseBody::Result & getResult() const { DARABONBA_PTR_GET_CONST(result_, CredentialRecognitionIntlV2ResponseBody::Result) };
+    inline CredentialRecognitionIntlV2ResponseBody::Result getResult() { DARABONBA_PTR_GET(result_, CredentialRecognitionIntlV2ResponseBody::Result) };
+    inline CredentialRecognitionIntlV2ResponseBody& setResult(const CredentialRecognitionIntlV2ResponseBody::Result & result) { DARABONBA_PTR_SET_VALUE(result_, result) };
+    inline CredentialRecognitionIntlV2ResponseBody& setResult(CredentialRecognitionIntlV2ResponseBody::Result && result) { DARABONBA_PTR_SET_RVALUE(result_, result) };
 
 
   protected:
-    // The return code.
+    // The return code. A value of 200 indicates a successful request. Other values indicate failures.
     shared_ptr<string> code_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // The returned result.
-    shared_ptr<CredentialRecognitionIntlResponseBody::Result> result_ {};
+    // The response result.
+    shared_ptr<CredentialRecognitionIntlV2ResponseBody::Result> result_ {};
   };
 
   } // namespace Models

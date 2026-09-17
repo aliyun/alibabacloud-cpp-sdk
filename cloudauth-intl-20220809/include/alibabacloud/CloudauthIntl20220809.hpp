@@ -202,9 +202,9 @@ namespace CloudauthIntl20220809
       Models::CredentialGetResultIntlResponse credentialGetResultIntl(const Models::CredentialGetResultIntlRequest &request);
 
       /**
-       * @summary An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
+       * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
        *
-       * @description Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
+       * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
        *
        * @param request CredentialRecognitionIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -213,9 +213,9 @@ namespace CloudauthIntl20220809
       Models::CredentialRecognitionIntlResponse credentialRecognitionIntlWithOptions(const Models::CredentialRecognitionIntlRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary An API operation that uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names.
+       * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
        *
-       * @description Uses AI technology to detect whether credentials (such as water, electricity, gas, and credit card electronic bills) are forged, and extracts key information from the credentials.
+       * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
        *
        * @param request CredentialRecognitionIntlRequest
        * @return CredentialRecognitionIntlResponse
@@ -223,9 +223,32 @@ namespace CloudauthIntl20220809
       Models::CredentialRecognitionIntlResponse credentialRecognitionIntl(const Models::CredentialRecognitionIntlRequest &request);
 
       /**
+       * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+       *
+       * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+       *
+       * @param request CredentialRecognitionIntlV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CredentialRecognitionIntlV2Response
+       */
+      Models::CredentialRecognitionIntlV2Response credentialRecognitionIntlV2WithOptions(const Models::CredentialRecognitionIntlV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+       *
+       * @description Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+       *
+       * @param request CredentialRecognitionIntlV2Request
+       * @return CredentialRecognitionIntlV2Response
+       */
+      Models::CredentialRecognitionIntlV2Response credentialRecognitionIntlV2(const Models::CredentialRecognitionIntlV2Request &request);
+
+      Models::CredentialRecognitionIntlV2Response credentialRecognitionIntlV2Advance(const Models::CredentialRecognitionIntlV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
        * @summary Submits credential recognition information.
        *
-       * @description Initializes the credential recognition OCR operation and returns a transactionId.
+       * @description Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
        *
        * @param request CredentialSubmitIntlRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -236,12 +259,35 @@ namespace CloudauthIntl20220809
       /**
        * @summary Submits credential recognition information.
        *
-       * @description Initializes the credential recognition OCR operation and returns a transactionId.
+       * @description Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
        *
        * @param request CredentialSubmitIntlRequest
        * @return CredentialSubmitIntlResponse
        */
       Models::CredentialSubmitIntlResponse credentialSubmitIntl(const Models::CredentialSubmitIntlRequest &request);
+
+      /**
+       * @summary Submits a credential recognition request.
+       *
+       * @description Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+       *
+       * @param request CredentialSubmitIntlV2Request
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CredentialSubmitIntlV2Response
+       */
+      Models::CredentialSubmitIntlV2Response credentialSubmitIntlV2WithOptions(const Models::CredentialSubmitIntlV2Request &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Submits a credential recognition request.
+       *
+       * @description Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+       *
+       * @param request CredentialSubmitIntlV2Request
+       * @return CredentialSubmitIntlV2Response
+       */
+      Models::CredentialSubmitIntlV2Response credentialSubmitIntlV2(const Models::CredentialSubmitIntlV2Request &request);
+
+      Models::CredentialSubmitIntlV2Response credentialSubmitIntlV2Advance(const Models::CredentialSubmitIntlV2AdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
        * @summary Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
