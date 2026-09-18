@@ -238,7 +238,7 @@ namespace Models
     shared_ptr<vector<ListEvaluationRunsResponseBody::EvaluationRuns>> evaluationRuns_ {};
     // The number of entries per page used in this request.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page. An empty value indicates that no more pages exist.
+    // The pagination token for the next page. An empty value indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -102,7 +102,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The page number.
+    // The page number information.
     shared_ptr<int32_t> page_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<vector<ExperimentPlanData>> plans_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records that match the filter criteria.
+    // The total number of records that match the filter conditions.
     shared_ptr<int32_t> total_ {};
   };
 

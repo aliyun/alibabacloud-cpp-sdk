@@ -125,23 +125,23 @@ namespace Models
 
 
   protected:
-    // The completion time, in millisecond-level UNIX timestamp.
+    // The completion time. The value is a millisecond-level UNIX timestamp.
     shared_ptr<int64_t> completedAt_ {};
-    // The number of completed tasks. If not specified, the default value is 0.
+    // The number of completed tasks. Default value: 0.
     shared_ptr<int32_t> completedTasks_ {};
-    // The execution time, in millisecond-level UNIX timestamp.
+    // The execution time. The value is a millisecond-level UNIX timestamp.
     shared_ptr<int64_t> executedAt_ {};
     // The experiment plan ID.
     // 
     // This parameter is required.
     shared_ptr<string> experimentPlanId_ {};
-    // The number of failed tasks. If not specified, the default value is 0.
+    // The number of failed tasks. Default value: 0.
     shared_ptr<int32_t> failedTasks_ {};
-    // The list of offline experiment configurations. Required when the plan type is offline. The number of items ranges from 1 to 5.
+    // The list of offline experiment configurations. This parameter is required when the plan type is offline. You can specify 1 to 5 configurations.
     shared_ptr<vector<OfflineExperimentConfig>> offlineExperiments_ {};
-    // The experiment record name. If not specified, the default value is the plan name plus a timestamp.
+    // The experiment record name. If not specified, the default value is the plan name followed by a timestamp.
     shared_ptr<string> recordName_ {};
-    // The initial status. If not specified, the default value is `pending`.
+    // The initial status. Default value: `pending`.
     shared_ptr<string> status_ {};
     // The total number of tasks. For online experiments, if not specified, the value is calculated based on the number of generated tasks.
     shared_ptr<int32_t> totalTasks_ {};

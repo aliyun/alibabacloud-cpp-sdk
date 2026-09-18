@@ -110,9 +110,9 @@ namespace Models
 
 
   protected:
-    // The list of annotation marks.
+    // The list of annotation tags.
     shared_ptr<vector<string>> annotations_ {};
-    // The new version configuration. This parameter is typically required when `version` is specified.
+    // The configuration of the new version. This parameter is typically required when `version` is specified.
     Darabonba::Json config_ {};
     // The evaluator description.
     shared_ptr<string> description_ {};
@@ -120,7 +120,7 @@ namespace Models
     shared_ptr<string> displayName_ {};
     // The evaluator properties.
     Darabonba::Json properties_ {};
-    // The new version number. If specified, a new version is created.
+    // The new version number. A new version is created when this parameter is specified.
     shared_ptr<string> version_ {};
     // The version description.
     shared_ptr<string> versionDescription_ {};

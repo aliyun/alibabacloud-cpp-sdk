@@ -369,7 +369,7 @@ CreateDatasetResponse Client::createDataset(const string &agentSpace, const Crea
 /**
  * @summary Creates an evaluation task.
  *
- * @description Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+ * @description Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
  * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
  *
  * @param request CreateEvaluationTaskRequest
@@ -447,7 +447,7 @@ CreateEvaluationTaskResponse Client::createEvaluationTaskWithOptions(const strin
 /**
  * @summary Creates an evaluation task.
  *
- * @description Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server verifies AgentSpace permissions, initializes evaluation result storage, checks the uniqueness of the task name, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
+ * @description Calls the CreateEvaluationTask operation to create an evaluation task under a specified AgentSpace. The server validates AgentSpace permissions, initializes evaluation result storage, checks task name uniqueness, and asynchronously creates and executes an EvaluationRun based on `taskMode` and `runStrategies`.
  * This operation is applicable to running built-in or custom evaluators on Trace, Dataset, or SLS Log data. It supports two execution strategies: historical backfill and continuous evaluation.
  *
  * @param request CreateEvaluationTaskRequest
@@ -620,7 +620,7 @@ CreateEvaluatorSkillResponse Client::createEvaluatorSkill(const string &name, co
 /**
  * @summary Creates an experiment plan.
  *
- * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+ * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
  *
  * @param request CreateExperimentPlanRequest
  * @param headers map
@@ -691,7 +691,7 @@ CreateExperimentPlanResponse Client::createExperimentPlanWithOptions(const strin
 /**
  * @summary Creates an experiment plan.
  *
- * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. Use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+ * @description Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
  *
  * @param request CreateExperimentPlanRequest
  * @return CreateExperimentPlanResponse
@@ -705,7 +705,7 @@ CreateExperimentPlanResponse Client::createExperimentPlan(const string &agentSpa
 /**
  * @summary Executes an experiment.
  *
- * @description Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+ * @description Calls CreateExperimentRun to initiate an experiment run based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you must pass `offlineExperiments` (1 to 5).
  *
  * @param request CreateExperimentRunRequest
  * @param headers map
@@ -778,7 +778,7 @@ CreateExperimentRunResponse Client::createExperimentRunWithOptions(const string 
 /**
  * @summary Executes an experiment.
  *
- * @description Calls CreateExperimentRun to initiate an experiment execution based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you need to pass `offlineExperiments` (1 to 5 items).
+ * @description Calls CreateExperimentRun to initiate an experiment run based on an existing experiment plan. For online experiments, you typically only need to pass `experimentPlanId`. For offline experiments, you must pass `offlineExperiments` (1 to 5).
  *
  * @param request CreateExperimentRunRequest
  * @return CreateExperimentRunResponse
@@ -1070,7 +1070,7 @@ DeleteEvaluationRunResponse Client::deleteEvaluationRun(const string &agentSpace
 }
 
 /**
- * @summary Deletes an evaluation task.
+ * @summary Deletes a model evaluation task.
  *
  * @param request DeleteEvaluationTaskRequest
  * @param headers map
@@ -1097,7 +1097,7 @@ DeleteEvaluationTaskResponse Client::deleteEvaluationTaskWithOptions(const strin
 }
 
 /**
- * @summary Deletes an evaluation task.
+ * @summary Deletes a model evaluation task.
  *
  * @param request DeleteEvaluationTaskRequest
  * @return DeleteEvaluationTaskResponse
@@ -1244,7 +1244,7 @@ DeleteExperimentPlanResponse Client::deleteExperimentPlan(const string &agentSpa
 /**
  * @summary Deletes an experiment record.
  *
- * @description Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+ * @description Calls DeleteExperimentRun to delete a specified experiment run record. Deleting a record does not delete the experiment plan to which it belongs.
  *
  * @param request DeleteExperimentRunRequest
  * @param headers map
@@ -1273,7 +1273,7 @@ DeleteExperimentRunResponse Client::deleteExperimentRunWithOptions(const string 
 /**
  * @summary Deletes an experiment record.
  *
- * @description Calls DeleteExperimentRun to delete a specified experiment run record. Deleting the record does not delete the experiment plan to which it belongs.
+ * @description Calls DeleteExperimentRun to delete a specified experiment run record. Deleting a record does not delete the experiment plan to which it belongs.
  *
  * @param request DeleteExperimentRunRequest
  * @return DeleteExperimentRunResponse
@@ -2365,7 +2365,7 @@ ListEvaluationTasksResponse Client::listEvaluationTasks(const ListEvaluationTask
 }
 
 /**
- * @summary Queries the skill list of an evaluator.
+ * @summary Queries the list of skills for an evaluator.
  *
  * @param request ListEvaluatorSkillsRequest
  * @param headers map
@@ -2406,7 +2406,7 @@ ListEvaluatorSkillsResponse Client::listEvaluatorSkillsWithOptions(const string 
 }
 
 /**
- * @summary Queries the skill list of an evaluator.
+ * @summary Queries the list of skills for an evaluator.
  *
  * @param request ListEvaluatorSkillsRequest
  * @return ListEvaluatorSkillsResponse
@@ -2485,7 +2485,7 @@ ListEvaluatorsResponse Client::listEvaluators(const ListEvaluatorsRequest &reque
 /**
  * @summary Queries the list of experiment plans.
  *
- * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+ * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination by using `offset`/`limit`.
  *
  * @param request ListExperimentPlansRequest
  * @param headers map
@@ -2540,7 +2540,7 @@ ListExperimentPlansResponse Client::listExperimentPlansWithOptions(const string 
 /**
  * @summary Queries the list of experiment plans.
  *
- * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination using `offset`/`limit`.
+ * @description Calls ListExperimentPlans to query the list of experiment plans under a specified AgentSpace for the current account. Supports fuzzy match by plan name, filtering by status, and pagination by using `offset`/`limit`.
  *
  * @param request ListExperimentPlansRequest
  * @return ListExperimentPlansResponse
@@ -2694,7 +2694,7 @@ ListPipelineRunsResponse Client::listPipelineRuns(const string &agentSpace, cons
 }
 
 /**
- * @summary Lists CI/CD pipelines.
+ * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
  *
  * @param request ListPipelinesRequest
  * @param headers map
@@ -2747,7 +2747,7 @@ ListPipelinesResponse Client::listPipelinesWithOptions(const string &agentSpace,
 }
 
 /**
- * @summary Lists CI/CD pipelines.
+ * @summary Queries a list of pipelines. Supports filtering by name, schedule type, and schedule status with cursor-based pagination.
  *
  * @param request ListPipelinesRequest
  * @return ListPipelinesResponse
@@ -3603,7 +3603,7 @@ UpdateExperimentPlanResponse Client::updateExperimentPlan(const string &agentSpa
 /**
  * @summary Updates an experiment run.
  *
- * @description Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+ * @description Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for an offline experiment: running → progress writeback → completed.
  *
  * @param request UpdateExperimentRunRequest
  * @param headers map
@@ -3668,7 +3668,7 @@ UpdateExperimentRunResponse Client::updateExperimentRunWithOptions(const string 
 /**
  * @summary Updates an experiment run.
  *
- * @description Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for offline experiments: running → progress writeback → completed.
+ * @description Calls UpdateExperimentRun to update the name, status, and task counts of an experiment record. Fields that are not specified remain unchanged. Typical sequence for an offline experiment: running → progress writeback → completed.
  *
  * @param request UpdateExperimentRunRequest
  * @return UpdateExperimentRunResponse

@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> planId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The creation result. A value of `created` indicates success.
+    // The creation result. The value `created` indicates success.
     shared_ptr<string> status_ {};
   };
 

@@ -124,7 +124,7 @@ namespace Models
 
 
       protected:
-        // The time when the version was created. The value is a UNIX timestamp in seconds.
+        // The version creation time, in seconds-level UNIX timestamp.
         shared_ptr<int64_t> createdAt_ {};
         // The version number.
         shared_ptr<string> version_ {};
@@ -249,7 +249,7 @@ namespace Models
       shared_ptr<vector<string>> annotations_ {};
       // The configuration of the current version.
       Darabonba::Json config_ {};
-      // The time when the evaluator was created. The value is a UNIX timestamp in seconds.
+      // The creation time, in seconds-level UNIX timestamp.
       shared_ptr<int64_t> createdAt_ {};
       // The version number returned in the current response.
       shared_ptr<string> currentVersion_ {};
@@ -267,7 +267,7 @@ namespace Models
       Darabonba::Json properties_ {};
       // The evaluator type.
       shared_ptr<string> type_ {};
-      // The time when the evaluator was last updated. The value is a UNIX timestamp in seconds.
+      // The update time, in seconds-level UNIX timestamp.
       shared_ptr<int64_t> updatedAt_ {};
       // The list of versions.
       shared_ptr<vector<Evaluator::Versions>> versions_ {};

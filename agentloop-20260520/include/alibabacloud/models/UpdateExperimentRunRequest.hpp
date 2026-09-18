@@ -103,17 +103,17 @@ namespace Models
 
 
   protected:
-    // The experiment completion time. A millisecond-level UNIX timestamp.
+    // The experiment completion time. This value is a millisecond-level UNIX timestamp.
     shared_ptr<int64_t> completedAt_ {};
     // The number of completed tasks.
     shared_ptr<int32_t> completedTasks_ {};
-    // The experiment execution time. A millisecond-level UNIX timestamp.
+    // The experiment execution time. This value is a millisecond-level UNIX timestamp.
     shared_ptr<int64_t> executedAt_ {};
     // The number of failed tasks.
     shared_ptr<int32_t> failedTasks_ {};
     // The experiment record name.
     shared_ptr<string> recordName_ {};
-    // The experiment record status. Set to cancelled to cancel execution.
+    // The experiment record status. Set this parameter to cancelled to cancel the execution.
     shared_ptr<string> status_ {};
     // The total number of tasks.
     shared_ptr<int32_t> totalTasks_ {};

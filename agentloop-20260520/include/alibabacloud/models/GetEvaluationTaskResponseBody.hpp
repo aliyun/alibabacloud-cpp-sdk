@@ -200,17 +200,17 @@ namespace Models
   protected:
     // The AgentSpace name.
     shared_ptr<string> agentSpace_ {};
-    // The task source.
+    // The source of the task.
     shared_ptr<string> channel_ {};
-    // The data source and execution configuration. Tasks with `dataType=trace` typically contain `project`, `storeName`, and `dataScope` fields that are populated by the backend.
+    // The data source and execution configuration. Tasks with `dataType=trace` typically contain backend-populated `project`, `storeName`, and `dataScope` fields.
     shared_ptr<map<string, string>> config_ {};
-    // The creation time, in seconds-level UNIX timestamp.
+    // The creation time, in seconds as a UNIX timestamp.
     shared_ptr<int64_t> createdAt_ {};
-    // The evaluation data filter condition, returned by the backend as a JSON string.
+    // The evaluation data filter conditions, returned by the backend as a JSON string.
     shared_ptr<string> dataFilter_ {};
     // The data source type of the evaluation object.
     shared_ptr<string> dataType_ {};
-    // The evaluation task description.
+    // The description of the evaluation task.
     shared_ptr<string> description_ {};
     // The list of evaluator configurations.
     shared_ptr<vector<Evaluator>> evaluators_ {};
@@ -218,7 +218,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The structured configuration of the run strategy, including the parsed backfill strategy and continuous evaluation strategy.
+    // The structured run strategy configuration, including the parsed backfill strategy and continuous evaluation strategy.
     shared_ptr<RunStrategies> runStrategyConfig_ {};
     // The evaluation task status.
     shared_ptr<string> status_ {};
@@ -230,7 +230,7 @@ namespace Models
     shared_ptr<string> taskMode_ {};
     // The task name.
     shared_ptr<string> taskName_ {};
-    // The last update time, in seconds-level UNIX timestamp.
+    // The last update time, in seconds as a UNIX timestamp.
     shared_ptr<int64_t> updatedAt_ {};
   };
 

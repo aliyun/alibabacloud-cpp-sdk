@@ -147,8 +147,11 @@ namespace Models
 
 
         protected:
+          // The name of the SLS Logstore.
           shared_ptr<string> logstore_ {};
+          // The name of the SLS project.
           shared_ptr<string> project_ {};
+          // The data filtered query statement in SLS query/analysis syntax.
           shared_ptr<string> query_ {};
         };
 
@@ -190,7 +193,9 @@ namespace Models
 
 
         protected:
+          // The name of the source dataset.
           shared_ptr<string> dataset_ {};
+          // The data filter condition for the dataset.
           shared_ptr<string> filter_ {};
         };
 
@@ -222,8 +227,11 @@ namespace Models
 
 
       protected:
+        // The dataset datasource config in the current AgentSpace.
         shared_ptr<Source::Dataset> dataset_ {};
+        // The Simple Log Service (SLS) Logstore datasource config.
         shared_ptr<Source::Logstore> logstore_ {};
+        // The data source type. Valid values: logstore or dataset.
         shared_ptr<string> type_ {};
       };
 
@@ -288,7 +296,9 @@ namespace Models
 
 
         protected:
+          // The name of the AgentSpace to which the destination dataset belongs.
           shared_ptr<string> agentSpace_ {};
+          // The name of the destination dataset.
           shared_ptr<string> dataset_ {};
         };
 
@@ -397,7 +407,9 @@ namespace Models
 
 
               protected:
+                // The name of the AgentSpace to which the destination dataset belongs.
                 shared_ptr<string> agentSpace_ {};
+                // The name of the destination dataset.
                 shared_ptr<string> dataset_ {};
               };
 
@@ -420,7 +432,9 @@ namespace Models
 
 
             protected:
+              // The destination dataset of the route.
               shared_ptr<Sink::Dataset> dataset_ {};
+              // The type of the route destination. Currently, only dataset is supported.
               shared_ptr<string> type_ {};
             };
 
@@ -450,8 +464,11 @@ namespace Models
 
 
           protected:
+            // The route expression in SPL. Only where, project, and extend are supported.
             shared_ptr<string> expression_ {};
+            // The route ID.
             shared_ptr<string> id_ {};
+            // The write destination of the route.
             shared_ptr<Routes::Sink> sink_ {};
           };
 
@@ -514,7 +531,9 @@ namespace Models
 
 
             protected:
+              // The name of the AgentSpace to which the default destination dataset belongs.
               shared_ptr<string> agentSpace_ {};
+              // The name of the default destination dataset.
               shared_ptr<string> dataset_ {};
             };
 
@@ -537,7 +556,9 @@ namespace Models
 
 
           protected:
+            // The default destination dataset.
             shared_ptr<DefaultSink::Dataset> dataset_ {};
+            // The type of the default destination. Currently, only dataset is supported.
             shared_ptr<string> type_ {};
           };
 
@@ -569,8 +590,11 @@ namespace Models
 
 
         protected:
+          // The default write destination that is used when no condition route is matched.
           shared_ptr<Condition::DefaultSink> defaultSink_ {};
+          // The route matching mode. Currently, only all is supported.
           shared_ptr<string> matchMode_ {};
+          // The list of condition routes.
           shared_ptr<vector<Condition::Routes>> routes_ {};
         };
 
@@ -602,8 +626,11 @@ namespace Models
 
 
       protected:
+        // The conditional routing configuration. This parameter is used only when sink.type is set to condition.
         shared_ptr<Sink::Condition> condition_ {};
+        // The destination dataset configuration for the dataset sink. This parameter is used only when sink.type is set to dataset.
         shared_ptr<Sink::Dataset> dataset_ {};
+        // The destination type. Valid values: dataset or condition.
         shared_ptr<string> type_ {};
       };
 
@@ -668,7 +695,9 @@ namespace Models
 
 
         protected:
+          // The scheduling start time, in UNIX millisecond timestamp format.
           shared_ptr<int64_t> fromTime_ {};
+          // The scheduling interval, such as 1h or 30m.
           shared_ptr<string> interval_ {};
         };
 
@@ -710,7 +739,9 @@ namespace Models
 
 
         protected:
+          // The start of the time slice, in UNIX millisecond timestamp format.
           shared_ptr<int64_t> fromTime_ {};
+          // The end of the time slice, in UNIX millisecond timestamp format.
           shared_ptr<int64_t> toTime_ {};
         };
 
@@ -742,8 +773,13 @@ namespace Models
 
 
       protected:
+        // The scheduling mode. Valid values:
+        // - RunOnce: one-time execution.
+        // - Scheduled: periodic scheduling.
         shared_ptr<string> mode_ {};
+        // The parameters for one-time execution. This parameter has a value only when mode is set to RunOnce.
         shared_ptr<ExecutePolicy::RunOnce> runOnce_ {};
+        // The parameters for periodic scheduling. This parameter has a value only when mode is set to Scheduled.
         shared_ptr<ExecutePolicy::Scheduled> scheduled_ {};
       };
 
@@ -834,18 +870,37 @@ namespace Models
 
 
     protected:
+      // The time when the pipeline was created, in ISO 8601 UTC format.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> createTime_ {};
+      // The description of the pipeline.
       shared_ptr<string> description_ {};
+      // The execution policy.
       shared_ptr<Pipelines::ExecutePolicy> executePolicy_ {};
+      // The name of the pipeline.
       shared_ptr<string> pipelineName_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The scheduling status. Valid values:
+      // - None: no scheduling. This value is returned for RunOnce pipelines.
+      // - Active: active.
+      // - Paused: paused.
+      // - Terminated: terminated.
       shared_ptr<string> scheduleStatus_ {};
+      // The scheduling type. Valid values:
+      // - RunOnce: one-time execution.
+      // - Scheduled: periodic scheduling.
       shared_ptr<string> scheduleType_ {};
+      // The pipeline sink (data write destination).
       shared_ptr<Pipelines::Sink> sink_ {};
+      // The pipeline data source.
       shared_ptr<Pipelines::Source> source_ {};
+      // The time when the pipeline was last updated, in ISO 8601 UTC format.
+      // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
       shared_ptr<string> updateTime_ {};
+      // The workspace associated with the pipeline.
       shared_ptr<string> workspace_ {};
     };
 
@@ -889,10 +944,15 @@ namespace Models
 
 
   protected:
+    // The maximum number of entries per page that was specified in the request. This value is echoed back.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next page. An empty string indicates that the current page is the last page.
     shared_ptr<string> nextToken_ {};
+    // The list of pipelines.
     shared_ptr<vector<ListPipelinesResponseBody::Pipelines>> pipelines_ {};
+    // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // The total number of pipelines that match the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

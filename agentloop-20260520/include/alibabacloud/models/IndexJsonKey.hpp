@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether the field contains Chinese characters. This parameter is required only when the **type** parameter is set to **text**. Valid values:
+    //   - true: The field contains Chinese characters.
+    //   - false: The field does not contain Chinese characters.
     shared_ptr<bool> chn_ {};
+    // The type.
     shared_ptr<string> type_ {};
   };
 

@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> planId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The deletion result. The value is deleted if the operation is successful.
+    // The deletion result. The value is deleted if the operation succeeds.
     shared_ptr<string> status_ {};
   };
 

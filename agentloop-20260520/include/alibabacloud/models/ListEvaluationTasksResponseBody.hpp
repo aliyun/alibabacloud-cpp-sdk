@@ -182,7 +182,7 @@ namespace Models
       shared_ptr<int64_t> createdAt_ {};
       // The data source type of the evaluation object.
       shared_ptr<string> dataType_ {};
-      // The evaluation task description.
+      // The description of the evaluation task.
       shared_ptr<string> description_ {};
       // The evaluator configuration summary, in JSON string format.
       shared_ptr<string> evaluators_ {};
@@ -250,7 +250,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of records. The total count is returned only on the first page. This value may be empty on subsequent pages.
+    // The total number of records. The total count is calculated only on the first page. This value may be empty on subsequent pages.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(promptTemplate, promptTemplate_);
       DARABONBA_PTR_TO_JSON(requestBodyTemplate, requestBodyTemplate_);
+      DARABONBA_PTR_TO_JSON(requestHeaderTemplate, requestHeaderTemplate_);
       DARABONBA_PTR_TO_JSON(requestMethod, requestMethod_);
     };
     friend void from_json(const Darabonba::Json& j, ExperimentConfig& obj) { 
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(promptTemplate, promptTemplate_);
       DARABONBA_PTR_FROM_JSON(requestBodyTemplate, requestBodyTemplate_);
+      DARABONBA_PTR_FROM_JSON(requestHeaderTemplate, requestHeaderTemplate_);
       DARABONBA_PTR_FROM_JSON(requestMethod, requestMethod_);
     };
     ExperimentConfig() = default ;
@@ -50,7 +52,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endpointConnectorId_ == nullptr
         && this->label_ == nullptr && this->modelName_ == nullptr && this->modelParameters_ == nullptr && this->modelProvider_ == nullptr && this->name_ == nullptr
-        && this->promptTemplate_ == nullptr && this->requestBodyTemplate_ == nullptr && this->requestMethod_ == nullptr; };
+        && this->promptTemplate_ == nullptr && this->requestBodyTemplate_ == nullptr && this->requestHeaderTemplate_ == nullptr && this->requestMethod_ == nullptr; };
     // endpointConnectorId Field Functions 
     bool hasEndpointConnectorId() const { return this->endpointConnectorId_ != nullptr;};
     void deleteEndpointConnectorId() { this->endpointConnectorId_ = nullptr;};
@@ -111,6 +113,13 @@ namespace Models
     inline ExperimentConfig& setRequestBodyTemplate(string requestBodyTemplate) { DARABONBA_PTR_SET_VALUE(requestBodyTemplate_, requestBodyTemplate) };
 
 
+    // requestHeaderTemplate Field Functions 
+    bool hasRequestHeaderTemplate() const { return this->requestHeaderTemplate_ != nullptr;};
+    void deleteRequestHeaderTemplate() { this->requestHeaderTemplate_ = nullptr;};
+    inline string getRequestHeaderTemplate() const { DARABONBA_PTR_GET_DEFAULT(requestHeaderTemplate_, "") };
+    inline ExperimentConfig& setRequestHeaderTemplate(string requestHeaderTemplate) { DARABONBA_PTR_SET_VALUE(requestHeaderTemplate_, requestHeaderTemplate) };
+
+
     // requestMethod Field Functions 
     bool hasRequestMethod() const { return this->requestMethod_ != nullptr;};
     void deleteRequestMethod() { this->requestMethod_ = nullptr;};
@@ -119,14 +128,25 @@ namespace Models
 
 
   protected:
+    // The endpoint connector ID. This parameter is required in user/agent mode.
     shared_ptr<string> endpointConnectorId_ {};
+    // The experiment label (A/B/C/D/E).
     shared_ptr<string> label_ {};
+    // The model name. You can set this parameter to agent in agent scenarios.
     shared_ptr<string> modelName_ {};
+    // The model parameters.
     shared_ptr<ModelParameters> modelParameters_ {};
+    // The model provider. Valid values: dashscope (default), user, and agent.
     shared_ptr<string> modelProvider_ {};
+    // The experiment name.
     shared_ptr<string> name_ {};
+    // The prompt message template. Supports {{variable name}} placeholders.
     shared_ptr<vector<PromptTemplateItem>> promptTemplate_ {};
+    // The agent request body template. This parameter is required in agent mode. Supports {{variable name}} placeholders.
     shared_ptr<string> requestBodyTemplate_ {};
+    // The agent request header template. This parameter is optional in agent mode. Supports {{variable name}} placeholders.
+    shared_ptr<string> requestHeaderTemplate_ {};
+    // The agent request method. Valid values: POST (default) and GET.
     shared_ptr<string> requestMethod_ {};
   };
 

@@ -116,11 +116,11 @@ namespace Models
     protected:
       // The evaluator name.
       shared_ptr<string> evaluatorName_ {};
-      // The number of failed entries for this evaluator.
+      // The number of failed items for this evaluator.
       shared_ptr<int32_t> failedCount_ {};
-      // The number of successful entries for this evaluator.
+      // The number of successful items for this evaluator.
       shared_ptr<int32_t> successCount_ {};
-      // The total number of entries for this evaluator.
+      // The total number of items for this evaluator.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -238,15 +238,15 @@ namespace Models
   protected:
     // The creation time, in seconds-level UNIX timestamp.
     shared_ptr<int64_t> createdAt_ {};
-    // The end time of the data window for the run, in seconds-level UNIX timestamp.
+    // The end time of the run data window, in seconds-level UNIX timestamp.
     shared_ptr<int64_t> dataEndTime_ {};
-    // The start time of the data window for the run, in seconds-level UNIX timestamp.
+    // The start time of the run data window, in seconds-level UNIX timestamp.
     shared_ptr<int64_t> dataStartTime_ {};
-    // The list of progress details by evaluator.
+    // The list of progress entries by evaluator.
     shared_ptr<vector<GetEvaluationRunResponseBody::EvaluatorProgress>> evaluatorProgress_ {};
-    // The evaluator configuration snapshot at the time the run was created, in JSON string format.
+    // The snapshot of the evaluator configuration at the time the run was created, in JSON string format.
     shared_ptr<string> evaluators_ {};
-    // The number of failed entries.
+    // The number of failed items.
     shared_ptr<int32_t> failedCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -258,11 +258,11 @@ namespace Models
     shared_ptr<string> runType_ {};
     // The run status.
     shared_ptr<string> status_ {};
-    // The number of successful entries.
+    // The number of successful items.
     shared_ptr<int32_t> successCount_ {};
     // The evaluation task ID.
     shared_ptr<string> taskId_ {};
-    // The total number of evaluation entries.
+    // The total number of evaluation items.
     shared_ptr<int32_t> totalCount_ {};
     // The update time, in seconds-level UNIX timestamp.
     shared_ptr<int64_t> updatedAt_ {};

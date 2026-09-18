@@ -116,7 +116,7 @@ namespace Models
 
 
       protected:
-        // The time when the version was created. This value is a UNIX timestamp in seconds.
+        // The version creation time, in seconds-level UNIX timestamp.
         shared_ptr<int64_t> createdAt_ {};
         // The version number.
         shared_ptr<string> version_ {};
@@ -175,7 +175,7 @@ namespace Models
         shared_ptr<string> content_ {};
         // The file name.
         shared_ptr<string> name_ {};
-        // The file remarks.
+        // The file remark.
         shared_ptr<string> remark_ {};
       };
 
@@ -257,7 +257,7 @@ namespace Models
 
 
     protected:
-      // The time when the skill was created. This value is a UNIX timestamp in seconds.
+      // The creation time, in seconds-level UNIX timestamp.
       shared_ptr<int64_t> createdAt_ {};
       // The current version.
       shared_ptr<string> currentVersion_ {};
@@ -273,7 +273,7 @@ namespace Models
       shared_ptr<string> latestVersion_ {};
       // The skill name.
       shared_ptr<string> skillName_ {};
-      // The time when the skill was last updated. This value is a UNIX timestamp in seconds.
+      // The update time, in seconds-level UNIX timestamp.
       shared_ptr<int64_t> updatedAt_ {};
       // The list of skill versions.
       shared_ptr<vector<Skill::Versions>> versions_ {};

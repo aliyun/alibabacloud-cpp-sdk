@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The message.
     shared_ptr<string> message_ {};
-    // The experiment record ID. For online experiments, the format is typically exp-run-{uuid32}. For offline experiments, the format may also be a standard UUID.
+    // The experiment record ID. For online experiments, the ID is typically in the format exp-run-{uuid32}. For offline experiments, the ID may also be a standard UUID.
     shared_ptr<string> recordId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The experiment record status. After creation, the status is typically pending.
+    // The experiment record status. The value is typically pending after creation.
     shared_ptr<string> status_ {};
   };
 

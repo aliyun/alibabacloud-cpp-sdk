@@ -16,12 +16,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const IndexKey& obj) { 
       DARABONBA_PTR_TO_JSON(chn, chn_);
+      DARABONBA_PTR_TO_JSON(description, description_);
       DARABONBA_PTR_TO_JSON(embedding, embedding_);
       DARABONBA_PTR_TO_JSON(jsonKeys, jsonKeys_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
     friend void from_json(const Darabonba::Json& j, IndexKey& obj) { 
       DARABONBA_PTR_FROM_JSON(chn, chn_);
+      DARABONBA_PTR_FROM_JSON(description, description_);
       DARABONBA_PTR_FROM_JSON(embedding, embedding_);
       DARABONBA_PTR_FROM_JSON(jsonKeys, jsonKeys_);
       DARABONBA_PTR_FROM_JSON(type, type_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->chn_ == nullptr
-        && this->embedding_ == nullptr && this->jsonKeys_ == nullptr && this->type_ == nullptr; };
+        && this->description_ == nullptr && this->embedding_ == nullptr && this->jsonKeys_ == nullptr && this->type_ == nullptr; };
     // chn Field Functions 
     bool hasChn() const { return this->chn_ != nullptr;};
     void deleteChn() { this->chn_ = nullptr;};
     inline bool getChn() const { DARABONBA_PTR_GET_DEFAULT(chn_, false) };
     inline IndexKey& setChn(bool chn) { DARABONBA_PTR_SET_VALUE(chn_, chn) };
+
+
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline IndexKey& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // embedding Field Functions 
@@ -70,9 +79,17 @@ namespace Models
 
 
   protected:
+    // Specifies whether Chinese is included. This parameter is required only when the **type** parameter is set to **text**. Valid values:
+    //   - true: Chinese is included.
+    //   - false: Chinese is not included.
     shared_ptr<bool> chn_ {};
+    // The description.
+    shared_ptr<string> description_ {};
+    // The field embedding type.
     shared_ptr<string> embedding_ {};
+    // The JSON subfields. This parameter takes effect only when type is set to json.
     shared_ptr<map<string, IndexJsonKey>> jsonKeys_ {};
+    // The type.
     shared_ptr<string> type_ {};
   };
 

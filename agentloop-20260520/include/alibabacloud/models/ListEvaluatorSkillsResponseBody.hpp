@@ -122,7 +122,7 @@ namespace Models
 
 
     protected:
-      // The creation time. This field is declared as int64 in CloudSpec, but the backend currently returns the StarOps `createTime` string field.
+      // The creation time. Declared as int64 in CloudSpec. The backend currently returns the StarOps `createTime` string field.
       shared_ptr<int64_t> createdAt_ {};
       // The skill description.
       shared_ptr<string> description_ {};
@@ -134,7 +134,7 @@ namespace Models
       shared_ptr<string> latestVersion_ {};
       // The skill name.
       shared_ptr<string> skillName_ {};
-      // The update time. This field is declared as int64 in CloudSpec, but the backend currently returns the StarOps `updateTime` string field.
+      // The update time. Declared as int64 in CloudSpec. The backend currently returns the StarOps `updateTime` string field.
       shared_ptr<int64_t> updatedAt_ {};
     };
 

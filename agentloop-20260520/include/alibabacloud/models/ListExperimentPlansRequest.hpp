@@ -92,9 +92,9 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The offset. Default value: 0.
     shared_ptr<int32_t> offset_ {};
-    // Fuzzy match by plan name.
+    // Fuzzy matches experiment plans by plan name.
     shared_ptr<string> planName_ {};
-    // Filters by exact status.
+    // Filters experiment plans by exact status.
     shared_ptr<string> status_ {};
   };
 
