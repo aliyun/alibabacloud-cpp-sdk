@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The account ID of the owner.
+    // 
     // This parameter is required.
     shared_ptr<string> owner_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

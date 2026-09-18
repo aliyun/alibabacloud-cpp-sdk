@@ -13,11 +13,13 @@ namespace Models
   class KopilotChatStreamRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const KopilotChatStreamRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AcceptLanguage, acceptLanguage_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(SessionId, sessionId_);
     };
     friend void from_json(const Darabonba::Json& j, KopilotChatStreamRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AcceptLanguage, acceptLanguage_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(SessionId, sessionId_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->message_ == nullptr
-        && this->regionId_ == nullptr && this->sessionId_ == nullptr; };
+    virtual bool empty() const override { return this->acceptLanguage_ == nullptr
+        && this->message_ == nullptr && this->regionId_ == nullptr && this->sessionId_ == nullptr; };
+    // acceptLanguage Field Functions 
+    bool hasAcceptLanguage() const { return this->acceptLanguage_ != nullptr;};
+    void deleteAcceptLanguage() { this->acceptLanguage_ = nullptr;};
+    inline string getAcceptLanguage() const { DARABONBA_PTR_GET_DEFAULT(acceptLanguage_, "") };
+    inline KopilotChatStreamRequest& setAcceptLanguage(string acceptLanguage) { DARABONBA_PTR_SET_VALUE(acceptLanguage_, acceptLanguage) };
+
+
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
@@ -57,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The language for system operation prompts. Valid values: zh-CN, en-US, and ja-JP. If not specified, the compatible language parameter is read. If neither is specified, the request language is used. This parameter does not guarantee that the language of freely generated model content will change.
+    shared_ptr<string> acceptLanguage_ {};
+    // The chat message content entered by the user.
     shared_ptr<string> message_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The session ID.
     shared_ptr<string> sessionId_ {};
   };
 

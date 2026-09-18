@@ -100,10 +100,15 @@ namespace Models
 
 
     protected:
+      // The UNIX timestamp when the instance was activated, in milliseconds.
       shared_ptr<int64_t> activateTime_ {};
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instance status.
       shared_ptr<string> lifeStatus_ {};
+      // The region ID.
       shared_ptr<string> regionId_ {};
+      // The UID of the user.
       shared_ptr<string> uid_ {};
     };
 
@@ -140,9 +145,13 @@ namespace Models
 
 
   protected:
+    // The status code. A value of 200 indicates success.
     shared_ptr<int64_t> code_ {};
+    // The status information returned when the call is successful.
     shared_ptr<KopilotQueryStatusResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

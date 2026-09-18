@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_ALIKAFKAKOPILOT20260414MODEL_HPP_
 #define ALIBABACLOUD_ALIKAFKAKOPILOT20260414MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/DataScheduledTaskInfoBySessionIdValue.hpp>
 #include <alibabacloud/models/KopilotChatStreamRequest.hpp>
 #include <alibabacloud/models/KopilotChatStreamResponseBody.hpp>
 #include <alibabacloud/models/KopilotChatStreamResponse.hpp>

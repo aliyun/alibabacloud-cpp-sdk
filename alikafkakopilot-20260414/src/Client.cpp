@@ -18,7 +18,7 @@ namespace AlikafkaKopilot20260414
 {
 
 AlibabaCloud::AlikafkaKopilot20260414::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("alikafkakopilot", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -37,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 智能体 stream chat
+ * @summary Initiates a streaming chat session with an agent.
  *
  * @param request KopilotChatStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46,6 +46,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 FutureGenerator<KopilotChatStreamResponse> Client::kopilotChatStreamWithSSE(const KopilotChatStreamRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
   if (!!request.hasMessage()) {
     query["Message"] = request.getMessage();
   }
@@ -90,7 +94,7 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary 智能体 stream chat
+ * @summary Initiates a streaming chat session with an agent.
  *
  * @param request KopilotChatStreamRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -99,6 +103,10 @@ return Darabonba::FutureGenerator<json>(__retrun);
 KopilotChatStreamResponse Client::kopilotChatStreamWithOptions(const KopilotChatStreamRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAcceptLanguage()) {
+    query["AcceptLanguage"] = request.getAcceptLanguage();
+  }
+
   if (!!request.hasMessage()) {
     query["Message"] = request.getMessage();
   }
@@ -129,7 +137,7 @@ KopilotChatStreamResponse Client::kopilotChatStreamWithOptions(const KopilotChat
 }
 
 /**
- * @summary 智能体 stream chat
+ * @summary Initiates a streaming chat session with an agent.
  *
  * @param request KopilotChatStreamRequest
  * @return KopilotChatStreamResponse
@@ -140,7 +148,7 @@ KopilotChatStreamResponse Client::kopilotChatStream(const KopilotChatStreamReque
 }
 
 /**
- * @summary 评价
+ * @summary Evaluates a user session.
  *
  * @param request KopilotFeedbackRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -187,7 +195,7 @@ KopilotFeedbackResponse Client::kopilotFeedbackWithOptions(const KopilotFeedback
 }
 
 /**
- * @summary 评价
+ * @summary Evaluates a user session.
  *
  * @param request KopilotFeedbackRequest
  * @return KopilotFeedbackResponse
@@ -198,7 +206,7 @@ KopilotFeedbackResponse Client::kopilotFeedback(const KopilotFeedbackRequest &re
 }
 
 /**
- * @summary 历史会话
+ * @summary Queries historical conversations.
  *
  * @param request KopilotListConversationChatMessagesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -223,6 +231,14 @@ KopilotListConversationChatMessagesResponse Client::kopilotListConversationChatM
     query["SessionId"] = request.getSessionId();
   }
 
+  if (!!request.hasTaskCursor()) {
+    query["TaskCursor"] = request.getTaskCursor();
+  }
+
+  if (!!request.hasTaskPageSize()) {
+    query["TaskPageSize"] = request.getTaskPageSize();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -241,7 +257,7 @@ KopilotListConversationChatMessagesResponse Client::kopilotListConversationChatM
 }
 
 /**
- * @summary 历史会话
+ * @summary Queries historical conversations.
  *
  * @param request KopilotListConversationChatMessagesRequest
  * @return KopilotListConversationChatMessagesResponse
@@ -252,7 +268,7 @@ KopilotListConversationChatMessagesResponse Client::kopilotListConversationChatM
 }
 
 /**
- * @summary 智能体
+ * @summary Queries the session IDs of the current user in the Console channel, sorted by creation time in descending order. Pagination is supported.
  *
  * @param request KopilotListConversationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -261,6 +277,18 @@ KopilotListConversationChatMessagesResponse Client::kopilotListConversationChatM
 KopilotListConversationsResponse Client::kopilotListConversationsWithOptions(const KopilotListConversationsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDestinationCursor()) {
+    query["DestinationCursor"] = request.getDestinationCursor();
+  }
+
+  if (!!request.hasDestinationPageSize()) {
+    query["DestinationPageSize"] = request.getDestinationPageSize();
+  }
+
+  if (!!request.hasIncludeAutomationOverview()) {
+    query["IncludeAutomationOverview"] = request.getIncludeAutomationOverview();
+  }
+
   if (!!request.hasPage()) {
     query["Page"] = request.getPage();
   }
@@ -271,6 +299,14 @@ KopilotListConversationsResponse Client::kopilotListConversationsWithOptions(con
 
   if (!!request.hasSize()) {
     query["Size"] = request.getSize();
+  }
+
+  if (!!request.hasTaskCursor()) {
+    query["TaskCursor"] = request.getTaskCursor();
+  }
+
+  if (!!request.hasTaskPageSize()) {
+    query["TaskPageSize"] = request.getTaskPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -291,7 +327,7 @@ KopilotListConversationsResponse Client::kopilotListConversationsWithOptions(con
 }
 
 /**
- * @summary 智能体
+ * @summary Queries the session IDs of the current user in the Console channel, sorted by creation time in descending order. Pagination is supported.
  *
  * @param request KopilotListConversationsRequest
  * @return KopilotListConversationsResponse
@@ -302,7 +338,7 @@ KopilotListConversationsResponse Client::kopilotListConversations(const KopilotL
 }
 
 /**
- * @summary 状态
+ * @summary Queries the enabling status of an instance.
  *
  * @param request KopilotQueryStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -337,7 +373,7 @@ KopilotQueryStatusResponse Client::kopilotQueryStatusWithOptions(const KopilotQu
 }
 
 /**
- * @summary 状态
+ * @summary Queries the enabling status of an instance.
  *
  * @param request KopilotQueryStatusRequest
  * @return KopilotQueryStatusResponse

@@ -75,11 +75,21 @@ namespace Models
 
 
   protected:
+    // The user feedback comment.
     shared_ptr<string> comment_ {};
+    // The user satisfaction level. Valid values:
+    // 
+    // - 1: satisfied
+    // - -1: not satisfied
+    // - 0: cancel the evaluation
     shared_ptr<string> feedback_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The session ID.
     shared_ptr<string> sessionId_ {};
+    // The primary key ID.
     shared_ptr<string> turnId_ {};
   };
 

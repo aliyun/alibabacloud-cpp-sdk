@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The return code. A value of 200 indicates success.
     shared_ptr<int64_t> code_ {};
+    // The data returned when the call is successful.
     shared_ptr<map<string, int64_t>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

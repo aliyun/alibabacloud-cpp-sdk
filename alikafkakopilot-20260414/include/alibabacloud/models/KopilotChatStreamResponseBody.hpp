@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // The actual content.
     shared_ptr<string> content_ {};
+    // The streaming incremental content.
     shared_ptr<string> delta_ {};
+    // The message body.
     shared_ptr<string> message_ {};
+    // The unique message ID.
     shared_ptr<string> messageId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The role identifier.
     shared_ptr<string> role_ {};
+    // The run task ID.
     shared_ptr<string> runId_ {};
+    // The session thread ID.
     shared_ptr<string> threadId_ {};
+    // The unique tool calling invoke ID.
     shared_ptr<string> toolCallId_ {};
+    // The tool or function name.
     shared_ptr<string> toolCallName_ {};
+    // The event or message type.
     shared_ptr<string> type_ {};
   };
 

@@ -21,7 +21,7 @@ namespace AlikafkaKopilot20260414
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 智能体 stream chat
+       * @summary Initiates a streaming chat session with an agent.
        *
        * @param request KopilotChatStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +30,7 @@ namespace AlikafkaKopilot20260414
       FutureGenerator<Models::KopilotChatStreamResponse> kopilotChatStreamWithSSE(const Models::KopilotChatStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 智能体 stream chat
+       * @summary Initiates a streaming chat session with an agent.
        *
        * @param request KopilotChatStreamRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -39,7 +39,7 @@ namespace AlikafkaKopilot20260414
       Models::KopilotChatStreamResponse kopilotChatStreamWithOptions(const Models::KopilotChatStreamRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 智能体 stream chat
+       * @summary Initiates a streaming chat session with an agent.
        *
        * @param request KopilotChatStreamRequest
        * @return KopilotChatStreamResponse
@@ -47,7 +47,7 @@ namespace AlikafkaKopilot20260414
       Models::KopilotChatStreamResponse kopilotChatStream(const Models::KopilotChatStreamRequest &request);
 
       /**
-       * @summary 评价
+       * @summary Evaluates a user session.
        *
        * @param request KopilotFeedbackRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -56,7 +56,7 @@ namespace AlikafkaKopilot20260414
       Models::KopilotFeedbackResponse kopilotFeedbackWithOptions(const Models::KopilotFeedbackRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 评价
+       * @summary Evaluates a user session.
        *
        * @param request KopilotFeedbackRequest
        * @return KopilotFeedbackResponse
@@ -64,7 +64,7 @@ namespace AlikafkaKopilot20260414
       Models::KopilotFeedbackResponse kopilotFeedback(const Models::KopilotFeedbackRequest &request);
 
       /**
-       * @summary 历史会话
+       * @summary Queries historical conversations.
        *
        * @param request KopilotListConversationChatMessagesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -73,7 +73,7 @@ namespace AlikafkaKopilot20260414
       Models::KopilotListConversationChatMessagesResponse kopilotListConversationChatMessagesWithOptions(const Models::KopilotListConversationChatMessagesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 历史会话
+       * @summary Queries historical conversations.
        *
        * @param request KopilotListConversationChatMessagesRequest
        * @return KopilotListConversationChatMessagesResponse
@@ -81,7 +81,7 @@ namespace AlikafkaKopilot20260414
       Models::KopilotListConversationChatMessagesResponse kopilotListConversationChatMessages(const Models::KopilotListConversationChatMessagesRequest &request);
 
       /**
-       * @summary 智能体
+       * @summary Queries the session IDs of the current user in the Console channel, sorted by creation time in descending order. Pagination is supported.
        *
        * @param request KopilotListConversationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -90,7 +90,7 @@ namespace AlikafkaKopilot20260414
       Models::KopilotListConversationsResponse kopilotListConversationsWithOptions(const Models::KopilotListConversationsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 智能体
+       * @summary Queries the session IDs of the current user in the Console channel, sorted by creation time in descending order. Pagination is supported.
        *
        * @param request KopilotListConversationsRequest
        * @return KopilotListConversationsResponse
@@ -98,7 +98,7 @@ namespace AlikafkaKopilot20260414
       Models::KopilotListConversationsResponse kopilotListConversations(const Models::KopilotListConversationsRequest &request);
 
       /**
-       * @summary 状态
+       * @summary Queries the enabling status of an instance.
        *
        * @param request KopilotQueryStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -107,7 +107,7 @@ namespace AlikafkaKopilot20260414
       Models::KopilotQueryStatusResponse kopilotQueryStatusWithOptions(const Models::KopilotQueryStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 状态
+       * @summary Queries the enabling status of an instance.
        *
        * @param request KopilotQueryStatusRequest
        * @return KopilotQueryStatusResponse
