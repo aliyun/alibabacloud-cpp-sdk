@@ -18,6 +18,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(ModelName, modelName_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(RestartMode, restartMode_);
+      DARABONBA_PTR_TO_JSON(WorkerBatchSize, workerBatchSize_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAIDBClusterModelRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
@@ -25,6 +27,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(ModelName, modelName_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(RestartMode, restartMode_);
+      DARABONBA_PTR_FROM_JSON(WorkerBatchSize, workerBatchSize_);
     };
     ModifyAIDBClusterModelRequest() = default ;
     ModifyAIDBClusterModelRequest(const ModifyAIDBClusterModelRequest &) = default ;
@@ -38,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBClusterId_ == nullptr
-        && this->displayModelName_ == nullptr && this->dryRun_ == nullptr && this->modelName_ == nullptr && this->regionId_ == nullptr; };
+        && this->displayModelName_ == nullptr && this->dryRun_ == nullptr && this->modelName_ == nullptr && this->regionId_ == nullptr && this->restartMode_ == nullptr
+        && this->workerBatchSize_ == nullptr; };
     // DBClusterId Field Functions 
     bool hasDBClusterId() const { return this->DBClusterId_ != nullptr;};
     void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
@@ -74,14 +79,28 @@ namespace Models
     inline ModifyAIDBClusterModelRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
+    // restartMode Field Functions 
+    bool hasRestartMode() const { return this->restartMode_ != nullptr;};
+    void deleteRestartMode() { this->restartMode_ = nullptr;};
+    inline string getRestartMode() const { DARABONBA_PTR_GET_DEFAULT(restartMode_, "") };
+    inline ModifyAIDBClusterModelRequest& setRestartMode(string restartMode) { DARABONBA_PTR_SET_VALUE(restartMode_, restartMode) };
+
+
+    // workerBatchSize Field Functions 
+    bool hasWorkerBatchSize() const { return this->workerBatchSize_ != nullptr;};
+    void deleteWorkerBatchSize() { this->workerBatchSize_ = nullptr;};
+    inline int64_t getWorkerBatchSize() const { DARABONBA_PTR_GET_DEFAULT(workerBatchSize_, 0L) };
+    inline ModifyAIDBClusterModelRequest& setWorkerBatchSize(int64_t workerBatchSize) { DARABONBA_PTR_SET_VALUE(workerBatchSize_, workerBatchSize) };
+
+
   protected:
     // The ID of the PolarDB AI 3.0 logical instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBClusterId_ {};
-    // The new customer-facing invocation name. If this parameter is not specified, the existing invocation name is retained.
+    // The new client-facing invocation name. If this parameter is not specified, the existing invocation name is retained.
     shared_ptr<string> displayModelName_ {};
-    // Specifies whether to only preview the change.
+    // Specifies whether to only preview the change without actually performing it.
     shared_ptr<bool> dryRun_ {};
     // The name of the target model. Select a value from the ModelName values returned by the DescribeAvailableModels operation.
     // 
@@ -91,6 +110,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The restart mode for workers. Valid values:
+    // - inPlace
+    // - recreate
+    shared_ptr<string> restartMode_ {};
+    // The maximum number of workers to restart per batch within a single MSD. Valid values: 1 to 30. This parameter takes effect only when RestartMode is set to inPlace.
+    shared_ptr<int64_t> workerBatchSize_ {};
   };
 
   } // namespace Models

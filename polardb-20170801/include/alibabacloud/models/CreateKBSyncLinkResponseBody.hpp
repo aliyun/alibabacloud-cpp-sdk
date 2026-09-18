@@ -123,7 +123,7 @@ namespace Models
   protected:
     // The client ID.
     shared_ptr<string> clientId_ {};
-    // The creation time.
+    // The time when the synchronization link was created.
     shared_ptr<string> creationTime_ {};
     // The description of the synchronization link.
     shared_ptr<string> description_ {};
@@ -131,7 +131,7 @@ namespace Models
     // - FEISHU 
     // - SHAREPOINT
     shared_ptr<string> imPlatform_ {};
-    // The synchronization link ID.
+    // The ID of the synchronization link.
     shared_ptr<string> linkId_ {};
     // The name of the synchronization link.
     shared_ptr<string> linkName_ {};

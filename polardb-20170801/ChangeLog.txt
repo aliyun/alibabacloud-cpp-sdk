@@ -1,3 +1,6 @@
+2026-09-18 Version: 7.3.1
+- Generated cpp 2017-08-01 for polardb.
+
 2026-09-16 Version: 7.3.0
 - Support API DeleteAIDBClusterCustomModel.
 - Support API ModifyAIDBClusterModel.

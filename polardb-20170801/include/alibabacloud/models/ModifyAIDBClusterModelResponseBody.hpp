@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the request is a dry run.
+    // Indicates whether the request is a dry-run request.
     shared_ptr<bool> dryRun_ {};
     // The model type of the instance.
     shared_ptr<string> modelType_ {};
@@ -129,9 +129,9 @@ namespace Models
     shared_ptr<int32_t> taskId_ {};
     // The number of change batches.
     shared_ptr<int64_t> totalBatches_ {};
-    // The number of affected model service instances.
+    // The number of affected model serving instances.
     shared_ptr<int64_t> totalMsds_ {};
-    // The change warnings returned by the upstream service. The caller must display these warnings.
+    // The change warnings returned by the upstream. The caller must display these warnings.
     shared_ptr<vector<string>> warnings_ {};
   };
 

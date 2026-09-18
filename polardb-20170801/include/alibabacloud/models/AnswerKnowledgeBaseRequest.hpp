@@ -136,7 +136,7 @@ namespace Models
     shared_ptr<string> knowledgeBaseId_ {};
     // The maximum number of context characters. Valid values: 1000 to 32000.
     shared_ptr<int32_t> maxContextChars_ {};
-    // The user query text.
+    // The user question.
     // 
     // This parameter is required.
     shared_ptr<string> queryText_ {};
@@ -144,9 +144,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // Specifies whether to enable reranking. Default value: false.
+    // Specifies whether to enable reranking. Disabled by default.
     shared_ptr<bool> rerankEnabled_ {};
-    // Specifies whether to return citation sources. Default value: true.
+    // Specifies whether to return citation sources. Enabled by default.
     shared_ptr<bool> returnSources_ {};
     // The similarity score threshold.
     shared_ptr<double> scoreThreshold_ {};
@@ -154,9 +154,9 @@ namespace Models
     shared_ptr<string> searchMode_ {};
     // The system prompt.
     shared_ptr<string> systemPrompt_ {};
-    // The number of results to recall during retrieval.
+    // The number of recall results to retrieve.
     shared_ptr<int32_t> topK_ {};
-    // The supplementary user instructions.
+    // The user supplementary instructions.
     shared_ptr<string> userInstructions_ {};
   };
 

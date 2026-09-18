@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> linkId_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The scheduling time of the synchronization task.
+    // The scheduled time of the synchronization task.
     shared_ptr<string> syncSchedule_ {};
   };
 

@@ -193,7 +193,7 @@ namespace Polardb20170801
       Models::AddSQLRateLimitingRulesResponse addSQLRateLimitingRules(const Models::AddSQLRateLimitingRulesRequest &request);
 
       /**
-       * @summary Performs a single-round knowledge base question answering.
+       * @summary Performs a single-turn knowledge base question answering.
        *
        * @param request AnswerKnowledgeBaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -202,7 +202,7 @@ namespace Polardb20170801
       Models::AnswerKnowledgeBaseResponse answerKnowledgeBaseWithOptions(const Models::AnswerKnowledgeBaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a single-round knowledge base question answering.
+       * @summary Performs a single-turn knowledge base question answering.
        *
        * @param request AnswerKnowledgeBaseRequest
        * @return AnswerKnowledgeBaseResponse
@@ -4716,7 +4716,7 @@ namespace Polardb20170801
       Models::DescribeKBSyncLinksResponse describeKBSyncLinks(const Models::DescribeKBSyncLinksRequest &request);
 
       /**
-       * @summary Queries the result of a single-turn Q&A task in a knowledge base.
+       * @summary Queries the result of a single-round knowledge base question answering task.
        *
        * @param request DescribeKnowledgeBaseAnswerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4725,7 +4725,7 @@ namespace Polardb20170801
       Models::DescribeKnowledgeBaseAnswerResponse describeKnowledgeBaseAnswerWithOptions(const Models::DescribeKnowledgeBaseAnswerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the result of a single-turn Q&A task in a knowledge base.
+       * @summary Queries the result of a single-round knowledge base question answering task.
        *
        * @param request DescribeKnowledgeBaseAnswerRequest
        * @return DescribeKnowledgeBaseAnswerResponse
@@ -6422,7 +6422,7 @@ namespace Polardb20170801
       Models::ModifyAIDBClusterDescriptionResponse modifyAIDBClusterDescription(const Models::ModifyAIDBClusterDescriptionRequest &request);
 
       /**
-       * @summary Changes the model or the customer-facing invocation name of an AI cluster.
+       * @summary Changes the model or the client-facing invocation name of an AI cluster.
        *
        * @param request ModifyAIDBClusterModelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6431,7 +6431,7 @@ namespace Polardb20170801
       Models::ModifyAIDBClusterModelResponse modifyAIDBClusterModelWithOptions(const Models::ModifyAIDBClusterModelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the model or the customer-facing invocation name of an AI cluster.
+       * @summary Changes the model or the client-facing invocation name of an AI cluster.
        *
        * @param request ModifyAIDBClusterModelRequest
        * @return ModifyAIDBClusterModelResponse

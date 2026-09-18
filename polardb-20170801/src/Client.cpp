@@ -592,7 +592,7 @@ AddSQLRateLimitingRulesResponse Client::addSQLRateLimitingRules(const AddSQLRate
 }
 
 /**
- * @summary Performs a single-round knowledge base question answering.
+ * @summary Performs a single-turn knowledge base question answering.
  *
  * @param request AnswerKnowledgeBaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -663,7 +663,7 @@ AnswerKnowledgeBaseResponse Client::answerKnowledgeBaseWithOptions(const AnswerK
 }
 
 /**
- * @summary Performs a single-round knowledge base question answering.
+ * @summary Performs a single-turn knowledge base question answering.
  *
  * @param request AnswerKnowledgeBaseRequest
  * @return AnswerKnowledgeBaseResponse
@@ -5523,6 +5523,10 @@ CreateKBSyncLinkResponse Client::createKBSyncLinkWithOptions(const CreateKBSyncL
 
   if (!!request.hasTenantId()) {
     query["TenantId"] = request.getTenantId();
+  }
+
+  if (!!request.hasUserAccessToken()) {
+    query["UserAccessToken"] = request.getUserAccessToken();
   }
 
   if (!!request.hasUserId()) {
@@ -17678,7 +17682,7 @@ DescribeKBSyncLinksResponse Client::describeKBSyncLinks(const DescribeKBSyncLink
 }
 
 /**
- * @summary Queries the result of a single-turn Q&A task in a knowledge base.
+ * @summary Queries the result of a single-round knowledge base question answering task.
  *
  * @param request DescribeKnowledgeBaseAnswerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17717,7 +17721,7 @@ DescribeKnowledgeBaseAnswerResponse Client::describeKnowledgeBaseAnswerWithOptio
 }
 
 /**
- * @summary Queries the result of a single-turn Q&A task in a knowledge base.
+ * @summary Queries the result of a single-round knowledge base question answering task.
  *
  * @param request DescribeKnowledgeBaseAnswerRequest
  * @return DescribeKnowledgeBaseAnswerResponse
@@ -23645,7 +23649,7 @@ ModifyAIDBClusterDescriptionResponse Client::modifyAIDBClusterDescription(const 
 }
 
 /**
- * @summary Changes the model or the customer-facing invocation name of an AI cluster.
+ * @summary Changes the model or the client-facing invocation name of an AI cluster.
  *
  * @param request ModifyAIDBClusterModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23674,6 +23678,14 @@ ModifyAIDBClusterModelResponse Client::modifyAIDBClusterModelWithOptions(const M
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasRestartMode()) {
+    query["RestartMode"] = request.getRestartMode();
+  }
+
+  if (!!request.hasWorkerBatchSize()) {
+    query["WorkerBatchSize"] = request.getWorkerBatchSize();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -23692,7 +23704,7 @@ ModifyAIDBClusterModelResponse Client::modifyAIDBClusterModelWithOptions(const M
 }
 
 /**
- * @summary Changes the model or the customer-facing invocation name of an AI cluster.
+ * @summary Changes the model or the client-facing invocation name of an AI cluster.
  *
  * @param request ModifyAIDBClusterModelRequest
  * @return ModifyAIDBClusterModelResponse
@@ -31802,6 +31814,10 @@ UpdateKBSyncLinkResponse Client::updateKBSyncLinkWithOptions(const UpdateKBSyncL
 
   if (!!request.hasSyncIntervalMinutes()) {
     query["SyncIntervalMinutes"] = request.getSyncIntervalMinutes();
+  }
+
+  if (!!request.hasUserAccessToken()) {
+    query["UserAccessToken"] = request.getUserAccessToken();
   }
 
   if (!!request.hasUserId()) {

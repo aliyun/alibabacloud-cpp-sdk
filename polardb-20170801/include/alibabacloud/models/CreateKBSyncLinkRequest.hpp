@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
       DARABONBA_PTR_TO_JSON(SyncIntervalMinutes, syncIntervalMinutes_);
       DARABONBA_PTR_TO_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(UserAccessToken, userAccessToken_);
       DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateKBSyncLinkRequest& obj) { 
@@ -40,6 +41,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
       DARABONBA_PTR_FROM_JSON(SyncIntervalMinutes, syncIntervalMinutes_);
       DARABONBA_PTR_FROM_JSON(TenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(UserAccessToken, userAccessToken_);
       DARABONBA_PTR_FROM_JSON(UserId, userId_);
     };
     CreateKBSyncLinkRequest() = default ;
@@ -56,7 +58,7 @@ namespace Models
     virtual bool empty() const override { return this->clientId_ == nullptr
         && this->clientSecret_ == nullptr && this->description_ == nullptr && this->knowledgeBaseId_ == nullptr && this->linkName_ == nullptr && this->mcpEndpoint_ == nullptr
         && this->regionId_ == nullptr && this->sheetMcpEndpoint_ == nullptr && this->sourceDir_ == nullptr && this->sourceType_ == nullptr && this->syncIntervalMinutes_ == nullptr
-        && this->tenantId_ == nullptr && this->userId_ == nullptr; };
+        && this->tenantId_ == nullptr && this->userAccessToken_ == nullptr && this->userId_ == nullptr; };
     // clientId Field Functions 
     bool hasClientId() const { return this->clientId_ != nullptr;};
     void deleteClientId() { this->clientId_ = nullptr;};
@@ -141,6 +143,13 @@ namespace Models
     inline CreateKBSyncLinkRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // userAccessToken Field Functions 
+    bool hasUserAccessToken() const { return this->userAccessToken_ != nullptr;};
+    void deleteUserAccessToken() { this->userAccessToken_ = nullptr;};
+    inline string getUserAccessToken() const { DARABONBA_PTR_GET_DEFAULT(userAccessToken_, "") };
+    inline CreateKBSyncLinkRequest& setUserAccessToken(string userAccessToken) { DARABONBA_PTR_SET_VALUE(userAccessToken_, userAccessToken) };
+
+
     // userId Field Functions 
     bool hasUserId() const { return this->userId_ != nullptr;};
     void deleteUserId() { this->userId_ = nullptr;};
@@ -159,7 +168,7 @@ namespace Models
     shared_ptr<string> clientSecret_ {};
     // The description of the synchronization link.
     shared_ptr<string> description_ {};
-    // The unique identifier of the knowledge base.
+    // The unique ID of the knowledge base.
     // 
     // This parameter is required.
     shared_ptr<string> knowledgeBaseId_ {};
@@ -167,13 +176,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> linkName_ {};
-    // The DingTalk document MCP Server endpoint.
+    // The MCP Server address for DingTalk documents.
     shared_ptr<string> mcpEndpoint_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The DingTalk spreadsheet MCP Server endpoint.
+    // The MCP Server address for DingTalk sheets.
     shared_ptr<string> sheetMcpEndpoint_ {};
     // The source directory address for synchronization.
     // 
@@ -187,7 +196,9 @@ namespace Models
     shared_ptr<int32_t> syncIntervalMinutes_ {};
     // The tenant ID. This parameter is required when SourceType is set to SHAREPOINT.
     shared_ptr<string> tenantId_ {};
-    // The DingTalk operator user ID.
+    // The Lark user access token. This token is used only when the application identity cannot expand group members because the bot is not in the group chat.
+    shared_ptr<string> userAccessToken_ {};
+    // The DingTalk user ID of the operator.
     shared_ptr<string> userId_ {};
   };
 
