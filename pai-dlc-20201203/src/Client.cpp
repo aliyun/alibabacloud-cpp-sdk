@@ -233,7 +233,7 @@ CreateJobResponse Client::createJob(const CreateJobRequest &request) {
 }
 
 /**
- * @summary Creates a job template.
+ * @summary Creates a task template.
  *
  * @param request CreateJobTemplateRequest
  * @param headers map
@@ -286,7 +286,7 @@ CreateJobTemplateResponse Client::createJobTemplateWithOptions(const CreateJobTe
 }
 
 /**
- * @summary Creates a job template.
+ * @summary Creates a task template.
  *
  * @param request CreateJobTemplateRequest
  * @return CreateJobTemplateResponse
@@ -300,8 +300,8 @@ CreateJobTemplateResponse Client::createJobTemplate(const CreateJobTemplateReque
 /**
  * @summary Creates a RayHistoryServer.
  *
- * @description Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
- * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+ * @description Make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before using this operation.
+ * >Notice: The total length of the CreateJob operation parameters (including system-generated parameters) cannot exceed 65536 bytes.
  *
  * @param request CreateRayHistoryServerRequest
  * @param headers map
@@ -360,8 +360,8 @@ CreateRayHistoryServerResponse Client::createRayHistoryServerWithOptions(const C
 /**
  * @summary Creates a RayHistoryServer.
  *
- * @description Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and the [pricing](https://help.aliyun.com/document_detail/171758.html).
- * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+ * @description Make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC before using this operation.
+ * >Notice: The total length of the CreateJob operation parameters (including system-generated parameters) cannot exceed 65536 bytes.
  *
  * @param request CreateRayHistoryServerRequest
  * @return CreateRayHistoryServerResponse
@@ -373,12 +373,12 @@ CreateRayHistoryServerResponse Client::createRayHistoryServer(const CreateRayHis
 }
 
 /**
- * @summary Sends a signal to the Pods of a specified job and retrieves the signal ID.
+ * @summary Sends a signal to the pods of a specified job and retrieves the signal ID.
  *
  * @description ## Operation description
- * - This API operation sends a specific signal to one or more Pods of a specified job.
+ * - This API operation sends a specific signal to one or more pods of a specified job.
  * - After the signal is sent, the API immediately returns a `SignalId`. The actual signal delivery is processed by a background worker.
- * - Query the signal status by calling the `GetSignal` or `ListSignals` operation.
+ * - You can query the signal status by calling the `GetSignal` or `ListSignals` operation.
  *
  * @param request CreateSignalRequest
  * @param headers map
@@ -415,12 +415,12 @@ CreateSignalResponse Client::createSignalWithOptions(const string &JobId, const 
 }
 
 /**
- * @summary Sends a signal to the Pods of a specified job and retrieves the signal ID.
+ * @summary Sends a signal to the pods of a specified job and retrieves the signal ID.
  *
  * @description ## Operation description
- * - This API operation sends a specific signal to one or more Pods of a specified job.
+ * - This API operation sends a specific signal to one or more pods of a specified job.
  * - After the signal is sent, the API immediately returns a `SignalId`. The actual signal delivery is processed by a background worker.
- * - Query the signal status by calling the `GetSignal` or `ListSignals` operation.
+ * - You can query the signal status by calling the `GetSignal` or `ListSignals` operation.
  *
  * @param request CreateSignalRequest
  * @return CreateSignalResponse
@@ -432,7 +432,7 @@ CreateSignalResponse Client::createSignal(const string &JobId, const CreateSigna
 }
 
 /**
- * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
+ * @summary Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
  *
  * @param request CreateTensorboardRequest
  * @param headers map
@@ -541,7 +541,7 @@ CreateTensorboardResponse Client::createTensorboardWithOptions(const CreateTenso
 }
 
 /**
- * @summary Creates a TensorBoard by using a job or specifying a data source configuration.
+ * @summary Creates a TensorBoard instance. You can create a TensorBoard instance from a job or by specifying a datasource config.
  *
  * @param request CreateTensorboardRequest
  * @return CreateTensorboardResponse
@@ -553,7 +553,7 @@ CreateTensorboardResponse Client::createTensorboard(const CreateTensorboardReque
 }
 
 /**
- * @summary Deletes a completed or stopped job.
+ * @summary Deletes a job that has completed or been stopped.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -578,7 +578,7 @@ DeleteJobResponse Client::deleteJobWithOptions(const string &JobId, const map<st
 }
 
 /**
- * @summary Deletes a completed or stopped job.
+ * @summary Deletes a job that has completed or been stopped.
  *
  * @return DeleteJobResponse
  */
@@ -589,7 +589,7 @@ DeleteJobResponse Client::deleteJob(const string &JobId) {
 }
 
 /**
- * @summary Deletes a job template. You cannot delete a job template that is in use by a job.
+ * @summary Deletes an unused task template. If the template is already in use by a node, it cannot be deleted.
  *
  * @param request DeleteJobTemplateRequest
  * @param headers map
@@ -616,7 +616,7 @@ DeleteJobTemplateResponse Client::deleteJobTemplateWithOptions(const string &Tem
 }
 
 /**
- * @summary Deletes a job template. You cannot delete a job template that is in use by a job.
+ * @summary Deletes an unused task template. If the template is already in use by a node, it cannot be deleted.
  *
  * @param request DeleteJobTemplateRequest
  * @return DeleteJobTemplateResponse
@@ -671,7 +671,7 @@ DeleteRayHistoryServerResponse Client::deleteRayHistoryServer(const string &RayH
 }
 
 /**
- * @summary Deletes a stopped TensorBoard.
+ * @summary Deletes a stopped Tensorboard.
  *
  * @param request DeleteTensorboardRequest
  * @param headers map
@@ -704,7 +704,7 @@ DeleteTensorboardResponse Client::deleteTensorboardWithOptions(const string &Ten
 }
 
 /**
- * @summary Deletes a stopped TensorBoard.
+ * @summary Deletes a stopped Tensorboard.
  *
  * @param request DeleteTensorboardRequest
  * @return DeleteTensorboardResponse
@@ -716,9 +716,9 @@ DeleteTensorboardResponse Client::deleteTensorboard(const string &TensorboardId,
 }
 
 /**
- * @summary Retrieves the Dashboard URL for a DLC job, if available.
+ * @summary Retrieves the dashboard URL of a DLC job, if available.
  *
- * @description Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
+ * @description Before using this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
  *
  * @param request GetDashboardRequest
  * @param headers map
@@ -755,9 +755,9 @@ GetDashboardResponse Client::getDashboardWithOptions(const string &jobId, const 
 }
 
 /**
- * @summary Retrieves the Dashboard URL for a DLC job, if available.
+ * @summary Retrieves the dashboard URL of a DLC job, if available.
  *
- * @description Before using this API, review the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) for PAI-DLC.
+ * @description Before using this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
  *
  * @param request GetDashboardRequest
  * @return GetDashboardResponse
@@ -769,7 +769,7 @@ GetDashboardResponse Client::getDashboard(const string &jobId, const GetDashboar
 }
 
 /**
- * @summary Retrieves the detailed configuration and runtime information of a task.
+ * @summary Retrieves the detailed configuration and runtime information of a node.
  *
  * @param request GetJobRequest
  * @param headers map
@@ -802,7 +802,7 @@ GetJobResponse Client::getJobWithOptions(const string &JobId, const GetJobReques
 }
 
 /**
- * @summary Retrieves the detailed configuration and runtime information of a task.
+ * @summary Retrieves the detailed configuration and runtime information of a node.
  *
  * @param request GetJobRequest
  * @return GetJobResponse
@@ -814,7 +814,7 @@ GetJobResponse Client::getJob(const string &JobId, const GetJobRequest &request)
 }
 
 /**
- * @summary Obtains the system events of a job.
+ * @summary Retrieves system events for a job.
  *
  * @param request GetJobEventsRequest
  * @param headers map
@@ -855,7 +855,7 @@ GetJobEventsResponse Client::getJobEventsWithOptions(const string &JobId, const 
 }
 
 /**
- * @summary Obtains the system events of a job.
+ * @summary Retrieves system events for a job.
  *
  * @param request GetJobEventsRequest
  * @return GetJobEventsResponse
@@ -867,7 +867,8 @@ GetJobEventsResponse Client::getJobEvents(const string &JobId, const GetJobEvent
 }
 
 /**
- * @summary Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate. ⚠️ Note: Except for pay-as-you-go tasks based on general-purpose computing resources, all task types are connected to CloudMonitor. Use the CloudMonitor API to call related monitoring. The overwritten features in the original API are no longer maintained. For more information, see \\[Training monitoring and alerting]\\\\(https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+ * @summary Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
+ * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
  *
  * @param request GetJobMetricsRequest
  * @param headers map
@@ -916,7 +917,8 @@ GetJobMetricsResponse Client::getJobMetricsWithOptions(const string &JobId, cons
 }
 
 /**
- * @summary Obtains the monitoring data of a job, including the CPU, GPU, and memory utilization, network, and disk read/write rate. ⚠️ Note: Except for pay-as-you-go tasks based on general-purpose computing resources, all task types are connected to CloudMonitor. Use the CloudMonitor API to call related monitoring. The overwritten features in the original API are no longer maintained. For more information, see \\[Training monitoring and alerting]\\\\(https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
+ * @summary Retrieves monitoring data for a node, including CPU, GPU, and memory usage, as well as network and disk read/write rates.
+ * ⚠️ Note: All node types except pay-as-you-go (postpaid) nodes based on general computing resources are integrated with CloudMonitor. Use CloudMonitor API operations for monitoring calls. Features already covered by the new API operations will no longer undergo maintenance in the original API operations. For more information, see [Training Monitoring and Alerts](https://www.alibabacloud.com/help/zh/pai/user-guide/training-monitoring-and-alerting).
  *
  * @param request GetJobMetricsRequest
  * @return GetJobMetricsResponse
@@ -928,7 +930,7 @@ GetJobMetricsResponse Client::getJobMetrics(const string &JobId, const GetJobMet
 }
 
 /**
- * @summary Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
+ * @summary Retrieves the computing power health check result for a specific run of a DLC job.
  *
  * @param request GetJobSanityCheckResultRequest
  * @param headers map
@@ -969,7 +971,7 @@ GetJobSanityCheckResultResponse Client::getJobSanityCheckResultWithOptions(const
 }
 
 /**
- * @summary Obtains specified job sanity check result in a Deep Learning Containers (DLC) job.
+ * @summary Retrieves the computing power health check result for a specific run of a DLC job.
  *
  * @param request GetJobSanityCheckResultRequest
  * @return GetJobSanityCheckResultResponse
@@ -981,7 +983,7 @@ GetJobSanityCheckResultResponse Client::getJobSanityCheckResult(const string &Jo
 }
 
 /**
- * @summary Retrieves the details of a job template.
+ * @summary Retrieves the details of a task template.
  *
  * @param request GetJobTemplateRequest
  * @param headers map
@@ -1014,7 +1016,7 @@ GetJobTemplateResponse Client::getJobTemplateWithOptions(const string &TemplateI
 }
 
 /**
- * @summary Retrieves the details of a job template.
+ * @summary Retrieves the details of a task template.
  *
  * @param request GetJobTemplateRequest
  * @return GetJobTemplateResponse
@@ -1026,15 +1028,15 @@ GetJobTemplateResponse Client::getJobTemplate(const string &TemplateId, const Ge
 }
 
 /**
- * @summary Retrieve metrics data.
+ * @summary Retrieves metrics data.
  *
- * @description ## Request description
- * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
- * - It supports custom time ranges. By default, it returns data from the last hour.
- * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
- * - To paginate through large datasets, use the `NextToken` parameter.
- * - The `MetricName` parameter is required and specifies the monitoring metric to query.
- * - For advanced features or specific metric types, see the related documentation.
+ * @description ## Operation description
+ * - This operation queries monitoring metrics for a specific job (JobId) or dimension (Dimensions) under a specified namespace (Namespace).
+ * - Custom query time ranges are supported. By default, data from the last hour is returned.
+ * - You can select different time intervals (Period) to retrieve data points at a finer or coarser granularity.
+ * - To retrieve large amounts of data with paging, use the `NextToken` parameter for paging operations.
+ * - `MetricName` is required and specifies the name of the monitoring metric to query.
+ * - For advanced features or specific types of monitoring metrics, refer to the relevant documentation for more information.
  *
  * @param request GetMetricsRequest
  * @param headers map
@@ -1103,15 +1105,15 @@ GetMetricsResponse Client::getMetricsWithOptions(const GetMetricsRequest &reques
 }
 
 /**
- * @summary Retrieve metrics data.
+ * @summary Retrieves metrics data.
  *
- * @description ## Request description
- * - This API retrieves monitoring metrics for a specific job (JobId) or dimensions under a given namespace.
- * - It supports custom time ranges. By default, it returns data from the last hour.
- * - Select different time intervals (Period) to obtain data points with finer or coarser granularity.
- * - To paginate through large datasets, use the `NextToken` parameter.
- * - The `MetricName` parameter is required and specifies the monitoring metric to query.
- * - For advanced features or specific metric types, see the related documentation.
+ * @description ## Operation description
+ * - This operation queries monitoring metrics for a specific job (JobId) or dimension (Dimensions) under a specified namespace (Namespace).
+ * - Custom query time ranges are supported. By default, data from the last hour is returned.
+ * - You can select different time intervals (Period) to retrieve data points at a finer or coarser granularity.
+ * - To retrieve large amounts of data with paging, use the `NextToken` parameter for paging operations.
+ * - `MetricName` is required and specifies the name of the monitoring metric to query.
+ * - For advanced features or specific types of monitoring metrics, refer to the relevant documentation for more information.
  *
  * @param request GetMetricsRequest
  * @return GetMetricsResponse
@@ -1123,7 +1125,7 @@ GetMetricsResponse Client::getMetrics(const GetMetricsRequest &request) {
 }
 
 /**
- * @summary Obtains the system events of a specific node in a job to locate and troubleshoot issues.
+ * @summary Retrieves system events for a specific node in a job to locate and troubleshoot issues.
  *
  * @param request GetPodEventsRequest
  * @param headers map
@@ -1168,7 +1170,7 @@ GetPodEventsResponse Client::getPodEventsWithOptions(const string &JobId, const 
 }
 
 /**
- * @summary Obtains the system events of a specific node in a job to locate and troubleshoot issues.
+ * @summary Retrieves system events for a specific node in a job to locate and troubleshoot issues.
  *
  * @param request GetPodEventsRequest
  * @return GetPodEventsResponse
@@ -1245,9 +1247,9 @@ GetPodLogsResponse Client::getPodLogs(const string &JobId, const string &PodId, 
 }
 
 /**
- * @summary Retrieve the Ray Dashboard URL.
+ * @summary Retrieves the Ray Dashboard URL.
  *
- * @description Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * @description Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
  *
  * @param request GetRayDashboardRequest
  * @param headers map
@@ -1284,9 +1286,9 @@ GetRayDashboardResponse Client::getRayDashboardWithOptions(const string &jobId, 
 }
 
 /**
- * @summary Retrieve the Ray Dashboard URL.
+ * @summary Retrieves the Ray Dashboard URL.
  *
- * @description Before you use this operation, review the PAI-DLC billing model and [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * @description Before you use this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
  *
  * @param request GetRayDashboardRequest
  * @return GetRayDashboardResponse
@@ -1298,9 +1300,10 @@ GetRayDashboardResponse Client::getRayDashboard(const string &jobId, const GetRa
 }
 
 /**
- * @summary Retrieves the details of a specific RayHistoryServer.
+ * @summary Queries a RayHistoryServer.
  *
- * @description Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
+ * @description Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and have read the [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request GetRayHistoryServerRequest
  * @param headers map
@@ -1327,9 +1330,10 @@ GetRayHistoryServerResponse Client::getRayHistoryServerWithOptions(const string 
 }
 
 /**
- * @summary Retrieves the details of a specific RayHistoryServer.
+ * @summary Queries a RayHistoryServer.
  *
- * @description Before you call this API operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the parameters for the CreateJob API, including system-generated parameters, cannot exceed 65,536 bytes.
+ * @description Before you use this operation, make sure that you are familiar with the billing of PAI-DLC and have read the [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request GetRayHistoryServerRequest
  * @return GetRayHistoryServerResponse
@@ -1344,7 +1348,7 @@ GetRayHistoryServerResponse Client::getRayHistoryServer(const string &RayHistory
  * @summary Queries the details of a specific signal in a specified job.
  *
  * @description ## Operation description
- * This API allows you to retrieve the signal details for the specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing status.
+ * You can call this operation to retrieve the details of a signal that corresponds to a specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing result.
  *
  * @param request GetSignalRequest
  * @param headers map
@@ -1380,7 +1384,7 @@ GetSignalResponse Client::getSignalWithOptions(const string &JobId, const string
  * @summary Queries the details of a specific signal in a specified job.
  *
  * @description ## Operation description
- * This API allows you to retrieve the signal details for the specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing status.
+ * You can call this operation to retrieve the details of a signal that corresponds to a specified `JobId` and `SignalId`, including the signal status and delivery scope. Note that the response no longer contains the raw result structure for each pod. Instead, the `Status`, `Reason`, and `Message` fields describe the overall signal processing result.
  *
  * @param request GetSignalRequest
  * @return GetSignalResponse
@@ -1392,7 +1396,7 @@ GetSignalResponse Client::getSignal(const string &JobId, const string &SignalId,
 }
 
 /**
- * @summary Retrieves the details of a Tensorboard instance.
+ * @summary Retrieves the details of a Tensorboard.
  *
  * @param request GetTensorboardRequest
  * @param headers map
@@ -1433,7 +1437,7 @@ GetTensorboardResponse Client::getTensorboardWithOptions(const string &Tensorboa
 }
 
 /**
- * @summary Retrieves the details of a Tensorboard instance.
+ * @summary Retrieves the details of a Tensorboard.
  *
  * @param request GetTensorboardRequest
  * @return GetTensorboardResponse
@@ -1445,7 +1449,7 @@ GetTensorboardResponse Client::getTensorboard(const string &TensorboardId, const
 }
 
 /**
- * @summary Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
+ * @summary Retrieves the sharing link for a TensorBoard task. The link contains a digital token. You can use the sharing link to access the shared TensorBoard task.
  *
  * @param request GetTensorboardSharedUrlRequest
  * @param headers map
@@ -1478,7 +1482,7 @@ GetTensorboardSharedUrlResponse Client::getTensorboardSharedUrlWithOptions(const
 }
 
 /**
- * @summary Obtains the shareable link of a TensorBoard task. The link contains digital tokens. You can use a shareable link to access a TensorBoard task.
+ * @summary Retrieves the sharing link for a TensorBoard task. The link contains a digital token. You can use the sharing link to access the shared TensorBoard task.
  *
  * @param request GetTensorboardSharedUrlRequest
  * @return GetTensorboardSharedUrlResponse
@@ -1547,7 +1551,7 @@ GetTokenResponse Client::getToken(const GetTokenRequest &request) {
 }
 
 /**
- * @summary Provides methods and steps to obtain a HTTP link for accessing a container.
+ * @summary Provides the method and steps to obtain an HTTP link for accessing a container.
  *
  * @param request GetWebTerminalRequest
  * @param headers map
@@ -1584,7 +1588,7 @@ GetWebTerminalResponse Client::getWebTerminalWithOptions(const string &JobId, co
 }
 
 /**
- * @summary Provides methods and steps to obtain a HTTP link for accessing a container.
+ * @summary Provides the method and steps to obtain an HTTP link for accessing a container.
  *
  * @param request GetWebTerminalRequest
  * @return GetWebTerminalResponse
@@ -1596,7 +1600,7 @@ GetWebTerminalResponse Client::getWebTerminal(const string &JobId, const string 
 }
 
 /**
- * @summary Queries the list of supported instance types.
+ * @summary Queries the list of currently supported machine resource configurations.
  *
  * @param request ListEcsSpecsRequest
  * @param headers map
@@ -1653,7 +1657,7 @@ ListEcsSpecsResponse Client::listEcsSpecsWithOptions(const ListEcsSpecsRequest &
 }
 
 /**
- * @summary Queries the list of supported instance types.
+ * @summary Queries the list of currently supported machine resource configurations.
  *
  * @param request ListEcsSpecsRequest
  * @return ListEcsSpecsResponse
@@ -1665,7 +1669,7 @@ ListEcsSpecsResponse Client::listEcsSpecs(const ListEcsSpecsRequest &request) {
 }
 
 /**
- * @summary Obtains the results of all sanity checks for a DLC job.
+ * @summary Retrieves all computing power health check results for a specific DLC job.
  *
  * @param request ListJobSanityCheckResultsRequest
  * @param headers map
@@ -1698,7 +1702,7 @@ ListJobSanityCheckResultsResponse Client::listJobSanityCheckResultsWithOptions(c
 }
 
 /**
- * @summary Obtains the results of all sanity checks for a DLC job.
+ * @summary Retrieves all computing power health check results for a specific DLC job.
  *
  * @param request ListJobSanityCheckResultsRequest
  * @return ListJobSanityCheckResultsResponse
@@ -1710,7 +1714,7 @@ ListJobSanityCheckResultsResponse Client::listJobSanityCheckResults(const string
 }
 
 /**
- * @summary Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
+ * @summary Lists task templates by workspace with support for pagination and sorting. You can filter results by creator, TemplateId, or TemplateName.
  *
  * @param request ListJobTemplatesRequest
  * @param headers map
@@ -1720,6 +1724,10 @@ ListJobSanityCheckResultsResponse Client::listJobSanityCheckResults(const string
 ListJobTemplatesResponse Client::listJobTemplatesWithOptions(const ListJobTemplatesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDescription()) {
+    query["Description"] = request.getDescription();
+  }
+
   if (!!request.hasOrder()) {
     query["Order"] = request.getOrder();
   }
@@ -1771,7 +1779,7 @@ ListJobTemplatesResponse Client::listJobTemplatesWithOptions(const ListJobTempla
 }
 
 /**
- * @summary Lists job templates in a specified workspace. You can paginate, sort, and filter the results by creator, `TemplateId`, or `TemplateName`.
+ * @summary Lists task templates by workspace with support for pagination and sorting. You can filter results by creator, TemplateId, or TemplateName.
  *
  * @param request ListJobTemplatesRequest
  * @return ListJobTemplatesResponse
@@ -1980,8 +1988,8 @@ ListJobsResponse Client::listJobs(const ListJobsRequest &request) {
 /**
  * @summary Lists RayHistoryServer resources.
  *
- * @description Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
- * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+ * @description Before using this operation, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of parameters for the CreateJob operation (including system-generated parameters) cannot exceed 65536 bytes.
  *
  * @param request ListRayHistoryServersRequest
  * @param headers map
@@ -2080,8 +2088,8 @@ ListRayHistoryServersResponse Client::listRayHistoryServersWithOptions(const Lis
 /**
  * @summary Lists RayHistoryServer resources.
  *
- * @description Before you use this operation, make sure that you are familiar with the billing and [pricing](https://help.aliyun.com/document_detail/171758.html) of Platform for AI - Deep Learning Containers (PAI-DLC).
- * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes..
+ * @description Before using this operation, make sure you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of parameters for the CreateJob operation (including system-generated parameters) cannot exceed 65536 bytes.
  *
  * @param request ListRayHistoryServersRequest
  * @return ListRayHistoryServersResponse
@@ -2096,7 +2104,7 @@ ListRayHistoryServersResponse Client::listRayHistoryServers(const ListRayHistory
  * @summary Queries all signal records of a specified job.
  *
  * @description ## Operation description
- * You can call this API operation to retrieve the details of all signal records for a specific job, including signal IDs, statuses, and creation times. You can use query parameters to further filter or sort the results.
+ * You can call this operation to retrieve the details of all signal records for a specific job, including the signal ID, status, and creation time. You can use query parameters to further filter or sort the results.
  *
  * @param request ListSignalsRequest
  * @param headers map
@@ -2152,7 +2160,7 @@ ListSignalsResponse Client::listSignalsWithOptions(const string &JobId, const Li
  * @summary Queries all signal records of a specified job.
  *
  * @description ## Operation description
- * You can call this API operation to retrieve the details of all signal records for a specific job, including signal IDs, statuses, and creation times. You can use query parameters to further filter or sort the results.
+ * You can call this operation to retrieve the details of all signal records for a specific job, including the signal ID, status, and creation time. You can use query parameters to further filter or sort the results.
  *
  * @param request ListSignalsRequest
  * @return ListSignalsResponse
@@ -2332,7 +2340,8 @@ SetJobTemplateDefaultVersionResponse Client::setJobTemplateDefaultVersion(const 
 /**
  * @summary Starts a Ray History Server.
  *
- * @description Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
+ * @description Before using this operation, make sure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request StartRayHistoryServerRequest
  * @param headers map
@@ -2361,7 +2370,8 @@ StartRayHistoryServerResponse Client::startRayHistoryServerWithOptions(const str
 /**
  * @summary Starts a Ray History Server.
  *
- * @description Before calling this operation, familiarize yourself with the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.>Notice: The total length of the API parameters for the CreateJob operation, including system-generated parameters, cannot exceed 65,536 bytes.
+ * @description Before using this operation, make sure that you fully understand the billing method and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
+ * >Notice: The total length of the CreateJob operation parameters, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request StartRayHistoryServerRequest
  * @return StartRayHistoryServerResponse
@@ -2373,7 +2383,7 @@ StartRayHistoryServerResponse Client::startRayHistoryServer(const string &RayHis
 }
 
 /**
- * @summary Starts a TensorBoard instance.
+ * @summary Starts a Tensorboard.
  *
  * @param request StartTensorboardRequest
  * @param headers map
@@ -2406,7 +2416,7 @@ StartTensorboardResponse Client::startTensorboardWithOptions(const string &Tenso
 }
 
 /**
- * @summary Starts a TensorBoard instance.
+ * @summary Starts a Tensorboard.
  *
  * @param request StartTensorboardRequest
  * @return StartTensorboardResponse
@@ -2497,7 +2507,7 @@ StopRayHistoryServerResponse Client::stopRayHistoryServer(const string &RayHisto
 }
 
 /**
- * @summary Stops a TensorBoard instance.
+ * @summary Stops a TensorBoard.
  *
  * @param request StopTensorboardRequest
  * @param headers map
@@ -2530,7 +2540,7 @@ StopTensorboardResponse Client::stopTensorboardWithOptions(const string &Tensorb
 }
 
 /**
- * @summary Stops a TensorBoard instance.
+ * @summary Stops a TensorBoard.
  *
  * @param request StopTensorboardRequest
  * @return StopTensorboardResponse
@@ -2731,7 +2741,7 @@ UpdateJobResponse Client::updateJob(const string &JobId, const UpdateJobRequest 
 }
 
 /**
- * @summary Updates a job template.
+ * @summary Updates a task template.
  *
  * @param request UpdateJobTemplateRequest
  * @param headers map
@@ -2788,7 +2798,7 @@ UpdateJobTemplateResponse Client::updateJobTemplateWithOptions(const string &Tem
 }
 
 /**
- * @summary Updates a job template.
+ * @summary Updates a task template.
  *
  * @param request UpdateJobTemplateRequest
  * @return UpdateJobTemplateResponse

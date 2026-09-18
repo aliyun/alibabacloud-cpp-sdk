@@ -223,59 +223,55 @@ namespace Models
 
 
   protected:
-    // The job visibility. Valid values:
-    // 
-    // *   PUBLIC: Visible to all members in the workspace.
-    // *   PRIVATE: Visible only to you and the administrator of the workspace.
+    // The visibility of the job. Valid values:
+    // - PUBLIC: Visible to all members in the workspace.
+    // - PRIVATE: Visible only to you and administrators in the workspace.
     shared_ptr<string> accessibility_ {};
-    // The number of vCPU cores.
+    // The number of CPU cores.
     shared_ptr<int64_t> cpu_ {};
-    // The dataset ID.
+    // The dataset ID. <props="china">For information about how to obtain the dataset ID, see [ListDatasets](https://help.aliyun.com/document_detail/457222.html).
     shared_ptr<string> dataSourceId_ {};
     // The dataset type. Valid values:
-    // 
-    // *   OSS
-    // *   NAS
+    // - OSS
+    // - NAS
     shared_ptr<string> dataSourceType_ {};
-    // The configurations of the data source.
+    // The datasource configurations.
     shared_ptr<vector<DataSourceItem>> dataSources_ {};
-    // The TensorBoard name
+    // The TensorBoard name.
     shared_ptr<string> displayName_ {};
-    // The job ID. For more information about how to query the job ID, see [ListJobs](https://help.aliyun.com/document_detail/459676.html).
+    // The job ID. For information about how to obtain the job ID, see [ListJobs](https://help.aliyun.com/document_detail/459676.html).
     shared_ptr<string> jobId_ {};
     // The maximum running duration. Unit: minutes.
     shared_ptr<int64_t> maxRunningTimeMinutes_ {};
     // The memory size. Unit: GB.
     shared_ptr<int64_t> memory_ {};
-    // The extended fields of the dataset are in the JSON format. MountPath: the path to mount the dataset.
+    // The extended field of custom dataset in JSON format. Currently, MountPath is supported, which specifies the custom mount path of custom dataset.
     shared_ptr<string> options_ {};
-    // The priority of the job. Default value: 1. Valid values: 1 to 9.
-    // 
-    // *   1 is the lowest priority.
-    // *   9 is the highest priority.
+    // The priority of the job. This is an optional parameter. Default value: 1. Valid values: 1 to 9.
+    // - 1: the lowest priority.
+    // - 9: the highest priority.
     shared_ptr<string> priority_ {};
-    // The resource quota ID. This parameter is required when you create a TensorBoard job by using a resource quota.
-    // 
-    // This feature is currently limited to whitelisted users. If you need to use this feature, contact us.
+    // The resource quota ID. This parameter is required when you create a TensorBoard job by using resources from a resource quota. <props="china">For information about how to obtain the resource quota ID, see [ListQuotas](https://help.aliyun.com/document_detail/2628071.html).
+    // <props="china">Published only on China site.
+    // Currently, only whitelisted users can create TensorBoard jobs by using resource quota resources. To use this feature, contact us.
     shared_ptr<string> quotaId_ {};
     // The source ID.
     shared_ptr<string> sourceId_ {};
     // The source type.
     shared_ptr<string> sourceType_ {};
-    // The directory of summary.
+    // The summary directory.
     shared_ptr<string> summaryPath_ {};
-    // The relative path of summary.
+    // The summary relative directory.
     shared_ptr<string> summaryRelativePath_ {};
-    // The configurations of datasets mounted with the TensorBoard job.
+    // The list of dataset configurations mounted to the TensorBoard job.
     shared_ptr<vector<TensorboardDataSourceSpec>> tensorboardDataSources_ {};
-    // The pay-as-you-go configuration of TensorBoard, which is used to create TensorBoard jobs that use pay-as-you-go resources.
+    // The pay-as-you-go configuration for TensorBoard, which is used to create a TensorBoard job that uses pay-as-you-go resources.
     shared_ptr<TensorboardSpec> tensorboardSpec_ {};
-    // The dataset URI:
-    // 
-    // *   Value format when DataSourceType is set to OSS: `oss://[oss-bucket].[endpoint]/[path]`.
-    // *   Value format when DataSourceType is set to NAS:`nas://[nas-filesystem-id].[region]/[path]`.
+    // The URI of the dataset:
+    // - If DataSourceType is set to OSS, the format is `oss://[oss-bucket].[endpoint]/[path]`.
+    // - If DataSourceType is set to NAS, the format is `nas://[nas-filesystem-id].[region]/[path]`.
     shared_ptr<string> uri_ {};
-    // The workspace ID.
+    // The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<string> endTime_ {};
     // The maximum number of log lines to return. Default value: 2000.
     shared_ptr<int32_t> maxLines_ {};
-    // The node UID. For information about how to obtain the node UID, see [GetJob](https://help.aliyun.com/document_detail/459677.html).
+    // The node UID. To obtain the node UID, see [GetJob](https://help.aliyun.com/document_detail/459677.html).
     shared_ptr<string> podUid_ {};
     // The start time of the query. Default value: 7 days ago.
     shared_ptr<string> startTime_ {};

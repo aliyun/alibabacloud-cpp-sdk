@@ -213,62 +213,62 @@ namespace Models
 
 
   protected:
-    // The visibility of the Tensorboard instance. Valid values:
-    // - PUBLIC: visible to all members in the workspace.
-    // - PRIVATE: visible only to you and administrators in the workspace.
+    // The visibility of the job. Valid values:
+    // - PUBLIC: Visible to all users in this workspace.
+    // - PRIVATE: Visible only to you and administrators in this workspace.
     shared_ptr<string> accessibility_ {};
     // The display name of the Tensorboard instance.
     shared_ptr<string> displayName_ {};
-    // The end time of the query range. Tensorboard instances are filtered by their creation time in UTC. If this parameter is left empty, the default value is the current time.
+    // The end time of the query range. The creation time of the Tensorboard instance in UTC is used for filtering. If this parameter is left empty, the default value is the current time.
     shared_ptr<string> endTime_ {};
-    // The DLC job ID used to filter Tensorboard instances. Call [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
+    // Filters Tensorboard instances by DLC job ID. See [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
     shared_ptr<string> jobId_ {};
     // The sort order. Valid values:
-    // - desc: descending order.
-    // - asc: ascending order.
+    // - desc: Descending order.
+    // - asc: Ascending order.
     shared_ptr<string> order_ {};
-    // The page number for paging. The value starts from 1.
+    // The page number of the page to return in a paged query. The value starts from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of Tensorboard instances to return on each page for paging.
+    // The number of Tensorboard instances to return per page in a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The billing method of the Tensorboard instance. Valid values:
-    // - Free: a Tensorboard instance that uses free resources.
-    // - Postpaid: a Tensorboard instance that uses pay-as-you-go resources.
+    // The billing type of the Tensorboard instance. Valid values:
+    // - Free: The Tensorboard instance uses free resources.
+    // - Postpaid: The Tensorboard instance uses pay-as-you-go resources.
     shared_ptr<string> paymentType_ {};
     // The resource quota ID.
     // > - Currently, only whitelisted users can use resource quota resources to create Tensorboard instances. To use this feature, contact us.
-    // > - This parameter takes effect only when the Tensorboard instance uses resource quota resources.
+    // > - This value is valid only when the Tensorboard instance uses resource quota resources.
     shared_ptr<string> quotaId_ {};
     // Specifies whether to return only Tensorboard instances created by the current user.
     shared_ptr<bool> showOwn_ {};
-    // The field by which the results are sorted. Valid values:
-    // - DisplayName: the job name.
-    // - GmtCreateTime: the job creation time.
+    // Sorts the results by the following fields. Valid values:
+    // - DisplayName: The job name.
+    // - GmtCreateTime: The job creation time.
     shared_ptr<string> sortBy_ {};
-    // The data source ID. Call [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
+    // The data source ID. See [ListJobs](https://help.aliyun.com/document_detail/459676.html) to obtain the job ID.
     shared_ptr<string> sourceId_ {};
     // The data source type. Currently, only DLC training jobs are supported, which means the value is job.
     shared_ptr<string> sourceType_ {};
-    // The start time of the query range. Tensorboard instances are filtered by their creation time in UTC. If this parameter is left empty, the default value is 7 days before the current time.
+    // The start time of the query range. The creation time of the Tensorboard instance in UTC is used for filtering. If this parameter is left empty, the default value is 7 days before the current time.
     shared_ptr<string> startTime_ {};
     // The Tensorboard status. Valid values:
-    // - Creating: being created.
-    // - Running: running.
-    // - Stopped: stopped.
-    // - Succeeded: succeeded.
-    // - Failed: failed.
+    // - Creating: Being created.
+    // - Running: Running.
+    // - Stopped: Stopped.
+    // - Succeeded: Succeeded.
+    // - Failed: Failed.
     shared_ptr<string> status_ {};
-    // The Tensorboard ID used to filter the Tensorboard list.
+    // Filters the Tensorboard list by Tensorboard ID.
     shared_ptr<string> tensorboardId_ {};
     // The user ID.
     shared_ptr<string> userId_ {};
     // The username.
     shared_ptr<string> username_ {};
-    // Specifies whether to display details.
-    // - true: Display details.
-    // - false: Do not display details.
+    // Specifies whether to show details. Valid values:
+    // - true: Show details.
+    // - false: Do not show details.
     shared_ptr<bool> verbose_ {};
-    // The workspace ID. Tensorboard instances are filtered by workspace ID. <props="china">Call [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID..
+    // The workspace ID. The Tensorboard list is retrieved based on the workspace ID. <props="china">See [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html) to obtain the workspace ID.
     shared_ptr<string> workspaceId_ {};
   };
 

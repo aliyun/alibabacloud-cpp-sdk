@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether this is a shared link. If it is, the \\`token\\` parameter is also required.
+    // Specifies whether the link is a shared link. If set to true, the token parameter is also required.
     shared_ptr<bool> isShared_ {};
-    // The token obtained from GetToken.
+    // The token obtained from the GetToken operation.
     shared_ptr<string> token_ {};
   };
 

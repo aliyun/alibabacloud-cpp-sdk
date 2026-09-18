@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The end time (UTC).
+    // The end time in UTC.
     shared_ptr<string> endTime_ {};
-    // The maximum number of events that can be returned.
+    // The maximum number of events to return.
     shared_ptr<int32_t> maxEventsNum_ {};
-    // The node UID. Call [GetJob](https://help.aliyun.com/document_detail/459677.html) to get the node UID.
+    // The node UID. You can call [GetJob](https://help.aliyun.com/document_detail/459677.html) to obtain the node UID.
     shared_ptr<string> podUid_ {};
-    // The start time (UTC).
+    // The start time in UTC.
     shared_ptr<string> startTime_ {};
   };
 

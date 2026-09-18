@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The end time (UTC) of the time range for querying events. The default value is the current time.
+    // The end time (UTC) of the event query interval. Default value: current time.
     shared_ptr<string> endTime_ {};
-    // The maximum number of events that can be returned. Default value: 2000.
+    // The maximum number of events to retrieve. Default value: 2000.
     shared_ptr<int32_t> maxEventsNum_ {};
-    // The start time (UTC) of the time range for querying events. The default value is 7 days ago.
+    // The start time (UTC) of the event query interval. Default value: 7 days ago.
     shared_ptr<string> startTime_ {};
   };
 

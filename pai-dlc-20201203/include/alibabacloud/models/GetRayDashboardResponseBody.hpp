@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether Cloud Monitor is enabled for this dashboard to display Ray metrics
+    // Indicates whether the dashboard has integrated CloudMonitor to display Ray metrics.
     shared_ptr<string> metricsEnabled_ {};
-    // The Ray Dashboard URL
+    // The URL of the Ray Dashboard.
     shared_ptr<string> url_ {};
   };
 

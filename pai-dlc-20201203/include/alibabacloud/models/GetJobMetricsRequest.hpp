@@ -75,24 +75,31 @@ namespace Models
 
 
   protected:
-    // The end time of the time range to query monitoring data. The time is displayed in UTC. The default value is the current time.
+    // The end time (UTC) of the time range for querying monitoring data. Default value: the current time.
     shared_ptr<string> endTime_ {};
-    // The type of the monitoring metrics. Valid values:
+    // The metric type of the monitoring data to query. Valid values:
     // 
-    // *   GpuCoreUsage: GPU utilization
-    // *   GpuMemoryUsage: GPU memory utilization
-    // *   CpuCoreUsage: CPU utilization
-    // *   MemoryUsage: memory utilization
-    // *   NetworkInputRate: the network write in rate.
-    // *   NetworkOutputRate: the network write out rate
-    // *   DiskReadRate: the disk read rate
-    // *   DiskWriteRate: the disk write rate
+    // - GpuCoreUsage: GPU utilization.
+    // 
+    // - GpuMemoryUsage: GPU memory usage.
+    // 
+    // - CpuCoreUsage: CPU utilization.
+    // 
+    // - MemoryUsage: memory usage.
+    // 
+    // - NetworkInputRate: network input rate.
+    // 
+    // - NetworkOutputRate: network output rate.
+    // 
+    // - DiskReadRate: disk read rate.
+    // 
+    // - DiskWriteRate: disk write rate.
     // 
     // This parameter is required.
     shared_ptr<string> metricType_ {};
-    // The beginning of the time range to query monitoring data. The time is displayed in UTC. The default value is the time 1 hour before the current time.
+    // The start time (UTC) of the time range for querying monitoring data. Default value: one hour before the current time.
     shared_ptr<string> startTime_ {};
-    // The interval at which monitoring data is returned. Default value: 5. Unit: minutes.
+    // The time interval at which monitoring data is returned. Default value: 5 minutes.
     shared_ptr<string> timeStep_ {};
     // The temporary token used for authentication.
     shared_ptr<string> token_ {};

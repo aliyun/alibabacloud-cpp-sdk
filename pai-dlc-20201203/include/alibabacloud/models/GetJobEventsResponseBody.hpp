@@ -64,7 +64,7 @@ namespace Models
     shared_ptr<vector<string>> events_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The request ID, which can be used for troubleshooting.
+    // The request ID, which is used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

@@ -159,7 +159,7 @@ namespace Models
       shared_ptr<string> gmtCreated_ {};
       // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The message returned with the result.
+      // The message of the returned result.
       shared_ptr<string> message_ {};
       // The list of pod names.
       shared_ptr<vector<string>> podNames_ {};
@@ -167,7 +167,7 @@ namespace Models
       shared_ptr<string> reason_ {};
       // The list of role types.
       shared_ptr<vector<string>> roles_ {};
-      // The delivery scope.
+      // The sending scope.
       shared_ptr<string> scope_ {};
       // The signal code.
       shared_ptr<string> signal_ {};
@@ -228,7 +228,7 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The current page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

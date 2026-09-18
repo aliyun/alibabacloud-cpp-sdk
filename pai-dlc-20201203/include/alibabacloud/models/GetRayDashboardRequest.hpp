@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Set to true to generate a shareable link. If you set this parameter to true, you must also specify the token parameter.
+    // Specifies whether the link is a shared link. If set to true, the token parameter is also required.
     shared_ptr<bool> isShared_ {};
-    // The token returned by GetToken
+    // The token obtained from the GetToken operation.
     shared_ptr<string> token_ {};
   };
 

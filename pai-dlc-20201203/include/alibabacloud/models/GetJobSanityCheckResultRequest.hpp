@@ -57,19 +57,18 @@ namespace Models
 
 
   protected:
-    // The nth time for which the job sanity check is performed.
+    // The sequence number of the computing power health check for the job.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sanityCheckNumber_ {};
-    // The phase in which the job sanity check is performed.
-    // 
-    // *   CheckInit
-    // *   DeviceCheck
-    // *   SingleNodeCommCheck
-    // *   TwoNodeCommCheck
-    // *   AllNodeCommCheck
+    // The phase of the computing power health check. Valid values:
+    // - CheckInit: environment preparation check.
+    // - DeviceCheck: single-card computing power check.
+    // - SingleNodeCommCheck: intra-node communication check.
+    // - TwoNodeCommCheck: two-node communication check.
+    // - AllNodeCommCheck: all-node communication check.
     shared_ptr<string> sanityCheckPhase_ {};
-    // The token information for job sharing. For more information about how to obtain the token information, see [GetToken](https://help.aliyun.com/document_detail/2557812.html).
+    // The token information in the job sharing token. To obtain the token, see [GetToken](https://help.aliyun.com/document_detail/2557812.html).
     shared_ptr<string> token_ {};
   };
 

@@ -65,7 +65,7 @@ namespace Models
     shared_ptr<string> jobId_ {};
     // The request ID.
     shared_ptr<string> requestID_ {};
-    // The job sanity check result.
+    // The result of the computing power health check.
     shared_ptr<vector<SanityCheckResultItem>> sanityCheckResult_ {};
   };
 

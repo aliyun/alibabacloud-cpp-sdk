@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
         DARABONBA_PTR_TO_JSON(GmtModifyTime, gmtModifyTime_);
+        DARABONBA_PTR_TO_JSON(LastUsedTime, lastUsedTime_);
         DARABONBA_ANY_TO_JSON(Metadata, metadata_);
         DARABONBA_PTR_TO_JSON(ModifiedBy, modifiedBy_);
         DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
         DARABONBA_PTR_FROM_JSON(GmtModifyTime, gmtModifyTime_);
+        DARABONBA_PTR_FROM_JSON(LastUsedTime, lastUsedTime_);
         DARABONBA_ANY_FROM_JSON(Metadata, metadata_);
         DARABONBA_PTR_FROM_JSON(ModifiedBy, modifiedBy_);
         DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
@@ -78,8 +80,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->defaultVersion_ == nullptr
-        && this->description_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifyTime_ == nullptr && this->metadata_ == nullptr && this->modifiedBy_ == nullptr
-        && this->templateId_ == nullptr && this->templateName_ == nullptr && this->tenantId_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifyTime_ == nullptr && this->lastUsedTime_ == nullptr && this->metadata_ == nullptr
+        && this->modifiedBy_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr && this->tenantId_ == nullptr && this->userId_ == nullptr
+        && this->workspaceId_ == nullptr; };
       // defaultVersion Field Functions 
       bool hasDefaultVersion() const { return this->defaultVersion_ != nullptr;};
       void deleteDefaultVersion() { this->defaultVersion_ = nullptr;};
@@ -106,6 +109,13 @@ namespace Models
       void deleteGmtModifyTime() { this->gmtModifyTime_ = nullptr;};
       inline string getGmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
       inline JobTemplates& setGmtModifyTime(string gmtModifyTime) { DARABONBA_PTR_SET_VALUE(gmtModifyTime_, gmtModifyTime) };
+
+
+      // lastUsedTime Field Functions 
+      bool hasLastUsedTime() const { return this->lastUsedTime_ != nullptr;};
+      void deleteLastUsedTime() { this->lastUsedTime_ = nullptr;};
+      inline string getLastUsedTime() const { DARABONBA_PTR_GET_DEFAULT(lastUsedTime_, "") };
+      inline JobTemplates& setLastUsedTime(string lastUsedTime) { DARABONBA_PTR_SET_VALUE(lastUsedTime_, lastUsedTime) };
 
 
       // metadata Field Functions 
@@ -162,29 +172,33 @@ namespace Models
     protected:
       // The default version number.
       shared_ptr<int32_t> defaultVersion_ {};
-      // The description of the job template.
+      // The template description.
       shared_ptr<string> description_ {};
-      // The creation time of the template, in UTC and ISO 8601 format.
+      // The time when the template was created.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time of the template, in UTC and ISO 8601 format.
+      // The time when the template was last modified.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtModifyTime_ {};
-      // Custom metadata, represented as a collection of key-value pairs.
+      // The most recent time when a task was successfully created by using this template.
+      // 
+      // Use the UTC time format: yyyy-MM-ddTHH:mmZ
+      shared_ptr<string> lastUsedTime_ {};
+      // The custom metadata.
       Darabonba::Json metadata_ {};
-      // The ID of the modifier.
+      // The ID of the user who last modified the template.
       shared_ptr<string> modifiedBy_ {};
-      // The ID of the job template.
+      // The template ID.
       shared_ptr<string> templateId_ {};
-      // The name of the job template.
+      // The template name.
       shared_ptr<string> templateName_ {};
-      // The ID of the tenant.
+      // The tenant ID.
       shared_ptr<string> tenantId_ {};
-      // The ID of the creator.
+      // The ID of the user who created the template.
       shared_ptr<string> userId_ {};
-      // The ID of the workspace.
+      // The workspace ID.
       shared_ptr<string> workspaceId_ {};
     };
 
@@ -228,15 +242,15 @@ namespace Models
 
 
   protected:
-    // The list of job templates.
+    // The list of templates.
     shared_ptr<vector<ListJobTemplatesResponseBody::JobTemplates>> jobTemplates_ {};
     // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of results on the current page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique ID of the request. Use this ID to troubleshoot issues.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of job templates that match the filter conditions.
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
   };
 

@@ -88,7 +88,7 @@ namespace Models
     shared_ptr<string> order_ {};
     // The current page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<string> pageSize_ {};
     // The field used for sorting.
     shared_ptr<string> sortBy_ {};

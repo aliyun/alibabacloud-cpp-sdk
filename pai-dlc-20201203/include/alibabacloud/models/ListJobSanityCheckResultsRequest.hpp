@@ -38,10 +38,9 @@ namespace Models
 
 
   protected:
-    // The sorting order:
-    // 
-    // *   desc: descending order
-    // *   asc: ascending order
+    // The sort order. Valid values:
+    // - desc: descending order
+    // - asc: ascending order
     shared_ptr<string> order_ {};
   };
 

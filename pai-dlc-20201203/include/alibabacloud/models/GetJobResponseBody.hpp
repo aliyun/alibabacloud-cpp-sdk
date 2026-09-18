@@ -49,7 +49,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Priority, priority_);
       DARABONBA_PTR_TO_JSON(ReasonCode, reasonCode_);
       DARABONBA_PTR_TO_JSON(ReasonMessage, reasonMessage_);
+      DARABONBA_PTR_TO_JSON(RequestCPU, requestCPU_);
+      DARABONBA_PTR_TO_JSON(RequestGPU, requestGPU_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(RequestMemory, requestMemory_);
       DARABONBA_PTR_TO_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_TO_JSON(ResourceLevel, resourceLevel_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
@@ -99,7 +102,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Priority, priority_);
       DARABONBA_PTR_FROM_JSON(ReasonCode, reasonCode_);
       DARABONBA_PTR_FROM_JSON(ReasonMessage, reasonMessage_);
+      DARABONBA_PTR_FROM_JSON(RequestCPU, requestCPU_);
+      DARABONBA_PTR_FROM_JSON(RequestGPU, requestGPU_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(RequestMemory, requestMemory_);
       DARABONBA_PTR_FROM_JSON(ResourceId, resourceId_);
       DARABONBA_PTR_FROM_JSON(ResourceLevel, resourceLevel_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -199,10 +205,10 @@ namespace Models
 
 
     protected:
-      // The default route. This parameter is valid only for general-purpose computing resources. Valid values:
+      // The default route. This parameter is valid only for general computing resources. Valid values:
       // 
-      // eth0: uses the default network interface card (NIC) to access external networks through the public gateway.
-      // eth1: uses the user elastic network interface (ENI) to access external networks through the private gateway.
+      // eth0: uses the default network interface controller (NIC) to access external networks through the public gateway.
+      // eth1: uses the user elastic network interfaces (ENIs) to access external networks through the private gateway.
       shared_ptr<string> defaultRoute_ {};
       // The extended CIDR blocks. Example: 192.168.0.1/24.
       shared_ptr<vector<string>> extendedCidrs_ {};
@@ -353,7 +359,7 @@ namespace Models
 
 
       protected:
-        // The job blacklist.
+        // The job-level blacklist.
         shared_ptr<bool> addJobLevelBlacklist_ {};
         // The node blacklist.
         shared_ptr<bool> addNodeToBlacklist_ {};
@@ -361,13 +367,13 @@ namespace Models
         shared_ptr<string> detailErrorMsg_ {};
         // The error code.
         shared_ptr<string> errorCode_ {};
-        // The error information.
+        // The fault error message.
         shared_ptr<string> errorMsg_ {};
         // The error source.
         shared_ptr<string> errorSource_ {};
         // The node.
         shared_ptr<string> node_ {};
-        // The pod.
+        // The instance.
         shared_ptr<string> pod_ {};
         // Indicates whether a restart is triggered.
         shared_ptr<bool> triggerRestart_ {};
@@ -449,15 +455,15 @@ namespace Models
 
 
     protected:
-      // The error information list.
+      // The list of fault error messages.
       shared_ptr<vector<RestartRecord::DetailErrorInfoList>> detailErrorInfoList_ {};
       // The number of job restarts.
       shared_ptr<int64_t> jobRestartCount_ {};
       // The phase in which the event occurred.
       shared_ptr<string> occurPhase_ {};
-      // The time at which the event occurred.
+      // The time when the event occurred.
       shared_ptr<string> occurTime_ {};
-      // The reason.
+      // The reason for the restart.
       shared_ptr<string> reason_ {};
       // The restart duration, in seconds.
       shared_ptr<int64_t> restartDurationInSec_ {};
@@ -670,11 +676,11 @@ namespace Models
       protected:
         // The pod duration.
         shared_ptr<double> duration_ {};
-        // The pod creation time (UTC).
+        // The time when the pod was created (UTC).
         shared_ptr<string> gmtCreateTime_ {};
-        // The pod finish time (UTC).
+        // The time when the pod ended (UTC).
         shared_ptr<string> gmtFinishTime_ {};
-        // The pod start time (UTC).
+        // The time when the pod started (UTC).
         shared_ptr<string> gmtStartTime_ {};
         // Pod IP。
         shared_ptr<string> ip_ {};
@@ -686,17 +692,17 @@ namespace Models
         shared_ptr<vector<PodNetworkInterface>> podIps_ {};
         // Pod UID。
         shared_ptr<string> podUid_ {};
-        // The pod resource usage type.
+        // The resource usage type of the pod.
         shared_ptr<string> resourceType_ {};
         // The pod status.
         shared_ptr<string> status_ {};
-        // The pod substatus, such as preemption status. Valid values:
+        // The pod substatus, such as the preemption status. Valid values:
         // - Normal
         // - Evicted
         shared_ptr<string> subStatus_ {};
         // The pod type.
         shared_ptr<string> type_ {};
-        // The list of supported profiling types, comma-separated, such as sysom. An empty string indicates that profiling is not supported.
+        // The list of supported profiling types, separated by commas, such as sysom. An empty string indicates that profiling is not supported.
         shared_ptr<string> supportedProfilingTypes_ {};
       };
 
@@ -816,27 +822,27 @@ namespace Models
     protected:
       // The pod duration.
       shared_ptr<double> duration_ {};
-      // The pod creation time (UTC).
+      // The time when the pod was created (UTC).
       shared_ptr<string> gmtCreateTime_ {};
-      // The pod finish time (UTC).
+      // The time when the pod finished (UTC).
       shared_ptr<string> gmtFinishTime_ {};
-      // The pod start time (UTC).
+      // The time when the pod started (UTC).
       shared_ptr<string> gmtStartTime_ {};
       // The historical pods.
       shared_ptr<vector<Pods::HistoryPods>> historyPods_ {};
-      // The network IP address of the pod.
+      // The network IP address of the node.
       shared_ptr<string> ip_ {};
       // The node name.
       shared_ptr<string> nodeName_ {};
-      // The pod ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events for the pod.
+      // The node ID. You can use this ID with the GetPodLogs and GetPodEvents APIs to retrieve detailed logs and events for the node.
       shared_ptr<string> podId_ {};
       // The IP addresses of the pod.
       shared_ptr<vector<PodNetworkInterface>> podIps_ {};
       // Pod UID。
       shared_ptr<string> podUid_ {};
-      // The pod resource usage type.
+      // The resource usage type of the pod.
       shared_ptr<string> resourceType_ {};
-      // The pod status. Valid values:
+      // The node status. Valid values:
       // 
       // - Pending
       // - Running
@@ -844,13 +850,13 @@ namespace Models
       // - Failed
       // - Unknown
       shared_ptr<string> status_ {};
-      // The pod substatus, such as preemption status. Valid values:
+      // The pod substatus, such as the preemption status. Valid values:
       // - Normal
       // - Evicted
       shared_ptr<string> subStatus_ {};
-      // The pod type, which corresponds to a specific JobSpec in the JobSpecs parameter of CreateJob.
+      // The node type, which corresponds to a specific JobSpec in the JobSpecs parameter of the CreateJob operation.
       shared_ptr<string> type_ {};
-      // The list of supported profiling types, comma-separated, such as sysom. An empty string indicates that profiling is not supported.
+      // The list of supported profiling types, separated by commas, such as sysom. An empty string indicates that profiling is not supported.
       shared_ptr<string> supportedProfilingTypes_ {};
     };
 
@@ -903,7 +909,7 @@ namespace Models
     protected:
       // The data source ID.
       shared_ptr<string> dataSourceId_ {};
-      // The local mount path. This is an optional parameter. The default value is empty, which indicates that the mount path specified in the data source is used.
+      // The local mount path. This is an optional parameter. If left empty, the mount path specified in the data source is used.
       shared_ptr<string> mountPath_ {};
       // The data source path.
       shared_ptr<string> uri_ {};
@@ -1033,11 +1039,11 @@ namespace Models
         && this->envs_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtFailedTime_ == nullptr && this->gmtFinishTime_ == nullptr && this->gmtRunningTime_ == nullptr
         && this->gmtStoppedTime_ == nullptr && this->gmtSubmittedTime_ == nullptr && this->gmtSuccessedTime_ == nullptr && this->jobId_ == nullptr && this->jobReplicaStatuses_ == nullptr
         && this->jobSpecs_ == nullptr && this->jobType_ == nullptr && this->pods_ == nullptr && this->priority_ == nullptr && this->reasonCode_ == nullptr
-        && this->reasonMessage_ == nullptr && this->requestId_ == nullptr && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr && this->resourceType_ == nullptr
-        && this->restartRecord_ == nullptr && this->restartTimes_ == nullptr && this->roleSystemEnvs_ == nullptr && this->schedulingStrategy_ == nullptr && this->settings_ == nullptr
-        && this->status_ == nullptr && this->statusHistory_ == nullptr && this->subStatus_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr
-        && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr && this->userId_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr
-        && this->workspaceName_ == nullptr && this->supportedProfilingTypes_ == nullptr; };
+        && this->reasonMessage_ == nullptr && this->requestCPU_ == nullptr && this->requestGPU_ == nullptr && this->requestId_ == nullptr && this->requestMemory_ == nullptr
+        && this->resourceId_ == nullptr && this->resourceLevel_ == nullptr && this->resourceType_ == nullptr && this->restartRecord_ == nullptr && this->restartTimes_ == nullptr
+        && this->roleSystemEnvs_ == nullptr && this->schedulingStrategy_ == nullptr && this->settings_ == nullptr && this->status_ == nullptr && this->statusHistory_ == nullptr
+        && this->subStatus_ == nullptr && this->tenantId_ == nullptr && this->thirdpartyLibDir_ == nullptr && this->thirdpartyLibs_ == nullptr && this->userCommand_ == nullptr
+        && this->userId_ == nullptr && this->userVpc_ == nullptr && this->workspaceId_ == nullptr && this->workspaceName_ == nullptr && this->supportedProfilingTypes_ == nullptr; };
     // accessibility Field Functions 
     bool hasAccessibility() const { return this->accessibility_ != nullptr;};
     void deleteAccessibility() { this->accessibility_ = nullptr;};
@@ -1245,11 +1251,32 @@ namespace Models
     inline GetJobResponseBody& setReasonMessage(string reasonMessage) { DARABONBA_PTR_SET_VALUE(reasonMessage_, reasonMessage) };
 
 
+    // requestCPU Field Functions 
+    bool hasRequestCPU() const { return this->requestCPU_ != nullptr;};
+    void deleteRequestCPU() { this->requestCPU_ = nullptr;};
+    inline int32_t getRequestCPU() const { DARABONBA_PTR_GET_DEFAULT(requestCPU_, 0) };
+    inline GetJobResponseBody& setRequestCPU(int32_t requestCPU) { DARABONBA_PTR_SET_VALUE(requestCPU_, requestCPU) };
+
+
+    // requestGPU Field Functions 
+    bool hasRequestGPU() const { return this->requestGPU_ != nullptr;};
+    void deleteRequestGPU() { this->requestGPU_ = nullptr;};
+    inline double getRequestGPU() const { DARABONBA_PTR_GET_DEFAULT(requestGPU_, 0.0) };
+    inline GetJobResponseBody& setRequestGPU(double requestGPU) { DARABONBA_PTR_SET_VALUE(requestGPU_, requestGPU) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline GetJobResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // requestMemory Field Functions 
+    bool hasRequestMemory() const { return this->requestMemory_ != nullptr;};
+    void deleteRequestMemory() { this->requestMemory_ = nullptr;};
+    inline double getRequestMemory() const { DARABONBA_PTR_GET_DEFAULT(requestMemory_, 0.0) };
+    inline GetJobResponseBody& setRequestMemory(double requestMemory) { DARABONBA_PTR_SET_VALUE(requestMemory_, requestMemory) };
 
 
     // resourceId Field Functions 
@@ -1405,9 +1432,9 @@ namespace Models
 
 
   protected:
-    // The visibility of the task. Valid values:
-    // - PUBLIC: Visible to all users in the workspace.
-    // - PRIVATE (default): Visible only to you and administrators in the workspace.
+    // The visibility of the job. Valid values:
+    // - PUBLIC: The job is visible to all users in the workspace.
+    // - PRIVATE (default): The job is visible only to you and administrators in the workspace.
     shared_ptr<string> accessibility_ {};
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
@@ -1421,7 +1448,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The job name.
     shared_ptr<string> displayName_ {};
-    // The job duration, in seconds.
+    // The job duration. Unit: seconds.
     shared_ptr<int64_t> duration_ {};
     // The elastic job parameters.
     shared_ptr<JobElasticSpec> elasticSpec_ {};
@@ -1433,7 +1460,7 @@ namespace Models
     shared_ptr<string> gmtCreateTime_ {};
     // The time when the job failed (UTC).
     shared_ptr<string> gmtFailedTime_ {};
-    // The time when the task finished (UTC).
+    // The time when the job finished (UTC).
     shared_ptr<string> gmtFinishTime_ {};
     // The time when the job started running (UTC).
     shared_ptr<string> gmtRunningTime_ {};
@@ -1455,28 +1482,34 @@ namespace Models
     shared_ptr<vector<GetJobResponseBody::Pods>> pods_ {};
     // The priority of the job. Valid values: 1 to 9.
     shared_ptr<int32_t> priority_ {};
-    // The status detail code, which categorizes the sub-status under the current status (Status).
+    // The status detail code, which categorizes the substatus under the current status (Status).
     shared_ptr<string> reasonCode_ {};
     // The detailed description of the status.
     shared_ptr<string> reasonMessage_ {};
-    // The request ID, used for diagnostics and troubleshooting.
+    // The amount of CPU resources required by the job.
+    shared_ptr<int32_t> requestCPU_ {};
+    // The amount of GPU resources required by the job.
+    shared_ptr<double> requestGPU_ {};
+    // The request ID, which is used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group where the job runs.
+    // The amount of memory resources required by the job.
+    shared_ptr<double> requestMemory_ {};
+    // The ID of the resource group in which the job runs.
     shared_ptr<string> resourceId_ {};
-    // The resource level used when the job runs.
+    // The resource level used by the job at runtime.
     shared_ptr<string> resourceLevel_ {};
     // The resource type. Valid values: ECS, Lingjun, ACS.
     shared_ptr<string> resourceType_ {};
     // The job restart records.
     shared_ptr<vector<GetJobResponseBody::RestartRecord>> restartRecord_ {};
-    // The number of restarts used and the maximum number of restarts allowed for the job.
+    // The number of retries used by the job and the maximum number of retries.
     shared_ptr<string> restartTimes_ {};
     shared_ptr<map<string, Darabonba::Json>> roleSystemEnvs_ {};
     // The scheduling strategy configuration.
     shared_ptr<string> schedulingStrategy_ {};
-    // The additional parameter settings for the job.
+    // The additional parameter settings of the job.
     shared_ptr<JobSettings> settings_ {};
-    // The job status. Valid values:
+    // The running status of the job. Valid values:
     // - Creating
     // - Queuing
     // - Bidding (currently only for Lingjun spot jobs)
@@ -1491,9 +1524,9 @@ namespace Models
     // - Failed
     // - Stopped
     shared_ptr<string> status_ {};
-    // The status history.
+    // The historical statuses.
     shared_ptr<vector<StatusTransitionItem>> statusHistory_ {};
-    // The job substatus, such as preemption retry status.
+    // The sub-status of the job, such as the preemption retry status.
     shared_ptr<string> subStatus_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};
@@ -1511,7 +1544,7 @@ namespace Models
     shared_ptr<string> workspaceId_ {};
     // The name of the workspace to which the job belongs.
     shared_ptr<string> workspaceName_ {};
-    // The list of supported profiling types, comma-separated, such as sysom. An empty string indicates that profiling is not supported.
+    // The list of supported profiling types, separated by commas, such as sysom. An empty string indicates that profiling is not supported.
     shared_ptr<string> supportedProfilingTypes_ {};
   };
 

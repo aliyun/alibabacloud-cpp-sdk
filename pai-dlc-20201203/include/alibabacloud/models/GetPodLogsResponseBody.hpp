@@ -112,7 +112,7 @@ namespace Models
     shared_ptr<string> podId_ {};
     // The instance UID.
     shared_ptr<string> podUid_ {};
-    // The request ID for this call, used for diagnostics and troubleshooting.
+    // The request ID of this call, used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The TensorBoard instance ID.
+    // Tensorboard ID。
     shared_ptr<string> tensorboardId_ {};
   };
 

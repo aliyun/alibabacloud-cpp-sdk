@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The workspace ID.
+    // The workspace ID. <props="china">For information about how to obtain the workspace ID, see [ListWorkspaces](https://help.aliyun.com/document_detail/449124.html).
     shared_ptr<string> workspaceId_ {};
   };
 

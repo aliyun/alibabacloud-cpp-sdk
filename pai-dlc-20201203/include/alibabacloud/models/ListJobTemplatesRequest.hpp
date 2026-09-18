@@ -13,6 +13,7 @@ namespace Models
   class ListJobTemplatesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListJobTemplatesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListJobTemplatesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -43,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->order_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr
-        && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
+    virtual bool empty() const override { return this->description_ == nullptr
+        && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr && this->templateId_ == nullptr
+        && this->templateName_ == nullptr && this->userId_ == nullptr && this->workspaceId_ == nullptr; };
+    // description Field Functions 
+    bool hasDescription() const { return this->description_ != nullptr;};
+    void deleteDescription() { this->description_ = nullptr;};
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline ListJobTemplatesRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
     // order Field Functions 
     bool hasOrder() const { return this->order_ != nullptr;};
     void deleteOrder() { this->order_ = nullptr;};
@@ -103,21 +112,23 @@ namespace Models
 
 
   protected:
-    // The sort order. Valid values: `asc` for ascending and `desc` for descending. Default value: `desc`.
+    // Filters the list by a fuzzy match of the template description.
+    shared_ptr<string> description_ {};
+    // The sort order.
     shared_ptr<string> order_ {};
-    // The page number to retrieve.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of results to return per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The field to sort the results by. Default value: `GmtCreateTime`.
+    // The field by which to sort the results.
     shared_ptr<string> sortBy_ {};
-    // The job template ID. Use this parameter to filter for an exact match.
+    // Filters the list by an exact match of the template ID.
     shared_ptr<string> templateId_ {};
-    // The job template name. Use this parameter to filter for a partial match.
+    // Filters the list by a fuzzy match of the template name.
     shared_ptr<string> templateName_ {};
-    // The ID of the creator. Use this parameter to filter results by a specific creator.
+    // The user ID.
     shared_ptr<string> userId_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<string> workspaceId_ {};

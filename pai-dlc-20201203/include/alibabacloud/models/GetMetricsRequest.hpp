@@ -121,25 +121,25 @@ namespace Models
 
 
   protected:
-    // (Required) Request parameter.
+    // (Required) The request parameters.
     shared_ptr<string> dimensions_ {};
-    // The end time of the query. Default value: current time.
+    // The end time of the query. Default value: the current time.
     shared_ptr<string> endTime_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
-    // The number of records per query for paged queries. Default value: 1000.
+    // The number of entries per query. This parameter is used for paged query with paging. Default value: 1000.
     shared_ptr<string> length_ {};
-    // Metric name. Not filled. Not in use.
+    // The metric name. Not populated. Not in use.
     shared_ptr<string> metricName_ {};
-    // The namespace for cloud service monitoring data. For more information about namespaces, see cloud service monitoring metrics.
+    // The data namespace of the cloud service. For information about the data namespaces of cloud services, see cloud service monitoring items.
     shared_ptr<string> namespace_ {};
-    // The pagination cursor token. If you do not set this parameter, the first page of data is returned. When a NextToken value is returned, more data is available. Use the returned NextToken as a parameter in your next request to retrieve the next page. Repeat until NextToken returns null, which means all data has been retrieved.
+    // The pagination token. If you do not set this parameter, data on the first page is returned. If a value is returned for this parameter, more pages are available. You can set NextToken to the returned value to retrieve the next page. Repeat this process until a null value is returned, which indicates that all data has been retrieved.
     shared_ptr<string> nextToken_ {};
-    // The statistical period for monitoring data. Unit: seconds. Valid values: 15, 60, 900, and 3600.
+    // The statistical period of the monitoring data. Unit: seconds. Valid values: 15, 60, 900, and 3600.
     shared_ptr<string> period_ {};
-    // The start time of the monitoring data query interval (UTC). Default value: one hour ago.
+    // The start time (UTC) of the time range for querying monitoring data. Default value: one hour before the current time.
     shared_ptr<string> startTime_ {};
-    // A temporary token used for authentication.
+    // The temporary token used for authentication.
     shared_ptr<string> token_ {};
   };
 

@@ -78,7 +78,7 @@ namespace Models
 
 
   protected:
-    // The events returned.
+    // The list of events.
     shared_ptr<vector<string>> events_ {};
     // The job ID.
     shared_ptr<string> jobId_ {};
@@ -86,9 +86,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> podId_ {};
-    // The node UID.
+    // The instance UID.
     shared_ptr<string> podUid_ {};
-    // The request ID, which can be used for troubleshooting.
+    // The request ID, which is used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 

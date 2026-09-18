@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The default version number.
+    // The default version number currently in use.
     shared_ptr<int32_t> defaultVersion_ {};
-    // The time the template was last modified.
+    // The last modification time of the template.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> gmtModifyTime_ {};
-    // The request ID, used for diagnostics and troubleshooting.
+    // The ID of the request, used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
     // The version number.
     shared_ptr<int32_t> version_ {};

@@ -98,19 +98,19 @@ namespace Models
 
 
   protected:
-    // The field constraints. The key is a JSONPath expression and the value is the constraint type. Valid values are `locked`, `overridable`, and `required`. This parameter must be specified with `Content` and cannot be updated on its own.
+    // The field constraint rules. The key is a JSONPath expression and the value is the constraint type: locked (cannot be overridden), overridable (can be overridden), or required (mandatory). Must be provided together with Content. You cannot update this field independently.
     Darabonba::Json constraints_ {};
-    // The configuration content of the job template. This parameter supports all fields from the `CreateJob` operation and must be in JSON format. Specifying this parameter creates a new version.
+    // The configuration content of the task template. Supports all parameter fields of the CreateJob operation, passed in JSON format. Providing this field creates a new version.
     shared_ptr<string> content_ {};
-    // The description of the job template.
+    // The description of the task template.
     shared_ptr<string> description_ {};
-    // User-defined key-value pairs.
+    // The user-defined key-value pair metadata.
     Darabonba::Json metadata_ {};
-    // If `true`, the new version becomes the default version.
+    // Specifies whether to set the new version as the default version when a new version is created.
     shared_ptr<bool> setAsDefault_ {};
-    // The name of the job template.
+    // The name of the task template.
     shared_ptr<string> templateName_ {};
-    // This field is not supported.
+    // Invalid field.
     shared_ptr<int32_t> version_ {};
   };
 

@@ -63,9 +63,9 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestID_ {};
-    // The sanity check results.
+    // All computing power health check results.
     shared_ptr<vector<vector<SanityCheckResultItem>>> sanityCheckResults_ {};
-    // The total number of results that meet the filter conditions.
+    // The total number of check results that match the filter conditions.
     shared_ptr<int32_t> totalCount_ {};
   };
 

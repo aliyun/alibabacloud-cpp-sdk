@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifyTime, gmtModifyTime_);
+      DARABONBA_PTR_TO_JSON(LastUsedTime, lastUsedTime_);
       DARABONBA_ANY_TO_JSON(Metadata, metadata_);
       DARABONBA_PTR_TO_JSON(ModifiedBy, modifiedBy_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -34,6 +35,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifyTime, gmtModifyTime_);
+      DARABONBA_PTR_FROM_JSON(LastUsedTime, lastUsedTime_);
       DARABONBA_ANY_FROM_JSON(Metadata, metadata_);
       DARABONBA_PTR_FROM_JSON(ModifiedBy, modifiedBy_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -125,13 +127,13 @@ namespace Models
 
 
     protected:
-      // The field constraint rules. The key is a JSONPath expression and the value is a constraint type.
+      // The field constraint rules. The key is a JSONPath expression, and the value is the constraint type.
       Darabonba::Json constraints_ {};
-      // The configuration of the version, in JSON format.
+      // The template configuration content of this version in JSON format.
       Darabonba::Json content_ {};
       // The ID of the user who created the version.
       shared_ptr<string> createdBy_ {};
-      // The time the version was created.
+      // The time when the version was created.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mmZ
       shared_ptr<string> gmtCreateTime_ {};
@@ -140,9 +142,9 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->defaultVersion_ == nullptr
-        && this->description_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifyTime_ == nullptr && this->metadata_ == nullptr && this->modifiedBy_ == nullptr
-        && this->requestId_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr && this->tenantId_ == nullptr && this->totalCount_ == nullptr
-        && this->userId_ == nullptr && this->versions_ == nullptr && this->workspaceId_ == nullptr; };
+        && this->description_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifyTime_ == nullptr && this->lastUsedTime_ == nullptr && this->metadata_ == nullptr
+        && this->modifiedBy_ == nullptr && this->requestId_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr && this->tenantId_ == nullptr
+        && this->totalCount_ == nullptr && this->userId_ == nullptr && this->versions_ == nullptr && this->workspaceId_ == nullptr; };
     // defaultVersion Field Functions 
     bool hasDefaultVersion() const { return this->defaultVersion_ != nullptr;};
     void deleteDefaultVersion() { this->defaultVersion_ = nullptr;};
@@ -169,6 +171,13 @@ namespace Models
     void deleteGmtModifyTime() { this->gmtModifyTime_ = nullptr;};
     inline string getGmtModifyTime() const { DARABONBA_PTR_GET_DEFAULT(gmtModifyTime_, "") };
     inline GetJobTemplateResponseBody& setGmtModifyTime(string gmtModifyTime) { DARABONBA_PTR_SET_VALUE(gmtModifyTime_, gmtModifyTime) };
+
+
+    // lastUsedTime Field Functions 
+    bool hasLastUsedTime() const { return this->lastUsedTime_ != nullptr;};
+    void deleteLastUsedTime() { this->lastUsedTime_ = nullptr;};
+    inline string getLastUsedTime() const { DARABONBA_PTR_GET_DEFAULT(lastUsedTime_, "") };
+    inline GetJobTemplateResponseBody& setLastUsedTime(string lastUsedTime) { DARABONBA_PTR_SET_VALUE(lastUsedTime_, lastUsedTime) };
 
 
     // metadata Field Functions 
@@ -246,37 +255,41 @@ namespace Models
 
 
   protected:
-    // The default version of the job template.
+    // The default version number currently in use.
     shared_ptr<int32_t> defaultVersion_ {};
-    // A description of the job template.
+    // The description of the task template.
     shared_ptr<string> description_ {};
-    // The time the job template was created.
+    // The time when the template was created.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> gmtCreateTime_ {};
-    // The time the job template was last modified.
+    // The time when the template was last modified.
     // 
     // Use the UTC time format: yyyy-MM-ddTHH:mmZ
     shared_ptr<string> gmtModifyTime_ {};
-    // A collection of user-defined key-value pairs.
+    // The most recent time when a task was successfully created by using this template. This parameter is not returned if the template has not been used.
+    // 
+    // Use the UTC time format: yyyy-MM-ddTHH:mmZ
+    shared_ptr<string> lastUsedTime_ {};
+    // The custom key-value pair metadata defined by the user.
     Darabonba::Json metadata_ {};
-    // The ID of the user who last modified the job template.
+    // The ID of the user who last modified the template.
     shared_ptr<string> modifiedBy_ {};
-    // The ID of the request.
+    // The ID of the request. This ID is used for diagnostics and troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The ID of the job template.
+    // The unique identifier of the task template.
     shared_ptr<string> templateId_ {};
-    // The name of the job template.
+    // The name of the task template.
     shared_ptr<string> templateName_ {};
-    // The ID of the tenant that owns the job template.
+    // The ID of the tenant to which the template belongs.
     shared_ptr<string> tenantId_ {};
-    // The total number of versions returned. This value is 1 if a specific version is queried, or the total count if all versions are queried.
+    // The total number of versions. If a single version is queried, the value 1 is returned. If all versions are queried, the actual total number is returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The ID of the user who created the job template.
+    // The ID of the user who created the template.
     shared_ptr<string> userId_ {};
-    // An array of template versions. This array contains only one version if a specific version is requested, or all versions if `all` is specified.
+    // The list of template version details. If a single version is queried, one element is returned. If all versions are queried, all elements are returned.
     shared_ptr<vector<GetJobTemplateResponseBody::Versions>> versions_ {};
-    // The ID of the workspace that contains the job template.
+    // The ID of the workspace to which the template belongs.
     shared_ptr<string> workspaceId_ {};
   };
 
