@@ -16,6 +16,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(ApplicationTypeText, applicationTypeText_);
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(CaseAuditStatus, caseAuditStatus_);
+      DARABONBA_PTR_TO_JSON(CaseShelfStatus, caseShelfStatus_);
       DARABONBA_PTR_TO_JSON(ChatbiTaskId, chatbiTaskId_);
       DARABONBA_PTR_TO_JSON(ChatbiTaskStatus, chatbiTaskStatus_);
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
@@ -41,6 +43,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(ApplicationTypeText, applicationTypeText_);
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(CaseAuditStatus, caseAuditStatus_);
+      DARABONBA_PTR_FROM_JSON(CaseShelfStatus, caseShelfStatus_);
       DARABONBA_PTR_FROM_JSON(ChatbiTaskId, chatbiTaskId_);
       DARABONBA_PTR_FROM_JSON(ChatbiTaskStatus, chatbiTaskStatus_);
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
@@ -166,7 +170,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether a retry is allowed after the dedicated server fails to start.
+      // Specifies whether a retry is allowed after the dedicated server fails to start.
       shared_ptr<bool> canRetry_ {};
       // The deployment region code of the dedicated server.
       shared_ptr<string> deployArea_ {};
@@ -185,18 +189,18 @@ namespace Models
       shared_ptr<string> enableStatus_ {};
       // The dedicated IP address assigned after the dedicated server is started.
       shared_ptr<string> independentIp_ {};
-      // The unified display specification of the dedicated server. This does not represent the real-time resource usage of the container.
+      // The display specification of the dedicated server. This does not represent the real-time resource usage of the container.
       shared_ptr<string> serverSpec_ {};
       // The task ID for starting the dedicated server.
       shared_ptr<int64_t> taskId_ {};
     };
 
     virtual bool empty() const override { return this->applicationType_ == nullptr
-        && this->applicationTypeText_ == nullptr && this->bizId_ == nullptr && this->chatbiTaskId_ == nullptr && this->chatbiTaskStatus_ == nullptr && this->commodityCode_ == nullptr
-        && this->customerService_ == nullptr && this->deployArea_ == nullptr && this->icpbaNo_ == nullptr && this->independentDeployment_ == nullptr && this->instanceId_ == nullptr
-        && this->openChatBi_ == nullptr && this->ordTime_ == nullptr && this->orderId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr
-        && this->seoSite_ == nullptr && this->shareRenderWatermark_ == nullptr && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr
-        && this->templateEtag_ == nullptr && this->templateId_ == nullptr; };
+        && this->applicationTypeText_ == nullptr && this->bizId_ == nullptr && this->caseAuditStatus_ == nullptr && this->caseShelfStatus_ == nullptr && this->chatbiTaskId_ == nullptr
+        && this->chatbiTaskStatus_ == nullptr && this->commodityCode_ == nullptr && this->customerService_ == nullptr && this->deployArea_ == nullptr && this->icpbaNo_ == nullptr
+        && this->independentDeployment_ == nullptr && this->instanceId_ == nullptr && this->openChatBi_ == nullptr && this->ordTime_ == nullptr && this->orderId_ == nullptr
+        && this->payTime_ == nullptr && this->previewUrl_ == nullptr && this->seoSite_ == nullptr && this->shareRenderWatermark_ == nullptr && this->siteVersion_ == nullptr
+        && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr && this->templateId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -216,6 +220,20 @@ namespace Models
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline AppInstanceProfile& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // caseAuditStatus Field Functions 
+    bool hasCaseAuditStatus() const { return this->caseAuditStatus_ != nullptr;};
+    void deleteCaseAuditStatus() { this->caseAuditStatus_ = nullptr;};
+    inline string getCaseAuditStatus() const { DARABONBA_PTR_GET_DEFAULT(caseAuditStatus_, "") };
+    inline AppInstanceProfile& setCaseAuditStatus(string caseAuditStatus) { DARABONBA_PTR_SET_VALUE(caseAuditStatus_, caseAuditStatus) };
+
+
+    // caseShelfStatus Field Functions 
+    bool hasCaseShelfStatus() const { return this->caseShelfStatus_ != nullptr;};
+    void deleteCaseShelfStatus() { this->caseShelfStatus_ = nullptr;};
+    inline string getCaseShelfStatus() const { DARABONBA_PTR_GET_DEFAULT(caseShelfStatus_, "") };
+    inline AppInstanceProfile& setCaseShelfStatus(string caseShelfStatus) { DARABONBA_PTR_SET_VALUE(caseShelfStatus_, caseShelfStatus) };
 
 
     // chatbiTaskId Field Functions 
@@ -367,21 +385,25 @@ namespace Models
     shared_ptr<string> applicationTypeText_ {};
     // The business identifier of the application instance.
     shared_ptr<string> bizId_ {};
-    // The asynchronous task ID of ChatBI BuildSchemaIndex.
+    // The audit status.
+    shared_ptr<string> caseAuditStatus_ {};
+    // The listing status.
+    shared_ptr<string> caseShelfStatus_ {};
+    // The ID of the ChatBI BuildSchemaIndex asynchronous task.
     shared_ptr<string> chatbiTaskId_ {};
-    // The task status of ChatBI BuildSchemaIndex. Valid values: running, finish, and failed.
+    // The status of the ChatBI BuildSchemaIndex task. Valid values: running, finish, and failed.
     shared_ptr<string> chatbiTaskStatus_ {};
-    // The commodity code used for placing the order.
+    // The commodity code used when placing the order.
     shared_ptr<string> commodityCode_ {};
-    // The contact information or description of customer service.
+    // The customer service contact information or description.
     shared_ptr<string> customerService_ {};
     // The deployment region code of the application.
     shared_ptr<string> deployArea_ {};
     // The ICP filing number bound to the custom domain name. Multiple filing numbers are separated by commas (,).
     shared_ptr<string> icpbaNo_ {};
-    // The dedicated server information. Computed in real time by DescribeAppInstance. Not populated by list operations.
+    // The dedicated server information. This field is computed in real time by DescribeAppInstance and is not populated in list API responses.
     shared_ptr<AppInstanceProfile::IndependentDeployment> independentDeployment_ {};
-    // The associated Lingxiao instance ID.
+    // The ID of the associated Lingxiao instance.
     shared_ptr<string> instanceId_ {};
     // Indicates whether the current user is included in the ChatBI feature canary release whitelist.
     shared_ptr<bool> openChatBi_ {};

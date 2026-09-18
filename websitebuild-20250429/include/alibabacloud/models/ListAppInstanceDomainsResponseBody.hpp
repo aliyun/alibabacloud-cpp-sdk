@@ -835,13 +835,13 @@ namespace Models
         shared_ptr<Next::Certificate> certificate_ {};
         // The instance creation time. Required. Format: yyyy-MM-dd HH:mm:ss.
         shared_ptr<string> createTime_ {};
-        // The network hosting type. Valid values: CDN, INDEP_DEPLOY, ESA_SAAS.
+        // The network hosting type. Valid values: CDN, INDEP_DEPLOY, and ESA_SAAS.
         shared_ptr<string> deployType_ {};
         // The DNS conflict information. This parameter has a value only when resolveStatus is DNS_CONFLICT.
         shared_ptr<Next::DnsConflict> dnsConflict_ {};
         // The domain name.
         shared_ptr<string> domainName_ {};
-        // The domain name management type. Valid values: CUSTOM, PLATFORM_PREFIX.
+        // The domain name management type. Valid values: CUSTOM and PLATFORM_PREFIX.
         shared_ptr<string> domainType_ {};
         // The ICP filing status of the domain name. Valid values: FILED, NOT_FILED, and NOT_REQUIRED.
         shared_ptr<string> icpFilingStatus_ {};
@@ -876,6 +876,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_TO_JSON(Ownership, ownership_);
           DARABONBA_PTR_TO_JSON(Qualification, qualification_);
+          DARABONBA_PTR_TO_JSON(RedirectDomain, redirectDomain_);
           DARABONBA_PTR_TO_JSON(Resolution, resolution_);
           DARABONBA_PTR_TO_JSON(Verification, verification_);
         };
@@ -892,6 +893,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(OverallStatus, overallStatus_);
           DARABONBA_PTR_FROM_JSON(Ownership, ownership_);
           DARABONBA_PTR_FROM_JSON(Qualification, qualification_);
+          DARABONBA_PTR_FROM_JSON(RedirectDomain, redirectDomain_);
           DARABONBA_PTR_FROM_JSON(Resolution, resolution_);
           DARABONBA_PTR_FROM_JSON(Verification, verification_);
         };
@@ -1247,7 +1249,7 @@ namespace Models
           shared_ptr<string> account_ {};
           // The registrar type. Valid values: ALIYUN and OTHER.
           shared_ptr<string> provider_ {};
-          // The root domain name that corresponds to the domain name.
+          // The root domain name corresponding to the domain name.
           shared_ptr<string> rootDomain_ {};
         };
 
@@ -1500,7 +1502,7 @@ namespace Models
         virtual bool empty() const override { return this->certificate_ == nullptr
         && this->createTime_ == nullptr && this->deployType_ == nullptr && this->dnsConflict_ == nullptr && this->domainName_ == nullptr && this->domainType_ == nullptr
         && this->icpFilingStatus_ == nullptr && this->migration_ == nullptr && this->offline_ == nullptr && this->overallStatus_ == nullptr && this->ownership_ == nullptr
-        && this->qualification_ == nullptr && this->resolution_ == nullptr && this->verification_ == nullptr; };
+        && this->qualification_ == nullptr && this->redirectDomain_ == nullptr && this->resolution_ == nullptr && this->verification_ == nullptr; };
         // certificate Field Functions 
         bool hasCertificate() const { return this->certificate_ != nullptr;};
         void deleteCertificate() { this->certificate_ = nullptr;};
@@ -1595,6 +1597,13 @@ namespace Models
         inline Data& setQualification(Data::Qualification && qualification) { DARABONBA_PTR_SET_RVALUE(qualification_, qualification) };
 
 
+        // redirectDomain Field Functions 
+        bool hasRedirectDomain() const { return this->redirectDomain_ != nullptr;};
+        void deleteRedirectDomain() { this->redirectDomain_ = nullptr;};
+        inline string getRedirectDomain() const { DARABONBA_PTR_GET_DEFAULT(redirectDomain_, "") };
+        inline Data& setRedirectDomain(string redirectDomain) { DARABONBA_PTR_SET_VALUE(redirectDomain_, redirectDomain) };
+
+
         // resolution Field Functions 
         bool hasResolution() const { return this->resolution_ != nullptr;};
         void deleteResolution() { this->resolution_ = nullptr;};
@@ -1638,6 +1647,8 @@ namespace Models
         shared_ptr<Data::Ownership> ownership_ {};
         // The domain qualification information.
         shared_ptr<Data::Qualification> qualification_ {};
+        // www.aliyun.com
+        shared_ptr<string> redirectDomain_ {};
         // The domain name resolution information.
         shared_ptr<Data::Resolution> resolution_ {};
         // The domain name verification information.
@@ -1727,7 +1738,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether there is a previous page.
       shared_ptr<bool> prePage_ {};
-      // Apart from the pagination limit, the server processes up to 1000 recent records for the current query. If the results exceed 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // Apart from pagination limits, the server processes up to 1000 recent records for the current query. If the results exceed 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of records.
       shared_ptr<int32_t> totalItemNum_ {};

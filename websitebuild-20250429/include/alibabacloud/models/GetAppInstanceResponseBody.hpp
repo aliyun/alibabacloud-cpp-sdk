@@ -136,7 +136,7 @@ namespace Models
 
 
   protected:
-    // The access denial details.
+    // The access denied details.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -157,7 +157,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // The reserved parameter.
+    // A reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

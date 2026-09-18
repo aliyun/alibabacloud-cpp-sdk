@@ -140,7 +140,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
-    // The sort type. Valid values:
+    // The sort order. Valid values:
     // 
     // - ASC
     // - DESC

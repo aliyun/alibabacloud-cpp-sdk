@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The ID of the created scenario.
+      // The ID of the newly created scenario.
       shared_ptr<string> id_ {};
     };
 
@@ -167,7 +167,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -185,9 +185,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

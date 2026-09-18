@@ -603,7 +603,7 @@ namespace WebsiteBuild20250429
       Models::DeleteAppDomainCertificateResponse deleteAppDomainCertificate(const Models::DeleteAppDomainCertificateRequest &request);
 
       /**
-       * @summary Deletes 301 redirect records bound to a website.
+       * @summary Deletes an HTTP 301 status code redirect record bound to a website.
        *
        * @param request DeleteAppDomainRedirectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -612,7 +612,7 @@ namespace WebsiteBuild20250429
       Models::DeleteAppDomainRedirectResponse deleteAppDomainRedirectWithOptions(const Models::DeleteAppDomainRedirectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes 301 redirect records bound to a website.
+       * @summary Deletes an HTTP 301 status code redirect record bound to a website.
        *
        * @param request DeleteAppDomainRedirectRequest
        * @return DeleteAppDomainRedirectResponse

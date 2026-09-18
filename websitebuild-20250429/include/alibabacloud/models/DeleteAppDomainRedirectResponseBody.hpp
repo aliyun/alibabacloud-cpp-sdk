@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether the operation is successful.
+      // Indicates whether the operation was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -167,15 +167,15 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
-    // The application name.
+    // The application name used for the query.
     shared_ptr<string> appName_ {};
-    // Dynamic error code.
+    // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // Dynamic message.
+    // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
@@ -187,7 +187,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request was processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

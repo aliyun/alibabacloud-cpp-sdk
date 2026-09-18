@@ -14,6 +14,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const CreateAppNotificationSceneRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(ButlerChannelTypesJson, butlerChannelTypesJson_);
+      DARABONBA_PTR_TO_JSON(ButlerFieldsJson, butlerFieldsJson_);
       DARABONBA_PTR_TO_JSON(ChannelsJson, channelsJson_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EmailFieldsJson, emailFieldsJson_);
@@ -28,6 +30,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, CreateAppNotificationSceneRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(ButlerChannelTypesJson, butlerChannelTypesJson_);
+      DARABONBA_PTR_FROM_JSON(ButlerFieldsJson, butlerFieldsJson_);
       DARABONBA_PTR_FROM_JSON(ChannelsJson, channelsJson_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EmailFieldsJson, emailFieldsJson_);
@@ -52,14 +56,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->channelsJson_ == nullptr && this->description_ == nullptr && this->emailFieldsJson_ == nullptr && this->emailLimitJson_ == nullptr && this->emailRecipientIdsJson_ == nullptr
-        && this->name_ == nullptr && this->phoneRecipientIdsJson_ == nullptr && this->smsFieldsJson_ == nullptr && this->smsLimitJson_ == nullptr && this->tableName_ == nullptr
-        && this->triggerEventsJson_ == nullptr; };
+        && this->butlerChannelTypesJson_ == nullptr && this->butlerFieldsJson_ == nullptr && this->channelsJson_ == nullptr && this->description_ == nullptr && this->emailFieldsJson_ == nullptr
+        && this->emailLimitJson_ == nullptr && this->emailRecipientIdsJson_ == nullptr && this->name_ == nullptr && this->phoneRecipientIdsJson_ == nullptr && this->smsFieldsJson_ == nullptr
+        && this->smsLimitJson_ == nullptr && this->tableName_ == nullptr && this->triggerEventsJson_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline CreateAppNotificationSceneRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // butlerChannelTypesJson Field Functions 
+    bool hasButlerChannelTypesJson() const { return this->butlerChannelTypesJson_ != nullptr;};
+    void deleteButlerChannelTypesJson() { this->butlerChannelTypesJson_ = nullptr;};
+    inline string getButlerChannelTypesJson() const { DARABONBA_PTR_GET_DEFAULT(butlerChannelTypesJson_, "") };
+    inline CreateAppNotificationSceneRequest& setButlerChannelTypesJson(string butlerChannelTypesJson) { DARABONBA_PTR_SET_VALUE(butlerChannelTypesJson_, butlerChannelTypesJson) };
+
+
+    // butlerFieldsJson Field Functions 
+    bool hasButlerFieldsJson() const { return this->butlerFieldsJson_ != nullptr;};
+    void deleteButlerFieldsJson() { this->butlerFieldsJson_ = nullptr;};
+    inline string getButlerFieldsJson() const { DARABONBA_PTR_GET_DEFAULT(butlerFieldsJson_, "") };
+    inline CreateAppNotificationSceneRequest& setButlerFieldsJson(string butlerFieldsJson) { DARABONBA_PTR_SET_VALUE(butlerFieldsJson_, butlerFieldsJson) };
 
 
     // channelsJson Field Functions 
@@ -142,6 +160,10 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
+    // The list of mobile butler delivery platform types in a JSON string array. Valid values: wechat, dingtalk, wecom, and feishu.
+    shared_ptr<string> butlerChannelTypesJson_ {};
+    // The list of mobile butler notification fields in a JSON string array. This parameter is required when the butler channel is selected. A maximum of 10 fields are supported. The butler fields in JSON format.
+    shared_ptr<string> butlerFieldsJson_ {};
     // The notification channels in a JSON array string, such as ["sms","email"].
     shared_ptr<string> channelsJson_ {};
     // The description of the scenario.

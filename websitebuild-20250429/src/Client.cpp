@@ -1241,6 +1241,14 @@ CreateAppNotificationSceneResponse Client::createAppNotificationSceneWithOptions
     query["BizId"] = request.getBizId();
   }
 
+  if (!!request.hasButlerChannelTypesJson()) {
+    query["ButlerChannelTypesJson"] = request.getButlerChannelTypesJson();
+  }
+
+  if (!!request.hasButlerFieldsJson()) {
+    query["ButlerFieldsJson"] = request.getButlerFieldsJson();
+  }
+
   if (!!request.hasChannelsJson()) {
     query["ChannelsJson"] = request.getChannelsJson();
   }
@@ -1870,7 +1878,7 @@ DeleteAppDomainCertificateResponse Client::deleteAppDomainCertificate(const Dele
 }
 
 /**
- * @summary Deletes 301 redirect records bound to a website.
+ * @summary Deletes an HTTP 301 status code redirect record bound to a website.
  *
  * @param request DeleteAppDomainRedirectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1881,6 +1889,10 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirectWithOptions(const
   json query = {};
   if (!!request.hasBizId()) {
     query["BizId"] = request.getBizId();
+  }
+
+  if (!!request.hasDomainName()) {
+    query["DomainName"] = request.getDomainName();
   }
 
   if (!!request.hasRecordId()) {
@@ -1905,7 +1917,7 @@ DeleteAppDomainRedirectResponse Client::deleteAppDomainRedirectWithOptions(const
 }
 
 /**
- * @summary Deletes 301 redirect records bound to a website.
+ * @summary Deletes an HTTP 301 status code redirect record bound to a website.
  *
  * @param request DeleteAppDomainRedirectRequest
  * @return DeleteAppDomainRedirectResponse
