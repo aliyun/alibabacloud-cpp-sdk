@@ -122,9 +122,9 @@ namespace Models
 
 
       protected:
-        // The error message returned when the file upload fails.
+        // The error message returned when the file fails to be uploaded.
         shared_ptr<string> errorMsg_ {};
-        // The SHA256 value of the uploaded file.
+        // The SHA256 hash of the uploaded file.
         shared_ptr<string> fileHash_ {};
         // The name of the file.
         shared_ptr<string> fileName_ {};

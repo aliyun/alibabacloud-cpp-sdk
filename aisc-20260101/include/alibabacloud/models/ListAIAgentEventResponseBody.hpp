@@ -319,9 +319,9 @@ namespace Models
       // 7. app
       // 8. identity
       shared_ptr<string> assetType_ {};
-      // The check time.
+      // The check time, in UNIX timestamp format. Unit: seconds.
       shared_ptr<string> checkTime_ {};
-      // The event handling time.
+      // The event handling time, in UNIX timestamp format. Unit: seconds.
       shared_ptr<string> handleTime_ {};
       // The primary key ID.
       shared_ptr<int64_t> id_ {};
@@ -347,6 +347,7 @@ namespace Models
       shared_ptr<string> riskLevel_ {};
       // The risk name.
       shared_ptr<string> riskName_ {};
+      // The associated skill ID.
       shared_ptr<int64_t> skillId_ {};
       // The event source. Valid values:
       // 1. cspm
@@ -363,12 +364,12 @@ namespace Models
       // 5. rescanned: Rescanned.
       shared_ptr<string> status_ {};
       // The cloud asset vendor. Valid values:
-      // - **DIFY**: DIFY.
-      // - **BAILIAN**: BAILIAN.
-      // - **VOLCAI**: VOLCAI.
-      // - **AGENTRUN**: AGENTRUN.
-      // - **PAI**: PAI.
-      // - **OpenClaw**: OpenClaw.
+      // - ** DIFY**: DIFY
+      // - ** BAILIAN**: BAILIAN
+      // - ** VOLCAI**: VOLCAI
+      // - ** AGENTRUN**: AGENTRUN
+      // - ** PAI**: PAI
+      // - ** OpenClaw**: OpenClaw
       shared_ptr<string> vendor_ {};
     };
 

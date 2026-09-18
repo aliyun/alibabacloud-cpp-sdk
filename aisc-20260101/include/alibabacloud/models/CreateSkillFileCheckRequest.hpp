@@ -108,7 +108,7 @@ namespace Models
   protected:
     // The file information.
     shared_ptr<vector<CreateSkillFileCheckRequest::Files>> files_ {};
-    // The upload source. If left empty, the default value is user_upload. Use sec_ops_agent for the security operations agent.
+    // The upload source. If left empty, user_upload is used by default. Security operations agents use sec_ops_agent.
     shared_ptr<string> source_ {};
   };
 

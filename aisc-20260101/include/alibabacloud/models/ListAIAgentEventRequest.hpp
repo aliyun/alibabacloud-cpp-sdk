@@ -26,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_TO_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_TO_JSON(RiskName, riskName_);
       DARABONBA_PTR_TO_JSON(Source, source_);
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(OrderBy, orderBy_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ResourceDirectoryAccountId, resourceDirectoryAccountId_);
       DARABONBA_PTR_FROM_JSON(RiskLevel, riskLevel_);
       DARABONBA_PTR_FROM_JSON(RiskName, riskName_);
       DARABONBA_PTR_FROM_JSON(Source, source_);
@@ -67,8 +69,8 @@ namespace Models
     virtual bool empty() const override { return this->appId_ == nullptr
         && this->appName_ == nullptr && this->assetName_ == nullptr && this->assetType_ == nullptr && this->currentPage_ == nullptr && this->infraInstanceId_ == nullptr
         && this->infraName_ == nullptr && this->infraRegionId_ == nullptr && this->lang_ == nullptr && this->order_ == nullptr && this->orderBy_ == nullptr
-        && this->pageSize_ == nullptr && this->riskLevel_ == nullptr && this->riskName_ == nullptr && this->source_ == nullptr && this->status_ == nullptr
-        && this->statusList_ == nullptr && this->vendor_ == nullptr; };
+        && this->pageSize_ == nullptr && this->resourceDirectoryAccountId_ == nullptr && this->riskLevel_ == nullptr && this->riskName_ == nullptr && this->source_ == nullptr
+        && this->status_ == nullptr && this->statusList_ == nullptr && this->vendor_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
@@ -153,6 +155,13 @@ namespace Models
     inline ListAIAgentEventRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // resourceDirectoryAccountId Field Functions 
+    bool hasResourceDirectoryAccountId() const { return this->resourceDirectoryAccountId_ != nullptr;};
+    void deleteResourceDirectoryAccountId() { this->resourceDirectoryAccountId_ = nullptr;};
+    inline int64_t getResourceDirectoryAccountId() const { DARABONBA_PTR_GET_DEFAULT(resourceDirectoryAccountId_, 0L) };
+    inline ListAIAgentEventRequest& setResourceDirectoryAccountId(int64_t resourceDirectoryAccountId) { DARABONBA_PTR_SET_VALUE(resourceDirectoryAccountId_, resourceDirectoryAccountId) };
+
+
     // riskLevel Field Functions 
     bool hasRiskLevel() const { return this->riskLevel_ != nullptr;};
     void deleteRiskLevel() { this->riskLevel_ = nullptr;};
@@ -227,12 +236,13 @@ namespace Models
     // - **zh** (default): Chinese.
     // - **en**: English.
     shared_ptr<string> lang_ {};
-    // Sort direction
+    // The sort order. Valid values: asc indicates ascending order. desc indicates descending order.
     shared_ptr<string> order_ {};
-    // Sort field, currently supports CheckTime
+    // The field by which to sort results. Currently, only sorting by check time is supported.
     shared_ptr<string> orderBy_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The risk level of the check item to query. Valid values:
     // 
     // - **high**: High.
@@ -258,12 +268,12 @@ namespace Models
     // The list of statuses.
     shared_ptr<vector<string>> statusList_ {};
     // The cloud asset vendor. Valid values:
-    // - **DIFY**: DIFY.
-    // - **BAILIAN**: BAILIAN.
-    // - **VOLCAI**: VOLCAI.
-    // - **AGENTRUN**: AGENTRUN.
-    // - **PAI**: PAI.
-    // - **OpenClaw**: OpenClaw.
+    // - ** DIFY**: DIFY
+    // - ** BAILIAN**: BAILIAN
+    // - ** VOLCAI**: VOLCAI
+    // - ** AGENTRUN**: AGENTRUN
+    // - ** PAI**: PAI
+    // - ** OpenClaw**: OpenClaw
     shared_ptr<string> vendor_ {};
   };
 
