@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpgradeDBVersionRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_TO_JSON(EffectiveTime, effectiveTime_);
       DARABONBA_PTR_TO_JSON(MajorVersion, majorVersion_);
       DARABONBA_PTR_TO_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -23,6 +24,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UpgradeDBVersionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_FROM_JSON(EffectiveTime, effectiveTime_);
       DARABONBA_PTR_FROM_JSON(MajorVersion, majorVersion_);
       DARABONBA_PTR_FROM_JSON(MinorVersion, minorVersion_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -42,13 +44,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->DBInstanceId_ == nullptr
-        && this->majorVersion_ == nullptr && this->minorVersion_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr && this->switchTime_ == nullptr
-        && this->switchTimeMode_ == nullptr; };
+        && this->effectiveTime_ == nullptr && this->majorVersion_ == nullptr && this->minorVersion_ == nullptr && this->ownerId_ == nullptr && this->regionId_ == nullptr
+        && this->switchTime_ == nullptr && this->switchTimeMode_ == nullptr; };
     // DBInstanceId Field Functions 
     bool hasDBInstanceId() const { return this->DBInstanceId_ != nullptr;};
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
     inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline UpgradeDBVersionRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    // effectiveTime Field Functions 
+    bool hasEffectiveTime() const { return this->effectiveTime_ != nullptr;};
+    void deleteEffectiveTime() { this->effectiveTime_ = nullptr;};
+    inline string getEffectiveTime() const { DARABONBA_PTR_GET_DEFAULT(effectiveTime_, "") };
+    inline UpgradeDBVersionRequest& setEffectiveTime(string effectiveTime) { DARABONBA_PTR_SET_VALUE(effectiveTime_, effectiveTime) };
 
 
     // majorVersion Field Functions 
@@ -94,20 +103,28 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
+    // 
+    // > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // This parameter is no longer used and does not need to be specified.
+    // The effective period. Valid values:
+    // * **Immediate** (default): The upgrade takes effect immediately.
+    // * **MaintainTime**: The upgrade takes effect during the O&M window. For more information, see ModifyDBInstanceMaintainTime.
+    shared_ptr<string> effectiveTime_ {};
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
     shared_ptr<string> majorVersion_ {};
-    // The minor version of the instance.
+    // The minor version.
     shared_ptr<string> minorVersion_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the instance.
+    // The region ID.
+    // 
+    // > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
     shared_ptr<string> regionId_ {};
-    // This parameter is no longer used and does not need to be specified.
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
     shared_ptr<string> switchTime_ {};
-    // This parameter is no longer used and does not need to be specified.
+    // **[Deprecated]** This parameter is deprecated. You do not need to specify this parameter.
     shared_ptr<string> switchTimeMode_ {};
   };
 

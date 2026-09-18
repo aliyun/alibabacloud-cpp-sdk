@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // This parameter is no longer returned.
+    // **[Deprecated]** This parameter is deprecated. No value is returned for this parameter.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the instance.
+    // The instance name.
     shared_ptr<string> DBInstanceName_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

@@ -287,40 +287,43 @@ namespace Models
 
 
   protected:
+    // The auto-pause duration in hours.
     shared_ptr<string> appliedIdleTimeHours_ {};
-    // Indicates whether **auto start and stop** is enabled. Valid values:
+    // Specifies whether **auto start/stop** is enabled.
+    // 
+    // Valid values:
     // - true: Enabled. After this feature is enabled, Supabase automatically pauses and resumes based on traffic conditions.
-    // - false: Disabled. After this feature is disabled, the auto start and stop feature of Supabase is turned off.
+    // - false: Disabled. After this feature is disabled, the auto start/stop feature of Supabase is turned off.
     shared_ptr<string> autoScale_ {};
     // The creation time.
     shared_ptr<string> createTime_ {};
     // The database whitelist.
     shared_ptr<string> DBSecurityIpList_ {};
-    // The Supabase Dashboard password. This parameter is not in use.
+    // The Supabase Dashboard password (not currently used).
     shared_ptr<string> dashboardPassword_ {};
-    // The Supabase Dashboard username. This parameter is not in use.
+    // The Supabase Dashboard username (not currently used).
     shared_ptr<string> dashboardUserName_ {};
-    // The performance level of the cloud disk. Valid values:
+    // The cloud disk performance level. Valid values:
     // - PL0
     // - PL1
     shared_ptr<string> diskPerformanceLevel_ {};
     // The database engine type.
     shared_ptr<string> engine_ {};
-    // The database engine version.
+    // The database DPI engine version.
     shared_ptr<string> engineVersion_ {};
-    // The elastic network interface (ENI) ID. The network interface controller (NIC) ID of the instance.
+    // The elastic network interface controller (NIC) ID.
     shared_ptr<string> eni_ {};
     // The current instance version.
     shared_ptr<string> instanceVersion_ {};
     // Indicates whether the project is a lightweight edition.
     shared_ptr<string> lightweight_ {};
-    // The billing type. Valid values:
+    // The billing method. Valid values:
     // 
     // - POSTPAY: pay-as-you-go.
     // 
     // - PREPAY: subscription.
     shared_ptr<string> payType_ {};
-    // The internal network connection string of the Supabase Dashboard.
+    // The Supabase Dashboard internal network connection string.
     shared_ptr<string> privateConnectUrl_ {};
     // The detailed description of the Supabase project.
     shared_ptr<string> projectDescription_ {};
@@ -330,7 +333,7 @@ namespace Models
     shared_ptr<string> projectName_ {};
     // The Supabase instance specifications.
     shared_ptr<string> projectSpec_ {};
-    // The public network connection string of the Supabase Dashboard.
+    // The Supabase Dashboard public network connection string.
     shared_ptr<string> publicConnectUrl_ {};
     // The region ID.
     // 
@@ -338,11 +341,11 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of IP addresses in the IP whitelist group, separated by commas (,).
+    // The list of IP addresses in the IP whitelist group, separated by commas.
     shared_ptr<string> securityIpList_ {};
     // The Supabase instance status.
     shared_ptr<string> status_ {};
-    // The storage size. Unit: GB.
+    // The storage size, in GB.
     shared_ptr<int64_t> storageSize_ {};
     // The storage type. Valid values:
     // - **cloud_essd_pl0**

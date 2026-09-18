@@ -68,16 +68,15 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> dbInstanceId_ {};
-    // The returned message.
+    // The error message.
     // 
-    // This parameter is returned only if the request fails.
+    // This parameter is returned only when the API call fails.
     shared_ptr<string> errorMessage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **false**
-    // *   **true**
+    // The execution status of the operation. Valid values:
+    // - **false**: The operation failed.
+    // - **true**: The operation succeeded.
     shared_ptr<bool> status_ {};
   };
 

@@ -68,11 +68,10 @@ namespace Models
   protected:
     // The password of the database account.
     // - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-    // - The following special characters are supported: `!@#$%^&*()_+-=`
+    // - The supported special characters are: `!@#$%^&*()_+-=`
     // - The password must be 8 to 32 characters in length.
-    // 
-    // This parameter is required.
     shared_ptr<string> accountPassword_ {};
+    // The Supabase Dashboard password.
     shared_ptr<string> dashboardPassword_ {};
     // The Supabase instance ID.
     // 

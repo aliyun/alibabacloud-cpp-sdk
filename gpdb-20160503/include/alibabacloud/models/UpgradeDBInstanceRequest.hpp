@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DBInstanceClass, DBInstanceClass_);
       DARABONBA_PTR_TO_JSON(DBInstanceGroupCount, DBInstanceGroupCount_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_TO_JSON(EffectiveTime, effectiveTime_);
       DARABONBA_PTR_TO_JSON(InstanceSpec, instanceSpec_);
       DARABONBA_PTR_TO_JSON(MasterNodeNum, masterNodeNum_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
@@ -35,6 +36,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DBInstanceClass, DBInstanceClass_);
       DARABONBA_PTR_FROM_JSON(DBInstanceGroupCount, DBInstanceGroupCount_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
+      DARABONBA_PTR_FROM_JSON(EffectiveTime, effectiveTime_);
       DARABONBA_PTR_FROM_JSON(InstanceSpec, instanceSpec_);
       DARABONBA_PTR_FROM_JSON(MasterNodeNum, masterNodeNum_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
@@ -60,9 +62,10 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->cacheStorageSize_ == nullptr
-        && this->DBInstanceClass_ == nullptr && this->DBInstanceGroupCount_ == nullptr && this->DBInstanceId_ == nullptr && this->instanceSpec_ == nullptr && this->masterNodeNum_ == nullptr
-        && this->ownerId_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->segDiskPerformanceLevel_ == nullptr
-        && this->segNodeNum_ == nullptr && this->segStorageType_ == nullptr && this->serverlessResource_ == nullptr && this->storageSize_ == nullptr && this->upgradeType_ == nullptr; };
+        && this->DBInstanceClass_ == nullptr && this->DBInstanceGroupCount_ == nullptr && this->DBInstanceId_ == nullptr && this->effectiveTime_ == nullptr && this->instanceSpec_ == nullptr
+        && this->masterNodeNum_ == nullptr && this->ownerId_ == nullptr && this->payType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->segDiskPerformanceLevel_ == nullptr && this->segNodeNum_ == nullptr && this->segStorageType_ == nullptr && this->serverlessResource_ == nullptr && this->storageSize_ == nullptr
+        && this->upgradeType_ == nullptr; };
     // cacheStorageSize Field Functions 
     bool hasCacheStorageSize() const { return this->cacheStorageSize_ != nullptr;};
     void deleteCacheStorageSize() { this->cacheStorageSize_ = nullptr;};
@@ -89,6 +92,13 @@ namespace Models
     void deleteDBInstanceId() { this->DBInstanceId_ = nullptr;};
     inline string getDBInstanceId() const { DARABONBA_PTR_GET_DEFAULT(DBInstanceId_, "") };
     inline UpgradeDBInstanceRequest& setDBInstanceId(string DBInstanceId) { DARABONBA_PTR_SET_VALUE(DBInstanceId_, DBInstanceId) };
+
+
+    // effectiveTime Field Functions 
+    bool hasEffectiveTime() const { return this->effectiveTime_ != nullptr;};
+    void deleteEffectiveTime() { this->effectiveTime_ = nullptr;};
+    inline string getEffectiveTime() const { DARABONBA_PTR_GET_DEFAULT(effectiveTime_, "") };
+    inline UpgradeDBInstanceRequest& setEffectiveTime(string effectiveTime) { DARABONBA_PTR_SET_VALUE(effectiveTime_, effectiveTime) };
 
 
     // instanceSpec Field Functions 
@@ -189,6 +199,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    shared_ptr<string> effectiveTime_ {};
     // The specifications of segment nodes. For information about supported node specifications, see [Instance specifications](https://help.aliyun.com/document_detail/35406.html).
     // 
     // > This parameter is supported only for elastic storage mode instances.

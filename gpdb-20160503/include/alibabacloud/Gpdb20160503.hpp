@@ -4605,10 +4605,10 @@ namespace Gpdb20160503
       Models::ModifyJDBCDataSourceResponse modifyJDBCDataSource(const Models::ModifyJDBCDataSourceRequest &request);
 
       /**
-       * @summary Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
+       * @summary Modifies the master node specifications.
        *
-       * @description This operation is not available for instances in reserved storage mode.
-       * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+       * @description This operation does not support instances in storage reservation mode.
+       * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
        *
        * @param request ModifyMasterSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4617,10 +4617,10 @@ namespace Gpdb20160503
       Models::ModifyMasterSpecResponse modifyMasterSpecWithOptions(const Models::ModifyMasterSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
+       * @summary Modifies the master node specifications.
        *
-       * @description This operation is not available for instances in reserved storage mode.
-       * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+       * @description This operation does not support instances in storage reservation mode.
+       * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
        *
        * @param request ModifyMasterSpecRequest
        * @return ModifyMasterSpecResponse
@@ -4790,9 +4790,9 @@ namespace Gpdb20160503
       Models::ModifyStreamingJobResponse modifyStreamingJob(const Models::ModifyStreamingJobRequest &request);
 
       /**
-       * @summary Modifies the automatic start and stop policy for a Supabase instance.
+       * @summary Modifies the auto start/stop policy for a Supabase instance.
        *
-       * @description - Only ADBPG Supabase instances are supported.
+       * @description - Only AnalyticDB for PostgreSQL Supabase instances are supported.
        *
        * @param request ModifySupabaseAutoScalePolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4801,9 +4801,9 @@ namespace Gpdb20160503
       Models::ModifySupabaseAutoScalePolicyResponse modifySupabaseAutoScalePolicyWithOptions(const Models::ModifySupabaseAutoScalePolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the automatic start and stop policy for a Supabase instance.
+       * @summary Modifies the auto start/stop policy for a Supabase instance.
        *
-       * @description - Only ADBPG Supabase instances are supported.
+       * @description - Only AnalyticDB for PostgreSQL Supabase instances are supported.
        *
        * @param request ModifySupabaseAutoScalePolicyRequest
        * @return ModifySupabaseAutoScalePolicyResponse
@@ -5686,7 +5686,7 @@ namespace Gpdb20160503
       Models::UpgradeDBInstanceResponse upgradeDBInstance(const Models::UpgradeDBInstanceRequest &request);
 
       /**
-       * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+       * @summary Upgrades the minor engine version of a specified AnalyticDB for PostgreSQL instance.
        *
        * @param request UpgradeDBVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5695,7 +5695,7 @@ namespace Gpdb20160503
       Models::UpgradeDBVersionResponse upgradeDBVersionWithOptions(const Models::UpgradeDBVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+       * @summary Upgrades the minor engine version of a specified AnalyticDB for PostgreSQL instance.
        *
        * @param request UpgradeDBVersionRequest
        * @return UpgradeDBVersionResponse

@@ -14957,10 +14957,10 @@ ModifyJDBCDataSourceResponse Client::modifyJDBCDataSource(const ModifyJDBCDataSo
 }
 
 /**
- * @summary Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
+ * @summary Modifies the master node specifications.
  *
- * @description This operation is not available for instances in reserved storage mode.
- * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+ * @description This operation does not support instances in storage reservation mode.
+ * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
  *
  * @param request ModifyMasterSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14975,6 +14975,10 @@ ModifyMasterSpecResponse Client::modifyMasterSpecWithOptions(const ModifyMasterS
 
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEffectiveTime()) {
+    query["EffectiveTime"] = request.getEffectiveTime();
   }
 
   if (!!request.hasMasterAISpec()) {
@@ -15007,10 +15011,10 @@ ModifyMasterSpecResponse Client::modifyMasterSpecWithOptions(const ModifyMasterS
 }
 
 /**
- * @summary Changes the specifications of coordinator node resources for an AnalyticDB for PostgreSQL instance.
+ * @summary Modifies the master node specifications.
  *
- * @description This operation is not available for instances in reserved storage mode.
- * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](https://help.aliyun.com/document_detail/35406.html) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+ * @description This operation does not support instances in storage reservation mode.
+ * Before you call this operation, make sure that you fully understand the [billing methods](https://help.aliyun.com/document_detail/35406.html) and <props="china">[pricing](https://www.aliyun.com/price/product#/gpdb/detail/GreenplumPost)<props="intl">[pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing) of AnalyticDB for PostgreSQL.
  *
  * @param request ModifyMasterSpecRequest
  * @return ModifyMasterSpecResponse
@@ -15569,9 +15573,9 @@ ModifyStreamingJobResponse Client::modifyStreamingJob(const ModifyStreamingJobRe
 }
 
 /**
- * @summary Modifies the automatic start and stop policy for a Supabase instance.
+ * @summary Modifies the auto start/stop policy for a Supabase instance.
  *
- * @description - Only ADBPG Supabase instances are supported.
+ * @description - Only AnalyticDB for PostgreSQL Supabase instances are supported.
  *
  * @param request ModifySupabaseAutoScalePolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15614,9 +15618,9 @@ ModifySupabaseAutoScalePolicyResponse Client::modifySupabaseAutoScalePolicyWithO
 }
 
 /**
- * @summary Modifies the automatic start and stop policy for a Supabase instance.
+ * @summary Modifies the auto start/stop policy for a Supabase instance.
  *
- * @description - Only ADBPG Supabase instances are supported.
+ * @description - Only AnalyticDB for PostgreSQL Supabase instances are supported.
  *
  * @param request ModifySupabaseAutoScalePolicyRequest
  * @return ModifySupabaseAutoScalePolicyResponse
@@ -18451,6 +18455,10 @@ UpgradeDBInstanceResponse Client::upgradeDBInstanceWithOptions(const UpgradeDBIn
     query["DBInstanceId"] = request.getDBInstanceId();
   }
 
+  if (!!request.hasEffectiveTime()) {
+    query["EffectiveTime"] = request.getEffectiveTime();
+  }
+
   if (!!request.hasInstanceSpec()) {
     query["InstanceSpec"] = request.getInstanceSpec();
   }
@@ -18531,7 +18539,7 @@ UpgradeDBInstanceResponse Client::upgradeDBInstance(const UpgradeDBInstanceReque
 }
 
 /**
- * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+ * @summary Upgrades the minor engine version of a specified AnalyticDB for PostgreSQL instance.
  *
  * @param request UpgradeDBVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18542,6 +18550,10 @@ UpgradeDBVersionResponse Client::upgradeDBVersionWithOptions(const UpgradeDBVers
   json query = {};
   if (!!request.hasDBInstanceId()) {
     query["DBInstanceId"] = request.getDBInstanceId();
+  }
+
+  if (!!request.hasEffectiveTime()) {
+    query["EffectiveTime"] = request.getEffectiveTime();
   }
 
   if (!!request.hasMajorVersion()) {
@@ -18586,7 +18598,7 @@ UpgradeDBVersionResponse Client::upgradeDBVersionWithOptions(const UpgradeDBVers
 }
 
 /**
- * @summary Upgrades the minor version of an AnalyticDB for PostgreSQL instance.
+ * @summary Upgrades the minor engine version of a specified AnalyticDB for PostgreSQL instance.
  *
  * @param request UpgradeDBVersionRequest
  * @return UpgradeDBVersionResponse
