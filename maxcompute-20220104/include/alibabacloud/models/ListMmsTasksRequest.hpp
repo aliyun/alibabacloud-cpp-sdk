@@ -87,7 +87,9 @@ namespace Models
 
 
     protected:
+      // Sorts results by the start time.
       shared_ptr<string> startTime_ {};
+      // Sorts results by status.
       shared_ptr<string> status_ {};
     };
 
@@ -175,15 +177,25 @@ namespace Models
 
   protected:
     shared_ptr<ListMmsTasksRequest::Sorter> sorter_ {};
+    // The destination MaxCompute project.
     shared_ptr<string> dstDbName_ {};
+    // The destination MaxCompute table.
     shared_ptr<string> dstTableName_ {};
+    // The migration job ID.
     shared_ptr<int64_t> jobId_ {};
+    // The job name.
     shared_ptr<string> jobName_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // The partition value. Use this parameter to filter migration tasks that migrated a specific partition value.
     shared_ptr<string> partition_ {};
+    // The source database name.
     shared_ptr<string> srcDbName_ {};
+    // The source table name.
     shared_ptr<string> srcTableName_ {};
+    // The migration task status.
     shared_ptr<string> status_ {};
   };
 

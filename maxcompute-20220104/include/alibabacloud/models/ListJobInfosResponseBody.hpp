@@ -83,6 +83,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(quotaNickname, quotaNickname_);
           DARABONBA_PTR_TO_JSON(quotaType, quotaType_);
           DARABONBA_PTR_TO_JSON(region, region_);
+          DARABONBA_PTR_TO_JSON(roleSessionName, roleSessionName_);
           DARABONBA_PTR_TO_JSON(runningAtTime, runningAtTime_);
           DARABONBA_PTR_TO_JSON(runningTime, runningTime_);
           DARABONBA_PTR_TO_JSON(sceneResults, sceneResults_);
@@ -117,6 +118,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(quotaNickname, quotaNickname_);
           DARABONBA_PTR_FROM_JSON(quotaType, quotaType_);
           DARABONBA_PTR_FROM_JSON(region, region_);
+          DARABONBA_PTR_FROM_JSON(roleSessionName, roleSessionName_);
           DARABONBA_PTR_FROM_JSON(runningAtTime, runningAtTime_);
           DARABONBA_PTR_FROM_JSON(runningTime, runningTime_);
           DARABONBA_PTR_FROM_JSON(sceneResults, sceneResults_);
@@ -217,17 +219,17 @@ namespace Models
 
 
         protected:
-          // The intelligent diagnostics result description.
+          // The details of the intelligent diagnostics result.
           shared_ptr<string> description_ {};
-          // Information about the nodes where data skew or data expansion is detected. This parameter is returned only when the diagnostics scenario is data skew or data expansion.
+          // The node information about data skew or data bloat. This parameter is returned only when the diagnostics scenario is data skew or data bloat.
           shared_ptr<map<string, string>> params_ {};
-          // The intelligent diagnostics result scenario.
+          // The scenario of the intelligent diagnostics result.
           shared_ptr<string> scene_ {};
-          // The intelligent diagnostics result tag.
+          // The tag of the intelligent diagnostics result.
           shared_ptr<string> sceneTag_ {};
-          // The intelligent diagnostics result summary.
+          // The summary of the intelligent diagnostics result.
           shared_ptr<string> summary_ {};
-          // The intelligent diagnostics result type.
+          // The type of the intelligent diagnostics result.
           shared_ptr<string> type_ {};
         };
 
@@ -235,10 +237,10 @@ namespace Models
         && this->cuSnapshot_ == nullptr && this->cuUsage_ == nullptr && this->endAtTime_ == nullptr && this->extNodeId_ == nullptr && this->extNodeName_ == nullptr
         && this->extNodeOnDuty_ == nullptr && this->extPlantFrom_ == nullptr && this->extPlatformId_ == nullptr && this->inputBytes_ == nullptr && this->instanceId_ == nullptr
         && this->jobOwner_ == nullptr && this->jobType_ == nullptr && this->memorySnapshot_ == nullptr && this->memoryUsage_ == nullptr && this->priority_ == nullptr
-        && this->project_ == nullptr && this->quotaNickname_ == nullptr && this->quotaType_ == nullptr && this->region_ == nullptr && this->runningAtTime_ == nullptr
-        && this->runningTime_ == nullptr && this->sceneResults_ == nullptr && this->signature_ == nullptr && this->status_ == nullptr && this->statusSnapshot_ == nullptr
-        && this->submittedAtTime_ == nullptr && this->tags_ == nullptr && this->taskName_ == nullptr && this->tenantId_ == nullptr && this->totalTime_ == nullptr
-        && this->waitingTime_ == nullptr; };
+        && this->project_ == nullptr && this->quotaNickname_ == nullptr && this->quotaType_ == nullptr && this->region_ == nullptr && this->roleSessionName_ == nullptr
+        && this->runningAtTime_ == nullptr && this->runningTime_ == nullptr && this->sceneResults_ == nullptr && this->signature_ == nullptr && this->status_ == nullptr
+        && this->statusSnapshot_ == nullptr && this->submittedAtTime_ == nullptr && this->tags_ == nullptr && this->taskName_ == nullptr && this->tenantId_ == nullptr
+        && this->totalTime_ == nullptr && this->waitingTime_ == nullptr; };
         // cluster Field Functions 
         bool hasCluster() const { return this->cluster_ != nullptr;};
         void deleteCluster() { this->cluster_ = nullptr;};
@@ -379,6 +381,13 @@ namespace Models
         inline JobInfoList& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
+        // roleSessionName Field Functions 
+        bool hasRoleSessionName() const { return this->roleSessionName_ != nullptr;};
+        void deleteRoleSessionName() { this->roleSessionName_ = nullptr;};
+        inline string getRoleSessionName() const { DARABONBA_PTR_GET_DEFAULT(roleSessionName_, "") };
+        inline JobInfoList& setRoleSessionName(string roleSessionName) { DARABONBA_PTR_SET_VALUE(roleSessionName_, roleSessionName) };
+
+
         // runningAtTime Field Functions 
         bool hasRunningAtTime() const { return this->runningAtTime_ != nullptr;};
         void deleteRunningAtTime() { this->runningAtTime_ = nullptr;};
@@ -468,64 +477,69 @@ namespace Models
       protected:
         // The cluster ID.
         shared_ptr<string> cluster_ {};
-        // The CU snapshot proportion of the job.
+        // The CU snapshot ratio of the job.
         shared_ptr<double> cuSnapshot_ {};
-        // The amount of resources consumed by the job. This parameter is returned only for jobs that are complete.Unit: 100\\*Core\\*s.
+        // The total CU usage.
         shared_ptr<int64_t> cuUsage_ {};
-        // The time when the job stops running.
+        // The time when the job finished running.
         shared_ptr<int64_t> endAtTime_ {};
-        // The node ID of DataWorks.
+        // The DataWorks node ID.
         shared_ptr<string> extNodeId_ {};
+        // The name of the external scheduling platform that submitted the job.
         shared_ptr<string> extNodeName_ {};
-        // The account of the node owner.
+        // The person responsible for the execution.
         shared_ptr<string> extNodeOnDuty_ {};
         // The upstream platform.
         shared_ptr<string> extPlantFrom_ {};
+        // The identifier of the external scheduling platform that submitted the job.
         shared_ptr<string> extPlatformId_ {};
-        // The amount of scanned data for the job. Unit: byte.
+        // The amount of data scanned by the job. Unit: bytes.
         shared_ptr<double> inputBytes_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
-        // The account that commits the job.
+        // The account that submitted the job.
         shared_ptr<string> jobOwner_ {};
-        // The type of the job.
+        // The job types.
         shared_ptr<string> jobType_ {};
-        // The memory snapshot proportion of the job.
+        // The memory snapshot ratio of the job.
         shared_ptr<double> memorySnapshot_ {};
-        // The number of memory consumed by the job. This parameter is returned only for jobs that are complete.Unit: MB\\*s.
+        // The total memory usage.
         shared_ptr<int64_t> memoryUsage_ {};
-        // The priority of the job.
+        // The priority.
         shared_ptr<int64_t> priority_ {};
-        // The name of the MaxCompute project.
+        // The MaxCompute project name.
         shared_ptr<string> project_ {};
-        // The nickname of the quota that is used by the job.
+        // The nickname of the quota used by the job.
         shared_ptr<string> quotaNickname_ {};
-        // The type of the quota.
+        // The quota type.
         shared_ptr<string> quotaType_ {};
         // The region ID.
         shared_ptr<string> region_ {};
-        // The time when the job starts to run.
+        // The role session name of the entity that submitted the job through role assumption.
+        shared_ptr<string> roleSessionName_ {};
+        // The time when the job started running.
         shared_ptr<int64_t> runningAtTime_ {};
-        // The period for which the job runs.
+        // The running time.
         shared_ptr<int64_t> runningTime_ {};
         // The intelligent diagnostics results.
         shared_ptr<vector<JobInfoList::SceneResults>> sceneResults_ {};
-        // The signature of the SQL job.
+        // The SQL signature.
         shared_ptr<string> signature_ {};
-        // The status of the job.
+        // The status.
         shared_ptr<string> status_ {};
-        // The status of the snapshot.
+        // The snapshot status of the job.
         shared_ptr<string> statusSnapshot_ {};
-        // The time when the job was committed.
+        // The time when the job was submitted.
         shared_ptr<int64_t> submittedAtTime_ {};
         // The tags.
         shared_ptr<string> tags_ {};
+        // The task name.
         shared_ptr<string> taskName_ {};
         // The tenant ID.
         shared_ptr<string> tenantId_ {};
-        // The total period for which the job runs.
+        // The total running duration.
         shared_ptr<int64_t> totalTime_ {};
-        // The duration for which the job waits to start.
+        // The waiting time.
         shared_ptr<int64_t> waitingTime_ {};
       };
 
@@ -562,9 +576,9 @@ namespace Models
 
 
     protected:
-      // The information about the jobs.
+      // The list of job information.
       shared_ptr<vector<Data::JobInfoList>> jobInfoList_ {};
-      // The page number.
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
@@ -598,9 +612,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The response data.
     shared_ptr<ListJobInfosResponseBody::Data> data_ {};
-    // Indicates whether the request was successful. If this parameter was not empty and the value of this parameter was not 200, the request failed.
+    // The HTTP status code. If the value is not empty and is not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

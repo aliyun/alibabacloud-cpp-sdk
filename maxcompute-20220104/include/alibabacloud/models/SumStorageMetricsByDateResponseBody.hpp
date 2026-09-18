@@ -108,8 +108,11 @@ namespace Models
 
 
       protected:
+        // If the type is PROJECT, this parameter indicates the project name. If the type is STORAGE_TYPE, this parameter indicates the storage type.
         shared_ptr<string> itemName_ {};
+        // The percentage of the storage usage.
         shared_ptr<double> percentage_ {};
+        // The storage usage.
         shared_ptr<string> usage_ {};
       };
 
@@ -153,10 +156,21 @@ namespace Models
 
 
     protected:
+      // The date of the statistics. The format is yyyyMMdd.
       shared_ptr<string> dateTime_ {};
+      // The list of storage usage of a specified type.
       shared_ptr<vector<Data::ItemStorageMetrics>> itemStorageMetrics_ {};
+      // The storage type. Valid values:
+      // 
+      // - Storage: Standard.
+      // 
+      // - LowFreqStorage: Infrequent Access (IA).
+      // 
+      // - ColdStorage: Archive.
       shared_ptr<string> storageType_ {};
+      // The unit of the total storage.
       shared_ptr<string> unit_ {};
+      // The total storage.
       shared_ptr<string> usage_ {};
     };
 
@@ -186,8 +200,21 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<SumStorageMetricsByDateResponseBody::Data>> data_ {};
+    // The HTTP status code.
+    // 
+    // - 1xx: Informational. The request is received and the process is continuing.
+    // 
+    // - 2xx: Success. The request is successfully received, understood, and accepted.
+    // 
+    // - 3xx: Redirection. Further action needs to be taken to complete the request.
+    // 
+    // - 4xx: Client Error. The request contains bad syntax or cannot be fulfilled.
+    // 
+    // - 5xx: Server Error. The server fails to fulfill an apparently valid request.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -225,38 +225,69 @@ namespace Models
 
 
   protected:
-    // Specifies whether to sort data in ascending order.
+    // Specifies whether to sort the results in ascending order.
     shared_ptr<bool> ascOrder_ {};
-    // The ID of the upstream node.
+    // The upstream node ID.
     shared_ptr<vector<string>> extNodeIdList_ {};
-    // Start timestamp.
-    // > This parameter is invalid. The end timestamp should be the time point for the snapshot you want to view.
+    // The start UNIX timestamp.
+    // 
+    // > This parameter is invalid. The end timestamp is the point in time for the snapshot that you want to view.
     shared_ptr<int64_t> from_ {};
-    // The instance ID.
+    // The job instance ID.
     shared_ptr<vector<string>> instanceIdList_ {};
-    // The account that commits the job.
+    // The job owner.
     shared_ptr<vector<string>> jobOwnerList_ {};
-    // The priority of the job.
+    // The job priority.
     shared_ptr<vector<int64_t>> priorityList_ {};
-    // The name of project.
+    // The project name.
     shared_ptr<vector<string>> projectList_ {};
-    // The nickname of the compute Quota used by the job.
+    // The nickname of the computing quota that the job uses.
     shared_ptr<string> quotaNickname_ {};
     // The signature of the SQL job.
     shared_ptr<vector<string>> signatureList_ {};
-    // The sorting columns.
+    // The fields for multi-column sorting.
     shared_ptr<vector<string>> sortByList_ {};
-    // The orders for the sorting columns.
+    // The sort orders for multi-column sorting.
     shared_ptr<vector<string>> sortOrderList_ {};
-    // The status of jobs.
+    // The job status.
     shared_ptr<vector<string>> statusList_ {};
-    // End timestamp.
+    // The end UNIX timestamp.
     // 
     // This parameter is required.
     shared_ptr<int64_t> to_ {};
-    // The type of the job.
+    // The job type.
     shared_ptr<vector<string>> typeList_ {};
-    // The sorting column.
+    // The column to sort by. Valid values:
+    // 
+    // - submittedAtTime
+    // 
+    // - waitingTime
+    // 
+    // - runningAtTime
+    // 
+    // - runningTime
+    // 
+    // - snapshotTime
+    // 
+    // - totalTime
+    // 
+    // - cpuUsage
+    // 
+    // - memoryUsage
+    // 
+    // - minCpuPct
+    // 
+    // - minMemoryPct
+    // 
+    // - priority
+    // 
+    // - cpuRequest
+    // 
+    // - memoryRequest
+    // 
+    // - cpuUsageToRequestRatio
+    // 
+    // - memoryUsageToRequestRatio
     shared_ptr<string> orderColumn_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
@@ -264,7 +295,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> region_ {};
-    // The ID of the tenant. You can log on to the MaxCompute console, and choose Tenants > Tenant Property from the left-side navigation pane to view the tenant ID.
+    // The tenant ID. To view the tenant ID, log on to the MaxCompute console. In the navigation pane on the left, choose Tenant Management > Tenant Properties.
     shared_ptr<string> tenantId_ {};
   };
 

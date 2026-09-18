@@ -57,9 +57,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to use additional information.
+    // Whether to include additional information (securityProperties, superAdmins).
     shared_ptr<bool> verbose_ {};
+    // Whether to include additional information (productType).
     shared_ptr<bool> withQuotaProductType_ {};
+    // Whether to include additional information (properties.storageTierInfo).
     shared_ptr<bool> withStorageTierInfo_ {};
   };
 

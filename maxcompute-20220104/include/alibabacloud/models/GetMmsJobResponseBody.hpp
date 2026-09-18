@@ -239,18 +239,31 @@ namespace Models
 
 
       protected:
+        // The column name mapping in the format of {source column name: destination column name}.
         shared_ptr<map<string, string>> columnMapping_ {};
+        // Specifies whether to enable verification. The current verification method executes SELECT COUNT on both the source and destination to compare row counts.
         shared_ptr<bool> enableVerification_ {};
+        // Specifies whether to enable incremental migration. Only new partitions or modified partitions are migrated. Modified partitions are re-migrated.
         shared_ptr<bool> increment_ {};
+        // The additional configuration information.
         Darabonba::Json others_ {};
+        // The partition filter expressions. Specifies the partition filter expression for a given table.
         shared_ptr<map<string, string>> partitionFilters_ {};
+        // The list of partition IDs of the tables to migrate. This parameter takes effect when type is set to Partitions.
         shared_ptr<vector<int64_t>> partitions_ {};
+        // Depcreated
         shared_ptr<bool> schemaOnly_ {};
+        // The list of tables to exclude from migration. This parameter takes effect when type is set to Database.
         shared_ptr<vector<string>> tableBlackList_ {};
+        // The mapping from source table names to destination table names.
         shared_ptr<map<string, string>> tableMapping_ {};
+        // The list of tables to migrate. This parameter takes effect when type is set to Database. If tableWhiteList is not specified, all tables in the corresponding database are migrated.
         shared_ptr<vector<string>> tableWhiteList_ {};
+        // The list of table names to migrate. This parameter takes effect when type is set to Tables.
         shared_ptr<vector<string>> tables_ {};
+        // **[Deprecated]** Valid values: MOCK, HIVE (hive udtf task), HIVE_DATAX (hive datax task), COPY_TASK (ODPS Copy Task), ODPS_INSERT_OVERWRITE (ODPS simple insert overwrite task), MC2MC_VERIFY, OSS, HIVE_OSS, HIVE_SPARK, BIGQUERY.
         shared_ptr<string> taskType_ {};
+        // Depcreated
         shared_ptr<string> tunnelQuota_ {};
       };
 
@@ -381,22 +394,39 @@ namespace Models
 
 
     protected:
+      // The configuration of the migration job.
       shared_ptr<Data::Config> config_ {};
+      // The creation time in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
+      // The source database ID.
       shared_ptr<int64_t> dbId_ {};
+      // The destination MaxCompute project.
       shared_ptr<string> dstDbName_ {};
+      // The destination MaxCompute schema.
       shared_ptr<string> dstSchemaName_ {};
+      // The expected migration completion time. A smaller eta value indicates a higher priority for the migration task.
       shared_ptr<string> eta_ {};
+      // The migration job ID.
       shared_ptr<int64_t> id_ {};
+      // The migration job name.
       shared_ptr<string> name_ {};
+      // The data source ID.
       shared_ptr<int64_t> sourceId_ {};
+      // The data source name.
       shared_ptr<string> sourceName_ {};
+      // The source database name.
       shared_ptr<string> srcDbName_ {};
+      // The source schema name in a three-level namespace.
       shared_ptr<string> srcSchemaName_ {};
+      // The migration task status.
       shared_ptr<string> status_ {};
+      // Indicates whether the job is stopped.
       shared_ptr<bool> stopped_ {};
+      // The number of completed migration tasks.
       shared_ptr<int32_t> taskDone_ {};
+      // The number of migration tasks included.
       shared_ptr<int32_t> taskNum_ {};
+      // The migration scope. Valid values: Database, Tables, Partitions.
       shared_ptr<string> type_ {};
     };
 
@@ -419,7 +449,9 @@ namespace Models
 
 
   protected:
+    // The migration job object.
     shared_ptr<GetMmsJobResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -214,8 +214,9 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<vector<GetQuotaScheduleResponseBody::Data>> data_ {};
-    // *   If the value of success was false, an error code was returned.
-    // *   If the value of success was true, a null value was returned.
+    // - If the value of success was false, an error code was returned.
+    // 
+    // - If the value of success was true, a null value was returned.
     shared_ptr<string> errorCode_ {};
     // The error message.
     shared_ptr<string> errorMsg_ {};

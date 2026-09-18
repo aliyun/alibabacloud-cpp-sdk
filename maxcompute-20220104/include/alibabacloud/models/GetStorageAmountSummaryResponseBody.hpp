@@ -98,9 +98,17 @@ namespace Models
 
 
     protected:
+      // The date for statistics collection, in the YYYYMMdd format.
       shared_ptr<string> date_ {};
+      // The timestamp. This API operation does not return this field.
       shared_ptr<int64_t> timestamp_ {};
+      // The unit of the storage metric. This API operation does not return this field.
       shared_ptr<map<string, string>> unit_ {};
+      // The storage metrics. Valid values:
+      // - projectAmount
+      // - schemaAmount
+      // - tableAmount
+      // - partitionAmount
       shared_ptr<map<string, int64_t>> value_ {};
     };
 
@@ -144,10 +152,18 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<GetStorageAmountSummaryResponseBody::Data> data_ {};
+    // The business error code, or an empty value.
+    // - If success is false, a business error code is returned.
+    //  
+    // - If success is true, an empty value is returned.
     shared_ptr<string> errorCode_ {};
+    // The error message.
     shared_ptr<string> errorMsg_ {};
+    // The HTTP status code that indicates whether the business request was successful. A non-empty value other than 200 indicates a business processing failure.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -361,8 +361,9 @@ namespace Models
         protected:
           // The billing method. Valid values:
           // 
-          // *   subscription: the subscription quota.
-          // *   payasyougo: the pay-as-you-go quota.
+          // - subscription: the subscription quota.
+          // 
+          // - payasyougo: the pay-as-you-go quota.
           shared_ptr<string> billingMethod_ {};
           // In MaxCompute, instanceId and orderId are considered the same.
           shared_ptr<string> instanceId_ {};
@@ -765,8 +766,9 @@ namespace Models
       protected:
         // The billing method. Valid values:
         // 
-        // *   subscription: the subscription quota.
-        // *   payasyougo: the pay-as-you-go quota.
+        // - subscription: the subscription quota.
+        // 
+        // - payasyougo: the pay-as-you-go quota.
         shared_ptr<string> billingMethod_ {};
         // In MaxCompute, instanceId and orderId are considered the same.
         shared_ptr<string> instanceId_ {};

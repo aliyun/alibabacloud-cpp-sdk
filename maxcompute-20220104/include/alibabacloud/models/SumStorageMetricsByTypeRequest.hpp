@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // Required. The query end time, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> endDate_ {};
+    // An array of project names.
     shared_ptr<vector<string>> projectNames_ {};
+    // Required. The query start time, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startDate_ {};
+    // The dimension for aggregating statistics. Valid values: `PROJECT` (by project) and `STORAGE_TYPE` (by storage type).
     shared_ptr<string> statsType_ {};
   };
 

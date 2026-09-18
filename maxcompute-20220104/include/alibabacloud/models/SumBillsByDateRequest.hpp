@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The end time of the cost statistics period.
     shared_ptr<int64_t> endDate_ {};
+    // A list of instance names. In this context, an instance is a MaxCompute project.
     shared_ptr<vector<string>> projectNames_ {};
+    // The start time of the cost statistics period.
     shared_ptr<int64_t> startDate_ {};
+    // The statistics type. Valid values: `PROJECT` (by instance) and `FEE_ITEM` (by billable item).
     shared_ptr<string> statsType_ {};
+    // The number of top results to return, sorted by cost.
     shared_ptr<int32_t> topN_ {};
   };
 

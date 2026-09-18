@@ -115,9 +115,13 @@ namespace Models
 
 
       protected:
+        // The cost.
         shared_ptr<string> cost_ {};
+        // The currency. This is a fixed value.
         shared_ptr<string> currency_ {};
+        // The name of the item. The value of this parameter depends on the `statsType` parameter in the request. If `statsType` is `PROJECT`, this parameter indicates the instance name. If `statsType` is `FEE_ITEM`, this parameter can be a value such as `DRStorage`, `ComputationSql`, or `Storage`.
         shared_ptr<string> itemName_ {};
+        // The item\\"s cost as a percentage of the total daily cost. This value does not include a percent sign (%).
         shared_ptr<double> percentage_ {};
       };
 
@@ -154,9 +158,13 @@ namespace Models
 
 
     protected:
+      // The total cost for the specified `dateTime`.
       shared_ptr<string> cost_ {};
+      // The currency. This is a fixed value.
       shared_ptr<string> currency_ {};
+      // The date of the statistics, in `yyyyMMdd` format.
       shared_ptr<string> dateTime_ {};
+      // A list of billable items.
       shared_ptr<vector<Data::ItemBills>> itemBills_ {};
     };
 
@@ -186,8 +194,11 @@ namespace Models
 
 
   protected:
+    // The list of results.
     shared_ptr<vector<SumBillsByDateResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

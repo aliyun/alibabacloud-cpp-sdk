@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The data migration ID.
     shared_ptr<int64_t> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

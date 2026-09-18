@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The data source ID.
       shared_ptr<int64_t> dataSourceId_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<CreateMmsDataSourceResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

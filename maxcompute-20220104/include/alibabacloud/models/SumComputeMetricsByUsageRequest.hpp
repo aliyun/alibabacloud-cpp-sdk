@@ -69,9 +69,13 @@ namespace Models
 
 
   protected:
+    // The end timestamp for the query, in milliseconds.
     shared_ptr<int64_t> endDate_ {};
+    // The project names.
     shared_ptr<vector<string>> projectNames_ {};
+    // The start timestamp for the query, in milliseconds.
     shared_ptr<int64_t> startDate_ {};
+    // The usage type. Valid values: `CU` (CU usage) and `SCAN` (scanned data volume).
     shared_ptr<string> usageType_ {};
   };
 

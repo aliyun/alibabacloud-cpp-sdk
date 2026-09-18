@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The date for statistics collection. The value is at the day level and must be in the YYYYMMdd format.
     shared_ptr<string> date_ {};
+    // The region ID.
     shared_ptr<string> region_ {};
+    // The tenant ID. You can view the tenant ID by logging on to the MaxCompute console and choosing **Tenant Management** > **Tenant Properties** in the left-side navigation pane.
     shared_ptr<string> tenantId_ {};
   };
 

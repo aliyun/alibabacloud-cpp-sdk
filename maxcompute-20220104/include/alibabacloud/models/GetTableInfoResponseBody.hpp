@@ -673,10 +673,13 @@ namespace Models
       shared_ptr<string> tablestoreColumnsMapping_ {};
       // The type of the table or view. Valid values:
       // 
-      // *   **internal**: internal table
-      // *   **external**: external table
-      // *   **view**: view
-      // *   **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
+      // - **internal**: internal table
+      // 
+      // - **external**: external table
+      // 
+      // - **view**: view
+      // 
+      // - **materializedView**: [materialize view](https://www.alibabacloud.com/help/maxcompute/user-guide/materialized-view-operations)
       shared_ptr<string> type_ {};
       // The statement that generates the view. This response parameter is returned when type is set to view.
       shared_ptr<string> viewText_ {};

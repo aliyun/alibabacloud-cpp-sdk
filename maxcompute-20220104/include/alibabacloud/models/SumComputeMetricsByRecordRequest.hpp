@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query, specified as a required Unix timestamp in milliseconds.
     shared_ptr<int64_t> endDate_ {};
+    // The list of project names.
     shared_ptr<vector<string>> projectNames_ {};
+    // The start of the time range to query, specified as a required Unix timestamp in milliseconds.
     shared_ptr<int64_t> startDate_ {};
   };
 

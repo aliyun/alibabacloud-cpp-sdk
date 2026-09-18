@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The name of the destination schema in MaxCompute.
     shared_ptr<string> dstName_ {};
+    // The name of the destination MaxCompute project.
     shared_ptr<string> dstProjectName_ {};
+    // The migration status.
     shared_ptr<string> status_ {};
   };
 

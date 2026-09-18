@@ -94,19 +94,16 @@ namespace Models
 
 
   protected:
-    // The billing method of the quota.
+    // The billing method.
     shared_ptr<string> billingType_ {};
-    // Specifies the marker after which the returned list begins.
+    // The token that specifies the position from which to start returning results. The results are sorted in alphabetical order.
     shared_ptr<string> marker_ {};
     // The maximum number of entries to return on each page.
     shared_ptr<int64_t> maxItem_ {};
-    // The service ID.
     shared_ptr<string> productId_ {};
-    // The ID of the region.
     shared_ptr<string> region_ {};
-    // The cost tag. You can filter out quota objects based on the cost tag. The cost tag is created when you tag a service.
+    // The cost allocation tags that are used to filter quotas. You can create cost allocation tags in the Tag service.
     shared_ptr<string> saleTags_ {};
-    // The ID of the tenant.
     shared_ptr<string> tenantId_ {};
   };
 

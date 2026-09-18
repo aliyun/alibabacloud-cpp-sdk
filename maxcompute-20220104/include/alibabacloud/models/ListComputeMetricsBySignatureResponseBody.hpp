@@ -133,8 +133,11 @@ namespace Models
 
 
         protected:
+          // The end time of the instance.
           shared_ptr<int64_t> endTime_ {};
+          // The instance ID.
           shared_ptr<string> instanceId_ {};
+          // The start time of the instance.
           shared_ptr<int64_t> startTime_ {};
         };
 
@@ -180,10 +183,15 @@ namespace Models
 
 
       protected:
+        // A list of instances.
         shared_ptr<vector<SignatureComputeMetrics::Instances>> instances_ {};
+        // A list of project names.
         shared_ptr<vector<string>> projectNames_ {};
+        // The signature of the SQL job.
         shared_ptr<string> signature_ {};
+        // The unit of compute usage.
         shared_ptr<string> unit_ {};
+        // The compute usage.
         shared_ptr<double> usage_ {};
       };
 
@@ -220,9 +228,13 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries on the current page.
       shared_ptr<int64_t> pageSize_ {};
+      // An array containing the compute metrics for each signature.
       shared_ptr<vector<Data::SignatureComputeMetrics>> signatureComputeMetrics_ {};
+      // The total number of entries that match the query.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -252,8 +264,21 @@ namespace Models
 
 
   protected:
+    // The data payload of the response.
     shared_ptr<ListComputeMetricsBySignatureResponseBody::Data> data_ {};
+    // The HTTP status code.
+    // 
+    // - `1xx`: Informational - The server has received the request and is processing it.
+    // 
+    // - `2xx`: Success - The server successfully received, understood, and accepted the request.
+    // 
+    // - `3xx`: Redirection - Further action is required to complete the request.
+    // 
+    // - `4xx`: Client Error - The request contains invalid syntax or cannot be fulfilled.
+    // 
+    // - `5xx`: Server Error - The server failed to fulfill a valid request.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

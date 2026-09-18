@@ -117,14 +117,25 @@ namespace Models
 
 
   protected:
+    // The end time for the query. This value is a UNIX timestamp representing milliseconds.
     shared_ptr<int64_t> endDate_ {};
+    // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The job owner.
     shared_ptr<string> jobOwner_ {};
+    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
+    // The number of entries to return on each page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
+    // The project names.
     shared_ptr<vector<string>> projectNames_ {};
+    // The SQL job signature.
     shared_ptr<string> signature_ {};
+    // The start time for the query. This value is a UNIX timestamp representing milliseconds.
     shared_ptr<int64_t> startDate_ {};
+    // The metering type.
+    // 
+    // - `ComputationSql`: the metering data of SQL jobs that are performed on internal tables.
     shared_ptr<vector<string>> types_ {};
   };
 

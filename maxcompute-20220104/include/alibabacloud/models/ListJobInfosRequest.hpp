@@ -259,10 +259,11 @@ namespace Models
 
 
   protected:
-    // Specifies whether to sort query results in ascending or descending order.
+    // Specifies whether to sort in ascending or descending order.
     shared_ptr<bool> ascOrder_ {};
-    // The ancestor node IDs.
+    // The upstream node IDs.
     shared_ptr<vector<string>> extNodeIdList_ {};
+    // The upstream node names.
     shared_ptr<vector<string>> extNodeNameList_ {};
     // The start timestamp.
     // 
@@ -278,16 +279,17 @@ namespace Models
     shared_ptr<vector<string>> projectList_ {};
     // The quota nickname.
     shared_ptr<string> quotaNickname_ {};
-    // The intelligent diagnostics tags.
+    // The intelligent diagnosis labels.
     shared_ptr<vector<string>> sceneTagList_ {};
     // The job signatures.
     shared_ptr<vector<string>> signatureList_ {};
-    // The sorting columns.
+    // The fields used for multi-column sorting.
     shared_ptr<vector<string>> sortByList_ {};
-    // The orders for the sorting columns.
+    // The sort orders for multi-column sorting.
     shared_ptr<vector<string>> sortOrderList_ {};
-    // The job states.
+    // The job statuses.
     shared_ptr<vector<string>> statusList_ {};
+    // The job names.
     shared_ptr<vector<string>> taskNameList_ {};
     // The end timestamp.
     // 
@@ -295,7 +297,7 @@ namespace Models
     shared_ptr<int64_t> to_ {};
     // The job types.
     shared_ptr<vector<string>> typeList_ {};
-    // The column based on which you want to sort query results.
+    // The column used for sorting.
     shared_ptr<string> orderColumn_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};

@@ -161,17 +161,29 @@ namespace Models
 
 
     protected:
+      // The creation time, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> createTime_ {};
+      // The end time, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> endTime_ {};
+      // The error message.
       shared_ptr<string> errorMsg_ {};
+      // The asynchronous task ID.
       shared_ptr<int64_t> id_ {};
+      // The ID of the object associated with the asynchronous task.
       shared_ptr<int64_t> objectId_ {};
+      // The running progress.
       shared_ptr<int32_t> progress_ {};
+      // The running result.
       shared_ptr<string> result_ {};
+      // Indicates whether the task is running.
       shared_ptr<bool> running_ {};
+      // The data source ID.
       shared_ptr<int64_t> sourceId_ {};
+      // The start time, in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> startTime_ {};
+      // The asynchronous task status.
       shared_ptr<string> status_ {};
+      // The asynchronous task type.
       shared_ptr<string> type_ {};
     };
 
@@ -194,7 +206,9 @@ namespace Models
 
 
   protected:
+    // The asynchronous task object.
     shared_ptr<GetMmsAsyncTaskResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

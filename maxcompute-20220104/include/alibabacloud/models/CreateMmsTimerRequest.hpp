@@ -194,21 +194,37 @@ namespace Models
 
 
   protected:
+    // A map of source column names to target column names.
     shared_ptr<map<string, string>> columnMapping_ {};
+    // Specifies whether to migrate table data.
     shared_ptr<bool> enableDataMigration_ {};
+    // Specifies whether to migrate the table schema.
     shared_ptr<bool> enableSchemaMigration_ {};
+    // Specifies whether to enable data verification. If set to `true`, the system runs a `SELECT COUNT(*)` query on both the source and target tables and compares the row counts.
     shared_ptr<bool> enableVerification_ {};
+    // The name of the scheduled task.
     shared_ptr<string> name_ {};
+    // Other configuration settings.
     Darabonba::Json others_ {};
+    // A map of table names to their corresponding partition filter expressions.
     shared_ptr<map<string, string>> partitionFilters_ {};
+    // A list of IDs for the table partitions to migrate. This parameter takes effect only when the `type` parameter is set to `Partitions`.
     shared_ptr<vector<int64_t>> partitions_ {};
+    // The schedule type for the task.
     shared_ptr<string> scheduleType_ {};
+    // The ID of the data source.
     shared_ptr<int64_t> sourceId_ {};
+    // The name of the source database.
     shared_ptr<string> srcDbName_ {};
+    // A blacklist of tables to exclude from the migration. This parameter takes effect only when the `type` parameter is set to `Database`.
     shared_ptr<vector<string>> tableBlackList_ {};
+    // A map of source table names to target table names.
     shared_ptr<map<string, string>> tableMapping_ {};
+    // A whitelist of tables to migrate. This parameter takes effect only when the `type` parameter is set to `Database`. If omitted, all tables in the source database are migrated.
     shared_ptr<vector<string>> tableWhiteList_ {};
+    // A list of table names to migrate. This parameter takes effect only when the `type` parameter is set to `Tables`.
     shared_ptr<vector<string>> tables_ {};
+    // The time to run the scheduled task. If `scheduleType` is set to `Daily`, the value is the time in `HH:MM` format. If `scheduleType` is set to `Hourly`, the value is the minute of the hour (`MM`).
     shared_ptr<string> value_ {};
   };
 

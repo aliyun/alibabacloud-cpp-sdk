@@ -202,10 +202,15 @@ namespace Models
     // The error message.
     shared_ptr<string> errorMsg_ {};
     // HTTP status code.
+    // 
     // - 1xx: Informational response - Request received, processing continues.
+    // 
     // - 2xx: Success - The request has been successfully received, understood, and accepted by the server.
+    // 
     // - 3xx: Redirection - Further action must be taken to complete the request.
+    // 
     // - 4xx: Client error - The request contains bad syntax or cannot be fulfilled.
+    // 
     // - 5xx: Server error - The server failed to fulfill an apparently valid request.
     shared_ptr<int32_t> httpCode_ {};
     // The request ID.

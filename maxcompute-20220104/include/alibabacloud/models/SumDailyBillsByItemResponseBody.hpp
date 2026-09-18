@@ -169,9 +169,13 @@ namespace Models
 
 
           protected:
+            // The cost of the item.
             shared_ptr<string> cost_ {};
+            // The currency of the cost.
             shared_ptr<string> currency_ {};
+            // The name of the billable item.
             shared_ptr<string> itemName_ {};
+            // The item\\"s percentage of the daily total cost.
             shared_ptr<double> percentage_ {};
           };
 
@@ -208,9 +212,13 @@ namespace Models
 
 
         protected:
+          // The cost for the day.
           shared_ptr<string> cost_ {};
+          // The currency of the cost.
           shared_ptr<string> currency_ {};
+          // The date. Format: YYYYMMDD.
           shared_ptr<string> dateTime_ {};
+          // An array of detailed bills for the item on the specified day.
           shared_ptr<vector<DailySumBills::ItemBills>> itemBills_ {};
         };
 
@@ -261,11 +269,17 @@ namespace Models
 
 
       protected:
+        // The currency of the cost.
         shared_ptr<string> currency_ {};
+        // An array of daily cost summaries for the item.
         shared_ptr<vector<ItemSummaryBills::DailySumBills>> dailySumBills_ {};
+        // The name of the billable item.
         shared_ptr<string> itemName_ {};
+        // The item\\"s percentage of the total cost.
         shared_ptr<double> percentage_ {};
+        // The specification code of the item.
         shared_ptr<string> specCode_ {};
+        // The total cost of the item.
         shared_ptr<string> totalCost_ {};
       };
 
@@ -302,9 +316,13 @@ namespace Models
 
 
     protected:
+      // An array of item-level cost summaries.
       shared_ptr<vector<Data::ItemSummaryBills>> itemSummaryBills_ {};
+      // The current page number.
       shared_ptr<int64_t> pageNumber_ {};
+      // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
+      // The total number of entries returned.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -334,8 +352,11 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<SumDailyBillsByItemResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpCode_ {};
+    // The unique identifier for the request.
     shared_ptr<string> requestId_ {};
   };
 

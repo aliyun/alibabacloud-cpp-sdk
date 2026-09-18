@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The name of the destination MaxCompute table. If you do not specify this parameter, the source table name is used.
     shared_ptr<string> dstName_ {};
+    // The name of the destination MaxCompute project.
     shared_ptr<string> dstProjectName_ {};
+    // The schema of the destination MaxCompute project.
     shared_ptr<string> dstSchemaName_ {};
+    // The migration status.
     shared_ptr<string> status_ {};
   };
 

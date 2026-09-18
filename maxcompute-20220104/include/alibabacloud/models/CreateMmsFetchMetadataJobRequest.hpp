@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // Updates metadata for the specified source database, schema, or dataset.
     shared_ptr<string> dbName_ {};
+    // Updates metadata for the specified source tables.
     shared_ptr<vector<string>> tableNames_ {};
   };
 

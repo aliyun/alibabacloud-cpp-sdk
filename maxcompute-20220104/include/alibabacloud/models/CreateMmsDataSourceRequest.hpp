@@ -68,9 +68,13 @@ namespace Models
 
 
   protected:
+    // The data source configurations. Call ListMmsDataSourceConfigItems first to retrieve the valid and required configuration items for the target data source type, and then construct this object accordingly.
     Darabonba::Json config_ {};
+    // The name of the data source.
     shared_ptr<string> name_ {};
+    // The ID of the MaxCompute network connectivity.
     shared_ptr<string> networklink_ {};
+    // The type of the data source.
     shared_ptr<string> type_ {};
   };
 

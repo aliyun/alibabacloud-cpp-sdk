@@ -124,10 +124,27 @@ namespace Models
 
 
       protected:
+        // The date of the metric, in `yyyyMMdd` format.
         shared_ptr<string> dateTime_ {};
+        // The percentage of total daily storage that this storage type accounts for.
         shared_ptr<double> percentage_ {};
+        // The storage type. Valid values:
+        // 
+        // - `Storage`: standard storage.
+        // 
+        // - `LowFreqStorage`: infrequent access storage.
+        // 
+        // - `ColdStorage`: archive storage.
+        // 
+        // - `$sum`: total storage.
+        // 
+        // - `RecycleBinStorage`: recycle bin storage.
+        // 
+        // - `DRStorage`: multi-AZ storage.
         shared_ptr<string> storageType_ {};
+        // The unit of the storage metric.
         shared_ptr<string> unit_ {};
+        // The storage usage for this day.
         shared_ptr<double> usage_ {};
       };
 
@@ -164,9 +181,25 @@ namespace Models
 
 
     protected:
+      // A list of daily storage usage metrics.
       shared_ptr<vector<Data::DailyStorageMetrics>> dailyStorageMetrics_ {};
+      // The storage type. Valid values:
+      // 
+      // - `Storage`: standard storage.
+      // 
+      // - `LowFreqStorage`: infrequent access storage.
+      // 
+      // - `ColdStorage`: archive storage.
+      // 
+      // - `$sum`: total storage.
+      // 
+      // - `RecycleBinStorage`: recycle bin storage.
+      // 
+      // - `DRStorage`: multi-AZ storage.
       shared_ptr<string> storageType_ {};
+      // The unit of the storage metric.
       shared_ptr<string> unit_ {};
+      // The total storage usage.
       shared_ptr<double> usage_ {};
     };
 
@@ -196,8 +229,21 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<SumStorageMetricsByTypeResponseBody::Data>> data_ {};
+    // The HTTP status code.
+    // 
+    // - `1xx`: Informational response - The request has been received and is being processed.
+    // 
+    // - `2xx`: Success - The request was successfully received, understood, and accepted.
+    // 
+    // - `3xx`: Redirection - Further action is needed to complete the request.
+    // 
+    // - `4xx`: Client error - The request contains invalid syntax or cannot be fulfilled.
+    // 
+    // - `5xx`: Server error - The server failed to fulfill a valid request.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

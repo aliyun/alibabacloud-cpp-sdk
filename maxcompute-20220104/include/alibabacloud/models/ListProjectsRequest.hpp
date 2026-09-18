@@ -21,6 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(quotaNickName, quotaNickName_);
       DARABONBA_PTR_TO_JSON(region, region_);
       DARABONBA_PTR_TO_JSON(saleTags, saleTags_);
+      DARABONBA_PTR_TO_JSON(sortBy, sortBy_);
+      DARABONBA_PTR_TO_JSON(sortOrder, sortOrder_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
       DARABONBA_PTR_TO_JSON(type, type_);
     };
@@ -33,6 +35,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(quotaNickName, quotaNickName_);
       DARABONBA_PTR_FROM_JSON(region, region_);
       DARABONBA_PTR_FROM_JSON(saleTags, saleTags_);
+      DARABONBA_PTR_FROM_JSON(sortBy, sortBy_);
+      DARABONBA_PTR_FROM_JSON(sortOrder, sortOrder_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
       DARABONBA_PTR_FROM_JSON(type, type_);
     };
@@ -49,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->listSystemCatalog_ == nullptr
         && this->marker_ == nullptr && this->maxItem_ == nullptr && this->prefix_ == nullptr && this->quotaName_ == nullptr && this->quotaNickName_ == nullptr
-        && this->region_ == nullptr && this->saleTags_ == nullptr && this->tenantId_ == nullptr && this->type_ == nullptr; };
+        && this->region_ == nullptr && this->saleTags_ == nullptr && this->sortBy_ == nullptr && this->sortOrder_ == nullptr && this->tenantId_ == nullptr
+        && this->type_ == nullptr; };
     // listSystemCatalog Field Functions 
     bool hasListSystemCatalog() const { return this->listSystemCatalog_ != nullptr;};
     void deleteListSystemCatalog() { this->listSystemCatalog_ = nullptr;};
@@ -106,6 +111,20 @@ namespace Models
     inline ListProjectsRequest& setSaleTags(string saleTags) { DARABONBA_PTR_SET_VALUE(saleTags_, saleTags) };
 
 
+    // sortBy Field Functions 
+    bool hasSortBy() const { return this->sortBy_ != nullptr;};
+    void deleteSortBy() { this->sortBy_ = nullptr;};
+    inline string getSortBy() const { DARABONBA_PTR_GET_DEFAULT(sortBy_, "") };
+    inline ListProjectsRequest& setSortBy(string sortBy) { DARABONBA_PTR_SET_VALUE(sortBy_, sortBy) };
+
+
+    // sortOrder Field Functions 
+    bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
+    void deleteSortOrder() { this->sortOrder_ = nullptr;};
+    inline string getSortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, "") };
+    inline ListProjectsRequest& setSortOrder(string sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
+
+
     // tenantId Field Functions 
     bool hasTenantId() const { return this->tenantId_ != nullptr;};
     void deleteTenantId() { this->tenantId_ = nullptr;};
@@ -121,33 +140,33 @@ namespace Models
 
 
   protected:
-    // Specifies whether to list the built-in **SYSTEM_CATALOG** projects that are used to provide data such as project metadata and historical usage data. For more information, see [Tenant-level Information Schema](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tenant-level-information-schema).
-    // 
-    // Valid values:
-    // 
-    // *   true: The built-in SYSTEM_CATALOG projects are listed.
-    // *   false: The built-in SYSTEM_CATALOG projects are not listed.
+    // Specifies whether to list the built-in **SYSTEM_CATALOG** project. This project provides information such as project metadata and usage history. For more information, see <props="intl">[Information Schema](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/tenant-level-information-schema).
     shared_ptr<bool> listSystemCatalog_ {};
-    // The maximum number of entries to return on each page.
+    // The token that specifies the starting point of the query. The results are returned in alphabetical order, starting from the entry that immediately follows the marker.
     shared_ptr<string> marker_ {};
-    // The maximum number of entries per page. Default value: 10.
+    // The maximum number of entries to return on each page. Default value: 10.
     shared_ptr<int32_t> maxItem_ {};
-    // Specifies the marker after which the returned list begins.
+    // The prefix of the resource names to query. For example, if you specify `a` for this parameter, only resources whose names start with "a" are returned.
     shared_ptr<string> prefix_ {};
-    // The quota name that is automatically generated. You can log on to the [MaxCompute console](https://maxcompute.console.aliyun.com), choose **Workspace** > **Quotas** from the left-side navigation pane, and then view the quota name on the **Quotas** page.
+    // The quota name. The system automatically generates this name. To obtain the quota name, log in to the [MaxCompute console](https://maxcompute.console.aliyun.com) and select **Workspace** > **Quota** **Management** from the navigation pane on the left.
     shared_ptr<string> quotaName_ {};
-    // The quota nickname. You can log on to the [MaxCompute console](https://maxcompute.console.aliyun.com), choose **Workspace** > **Quotas** from the left-side navigation pane, and then view the quota nickname on the **Quotas** page.
+    // The quota nickname. To obtain the quota nickname, log in to the [MaxCompute console](https://maxcompute.console.aliyun.com) and select **Workspace** > **Quota** **Management** from the navigation pane on the left.
     shared_ptr<string> quotaNickName_ {};
     // The region ID.
     shared_ptr<string> region_ {};
-    // The instance ID and billing method of the default computing quota.
+    // The instance ID and billing method of the default compute quota.
     shared_ptr<string> saleTags_ {};
-    // The tenant ID. You can log on to the [MaxCompute console](https://maxcompute.console.aliyun.com), and choose **Tenants** > **Tenant Property** from the left-side navigation pane to view the tenant ID.
+    // The sort field. The only supported value is `createdTime`.
+    shared_ptr<string> sortBy_ {};
+    // The sort order. This parameter takes effect only when `sortBy` is specified. Valid values are `ASC` and `DESC`. The values are case-insensitive.
+    shared_ptr<string> sortOrder_ {};
+    // The tenant ID. To obtain the ID, log in to the [MaxCompute console](https://maxcompute.console.aliyun.com) and select **Tenant Management** > **Tenant Properties** from the navigation pane on the left.
     shared_ptr<string> tenantId_ {};
     // The project type. Valid values:
     // 
-    // *   **managed**: internal project
-    // *   **external**: external project
+    // - **managed**: a managed project.
+    // 
+    // - **external**: an external project.
     shared_ptr<string> type_ {};
   };
 

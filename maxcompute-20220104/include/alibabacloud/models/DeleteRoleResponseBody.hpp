@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The returned data. A value of `success` indicates that the operation succeeded.
     shared_ptr<string> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

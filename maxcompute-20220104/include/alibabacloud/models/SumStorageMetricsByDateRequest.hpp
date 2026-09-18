@@ -69,9 +69,17 @@ namespace Models
 
 
   protected:
+    // The end of the time range to query. The value must be a timestamp in milliseconds. This parameter is required.
     shared_ptr<int64_t> endDate_ {};
+    // The project names. If this parameter is not specified, the data of all projects is returned.
     shared_ptr<vector<string>> projectNames_ {};
+    // The beginning of the time range to query. The value must be a timestamp in milliseconds. This parameter is required.
     shared_ptr<int64_t> startDate_ {};
+    // The dimension for aggregating storage metrics. This parameter is required. Valid values:
+    // 
+    // - `PROJECT`
+    // 
+    // - `STORAGE_TYPE`
     shared_ptr<string> statsType_ {};
   };
 

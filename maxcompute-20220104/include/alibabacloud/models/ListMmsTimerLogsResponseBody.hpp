@@ -131,11 +131,17 @@ namespace Models
 
 
       protected:
+        // The logged action for the migration job created by the scheduled task.
         shared_ptr<string> action_ {};
+        // The creation time of the log entry.
         shared_ptr<string> createTime_ {};
+        // The ID of the asynchronous task for the migration job created by the scheduled task.
         shared_ptr<int64_t> id_ {};
+        // A detailed message about the action.
         shared_ptr<string> msg_ {};
+        // The ID of the data source.
         shared_ptr<int64_t> sourceId_ {};
+        // The status of the migration job created by the scheduled task.
         shared_ptr<string> status_ {};
       };
 
@@ -172,9 +178,13 @@ namespace Models
 
 
     protected:
+      // The list of logs.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -197,7 +207,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListMmsTimerLogsResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

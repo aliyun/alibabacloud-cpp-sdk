@@ -113,9 +113,13 @@ namespace Models
 
 
       protected:
+        // The cost.
         shared_ptr<string> cost_ {};
+        // The currency.
         shared_ptr<string> currency_ {};
+        // The item name. When the request\\"s `statsType` is `PROJECT`, this is the instance name. When `statsType` is `FEE_ITEM`, this is the billable item type (for example, `DRStorage`, `ComputationSql`, or `Storage`).
         shared_ptr<string> itemName_ {};
+        // The percentage of the total cost that this item represents. The value does not include a percent sign (%).
         shared_ptr<double> percentage_ {};
       };
 
@@ -145,8 +149,11 @@ namespace Models
 
 
     protected:
+      // The currency used for all cost values.
       shared_ptr<string> currency_ {};
+      // A list of billable items.
       shared_ptr<vector<Data::ItemBills>> itemBills_ {};
+      // The total cost of all returned billable items.
       shared_ptr<string> totalCost_ {};
     };
 
@@ -176,8 +183,11 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<SumBillsResponseBody::Data> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -269,26 +269,47 @@ namespace Models
 
 
       protected:
+        // The time when the task was created.
         shared_ptr<string> createTime_ {};
+        // The source database ID.
         shared_ptr<int64_t> dbId_ {};
+        // The destination MaxCompute project.
         shared_ptr<string> dstDbName_ {};
+        // The destination MaxCompute schema.
         shared_ptr<string> dstSchemaName_ {};
+        // The destination MaxCompute table.
         shared_ptr<string> dstTableName_ {};
+        // The end time of the task.
         shared_ptr<string> endTime_ {};
+        // The migration task ID.
         shared_ptr<int64_t> id_ {};
+        // The migration job ID.
         shared_ptr<int64_t> jobId_ {};
+        // The migration job name.
         shared_ptr<string> jobName_ {};
+        // The number of retries that have been performed.
         shared_ptr<int32_t> retriedTimes_ {};
+        // Indicates whether the task is running.
         shared_ptr<bool> running_ {};
+        // The data source ID.
         shared_ptr<int64_t> sourceId_ {};
+        // The data source name.
         shared_ptr<string> sourceName_ {};
+        // The source database name.
         shared_ptr<string> srcDbName_ {};
+        // The source schema name in a three-level namespace.
         shared_ptr<string> srcSchemaName_ {};
+        // The source table name.
         shared_ptr<string> srcTableName_ {};
+        // The start time of the task.
         shared_ptr<string> startTime_ {};
+        // The migration task status.
         shared_ptr<string> status_ {};
+        // Indicates whether the task is stopped.
         shared_ptr<bool> stopped_ {};
+        // The source table ID.
         shared_ptr<int64_t> tableId_ {};
+        // The task type.
         shared_ptr<string> type_ {};
       };
 
@@ -325,9 +346,13 @@ namespace Models
 
 
     protected:
+      // The list of migration tasks.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of records.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -350,7 +375,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListMmsTasksResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

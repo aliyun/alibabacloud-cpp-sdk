@@ -241,15 +241,25 @@ namespace Models
 
 
         protected:
+          // The description of the configuration.
           shared_ptr<string> desc_ {};
+          // A list of valid values for the configuration.
           shared_ptr<vector<string>> enums_ {};
+          // The configuration group.
           shared_ptr<string> group_ {};
+          // The unique key for the configuration.
           shared_ptr<string> key_ {};
+          // The configuration name.
           shared_ptr<string> name_ {};
+          // A placeholder for the configuration value.
           shared_ptr<string> placeHolder_ {};
+          // Indicates whether the configuration is required.
           shared_ptr<bool> required_ {};
+          // The required file extension (for example, `.keytab`) when `type` is `file`.
           shared_ptr<string> subType_ {};
+          // The configuration type.
           shared_ptr<string> type_ {};
+          // The configuration value.
           Darabonba::Json value_ {};
         };
 
@@ -446,31 +456,55 @@ namespace Models
 
 
       protected:
+        // Indicates whether the agent for the data source instance is online.
         shared_ptr<bool> agentIsOnline_ {};
+        // A list of data source configurations.
         shared_ptr<vector<ObjectList::Config>> config_ {};
+        // The time the data source was created.
         shared_ptr<string> createTime_ {};
+        // The number of databases in the data source.
         shared_ptr<int32_t> dbNum_ {};
+        // The default destination MaxCompute project.
         shared_ptr<string> dstProject_ {};
+        // A list of destination MaxCompute projects.
         shared_ptr<vector<string>> dstProjects_ {};
+        // The reason the data source instance failed to start or stop. This parameter is returned only if the `status` is `START_FAILED` or `STOP_FAILED`.
         shared_ptr<string> errMsg_ {};
+        // The data source ID.
         shared_ptr<int64_t> id_ {};
+        // The last metadata synchronization time.
         shared_ptr<string> lastUpdateTime_ {};
+        // The data source name.
         shared_ptr<string> name_ {};
+        // The network connection, specified in the `VpcId:RegionId` format.
         shared_ptr<string> networklink_ {};
+        // The number of partitions in the data source.
         shared_ptr<int32_t> partitionNum_ {};
+        // The number of partitions currently being migrated.
         shared_ptr<int32_t> partitionsDoingNum_ {};
+        // The number of successfully migrated partitions.
         shared_ptr<int32_t> partitionsDoneNum_ {};
+        // The number of partitions that failed to migrate.
         shared_ptr<int32_t> partitionsFailedNum_ {};
+        // The region ID.
         shared_ptr<string> region_ {};
         shared_ptr<string> scanErrMsg_ {};
+        // The ID of the metadata synchronization task.
         shared_ptr<int64_t> scanId_ {};
         shared_ptr<string> scanStatus_ {};
+        // The data source status.
         shared_ptr<string> status_ {};
+        // The number of tables in the data source.
         shared_ptr<int32_t> tableNum_ {};
+        // The number of tables currently being migrated.
         shared_ptr<int32_t> tablesDoingNum_ {};
+        // The number of successfully migrated tables.
         shared_ptr<int32_t> tablesDoneNum_ {};
+        // The number of tables that failed to migrate.
         shared_ptr<int32_t> tablesFailedNum_ {};
+        // The number of partially migrated tables.
         shared_ptr<int32_t> tablesPartDoneNum_ {};
+        // The data source type.
         shared_ptr<string> type_ {};
       };
 
@@ -507,9 +541,13 @@ namespace Models
 
 
     protected:
+      // The list of data sources.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of data sources.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -532,7 +570,9 @@ namespace Models
 
 
   protected:
+    // The response payload.
     shared_ptr<ListMmsDataSourcesResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

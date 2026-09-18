@@ -35,6 +35,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Properties& obj) { 
         DARABONBA_PTR_TO_JSON(allowFullScan, allowFullScan_);
+        DARABONBA_PTR_TO_JSON(enableDataMasking, enableDataMasking_);
         DARABONBA_PTR_TO_JSON(enableDecimal2, enableDecimal2_);
         DARABONBA_PTR_TO_JSON(enableDr, enableDr_);
         DARABONBA_PTR_TO_JSON(enableTunnelQuotaRoute, enableTunnelQuotaRoute_);
@@ -48,6 +49,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Properties& obj) { 
         DARABONBA_PTR_FROM_JSON(allowFullScan, allowFullScan_);
+        DARABONBA_PTR_FROM_JSON(enableDataMasking, enableDataMasking_);
         DARABONBA_PTR_FROM_JSON(enableDecimal2, enableDecimal2_);
         DARABONBA_PTR_FROM_JSON(enableDr, enableDr_);
         DARABONBA_PTR_FROM_JSON(enableTunnelQuotaRoute, enableTunnelQuotaRoute_);
@@ -109,11 +111,11 @@ namespace Models
 
       protected:
         // The lifecycle type. Valid values:
-        // - *mandatory*: The lifecycle clause is required in a table creation statement.
-        // - *optional*: The lifecycle clause is optional in a table creation statement. If you do not configure a lifecycle for a table, the table does not expire.
-        // - *inherit*: If you do not configure a lifecycle for a table when you create the table, the value of the odps.table.lifecycle.value parameter is used as the table lifecycle by default.
+        // - **mandatory**: The Lifecycle clause is required. You must configure the lifecycle of a table.
+        // - **optional**: The Lifecycle clause is optional when you create a table. If the lifecycle of a table is not configured, the table is permanently valid.
+        // - **inherit**: If the lifecycle of a table is not configured when you create a table, the lifecycle of the table is set to the value of odps.table.lifecycle.value.
         shared_ptr<string> type_ {};
-        // The table lifecycle. Unit: days. Valid values: 1 to 37231. Default value: 37231.
+        // The lifecycle of a table. Unit: days. Valid values: 1 to 37231. Default value: 37231.
         shared_ptr<string> value_ {};
       };
 
@@ -164,24 +166,32 @@ namespace Models
 
 
       protected:
-        // The data encryption algorithm that is supported by the key. Valid values: AES256, AESCTR, and RC4.
+        // The data encryption algorithm. The supported encryption algorithms include AES256, AESCTR, and RC4.
         shared_ptr<string> algorithm_ {};
-        // Indicates whether the data encryption feature needs to be enabled for the project. For more information about data encryption, see
+        // Specifies whether to enable data encryption for the project. For more information about data encryption, see
         // <props="china">[Storage Encryption](https://help.aliyun.com/zh/maxcompute/security-and-compliance/storage-encryption)
         // <props="intl">[Storage Encryption](https://www.alibabacloud.com/help/zh/maxcompute/security-and-compliance/storage-encryption).
         shared_ptr<bool> enable_ {};
-        // The type of key that is used for data encryption. You can select MaxCompute Default Key or Bring Your Own Key (BYOK) as the key type. If you select MaxCompute Default Key, the default key that is created by MaxCompute is used.
+        // The type of key used for data encryption, including the default key (MaxCompute Default Key) and Bring Your Own Key (BYOK). The default key (MaxCompute Default Key) is a default key created internally by MaxCompute.
         shared_ptr<string> key_ {};
       };
 
       virtual bool empty() const override { return this->allowFullScan_ == nullptr
-        && this->enableDecimal2_ == nullptr && this->enableDr_ == nullptr && this->enableTunnelQuotaRoute_ == nullptr && this->encryption_ == nullptr && this->retentionDays_ == nullptr
-        && this->sqlMeteringMax_ == nullptr && this->tableLifecycle_ == nullptr && this->timezone_ == nullptr && this->tunnelQuota_ == nullptr && this->typeSystem_ == nullptr; };
+        && this->enableDataMasking_ == nullptr && this->enableDecimal2_ == nullptr && this->enableDr_ == nullptr && this->enableTunnelQuotaRoute_ == nullptr && this->encryption_ == nullptr
+        && this->retentionDays_ == nullptr && this->sqlMeteringMax_ == nullptr && this->tableLifecycle_ == nullptr && this->timezone_ == nullptr && this->tunnelQuota_ == nullptr
+        && this->typeSystem_ == nullptr; };
       // allowFullScan Field Functions 
       bool hasAllowFullScan() const { return this->allowFullScan_ != nullptr;};
       void deleteAllowFullScan() { this->allowFullScan_ = nullptr;};
       inline bool getAllowFullScan() const { DARABONBA_PTR_GET_DEFAULT(allowFullScan_, false) };
       inline Properties& setAllowFullScan(bool allowFullScan) { DARABONBA_PTR_SET_VALUE(allowFullScan_, allowFullScan) };
+
+
+      // enableDataMasking Field Functions 
+      bool hasEnableDataMasking() const { return this->enableDataMasking_ != nullptr;};
+      void deleteEnableDataMasking() { this->enableDataMasking_ = nullptr;};
+      inline bool getEnableDataMasking() const { DARABONBA_PTR_GET_DEFAULT(enableDataMasking_, false) };
+      inline Properties& setEnableDataMasking(bool enableDataMasking) { DARABONBA_PTR_SET_VALUE(enableDataMasking_, enableDataMasking) };
 
 
       // enableDecimal2 Field Functions 
@@ -259,39 +269,42 @@ namespace Models
 
 
     protected:
-      // Indicates whether a full table scan is allowed in the project. A full table scan occupies a large number of resources, which reduces data processing efficiency. By default, the full table scan feature is disabled.
+      // Specifies whether to allow full table scans in the project. Full table scans consume a large amount of resources. To improve processing efficiency, this feature is disabled by default.
       shared_ptr<bool> allowFullScan_ {};
-      // Indicates whether the DECIMAL type of the MaxCompute V2.0 data type edition is enabled.
+      shared_ptr<bool> enableDataMasking_ {};
+      // Specifies whether to enable the Decimal data type of MaxCompute 2.0 for the project.
       shared_ptr<bool> enableDecimal2_ {};
       shared_ptr<bool> enableDr_ {};
-      // Indicates whether the routing of the Tunnel resource group is enabled.
-      // 
-      // - true: The data transfer tasks that are submitted by the project by default use the Tunnel resource group that is bound to the project.
-      // - false: The data transfer tasks that are submitted by the project by default use the Tunnel shared resource group.
+      // Specifies whether to enable resource group routing for the data transfer service.
+      // - true: The data transfer tasks submitted by this project use the bound data transfer service resource group by default.
+      // - false: The data transfer tasks submitted by this project use the shared data transfer service resource group by default.
       shared_ptr<bool> enableTunnelQuotaRoute_ {};
       // The storage encryption properties.
       shared_ptr<Properties::Encryption> encryption_ {};
-      // The retention period for backup data. Unit: days. During the retention period, you can restore data of the version in use to the backup data of any version. Valid values: [0,30]. Default value: 1. The value 0 indicates that the backup feature is disabled.
+      // The number of days to retain backup data. During this period, you can restore the current version to any backed-up data version.
+      // Valid values: [0, 30]. Default value: 1. A value of 0 indicates that the backup feature is disabled.
       shared_ptr<int64_t> retentionDays_ {};
-      // The maximum consumption threshold of a single SQL statement. Formula: Amount of scanned data (GB) × Complexity.
+      // The maximum threshold for a single SQL statement consumption.
+      // Unit: scan volume (GB) × complexity.
       shared_ptr<string> sqlMeteringMax_ {};
-      // The table lifecycle properties.
+      // The lifecycle properties of tables.
       shared_ptr<Properties::TableLifecycle> tableLifecycle_ {};
-      // The time zone that is used by your project. The time zone is the same as the time zone specified by `odps.sql.timezone` .
+      // The time zone of the project, which is the `odps.sql.timezone` property.
       shared_ptr<string> timezone_ {};
-      // The <props="china">[Data Transmission Service](https://help.aliyun.com/zh/maxcompute/user-guide/overview-of-dts)
-      // <props="intl">[Data Transmission Service](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/overview-of-dts) resource group that is bound to the project.
+      // The <props="china">[Data Transfer Service](https://help.aliyun.com/zh/maxcompute/user-guide/overview-of-dts)
+      // <props="intl">[Data Transfer Service](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/overview-of-dts) resource group bound to the project.
       // 
-      // - Default resource group: The Tunnel shared resource group is used. You cannot use the subscription-based Tunnel resource group for the project. The default resource group is automatically used by the Tunnel service of your project, regardless of the parameter setting.
-      // - Subscription-based Tunnel resource group: You can use the subscription-based Tunnel resource group for the project.
+      // - Default (shared data transfer service resource group): The project is not allowed to use subscription-based data transfer service resource groups. Regardless of the default data transfer service resource group setting, data transfer tasks submitted by this project automatically use the Default resource group.
+      // 
+      // - Subscription-based data transfer service resource group: The project is allowed to use subscription-based data transfer service resource groups.
       shared_ptr<string> tunnelQuota_ {};
       // The data type edition. Valid values:
+      // - **1**: Edition 1.0
+      // - **2**: Edition 2.0
+      // - **hive**: Hive-compatible type
       // 
-      // - *1*: MaxCompute V1.0 data type edition
-      // - *2*: MaxCompute V2.0 data type edition
-      // - *hive*: Hive-compatible data type edition
-      // For more information about the differences among the three data type editions, see <props="china">[Data Type Versions](https://help.aliyun.com/zh/maxcompute/user-guide/data-type-editions)
-      // <props="intl">[Data Type Versions](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/data-type-editions).
+      // For more information about the differences among the three data type editions, see <props="china">[Data Type Editions](https://help.aliyun.com/zh/maxcompute/user-guide/data-type-editions)
+      // <props="intl">[Data Type Editions](https://www.alibabacloud.com/help/zh/maxcompute/user-guide/data-type-editions).
       shared_ptr<string> typeSystem_ {};
     };
 

@@ -210,16 +210,27 @@ namespace Models
 
 
       protected:
+        // A map of source column names to destination column names.
         shared_ptr<map<string, string>> columnMapping_ {};
+        // Whether to migrate table data.
         shared_ptr<bool> enableDataMigration_ {};
+        // Whether to migrate the table schema.
         shared_ptr<bool> enableSchemaMigration_ {};
+        // Whether to enable verification. The system performs verification by running a `SELECT COUNT(*)` query on both the source and destination to compare the row count.
         shared_ptr<bool> enableVerification_ {};
+        // Other configurations.
         Darabonba::Json others_ {};
+        // A map of table names to their corresponding partition filter expressions.
         shared_ptr<map<string, string>> partitionFilters_ {};
+        // If `type` is set to `Partitions`, this parameter specifies a list of partition IDs to migrate.
         shared_ptr<vector<int64_t>> partitions_ {};
+        // If `type` is set to `Database`, this parameter specifies a table deny list. Tables on this list are excluded from the migration.
         shared_ptr<vector<string>> tableBlackList_ {};
+        // A map of source table names to destination table names.
         shared_ptr<map<string, string>> tableMapping_ {};
+        // If `type` is set to `Database`, this parameter specifies a table allowlist. If this parameter is not specified, all tables in the database are migrated.
         shared_ptr<vector<string>> tableWhiteList_ {};
+        // If `type` is set to `Tables`, this parameter specifies a list of table names to migrate.
         shared_ptr<vector<string>> tables_ {};
       };
 
@@ -314,17 +325,29 @@ namespace Models
 
 
     protected:
+      // The configuration of the migration job.
       shared_ptr<Data::Config> config_ {};
+      // The creation time of the scheduled task. This is a Unix timestamp in milliseconds.
       shared_ptr<string> createTime_ {};
+      // The ID of the source database.
       shared_ptr<int64_t> dbId_ {};
+      // The ID of the scheduled task.
       shared_ptr<int64_t> id_ {};
+      // The name of the scheduled task.
       shared_ptr<string> name_ {};
+      // The scheduling type of the scheduled task. Valid values: `Daily` and `Hourly`.
       shared_ptr<string> scheduleType_ {};
+      // The ID of the data source.
       shared_ptr<int64_t> sourceId_ {};
+      // The name of the source database.
       shared_ptr<string> srcDbName_ {};
+      // Indicates whether the scheduled task is stopped.
       shared_ptr<bool> stopped_ {};
+      // The type of the scheduled task.
       shared_ptr<string> type_ {};
+      // The last update time of the scheduled task, in ISO 8601 format.
       shared_ptr<string> updateTime_ {};
+      // The scheduling time. If `scheduleType` is `Daily`, the value is in the `HH:MM` format. If `scheduleType` is `Hourly`, the value is in the `MM` format.
       shared_ptr<string> value_ {};
     };
 
@@ -347,7 +370,9 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<GetMmsTimerResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

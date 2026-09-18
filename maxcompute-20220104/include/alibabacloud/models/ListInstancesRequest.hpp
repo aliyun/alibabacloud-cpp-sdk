@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The end time of the time range for cost analysis.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> endDate_ {};
+    // The start time of the time range for cost analysis.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> startDate_ {};
   };

@@ -89,12 +89,17 @@ namespace Models
 
 
   protected:
+    // The name of the database that contains the source tables to be updated.
     shared_ptr<string> dbName_ {};
+    // The destination MaxCompute project.
     shared_ptr<string> dstProjectName_ {};
+    // The destination MaxCompute schema.
     shared_ptr<string> dstSchemaName_ {};
+    // The migration status.
     shared_ptr<string> status_ {};
+    // The list of source tables to be updated.
     shared_ptr<vector<string>> tableNames_ {};
-    // Deprecated
+    // This parameter is deprecated.
     shared_ptr<vector<int64_t>> tables_ {};
   };
 

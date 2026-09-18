@@ -102,8 +102,11 @@ namespace Models
 
 
       protected:
+        // The statistics date. The format is yyyyMMdd.
         shared_ptr<string> dateTime_ {};
+        // This day\\"s usage as a percentage of the total usage for the specified period. The value does not include a percent sign (%).
         shared_ptr<double> percentage_ {};
+        // The record count.
         shared_ptr<string> record_ {};
       };
 
@@ -126,7 +129,9 @@ namespace Models
 
 
     protected:
+      // A list of daily usage records.
       shared_ptr<vector<Data::DailyComputeRecords>> dailyComputeRecords_ {};
+      // The usage type. For example: ComputationSql
       shared_ptr<string> type_ {};
     };
 
@@ -156,8 +161,21 @@ namespace Models
 
 
   protected:
+    // The response data.
     shared_ptr<vector<SumComputeMetricsByRecordResponseBody::Data>> data_ {};
+    // The HTTP status code.
+    // 
+    // - 1xx: Informational. The server has received the request and is processing it.
+    // 
+    // - 2xx: Success. The server successfully received, understood, and accepted the request.
+    // 
+    // - 3xx: Redirection. The client must take further action to complete the request.
+    // 
+    // - 4xx: Client-side error. The request contains invalid syntax or parameters and cannot be fulfilled.
+    // 
+    // - 5xx: Server-side error. The server failed to fulfill a valid request.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

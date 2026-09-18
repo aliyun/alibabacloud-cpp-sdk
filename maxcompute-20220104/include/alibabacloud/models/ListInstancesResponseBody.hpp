@@ -62,6 +62,7 @@ namespace Models
 
 
     protected:
+      // The project name.
       shared_ptr<string> name_ {};
     };
 
@@ -91,8 +92,11 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<vector<ListInstancesResponseBody::Data>> data_ {};
+    // Indicates whether the request was successful. If the value of this parameter is not 200, the request failed.
     shared_ptr<int32_t> httpCode_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The ID of the asynchronous task that is created for the migration job.
       shared_ptr<int64_t> asyncTaskId_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<CreateMmsJobResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -168,15 +168,25 @@ namespace Models
 
 
       protected:
+        // The creation time.
         shared_ptr<string> createTime_ {};
+        // The source database ID.
         shared_ptr<int64_t> dbId_ {};
+        // The timer ID.
         shared_ptr<int64_t> id_ {};
+        // The timer name.
         shared_ptr<string> name_ {};
+        // The schedule type.
         shared_ptr<string> scheduleType_ {};
+        // The data source ID.
         shared_ptr<int64_t> sourceId_ {};
+        // The source database name.
         shared_ptr<string> srcDbName_ {};
+        // Indicates whether the timer is stopped.
         shared_ptr<bool> stopped_ {};
+        // The job type.
         shared_ptr<string> type_ {};
+        // The schedule time.
         shared_ptr<string> value_ {};
       };
 
@@ -213,9 +223,13 @@ namespace Models
 
 
     protected:
+      // A list of timers.
       shared_ptr<vector<Data::ObjectList>> objectList_ {};
+      // The page number.
       shared_ptr<int32_t> pageNum_ {};
+      // The number of entries on the current page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> total_ {};
     };
 
@@ -238,7 +252,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListMmsTimersResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

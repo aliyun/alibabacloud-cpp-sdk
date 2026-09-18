@@ -122,19 +122,22 @@ namespace Models
 
         protected:
           // The value of elastic Reserved CUs.
+          // 
           // > The total number of elastically reserved CUs in all the level-2 quotas is equal to the number of elastically reserved CUs in the level-1 quota.
           // 
           // This parameter is required.
           shared_ptr<int64_t> elasticReservedCU_ {};
           // The value of maxCU in Reserved CUs.
+          // 
           // > The value of maxCU must be less than or equal to the value of maxCU in the level-1 quota that you purchased.
           // 
           // This parameter is required.
           shared_ptr<int64_t> maxCU_ {};
           // The value of minCU in Reserved CUs.
-          // > 
-          // >- The total value of minCU in all the level-2 quotas is equal to the value of minCU in the level-1 quota.
-          // >- The value of minCU must be less than or equal to the value of maxCU in the level-2 quota and less than or equal to the value of minCU in the level-1 quota that you purchased.
+          // 
+          // > - The total value of minCU in all the level-2 quotas is equal to the value of minCU in the level-1 quota.
+          // >
+          // > - The value of minCU must be less than or equal to the value of maxCU in the level-2 quota and less than or equal to the value of minCU in the level-1 quota that you purchased.
           // 
           // This parameter is required.
           shared_ptr<int64_t> minCU_ {};
@@ -196,6 +199,7 @@ namespace Models
 
       protected:
         // The value of elastic Reserved CUs in the level-1 quota.
+        // 
         // > The default value is 0. The maximum value of this parameter must be equal to the number of subscription-based reserved CUs and cannot exceed 10,000 CUs.
         // 
         // This parameter is required.

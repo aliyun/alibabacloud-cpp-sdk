@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The timer name.
     shared_ptr<string> name_ {};
+    // The page number.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The source database name.
     shared_ptr<string> srcDbName_ {};
+    // The source table name.
     shared_ptr<string> srcTableName_ {};
+    // Filters timers by their stopped state.
     shared_ptr<bool> stopped_ {};
   };
 

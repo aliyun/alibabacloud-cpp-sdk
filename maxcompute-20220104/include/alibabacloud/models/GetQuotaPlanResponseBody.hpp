@@ -304,8 +304,9 @@ namespace Models
           protected:
             // The billing method of the quota. Valid values:
             // 
-            // *   subscription: a subscription quota.
-            // *   payasyougo: a pay-as-you-go quota.
+            // - subscription: a subscription quota.
+            // 
+            // - payasyougo: a pay-as-you-go quota.
             shared_ptr<string> billingMethod_ {};
             // The specifications of the order.
             shared_ptr<string> odpsSpecCode_ {};
@@ -619,8 +620,9 @@ namespace Models
         protected:
           // The billing method of the quota. Valid values:
           // 
-          // *   subscription: a subscription quota.
-          // *   payasyougo: a pay-as-you-go quota.
+          // - subscription: a subscription quota.
+          // 
+          // - payasyougo: a pay-as-you-go quota.
           shared_ptr<string> billingMethod_ {};
           // The specifications of the order.
           shared_ptr<string> odpsSpecCode_ {};

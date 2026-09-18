@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The language for the descriptions of the configuration items. Defaults to Chinese (`zh_CN`).
     shared_ptr<string> lang_ {};
+    // The data source type.
+    // 
     // This parameter is required.
     shared_ptr<string> sourceType_ {};
   };

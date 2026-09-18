@@ -66,11 +66,25 @@ namespace Models
 
 
   protected:
+    // The billing method. Valid values: payasyougo (pay-as-you-go) and subscription.
+    // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
+    // The commodity code. Example: On Alibaba Cloud China Website (www.aliyun.com), the commodity code for pay-as-you-go is odps and the commodity code for subscription is odpsplus. On Alibaba Cloud International Website (www.alibabacloud.com), the commodity code for pay-as-you-go is odps_intl and the commodity code for subscription is odpsplus_intl.
+    // 
     // This parameter is required.
     shared_ptr<string> commodityCode_ {};
+    // The commodity specifications of the quota.
+    // 
+    // >Notice: 
+    // 
+    // - This parameter is required only for subscription quotas.
+    // The minimum unit for cu is 50.
+    // ord_time supports monthly (month) and yearly (year) billing.
+    // 
+    // - After creation, commodityData cannot be modified. To modify it, go to the MaxCompute console.
     shared_ptr<string> commodityData_ {};
+    // >Notice: This parameter is required only for subscription quotas.
     shared_ptr<string> partNickName_ {};
   };
 

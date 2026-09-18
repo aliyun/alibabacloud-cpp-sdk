@@ -48,8 +48,9 @@ namespace Models
 
 
   protected:
-    // timer id
+    // The ID of the timer.
     shared_ptr<int64_t> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

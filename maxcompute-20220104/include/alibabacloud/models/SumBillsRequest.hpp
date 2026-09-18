@@ -78,10 +78,15 @@ namespace Models
 
 
   protected:
+    // The end time of the billing cycle.
     shared_ptr<int64_t> endDate_ {};
+    // A list of instance names. This parameter is not required if `statsType` is set to `FEE_ITEM`.
     shared_ptr<vector<string>> projectNames_ {};
+    // The start time of the billing cycle.
     shared_ptr<int64_t> startDate_ {};
+    // The dimension by which to summarize costs. Valid values: `PROJECT` (by instance) and `FEE_ITEM` (by billable item).
     shared_ptr<string> statsType_ {};
+    // The number of top results to return after sorting by cost.
     shared_ptr<int32_t> topN_ {};
   };
 

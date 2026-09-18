@@ -158,16 +158,27 @@ namespace Models
 
 
     protected:
+      // The description of the configuration item.
       shared_ptr<string> desc_ {};
+      // The enumerated values for the configuration item.
       shared_ptr<vector<string>> enums_ {};
+      // The group to which the configuration item belongs.
       shared_ptr<string> group_ {};
+      // The key of the configuration item.
       shared_ptr<string> key_ {};
+      // The name of the configuration item.
       shared_ptr<string> name_ {};
+      // The placeholder for the configuration value.
       shared_ptr<string> placeHolder_ {};
+      // Indicates whether the configuration item is required.
       shared_ptr<bool> required_ {};
+      // The sub-items of the configuration item.
       Darabonba::Json subItems_ {};
+      // The file type. This parameter is valid only when `type` is `file`. For example, .keytab.
       shared_ptr<string> subType_ {};
+      // The data type of the configuration item.
       shared_ptr<string> type_ {};
+      // The value of the configuration item.
       Darabonba::Json value_ {};
     };
 
@@ -190,7 +201,9 @@ namespace Models
 
 
   protected:
+    // A list of configuration items.
     shared_ptr<vector<ListMmsDataSourceConfigItemsResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

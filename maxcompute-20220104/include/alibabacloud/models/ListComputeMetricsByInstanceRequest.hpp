@@ -128,25 +128,25 @@ namespace Models
 
 
   protected:
-    // The end time for the period.
+    // The end date. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endDate_ {};
-    // The job(instance) ID.
+    // The job ID.
     shared_ptr<string> instanceId_ {};
-    // The Alibaba Cloud account that is used to run the MaxCompute job.
+    // The job owner.
     shared_ptr<string> jobOwner_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
-    // The name of MaxCompute project.
+    // The project name.
     shared_ptr<vector<string>> projectNames_ {};
-    // The signature of the SQL job.
+    // The SQL job signature.
     shared_ptr<string> signature_ {};
-    // Specification types.
+    // The specification types.
     shared_ptr<vector<string>> specCodes_ {};
-    // The start time for the period.
+    // The start date. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> startDate_ {};
-    // Metering types.
+    // The metering types.
     shared_ptr<vector<string>> types_ {};
   };
 
