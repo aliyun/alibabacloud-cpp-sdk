@@ -139,9 +139,9 @@ namespace Models
       shared_ptr<string> name_ {};
       // The unique ID of the robot.
       shared_ptr<string> robotId_ {};
-      // The signature key of the robot.
+      // The signing key of the robot.
       shared_ptr<string> robotSignKey_ {};
-      // The robot type.
+      // The robot types.
       shared_ptr<string> type_ {};
       // The webhook URL of the robot.
       shared_ptr<string> url_ {};
@@ -195,7 +195,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The robot ID.
+    // The robot IDs.
     shared_ptr<vector<ListAlertRobotsResponseBody::Robots>> robots_ {};
     // The total number of records.
     shared_ptr<int64_t> total_ {};

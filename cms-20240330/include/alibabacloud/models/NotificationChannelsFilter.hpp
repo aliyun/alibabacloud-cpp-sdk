@@ -109,12 +109,19 @@ namespace Models
 
 
   protected:
+    // The alert contact list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.contacts.
     shared_ptr<vector<string>> containsContacts_ {};
+    // The custom webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.customWebhooks.
     shared_ptr<vector<string>> containsCustomWebhooks_ {};
+    // The DingTalk webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.dingWebhooks.
     shared_ptr<vector<string>> containsDingWebhooks_ {};
+    // The Lark webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.fsWebhooks.
     shared_ptr<vector<string>> containsFsWebhooks_ {};
+    // The alert contact group list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.groups.
     shared_ptr<vector<string>> containsGroups_ {};
+    // The Slack webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.slackWebhooks.
     shared_ptr<vector<string>> containsSlackWebhooks_ {};
+    // The WeCom webhook list of the rule contains any value in the array (OR semantics), corresponding to V1 notification.wxWebhooks.
     shared_ptr<vector<string>> containsWxWebhooks_ {};
   };
 

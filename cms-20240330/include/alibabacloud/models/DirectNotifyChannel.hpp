@@ -51,8 +51,12 @@ namespace Models
 
 
   protected:
+    // The list of Notification Recipient identifiers.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> identifiers_ {};
+    // The notification channel type.
+    // 
     // This parameter is required.
     shared_ptr<string> type_ {};
   };

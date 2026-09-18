@@ -211,6 +211,9 @@
 #include <alibabacloud/models/CreateAggTaskGroupRequest.hpp>
 #include <alibabacloud/models/CreateAggTaskGroupResponseBody.hpp>
 #include <alibabacloud/models/CreateAggTaskGroupResponse.hpp>
+#include <alibabacloud/models/CreateAlertRobotRequest.hpp>
+#include <alibabacloud/models/CreateAlertRobotResponseBody.hpp>
+#include <alibabacloud/models/CreateAlertRobotResponse.hpp>
 #include <alibabacloud/models/CreateAlertWebhookRequest.hpp>
 #include <alibabacloud/models/CreateAlertWebhookResponseBody.hpp>
 #include <alibabacloud/models/CreateAlertWebhookResponse.hpp>
@@ -285,6 +288,10 @@
 #include <alibabacloud/models/DeleteAggTaskGroupRequest.hpp>
 #include <alibabacloud/models/DeleteAggTaskGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteAggTaskGroupResponse.hpp>
+#include <alibabacloud/models/DeleteAlertRobotsRequest.hpp>
+#include <alibabacloud/models/DeleteAlertRobotsShrinkRequest.hpp>
+#include <alibabacloud/models/DeleteAlertRobotsResponseBody.hpp>
+#include <alibabacloud/models/DeleteAlertRobotsResponse.hpp>
 #include <alibabacloud/models/DeleteAlertWebhooksRequest.hpp>
 #include <alibabacloud/models/DeleteAlertWebhooksShrinkRequest.hpp>
 #include <alibabacloud/models/DeleteAlertWebhooksResponseBody.hpp>
@@ -653,6 +660,9 @@
 #include <alibabacloud/models/UpdateAggTaskGroupStatusRequest.hpp>
 #include <alibabacloud/models/UpdateAggTaskGroupStatusResponseBody.hpp>
 #include <alibabacloud/models/UpdateAggTaskGroupStatusResponse.hpp>
+#include <alibabacloud/models/UpdateAlertRobotRequest.hpp>
+#include <alibabacloud/models/UpdateAlertRobotResponseBody.hpp>
+#include <alibabacloud/models/UpdateAlertRobotResponse.hpp>
 #include <alibabacloud/models/UpdateAlertWebhookRequest.hpp>
 #include <alibabacloud/models/UpdateAlertWebhookResponseBody.hpp>
 #include <alibabacloud/models/UpdateAlertWebhookResponse.hpp>

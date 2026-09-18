@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Matches a log entry if its severity level appears in this array of strings.
+    // The hit condition: the set of severity levels covered by the rule contains at least one level in the array (OR semantics).
     shared_ptr<vector<string>> contains_ {};
   };
 

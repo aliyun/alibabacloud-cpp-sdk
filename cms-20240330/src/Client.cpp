@@ -465,6 +465,79 @@ CreateAggTaskGroupResponse Client::createAggTaskGroup(const string &instanceId, 
 }
 
 /**
+ * @summary Creates an alert robot.
+ *
+ * @param request CreateAlertRobotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAlertRobotResponse
+ */
+CreateAlertRobotResponse Client::createAlertRobotWithOptions(const CreateAlertRobotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDigitalEmployeeName()) {
+    body["digitalEmployeeName"] = request.getDigitalEmployeeName();
+  }
+
+  if (!!request.hasLang()) {
+    body["lang"] = request.getLang();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasRobotId()) {
+    body["robotId"] = request.getRobotId();
+  }
+
+  if (!!request.hasRobotSignKey()) {
+    body["robotSignKey"] = request.getRobotSignKey();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  if (!!request.hasUrl()) {
+    body["url"] = request.getUrl();
+  }
+
+  if (!!request.hasWorkspace()) {
+    body["workspace"] = request.getWorkspace();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateAlertRobot"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/robot")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAlertRobotResponse>();
+}
+
+/**
+ * @summary Creates an alert robot.
+ *
+ * @param request CreateAlertRobotRequest
+ * @return CreateAlertRobotResponse
+ */
+CreateAlertRobotResponse Client::createAlertRobot(const CreateAlertRobotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createAlertRobotWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a webhook.
  *
  * @description Creates a webhook notification recipient.
@@ -1944,6 +2017,61 @@ DeleteAggTaskGroupResponse Client::deleteAggTaskGroup(const string &instanceId, 
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return deleteAggTaskGroupWithOptions(instanceId, groupId, request, headers, runtime);
+}
+
+/**
+ * @summary Deletes an alert chatbot.
+ *
+ * @param tmpReq DeleteAlertRobotsRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAlertRobotsResponse
+ */
+DeleteAlertRobotsResponse Client::deleteAlertRobotsWithOptions(const DeleteAlertRobotsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  DeleteAlertRobotsShrinkRequest request = DeleteAlertRobotsShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasRobotIds()) {
+    request.setRobotIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getRobotIds(), "robotIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasRobotIdsShrink()) {
+    query["robotIds"] = request.getRobotIdsShrink();
+  }
+
+  if (!!request.hasType()) {
+    query["type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAlertRobots"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/robots")},
+    {"method" , "DELETE"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAlertRobotsResponse>();
+}
+
+/**
+ * @summary Deletes an alert chatbot.
+ *
+ * @param request DeleteAlertRobotsRequest
+ * @return DeleteAlertRobotsResponse
+ */
+DeleteAlertRobotsResponse Client::deleteAlertRobots(const DeleteAlertRobotsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return deleteAlertRobotsWithOptions(request, headers, runtime);
 }
 
 /**
@@ -5499,8 +5627,7 @@ ListAlertActionsResponse Client::listAlertActions(const ListAlertActionsRequest 
 /**
  * @summary Queries alert robots.
  *
- * @description This operation can only query alert history from the last year.
- * This topic provides an example of querying the alert history of Elastic Computing Service from the `product` dimension of a cloud service.
+ * @description Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
  *
  * @param tmpReq ListAlertRobotsRequest
  * @param headers map
@@ -5565,8 +5692,7 @@ ListAlertRobotsResponse Client::listAlertRobotsWithOptions(const ListAlertRobots
 /**
  * @summary Queries alert robots.
  *
- * @description This operation can only query alert history from the last year.
- * This topic provides an example of querying the alert history of Elastic Computing Service from the `product` dimension of a cloud service.
+ * @description Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
  *
  * @param request ListAlertRobotsRequest
  * @return ListAlertRobotsResponse
@@ -8317,6 +8443,71 @@ UpdateAggTaskGroupStatusResponse Client::updateAggTaskGroupStatus(const string &
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateAggTaskGroupStatusWithOptions(instanceId, groupId, request, headers, runtime);
+}
+
+/**
+ * @summary Updates an alert robot.
+ *
+ * @param request UpdateAlertRobotRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateAlertRobotResponse
+ */
+UpdateAlertRobotResponse Client::updateAlertRobotWithOptions(const string &robotId, const UpdateAlertRobotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasDigitalEmployeeName()) {
+    body["digitalEmployeeName"] = request.getDigitalEmployeeName();
+  }
+
+  if (!!request.hasLang()) {
+    body["lang"] = request.getLang();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasRobotSignKey()) {
+    body["robotSignKey"] = request.getRobotSignKey();
+  }
+
+  if (!!request.hasType()) {
+    body["type"] = request.getType();
+  }
+
+  if (!!request.hasUrl()) {
+    body["url"] = request.getUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateAlertRobot"},
+    {"version" , "2024-03-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/robot/" , Darabonba::Encode::Encoder::percentEncode(robotId))},
+    {"method" , "PATCH"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateAlertRobotResponse>();
+}
+
+/**
+ * @summary Updates an alert robot.
+ *
+ * @param request UpdateAlertRobotRequest
+ * @return UpdateAlertRobotResponse
+ */
+UpdateAlertRobotResponse Client::updateAlertRobot(const string &robotId, const UpdateAlertRobotRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateAlertRobotWithOptions(robotId, request, headers, runtime);
 }
 
 /**

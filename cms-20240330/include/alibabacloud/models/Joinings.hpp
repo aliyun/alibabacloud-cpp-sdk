@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // The list of join conditions.
+    // The list of join conditions for result sets. The conditions define the matching rules between multiple result sets and are used to merge query results from different data sources based on specified conditions.
     shared_ptr<vector<JoinConditions>> conditions_ {};
-    // The set operation type. Valid values: InnerJoin, LeftJoin, RightJoin, FullJoin, LeftExclude, RightExclude, CrossJoin, NoJoin, and Concat.
+    // The set operation type: InnerJoin / LeftJoin / RightJoin / FullJoin / LeftExclude / RightExclude / CrossJoin / NoJoin / Concat.
     shared_ptr<string> type_ {};
   };
 

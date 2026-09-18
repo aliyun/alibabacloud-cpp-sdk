@@ -318,11 +318,11 @@ namespace Models
     shared_ptr<string> notifyStrategyId_ {};
     // The push settings.
     shared_ptr<SubscriptionForView::PushingSetting> pushingSetting_ {};
-    // Indicates whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace=null). Valid values: true: Subscribed. false or null: Not subscribed.
+    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values: true: Subscribe. false or null: Do not subscribe.
     shared_ptr<bool> subscribeLegacyEvent_ {};
     // The unique identifier of the subscription.
     shared_ptr<string> subscriptionId_ {};
-    // The name.
+    // The name of the subscription.
     // 
     // This parameter is required.
     shared_ptr<string> subscriptionName_ {};

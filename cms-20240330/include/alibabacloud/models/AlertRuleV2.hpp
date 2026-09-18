@@ -337,7 +337,7 @@ namespace Models
     shared_ptr<map<string, string>> annotations_ {};
     // The Application Real-Time Monitoring Service (ARMS) integration configuration.
     shared_ptr<ArmsIntegrationConfig> armsIntegrationConfig_ {};
-    // The business source (read-only), such as managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, or sls.
+    // The business source (read-only, such as managed_service_for_prometheus, umodel, application_insights, cloud_monitoring, or sls).
     shared_ptr<string> bizSource_ {};
     // The detection condition configuration aggregation (Prometheus simple, UModel, APM simple, or APM composite).
     shared_ptr<ConditionConfigUnified> conditionConfig_ {};
@@ -345,13 +345,13 @@ namespace Models
     shared_ptr<string> contentTemplate_ {};
     // The creation time (read-only), in ISO 8601 format.
     shared_ptr<string> createdAt_ {};
-    // The datasource config aggregation (PROMETHEUS, UMODEL, and APM share a single object. Fields are selected based on the type).
+    // The datasource config aggregation (PROMETHEUS, UMODEL, and APM share a single object, with fields selected based on type).
     shared_ptr<DatasourceConfigUnified> datasourceConfig_ {};
     // The data source type (read-only, derived).
     shared_ptr<string> datasourceType_ {};
     // The display name.
     shared_ptr<string> displayName_ {};
-    // Specifies whether the alert rule is enabled.
+    // Indicates whether the alert rule is enabled.
     shared_ptr<bool> enabled_ {};
     // The labels.
     shared_ptr<map<string, string>> labels_ {};
@@ -359,27 +359,27 @@ namespace Models
     shared_ptr<string> managedBy_ {};
     // The notification configuration aggregation (currently only DIRECT_NOTIFY, corresponding to DirectNotifyConfig).
     shared_ptr<NotifyConfigUnified> notifyConfig_ {};
-    // The notification policy ID (read-only, derived). The value is the first entry in the notification policy list.
+    // The notification policy ID (read-only, derived, the first entry in the notification policy list).
     shared_ptr<string> notifyStrategyId_ {};
     // The observable resource configuration.
     shared_ptr<ObserveResourceConfig> observeResourceConfig_ {};
-    // **[Deprecated]** Specifies whether the rule takes effect on all resources of this type (read-only, derived). For new integrations, use observeResourceConfig.relationType and check whether the value is ALL for equivalent semantics.
+    // **[Deprecated]** Indicates whether the rule takes effect on all resources of this type (read-only, derived). For new integrations, use observeResourceConfig.relationType to check whether the value is ALL for equivalent semantics.
     shared_ptr<bool> observeResourceGlobalScope_ {};
     // The list of observable resource IDs (read-only, derived).
     shared_ptr<vector<string>> observeResourceList_ {};
     // **[Deprecated]** The observable resource type (read-only, derived). For new integrations, use observeResourceConfig.entityType instead.
     shared_ptr<string> observeResourceType_ {};
-    // The partition key (read-only). Maintained by the system for rule routing and sharding.
+    // The partition key (read-only, maintained by the system for rule routing and sharding).
     shared_ptr<string> partitionKey_ {};
     // The query configuration aggregation (PROMETHEUS_SINGLE_QUERY, UMODEL_METRICSET_QUERY, or APM_MULTI_QUERY).
     shared_ptr<QueryConfigUnified> queryConfig_ {};
-    // The root cause analysis (RCA) configuration.
+    // The Root Cause Analysis (RCA) configuration.
     shared_ptr<AlertRuleRcaConfig> rcaConfig_ {};
-    // The region ID, aligned with V1 AlertRule.regionId. Priority: regionId in the request body takes precedence over callerRegionId from the gateway.
+    // The region ID (aligned with V1 AlertRule.regionId. Priority: regionId in the request body > callerRegionId from the gateway).
     shared_ptr<string> regionId_ {};
     // The scheduling configuration aggregation (currently only FIXED is supported).
     shared_ptr<ScheduleConfigUnified> scheduleConfig_ {};
-    // The severity levels covered by this rule, separated by commas (read-only, derived). The format is consistent with the filter.severityLevels query parameter.
+    // The severity levels covered by this rule, comma-separated (read-only, derived. Same format as the filter.severityLevels query parameter).
     shared_ptr<string> severityLevels_ {};
     // The alert status (read-only).
     shared_ptr<string> status_ {};

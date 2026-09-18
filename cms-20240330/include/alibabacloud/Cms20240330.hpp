@@ -115,6 +115,24 @@ namespace Cms20240330
       Models::CreateAggTaskGroupResponse createAggTaskGroup(const string &instanceId, const Models::CreateAggTaskGroupRequest &request);
 
       /**
+       * @summary Creates an alert robot.
+       *
+       * @param request CreateAlertRobotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateAlertRobotResponse
+       */
+      Models::CreateAlertRobotResponse createAlertRobotWithOptions(const Models::CreateAlertRobotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates an alert robot.
+       *
+       * @param request CreateAlertRobotRequest
+       * @return CreateAlertRobotResponse
+       */
+      Models::CreateAlertRobotResponse createAlertRobot(const Models::CreateAlertRobotRequest &request);
+
+      /**
        * @summary Creates a webhook.
        *
        * @description Creates a webhook notification recipient.
@@ -611,6 +629,24 @@ namespace Cms20240330
        * @return DeleteAggTaskGroupResponse
        */
       Models::DeleteAggTaskGroupResponse deleteAggTaskGroup(const string &instanceId, const string &groupId, const Models::DeleteAggTaskGroupRequest &request);
+
+      /**
+       * @summary Deletes an alert chatbot.
+       *
+       * @param tmpReq DeleteAlertRobotsRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteAlertRobotsResponse
+       */
+      Models::DeleteAlertRobotsResponse deleteAlertRobotsWithOptions(const Models::DeleteAlertRobotsRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Deletes an alert chatbot.
+       *
+       * @param request DeleteAlertRobotsRequest
+       * @return DeleteAlertRobotsResponse
+       */
+      Models::DeleteAlertRobotsResponse deleteAlertRobots(const Models::DeleteAlertRobotsRequest &request);
 
       /**
        * @summary Deletes one or more alert webhooks.
@@ -2113,8 +2149,7 @@ namespace Cms20240330
       /**
        * @summary Queries alert robots.
        *
-       * @description This operation can only query alert history from the last year.
-       * This topic provides an example of querying the alert history of Elastic Computing Service from the `product` dimension of a cloud service.
+       * @description Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
        *
        * @param tmpReq ListAlertRobotsRequest
        * @param headers map
@@ -2126,8 +2161,7 @@ namespace Cms20240330
       /**
        * @summary Queries alert robots.
        *
-       * @description This operation can only query alert history from the last year.
-       * This topic provides an example of querying the alert history of Elastic Computing Service from the `product` dimension of a cloud service.
+       * @description Queries the list of alert robots under the current account. Alert robots are webhook receivers for alert notifications and support types such as DingTalk, DingTalk Cool App, Lark, Slack, and WeChat. You can filter results by robot ID, name, type, and workspace.
        *
        * @param request ListAlertRobotsRequest
        * @return ListAlertRobotsResponse
@@ -2975,6 +3009,24 @@ namespace Cms20240330
        * @return UpdateAggTaskGroupStatusResponse
        */
       Models::UpdateAggTaskGroupStatusResponse updateAggTaskGroupStatus(const string &instanceId, const string &groupId, const Models::UpdateAggTaskGroupStatusRequest &request);
+
+      /**
+       * @summary Updates an alert robot.
+       *
+       * @param request UpdateAlertRobotRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return UpdateAlertRobotResponse
+       */
+      Models::UpdateAlertRobotResponse updateAlertRobotWithOptions(const string &robotId, const Models::UpdateAlertRobotRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Updates an alert robot.
+       *
+       * @param request UpdateAlertRobotRequest
+       * @return UpdateAlertRobotResponse
+       */
+      Models::UpdateAlertRobotResponse updateAlertRobot(const string &robotId, const Models::UpdateAlertRobotRequest &request);
 
       /**
        * @summary Updates a webhook.

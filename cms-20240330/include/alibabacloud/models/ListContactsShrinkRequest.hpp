@@ -128,7 +128,7 @@ namespace Models
     shared_ptr<string> phone_ {};
     // Specifies whether to query only ungrouped alert contacts.
     shared_ptr<bool> queryUngroupedContacts_ {};
-    // The workspace name.
+    // The workspace name. Format: `default-cms-{accountId}-{region}`. Example: `default-cms-1744108686100472-cn-hangzhou`. You can call the ListWorkspaces API to obtain valid workspace names.
     shared_ptr<string> workspace_ {};
   };
 

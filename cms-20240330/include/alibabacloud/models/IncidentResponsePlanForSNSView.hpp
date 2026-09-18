@@ -273,13 +273,13 @@ namespace Models
     shared_ptr<string> name_ {};
     // The push settings.
     shared_ptr<IncidentResponsePlanForSNSView::PushingSetting> pushingSetting_ {};
-    // The repeat notification configuration.
+    // The repeat notification settings.
     shared_ptr<IncidentResponsePlanForSNSView::RepeatNotifySetting> repeatNotifySetting_ {};
-    // The source. The value must be CUSTOM within SNS.
+    // The source. This value must be CUSTOM within SNS.
     shared_ptr<string> source_ {};
     // The synchronization source type.
     shared_ptr<string> syncFromType_ {};
-    // The response plan type. The value must be NOTIFY_STRATEGY_DEFINED within SNS.
+    // The response plan type. This value must be NOTIFY_STRATEGY_DEFINED within SNS.
     shared_ptr<string> type_ {};
     // The update time.
     shared_ptr<string> updateTime_ {};

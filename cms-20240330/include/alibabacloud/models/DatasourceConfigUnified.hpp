@@ -127,19 +127,19 @@ namespace Models
   protected:
     // The Prometheus instance ID. Used when type is set to PROMETHEUS.
     shared_ptr<string> instanceId_ {};
-    // The raw V1 datasource JSON string returned as a read-path fallback when type is set to UNKNOWN and parsing fails. The frontend displays this field as read-only when the value is not empty.
+    // The raw V1 datasource JSON string returned as a read-path fallback when type is set to UNKNOWN and parsing fails. When this field is not empty, the frontend displays it as read-only.
     shared_ptr<string> legacyRaw_ {};
     // Returned when type is set to UNKNOWN. Indicates that the rule cannot be edited through the new API. Submit a ticket to contact the CloudMonitor team.
     shared_ptr<string> legacyType_ {};
     // The namespace. Optional when type is set to VIRTUAL_PROMETHEUS. Identifies the namespace to which the virtual Prometheus instance belongs.
     shared_ptr<string> namespace_ {};
-    // The Alibaba Cloud service category. Optional when type is set to CLOUD_MONITORING. Returns unknown when the source does not contain this information.
+    // The Alibaba Cloud service category. Optional when type is set to CLOUD_MONITORING. Outputs unknown when the source does not contain this information.
     shared_ptr<string> productCategory_ {};
     // The Simple Log Service (SLS) project name. Required when type is set to SLS. All stores share the same project.
     shared_ptr<string> project_ {};
     // The region ID. Optional for all types. Defaults to the region of the rule or gateway.
     shared_ptr<string> regionId_ {};
-    // The list of SLS stores. Used when type is set to SLS. At least one store is required. Each store contains store and storeType fields. The project and regionId fields have been moved to the top level. The deprecated fields with the same names that remain in stores return a 400 error if used in write paths.
+    // The list of SLS stores. Used when type is set to SLS. At least one store is required. Each store contains the store and storeType fields. The project and regionId fields have been moved to the top level. The fields with the same names that remain in stores are deprecated. Using them in write paths returns a 400 error.
     shared_ptr<vector<Stores>> stores_ {};
     // The tenant ID. Optional when type is set to VIRTUAL_PROMETHEUS. Identifies the tenant to which the virtual Prometheus instance belongs.
     shared_ptr<string> tenantId_ {};

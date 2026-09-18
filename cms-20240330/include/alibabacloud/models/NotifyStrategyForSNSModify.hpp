@@ -175,7 +175,7 @@ namespace Models
       protected:
         // The subscription conditions.
         shared_ptr<vector<FilterSetting::Conditions>> conditions_ {};
-        // If expression is not empty, it takes precedence and relation is ignored. If expression is empty or not specified, the system uses relation (AND or OR) to perform a simple AND/OR operation on all conditions. Condition numbers correspond to the indexes of the conditions array (starting from 1). Each condition evaluates whether a single event field matches by using field (the event field path, which supports dot-separated nesting such as resource.tags.pod), op (the operator, such as CONTAIN, EQ, or IN), and value (the match value).
+        // If expression is not empty, it takes precedence and relation is ignored. If expression is empty or not specified, the relation (AND or OR) is used to perform a simple AND/OR operation on all conditions. Condition numbers correspond to the indexes of the conditions array (starting from 1). Each condition evaluates whether a single event field matches by using field (the event field path, which supports dot-separated nesting such as resource.tags.pod), op (the operator, such as CONTAIN, EQ, or IN), and value (the match value).
         shared_ptr<string> expression_ {};
         // The relationship between conditions. If an expression is configured, the expression takes higher precedence.
         shared_ptr<string> relation_ {};
@@ -371,9 +371,9 @@ namespace Models
       shared_ptr<string> digitalEmployeeName_ {};
       // The effective time range.
       shared_ptr<Routes::EffectTimeRange> effectTimeRange_ {};
-      // Specifies whether to enable root cause analysis (RCA).
+      // Specifies whether to enable Root Cause Analysis (RCA).
       shared_ptr<bool> enableRca_ {};
-      // The route-level filter. This is different from the top-level subscription.filterSetting.
+      // The route-level filter. This is at a different level from the top-level subscription.filterSetting.
       shared_ptr<Routes::FilterSetting> filterSetting_ {};
       // **[Deprecated]** This parameter is deprecated and does not take effect. Route matching only checks filterSetting and effectTimeRange.
       shared_ptr<vector<string>> severities_ {};
@@ -485,7 +485,7 @@ namespace Models
 
 
     protected:
-      // **[Deprecated]** This parameter is deprecated and does not take effect. The actual purpose of the template is determined by the type field of the template object referenced by templateUuid.
+      // **[Deprecated]** This parameter is deprecated and does not take effect. The actual purpose of the template is determined by the type of the template object referenced by templateUuid.
       shared_ptr<string> targetType_ {};
       // The UUID of the template.
       shared_ptr<string> templateUuid_ {};
@@ -552,7 +552,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<NotifyStrategyForSNSModify::GroupingSetting> groupingSetting_ {};
-    // Specifies whether to send a notification when the alert is recovered.
+    // Specifies whether to send a notification when the alert is restored.
     shared_ptr<bool> ignoreRestoredNotification_ {};
     // The notification channel routing settings.
     // 

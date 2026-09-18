@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // Returns only resources whose display name contains the specified string. The match is case-sensitive.
+    // The inclusion keyword for the display name. Only alert rules whose display names contain this keyword are returned. Fuzzy match is supported.
     shared_ptr<string> contains_ {};
-    // Returns only resources whose display name does not contain the specified string. The match is case-sensitive.
+    // The exclusion keyword for the display name. Alert rules whose display names contain this keyword are excluded. Fuzzy match is supported.
     shared_ptr<string> notContains_ {};
   };
 

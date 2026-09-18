@@ -87,24 +87,18 @@ namespace Models
 
 
   protected:
-    // The content type of the data. Supported values:
-    // 
+    // The content type. Valid values:
     // - JSON
-    // 
     // - FORM
     shared_ptr<string> contentType_ {};
-    // The headers.
+    // headers
     shared_ptr<map<string, string>> headers_ {};
-    // The language. Supported values:
-    // 
+    // The language. Valid values:
     // - zh_CN
-    // 
     // - en_US
     shared_ptr<string> lang_ {};
-    // The request method. Supported values:
-    // 
+    // The request method. Valid values:
     // - GET
-    // 
     // - POST
     shared_ptr<string> method_ {};
     // The name of the webhook.

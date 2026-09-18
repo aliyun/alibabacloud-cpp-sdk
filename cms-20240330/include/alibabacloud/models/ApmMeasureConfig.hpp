@@ -60,13 +60,13 @@ namespace Models
 
 
   protected:
-    // The grouping dimension.
+    // The list of grouping dimensions for the APM metric. This parameter specifies the dimension keys by which to perform grouping and aggregation on metric data.
     shared_ptr<vector<string>> groupBy_ {};
-    // The metric code.
+    // The code identifier of the APM metric. This parameter specifies the metric type to collect and query.
     // 
     // This parameter is required.
     shared_ptr<string> measureCode_ {};
-    // The query time window in seconds.
+    // The query time window, in seconds.
     // 
     // This parameter is required.
     shared_ptr<int32_t> windowSecs_ {};

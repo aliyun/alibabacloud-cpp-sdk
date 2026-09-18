@@ -51,7 +51,9 @@ namespace Models
 
 
   protected:
+    // The exact match condition for the alert rule UUID. Only the alert rule whose UUID equals the specified value is returned.
     shared_ptr<string> eq_ {};
+    // The set match condition for alert rule UUIDs. All alert rules whose UUIDs are in the specified list are returned.
     shared_ptr<vector<string>> in_ {};
   };
 

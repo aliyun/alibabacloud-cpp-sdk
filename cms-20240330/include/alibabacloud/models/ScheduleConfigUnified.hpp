@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The interval between scheduled runs, in seconds.
+    // The scheduling interval in seconds. This parameter is used when type is set to FIXED.
     shared_ptr<int32_t> intervalSecs_ {};
-    // The type of the schedule.
+    // The type of the scheduling configuration. FIXED indicates fixed-interval scheduling, which executes periodically based on the interval specified by intervalSecs.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

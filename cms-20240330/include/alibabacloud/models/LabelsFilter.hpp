@@ -54,9 +54,9 @@ namespace Models
 
 
   protected:
-    // An array of `LabelMatcher` requirements. An object is selected only if it satisfies all of the requirements in this list (a logical AND). If provided, the list cannot be empty.
+    // Match all labels (AND).
     shared_ptr<vector<LabelMatcher>> allOf_ {};
-    // An array of `LabelMatcher` requirements. An object is selected if it satisfies at least one of the requirements in this list (a logical OR). If provided, the list cannot be empty.
+    // Match any label (OR).
     shared_ptr<vector<LabelMatcher>> anyOf_ {};
   };
 

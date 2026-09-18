@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // Returns resources if a specified property contains any string in this array.
+    // The match condition that requires the observeResourceList of a rule to contain at least one instance ID from the array (OR semantics).
     shared_ptr<vector<string>> contains_ {};
   };
 

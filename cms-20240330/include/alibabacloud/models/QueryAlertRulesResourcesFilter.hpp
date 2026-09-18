@@ -53,7 +53,9 @@ namespace Models
 
 
   protected:
+    // Matches any item in the list (OR semantics).
     shared_ptr<vector<string>> contains_ {};
+    // Filters out alert rules by resource instance ID blacklist. Alert rules whose associated resources contains any instance ID in the array are excluded.
     shared_ptr<vector<string>> notContains_ {};
   };
 

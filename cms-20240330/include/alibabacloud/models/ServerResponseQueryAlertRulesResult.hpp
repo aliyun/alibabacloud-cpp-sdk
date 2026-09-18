@@ -115,14 +115,23 @@ namespace Models
 
 
   protected:
+    // The status code of the API response. A value of 200 indicates a successful request. Other values indicate an exception.
     shared_ptr<string> code_ {};
+    // The business data returned by the API, including the list of alert rule query results and pagination information.
     shared_ptr<QueryAlertRulesResult> data_ {};
+    // The detailed error description returned when the request fails. This parameter is empty when the request succeeds.
     shared_ptr<string> message_ {};
+    // The token for the next page. A value of null indicates that no more pages are available.
     shared_ptr<string> nextToken_ {};
+    // The page number of the current response.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of records per page in the current response.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique ID of the API request, used for troubleshooting and server-side log tracing.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};
+    // The total number of alert rules that match the query conditions.
     shared_ptr<int32_t> total_ {};
   };
 

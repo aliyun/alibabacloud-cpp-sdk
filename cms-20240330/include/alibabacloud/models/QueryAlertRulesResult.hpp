@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // The list of alert rules for the current page.
+    // The list of alert rules returned by the query. Each element contains the complete configuration information of an alert rule.
     shared_ptr<vector<AlertRuleV2>> alertRules_ {};
-    // The total number of alert rules that match the query.
+    // The total number of alert rules that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

@@ -53,7 +53,9 @@ namespace Models
 
 
   protected:
+    // Matches any value in the set with OR semantics. Valid values: ALL, UMODEL_ENTITY, CLOUD_INSTANCE, GROUP_V1, GROUP_V2, and TAG.
     shared_ptr<vector<string>> in_ {};
+    // Excludes any value in the set with NOT IN semantics.
     shared_ptr<vector<string>> notIn_ {};
   };
 

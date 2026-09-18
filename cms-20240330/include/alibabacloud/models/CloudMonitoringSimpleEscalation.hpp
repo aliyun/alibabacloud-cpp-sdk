@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The multi-level trigger list.
+    // The list of multi-level trigger configurations for cloud service monitoring. Each item defines a trigger level, such as Warning or Critical, and includes parameters such as the threshold, duration, and notification method.
     shared_ptr<vector<CloudMonitoringSimpleEscalationEntry>> escalations_ {};
     // The metric name.
     shared_ptr<string> metricName_ {};
-    // The collection period, in seconds.
+    // The aggregation period, in seconds.
     shared_ptr<int32_t> period_ {};
   };
 

@@ -38,6 +38,10 @@ namespace Models
 
 
   protected:
+    // The exact match condition for the alert status. Only alert rules whose status equals the specified value are returned. Valid values:
+    // - Alarm: The alert rule is in the alerting state.
+    // - Ok: The alert rule is in the normal state.
+    // - InsufficientData: Insufficient data is available.
     shared_ptr<string> eq_ {};
   };
 

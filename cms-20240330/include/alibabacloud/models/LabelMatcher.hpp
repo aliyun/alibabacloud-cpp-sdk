@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The label key to match.
+    // The key name of the label matcher. This parameter specifies the label dimension identity to match.
     shared_ptr<string> key_ {};
-    // The label value to match.
+    // The match value of the label matcher. This parameter is used together with key to specify the value that the label key must match.
     shared_ptr<string> value_ {};
   };
 

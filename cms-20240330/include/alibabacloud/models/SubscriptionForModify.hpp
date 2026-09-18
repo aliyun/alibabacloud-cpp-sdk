@@ -237,13 +237,11 @@ namespace Models
     shared_ptr<string> description_ {};
     // The filter settings.
     shared_ptr<FilterSetting> filterSetting_ {};
-    // The UUID of the notification policy.
+    // The UUID of the notification strategy.
     shared_ptr<string> notifyStrategyId_ {};
     // The push settings.
     shared_ptr<SubscriptionForModify::PushingSetting> pushingSetting_ {};
-    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values:
-    // - true: Subscribe.
-    // - false or null: Do not subscribe.
+    // Specifies whether to subscribe to legacy product events (CMS 1.0, ARMS, or SLS events where workspace is null). Valid values: true: Subscribe. false or null: Do not subscribe.
     shared_ptr<bool> subscribeLegacyEvent_ {};
     // The name.
     // 

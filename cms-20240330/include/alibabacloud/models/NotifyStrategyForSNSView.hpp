@@ -148,11 +148,11 @@ namespace Models
 
 
       protected:
-        // The effective days, from Monday to Sunday.
+        // The effective days (Monday to Sunday).
         shared_ptr<vector<int32_t>> dayInWeek_ {};
-        // The start time in minutes.
+        // The start time (in minutes).
         shared_ptr<int32_t> endTimeInMinute_ {};
-        // The start time in minutes.
+        // The start time (in minutes).
         shared_ptr<int32_t> startTimeInMinute_ {};
         // The time zone.
         shared_ptr<string> timeZone_ {};
@@ -531,9 +531,9 @@ namespace Models
     shared_ptr<bool> enableIncidentManagement_ {};
     // The grouping settings.
     shared_ptr<NotifyStrategyForSNSView::GroupingSetting> groupingSetting_ {};
-    // Indicates whether recovery notifications are sent.
+    // Indicates whether to send a notification upon recovery.
     shared_ptr<bool> ignoreRestoredNotification_ {};
-    // The UUID of the associated response plan, which equals notifyStrategyId.
+    // The associated response plan UUID, which equals notifyStrategyId.
     shared_ptr<string> incidentResponsePlanId_ {};
     // The lifecycle mode. Within SNS, this value is always BundleStrategy.
     shared_ptr<string> mode_ {};
@@ -543,7 +543,7 @@ namespace Models
     shared_ptr<string> notifyStrategyName_ {};
     // The notification channel routing settings.
     shared_ptr<vector<NotifyStrategyForSNSView::Routes>> routes_ {};
-    // The synchronization source. For SNS creation, this value is always OBS.
+    // The sync source. For SNS creation, this value is always OBS.
     shared_ptr<string> syncFromType_ {};
     // The update time.
     shared_ptr<string> updateTime_ {};

@@ -141,7 +141,7 @@ namespace Models
     shared_ptr<string> activeStartTime_ {};
     // The list of notification channels.
     shared_ptr<vector<DirectNotifyChannel>> channels_ {};
-    // The list of notification policy IDs (type=NOTIFY_POLICY, currently a maximum of 1 is supported. Mutually exclusive with the DIRECT_NOTIFY fields channels/silenceTimeSecs/activeDays/activeStartTime/activeEndTime/utcOffset).
+    // The list of notification policy IDs (type=NOTIFY_POLICY, currently a maximum of 1 per service. Mutually exclusive with channels/silenceTimeSecs/activeDays/activeStartTime/activeEndTime/utcOffset of DIRECT_NOTIFY).
     shared_ptr<vector<string>> notifyStrategies_ {};
     // Specifies whether to send recovery notifications (type=DIRECT_NOTIFY). Default value: true. Each severity level in severityChannels can independently override this setting.
     shared_ptr<bool> sendRecoverNotification_ {};

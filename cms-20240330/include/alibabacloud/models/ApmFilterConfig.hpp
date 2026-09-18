@@ -57,15 +57,19 @@ namespace Models
 
 
   protected:
-    // The dimension key.
+    // The dimension key name of the APM query filter condition. Specifies which dimension to filter by, such as hostname or service name.
     // 
     // This parameter is required.
     shared_ptr<string> key_ {};
-    // The filter type.
+    // The matching type of the APM query filter condition. Valid values:
+    // - ALL: Matches all values.
+    // - EQ: Exact match.
+    // - NE: Not equal to.
+    // - DISABLED: Disables the filter condition.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The filter value. This can be empty when type is ALL or DISABLED.
+    // The filter value. Can be empty when type is set to ALL or DISABLED.
     shared_ptr<string> value_ {};
   };
 

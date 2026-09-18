@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // The grouping dimension.
+    // The list of grouping dimensions for metric data. Specifies the dimension keys by which metric results are computed through grouping and aggregation.
     shared_ptr<vector<string>> groupBy_ {};
     // The metric code.
     // 

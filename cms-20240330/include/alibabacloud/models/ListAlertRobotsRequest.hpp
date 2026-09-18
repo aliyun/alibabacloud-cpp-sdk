@@ -89,15 +89,15 @@ namespace Models
 
 
   protected:
-    // The robot name. Supports prefix fuzzy match.
+    // The robot name. Prefix fuzzy match is supported.
     shared_ptr<string> name_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Default value: 100.
     shared_ptr<int64_t> pageSize_ {};
-    // The robot ID.
+    // The robot IDs.
     shared_ptr<vector<string>> robotIds_ {};
-    // The robot type.
+    // The robot types.
     shared_ptr<vector<string>> types_ {};
     // The workspace name.
     shared_ptr<string> workspace_ {};

@@ -70,13 +70,13 @@ namespace Models
 
 
   protected:
-    // The list of multi-condition configurations.
+    // The multi-condition configuration list for the cloud service monitoring composite trigger. The list contains multiple sub-causes that are combined by using logical operators (AND/OR) to determine whether to trigger an alert.
     shared_ptr<vector<CloudMonitoringCompositeEscalationEntry>> escalations_ {};
     // The logical relationship between conditions (AND/OR).
     shared_ptr<string> relation_ {};
     // The severity level.
     shared_ptr<string> severity_ {};
-    // The number of consecutive times the condition is triggered.
+    // The number of consecutive times the condition is met before the alert is triggered.
     shared_ptr<int32_t> times_ {};
   };
 

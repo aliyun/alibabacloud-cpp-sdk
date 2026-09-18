@@ -149,7 +149,7 @@ namespace Models
 
 
   protected:
-    // The auto-recovery time in seconds when no events occur.
+    // The auto-recovery time when no events occur, in seconds.
     shared_ptr<int64_t> autoRecoverSeconds_ {};
     // The description.
     shared_ptr<string> description_ {};
@@ -171,7 +171,7 @@ namespace Models
     shared_ptr<string> syncFromType_ {};
     // The type.
     shared_ptr<string> type_ {};
-    // Required for Update. Can be omitted for Create, in which case the backend generates it. The UUID is shared with NotifyStrategy.
+    // Required for Update. Can be omitted for Create, in which case the backend generates it. Shared with NotifyStrategy.
     shared_ptr<string> uuid_ {};
   };
 

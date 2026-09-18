@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The current page number.
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of records per page. This parameter controls the amount of data returned in a single request. Recommended value range: 1 to 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

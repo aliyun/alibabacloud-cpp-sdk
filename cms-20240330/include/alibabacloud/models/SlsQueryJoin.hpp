@@ -52,7 +52,7 @@ namespace Models
 
 
   protected:
-    // The list of join conditions.
+    // The list of join conditions for SLS query result sets. The conditions define the matching rules between multiple SLS query results for cross-Logstore data correlation analysis.
     shared_ptr<vector<SlsJoinCondition>> conditions_ {};
     // The set operation type. Valid values: InnerJoin, LeftJoin, RightJoin, FullJoin, LeftExclude, RightExclude, CrossJoin, NoJoin, and Concat.
     shared_ptr<string> type_ {};

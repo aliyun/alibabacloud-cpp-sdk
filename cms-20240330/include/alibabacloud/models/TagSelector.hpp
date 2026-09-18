@@ -63,9 +63,9 @@ namespace Models
   protected:
     // The list of label filter conditions.
     shared_ptr<vector<TagCondition>> conditions_ {};
-    // The custom expression in advanced mode, which overwrites conditions and relation.
+    // The custom expression in advanced mode. This overrides the conditions and relation settings.
     shared_ptr<string> expression_ {};
-    // The condition relationship.
+    // The relationship between conditions.
     shared_ptr<string> relation_ {};
   };
 

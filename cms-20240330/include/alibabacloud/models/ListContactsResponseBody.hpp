@@ -163,7 +163,7 @@ namespace Models
 
 
     protected:
-      // The ID of the on-duty contact.
+      // The ID of the alert contact.
       shared_ptr<string> contactId_ {};
       // The email address of the alert contact.
       shared_ptr<string> email_ {};
