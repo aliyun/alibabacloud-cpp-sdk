@@ -140,11 +140,11 @@ namespace Models
     shared_ptr<string> description_ {};
     // The `jobhandler` name.
     shared_ptr<string> jobHandler_ {};
-    // The job ID.
+    // The task ID.
     shared_ptr<int64_t> jobId_ {};
-    // The job name.
+    // The task name.
     shared_ptr<string> jobName_ {};
-    // The job label filter condition.
+    // The task label filter condition.
     shared_ptr<string> label_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};

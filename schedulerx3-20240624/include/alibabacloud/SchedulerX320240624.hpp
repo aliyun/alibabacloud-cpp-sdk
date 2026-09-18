@@ -977,7 +977,7 @@ namespace SchedulerX320240624
       Models::ListJobScriptHistoryResponse listJobScriptHistory(const Models::ListJobScriptHistoryRequest &request);
 
       /**
-       * @summary Retrieves a list of jobs.
+       * @summary Retrieves a list of tasks.
        *
        * @param request ListJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -986,7 +986,7 @@ namespace SchedulerX320240624
       Models::ListJobsResponse listJobsWithOptions(const Models::ListJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of jobs.
+       * @summary Retrieves a list of tasks.
        *
        * @param request ListJobsRequest
        * @return ListJobsResponse

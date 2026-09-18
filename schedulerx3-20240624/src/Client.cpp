@@ -19,20 +19,6 @@ namespace SchedulerX320240624
 
 AlibabaCloud::SchedulerX320240624::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shenzhen" , "schedulerx3.cn-shenzhen.aliyuncs.com"},
-    {"cn-beijing" , "schedulerx3.cn-beijing.aliyuncs.com"},
-    {"ap-northeast-1" , "schedulerx3.ap-northeast-1.aliyuncs.com"},
-    {"cn-chengdu" , "schedulerx3.cn-chengdu.aliyuncs.com"},
-    {"cn-shanghai" , "schedulerx3.cn-shanghai.aliyuncs.com"},
-    {"cn-guangzhou" , "schedulerx3.cn-guangzhou.aliyuncs.com"},
-    {"cn-hongkong" , "schedulerx3.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-1" , "schedulerx3.ap-southeast-1.aliyuncs.com"},
-    {"cn-zhangjiakou" , "schedulerx3.cn-zhangjiakou.aliyuncs.com"},
-    {"cn-hangzhou" , "schedulerx3.cn-hangzhou.aliyuncs.com"},
-    {"eu-central-1" , "schedulerx3.eu-central-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "schedulerx3.cn-shanghai-finance-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("schedulerx3", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -3012,7 +2998,7 @@ ListJobScriptHistoryResponse Client::listJobScriptHistory(const ListJobScriptHis
 }
 
 /**
- * @summary Retrieves a list of jobs.
+ * @summary Retrieves a list of tasks.
  *
  * @param request ListJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3083,7 +3069,7 @@ ListJobsResponse Client::listJobsWithOptions(const ListJobsRequest &request, con
 }
 
 /**
- * @summary Retrieves a list of jobs.
+ * @summary Retrieves a list of tasks.
  *
  * @param request ListJobsRequest
  * @return ListJobsResponse

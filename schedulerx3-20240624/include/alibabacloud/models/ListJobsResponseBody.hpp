@@ -72,6 +72,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Calendar, calendar_);
           DARABONBA_PTR_TO_JSON(ChildJobId, childJobId_);
           DARABONBA_PTR_TO_JSON(CleanMode, cleanMode_);
+          DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(Creator, creator_);
           DARABONBA_PTR_TO_JSON(CurrentExecuteStatus, currentExecuteStatus_);
           DARABONBA_PTR_TO_JSON(DataOffset, dataOffset_);
@@ -100,6 +101,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(TimeType, timeType_);
           DARABONBA_PTR_TO_JSON(TimeZone, timeZone_);
           DARABONBA_PTR_TO_JSON(Timezone, timezone_);
+          DARABONBA_PTR_TO_JSON(UpdateTime, updateTime_);
           DARABONBA_PTR_TO_JSON(Updater, updater_);
           DARABONBA_PTR_TO_JSON(Weight, weight_);
           DARABONBA_PTR_TO_JSON(WorkflowId, workflowId_);
@@ -112,6 +114,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Calendar, calendar_);
           DARABONBA_PTR_FROM_JSON(ChildJobId, childJobId_);
           DARABONBA_PTR_FROM_JSON(CleanMode, cleanMode_);
+          DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(Creator, creator_);
           DARABONBA_PTR_FROM_JSON(CurrentExecuteStatus, currentExecuteStatus_);
           DARABONBA_PTR_FROM_JSON(DataOffset, dataOffset_);
@@ -140,6 +143,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(TimeType, timeType_);
           DARABONBA_PTR_FROM_JSON(TimeZone, timeZone_);
           DARABONBA_PTR_FROM_JSON(Timezone, timezone_);
+          DARABONBA_PTR_FROM_JSON(UpdateTime, updateTime_);
           DARABONBA_PTR_FROM_JSON(Updater, updater_);
           DARABONBA_PTR_FROM_JSON(Weight, weight_);
           DARABONBA_PTR_FROM_JSON(WorkflowId, workflowId_);
@@ -158,13 +162,13 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->appGroupId_ == nullptr
         && this->appName_ == nullptr && this->attemptInterval_ == nullptr && this->calendar_ == nullptr && this->childJobId_ == nullptr && this->cleanMode_ == nullptr
-        && this->creator_ == nullptr && this->currentExecuteStatus_ == nullptr && this->dataOffset_ == nullptr && this->dependentStrategy_ == nullptr && this->description_ == nullptr
-        && this->executorBlockStrategy_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr && this->jobType_ == nullptr && this->label_ == nullptr
-        && this->lastExecuteEndTime_ == nullptr && this->lastExecuteStatus_ == nullptr && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr && this->name_ == nullptr
-        && this->nodeType_ == nullptr && this->noticeConfig_ == nullptr && this->noticeContacts_ == nullptr && this->parameters_ == nullptr && this->priority_ == nullptr
-        && this->routeStrategy_ == nullptr && this->script_ == nullptr && this->startTimeType_ == nullptr && this->status_ == nullptr && this->timeExpression_ == nullptr
-        && this->timeType_ == nullptr && this->timeZone_ == nullptr && this->timezone_ == nullptr && this->updater_ == nullptr && this->weight_ == nullptr
-        && this->workflowId_ == nullptr && this->xattrs_ == nullptr; };
+        && this->createTime_ == nullptr && this->creator_ == nullptr && this->currentExecuteStatus_ == nullptr && this->dataOffset_ == nullptr && this->dependentStrategy_ == nullptr
+        && this->description_ == nullptr && this->executorBlockStrategy_ == nullptr && this->jobHandler_ == nullptr && this->jobId_ == nullptr && this->jobType_ == nullptr
+        && this->label_ == nullptr && this->lastExecuteEndTime_ == nullptr && this->lastExecuteStatus_ == nullptr && this->maxAttempt_ == nullptr && this->maxConcurrency_ == nullptr
+        && this->name_ == nullptr && this->nodeType_ == nullptr && this->noticeConfig_ == nullptr && this->noticeContacts_ == nullptr && this->parameters_ == nullptr
+        && this->priority_ == nullptr && this->routeStrategy_ == nullptr && this->script_ == nullptr && this->startTimeType_ == nullptr && this->status_ == nullptr
+        && this->timeExpression_ == nullptr && this->timeType_ == nullptr && this->timeZone_ == nullptr && this->timezone_ == nullptr && this->updateTime_ == nullptr
+        && this->updater_ == nullptr && this->weight_ == nullptr && this->workflowId_ == nullptr && this->xattrs_ == nullptr; };
         // appGroupId Field Functions 
         bool hasAppGroupId() const { return this->appGroupId_ != nullptr;};
         void deleteAppGroupId() { this->appGroupId_ = nullptr;};
@@ -205,6 +209,13 @@ namespace Models
         void deleteCleanMode() { this->cleanMode_ = nullptr;};
         inline string getCleanMode() const { DARABONBA_PTR_GET_DEFAULT(cleanMode_, "") };
         inline Records& setCleanMode(string cleanMode) { DARABONBA_PTR_SET_VALUE(cleanMode_, cleanMode) };
+
+
+        // createTime Field Functions 
+        bool hasCreateTime() const { return this->createTime_ != nullptr;};
+        void deleteCreateTime() { this->createTime_ = nullptr;};
+        inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
+        inline Records& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
 
 
         // creator Field Functions 
@@ -403,6 +414,13 @@ namespace Models
         inline Records& setTimezone(string timezone) { DARABONBA_PTR_SET_VALUE(timezone_, timezone) };
 
 
+        // updateTime Field Functions 
+        bool hasUpdateTime() const { return this->updateTime_ != nullptr;};
+        void deleteUpdateTime() { this->updateTime_ = nullptr;};
+        inline int64_t getUpdateTime() const { DARABONBA_PTR_GET_DEFAULT(updateTime_, 0L) };
+        inline Records& setUpdateTime(int64_t updateTime) { DARABONBA_PTR_SET_VALUE(updateTime_, updateTime) };
+
+
         // updater Field Functions 
         bool hasUpdater() const { return this->updater_ != nullptr;};
         void deleteUpdater() { this->updater_ = nullptr;};
@@ -436,14 +454,16 @@ namespace Models
         shared_ptr<int64_t> appGroupId_ {};
         // The application name.
         shared_ptr<string> appName_ {};
-        // The retry interval on error. Unit: seconds.
+        // The error retry interval, in seconds.
         shared_ptr<int32_t> attemptInterval_ {};
         // The calendar.
         shared_ptr<string> calendar_ {};
-        // The child job ID.
+        // The child task ID.
         shared_ptr<string> childJobId_ {};
         // The cleanup mode.
         shared_ptr<string> cleanMode_ {};
+        // The timestamp when the task was created.
+        shared_ptr<int64_t> createTime_ {};
         // The creator.
         shared_ptr<string> creator_ {};
         // The current execution status. Valid values:
@@ -454,22 +474,22 @@ namespace Models
         shared_ptr<int32_t> currentExecuteStatus_ {};
         // The data offset.
         shared_ptr<int32_t> dataOffset_ {};
-        // The dependency check strategy.
+        // The dependency check policy.
         shared_ptr<int32_t> dependentStrategy_ {};
-        // The job description.
+        // The task description.
         shared_ptr<string> description_ {};
         // The client blocking strategy. Valid values:
         // - 1: Serial execution on a single machine.
-        // - 2: Ignore subsequent schedules.
-        // - 3: Override previous schedules.
+        // - 2: Ignore subsequent scheduling.
+        // - 3: Override previous scheduling.
         shared_ptr<string> executorBlockStrategy_ {};
         // The `jobhandler` name.
         shared_ptr<string> jobHandler_ {};
-        // The job ID.
+        // The task ID.
         shared_ptr<int64_t> jobId_ {};
-        // The job type.
+        // The task type.
         shared_ptr<string> jobType_ {};
-        // The job label information.
+        // The task label information.
         shared_ptr<string> label_ {};
         // The end time of the last execution.
         shared_ptr<string> lastExecuteEndTime_ {};
@@ -477,11 +497,11 @@ namespace Models
         // - 4: Succeeded.
         // - 5: Failed.
         shared_ptr<int32_t> lastExecuteStatus_ {};
-        // The maximum number of retry attempts on error. Set this based on your business requirements.
+        // The maximum number of error retries. Set this parameter based on your business requirements.
         shared_ptr<int32_t> maxAttempt_ {};
-        // The maximum concurrency threshold.
+        // The overall concurrency threshold.
         shared_ptr<int32_t> maxConcurrency_ {};
-        // The job name.
+        // The task name.
         shared_ptr<string> name_ {};
         // The node type.
         shared_ptr<int32_t> nodeType_ {};
@@ -489,31 +509,31 @@ namespace Models
         shared_ptr<string> noticeConfig_ {};
         // The notification contacts.
         shared_ptr<string> noticeContacts_ {};
-        // The job parameters.
+        // The task parameters.
         shared_ptr<string> parameters_ {};
-        // The job execution priority.
+        // The execution job priority.
         shared_ptr<int32_t> priority_ {};
         // The routing strategy. Valid values:
-        // - 1: polling.
-        // - 2: random.
-        // - 3: first.
-        // - 4: last.
-        // - 5: least frequently used.
-        // - 6: least recently used.
-        // - 7: consistent hashing.
-        // - 8: shard broadcast.
+        // - 1: Round-robin.
+        // - 2: Random.
+        // - 3: First.
+        // - 4: Last.
+        // - 5: Least frequently used.
+        // - 6: Least recently used.
+        // - 7: Consistent hashing.
+        // - 8: Shard broadcast.
         shared_ptr<int32_t> routeStrategy_ {};
         // The script content.
         shared_ptr<string> script_ {};
         // The start time type.
         shared_ptr<int32_t> startTimeType_ {};
-        // The job status. Valid values:
-        // - 0: DISABLE (disabled).
-        // - 1: ENABLE (enabled).
+        // The task status. Valid values:
+        // - 0: DISABLE (Disabled).
+        // - 1: ENABLE (Enabled).
         shared_ptr<int32_t> status_ {};
         // The time expression.
         shared_ptr<string> timeExpression_ {};
-        // The time type. Valid values:
+        // The time type. The following types are supported:
         // 
         // - -1: none.
         // - 1: cron.
@@ -525,14 +545,16 @@ namespace Models
         shared_ptr<string> timeZone_ {};
         // The time zone.
         shared_ptr<string> timezone_ {};
+        // The timestamp when the task was last updated.
+        shared_ptr<int64_t> updateTime_ {};
         // The updater.
         shared_ptr<string> updater_ {};
-        // The job weight.
+        // The task weight.
         shared_ptr<int32_t> weight_ {};
         // The workflow ID.
         shared_ptr<int64_t> workflowId_ {};
         // The extended attributes.
-        // > Not supported currently.
+        // > Not supported.
         shared_ptr<string> xattrs_ {};
       };
 
