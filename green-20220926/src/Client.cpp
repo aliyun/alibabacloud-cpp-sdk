@@ -5832,6 +5832,10 @@ ModifyAppInfoResponse Client::modifyAppInfoWithOptions(const ModifyAppInfoReques
     query["AppId"] = request.getAppId();
   }
 
+  if (!!request.hasCustomOrderNum()) {
+    query["CustomOrderNum"] = request.getCustomOrderNum();
+  }
+
   if (!!request.hasName()) {
     query["Name"] = request.getName();
   }

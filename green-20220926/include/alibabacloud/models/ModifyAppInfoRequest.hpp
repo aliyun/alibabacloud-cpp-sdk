@@ -14,12 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyAppInfoRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppId, appId_);
+      DARABONBA_PTR_TO_JSON(CustomOrderNum, customOrderNum_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyAppInfoRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
+      DARABONBA_PTR_FROM_JSON(CustomOrderNum, customOrderNum_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
@@ -36,12 +38,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && this->name_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr; };
+        && this->customOrderNum_ == nullptr && this->name_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
     inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ModifyAppInfoRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
+
+
+    // customOrderNum Field Functions 
+    bool hasCustomOrderNum() const { return this->customOrderNum_ != nullptr;};
+    void deleteCustomOrderNum() { this->customOrderNum_ = nullptr;};
+    inline int32_t getCustomOrderNum() const { DARABONBA_PTR_GET_DEFAULT(customOrderNum_, 0) };
+    inline ModifyAppInfoRequest& setCustomOrderNum(int32_t customOrderNum) { DARABONBA_PTR_SET_VALUE(customOrderNum_, customOrderNum) };
 
 
     // name Field Functions 
@@ -68,6 +77,8 @@ namespace Models
   protected:
     // App ID。
     shared_ptr<string> appId_ {};
+    // The sort number.
+    shared_ptr<int32_t> customOrderNum_ {};
     // The app name.
     shared_ptr<string> name_ {};
     // The region ID.

@@ -38,6 +38,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AppId, appId_);
         DARABONBA_PTR_TO_JSON(Classify, classify_);
         DARABONBA_ANY_TO_JSON(CustomConfig, customConfig_);
+        DARABONBA_PTR_TO_JSON(CustomOrderNum, customOrderNum_);
         DARABONBA_PTR_TO_JSON(DeployStatus, deployStatus_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(Name, name_);
@@ -50,6 +51,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AppId, appId_);
         DARABONBA_PTR_FROM_JSON(Classify, classify_);
         DARABONBA_ANY_FROM_JSON(CustomConfig, customConfig_);
+        DARABONBA_PTR_FROM_JSON(CustomOrderNum, customOrderNum_);
         DARABONBA_PTR_FROM_JSON(DeployStatus, deployStatus_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
@@ -70,8 +72,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appId_ == nullptr
-        && this->classify_ == nullptr && this->customConfig_ == nullptr && this->deployStatus_ == nullptr && this->gmtModified_ == nullptr && this->name_ == nullptr
-        && this->option_ == nullptr && this->resourceType_ == nullptr && this->type_ == nullptr && this->version_ == nullptr; };
+        && this->classify_ == nullptr && this->customConfig_ == nullptr && this->customOrderNum_ == nullptr && this->deployStatus_ == nullptr && this->gmtModified_ == nullptr
+        && this->name_ == nullptr && this->option_ == nullptr && this->resourceType_ == nullptr && this->type_ == nullptr && this->version_ == nullptr; };
       // appId Field Functions 
       bool hasAppId() const { return this->appId_ != nullptr;};
       void deleteAppId() { this->appId_ = nullptr;};
@@ -93,6 +95,13 @@ namespace Models
       Darabonba::Json & getCustomConfig() { DARABONBA_GET(customConfig_) };
       inline Data& setCustomConfig(const Darabonba::Json & customConfig) { DARABONBA_SET_VALUE(customConfig_, customConfig) };
       inline Data& setCustomConfig(Darabonba::Json && customConfig) { DARABONBA_SET_RVALUE(customConfig_, customConfig) };
+
+
+      // customOrderNum Field Functions 
+      bool hasCustomOrderNum() const { return this->customOrderNum_ != nullptr;};
+      void deleteCustomOrderNum() { this->customOrderNum_ = nullptr;};
+      inline int32_t getCustomOrderNum() const { DARABONBA_PTR_GET_DEFAULT(customOrderNum_, 0) };
+      inline Data& setCustomOrderNum(int32_t customOrderNum) { DARABONBA_PTR_SET_VALUE(customOrderNum_, customOrderNum) };
 
 
       // deployStatus Field Functions 
@@ -153,9 +162,11 @@ namespace Models
       shared_ptr<string> classify_ {};
       // The configuration details.
       Darabonba::Json customConfig_ {};
+      // The sort number.
+      shared_ptr<int32_t> customOrderNum_ {};
       // The publish status.
       shared_ptr<string> deployStatus_ {};
-      // The last modification time.
+      // The last modified time.
       shared_ptr<string> gmtModified_ {};
       // The name.
       shared_ptr<string> name_ {};
