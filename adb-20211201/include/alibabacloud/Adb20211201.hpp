@@ -240,6 +240,39 @@ namespace Adb20211201
       Models::CancelSparkWarehouseBatchSQLResponse cancelSparkWarehouseBatchSQL(const Models::CancelSparkWarehouseBatchSQLRequest &request);
 
       /**
+       * @summary Cancels an SQL Pattern comparison report.
+       *
+       * @description Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
+       * - `PENDING`: Waiting to be generated.
+       * - `RUNNING`: Being generated.
+       * > - Only reports with `CancelAvailable` set to `true` can be canceled.
+       * > - Reports that are completed, failed, or expired cannot be canceled.
+       * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+       * > - Reports are isolated by instance and Alibaba Cloud account.
+       *
+       * @param request CancelSqlPatternCompareReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CancelSqlPatternCompareReportResponse
+       */
+      Models::CancelSqlPatternCompareReportResponse cancelSqlPatternCompareReportWithOptions(const Models::CancelSqlPatternCompareReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Cancels an SQL Pattern comparison report.
+       *
+       * @description Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
+       * - `PENDING`: Waiting to be generated.
+       * - `RUNNING`: Being generated.
+       * > - Only reports with `CancelAvailable` set to `true` can be canceled.
+       * > - Reports that are completed, failed, or expired cannot be canceled.
+       * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+       * > - Reports are isolated by instance and Alibaba Cloud account.
+       *
+       * @param request CancelSqlPatternCompareReportRequest
+       * @return CancelSqlPatternCompareReportResponse
+       */
+      Models::CancelSqlPatternCompareReportResponse cancelSqlPatternCompareReport(const Models::CancelSqlPatternCompareReportRequest &request);
+
+      /**
        * @summary Queries whether a database account of an AnalyticDB for MySQL cluster is associated with a Resource Access Management (RAM) user.
        *
        * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -734,6 +767,35 @@ namespace Adb20211201
        * @return CreateSparkTemplateResponse
        */
       Models::CreateSparkTemplateResponse createSparkTemplate(const Models::CreateSparkTemplateRequest &request);
+
+      /**
+       * @summary Creates a SQL pattern comparison report.
+       *
+       * @description Compares two time windows and asynchronously generates a SQL pattern comparison report.
+       * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
+       * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+       * > - Only one report can be generated for an instance at a time.
+       * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+       *
+       * @param request CreateSqlPatternCompareReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateSqlPatternCompareReportResponse
+       */
+      Models::CreateSqlPatternCompareReportResponse createSqlPatternCompareReportWithOptions(const Models::CreateSqlPatternCompareReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Creates a SQL pattern comparison report.
+       *
+       * @description Compares two time windows and asynchronously generates a SQL pattern comparison report.
+       * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
+       * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+       * > - Only one report can be generated for an instance at a time.
+       * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+       *
+       * @param request CreateSqlPatternCompareReportRequest
+       * @return CreateSqlPatternCompareReportResponse
+       */
+      Models::CreateSqlPatternCompareReportResponse createSqlPatternCompareReport(const Models::CreateSqlPatternCompareReportRequest &request);
 
       /**
        * @summary Deletes a database account from a cluster.
@@ -2814,6 +2876,88 @@ namespace Adb20211201
       Models::DescribeSqlPatternResponse describeSqlPattern(const Models::DescribeSqlPatternRequest &request);
 
       /**
+       * @summary Queries the details of an SQL Pattern comparison report.
+       *
+       * @description Performs a paged query of SQL Pattern comparison report details based on `MetricType` by using paging. Report type descriptions:
+       * - NEW: Returns Patterns that are new in time window 2. `MetricValues` returns `Time2`.
+       * - CHANGED: Returns Patterns that exist in both time windows and have increased average values for the current metric. `MetricValues` returns `Avg`, `Sum`, and `Max`.
+       * Metric calculation methods:
+       * - `Sum`: The sum of metric values across valid query minute buckets.
+       * - `Avg`: The average of metric values across valid query minute buckets.
+       * - `Max`: The peak metric value within a single minute bucket.
+       * Metric units:
+       * - `QUERY_COUNT`: count.
+       * - `CPU_COST`: seconds.
+       * - `SHUFFLE_SIZE`, `PEAK_MEMORY`, `SCAN_SIZE`: GB.
+       * > - Only reports with `DetailEnabled` set to `true` can be queried for details. Reports that are incomplete, canceled, or expired cannot be queried.
+       * > - Fields ending with `Percent` are already expressed as percentages. When the time window 1 metric value is 0, `ChangeRatePercent` may not be returned and should not be treated as 0%.
+       * > - Reports are isolated by instance and Alibaba Cloud account.
+       *
+       * @param request DescribeSqlPatternCompareReportRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSqlPatternCompareReportResponse
+       */
+      Models::DescribeSqlPatternCompareReportResponse describeSqlPatternCompareReportWithOptions(const Models::DescribeSqlPatternCompareReportRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the details of an SQL Pattern comparison report.
+       *
+       * @description Performs a paged query of SQL Pattern comparison report details based on `MetricType` by using paging. Report type descriptions:
+       * - NEW: Returns Patterns that are new in time window 2. `MetricValues` returns `Time2`.
+       * - CHANGED: Returns Patterns that exist in both time windows and have increased average values for the current metric. `MetricValues` returns `Avg`, `Sum`, and `Max`.
+       * Metric calculation methods:
+       * - `Sum`: The sum of metric values across valid query minute buckets.
+       * - `Avg`: The average of metric values across valid query minute buckets.
+       * - `Max`: The peak metric value within a single minute bucket.
+       * Metric units:
+       * - `QUERY_COUNT`: count.
+       * - `CPU_COST`: seconds.
+       * - `SHUFFLE_SIZE`, `PEAK_MEMORY`, `SCAN_SIZE`: GB.
+       * > - Only reports with `DetailEnabled` set to `true` can be queried for details. Reports that are incomplete, canceled, or expired cannot be queried.
+       * > - Fields ending with `Percent` are already expressed as percentages. When the time window 1 metric value is 0, `ChangeRatePercent` may not be returned and should not be treated as 0%.
+       * > - Reports are isolated by instance and Alibaba Cloud account.
+       *
+       * @param request DescribeSqlPatternCompareReportRequest
+       * @return DescribeSqlPatternCompareReportResponse
+       */
+      Models::DescribeSqlPatternCompareReportResponse describeSqlPatternCompareReport(const Models::DescribeSqlPatternCompareReportRequest &request);
+
+      /**
+       * @summary Queries the list of SQL Pattern comparison reports.
+       *
+       * @description Queries the SQL Pattern comparison reports created by the current Alibaba Cloud account for a specified instance. RAM users can query reports that belong to their parent Alibaba Cloud account.
+       * The following pagination methods are supported:
+       * - Page number-based pagination (recommended): Use `PageNumber` and `PageSize`.
+       * - Token-based pagination: Use `MaxResults` and `NextToken`.
+       * > - The two pagination methods cannot be used together. When you use page number-based pagination, the `MaxResults` parameter that is automatically included by the platform does not take effect.
+       * > - The list returns only unexpired reports in the `PENDING`, `RUNNING`, or `SUCCESS` state.
+       * > - Use `DetailEnabled` to determine whether report details can be queried. Use `CancelAvailable` to determine whether a report can be canceled.
+       * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+       *
+       * @param request DescribeSqlPatternCompareReportsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeSqlPatternCompareReportsResponse
+       */
+      Models::DescribeSqlPatternCompareReportsResponse describeSqlPatternCompareReportsWithOptions(const Models::DescribeSqlPatternCompareReportsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the list of SQL Pattern comparison reports.
+       *
+       * @description Queries the SQL Pattern comparison reports created by the current Alibaba Cloud account for a specified instance. RAM users can query reports that belong to their parent Alibaba Cloud account.
+       * The following pagination methods are supported:
+       * - Page number-based pagination (recommended): Use `PageNumber` and `PageSize`.
+       * - Token-based pagination: Use `MaxResults` and `NextToken`.
+       * > - The two pagination methods cannot be used together. When you use page number-based pagination, the `MaxResults` parameter that is automatically included by the platform does not take effect.
+       * > - The list returns only unexpired reports in the `PENDING`, `RUNNING`, or `SUCCESS` state.
+       * > - Use `DetailEnabled` to determine whether report details can be queried. Use `CancelAvailable` to determine whether a report can be canceled.
+       * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+       *
+       * @param request DescribeSqlPatternCompareReportsRequest
+       * @return DescribeSqlPatternCompareReportsResponse
+       */
+      Models::DescribeSqlPatternCompareReportsResponse describeSqlPatternCompareReports(const Models::DescribeSqlPatternCompareReportsRequest &request);
+
+      /**
        * @summary Queries the storage resource usage of an AnalyticDB for MySQL cluster.
        *
        * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -4001,7 +4145,7 @@ namespace Adb20211201
       Models::ListApsWebhookResponse listApsWebhook(const Models::ListApsWebhookRequest &request);
 
       /**
-       * @summary 查询知识库文件
+       * @summary Queries knowledge base files.
        *
        * @param request ListKnowledgeFilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4010,7 +4154,7 @@ namespace Adb20211201
       Models::ListKnowledgeFilesResponse listKnowledgeFilesWithOptions(const Models::ListKnowledgeFilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询知识库文件
+       * @summary Queries knowledge base files.
        *
        * @param request ListKnowledgeFilesRequest
        * @return ListKnowledgeFilesResponse

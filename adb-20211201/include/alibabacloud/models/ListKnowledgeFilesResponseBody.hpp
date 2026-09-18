@@ -181,16 +181,31 @@ namespace Models
 
 
       protected:
+        // The time when the file was added to the knowledge base.
         shared_ptr<string> createdAt_ {};
+        // The ID of the file.
         shared_ptr<int64_t> fileId_ {};
+        // The size of the file, in bytes.
         shared_ptr<int64_t> fileSizeBytes_ {};
+        // The Object Storage Service (OSS) URL of the file.
         shared_ptr<string> fileUrl_ {};
+        // The format of the file.
         shared_ptr<string> format_ {};
+        // Indicates whether the file is a directory.
         shared_ptr<bool> isDirectory_ {};
+        // The file_id of the content host.
         shared_ptr<int64_t> ownerFileId_ {};
+        // The total number of pages in the file, such as the number of pages in a PDF file.
         shared_ptr<int32_t> pageCount_ {};
+        // The processing message of the knowledge base file.
         shared_ptr<string> processMessage_ {};
+        // The status of the file in the knowledge base. Valid values:
+        // 
+        // - Processing: The file is being processed.
+        // 
+        // - Finished: The file has been processed.
         shared_ptr<string> processStatus_ {};
+        // The time when the file was last updated.
         shared_ptr<string> updatedAt_ {};
       };
 
@@ -241,11 +256,19 @@ namespace Models
 
 
     protected:
+      // The list of file information.
       shared_ptr<vector<Data::Files>> files_ {};
+      // The message returned by the request.
       shared_ptr<string> message_ {};
+      // The current page number.
       shared_ptr<int32_t> page_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // Indicates whether the request was successful. Valid values:
+      // - **true**: The request was successful.
+      // - **false**: The request failed.
       shared_ptr<bool> success_ {};
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -268,7 +291,9 @@ namespace Models
 
 
   protected:
+    // The returned data.
     shared_ptr<ListKnowledgeFilesResponseBody::Data> data_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

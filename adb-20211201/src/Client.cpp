@@ -710,6 +710,72 @@ CancelSparkWarehouseBatchSQLResponse Client::cancelSparkWarehouseBatchSQL(const 
 }
 
 /**
+ * @summary Cancels an SQL Pattern comparison report.
+ *
+ * @description Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
+ * - `PENDING`: Waiting to be generated.
+ * - `RUNNING`: Being generated.
+ * > - Only reports with `CancelAvailable` set to `true` can be canceled.
+ * > - Reports that are completed, failed, or expired cannot be canceled.
+ * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+ * > - Reports are isolated by instance and Alibaba Cloud account.
+ *
+ * @param request CancelSqlPatternCompareReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CancelSqlPatternCompareReportResponse
+ */
+CancelSqlPatternCompareReportResponse Client::cancelSqlPatternCompareReportWithOptions(const CancelSqlPatternCompareReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasReportId()) {
+    query["ReportId"] = request.getReportId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CancelSqlPatternCompareReport"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CancelSqlPatternCompareReportResponse>();
+}
+
+/**
+ * @summary Cancels an SQL Pattern comparison report.
+ *
+ * @description Cancels a specified SQL Pattern comparison report. Reports in the following statuses can be canceled:
+ * - `PENDING`: Waiting to be generated.
+ * - `RUNNING`: Being generated.
+ * > - Only reports with `CancelAvailable` set to `true` can be canceled.
+ * > - Reports that are completed, failed, or expired cannot be canceled.
+ * > - When you cancel an already canceled report again, `Canceled` still returns `true`, and `CancelTime` retains the time of the first cancellation.
+ * > - Reports are isolated by instance and Alibaba Cloud account.
+ *
+ * @param request CancelSqlPatternCompareReportRequest
+ * @return CancelSqlPatternCompareReportResponse
+ */
+CancelSqlPatternCompareReportResponse Client::cancelSqlPatternCompareReport(const CancelSqlPatternCompareReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return cancelSqlPatternCompareReportWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries whether a database account of an AnalyticDB for MySQL cluster is associated with a Resource Access Management (RAM) user.
  *
  * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -2831,6 +2897,84 @@ CreateSparkTemplateResponse Client::createSparkTemplateWithOptions(const CreateS
 CreateSparkTemplateResponse Client::createSparkTemplate(const CreateSparkTemplateRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createSparkTemplateWithOptions(request, runtime);
+}
+
+/**
+ * @summary Creates a SQL pattern comparison report.
+ *
+ * @description Compares two time windows and asynchronously generates a SQL pattern comparison report.
+ * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
+ * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+ * > - Only one report can be generated for an instance at a time.
+ * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+ *
+ * @param request CreateSqlPatternCompareReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateSqlPatternCompareReportResponse
+ */
+CreateSqlPatternCompareReportResponse Client::createSqlPatternCompareReportWithOptions(const CreateSqlPatternCompareReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasCompareEndTime()) {
+    query["CompareEndTime"] = request.getCompareEndTime();
+  }
+
+  if (!!request.hasCompareStartTime()) {
+    query["CompareStartTime"] = request.getCompareStartTime();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasEndTime()) {
+    query["EndTime"] = request.getEndTime();
+  }
+
+  if (!!request.hasPatternType()) {
+    query["PatternType"] = request.getPatternType();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasStartTime()) {
+    query["StartTime"] = request.getStartTime();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateSqlPatternCompareReport"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateSqlPatternCompareReportResponse>();
+}
+
+/**
+ * @summary Creates a SQL pattern comparison report.
+ *
+ * @description Compares two time windows and asynchronously generates a SQL pattern comparison report.
+ * > - The start time of each window must be earlier than the end time, and the duration must not exceed 24 hours. Select windows of the same duration and similar business cycles.
+ * > - The returned `ReportId` only indicates that the request has been accepted. Call `DescribeSqlPatternCompareReports` to query the report status, and query the details when `DetailEnabled` is `true`.
+ * > - Only one report can be generated for an instance at a time.
+ * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+ *
+ * @param request CreateSqlPatternCompareReportRequest
+ * @return CreateSqlPatternCompareReportResponse
+ */
+CreateSqlPatternCompareReportResponse Client::createSqlPatternCompareReport(const CreateSqlPatternCompareReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createSqlPatternCompareReportWithOptions(request, runtime);
 }
 
 /**
@@ -9444,6 +9588,194 @@ DescribeSqlPatternResponse Client::describeSqlPattern(const DescribeSqlPatternRe
 }
 
 /**
+ * @summary Queries the details of an SQL Pattern comparison report.
+ *
+ * @description Performs a paged query of SQL Pattern comparison report details based on `MetricType` by using paging. Report type descriptions:
+ * - NEW: Returns Patterns that are new in time window 2. `MetricValues` returns `Time2`.
+ * - CHANGED: Returns Patterns that exist in both time windows and have increased average values for the current metric. `MetricValues` returns `Avg`, `Sum`, and `Max`.
+ * Metric calculation methods:
+ * - `Sum`: The sum of metric values across valid query minute buckets.
+ * - `Avg`: The average of metric values across valid query minute buckets.
+ * - `Max`: The peak metric value within a single minute bucket.
+ * Metric units:
+ * - `QUERY_COUNT`: count.
+ * - `CPU_COST`: seconds.
+ * - `SHUFFLE_SIZE`, `PEAK_MEMORY`, `SCAN_SIZE`: GB.
+ * > - Only reports with `DetailEnabled` set to `true` can be queried for details. Reports that are incomplete, canceled, or expired cannot be queried.
+ * > - Fields ending with `Percent` are already expressed as percentages. When the time window 1 metric value is 0, `ChangeRatePercent` may not be returned and should not be treated as 0%.
+ * > - Reports are isolated by instance and Alibaba Cloud account.
+ *
+ * @param request DescribeSqlPatternCompareReportRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSqlPatternCompareReportResponse
+ */
+DescribeSqlPatternCompareReportResponse Client::describeSqlPatternCompareReportWithOptions(const DescribeSqlPatternCompareReportRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasChangeRate()) {
+    query["ChangeRate"] = request.getChangeRate();
+  }
+
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasIncludePattern()) {
+    query["IncludePattern"] = request.getIncludePattern();
+  }
+
+  if (!!request.hasMetricType()) {
+    query["MetricType"] = request.getMetricType();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasReportId()) {
+    query["ReportId"] = request.getReportId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSqlPatternCompareReport"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSqlPatternCompareReportResponse>();
+}
+
+/**
+ * @summary Queries the details of an SQL Pattern comparison report.
+ *
+ * @description Performs a paged query of SQL Pattern comparison report details based on `MetricType` by using paging. Report type descriptions:
+ * - NEW: Returns Patterns that are new in time window 2. `MetricValues` returns `Time2`.
+ * - CHANGED: Returns Patterns that exist in both time windows and have increased average values for the current metric. `MetricValues` returns `Avg`, `Sum`, and `Max`.
+ * Metric calculation methods:
+ * - `Sum`: The sum of metric values across valid query minute buckets.
+ * - `Avg`: The average of metric values across valid query minute buckets.
+ * - `Max`: The peak metric value within a single minute bucket.
+ * Metric units:
+ * - `QUERY_COUNT`: count.
+ * - `CPU_COST`: seconds.
+ * - `SHUFFLE_SIZE`, `PEAK_MEMORY`, `SCAN_SIZE`: GB.
+ * > - Only reports with `DetailEnabled` set to `true` can be queried for details. Reports that are incomplete, canceled, or expired cannot be queried.
+ * > - Fields ending with `Percent` are already expressed as percentages. When the time window 1 metric value is 0, `ChangeRatePercent` may not be returned and should not be treated as 0%.
+ * > - Reports are isolated by instance and Alibaba Cloud account.
+ *
+ * @param request DescribeSqlPatternCompareReportRequest
+ * @return DescribeSqlPatternCompareReportResponse
+ */
+DescribeSqlPatternCompareReportResponse Client::describeSqlPatternCompareReport(const DescribeSqlPatternCompareReportRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSqlPatternCompareReportWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the list of SQL Pattern comparison reports.
+ *
+ * @description Queries the SQL Pattern comparison reports created by the current Alibaba Cloud account for a specified instance. RAM users can query reports that belong to their parent Alibaba Cloud account.
+ * The following pagination methods are supported:
+ * - Page number-based pagination (recommended): Use `PageNumber` and `PageSize`.
+ * - Token-based pagination: Use `MaxResults` and `NextToken`.
+ * > - The two pagination methods cannot be used together. When you use page number-based pagination, the `MaxResults` parameter that is automatically included by the platform does not take effect.
+ * > - The list returns only unexpired reports in the `PENDING`, `RUNNING`, or `SUCCESS` state.
+ * > - Use `DetailEnabled` to determine whether report details can be queried. Use `CancelAvailable` to determine whether a report can be canceled.
+ * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+ *
+ * @param request DescribeSqlPatternCompareReportsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSqlPatternCompareReportsResponse
+ */
+DescribeSqlPatternCompareReportsResponse Client::describeSqlPatternCompareReportsWithOptions(const DescribeSqlPatternCompareReportsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasDBClusterId()) {
+    query["DBClusterId"] = request.getDBClusterId();
+  }
+
+  if (!!request.hasMaxResults()) {
+    query["MaxResults"] = request.getMaxResults();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasOrder()) {
+    query["Order"] = request.getOrder();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSqlPatternCompareReports"},
+    {"version" , "2021-12-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSqlPatternCompareReportsResponse>();
+}
+
+/**
+ * @summary Queries the list of SQL Pattern comparison reports.
+ *
+ * @description Queries the SQL Pattern comparison reports created by the current Alibaba Cloud account for a specified instance. RAM users can query reports that belong to their parent Alibaba Cloud account.
+ * The following pagination methods are supported:
+ * - Page number-based pagination (recommended): Use `PageNumber` and `PageSize`.
+ * - Token-based pagination: Use `MaxResults` and `NextToken`.
+ * > - The two pagination methods cannot be used together. When you use page number-based pagination, the `MaxResults` parameter that is automatically included by the platform does not take effect.
+ * > - The list returns only unexpired reports in the `PENDING`, `RUNNING`, or `SUCCESS` state.
+ * > - Use `DetailEnabled` to determine whether report details can be queried. Use `CancelAvailable` to determine whether a report can be canceled.
+ * > - Reports are valid for 7 days and are isolated by instance and Alibaba Cloud account.
+ *
+ * @param request DescribeSqlPatternCompareReportsRequest
+ * @return DescribeSqlPatternCompareReportsResponse
+ */
+DescribeSqlPatternCompareReportsResponse Client::describeSqlPatternCompareReports(const DescribeSqlPatternCompareReportsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSqlPatternCompareReportsWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the storage resource usage of an AnalyticDB for MySQL cluster.
  *
  * @description For information about the endpoints of AnalyticDB for MySQL, see [Endpoints](https://help.aliyun.com/document_detail/612373.html).
@@ -12662,7 +12994,7 @@ ListApsWebhookResponse Client::listApsWebhook(const ListApsWebhookRequest &reque
 }
 
 /**
- * @summary 查询知识库文件
+ * @summary Queries knowledge base files.
  *
  * @param request ListKnowledgeFilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12713,7 +13045,7 @@ ListKnowledgeFilesResponse Client::listKnowledgeFilesWithOptions(const ListKnowl
 }
 
 /**
- * @summary 查询知识库文件
+ * @summary Queries knowledge base files.
  *
  * @param request ListKnowledgeFilesRequest
  * @return ListKnowledgeFilesResponse

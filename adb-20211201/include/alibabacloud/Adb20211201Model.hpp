@@ -34,6 +34,7 @@
 #include <alibabacloud/models/OpenStructMvRecommendSubTaskModel.hpp>
 #include <alibabacloud/models/OpenStructMvRecommendTaskModel.hpp>
 #include <alibabacloud/models/OpenStructRefreshJobModel.hpp>
+#include <alibabacloud/models/ItemsMetricValuesValue.hpp>
 #include <alibabacloud/models/AddKnowledgeFileRequest.hpp>
 #include <alibabacloud/models/AddKnowledgeFileResponseBody.hpp>
 #include <alibabacloud/models/AddKnowledgeFileResponse.hpp>
@@ -68,6 +69,9 @@
 #include <alibabacloud/models/CancelSparkWarehouseBatchSQLRequest.hpp>
 #include <alibabacloud/models/CancelSparkWarehouseBatchSQLResponseBody.hpp>
 #include <alibabacloud/models/CancelSparkWarehouseBatchSQLResponse.hpp>
+#include <alibabacloud/models/CancelSqlPatternCompareReportRequest.hpp>
+#include <alibabacloud/models/CancelSqlPatternCompareReportResponseBody.hpp>
+#include <alibabacloud/models/CancelSqlPatternCompareReportResponse.hpp>
 #include <alibabacloud/models/CheckBindRamUserRequest.hpp>
 #include <alibabacloud/models/CheckBindRamUserResponseBody.hpp>
 #include <alibabacloud/models/CheckBindRamUserResponse.hpp>
@@ -149,6 +153,9 @@
 #include <alibabacloud/models/CreateSparkTemplateRequest.hpp>
 #include <alibabacloud/models/CreateSparkTemplateResponseBody.hpp>
 #include <alibabacloud/models/CreateSparkTemplateResponse.hpp>
+#include <alibabacloud/models/CreateSqlPatternCompareReportRequest.hpp>
+#include <alibabacloud/models/CreateSqlPatternCompareReportResponseBody.hpp>
+#include <alibabacloud/models/CreateSqlPatternCompareReportResponse.hpp>
 #include <alibabacloud/models/DeleteAccountRequest.hpp>
 #include <alibabacloud/models/DeleteAccountResponseBody.hpp>
 #include <alibabacloud/models/DeleteAccountResponse.hpp>
@@ -462,6 +469,12 @@
 #include <alibabacloud/models/DescribeSqlPatternRequest.hpp>
 #include <alibabacloud/models/DescribeSqlPatternResponseBody.hpp>
 #include <alibabacloud/models/DescribeSqlPatternResponse.hpp>
+#include <alibabacloud/models/DescribeSqlPatternCompareReportRequest.hpp>
+#include <alibabacloud/models/DescribeSqlPatternCompareReportResponseBody.hpp>
+#include <alibabacloud/models/DescribeSqlPatternCompareReportResponse.hpp>
+#include <alibabacloud/models/DescribeSqlPatternCompareReportsRequest.hpp>
+#include <alibabacloud/models/DescribeSqlPatternCompareReportsResponseBody.hpp>
+#include <alibabacloud/models/DescribeSqlPatternCompareReportsResponse.hpp>
 #include <alibabacloud/models/DescribeStorageResourceUsageRequest.hpp>
 #include <alibabacloud/models/DescribeStorageResourceUsageResponseBody.hpp>
 #include <alibabacloud/models/DescribeStorageResourceUsageResponse.hpp>
