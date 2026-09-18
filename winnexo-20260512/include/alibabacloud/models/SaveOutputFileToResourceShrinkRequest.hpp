@@ -74,7 +74,7 @@ namespace Models
     shared_ptr<string> itemIdsShrink_ {};
     // The save mode. Valid values:
     // - link: Links the resource to the output in a 1:1 idempotent manner. Edits to the output are synchronized to the resource.
-    // - copy: Creates a snapshot copy with no limit on the number of copies.
+    // - copy: Creates a snapshot copy. No limit on the number of copies.
     shared_ptr<string> mode_ {};
     // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
     shared_ptr<string> tenantId_ {};

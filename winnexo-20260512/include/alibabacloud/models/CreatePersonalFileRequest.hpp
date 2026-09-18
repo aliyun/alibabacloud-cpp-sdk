@@ -132,9 +132,9 @@ namespace Models
   protected:
     // The pipeline description.
     shared_ptr<string> description_ {};
-    // The directory ID.
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
-    // The file extension (optional, such as pdf or docx).
+    // The file name extension (optional, such as pdf or docx).
     shared_ptr<string> fileExt_ {};
     // The file name.
     shared_ptr<string> fileName_ {};
@@ -142,7 +142,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> filePath_ {};
-    // The publicly accessible URL of the Alibaba DingTalk online document.
+    // The publicly accessible URL of the DingTalk online document.
     shared_ptr<string> filePublicUrl_ {};
     // The file record ID (optional, corresponding to settings.file_record_id).
     shared_ptr<string> fileRecordId_ {};
@@ -152,7 +152,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 资源标签 JSON 字符串列表
+    // The list of resource tag JSON strings.
     shared_ptr<string> sourceTags_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};

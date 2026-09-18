@@ -121,7 +121,7 @@ namespace Models
       protected:
         // The reason why the option is grayed out.
         shared_ptr<string> disabledReason_ {};
-        // The feature switch. This parameter is optional when type is set to web_search.
+        // Specifies whether the feature is enabled. This parameter is optional when type is set to web_search.
         // 
         // This parameter is required.
         shared_ptr<bool> enabled_ {};
@@ -292,9 +292,9 @@ namespace Models
     shared_ptr<vector<GetScheduledTaskPushOptionsResponseBody::Channels>> channels_ {};
     // The status code.
     shared_ptr<string> code_ {};
-    // The prompt displayed when no third-party accounts are bound.
+    // The hint displayed when no third-party accounts are bound.
     shared_ptr<string> emptyHint_ {};
-    // The prompt message.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

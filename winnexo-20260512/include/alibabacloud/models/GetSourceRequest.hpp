@@ -63,7 +63,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> sourceId_ {};
-    // The tenant ID to which the task belongs.
+    // The ID of the tenant to which the task belongs.
     shared_ptr<string> tenantId_ {};
   };
 

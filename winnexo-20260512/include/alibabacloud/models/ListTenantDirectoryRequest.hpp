@@ -106,7 +106,7 @@ namespace Models
     // - event_execute_start_time: the event execution time.
     // - event_execute_finish_time: the event completion time.
     shared_ptr<string> sortField_ {};
-    // The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
+    // The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC and DESC (case-insensitive).
     shared_ptr<string> sortOrder_ {};
     // The list of source types.
     shared_ptr<string> sourceTypes_ {};

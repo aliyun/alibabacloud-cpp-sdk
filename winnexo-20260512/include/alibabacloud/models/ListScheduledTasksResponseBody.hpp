@@ -274,15 +274,15 @@ namespace Models
 
 
     protected:
-      // The reason for the exception. This field has a value only when status is abnormal.
+      // The reason for the exception. This parameter has a value only when status is abnormal.
       shared_ptr<string> abnormalReason_ {};
-      // Indicates whether the current caller can delete the task (only the task creator and group owner can do so). Always returns true for personal tasks.
+      // Indicates whether the current caller can delete the task. Only the task creator and group owner can delete the task. For personal tasks, this value is always true.
       shared_ptr<bool> canDelete_ {};
-      // Indicates whether the task can be edited or deleted.
+      // Indicates whether the course can be edited or deleted.
       shared_ptr<bool> canEdit_ {};
-      // Indicates whether the current caller can immediately execute the task (anyone with visibility can operate. Returns false for abnormal tasks). Always returns true for personal tasks.
+      // Indicates whether the current caller can immediately execute the task. A task is executable if it is visible to the caller, except for abnormal tasks which return false. For personal tasks, this value is always true.
       shared_ptr<bool> canExecute_ {};
-      // Indicates whether the current caller can start or stop the task (only the task creator and group owner can do so. Returns false for abnormal tasks). Always returns true for personal tasks.
+      // Indicates whether the current caller can start or stop the task. Only the task creator and group owner can toggle the task. Abnormal tasks return false. For personal tasks, this value is always true.
       shared_ptr<bool> canToggle_ {};
       // The ID of the collaboration group (such as cg_101). If specified, a group task is created (the caller must be a valid group member). If left empty, a personal task is created.
       shared_ptr<string> collaborationGroupId_ {};
@@ -296,7 +296,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The list of digital employee names.
       shared_ptr<vector<string>> digitalEmployeeName_ {};
-      // The total number of executions.
+      // The cumulative number of executions.
       shared_ptr<int64_t> executionCount_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
@@ -312,16 +312,16 @@ namespace Models
       shared_ptr<string> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The trigger type.
+      // The type of the trigger.
       shared_ptr<string> triggerType_ {};
       // The visibility scope of the group task. Valid values:
       // - PRIVATE: visible only to the creator and group owner.
       // - COLLABORATIVE: visible to specified collaborators.
       // - PUBLIC: visible to all group members.
       // 
-      // For group tasks, the default value is PRIVATE if not specified. This field is ignored for personal tasks.
+      // If not specified for a group task, the default value is PRIVATE. This parameter is ignored for personal tasks.
       shared_ptr<string> visibility_ {};
-      // The list of collaborators (excluding the task creator and group creator, who are covered by the authentication layer). This field is returned only for group tasks. An empty list is returned for PRIVATE or PUBLIC visibility.
+      // The list of collaborator members, excluding the task creator and group creator whose access is governed by the authentication layer. This parameter is returned only for group tasks. An empty list is returned for PRIVATE and PUBLIC visibility.
       shared_ptr<vector<string>> visibleMemberUserIds_ {};
     };
 

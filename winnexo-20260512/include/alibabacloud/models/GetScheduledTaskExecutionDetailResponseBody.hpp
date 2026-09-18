@@ -100,7 +100,7 @@ namespace Models
 
 
     protected:
-      // The user identifier that triggered the execution.
+      // The identifier of the user who triggered the execution.
       shared_ptr<string> triggeredBy_ {};
     };
 
@@ -383,7 +383,7 @@ namespace Models
     shared_ptr<vector<GetScheduledTaskExecutionDetailResponseBody::Files>> files_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The extended metadata.
     shared_ptr<GetScheduledTaskExecutionDetailResponseBody::Metadata> metadata_ {};
@@ -407,7 +407,7 @@ namespace Models
     shared_ptr<GetScheduledTaskExecutionDetailResponseBody::TriggerInfo> triggerInfo_ {};
     // The trigger type.
     shared_ptr<string> triggerType_ {};
-    // The visibility scope of the execution record, which is always equal to the visibility scope of the associated task. Valid values: PRIVATE, COLLABORATIVE, and PUBLIC. This field is empty for personal task executions.
+    // The visibility scope of the execution record, which is always the same as the visibility scope of the associated task. Valid values: PRIVATE, COLLABORATIVE, and PUBLIC. This value is empty for personal task executions.
     shared_ptr<string> visibility_ {};
   };
 

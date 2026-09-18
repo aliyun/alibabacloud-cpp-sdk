@@ -149,11 +149,11 @@ namespace Models
     shared_ptr<bool> isActive_ {};
     // The last logon time.
     shared_ptr<string> lastLoginTime_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The list of system role codes (full replacement, must contain at least one role). Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
+    // The list of system role codes. The list performs a full replacement and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
     shared_ptr<vector<string>> roleCodes_ {};
     // The list of user group IDs to which the user belongs.
     shared_ptr<vector<string>> userGroupIds_ {};

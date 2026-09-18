@@ -84,25 +84,27 @@ namespace Models
 
 
   protected:
-    // 资源小类：resourceType=object 时固定 object_type；resourceType=element 时为 indicator / logic / process / rule / analysis 之一
+    // The element type. Currently, only text is supported.
     // 
     // This parameter is required.
     shared_ptr<string> elementType_ {};
-    // 图谱名称，须已存在（active 记录）
+    // The graph name.
     // 
     // This parameter is required.
     shared_ptr<string> graphName_ {};
-    // 资源名（创建后不可改名，底层校验）
+    // The resource name.
     // 
     // This parameter is required.
     shared_ptr<string> resourceName_ {};
-    // 资源大类：object（对象）/ element（业务元素）
+    // The resource type.
+    // 
+    // This parameter is set to **instance**, which indicates that the resource type is instance.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
-    // 单资源 YAML 文本
+    // The original YAML text of the graph schema trimmed by READ permissions, with $ref references within the authorized subgraph retained.
     // 
     // This parameter is required.
     shared_ptr<string> yamlEdit_ {};

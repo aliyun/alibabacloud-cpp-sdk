@@ -114,9 +114,9 @@ namespace Models
   protected:
     // The ID of the collaboration group (such as cg_101). If specified, a group task is created (the caller must be a valid group member). If left empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
-    // Specifies whether to return only tasks created by the caller. This parameter takes effect only in the group dimension (in the personal dimension, only the caller\\"s own tasks are returned). If not specified, no filtering is applied.
+    // Specifies whether to return only tasks created by the caller. This parameter takes effect only in the group dimension. In the personal dimension, only the caller\\"s own tasks are always returned. If not specified, no filtering is applied.
     shared_ptr<bool> creatorOnly_ {};
-    // The keyword of the rule name for fuzzy match.
+    // The keyword of the rule name, used for fuzzy match.
     shared_ptr<string> keyword_ {};
     // The maximum number of entries to return in this request.
     shared_ptr<int32_t> maxResults_ {};
@@ -128,7 +128,7 @@ namespace Models
     // 
     // > The maximum number of entries per page is 30.
     shared_ptr<int64_t> pageSize_ {};
-    // The tenant ID that takes effect.
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
     // Filters by visibility. Valid values:
     // - PRIVATE: visible only to the creator and group owner.

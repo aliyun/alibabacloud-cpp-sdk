@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<int32_t> page_ {};
     // The maximum number of data records to read in this request.
     shared_ptr<int32_t> pageSize_ {};
-    // The tenant ID to which the task belongs.
+    // The ID of the tenant to which the node belongs.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -101,13 +101,13 @@ namespace Models
 
 
     protected:
-      // The business error code (i18n key). Returned on failure.
+      // The business error code (i18n key) returned on failure.
       shared_ptr<string> errorCode_ {};
-      // The error description, localized based on the request Accept-Language header. Returned on failure.
+      // The error description returned on failure, localized based on the request locale.
       shared_ptr<string> errorMessage_ {};
       // The output detail ID.
       shared_ptr<string> itemId_ {};
-      // The sourceId of the newly created resource. Returned on success.
+      // The sourceId of the newly created resource, returned on success.
       shared_ptr<string> sourceId_ {};
       // Indicates whether the operation is successful.
       shared_ptr<bool> success_ {};
@@ -146,13 +146,13 @@ namespace Models
 
 
   protected:
-    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
+    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* or InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // The error description. This value is empty on success.
+    // The error description. This value is empty when the operation succeeds.
     shared_ptr<string> message_ {};
     // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // The per-record results in the same order as the input itemIds. A single record failure does not affect other records.
+    // The per-record results, in the same order as the input itemIds. A failure of a single record does not affect other records.
     shared_ptr<vector<SaveOutputFileToResourceResponseBody::Results>> results_ {};
   };
 

@@ -101,13 +101,13 @@ namespace Models
 
 
     protected:
-      // The business error code (i18n key), returned on failure.
+      // The business error code (i18n key) returned upon failure.
       shared_ptr<string> errorCode_ {};
-      // The error description (internationalized based on the request locale), returned on failure.
+      // The error description returned upon failure. The description is internationalized based on the request locale.
       shared_ptr<string> errorMessage_ {};
       // The output item ID.
       shared_ptr<string> itemId_ {};
-      // The sourceId of the newly created resource, returned on success.
+      // The sourceId of the newly created resource, returned upon success.
       shared_ptr<string> sourceId_ {};
       // Indicates whether the operation is successful.
       shared_ptr<bool> success_ {};
@@ -148,11 +148,11 @@ namespace Models
   protected:
     // SUCCESS indicates success. In case of failure, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
     shared_ptr<string> code_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // The result list.
+    // The list of results.
     shared_ptr<vector<SaveGroupOutputFileToPersonalResourceResponseBody::Results>> results_ {};
   };
 

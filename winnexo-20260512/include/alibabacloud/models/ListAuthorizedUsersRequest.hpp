@@ -75,7 +75,11 @@ namespace Models
 
 
   protected:
-    // The filter type. Valid values: USER, USER_GROUP. If not specified, all types are returned.
+    // The filter type. Valid values:
+    // - USER
+    // - USER_GROUP
+    // 
+    // If this parameter is not specified, all types are returned.
     shared_ptr<string> granteeType_ {};
     // The search keyword.
     shared_ptr<string> keyword_ {};
@@ -85,7 +89,7 @@ namespace Models
     shared_ptr<string> operatingObjectName_ {};
     // Permission
     shared_ptr<string> permission_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

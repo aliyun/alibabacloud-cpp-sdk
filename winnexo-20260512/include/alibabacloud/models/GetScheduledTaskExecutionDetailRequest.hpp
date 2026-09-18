@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> executionId_ {};
-    // The tenant ID that takes effect.
+    // The ID of the effective tenant.
     shared_ptr<string> tenantId_ {};
   };
 

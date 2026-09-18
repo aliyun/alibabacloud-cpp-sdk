@@ -19,6 +19,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(message, message_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(type, type_);
+      DARABONBA_PTR_TO_JSON(workMode, workMode_);
     };
     friend void from_json(const Darabonba::Json& j, SendChatMessageResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(code, code_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(message, message_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(type, type_);
+      DARABONBA_PTR_FROM_JSON(workMode, workMode_);
     };
     SendChatMessageResponseBody() = default ;
     SendChatMessageResponseBody(const SendChatMessageResponseBody &) = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->code_ == nullptr
-        && this->content_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->type_ == nullptr; };
+        && this->content_ == nullptr && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr && this->type_ == nullptr
+        && this->workMode_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
@@ -85,6 +88,13 @@ namespace Models
     inline SendChatMessageResponseBody& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
+    // workMode Field Functions 
+    bool hasWorkMode() const { return this->workMode_ != nullptr;};
+    void deleteWorkMode() { this->workMode_ = nullptr;};
+    inline string getWorkMode() const { DARABONBA_PTR_GET_DEFAULT(workMode_, "") };
+    inline SendChatMessageResponseBody& setWorkMode(string workMode) { DARABONBA_PTR_SET_VALUE(workMode_, workMode) };
+
+
   protected:
     // The error code.
     shared_ptr<string> code_ {};
@@ -98,6 +108,13 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The event type.
     shared_ptr<string> type_ {};
+    // The session work mode that takes effect for the current turn. Valid values:
+    // - ask: Quick Q&A.
+    // - work: Deep work.
+    // - direct: Direct connection (request-level).
+    // 
+    // In multi-digital-employee or task execution scenarios, if ask is provided, work takes effect instead.
+    shared_ptr<string> workMode_ {};
   };
 
   } // namespace Models

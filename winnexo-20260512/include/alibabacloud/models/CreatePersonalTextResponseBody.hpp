@@ -114,7 +114,7 @@ namespace Models
   protected:
     // SUCCESS indicates success. In case of failure, the corresponding error type is returned, such as ERR_BAD_REQUEST, ERR_VALIDATION_FAILED, or ERR_INTERNAL_SERVER_ERROR.
     shared_ptr<string> code_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> gmtCreate_ {};
@@ -124,19 +124,19 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The travel scale of the integration partner.
+    // The travel scale of the partner.
     shared_ptr<string> scope_ {};
     // The source ID.
     shared_ptr<string> sourceId_ {};
     // The filter status.
     // 
-    // - 0: All
+    // - 0: All.
     // 
-    // - 1: Unconfirmed
+    // - 1: Unconfirmed.
     // 
-    // - 3: Ignored
+    // - 3: Ignored.
     // 
-    // - 4: Rejected
+    // - 4: Rejected.
     shared_ptr<string> status_ {};
   };
 

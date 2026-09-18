@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The pipeline description.
     shared_ptr<string> description_ {};
-    // The folder ID.
+    // The directory ID.
     shared_ptr<string> directoryId_ {};
     // The image name.
     // 
@@ -104,7 +104,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
-    // 资源标签 JSON 字符串列表
+    // The list of resource tag JSON strings.
     shared_ptr<string> sourceTags_ {};
     // The tenant ID.
     shared_ptr<string> tenantId_ {};

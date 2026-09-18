@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the collaboration group (such as cg_101). If specified, a group workspace task is created (the caller must be a valid group member). If left empty, a personal task is created.
+    // The ID of the collaboration group, such as cg_101. If specified, a group workspace task is created and the caller must be a valid group member. If left empty, a personal task is created.
     shared_ptr<string> collaborationGroupId_ {};
     // The name of the currently active digital employee. This value is empty if not configured.
     shared_ptr<string> digitalEmployeeName_ {};
-    // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass this value explicitly by using --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

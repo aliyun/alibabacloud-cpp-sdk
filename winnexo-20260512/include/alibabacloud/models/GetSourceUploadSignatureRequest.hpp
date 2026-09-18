@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(contentType, contentType_);
       DARABONBA_PTR_TO_JSON(expires, expires_);
       DARABONBA_PTR_TO_JSON(filename, filename_);
+      DARABONBA_PTR_TO_JSON(groupId, groupId_);
       DARABONBA_PTR_TO_JSON(operatingObjectName, operatingObjectName_);
       DARABONBA_PTR_TO_JSON(scope, scope_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(contentType, contentType_);
       DARABONBA_PTR_FROM_JSON(expires, expires_);
       DARABONBA_PTR_FROM_JSON(filename, filename_);
+      DARABONBA_PTR_FROM_JSON(groupId, groupId_);
       DARABONBA_PTR_FROM_JSON(operatingObjectName, operatingObjectName_);
       DARABONBA_PTR_FROM_JSON(scope, scope_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->contentType_ == nullptr
-        && this->expires_ == nullptr && this->filename_ == nullptr && this->operatingObjectName_ == nullptr && this->scope_ == nullptr && this->tenantId_ == nullptr; };
+        && this->expires_ == nullptr && this->filename_ == nullptr && this->groupId_ == nullptr && this->operatingObjectName_ == nullptr && this->scope_ == nullptr
+        && this->tenantId_ == nullptr; };
     // contentType Field Functions 
     bool hasContentType() const { return this->contentType_ != nullptr;};
     void deleteContentType() { this->contentType_ = nullptr;};
@@ -60,6 +63,13 @@ namespace Models
     void deleteFilename() { this->filename_ = nullptr;};
     inline string getFilename() const { DARABONBA_PTR_GET_DEFAULT(filename_, "") };
     inline GetSourceUploadSignatureRequest& setFilename(string filename) { DARABONBA_PTR_SET_VALUE(filename_, filename) };
+
+
+    // groupId Field Functions 
+    bool hasGroupId() const { return this->groupId_ != nullptr;};
+    void deleteGroupId() { this->groupId_ = nullptr;};
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline GetSourceUploadSignatureRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // operatingObjectName Field Functions 
@@ -84,7 +94,10 @@ namespace Models
 
 
   protected:
-    // The content type. Valid values: Text and Markdown.
+    // The content type. Valid values:
+    // 
+    // - Text
+    // - Markdown
     shared_ptr<string> contentType_ {};
     // The expiration time of the signed URL, in seconds. Default value: 3600.
     shared_ptr<int64_t> expires_ {};
@@ -92,7 +105,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> filename_ {};
-    // The name of the digital employee (operating object name). This parameter is optional.
+    // The collaboration space ID passed from the frontend. This parameter is required when scope is set to group. The value must be a space accessible to the current user and is used in the OSS path for locating. The value must be 1 to 64 characters in length and can contain letters, digits, underscores (_), and hyphens (-). This parameter is not used for other scope values.
+    shared_ptr<string> groupId_ {};
+    // The name of the digital employee (operating object name, optional).
     shared_ptr<string> operatingObjectName_ {};
     // The permission scope.
     shared_ptr<string> scope_ {};

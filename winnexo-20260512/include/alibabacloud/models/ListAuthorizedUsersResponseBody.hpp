@@ -181,17 +181,19 @@ namespace Models
 
 
     protected:
-      // The authorization expiration timestamp in milliseconds. If not specified, the authorization never expires.
+      // The authorization expiration timestamp in milliseconds. If this parameter is not specified, the authorization never expires.
       shared_ptr<int64_t> expireDate_ {};
       // The creation time.
       shared_ptr<string> gmtCreate_ {};
-      // The last update time.
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
-      // The user ID of the person who granted the authorization.
+      // The user ID of the grantor.
       shared_ptr<int64_t> grantedBy_ {};
-      // The ID of the authorized object.
+      // The ID of the grantee.
       shared_ptr<string> granteeId_ {};
-      // The authorization object type. Valid values: USER, USER_GROUP.
+      // The object type of the authorization target. Valid values:
+      // - USER
+      // - USER_GROUP
       shared_ptr<string> granteeType_ {};
       // The Operation logs ID.
       shared_ptr<int64_t> id_ {};
@@ -199,19 +201,19 @@ namespace Models
       shared_ptr<int64_t> memberCount_ {};
       // The permission member type. Valid values:
       // 
-      // - **ORG**: Enterprise.
+      // - **ORG**: enterprise.
       // 
-      // - **DEPT**: Department.
+      // - **DEPT**: department.
       // 
-      // - **TAG**: Custom tag.
+      // - **TAG**: custom tag.
       // 
-      // - **CONVERSATION**: Conversation.
+      // - **CONVERSATION**: conversation.
       // 
-      // - **USER**: User.
+      // - **USER**: user.
       shared_ptr<vector<string>> permissions_ {};
       // The user group ID. This parameter has a value only when granteeType is set to USER_GROUP.
       shared_ptr<string> userGroupId_ {};
-      // The user group name.
+      // The name of the user group.
       shared_ptr<string> userGroupName_ {};
       // The user ID. This parameter has a value only when granteeType is set to USER.
       shared_ptr<int64_t> userId_ {};

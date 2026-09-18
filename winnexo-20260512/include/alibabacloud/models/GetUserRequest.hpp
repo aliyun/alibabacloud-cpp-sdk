@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The ID of the tenant to which the task belongs.
     shared_ptr<string> tenantId_ {};
-    // The WINNEXO logon account. This is a unique identifier and cannot be empty.
+    // The WINNEXO logon account. This parameter is a unique identifier and cannot be empty.
     shared_ptr<string> wnAccountId_ {};
     // The WINNEXO platform user ID. Specify either this parameter or accountId.
     shared_ptr<string> wnUserId_ {};

@@ -748,6 +748,81 @@ CreateGroupAliDingChatResponse Client::createGroupAliDingChat(const CreateGroupA
 }
 
 /**
+ * @summary Collects an Alibaba DingTalk online document to a collaborative share.
+ *
+ * @description An authorized member collects a document to a physical folder in the collaborative share. Uses the fixed ALI_DING/Vacuum channel and processes the request asynchronously. Query the resource status after submission.
+ *
+ * @param request CreateGroupAliDingDocRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGroupAliDingDocResponse
+ */
+CreateGroupAliDingDocResponse Client::createGroupAliDingDocWithOptions(const CreateGroupAliDingDocRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasFilePublicUrl()) {
+    body["filePublicUrl"] = request.getFilePublicUrl();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGroupAliDingDoc"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createGroupAliDingDoc")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGroupAliDingDocResponse>();
+}
+
+/**
+ * @summary Collects an Alibaba DingTalk online document to a collaborative share.
+ *
+ * @description An authorized member collects a document to a physical folder in the collaborative share. Uses the fixed ALI_DING/Vacuum channel and processes the request asynchronously. Query the resource status after submission.
+ *
+ * @param request CreateGroupAliDingDocRequest
+ * @return CreateGroupAliDingDocResponse
+ */
+CreateGroupAliDingDocResponse Client::createGroupAliDingDoc(const CreateGroupAliDingDocRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGroupAliDingDocWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates knowledge from a standard DingTalk group chat for a group.
  *
  * @description ## Request description
@@ -855,6 +930,166 @@ CreateGroupDingtalkChatResponse Client::createGroupDingtalkChat(const CreateGrou
 }
 
 /**
+ * @summary Creates a folder in the collaborative share resource directory.
+ *
+ * @description Active space members can create physical subdirectories. If the parent folder is omitted or set to root, the internal root is used and lazily created on first access. The parent folder must belong to the current space.
+ *
+ * @param request CreateGroupDirectoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGroupDirectoryResponse
+ */
+CreateGroupDirectoryResponse Client::createGroupDirectoryWithOptions(const CreateGroupDirectoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasParentDirectoryId()) {
+    body["parentDirectoryId"] = request.getParentDirectoryId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGroupDirectory"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createGroupDirectory")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGroupDirectoryResponse>();
+}
+
+/**
+ * @summary Creates a folder in the collaborative share resource directory.
+ *
+ * @description Active space members can create physical subdirectories. If the parent folder is omitted or set to root, the internal root is used and lazily created on first access. The parent folder must belong to the current space.
+ *
+ * @param request CreateGroupDirectoryRequest
+ * @return CreateGroupDirectoryResponse
+ */
+CreateGroupDirectoryResponse Client::createGroupDirectory(const CreateGroupDirectoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGroupDirectoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 采集飞书群聊到协作空间
+ *
+ * @description 可信平台用户作为飞书连接器用户；空间鉴权通过后异步采集，前端通过详情查询实际状态。
+ *
+ * @param tmpReq CreateGroupFeishuChatRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGroupFeishuChatResponse
+ */
+CreateGroupFeishuChatResponse Client::createGroupFeishuChatWithOptions(const CreateGroupFeishuChatRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CreateGroupFeishuChatShrinkRequest request = CreateGroupFeishuChatShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasUpdateFrequency()) {
+    request.setUpdateFrequencyShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getUpdateFrequency(), "updateFrequency", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasChatId()) {
+    body["chatId"] = request.getChatId();
+  }
+
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasHistoryStartTime()) {
+    body["historyStartTime"] = request.getHistoryStartTime();
+  }
+
+  if (!!request.hasNotes()) {
+    body["notes"] = request.getNotes();
+  }
+
+  if (!!request.hasOperatingObjectName()) {
+    body["operatingObjectName"] = request.getOperatingObjectName();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  if (!!request.hasUpdateFrequencyShrink()) {
+    body["updateFrequency"] = request.getUpdateFrequencyShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGroupFeishuChat"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createGroupFeishuChat")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGroupFeishuChatResponse>();
+}
+
+/**
+ * @summary 采集飞书群聊到协作空间
+ *
+ * @description 可信平台用户作为飞书连接器用户；空间鉴权通过后异步采集，前端通过详情查询实际状态。
+ *
+ * @param request CreateGroupFeishuChatRequest
+ * @return CreateGroupFeishuChatResponse
+ */
+CreateGroupFeishuChatResponse Client::createGroupFeishuChat(const CreateGroupFeishuChatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGroupFeishuChatWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Creates a group knowledge resource from a single Lark online document using the current user\\"s Lark authorization.
  *
  * @description ## Request description\\n\\nFixed as `ONLINE_DOC + FEISHU + GROUP`. `groupId` is required. If `directoryId` is omitted, the root directory of the group knowledge base is used. Group membership and directory write permissions are verified by the backend.
@@ -953,6 +1188,239 @@ CreateGroupFeishuDocResponse Client::createGroupFeishuDoc(const CreateGroupFeish
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createGroupFeishuDocWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 上传本地文件到协作空间
+ *
+ * @description 先使用getSourceUploadSignature完成本地文件PUT，再提交当前租户本人SOURCE/OSS的fileRecordId。文件路径和名称由服务端读取，固定FILE/LOCAL/GROUP。有效成员可写空间物理目录，省略directoryId或root时使用空间根。返回创建结果，后续解析状态需查询。
+ *
+ * @param request CreateGroupFileRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGroupFileResponse
+ */
+CreateGroupFileResponse Client::createGroupFileWithOptions(const CreateGroupFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasFileRecordId()) {
+    body["fileRecordId"] = request.getFileRecordId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGroupFile"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createGroupFile")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGroupFileResponse>();
+}
+
+/**
+ * @summary 上传本地文件到协作空间
+ *
+ * @description 先使用getSourceUploadSignature完成本地文件PUT，再提交当前租户本人SOURCE/OSS的fileRecordId。文件路径和名称由服务端读取，固定FILE/LOCAL/GROUP。有效成员可写空间物理目录，省略directoryId或root时使用空间根。返回创建结果，后续解析状态需查询。
+ *
+ * @param request CreateGroupFileRequest
+ * @return CreateGroupFileResponse
+ */
+CreateGroupFileResponse Client::createGroupFile(const CreateGroupFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGroupFileWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Collects public web pages to a collaborative share.
+ *
+ * @description An active member collects web pages to a physical directory in the collaborative share. The type is fixed to PUBLIC_URL/GROUP. Use getGroupSource to query the background status.
+ *
+ * @param request CreateGroupPublicUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGroupPublicUrlResponse
+ */
+CreateGroupPublicUrlResponse Client::createGroupPublicUrlWithOptions(const CreateGroupPublicUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasNotes()) {
+    body["notes"] = request.getNotes();
+  }
+
+  if (!!request.hasOperatingObjectName()) {
+    body["operatingObjectName"] = request.getOperatingObjectName();
+  }
+
+  if (!!request.hasOriginalUrl()) {
+    body["originalUrl"] = request.getOriginalUrl();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGroupPublicUrl"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createGroupPublicUrl")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGroupPublicUrlResponse>();
+}
+
+/**
+ * @summary Collects public web pages to a collaborative share.
+ *
+ * @description An active member collects web pages to a physical directory in the collaborative share. The type is fixed to PUBLIC_URL/GROUP. Use getGroupSource to query the background status.
+ *
+ * @param request CreateGroupPublicUrlRequest
+ * @return CreateGroupPublicUrlResponse
+ */
+CreateGroupPublicUrlResponse Client::createGroupPublicUrl(const CreateGroupPublicUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGroupPublicUrlWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 上传纯文本到协作空间
+ *
+ * @description 有效空间成员上传纯文本到物理目录。固定TEXT/GROUP，省略directoryId或root时解析空间根。正文与最终名称沿用Provider处理规则，返回实际状态和真实目录，不代表解析完成。
+ *
+ * @param request CreateGroupTextRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateGroupTextResponse
+ */
+CreateGroupTextResponse Client::createGroupTextWithOptions(const CreateGroupTextRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  if (!!request.hasTextContent()) {
+    body["textContent"] = request.getTextContent();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateGroupText"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createGroupText")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateGroupTextResponse>();
+}
+
+/**
+ * @summary 上传纯文本到协作空间
+ *
+ * @description 有效空间成员上传纯文本到物理目录。固定TEXT/GROUP，省略directoryId或root时解析空间根。正文与最终名称沿用Provider处理规则，返回实际状态和真实目录，不代表解析完成。
+ *
+ * @param request CreateGroupTextRequest
+ * @return CreateGroupTextResponse
+ */
+CreateGroupTextResponse Client::createGroupText(const CreateGroupTextRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createGroupTextWithOptions(request, headers, runtime);
 }
 
 /**
@@ -1325,6 +1793,85 @@ CreateKnowledgeBaseFileResponse Client::createKnowledgeBaseFile(const CreateKnow
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return createKnowledgeBaseFileWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Collects a single public web page into the enterprise knowledge base of the current user.
+ *
+ * @description ## Operation description\\n\\nFixed to `PUBLIC_URL + TENANT`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Invoke getKnowledgeBaseSource to query the background collection status. `directoryId` is required. The caller must have knowledge base management permissions on the destination knowledge base.
+ *
+ * @param request CreateKnowledgeBasePublicUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateKnowledgeBasePublicUrlResponse
+ */
+CreateKnowledgeBasePublicUrlResponse Client::createKnowledgeBasePublicUrlWithOptions(const CreateKnowledgeBasePublicUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasNotes()) {
+    body["notes"] = request.getNotes();
+  }
+
+  if (!!request.hasOperatingObjectName()) {
+    body["operatingObjectName"] = request.getOperatingObjectName();
+  }
+
+  if (!!request.hasOriginalUrl()) {
+    body["originalUrl"] = request.getOriginalUrl();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreateKnowledgeBasePublicUrl"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createKnowledgeBasePublicUrl")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateKnowledgeBasePublicUrlResponse>();
+}
+
+/**
+ * @summary Collects a single public web page into the enterprise knowledge base of the current user.
+ *
+ * @description ## Operation description\\n\\nFixed to `PUBLIC_URL + TENANT`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Invoke getKnowledgeBaseSource to query the background collection status. `directoryId` is required. The caller must have knowledge base management permissions on the destination knowledge base.
+ *
+ * @param request CreateKnowledgeBasePublicUrlRequest
+ * @return CreateKnowledgeBasePublicUrlResponse
+ */
+CreateKnowledgeBasePublicUrlResponse Client::createKnowledgeBasePublicUrl(const CreateKnowledgeBasePublicUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createKnowledgeBasePublicUrlWithOptions(request, headers, runtime);
 }
 
 /**
@@ -2474,10 +3021,9 @@ CreatePersonalFeishuMinuteResponse Client::createPersonalFeishuMinute(const Crea
  * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
  * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
  * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
- * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
- * - Security authentication is supported through multiple authentication methods (AK, BearerToken, and APP) to authenticate requests.
+ * - If the target folder ID (`directoryId`) is not specified, the file is automatically bound to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
+ * - Security authentication is supported through multiple methods (AK, BearerToken, and APP).
  * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
- * To invoke this operation, you can use AK, BearerToken, or APP authentication.
  *
  * @param request CreatePersonalFileRequest
  * @param headers map
@@ -2558,10 +3104,9 @@ CreatePersonalFileResponse Client::createPersonalFileWithOptions(const CreatePer
  * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
  * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
  * - The file must include an OSS persistent address (`filePath`). Other information such as the public access URL and original file name is optional.
- * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
- * - Security authentication is supported through multiple authentication methods (AK, BearerToken, and APP) to authenticate requests.
+ * - If the target folder ID (`directoryId`) is not specified, the file is automatically bound to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the caller.
+ * - Security authentication is supported through multiple methods (AK, BearerToken, and APP).
  * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
- * To invoke this operation, you can use AK, BearerToken, or APP authentication.
  *
  * @param request CreatePersonalFileRequest
  * @return CreatePersonalFileResponse
@@ -2573,14 +3118,93 @@ CreatePersonalFileResponse Client::createPersonalFile(const CreatePersonalFileRe
 }
 
 /**
+ * @summary Collects a single public web page into the current user\\"s personal knowledge base.
+ *
+ * @description ## Request description\\n\\nFixed to `PUBLIC_URL + PERSONAL`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Use getSource to query the background collection status. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+ *
+ * @param request CreatePersonalPublicUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreatePersonalPublicUrlResponse
+ */
+CreatePersonalPublicUrlResponse Client::createPersonalPublicUrlWithOptions(const CreatePersonalPublicUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  if (!!request.hasNotes()) {
+    body["notes"] = request.getNotes();
+  }
+
+  if (!!request.hasOperatingObjectName()) {
+    body["operatingObjectName"] = request.getOperatingObjectName();
+  }
+
+  if (!!request.hasOriginalUrl()) {
+    body["originalUrl"] = request.getOriginalUrl();
+  }
+
+  if (!!request.hasSourceTags()) {
+    body["sourceTags"] = request.getSourceTags();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CreatePersonalPublicUrl"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/createPersonalPublicUrl")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreatePersonalPublicUrlResponse>();
+}
+
+/**
+ * @summary Collects a single public web page into the current user\\"s personal knowledge base.
+ *
+ * @description ## Request description\\n\\nFixed to `PUBLIC_URL + PERSONAL`. The user is determined by the trusted OpenAPI identity. Creation only indicates acceptance. Use getSource to query the background collection status. If `directoryId` is omitted, the current user\\"s default personal root directory is used.
+ *
+ * @param request CreatePersonalPublicUrlRequest
+ * @return CreatePersonalPublicUrlResponse
+ */
+CreatePersonalPublicUrlResponse Client::createPersonalPublicUrl(const CreatePersonalPublicUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return createPersonalPublicUrlWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Uploads plain text content to the personal resource library of the current digital employee.
  *
  * @description ## Operation description
  * - This API is used to add plain text content to the personal resources of a specified digital employee.
  * - `source_type` is fixed to `TEXT`, and `scope` is fixed to `PERSONAL`.
  * - If `directoryId` is not provided, the content is bound to the root directory of the current digital employee by default. If provided, it must be an existing personal directory of the caller under the digital employee.
- * - `tenant_id` and `user_id` can only be obtained from the authentication identity information. These parameters are ignored if passed in the request body.
- * - The call initiates metering and generates a corresponding `billing_id`.
+ * - `tenant_id` and `user_id` can only be obtained from the authentication identity information. These parameters are ignored if passed through the request body.
+ * - A metering process is initiated during the call, and a corresponding `billing_id` is generated.
  * - The text content is written to `unstructured_docs`, and an initial resource record is generated.
  * - Any validation or execution failure throws a `RobjectException`, which is converted to a POP error code by the global middleware and returned to the caller.
  *
@@ -2647,8 +3271,8 @@ CreatePersonalTextResponse Client::createPersonalTextWithOptions(const CreatePer
  * - This API is used to add plain text content to the personal resources of a specified digital employee.
  * - `source_type` is fixed to `TEXT`, and `scope` is fixed to `PERSONAL`.
  * - If `directoryId` is not provided, the content is bound to the root directory of the current digital employee by default. If provided, it must be an existing personal directory of the caller under the digital employee.
- * - `tenant_id` and `user_id` can only be obtained from the authentication identity information. These parameters are ignored if passed in the request body.
- * - The call initiates metering and generates a corresponding `billing_id`.
+ * - `tenant_id` and `user_id` can only be obtained from the authentication identity information. These parameters are ignored if passed through the request body.
+ * - A metering process is initiated during the call, and a corresponding `billing_id` is generated.
  * - The text content is written to `unstructured_docs`, and an initial resource record is generated.
  * - Any validation or execution failure throws a `RobjectException`, which is converted to a POP error code by the global middleware and returned to the caller.
  *
@@ -3873,6 +4497,65 @@ GetGraphSchemaDetailResponse Client::getGraphSchemaDetail(const GetGraphSchemaDe
 }
 
 /**
+ * @summary 获取协作空间资料详情
+ *
+ * @description 只读查询指定空间可见资料；未授权和无效引用拒绝读取，不初始化空间目录。
+ *
+ * @param request GetGroupSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetGroupSourceResponse
+ */
+GetGroupSourceResponse Client::getGroupSourceWithOptions(const GetGroupSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasSourceId()) {
+    body["sourceId"] = request.getSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetGroupSource"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/getGroupSource")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetGroupSourceResponse>();
+}
+
+/**
+ * @summary 获取协作空间资料详情
+ *
+ * @description 只读查询指定空间可见资料；未授权和无效引用拒绝读取，不初始化空间目录。
+ *
+ * @param request GetGroupSourceRequest
+ * @return GetGroupSourceResponse
+ */
+GetGroupSourceResponse Client::getGroupSource(const GetGroupSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getGroupSourceWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Queries the expiration time of the most recently created standard package instance for a tenant.
  *
  * @description ## Operation description
@@ -4003,14 +4686,14 @@ GetKnowledgeBaseSourceResponse Client::getKnowledgeBaseSource(const GetKnowledge
 /**
  * @summary Retrieves the execution details of a scheduled task.
  *
- * @description ## Operation description
+ * @description ## Description
  * - This operation uploads a file to an enterprise knowledge base.
- * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this API operation.
+ * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
  * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
- * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
- * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
- * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
- * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure your account balance is sufficient.
+ * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of file information.
+ * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee by default.
+ * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+ * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
  *
  * @param request GetScheduledTaskExecutionDetailRequest
  * @param headers map
@@ -4049,14 +4732,14 @@ GetScheduledTaskExecutionDetailResponse Client::getScheduledTaskExecutionDetailW
 /**
  * @summary Retrieves the execution details of a scheduled task.
  *
- * @description ## Operation description
+ * @description ## Description
  * - This operation uploads a file to an enterprise knowledge base.
- * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this API operation.
+ * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
  * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
- * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
- * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
- * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
- * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure your account balance is sufficient.
+ * - Optional parameters include the public access URL and original file name of the file to enhance the completeness of file information.
+ * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee by default.
+ * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
+ * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure that your account balance is sufficient.
  *
  * @param request GetScheduledTaskExecutionDetailRequest
  * @return GetScheduledTaskExecutionDetailResponse
@@ -4307,14 +4990,14 @@ GetScheduledTaskUnderstandDetailResponse Client::getScheduledTaskUnderstandDetai
 }
 
 /**
- * @summary Retrieves skill details.
+ * @summary Retrieves the details of a skill.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Queries skill details by SkillCode or SkillName, including metadata, input parameter schema, and SKILL.md summary.
  * - **TenantId**: Optional common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
  * - **SkillCode**: Mutually exclusive with SkillName. If both are specified, SkillCode takes precedence.
  * - **SkillName**: Mutually exclusive with SkillCode. If the name is not unique within the tenant, `ERR.SkillHub.SkillNameAmbiguous` is returned.
- * - **ViewMode**: Optional. Valid values: `draft` (draft/editing view) or `published` (published view, default).
+ * - **ViewMode**: Optional. Set to `draft` (draft/editing view) or `published` (published view, default).
  * - **IncludeSkillFiles**: Optional. Specifies whether to return the complete skill file tree (SKILL.md / scripts / templates). Default value: `false`.
  *
  * @param request GetSkillRequest
@@ -4366,14 +5049,14 @@ GetSkillResponse Client::getSkillWithOptions(const GetSkillRequest &request, con
 }
 
 /**
- * @summary Retrieves skill details.
+ * @summary Retrieves the details of a skill.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Queries skill details by SkillCode or SkillName, including metadata, input parameter schema, and SKILL.md summary.
  * - **TenantId**: Optional common parameter passed through by the gateway to the backend header. If not specified, the default tenant of the current caller is used.
  * - **SkillCode**: Mutually exclusive with SkillName. If both are specified, SkillCode takes precedence.
  * - **SkillName**: Mutually exclusive with SkillCode. If the name is not unique within the tenant, `ERR.SkillHub.SkillNameAmbiguous` is returned.
- * - **ViewMode**: Optional. Valid values: `draft` (draft/editing view) or `published` (published view, default).
+ * - **ViewMode**: Optional. Set to `draft` (draft/editing view) or `published` (published view, default).
  * - **IncludeSkillFiles**: Optional. Specifies whether to return the complete skill file tree (SKILL.md / scripts / templates). Default value: `false`.
  *
  * @param request GetSkillRequest
@@ -4458,9 +5141,9 @@ GetSkillRunResponse Client::getSkillRun(const GetSkillRunRequest &request) {
  * @summary Queries the details of a specified resource (knowledge), with support for returning large detail fields on demand.
  *
  * @description ## Operation description
- * - `tenant_id` is derived from the authenticated identity only. Any value passed in the body is ignored.
- * - Response parameters do not expose audit fields such as `creator` or `modifier`. The `unstructured_docs[ ].content` field is not returned by default to avoid large responses.
- * - Set the `includeDetails` parameter to `True` to retrieve additional details including `settings`, `notes`, `structuredTables`, and `unstructuredDocs`.
+ * - `tenant_id` is derived from the authenticated identity only. Any value passed in the request body is ignored.
+ * - Response elements do not expose audit fields such as `creator` or `modifier`. The `unstructured_docs[ ].content` field is not returned by default to avoid large responses.
+ * - Set the `includeDetails` parameter to `True` to retrieve additional details, including `settings`, `notes`, `structuredTables`, and `unstructuredDocs`.
  *
  * @param request GetSourceRequest
  * @param headers map
@@ -4506,9 +5189,9 @@ GetSourceResponse Client::getSourceWithOptions(const GetSourceRequest &request, 
  * @summary Queries the details of a specified resource (knowledge), with support for returning large detail fields on demand.
  *
  * @description ## Operation description
- * - `tenant_id` is derived from the authenticated identity only. Any value passed in the body is ignored.
- * - Response parameters do not expose audit fields such as `creator` or `modifier`. The `unstructured_docs[ ].content` field is not returned by default to avoid large responses.
- * - Set the `includeDetails` parameter to `True` to retrieve additional details including `settings`, `notes`, `structuredTables`, and `unstructuredDocs`.
+ * - `tenant_id` is derived from the authenticated identity only. Any value passed in the request body is ignored.
+ * - Response elements do not expose audit fields such as `creator` or `modifier`. The `unstructured_docs[ ].content` field is not returned by default to avoid large responses.
+ * - Set the `includeDetails` parameter to `True` to retrieve additional details, including `settings`, `notes`, `structuredTables`, and `unstructuredDocs`.
  *
  * @param request GetSourceRequest
  * @return GetSourceResponse
@@ -4527,7 +5210,7 @@ GetSourceResponse Client::getSource(const GetSourceRequest &request) {
  * - **Security constraint**: `tenant_id`/`user_id` are derived only from the authenticated identity. Values provided in the request body are ignored.
  * - **Default value**: If the `expires` parameter is not specified, the default expiration time is 3600 seconds (1 hour).
  * - **Content-Type**: If `contentType` is not provided, the system attempts to automatically infer the file type.
- * - **Scope**: The `scope` parameter defines whether the data source belongs to a personal or enterprise knowledge base. In most cases, this does not need to be set.
+ * - **Scope**: The `scope` parameter defines whether the data source belongs to a personal or enterprise knowledge base. By default, this parameter may not need to be set.
  *
  * @param request GetSourceUploadSignatureRequest
  * @param headers map
@@ -4552,6 +5235,10 @@ GetSourceUploadSignatureResponse Client::getSourceUploadSignatureWithOptions(con
 
   if (!!request.hasFilename()) {
     body["filename"] = request.getFilename();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
   }
 
   if (!!request.hasOperatingObjectName()) {
@@ -4589,7 +5276,7 @@ GetSourceUploadSignatureResponse Client::getSourceUploadSignatureWithOptions(con
  * - **Security constraint**: `tenant_id`/`user_id` are derived only from the authenticated identity. Values provided in the request body are ignored.
  * - **Default value**: If the `expires` parameter is not specified, the default expiration time is 3600 seconds (1 hour).
  * - **Content-Type**: If `contentType` is not provided, the system attempts to automatically infer the file type.
- * - **Scope**: The `scope` parameter defines whether the data source belongs to a personal or enterprise knowledge base. In most cases, this does not need to be set.
+ * - **Scope**: The `scope` parameter defines whether the data source belongs to a personal or enterprise knowledge base. By default, this parameter may not need to be set.
  *
  * @param request GetSourceUploadSignatureRequest
  * @return GetSourceUploadSignatureResponse
@@ -4744,7 +5431,7 @@ GetTokenInfoResponse Client::getTokenInfo(const GetTokenInfoRequest &request) {
  * @description Queries user details through OpenAPI.
  *     Business orchestration:
  *     1. Locate the user by wnUserId or accountId.
- *     2. Query the user mapping information in the current tenant (status, join time, and last logon time).
+ *     2. Query the mapping information of the user in the current tenant, including status, join time, and last logon time.
  *     3. Query the role list of the user in the current tenant.
  *     4. Query the user group list of the user in the current tenant.
  *     5. Assemble the response.
@@ -4796,7 +5483,7 @@ GetUserResponse Client::getUserWithOptions(const GetUserRequest &request, const 
  * @description Queries user details through OpenAPI.
  *     Business orchestration:
  *     1. Locate the user by wnUserId or accountId.
- *     2. Query the user mapping information in the current tenant (status, join time, and last logon time).
+ *     2. Query the mapping information of the user in the current tenant, including status, join time, and last logon time.
  *     3. Query the role list of the user in the current tenant.
  *     4. Query the user group list of the user in the current tenant.
  *     5. Assemble the response.
@@ -4875,11 +5562,11 @@ GetUserCreditUsageResponse Client::getUserCreditUsage(const GetUserCreditUsageRe
  *
  * @description ## Operation description
  * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
- * - `userGroupId` is a required parameter that must be provided in the request body.
+ * - `userGroupId` is a required parameter and must be provided in the request body.
  * - `tenantId` is an optional parameter that can be passed through the query string.
  * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
  * - The content type for both requests and responses is `application/json`.
- * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+ * - Make sure you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
  *
  * @param request GetUserGroupRequest
  * @param headers map
@@ -4922,11 +5609,11 @@ GetUserGroupResponse Client::getUserGroupWithOptions(const GetUserGroupRequest &
  *
  * @description ## Operation description
  * - This operation retrieves the details of a specified user group, including the basic information of the user group, parent user group information, direct child user group list, and direct member list.
- * - `userGroupId` is a required parameter that must be provided in the request body.
+ * - `userGroupId` is a required parameter and must be provided in the request body.
  * - `tenantId` is an optional parameter that can be passed through the query string.
  * - The operation supports multiple authentication methods, including AK, BearerToken, and APP authentication.
  * - The content type for both requests and responses is `application/json`.
- * - Ensure that you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
+ * - Make sure you have the required permissions (such as `winnexo:GetUserGroup`) before calling this operation.
  *
  * @param request GetUserGroupRequest
  * @return GetUserGroupResponse
@@ -5099,7 +5786,7 @@ GrantAgentUsersResponse Client::grantAgentUsers(const GrantAgentUsersRequest &re
  * @summary Queries currently effective service notices.
  *
  * @description ## Operation description
- * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user in the system O&M tenant who has the permission to view announcements.
+ * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user who has the announcement viewing permission in the system O&M tenant.
  *
  * @param request ListActiveAnnouncementsRequest
  * @param headers map
@@ -5145,7 +5832,7 @@ ListActiveAnnouncementsResponse Client::listActiveAnnouncementsWithOptions(const
  * @summary Queries currently effective service notices.
  *
  * @description ## Operation description
- * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user in the system O&M tenant who has the permission to view announcements.
+ * Performs a paging query for published platform announcements that are effective within the current database time window. The caller must be a real user who has the announcement viewing permission in the system O&M tenant.
  *
  * @param request ListActiveAnnouncementsRequest
  * @return ListActiveAnnouncementsResponse
@@ -5461,13 +6148,13 @@ ListAliDingMinutesResponse Client::listAliDingMinutes(const ListAliDingMinutesRe
 }
 
 /**
- * @summary Queries the list of digital human names for which the caller has specified permissions.
+ * @summary Queries the list of digital human names for which the caller has the specified permission.
  *
- * @description Queries the list of digital human names for which the current caller (or a specified target user) has specified permissions (USE/MANAGE).
+ * @description Queries the list of digital human names for which the current caller (or a specified target user) has the specified permission (USE/MANAGE).
  *     Business logic:
  *     1. Constructs an AuthContext from the identity.
  *     2. Delegates to AgentAuthorizationAuthorizedService.list_authorized_agents to execute the query.
- *     3. When skip_permission=True, returns all active agents for the tenant.
+ *     3. When skip_permission=True, returns all active agents of the tenant.
  *     4. Regular users are filtered based on authorization records and auth_mode.
  *     5. When targetUserId is specified (querying on behalf of another user), the APPLICATION_AGENT_VIEW gate is required, and the query is restricted to the current tenant. If the target user is not a member of the current tenant, a USER_NOT_IN_TENANT error is thrown (an empty list is not silently returned).
  *
@@ -5512,13 +6199,13 @@ ListAuthorizedAgentsResponse Client::listAuthorizedAgentsWithOptions(const ListA
 }
 
 /**
- * @summary Queries the list of digital human names for which the caller has specified permissions.
+ * @summary Queries the list of digital human names for which the caller has the specified permission.
  *
- * @description Queries the list of digital human names for which the current caller (or a specified target user) has specified permissions (USE/MANAGE).
+ * @description Queries the list of digital human names for which the current caller (or a specified target user) has the specified permission (USE/MANAGE).
  *     Business logic:
  *     1. Constructs an AuthContext from the identity.
  *     2. Delegates to AgentAuthorizationAuthorizedService.list_authorized_agents to execute the query.
- *     3. When skip_permission=True, returns all active agents for the tenant.
+ *     3. When skip_permission=True, returns all active agents of the tenant.
  *     4. Regular users are filtered based on authorization records and auth_mode.
  *     5. When targetUserId is specified (querying on behalf of another user), the APPLICATION_AGENT_VIEW gate is required, and the query is restricted to the current tenant. If the target user is not a member of the current tenant, a USER_NOT_IN_TENANT error is thrown (an empty list is not silently returned).
  *
@@ -5539,7 +6226,7 @@ ListAuthorizedAgentsResponse Client::listAuthorizedAgents(const ListAuthorizedAg
  *     1. Constructs an AuthContext from the identity.
  *     2. Delegates to AgentAuthorizationAuthorizedService.list_authorized_users to execute the query.
  *     3. Permission verification is performed at the AuthorizedService layer by @require_permission(APPLICATION_AGENT_VIEW).
- *     4. When auth_mode=ALL_USERS, only records with MANAGE permissions are displayed.
+ *     4. When auth_mode is set to ALL_USERS, only records with the MANAGE permission are displayed.
  *
  * @param request ListAuthorizedUsersRequest
  * @param headers map
@@ -5597,7 +6284,7 @@ ListAuthorizedUsersResponse Client::listAuthorizedUsersWithOptions(const ListAut
  *     1. Constructs an AuthContext from the identity.
  *     2. Delegates to AgentAuthorizationAuthorizedService.list_authorized_users to execute the query.
  *     3. Permission verification is performed at the AuthorizedService layer by @require_permission(APPLICATION_AGENT_VIEW).
- *     4. When auth_mode=ALL_USERS, only records with MANAGE permissions are displayed.
+ *     4. When auth_mode is set to ALL_USERS, only records with the MANAGE permission are displayed.
  *
  * @param request ListAuthorizedUsersRequest
  * @return ListAuthorizedUsersResponse
@@ -5774,9 +6461,9 @@ ListBillingResponse Client::listBilling(const ListBillingRequest &request) {
  * @summary Lists chat sessions of the current user in reverse chronological order by creation time.
  *
  * @description ## Operation description
- * - This API supports filtering and sorting by multiple parameters, including tenant ID, page size, pagination token, keyword search, digital employee name, and update time range.
+ * - This API operation supports filtering and sorting by multiple parameters, including tenant ID, page size, pagination token, keyword search, digital employee name, and update time range.
  * - By default, results are sorted in descending order by the `UpdatedAt` field.
- * - If an invalid `NextToken` is provided or `PageSize` exceeds the allowed range (1-100), the API returns a 400 error.
+ * - If an invalid `NextToken` is provided or `PageSize` exceeds the allowed range (1-100), the API operation returns a 400 error.
  *
  * @param request ListChatSessionsRequest
  * @param headers map
@@ -5828,9 +6515,9 @@ ListChatSessionsResponse Client::listChatSessionsWithOptions(const ListChatSessi
  * @summary Lists chat sessions of the current user in reverse chronological order by creation time.
  *
  * @description ## Operation description
- * - This API supports filtering and sorting by multiple parameters, including tenant ID, page size, pagination token, keyword search, digital employee name, and update time range.
+ * - This API operation supports filtering and sorting by multiple parameters, including tenant ID, page size, pagination token, keyword search, digital employee name, and update time range.
  * - By default, results are sorted in descending order by the `UpdatedAt` field.
- * - If an invalid `NextToken` is provided or `PageSize` exceeds the allowed range (1-100), the API returns a 400 error.
+ * - If an invalid `NextToken` is provided or `PageSize` exceeds the allowed range (1-100), the API operation returns a 400 error.
  *
  * @param request ListChatSessionsRequest
  * @return ListChatSessionsResponse
@@ -5915,12 +6602,12 @@ ListGraphDraftResourcesResponse Client::listGraphDraftResources(const ListGraphD
 }
 
 /**
- * @summary 管理视角图谱列表
+ * @summary Queries the list of semantic graphs from the management perspective.
  *
- * @description OpenAPI 管理视角图谱列表（含草稿/发布中状态）。
- *     返回租户级 active 图谱；graphStatus 三态：PUBLISHED / DEVELOPING（当前用户有活动草稿）/
- *     PUBLISHING（当前用户发布中）；部署/系统级 Token 无个人身份，hasDraft 恒 false。
- *     keyword 匹配 graphName / displayName（忽略大小写）；semanticTags 命中任一标签即保留。
+ * @description Queries the list of semantic graphs from the management perspective through OpenAPI, including graphs in draft or publishing status.
+ *     Returns tenant-level active graphs. graphStatus has three states: PUBLISHED, DEVELOPING (the current user has an active draft), and
+ *     PUBLISHING (the current user is publishing). Deploy-level or system-level tokens have no personal identity, so hasDraft is always false.
+ *     keyword matches graphName or displayName (case-insensitive). semanticTags retains a graph if any tag matches.
  *
  * @param tmpReq ListGraphSchemasRequest
  * @param headers map
@@ -5969,12 +6656,12 @@ ListGraphSchemasResponse Client::listGraphSchemasWithOptions(const ListGraphSche
 }
 
 /**
- * @summary 管理视角图谱列表
+ * @summary Queries the list of semantic graphs from the management perspective.
  *
- * @description OpenAPI 管理视角图谱列表（含草稿/发布中状态）。
- *     返回租户级 active 图谱；graphStatus 三态：PUBLISHED / DEVELOPING（当前用户有活动草稿）/
- *     PUBLISHING（当前用户发布中）；部署/系统级 Token 无个人身份，hasDraft 恒 false。
- *     keyword 匹配 graphName / displayName（忽略大小写）；semanticTags 命中任一标签即保留。
+ * @description Queries the list of semantic graphs from the management perspective through OpenAPI, including graphs in draft or publishing status.
+ *     Returns tenant-level active graphs. graphStatus has three states: PUBLISHED, DEVELOPING (the current user has an active draft), and
+ *     PUBLISHING (the current user is publishing). Deploy-level or system-level tokens have no personal identity, so hasDraft is always false.
+ *     keyword matches graphName or displayName (case-insensitive). semanticTags retains a graph if any tag matches.
  *
  * @param request ListGraphSchemasRequest
  * @return ListGraphSchemasResponse
@@ -6041,13 +6728,169 @@ ListGraphsResponse Client::listGraphs(const ListGraphsRequest &request) {
 }
 
 /**
- * @summary Queries the category directory tree of an enterprise knowledge base, with support for sorting by a specified field.
+ * @summary Lists the resource directories of a collaborative share.
  *
- * @description ## Request description
- * - This API retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
- * - If the `directoryId` parameter is not provided, the API returns all category trees under the root directory of the enterprise knowledge base. If `directoryId` is provided, the API returns the subdirectory tree rooted at the specified directory.
- * - You can sort results by using the `sortField` and `sortOrder` parameters. By default, results are sorted by creation time in descending order.
- * - Security constraints: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
+ * @description Valid members can list the query root itself and all its descendant directories, including visible referenced directories marked as readOnly. The results are not paginated and do not return resources. The first query reuses the existing service-initialized internal root.
+ *
+ * @param request ListGroupDirectoriesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGroupDirectoriesResponse
+ */
+ListGroupDirectoriesResponse Client::listGroupDirectoriesWithOptions(const ListGroupDirectoriesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasSortField()) {
+    body["sortField"] = request.getSortField();
+  }
+
+  if (!!request.hasSortOrder()) {
+    body["sortOrder"] = request.getSortOrder();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListGroupDirectories"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listGroupDirectories")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGroupDirectoriesResponse>();
+}
+
+/**
+ * @summary Lists the resource directories of a collaborative share.
+ *
+ * @description Valid members can list the query root itself and all its descendant directories, including visible referenced directories marked as readOnly. The results are not paginated and do not return resources. The first query reuses the existing service-initialized internal root.
+ *
+ * @param request ListGroupDirectoriesRequest
+ * @return ListGroupDirectoriesResponse
+ */
+ListGroupDirectoriesResponse Client::listGroupDirectories(const ListGroupDirectoriesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGroupDirectoriesWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Performs a paged query on the contents of a collaboration space folder.
+ *
+ * @description Corresponds to the space list-resources operation. Active members can query immediate subdirectories and resources based on directory visibility scope. Results are paginated with directories listed first and include read-only references. If the directory is omitted or set to root, the existing root initialization is used. If sourceTypes has values, only resources are returned. sourceStatus follows the existing behavior where physical directories are retained and immediate reference directories are not returned.
+ *
+ * @param tmpReq ListGroupDirectoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListGroupDirectoryResponse
+ */
+ListGroupDirectoryResponse Client::listGroupDirectoryWithOptions(const ListGroupDirectoryRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListGroupDirectoryShrinkRequest request = ListGroupDirectoryShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasSourceTypes()) {
+    request.setSourceTypesShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getSourceTypes(), "sourceTypes", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasPage()) {
+    body["page"] = request.getPage();
+  }
+
+  if (!!request.hasPageSize()) {
+    body["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSortField()) {
+    body["sortField"] = request.getSortField();
+  }
+
+  if (!!request.hasSortOrder()) {
+    body["sortOrder"] = request.getSortOrder();
+  }
+
+  if (!!request.hasSourceStatus()) {
+    body["sourceStatus"] = request.getSourceStatus();
+  }
+
+  if (!!request.hasSourceTypesShrink()) {
+    body["sourceTypes"] = request.getSourceTypesShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListGroupDirectory"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/listGroupDirectory")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListGroupDirectoryResponse>();
+}
+
+/**
+ * @summary Performs a paged query on the contents of a collaboration space folder.
+ *
+ * @description Corresponds to the space list-resources operation. Active members can query immediate subdirectories and resources based on directory visibility scope. Results are paginated with directories listed first and include read-only references. If the directory is omitted or set to root, the existing root initialization is used. If sourceTypes has values, only resources are returned. sourceStatus follows the existing behavior where physical directories are retained and immediate reference directories are not returned.
+ *
+ * @param request ListGroupDirectoryRequest
+ * @return ListGroupDirectoryResponse
+ */
+ListGroupDirectoryResponse Client::listGroupDirectory(const ListGroupDirectoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listGroupDirectoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
+ *
+ * @description ## Operation description
+ * - This API operation retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
+ * - If the `directoryId` parameter is not specified, all category trees under the root directory of the enterprise knowledge base are returned. If `directoryId` is specified, the subdirectory tree rooted at the specified directory is returned.
+ * - You can use the `sortField` and `sortOrder` parameters to sort the results. By default, results are sorted by creation time in descending order.
+ * - Security constraint: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
  *
  * @param request ListKnowledgeBaseDirectoriesRequest
  * @param headers map
@@ -6094,13 +6937,13 @@ ListKnowledgeBaseDirectoriesResponse Client::listKnowledgeBaseDirectoriesWithOpt
 }
 
 /**
- * @summary Queries the category directory tree of an enterprise knowledge base, with support for sorting by a specified field.
+ * @summary Queries the category directory tree of an enterprise knowledge base. Sorting by a specified field is supported.
  *
- * @description ## Request description
- * - This API retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
- * - If the `directoryId` parameter is not provided, the API returns all category trees under the root directory of the enterprise knowledge base. If `directoryId` is provided, the API returns the subdirectory tree rooted at the specified directory.
- * - You can sort results by using the `sortField` and `sortOrder` parameters. By default, results are sorted by creation time in descending order.
- * - Security constraints: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
+ * @description ## Operation description
+ * - This API operation retrieves the category list (subdirectory tree) of an enterprise knowledge base. You must have the knowledge base view permission.
+ * - If the `directoryId` parameter is not specified, all category trees under the root directory of the enterprise knowledge base are returned. If `directoryId` is specified, the subdirectory tree rooted at the specified directory is returned.
+ * - You can use the `sortField` and `sortOrder` parameters to sort the results. By default, results are sorted by creation time in descending order.
+ * - Security constraint: `tenant_id` and `user_id` are derived only from the authenticated identity, and the caller must have the `DEVELOPMENT_KB_VIEW` feature permission.
  *
  * @param request ListKnowledgeBaseDirectoriesRequest
  * @return ListKnowledgeBaseDirectoriesResponse
@@ -6183,16 +7026,16 @@ ListOperatingObjectFavoritesResponse Client::listOperatingObjectFavorites(const 
 }
 
 /**
- * @summary Queries the output list of the current user, with support for conditional filtering and pagination.
+ * @summary Queries the output list of the current user. Filtering by conditions and pagination are supported.
  *
  * @description ## Operation description
  * - This API operation queries the output list of the current logged-in user.
  * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
- * - Supports filtering by parameters such as `operatingObjectName`, `itemType`, and `keyword`.
+ * - Filtering is supported through parameters such as `operatingObjectName`, `itemType`, and `keyword`.
  * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
- * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, results start from page 1 with 20 records per page.
+ * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, the first page is returned with 20 records per page.
  * - Results are sorted by update time in descending order by default.
- * - The `tenant_id` or `user_id` passed in the request body by the caller is ignored. This information is derived only from the authenticated identity.
+ * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
  *
  * @param request ListOutputFilesRequest
  * @param headers map
@@ -6251,16 +7094,16 @@ ListOutputFilesResponse Client::listOutputFilesWithOptions(const ListOutputFiles
 }
 
 /**
- * @summary Queries the output list of the current user, with support for conditional filtering and pagination.
+ * @summary Queries the output list of the current user. Filtering by conditions and pagination are supported.
  *
  * @description ## Operation description
  * - This API operation queries the output list of the current logged-in user.
  * - `tenantId` is a common parameter. If not specified, the default tenant of the caller is used.
- * - Supports filtering by parameters such as `operatingObjectName`, `itemType`, and `keyword`.
+ * - Filtering is supported through parameters such as `operatingObjectName`, `itemType`, and `keyword`.
  * - Set `sharedOnly` to `true` to display only outputs with sharing enabled.
- * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, results start from page 1 with 20 records per page.
+ * - Pagination is controlled by `page` (page number) and `pageSize` (number of items per page). By default, the first page is returned with 20 records per page.
  * - Results are sorted by update time in descending order by default.
- * - The `tenant_id` or `user_id` passed in the request body by the caller is ignored. This information is derived only from the authenticated identity.
+ * - The `tenant_id` or `user_id` values passed in the request body by the caller are ignored. This information is derived only from the authenticated identity.
  *
  * @param request ListOutputFilesRequest
  * @return ListOutputFilesResponse
@@ -6373,8 +7216,8 @@ ListPersonalDirectoryContentsResponse Client::listPersonalDirectoryContents(cons
  *
  * @description Queries the list of system built-in roles.
  *     Business logic:
- *     1. Constructs AuthContext from identity.
- *     2. Delegates to UserManagementAuthorizedService.list_system_roles for permission verification (PLATFORM_USER_VIEW).
+ *     1. Constructs an AuthContext from the identity.
+ *     2. Delegates to UserManagementAuthorizedService.list_system_roles to perform permission verification (PLATFORM_USER_VIEW).
  *     3. Renders role names and descriptions based on the request Accept-Language header.
  *     4. Returns a fixed set of 7 system built-in roles.
  *     The returned roleCode field can be directly used as the roleCodes parameter for createUser or updateUser.
@@ -6414,8 +7257,8 @@ ListRolesResponse Client::listRolesWithOptions(const ListRolesRequest &request, 
  *
  * @description Queries the list of system built-in roles.
  *     Business logic:
- *     1. Constructs AuthContext from identity.
- *     2. Delegates to UserManagementAuthorizedService.list_system_roles for permission verification (PLATFORM_USER_VIEW).
+ *     1. Constructs an AuthContext from the identity.
+ *     2. Delegates to UserManagementAuthorizedService.list_system_roles to perform permission verification (PLATFORM_USER_VIEW).
  *     3. Renders role names and descriptions based on the request Accept-Language header.
  *     4. Returns a fixed set of 7 system built-in roles.
  *     The returned roleCode field can be directly used as the roleCodes parameter for createUser or updateUser.
@@ -6433,12 +7276,12 @@ ListRolesResponse Client::listRoles(const ListRolesRequest &request) {
  * @summary Retrieves a list of scheduled tasks.
  *
  * @description ## Operation description
- * - This operation uploads a file to an enterprise knowledge base.
- * - The DEVELOPMENT_KB_MANAGE permission is required to call this operation.
- * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
+ * - This operation is used to upload files to an enterprise knowledge base.
+ * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
+ * - Provide the OSS persistent address (`filePath`) of the file when uploading.
  * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
  * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
- * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
+ * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
  * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure your account balance is sufficient.
  *
  * @param tmpReq ListScheduledTasksRequest
@@ -6513,12 +7356,12 @@ ListScheduledTasksResponse Client::listScheduledTasksWithOptions(const ListSched
  * @summary Retrieves a list of scheduled tasks.
  *
  * @description ## Operation description
- * - This operation uploads a file to an enterprise knowledge base.
- * - The DEVELOPMENT_KB_MANAGE permission is required to call this operation.
- * - You must provide the OSS persistent address (`filePath`) of the file when uploading.
+ * - This operation is used to upload files to an enterprise knowledge base.
+ * - You must have the `DEVELOPMENT_KB_MANAGE` permission to call this operation.
+ * - Provide the OSS persistent address (`filePath`) of the file when uploading.
  * - Optional parameters include the public access URL and original file name to enhance the completeness of file information.
  * - If `directoryId` is specified, the file is placed in the corresponding enterprise knowledge base directory. Otherwise, the file is bound to the default root directory of the current digital employee.
- * - You can add tags to the resource by using `sourceTags` for subsequent management and retrieval.
+ * - You can use `sourceTags` to add tags to resources for subsequent management and retrieval.
  * - This operation initiates a billing item (UNSTRUCTURED_PARSE). Make sure your account balance is sufficient.
  *
  * @param request ListScheduledTasksRequest
@@ -6642,11 +7485,11 @@ ListSkillsResponse Client::listSkills(const ListSkillsRequest &request) {
 /**
  * @summary Retrieves the list of knowledge bases.
  *
- * @description ## Request description
- * - This API is used to perform a paging query on the folder content and resources in an enterprise knowledge base.
- * - Multiple parameters are supported for filtering and sorting, such as `directoryId`, `page`, `pageSize`, `sortField`, `sortOrder`, and others.
+ * @description ## Operation description
+ * - This API is used for paging query of folder content and resources in an enterprise knowledge base.
+ * - Multiple parameters are supported for filtering and sorting, such as `directoryId`, `page`, `pageSize`, `sortField`, `sortOrder`, and more.
  * - The `sourceTypes` parameter allows you to filter by resource type. Separate multiple types with commas.
- * - When `directoryId` is not specified or set to `root`, the root folder list of the knowledge base is queried by default.
+ * - If `directoryId` is not specified or is set to `root`, the root folder list of the knowledge base is queried by default.
  * - The default sort field is `name`, and the default sort order is ascending (`asc`).
  *
  * @param request ListTenantDirectoryRequest
@@ -6708,11 +7551,11 @@ ListTenantDirectoryResponse Client::listTenantDirectoryWithOptions(const ListTen
 /**
  * @summary Retrieves the list of knowledge bases.
  *
- * @description ## Request description
- * - This API is used to perform a paging query on the folder content and resources in an enterprise knowledge base.
- * - Multiple parameters are supported for filtering and sorting, such as `directoryId`, `page`, `pageSize`, `sortField`, `sortOrder`, and others.
+ * @description ## Operation description
+ * - This API is used for paging query of folder content and resources in an enterprise knowledge base.
+ * - Multiple parameters are supported for filtering and sorting, such as `directoryId`, `page`, `pageSize`, `sortField`, `sortOrder`, and more.
  * - The `sourceTypes` parameter allows you to filter by resource type. Separate multiple types with commas.
- * - When `directoryId` is not specified or set to `root`, the root folder list of the knowledge base is queried by default.
+ * - If `directoryId` is not specified or is set to `root`, the root folder list of the knowledge base is queried by default.
  * - The default sort field is `name`, and the default sort order is ascending (`asc`).
  *
  * @param request ListTenantDirectoryRequest
@@ -7188,6 +8031,73 @@ ListVisibleKnowledgeBasesResponse Client::listVisibleKnowledgeBases(const ListVi
 }
 
 /**
+ * @summary 移动协作空间资料
+ *
+ * @description 有效成员且为资料创建者或空间管理员才能在同一空间物理目录树内移动资料。源目标必须是真实且不同的目录ID，资料必须在源目录。引用资料只读。保持sourceId，不重新解析；本地绑定成功不保证下游路径已同步。重复请求可能报资料不在源目录，请先查询位置。
+ *
+ * @param request MoveGroupResourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MoveGroupResourceResponse
+ */
+MoveGroupResourceResponse Client::moveGroupResourceWithOptions(const MoveGroupResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasSourceDirectoryId()) {
+    body["sourceDirectoryId"] = request.getSourceDirectoryId();
+  }
+
+  if (!!request.hasSourceId()) {
+    body["sourceId"] = request.getSourceId();
+  }
+
+  if (!!request.hasTargetDirectoryId()) {
+    body["targetDirectoryId"] = request.getTargetDirectoryId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "MoveGroupResource"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/moveGroupResource")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MoveGroupResourceResponse>();
+}
+
+/**
+ * @summary 移动协作空间资料
+ *
+ * @description 有效成员且为资料创建者或空间管理员才能在同一空间物理目录树内移动资料。源目标必须是真实且不同的目录ID，资料必须在源目录。引用资料只读。保持sourceId，不重新解析；本地绑定成功不保证下游路径已同步。重复请求可能报资料不在源目录，请先查询位置。
+ *
+ * @param request MoveGroupResourceRequest
+ * @return MoveGroupResourceResponse
+ */
+MoveGroupResourceResponse Client::moveGroupResource(const MoveGroupResourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return moveGroupResourceWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Moves a specified resource between enterprise knowledge base directories. Management permissions are required.
  *
  * @description ## Operation description
@@ -7410,6 +8320,65 @@ OfflineAnnouncementResponse Client::offlineAnnouncement(const OfflineAnnouncemen
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return offlineAnnouncementWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Previews a resource in a collaborative workspace.
+ *
+ * @description Active members can preview physical or referenced resources in a specified workspace. Requests to read resources that are cross-workspace, de-referenced, or invisible are rejected.
+ *
+ * @param request PreviewGroupSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PreviewGroupSourceResponse
+ */
+PreviewGroupSourceResponse Client::previewGroupSourceWithOptions(const PreviewGroupSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasSourceId()) {
+    body["sourceId"] = request.getSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PreviewGroupSource"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/previewGroupSource")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<PreviewGroupSourceResponse>();
+}
+
+/**
+ * @summary Previews a resource in a collaborative workspace.
+ *
+ * @description Active members can preview physical or referenced resources in a specified workspace. Requests to read resources that are cross-workspace, de-referenced, or invisible are rejected.
+ *
+ * @param request PreviewGroupSourceRequest
+ * @return PreviewGroupSourceResponse
+ */
+PreviewGroupSourceResponse Client::previewGroupSource(const PreviewGroupSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return previewGroupSourceWithOptions(request, headers, runtime);
 }
 
 /**
@@ -8130,6 +9099,69 @@ RenameSourceResponse Client::renameSource(const RenameSourceRequest &request) {
 }
 
 /**
+ * @summary 重新解析协作空间资料
+ *
+ * @description 有效成员且为创建者或空间管理员可重新解析物理资料；引用只读。默认异步；forceSync仅等待不等于强制重抓，在线文档未变化可能直接返回。
+ *
+ * @param request ReparseGroupSourceRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReparseGroupSourceResponse
+ */
+ReparseGroupSourceResponse Client::reparseGroupSourceWithOptions(const ReparseGroupSourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasForceSync()) {
+    body["forceSync"] = request.getForceSync();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasSourceId()) {
+    body["sourceId"] = request.getSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ReparseGroupSource"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/reparseGroupSource")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReparseGroupSourceResponse>();
+}
+
+/**
+ * @summary 重新解析协作空间资料
+ *
+ * @description 有效成员且为创建者或空间管理员可重新解析物理资料；引用只读。默认异步；forceSync仅等待不等于强制重抓，在线文档未变化可能直接返回。
+ *
+ * @param request ReparseGroupSourceRequest
+ * @return ReparseGroupSourceResponse
+ */
+ReparseGroupSourceResponse Client::reparseGroupSource(const ReparseGroupSourceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return reparseGroupSourceWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Re-parses a resource.
  *
  * @description ## Operation description
@@ -8192,6 +9224,85 @@ ReparseSourceResponse Client::reparseSource(const ReparseSourceRequest &request)
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return reparseSourceWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 替换协作空间资料文件
+ *
+ * @description 有效成员且为创建者或空间管理员可替换物理GROUP资料；引用只读。先上传新文件再提交上传结果，仅FILE。保留SourceID并触发解析，默认异步。空操作结果可能发生在写入之后，返回执行错误而非不存在。
+ *
+ * @param request ReplaceGroupSourceFileRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReplaceGroupSourceFileResponse
+ */
+ReplaceGroupSourceFileResponse Client::replaceGroupSourceFileWithOptions(const ReplaceGroupSourceFileRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasFileName()) {
+    body["fileName"] = request.getFileName();
+  }
+
+  if (!!request.hasFilePath()) {
+    body["filePath"] = request.getFilePath();
+  }
+
+  if (!!request.hasFilePublicUrl()) {
+    body["filePublicUrl"] = request.getFilePublicUrl();
+  }
+
+  if (!!request.hasFileRecordId()) {
+    body["fileRecordId"] = request.getFileRecordId();
+  }
+
+  if (!!request.hasForceSync()) {
+    body["forceSync"] = request.getForceSync();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasSourceId()) {
+    body["sourceId"] = request.getSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ReplaceGroupSourceFile"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/replaceGroupSourceFile")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReplaceGroupSourceFileResponse>();
+}
+
+/**
+ * @summary 替换协作空间资料文件
+ *
+ * @description 有效成员且为创建者或空间管理员可替换物理GROUP资料；引用只读。先上传新文件再提交上传结果，仅FILE。保留SourceID并触发解析，默认异步。空操作结果可能发生在写入之后，返回执行错误而非不存在。
+ *
+ * @param request ReplaceGroupSourceFileRequest
+ * @return ReplaceGroupSourceFileResponse
+ */
+ReplaceGroupSourceFileResponse Client::replaceGroupSourceFile(const ReplaceGroupSourceFileRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return replaceGroupSourceFileWithOptions(request, headers, runtime);
 }
 
 /**
@@ -8975,19 +10086,118 @@ RunSkillResponse Client::runSkill(const RunSkillRequest &request) {
 }
 
 /**
- * @summary 保存单个语义资源草稿
+ * @summary Batch saves personal semantic drafts.
  *
- * @description OpenAPI 保存单个语义资源草稿（仅个人 Token）。
- *     业务编排：
- *     1. 草稿域身份校验（仅个人 Token；部署/系统级 Token 被拒绝）
- *        与语义管理权限校验
- *     2. 委托个人草稿服务保存（来源固定 YAML），底层含资源级写权限校验；
- *        内容与在线完全一致时跳过落库，摘要字段返回 null
- *     错误码：
- *     - ERR.User.TokenUserOnly: 个人草稿仅支持用户 Token
- *     - ERR.Robject.Global.InvalidParameter: resourceType/elementType 组合不合法
- *     - ERR.GraphSchema.*: 图谱不存在 / 资源命名与归属校验失败
- *     - ERR.Robject.Global.ResourceNotFound: 资源不存在等底层校验失败
+ * @description Batch saves personal semantic drafts through OpenAPI (personal token only).
+ *     Business orchestration:
+ *     1. Draft domain identity verification (personal token only; deployment/system-level tokens are rejected)
+ *        and semantic management permission verification.
+ *     2. saveMode dispatch: FULL_YAML (default) performs full-graph YAML differential save,
+ *        including invalidated draft discard and order collection write permission verification.
+ *        PARTIAL_YAML performs partial YAML save scoped by draftChangeIds.
+ *     3. The diff baseline is always read from the online active version by the backend (the base input parameter is not trusted).
+ *     Error codes:
+ *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+ *     - ERR.Robject.Global.InvalidParameter: Invalid saveMode / draftChangeIds not provided for PARTIAL_YAML.
+ *     - ERR.GraphSchema.*: Graph does not exist / YAML structure validation failed / Custom physical table contract is invalid.
+ *     - ERR.Robject.Global.BusinessStateConflict: Related resources are being published.
+ *     - ERR.Robject.Permission.*: Order collection write permission verification failed.
+ *
+ * @param tmpReq SaveGraphDraftBatchDefineRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveGraphDraftBatchDefineResponse
+ */
+SaveGraphDraftBatchDefineResponse Client::saveGraphDraftBatchDefineWithOptions(const SaveGraphDraftBatchDefineRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  SaveGraphDraftBatchDefineShrinkRequest request = SaveGraphDraftBatchDefineShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasDraftChangeIds()) {
+    request.setDraftChangeIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getDraftChangeIds(), "draftChangeIds", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDraftChangeIdsShrink()) {
+    body["draftChangeIds"] = request.getDraftChangeIdsShrink();
+  }
+
+  if (!!request.hasGraphName()) {
+    body["graphName"] = request.getGraphName();
+  }
+
+  if (!!request.hasSaveMode()) {
+    body["saveMode"] = request.getSaveMode();
+  }
+
+  if (!!request.hasYamlEdit()) {
+    body["yamlEdit"] = request.getYamlEdit();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SaveGraphDraftBatchDefine"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/saveGraphDraftBatchDefine")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveGraphDraftBatchDefineResponse>();
+}
+
+/**
+ * @summary Batch saves personal semantic drafts.
+ *
+ * @description Batch saves personal semantic drafts through OpenAPI (personal token only).
+ *     Business orchestration:
+ *     1. Draft domain identity verification (personal token only; deployment/system-level tokens are rejected)
+ *        and semantic management permission verification.
+ *     2. saveMode dispatch: FULL_YAML (default) performs full-graph YAML differential save,
+ *        including invalidated draft discard and order collection write permission verification.
+ *        PARTIAL_YAML performs partial YAML save scoped by draftChangeIds.
+ *     3. The diff baseline is always read from the online active version by the backend (the base input parameter is not trusted).
+ *     Error codes:
+ *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+ *     - ERR.Robject.Global.InvalidParameter: Invalid saveMode / draftChangeIds not provided for PARTIAL_YAML.
+ *     - ERR.GraphSchema.*: Graph does not exist / YAML structure validation failed / Custom physical table contract is invalid.
+ *     - ERR.Robject.Global.BusinessStateConflict: Related resources are being published.
+ *     - ERR.Robject.Permission.*: Order collection write permission verification failed.
+ *
+ * @param request SaveGraphDraftBatchDefineRequest
+ * @return SaveGraphDraftBatchDefineResponse
+ */
+SaveGraphDraftBatchDefineResponse Client::saveGraphDraftBatchDefine(const SaveGraphDraftBatchDefineRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return saveGraphDraftBatchDefineWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Saves a single semantic resource draft.
+ *
+ * @description Saves a single semantic resource draft through OpenAPI (personal token only).
+ *     Business orchestration:
+ *     1. Draft domain identity verification (personal token only; deployment/system-level tokens are rejected)
+ *        and semantic management permission verification.
+ *     2. Delegates to the personal draft service for saving (source is fixed YAML). The underlying layer includes resource-level write permission verification.
+ *        If the content is identical to the online version, the database write is skipped and the summary field returns null.
+ *     Error codes:
+ *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+ *     - ERR.Robject.Global.InvalidParameter: The resourceType/elementType combination is invalid.
+ *     - ERR.GraphSchema.*: The graph does not exist, or resource naming and ownership verification failed.
+ *     - ERR.Robject.Global.ResourceNotFound: The resource does not exist or other underlying verification failed.
  *
  * @param request SaveGraphDraftResourceRequest
  * @param headers map
@@ -9042,19 +10252,19 @@ SaveGraphDraftResourceResponse Client::saveGraphDraftResourceWithOptions(const S
 }
 
 /**
- * @summary 保存单个语义资源草稿
+ * @summary Saves a single semantic resource draft.
  *
- * @description OpenAPI 保存单个语义资源草稿（仅个人 Token）。
- *     业务编排：
- *     1. 草稿域身份校验（仅个人 Token；部署/系统级 Token 被拒绝）
- *        与语义管理权限校验
- *     2. 委托个人草稿服务保存（来源固定 YAML），底层含资源级写权限校验；
- *        内容与在线完全一致时跳过落库，摘要字段返回 null
- *     错误码：
- *     - ERR.User.TokenUserOnly: 个人草稿仅支持用户 Token
- *     - ERR.Robject.Global.InvalidParameter: resourceType/elementType 组合不合法
- *     - ERR.GraphSchema.*: 图谱不存在 / 资源命名与归属校验失败
- *     - ERR.Robject.Global.ResourceNotFound: 资源不存在等底层校验失败
+ * @description Saves a single semantic resource draft through OpenAPI (personal token only).
+ *     Business orchestration:
+ *     1. Draft domain identity verification (personal token only; deployment/system-level tokens are rejected)
+ *        and semantic management permission verification.
+ *     2. Delegates to the personal draft service for saving (source is fixed YAML). The underlying layer includes resource-level write permission verification.
+ *        If the content is identical to the online version, the database write is skipped and the summary field returns null.
+ *     Error codes:
+ *     - ERR.User.TokenUserOnly: Personal drafts support only user tokens.
+ *     - ERR.Robject.Global.InvalidParameter: The resourceType/elementType combination is invalid.
+ *     - ERR.GraphSchema.*: The graph does not exist, or resource naming and ownership verification failed.
+ *     - ERR.Robject.Global.ResourceNotFound: The resource does not exist or other underlying verification failed.
  *
  * @param request SaveGraphDraftResourceRequest
  * @return SaveGraphDraftResourceResponse
@@ -9151,14 +10361,14 @@ SaveGroupOutputFileToGroupResourceResponse Client::saveGroupOutputFileToGroupRes
 }
 
 /**
- * @summary Batch saves group outputs to the current operator\\"s personal knowledge base.
+ * @summary Batch saves group outputs to the personal knowledge base of the current operator.
  *
- * @description ## Request description
- * - Saves specified group outputs to the current operator\\"s personal knowledge base.
- * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
- * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
- * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
- * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+ * @description ## Operation description
+ * - Saves specified group outputs to the personal knowledge base of the current operator.
+ * - Two modes are supported: `link` (maintains the association with the output) and `copy` (creates an independent snapshot).
+ * - The caller must be a member of the target group who is associated with a platform user. Regular members can archive only outputs they created. Group administrators can archive visible outputs of other members. The personal ownership is always derived from the gateway authentication identity.
+ * - If `directoryId` is not specified, the default personal directory of the current operator is used.
+ * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
  * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
  *
  * @param tmpReq SaveGroupOutputFileToPersonalResourceRequest
@@ -9216,14 +10426,14 @@ SaveGroupOutputFileToPersonalResourceResponse Client::saveGroupOutputFileToPerso
 }
 
 /**
- * @summary Batch saves group outputs to the current operator\\"s personal knowledge base.
+ * @summary Batch saves group outputs to the personal knowledge base of the current operator.
  *
- * @description ## Request description
- * - Saves specified group outputs to the current operator\\"s personal knowledge base.
- * - Supports two modes: `link` (maintains output association) and `copy` (creates an independent snapshot).
- * - The caller must be a member of the target group who is associated with a platform user. Regular members can only archive outputs they created, while group administrators can archive visible outputs from other members. Personal ownership is always derived from the gateway authentication identity.
- * - If `directoryId` is not specified, the current operator\\"s default personal directory is used.
- * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. The entire batch fails if any entry does not exist, is not visible, or cannot be operated on.
+ * @description ## Operation description
+ * - Saves specified group outputs to the personal knowledge base of the current operator.
+ * - Two modes are supported: `link` (maintains the association with the output) and `copy` (creates an independent snapshot).
+ * - The caller must be a member of the target group who is associated with a platform user. Regular members can archive only outputs they created. Group administrators can archive visible outputs of other members. The personal ownership is always derived from the gateway authentication identity.
+ * - If `directoryId` is not specified, the default personal directory of the current operator is used.
+ * - A maximum of 50 outputs can be processed per batch. All entries are validated before saving. If any entry does not exist, is not visible, or cannot be operated on, the entire batch fails.
  * - After unified validation passes, entries are saved one by one. The response results maintain the same order as `itemIds`. A failure to save a single entry does not affect other entries.
  *
  * @param request SaveGroupOutputFileToPersonalResourceRequest
@@ -9236,13 +10446,13 @@ SaveGroupOutputFileToPersonalResourceResponse Client::saveGroupOutputFileToPerso
 }
 
 /**
- * @summary Saves output details in batch as personal resources. Supports link or copy mode.
+ * @summary Saves output details in batches as personal resources. Supports link or copy mode.
  *
  * @description ## Operation description
- * - This API saves a batch of output details as personal resources for the user.
+ * - This API saves a batch of output details as personal resources for a user.
  * - Two save modes are supported: `link` and `copy`. When `link` is selected, edits to the output are synchronized to the resource. When `copy` is selected, a snapshot is created with no limit on the number of copies.
  * - `tenant_id` and `user_id` are derived only from the authenticated identity.
- * - If `operating_object` values are inconsistent within the batch and `directoryId` is not specified, the entire batch fails with a pre-check error.
+ * - If the `operating_object` values within the batch are inconsistent and `directoryId` is not specified, the entire batch fails with a pre-check error.
  * - The processing result of a single record does not affect other records. Failure information for individual records is returned in the response.
  * - A maximum of 50 records are supported per batch operation.
  * - Batch-level pre-check failures are returned in a POP-compatible error format by the global exception middleware.
@@ -9298,13 +10508,13 @@ SaveOutputFileToResourceResponse Client::saveOutputFileToResourceWithOptions(con
 }
 
 /**
- * @summary Saves output details in batch as personal resources. Supports link or copy mode.
+ * @summary Saves output details in batches as personal resources. Supports link or copy mode.
  *
  * @description ## Operation description
- * - This API saves a batch of output details as personal resources for the user.
+ * - This API saves a batch of output details as personal resources for a user.
  * - Two save modes are supported: `link` and `copy`. When `link` is selected, edits to the output are synchronized to the resource. When `copy` is selected, a snapshot is created with no limit on the number of copies.
  * - `tenant_id` and `user_id` are derived only from the authenticated identity.
- * - If `operating_object` values are inconsistent within the batch and `directoryId` is not specified, the entire batch fails with a pre-check error.
+ * - If the `operating_object` values within the batch are inconsistent and `directoryId` is not specified, the entire batch fails with a pre-check error.
  * - The processing result of a single record does not affect other records. Failure information for individual records is returned in the response.
  * - A maximum of 50 records are supported per batch operation.
  * - Batch-level pre-check failures are returned in a POP-compatible error format by the global exception middleware.
@@ -9392,9 +10602,9 @@ SearchAliDingGroupChatsResponse Client::searchAliDingGroupChats(const SearchAliD
 }
 
 /**
- * @summary Asynchronously sends a session message.
+ * @summary Sends a session message asynchronously.
  *
- * @description Asynchronously sends a session message.
+ * @description Sends a session message asynchronously.
  *
  * @param tmpReq SendAsyncChatMessageRequest
  * @param headers map
@@ -9467,6 +10677,10 @@ SendAsyncChatMessageResponse Client::sendAsyncChatMessageWithOptions(const SendA
     body["taskExecution"] = request.getTaskExecutionShrink();
   }
 
+  if (!!request.hasWorkMode()) {
+    body["workMode"] = request.getWorkMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
@@ -9487,9 +10701,9 @@ SendAsyncChatMessageResponse Client::sendAsyncChatMessageWithOptions(const SendA
 }
 
 /**
- * @summary Asynchronously sends a session message.
+ * @summary Sends a session message asynchronously.
  *
- * @description Asynchronously sends a session message.
+ * @description Sends a session message asynchronously.
  *
  * @param request SendAsyncChatMessageRequest
  * @return SendAsyncChatMessageResponse
@@ -9504,12 +10718,12 @@ SendAsyncChatMessageResponse Client::sendAsyncChatMessage(const SendAsyncChatMes
  * @summary Sends a message.
  *
  * @description ## Operation description
- * - This API operation is used to upload a file to the "My Resources" section of a specified digital employee.
+ * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
  * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
- * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
- * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the invoker.
- * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
- * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
+ * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
+ * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
+ * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+ * - The operation type is write, and operation logs are recorded for subsequent auditing.
  *
  * @param tmpReq SendChatMessageRequest
  * @param headers map
@@ -9582,6 +10796,10 @@ FutureGenerator<SendChatMessageResponse> Client::sendChatMessageWithSSE(const Se
     body["taskExecution"] = request.getTaskExecutionShrink();
   }
 
+  if (!!request.hasWorkMode()) {
+    body["workMode"] = request.getWorkMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
@@ -9619,12 +10837,12 @@ return Darabonba::FutureGenerator<json>(__retrun);
  * @summary Sends a message.
  *
  * @description ## Operation description
- * - This API operation is used to upload a file to the "My Resources" section of a specified digital employee.
+ * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
  * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
- * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
- * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the invoker.
- * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
- * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
+ * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
+ * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
+ * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+ * - The operation type is write, and operation logs are recorded for subsequent auditing.
  *
  * @param tmpReq SendChatMessageRequest
  * @param headers map
@@ -9697,6 +10915,10 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
     body["taskExecution"] = request.getTaskExecutionShrink();
   }
 
+  if (!!request.hasWorkMode()) {
+    body["workMode"] = request.getWorkMode();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"query" , Utils::Utils::query(query)},
@@ -9720,12 +10942,12 @@ SendChatMessageResponse Client::sendChatMessageWithOptions(const SendChatMessage
  * @summary Sends a message.
  *
  * @description ## Operation description
- * - This API operation is used to upload a file to the "My Resources" section of a specified digital employee.
+ * - This API is used to upload a file to the "My Resources" section of a specified digital employee.
  * - `source_type` is fixed to `FILE`, `scope` is fixed to `PERSONAL`, and `platform` is fixed to `LOCAL`.
- * - A persistent OSS address (`filePath`) must be provided for the file. Other information such as the public access URL and original file name is optional.
- * - If the target folder ID (`directoryId`) is not specified, the file is automatically attached to the default root folder of the current digital employee. If specified, ensure that the folder belongs to the personal folder of the invoker.
- * - Multiple authentication methods (AK, BearerToken, APP) are supported for security authentication.
- * - The operation type is write (`write`), and operation logs are recorded for subsequent auditing.
+ * - You must provide an OSS persistent address (`filePath`) for the file. Other information such as the public access URL and original file name is optional.
+ * - If you do not specify a target folder ID (`directoryId`), the file is automatically attached to the default root folder of the current digital employee. If you specify a folder ID, make sure the folder belongs to the invoker\\"s personal folder.
+ * - Multiple authentication methods (AK, BearerToken, and APP) are supported for security authentication.
+ * - The operation type is write, and operation logs are recorded for subsequent auditing.
  *
  * @param request SendChatMessageRequest
  * @return SendChatMessageResponse
@@ -10482,15 +11704,15 @@ UpdateDirectoryResponse Client::updateDirectory(const UpdateDirectoryRequest &re
 }
 
 /**
- * @summary 快更图谱元信息
+ * @summary Updates the basic information of a knowledge graph.
  *
- * @description OpenAPI 快更图谱元信息（displayName / businessProfile），同步更新 active 记录。
- *     displayName 与 businessProfile 至少传其一，否则返回 ERR.GraphSchema.QuickUpdateNoFieldsToUpdate。
- *     错误码：
- *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: 未传任何可更新字段
- *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
- *     - ERR.GraphSchema.GraphSchemaNotFound: 图谱不存在
- *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
+ * @description Updates the metadata of a knowledge graph (displayName / businessProfile) through OpenAPI and synchronously updates the active record.
+ *     At least one of displayName and businessProfile must be specified. Otherwise, ERR.GraphSchema.QuickUpdateNoFieldsToUpdate is returned.
+ *     Error codes:
+ *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: No updatable fields are specified.
+ *     - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
+ *     - ERR.GraphSchema.GraphSchemaNotFound: The graph does not exist.
+ *     - ERR.GraphSchema.DisplayNameInvalid: The display name is invalid or duplicate.
  *
  * @param request UpdateGraphInfoRequest
  * @param headers map
@@ -10537,15 +11759,15 @@ UpdateGraphInfoResponse Client::updateGraphInfoWithOptions(const UpdateGraphInfo
 }
 
 /**
- * @summary 快更图谱元信息
+ * @summary Updates the basic information of a knowledge graph.
  *
- * @description OpenAPI 快更图谱元信息（displayName / businessProfile），同步更新 active 记录。
- *     displayName 与 businessProfile 至少传其一，否则返回 ERR.GraphSchema.QuickUpdateNoFieldsToUpdate。
- *     错误码：
- *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: 未传任何可更新字段
- *     - ERR.GraphSchema.GraphNameInvalid: 图谱名称不合法
- *     - ERR.GraphSchema.GraphSchemaNotFound: 图谱不存在
- *     - ERR.GraphSchema.DisplayNameInvalid: 展示名不合法或重复
+ * @description Updates the metadata of a knowledge graph (displayName / businessProfile) through OpenAPI and synchronously updates the active record.
+ *     At least one of displayName and businessProfile must be specified. Otherwise, ERR.GraphSchema.QuickUpdateNoFieldsToUpdate is returned.
+ *     Error codes:
+ *     - ERR.GraphSchema.QuickUpdateNoFieldsToUpdate: No updatable fields are specified.
+ *     - ERR.GraphSchema.GraphNameInvalid: The graph name is invalid.
+ *     - ERR.GraphSchema.GraphSchemaNotFound: The graph does not exist.
+ *     - ERR.GraphSchema.DisplayNameInvalid: The display name is invalid or duplicate.
  *
  * @param request UpdateGraphInfoRequest
  * @return UpdateGraphInfoResponse
@@ -10554,6 +11776,140 @@ UpdateGraphInfoResponse Client::updateGraphInfo(const UpdateGraphInfoRequest &re
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return updateGraphInfoWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Modifies a folder in the materials section of a collaborative share.
+ *
+ * @description The folder creator or a storage management administrator who is an active member can modify the folder. Modifying the internal root folder or reference folders is prohibited. If description is set to an empty character string, the description is cleared. If description is set to null or omitted, the description remains unchanged. At least one of name or description must be non-null.
+ *
+ * @param request UpdateGroupDirectoryRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGroupDirectoryResponse
+ */
+UpdateGroupDirectoryResponse Client::updateGroupDirectoryWithOptions(const UpdateGroupDirectoryRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasDescription()) {
+    body["description"] = request.getDescription();
+  }
+
+  if (!!request.hasDirectoryId()) {
+    body["directoryId"] = request.getDirectoryId();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasName()) {
+    body["name"] = request.getName();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateGroupDirectory"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/updateGroupDirectory")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGroupDirectoryResponse>();
+}
+
+/**
+ * @summary Modifies a folder in the materials section of a collaborative share.
+ *
+ * @description The folder creator or a storage management administrator who is an active member can modify the folder. Modifying the internal root folder or reference folders is prohibited. If description is set to an empty character string, the description is cleared. If description is set to null or omitted, the description remains unchanged. At least one of name or description must be non-null.
+ *
+ * @param request UpdateGroupDirectoryRequest
+ * @return UpdateGroupDirectoryResponse
+ */
+UpdateGroupDirectoryResponse Client::updateGroupDirectory(const UpdateGroupDirectoryRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateGroupDirectoryWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 修改协作空间资料正文
+ *
+ * @description 有效成员且为创建者或空间管理员可编辑物理资料；引用只读。通常支持TEXT及本地txt/md；TEXT去首尾空白，已有skip_parse资料沿用免解析和本地文件扩展名规则。
+ *
+ * @param request UpdateGroupSourceContentRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateGroupSourceContentResponse
+ */
+UpdateGroupSourceContentResponse Client::updateGroupSourceContentWithOptions(const UpdateGroupSourceContentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTenantId()) {
+    query["tenantId"] = request.getTenantId();
+  }
+
+  json body = {};
+  if (!!request.hasContent()) {
+    body["content"] = request.getContent();
+  }
+
+  if (!!request.hasForceSync()) {
+    body["forceSync"] = request.getForceSync();
+  }
+
+  if (!!request.hasGroupId()) {
+    body["groupId"] = request.getGroupId();
+  }
+
+  if (!!request.hasSourceId()) {
+    body["sourceId"] = request.getSourceId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "UpdateGroupSourceContent"},
+    {"version" , "2026-05-12"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/openapi/updateGroupSourceContent")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateGroupSourceContentResponse>();
+}
+
+/**
+ * @summary 修改协作空间资料正文
+ *
+ * @description 有效成员且为创建者或空间管理员可编辑物理资料；引用只读。通常支持TEXT及本地txt/md；TEXT去首尾空白，已有skip_parse资料沿用免解析和本地文件扩展名规则。
+ *
+ * @param request UpdateGroupSourceContentRequest
+ * @return UpdateGroupSourceContentResponse
+ */
+UpdateGroupSourceContentResponse Client::updateGroupSourceContent(const UpdateGroupSourceContentRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return updateGroupSourceContentWithOptions(request, headers, runtime);
 }
 
 /**

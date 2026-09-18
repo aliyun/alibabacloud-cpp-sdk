@@ -117,9 +117,9 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // Indicates whether there is a next page.
+    // Indicates whether more pages are available.
     shared_ptr<bool> hasMore_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The current page number.
     shared_ptr<int32_t> page_ {};

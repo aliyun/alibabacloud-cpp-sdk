@@ -130,27 +130,27 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The business status code. A value of 200 indicates success. A failure returns a backend error code (ERR.* / InvalidParameter.*).
     shared_ptr<string> code_ {};
-    // 草稿变更 ID；内容与在线完全一致被跳过时为 null
+    // The draft change ID (the draftChangeId returned by listGraphDraftResources).
     shared_ptr<int64_t> draftChangeId_ {};
-    // 草稿内容哈希；被跳过时为 null
+    // The online content hash on which the draft save is based (draft starting point), a 64-character SHA-256 hexadecimal string.
     shared_ptr<string> draftContentHash_ {};
-    // 资源小类：resourceType=object 时固定 object_type；resourceType=element 时为 indicator / logic / process / rule / analysis 之一
+    // The element type. Currently, only text is supported.
     shared_ptr<string> elementType_ {};
-    // 最后修改时间（ISO8601）；被跳过时为 null
+    // The last modified time in ISO 8601 format.
     shared_ptr<string> gmtModified_ {};
-    // 图谱名称
+    // The graph name.
     shared_ptr<string> graphName_ {};
-    // 错误描述，成功时为空
+    // The status code description.
     shared_ptr<string> message_ {};
-    // 操作类型：CREATE / UPDATE（由底层判定）；被跳过时为 null
+    // The operation type.
     shared_ptr<string> operationType_ {};
-    // 请求追踪 ID
+    // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // 资源名
+    // The resource name.
     shared_ptr<string> resourceName_ {};
-    // 资源大类：object（对象）/ element（业务元素）
+    // The resource type.
     shared_ptr<string> resourceType_ {};
   };
 

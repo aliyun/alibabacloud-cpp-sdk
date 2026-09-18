@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(stream, stream_);
       DARABONBA_PTR_TO_JSON(taskExecution, taskExecutionShrink_);
       DARABONBA_PTR_TO_JSON(tenantId, tenantId_);
+      DARABONBA_PTR_TO_JSON(workMode, workMode_);
     };
     friend void from_json(const Darabonba::Json& j, SendChatMessageShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(content, content_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(stream, stream_);
       DARABONBA_PTR_FROM_JSON(taskExecution, taskExecutionShrink_);
       DARABONBA_PTR_FROM_JSON(tenantId, tenantId_);
+      DARABONBA_PTR_FROM_JSON(workMode, workMode_);
     };
     SendChatMessageShrinkRequest() = default ;
     SendChatMessageShrinkRequest(const SendChatMessageShrinkRequest &) = default ;
@@ -54,7 +56,7 @@ namespace Models
     virtual bool empty() const override { return this->content_ == nullptr
         && this->contentType_ == nullptr && this->digitalEmployeeNameShrink_ == nullptr && this->directChat_ == nullptr && this->enableWebSearch_ == nullptr && this->filesShrink_ == nullptr
         && this->model_ == nullptr && this->reuseLastSession_ == nullptr && this->sessionId_ == nullptr && this->stream_ == nullptr && this->taskExecutionShrink_ == nullptr
-        && this->tenantId_ == nullptr; };
+        && this->tenantId_ == nullptr && this->workMode_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -139,6 +141,13 @@ namespace Models
     inline SendChatMessageShrinkRequest& setTenantId(string tenantId) { DARABONBA_PTR_SET_VALUE(tenantId_, tenantId) };
 
 
+    // workMode Field Functions 
+    bool hasWorkMode() const { return this->workMode_ != nullptr;};
+    void deleteWorkMode() { this->workMode_ = nullptr;};
+    inline string getWorkMode() const { DARABONBA_PTR_GET_DEFAULT(workMode_, "") };
+    inline SendChatMessageShrinkRequest& setWorkMode(string workMode) { DARABONBA_PTR_SET_VALUE(workMode_, workMode) };
+
+
   protected:
     // The message body from the user.
     // 
@@ -148,15 +157,15 @@ namespace Models
     shared_ptr<string> contentType_ {};
     // The list of digital employee names. A single string can be passed for backward compatibility with the legacy format.
     shared_ptr<string> digitalEmployeeNameShrink_ {};
-    // Specifies whether to enable direct connection mode. If set to true, the regular scenario routing is skipped and the direct conversation scenario is entered.
+    // Specifies whether to enable direct connection mode. If set to true, the standard scenario routing is skipped and the direct conversation scenario is entered directly.
     shared_ptr<bool> directChat_ {};
-    // Specifies whether to enable web search. Default value: False. In task execution scenarios (when taskExecution is passed), the task configuration takes precedence.
+    // Specifies whether to enable web search. Default value: False. In task execution scenarios (when taskExecution is provided), the task configuration takes precedence.
     shared_ptr<bool> enableWebSearch_ {};
     // The list of file references. Each item is an object, and fileId is required (returned by uploadChatFile).
     shared_ptr<string> filesShrink_ {};
     // The abstract model tier. Valid values: quick, standard, and flagship. If not specified, new sessions use standard, and existing sessions retain the current session tier.
     shared_ptr<string> model_ {};
-    // Specifies whether to reuse the most recent session of the digital employee when sessionId is not passed (CLI scenario). Default value: false, which creates a new session.
+    // Specifies whether to reuse the most recent session of the digital employee when sessionId is not provided (CLI scenario). Default value: false, which creates a new session.
     shared_ptr<bool> reuseLastSession_ {};
     // The session ID.
     shared_ptr<string> sessionId_ {};
@@ -166,6 +175,13 @@ namespace Models
     shared_ptr<string> taskExecutionShrink_ {};
     // The effective tenant ID.
     shared_ptr<string> tenantId_ {};
+    // The session work mode. Valid values:
+    // - ask: Quick Q&A. Tools, skills, and connectors are trimmed, and single-turn direct answers are provided.
+    // - work: Deep work. This is the default value.
+    // - direct: Direct connection mode (request-level). The sandbox is not started and no context pollution occurs. This is equivalent to directChat=true.
+    // 
+    // The ask and work modes are session-level: the mode is selected and fixed when a session is created. By default, follow-up messages inherit the session mode. If an explicitly provided value is inconsistent with the session mode, a parameter error is returned. To switch modes, create a new session or fork the existing one. In multi-digital-employee or task execution scenarios, if ask is provided, work takes effect instead. When directChat=true, this parameter is ignored.
+    shared_ptr<string> workMode_ {};
   };
 
   } // namespace Models

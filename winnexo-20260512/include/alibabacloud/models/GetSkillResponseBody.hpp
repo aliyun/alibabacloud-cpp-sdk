@@ -156,9 +156,9 @@ namespace Models
       shared_ptr<string> default_ {};
       // The parameter description.
       shared_ptr<string> description_ {};
-      // The list of valid values, which is available when the options are limited.
+      // The list of valid values when options are limited.
       shared_ptr<vector<string>> enum_ {};
-      // The parameter name, which corresponds to the key in runSkill.arguments.
+      // The parameter name, corresponding to the key in runSkill.arguments.
       shared_ptr<string> name_ {};
       // Indicates whether the parameter is required.
       shared_ptr<bool> required_ {};
@@ -349,13 +349,13 @@ namespace Models
 
 
   protected:
-    // The simplified parameter schema that describes what needs to be passed in runSkill.arguments. This is automatically extracted from inputConfigFormatted.
+    // The simplified parameter schema that describes what to pass in runSkill.arguments. Automatically extracted from inputConfigFormatted.
     shared_ptr<vector<GetSkillResponseBody::Arguments>> arguments_ {};
     // The response status code.
     shared_ptr<string> code_ {};
     // The creation time in ISO 8601 format.
     shared_ptr<string> createdTime_ {};
-    // The skill description, which has been resolved through internationalization (i18n).
+    // The skill description. The value is resolved through i18n.
     shared_ptr<string> description_ {};
     // The detailed logic of the skill.
     shared_ptr<string> detailLogic_ {};
@@ -373,13 +373,13 @@ namespace Models
     shared_ptr<vector<Darabonba::Json>> inputConfigFormatted_ {};
     // The status code description.
     shared_ptr<string> message_ {};
-    // The skill name, which has been resolved through internationalization (i18n).
+    // The skill name. The value is resolved through i18n.
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The skill code, which is globally unique.
     shared_ptr<string> skillCode_ {};
-    // The nested tree of skill files. This is returned only when includeSkillFiles is set to True.
+    // The nested skill file tree. This parameter is returned only when includeSkillFiles is set to True.
     shared_ptr<vector<Darabonba::Json>> skillFiles_ {};
     // The skill definition ID.
     shared_ptr<int64_t> skillHubDefinitionId_ {};
@@ -389,9 +389,9 @@ namespace Models
     shared_ptr<string> sourceType_ {};
     // The skill status. Valid values: ACTIVE and DRAFT.
     shared_ptr<string> status_ {};
-    // The tag list, which has been resolved through internationalization (i18n).
+    // The label list. The values are resolved through i18n.
     shared_ptr<vector<string>> tags_ {};
-    // The modification time in ISO 8601 format.
+    // The update time in ISO 8601 format.
     shared_ptr<string> updatedTime_ {};
     // The total number of versions.
     shared_ptr<int64_t> versionCount_ {};

@@ -132,13 +132,16 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The content type. Valid values: Text and Markdown.
+    // The content type. Valid values:
+    // 
+    // - Text
+    // - Markdown
     shared_ptr<string> contentType_ {};
     // The validity period of the task, in seconds.
     shared_ptr<int64_t> expiresIn_ {};
     // The publicly accessible URL of the DingTalk online document.
     shared_ptr<string> filePublicUrl_ {};
-    // The file record ID. This parameter is optional and corresponds to settings.file_record_id.
+    // The file record ID (optional, corresponding to settings.file_record_id).
     shared_ptr<string> fileRecordId_ {};
     // The Yida attachment URL.
     shared_ptr<string> fileUrl_ {};

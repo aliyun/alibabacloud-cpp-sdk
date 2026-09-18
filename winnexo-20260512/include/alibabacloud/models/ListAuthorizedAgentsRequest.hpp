@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<string> permission_ {};
     // The target user ID.
     shared_ptr<int64_t> targetUserId_ {};
-    // The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+    // The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
     shared_ptr<string> tenantId_ {};
   };
 

@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // Specifies whether to display only outputs and output items with sharing enabled.
     shared_ptr<bool> sharedOnly_ {};
-    // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly with --tenant-id.
+    // The tenant ID. This is a common parameter. In winnexo-cli, pass it explicitly by using --tenant-id.
     shared_ptr<string> tenantId_ {};
   };
 

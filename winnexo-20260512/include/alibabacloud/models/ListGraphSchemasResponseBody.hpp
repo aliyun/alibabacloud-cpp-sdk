@@ -149,37 +149,37 @@ namespace Models
 
 
     protected:
-      // active Schema 版本
+      // The currently active schema version number. The value is 0.0.0 for a quick-created placeholder graph.
       shared_ptr<string> activeVersion_ {};
-      // 业务说明，未设置时为空字符串
+      // The business description of the graph. An empty string is returned if this parameter is not configured.
       shared_ptr<string> businessProfile_ {};
-      // 图谱展示名，空值时兜底 graphName
+      // The display name of the tool.
       shared_ptr<string> displayName_ {};
-      // 图谱名称
+      // The graph name.
       // 
       // This parameter is required.
       shared_ptr<string> graphName_ {};
-      // 图谱状态：PUBLISHED / DEVELOPING（当前用户有活动草稿）/ PUBLISHING（当前用户发布中）
+      // The status of the semantic graph.
       // 
       // This parameter is required.
       shared_ptr<string> graphStatus_ {};
-      // 当前调用者视角是否存在个人活动草稿；部署/系统级 Token 恒 false
+      // Indicates whether the graph contains a draft.
       // 
       // This parameter is required.
       shared_ptr<bool> hasDraft_ {};
-      // 是否为租户默认图谱
+      // Indicates whether this is the default group.
       // 
       // This parameter is required.
       shared_ptr<bool> isDefault_ {};
-      // object_type 数量，解析失败兜底 0
+      // The number of object types. The value falls back to 0 if parsing fails.
       // 
       // This parameter is required.
       shared_ptr<int64_t> objectTypeCount_ {};
-      // relation 数量，解析失败兜底 0
+      // The number of relations. The value falls back to 0 if parsing fails.
       // 
       // This parameter is required.
       shared_ptr<int64_t> relationCount_ {};
-      // 语义标签列表，未配置时为空数组
+      // The list of semantic tags. An empty array [] is returned if this parameter is not configured.
       // 
       // This parameter is required.
       shared_ptr<vector<string>> semanticTags_ {};
@@ -218,13 +218,13 @@ namespace Models
 
 
   protected:
-    // 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+    // The status code.
     shared_ptr<string> code_ {};
-    // 租户下 active 图谱摘要列表
+    // The location clustering.
     shared_ptr<vector<ListGraphSchemasResponseBody::Items>> items_ {};
-    // 错误描述，成功时为空
+    // The prompt message.
     shared_ptr<string> message_ {};
-    // 请求追踪 ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

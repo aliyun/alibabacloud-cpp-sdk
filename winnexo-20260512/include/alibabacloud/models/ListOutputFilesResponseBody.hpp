@@ -320,7 +320,7 @@ namespace Models
         protected:
           // The email body.
           shared_ptr<string> body_ {};
-          // The content type, such as MARKDOWN/JSONML/HTML.
+          // The content type, such as MARKDOWN, JSONML, or HTML.
           shared_ptr<string> contentType_ {};
           // The recipient list.
           shared_ptr<vector<string>> recipients_ {};
@@ -446,9 +446,9 @@ namespace Models
       protected:
         // The creation time in ISO 8601 format.
         shared_ptr<string> createTime_ {};
-        // The email information. This field is present when the output type is email.
+        // The email information. This field is present only when the output type is email.
         shared_ptr<OutputItems::EmailInfo> emailInfo_ {};
-        // The file information. This field is present when the output type is file.
+        // The file information. This field is present only when the output type is file.
         shared_ptr<OutputItems::FileInfo> fileInfo_ {};
         // The database creation time in ISO 8601 format.
         shared_ptr<string> gmtCreate_ {};
@@ -466,11 +466,11 @@ namespace Models
         shared_ptr<string> outputItemId_ {};
         // Indicates whether sharing is enabled.
         shared_ptr<bool> shareEnabled_ {};
-        // The share token that is present when sharing is enabled. You can use this token to access the public share preview API.
+        // The share token. This field is present only when sharing is enabled. You can use this token to access the public share preview endpoint.
         shared_ptr<string> shareToken_ {};
         // The skill output ID.
         shared_ptr<string> skillOutputId_ {};
-        // The slides information. This field is present when the output type is slides.
+        // The slides information. This field is present only when the output type is slides.
         shared_ptr<OutputItems::SlidesInfo> slidesInfo_ {};
         // The task execution ID.
         shared_ptr<string> taskExecutionId_ {};
@@ -559,7 +559,7 @@ namespace Models
 
 
     protected:
-      // The conversation ID.
+      // The session ID.
       shared_ptr<string> conversationId_ {};
       // The creation time in ISO 8601 format.
       shared_ptr<string> gmtCreate_ {};
@@ -573,13 +573,13 @@ namespace Models
       shared_ptr<string> outputId_ {};
       // The output detail list.
       shared_ptr<vector<Items::OutputItems>> outputItems_ {};
-      // The output type: `conversation/skill/task`.
+      // The output type. Valid values: `conversation/skill/task`.
       shared_ptr<string> outputType_ {};
       // The internationalized display name of the output type.
       shared_ptr<string> outputTypeDisplayName_ {};
       // The skill output ID.
       shared_ptr<string> skillOutputId_ {};
-      // The task ID.
+      // The node ID.
       shared_ptr<string> taskId_ {};
     };
 
@@ -650,7 +650,7 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     // The request trace ID.
     shared_ptr<string> requestId_ {};
-    // The total number of outputs that match the specified conditions.
+    // The total number of outputs that meet the specified conditions.
     shared_ptr<int64_t> total_ {};
   };
 

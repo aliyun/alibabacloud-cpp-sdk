@@ -66,15 +66,15 @@ namespace Models
 
 
   protected:
-    // 业务说明（可选；传空串表示清空；与 displayName 至少传其一）
+    // The business description of the knowledge graph. If not configured, the value is an empty string.
     shared_ptr<string> businessProfile_ {};
-    // 图谱展示名（可选，最多200字；传空串或纯空白会被拒绝；与 businessProfile 至少传其一）
+    // The display name of the knowledge graph.
     shared_ptr<string> displayName_ {};
-    // 图谱名称
+    // The name of the knowledge graph.
     // 
     // This parameter is required.
     shared_ptr<string> graphName_ {};
-    // 租户ID，公共参数，缺省时使用调用方默认租户
+    // The tenant ID.
     shared_ptr<string> tenantId_ {};
   };
 

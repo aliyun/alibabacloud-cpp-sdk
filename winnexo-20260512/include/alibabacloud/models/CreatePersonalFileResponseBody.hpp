@@ -114,7 +114,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The directory ID.
+    // The folder ID.
     shared_ptr<string> directoryId_ {};
     // The creation time.
     shared_ptr<string> gmtCreate_ {};

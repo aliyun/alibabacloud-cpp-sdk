@@ -98,7 +98,7 @@ namespace Models
       shared_ptr<string> roleCode_ {};
       // The role name.
       shared_ptr<string> roleName_ {};
-      // Indicates whether the enable/disable operation is allowed. Super administrators and application users cannot be switched.
+      // Indicates whether the enable/disable operation is allowed. Super administrators and application users cannot be toggled.
       shared_ptr<bool> toggleable_ {};
     };
 
@@ -137,7 +137,7 @@ namespace Models
   protected:
     // The response status code.
     shared_ptr<string> code_ {};
-    // The MCP card list.
+    // The list of MCP cards.
     shared_ptr<vector<ListRolesResponseBody::Items>> items_ {};
     // The prompt message.
     shared_ptr<string> message_ {};

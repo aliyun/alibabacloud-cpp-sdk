@@ -103,19 +103,19 @@ namespace Models
 
 
   protected:
-    // **The list of direct child user groups.**
+    // **Direct child user group list**
     shared_ptr<vector<Darabonba::Json>> childGroups_ {};
     // The status code.
     shared_ptr<string> code_ {};
-    // **The list of direct members in the current user group.**
+    // **Direct member list of the current user group**
     shared_ptr<vector<Darabonba::Json>> members_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};
-    // **The parent user group information. This is empty for the root node.**
+    // **Parent user group information. This value is empty for the root node.**
     Darabonba::Json parentGroup_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // **The target user group information.**
+    // **Target user group information**
     Darabonba::Json userGroup_ {};
   };
 
