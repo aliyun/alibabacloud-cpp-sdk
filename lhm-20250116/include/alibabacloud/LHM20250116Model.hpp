@@ -174,6 +174,9 @@
 #include <alibabacloud/models/PostInnerUploadConvertPackageRequest.hpp>
 #include <alibabacloud/models/PostInnerUploadConvertPackageResponseBody.hpp>
 #include <alibabacloud/models/PostInnerUploadConvertPackageResponse.hpp>
+#include <alibabacloud/models/SaveSkillAuditRecordRequest.hpp>
+#include <alibabacloud/models/SaveSkillAuditRecordResponseBody.hpp>
+#include <alibabacloud/models/SaveSkillAuditRecordResponse.hpp>
 #include <alibabacloud/models/SingleSqlDryRunRequest.hpp>
 #include <alibabacloud/models/SingleSqlDryRunResponseBody.hpp>
 #include <alibabacloud/models/SingleSqlDryRunResponse.hpp>

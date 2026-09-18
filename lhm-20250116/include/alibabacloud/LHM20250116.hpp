@@ -2071,6 +2071,24 @@ namespace LHM20250116
       Models::PostInnerUploadConvertPackageResponse postInnerUploadConvertPackage(const Models::PostInnerUploadConvertPackageRequest &request);
 
       /**
+       * @summary Retains SQL audit records.
+       *
+       * @param request SaveSkillAuditRecordRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return SaveSkillAuditRecordResponse
+       */
+      Models::SaveSkillAuditRecordResponse saveSkillAuditRecordWithOptions(const Models::SaveSkillAuditRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retains SQL audit records.
+       *
+       * @param request SaveSkillAuditRecordRequest
+       * @return SaveSkillAuditRecordResponse
+       */
+      Models::SaveSkillAuditRecordResponse saveSkillAuditRecord(const Models::SaveSkillAuditRecordRequest &request);
+
+      /**
        * @summary Performs a Dry Run validation on a single converted SQL statement to verify syntax and execution permissions without actually writing data.
        *
        * @description ## Operation description

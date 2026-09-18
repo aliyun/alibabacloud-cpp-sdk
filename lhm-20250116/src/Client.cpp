@@ -4261,6 +4261,87 @@ PostInnerUploadConvertPackageResponse Client::postInnerUploadConvertPackage(cons
 }
 
 /**
+ * @summary Retains SQL audit records.
+ *
+ * @param request SaveSkillAuditRecordRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return SaveSkillAuditRecordResponse
+ */
+SaveSkillAuditRecordResponse Client::saveSkillAuditRecordWithOptions(const SaveSkillAuditRecordRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasBatchId()) {
+    body["batchId"] = request.getBatchId();
+  }
+
+  if (!!request.hasCid()) {
+    body["cid"] = request.getCid();
+  }
+
+  if (!!request.hasDryRunStatus()) {
+    body["dryRunStatus"] = request.getDryRunStatus();
+  }
+
+  if (!!request.hasExtInfo()) {
+    body["extInfo"] = request.getExtInfo();
+  }
+
+  if (!!request.hasRecordType()) {
+    body["recordType"] = request.getRecordType();
+  }
+
+  if (!!request.hasScriptTransformResult()) {
+    body["scriptTransformResult"] = request.getScriptTransformResult();
+  }
+
+  if (!!request.hasScriptTransformStatus()) {
+    body["scriptTransformStatus"] = request.getScriptTransformStatus();
+  }
+
+  if (!!request.hasSourceDialect()) {
+    body["sourceDialect"] = request.getSourceDialect();
+  }
+
+  if (!!request.hasSourceSqlScript()) {
+    body["sourceSqlScript"] = request.getSourceSqlScript();
+  }
+
+  if (!!request.hasTargetDialect()) {
+    body["targetDialect"] = request.getTargetDialect();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "SaveSkillAuditRecord"},
+    {"version" , "2025-01-16"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/api/bigdata/sql-translator/open/skill-audit/save")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<SaveSkillAuditRecordResponse>();
+}
+
+/**
+ * @summary Retains SQL audit records.
+ *
+ * @param request SaveSkillAuditRecordRequest
+ * @return SaveSkillAuditRecordResponse
+ */
+SaveSkillAuditRecordResponse Client::saveSkillAuditRecord(const SaveSkillAuditRecordRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return saveSkillAuditRecordWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary Performs a Dry Run validation on a single converted SQL statement to verify syntax and execution permissions without actually writing data.
  *
  * @description ## Operation description
