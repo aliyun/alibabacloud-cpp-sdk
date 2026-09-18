@@ -72,6 +72,8 @@ namespace Models
           DARABONBA_PTR_TO_JSON(BranchId, branchId_);
           DARABONBA_PTR_TO_JSON(BranchName, branchName_);
           DARABONBA_PTR_TO_JSON(BranchVersionId, branchVersionId_);
+          DARABONBA_PTR_TO_JSON(CallExpireTime, callExpireTime_);
+          DARABONBA_PTR_TO_JSON(CallId, callId_);
           DARABONBA_PTR_TO_JSON(CallResult, callResult_);
           DARABONBA_PTR_TO_JSON(CalledNumber, calledNumber_);
           DARABONBA_PTR_TO_JSON(CallingTime, callingTime_);
@@ -96,6 +98,8 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(BranchId, branchId_);
           DARABONBA_PTR_FROM_JSON(BranchName, branchName_);
           DARABONBA_PTR_FROM_JSON(BranchVersionId, branchVersionId_);
+          DARABONBA_PTR_FROM_JSON(CallExpireTime, callExpireTime_);
+          DARABONBA_PTR_FROM_JSON(CallId, callId_);
           DARABONBA_PTR_FROM_JSON(CallResult, callResult_);
           DARABONBA_PTR_FROM_JSON(CalledNumber, calledNumber_);
           DARABONBA_PTR_FROM_JSON(CallingTime, callingTime_);
@@ -127,11 +131,11 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->batchId_ == nullptr
-        && this->branchId_ == nullptr && this->branchName_ == nullptr && this->branchVersionId_ == nullptr && this->callResult_ == nullptr && this->calledNumber_ == nullptr
-        && this->callingTime_ == nullptr && this->conversationDuration_ == nullptr && this->conversationRecord_ == nullptr && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr
-        && this->encryptionType_ == nullptr && this->failedReason_ == nullptr && this->importedTime_ == nullptr && this->majorIntent_ == nullptr && this->options_ == nullptr
-        && this->outId_ == nullptr && this->recordingFilePath_ == nullptr && this->status_ == nullptr && this->taskId_ == nullptr && this->versionName_ == nullptr
-        && this->versionNo_ == nullptr; };
+        && this->branchId_ == nullptr && this->branchName_ == nullptr && this->branchVersionId_ == nullptr && this->callExpireTime_ == nullptr && this->callId_ == nullptr
+        && this->callResult_ == nullptr && this->calledNumber_ == nullptr && this->callingTime_ == nullptr && this->conversationDuration_ == nullptr && this->conversationRecord_ == nullptr
+        && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr && this->encryptionType_ == nullptr && this->failedReason_ == nullptr && this->importedTime_ == nullptr
+        && this->majorIntent_ == nullptr && this->options_ == nullptr && this->outId_ == nullptr && this->recordingFilePath_ == nullptr && this->status_ == nullptr
+        && this->taskId_ == nullptr && this->versionName_ == nullptr && this->versionNo_ == nullptr; };
         // batchId Field Functions 
         bool hasBatchId() const { return this->batchId_ != nullptr;};
         void deleteBatchId() { this->batchId_ = nullptr;};
@@ -158,6 +162,20 @@ namespace Models
         void deleteBranchVersionId() { this->branchVersionId_ = nullptr;};
         inline int64_t getBranchVersionId() const { DARABONBA_PTR_GET_DEFAULT(branchVersionId_, 0L) };
         inline List& setBranchVersionId(int64_t branchVersionId) { DARABONBA_PTR_SET_VALUE(branchVersionId_, branchVersionId) };
+
+
+        // callExpireTime Field Functions 
+        bool hasCallExpireTime() const { return this->callExpireTime_ != nullptr;};
+        void deleteCallExpireTime() { this->callExpireTime_ = nullptr;};
+        inline int64_t getCallExpireTime() const { DARABONBA_PTR_GET_DEFAULT(callExpireTime_, 0L) };
+        inline List& setCallExpireTime(int64_t callExpireTime) { DARABONBA_PTR_SET_VALUE(callExpireTime_, callExpireTime) };
+
+
+        // callId Field Functions 
+        bool hasCallId() const { return this->callId_ != nullptr;};
+        void deleteCallId() { this->callId_ = nullptr;};
+        inline string getCallId() const { DARABONBA_PTR_GET_DEFAULT(callId_, "") };
+        inline List& setCallId(string callId) { DARABONBA_PTR_SET_VALUE(callId_, callId) };
 
 
         // callResult Field Functions 
@@ -289,64 +307,67 @@ namespace Models
       protected:
         // The batch ID.
         shared_ptr<string> batchId_ {};
+        // The branch ID.
         shared_ptr<int64_t> branchId_ {};
+        // The branch name.
         shared_ptr<string> branchName_ {};
+        // The version ID.
         shared_ptr<int64_t> branchVersionId_ {};
+        // The expiration time of the outbound call detail.
+        shared_ptr<int64_t> callExpireTime_ {};
+        // The call ID.
+        shared_ptr<string> callId_ {};
         // The call result.
         shared_ptr<string> callResult_ {};
         // The called number.
         shared_ptr<string> calledNumber_ {};
-        // The call time, formatted as a timestamp in milliseconds.
+        // The calling time. This value is a timestamp in milliseconds.
         shared_ptr<int64_t> callingTime_ {};
-        // The conversation duration, in seconds.
+        // The conversation duration. Unit: seconds.
         shared_ptr<int64_t> conversationDuration_ {};
-        // The conversation record, formatted as a chronologically sorted JSON array. Each object has the following structure:
-        // 
+        // The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The format is as follows:
         // ```json
         // [
         //     {
-        //         "content":"The content of the message.",
-        //         "role":"The role of the speaker.", // Valid values: user, assistant
+        //         "content":"Chat content",
+        //         "role":"Role",//Valid values: user, assistant (bot)
         //     }
         // ]
         // ```
         shared_ptr<string> conversationRecord_ {};
-        // The conversation turn count.
+        // The number of conversation turns.
         shared_ptr<int64_t> conversationTurnCount_ {};
         // The task detail ID.
         shared_ptr<string> detailId_ {};
-        // The encryption type. Valid values are: 0 (no encryption), 1 (MD5), 2 (SHA256), and 3 (SM3).
+        // The encryption type. Valid values: 0: no encryption. 1: MD5. 2: SHA256. 3: SM3.
         shared_ptr<int64_t> encryptionType_ {};
-        // The failure reason. Provided only if the call fails.
+        // The reason for call failure. This field is available only when the call fails.
         shared_ptr<string> failedReason_ {};
-        // The import time, formatted as a timestamp in milliseconds.
+        // The import time. This value is a timestamp in milliseconds.
         shared_ptr<int64_t> importedTime_ {};
         // The major intent.
         shared_ptr<string> majorIntent_ {};
-        // A JSON object of key-value pairs for runtime variables.
+        // The variable information used at runtime, stored in this field as key-value pairs.
         shared_ptr<string> options_ {};
+        // The external business serial number reserved for external input. A unique ID can be used for business association.
         shared_ptr<string> outId_ {};
-        // The recording file path. Provided only after the recording file is generated.
+        // The download path of the recording file. This field is available only after the recording file is generated.
         shared_ptr<string> recordingFilePath_ {};
-        // The task detail status.
+        // The task detail status. Valid values:
+        // - 0: initialized.
+        // - 1: waiting to call.
+        // - 2: waiting to retry.
+        // - 3: calling.
+        // - 4: call ended.
+        // - 5: call failed.
         // 
-        // - 0: Initializing
-        // 
-        // - 1: Waiting to call
-        // 
-        // - 2: Waiting to retry
-        // 
-        // - 3: Calling
-        // 
-        // - 4: Call ended
-        // 
-        // - 5: Call failed
-        // 
-        // Only statuses 4 and 5 are terminal states.
+        // Only 4 and 5 are desired states.
         shared_ptr<int64_t> status_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
+        // The version name.
         shared_ptr<string> versionName_ {};
+        // The version number.
         shared_ptr<int64_t> versionNo_ {};
       };
 
@@ -383,9 +404,9 @@ namespace Models
 
 
     protected:
-      // A list of task details.
+      // The list of task detail data.
       shared_ptr<vector<Data::List>> list_ {};
-      // The page number.
+      // The current page number.
       shared_ptr<int64_t> pageNo_ {};
       // The page size.
       shared_ptr<int64_t> pageSize_ {};
@@ -440,21 +461,19 @@ namespace Models
 
 
   protected:
-    // The reason why the access request was denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryAiCallDetailPageResponseBody::Data> data_ {};
-    // A description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values are:
-    // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: successful.
+    // - **false**: failed.
     shared_ptr<bool> success_ {};
   };
 

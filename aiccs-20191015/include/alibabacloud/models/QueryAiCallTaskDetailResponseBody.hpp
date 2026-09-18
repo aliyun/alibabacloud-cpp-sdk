@@ -48,7 +48,11 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ApplicationCode, applicationCode_);
         DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
         DARABONBA_PTR_TO_JSON(CallDays, callDays_);
+        DARABONBA_PTR_TO_JSON(CallExpireDate, callExpireDate_);
+        DARABONBA_PTR_TO_JSON(CallExpireMinutes, callExpireMinutes_);
+        DARABONBA_PTR_TO_JSON(CallExpireType, callExpireType_);
         DARABONBA_PTR_TO_JSON(CallTimes, callTimes_);
+        DARABONBA_PTR_TO_JSON(CallableTimes, callableTimes_);
         DARABONBA_PTR_TO_JSON(CallerNumber, callerNumber_);
         DARABONBA_PTR_TO_JSON(ConcurrentCount, concurrentCount_);
         DARABONBA_PTR_TO_JSON(LineEncoding, lineEncoding_);
@@ -70,7 +74,11 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ApplicationCode, applicationCode_);
         DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
         DARABONBA_PTR_FROM_JSON(CallDays, callDays_);
+        DARABONBA_PTR_FROM_JSON(CallExpireDate, callExpireDate_);
+        DARABONBA_PTR_FROM_JSON(CallExpireMinutes, callExpireMinutes_);
+        DARABONBA_PTR_FROM_JSON(CallExpireType, callExpireType_);
         DARABONBA_PTR_FROM_JSON(CallTimes, callTimes_);
+        DARABONBA_PTR_FROM_JSON(CallableTimes, callableTimes_);
         DARABONBA_PTR_FROM_JSON(CallerNumber, callerNumber_);
         DARABONBA_PTR_FROM_JSON(ConcurrentCount, concurrentCount_);
         DARABONBA_PTR_FROM_JSON(LineEncoding, lineEncoding_);
@@ -97,6 +105,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class CallableTimes : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const CallableTimes& obj) { 
+          DARABONBA_PTR_TO_JSON(EndTime, endTime_);
+          DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+        };
+        friend void from_json(const Darabonba::Json& j, CallableTimes& obj) { 
+          DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
+          DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+        };
+        CallableTimes() = default ;
+        CallableTimes(const CallableTimes &) = default ;
+        CallableTimes(CallableTimes &&) = default ;
+        CallableTimes(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~CallableTimes() = default ;
+        CallableTimes& operator=(const CallableTimes &) = default ;
+        CallableTimes& operator=(CallableTimes &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->endTime_ == nullptr
+        && this->startTime_ == nullptr; };
+        // endTime Field Functions 
+        bool hasEndTime() const { return this->endTime_ != nullptr;};
+        void deleteEndTime() { this->endTime_ = nullptr;};
+        inline string getEndTime() const { DARABONBA_PTR_GET_DEFAULT(endTime_, "") };
+        inline CallableTimes& setEndTime(string endTime) { DARABONBA_PTR_SET_VALUE(endTime_, endTime) };
+
+
+        // startTime Field Functions 
+        bool hasStartTime() const { return this->startTime_ != nullptr;};
+        void deleteStartTime() { this->startTime_ = nullptr;};
+        inline string getStartTime() const { DARABONBA_PTR_GET_DEFAULT(startTime_, "") };
+        inline CallableTimes& setStartTime(string startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
+
+
+      protected:
+        // The end time.
+        shared_ptr<string> endTime_ {};
+        // The start time.
+        shared_ptr<string> startTime_ {};
+      };
+
       class CallTimes : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const CallTimes& obj) { 
@@ -135,17 +187,18 @@ namespace Models
 
 
       protected:
-        // The end of the time window.
+        // The end time.
         shared_ptr<string> endTime_ {};
-        // The beginning of the time window.
+        // The start time.
         shared_ptr<string> startTime_ {};
       };
 
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->agentName_ == nullptr && this->applicationCode_ == nullptr && this->applicationName_ == nullptr && this->callDays_ == nullptr && this->callTimes_ == nullptr
-        && this->callerNumber_ == nullptr && this->concurrentCount_ == nullptr && this->lineEncoding_ == nullptr && this->linePhoneNum_ == nullptr && this->phoneType_ == nullptr
-        && this->realStartTime_ == nullptr && this->retryCount_ == nullptr && this->retryEnable_ == nullptr && this->retryInterval_ == nullptr && this->retryReasons_ == nullptr
-        && this->startTime_ == nullptr && this->startType_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr; };
+        && this->agentName_ == nullptr && this->applicationCode_ == nullptr && this->applicationName_ == nullptr && this->callDays_ == nullptr && this->callExpireDate_ == nullptr
+        && this->callExpireMinutes_ == nullptr && this->callExpireType_ == nullptr && this->callTimes_ == nullptr && this->callableTimes_ == nullptr && this->callerNumber_ == nullptr
+        && this->concurrentCount_ == nullptr && this->lineEncoding_ == nullptr && this->linePhoneNum_ == nullptr && this->phoneType_ == nullptr && this->realStartTime_ == nullptr
+        && this->retryCount_ == nullptr && this->retryEnable_ == nullptr && this->retryInterval_ == nullptr && this->retryReasons_ == nullptr && this->startTime_ == nullptr
+        && this->startType_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -183,6 +236,27 @@ namespace Models
       inline Data& setCallDays(vector<string> && callDays) { DARABONBA_PTR_SET_RVALUE(callDays_, callDays) };
 
 
+      // callExpireDate Field Functions 
+      bool hasCallExpireDate() const { return this->callExpireDate_ != nullptr;};
+      void deleteCallExpireDate() { this->callExpireDate_ = nullptr;};
+      inline string getCallExpireDate() const { DARABONBA_PTR_GET_DEFAULT(callExpireDate_, "") };
+      inline Data& setCallExpireDate(string callExpireDate) { DARABONBA_PTR_SET_VALUE(callExpireDate_, callExpireDate) };
+
+
+      // callExpireMinutes Field Functions 
+      bool hasCallExpireMinutes() const { return this->callExpireMinutes_ != nullptr;};
+      void deleteCallExpireMinutes() { this->callExpireMinutes_ = nullptr;};
+      inline int64_t getCallExpireMinutes() const { DARABONBA_PTR_GET_DEFAULT(callExpireMinutes_, 0L) };
+      inline Data& setCallExpireMinutes(int64_t callExpireMinutes) { DARABONBA_PTR_SET_VALUE(callExpireMinutes_, callExpireMinutes) };
+
+
+      // callExpireType Field Functions 
+      bool hasCallExpireType() const { return this->callExpireType_ != nullptr;};
+      void deleteCallExpireType() { this->callExpireType_ = nullptr;};
+      inline int64_t getCallExpireType() const { DARABONBA_PTR_GET_DEFAULT(callExpireType_, 0L) };
+      inline Data& setCallExpireType(int64_t callExpireType) { DARABONBA_PTR_SET_VALUE(callExpireType_, callExpireType) };
+
+
       // callTimes Field Functions 
       bool hasCallTimes() const { return this->callTimes_ != nullptr;};
       void deleteCallTimes() { this->callTimes_ = nullptr;};
@@ -190,6 +264,15 @@ namespace Models
       inline vector<Data::CallTimes> getCallTimes() { DARABONBA_PTR_GET(callTimes_, vector<Data::CallTimes>) };
       inline Data& setCallTimes(const vector<Data::CallTimes> & callTimes) { DARABONBA_PTR_SET_VALUE(callTimes_, callTimes) };
       inline Data& setCallTimes(vector<Data::CallTimes> && callTimes) { DARABONBA_PTR_SET_RVALUE(callTimes_, callTimes) };
+
+
+      // callableTimes Field Functions 
+      bool hasCallableTimes() const { return this->callableTimes_ != nullptr;};
+      void deleteCallableTimes() { this->callableTimes_ = nullptr;};
+      inline const vector<Data::CallableTimes> & getCallableTimes() const { DARABONBA_PTR_GET_CONST(callableTimes_, vector<Data::CallableTimes>) };
+      inline vector<Data::CallableTimes> getCallableTimes() { DARABONBA_PTR_GET(callableTimes_, vector<Data::CallableTimes>) };
+      inline Data& setCallableTimes(const vector<Data::CallableTimes> & callableTimes) { DARABONBA_PTR_SET_VALUE(callableTimes_, callableTimes) };
+      inline Data& setCallableTimes(vector<Data::CallableTimes> && callableTimes) { DARABONBA_PTR_SET_RVALUE(callableTimes_, callableTimes) };
 
 
       // callerNumber Field Functions 
@@ -293,48 +376,58 @@ namespace Models
 
 
     protected:
-      // The ID of the deployed agent.
+      // The ID of the published agent.
       shared_ptr<string> agentId_ {};
-      // The name of the agent.
+      // The agent name.
       shared_ptr<string> agentName_ {};
       shared_ptr<string> applicationCode_ {};
       shared_ptr<string> applicationName_ {};
-      // The days of the week on which calls are permitted.
+      // The list of callable days.
       shared_ptr<vector<string>> callDays_ {};
-      // The allowed call time windows.
+      // The expiration date of outbound call details (specific deadline).
+      shared_ptr<string> callExpireDate_ {};
+      // The expiration duration of outbound call details, in minutes.
+      shared_ptr<int64_t> callExpireMinutes_ {};
+      // The outbound call validity type. Valid values:
+      // 
+      // 0: Permanently valid.
+      // 1: Valid for a period of time after import.
+      // 2: Valid until a specified time.
+      shared_ptr<int64_t> callExpireType_ {};
+      // The allowed call time periods.
       shared_ptr<vector<Data::CallTimes>> callTimes_ {};
-      // The caller ID.
+      // The callable time periods for the current outbound call instance.
+      shared_ptr<vector<Data::CallableTimes>> callableTimes_ {};
+      // The caller number.
       shared_ptr<string> callerNumber_ {};
-      // The number of concurrent tasks.
+      // The task concurrency.
       shared_ptr<int64_t> concurrentCount_ {};
       shared_ptr<string> lineEncoding_ {};
       shared_ptr<string> linePhoneNum_ {};
       shared_ptr<int64_t> phoneType_ {};
-      // The actual start time of the task. This value is a Unix timestamp in milliseconds.
+      // The actual start time of the task. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> realStartTime_ {};
-      // The number of retries.
+      // The number of retry attempts.
       shared_ptr<int64_t> retryCount_ {};
       // Indicates whether call retry is enabled. Valid values:
-      // 
-      // - `true`
-      // 
-      // - `false`
+      // - true: Enabled.
+      // - false: Not enabled.
       shared_ptr<bool> retryEnable_ {};
       // The retry interval. Unit: minutes.
       shared_ptr<int64_t> retryInterval_ {};
-      // The reasons for which a failed call can be retried.
+      // The list of reasons that allow retry on failure.
       shared_ptr<vector<string>> retryReasons_ {};
-      // The scheduled start time of the task. This value is a Unix timestamp in milliseconds.
+      // The scheduled start time of the task. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The start mode. Valid values:
+      // The start type. Valid values:
       // 
-      // - `IMMEDIATE`: The task starts immediately.
+      // - IMMEDIATE: Start immediately.
       // 
-      // - `SCHEDULE`: The task starts at a scheduled time.
+      // - SCHEDULE: Start at a scheduled time.
       shared_ptr<string> startType_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<string> taskId_ {};
-      // The name of the task.
+      // The task name.
       shared_ptr<string> taskName_ {};
     };
 
@@ -385,21 +478,19 @@ namespace Models
 
 
   protected:
-    // The access denial details. This parameter is returned only if RAM validation fails.
+    // The access denial details. This field is returned only when RAM authentication fails.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The status code.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<QueryAiCallTaskDetailResponseBody::Data> data_ {};
-    // The error message. This parameter is returned only if the call fails.
+    // The error message. This parameter is not returned for successful calls.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - **true**
-    // 
-    // - **false**
+    // Indicates whether the API call was successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

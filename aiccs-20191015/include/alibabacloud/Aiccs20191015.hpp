@@ -351,9 +351,9 @@ namespace Aiccs20191015
       Models::CreateAgentResponse createAgent(const Models::CreateAgentRequest &request);
 
       /**
-       * @summary Creates a call task.
+       * @summary Creates a voice call task.
        *
-       * @description Before creating a call task, make a test call with an agent to ensure the results meet your requirements.
+       * @description Before creating a voice call task, use an agent to perform a test call to confirm that the results meet your requirements.
        *
        * @param tmpReq CreateAiCallTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -362,9 +362,9 @@ namespace Aiccs20191015
       Models::CreateAiCallTaskResponse createAiCallTaskWithOptions(const Models::CreateAiCallTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a call task.
+       * @summary Creates a voice call task.
        *
-       * @description Before creating a call task, make a test call with an agent to ensure the results meet your requirements.
+       * @description Before creating a voice call task, use an agent to perform a test call to confirm that the results meet your requirements.
        *
        * @param request CreateAiCallTaskRequest
        * @return CreateAiCallTaskResponse
@@ -860,12 +860,12 @@ namespace Aiccs20191015
       Models::FetchCallResponse fetchCall(const Models::FetchCallRequest &request);
 
       /**
-       * @summary End the hotline service by instance ID and agent account name.
+       * @summary Ends a hotline service based on the instance ID and agent account name.
        *
-       * @description ### Queries per second (QPS) limit
-       * - Per-user API call frequency: No rate limiting.
+       * @description ### QPS limit
+       * - Per-user call frequency: not throttled.
        * - API frequency: 100 calls per second.
-       * > If the total number of calls from multiple users exceeds the API frequency limit, throttling will be triggered.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request FinishHotlineServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -874,12 +874,12 @@ namespace Aiccs20191015
       Models::FinishHotlineServiceResponse finishHotlineServiceWithOptions(const Models::FinishHotlineServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary End the hotline service by instance ID and agent account name.
+       * @summary Ends a hotline service based on the instance ID and agent account name.
        *
-       * @description ### Queries per second (QPS) limit
-       * - Per-user API call frequency: No rate limiting.
+       * @description ### QPS limit
+       * - Per-user call frequency: not throttled.
        * - API frequency: 100 calls per second.
-       * > If the total number of calls from multiple users exceeds the API frequency limit, throttling will be triggered.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request FinishHotlineServiceRequest
        * @return FinishHotlineServiceResponse
@@ -1703,18 +1703,18 @@ namespace Aiccs20191015
       Models::GetHotlineWaitingNumberResponse getHotlineWaitingNumber(const Models::GetHotlineWaitingNumberRequest &request);
 
       /**
-       * @summary You can obtain the current statistical metrics (real-time data) and query them by instance ID, department, or skill group.
+       * @summary Retrieves current data statistics metrics (real-time data), supporting queries grouped by instance ID, department, or skill group.
        *
-       * @description - The current data statistics metrics include cumulative metrics for the day and real-time metrics.  
-       * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
-       * > Query logic priority:  
-       * > - If GroupIds is not empty, query the data metrics for the specified skill groups.  
-       * > - Otherwise, if DepIds is not empty, query the data metrics for the specified departments.  
-       * > - Otherwise, query the data metrics for the Artificial Intelligence Cloud Call Service (AICCS) instance.
-       * ### Queries per second (QPS) limit
-       * - Per-user invocation frequency: No rate limiting.  
-       * - API frequency: 100 times per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - Current data statistics metrics include cumulative metrics for the current day and real-time metrics.
+       * - To specify department or skill group information, follow the instructions in the [request parameters](#api-detail-35) descriptions to obtain the required values.
+       * > Query logic priority:
+       * > - If GroupIds is not empty, the data metrics for the corresponding skill group list are queried.
+       * > - Otherwise, if DepIds is not empty, the data metrics for the corresponding department list are queried.
+       * > - Otherwise, the data metrics for the AICCS instance are queried.
+       * ### QPS limit
+       * - Per-user call frequency: No throttling.
+       * - API frequency: 100 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request GetIndexCurrentValueRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1723,18 +1723,18 @@ namespace Aiccs20191015
       Models::GetIndexCurrentValueResponse getIndexCurrentValueWithOptions(const Models::GetIndexCurrentValueRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary You can obtain the current statistical metrics (real-time data) and query them by instance ID, department, or skill group.
+       * @summary Retrieves current data statistics metrics (real-time data), supporting queries grouped by instance ID, department, or skill group.
        *
-       * @description - The current data statistics metrics include cumulative metrics for the day and real-time metrics.  
-       * - If you need to specify department or skill group information, refer to the instructions in the [Request Parameters](#api-detail-35) section.
-       * > Query logic priority:  
-       * > - If GroupIds is not empty, query the data metrics for the specified skill groups.  
-       * > - Otherwise, if DepIds is not empty, query the data metrics for the specified departments.  
-       * > - Otherwise, query the data metrics for the Artificial Intelligence Cloud Call Service (AICCS) instance.
-       * ### Queries per second (QPS) limit
-       * - Per-user invocation frequency: No rate limiting.  
-       * - API frequency: 100 times per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - Current data statistics metrics include cumulative metrics for the current day and real-time metrics.
+       * - To specify department or skill group information, follow the instructions in the [request parameters](#api-detail-35) descriptions to obtain the required values.
+       * > Query logic priority:
+       * > - If GroupIds is not empty, the data metrics for the corresponding skill group list are queried.
+       * > - Otherwise, if DepIds is not empty, the data metrics for the corresponding department list are queried.
+       * > - Otherwise, the data metrics for the AICCS instance are queried.
+       * ### QPS limit
+       * - Per-user call frequency: No throttling.
+       * - API frequency: 100 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request GetIndexCurrentValueRequest
        * @return GetIndexCurrentValueResponse
@@ -2363,13 +2363,13 @@ namespace Aiccs20191015
       Models::HoldCallResponse holdCall(const Models::HoldCallRequest &request);
 
       /**
-       * @summary Query call details by instance ID.
+       * @summary Queries call details by instance ID.
        *
-       * @description Call details include the total number of records, call result, agent name, call time, and other information.
-       * ### Queries per second (QPS) limit
-       * - Per-user invocation frequency: No Rate Limiting.
-       * - API frequency: 80 queries per second (QPS).
-       * > If the total invocations from multiple users exceed the API frequency, throttling will be triggered.
+       * @description Call details include the total number of records, call results, agent names, call time, and other information.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 80 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request HotlineSessionQueryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2378,13 +2378,13 @@ namespace Aiccs20191015
       Models::HotlineSessionQueryResponse hotlineSessionQueryWithOptions(const Models::HotlineSessionQueryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query call details by instance ID.
+       * @summary Queries call details by instance ID.
        *
-       * @description Call details include the total number of records, call result, agent name, call time, and other information.
-       * ### Queries per second (QPS) limit
-       * - Per-user invocation frequency: No Rate Limiting.
-       * - API frequency: 80 queries per second (QPS).
-       * > If the total invocations from multiple users exceed the API frequency, throttling will be triggered.
+       * @description Call details include the total number of records, call results, agent names, call time, and other information.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 80 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request HotlineSessionQueryRequest
        * @return HotlineSessionQueryResponse
@@ -2392,7 +2392,7 @@ namespace Aiccs20191015
       Models::HotlineSessionQueryResponse hotlineSessionQuery(const Models::HotlineSessionQueryRequest &request);
 
       /**
-       * @summary Imports a single phone number to a task.
+       * @summary Imports a single phone number record.
        *
        * @param tmpReq ImportOneTaskPhoneNumberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2401,7 +2401,7 @@ namespace Aiccs20191015
       Models::ImportOneTaskPhoneNumberResponse importOneTaskPhoneNumberWithOptions(const Models::ImportOneTaskPhoneNumberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports a single phone number to a task.
+       * @summary Imports a single phone number record.
        *
        * @param request ImportOneTaskPhoneNumberRequest
        * @return ImportOneTaskPhoneNumberResponse
@@ -2528,14 +2528,14 @@ namespace Aiccs20191015
       Models::ListAgentBySkillGroupIdResponse listAgentBySkillGroupId(const Models::ListAgentBySkillGroupIdRequest &request);
 
       /**
-       * @summary Retrieve the list of robot scripts, including robot type, robot name, robot ID, associated business, and industry information.
+       * @summary Retrieves the list of robot scripts, including the robot type, robot name, robot ID, associated business, and industry information.
        *
-       * @description - Before invoking this API, ensure that you already have scripts that have passed the Review.
-       * - If you do not have any scripts that have passed the Review, add a script and submit it for Review in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface first.
-       * ### Queries per second (QPS) limit
-       * - Per-user invocation frequency: No Rate Limiting.
-       * - API frequency: 500 queries per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttle will be triggered.
+       * @description - Before calling this operation, make sure you have scripts that have passed review.
+       * - If you do not have any approved scripts, first add scripts and submit them for review on the [Script Management](https://aiccs.console.aliyun.com/patter/list) page.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 500 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request ListAiccsRobotRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2544,14 +2544,14 @@ namespace Aiccs20191015
       Models::ListAiccsRobotResponse listAiccsRobotWithOptions(const Models::ListAiccsRobotRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieve the list of robot scripts, including robot type, robot name, robot ID, associated business, and industry information.
+       * @summary Retrieves the list of robot scripts, including the robot type, robot name, robot ID, associated business, and industry information.
        *
-       * @description - Before invoking this API, ensure that you already have scripts that have passed the Review.
-       * - If you do not have any scripts that have passed the Review, add a script and submit it for Review in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface first.
-       * ### Queries per second (QPS) limit
-       * - Per-user invocation frequency: No Rate Limiting.
-       * - API frequency: 500 queries per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttle will be triggered.
+       * @description - Before calling this operation, make sure you have scripts that have passed review.
+       * - If you do not have any approved scripts, first add scripts and submit them for review on the [Script Management](https://aiccs.console.aliyun.com/patter/list) page.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 500 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request ListAiccsRobotRequest
        * @return ListAiccsRobotResponse
@@ -2719,14 +2719,14 @@ namespace Aiccs20191015
       Models::ListOutboundPhoneNumberResponse listOutboundPhoneNumber(const Models::ListOutboundPhoneNumberRequest &request);
 
       /**
-       * @summary Query Intelligent Contact Robot call records.
+       * @summary Queries the call records of an intelligent contact robot.
        *
-       * @description - Before invoking this API, ensure that you have already initiated an outbound job using the Intelligent Contact Robot.
-       * - If you have not yet initiated an outbound job using the Intelligent Contact Robot, you can invoke the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) API to start one.
-       * ### Queries per second (QPS) Limit
-       * - Per-user invocation frequency: No rate limiting.
-       * - API frequency: 500 queries per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - Before calling this operation, make sure that you have initiated an outbound call task by using the intelligent contact robot.
+       * - If you have not initiated an outbound call task by using the intelligent contact robot, call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation to initiate an outbound call task.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 500 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
        *
        * @param request ListRobotCallDialogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2735,14 +2735,14 @@ namespace Aiccs20191015
       Models::ListRobotCallDialogResponse listRobotCallDialogWithOptions(const Models::ListRobotCallDialogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query Intelligent Contact Robot call records.
+       * @summary Queries the call records of an intelligent contact robot.
        *
-       * @description - Before invoking this API, ensure that you have already initiated an outbound job using the Intelligent Contact Robot.
-       * - If you have not yet initiated an outbound job using the Intelligent Contact Robot, you can invoke the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) API to start one.
-       * ### Queries per second (QPS) Limit
-       * - Per-user invocation frequency: No rate limiting.
-       * - API frequency: 500 queries per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - Before calling this operation, make sure that you have initiated an outbound call task by using the intelligent contact robot.
+       * - If you have not initiated an outbound call task by using the intelligent contact robot, call the [RobotCall](https://help.aliyun.com/document_detail/2717996.html) operation to initiate an outbound call task.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 500 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
        *
        * @param request ListRobotCallDialogRequest
        * @return ListRobotCallDialogResponse
@@ -2889,16 +2889,16 @@ namespace Aiccs20191015
       Models::ListTaskResponse listTask(const Models::ListTaskRequest &request);
 
       /**
-       * @summary Obtain the detail information of Intelligent Contact Robot call jobs.
+       * @summary Retrieves the details of a call task for an intelligent contact robot.
        *
-       * @description - You can invoke this API to obtain the detail information of Intelligent Contact Robot call jobs. Alternatively, you can view this information in the **Detail** interface under [**Task Management**](https://aiccs.console.aliyun.com/job/list).
-       * - Before invoking this API, ensure that you have created an Intelligent Contact Robot and successfully started a job.
-       * - If you do not have any successfully created Intelligent Contact Robot call jobs, you can create and start a job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface, or use the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) APIs to create and start a job.
-       * - The optional parameters in this API serve as filter conditions for the detail information of Intelligent Contact Robot call jobs. If these parameters are not specified, all job details will be queried.
-       * ### queries per second (QPS) Limit
-       * - Per-user invocation frequency: No rate limiting.
-       * - API frequency: 500 queries per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - Call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
+       * - Before calling this operation, make sure that the intelligent contact robot you created has successfully started a task.
+       * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
+       * - The optional parameters in this operation are filter conditions for the call task details. If you do not specify them, all task details are returned.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 500 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
        *
        * @param request ListTaskDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2907,16 +2907,16 @@ namespace Aiccs20191015
       Models::ListTaskDetailResponse listTaskDetailWithOptions(const Models::ListTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Obtain the detail information of Intelligent Contact Robot call jobs.
+       * @summary Retrieves the details of a call task for an intelligent contact robot.
        *
-       * @description - You can invoke this API to obtain the detail information of Intelligent Contact Robot call jobs. Alternatively, you can view this information in the **Detail** interface under [**Task Management**](https://aiccs.console.aliyun.com/job/list).
-       * - Before invoking this API, ensure that you have created an Intelligent Contact Robot and successfully started a job.
-       * - If you do not have any successfully created Intelligent Contact Robot call jobs, you can create and start a job in the [Task Management](https://aiccs.console.aliyun.com/job/list) interface, or use the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) APIs to create and start a job.
-       * - The optional parameters in this API serve as filter conditions for the detail information of Intelligent Contact Robot call jobs. If these parameters are not specified, all job details will be queried.
-       * ### queries per second (QPS) Limit
-       * - Per-user invocation frequency: No rate limiting.
-       * - API frequency: 500 queries per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - Call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
+       * - Before calling this operation, make sure that the intelligent contact robot you created has successfully started a task.
+       * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
+       * - The optional parameters in this operation are filter conditions for the call task details. If you do not specify them, all task details are returned.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 500 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
        *
        * @param request ListTaskDetailRequest
        * @return ListTaskDetailResponse
@@ -3090,10 +3090,10 @@ namespace Aiccs20191015
       Models::PageQueryAgentListNewResponse pageQueryAgentListNew(const Models::PageQueryAgentListNewRequest &request);
 
       /**
-       * @summary Runs a paginated query for call task details.
+       * @summary Queries call task details by page.
        *
-       * @description - You must create a call task before you can query its details.
-       * - You can create a call task on the **call task management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) API.
+       * @description - Before querying call task details, make sure that you have created a call task.
+       * - If you have not created a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
        *
        * @param tmpReq QueryAiCallDetailPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3102,10 +3102,10 @@ namespace Aiccs20191015
       Models::QueryAiCallDetailPageResponse queryAiCallDetailPageWithOptions(const Models::QueryAiCallDetailPageRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a paginated query for call task details.
+       * @summary Queries call task details by page.
        *
-       * @description - You must create a call task before you can query its details.
-       * - You can create a call task on the **call task management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) API.
+       * @description - Before querying call task details, make sure that you have created a call task.
+       * - If you have not created a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
        *
        * @param request QueryAiCallDetailPageRequest
        * @return QueryAiCallDetailPageResponse
@@ -3113,7 +3113,7 @@ namespace Aiccs20191015
       Models::QueryAiCallDetailPageResponse queryAiCallDetailPage(const Models::QueryAiCallDetailPageRequest &request);
 
       /**
-       * @summary Gets basic information for a call task.
+       * @summary Queries the basic information of a call task.
        *
        * @param request QueryAiCallTaskDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3122,7 +3122,7 @@ namespace Aiccs20191015
       Models::QueryAiCallTaskDetailResponse queryAiCallTaskDetailWithOptions(const Models::QueryAiCallTaskDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets basic information for a call task.
+       * @summary Queries the basic information of a call task.
        *
        * @param request QueryAiCallTaskDetailRequest
        * @return QueryAiCallTaskDetailResponse
@@ -3130,7 +3130,7 @@ namespace Aiccs20191015
       Models::QueryAiCallTaskDetailResponse queryAiCallTaskDetail(const Models::QueryAiCallTaskDetailRequest &request);
 
       /**
-       * @summary Retrieves a list of call tasks.
+       * @summary Queries the list of voice call tasks.
        *
        * @param request QueryAiCallTaskPageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3139,7 +3139,7 @@ namespace Aiccs20191015
       Models::QueryAiCallTaskPageResponse queryAiCallTaskPageWithOptions(const Models::QueryAiCallTaskPageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of call tasks.
+       * @summary Queries the list of voice call tasks.
        *
        * @param request QueryAiCallTaskPageRequest
        * @return QueryAiCallTaskPageResponse
@@ -3220,11 +3220,11 @@ namespace Aiccs20191015
       Models::QueryConversationDetailInfoResponse queryConversationDetailInfo(const Models::QueryConversationDetailInfoRequest &request);
 
       /**
-       * @summary Queries the details of a call task and call records.
+       * @summary Queries the details of a call task and call conversation information.
        *
-       * @description - You can call this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
+       * @description - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
        * - Before calling this operation, make sure that you have created a call task and imported callee data.
-       * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+       * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
        *
        * @param request QueryConversationDetailInfoNewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3233,11 +3233,11 @@ namespace Aiccs20191015
       Models::QueryConversationDetailInfoNewResponse queryConversationDetailInfoNewWithOptions(const Models::QueryConversationDetailInfoNewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a call task and call records.
+       * @summary Queries the details of a call task and call conversation information.
        *
-       * @description - You can call this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
+       * @description - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** console.
        * - Before calling this operation, make sure that you have created a call task and imported callee data.
-       * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
+       * - If you do not have a created call task, create a call task and import callee data in the **Call Task Management** console, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
        *
        * @param request QueryConversationDetailInfoNewRequest
        * @return QueryConversationDetailInfoNewResponse
@@ -3507,15 +3507,15 @@ namespace Aiccs20191015
       Models::RestartOutboundTaskResponse restartOutboundTask(const Models::RestartOutboundTaskRequest &request);
 
       /**
-       * @summary Initiate an outbound call using the Intelligent Contact Robot.
+       * @summary Initiates an outbound call from an intelligent contact robot.
        *
-       * @description - Before initiating an outbound call using the Intelligent Contact Robot, ensure that you already have a reviewed and approved script in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface and an approved real number in the Voice Service [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
-       * - You can obtain the creation time of the call from the **date** parameter in the **Response Header** after invoking this API.  
-       * > For example, if the **date** parameter is: `"date": "Mon, 24 Jun 2024 03:40:31 GMT"`, then the call creation time is: `"2024-06-24 03:40:31"`.
-       * ### queries per second (QPS) Limit
-       * - Per-user invocation frequency: No rate limiting.
-       * - API frequency: 1000 calls per second.
-       * > If the total calls from multiple users exceed the API frequency limit, throttle will be triggered.
+       * @description - Before initiating an outbound call from an intelligent contact robot, make sure that you have an approved script on the [Script Management](https://aiccs.console.aliyun.com/patter/list) page and an approved real number on the [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) page of the voice messaging service.
+       * - You can obtain the creation time of the call from the **date** parameter in the **Response Header** after calling this operation.
+       * > For example, if the **date** parameter is "date": "Mon, 24 Jun 2024 03:40:31 GMT", the creation time of the call is "2024-06-24 03:40:31".
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 1,000 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request RobotCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3524,15 +3524,15 @@ namespace Aiccs20191015
       Models::RobotCallResponse robotCallWithOptions(const Models::RobotCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiate an outbound call using the Intelligent Contact Robot.
+       * @summary Initiates an outbound call from an intelligent contact robot.
        *
-       * @description - Before initiating an outbound call using the Intelligent Contact Robot, ensure that you already have a reviewed and approved script in the [Script Management](https://aiccs.console.aliyun.com/patter/list) interface and an approved real number in the Voice Service [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) interface.
-       * - You can obtain the creation time of the call from the **date** parameter in the **Response Header** after invoking this API.  
-       * > For example, if the **date** parameter is: `"date": "Mon, 24 Jun 2024 03:40:31 GMT"`, then the call creation time is: `"2024-06-24 03:40:31"`.
-       * ### queries per second (QPS) Limit
-       * - Per-user invocation frequency: No rate limiting.
-       * - API frequency: 1000 calls per second.
-       * > If the total calls from multiple users exceed the API frequency limit, throttle will be triggered.
+       * @description - Before initiating an outbound call from an intelligent contact robot, make sure that you have an approved script on the [Script Management](https://aiccs.console.aliyun.com/patter/list) page and an approved real number on the [Real Number Management](https://dyvmsnext.console.aliyun.com/number/list/normal) page of the voice messaging service.
+       * - You can obtain the creation time of the call from the **date** parameter in the **Response Header** after calling this operation.
+       * > For example, if the **date** parameter is "date": "Mon, 24 Jun 2024 03:40:31 GMT", the creation time of the call is "2024-06-24 03:40:31".
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 1,000 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request RobotCallRequest
        * @return RobotCallResponse
@@ -3540,14 +3540,14 @@ namespace Aiccs20191015
       Models::RobotCallResponse robotCall(const Models::RobotCallRequest &request);
 
       /**
-       * @summary Initiate an Intelligent Speech Interaction call based on the callee\\"s caller ID, callee number, and intelligent outbound call audio file.
+       * @summary Initiates an intelligent interactive voice response call based on the China-only caller ID, called number, and intelligent outbound call audio file.
        *
-       * @description - The following characters cannot appear in the Intelligent Speech Interaction SendCcoSmartCall callback: `@ = : "" $ { } ^ * ￥`.  
-       * - After invoking this API, the **Data** field in the response contains the unique receipt ID for this call, which can be used when invoking the [SendCcoSmartCallOperate](https://help.aliyun.com/document_detail/2718013.html) API.
-       * ### Queries Per Second (QPS) Limits
-       * - Per-user invocation frequency: No rate limiting.  
-       * - API frequency: 100 queries per second (QPS).
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - The following characters cannot appear in the intelligent interactive voice response SendCcoSmartCall callback: `@ = : "" $ { } ^ * ￥`.
+       * - After you invoke this operation, the **Data** response parameter returns the unique receipt ID for this call, which can be used to invoke the [SendCcoSmartCallOperate](https://help.aliyun.com/document_detail/2718013.html) operation.
+       * ### QPS limit
+       * - Per-user call frequency: No throttling.
+       * - API frequency: 100 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request SendCcoSmartCallRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3556,14 +3556,14 @@ namespace Aiccs20191015
       Models::SendCcoSmartCallResponse sendCcoSmartCallWithOptions(const Models::SendCcoSmartCallRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Initiate an Intelligent Speech Interaction call based on the callee\\"s caller ID, callee number, and intelligent outbound call audio file.
+       * @summary Initiates an intelligent interactive voice response call based on the China-only caller ID, called number, and intelligent outbound call audio file.
        *
-       * @description - The following characters cannot appear in the Intelligent Speech Interaction SendCcoSmartCall callback: `@ = : "" $ { } ^ * ￥`.  
-       * - After invoking this API, the **Data** field in the response contains the unique receipt ID for this call, which can be used when invoking the [SendCcoSmartCallOperate](https://help.aliyun.com/document_detail/2718013.html) API.
-       * ### Queries Per Second (QPS) Limits
-       * - Per-user invocation frequency: No rate limiting.  
-       * - API frequency: 100 queries per second (QPS).
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - The following characters cannot appear in the intelligent interactive voice response SendCcoSmartCall callback: `@ = : "" $ { } ^ * ￥`.
+       * - After you invoke this operation, the **Data** response parameter returns the unique receipt ID for this call, which can be used to invoke the [SendCcoSmartCallOperate](https://help.aliyun.com/document_detail/2718013.html) operation.
+       * ### QPS limit
+       * - Per-user call frequency: No throttling.
+       * - API frequency: 100 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
        *
        * @param request SendCcoSmartCallRequest
        * @return SendCcoSmartCallResponse
@@ -3736,14 +3736,14 @@ namespace Aiccs20191015
       Models::StartChatWorkResponse startChatWork(const Models::StartChatWorkRequest &request);
 
       /**
-       * @summary Sign in a hotline agent by instance ID and agent account name to start the hotline service.
+       * @summary Signs in a hotline agent based on the instance ID and agent account name to start the hotline service.
        *
-       * @description - The **Data** parameter returned by this API is the token required to initiate a heartbeat.  
-       * - If the agent takes a break, you can pause the hotline service by invoking the [SuspendHotlineService](https://help.aliyun.com/document_detail/2718046.html) API.
-       * ### Queries per second (QPS) limit
-       * - Per-user invocation frequency: No rate limiting.
-       * - API frequency: 100 queries per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - The **Data** parameter returned by this operation is the token required to initiate a heartbeat.
+       * - To pause the hotline service when an agent takes a short break, call the [SuspendHotlineService](https://help.aliyun.com/document_detail/2718046.html) operation.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 100 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
        *
        * @param request StartHotlineServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3752,14 +3752,14 @@ namespace Aiccs20191015
       Models::StartHotlineServiceResponse startHotlineServiceWithOptions(const Models::StartHotlineServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sign in a hotline agent by instance ID and agent account name to start the hotline service.
+       * @summary Signs in a hotline agent based on the instance ID and agent account name to start the hotline service.
        *
-       * @description - The **Data** parameter returned by this API is the token required to initiate a heartbeat.  
-       * - If the agent takes a break, you can pause the hotline service by invoking the [SuspendHotlineService](https://help.aliyun.com/document_detail/2718046.html) API.
-       * ### Queries per second (QPS) limit
-       * - Per-user invocation frequency: No rate limiting.
-       * - API frequency: 100 queries per second.
-       * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+       * @description - The **Data** parameter returned by this operation is the token required to initiate a heartbeat.
+       * - To pause the hotline service when an agent takes a short break, call the [SuspendHotlineService](https://help.aliyun.com/document_detail/2718046.html) operation.
+       * ### QPS limit
+       * - Per-user call frequency: not throttled.
+       * - API frequency: 100 calls per second.
+       * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
        *
        * @param request StartHotlineServiceRequest
        * @return StartHotlineServiceResponse
@@ -4059,9 +4059,9 @@ namespace Aiccs20191015
       Models::UpdateAgentResponse updateAgent(const Models::UpdateAgentRequest &request);
 
       /**
-       * @summary Updates a call task configuration.
+       * @summary Updates the configuration of a voice call task.
        *
-       * @description Ensure the call task is stopped before you update its configuration.
+       * @description Before updating the configuration of a call task, make sure that the task status is stopped.
        *
        * @param tmpReq UpdateAiCallTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4070,9 +4070,9 @@ namespace Aiccs20191015
       Models::UpdateAiCallTaskResponse updateAiCallTaskWithOptions(const Models::UpdateAiCallTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a call task configuration.
+       * @summary Updates the configuration of a voice call task.
        *
-       * @description Ensure the call task is stopped before you update its configuration.
+       * @description Before updating the configuration of a call task, make sure that the task status is stopped.
        *
        * @param request UpdateAiCallTaskRequest
        * @return UpdateAiCallTaskResponse
@@ -4159,7 +4159,7 @@ namespace Aiccs20191015
       Models::UpdateLargeModelResponse updateLargeModel(const Models::UpdateLargeModelRequest &request);
 
       /**
-       * @summary Edit Model Application
+       * @summary Modifies a model application.
        *
        * @param tmpReq UpdateModelApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4168,7 +4168,7 @@ namespace Aiccs20191015
       Models::UpdateModelApplicationResponse updateModelApplicationWithOptions(const Models::UpdateModelApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Edit Model Application
+       * @summary Modifies a model application.
        *
        * @param request UpdateModelApplicationRequest
        * @return UpdateModelApplicationResponse

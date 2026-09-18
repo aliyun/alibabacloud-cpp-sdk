@@ -216,76 +216,61 @@ namespace Models
 
 
   protected:
-    // The batch ID. You can find this ID by clicking Details on the **Call Task Management** page.
+    // The batch ID. On the **Call Task Management** page, click Details to view the batch ID.
     shared_ptr<string> batchId_ {};
     // The call result. Valid values:
-    // 
-    // - CALL_FORWARDING: Call Forwarding.
-    // 
-    // - INCOMING_CALL_BARRED: Incoming Call Barred.
-    // 
-    // - CALL_REJECTED: Call Rejected.
-    // 
-    // - ANSWERED: Answered.
-    // 
-    // - USER_BUSY: User Busy.
-    // 
-    // - POWERED_OFF: Powered Off.
-    // 
-    // - NO_USER_RESPONSE: No User Response.
-    // 
-    // - OPERATOR_BLOCK: Operator Block.
-    // 
-    // - OTHERS: Others.
-    // 
-    // - SUSPEND: Suspend.
-    // 
-    // - CANCEL: Canceled by the caller.
-    // 
-    // - INVALID_NUMBER: Invalid Number.
-    // 
-    // - UNAVAILABLE: Unavailable.
-    // 
-    // - NETWORK_BUSY: Network Busy.
-    // 
-    // - NO_ANSWER: No Answer.
+    // - CALL_FORWARDING: call forwarding.
+    // - INCOMING_CALL_BARRED: incoming call barred.
+    // - CALL_REJECTED: call rejected.
+    // - ANSWERED: answered.
+    // - USER_BUSY: user busy.
+    // - POWERED_OFF: powered off.
+    // - NO_USER_RESPONSE: out of service area.
+    // - OPERATOR_BLOCK: blocked by carrier.
+    // - OTHERS: other status.
+    // - SUSPEND: suspended.
+    // - CANCEL: canceled by caller.
+    // - INVALID_NUMBER: invalid number.
+    // - UNAVAILABLE: temporarily unavailable.
+    // - NETWORK_BUSY: network busy.
+    // - NO_ANSWER: no answer.
     shared_ptr<string> callResult_ {};
     // The called number.
     shared_ptr<string> calledNumber_ {};
-    // A list of up to 100 detail IDs.
+    // The list of task detail IDs. A maximum of 100 IDs can be specified.
     shared_ptr<vector<int64_t>> detailIds_ {};
-    // The encryption method. Valid values: 0 (None), 1 (MD5), 2 (SHA256), and 3 (SM3).
+    // The encryption type. Valid values: 0: no encryption. 1: MD5. 2: SHA256. 3: SM3.
     shared_ptr<int64_t> encryptionType_ {};
-    // The end of the call time range. This value is a timestamp in milliseconds.
+    // The end calling time. This value is a timestamp in milliseconds.
     shared_ptr<int64_t> endCallingTime_ {};
-    // The end of the import time range. This value is a timestamp in milliseconds.
+    // The end import time. This value is a timestamp in milliseconds.
     shared_ptr<int64_t> endImportedTime_ {};
-    // The major intent. You can find this intent by clicking Agent Details on the [Communication Agent Management](https://aiccs.console.aliyun.com/agent/customize) page.
+    // The major intent. On the [Communication Agent Management](https://aiccs.console.aliyun.com/agent/customize) page, click agent details to view the major intent.
     shared_ptr<string> majorIntent_ {};
-    // The maximum conversation duration, in minutes.
+    // The maximum conversation duration. Unit: minutes.
     shared_ptr<int64_t> maxConversationDuration_ {};
-    // The minimum conversation duration, in minutes.
+    // The minimum conversation duration. Unit: minutes.
     shared_ptr<int64_t> minConversationDuration_ {};
-    // A custom ID provided by the caller. This ID is returned in the receipt message for request tracking.
+    // The ID reserved for the caller. This ID is returned to the caller in the receipt message.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. The value must be greater than **0**. The default value is **1**.
+    // The current page number. The value must be greater than **0**. Default value: **1**.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page. The default value is **10**.
+    // The number of entries per page. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start of the call time range. This value is a timestamp in milliseconds.
+    // The start calling time. This value is a timestamp in milliseconds.
     shared_ptr<int64_t> startCallingTime_ {};
-    // The start of the import time range. This value is a timestamp in milliseconds.
+    // The start import time. This value is a timestamp in milliseconds.
     shared_ptr<int64_t> startImportedTime_ {};
     // The task status. Valid values:
     // 
-    // - 0: Pending.
+    // - 0: pending.
     // 
-    // - 1: Completed.
+    // - 1: completed.
     // 
-    // - 2: Failed.
+    // - 2: failed.
     // 
     // This parameter is required.
     shared_ptr<int64_t> status_ {};

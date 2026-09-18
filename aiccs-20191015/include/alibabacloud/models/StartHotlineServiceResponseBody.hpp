@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // Status code. A value of "Success" indicates that the request succeeded.
+    // The status code. A value of Success indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Token required to initiate a heartbeat, returned after a successful request.
+    // The token required to initiate a heartbeat. This parameter is returned when the request is successful.
     shared_ptr<string> data_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int64_t> httpStatusCode_ {};
-    // Description of the status code.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call succeeded.  
-    // - **true**: Succeeded.  
-    // - **false**: Failed.
+    // Indicates whether the API call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

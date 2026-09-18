@@ -103,15 +103,15 @@ namespace Models
 
 
     protected:
-      // Associated industry.
+      // The industry.
       shared_ptr<string> atProfession_ {};
-      // Associated business.
+      // The associated business.
       shared_ptr<string> atSence_ {};
-      // Robot ID.
+      // The robot ID.
       shared_ptr<int64_t> id_ {};
-      // Robot name.
+      // The robot name.
       shared_ptr<string> robotName_ {};
-      // Robot type.
+      // The robot type.
       shared_ptr<string> robotType_ {};
     };
 
@@ -155,17 +155,17 @@ namespace Models
 
 
   protected:
-    // Request status code. A return value of OK indicates that the request Succeeded.
+    // The request status code. OK indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Robot scripts.
+    // The robot scripts.
     shared_ptr<vector<ListAiccsRobotResponseBody::Data>> data_ {};
-    // Description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API invocation Succeeded. Valid values:
-    // - **true**: Succeeded.
-    // - **false**: failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

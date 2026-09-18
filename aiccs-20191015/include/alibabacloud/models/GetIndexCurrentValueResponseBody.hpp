@@ -78,16 +78,16 @@ namespace Models
 
 
   protected:
-    // Status code. A value of 200 indicates that the request succeeded.
+    // The status code. A value of 200 indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // List of data entries.
+    // The data list.
     shared_ptr<vector<Darabonba::Json>> data_ {};
-    // Description of the status code.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call succeeded. Valid values:  
-    // - **true**: Succeeded.  
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: Successful.
     // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };

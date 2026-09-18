@@ -295,75 +295,75 @@ namespace Models
 
 
   protected:
-    // Session ID. The acid received via WebSocket after an inbound call.
+    // The session ID. The acid in the websocket after an inbound call.
     shared_ptr<string> acid_ {};
-    // Session ID List.
+    // The list of session IDs.
     shared_ptr<vector<string>> acidList_ {};
-    // Call result. Valid values:  
+    // The call result. Valid values:
     // 
-    // - **normal**: Normal hang-up.  
-    // - **touchRouteError**: Queue hang-up.  
-    // - **touchInQueue**: Queue hang-up.  
-    // - **touchInLoss**: Queue hang-up.  
-    // - **userHangup**: User hang-up or IVR hang-up.  
-    // - **sysHangup**: System hang-up or IVR hang-up.  
-    // - **transferAgent**: User hang-up or IVR hang-up.  
-    // - **dailing**: Agent hang-up during ringing.  
-    // - **TouchRingCallLoss**: Queue hang-up during ringing.
+    // - **normal**: The call ended normally.
+    // - **touchRouteError**: The call was terminated in the queue.
+    // - **touchInQueue**: The call was terminated in the queue.
+    // - **touchInLoss**: The call was terminated in the queue.
+    // - **userHangup**: The user hung up or the call was terminated in the IVR.
+    // - **sysHangup**: The system hung up or the call was terminated in the IVR.
+    // - **transferAgent**: The user hung up or the call was terminated in the IVR.
+    // - **dailing**: The agent hung up or the call was terminated during ringing.
+    // - **TouchRingCallLoss**: The call was terminated in the queue or during ringing.
     shared_ptr<string> callResult_ {};
-    // List of call results.
+    // The list of call results.
     shared_ptr<vector<string>> callResultList_ {};
-    // Call Type. Valid values:
-    // - **1**: Outbound call.
-    // - **2**: Inbound call.
-    // - **3**: Change owner.
+    // The call type. Valid values:
+    // - **1**: outbound call.
+    // - **2**: inbound call.
+    // - **3**: transferred call.
     shared_ptr<int32_t> callType_ {};
-    // Call Type List.
+    // The list of call types.
     shared_ptr<vector<int32_t>> callTypeList_ {};
-    // Calling party number, such as a user\\"s phone number, agent number, or machine number.
+    // The number of the caller. For example, a mobile phone number, an agent number, or a robot number.
     shared_ptr<string> calledNumber_ {};
-    // List of called numbers.
+    // The list of called numbers.
     shared_ptr<vector<string>> calledNumberList_ {};
-    // Calling party number, such as a user\\"s phone number, customer service agent number, or machine number.
+    // The number of the callee. For example, a mobile phone number, an agent number, or a robot number.
     shared_ptr<string> callingNumber_ {};
-    // List of calling numbers.
+    // The list of calling numbers.
     shared_ptr<vector<string>> callingNumberList_ {};
-    // Skill group ID.
+    // The ID of the skill group.
     shared_ptr<int64_t> groupId_ {};
-    // List of skill group IDs.
+    // The list of skill group IDs.
     shared_ptr<vector<int64_t>> groupIdList_ {};
-    // Skill group name.
+    // The name of the skill group.
     shared_ptr<string> groupName_ {};
-    // Global unique ID (GUID) of the call detail.
+    // The globally unique ID of the call details.
     shared_ptr<string> id_ {};
-    // AICCS instance ID.  
-    // You can obtain it in the **Instance Management** section of the left-side navigation pane in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance.
+    // You can obtain the instance ID from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Membership ID.
+    // The member ID.
     shared_ptr<string> memberId_ {};
-    // Membership List.
+    // The list of member IDs.
     shared_ptr<vector<string>> memberIdList_ {};
-    // Membership name.
+    // The member name.
     shared_ptr<string> memberName_ {};
-    // Current page number. The value must be greater than **0**. Default Value: **1**.
+    // The current page number. The value must be greater than **0**. Default value: **1**.
     shared_ptr<int32_t> pageNo_ {};
-    // Page size. The value must be greater than **0**. Default value: **20**.
+    // The number of entries per page. The value must be greater than **0**. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
-    // Extension parameters.
+    // The extended parameters.
     shared_ptr<string> params_ {};
-    // End UNIX timestamp. Unit: milliseconds.
+    // The end timestamp. Unit: milliseconds.
     shared_ptr<int64_t> queryEndTime_ {};
-    // Start UNIX timestamp. Unit: ms.
+    // The start timestamp. Unit: milliseconds.
     shared_ptr<int64_t> queryStartTime_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Agent ID.
+    // The agent ID.
     shared_ptr<string> servicerId_ {};
-    // List of agent IDs.
+    // The list of agent IDs.
     shared_ptr<vector<string>> servicerIdList_ {};
-    // Agent Name.
+    // The agent name.
     shared_ptr<string> servicerName_ {};
   };
 

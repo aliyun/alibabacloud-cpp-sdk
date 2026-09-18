@@ -72,6 +72,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(AgentName, agentName_);
           DARABONBA_PTR_TO_JSON(ApplicationCode, applicationCode_);
           DARABONBA_PTR_TO_JSON(ApplicationName, applicationName_);
+          DARABONBA_PTR_TO_JSON(CallExpireDate, callExpireDate_);
+          DARABONBA_PTR_TO_JSON(CallExpireMinutes, callExpireMinutes_);
+          DARABONBA_PTR_TO_JSON(CallExpireType, callExpireType_);
           DARABONBA_PTR_TO_JSON(CallingCount, callingCount_);
           DARABONBA_PTR_TO_JSON(CompleteRate, completeRate_);
           DARABONBA_PTR_TO_JSON(ConcurrentCount, concurrentCount_);
@@ -96,6 +99,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(AgentName, agentName_);
           DARABONBA_PTR_FROM_JSON(ApplicationCode, applicationCode_);
           DARABONBA_PTR_FROM_JSON(ApplicationName, applicationName_);
+          DARABONBA_PTR_FROM_JSON(CallExpireDate, callExpireDate_);
+          DARABONBA_PTR_FROM_JSON(CallExpireMinutes, callExpireMinutes_);
+          DARABONBA_PTR_FROM_JSON(CallExpireType, callExpireType_);
           DARABONBA_PTR_FROM_JSON(CallingCount, callingCount_);
           DARABONBA_PTR_FROM_JSON(CompleteRate, completeRate_);
           DARABONBA_PTR_FROM_JSON(ConcurrentCount, concurrentCount_);
@@ -127,11 +133,11 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->agentName_ == nullptr && this->applicationCode_ == nullptr && this->applicationName_ == nullptr && this->callingCount_ == nullptr && this->completeRate_ == nullptr
-        && this->concurrentCount_ == nullptr && this->createTime_ == nullptr && this->dayCallCount_ == nullptr && this->dayConnectRate_ == nullptr && this->dayImportCount_ == nullptr
-        && this->failedCount_ == nullptr && this->historyConnectRate_ == nullptr && this->realStartTime_ == nullptr && this->startFailedReason_ == nullptr && this->startTime_ == nullptr
-        && this->status_ == nullptr && this->succeedCount_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr && this->totalCallCount_ == nullptr
-        && this->totalCount_ == nullptr; };
+        && this->agentName_ == nullptr && this->applicationCode_ == nullptr && this->applicationName_ == nullptr && this->callExpireDate_ == nullptr && this->callExpireMinutes_ == nullptr
+        && this->callExpireType_ == nullptr && this->callingCount_ == nullptr && this->completeRate_ == nullptr && this->concurrentCount_ == nullptr && this->createTime_ == nullptr
+        && this->dayCallCount_ == nullptr && this->dayConnectRate_ == nullptr && this->dayImportCount_ == nullptr && this->failedCount_ == nullptr && this->historyConnectRate_ == nullptr
+        && this->realStartTime_ == nullptr && this->startFailedReason_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->succeedCount_ == nullptr
+        && this->taskId_ == nullptr && this->taskName_ == nullptr && this->totalCallCount_ == nullptr && this->totalCount_ == nullptr; };
         // agentId Field Functions 
         bool hasAgentId() const { return this->agentId_ != nullptr;};
         void deleteAgentId() { this->agentId_ = nullptr;};
@@ -158,6 +164,27 @@ namespace Models
         void deleteApplicationName() { this->applicationName_ = nullptr;};
         inline string getApplicationName() const { DARABONBA_PTR_GET_DEFAULT(applicationName_, "") };
         inline List& setApplicationName(string applicationName) { DARABONBA_PTR_SET_VALUE(applicationName_, applicationName) };
+
+
+        // callExpireDate Field Functions 
+        bool hasCallExpireDate() const { return this->callExpireDate_ != nullptr;};
+        void deleteCallExpireDate() { this->callExpireDate_ = nullptr;};
+        inline string getCallExpireDate() const { DARABONBA_PTR_GET_DEFAULT(callExpireDate_, "") };
+        inline List& setCallExpireDate(string callExpireDate) { DARABONBA_PTR_SET_VALUE(callExpireDate_, callExpireDate) };
+
+
+        // callExpireMinutes Field Functions 
+        bool hasCallExpireMinutes() const { return this->callExpireMinutes_ != nullptr;};
+        void deleteCallExpireMinutes() { this->callExpireMinutes_ = nullptr;};
+        inline int64_t getCallExpireMinutes() const { DARABONBA_PTR_GET_DEFAULT(callExpireMinutes_, 0L) };
+        inline List& setCallExpireMinutes(int64_t callExpireMinutes) { DARABONBA_PTR_SET_VALUE(callExpireMinutes_, callExpireMinutes) };
+
+
+        // callExpireType Field Functions 
+        bool hasCallExpireType() const { return this->callExpireType_ != nullptr;};
+        void deleteCallExpireType() { this->callExpireType_ = nullptr;};
+        inline int64_t getCallExpireType() const { DARABONBA_PTR_GET_DEFAULT(callExpireType_, 0L) };
+        inline List& setCallExpireType(int64_t callExpireType) { DARABONBA_PTR_SET_VALUE(callExpireType_, callExpireType) };
 
 
         // callingCount Field Functions 
@@ -293,41 +320,44 @@ namespace Models
         shared_ptr<string> agentName_ {};
         shared_ptr<string> applicationCode_ {};
         shared_ptr<string> applicationName_ {};
-        // The number of calls in progress.
+        shared_ptr<string> callExpireDate_ {};
+        shared_ptr<int64_t> callExpireMinutes_ {};
+        shared_ptr<int64_t> callExpireType_ {};
+        // The number of ongoing calls.
         shared_ptr<int64_t> callingCount_ {};
-        // The completion rate of the task.
+        // The task completion rate.
         shared_ptr<string> completeRate_ {};
-        // The number of concurrent tasks.
+        // The task concurrency.
         shared_ptr<int64_t> concurrentCount_ {};
-        // The time when the task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+        // The creation time. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The number of calls made on the current day.
         shared_ptr<int64_t> dayCallCount_ {};
-        // The connection rate of the current day. This is the number of connected calls on the current day divided by the total number of calls on the current day (`DayCallCount`).
+        // The daily connection rate. Daily connection rate = number of connections on the current day ÷ number of calls on the current day (DayCallCount).
         shared_ptr<string> dayConnectRate_ {};
-        // The number of data entries imported on the current day.
+        // The amount of data imported on the current day.
         shared_ptr<int64_t> dayImportCount_ {};
-        // The total number of failed tasks.
+        // The total number of failed task executions.
         shared_ptr<int64_t> failedCount_ {};
-        // The historical connection rate. This is the historical number of connected calls divided by the total number of calls (`TotalCallCount`).
+        // The historical connection rate. Historical connection rate = historical number of connections ÷ total number of calls (TotalCallCount).
         shared_ptr<string> historyConnectRate_ {};
-        // The time when the task actually starts. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+        // The actual start time of the task. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> realStartTime_ {};
-        // The reason why the task failed to start.
+        // The reason for startup failure.
         shared_ptr<string> startFailedReason_ {};
-        // The time when the task is scheduled to start. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+        // The scheduled start time of the task. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> startTime_ {};
-        // The status of the task.
+        // The task status.
         shared_ptr<int64_t> status_ {};
-        // The total number of successful tasks.
+        // The total number of successful task executions.
         shared_ptr<int64_t> succeedCount_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
         // The task name.
         shared_ptr<string> taskName_ {};
-        // The total number of calls.
+        // The total number of calls made by the task.
         shared_ptr<int64_t> totalCallCount_ {};
-        // The total number of tasks.
+        // The total number of task items.
         shared_ptr<int64_t> totalCount_ {};
       };
 
@@ -364,13 +394,13 @@ namespace Models
 
 
     protected:
-      // The tasks.
+      // The task data.
       shared_ptr<vector<Data::List>> list_ {};
-      // The page number.
+      // The current page number.
       shared_ptr<int64_t> pageNo_ {};
       // The number of entries per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries.
+      // The total number of records.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -421,21 +451,19 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denial.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
-    // The details of the tasks.
+    // The task details.
     shared_ptr<QueryAiCallTaskPageResponseBody::Data> data_ {};
-    // The error message. This parameter is returned only if the call fails.
+    // The error message. This parameter is not returned if the call is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: successful.
+    // - **false**: failed.
     shared_ptr<bool> success_ {};
   };
 

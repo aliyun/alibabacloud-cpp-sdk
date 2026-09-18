@@ -17,10 +17,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AgentId, agentId_);
       DARABONBA_PTR_TO_JSON(ApplicationCode, applicationCode_);
       DARABONBA_PTR_TO_JSON(CallDay, callDay_);
+      DARABONBA_PTR_TO_JSON(CallExpireDate, callExpireDate_);
+      DARABONBA_PTR_TO_JSON(CallExpireMinutes, callExpireMinutes_);
+      DARABONBA_PTR_TO_JSON(CallExpireType, callExpireType_);
       DARABONBA_PTR_TO_JSON(CallRetryInterval, callRetryInterval_);
       DARABONBA_PTR_TO_JSON(CallRetryReason, callRetryReason_);
       DARABONBA_PTR_TO_JSON(CallRetryTimes, callRetryTimes_);
       DARABONBA_PTR_TO_JSON(CallTime, callTime_);
+      DARABONBA_PTR_TO_JSON(CallableTime, callableTime_);
       DARABONBA_PTR_TO_JSON(LineEncoding, lineEncoding_);
       DARABONBA_PTR_TO_JSON(LinePhoneNum, linePhoneNum_);
       DARABONBA_PTR_TO_JSON(MissCallRetry, missCallRetry_);
@@ -39,10 +43,14 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
       DARABONBA_PTR_FROM_JSON(ApplicationCode, applicationCode_);
       DARABONBA_PTR_FROM_JSON(CallDay, callDay_);
+      DARABONBA_PTR_FROM_JSON(CallExpireDate, callExpireDate_);
+      DARABONBA_PTR_FROM_JSON(CallExpireMinutes, callExpireMinutes_);
+      DARABONBA_PTR_FROM_JSON(CallExpireType, callExpireType_);
       DARABONBA_PTR_FROM_JSON(CallRetryInterval, callRetryInterval_);
       DARABONBA_PTR_FROM_JSON(CallRetryReason, callRetryReason_);
       DARABONBA_PTR_FROM_JSON(CallRetryTimes, callRetryTimes_);
       DARABONBA_PTR_FROM_JSON(CallTime, callTime_);
+      DARABONBA_PTR_FROM_JSON(CallableTime, callableTime_);
       DARABONBA_PTR_FROM_JSON(LineEncoding, lineEncoding_);
       DARABONBA_PTR_FROM_JSON(LinePhoneNum, linePhoneNum_);
       DARABONBA_PTR_FROM_JSON(MissCallRetry, missCallRetry_);
@@ -69,10 +77,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->applicationCode_ == nullptr && this->callDay_ == nullptr && this->callRetryInterval_ == nullptr && this->callRetryReason_ == nullptr && this->callRetryTimes_ == nullptr
-        && this->callTime_ == nullptr && this->lineEncoding_ == nullptr && this->linePhoneNum_ == nullptr && this->missCallRetry_ == nullptr && this->ownerId_ == nullptr
-        && this->phoneType_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->source_ == nullptr && this->startType_ == nullptr
-        && this->taskCps_ == nullptr && this->taskName_ == nullptr && this->taskStartTime_ == nullptr && this->virtualNumber_ == nullptr; };
+        && this->applicationCode_ == nullptr && this->callDay_ == nullptr && this->callExpireDate_ == nullptr && this->callExpireMinutes_ == nullptr && this->callExpireType_ == nullptr
+        && this->callRetryInterval_ == nullptr && this->callRetryReason_ == nullptr && this->callRetryTimes_ == nullptr && this->callTime_ == nullptr && this->callableTime_ == nullptr
+        && this->lineEncoding_ == nullptr && this->linePhoneNum_ == nullptr && this->missCallRetry_ == nullptr && this->ownerId_ == nullptr && this->phoneType_ == nullptr
+        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->source_ == nullptr && this->startType_ == nullptr && this->taskCps_ == nullptr
+        && this->taskName_ == nullptr && this->taskStartTime_ == nullptr && this->virtualNumber_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -94,6 +103,27 @@ namespace Models
     inline vector<string> getCallDay() { DARABONBA_PTR_GET(callDay_, vector<string>) };
     inline CreateAiCallTaskRequest& setCallDay(const vector<string> & callDay) { DARABONBA_PTR_SET_VALUE(callDay_, callDay) };
     inline CreateAiCallTaskRequest& setCallDay(vector<string> && callDay) { DARABONBA_PTR_SET_RVALUE(callDay_, callDay) };
+
+
+    // callExpireDate Field Functions 
+    bool hasCallExpireDate() const { return this->callExpireDate_ != nullptr;};
+    void deleteCallExpireDate() { this->callExpireDate_ = nullptr;};
+    inline string getCallExpireDate() const { DARABONBA_PTR_GET_DEFAULT(callExpireDate_, "") };
+    inline CreateAiCallTaskRequest& setCallExpireDate(string callExpireDate) { DARABONBA_PTR_SET_VALUE(callExpireDate_, callExpireDate) };
+
+
+    // callExpireMinutes Field Functions 
+    bool hasCallExpireMinutes() const { return this->callExpireMinutes_ != nullptr;};
+    void deleteCallExpireMinutes() { this->callExpireMinutes_ = nullptr;};
+    inline int64_t getCallExpireMinutes() const { DARABONBA_PTR_GET_DEFAULT(callExpireMinutes_, 0L) };
+    inline CreateAiCallTaskRequest& setCallExpireMinutes(int64_t callExpireMinutes) { DARABONBA_PTR_SET_VALUE(callExpireMinutes_, callExpireMinutes) };
+
+
+    // callExpireType Field Functions 
+    bool hasCallExpireType() const { return this->callExpireType_ != nullptr;};
+    void deleteCallExpireType() { this->callExpireType_ = nullptr;};
+    inline int64_t getCallExpireType() const { DARABONBA_PTR_GET_DEFAULT(callExpireType_, 0L) };
+    inline CreateAiCallTaskRequest& setCallExpireType(int64_t callExpireType) { DARABONBA_PTR_SET_VALUE(callExpireType_, callExpireType) };
 
 
     // callRetryInterval Field Functions 
@@ -126,6 +156,15 @@ namespace Models
     inline vector<string> getCallTime() { DARABONBA_PTR_GET(callTime_, vector<string>) };
     inline CreateAiCallTaskRequest& setCallTime(const vector<string> & callTime) { DARABONBA_PTR_SET_VALUE(callTime_, callTime) };
     inline CreateAiCallTaskRequest& setCallTime(vector<string> && callTime) { DARABONBA_PTR_SET_RVALUE(callTime_, callTime) };
+
+
+    // callableTime Field Functions 
+    bool hasCallableTime() const { return this->callableTime_ != nullptr;};
+    void deleteCallableTime() { this->callableTime_ = nullptr;};
+    inline const vector<string> & getCallableTime() const { DARABONBA_PTR_GET_CONST(callableTime_, vector<string>) };
+    inline vector<string> getCallableTime() { DARABONBA_PTR_GET(callableTime_, vector<string>) };
+    inline CreateAiCallTaskRequest& setCallableTime(const vector<string> & callableTime) { DARABONBA_PTR_SET_VALUE(callableTime_, callableTime) };
+    inline CreateAiCallTaskRequest& setCallableTime(vector<string> && callableTime) { DARABONBA_PTR_SET_RVALUE(callableTime_, callableTime) };
 
 
     // lineEncoding Field Functions 
@@ -220,16 +259,27 @@ namespace Models
 
 
   protected:
-    // The ID of a published agent.
+    // The code of the agent that is already online.
     shared_ptr<string> agentId_ {};
+    // The application code. This parameter is used when the creation source is engine.
     shared_ptr<string> applicationCode_ {};
     // The list of callable days.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> callDay_ {};
-    // The retry interval, in minutes. The maximum value is 720.
+    // The expiration date of outbound call details (specific deadline).
+    shared_ptr<string> callExpireDate_ {};
+    // The expiration duration of outbound call details. Unit: minutes.
+    shared_ptr<int64_t> callExpireMinutes_ {};
+    // The outbound call validity type. Valid values:
+    // 
+    // 0: permanently valid.
+    // 1: valid for a specified duration after import.
+    // 2: valid until a specified date.
+    shared_ptr<int64_t> callExpireType_ {};
+    // The retry interval. Unit: minutes. The maximum value is 720 minutes.
     shared_ptr<int64_t> callRetryInterval_ {};
-    // The failure reasons that trigger a retry.
+    // The list of failure retry reasons.
     shared_ptr<vector<string>> callRetryReason_ {};
     // The number of retries. The maximum value is 3.
     shared_ptr<int64_t> callRetryTimes_ {};
@@ -237,34 +287,47 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> callTime_ {};
+    shared_ptr<vector<string>> callableTime_ {};
+    // The line encoding.
     shared_ptr<string> lineEncoding_ {};
+    // The customer-provided line number.
     shared_ptr<string> linePhoneNum_ {};
     // Specifies whether to enable retry. Valid values:
     // 
-    // - `true`: Enables retry.
+    // - true: enabled.
     // 
-    // - `false` (default): Disables retry.
+    // - false (default): disabled.
     shared_ptr<bool> missCallRetry_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The number type. This parameter is used when the creation source is engine. Valid values:
+    // 
+    // - 0: Alibaba Cloud number.
+    // 
+    // - 1: customer-provided line.
     shared_ptr<int64_t> phoneType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The creation source. Valid values:
+    // 
+    // - 0: created by agent.
+    // 
+    // - 1: created by engine.
     shared_ptr<int64_t> source_ {};
-    // The startup mode. Valid values:
+    // The start mode. Valid values:
     // 
-    // - `IMMEDIATE`: Starts the task immediately.
+    // - IMMEDIATE: starts immediately.
     // 
-    // - `SCHEDULE`: Starts the task at a scheduled time.
+    // - SCHEDULE: starts at a scheduled time.
     // 
     // This parameter is required.
     shared_ptr<string> startType_ {};
     // The task concurrency. The maximum value is 500.
     shared_ptr<int64_t> taskCps_ {};
-    // The name of the task. It must be unique within an account.
+    // The task name. The name must be unique within the same account.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
-    // The scheduled start time for the task, specified as a timestamp in milliseconds. This parameter is required and applies only when `StartType` is set to `SCHEDULE`.
+    // The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when the StartType parameter is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
     shared_ptr<int64_t> taskStartTime_ {};
     // The service instance used for outbound calls.
     shared_ptr<string> virtualNumber_ {};

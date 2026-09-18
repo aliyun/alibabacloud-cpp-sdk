@@ -103,15 +103,15 @@ namespace Models
 
 
     protected:
-      // Script content.
+      // The script content.
       shared_ptr<string> content_ {};
-      // File Type.
+      // The node type.
       shared_ptr<string> nodeType_ {};
-      // Role in the conversation content.
+      // The role in the conversation.
       shared_ptr<string> role_ {};
-      // Intent label.
+      // The intent label.
       shared_ptr<string> tag_ {};
-      // Start Time. UNIX timestamp in milliseconds.
+      // The start time. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> time_ {};
     };
 
@@ -155,16 +155,16 @@ namespace Models
 
 
   protected:
-    // Request status code. A return value of OK indicates that the request succeeded.
+    // The request status code. OK indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Conversation records.
+    // The conversation records.
     shared_ptr<vector<ListRobotCallDialogResponseBody::Data>> data_ {};
-    // Description of the status code.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API invocation succeeded. Valid values:
-    // - **true**: Succeeded.
+    // Indicates whether the operation was successful. Valid values:
+    // - **true**: Successful.
     // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };

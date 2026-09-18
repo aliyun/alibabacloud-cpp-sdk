@@ -40,6 +40,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MuteHangupNum, muteHangupNum_);
       DARABONBA_PTR_TO_JSON(MutePushMode, mutePushMode_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_TO_JSON(PauseTime, pauseTime_);
       DARABONBA_PTR_TO_JSON(Prompt, prompt_);
       DARABONBA_PTR_TO_JSON(QualificationId, qualificationId_);
       DARABONBA_PTR_TO_JSON(QualificationName, qualificationName_);
@@ -83,6 +84,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MuteHangupNum, muteHangupNum_);
       DARABONBA_PTR_FROM_JSON(MutePushMode, mutePushMode_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
+      DARABONBA_PTR_FROM_JSON(PauseTime, pauseTime_);
       DARABONBA_PTR_FROM_JSON(Prompt, prompt_);
       DARABONBA_PTR_FROM_JSON(QualificationId, qualificationId_);
       DARABONBA_PTR_FROM_JSON(QualificationName, qualificationName_);
@@ -243,7 +245,10 @@ namespace Models
       shared_ptr<bool> backgroundEnabled_ {};
       // The background sound ID.
       shared_ptr<int64_t> backgroundSound_ {};
-      // The volume of the background sound. Valid values: `0` (low), `1` (medium), and `2` (high).
+      // The background sound volume. Valid values:
+      // - 0: low
+      // - 1: medium
+      // - 2: high
       shared_ptr<int64_t> backgroundVolume_ {};
       // The account ID.
       shared_ptr<int64_t> customerAccountId_ {};
@@ -253,21 +258,19 @@ namespace Models
       shared_ptr<int64_t> mixingTemplate_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The TTS playback speech rate. Valid values range from -200 to 200. The default value is 0.
+      // The speed for TTS variable playback. Valid values: -200 to 200. Default value: 0.
       shared_ptr<int64_t> ttsSpeed_ {};
       // The voice style.
       shared_ptr<string> ttsStyle_ {};
-      // The TTS playback volume. Valid values range from 0 to 100. The default value is 0.
+      // The volume for TTS variable playback. Valid values: 0 to 100. Default value: 0.
       shared_ptr<int64_t> ttsVolume_ {};
       // The voice code.
       shared_ptr<string> voiceCode_ {};
       // The voice type. Valid values:
       // 
-      // ```
-      // SYSTEM: System voice.
-      // COSYCLONE: Cloned voice.
-      // BL-CUSTOM: Premium custom-cloned voice.
-      // ```
+      // - SYSTEM: system voice
+      // - COSYCLONE: cloned voice
+      // - BL-CUSTOM: custom premium cloned voice
       shared_ptr<string> voiceType_ {};
     };
 
@@ -340,7 +343,7 @@ namespace Models
       protected:
         // The number of consecutive interruptions.
         shared_ptr<int64_t> interruptNum_ {};
-        // The interruption protection duration, in seconds.
+        // The interruption protection duration.
         shared_ptr<double> interruptProtectDuration_ {};
       };
 
@@ -391,17 +394,17 @@ namespace Models
 
 
     protected:
-      // The configuration to prevent consecutive barge-ins.
+      // The configuration for consecutive interruption prevention.
       shared_ptr<InterruptConfig::AvoidInterruptDTO> avoidInterruptDTO_ {};
-      // Specifies whether to prevent consecutive barge-ins.
+      // Specifies whether to enable consecutive interruption prevention.
       shared_ptr<bool> enableAvoidInterrupt_ {};
-      // Specifies whether to enable the backchannel configuration for interruptions.
+      // Specifies whether to enable the interruption filler word configuration.
       shared_ptr<bool> enableInterruptBackchannel_ {};
-      // Specifies whether to make the entire opening statement non-interruptible.
+      // Specifies whether to prevent interruption during the entire opening statement.
       shared_ptr<bool> enableStartwordEntireNotInterrupt_ {};
-      // Specifies whether to make the opening statement non-interruptible.
+      // Specifies whether to enable the no-interruption configuration for the opening statement.
       shared_ptr<bool> enableStartwordNotInterrupt_ {};
-      // The protection duration for the opening statement, in seconds.
+      // The protection duration for the opening statement.
       shared_ptr<double> startwordProtectDuration_ {};
     };
 
@@ -411,9 +414,10 @@ namespace Models
         && this->dtmfRetryPlayTimes_ == nullptr && this->dtmfRetryPromptText_ == nullptr && this->dtmfSendMaxCount_ == nullptr && this->dtmfSendWaitTimeout_ == nullptr && this->dyvmsSceneName_ == nullptr
         && this->enableDtmfReceive_ == nullptr && this->enableDtmfSend_ == nullptr && this->enableMorse_ == nullptr && this->interruptConfig_ == nullptr && this->modelCode_ == nullptr
         && this->modelVersion_ == nullptr && this->muteActive_ == nullptr && this->muteDuration_ == nullptr && this->muteHangupNum_ == nullptr && this->mutePushMode_ == nullptr
-        && this->ownerId_ == nullptr && this->prompt_ == nullptr && this->qualificationId_ == nullptr && this->qualificationName_ == nullptr && this->recordingFile_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sessionTimeout_ == nullptr && this->source_ == nullptr && this->speechContent_ == nullptr
-        && this->speechId_ == nullptr && this->startWord_ == nullptr && this->startWordType_ == nullptr && this->ttsConfig_ == nullptr && this->usageDesc_ == nullptr; };
+        && this->ownerId_ == nullptr && this->pauseTime_ == nullptr && this->prompt_ == nullptr && this->qualificationId_ == nullptr && this->qualificationName_ == nullptr
+        && this->recordingFile_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->sessionTimeout_ == nullptr && this->source_ == nullptr
+        && this->speechContent_ == nullptr && this->speechId_ == nullptr && this->startWord_ == nullptr && this->startWordType_ == nullptr && this->ttsConfig_ == nullptr
+        && this->usageDesc_ == nullptr; };
     // applicationCode Field Functions 
     bool hasApplicationCode() const { return this->applicationCode_ != nullptr;};
     void deleteApplicationCode() { this->applicationCode_ = nullptr;};
@@ -605,6 +609,13 @@ namespace Models
     inline UpdateModelApplicationRequest& setOwnerId(int64_t ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
+    // pauseTime Field Functions 
+    bool hasPauseTime() const { return this->pauseTime_ != nullptr;};
+    void deletePauseTime() { this->pauseTime_ = nullptr;};
+    inline int64_t getPauseTime() const { DARABONBA_PTR_GET_DEFAULT(pauseTime_, 0L) };
+    inline UpdateModelApplicationRequest& setPauseTime(int64_t pauseTime) { DARABONBA_PTR_SET_VALUE(pauseTime_, pauseTime) };
+
+
     // prompt Field Functions 
     bool hasPrompt() const { return this->prompt_ != nullptr;};
     void deletePrompt() { this->prompt_ = nullptr;};
@@ -714,34 +725,36 @@ namespace Models
     shared_ptr<int64_t> applicationCps_ {};
     // The name of the model application.
     shared_ptr<string> applicationName_ {};
-    // Specifies whether to hang up the call when a call assistant is detected.
+    // Specifies whether to hang up when an intelligent answering service is detected.
     shared_ptr<bool> callAssistantHangup_ {};
     // Specifies whether to enable call assistant recognition.
     shared_ptr<bool> callAssistantRecognize_ {};
-    // Specifies whether to trigger the model immediately after the call is connected.
+    // Specifies whether to enable call-connected event push. Disabled by default.
     shared_ptr<bool> callConnectedTriggerModel_ {};
-    // The allowed DTMF digits, specified as a comma-separated string such as `1,2,3`. You can specify a maximum of 20 digits.
+    // The enumeration of allowed key digits, separated by commas, such as 1,2,3. Maximum of 20 values.
     shared_ptr<string> dtmfAllowedDigits_ {};
-    // Specifies whether to automatically validate the DTMF digits.
+    // Specifies whether to enable automatic validation of key values.
     shared_ptr<bool> dtmfAutoValidateEnable_ {};
-    // The number of DTMF digits to collect. The value must be between 1 and 12.
+    // The number of DTMF key digits. Valid values: 1 to 12.
     shared_ptr<int64_t> dtmfDigitCount_ {};
-    // The timeout for DTMF input, in seconds. The value must be between 1 and 10.
+    // The DTMF input timeout period in seconds. Valid values: 1 to 10.
     shared_ptr<int64_t> dtmfInputTimeout_ {};
-    // The action to take when the input is outside the allowed range. Valid values: `RETURN_MODEL` and `AUTO_RETRY`.
+    // The action to take when the input is out of range. Valid values:
+    // - RETURN_MODEL: return to the model
+    // - AUTO_RETRY: automatically retry
     shared_ptr<string> dtmfOutOfRangeAction_ {};
-    // The number of retry attempts. The value must be between 1 and 3. This parameter is effective only when `DtmfOutOfRangeAction` is set to `AUTO_RETRY`.
+    // The number of retry attempts (PlayTimes). Valid values: 1 to 3. Takes effect only when DtmfOutOfRangeAction is set to AUTO_RETRY.
     shared_ptr<int64_t> dtmfRetryPlayTimes_ {};
-    // The custom text for the retry prompt. The text can contain a maximum of 50 characters. If this parameter is empty, the system uses the default prompt: "Invalid input. Please try again."
+    // The custom retry prompt text. Maximum length: 50 characters. If left empty, the default message is used.
     shared_ptr<string> dtmfRetryPromptText_ {};
     shared_ptr<int64_t> dtmfSendMaxCount_ {};
     shared_ptr<int64_t> dtmfSendWaitTimeout_ {};
-    // The scene name.
+    // The scenario name.
     shared_ptr<string> dyvmsSceneName_ {};
-    // Specifies whether to enable the collection of DTMF signals. The default value is `false`.
+    // Specifies whether to enable DTMF key collection. Default value: false.
     shared_ptr<bool> enableDtmfReceive_ {};
     shared_ptr<bool> enableDtmfSend_ {};
-    // Specifies whether to enable the Morse code configuration. The default value is `false`.
+    // Specifies whether to enable Morse code configuration. Disabled by default.
     shared_ptr<bool> enableMorse_ {};
     // The interruption configuration.
     shared_ptr<UpdateModelApplicationRequest::InterruptConfig> interruptConfig_ {};
@@ -753,36 +766,38 @@ namespace Models
     shared_ptr<bool> muteActive_ {};
     // The mute duration.
     shared_ptr<int64_t> muteDuration_ {};
-    // The number of consecutive mute events that trigger an automatic hang-up.
+    // The number of consecutive mute events after which the system proactively hangs up.
     shared_ptr<int64_t> muteHangupNum_ {};
-    // 静音事件推送模式
+    // The push mode for mute events.
     shared_ptr<string> mutePushMode_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ASR recognition pause duration.
+    shared_ptr<int64_t> pauseTime_ {};
     // The prompt.
     shared_ptr<string> prompt_ {};
     // The qualification ID.
     shared_ptr<int64_t> qualificationId_ {};
-    // The name of the qualification.
+    // The qualification name.
     shared_ptr<string> qualificationName_ {};
-    // The URL of the recording file.
+    // The URL of the recording audio file.
     shared_ptr<string> recordingFile_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The session timeout, which is the maximum duration of a call.
+    // The maximum call duration.
     shared_ptr<int64_t> sessionTimeout_ {};
-    // The value must be `USER`.
+    // The source. Fixed value: USER.
     shared_ptr<string> source_ {};
-    // The content of the speech.
+    // The speech script content.
     shared_ptr<string> speechContent_ {};
-    // The speech ID.
+    // The speech script ID.
     shared_ptr<int64_t> speechId_ {};
     // The opening statement.
     shared_ptr<string> startWord_ {};
-    // The type of the opening statement. Valid values:
+    // The type of the opening statement.
     shared_ptr<int64_t> startWordType_ {};
-    // The TTS configuration, such as voice, volume, and speech rate.
+    // The text-to-speech (TTS) configuration, including voice, volume, and speed.
     shared_ptr<UpdateModelApplicationRequest::TtsConfig> ttsConfig_ {};
-    // The purpose of the application.
+    // The usage description.
     shared_ptr<string> usageDesc_ {};
   };
 

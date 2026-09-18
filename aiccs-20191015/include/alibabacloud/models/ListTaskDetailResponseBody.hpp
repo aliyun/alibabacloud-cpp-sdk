@@ -202,34 +202,34 @@ namespace Models
 
 
       protected:
-        // Called number.
+        // The called number.
         shared_ptr<string> called_ {};
-        // Calling number.
+        // The caller number.
         shared_ptr<string> caller_ {};
-        // Hang-up direction. Valid values:
+        // The hangup direction. Valid values:
         // 
         // - **User**.
-        // - **Machine**.
+        // - **Robot**.
         shared_ptr<string> direction_ {};
-        // Call duration. Unit: seconds.
+        // The call duration. Unit: seconds.
         shared_ptr<int32_t> duration_ {};
-        // End time.
+        // The end time.
         shared_ptr<string> endTime_ {};
-        // Record ID.
+        // The detail ID.
         shared_ptr<int64_t> id_ {};
-        // Current retry count.
+        // The current retry count.
         shared_ptr<int32_t> retryCurTimes_ {};
-        // Retry Count.
+        // The retry count.
         shared_ptr<int32_t> retryTimes_ {};
-        // Start Time.
+        // The start time.
         shared_ptr<string> startTime_ {};
-        // Detail status.
+        // The detail status.
         shared_ptr<string> status_ {};
-        // Call status code.
+        // The call status code.
         shared_ptr<string> statusCode_ {};
-        // Call status code description.
+        // The description of the call status code.
         shared_ptr<string> statusCodeDesc_ {};
-        // Intent tags.
+        // The intent label.
         shared_ptr<string> tags_ {};
       };
 
@@ -266,13 +266,13 @@ namespace Models
 
 
     protected:
-      // Number of items per page.
+      // The number of entries per page.
       shared_ptr<int64_t> pageNo_ {};
-      // Current page number.
+      // The current page number.
       shared_ptr<int64_t> pageSize_ {};
-      // List of job information.
+      // The list of task details.
       shared_ptr<vector<Data::Record>> record_ {};
-      // Total number of jobs.
+      // The total number of tasks.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -316,17 +316,17 @@ namespace Models
 
 
   protected:
-    // The request status code. A return value of OK indicates that the request succeeded.
+    // The request status code. OK indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // Detailed job information.
+    // The task details.
     shared_ptr<ListTaskDetailResponseBody::Data> data_ {};
-    // Description of the status code.
+    // The description of the status code.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API invocation succeeded. Valid values:
-    // - **true**: Succeeded.
-    // - **false**: Failed.
+    // Indicates whether the operation was successful. Valid values:
+    // - **true**: The operation was successful.
+    // - **false**: The operation failed.
     shared_ptr<bool> success_ {};
   };
 

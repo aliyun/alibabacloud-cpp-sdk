@@ -14,10 +14,14 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const UpdateAiCallTaskShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(CallDay, callDayShrink_);
+      DARABONBA_PTR_TO_JSON(CallExpireDate, callExpireDate_);
+      DARABONBA_PTR_TO_JSON(CallExpireMinutes, callExpireMinutes_);
+      DARABONBA_PTR_TO_JSON(CallExpireType, callExpireType_);
       DARABONBA_PTR_TO_JSON(CallRetryInterval, callRetryInterval_);
       DARABONBA_PTR_TO_JSON(CallRetryReason, callRetryReasonShrink_);
       DARABONBA_PTR_TO_JSON(CallRetryTimes, callRetryTimes_);
       DARABONBA_PTR_TO_JSON(CallTime, callTimeShrink_);
+      DARABONBA_PTR_TO_JSON(CallableTime, callableTimeShrink_);
       DARABONBA_PTR_TO_JSON(LineEncoding, lineEncoding_);
       DARABONBA_PTR_TO_JSON(LinePhoneNum, linePhoneNum_);
       DARABONBA_PTR_TO_JSON(MissCallRetry, missCallRetry_);
@@ -35,10 +39,14 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, UpdateAiCallTaskShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(CallDay, callDayShrink_);
+      DARABONBA_PTR_FROM_JSON(CallExpireDate, callExpireDate_);
+      DARABONBA_PTR_FROM_JSON(CallExpireMinutes, callExpireMinutes_);
+      DARABONBA_PTR_FROM_JSON(CallExpireType, callExpireType_);
       DARABONBA_PTR_FROM_JSON(CallRetryInterval, callRetryInterval_);
       DARABONBA_PTR_FROM_JSON(CallRetryReason, callRetryReasonShrink_);
       DARABONBA_PTR_FROM_JSON(CallRetryTimes, callRetryTimes_);
       DARABONBA_PTR_FROM_JSON(CallTime, callTimeShrink_);
+      DARABONBA_PTR_FROM_JSON(CallableTime, callableTimeShrink_);
       DARABONBA_PTR_FROM_JSON(LineEncoding, lineEncoding_);
       DARABONBA_PTR_FROM_JSON(LinePhoneNum, linePhoneNum_);
       DARABONBA_PTR_FROM_JSON(MissCallRetry, missCallRetry_);
@@ -66,15 +74,37 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->callDayShrink_ == nullptr
-        && this->callRetryInterval_ == nullptr && this->callRetryReasonShrink_ == nullptr && this->callRetryTimes_ == nullptr && this->callTimeShrink_ == nullptr && this->lineEncoding_ == nullptr
-        && this->linePhoneNum_ == nullptr && this->missCallRetry_ == nullptr && this->ownerId_ == nullptr && this->phoneType_ == nullptr && this->resourceOwnerAccount_ == nullptr
-        && this->resourceOwnerId_ == nullptr && this->source_ == nullptr && this->startType_ == nullptr && this->taskCps_ == nullptr && this->taskId_ == nullptr
-        && this->taskName_ == nullptr && this->taskStartTime_ == nullptr && this->virtualNumber_ == nullptr; };
+        && this->callExpireDate_ == nullptr && this->callExpireMinutes_ == nullptr && this->callExpireType_ == nullptr && this->callRetryInterval_ == nullptr && this->callRetryReasonShrink_ == nullptr
+        && this->callRetryTimes_ == nullptr && this->callTimeShrink_ == nullptr && this->callableTimeShrink_ == nullptr && this->lineEncoding_ == nullptr && this->linePhoneNum_ == nullptr
+        && this->missCallRetry_ == nullptr && this->ownerId_ == nullptr && this->phoneType_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->source_ == nullptr && this->startType_ == nullptr && this->taskCps_ == nullptr && this->taskId_ == nullptr && this->taskName_ == nullptr
+        && this->taskStartTime_ == nullptr && this->virtualNumber_ == nullptr; };
     // callDayShrink Field Functions 
     bool hasCallDayShrink() const { return this->callDayShrink_ != nullptr;};
     void deleteCallDayShrink() { this->callDayShrink_ = nullptr;};
     inline string getCallDayShrink() const { DARABONBA_PTR_GET_DEFAULT(callDayShrink_, "") };
     inline UpdateAiCallTaskShrinkRequest& setCallDayShrink(string callDayShrink) { DARABONBA_PTR_SET_VALUE(callDayShrink_, callDayShrink) };
+
+
+    // callExpireDate Field Functions 
+    bool hasCallExpireDate() const { return this->callExpireDate_ != nullptr;};
+    void deleteCallExpireDate() { this->callExpireDate_ = nullptr;};
+    inline string getCallExpireDate() const { DARABONBA_PTR_GET_DEFAULT(callExpireDate_, "") };
+    inline UpdateAiCallTaskShrinkRequest& setCallExpireDate(string callExpireDate) { DARABONBA_PTR_SET_VALUE(callExpireDate_, callExpireDate) };
+
+
+    // callExpireMinutes Field Functions 
+    bool hasCallExpireMinutes() const { return this->callExpireMinutes_ != nullptr;};
+    void deleteCallExpireMinutes() { this->callExpireMinutes_ = nullptr;};
+    inline int64_t getCallExpireMinutes() const { DARABONBA_PTR_GET_DEFAULT(callExpireMinutes_, 0L) };
+    inline UpdateAiCallTaskShrinkRequest& setCallExpireMinutes(int64_t callExpireMinutes) { DARABONBA_PTR_SET_VALUE(callExpireMinutes_, callExpireMinutes) };
+
+
+    // callExpireType Field Functions 
+    bool hasCallExpireType() const { return this->callExpireType_ != nullptr;};
+    void deleteCallExpireType() { this->callExpireType_ = nullptr;};
+    inline int64_t getCallExpireType() const { DARABONBA_PTR_GET_DEFAULT(callExpireType_, 0L) };
+    inline UpdateAiCallTaskShrinkRequest& setCallExpireType(int64_t callExpireType) { DARABONBA_PTR_SET_VALUE(callExpireType_, callExpireType) };
 
 
     // callRetryInterval Field Functions 
@@ -103,6 +133,13 @@ namespace Models
     void deleteCallTimeShrink() { this->callTimeShrink_ = nullptr;};
     inline string getCallTimeShrink() const { DARABONBA_PTR_GET_DEFAULT(callTimeShrink_, "") };
     inline UpdateAiCallTaskShrinkRequest& setCallTimeShrink(string callTimeShrink) { DARABONBA_PTR_SET_VALUE(callTimeShrink_, callTimeShrink) };
+
+
+    // callableTimeShrink Field Functions 
+    bool hasCallableTimeShrink() const { return this->callableTimeShrink_ != nullptr;};
+    void deleteCallableTimeShrink() { this->callableTimeShrink_ = nullptr;};
+    inline string getCallableTimeShrink() const { DARABONBA_PTR_GET_DEFAULT(callableTimeShrink_, "") };
+    inline UpdateAiCallTaskShrinkRequest& setCallableTimeShrink(string callableTimeShrink) { DARABONBA_PTR_SET_VALUE(callableTimeShrink_, callableTimeShrink) };
 
 
     // lineEncoding Field Functions 
@@ -204,42 +241,65 @@ namespace Models
 
 
   protected:
-    // The days of the week when calls can be made.
+    // The available call days.
     // 
     // This parameter is required.
     shared_ptr<string> callDayShrink_ {};
-    // The retry interval in minutes. The maximum value is 120.
+    // The expiration date of outbound call details (the specific deadline).
+    shared_ptr<string> callExpireDate_ {};
+    // The expiration duration of outbound call details. Unit: minutes.
+    shared_ptr<int64_t> callExpireMinutes_ {};
+    // The outbound call validity type. Valid values:
+    // 
+    // 0: permanently valid.
+    // 1: valid for a specified duration after import.
+    // 2: valid until a specified date.
+    shared_ptr<int64_t> callExpireType_ {};
+    // The retry interval. Unit: minutes. The maximum value is 120 minutes.
     shared_ptr<int64_t> callRetryInterval_ {};
-    // The call failure statuses that trigger a retry.
+    // The reasons for retry upon failure.
     shared_ptr<string> callRetryReasonShrink_ {};
     // The number of retries. The maximum value is 3.
     shared_ptr<int64_t> callRetryTimes_ {};
-    // The callable time windows.
+    // The available call time periods.
     // 
     // This parameter is required.
     shared_ptr<string> callTimeShrink_ {};
+    shared_ptr<string> callableTimeShrink_ {};
+    // The line encoding.
     shared_ptr<string> lineEncoding_ {};
+    // The customer-provided line number.
     shared_ptr<string> linePhoneNum_ {};
     // Specifies whether to enable retry. Valid values:
     // 
-    // - `true`: Yes.
+    // - true: Enabled.
     // 
-    // - `false` (default): No.
+    // - false (default): Disabled.
     shared_ptr<bool> missCallRetry_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The number type. This parameter is used when the creation source is engine-based.
+    // 
+    // 0: Alibaba Cloud number.
+    // 
+    // 1: Customer-provided line.
     shared_ptr<int64_t> phoneType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    // The creation source. Valid values:
+    // 
+    // 0: created by agent.
+    // 
+    // 1: created by engine.
     shared_ptr<int64_t> source_ {};
-    // The startup method. Valid values:
+    // The start mode. Valid values:
     // 
-    // - `IMMEDIATE`: Start immediately.
+    // - IMMEDIATE: starts immediately.
     // 
-    // - `SCHEDULE`: Start at a specified time.
+    // - SCHEDULE: starts at a scheduled time.
     // 
     // This parameter is required.
     shared_ptr<string> startType_ {};
-    // The number of concurrent calls per second (CPS) for the task. The maximum value is 500.
+    // The task concurrency. The maximum value is 500.
     // 
     // This parameter is required.
     shared_ptr<int64_t> taskCps_ {};
@@ -247,11 +307,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
-    // The task name. The name must be unique within an Alibaba Cloud account.
+    // The task name. The name must be unique within the same account.
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
-    // The scheduled start time for the task, specified as a Unix timestamp in milliseconds. This parameter is required when `StartType` is set to `SCHEDULE`.
+    // The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when the StartType parameter is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
     shared_ptr<int64_t> taskStartTime_ {};
     // The service instance used for outbound calls.
     shared_ptr<string> virtualNumber_ {};

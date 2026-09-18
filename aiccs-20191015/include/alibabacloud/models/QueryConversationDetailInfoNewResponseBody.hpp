@@ -44,6 +44,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(BatchId, batchId_);
+        DARABONBA_PTR_TO_JSON(BranchId, branchId_);
         DARABONBA_PTR_TO_JSON(CallId, callId_);
         DARABONBA_PTR_TO_JSON(CallResult, callResult_);
         DARABONBA_PTR_TO_JSON(CalledPhone, calledPhone_);
@@ -72,6 +73,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(BatchId, batchId_);
+        DARABONBA_PTR_FROM_JSON(BranchId, branchId_);
         DARABONBA_PTR_FROM_JSON(CallId, callId_);
         DARABONBA_PTR_FROM_JSON(CallResult, callResult_);
         DARABONBA_PTR_FROM_JSON(CalledPhone, calledPhone_);
@@ -264,16 +266,24 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->batchId_ == nullptr
-        && this->callId_ == nullptr && this->callResult_ == nullptr && this->calledPhone_ == nullptr && this->callerPhone_ == nullptr && this->conversationRecord_ == nullptr
-        && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr && this->duration_ == nullptr && this->encryptionType_ == nullptr && this->failedReason_ == nullptr
-        && this->hangupDirection_ == nullptr && this->importedTime_ == nullptr && this->majorIntent_ == nullptr && this->options_ == nullptr && this->outId_ == nullptr
-        && this->outputTags_ == nullptr && this->pickUpTime_ == nullptr && this->recordingFileDownloadUrl_ == nullptr && this->releaseTime_ == nullptr && this->startCallTime_ == nullptr
-        && this->status_ == nullptr && this->statusCode_ == nullptr && this->statusMsg_ == nullptr && this->taskId_ == nullptr && this->variables_ == nullptr; };
+        && this->branchId_ == nullptr && this->callId_ == nullptr && this->callResult_ == nullptr && this->calledPhone_ == nullptr && this->callerPhone_ == nullptr
+        && this->conversationRecord_ == nullptr && this->conversationTurnCount_ == nullptr && this->detailId_ == nullptr && this->duration_ == nullptr && this->encryptionType_ == nullptr
+        && this->failedReason_ == nullptr && this->hangupDirection_ == nullptr && this->importedTime_ == nullptr && this->majorIntent_ == nullptr && this->options_ == nullptr
+        && this->outId_ == nullptr && this->outputTags_ == nullptr && this->pickUpTime_ == nullptr && this->recordingFileDownloadUrl_ == nullptr && this->releaseTime_ == nullptr
+        && this->startCallTime_ == nullptr && this->status_ == nullptr && this->statusCode_ == nullptr && this->statusMsg_ == nullptr && this->taskId_ == nullptr
+        && this->variables_ == nullptr; };
       // batchId Field Functions 
       bool hasBatchId() const { return this->batchId_ != nullptr;};
       void deleteBatchId() { this->batchId_ = nullptr;};
       inline string getBatchId() const { DARABONBA_PTR_GET_DEFAULT(batchId_, "") };
       inline Data& setBatchId(string batchId) { DARABONBA_PTR_SET_VALUE(batchId_, batchId) };
+
+
+      // branchId Field Functions 
+      bool hasBranchId() const { return this->branchId_ != nullptr;};
+      void deleteBranchId() { this->branchId_ = nullptr;};
+      inline int64_t getBranchId() const { DARABONBA_PTR_GET_DEFAULT(branchId_, 0L) };
+      inline Data& setBranchId(int64_t branchId) { DARABONBA_PTR_SET_VALUE(branchId_, branchId) };
 
 
       // callId Field Functions 
@@ -458,74 +468,75 @@ namespace Models
     protected:
       // The batch ID.
       shared_ptr<string> batchId_ {};
+      shared_ptr<int64_t> branchId_ {};
       // The unique ID of the call.
       shared_ptr<string> callId_ {};
       // The call result. Valid values:
-      // - CALL_FORWARDING: call forwarding.
-      // - INCOMING_CALL_BARRED: incoming call barred.
-      // - CALL_REJECTED: call rejected.
-      // - ANSWERED: the user answered.
-      // - USER_BUSY: the callee is busy.
-      // - POWERED_OFF: the phone is powered off.
-      // - NO_USER_RESPONSE: out of service area.
-      // - OPERATOR_BLOCK: blocked by the carrier.
-      // - OTHERS: other status.
-      // - SUSPEND: the phone is suspended.
-      // - CANCEL: the caller canceled.
-      // - INVALID_NUMBER: invalid number.
-      // - UNAVAILABLE: temporarily unavailable.
-      // - NETWORK_BUSY: network busy.
-      // - NO_ANSWER: no answer.
+      // - CALL_FORWARDING: Call forwarding.
+      // - INCOMING_CALL_BARRED: Incoming call barred.
+      // - CALL_REJECTED: Call rejected.
+      // - ANSWERED: User answered.
+      // - USER_BUSY: Callee busy.
+      // - POWERED_OFF: Powered off.
+      // - NO_USER_RESPONSE: Out of service area.
+      // - OPERATOR_BLOCK: Operator blocked.
+      // - OTHERS: Other status.
+      // - SUSPEND: Service suspended.
+      // - CANCEL: Caller canceled.
+      // - INVALID_NUMBER: Invalid number.
+      // - UNAVAILABLE: Temporarily unavailable.
+      // - NETWORK_BUSY: Network busy.
+      // - NO_ANSWER: No answer.
       shared_ptr<string> callResult_ {};
       // The callee number.
       shared_ptr<string> calledPhone_ {};
       // The caller number.
       shared_ptr<string> callerPhone_ {};
-      // The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The structure is as follows:
+      // The chat record information. The structure is a JSON array, sorted in chronological order. The format is as follows:
       // ```json
       // [
       //     {
-      //         "content":"聊天内容",
-      //         "role":"角色",//Valid values: user and assistant (robot).
+      //         "content":"Chat content",
+      //         "role":"Role",//Valid values: user, assistant (robot)
       //     }
       // ]
-      // ```.
+      // ```
       shared_ptr<string> conversationRecord_ {};
       // The number of conversation turns.
       shared_ptr<int64_t> conversationTurnCount_ {};
       // The task detail ID.
       shared_ptr<string> detailId_ {};
-      // The call duration. The value is 0 if the call is not connected. Unit: seconds.
+      // The call duration in seconds. The value is 0 if the call is not connected.
       shared_ptr<int64_t> duration_ {};
       shared_ptr<int64_t> encryptionType_ {};
       // The failure reason.
       shared_ptr<string> failedReason_ {};
       // The hangup direction. Valid values:
       // 
-      // - **0**: the user.
-      // - **1**: the robot.
+      // - **0**: User.
+      // - **1**: Robot.
       shared_ptr<string> hangupDirection_ {};
-      // The import time. This value is a UNIX timestamp. Unit: milliseconds.
+      // The import time. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> importedTime_ {};
       // The major intent.
       shared_ptr<string> majorIntent_ {};
-      // The variable information used at runtime. The information is stored in this field as key-value pairs.
+      // The variable information used at runtime, stored in this field as key-value pairs.
       shared_ptr<string> options_ {};
       // The external business serial number. You can use a unique ID for business association.
       shared_ptr<string> outId_ {};
       // The output tag information.
       shared_ptr<vector<Data::OutputTags>> outputTags_ {};
-      // The time when the call was answered. This value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the call was answered. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> pickUpTime_ {};
       // The download URL of the recording file. This field is available only after a recording file is generated.
       shared_ptr<string> recordingFileDownloadUrl_ {};
-      // The time when the call ended. This value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the call ended. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> releaseTime_ {};
-      // The time when the call started. This value is a UNIX timestamp. Unit: milliseconds.
+      // The time when the call started. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> startCallTime_ {};
       // The agent status.
       shared_ptr<int64_t> status_ {};
-      // The call status code. For more information, see [Call status codes](https://help.aliyun.com/document_detail/112804.html) in voice messaging.
+      // The call status code. For more information, see [Call status codes](https://help.aliyun.com/document_detail/112804.html) in Voice Messaging.
       shared_ptr<string> statusCode_ {};
       // The call status information returned by the carrier.
       shared_ptr<string> statusMsg_ {};
@@ -582,19 +593,19 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access was denied.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
-    // The returned data.
+    // The returned result data.
     shared_ptr<QueryConversationDetailInfoNewResponseBody::Data> data_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call was successful. Valid values:
-    // - **true**: successful.
-    // - **false**: failed.
+    // Indicates whether the operation was successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

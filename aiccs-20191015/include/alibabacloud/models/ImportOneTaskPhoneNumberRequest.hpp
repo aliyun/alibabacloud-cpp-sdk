@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ImportOneTaskPhoneNumberRequest& obj) { 
       DARABONBA_PTR_TO_JSON(EncryptionType, encryptionType_);
+      DARABONBA_PTR_TO_JSON(Extension, extension_);
       DARABONBA_PTR_TO_JSON(OutId, outId_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(PhoneNumber, phoneNumber_);
@@ -24,6 +25,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ImportOneTaskPhoneNumberRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EncryptionType, encryptionType_);
+      DARABONBA_PTR_FROM_JSON(Extension, extension_);
       DARABONBA_PTR_FROM_JSON(OutId, outId_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(PhoneNumber, phoneNumber_);
@@ -44,13 +46,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->encryptionType_ == nullptr
-        && this->outId_ == nullptr && this->ownerId_ == nullptr && this->phoneNumber_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr
-        && this->taskId_ == nullptr && this->variables_ == nullptr; };
+        && this->extension_ == nullptr && this->outId_ == nullptr && this->ownerId_ == nullptr && this->phoneNumber_ == nullptr && this->resourceOwnerAccount_ == nullptr
+        && this->resourceOwnerId_ == nullptr && this->taskId_ == nullptr && this->variables_ == nullptr; };
     // encryptionType Field Functions 
     bool hasEncryptionType() const { return this->encryptionType_ != nullptr;};
     void deleteEncryptionType() { this->encryptionType_ = nullptr;};
     inline int64_t getEncryptionType() const { DARABONBA_PTR_GET_DEFAULT(encryptionType_, 0L) };
     inline ImportOneTaskPhoneNumberRequest& setEncryptionType(int64_t encryptionType) { DARABONBA_PTR_SET_VALUE(encryptionType_, encryptionType) };
+
+
+    // extension Field Functions 
+    bool hasExtension() const { return this->extension_ != nullptr;};
+    void deleteExtension() { this->extension_ = nullptr;};
+    inline string getExtension() const { DARABONBA_PTR_GET_DEFAULT(extension_, "") };
+    inline ImportOneTaskPhoneNumberRequest& setExtension(string extension) { DARABONBA_PTR_SET_VALUE(extension_, extension) };
 
 
     // outId Field Functions 
@@ -106,10 +115,12 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> encryptionType_ {};
-    // The external ID. We recommend that you use a unique ID to ensure idempotency. The value cannot exceed 128 characters.
+    // The extension number.
+    shared_ptr<string> extension_ {};
+    // The external serial number. We recommend that you use a unique ID. The value cannot exceed 128 characters.
     shared_ptr<string> outId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The phone number of the callee.
+    // The called phone number.
     // 
     // This parameter is required.
     shared_ptr<string> phoneNumber_ {};
@@ -119,11 +130,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};
-    // A list of variables in a map.
-    // 
-    // > The format of variables for an engine-based call task is as follows:
-    // >
-    // > - {"startWordParam.variable_key1":"variable_value1","promptParam.variable_key2":"variable_value2","bizParam.variable_key3":"variable_value3"}
+    // The variable list in Map format.
+    // > Variable format for engine-based voice call tasks:
+    // > - {"startWordParam.VariableKey1":"VariableValue1","promptParam.VariableKey2":"VariableValue2","bizParam.VariableKey3":"VariableValue3"}
     Darabonba::Json variables_ {};
   };
 
