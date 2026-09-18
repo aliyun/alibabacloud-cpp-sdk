@@ -125,7 +125,7 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs. When VPC networking is enabled, at least one vSwitch must be specified, and all vSwitches must belong to the VPC specified by VpcId.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The VPC ID.
+          // The VPC ID of the user.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -140,7 +140,7 @@ namespace Models
 
 
       protected:
-        // The VPC network configuration.
+        // The VPC network configuration of the user.
         // 
         // This parameter is required.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};

@@ -148,20 +148,19 @@ namespace Models
       // The channel behavior configuration.
       shared_ptr<Body::ChannelConfig> channelConfig_ {};
       // The IM channel type. Valid values:
-      // 
       // - DINGTALK: DingTalk.
       // - FEISHU: Lark.
       // - WECOM: WeCom.
       // 
       // This parameter is required.
       shared_ptr<string> channelType_ {};
-      // The channel credentials. All fields must be provided and field values must be non-empty strings. DingTalk uses clientID and clientSecret. Lark uses appId and appSecret. WeCom uses botId and secret.
+      // The channel credential. All fields must be provided and field values must be non-empty strings. DingTalk uses clientID and clientSecret. Lark uses appId and appSecret. WeCom uses botId and secret.
       // 
       // This parameter is required.
       shared_ptr<map<string, string>> credential_ {};
-      // Specifies whether to enable the IM channel. Default value: true.
+      // Specifies whether to enable the IM channel. Default value during creation: true.
       shared_ptr<bool> enabled_ {};
-      // The ID of the ServiceEndpoint to bind. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public network address.
+      // The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public network address.
       // 
       // This parameter is required.
       shared_ptr<string> serviceEndpointId_ {};
@@ -188,7 +187,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateAgentIMChannelRequest::Body> body_ {};
-    // A reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
+    // The reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
     shared_ptr<string> clientToken_ {};
   };
 

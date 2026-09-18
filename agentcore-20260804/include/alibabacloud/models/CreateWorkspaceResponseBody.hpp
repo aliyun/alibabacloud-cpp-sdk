@@ -340,15 +340,15 @@ namespace Models
 
 
     protected:
-      // The AI Registry namespace ID. This value is returned after the related resource binding is complete and may be empty during initialization.
+      // The AI Registry namespace ID. This value is returned after the related resources are bound. It may be empty during initialization.
       shared_ptr<string> aiRegistryNamespaceId_ {};
       // The OSS storage authorization status.
       shared_ptr<string> authorizationStatus_ {};
       // The name of the private OSS bucket.
       shared_ptr<string> bucketName_ {};
-      // The CloudMonitor workspace ID. This value is returned after the related resource binding is complete and may be empty during initialization.
+      // The CloudMonitor workspace ID. This value is returned after the related resources are bound. It may be empty during initialization.
       shared_ptr<string> cmsWorkspaceId_ {};
-      // The time when the workspace was created, in ISO-8601 format.
+      // The time when the workspace was created, in ISO 8601 format.
       // 
       // This parameter is required.
       shared_ptr<string> createTime_ {};
@@ -362,7 +362,7 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The workspace status.
       shared_ptr<string> status_ {};
-      // The supplementary reason for the current workspace status. This value is used to display the specific reason when initialization fails or authorization is pending, and may be empty under normal conditions.
+      // The supplementary reason for the current workspace status. This value is used to display the specific reason when initialization fails or authorization is pending. It may be empty under normal conditions.
       shared_ptr<string> statusReason_ {};
       // The storage type of the workspace.
       shared_ptr<string> storageType_ {};

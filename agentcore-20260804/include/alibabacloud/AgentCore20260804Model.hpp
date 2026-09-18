@@ -205,6 +205,9 @@
 #include <alibabacloud/models/GetWorkspaceRequest.hpp>
 #include <alibabacloud/models/GetWorkspaceResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspaceResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceAcrRamAuthorizeUrlRequest.hpp>
+#include <alibabacloud/models/GetWorkspaceAcrRamAuthorizeUrlResponseBody.hpp>
+#include <alibabacloud/models/GetWorkspaceAcrRamAuthorizeUrlResponse.hpp>
 #include <alibabacloud/models/GetWorkspacePluginRequest.hpp>
 #include <alibabacloud/models/GetWorkspacePluginResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspacePluginResponse.hpp>
@@ -402,6 +405,9 @@
 #include <alibabacloud/models/VerifyConnectorShrinkRequest.hpp>
 #include <alibabacloud/models/VerifyConnectorResponseBody.hpp>
 #include <alibabacloud/models/VerifyConnectorResponse.hpp>
+#include <alibabacloud/models/VerifyWorkspaceAcrRamAuthorizationRequest.hpp>
+#include <alibabacloud/models/VerifyWorkspaceAcrRamAuthorizationResponseBody.hpp>
+#include <alibabacloud/models/VerifyWorkspaceAcrRamAuthorizationResponse.hpp>
 #include <alibabacloud/models/VerifyWorkspaceOssMountRamAuthorizationRequest.hpp>
 #include <alibabacloud/models/VerifyWorkspaceOssMountRamAuthorizationResponseBody.hpp>
 #include <alibabacloud/models/VerifyWorkspaceOssMountRamAuthorizationResponse.hpp>

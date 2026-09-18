@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The maximum number of records per page. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The cursor used to query the next page.
+    // The pagination token for querying the next page.
     shared_ptr<string> nextToken_ {};
   };
 

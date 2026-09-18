@@ -169,7 +169,7 @@ namespace Models
       shared_ptr<string> displayName_ {};
       // The email address of the user. The address can be up to 256 characters in length.
       shared_ptr<string> email_ {};
-      // The username. The name must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit. The name must be 1 to 32 characters in length.
+      // The username. The name must be unique within the workspace and can contain only lowercase letters, digits, and hyphens (-). It must start and end with a lowercase letter or digit and be 1 to 32 characters in length.
       shared_ptr<string> name_ {};
       // The note for the user. The note can be up to 1,024 characters in length.
       shared_ptr<string> note_ {};

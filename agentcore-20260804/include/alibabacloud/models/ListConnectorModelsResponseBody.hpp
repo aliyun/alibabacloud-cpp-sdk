@@ -124,15 +124,13 @@ namespace Models
       shared_ptr<string> description_ {};
       // The display name of the model.
       shared_ptr<string> displayName_ {};
-      // Key ID
+      // The associated Connector Key ID. This field is not returned in the current version.
       shared_ptr<string> keyId_ {};
-      // The key name.
+      // The associated Connector Key name. This field is not returned in the current version.
       shared_ptr<string> keyName_ {};
       // The stable identifier of the model.
       shared_ptr<string> modelId_ {};
-      // The source of the model. Valid values:
-      // - official: an official model.
-      // - enterprise: an enterprise-specific model.
+      // The source of the model.
       shared_ptr<string> source_ {};
     };
 
@@ -211,17 +209,17 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of available models.
     shared_ptr<vector<ListConnectorModelsResponseBody::Items>> items_ {};
-    // The number of entries returned in this request.
+    // The number of models returned in this request.
     shared_ptr<int32_t> maxResults_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page.
+    // The next page token. This field is not returned in the current version.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of models.
+    // The total number of models returned.
     shared_ptr<int64_t> totalCount_ {};
   };
 

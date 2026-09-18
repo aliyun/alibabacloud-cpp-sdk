@@ -132,13 +132,13 @@ namespace Models
         shared_ptr<string> appId_ {};
         // The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> appKey_ {};
-        // Required. The secret of the external identity provider application. This parameter is used only for write operations. The query API does not return this field.
+        // Required. The secret of the external identity provider application. This parameter is write-only and is not returned by query operations.
         shared_ptr<string> appSecret_ {};
-        // The CorpId of the DingTalk enterprise. This parameter is required when the binding type is DingTalk.
+        // The CorpId of the DingTalk organization. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> corpId_ {};
-        // The data encryption key for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations. The query API does not return this field.
+        // The data encryption key for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
         shared_ptr<string> encryptKey_ {};
-        // The verification token for event subscription. The value must be the same as the one configured in the external identity provider application. This parameter is used only for write operations. The query API does not return this field.
+        // The verification token for event subscriptions. The value must be the same as the one configured in the external identity provider application. This parameter is write-only and is not returned by query operations.
         shared_ptr<string> verificationToken_ {};
       };
 
@@ -175,7 +175,9 @@ namespace Models
 
 
     protected:
-      // The type of the external identity provider. Valid values: DingTalk, Feishu.
+      // The type of the external identity provider. Valid values:
+      // - DingTalk
+      // - Feishu
       // 
       // This parameter is required.
       shared_ptr<string> identityProviderType_ {};

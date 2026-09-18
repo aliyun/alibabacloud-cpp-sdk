@@ -180,6 +180,9 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration of the workspace.
       shared_ptr<Body::NetworkConfiguration> networkConfiguration_ {};
+      // The storage type of the workspace. Valid values:
+      // - PLATFORM: Platform-managed storage.
+      // - PRIVATE: User-owned private OSS storage.
       shared_ptr<string> storageType_ {};
     };
 

@@ -318,10 +318,10 @@ CreateAgentSpecResponse Client::createAgentSpec(const string &workspaceId, const
 }
 
 /**
- * @summary Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+ * @summary Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
  *
  * @description ## Request description
- * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+ * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
  *
  * @param tmpReq CreateAgentSpecVersionRequest
  * @param headers map
@@ -360,10 +360,10 @@ CreateAgentSpecVersionResponse Client::createAgentSpecVersionWithOptions(const s
 }
 
 /**
- * @summary Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+ * @summary Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
  *
  * @description ## Request description
- * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must not be a draft currently being edited.
+ * Creates a new draft version for an existing AgentSpec. The AgentSpec must exist, and there must be no draft currently being edited.
  *
  * @param request CreateAgentSpecVersionRequest
  * @return CreateAgentSpecVersionResponse
@@ -497,9 +497,9 @@ CreateExternalAgentResponse Client::createExternalAgent(const string &workspaceI
 }
 
 /**
- * @summary Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+ * @summary Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
  *
- * @description Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+ * @description Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
  *
  * @param request CreateExternalAgentBootstrapTokenRequest
  * @param headers map
@@ -532,9 +532,9 @@ CreateExternalAgentBootstrapTokenResponse Client::createExternalAgentBootstrapTo
 }
 
 /**
- * @summary Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+ * @summary Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
  *
- * @description Creates a Bootstrap Token and CMS configuration required for connecting a specified external agent.
+ * @description Creates a bootstrap token and CMS configuration required for connecting a specified external agent.
  *
  * @param request CreateExternalAgentBootstrapTokenRequest
  * @return CreateExternalAgentBootstrapTokenResponse
@@ -546,7 +546,7 @@ CreateExternalAgentBootstrapTokenResponse Client::createExternalAgentBootstrapTo
 }
 
 /**
- * @summary Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+ * @summary Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
  *
  * @param tmpReq CreateIdentityProviderRequest
  * @param headers map
@@ -585,7 +585,7 @@ CreateIdentityProviderResponse Client::createIdentityProviderWithOptions(const s
 }
 
 /**
- * @summary Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can track the progress by querying the status through GetIdentityProvider.
+ * @summary Binds an external identity provider to a specified workspace for single sign-on and organization member synchronization. Each workspace can be bound to at most one external identity provider. The binding is an asynchronous operation. After the API returns, you can call GetIdentityProvider to query the status and track the progress.
  *
  * @param request CreateIdentityProviderRequest
  * @return CreateIdentityProviderResponse
@@ -1004,7 +1004,7 @@ CreateUserResponse Client::createUser(const string &workspaceId, const CreateUse
 /**
  * @summary Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
  *
- * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+ * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
  *
  * @param tmpReq CreateWorkspaceRequest
  * @param headers map
@@ -1051,7 +1051,7 @@ CreateWorkspaceResponse Client::createWorkspaceWithOptions(const CreateWorkspace
 /**
  * @summary Creates an AgentCore workspace control plane record. The server completes the state transition from Initializing to Initialized within the same transaction.
  *
- * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must provide `VpcId` and at least one `VSwitchIds`.\\n.
+ * @description ## Operation description\\nCreates an AgentCore workspace control plane record. The server completes the state transition from `Initializing` to `Initialized` within the same transaction. Use `Enabled` in the network configuration to specify whether to enable VPC networking. If VPC networking is enabled, you must provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
  *
  * @param request CreateWorkspaceRequest
  * @return CreateWorkspaceResponse
@@ -1787,9 +1787,9 @@ DeleteWorkspaceResponse Client::deleteWorkspace(const string &workspaceId, const
 }
 
 /**
- * @summary Disables a Connector.
+ * @summary Disables a QoderCLI Connector in a specified workspace. The Connector can be disabled only when no Agent is using it. After the Connector is disabled, the Connector and its Service Account Key configuration are removed.
  *
- * @description Disables a specified Connector in a workspace.
+ * @description Disables a Connector in a specified workspace.
  *
  * @param request DisableConnectorRequest
  * @param headers map
@@ -1816,9 +1816,9 @@ DisableConnectorResponse Client::disableConnectorWithOptions(const string &works
 }
 
 /**
- * @summary Disables a Connector.
+ * @summary Disables a QoderCLI Connector in a specified workspace. The Connector can be disabled only when no Agent is using it. After the Connector is disabled, the Connector and its Service Account Key configuration are removed.
  *
- * @description Disables a specified Connector in a workspace.
+ * @description Disables a Connector in a specified workspace.
  *
  * @param request DisableConnectorRequest
  * @return DisableConnectorResponse
@@ -1830,7 +1830,7 @@ DisableConnectorResponse Client::disableConnector(const string &workspaceId, con
 }
 
 /**
- * @summary Retrieves a pre-signed OSS download URL for a specified AgentSpec ZIP package.
+ * @summary Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
  *
  * @description ## Operation description
  * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
@@ -1866,7 +1866,7 @@ DownloadAgentSpecViaOssResponse Client::downloadAgentSpecViaOssWithOptions(const
 }
 
 /**
- * @summary Retrieves a pre-signed OSS download URL for a specified AgentSpec ZIP package.
+ * @summary Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
  *
  * @description ## Operation description
  * Retrieves a pre-signed OSS download URL for a specified AgentSpec, which is used to download the AgentSpec ZIP package.
@@ -1926,9 +1926,9 @@ DownloadSkillVersionViaOssResponse Client::downloadSkillVersionViaOss(const stri
 }
 
 /**
- * @summary Enables a Connector.
+ * @summary Enables a QoderCLI Connector in a specified workspace. The request must include the site, API key, and at least one service account key. The service validates all account keys before saving the configuration.
  *
- * @description Enables a Connector in a specified workspace. Credential verification is required before enabling.
+ * @description Enables a Connector in a specified workspace. Credential verification is required before the Connector can be enabled.
  *
  * @param tmpReq EnableConnectorRequest
  * @param headers map
@@ -1967,9 +1967,9 @@ EnableConnectorResponse Client::enableConnectorWithOptions(const string &workspa
 }
 
 /**
- * @summary Enables a Connector.
+ * @summary Enables a QoderCLI Connector in a specified workspace. The request must include the site, API key, and at least one service account key. The service validates all account keys before saving the configuration.
  *
- * @description Enables a Connector in a specified workspace. Credential verification is required before enabling.
+ * @description Enables a Connector in a specified workspace. Credential verification is required before the Connector can be enabled.
  *
  * @param request EnableConnectorRequest
  * @return EnableConnectorResponse
@@ -2906,7 +2906,7 @@ GetTeamResponse Client::getTeam(const string &workspaceId, const string &teamId,
 }
 
 /**
- * @summary Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
+ * @summary Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
  *
  * @param request GetUserRequest
  * @param headers map
@@ -2933,7 +2933,7 @@ GetUserResponse Client::getUserWithOptions(const string &workspaceId, const stri
 }
 
 /**
- * @summary Queries the details of a specified user in a workspace. Returns an error if the user does not exist.
+ * @summary Queries the details of a specified user in a specified workspace. Returns an error if the user does not exist.
  *
  * @param request GetUserRequest
  * @return GetUserResponse
@@ -2985,6 +2985,63 @@ GetWorkspaceResponse Client::getWorkspace(const string &workspaceId, const GetWo
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return getWorkspaceWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the ACR RAM authorization URL for a workspace.
+ *
+ * @description ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+ *
+ * @param request GetWorkspaceAcrRamAuthorizeUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceAcrRamAuthorizeUrlResponse
+ */
+GetWorkspaceAcrRamAuthorizeUrlResponse Client::getWorkspaceAcrRamAuthorizeUrlWithOptions(const string &workspaceId, const GetWorkspaceAcrRamAuthorizeUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcrInstanceId()) {
+    query["acrInstanceId"] = request.getAcrInstanceId();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasRepository()) {
+    query["repository"] = request.getRepository();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspaceAcrRamAuthorizeUrl"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/acr/authorize")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceAcrRamAuthorizeUrlResponse>();
+}
+
+/**
+ * @summary Queries the ACR RAM authorization URL for a workspace.
+ *
+ * @description ACR and user OSS mounts share the same workspace role. If no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. If a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. The acrInstanceId, namespace, and repository parameters are required. The region and account are derived from the workspace context. The response contains the backend-resolved role and the authorization URL for the target repository. This operation does not create ACR or Agent execution versions or deliver runtime configurations. After authorization is complete, you can call Verify, and then create or update an Agent without calling a separate Ensure operation.
+ *
+ * @param request GetWorkspaceAcrRamAuthorizeUrlRequest
+ * @return GetWorkspaceAcrRamAuthorizeUrlResponse
+ */
+GetWorkspaceAcrRamAuthorizeUrlResponse Client::getWorkspaceAcrRamAuthorizeUrl(const string &workspaceId, const GetWorkspaceAcrRamAuthorizeUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkspaceAcrRamAuthorizeUrlWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**
@@ -3157,9 +3214,9 @@ InstallWorkspacePluginResponse Client::installWorkspacePlugin(const string &work
 }
 
 /**
- * @summary Queries the IM channel list of a specified agent.
+ * @summary Queries the list of IM channels for a specified agent.
  *
- * @description Queries the IM channel list of a specified agent.
+ * @description Queries the list of IM channels for a specified agent.
  *
  * @param request ListAgentIMChannelsRequest
  * @param headers map
@@ -3204,9 +3261,9 @@ ListAgentIMChannelsResponse Client::listAgentIMChannelsWithOptions(const string 
 }
 
 /**
- * @summary Queries the IM channel list of a specified agent.
+ * @summary Queries the list of IM channels for a specified agent.
  *
- * @description Queries the IM channel list of a specified agent.
+ * @description Queries the list of IM channels for a specified agent.
  *
  * @param request ListAgentIMChannelsRequest
  * @return ListAgentIMChannelsResponse
@@ -3301,7 +3358,7 @@ ListAgentSpecsResponse Client::listAgentSpecs(const string &workspaceId, const L
 }
 
 /**
- * @summary Queries the list of teams to which specified agents belong. Specify the agent IDs through agentIds to retrieve the membership information between each agent and its teams, including the team ID, team name, and the role that the agent assumes in the team.
+ * @summary Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
  *
  * @param tmpReq ListAgentTeamsRequest
  * @param headers map
@@ -3340,7 +3397,7 @@ ListAgentTeamsResponse Client::listAgentTeamsWithOptions(const string &workspace
 }
 
 /**
- * @summary Queries the list of teams to which specified agents belong. Specify the agent IDs through agentIds to retrieve the membership information between each agent and its teams, including the team ID, team name, and the role that the agent assumes in the team.
+ * @summary Queries the list of teams to which specified agents belong. Specify the agent IDs by using agentIds. The response includes the membership information between each agent and its teams, such as the team ID, team name, and the role that the agent assumes in the team.
  *
  * @param request ListAgentTeamsRequest
  * @return ListAgentTeamsResponse
@@ -3352,9 +3409,9 @@ ListAgentTeamsResponse Client::listAgentTeams(const string &workspaceId, const L
 }
 
 /**
- * @summary Queries the list of models for a connector.
+ * @summary Queries the available official models and enterprise models for an enabled QoderCLI Connector. The service retrieves models in real time by using the saved API key and organization ID, and deduplicates the results by model ID.
  *
- * @description Queries the list of available models for a specified connector. Pagination is supported.
+ * @description Queries the list of available models for a specified Connector. Pagination is supported.
  *
  * @param request ListConnectorModelsRequest
  * @param headers map
@@ -3395,9 +3452,9 @@ ListConnectorModelsResponse Client::listConnectorModelsWithOptions(const string 
 }
 
 /**
- * @summary Queries the list of models for a connector.
+ * @summary Queries the available official models and enterprise models for an enabled QoderCLI Connector. The service retrieves models in real time by using the saved API key and organization ID, and deduplicates the results by model ID.
  *
- * @description Queries the list of available models for a specified connector. Pagination is supported.
+ * @description Queries the list of available models for a specified Connector. Pagination is supported.
  *
  * @param request ListConnectorModelsRequest
  * @return ListConnectorModelsResponse
@@ -3409,7 +3466,7 @@ ListConnectorModelsResponse Client::listConnectorModels(const string &workspaceI
 }
 
 /**
- * @summary Queries the list of connectors.
+ * @summary Queries the list of connectors supported by a specified workspace, including their status, number of bound agents, and configurations. The current version returns the QoderCLI connector.
  *
  * @description Queries the list of connectors in a specified workspace.
  *
@@ -3448,7 +3505,7 @@ ListConnectorsResponse Client::listConnectorsWithOptions(const string &workspace
 }
 
 /**
- * @summary Queries the list of connectors.
+ * @summary Queries the list of connectors supported by a specified workspace, including their status, number of bound agents, and configurations. The current version returns the QoderCLI connector.
  *
  * @description Queries the list of connectors in a specified workspace.
  *
@@ -3462,9 +3519,9 @@ ListConnectorsResponse Client::listConnectors(const string &workspaceId, const L
 }
 
 /**
- * @summary Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+ * @summary Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
  *
- * @description Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
+ * @description Queries credentials in a workspace with paging. Supports filtering by type and name.
  *
  * @param request ListCredentialsRequest
  * @param headers map
@@ -3513,9 +3570,9 @@ ListCredentialsResponse Client::listCredentialsWithOptions(const string &workspa
 }
 
 /**
- * @summary Queries credentials in a specified workspace with paging. Filter by type using credentialType, perform a fuzzy match on credential names using nameLike, specify the maximum number of records per page using maxResults, and retrieve the next page using nextToken. If maxResults is not specified, the server returns 10 records by default.
+ * @summary Queries credentials in a specified workspace with paging. Use credentialType to filter by type, nameLike to perform a fuzzy match on credential names, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
  *
- * @description Queries the list of credentials in a workspace with paging. Supports filtering by type and name.
+ * @description Queries credentials in a workspace with paging. Supports filtering by type and name.
  *
  * @param request ListCredentialsRequest
  * @return ListCredentialsResponse
@@ -3631,7 +3688,7 @@ ListIdentityProvidersResponse Client::listIdentityProviders(const string &worksp
 /**
  * @summary Queries the list of managed agents in a specified workspace.
  *
- * @description Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
+ * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
  *
  * @param request ListManagedAgentsRequest
  * @param headers map
@@ -3670,7 +3727,7 @@ ListManagedAgentsResponse Client::listManagedAgentsWithOptions(const string &wor
 /**
  * @summary Queries the list of managed agents in a specified workspace.
  *
- * @description Performs a paged query for the list of managed agents in a specified workspace. Returns summary information for each agent, including the identity, name, status, template, and specifications. Use paging parameters to navigate through results.
+ * @description Queries the list of managed agents in a specified workspace by using paging. Returns summary information for each agent, including the identity, name, status, template, and specifications.
  *
  * @param request ListManagedAgentsRequest
  * @return ListManagedAgentsResponse
@@ -4081,9 +4138,9 @@ ListPredefinedModelsResponse Client::listPredefinedModels(const string &provider
 }
 
 /**
- * @summary Queries the list of Sandbox sessions.
+ * @summary Queries the list of active sessions in the sandbox of a specified managed agent by paging, and returns the session source and external channel type.
  *
- * @description Queries the list of active sessions in the Sandbox of a specified managed agent.
+ * @description Queries the list of active sessions in the sandbox of a specified managed agent.
  *
  * @param request ListSandboxSessionsRequest
  * @param headers map
@@ -4120,9 +4177,9 @@ ListSandboxSessionsResponse Client::listSandboxSessionsWithOptions(const string 
 }
 
 /**
- * @summary Queries the list of Sandbox sessions.
+ * @summary Queries the list of active sessions in the sandbox of a specified managed agent by paging, and returns the session source and external channel type.
  *
- * @description Queries the list of active sessions in the Sandbox of a specified managed agent.
+ * @description Queries the list of active sessions in the sandbox of a specified managed agent.
  *
  * @param request ListSandboxSessionsRequest
  * @return ListSandboxSessionsResponse
@@ -4134,9 +4191,9 @@ ListSandboxSessionsResponse Client::listSandboxSessions(const string &workspaceI
 }
 
 /**
- * @summary Queries a list of sandboxes.
+ * @summary Queries the list of sandboxes for a managed agent in a specified workspace. You can filter results by sandbox ID and active session ID fragments.
  *
- * @description Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+ * @description Queries the list of sandboxes for a specified managed agent. The searchText parameter performs a fuzzy match on sandbox ID fragments, and the sessionId parameter performs a fuzzy match on active session ID fragments. Both parameters are case-insensitive and can be used together with AND logic.
  *
  * @param request ListSandboxesRequest
  * @param headers map
@@ -4181,9 +4238,9 @@ ListSandboxesResponse Client::listSandboxesWithOptions(const string &workspaceId
 }
 
 /**
- * @summary Queries a list of sandboxes.
+ * @summary Queries the list of sandboxes for a managed agent in a specified workspace. You can filter results by sandbox ID and active session ID fragments.
  *
- * @description Queries the sandbox list of a specified managed agent. The searchText parameter performs a fuzzy match on Sandbox ID fragments, and the sessionId parameter performs a fuzzy match on currently active Session ID fragments. Both parameters can be specified simultaneously and are combined with AND logic.
+ * @description Queries the list of sandboxes for a specified managed agent. The searchText parameter performs a fuzzy match on sandbox ID fragments, and the sessionId parameter performs a fuzzy match on active session ID fragments. Both parameters are case-insensitive and can be used together with AND logic.
  *
  * @param request ListSandboxesRequest
  * @return ListSandboxesResponse
@@ -4197,7 +4254,7 @@ ListSandboxesResponse Client::listSandboxes(const string &workspaceId, const str
 /**
  * @summary Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
  *
- * @description ## Request description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+ * @description ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
  *
  * @param request ListServiceEndpointsRequest
  * @param headers map
@@ -4260,7 +4317,7 @@ ListServiceEndpointsResponse Client::listServiceEndpointsWithOptions(const strin
 /**
  * @summary Queries service endpoints in a specified workspace by using paging. Supports filtering by target type, agent, collaboration component, and status.
  *
- * @description ## Request description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page, and use nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
+ * @description ## Operation description\\nQueries service endpoints in a specified workspace by using paging. Filter results by targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status. Use maxResults to specify the maximum number of records per page and nextToken to retrieve the next page. If maxResults is not specified, the server returns 20 records by default.\\n
  *
  * @param request ListServiceEndpointsRequest
  * @return ListServiceEndpointsResponse
@@ -4355,7 +4412,7 @@ ListSkillsResponse Client::listSkills(const string &workspaceId, const ListSkill
 }
 
 /**
- * @summary Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
+ * @summary Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
  *
  * @param request ListTeamsRequest
  * @param headers map
@@ -4396,7 +4453,7 @@ ListTeamsResponse Client::listTeamsWithOptions(const string &workspaceId, const 
 }
 
 /**
- * @summary Queries teams in a specified workspace by paging. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
+ * @summary Performs a paged query of teams in a specified workspace. Use nameLike to filter by team name with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default. Member information in the list includes only the member identity, name, and team role.
  *
  * @param request ListTeamsRequest
  * @return ListTeamsResponse
@@ -4408,7 +4465,7 @@ ListTeamsResponse Client::listTeams(const string &workspaceId, const ListTeamsRe
 }
 
 /**
- * @summary 查询用户列表
+ * @summary Queries users in a specified workspace with paging. Use nameLike to filter by username with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
  *
  * @param request ListUsersRequest
  * @param headers map
@@ -4453,7 +4510,7 @@ ListUsersResponse Client::listUsersWithOptions(const string &workspaceId, const 
 }
 
 /**
- * @summary 查询用户列表
+ * @summary Queries users in a specified workspace with paging. Use nameLike to filter by username with fuzzy match, maxResults to specify the maximum number of records per page, and nextToken to retrieve the next page. If maxResults is not specified, the server returns 10 records by default.
  *
  * @param request ListUsersRequest
  * @return ListUsersResponse
@@ -5151,9 +5208,9 @@ UpdateAgentSpecResponse Client::updateAgentSpec(const string &workspaceId, const
 }
 
 /**
- * @summary Updates the credentials of a Connector.
+ * @summary Updates the API Key or Service Account Key collection for an enabled QoderCLI Connector. When serviceAccountKeys is submitted, the service treats it as the complete updated key collection and performs additions, renames, rotations, and deletions accordingly.
  *
- * @description Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+ * @description Updates the sensitive configuration of a specified Connector and aligns Service Account Keys by ID.
  *
  * @param tmpReq UpdateConnectorRequest
  * @param headers map
@@ -5192,9 +5249,9 @@ UpdateConnectorResponse Client::updateConnectorWithOptions(const string &workspa
 }
 
 /**
- * @summary Updates the credentials of a Connector.
+ * @summary Updates the API Key or Service Account Key collection for an enabled QoderCLI Connector. When serviceAccountKeys is submitted, the service treats it as the complete updated key collection and performs additions, renames, rotations, and deletions accordingly.
  *
- * @description Updates the sensitive configuration of a specified Connector and aligns the Service Account Key by ID.
+ * @description Updates the sensitive configuration of a specified Connector and aligns Service Account Keys by ID.
  *
  * @param request UpdateConnectorRequest
  * @return UpdateConnectorResponse
@@ -5971,9 +6028,9 @@ UpdateUserResponse Client::updateUser(const string &workspaceId, const string &a
 }
 
 /**
- * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
+ * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
  *
- * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+ * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
  *
  * @param tmpReq UpdateWorkspaceRequest
  * @param headers map
@@ -6018,9 +6075,9 @@ UpdateWorkspaceResponse Client::updateWorkspaceWithOptions(const string &workspa
 }
 
 /**
- * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
+ * @summary Updates the name or network configuration of a workspace. Only workspaces in the Initialized status can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
  *
- * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` state can be updated. `Status`, `TenantId`, and `RegionId` are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide `VpcId` and at least one `VSwitchIds`.\\n.
+ * @description ## Operation description\\nUpdates the name or network configuration of a workspace. Only workspaces in the `Initialized` status can be updated. The `Status`, `TenantId`, and `RegionId` fields are maintained by the server and cannot be modified through this operation. The network configuration uses `Enabled` to specify whether to enable VPC networking. When enabled, you must also provide a `VpcId` and at least one entry in `VSwitchIds`.\\n.
  *
  * @param request UpdateWorkspaceRequest
  * @return UpdateWorkspaceResponse
@@ -6146,7 +6203,7 @@ UploadSkillViaOssResponse Client::uploadSkillViaOss(const string &workspaceId, c
 }
 
 /**
- * @summary Validates the credentials of a Connector.
+ * @summary Validates whether one or more Qoder Service Account Keys are available at a specified site. This operation does not save keys or modify the Connector status.
  *
  * @description Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
  *
@@ -6187,7 +6244,7 @@ VerifyConnectorResponse Client::verifyConnectorWithOptions(const string &workspa
 }
 
 /**
- * @summary Validates the credentials of a Connector.
+ * @summary Validates whether one or more Qoder Service Account Keys are available at a specified site. This operation does not save keys or modify the Connector status.
  *
  * @description Validates whether the credentials of a specified Connector are valid and returns a list of invalid Service Account Keys.
  *
@@ -6201,9 +6258,66 @@ VerifyConnectorResponse Client::verifyConnector(const string &workspaceId, const
 }
 
 /**
- * @summary Verifies the RAM authorization for an OSS mount in a workspace.
+ * @summary Verifies the ACR RAM authorization of a workspace.
  *
- * @description Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+ * @description ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+ *
+ * @param request VerifyWorkspaceAcrRamAuthorizationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyWorkspaceAcrRamAuthorizationResponse
+ */
+VerifyWorkspaceAcrRamAuthorizationResponse Client::verifyWorkspaceAcrRamAuthorizationWithOptions(const string &workspaceId, const VerifyWorkspaceAcrRamAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAcrInstanceId()) {
+    query["acrInstanceId"] = request.getAcrInstanceId();
+  }
+
+  if (!!request.hasNamespace()) {
+    query["namespace"] = request.getNamespace();
+  }
+
+  if (!!request.hasRepository()) {
+    query["repository"] = request.getRepository();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "VerifyWorkspaceAcrRamAuthorization"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/acr/authorize/verify")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyWorkspaceAcrRamAuthorizationResponse>();
+}
+
+/**
+ * @summary Verifies the ACR RAM authorization of a workspace.
+ *
+ * @description ACR and user OSS mounts share the same workspace role. When no existing role is found, the system uses AliyunAgentCoreWorkspace-{workspaceId}. When a valid legacy OSS mount role exists, the system reuses it and only appends permissions without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not rebuilt or renamed because of new naming templates. This operation performs a read-only check to verify whether the custom policies corresponding to the target instance, namespace, and repository are attached to the shared role, and checks the workspace prerequisite status. It does not create execution versions or trigger configuration delivery. AUTHORIZED only indicates that the custom policy for the target name is attached. It does not parse policy content or simulate final permissions. ELIGIBLE does not indicate that RuntimeManager capacity or template admission is complete, nor does it require that ACR configurations have been delivered. Creating or updating an Agent re-verifies permissions and processes ACR dependencies on the backend. Configuration waiting, failures, and retries are reported through Agent details.
+ *
+ * @param request VerifyWorkspaceAcrRamAuthorizationRequest
+ * @return VerifyWorkspaceAcrRamAuthorizationResponse
+ */
+VerifyWorkspaceAcrRamAuthorizationResponse Client::verifyWorkspaceAcrRamAuthorization(const string &workspaceId, const VerifyWorkspaceAcrRamAuthorizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return verifyWorkspaceAcrRamAuthorizationWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Verifies the RAM authorization for a workspace to access an OSS bucket and returns the current authorization status. When bucketName is specified, verifies the authorization for an agent-mounted bucket. When bucketName is not specified, verifies and updates the authorization status of the workspace\\"s private OSS storage.
+ *
+ * @description Queries whether the workspace OSS mount role is bound to the custom RAM policy corresponding to the target bucket, and returns AUTHORIZED or UNAUTHORIZED. When bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. When bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks. Alibaba Cloud Container Registry (ACR) and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is reused and permissions are only appended without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not recreated or renamed due to new naming templates.
  *
  * @param request VerifyWorkspaceOssMountRamAuthorizationRequest
  * @param headers map
@@ -6236,9 +6350,9 @@ VerifyWorkspaceOssMountRamAuthorizationResponse Client::verifyWorkspaceOssMountR
 }
 
 /**
- * @summary Verifies the RAM authorization for an OSS mount in a workspace.
+ * @summary Verifies the RAM authorization for a workspace to access an OSS bucket and returns the current authorization status. When bucketName is specified, verifies the authorization for an agent-mounted bucket. When bucketName is not specified, verifies and updates the authorization status of the workspace\\"s private OSS storage.
  *
- * @description Queries whether the OSS mount role of a workspace is bound to the custom RAM policy for the target bucket. Returns AUTHORIZED or UNAUTHORIZED. If bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. If bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks.
+ * @description Queries whether the workspace OSS mount role is bound to the custom RAM policy corresponding to the target bucket, and returns AUTHORIZED or UNAUTHORIZED. When bucketName is not specified, the existing user-managed OSS binding of the workspace is used and the authorization status is saved. When bucketName is specified, only the authorization status of the specified bucket is queried without modifying the workspace OSS binding. This operation does not verify OSS data plane access permissions or resume workspace initialization tasks. Alibaba Cloud Container Registry (ACR) and user OSS mounts share the workspace role. If no existing role is available, AliyunAgentCoreWorkspace-{workspaceId} is used. If a valid legacy OSS mount role exists, it is reused and permissions are only appended without overwriting existing OSS policies. Previously pinned shared roles continue to be reused and are not recreated or renamed due to new naming templates.
  *
  * @param request VerifyWorkspaceOssMountRamAuthorizationRequest
  * @return VerifyWorkspaceOssMountRamAuthorizationResponse

@@ -274,11 +274,11 @@ namespace Models
 
 
       protected:
-        // The instruction of the sub-agent.
+        // The instruction for the sub-agent.
         // 
         // This parameter is required.
         shared_ptr<string> instruction_ {};
-        // The name of the sub-agent.
+        // The sub-agent name.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
@@ -391,7 +391,7 @@ namespace Models
 
 
         protected:
-          // The HTTP header name used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+          // The HTTP header name used for session affinity. Takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
           shared_ptr<string> headerName_ {};
           // The session policy type.
           // 
@@ -464,15 +464,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether auto scaling is enabled. This parameter is required when hpa is present as validated by the backend.
+          // Specifies whether auto-scaling is enabled. Required when hpa is present, validated by the backend.
           shared_ptr<bool> enabled_ {};
-          // The maximum number of active sessions per Sandbox. This parameter is required when hpa is present as validated by the backend.
+          // The maximum number of active sessions per sandbox. Required when hpa is present, validated by the backend.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
-          // The maximum number of Sandboxes. This parameter is required when HPA is enabled and must be no less than the minimum value.
+          // The maximum number of sandboxes. Required when HPA is enabled and must be no less than the minimum value.
           shared_ptr<int32_t> maxSandboxCount_ {};
-          // The minimum number of Sandboxes. This parameter is required when HPA is enabled.
+          // The minimum number of sandboxes. Required when HPA is enabled.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The session reclamation time after inactivity, in seconds. This parameter is required when hpa is present as validated by the backend.
+          // The session reclamation time after inactivity, in seconds. Required when hpa is present, validated by the backend.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -544,7 +544,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The Sandbox auto scaling and session configuration.
+        // The sandbox auto-scaling and session configuration.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
@@ -608,11 +608,11 @@ namespace Models
 
 
       protected:
-        // The OSS bucket name. This parameter is required for each mount entry as validated by the backend.
+        // The OSS bucket name. Required for each mount entry, validated by the backend.
         shared_ptr<string> bucketName_ {};
-        // The absolute mount path in the container. This parameter is required for each mount entry as validated by the backend.
+        // The absolute mount path in the container. Required for each mount entry, validated by the backend.
         shared_ptr<string> mountPath_ {};
-        // The relative object prefix within the bucket. If this parameter is not specified, the entire bucket is mounted.
+        // The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
         shared_ptr<string> path_ {};
         // Specifies whether to mount as read-only. Default value: false.
         shared_ptr<bool> readOnly_ {};
@@ -837,19 +837,19 @@ namespace Models
 
 
         protected:
-          // Indicates whether the quota is enabled. This parameter is not returned when no quota is configured.
+          // Indicates whether the quota is enabled. Not returned if no quota is configured.
           shared_ptr<bool> enabled_ {};
-          // The quota limit type. Currently, only token is supported.
+          // The quota limit type. Currently only token is supported.
           shared_ptr<string> limitType_ {};
-          // Indicates whether the quota has been exceeded in the current period. This parameter is read-only and returned by the backend.
+          // Indicates whether the quota has been exceeded in the current period. Read-only, returned by the backend.
           shared_ptr<bool> overLimit_ {};
           // The quota statistical period. Valid values: day (daily) and month (monthly).
           shared_ptr<string> periodType_ {};
-          // The gateway quota rule status. This parameter is read-only and returned by the backend.
+          // The gateway quota rule status. Read-only, returned by the backend.
           shared_ptr<string> ruleStatus_ {};
           // The maximum number of tokens allowed per period.
           shared_ptr<int64_t> usageLimit_ {};
-          // The number of tokens consumed in the current period. This parameter is read-only and returned by the backend.
+          // The number of tokens consumed in the current period. Read-only, returned by the backend.
           shared_ptr<int64_t> usedAmount_ {};
         };
 
@@ -883,7 +883,7 @@ namespace Models
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration and quota usage status for the current period. This parameter is empty when no quota is configured.
+        // The model token quota configuration and usage status for the current period. Empty if no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -946,9 +946,9 @@ namespace Models
 
 
         protected:
-          // The Service Account Key bound to the QoderCLI Connector by Key ID. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+          // The connector service account key.
           shared_ptr<string> connectorServiceAccountKey_ {};
-          // The Connector Key name that is backfilled during queries. This parameter is not used as a binding reference during writes.
+          // The connector service account name.
           shared_ptr<string> connectorServiceAccountName_ {};
         };
 
@@ -971,9 +971,9 @@ namespace Models
 
 
       protected:
-        // The Connector binding configuration for the qodercli harness.
+        // The runtime harness configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // The runtime harness type. Valid values: qwenpaw and qodercli. The qodercli type binds by configuration.connectorServiceAccountKey, and the name is also backfilled during queries.
+        // The runtime harness type.
         shared_ptr<string> type_ {};
       };
 
@@ -1316,7 +1316,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The environment configuration.
       shared_ptr<Data::Environment> environment_ {};
-      // The runtime harness of the managed agent. Valid values: qwenpaw and qodercli.
+      // The agent runtime harness.
       shared_ptr<Data::Harness> harness_ {};
       // The agent instruction that guides the behavior of the agent.
       shared_ptr<string> instruction_ {};
@@ -1330,13 +1330,13 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration.
       shared_ptr<Data::Network> network_ {};
-      // The list of OSS mounts. A maximum of 10 entries are supported.
+      // The OSS mount list. A maximum of 10 entries are supported.
       shared_ptr<vector<Data::OssMounts>> ossMounts_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The runtime configuration.
       shared_ptr<Data::Runtime> runtime_ {};
-      // The instance counts of managed agents grouped by sandbox phase. Current keys: PENDING (being created or initialized), RUNNING (running), HIBERNATING (entering hibernation), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (being terminated), FAILED (runtime failure). Only phases that actually occur are returned. Missing keys are treated as 0. This field is a dynamic mapping and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
+      // The instance counts of the managed agent grouped by sandbox phase. Current keys: PENDING (being created or initialized), RUNNING (running), HIBERNATING (entering hibernation), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (being terminated), and FAILED (runtime failure). Only phases that actually occur are returned. Missing keys should be treated as 0. This field is a dynamic map, and new keys may be added in the future. You can use FAILED > 0 to determine whether abnormal instances exist.
       shared_ptr<map<string, int64_t>> sandboxPhaseCounts_ {};
       // The list of skill configurations.
       shared_ptr<vector<Data::Skills>> skills_ {};
@@ -1348,7 +1348,7 @@ namespace Models
       shared_ptr<Data::Template> template_ {};
       // The list of tool configurations.
       shared_ptr<vector<Data::Tools>> tools_ {};
-      // The time when the managed agent was last updated, in RFC 3339 format.
+      // The time when the agent was last updated, in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -1405,7 +1405,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The details of the managed agent.
     shared_ptr<GetManagedAgentResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. A value of 200 indicates success.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The result message of the request.
     shared_ptr<string> message_ {};

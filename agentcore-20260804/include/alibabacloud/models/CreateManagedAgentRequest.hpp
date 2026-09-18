@@ -441,7 +441,7 @@ namespace Models
           shared_ptr<int32_t> maxSandboxCount_ {};
           // The minimum number of sandboxes. This parameter is required when HPA is enabled.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The session reclamation time after inactivity, in seconds. This parameter is required by backend validation when hpa is present.
+          // The time in seconds before an inactive session is reclaimed. This parameter is required by backend validation when hpa is present.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -473,7 +473,7 @@ namespace Models
 
 
         protected:
-          // The compute class.
+          // The compute specification.
           // 
           // This parameter is required.
           shared_ptr<string> computeClass_ {};
@@ -579,9 +579,9 @@ namespace Models
       protected:
         // The OSS bucket name. This parameter is required by backend validation for each mount entry.
         shared_ptr<string> bucketName_ {};
-        // The absolute mount path inside the container. This parameter is required by backend validation for each mount entry.
+        // The absolute mount path in the container. This parameter is required by backend validation for each mount entry.
         shared_ptr<string> mountPath_ {};
-        // The relative object prefix within the bucket. If this parameter is not specified, the entire bucket is mounted.
+        // The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
         shared_ptr<string> path_ {};
         // Specifies whether to mount in read-only mode. Default value: false.
         shared_ptr<bool> readOnly_ {};
@@ -822,7 +822,7 @@ namespace Models
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
         shared_ptr<string> modelName_ {};
-        // The model token quota configuration. If this parameter is not specified, no quota is configured.
+        // The model token quota configuration. If not specified, no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -885,9 +885,9 @@ namespace Models
 
 
         protected:
-          // The Key ID used to bind a Service Account Key of the QoderCLI Connector. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+          // The connector service account key.
           shared_ptr<string> connectorServiceAccountKey_ {};
-          // The Connector Key name that is populated during queries. This parameter is not used as a binding criterion during writes.
+          // The connector service account name.
           shared_ptr<string> connectorServiceAccountName_ {};
         };
 
@@ -910,9 +910,9 @@ namespace Models
 
 
       protected:
-        // The Connector binding configuration for the qodercli harness.
+        // The harness configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // The harness type. Valid values: qwenpaw and qodercli. When the type is qodercli, binding is performed based on configuration.connectorServiceAccountKey, and the name is also populated during queries.
+        // The harness type.
         shared_ptr<string> type_ {};
       };
 
@@ -1166,7 +1166,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The environment configuration.
       shared_ptr<Body::Environment> environment_ {};
-      // The harness for the managed agent. Valid values: qwenpaw and qodercli.
+      // The agent harness.
       shared_ptr<Body::Harness> harness_ {};
       // The agent instruction that guides the behavior of the agent.
       shared_ptr<string> instruction_ {};
@@ -1180,7 +1180,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration.
       shared_ptr<Body::Network> network_ {};
-      // The list of OSS mounts. A maximum of 10 entries are supported.
+      // The OSS mount list. A maximum of 10 entries are supported.
       shared_ptr<vector<Body::OssMounts>> ossMounts_ {};
       // The runtime configuration.
       // 
@@ -1192,7 +1192,7 @@ namespace Models
       shared_ptr<vector<Body::SubAgents>> subAgents_ {};
       // The agent template configuration.
       shared_ptr<Body::Template> template_ {};
-      // The tool configuration list.
+      // The list of tool configurations.
       shared_ptr<vector<Body::Tools>> tools_ {};
     };
 

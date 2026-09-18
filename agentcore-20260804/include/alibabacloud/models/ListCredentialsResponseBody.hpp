@@ -251,7 +251,7 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The list of resources to which the credential can be applied.
       shared_ptr<vector<Items::ResourceRefs>> resourceRefs_ {};
-      // The scope of resources to which the credential can be applied.
+      // The resource scope of the credential.
       shared_ptr<string> resourceScope_ {};
       // The time of the last modification in UTC, formatted according to RFC 3339.
       shared_ptr<string> updatedAt_ {};
@@ -334,7 +334,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of credentials.
     shared_ptr<vector<ListCredentialsResponseBody::Items>> items_ {};
-    // The maximum number of records per page that took effect for this query.
+    // The maximum number of records per page that takes effect for this query.
     shared_ptr<int32_t> maxResults_ {};
     // The response message. An error description is returned if the request fails.
     shared_ptr<string> message_ {};

@@ -172,7 +172,7 @@ namespace Models
     protected:
       // The external agent ID.
       shared_ptr<string> agentId_ {};
-      // The Bootstrap Token used for connecting the external agent.
+      // The bootstrap token used for connecting the external agent.
       shared_ptr<string> bootstrapToken_ {};
       // The CMS configuration used for connecting the external agent.
       shared_ptr<Data::Cms> cms_ {};
@@ -180,7 +180,7 @@ namespace Models
       // - INTERNET: public network
       // - INTRANET: internal network
       shared_ptr<string> networkType_ {};
-      // The fingerprint of the Bootstrap Token.
+      // The fingerprint of the bootstrap token.
       shared_ptr<string> tokenFingerprint_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -233,13 +233,13 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS indicates success.
+    // The business status code. The value SUCCESS is returned if the request is successful.
     shared_ptr<string> code_ {};
-    // The Bootstrap Token and CMS configuration required for connecting the external agent.
+    // The bootstrap token and CMS configuration required for connecting the external agent.
     shared_ptr<CreateExternalAgentBootstrapTokenResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 indicates success.
+    // The HTTP status code. The value 200 is returned if the request is successful.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message indicating the request processing result.
+    // The message that indicates the result of the request.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

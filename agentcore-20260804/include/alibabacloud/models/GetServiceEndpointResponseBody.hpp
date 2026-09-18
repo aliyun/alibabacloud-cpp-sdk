@@ -186,9 +186,7 @@ namespace Models
 
 
       protected:
-        // The authentication method. Valid values:
-        // - NONE: no authentication required.
-        // - API_KEY: authentication by passing an API key through the x-api-key request header.
+        // The authentication method. NONE indicates that no authentication is required. API_KEY indicates that an API key is passed through the x-api-key request header for authentication.
         shared_ptr<string> type_ {};
       };
 
@@ -252,7 +250,7 @@ namespace Models
         shared_ptr<string> accessType_ {};
         // The access URL status. Valid values: CREATING, READY, DEGRADED.
         shared_ptr<string> status_ {};
-        // The reason for the access URL status. A specific reason is returned when the status is degraded.
+        // The reason for the access URL status. A specific reason is returned when the status is abnormal.
         shared_ptr<string> statusReason_ {};
         // The access URL.
         shared_ptr<string> url_ {};
@@ -353,19 +351,17 @@ namespace Models
 
 
     protected:
-      // The access URL list of the service endpoint.
+      // The list of access URLs for the service endpoint.
       shared_ptr<vector<Data::AccessUrls>> accessUrls_ {};
       // The authentication configuration of the service endpoint.
       shared_ptr<Data::Authentication> authentication_ {};
       // The creation time in UTC, formatted in RFC 3339.
       shared_ptr<string> createdAt_ {};
-      // The service endpoint type. Valid values:
-      // - DEFAULT: a default endpoint created and maintained by the platform.
-      // - NAMED: a named endpoint explicitly created by the user.
+      // The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by the user.
       shared_ptr<string> endpointType_ {};
-      // The service endpoint name. The name is unique within the workspace and is 1 to 128 characters in length.
+      // The service endpoint name. The name must be unique within the workspace and can be 1 to 128 characters in length.
       shared_ptr<string> name_ {};
-      // The region ID where the service endpoint resides.
+      // The region ID of the service endpoint.
       shared_ptr<string> regionId_ {};
       // The service endpoint ID.
       shared_ptr<string> serviceEndpointId_ {};
@@ -375,7 +371,7 @@ namespace Models
       shared_ptr<string> statusReason_ {};
       // The target routing configuration of the service endpoint.
       shared_ptr<Data::Target> target_ {};
-      // The last modification time in UTC, formatted in RFC 3339.
+      // The time of the last modification in UTC, formatted in RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -434,7 +430,7 @@ namespace Models
     shared_ptr<GetServiceEndpointResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. An error description is returned when the request fails.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

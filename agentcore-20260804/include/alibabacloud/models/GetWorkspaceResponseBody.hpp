@@ -149,11 +149,11 @@ namespace Models
 
 
         protected:
-          // Indicates whether VPC networking is enabled.
+          // Indicates whether the VPC network is enabled.
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The ID of the user VPC.
+          // The user VPC ID.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -176,9 +176,9 @@ namespace Models
 
 
       protected:
-        // The public egress IP address allocated to the workspace. You can use this IP address to configure IP address whitelists for external services. This field is returned only when the public egress resource is attached and an address is allocated. The field is empty if no address is allocated, the attachment is failed, or the address is being released. This address is independent of whether VPC networking is active.
+        // The public egress IP address of the workspace.
         shared_ptr<string> publicEgressIp_ {};
-        // The VPC network configuration of the user.
+        // The user VPC network configuration.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -273,20 +273,15 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The workspace name.
       shared_ptr<string> name_ {};
-      // The network configuration of the workspace.
+      // The workspace network configuration.
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
       // The region ID of the workspace.
       shared_ptr<string> regionId_ {};
-      // The workspace status. Valid values:
-      // - Initializing
-      // - InitializationFailed
-      // - Initialized
-      // - Deleting
-      // - Deleted
+      // The workspace status. Valid values: Initializing, InitializationFailed, Initialized, Deleting, and Deleted.
       shared_ptr<string> status_ {};
       // The reason for the workspace status.
       shared_ptr<string> statusReason_ {};
-      // The storage type of the workspace.
+      // The workspace storage type.
       shared_ptr<string> storageType_ {};
       // The ID of the tenant to which the workspace belongs.
       shared_ptr<string> tenantId_ {};

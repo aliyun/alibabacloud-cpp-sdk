@@ -67,9 +67,9 @@ namespace Models
 
 
     protected:
-      // The existing version on which to base the draft.
+      // The existing version on which the draft is based.
       shared_ptr<string> basedOnVersion_ {};
-      // The version number for the draft. If not specified, the version number is automatically incremented.
+      // The version number of the draft. If this parameter is not specified, the version number is automatically incremented.
       shared_ptr<string> targetVersion_ {};
     };
 

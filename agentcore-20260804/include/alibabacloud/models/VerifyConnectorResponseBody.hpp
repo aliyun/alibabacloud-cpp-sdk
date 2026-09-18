@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The list of Service Account Key names that failed validation. Each element is a key name string. This list is empty if all keys pass validation.
+      // The list of Service Account Key labels that failed validation or returned indeterminate results.
       shared_ptr<vector<string>> invalidServiceAccountKeys_ {};
-      // Indicates whether the credentials are valid.
+      // Indicates whether all validated Service Account Keys are valid.
       shared_ptr<bool> valid_ {};
     };
 

@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The maximum number of records per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
+    // The filter condition for exact match by username.
     shared_ptr<string> name_ {};
+    // The filter condition for fuzzy match by username. The value can be up to 128 characters in length.
     shared_ptr<string> nameLike_ {};
+    // The pagination token for the next page. Do not specify this parameter for the first request. For subsequent requests, set this parameter to the nextToken value returned in the previous response.
     shared_ptr<string> nextToken_ {};
   };
 

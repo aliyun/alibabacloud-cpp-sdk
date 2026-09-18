@@ -360,7 +360,7 @@ namespace Models
 
 
         protected:
-          // The HTTP header name used for session affinity. Takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
+          // The name of the HTTP header used for session affinity. This parameter takes effect when sessionPolicy.type is set to ISOLATED_HEADER_FIELD.
           shared_ptr<string> headerName_ {};
           // The session policy type.
           // 
@@ -433,15 +433,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable auto scaling. Required when hpa is present as validated by the backend.
+          // Specifies whether to enable auto scaling. This parameter is required by backend validation when hpa is specified.
           shared_ptr<bool> enabled_ {};
-          // The maximum number of active sessions per Sandbox. Required when hpa is present as validated by the backend.
+          // The maximum number of active sessions per sandbox. This parameter is required by backend validation when hpa is specified.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
-          // The maximum number of Sandboxes. Required when HPA is enabled and must be no less than the minimum value.
+          // The maximum number of sandboxes. This parameter is required when HPA is enabled and the value must be no less than the minimum value.
           shared_ptr<int32_t> maxSandboxCount_ {};
-          // The minimum number of Sandboxes. Required when HPA is enabled.
+          // The minimum number of sandboxes. This parameter is required when HPA is enabled.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The session reclamation time after inactivity, in seconds. Required when hpa is present as validated by the backend.
+          // The session reclamation time after inactivity, in seconds. This parameter is required by backend validation when hpa is specified.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -513,7 +513,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The Sandbox auto scaling and session configuration.
+        // The sandbox auto scaling and session configuration.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
@@ -577,13 +577,13 @@ namespace Models
 
 
       protected:
-        // The OSS bucket name. Each mount item is validated as required by the backend.
+        // The OSS bucket name. This parameter is required by backend validation for each mount entry.
         shared_ptr<string> bucketName_ {};
-        // The absolute mount path in the container. Each mount item is validated as required by the backend.
+        // The absolute mount path in the container. This parameter is required by backend validation for each mount entry.
         shared_ptr<string> mountPath_ {};
-        // The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
+        // The relative object prefix within the bucket. If this parameter is not specified, the entire bucket is mounted.
         shared_ptr<string> path_ {};
-        // Specifies whether to mount as read-only. Default value: false.
+        // Specifies whether to mount in read-only mode. Default value: false.
         shared_ptr<bool> readOnly_ {};
       };
 
@@ -636,7 +636,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether VPC access is allowed.
+          // Specifies whether to allow VPC access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -668,7 +668,7 @@ namespace Models
 
 
         protected:
-          // Specifies whether public network access is allowed.
+          // Specifies whether to allow public network access.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -778,9 +778,15 @@ namespace Models
 
 
         protected:
+          // Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the token quota is disabled and existing quota rules are deleted.
           shared_ptr<bool> enabled_ {};
+          // The quota limit type. This parameter is required by backend validation when the quota is enabled. Fixed value: token.
           shared_ptr<string> limitType_ {};
+          // The quota statistical period. This parameter is required by backend validation when the quota is enabled. Valid values:
+          // - day: daily.
+          // - month: monthly.
           shared_ptr<string> periodType_ {};
+          // The maximum number of tokens that can be consumed within a single period. This parameter is required by backend validation when the quota is enabled. The value must be greater than 0.
           shared_ptr<int64_t> usageLimit_ {};
         };
 
@@ -816,6 +822,7 @@ namespace Models
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
         shared_ptr<string> modelName_ {};
+        // The model token quota configuration. If this parameter is not specified, no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -878,9 +885,9 @@ namespace Models
 
 
         protected:
-          // The Key ID used to bind a Service Account Key of the QoderCLI Connector. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
+          // The connector service account key.
           shared_ptr<string> connectorServiceAccountKey_ {};
-          // The Connector Key name that is populated during queries. This value is not used as a binding reference during writes.
+          // The connector service account name.
           shared_ptr<string> connectorServiceAccountName_ {};
         };
 
@@ -903,9 +910,9 @@ namespace Models
 
 
       protected:
-        // The Connector binding configuration for the qodercli harness.
+        // The harness configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // The type of the runtime harness. Valid values: qwenpaw and qodercli. When the type is qodercli, binding is performed based on configuration.connectorServiceAccountKey, and the name is also populated during queries.
+        // The harness type.
         shared_ptr<string> type_ {};
       };
 
@@ -1159,7 +1166,7 @@ namespace Models
       shared_ptr<string> description_ {};
       // The environment configuration.
       shared_ptr<Body::Environment> environment_ {};
-      // The runtime harness of the managed agent. Valid values: qwenpaw and qodercli.
+      // The agent harness configuration.
       shared_ptr<Body::Harness> harness_ {};
       // The agent instruction that guides the behavior of the agent.
       shared_ptr<string> instruction_ {};
@@ -1169,7 +1176,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration.
       shared_ptr<Body::Network> network_ {};
-      // The OSS mount list. A maximum of 10 items are supported. Pass an empty array to clear existing mounts.
+      // The list of OSS mounts. A maximum of 10 entries are supported. Pass an empty array to clear existing mounts.
       shared_ptr<vector<Body::OssMounts>> ossMounts_ {};
       // The runtime configuration.
       shared_ptr<Body::Runtime> runtime_ {};
@@ -1204,7 +1211,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<UpdateManagedAgentRequest::Body> body_ {};
-    // The reserved idempotency token. The backend does not guarantee idempotence in the current phase.
+    // The reserved idempotency token. The backend does not provide idempotency guarantees in the current version.
     shared_ptr<string> clientToken_ {};
   };
 

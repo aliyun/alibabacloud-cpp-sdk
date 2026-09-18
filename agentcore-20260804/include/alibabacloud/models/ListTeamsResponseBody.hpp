@@ -270,7 +270,7 @@ namespace Models
     protected:
       // The list of agent members in the team.
       shared_ptr<vector<Items::Agents>> agents_ {};
-      // The time when the team was created, in UTC and RFC 3339 format.
+      // The creation time in UTC, formatted according to RFC 3339.
       shared_ptr<string> createdAt_ {};
       // The team description.
       shared_ptr<string> description_ {};
@@ -286,7 +286,7 @@ namespace Models
       shared_ptr<string> status_ {};
       // The team ID.
       shared_ptr<string> teamId_ {};
-      // The time when the team was last modified, in UTC and RFC 3339 format.
+      // The time of the last modification in UTC, formatted according to RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The list of user members in the team.
       shared_ptr<vector<Items::Users>> users_ {};
@@ -371,9 +371,9 @@ namespace Models
     shared_ptr<vector<ListTeamsResponseBody::Items>> items_ {};
     // The maximum number of records per page that took effect for this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. An error description is returned if the request failed.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. This parameter is empty if no more pages are available.
+    // The pagination token for the next page. This value is empty if no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

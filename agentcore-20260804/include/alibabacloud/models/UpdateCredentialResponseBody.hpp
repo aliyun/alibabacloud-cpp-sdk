@@ -221,7 +221,7 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The credential ID.
       shared_ptr<string> credentialId_ {};
-      // The masked credential content. If credentialType is apiKey, the apiKey value is returned as asterisks (*) of equal length.
+      // The masked credential content. If credentialType is set to apiKey, the apiKey value is returned as asterisks (*) of equal length.
       shared_ptr<string> credentialMetadata_ {};
       // The credential type. Currently, only apiKey is supported.
       shared_ptr<string> credentialType_ {};

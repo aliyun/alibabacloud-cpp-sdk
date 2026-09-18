@@ -104,7 +104,9 @@ namespace Models
 
 
     protected:
-      // The type of the external identity provider. Valid values: DingTalk, Feishu.
+      // The type of the external identity provider. Valid values:
+      // - DingTalk
+      // - Feishu
       shared_ptr<string> identityProviderType_ {};
       // Specifies whether workspace users are allowed to log on through this external identity provider.
       shared_ptr<bool> loginEnabled_ {};
@@ -178,7 +180,7 @@ namespace Models
     shared_ptr<CreateIdentityProviderResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. An error description is returned if the request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

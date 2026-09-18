@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of a service account key. This parameter is required when multiple keys exist. You can leave this parameter empty if only one key exists.
+    // The Connector Key ID. This parameter is not supported in the current version.
     shared_ptr<string> connectorKeyId_ {};
-    // The number of entries per page.
+    // The page size. This parameter is not supported in the current version.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The next page token. This parameter is not supported in the current version.
     shared_ptr<string> nextToken_ {};
   };
 

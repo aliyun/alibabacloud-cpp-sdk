@@ -95,7 +95,13 @@ namespace Models
     protected:
       // The external channel type, such as DINGTALK, FEISHU, or WECOM. This parameter is empty for non-external channels.
       shared_ptr<string> channelType_ {};
+      // The unique identifier of the active session.
       shared_ptr<string> sessionId_ {};
+      // The session source type. Valid values:
+      // - API: API call.
+      // - CONSOLE_DEBUG: Console debugging.
+      // - EXTERNAL_CHANNEL: External channel.
+      // - UNKNOWN: Unknown source.
       shared_ptr<string> sourceType_ {};
     };
 
@@ -168,14 +174,25 @@ namespace Models
 
 
   protected:
+    // The business status code. The value SUCCESS is returned if the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code. The value 200 is returned if the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of active sessions in the sandbox.
     shared_ptr<vector<ListSandboxSessionsResponseBody::Items>> items_ {};
+    // The maximum number of records per page for this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message. The value success is returned if the request was successful.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. An empty value indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of records that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

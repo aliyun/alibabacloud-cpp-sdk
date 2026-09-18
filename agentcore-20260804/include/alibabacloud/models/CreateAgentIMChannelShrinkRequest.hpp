@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<string> bodyShrink_ {};
-    // A reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
+    // The reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
     shared_ptr<string> clientToken_ {};
   };
 

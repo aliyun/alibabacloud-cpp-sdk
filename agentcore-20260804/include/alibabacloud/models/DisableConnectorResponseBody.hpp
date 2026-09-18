@@ -108,9 +108,9 @@ namespace Models
       shared_ptr<int64_t> boundAgentCount_ {};
       // The time when the Connector was enabled.
       shared_ptr<string> enabledAt_ {};
-      // A JSON string. For qodercli: {"site":"global|cn","organizationId":"...","apiKey":"...","serviceAccountKeys":[{"id":"ckey-xxx","name":"default","serviceAccountKey":"..."}]}. This field is empty when the Connector is not enabled.
+      // The Connector configuration JSON string before the Connector was disabled. This is sensitive data.
       shared_ptr<string> metadata_ {};
-      // The Connector name.
+      // The Connector name. Currently, the value is qodercli.
       shared_ptr<string> name_ {};
       // The Connector status.
       shared_ptr<string> status_ {};

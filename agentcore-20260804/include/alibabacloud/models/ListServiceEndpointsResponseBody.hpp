@@ -152,13 +152,13 @@ namespace Models
 
 
       protected:
-        // The target agent ID. This parameter is returned when the target type is AGENT_VERSION.
+        // The target agent ID. Returned when the target type is AGENT_VERSION.
         shared_ptr<string> agentId_ {};
-        // The target agent version number. This parameter is returned when the target type is AGENT_VERSION.
+        // The target agent version number. Returned when the target type is AGENT_VERSION.
         shared_ptr<string> agentVersion_ {};
-        // The collaboration component type. This parameter is returned when the target type is TEAM_COLLABORATION.
+        // The collaboration component type. Returned when the target type is TEAM_COLLABORATION.
         shared_ptr<string> collaborationComponent_ {};
-        // The workspace resource binding ID associated with the target collaboration component. This parameter is returned when the target type is TEAM_COLLABORATION.
+        // The workspace resource binding ID associated with the target collaboration component. Returned when the target type is TEAM_COLLABORATION.
         shared_ptr<string> resourceBindingId_ {};
         // The target type. Valid values: AGENT_VERSION, TEAM_COLLABORATION.
         shared_ptr<string> targetType_ {};
@@ -361,13 +361,13 @@ namespace Models
       shared_ptr<vector<Items::AccessUrls>> accessUrls_ {};
       // The authentication configuration of the service endpoint.
       shared_ptr<Items::Authentication> authentication_ {};
-      // The creation time in UTC, formatted according to RFC 3339.
+      // The creation time in UTC, formatted in RFC 3339.
       shared_ptr<string> createdAt_ {};
       // The service endpoint type. DEFAULT indicates a default endpoint created and maintained by the platform. NAMED indicates a named endpoint explicitly created by the user.
       shared_ptr<string> endpointType_ {};
       // The service endpoint name. The name is unique within the workspace and is 1 to 128 characters in length.
       shared_ptr<string> name_ {};
-      // The region ID where the service endpoint is located.
+      // The region ID of the service endpoint.
       shared_ptr<string> regionId_ {};
       // The service endpoint ID.
       shared_ptr<string> serviceEndpointId_ {};
@@ -377,7 +377,7 @@ namespace Models
       shared_ptr<string> statusReason_ {};
       // The target routing configuration of the service endpoint.
       shared_ptr<Items::Target> target_ {};
-      // The last modification time in UTC, formatted according to RFC 3339.
+      // The time of the last modification in UTC, formatted in RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -460,9 +460,9 @@ namespace Models
     shared_ptr<vector<ListServiceEndpointsResponseBody::Items>> items_ {};
     // The maximum number of records per page that takes effect for this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. An error description is returned when the request fails.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. This value is empty if no more pages exist.
+    // The pagination token for the next page. This value is empty when no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

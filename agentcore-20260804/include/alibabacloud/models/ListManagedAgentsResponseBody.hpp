@@ -148,7 +148,7 @@ namespace Models
         protected:
           // Binds a Service Account Key of the QoderCLI Connector by Key ID. This parameter can be omitted when only one key exists, but is required when multiple keys exist.
           shared_ptr<string> connectorServiceAccountKey_ {};
-          // The Connector Key name populated during queries. This parameter is not used as a binding reference during writes.
+          // The Connector Key name populated during queries. This value is not used as a binding reference during writes.
           shared_ptr<string> connectorServiceAccountName_ {};
         };
 
@@ -286,13 +286,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The runtime type.
       shared_ptr<string> runtime_ {};
-      // The status of the managed agent. Valid values:
-      // - Creating: Being created.
-      // - Failed: Failed.
-      // - Running: Running.
-      // - Updating: Being updated.
-      // - Deleted: Deleted.
-      // - Deleting: Being deleted.
+      // The status of the managed agent.
       shared_ptr<string> status_ {};
       // The update time in RFC 3339 format.
       shared_ptr<string> updatedAt_ {};
@@ -379,7 +373,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The result message of the request.
     shared_ptr<string> message_ {};
-    // The token for the next page. An empty value indicates that the last page has been reached.
+    // The token for the next page. An empty value indicates the last page.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

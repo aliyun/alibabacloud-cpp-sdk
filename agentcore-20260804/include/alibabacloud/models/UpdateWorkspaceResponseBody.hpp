@@ -147,7 +147,7 @@ namespace Models
           shared_ptr<bool> enabled_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The VPC ID.
+          // The VPC ID of the user.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -162,7 +162,7 @@ namespace Models
 
 
       protected:
-        // The VPC network configuration.
+        // The VPC network configuration of the user.
         shared_ptr<NetworkConfiguration::Vpc> vpc_ {};
       };
 
@@ -245,11 +245,11 @@ namespace Models
       shared_ptr<Data::NetworkConfiguration> networkConfiguration_ {};
       // The region ID of the workspace.
       shared_ptr<string> regionId_ {};
-      // The workspace status. Valid values: Initializing, Initialized, Deleting, Deleted.
+      // The workspace status. Valid values: Initializing, Initialized, Deleting, and Deleted.
       shared_ptr<string> status_ {};
       // The storage type of the workspace.
       shared_ptr<string> storageType_ {};
-      // The ID of the tenant to which the workspace belongs.
+      // The tenant ID to which the workspace belongs.
       shared_ptr<string> tenantId_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The number of entries per page.
+    // The page size. The current version does not support this parameter.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next page.
+    // The next page token. The current version does not support this parameter.
     shared_ptr<string> nextToken_ {};
   };
 

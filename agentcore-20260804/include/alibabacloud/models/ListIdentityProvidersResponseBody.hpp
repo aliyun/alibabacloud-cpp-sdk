@@ -130,11 +130,11 @@ namespace Models
 
 
       protected:
-        // The App ID of the Lark application. Required when the binding type is Feishu.
+        // The App ID of the Lark application. This parameter is required when the binding type is Feishu.
         shared_ptr<string> appId_ {};
-        // The AppKey of the DingTalk application. Required when the binding type is DingTalk.
+        // The AppKey of the DingTalk application. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> appKey_ {};
-        // The CorpId of the DingTalk enterprise. Required when the binding type is DingTalk.
+        // The CorpId of the DingTalk organization. This parameter is required when the binding type is DingTalk.
         shared_ptr<string> corpId_ {};
       };
 
@@ -216,32 +216,21 @@ namespace Models
     protected:
       // The creation time in UTC, formatted according to RFC 3339.
       shared_ptr<string> createdAt_ {};
-      // The event subscription callback URL. Configure this URL in the external identity provider application to receive organization change events. An empty string is returned if the user pool has not been provisioned.
+      // The event subscription callback URL. Configure this URL in the external identity provider application to receive organization change events. An empty string is returned if the user pool has not been activated.
       shared_ptr<string> eventSubscriptionCallbackUrl_ {};
-      // The type of the external identity provider. Valid values:
-      // - DingTalk
-      // - Feishu
+      // The type of the external identity provider. Valid values: DingTalk, Feishu.
       shared_ptr<string> identityProviderType_ {};
-      // The logon callback URL. Configure this URL in the external identity provider application. An empty string is returned if the user pool has not been provisioned.
+      // The logon callback URL. Configure this URL in the external identity provider application. An empty string is returned if the user pool has not been activated.
       shared_ptr<string> loginCallbackUrl_ {};
       // Indicates whether workspace users are allowed to log on through this external identity provider.
       shared_ptr<bool> loginEnabled_ {};
       // The application configuration of the external identity provider. Application secret configurations are not returned.
       shared_ptr<Items::Metadata> metadata_ {};
-      // The binding status. Valid values:
-      // - CONFIGURED: The configuration has been accepted and is waiting for user pool provisioning.
-      // - SYNCING: Organization members are being synchronized.
-      // - SYNCED: Organization member synchronization is complete.
-      // - READY: The binding is active.
-      // - SYNC_FAILED: Organization member synchronization failed.
-      // - UPDATING: The configuration is being updated.
-      // - UPDATE_FAILED: The configuration update failed.
-      // - DISCONNECTING: The binding is being removed.
-      // - DISCONNECT_FAILED: The unbinding failed.
+      // The binding status. Valid values: CONFIGURED (The configuration has been accepted and the user pool is pending activation.), SYNCING (Organization members are being synchronized.), SYNCED (Organization member synchronization is complete.), READY (The binding is active.), SYNC_FAILED (Organization member synchronization failed.), UPDATING (The configuration is being updated.), UPDATE_FAILED (The configuration update failed.), DISCONNECTING (The binding is being removed.), DISCONNECT_FAILED (The unbinding failed.).
       shared_ptr<string> status_ {};
-      // Indicates whether organization member synchronization is enabled. When enabled, organization members are synchronized from this external identity provider as workspace users.
+      // Indicates whether organization member synchronization is enabled. When enabled, the external identity provider synchronizes organization members as workspace users.
       shared_ptr<bool> syncEnabled_ {};
-      // The last modification time in UTC, formatted according to RFC 3339.
+      // The time of the last modification in UTC, formatted according to RFC 3339.
       shared_ptr<string> updatedAt_ {};
       // The workspace ID.
       shared_ptr<string> workspaceId_ {};
@@ -322,11 +311,11 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The list of external identity providers.
     shared_ptr<vector<ListIdentityProvidersResponseBody::Items>> items_ {};
-    // The maximum number of records per page that takes effect for this query.
+    // The maximum number of records per page that took effect for this query.
     shared_ptr<int32_t> maxResults_ {};
-    // The response message. An error description is returned if the request fails.
+    // The response message. An error description is returned if the request failed.
     shared_ptr<string> message_ {};
-    // The pagination token for the next page. This parameter is empty if no more pages exist.
+    // The pagination token for the next page. This parameter is empty if no more pages are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

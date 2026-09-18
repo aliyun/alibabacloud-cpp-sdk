@@ -130,12 +130,19 @@ namespace Models
 
 
     protected:
+      // The number of active sessions for this sandbox.
       shared_ptr<int32_t> activeSessionCount_ {};
+      // The time when the sandbox was created, in RFC 3339 UTC format.
       shared_ptr<string> createdAt_ {};
+      // The time of the last activity on the sandbox, in RFC 3339 UTC format.
       shared_ptr<string> lastActiveAt_ {};
+      // The time of the last heartbeat from the sandbox, in RFC 3339 UTC format.
       shared_ptr<string> lastHeartbeatAt_ {};
+      // The maximum number of concurrent sessions allowed for this sandbox, derived from the auto scaling configuration in effect at runtime. This value is empty if auto scaling is not enabled or the configuration is unavailable.
       shared_ptr<int32_t> maxConcurrentSessions_ {};
+      // The current running phase of the sandbox.
       shared_ptr<string> phase_ {};
+      // The sandbox ID. You can call the ListSandboxes operation to query sandbox IDs.
       shared_ptr<string> sandboxId_ {};
     };
 
@@ -208,14 +215,25 @@ namespace Models
 
 
   protected:
+    // The business status code. The value SUCCESS is returned if the request was successful.
     shared_ptr<string> code_ {};
+    // The HTTP status code. The value 200 is returned if the request was successful.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The list of sandboxes that match the filter conditions.
     shared_ptr<vector<ListSandboxesResponseBody::Items>> items_ {};
+    // The maximum number of records per page for this query.
     shared_ptr<int32_t> maxResults_ {};
+    // The response message. The value success is returned if the request was successful.
     shared_ptr<string> message_ {};
+    // The pagination token for the next page. An empty value indicates that no more results are available.
     shared_ptr<string> nextToken_ {};
+    // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful. Valid values:
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
+    // The total number of records that match the query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

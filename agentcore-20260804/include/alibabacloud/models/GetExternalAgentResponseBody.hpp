@@ -381,12 +381,19 @@ namespace Models
 
 
         protected:
+          // Indicates whether the quota is enabled. This parameter is not returned if no quota is configured.
           shared_ptr<bool> enabled_ {};
+          // The quota limit type. Currently, only token is supported.
           shared_ptr<string> limitType_ {};
+          // Indicates whether the quota has been exceeded in the current cycle. This is a read-only field returned by the backend.
           shared_ptr<bool> overLimit_ {};
+          // The quota statistical period. day indicates daily and month indicates monthly.
           shared_ptr<string> periodType_ {};
+          // The gateway quota rule status. This is a read-only field returned by the backend.
           shared_ptr<string> ruleStatus_ {};
+          // The maximum number of tokens that can be consumed within a single cycle.
           shared_ptr<int64_t> usageLimit_ {};
+          // The number of tokens consumed in the current cycle. This is a read-only field returned by the backend.
           shared_ptr<int64_t> usedAmount_ {};
         };
 
@@ -420,6 +427,7 @@ namespace Models
         shared_ptr<string> modelConnectionId_ {};
         // The upstream model name.
         shared_ptr<string> modelName_ {};
+        // The model token quota configuration and the quota usage status in the current cycle. This parameter is empty if no quota is configured.
         shared_ptr<Model::Quota> quota_ {};
       };
 
@@ -493,9 +501,9 @@ namespace Models
         // - STALE: Heartbeat expired.
         // - UNKNOWN: Unknown.
         shared_ptr<string> heartbeatStatus_ {};
-        // The last active time of the external agent in RFC 3339 format.
+        // The most recent active time of the external agent in RFC 3339 format.
         shared_ptr<string> lastActiveAt_ {};
-        // The last heartbeat time of the external agent in RFC 3339 format.
+        // The most recent heartbeat time of the external agent in RFC 3339 format.
         shared_ptr<string> lastHeartbeat_ {};
         // The local IP address reported by the external agent.
         shared_ptr<string> localIP_ {};
@@ -685,7 +693,7 @@ namespace Models
       shared_ptr<string> latestVersionStatus_ {};
       // The model configuration. This parameter is available only when modelSource is set to PLATFORM.
       shared_ptr<Data::Model> model_ {};
-      // The source of the model configuration. PLATFORM indicates that the model configuration is parsed and delivered by the platform. RUNTIME indicates that the model is managed by the external runtime, and the model parameter cannot be specified at the same time. Valid values:
+      // The model configuration source. PLATFORM indicates that the model configuration is parsed and distributed by the platform. RUNTIME indicates that the model is managed by the external runtime, and the model parameter cannot be specified at the same time. Valid values:
       // - PLATFORM: Platform model.
       // - RUNTIME: Runtime model.
       shared_ptr<string> modelSource_ {};
@@ -762,13 +770,13 @@ namespace Models
 
 
   protected:
-    // The business status code. The value SUCCESS is returned when the request succeeds.
+    // The business status code. The value is SUCCESS when the request succeeds.
     shared_ptr<string> code_ {};
     // The details of the external agent.
     shared_ptr<GetExternalAgentResponseBody::Data> data_ {};
-    // The HTTP status code. The value 200 is returned when the request succeeds.
+    // The HTTP status code. The value is 200 when the request succeeds.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The message that indicates the result of the request.
+    // The request processing result message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
