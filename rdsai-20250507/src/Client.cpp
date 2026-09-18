@@ -4328,6 +4328,10 @@ ModifyMessagesFeedbacksResponse Client::modifyMessagesFeedbacksWithOptions(const
     query["Rating"] = request.getRating();
   }
 
+  if (!!request.hasWorkspaceId()) {
+    query["WorkspaceId"] = request.getWorkspaceId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());

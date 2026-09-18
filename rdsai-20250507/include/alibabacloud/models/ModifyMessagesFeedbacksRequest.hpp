@@ -16,11 +16,13 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(MessageId, messageId_);
       DARABONBA_PTR_TO_JSON(Rating, rating_);
+      DARABONBA_PTR_TO_JSON(WorkspaceId, workspaceId_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyMessagesFeedbacksRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(MessageId, messageId_);
       DARABONBA_PTR_FROM_JSON(Rating, rating_);
+      DARABONBA_PTR_FROM_JSON(WorkspaceId, workspaceId_);
     };
     ModifyMessagesFeedbacksRequest() = default ;
     ModifyMessagesFeedbacksRequest(const ModifyMessagesFeedbacksRequest &) = default ;
@@ -34,7 +36,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->content_ == nullptr
-        && this->messageId_ == nullptr && this->rating_ == nullptr; };
+        && this->messageId_ == nullptr && this->rating_ == nullptr && this->workspaceId_ == nullptr; };
     // content Field Functions 
     bool hasContent() const { return this->content_ != nullptr;};
     void deleteContent() { this->content_ = nullptr;};
@@ -56,6 +58,13 @@ namespace Models
     inline ModifyMessagesFeedbacksRequest& setRating(string rating) { DARABONBA_PTR_SET_VALUE(rating_, rating) };
 
 
+    // workspaceId Field Functions 
+    bool hasWorkspaceId() const { return this->workspaceId_ != nullptr;};
+    void deleteWorkspaceId() { this->workspaceId_ = nullptr;};
+    inline string getWorkspaceId() const { DARABONBA_PTR_GET_DEFAULT(workspaceId_, "") };
+    inline ModifyMessagesFeedbacksRequest& setWorkspaceId(string workspaceId) { DARABONBA_PTR_SET_VALUE(workspaceId_, workspaceId) };
+
+
   protected:
     // The feedback content.
     shared_ptr<string> content_ {};
@@ -63,6 +72,8 @@ namespace Models
     shared_ptr<string> messageId_ {};
     // The rating.
     shared_ptr<string> rating_ {};
+    // The ContextDB workspace ID. Required only for ContextDB Manager App requests.
+    shared_ptr<string> workspaceId_ {};
   };
 
   } // namespace Models
