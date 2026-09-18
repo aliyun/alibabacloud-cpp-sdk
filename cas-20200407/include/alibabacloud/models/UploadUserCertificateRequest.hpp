@@ -168,26 +168,26 @@ namespace Models
 
 
   protected:
-    // The non-China SM certificate content in PEM format.
+    // The content of the non-SM certificate in PEM format.
     shared_ptr<string> cert_ {};
-    // The client token that is used to ensure the idempotence of the request.
+    // The client token used to ensure the idempotence of the request.
     shared_ptr<string> clientToken_ {};
-    // The encryption certificate content of the China SM certificate in PEM format. This field is invalid when Cert and Key are not empty.
+    // The content of the SM encryption certificate in PEM format. This field is ignored if Cert and Key are not empty.
     shared_ptr<string> encryptCert_ {};
-    // The private key content of the encryption certificate of the China SM certificate in PEM format. This field is invalid when Cert and Key are not empty.
+    // The private key of the SM encryption certificate in PEM format. This field is ignored if Cert and Key are not empty.
     shared_ptr<string> encryptPrivateKey_ {};
-    // The private key content of the non-China SM certificate in PEM format.
+    // The private key of the non-SM certificate in PEM format.
     shared_ptr<string> key_ {};
-    // The custom certificate name. Maximum length: 63 characters. All character types are supported, including letters, digits, and underscores.
-    // > Certificate names must be unique within the same user account.
+    // The custom name of the certificate. Maximum length: 63 characters. Supports all character types, including letters, digits, and underscores.
+    // > Certificate names must be unique within the same account.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The signing certificate content of the China SM certificate in PEM format. This field is invalid when Cert and Key are not empty.
+    // The content of the SM signing certificate in PEM format. This field is ignored if Cert and Key are not empty.
     shared_ptr<string> signCert_ {};
-    // The private key content of the signing certificate of the China SM certificate in PEM format. This field is invalid when Cert and Key are not empty.
+    // The private key of the SM signing certificate in PEM format. This field is ignored if Cert and Key are not empty.
     shared_ptr<string> signPrivateKey_ {};
     // The list of tags.
     shared_ptr<vector<UploadUserCertificateRequest::Tags>> tags_ {};

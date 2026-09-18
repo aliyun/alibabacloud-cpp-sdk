@@ -2109,7 +2109,9 @@ GetCertWarehouseQuotaResponse Client::getCertWarehouseQuota() {
 }
 
 /**
- * @summary Queries the details of a certificate without returning the certificate content or private key content.
+ * @summary Queries the details of a certificate. The certificate content and private key content are not returned.
+ *
+ * @description The per-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API calls are throttled, which may affect your business. Use this operation as appropriate.
  *
  * @param request GetCertificateDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2140,7 +2142,9 @@ GetCertificateDetailResponse Client::getCertificateDetailWithOptions(const GetCe
 }
 
 /**
- * @summary Queries the details of a certificate without returning the certificate content or private key content.
+ * @summary Queries the details of a certificate. The certificate content and private key content are not returned.
+ *
+ * @description The per-user queries per second (QPS) limit for this operation is 100. If this limit is exceeded, the API calls are throttled, which may affect your business. Use this operation as appropriate.
  *
  * @param request GetCertificateDetailRequest
  * @return GetCertificateDetailResponse
@@ -2816,7 +2820,10 @@ ListCertWarehouseResponse Client::listCertWarehouse(const ListCertWarehouseReque
 }
 
 /**
- * @summary Queries the certificates managed by Certificate Management Service.
+ * @summary Retrieves a list of certificates.
+ *
+ * @description Queries the operation logs of CA certificates, including root CA certificates and subordinate CA certificates. For example, you can query the creation logs and status change logs of CA certificates.
+ * The per-user queries per second (QPS) limit for this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request ListCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2871,7 +2878,10 @@ ListCertificatesResponse Client::listCertificatesWithOptions(const ListCertifica
 }
 
 /**
- * @summary Queries the certificates managed by Certificate Management Service.
+ * @summary Retrieves a list of certificates.
+ *
+ * @description Queries the operation logs of CA certificates, including root CA certificates and subordinate CA certificates. For example, you can query the creation logs and status change logs of CA certificates.
+ * The per-user queries per second (QPS) limit for this operation is 10. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at an appropriate frequency.
  *
  * @param request ListCertificatesRequest
  * @return ListCertificatesResponse
@@ -4872,15 +4882,9 @@ UploadPCACertResponse Client::uploadPCACert(const UploadPCACertRequest &request)
 }
 
 /**
- * @summary Uploads a certificate, including a standard Chinese national cryptographic (China SM) certificate or a non-China SM certificate.
+ * @summary Uploads a certificate, including a standard SM certificate or a non-SM certificate.
  *
- * @description The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms. The China SM certificate includes an encryption certificate and a signing certificate. The China SM certificate is used in China to comply with the national cryptographic standards.
- * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
- * The China SM certificate includes an encryption certificate and a signing certificate.
- * The China SM certificate is used in China to comply with the national cryptographic standards.
- * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
- * The China SM certificate includes an encryption certificate and a signing certificate.
- * The throttling limit for this API is 100 queries per second (QPS) per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
+ * @description The maximum number of calls per user is 100 per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
  *
  * @param request UploadUserCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4947,15 +4951,9 @@ UploadUserCertificateResponse Client::uploadUserCertificateWithOptions(const Upl
 }
 
 /**
- * @summary Uploads a certificate, including a standard Chinese national cryptographic (China SM) certificate or a non-China SM certificate.
+ * @summary Uploads a certificate, including a standard SM certificate or a non-SM certificate.
  *
- * @description The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms. The China SM certificate includes an encryption certificate and a signing certificate. The China SM certificate is used in China to comply with the national cryptographic standards.
- * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
- * The China SM certificate includes an encryption certificate and a signing certificate.
- * The China SM certificate is used in China to comply with the national cryptographic standards.
- * The China SM certificate refers to a certificate that uses the ShangMi (SM) cryptographic algorithms.
- * The China SM certificate includes an encryption certificate and a signing certificate.
- * The throttling limit for this API is 100 queries per second (QPS) per user. If this limit is exceeded, API calls are throttled, which may affect your business. Call this API at a reasonable frequency.
+ * @description The maximum number of calls per user is 100 per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
  *
  * @param request UploadUserCertificateRequest
  * @return UploadUserCertificateResponse

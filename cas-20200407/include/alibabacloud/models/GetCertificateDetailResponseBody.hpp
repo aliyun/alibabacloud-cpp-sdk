@@ -25,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CompanyId, companyId_);
       DARABONBA_PTR_TO_JSON(ContactId, contactId_);
       DARABONBA_PTR_TO_JSON(Csr, csr_);
+      DARABONBA_PTR_TO_JSON(DeploymentDesc, deploymentDesc_);
       DARABONBA_PTR_TO_JSON(Domain, domain_);
       DARABONBA_PTR_TO_JSON(ExistPrivateKey, existPrivateKey_);
       DARABONBA_PTR_TO_JSON(FingerPrint, fingerPrint_);
@@ -51,6 +52,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CompanyId, companyId_);
       DARABONBA_PTR_FROM_JSON(ContactId, contactId_);
       DARABONBA_PTR_FROM_JSON(Csr, csr_);
+      DARABONBA_PTR_FROM_JSON(DeploymentDesc, deploymentDesc_);
       DARABONBA_PTR_FROM_JSON(Domain, domain_);
       DARABONBA_PTR_FROM_JSON(ExistPrivateKey, existPrivateKey_);
       DARABONBA_PTR_FROM_JSON(FingerPrint, fingerPrint_);
@@ -187,7 +189,7 @@ namespace Models
 
 
     protected:
-      // The issuer name in the certificate chain.
+      // The issuer name of the certificate chain.
       shared_ptr<string> issuer_ {};
       // The end time of the certificate validity period.
       shared_ptr<int64_t> notAfter_ {};
@@ -195,16 +197,16 @@ namespace Models
       shared_ptr<int64_t> notBefore_ {};
       // The remaining days of the certificate chain validity period.
       shared_ptr<int32_t> remainDay_ {};
-      // The common name in the certificate chain.
+      // The common name of the certificate chain.
       shared_ptr<string> subject_ {};
     };
 
     virtual bool empty() const override { return this->algorithm_ == nullptr
         && this->certIdentifier_ == nullptr && this->certificateChainList_ == nullptr && this->certificateId_ == nullptr && this->certificateName_ == nullptr && this->certificateSource_ == nullptr
         && this->certificateStatus_ == nullptr && this->commonName_ == nullptr && this->companyId_ == nullptr && this->contactId_ == nullptr && this->csr_ == nullptr
-        && this->domain_ == nullptr && this->existPrivateKey_ == nullptr && this->fingerPrint_ == nullptr && this->instanceId_ == nullptr && this->issuer_ == nullptr
-        && this->keySize_ == nullptr && this->notAfter_ == nullptr && this->notBefore_ == nullptr && this->requestId_ == nullptr && this->serial_ == nullptr
-        && this->subjectAlternativeNames_ == nullptr && this->tags_ == nullptr && this->usingProductList_ == nullptr; };
+        && this->deploymentDesc_ == nullptr && this->domain_ == nullptr && this->existPrivateKey_ == nullptr && this->fingerPrint_ == nullptr && this->instanceId_ == nullptr
+        && this->issuer_ == nullptr && this->keySize_ == nullptr && this->notAfter_ == nullptr && this->notBefore_ == nullptr && this->requestId_ == nullptr
+        && this->serial_ == nullptr && this->subjectAlternativeNames_ == nullptr && this->tags_ == nullptr && this->usingProductList_ == nullptr; };
     // algorithm Field Functions 
     bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
     void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -282,6 +284,13 @@ namespace Models
     void deleteCsr() { this->csr_ = nullptr;};
     inline string getCsr() const { DARABONBA_PTR_GET_DEFAULT(csr_, "") };
     inline GetCertificateDetailResponseBody& setCsr(string csr) { DARABONBA_PTR_SET_VALUE(csr_, csr) };
+
+
+    // deploymentDesc Field Functions 
+    bool hasDeploymentDesc() const { return this->deploymentDesc_ != nullptr;};
+    void deleteDeploymentDesc() { this->deploymentDesc_ = nullptr;};
+    inline string getDeploymentDesc() const { DARABONBA_PTR_GET_DEFAULT(deploymentDesc_, "") };
+    inline GetCertificateDetailResponseBody& setDeploymentDesc(string deploymentDesc) { DARABONBA_PTR_SET_VALUE(deploymentDesc_, deploymentDesc) };
 
 
     // domain Field Functions 
@@ -382,16 +391,16 @@ namespace Models
 
 
   protected:
-    // The certificate algorithm. Valid values:
+    // The certificate algorithm.
     // 
     // - **RSA**: RSA algorithm.
     // - **ECC**: ECC algorithm.
-    // - **SM2**: SM2 encryption algorithm.
+    // - **SM2**: SM2 algorithm.
     shared_ptr<string> algorithm_ {};
-    // The global certificate ID in the format of certificate ID + "-" + site region ID. This is commonly used across Alibaba Cloud services.
-    //   --For the China site, the format is certificate ID + "-cn-hangzhou".
-    // For the China site, the format is certificate ID + "-ap-southeast-1".
-    // For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the China site is "123-ap-southeast-1".
+    // The global certificate ID in the format of certificate ID + "-" + site region ID. This ID is commonly used across Alibaba Cloud services.
+    //   --For the China site, the value is certificate ID + "-cn-hangzhou".
+    // For the International site, the value is certificate ID + "-ap-southeast-1".
+    // For example, if the certificate ID is 123, the CertIdentifier on the China site is "123-cn-hangzhou", and the CertIdentifier on the International site is "123-ap-southeast-1".
     shared_ptr<string> certIdentifier_ {};
     // The certificate chain information list.
     shared_ptr<vector<GetCertificateDetailResponseBody::CertificateChainList>> certificateChainList_ {};
@@ -399,26 +408,34 @@ namespace Models
     shared_ptr<int32_t> certificateId_ {};
     // The certificate name.
     shared_ptr<string> certificateName_ {};
-    // The certificate source. Valid values:
-    // - BUY: purchased certificate.
-    // - TEST: test certificate.
-    // - UPLOAD: uploaded certificate.
+    // The certificate source.
+    // - BUY: Purchased certificate.
+    // - TEST: Test certificate.
+    // - UPLOAD: Uploaded certificate.
     shared_ptr<string> certificateSource_ {};
-    // The certificate status. Valid values:
-    // - **issued**: issued.
-    // - **revoked**: revoked.
-    // - **willExpire**: about to expire.
-    // - **expired**: expired.
+    // The certificate status.
+    // - **issued**: Issued.
+    // - **revoked**: Revoked.
+    // - **willExpire**: About to expire.
+    // - **expired**: Expired.
     shared_ptr<string> certificateStatus_ {};
     // The common domain name.
     shared_ptr<string> commonName_ {};
-    // The company information ID associated with the certificate application. This field is empty for DV certificates.
+    // The company information ID associated with the certificate application. This value is empty for DV certificates.
     shared_ptr<int64_t> companyId_ {};
     // The contact ID.
     shared_ptr<int64_t> contactId_ {};
     // The certificate signing request (CSR) used to issue the certificate.
     shared_ptr<string> csr_ {};
-    // All domain names contained in the certificate. Multiple domain names are separated by commas.
+    // The deployment information in JSON format:
+    // 
+    // --Scope: Valid values are all/server. The value is all if the certificate has a private key, or server if it does not.
+    // 
+    // --ServerName: The name of the server associated with the certificate instance.
+    // 
+    // --ResourceInstanceId: The resource identifier of the server associated with the certificate instance.
+    shared_ptr<string> deploymentDesc_ {};
+    // All domain names included in the certificate. Multiple domain names are separated by commas (,).
     shared_ptr<string> domain_ {};
     // Indicates whether a private key exists on the backend for the current certificate. Valid values:
     // 
@@ -429,7 +446,7 @@ namespace Models
     shared_ptr<string> fingerPrint_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The entity that issued the certificate.
+    // The certificate issue authority.
     shared_ptr<string> issuer_ {};
     // The key algorithm length.
     // - The RSA algorithm length is typically 2048, 3072, or 4096.
@@ -439,7 +456,7 @@ namespace Models
     shared_ptr<int64_t> notAfter_ {};
     // The start time of the certificate validity period.
     shared_ptr<int64_t> notBefore_ {};
-    // The request ID. Alibaba Cloud generates a unique identifier for each API request. You can use this ID to troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The certificate serial number.
     shared_ptr<string> serial_ {};
@@ -447,7 +464,7 @@ namespace Models
     shared_ptr<vector<string>> subjectAlternativeNames_ {};
     // The tag list.
     shared_ptr<vector<GetCertificateDetailResponseBody::Tags>> tags_ {};
-    // The list of cloud services to which the current certificate is deployed.
+    // The list of Alibaba Cloud services to which the certificate is currently deployed.
     shared_ptr<vector<string>> usingProductList_ {};
   };
 
