@@ -238,24 +238,50 @@ namespace Models
 
 
     protected:
+      // The shard boundary information.
       shared_ptr<string> boundary_ {};
+      // The number of verified fields.
       shared_ptr<int64_t> checkColumCount_ {};
+      // The destination data volume. For single SQL verification, this indicates the data volume of the destination result set. For data volume verification and full verification, this indicates the total data volume on the destination.
       shared_ptr<string> dstCount_ {};
+      // The SQL statement executed on the destination.
       shared_ptr<string> dstSql_ {};
+      // The error message.
       shared_ptr<string> errMessage_ {};
+      // The reserved field.
       shared_ptr<string> extra_ {};
+      // The job end time.
       shared_ptr<string> gmtEnd_ {};
+      // The job start time.
       shared_ptr<string> gmtStart_ {};
+      // Indicates whether the data is consistent. Valid values:
+      // - 0: Inconsistent.
+      // - 1: Consistent.
       shared_ptr<int32_t> isConsistent_ {};
+      // The number of verified metrics.
       shared_ptr<int64_t> metricColumCount_ {};
+      // The number of metrics that passed verification.
       shared_ptr<int64_t> metricPassColumCount_ {};
+      // The number of fields that passed verification.
       shared_ptr<int64_t> passColumCount_ {};
+      // The unique ID of the verification result.
       shared_ptr<string> resultId_ {};
+      // The source partition name.
       shared_ptr<string> sourcePtName_ {};
+      // The source data volume. For single SQL verification, this indicates the data volume of the source result set. For data volume verification and full verification, this indicates the total data volume on the source.
       shared_ptr<string> srcCount_ {};
+      // The SQL statement executed on the source.
       shared_ptr<string> srcSql_ {};
+      // The task status. Valid values:
+      // - 0: Created.
+      // - 1: Running.
+      // - 2: Completed.
+      // - 3: Stopped.
+      // - 4: Canceled.
       shared_ptr<int32_t> status_ {};
+      // The step ID, which uniquely identifies an execution step within the job.
       shared_ptr<string> stepId_ {};
+      // The destination partition name.
       shared_ptr<string> targetPtName_ {};
     };
 
@@ -321,13 +347,21 @@ namespace Models
 
 
   protected:
+    // The data list returned by the operation. For the element structure, see the child field descriptions.
     shared_ptr<vector<ListDataCheckReportStepByJobIdResponseBody::Data>> data_ {};
+    // The error code. An empty string is returned if the call is successful.
     shared_ptr<string> errCode_ {};
+    // The error message. An empty string is returned if the call is successful.
     shared_ptr<string> errMessage_ {};
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageIndex_ {};
+    // The page size, which is the number of records returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID, which is used to locate and troubleshoot issues with this call.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure. If the call fails, check errCode and errMessage for troubleshooting.
     shared_ptr<bool> success_ {};
+    // The total number of records that meet the query conditions. This value is used for pagination.
     shared_ptr<int32_t> totalCount_ {};
   };
 

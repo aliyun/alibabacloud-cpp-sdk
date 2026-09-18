@@ -84,12 +84,31 @@ namespace Models
 
 
   protected:
+    // The validation job (batch) ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> batchId_ {};
+    // Filters by validation result. Valid values:
+    // 
+    // - 0: No records.
+    // - 1: Passed.
+    // - 2: Failed.
     shared_ptr<int32_t> checkResult_ {};
+    // Filters by job status. Valid values:
+    // 
+    // - 0: INIT (pending).
+    // - 1: RUNNING (running).
+    // - 2: FINISHED (completed).
+    // - 3: STOPPED (stopped).
+    // - 4: FAIL (failed).
+    // - 6: READY (ready).
+    // - 7: SKIPPED (skipped).
     shared_ptr<int32_t> jobStatus_ {};
+    // The page number. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The table name to filter by.
     shared_ptr<string> tableName_ {};
   };
 

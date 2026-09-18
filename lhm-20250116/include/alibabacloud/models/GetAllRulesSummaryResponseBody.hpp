@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_POSTINNERREADERRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_POSTINNERREADERRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_GETALLRULESSUMMARYRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_GETALLRULESSUMMARYRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,29 +10,29 @@ namespace LHM20250116
 {
 namespace Models
 {
-  class PostInnerReaderResponseBody : public Darabonba::Model {
+  class GetAllRulesSummaryResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const PostInnerReaderResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const GetAllRulesSummaryResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(data, data_);
       DARABONBA_PTR_TO_JSON(errCode, errCode_);
       DARABONBA_PTR_TO_JSON(errMessage, errMessage_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
       DARABONBA_PTR_TO_JSON(success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, PostInnerReaderResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, GetAllRulesSummaryResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(data, data_);
       DARABONBA_PTR_FROM_JSON(errCode, errCode_);
       DARABONBA_PTR_FROM_JSON(errMessage, errMessage_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
       DARABONBA_PTR_FROM_JSON(success, success_);
     };
-    PostInnerReaderResponseBody() = default ;
-    PostInnerReaderResponseBody(const PostInnerReaderResponseBody &) = default ;
-    PostInnerReaderResponseBody(PostInnerReaderResponseBody &&) = default ;
-    PostInnerReaderResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~PostInnerReaderResponseBody() = default ;
-    PostInnerReaderResponseBody& operator=(const PostInnerReaderResponseBody &) = default ;
-    PostInnerReaderResponseBody& operator=(PostInnerReaderResponseBody &&) = default ;
+    GetAllRulesSummaryResponseBody() = default ;
+    GetAllRulesSummaryResponseBody(const GetAllRulesSummaryResponseBody &) = default ;
+    GetAllRulesSummaryResponseBody(GetAllRulesSummaryResponseBody &&) = default ;
+    GetAllRulesSummaryResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~GetAllRulesSummaryResponseBody() = default ;
+    GetAllRulesSummaryResponseBody& operator=(const GetAllRulesSummaryResponseBody &) = default ;
+    GetAllRulesSummaryResponseBody& operator=(GetAllRulesSummaryResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -43,50 +43,48 @@ namespace Models
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
     inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
-    inline PostInnerReaderResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline GetAllRulesSummaryResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // errCode Field Functions 
     bool hasErrCode() const { return this->errCode_ != nullptr;};
     void deleteErrCode() { this->errCode_ = nullptr;};
     inline string getErrCode() const { DARABONBA_PTR_GET_DEFAULT(errCode_, "") };
-    inline PostInnerReaderResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
+    inline GetAllRulesSummaryResponseBody& setErrCode(string errCode) { DARABONBA_PTR_SET_VALUE(errCode_, errCode) };
 
 
     // errMessage Field Functions 
     bool hasErrMessage() const { return this->errMessage_ != nullptr;};
     void deleteErrMessage() { this->errMessage_ = nullptr;};
     inline string getErrMessage() const { DARABONBA_PTR_GET_DEFAULT(errMessage_, "") };
-    inline PostInnerReaderResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
+    inline GetAllRulesSummaryResponseBody& setErrMessage(string errMessage) { DARABONBA_PTR_SET_VALUE(errMessage_, errMessage) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline PostInnerReaderResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline GetAllRulesSummaryResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
-    inline string getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, "") };
-    inline PostInnerReaderResponseBody& setSuccess(string success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
+    inline GetAllRulesSummaryResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The business data returned by the operation (in string format). The specific content varies by operation.
+    // The response data.
     shared_ptr<string> data_ {};
-    // The error code. This value is an empty string if the call is successful.
+    // The fault error message encoding.
     shared_ptr<string> errCode_ {};
-    // The error message. This value is an empty string if the call is successful.
+    // The error message.
     shared_ptr<string> errMessage_ {};
-    // The request ID, which uniquely identifies this call. Provide this value when troubleshooting issues.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: Successful.
-    // - false: Failed. Troubleshoot by using errCode and errMessage.
-    shared_ptr<string> success_ {};
+    // Indicates whether the request was successful.
+    shared_ptr<bool> success_ {};
   };
 
   } // namespace Models

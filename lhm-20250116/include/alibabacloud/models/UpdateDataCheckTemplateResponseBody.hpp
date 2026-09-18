@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The error code. An empty string is returned if the call is successful.
     shared_ptr<string> errCode_ {};
+    // The error message. An empty string is returned if the call is successful.
     shared_ptr<string> errMessage_ {};
+    // The request ID, which is used to locate and troubleshoot issues of this call.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure. If the call fails, check errCode and errMessage for troubleshooting.
     shared_ptr<bool> success_ {};
   };
 

@@ -65,6 +65,7 @@ namespace Models
 
 
     protected:
+      // The task ID that uniquely identifies a task.
       shared_ptr<int64_t> taskId_ {};
     };
 
@@ -108,10 +109,15 @@ namespace Models
 
 
   protected:
+    // The data body returned by the operation. For the field structure, see the child field descriptions.
     shared_ptr<SyntaxCheckAndTransformSqlConversionTaskResponseBody::Data> data_ {};
+    // The error code. An empty string is returned if the call is successful.
     shared_ptr<string> errCode_ {};
+    // The error message. An empty string is returned if the call is successful.
     shared_ptr<string> errMessage_ {};
+    // The request ID, which is used to locate and troubleshoot issues with this call.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. Valid values: true and false. If the call fails, use errCode and errMessage to troubleshoot the issue.
     shared_ptr<bool> success_ {};
   };
 

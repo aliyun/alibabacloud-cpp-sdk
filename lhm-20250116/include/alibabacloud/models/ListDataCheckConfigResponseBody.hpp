@@ -404,42 +404,86 @@ namespace Models
 
 
     protected:
+      // The check algorithm.
       shared_ptr<int32_t> algorithm_ {};
+      // The batch size.
       shared_ptr<int32_t> batchSize_ {};
+      // The check type.
       shared_ptr<int32_t> checkType_ {};
+      // The compare type. Valid values: =, !=, >, <, >=, <=, contains, not contains, and ==.
       shared_ptr<string> comparator_ {};
+      // The reserved field.
       shared_ptr<string> extra_ {};
+      // The group data volume compare threshold.
       shared_ptr<float> groupCountThreshold_ {};
+      // The primary key ID.
       shared_ptr<int64_t> id_ {};
+      // Indicates whether a full table count is performed.
       shared_ptr<int32_t> isFullTableCount_ {};
+      // Indicates whether the check is skipped.
       shared_ptr<int32_t> isSkipped_ {};
+      // The metric type. Valid values:
+      // - CUSTOM_METRIC_NUM: built-in NUM mode.
+      // - CUSTOM_METRIC_LEN: built-in LEN mode.
+      // - CUSTOM_METRIC_MIX: built-in MIX mode.
       shared_ptr<string> metricType_ {};
+      // Indicates whether all columns of the source are checked. Valid values:
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int32_t> sourceCheckAllColumn_ {};
+      // The source table fields. You can specify multiple fields separated by commas (,).
       shared_ptr<string> sourceColumns_ {};
+      // The source compare key.
       shared_ptr<string> sourceCompareKey_ {};
+      // The name of the source data source.
       shared_ptr<string> sourceDataSource_ {};
+      // The GROUP BY clause for the source table.
       shared_ptr<string> sourceGroupClause_ {};
+      // The hint for the source.
       shared_ptr<string> sourceHint_ {};
+      // The ID of the source data source.
       shared_ptr<string> sourceId_ {};
+      // The source partition.
       shared_ptr<string> sourcePartition_ {};
+      // The SQL statement for the source.
       shared_ptr<string> sourceSql_ {};
+      // The source table.
       shared_ptr<string> sourceTable_ {};
+      // The type of the source data source.
       shared_ptr<string> sourceType_ {};
+      // The WHERE clause for the source table.
       shared_ptr<string> sourceWhereClause_ {};
+      // Indicates whether all columns of the target are checked. Valid values:
+      // - 0: No.
+      // - 1: Yes.
       shared_ptr<int32_t> targetCheckAllColumn_ {};
+      // The target table fields. You can specify multiple fields separated by commas (,).
       shared_ptr<string> targetColumns_ {};
+      // The target compare key.
       shared_ptr<string> targetCompareKey_ {};
+      // The target data source.
       shared_ptr<string> targetDataSource_ {};
+      // The GROUP BY clause for the target table.
       shared_ptr<string> targetGroupClause_ {};
+      // The hint for the target.
       shared_ptr<string> targetHint_ {};
+      // The ID of the target data source.
       shared_ptr<string> targetId_ {};
+      // The target partition.
       shared_ptr<string> targetPartition_ {};
+      // The SQL statement for the target.
       shared_ptr<string> targetSql_ {};
+      // The target table.
       shared_ptr<string> targetTable_ {};
+      // The type of the target data source.
       shared_ptr<string> targetType_ {};
+      // The WHERE clause for the target table.
       shared_ptr<string> targetWhereClause_ {};
+      // The configuration details.
       shared_ptr<string> taskConfigInfo_ {};
+      // The batch ID.
       shared_ptr<int64_t> taskId_ {};
+      // The total data volume compare threshold.
       shared_ptr<float> totalCountThreshold_ {};
     };
 
@@ -505,13 +549,21 @@ namespace Models
 
 
   protected:
+    // The data list returned by the operation. For the element structure, see the child field descriptions.
     shared_ptr<vector<ListDataCheckConfigResponseBody::Data>> data_ {};
+    // The error code. An empty string is returned if the call is successful.
     shared_ptr<string> errCode_ {};
+    // The error message. An empty string is returned if the call is successful.
     shared_ptr<string> errMessage_ {};
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageIndex_ {};
+    // The page size, which is the number of records returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID, which is used to locate and troubleshoot issues.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure. If the call fails, check errCode and errMessage for details.
     shared_ptr<bool> success_ {};
+    // The total number of records that match the query conditions. This value is used for pagination.
     shared_ptr<int32_t> totalCount_ {};
   };
 

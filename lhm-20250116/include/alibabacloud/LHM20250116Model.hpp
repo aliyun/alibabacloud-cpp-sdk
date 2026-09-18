@@ -68,6 +68,9 @@
 #include <alibabacloud/models/ExecWorkflowConnectivityRequest.hpp>
 #include <alibabacloud/models/ExecWorkflowConnectivityResponseBody.hpp>
 #include <alibabacloud/models/ExecWorkflowConnectivityResponse.hpp>
+#include <alibabacloud/models/GetAllRulesSummaryRequest.hpp>
+#include <alibabacloud/models/GetAllRulesSummaryResponseBody.hpp>
+#include <alibabacloud/models/GetAllRulesSummaryResponse.hpp>
 #include <alibabacloud/models/GetBwmMigrationSubmitInstanceListRequest.hpp>
 #include <alibabacloud/models/GetBwmMigrationSubmitInstanceListResponseBody.hpp>
 #include <alibabacloud/models/GetBwmMigrationSubmitInstanceListResponse.hpp>
@@ -80,6 +83,9 @@
 #include <alibabacloud/models/GetBwmMigrationWorkflowSubmitStartRequest.hpp>
 #include <alibabacloud/models/GetBwmMigrationWorkflowSubmitStartResponseBody.hpp>
 #include <alibabacloud/models/GetBwmMigrationWorkflowSubmitStartResponse.hpp>
+#include <alibabacloud/models/GetCategoryDetailRequest.hpp>
+#include <alibabacloud/models/GetCategoryDetailResponseBody.hpp>
+#include <alibabacloud/models/GetCategoryDetailResponse.hpp>
 #include <alibabacloud/models/GetCronExecTimeRequest.hpp>
 #include <alibabacloud/models/GetCronExecTimeResponseBody.hpp>
 #include <alibabacloud/models/GetCronExecTimeResponse.hpp>

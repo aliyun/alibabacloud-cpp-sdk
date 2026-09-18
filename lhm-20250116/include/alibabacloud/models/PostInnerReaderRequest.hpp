@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The data source name. Exact match and fuzzy match are supported.
       shared_ptr<string> dsName_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The fallback description used when the data source is missing. Use this parameter to pass the complete data source description information in the request parameters (Plan B).
     shared_ptr<PostInnerReaderRequest::DataSourceDescriptor> dataSourceDescriptor_ {};
+    // The data source name. The discovery task uses this field as the dimension identifier.
     shared_ptr<string> dataSourceName_ {};
   };
 

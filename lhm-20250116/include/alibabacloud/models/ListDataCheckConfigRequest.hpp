@@ -66,9 +66,14 @@ namespace Models
 
 
   protected:
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The source table name for fuzzy search.
     shared_ptr<string> srcTable_ {};
+    // The ID of the data validation task.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};
   };

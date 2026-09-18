@@ -110,9 +110,13 @@ namespace Models
 
 
     protected:
+      // The filter column name expression.
       shared_ptr<string> filterColumnExpression_ {};
+      // The filter column types, separated by vertical bars (|).
       shared_ptr<vector<string>> filterColumnTypes_ {};
+      // The rule ID that uniquely identifies a check rule.
       shared_ptr<string> ruleId_ {};
+      // The weak content algorithm name: md5 or crc32.
       shared_ptr<string> weakContentAlgorithm_ {};
     };
 
@@ -163,8 +167,11 @@ namespace Models
 
 
     protected:
+      // The data type group that identifies the data type category to which the check rule applies. Valid values: integers from 0 to 7. For the description of each value, see the enumeration values.
       shared_ptr<int32_t> dataTypeGroup_ {};
+      // The null values, stored in JSON format.
       shared_ptr<string> nullValues_ {};
+      // The rule ID that uniquely identifies a check rule.
       shared_ptr<string> ruleId_ {};
     };
 
@@ -384,26 +391,47 @@ namespace Models
 
 
     protected:
+      // The check methods (metric calculation methods). Separate multiple values with commas (,), such as SUM,AVG,MIN,MAX. The values must be within the range allowed by the templatetype.
       shared_ptr<string> checkMethods_ {};
+      // Specifies whether to control floating-point precision. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> controlFloatPrecision_ {};
+      // The data type category. Valid values: 0 (native data type) and 1 (complex data type).
       shared_ptr<int32_t> dataTypeClassify_ {};
+      // The data type group that identifies the data type category to which the check rule applies. Valid values: integers from 0 to 7. For the description of each value, see the enumeration values.
       shared_ptr<int32_t> dataTypeGroup_ {};
+      // The list of data types to which the check rule applies. Configure this field as needed.
       shared_ptr<vector<string>> dataTypeList_ {};
+      // The data types. Configure this field as needed.
       shared_ptr<string> dataTypes_ {};
+      // The difference tolerance type. Valid values: 0 (unified) and 1 (custom). Default value: 0.
       shared_ptr<int32_t> diffTolerateType_ {};
+      // The difference tolerance values. For the unified type, this is a single value, such as {"SAME": 0}. For the custom type, values are set separately for each configured tolerance type, such as {"SUM": 0.01, "AVG": 0.001}.
       Darabonba::Json diffTolerateValues_ {};
+      // Specifies whether to enable decimal scale control for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> enableDecimalScale_ {};
+      // The filter column names, separated by commas.
       shared_ptr<string> filterColumnName_ {};
+      // **[Deprecated]** Use the filterColumnName field instead. This field was retained because the previous platform could not be modified.
       shared_ptr<string> filterColumns_ {};
+      // The number of decimal places for floating-point values.
       shared_ptr<int32_t> floatPrecision_ {};
+      // Specifies whether to ignore trailing zero differences in the decimal part. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreDecimalDiff_ {};
+      // Specifies whether to ignore trailing zeros in the decimal scale for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreDecimalScaleSuffixZero_ {};
+      // Specifies whether to ignore the difference between null values and empty strings. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreEmptyDiff_ {};
+      // Specifies whether to ignore zero values for numeric types. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreNumericZero_ {};
+      // Specifies whether to ignore empty strings and null values for string types. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreStringEmpty_ {};
+      // Specifies whether to ignore the difference between null values and zero values. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreZeroDiff_ {};
+      // Specifies whether to enable count (data volume) check. Valid values: 0 (no) and 1 (yes). Default value: 1.
       shared_ptr<int32_t> isCountCheck_ {};
+      // The rule ID that uniquely identifies a check rule.
       shared_ptr<string> ruleId_ {};
+      // The specific decimal scale value for DECIMAL type comparison.
       shared_ptr<int32_t> setDecimalScale_ {};
     };
 
@@ -592,23 +620,70 @@ namespace Models
 
 
     protected:
+      // The check mode. Valid values:
+      // - 0: row-by-row overall comparison.
+      // - 1: row-by-row column-by-column comparison.
+      // - 2: both row-by-row overall comparison and row-by-row column-by-column comparison.
       shared_ptr<int32_t> checkMode_ {};
+      // The equality comparison type for row-by-row column-by-column comparison. Valid values:
+      // - 0: all field types.
+      // - 1: native primitive data types.
+      // - 2: complex data types.
+      // - 3: custom.
       shared_ptr<int32_t> columnEqualCmpType_ {};
+      // The custom type list for equality comparison during row-by-row column-by-column comparison. Separate multiple values with commas.
       shared_ptr<string> columnEqualCmpValues_ {};
+      // Specifies whether to enable cosine similarity during row-by-row column-by-column comparison. Valid values:
+      // - 0: Disabled.
+      // - 1: Enabled.
       shared_ptr<int32_t> columnIsCosine_ {};
+      // Specifies whether to ignore differences between null values and empty strings during row-by-row column-by-column comparison. Valid values:
+      // - 0: Not ignored.
+      // - 1: Ignored.
       shared_ptr<int32_t> columnIsIgnoreNull_ {};
+      // Specifies whether to ignore differences between null values and 0 values during row-by-row column-by-column comparison. Valid values:
+      // - 0: Not ignored.
+      // - 1: Ignored.
       shared_ptr<int32_t> columnIsIgnoreZero_ {};
+      // Specifies whether to enable sampling during row-by-row column-by-column comparison. Valid values:
+      // - 0: Disabled.
+      // - 1: Enabled.
       shared_ptr<int32_t> columnIsSamples_ {};
+      // The sampling method for row-by-row column-by-column comparison. Valid values:
+      // - 0: by row.
+      // - 1: by percentage.
       shared_ptr<int32_t> columnSamplesType_ {};
+      // The sampling value for row-by-row column-by-column comparison. The meaning depends on the sampling method: the number of rows when sampling by row, or the percentage value when sampling by percentage.
       shared_ptr<int32_t> columnSamplesValue_ {};
+      // The size comparison type for row-by-row column-by-column comparison. Valid values:
+      // - 0: all complex data types.
+      // - 1: custom.
       shared_ptr<int32_t> columnSizeCmpType_ {};
+      // The custom type list for size comparison during row-by-row column-by-column comparison. Separate multiple values with commas.
       shared_ptr<string> columnSizeCmpValues_ {};
+      // Specifies whether to enable primary key or composite primary key existence check. Valid values:
+      // - 0: Disabled.
+      // - 1: Enabled.
       shared_ptr<int32_t> isPrimaryKeyCheck_ {};
+      // The row-by-row comparison method. Valid values:
+      // - 0: md5.
+      // - 1: crc32.
       shared_ptr<int32_t> lineCheckType_ {};
+      // Specifies whether to print all columns in the difference details during row-by-row comparison. Valid values:
+      // - 0: Not printed.
+      // - 1: Printed.
       shared_ptr<int32_t> lineIsPrintAll_ {};
+      // Specifies whether to enable sampling during row-by-row comparison. Valid values:
+      // - 0: Disabled.
+      // - 1: Enabled.
       shared_ptr<int32_t> lineIsSamples_ {};
+      // The sampling method for row-by-row comparison. Valid values:
+      // - 0: by row.
+      // - 1: by percentage.
       shared_ptr<int32_t> lineSamplesType_ {};
+      // The sampling value for row-by-row comparison. The meaning depends on the sampling method: the number of rows when sampling by row, or the percentage value when sampling by percentage.
       shared_ptr<int32_t> lineSamplesValue_ {};
+      // The rule ID that uniquely identifies a check rule.
       shared_ptr<string> ruleId_ {};
     };
 
@@ -661,8 +736,11 @@ namespace Models
 
 
     protected:
+      // The datasource engine configuration ID.
       shared_ptr<string> dsEngineId_ {};
+      // The datasource type, such as Hive or MaxCompute.
       shared_ptr<string> dsType_ {};
+      // The list of covered check engine types, such as Tez or MapReduce. When specified as a string, separate multiple values with commas.
       shared_ptr<vector<string>> engineTypes_ {};
     };
 
@@ -882,26 +960,47 @@ namespace Models
 
 
     protected:
+      // The check methods (metric calculation methods). Separate multiple values with commas, such as SUM,AVG,MIN,MAX. The values must be within the range allowed by the templatetype.
       shared_ptr<string> checkMethods_ {};
+      // Specifies whether to control floating-point precision. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> controlFloatPrecision_ {};
+      // The data type category. Valid values: 0 (native data type) and 1 (complex data type).
       shared_ptr<int32_t> dataTypeClassify_ {};
+      // The data type group that identifies the data type category to which the check rule applies. Valid values: integers from 0 to 7. For the description of each value, see the enumeration values.
       shared_ptr<int32_t> dataTypeGroup_ {};
+      // The list of data types to which the check rule applies. Configure this field as needed.
       shared_ptr<vector<string>> dataTypeList_ {};
+      // The data types. Configure this field as needed.
       shared_ptr<string> dataTypes_ {};
+      // The difference tolerance type. Valid values: 0 (unified) and 1 (custom). Default value: 0.
       shared_ptr<int32_t> diffTolerateType_ {};
+      // The difference tolerance values. For the unified type, this is a single value, such as {"SAME": 0}. For the custom type, values are set separately for each configured tolerance type, such as {"SUM": 0.01, "AVG": 0.001}.
       Darabonba::Json diffTolerateValues_ {};
+      // Specifies whether to enable decimal scale control for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> enableDecimalScale_ {};
+      // The filter column names, separated by commas.
       shared_ptr<string> filterColumnName_ {};
+      // **[Deprecated]** Use the filterColumnName field instead. This field was retained because the previous platform could not be modified.
       shared_ptr<string> filterColumns_ {};
+      // The number of decimal places for floating-point values.
       shared_ptr<int32_t> floatPrecision_ {};
+      // Specifies whether to ignore trailing zero differences in the decimal part. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreDecimalDiff_ {};
+      // Specifies whether to ignore trailing zeros in the decimal scale for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreDecimalScaleSuffixZero_ {};
+      // Specifies whether to ignore the difference between null values and empty strings. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreEmptyDiff_ {};
+      // Specifies whether to ignore zero values for numeric types. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreNumericZero_ {};
+      // Specifies whether to ignore empty strings and null values for string types. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreStringEmpty_ {};
+      // Specifies whether to ignore the difference between null values and zero values. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreZeroDiff_ {};
+      // Specifies whether to enable count (data volume) check. Valid values: 0 (no) and 1 (yes). Default value: 1.
       shared_ptr<int32_t> isCountCheck_ {};
+      // The rule ID that uniquely identifies a check rule.
       shared_ptr<string> ruleId_ {};
+      // The specific decimal scale value for DECIMAL type comparison.
       shared_ptr<int32_t> setDecimalScale_ {};
     };
 
@@ -1121,26 +1220,47 @@ namespace Models
 
 
     protected:
+      // The check methods (metric calculation methods). Separate multiple values with commas, such as SUM,AVG,MIN,MAX. The values must be within the range allowed by the templatetype.
       shared_ptr<string> checkMethods_ {};
+      // Specifies whether to control floating-point precision. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> controlFloatPrecision_ {};
+      // The data type category. Valid values: 0 (native data type) and 1 (complex data type).
       shared_ptr<int32_t> dataTypeClassify_ {};
+      // The data type group that identifies the data type category to which the check rule applies. Valid values: integers from 0 to 7. For the description of each value, see the enumeration values.
       shared_ptr<int32_t> dataTypeGroup_ {};
+      // The list of data types to which the check rule applies. Configure this field as needed.
       shared_ptr<vector<string>> dataTypeList_ {};
+      // The data types. Configure this field as needed.
       shared_ptr<string> dataTypes_ {};
+      // The difference tolerance type. Valid values: 0 (unified) and 1 (custom). Default value: 0.
       shared_ptr<int32_t> diffTolerateType_ {};
+      // The difference tolerance values. For the unified type, this is a single value, such as {"SAME": 0}. For the custom type, values are set separately for each configured tolerance type, such as {"SUM": 0.01, "AVG": 0.001}.
       Darabonba::Json diffTolerateValues_ {};
+      // Specifies whether to enable decimal scale control for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> enableDecimalScale_ {};
+      // The filter column names, separated by commas.
       shared_ptr<string> filterColumnName_ {};
+      // **[Deprecated]** Use the filterColumnName field instead. This field was retained because the previous platform could not be modified.
       shared_ptr<string> filterColumns_ {};
+      // The number of decimal places for floating-point values.
       shared_ptr<int32_t> floatPrecision_ {};
+      // Specifies whether to ignore trailing zero differences in the decimal part. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreDecimalDiff_ {};
+      // Specifies whether to ignore trailing zeros in the decimal scale for DECIMAL type comparison. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreDecimalScaleSuffixZero_ {};
+      // Specifies whether to ignore the difference between null values and empty strings. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreEmptyDiff_ {};
+      // Specifies whether to ignore zero values for numeric types. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreNumericZero_ {};
+      // Specifies whether to ignore empty strings and null values for string types. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreStringEmpty_ {};
+      // Specifies whether to ignore the difference between null values and zero values. Valid values: 0 (no) and 1 (yes).
       shared_ptr<int32_t> ignoreZeroDiff_ {};
+      // Specifies whether to enable count (data volume) check. Valid values: 0 (no) and 1 (yes). Default value: 1.
       shared_ptr<int32_t> isCountCheck_ {};
+      // The rule ID that uniquely identifies a check rule.
       shared_ptr<string> ruleId_ {};
+      // The specific decimal scale value for DECIMAL type comparison.
       shared_ptr<int32_t> setDecimalScale_ {};
     };
 
@@ -1247,17 +1367,35 @@ namespace Models
 
 
   protected:
+    // The list of metric check rules for basic data types. This field is required when checkType is set to 1 (metric comparison).
     shared_ptr<vector<UpdateDataCheckTemplateRequest::BasicMetricRules>> basicMetricRules_ {};
+    // The check rule type. Valid values:
+    // - 0: data volume comparison.
+    // - 1: metric comparison.
+    // - 2: weak content comparison.
+    // - 3: custom comparison.
+    // - 4: full-text comparison.
+    // - 5: null rate comparison.
     shared_ptr<int32_t> checkType_ {};
+    // The list of complex data type metric check rules. Used when checkType is set to 1 (metric comparison).
     shared_ptr<vector<UpdateDataCheckTemplateRequest::ComplexMetricRules>> complexMetricRules_ {};
+    // The list of datasource engine relationships (datasource engines associated with the template).
     shared_ptr<vector<UpdateDataCheckTemplateRequest::DsEngineRels>> dsEngineRels_ {};
+    // The full-text comparison rule. This parameter has a value when checkType is set to 4 (full-text comparison). Refer to the child fields for the field structure.
     shared_ptr<UpdateDataCheckTemplateRequest::FulltextRule> fulltextRule_ {};
+    // The list of metric check rules. This parameter has a value when checkType is set to 1 (metric comparison).
     shared_ptr<vector<UpdateDataCheckTemplateRequest::MetricRules>> metricRules_ {};
+    // The list of null value rate check rules. This parameter has a value when checkType is set to 5 (null value rate comparison).
     shared_ptr<vector<UpdateDataCheckTemplateRequest::NullRules>> nullRules_ {};
+    // The request ID, which is used to locate and troubleshoot issues of this call.
     shared_ptr<string> requestId_ {};
+    // The template description.
     shared_ptr<string> templateDesc_ {};
+    // The check template ID (logical foreign key) that uniquely identifies a check template.
     shared_ptr<string> templateId_ {};
+    // The check template name.
     shared_ptr<string> templateName_ {};
+    // The weak content check rule. This parameter has a value and is required when checkType is set to 2 (weak content comparison). For the field structure, see the child field descriptions.
     shared_ptr<UpdateDataCheckTemplateRequest::WeakContentRule> weakContentRule_ {};
   };
 

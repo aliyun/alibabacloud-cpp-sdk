@@ -38,6 +38,8 @@ namespace Models
 
 
   protected:
+    // The task ID that uniquely identifies a task.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> taskId_ {};
   };

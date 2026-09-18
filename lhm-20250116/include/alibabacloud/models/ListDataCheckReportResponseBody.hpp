@@ -536,56 +536,117 @@ namespace Models
 
 
     protected:
+      // The validation job (batch) ID.
       shared_ptr<int64_t> batchId_ {};
+      // The number of columns checked.
       shared_ptr<int64_t> checkColumCount_ {};
+      // The check result. Valid values:
+      // 
+      // - 0: No records.
+      // - 1: Passed.
+      // - 2: Failed.
       shared_ptr<int32_t> checkResult_ {};
+      // The number of rows compared.
       shared_ptr<int64_t> compareRowCount_ {};
+      // The job completion rate.
       shared_ptr<string> completionRate_ {};
+      // The difference rate.
       shared_ptr<string> diffRate_ {};
+      // The primary key or composite primary key of the destination. This is the comparison column on the destination used during row-by-row, column-by-column comparison.
       shared_ptr<string> dstCompareColumn_ {};
       shared_ptr<string> dstHint_ {};
+      // The metric field of the destination.
       shared_ptr<string> dstMetricName_ {};
+      // The SQL list of the destination.
       shared_ptr<vector<string>> dstSqlList_ {};
+      // The error message.
       shared_ptr<string> errorMsg_ {};
+      // The execution time of this check report detail.
       shared_ptr<string> execTime_ {};
+      // The expected number of different rows.
       shared_ptr<string> expDiffCount_ {};
+      // The completion time.
       shared_ptr<string> finishTime_ {};
+      // Indicates whether the check is skipped.
       shared_ptr<int32_t> isSkipped_ {};
+      // The ID of the check sub-job.
       shared_ptr<string> jobId_ {};
+      // The job status. Valid values:
+      // 
+      // - 0: INIT (pending).
+      // - 1: RUNNING (running).
+      // - 2: FINISHED (completed).
+      // - 3: STOPPED (stopped).
+      // - 4: FAIL (failed).
+      // - 6: READY (ready).
+      // - 7: SKIPPED (skipped).
       shared_ptr<int32_t> jobStatus_ {};
+      // The number of metrics checked.
       shared_ptr<int64_t> metricColumCount_ {};
+      // The number of metrics that passed the check.
       shared_ptr<int64_t> metricPassColumCount_ {};
+      // The number of rows that exist only on the destination.
       shared_ptr<int64_t> onlyDstCount_ {};
+      // The number of rows that exist only on the source.
       shared_ptr<int64_t> onlySrcCount_ {};
+      // The number of columns that passed the check.
       shared_ptr<int64_t> passColumCount_ {};
+      // The actual number of different rows.
       shared_ptr<int64_t> realDiffCount_ {};
+      // The actual number of identical rows.
       shared_ptr<int64_t> realSameCount_ {};
+      // The ID of the check result.
       shared_ptr<string> resultId_ {};
+      // The name of the source column.
       shared_ptr<string> sourceColumn_ {};
+      // The number of rows in the source data.
       shared_ptr<string> sourceCount_ {};
+      // The source data source.
       shared_ptr<string> sourceDataSource_ {};
+      // The error message of the source.
       shared_ptr<string> sourceError_ {};
+      // The GROUP BY clause of the source.
       shared_ptr<string> sourceGroupClause_ {};
+      // The source partition.
       shared_ptr<string> sourcePartition_ {};
+      // The name of the source table.
       shared_ptr<string> sourceTable_ {};
+      // The data type of the source.
       shared_ptr<string> sourceType_ {};
+      // The WHERE clause of the source.
       shared_ptr<string> sourceWhereClause_ {};
+      // The primary key or composite primary key of the source. This is the comparison column on the source used during row-by-row, column-by-column comparison.
       shared_ptr<string> srcCompareColumn_ {};
       shared_ptr<string> srcHint_ {};
+      // The metric field of the source.
       shared_ptr<string> srcMetricName_ {};
+      // The SQL list of the source.
       shared_ptr<vector<string>> srcSqlList_ {};
+      // The column of the destination.
       shared_ptr<string> targetColumn_ {};
+      // The number of rows in the destination data.
       shared_ptr<string> targetCount_ {};
+      // The data source of the destination.
       shared_ptr<string> targetDataSource_ {};
+      // The error message of the destination.
       shared_ptr<string> targetError_ {};
+      // The GROUP BY clause of the destination.
       shared_ptr<string> targetGroupClause_ {};
+      // The destination partition.
       shared_ptr<string> targetPartition_ {};
+      // The destination table.
       shared_ptr<string> targetTable_ {};
+      // The destination data source type.
       shared_ptr<string> targetType_ {};
+      // The destination WHERE clause.
       shared_ptr<string> targetWhereClause_ {};
+      // The ID of the validation task configuration.
       shared_ptr<int64_t> taskConfigId_ {};
+      // The validation template name.
       shared_ptr<string> templateName_ {};
+      // The threshold.
       shared_ptr<float> threshold_ {};
+      // The threshold for comparing grouped data volumes.
       shared_ptr<string> totalCountThreshold_ {};
     };
 
@@ -651,13 +712,21 @@ namespace Models
 
 
   protected:
+    // The data list returned by the operation. For the structure of each element, see the child field descriptions.
     shared_ptr<vector<ListDataCheckReportResponseBody::Data>> data_ {};
+    // The error code. An empty string is returned if the call is successful.
     shared_ptr<string> errCode_ {};
+    // The error message. An empty string is returned if the call is successful.
     shared_ptr<string> errMessage_ {};
+    // The page number, starting from 1.
     shared_ptr<int32_t> pageIndex_ {};
+    // The page size, which is the number of records returned per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID, which is used to locate and troubleshoot issues with this call.
     shared_ptr<string> requestId_ {};
+    // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure. If the call fails, check errCode and errMessage for details.
     shared_ptr<bool> success_ {};
+    // The total number of records that match the query conditions. This value is used for pagination.
     shared_ptr<int32_t> totalCount_ {};
   };
 

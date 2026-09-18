@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The verification sub-job ID.
+    // 
     // This parameter is required.
     shared_ptr<string> jobId_ {};
+    // The page number.
     shared_ptr<int32_t> pageIndex_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 
