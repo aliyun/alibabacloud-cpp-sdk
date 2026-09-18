@@ -79,7 +79,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. Do not specify this parameter or set it to an empty string for the first page. For subsequent pages, pass the nextToken value from the previous response without any modification. If the nextToken value in the response is empty, the last page has been reached.
     shared_ptr<string> nextToken_ {};
-    // The keyword for fuzzy match by project name or prompt.
+    // The keyword used for fuzzy match by project name or prompt.
     shared_ptr<string> query_ {};
     // The field by which to sort the results. Default value: last_scan_time.
     // 

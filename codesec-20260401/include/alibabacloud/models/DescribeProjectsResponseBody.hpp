@@ -113,11 +113,15 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Engines& obj) { 
           DARABONBA_PTR_TO_JSON(sast, sast_);
+          DARABONBA_PTR_TO_JSON(sastConfig, sastConfig_);
           DARABONBA_PTR_TO_JSON(sca, sca_);
+          DARABONBA_PTR_TO_JSON(scaConfig, scaConfig_);
         };
         friend void from_json(const Darabonba::Json& j, Engines& obj) { 
           DARABONBA_PTR_FROM_JSON(sast, sast_);
+          DARABONBA_PTR_FROM_JSON(sastConfig, sastConfig_);
           DARABONBA_PTR_FROM_JSON(sca, sca_);
+          DARABONBA_PTR_FROM_JSON(scaConfig, scaConfig_);
         };
         Engines() = default ;
         Engines(const Engines &) = default ;
@@ -130,13 +134,86 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class ScaConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const ScaConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(remediation, remediation_);
+          };
+          friend void from_json(const Darabonba::Json& j, ScaConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(remediation, remediation_);
+          };
+          ScaConfig() = default ;
+          ScaConfig(const ScaConfig &) = default ;
+          ScaConfig(ScaConfig &&) = default ;
+          ScaConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~ScaConfig() = default ;
+          ScaConfig& operator=(const ScaConfig &) = default ;
+          ScaConfig& operator=(ScaConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->remediation_ == nullptr; };
+          // remediation Field Functions 
+          bool hasRemediation() const { return this->remediation_ != nullptr;};
+          void deleteRemediation() { this->remediation_ = nullptr;};
+          inline bool getRemediation() const { DARABONBA_PTR_GET_DEFAULT(remediation_, false) };
+          inline ScaConfig& setRemediation(bool remediation) { DARABONBA_PTR_SET_VALUE(remediation_, remediation) };
+
+
+        protected:
+          // Specifies whether to generate remediation suggestions.
+          shared_ptr<bool> remediation_ {};
+        };
+
+        class SastConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SastConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(remediation, remediation_);
+          };
+          friend void from_json(const Darabonba::Json& j, SastConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(remediation, remediation_);
+          };
+          SastConfig() = default ;
+          SastConfig(const SastConfig &) = default ;
+          SastConfig(SastConfig &&) = default ;
+          SastConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SastConfig() = default ;
+          SastConfig& operator=(const SastConfig &) = default ;
+          SastConfig& operator=(SastConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->remediation_ == nullptr; };
+          // remediation Field Functions 
+          bool hasRemediation() const { return this->remediation_ != nullptr;};
+          void deleteRemediation() { this->remediation_ = nullptr;};
+          inline bool getRemediation() const { DARABONBA_PTR_GET_DEFAULT(remediation_, false) };
+          inline SastConfig& setRemediation(bool remediation) { DARABONBA_PTR_SET_VALUE(remediation_, remediation) };
+
+
+        protected:
+          // Specifies whether to generate remediation suggestions.
+          shared_ptr<bool> remediation_ {};
+        };
+
         virtual bool empty() const override { return this->sast_ == nullptr
-        && this->sca_ == nullptr; };
+        && this->sastConfig_ == nullptr && this->sca_ == nullptr && this->scaConfig_ == nullptr; };
         // sast Field Functions 
         bool hasSast() const { return this->sast_ != nullptr;};
         void deleteSast() { this->sast_ = nullptr;};
         inline bool getSast() const { DARABONBA_PTR_GET_DEFAULT(sast_, false) };
         inline Engines& setSast(bool sast) { DARABONBA_PTR_SET_VALUE(sast_, sast) };
+
+
+        // sastConfig Field Functions 
+        bool hasSastConfig() const { return this->sastConfig_ != nullptr;};
+        void deleteSastConfig() { this->sastConfig_ = nullptr;};
+        inline const Engines::SastConfig & getSastConfig() const { DARABONBA_PTR_GET_CONST(sastConfig_, Engines::SastConfig) };
+        inline Engines::SastConfig getSastConfig() { DARABONBA_PTR_GET(sastConfig_, Engines::SastConfig) };
+        inline Engines& setSastConfig(const Engines::SastConfig & sastConfig) { DARABONBA_PTR_SET_VALUE(sastConfig_, sastConfig) };
+        inline Engines& setSastConfig(Engines::SastConfig && sastConfig) { DARABONBA_PTR_SET_RVALUE(sastConfig_, sastConfig) };
 
 
         // sca Field Functions 
@@ -146,11 +223,24 @@ namespace Models
         inline Engines& setSca(bool sca) { DARABONBA_PTR_SET_VALUE(sca_, sca) };
 
 
+        // scaConfig Field Functions 
+        bool hasScaConfig() const { return this->scaConfig_ != nullptr;};
+        void deleteScaConfig() { this->scaConfig_ = nullptr;};
+        inline const Engines::ScaConfig & getScaConfig() const { DARABONBA_PTR_GET_CONST(scaConfig_, Engines::ScaConfig) };
+        inline Engines::ScaConfig getScaConfig() { DARABONBA_PTR_GET(scaConfig_, Engines::ScaConfig) };
+        inline Engines& setScaConfig(const Engines::ScaConfig & scaConfig) { DARABONBA_PTR_SET_VALUE(scaConfig_, scaConfig) };
+        inline Engines& setScaConfig(Engines::ScaConfig && scaConfig) { DARABONBA_PTR_SET_RVALUE(scaConfig_, scaConfig) };
+
+
       protected:
-        // Indicates whether SAST is enabled.
+        // Indicates whether SAST is supported.
         shared_ptr<bool> sast_ {};
-        // Indicates whether SCA is enabled.
+        // The engine-level configuration.
+        shared_ptr<Engines::SastConfig> sastConfig_ {};
+        // Indicates whether SCA is supported.
         shared_ptr<bool> sca_ {};
+        // The engine-level configuration.
+        shared_ptr<Engines::ScaConfig> scaConfig_ {};
       };
 
       virtual bool empty() const override { return this->configRevision_ == nullptr
@@ -240,17 +330,17 @@ namespace Models
     protected:
       // The project configuration version number.
       shared_ptr<int64_t> configRevision_ {};
-      // The time when the project was created.
+      // The creation time.
       shared_ptr<string> createdAt_ {};
       // The user ID of the project creator.
       shared_ptr<string> createdBy_ {};
       // The description.
       shared_ptr<string> description_ {};
-      // The engine switches for the project or scan snapshot. Only SAST and SCA are supported.
+      // The engine switches in the project or scan snapshot. Only SAST and SCA are supported.
       shared_ptr<Items::Engines> engines_ {};
       // The project ID.
       shared_ptr<int64_t> id_ {};
-      // The natural language prompt provided by the user that describes scanning or result processing preferences, such as ignoring low-risk vulnerabilities.
+      // The natural language prompt provided by the user that describes scanning or result processing preferences, such as ignoring low-severity vulnerabilities.
       shared_ptr<string> instructionPrompt_ {};
       // The time when a task was last created.
       shared_ptr<string> lastScanTime_ {};
@@ -258,7 +348,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The project source.
       shared_ptr<Items::Source> source_ {};
-      // The time when the project was last updated.
+      // The update time.
       shared_ptr<string> updatedAt_ {};
     };
 
@@ -310,7 +400,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. An empty value indicates the last page.
     shared_ptr<string> nextToken_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

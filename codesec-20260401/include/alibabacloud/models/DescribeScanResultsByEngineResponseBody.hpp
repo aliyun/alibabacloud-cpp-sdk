@@ -190,37 +190,49 @@ namespace Models
         // The file path.
         shared_ptr<string> file_ {};
         // The role type in the taint propagation chain. Valid values:
-        // * source: taint source.
-        // * propagator: propagation node.	
-        // * validation: validation or scrubbing center.	
-        // * sink: dangerous sink.
+        // * source: taint source
+        // * propagator: propagation node	
+        // * validation: validation or scrubbing center	
+        // * sink: dangerous sink
         shared_ptr<string> kind_ {};
         // The line number.
         shared_ptr<int32_t> line_ {};
         // The remarks.
         shared_ptr<string> note_ {};
-        // The step number, starting from 0 and incrementing.
+        // The step sequence number, starting from 0 and incrementing.
         shared_ptr<int32_t> step_ {};
       };
 
       class ScaComponent : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const ScaComponent& obj) { 
+          DARABONBA_PTR_TO_JSON(componentType, componentType_);
           DARABONBA_PTR_TO_JSON(cveCount, cveCount_);
           DARABONBA_PTR_TO_JSON(cveDetails, cveDetails_);
+          DARABONBA_PTR_TO_JSON(declaredIn, declaredIn_);
+          DARABONBA_PTR_TO_JSON(ecosystem, ecosystem_);
           DARABONBA_PTR_TO_JSON(introPaths, introPaths_);
           DARABONBA_PTR_TO_JSON(isDirect, isDirect_);
+          DARABONBA_PTR_TO_JSON(license, license_);
           DARABONBA_PTR_TO_JSON(packageName, packageName_);
+          DARABONBA_PTR_TO_JSON(purl, purl_);
           DARABONBA_PTR_TO_JSON(remediation, remediation_);
+          DARABONBA_PTR_TO_JSON(scope, scope_);
           DARABONBA_PTR_TO_JSON(version, version_);
         };
         friend void from_json(const Darabonba::Json& j, ScaComponent& obj) { 
+          DARABONBA_PTR_FROM_JSON(componentType, componentType_);
           DARABONBA_PTR_FROM_JSON(cveCount, cveCount_);
           DARABONBA_PTR_FROM_JSON(cveDetails, cveDetails_);
+          DARABONBA_PTR_FROM_JSON(declaredIn, declaredIn_);
+          DARABONBA_PTR_FROM_JSON(ecosystem, ecosystem_);
           DARABONBA_PTR_FROM_JSON(introPaths, introPaths_);
           DARABONBA_PTR_FROM_JSON(isDirect, isDirect_);
+          DARABONBA_PTR_FROM_JSON(license, license_);
           DARABONBA_PTR_FROM_JSON(packageName, packageName_);
+          DARABONBA_PTR_FROM_JSON(purl, purl_);
           DARABONBA_PTR_FROM_JSON(remediation, remediation_);
+          DARABONBA_PTR_FROM_JSON(scope, scope_);
           DARABONBA_PTR_FROM_JSON(version, version_);
         };
         ScaComponent() = default ;
@@ -234,13 +246,127 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class License : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const License& obj) { 
+            DARABONBA_PTR_TO_JSON(concluded, concluded_);
+            DARABONBA_PTR_TO_JSON(detected, detected_);
+          };
+          friend void from_json(const Darabonba::Json& j, License& obj) { 
+            DARABONBA_PTR_FROM_JSON(concluded, concluded_);
+            DARABONBA_PTR_FROM_JSON(detected, detected_);
+          };
+          License() = default ;
+          License(const License &) = default ;
+          License(License &&) = default ;
+          License(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~License() = default ;
+          License& operator=(const License &) = default ;
+          License& operator=(License &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Detected : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Detected& obj) { 
+              DARABONBA_PTR_TO_JSON(isFsfLibre, isFsfLibre_);
+              DARABONBA_PTR_TO_JSON(isOsiApproved, isOsiApproved_);
+              DARABONBA_PTR_TO_JSON(name, name_);
+              DARABONBA_PTR_TO_JSON(spdxId, spdxId_);
+            };
+            friend void from_json(const Darabonba::Json& j, Detected& obj) { 
+              DARABONBA_PTR_FROM_JSON(isFsfLibre, isFsfLibre_);
+              DARABONBA_PTR_FROM_JSON(isOsiApproved, isOsiApproved_);
+              DARABONBA_PTR_FROM_JSON(name, name_);
+              DARABONBA_PTR_FROM_JSON(spdxId, spdxId_);
+            };
+            Detected() = default ;
+            Detected(const Detected &) = default ;
+            Detected(Detected &&) = default ;
+            Detected(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Detected() = default ;
+            Detected& operator=(const Detected &) = default ;
+            Detected& operator=(Detected &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->isFsfLibre_ == nullptr
+        && this->isOsiApproved_ == nullptr && this->name_ == nullptr && this->spdxId_ == nullptr; };
+            // isFsfLibre Field Functions 
+            bool hasIsFsfLibre() const { return this->isFsfLibre_ != nullptr;};
+            void deleteIsFsfLibre() { this->isFsfLibre_ = nullptr;};
+            inline bool getIsFsfLibre() const { DARABONBA_PTR_GET_DEFAULT(isFsfLibre_, false) };
+            inline Detected& setIsFsfLibre(bool isFsfLibre) { DARABONBA_PTR_SET_VALUE(isFsfLibre_, isFsfLibre) };
+
+
+            // isOsiApproved Field Functions 
+            bool hasIsOsiApproved() const { return this->isOsiApproved_ != nullptr;};
+            void deleteIsOsiApproved() { this->isOsiApproved_ = nullptr;};
+            inline bool getIsOsiApproved() const { DARABONBA_PTR_GET_DEFAULT(isOsiApproved_, false) };
+            inline Detected& setIsOsiApproved(bool isOsiApproved) { DARABONBA_PTR_SET_VALUE(isOsiApproved_, isOsiApproved) };
+
+
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline Detected& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+            // spdxId Field Functions 
+            bool hasSpdxId() const { return this->spdxId_ != nullptr;};
+            void deleteSpdxId() { this->spdxId_ = nullptr;};
+            inline string getSpdxId() const { DARABONBA_PTR_GET_DEFAULT(spdxId_, "") };
+            inline Detected& setSpdxId(string spdxId) { DARABONBA_PTR_SET_VALUE(spdxId_, spdxId) };
+
+
+          protected:
+            // Indicates whether the license is listed as a free license by the FSF. If this key is absent, it means the license is not annotated, which differs from an explicit false value.
+            shared_ptr<bool> isFsfLibre_ {};
+            // Indicates whether the license is OSI-approved.
+            shared_ptr<bool> isOsiApproved_ {};
+            // The full name of the license.
+            shared_ptr<string> name_ {};
+            // The SPDX license identifier. If the license cannot be determined, the value is NOASSERTION. The value may be in a non-standard format, such as Apache 2.0.
+            shared_ptr<string> spdxId_ {};
+          };
+
+          virtual bool empty() const override { return this->concluded_ == nullptr
+        && this->detected_ == nullptr; };
+          // concluded Field Functions 
+          bool hasConcluded() const { return this->concluded_ != nullptr;};
+          void deleteConcluded() { this->concluded_ = nullptr;};
+          inline string getConcluded() const { DARABONBA_PTR_GET_DEFAULT(concluded_, "") };
+          inline License& setConcluded(string concluded) { DARABONBA_PTR_SET_VALUE(concluded_, concluded) };
+
+
+          // detected Field Functions 
+          bool hasDetected() const { return this->detected_ != nullptr;};
+          void deleteDetected() { this->detected_ = nullptr;};
+          inline const vector<License::Detected> & getDetected() const { DARABONBA_PTR_GET_CONST(detected_, vector<License::Detected>) };
+          inline vector<License::Detected> getDetected() { DARABONBA_PTR_GET(detected_, vector<License::Detected>) };
+          inline License& setDetected(const vector<License::Detected> & detected) { DARABONBA_PTR_SET_VALUE(detected_, detected) };
+          inline License& setDetected(vector<License::Detected> && detected) { DARABONBA_PTR_SET_RVALUE(detected_, detected) };
+
+
+        protected:
+          // The concluded license expression (SPDX expression, which may contain OR or AND). This is an identifier string only, without full names or OSI/FSF annotations.
+          shared_ptr<string> concluded_ {};
+          // The list of detected licenses.
+          shared_ptr<vector<License::Detected>> detected_ {};
+        };
+
         class CveDetails : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const CveDetails& obj) { 
             DARABONBA_PTR_TO_JSON(cveId, cveId_);
             DARABONBA_PTR_TO_JSON(cvss, cvss_);
             DARABONBA_PTR_TO_JSON(cvssVersion, cvssVersion_);
+            DARABONBA_PTR_TO_JSON(cweId, cweId_);
             DARABONBA_PTR_TO_JSON(description, description_);
+            DARABONBA_PTR_TO_JSON(fixedVersion, fixedVersion_);
             DARABONBA_PTR_TO_JSON(references, references_);
             DARABONBA_PTR_TO_JSON(severity, severity_);
           };
@@ -248,7 +374,9 @@ namespace Models
             DARABONBA_PTR_FROM_JSON(cveId, cveId_);
             DARABONBA_PTR_FROM_JSON(cvss, cvss_);
             DARABONBA_PTR_FROM_JSON(cvssVersion, cvssVersion_);
+            DARABONBA_PTR_FROM_JSON(cweId, cweId_);
             DARABONBA_PTR_FROM_JSON(description, description_);
+            DARABONBA_PTR_FROM_JSON(fixedVersion, fixedVersion_);
             DARABONBA_PTR_FROM_JSON(references, references_);
             DARABONBA_PTR_FROM_JSON(severity, severity_);
           };
@@ -264,7 +392,8 @@ namespace Models
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
           virtual bool empty() const override { return this->cveId_ == nullptr
-        && this->cvss_ == nullptr && this->cvssVersion_ == nullptr && this->description_ == nullptr && this->references_ == nullptr && this->severity_ == nullptr; };
+        && this->cvss_ == nullptr && this->cvssVersion_ == nullptr && this->cweId_ == nullptr && this->description_ == nullptr && this->fixedVersion_ == nullptr
+        && this->references_ == nullptr && this->severity_ == nullptr; };
           // cveId Field Functions 
           bool hasCveId() const { return this->cveId_ != nullptr;};
           void deleteCveId() { this->cveId_ = nullptr;};
@@ -286,11 +415,25 @@ namespace Models
           inline CveDetails& setCvssVersion(string cvssVersion) { DARABONBA_PTR_SET_VALUE(cvssVersion_, cvssVersion) };
 
 
+          // cweId Field Functions 
+          bool hasCweId() const { return this->cweId_ != nullptr;};
+          void deleteCweId() { this->cweId_ = nullptr;};
+          inline string getCweId() const { DARABONBA_PTR_GET_DEFAULT(cweId_, "") };
+          inline CveDetails& setCweId(string cweId) { DARABONBA_PTR_SET_VALUE(cweId_, cweId) };
+
+
           // description Field Functions 
           bool hasDescription() const { return this->description_ != nullptr;};
           void deleteDescription() { this->description_ = nullptr;};
           inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
           inline CveDetails& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+          // fixedVersion Field Functions 
+          bool hasFixedVersion() const { return this->fixedVersion_ != nullptr;};
+          void deleteFixedVersion() { this->fixedVersion_ = nullptr;};
+          inline string getFixedVersion() const { DARABONBA_PTR_GET_DEFAULT(fixedVersion_, "") };
+          inline CveDetails& setFixedVersion(string fixedVersion) { DARABONBA_PTR_SET_VALUE(fixedVersion_, fixedVersion) };
 
 
           // references Field Functions 
@@ -316,8 +459,12 @@ namespace Models
           shared_ptr<double> cvss_ {};
           // The CVSS version.
           shared_ptr<string> cvssVersion_ {};
+          // The associated CWE ID. This value can be absent or an empty string.
+          shared_ptr<string> cweId_ {};
           // The description.
           shared_ptr<string> description_ {};
+          // The target version for the fix. This value can be absent or an empty string.
+          shared_ptr<string> fixedVersion_ {};
           // The reference information.
           shared_ptr<vector<string>> references_ {};
           // The severity level. Valid values:
@@ -328,9 +475,17 @@ namespace Models
           shared_ptr<string> severity_ {};
         };
 
-        virtual bool empty() const override { return this->cveCount_ == nullptr
-        && this->cveDetails_ == nullptr && this->introPaths_ == nullptr && this->isDirect_ == nullptr && this->packageName_ == nullptr && this->remediation_ == nullptr
-        && this->version_ == nullptr; };
+        virtual bool empty() const override { return this->componentType_ == nullptr
+        && this->cveCount_ == nullptr && this->cveDetails_ == nullptr && this->declaredIn_ == nullptr && this->ecosystem_ == nullptr && this->introPaths_ == nullptr
+        && this->isDirect_ == nullptr && this->license_ == nullptr && this->packageName_ == nullptr && this->purl_ == nullptr && this->remediation_ == nullptr
+        && this->scope_ == nullptr && this->version_ == nullptr; };
+        // componentType Field Functions 
+        bool hasComponentType() const { return this->componentType_ != nullptr;};
+        void deleteComponentType() { this->componentType_ = nullptr;};
+        inline string getComponentType() const { DARABONBA_PTR_GET_DEFAULT(componentType_, "") };
+        inline ScaComponent& setComponentType(string componentType) { DARABONBA_PTR_SET_VALUE(componentType_, componentType) };
+
+
         // cveCount Field Functions 
         bool hasCveCount() const { return this->cveCount_ != nullptr;};
         void deleteCveCount() { this->cveCount_ = nullptr;};
@@ -345,6 +500,20 @@ namespace Models
         inline vector<ScaComponent::CveDetails> getCveDetails() { DARABONBA_PTR_GET(cveDetails_, vector<ScaComponent::CveDetails>) };
         inline ScaComponent& setCveDetails(const vector<ScaComponent::CveDetails> & cveDetails) { DARABONBA_PTR_SET_VALUE(cveDetails_, cveDetails) };
         inline ScaComponent& setCveDetails(vector<ScaComponent::CveDetails> && cveDetails) { DARABONBA_PTR_SET_RVALUE(cveDetails_, cveDetails) };
+
+
+        // declaredIn Field Functions 
+        bool hasDeclaredIn() const { return this->declaredIn_ != nullptr;};
+        void deleteDeclaredIn() { this->declaredIn_ = nullptr;};
+        inline string getDeclaredIn() const { DARABONBA_PTR_GET_DEFAULT(declaredIn_, "") };
+        inline ScaComponent& setDeclaredIn(string declaredIn) { DARABONBA_PTR_SET_VALUE(declaredIn_, declaredIn) };
+
+
+        // ecosystem Field Functions 
+        bool hasEcosystem() const { return this->ecosystem_ != nullptr;};
+        void deleteEcosystem() { this->ecosystem_ = nullptr;};
+        inline string getEcosystem() const { DARABONBA_PTR_GET_DEFAULT(ecosystem_, "") };
+        inline ScaComponent& setEcosystem(string ecosystem) { DARABONBA_PTR_SET_VALUE(ecosystem_, ecosystem) };
 
 
         // introPaths Field Functions 
@@ -363,6 +532,15 @@ namespace Models
         inline ScaComponent& setIsDirect(bool isDirect) { DARABONBA_PTR_SET_VALUE(isDirect_, isDirect) };
 
 
+        // license Field Functions 
+        bool hasLicense() const { return this->license_ != nullptr;};
+        void deleteLicense() { this->license_ = nullptr;};
+        inline const ScaComponent::License & getLicense() const { DARABONBA_PTR_GET_CONST(license_, ScaComponent::License) };
+        inline ScaComponent::License getLicense() { DARABONBA_PTR_GET(license_, ScaComponent::License) };
+        inline ScaComponent& setLicense(const ScaComponent::License & license) { DARABONBA_PTR_SET_VALUE(license_, license) };
+        inline ScaComponent& setLicense(ScaComponent::License && license) { DARABONBA_PTR_SET_RVALUE(license_, license) };
+
+
         // packageName Field Functions 
         bool hasPackageName() const { return this->packageName_ != nullptr;};
         void deletePackageName() { this->packageName_ = nullptr;};
@@ -370,11 +548,25 @@ namespace Models
         inline ScaComponent& setPackageName(string packageName) { DARABONBA_PTR_SET_VALUE(packageName_, packageName) };
 
 
+        // purl Field Functions 
+        bool hasPurl() const { return this->purl_ != nullptr;};
+        void deletePurl() { this->purl_ = nullptr;};
+        inline string getPurl() const { DARABONBA_PTR_GET_DEFAULT(purl_, "") };
+        inline ScaComponent& setPurl(string purl) { DARABONBA_PTR_SET_VALUE(purl_, purl) };
+
+
         // remediation Field Functions 
         bool hasRemediation() const { return this->remediation_ != nullptr;};
         void deleteRemediation() { this->remediation_ = nullptr;};
         inline string getRemediation() const { DARABONBA_PTR_GET_DEFAULT(remediation_, "") };
         inline ScaComponent& setRemediation(string remediation) { DARABONBA_PTR_SET_VALUE(remediation_, remediation) };
+
+
+        // scope Field Functions 
+        bool hasScope() const { return this->scope_ != nullptr;};
+        void deleteScope() { this->scope_ = nullptr;};
+        inline string getScope() const { DARABONBA_PTR_GET_DEFAULT(scope_, "") };
+        inline ScaComponent& setScope(string scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
 
 
         // version Field Functions 
@@ -385,18 +577,30 @@ namespace Models
 
 
       protected:
+        // The component type, such as library, application, or framework.
+        shared_ptr<string> componentType_ {};
         // The number of CVEs.
         shared_ptr<int64_t> cveCount_ {};
         // The list of CVE details associated with a component in the SCA finding.
         shared_ptr<vector<ScaComponent::CveDetails>> cveDetails_ {};
-        // The list of dependency introduction paths in the SCA component information. This field is returned only when engine is set to sca.
+        // The manifest file in which the dependency is declared.
+        shared_ptr<string> declaredIn_ {};
+        // The component ecosystem, such as npm, maven, pypi, or go.
+        shared_ptr<string> ecosystem_ {};
+        // The list of dependency introduction paths in the SCA component information. This is returned only when engine is set to sca.
         shared_ptr<vector<string>> introPaths_ {};
-        // Indicates whether the component is a direct dependency.
+        // Indicates whether the dependency is a direct dependency.
         shared_ptr<bool> isDirect_ {};
+        // The license determination result.
+        shared_ptr<ScaComponent::License> license_ {};
         // The component coordinate.
         shared_ptr<string> packageName_ {};
+        // The Package URL, which serves as the unique coordinate of the component within the scan.
+        shared_ptr<string> purl_ {};
         // The component-level remediation suggestion.
         shared_ptr<string> remediation_ {};
+        // The dependency scope, such as runtime, required, optional, or dev.
+        shared_ptr<string> scope_ {};
         // The component version.
         shared_ptr<string> version_ {};
       };
@@ -587,15 +791,15 @@ namespace Models
 
 
     protected:
-      // Filters results by incremental scan baseline status. Valid values: new, unchanged, absent, updated.
+      // Filters results by the baseline state of incremental scans. Valid values: new, unchanged, absent, and updated.
       shared_ptr<string> baselineState_ {};
-      // The category. The system classifies files based on file name extensions and MIME types. Common categories include doc, image, audio, and video.
+      // The category. PDS classifies files based on their file name extensions and MIME types. Main categories include doc, image, audio, and video.
       shared_ptr<string> category_ {};
       // The code snippet near the primary location (SAST).
       shared_ptr<string> codeSnippet_ {};
-      // The rule confidence level, ranging from 0 to 1. This field is common in SAST results and is omitted if not applicable.
+      // The rule confidence level, ranging from 0 to 1. This is common in SAST results and is omitted if not available.
       shared_ptr<double> confidence_ {};
-      // The time when the finding record was created (RFC 3339 format).
+      // The time when the finding record was created, in RFC 3339 format.
       shared_ptr<string> createdAt_ {};
       // The associated CWE ID.
       shared_ptr<string> cweId_ {};
@@ -607,7 +811,7 @@ namespace Models
       shared_ptr<string> filePath_ {};
       // The project ID.
       shared_ptr<int64_t> id_ {};
-      // The brief summary of the finding. Unlike description, this field is more of a conclusion statement.
+      // The brief summary of the finding. Unlike description, this is more of a conclusion statement.
       shared_ptr<string> itemSummary_ {};
       // The OWASP category.
       shared_ptr<string> owaspCategory_ {};
@@ -619,7 +823,7 @@ namespace Models
       shared_ptr<string> remediationSuggestion_ {};
       // The rule ID.
       shared_ptr<string> ruleId_ {};
-      // The SCA component information. This field is returned only when engine is set to sca.
+      // The SCA component information. This is returned only when engine is set to sca.
       shared_ptr<Items::ScaComponent> scaComponent_ {};
       // The task ID.
       shared_ptr<int64_t> scanId_ {};
@@ -638,9 +842,9 @@ namespace Models
       // * completed: Completed.
       // * failed: Failed.
       shared_ptr<string> status_ {};
-      // The SAST taint analysis call chain that describes the complete propagation path of sensitive data from the taint source to the dangerous sink. This field is returned only when engine is set to sast.
+      // The SAST taint analysis call chain, which describes the complete propagation path of sensitive data from the taint source to the dangerous sink. This is returned only when engine is set to sast.
       shared_ptr<vector<Items::TaintFlow>> taintFlow_ {};
-      // The text summary of the taint call chain. This field is returned only when engine is set to sast.
+      // The text summary of the taint call chain. This is returned only when engine is set to sast.
       shared_ptr<string> taintFlowSummary_ {};
       // The issue title.
       shared_ptr<string> title_ {};
@@ -716,7 +920,7 @@ namespace Models
     shared_ptr<vector<DescribeScanResultsByEngineResponseBody::Items>> items_ {};
     // The number of entries per page.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token. Do not pass nextToken or pass an empty string for the first page. To retrieve the next page, pass the nextToken value from the previous response without any modification. When the nextToken in the response is empty, you have reached the last page.
+    // The pagination token. Do not specify this parameter for the first page or set it to an empty string. For subsequent pages, pass the nextToken value from the previous response without any modification. If the nextToken value in the response is empty, the last page has been reached.
     shared_ptr<string> nextToken_ {};
     // The project ID.
     shared_ptr<int64_t> projectId_ {};
