@@ -152,7 +152,7 @@ namespace Models
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
     // The sort field. Only copyCount and gmtModified are supported.
     shared_ptr<string> orderColumn_ {};

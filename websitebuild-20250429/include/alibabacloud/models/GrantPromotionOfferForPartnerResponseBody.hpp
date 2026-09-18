@@ -203,11 +203,11 @@ namespace Models
   protected:
     // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name. The name can contain digits, letters, and hyphens (-). It must start with a letter and cannot end with a hyphen (-). The name cannot exceed 36 characters in length.
     shared_ptr<string> appName_ {};
-    // The dynamic code. This parameter is not in use. Ignore this parameter.
+    // The dynamic code. This parameter is not in use. Ignore it.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message.
     shared_ptr<string> dynamicMessage_ {};
@@ -219,9 +219,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The root error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is synchronously processed.
+    // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};
   };
 

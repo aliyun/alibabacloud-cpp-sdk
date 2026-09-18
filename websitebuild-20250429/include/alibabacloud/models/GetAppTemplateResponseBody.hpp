@@ -315,7 +315,7 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // modify time
+      // The modification time in ISO 8601 format. The time zone is UTC (Z).
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -341,7 +341,7 @@ namespace Models
       // 
       // > The `file_path` field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
       // 
-      // > When retrieving a document search knowledge base, if a chunk contains images, the image URL is returned through the `image_url` field in the metadata map, along with an expiration time.
+      // > When retrieving a document search knowledge base, if a chunk contains images, the image URL is returned in the `image_url` field of the metadata map, along with an expiration time.
       // 
       // 
       // <props="intl">
@@ -350,7 +350,7 @@ namespace Models
       // 
       // > The `file_path` field in the metadata map of a document search knowledge base is meaningless. Do not use it in your business code.
       // 
-      // > When retrieving a document search knowledge base, if a chunk contains images, the image URL is returned through the `image_url` field in the metadata map, along with an expiration time.
+      // > When retrieving a document search knowledge base, if a chunk contains images, the image URL is returned in the `image_url` field of the metadata map, along with an expiration time.
       shared_ptr<string> metadata_ {};
       // The preview URL.
       shared_ptr<string> previewUrl_ {};
@@ -375,7 +375,7 @@ namespace Models
       shared_ptr<int32_t> viewCount_ {};
       // The weight of the hot word. Valid values: integers in the range of [1, 5].
       // Common value: 4.
-      // If the effect is not obvious, increase the weight as needed. However, a large weight may cause negative effects and lead to inaccurate recognition of other words.
+      // If the effect is not obvious, increase the weight as needed. However, an excessively large weight may cause negative effects and lead to inaccurate recognition of other words.
       shared_ptr<int32_t> weight_ {};
     };
 
@@ -464,7 +464,7 @@ namespace Models
 
 
   protected:
-    // The access denied details.
+    // The access denial details.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether a retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -472,20 +472,20 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
     // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Indicates whether the deletion is successful.
+    // Indicates whether the deletion was successful.
     shared_ptr<GetAppTemplateResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // A reserved parameter.
+    // The reserved parameter.
     shared_ptr<bool> synchro_ {};
   };
 

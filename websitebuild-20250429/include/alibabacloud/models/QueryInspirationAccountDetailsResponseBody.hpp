@@ -187,21 +187,23 @@ namespace Models
 
 
       protected:
-        // The time when the inspiration points were acquired.
+        // The acquisition time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> acquisitionTime_ {};
-        // The remaining balance (initQuota - used).
+        // The balance (initQuota - used).
         shared_ptr<int64_t> balance_ {};
+        // The balance as a precise value. This is a String type that supports decimal display.
         shared_ptr<string> balanceStr_ {};
-        // The time when the quota expires.
+        // The expiration time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> endDate_ {};
-        // Indicates whether the quota has expired (endDate is earlier than the current time). The frontend uses this flag to gray out expired entries.
+        // Indicates whether the entry has expired (endDate < current time). The frontend grays out expired entries.
         shared_ptr<bool> expired_ {};
-        // The quantity acquired (initial quota).
+        // The acquired quantity (initial quota).
         shared_ptr<int64_t> initQuota_ {};
+        // The acquired quantity as a precise value. This is a String type that supports decimal display.
         shared_ptr<string> initQuotaStr_ {};
-        // The source type code, such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, or PURCHASED.
+        // The source type code. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
         shared_ptr<string> sourceType_ {};
-        // The display name of the source type.
+        // The Chinese name of the source type.
         shared_ptr<string> sourceTypeName_ {};
       };
 
@@ -316,21 +318,23 @@ namespace Models
 
 
       protected:
-        // The time when the inspiration points were acquired.
+        // The acquisition time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> acquisitionTime_ {};
-        // The remaining balance (initQuota - used).
+        // The balance (initQuota - used).
         shared_ptr<int64_t> balance_ {};
+        // The balance as a precise value. This is a String type that supports decimal display.
         shared_ptr<string> balanceStr_ {};
-        // The time when the quota expires.
+        // The expiration time. Format: YYYY-MM-DD HH:mm:ss Z, where Z is the time zone offset.
         shared_ptr<string> endDate_ {};
-        // Indicates whether the quota has expired (endDate is earlier than the current time). The frontend uses this flag to gray out expired entries.
+        // Indicates whether the entry has expired (endDate < current time). The frontend grays out expired entries.
         shared_ptr<bool> expired_ {};
-        // The quantity acquired (initial quota).
+        // The acquired quantity (initial quota).
         shared_ptr<int64_t> initQuota_ {};
+        // The acquired quantity as a precise value. This is a String type that supports decimal display.
         shared_ptr<string> initQuotaStr_ {};
-        // The source type code, such as FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, or PURCHASED.
+        // The source type code. Valid values: FREE_TRIAL_GIFT, INSTANCE_GIFT, UPGRADE_GRANT, and PURCHASED.
         shared_ptr<string> sourceType_ {};
-        // The display name of the source type.
+        // The Chinese name of the source type.
         shared_ptr<string> sourceTypeName_ {};
         shared_ptr<string> status_ {};
       };
@@ -418,7 +422,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // Indicates whether the result set exceeds the server-side limit of 1,000 records (excluding pagination). If the results exceed 1,000 records, **ResultLimit** is **true**. Narrow the time range and search again. If the results do not exceed 1,000 records, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};

@@ -162,7 +162,7 @@ namespace Models
       protected:
         // The deployment region.
         shared_ptr<string> deployArea_ {};
-        // The LingXiao instance ID.
+        // The Lingxiao instance ID.
         shared_ptr<string> lxInstanceId_ {};
         // The order ID.
         shared_ptr<string> orderId_ {};
@@ -297,15 +297,15 @@ namespace Models
       shared_ptr<string> appType_ {};
       // The website business ID.
       shared_ptr<string> bizId_ {};
-      // Specifies whether the instance is logically deleted.
+      // Indicates whether the instance is logically deleted.
       shared_ptr<string> deleted_ {};
       // The domain name.
       shared_ptr<string> domain_ {};
-      // The end time of the event, in UNIX timestamp format.
+      // The end time of the event. The value is a UNIX timestamp.
       shared_ptr<string> endTime_ {};
       // The deletion time.
       shared_ptr<string> gmtDelete_ {};
-      // The timestamp when the vulnerability was published, in milliseconds.
+      // The timestamp when the vulnerability was published. Unit: milliseconds.
       shared_ptr<string> gmtPublish_ {};
       // The URL of the application icon.
       shared_ptr<string> iconUrl_ {};
@@ -317,17 +317,18 @@ namespace Models
       shared_ptr<string> siteHost_ {};
       // The website SiteID.
       shared_ptr<string> slug_ {};
-      // The start time of the query. If you do not specify the start time or end time, all historical deployment records of the instance are queried.
+      // The start time of the query. If you do not specify the start time or end time, all historical deployment records of the instance are queried. Specify the time in the ISO 8601 standard in the UTC (Z) time zone.
       shared_ptr<string> startTime_ {};
       // The running status of the instance. Valid values:
-      // - NotRun: not running.
-      // - Running: running.
-      // - WaitTime: waiting for TriggerTime.
-      // - CheckingCondition: checking branch conditions.
-      // - WaitResource: waiting for resources.
-      // - Failure: execution failed.
-      // - Success: execution succeeded.
-      // - Checking: submitted for data quality check.
+      // 
+      // - NotRun: Not running.
+      // - Running: Running.
+      // - WaitTime: Waiting for the trigger time.
+      // - CheckingCondition: Checking branch conditions.
+      // - WaitResource: Waiting for resources.
+      // - Failure: Execution failed.
+      // - Success: Execution succeeded.
+      // - Checking: Submitted for data quality check.
       shared_ptr<string> status_ {};
       // The URL of the thumbnail.
       shared_ptr<string> thumbnailUrl_ {};

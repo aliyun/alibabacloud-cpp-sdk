@@ -154,7 +154,7 @@ namespace Models
 
 
       protected:
-        // The creation date.
+        // The creation date. The time is in ISO 8601 format in the UTC (Z) time zone.
         shared_ptr<string> createdAt_ {};
         // The category level. The root category is 1.
         shared_ptr<int32_t> depth_ {};
@@ -231,7 +231,7 @@ namespace Models
 
 
       protected:
-        // The creation time.
+        // The creation time. The time is in ISO 8601 format in the UTC (Z) time zone.
         shared_ptr<string> createdAt_ {};
         // The directory level.
         shared_ptr<int32_t> depth_ {};
@@ -316,7 +316,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The request results.
+      // The query results.
       shared_ptr<vector<Module::Data>> data_ {};
       // The next feature ID.
       shared_ptr<Module::Next> next_ {};
@@ -326,7 +326,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // Indicates whether the server processes a maximum of 1,000 most recent records beyond the pagination limit. If the results exceed 1,000 entries, **ResultLimit** is **true**, and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to pagination limits, the server processes up to 1,000 recent records for the current query. If the results exceed 1,000 records, **ResultLimit** is **true**. In this case, narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -442,8 +442,8 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** parameter.
-    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
+    // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

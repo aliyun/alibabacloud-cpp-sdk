@@ -972,7 +972,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Retrieves the details of a conversation.
        *
-       * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
+       * @description API for creating an AI conversation in Wanxiaozhi 2.0.
        *
        * @param request GetAppConversationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -983,7 +983,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Retrieves the details of a conversation.
        *
-       * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
+       * @description API for creating an AI conversation in Wanxiaozhi 2.0.
        *
        * @param request GetAppConversationRequest
        * @return GetAppConversationResponse
@@ -1119,7 +1119,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries instance details.
        *
-       * @description Retrieves the configuration information of a code generation plugin.
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request GetAppInstanceForPartnerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1130,7 +1130,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries instance details.
        *
-       * @description Retrieves the configuration information of a code generation plugin.
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request GetAppInstanceForPartnerRequest
        * @return GetAppInstanceForPartnerResponse
@@ -1413,7 +1413,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries the details of a template.
        *
-       * @description Retrieves the configuration information of a code generation plugin.
+       * @description Retrieves the configuration information of a code generation plug-in.
        *
        * @param request GetAppTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1424,7 +1424,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries the details of a template.
        *
-       * @description Retrieves the configuration information of a code generation plugin.
+       * @description Retrieves the configuration information of a code generation plug-in.
        *
        * @param request GetAppTemplateRequest
        * @return GetAppTemplateResponse
@@ -1885,7 +1885,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Searches the conversation list.
        *
-       * @description Creates an AI session through the Wanxiaozhi 2.0 interface.
+       * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
        *
        * @param request ListAppConversationsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1896,7 +1896,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Searches the conversation list.
        *
-       * @description Creates an AI session through the Wanxiaozhi 2.0 interface.
+       * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
        *
        * @param request ListAppConversationsRequest
        * @return ListAppConversationsResponse
@@ -2018,7 +2018,7 @@ namespace WebsiteBuild20250429
       Models::ListAppPluginVersionsResponse listAppPluginVersions(const Models::ListAppPluginVersionsRequest &request);
 
       /**
-       * @summary Queries the list of code generation plug-ins.
+       * @summary Queries the list of application plug-ins.
        *
        * @description Retrieves the configuration information of code generation plug-ins.
        *
@@ -2029,7 +2029,7 @@ namespace WebsiteBuild20250429
       Models::ListAppPluginsResponse listAppPluginsWithOptions(const Models::ListAppPluginsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of code generation plug-ins.
+       * @summary Queries the list of application plug-ins.
        *
        * @description Retrieves the configuration information of code generation plug-ins.
        *
@@ -2083,7 +2083,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries a list of templates.
        *
-       * @description Retrieves the configuration information of the code generation plugin.
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request ListAppTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2094,7 +2094,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries a list of templates.
        *
-       * @description Retrieves the configuration information of the code generation plugin.
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request ListAppTemplatesRequest
        * @return ListAppTemplatesResponse
@@ -2209,7 +2209,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries the benefit issuance records of a partner.
        *
-       * @description Retrieves the configuration information of the code generation plugin.
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request ListPromotionOfferRecordsForPartnerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2220,7 +2220,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Queries the benefit issuance records of a partner.
        *
-       * @description Retrieves the configuration information of the code generation plugin.
+       * @description Retrieves the configuration information of the code generation plug-in.
        *
        * @param request ListPromotionOfferRecordsForPartnerRequest
        * @return ListPromotionOfferRecordsForPartnerResponse
@@ -2530,7 +2530,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Operates on the Supabase instance information corresponding to a resource.
        *
-       * @description The Supabase instance information corresponding to the resource to operate on.
+       * @description Operates on the Supabase instance information corresponding to a resource.
        *
        * @param request OperateSupabaseForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2541,7 +2541,7 @@ namespace WebsiteBuild20250429
       /**
        * @summary Operates on the Supabase instance information corresponding to a resource.
        *
-       * @description The Supabase instance information corresponding to the resource to operate on.
+       * @description Operates on the Supabase instance information corresponding to a resource.
        *
        * @param request OperateSupabaseForAdminRequest
        * @return OperateSupabaseForAdminResponse
@@ -2591,9 +2591,9 @@ namespace WebsiteBuild20250429
       Models::PushResourceMeasureResponse pushResourceMeasure(const Models::PushResourceMeasureRequest &request);
 
       /**
-       * @summary Queries the details of inspiration point acquisition (quota account list, including expiration flags).
+       * @summary Queries the details of inspiration value acquisition (quota account list, including expiration flags).
        *
-       * @description Queries the Supabase instance information associated with a resource.
+       * @description Queries the Supabase instance information corresponding to a resource.
        *
        * @param request QueryInspirationAccountDetailsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2602,9 +2602,9 @@ namespace WebsiteBuild20250429
       Models::QueryInspirationAccountDetailsResponse queryInspirationAccountDetailsWithOptions(const Models::QueryInspirationAccountDetailsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of inspiration point acquisition (quota account list, including expiration flags).
+       * @summary Queries the details of inspiration value acquisition (quota account list, including expiration flags).
        *
-       * @description Queries the Supabase instance information associated with a resource.
+       * @description Queries the Supabase instance information corresponding to a resource.
        *
        * @param request QueryInspirationAccountDetailsRequest
        * @return QueryInspirationAccountDetailsResponse
@@ -2859,9 +2859,9 @@ namespace WebsiteBuild20250429
       Models::QuerySupabaseAuthConfigsForAdminResponse querySupabaseAuthConfigsForAdmin(const Models::QuerySupabaseAuthConfigsForAdminRequest &request);
 
       /**
-       * @summary Queries the Supabase instance configuration information for a specified resource.
+       * @summary Queries the Supabase instance configuration information corresponding to a resource.
        *
-       * @description Queries the Supabase instance configuration information for a specified resource.
+       * @description Queries the Supabase instance configuration information corresponding to a resource.
        *
        * @param request QuerySupabaseConfigsForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2870,9 +2870,9 @@ namespace WebsiteBuild20250429
       Models::QuerySupabaseConfigsForAdminResponse querySupabaseConfigsForAdminWithOptions(const Models::QuerySupabaseConfigsForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Supabase instance configuration information for a specified resource.
+       * @summary Queries the Supabase instance configuration information corresponding to a resource.
        *
-       * @description Queries the Supabase instance configuration information for a specified resource.
+       * @description Queries the Supabase instance configuration information corresponding to a resource.
        *
        * @param request QuerySupabaseConfigsForAdminRequest
        * @return QuerySupabaseConfigsForAdminResponse
@@ -2880,9 +2880,9 @@ namespace WebsiteBuild20250429
       Models::QuerySupabaseConfigsForAdminResponse querySupabaseConfigsForAdmin(const Models::QuerySupabaseConfigsForAdminRequest &request);
 
       /**
-       * @summary Queries the Supabase instance information for a specified resource.
+       * @summary Queries the Supabase instance information corresponding to a resource.
        *
-       * @description Queries the Supabase instance information for a specified resource.
+       * @description Queries the Supabase instance information corresponding to a resource.
        *
        * @param request QuerySupabaseInstanceInfoForAdminRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2891,9 +2891,9 @@ namespace WebsiteBuild20250429
       Models::QuerySupabaseInstanceInfoForAdminResponse querySupabaseInstanceInfoForAdminWithOptions(const Models::QuerySupabaseInstanceInfoForAdminRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Supabase instance information for a specified resource.
+       * @summary Queries the Supabase instance information corresponding to a resource.
        *
-       * @description Queries the Supabase instance information for a specified resource.
+       * @description Queries the Supabase instance information corresponding to a resource.
        *
        * @param request QuerySupabaseInstanceInfoForAdminRequest
        * @return QuerySupabaseInstanceInfoForAdminResponse

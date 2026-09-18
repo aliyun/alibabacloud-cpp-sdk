@@ -98,6 +98,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // The environment identifier.
     shared_ptr<string> env_ {};
     // The field used for sorting.
     shared_ptr<string> orderColumn_ {};

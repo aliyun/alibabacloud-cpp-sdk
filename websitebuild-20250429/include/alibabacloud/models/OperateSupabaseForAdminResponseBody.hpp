@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
     // The reserved parameter.
     shared_ptr<bool> synchro_ {};

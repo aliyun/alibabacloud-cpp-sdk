@@ -161,13 +161,14 @@ namespace Models
       protected:
         // The number of inspiration points consumed.
         shared_ptr<int64_t> amount_ {};
+        // The number of inspiration points consumed. This is a precise value of the String type that supports decimal display.
         shared_ptr<string> amountStr_ {};
-        // The consumption time.
+        // The consumption time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> consumeTime_ {};
         shared_ptr<string> consumeType_ {};
         // The extended information in JSON string format.
         shared_ptr<string> metaData_ {};
-        // The consumption scenario name, such as AI application development, AI creative illustration, AI video creation, or AI content creation.
+        // The consumption scenario name, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
         shared_ptr<string> sceneName_ {};
       };
 
@@ -257,14 +258,15 @@ namespace Models
       protected:
         // The number of inspiration points consumed.
         shared_ptr<int64_t> amount_ {};
+        // The number of inspiration points consumed. This is a precise value of the String type that supports decimal display.
         shared_ptr<string> amountStr_ {};
-        // The consumption time.
+        // The consumption time. The time is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> consumeTime_ {};
         shared_ptr<string> consumeType_ {};
         // The extended information in JSON string format.
         shared_ptr<string> metaData_ {};
         shared_ptr<string> recordKey_ {};
-        // The consumption scenario name, such as AI application development, AI creative illustration, AI video creation, or AI content creation.
+        // The consumption scenario name, such as AI Application Development, AI Creative Illustration, AI Video Creation, or AI Content Creation.
         shared_ptr<string> sceneName_ {};
       };
 
@@ -343,7 +345,7 @@ namespace Models
       shared_ptr<int32_t> currentPageNum_ {};
       // The request result.
       shared_ptr<vector<Module::Data>> data_ {};
-      // The ID of the next feature.
+      // The next feature ID.
       shared_ptr<Module::Next> next_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
@@ -446,7 +448,7 @@ namespace Models
   protected:
     // The detailed reason why access is denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed.
+    // Indicates whether retries are allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name. The application with this name is queried.
     shared_ptr<string> appName_ {};
@@ -456,7 +458,7 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // Indicates whether the deletion is successful.
+    // The returned result.
     shared_ptr<QueryInspirationConsumeRecordsResponseBody::Module> module_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

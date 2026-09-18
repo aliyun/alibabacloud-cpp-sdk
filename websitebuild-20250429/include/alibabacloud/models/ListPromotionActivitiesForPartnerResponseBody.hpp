@@ -268,13 +268,13 @@ namespace Models
         shared_ptr<string> activityType_ {};
         // The consumed quota.
         shared_ptr<int64_t> consumedQuota_ {};
-        // The creation time.
+        // The creation time. The value is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> createTime_ {};
         // The user who created the activity.
         shared_ptr<string> createdBy_ {};
         // The eligibility configuration in JSON format.
         shared_ptr<string> eligibilityConfig_ {};
-        // The end date.
+        // The end date. The value is in the YYYY-MM-DD HH:mm:ss Z format, where Z is the time zone offset.
         shared_ptr<string> endDate_ {};
         // The offer configuration in JSON format.
         shared_ptr<string> offerConfig_ {};
@@ -282,7 +282,7 @@ namespace Models
         shared_ptr<string> offerConfigSummary_ {};
         // The remaining quota.
         shared_ptr<int64_t> remainingQuota_ {};
-        // The start date.
+        // The start date. The value is in the ISO 8601 format with the time zone set to UTC (Z).
         shared_ptr<string> startDate_ {};
         // The activity status.
         shared_ptr<string> status_ {};
@@ -290,7 +290,7 @@ namespace Models
         shared_ptr<int64_t> totalQuota_ {};
         // The touchpoint configuration in JSON format.
         shared_ptr<string> touchpointConfig_ {};
-        // The update time.
+        // The update time. The value is in the ISO 8601 format with a time zone offset.
         shared_ptr<string> updateTime_ {};
         // The user who last updated the activity.
         shared_ptr<string> updatedBy_ {};
@@ -449,7 +449,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

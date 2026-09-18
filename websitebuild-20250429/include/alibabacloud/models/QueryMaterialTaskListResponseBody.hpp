@@ -158,7 +158,7 @@ namespace Models
     protected:
       // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
-      // The query results.
+      // The request result.
       shared_ptr<vector<AppMaterialTask>> data_ {};
       // Indicates whether a next page exists.
       shared_ptr<bool> nextPage_ {};
@@ -166,7 +166,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // Apart from pagination limits, the server processes up to 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // Apart from pagination limits, the server processes up to 1000 recent records per query. If the results exceed 1000 records, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -297,9 +297,9 @@ namespace Models
   protected:
     // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether retry is allowed. Valid values:
-    // - false: Retry is not allowed.
-    // - true: Retry is allowed.
+    // Indicates whether a retry is allowed. Valid values:
+    // - false: No retry is allowed.
+    // - true: A retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
@@ -329,7 +329,7 @@ namespace Models
     shared_ptr<string> rootErrorMsg_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // Indicates whether the request is processed synchronously.
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

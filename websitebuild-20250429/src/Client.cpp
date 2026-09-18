@@ -282,6 +282,10 @@ BindAppDomainResponse Client::bindAppDomainWithOptions(const BindAppDomainReques
     query["BizId"] = request.getBizId();
   }
 
+  if (!!request.hasDeployType()) {
+    query["DeployType"] = request.getDeployType();
+  }
+
   if (!!request.hasDomainName()) {
     query["DomainName"] = request.getDomainName();
   }
@@ -2814,7 +2818,7 @@ GetAppCodeWorkspaceDetailResponse Client::getAppCodeWorkspaceDetail(const GetApp
 /**
  * @summary Retrieves the details of a conversation.
  *
- * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
+ * @description API for creating an AI conversation in Wanxiaozhi 2.0.
  *
  * @param request GetAppConversationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2851,7 +2855,7 @@ GetAppConversationResponse Client::getAppConversationWithOptions(const GetAppCon
 /**
  * @summary Retrieves the details of a conversation.
  *
- * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
+ * @description API for creating an AI conversation in Wanxiaozhi 2.0.
  *
  * @param request GetAppConversationRequest
  * @return GetAppConversationResponse
@@ -3152,7 +3156,7 @@ GetAppInstanceForAdminResponse Client::getAppInstanceForAdmin(const GetAppInstan
 /**
  * @summary Queries instance details.
  *
- * @description Retrieves the configuration information of a code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppInstanceForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3185,7 +3189,7 @@ GetAppInstanceForPartnerResponse Client::getAppInstanceForPartnerWithOptions(con
 /**
  * @summary Queries instance details.
  *
- * @description Retrieves the configuration information of a code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request GetAppInstanceForPartnerRequest
  * @return GetAppInstanceForPartnerResponse
@@ -3856,7 +3860,7 @@ GetAppSupabaseSecretsResponse Client::getAppSupabaseSecrets(const GetAppSupabase
 /**
  * @summary Queries the details of a template.
  *
- * @description Retrieves the configuration information of a code generation plugin.
+ * @description Retrieves the configuration information of a code generation plug-in.
  *
  * @param request GetAppTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3889,7 +3893,7 @@ GetAppTemplateResponse Client::getAppTemplateWithOptions(const GetAppTemplateReq
 /**
  * @summary Queries the details of a template.
  *
- * @description Retrieves the configuration information of a code generation plugin.
+ * @description Retrieves the configuration information of a code generation plug-in.
  *
  * @param request GetAppTemplateRequest
  * @return GetAppTemplateResponse
@@ -5086,7 +5090,7 @@ ListAppConversationMessagesResponse Client::listAppConversationMessages(const Li
 /**
  * @summary Searches the conversation list.
  *
- * @description Creates an AI session through the Wanxiaozhi 2.0 interface.
+ * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
  *
  * @param request ListAppConversationsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5147,7 +5151,7 @@ ListAppConversationsResponse Client::listAppConversationsWithOptions(const ListA
 /**
  * @summary Searches the conversation list.
  *
- * @description Creates an AI session through the Wanxiaozhi 2.0 interface.
+ * @description Creates an AI conversation through the Wanxiaozhi 2.0 interface.
  *
  * @param request ListAppConversationsRequest
  * @return ListAppConversationsResponse
@@ -5548,7 +5552,7 @@ ListAppPluginVersionsResponse Client::listAppPluginVersions(const ListAppPluginV
 }
 
 /**
- * @summary Queries the list of code generation plug-ins.
+ * @summary Queries the list of application plug-ins.
  *
  * @description Retrieves the configuration information of code generation plug-ins.
  *
@@ -5597,7 +5601,7 @@ ListAppPluginsResponse Client::listAppPluginsWithOptions(const ListAppPluginsReq
 }
 
 /**
- * @summary Queries the list of code generation plug-ins.
+ * @summary Queries the list of application plug-ins.
  *
  * @description Retrieves the configuration information of code generation plug-ins.
  *
@@ -5756,7 +5760,7 @@ ListAppTemplateDictsResponse Client::listAppTemplateDicts(const ListAppTemplateD
 /**
  * @summary Queries a list of templates.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ListAppTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5833,7 +5837,7 @@ ListAppTemplatesResponse Client::listAppTemplatesWithOptions(const ListAppTempla
 /**
  * @summary Queries a list of templates.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ListAppTemplatesRequest
  * @return ListAppTemplatesResponse
@@ -6140,7 +6144,7 @@ ListPromotionActivitiesForPartnerResponse Client::listPromotionActivitiesForPart
 /**
  * @summary Queries the benefit issuance records of a partner.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ListPromotionOfferRecordsForPartnerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6201,7 +6205,7 @@ ListPromotionOfferRecordsForPartnerResponse Client::listPromotionOfferRecordsFor
 /**
  * @summary Queries the benefit issuance records of a partner.
  *
- * @description Retrieves the configuration information of the code generation plugin.
+ * @description Retrieves the configuration information of the code generation plug-in.
  *
  * @param request ListPromotionOfferRecordsForPartnerRequest
  * @return ListPromotionOfferRecordsForPartnerResponse
@@ -7122,7 +7126,7 @@ OperateAppTemplateLikeResponse Client::operateAppTemplateLike(const OperateAppTe
 /**
  * @summary Operates on the Supabase instance information corresponding to a resource.
  *
- * @description The Supabase instance information corresponding to the resource to operate on.
+ * @description Operates on the Supabase instance information corresponding to a resource.
  *
  * @param request OperateSupabaseForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7199,7 +7203,7 @@ OperateSupabaseForAdminResponse Client::operateSupabaseForAdminWithOptions(const
 /**
  * @summary Operates on the Supabase instance information corresponding to a resource.
  *
- * @description The Supabase instance information corresponding to the resource to operate on.
+ * @description Operates on the Supabase instance information corresponding to a resource.
  *
  * @param request OperateSupabaseForAdminRequest
  * @return OperateSupabaseForAdminResponse
@@ -7354,9 +7358,9 @@ PushResourceMeasureResponse Client::pushResourceMeasure(const PushResourceMeasur
 }
 
 /**
- * @summary Queries the details of inspiration point acquisition (quota account list, including expiration flags).
+ * @summary Queries the details of inspiration value acquisition (quota account list, including expiration flags).
  *
- * @description Queries the Supabase instance information associated with a resource.
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request QueryInspirationAccountDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7411,9 +7415,9 @@ QueryInspirationAccountDetailsResponse Client::queryInspirationAccountDetailsWit
 }
 
 /**
- * @summary Queries the details of inspiration point acquisition (quota account list, including expiration flags).
+ * @summary Queries the details of inspiration value acquisition (quota account list, including expiration flags).
  *
- * @description Queries the Supabase instance information associated with a resource.
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request QueryInspirationAccountDetailsRequest
  * @return QueryInspirationAccountDetailsResponse
@@ -8250,9 +8254,9 @@ QuerySupabaseAuthConfigsForAdminResponse Client::querySupabaseAuthConfigsForAdmi
 }
 
 /**
- * @summary Queries the Supabase instance configuration information for a specified resource.
+ * @summary Queries the Supabase instance configuration information corresponding to a resource.
  *
- * @description Queries the Supabase instance configuration information for a specified resource.
+ * @description Queries the Supabase instance configuration information corresponding to a resource.
  *
  * @param request QuerySupabaseConfigsForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8307,9 +8311,9 @@ QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdminWithOpt
 }
 
 /**
- * @summary Queries the Supabase instance configuration information for a specified resource.
+ * @summary Queries the Supabase instance configuration information corresponding to a resource.
  *
- * @description Queries the Supabase instance configuration information for a specified resource.
+ * @description Queries the Supabase instance configuration information corresponding to a resource.
  *
  * @param request QuerySupabaseConfigsForAdminRequest
  * @return QuerySupabaseConfigsForAdminResponse
@@ -8320,9 +8324,9 @@ QuerySupabaseConfigsForAdminResponse Client::querySupabaseConfigsForAdmin(const 
 }
 
 /**
- * @summary Queries the Supabase instance information for a specified resource.
+ * @summary Queries the Supabase instance information corresponding to a resource.
  *
- * @description Queries the Supabase instance information for a specified resource.
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request QuerySupabaseInstanceInfoForAdminRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8377,9 +8381,9 @@ QuerySupabaseInstanceInfoForAdminResponse Client::querySupabaseInstanceInfoForAd
 }
 
 /**
- * @summary Queries the Supabase instance information for a specified resource.
+ * @summary Queries the Supabase instance information corresponding to a resource.
  *
- * @description Queries the Supabase instance information for a specified resource.
+ * @description Queries the Supabase instance information corresponding to a resource.
  *
  * @param request QuerySupabaseInstanceInfoForAdminRequest
  * @return QuerySupabaseInstanceInfoForAdminResponse

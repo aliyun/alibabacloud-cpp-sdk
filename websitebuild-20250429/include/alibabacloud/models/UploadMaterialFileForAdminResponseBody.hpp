@@ -202,9 +202,9 @@ namespace Models
       shared_ptr<string> bizId_ {};
       // The file content type.
       shared_ptr<string> contentType_ {};
-      // The creation time.
+      // The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> createTime_ {};
-      // The time when the file was moved to the recycle bin or deleted.
+      // The time when the file was moved to the recycle bin or deleted. The time is in the YYYY-MM-DD HH:mm:ss format.
       shared_ptr<string> deletedTime_ {};
       // The directory ID.
       shared_ptr<string> directoryId_ {};
@@ -212,7 +212,7 @@ namespace Models
       shared_ptr<string> fileId_ {};
       // The file path.
       shared_ptr<string> fileUrl_ {};
-      // The height.
+      // The height of the file.
       shared_ptr<int32_t> height_ {};
       // The file name.
       shared_ptr<string> name_ {};
@@ -224,7 +224,7 @@ namespace Models
       shared_ptr<string> suffix_ {};
       // The file type.
       shared_ptr<string> type_ {};
-      // The width.
+      // The width of the file.
       shared_ptr<int32_t> width_ {};
     };
 
@@ -323,7 +323,7 @@ namespace Models
     shared_ptr<string> dynamicCode_ {};
     // The dynamic message.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters returned.
+    // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The file object.
     shared_ptr<UploadMaterialFileForAdminResponseBody::Module> module_ {};

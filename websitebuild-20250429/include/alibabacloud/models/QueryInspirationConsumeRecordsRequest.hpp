@@ -106,7 +106,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The scenario name.
     shared_ptr<string> sceneName_ {};
-    // The start time of the query.
+    // The start time of the query. The time is in ISO 8601 format in UTC (Z).
     shared_ptr<string> startTime_ {};
   };
 

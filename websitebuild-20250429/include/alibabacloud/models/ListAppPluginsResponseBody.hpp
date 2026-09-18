@@ -219,8 +219,8 @@ namespace Models
       shared_ptr<string> desc_ {};
       // The image display mode. Valid values:
       // 
-      // - **0** (None): not displayed.
-      // - **1** (Always): always displayed.
+      // - **0** (None): Not displayed.
+      // - **1** (Always): Always displayed.
       shared_ptr<int32_t> display_ {};
       // Specifies whether scheduled delivery of resource snapshots is enabled.
       // 
@@ -234,7 +234,7 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time.
+      // The modification time. The time is in ISO 8601 format in the UTC (Z) time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -354,7 +354,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -362,10 +362,10 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
     // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The number of entries per query.
     // 

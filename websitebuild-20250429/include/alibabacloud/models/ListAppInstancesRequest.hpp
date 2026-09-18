@@ -178,7 +178,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The token for the next query. This parameter is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
-    // The field used for sorting.
+    // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
     // The sort type. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
@@ -188,7 +188,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The query parameter.
     shared_ptr<string> query_ {};
-    // The query mode. CONTENT_CREATION indicates a lightweight query for the content creation site selector, which only queries published sites and does not load aggregated information such as Profile, services, or AI Staff.
+    // The query mode. CONTENT_CREATION indicates a lightweight query for the content creation site selector, which queries only published sites and does not load aggregated information such as Profile, services, or AI Staff.
     shared_ptr<string> queryMode_ {};
     // The status range.
     shared_ptr<vector<string>> statusList_ {};

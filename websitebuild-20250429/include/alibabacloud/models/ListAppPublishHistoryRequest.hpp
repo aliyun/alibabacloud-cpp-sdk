@@ -142,6 +142,7 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
+    // The deployment channel.
     shared_ptr<string> deployChannel_ {};
     // The search keyword.
     shared_ptr<string> keyword_ {};

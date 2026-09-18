@@ -223,7 +223,7 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time.
+      // The modification time. The value is in ISO 8601 format with the time zone set to UTC (Z).
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -231,20 +231,20 @@ namespace Models
       shared_ptr<string> messageId_ {};
       // The business extension metadata in Map format. The value must be a JSON string.
       shared_ptr<string> metaData_ {};
-      // The probability of not wearing a mask, not wearing work clothes, or not wearing a hat.
+      // The probability of not wearing a mask, uniform, or hat.
       shared_ptr<int32_t> no_ {};
       // The role of the conversation participant. Valid values:
       // 
-      // - user: user
+      // - user: User.
       // 
-      // - assistant: assistant
+      // - assistant: Assistant.
       // 
-      // - system: system
-      // - function: function
+      // - system: System.
+      // - function: Function.
       // 
-      // - plugin: plug-in
+      // - plugin: Plug-in.
       // 
-      // - tool: tool
+      // - tool: Tool.
       shared_ptr<string> role_ {};
       // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
@@ -358,7 +358,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The root error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};

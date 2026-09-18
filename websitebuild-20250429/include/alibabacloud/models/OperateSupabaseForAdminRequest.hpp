@@ -144,6 +144,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // The environment identifier.
     shared_ptr<string> env_ {};
     // The SQL statement.
     shared_ptr<string> executeSql_ {};
@@ -151,9 +152,9 @@ namespace Models
     shared_ptr<string> operateType_ {};
     // The ORDER BY clause.
     shared_ptr<string> orderByClause_ {};
-    // The field by which to sort the results.
+    // The column used for sorting.
     shared_ptr<string> orderColumn_ {};
-    // The sort order. Valid values: ASC and DESC.
+    // The sort type. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
     // The page number.
     shared_ptr<int32_t> pageNum_ {};

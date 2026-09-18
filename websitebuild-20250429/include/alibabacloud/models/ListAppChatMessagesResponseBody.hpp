@@ -227,28 +227,28 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time.
+      // The modification time. The value is in ISO 8601 format with the time zone set to UTC (Z).
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
       // The message ID.
       shared_ptr<string> messageId_ {};
-      // The business extension metadata in Map format. The value must be a JSON string.
+      // The business extension metadata in map format. The value must be a JSON string.
       shared_ptr<string> metaData_ {};
-      // The region sequence number. This parameter is deprecated.
+      // **[Deprecated]** The region sequence number. This parameter is deprecated.
       shared_ptr<int32_t> no_ {};
       // The role of the conversation participant. Valid values:
       // 
-      // - user: user
+      // - user: User.
       // 
-      // - assistant: assistant
+      // - assistant: Assistant.
       // 
-      // - system: system
-      // - function: function
+      // - system: System.
+      // - function: Function.
       // 
-      // - plugin: plug-in
+      // - plugin: Plug-in.
       // 
-      // - tool: tool
+      // - tool: Tool.
       shared_ptr<string> role_ {};
       // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
@@ -366,18 +366,18 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` placeholder in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of entries per query.
+    // The number of results per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<vector<ListAppChatMessagesResponseBody::Module>> module_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if there is no next query.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

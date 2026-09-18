@@ -185,7 +185,7 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time.
+      // The modification time. The time is in ISO 8601 format in the UTC (Z) time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -305,18 +305,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The app name.
     shared_ptr<string> appName_ {};
-    // The dynamic code. Not currently used. Ignore this parameter.
+    // The dynamic code. This parameter is not currently used. Ignore it.
     shared_ptr<string> dynamicCode_ {};
     // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
     // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
-    // The error parameters.
+    // The error arguments.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
     // The number of entries per query.
     // 

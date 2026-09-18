@@ -156,6 +156,7 @@ namespace Models
           shared_ptr<string> host_ {};
           // The record type.
           shared_ptr<string> recordType_ {};
+          // The status of the conflicting DNS record. A value of ENABLE indicates that the record is enabled.
           shared_ptr<string> status_ {};
           // The record value.
           shared_ptr<string> value_ {};
@@ -194,13 +195,13 @@ namespace Models
 
 
       protected:
-        // Indicates whether automatic override is supported. The value is true for the current Alibaba Cloud account and false for other accounts.
+        // Indicates whether automatic overwrite is supported. A value of true indicates the current Alibaba Cloud account, and a value of false indicates other accounts.
         shared_ptr<bool> canAutoResolve_ {};
         // Indicates whether a conflict exists.
         shared_ptr<bool> hasConflict_ {};
-        // The user-facing prompt message. Different guidance messages are generated based on the scenario.
+        // The user-facing prompt message. Different guidance text is generated based on the scenario.
         shared_ptr<string> message_ {};
-        // The list of conflicting DNS records (reusing the existing AppDomainDnsRecordDTO).
+        // The list of conflicting DNS records. This reuses the existing AppDomainDnsRecordDTO.
         shared_ptr<vector<DnsConflict::Records>> records_ {};
       };
 
@@ -225,7 +226,7 @@ namespace Models
     protected:
       // The DNS conflict information. This parameter is returned when a conflict is detected during synchronous verification.
       shared_ptr<Module::DnsConflict> dnsConflict_ {};
-      // Indicates whether the request is successful.
+      // Indicates whether the request was successful.
       shared_ptr<bool> success_ {};
     };
 
@@ -314,7 +315,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -322,24 +323,24 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message used to replace the **%s** variable in the **ErrMessage** parameter.
+    // The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
     // > For example, if **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The data table module. Valid values:
+    // The data table module.
     // 
-    // - ABTest: experiment data table.
+    // - ABTest: experiment data table
     // 
-    // - ExperimentTool: experiment tool table.
+    // - ExperimentTool: experiment tool table
     // 
-    // - DataDiagnosis: data diagnostics.
+    // - DataDiagnosis: data diagnostics
     shared_ptr<BindAppDomainResponseBody::Module> module_ {};
-    // Id of the request
+    // The unique ID of the request.
     shared_ptr<string> requestId_ {};
-    // The root error code.
+    // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The root error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     // Indicates whether the request is processed synchronously.
     shared_ptr<bool> synchro_ {};

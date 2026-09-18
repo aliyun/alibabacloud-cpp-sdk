@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CustomerService, customerService_);
       DARABONBA_PTR_TO_JSON(DeployArea, deployArea_);
       DARABONBA_PTR_TO_JSON(IcpbaNo, icpbaNo_);
+      DARABONBA_PTR_TO_JSON(IndependentDeployment, independentDeployment_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OpenChatBi, openChatBi_);
       DARABONBA_PTR_TO_JSON(OrdTime, ordTime_);
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CustomerService, customerService_);
       DARABONBA_PTR_FROM_JSON(DeployArea, deployArea_);
       DARABONBA_PTR_FROM_JSON(IcpbaNo, icpbaNo_);
+      DARABONBA_PTR_FROM_JSON(IndependentDeployment, independentDeployment_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OpenChatBi, openChatBi_);
       DARABONBA_PTR_FROM_JSON(OrdTime, ordTime_);
@@ -71,12 +73,130 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class IndependentDeployment : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const IndependentDeployment& obj) { 
+        DARABONBA_PTR_TO_JSON(CanRetry, canRetry_);
+        DARABONBA_PTR_TO_JSON(DeployArea, deployArea_);
+        DARABONBA_PTR_TO_JSON(DnsRecordType, dnsRecordType_);
+        DARABONBA_PTR_TO_JSON(Eligibility, eligibility_);
+        DARABONBA_PTR_TO_JSON(EnableStatus, enableStatus_);
+        DARABONBA_PTR_TO_JSON(IndependentIp, independentIp_);
+        DARABONBA_PTR_TO_JSON(ServerSpec, serverSpec_);
+        DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+      };
+      friend void from_json(const Darabonba::Json& j, IndependentDeployment& obj) { 
+        DARABONBA_PTR_FROM_JSON(CanRetry, canRetry_);
+        DARABONBA_PTR_FROM_JSON(DeployArea, deployArea_);
+        DARABONBA_PTR_FROM_JSON(DnsRecordType, dnsRecordType_);
+        DARABONBA_PTR_FROM_JSON(Eligibility, eligibility_);
+        DARABONBA_PTR_FROM_JSON(EnableStatus, enableStatus_);
+        DARABONBA_PTR_FROM_JSON(IndependentIp, independentIp_);
+        DARABONBA_PTR_FROM_JSON(ServerSpec, serverSpec_);
+        DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+      };
+      IndependentDeployment() = default ;
+      IndependentDeployment(const IndependentDeployment &) = default ;
+      IndependentDeployment(IndependentDeployment &&) = default ;
+      IndependentDeployment(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~IndependentDeployment() = default ;
+      IndependentDeployment& operator=(const IndependentDeployment &) = default ;
+      IndependentDeployment& operator=(IndependentDeployment &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->canRetry_ == nullptr
+        && this->deployArea_ == nullptr && this->dnsRecordType_ == nullptr && this->eligibility_ == nullptr && this->enableStatus_ == nullptr && this->independentIp_ == nullptr
+        && this->serverSpec_ == nullptr && this->taskId_ == nullptr; };
+      // canRetry Field Functions 
+      bool hasCanRetry() const { return this->canRetry_ != nullptr;};
+      void deleteCanRetry() { this->canRetry_ = nullptr;};
+      inline bool getCanRetry() const { DARABONBA_PTR_GET_DEFAULT(canRetry_, false) };
+      inline IndependentDeployment& setCanRetry(bool canRetry) { DARABONBA_PTR_SET_VALUE(canRetry_, canRetry) };
+
+
+      // deployArea Field Functions 
+      bool hasDeployArea() const { return this->deployArea_ != nullptr;};
+      void deleteDeployArea() { this->deployArea_ = nullptr;};
+      inline string getDeployArea() const { DARABONBA_PTR_GET_DEFAULT(deployArea_, "") };
+      inline IndependentDeployment& setDeployArea(string deployArea) { DARABONBA_PTR_SET_VALUE(deployArea_, deployArea) };
+
+
+      // dnsRecordType Field Functions 
+      bool hasDnsRecordType() const { return this->dnsRecordType_ != nullptr;};
+      void deleteDnsRecordType() { this->dnsRecordType_ = nullptr;};
+      inline string getDnsRecordType() const { DARABONBA_PTR_GET_DEFAULT(dnsRecordType_, "") };
+      inline IndependentDeployment& setDnsRecordType(string dnsRecordType) { DARABONBA_PTR_SET_VALUE(dnsRecordType_, dnsRecordType) };
+
+
+      // eligibility Field Functions 
+      bool hasEligibility() const { return this->eligibility_ != nullptr;};
+      void deleteEligibility() { this->eligibility_ = nullptr;};
+      inline string getEligibility() const { DARABONBA_PTR_GET_DEFAULT(eligibility_, "") };
+      inline IndependentDeployment& setEligibility(string eligibility) { DARABONBA_PTR_SET_VALUE(eligibility_, eligibility) };
+
+
+      // enableStatus Field Functions 
+      bool hasEnableStatus() const { return this->enableStatus_ != nullptr;};
+      void deleteEnableStatus() { this->enableStatus_ = nullptr;};
+      inline string getEnableStatus() const { DARABONBA_PTR_GET_DEFAULT(enableStatus_, "") };
+      inline IndependentDeployment& setEnableStatus(string enableStatus) { DARABONBA_PTR_SET_VALUE(enableStatus_, enableStatus) };
+
+
+      // independentIp Field Functions 
+      bool hasIndependentIp() const { return this->independentIp_ != nullptr;};
+      void deleteIndependentIp() { this->independentIp_ = nullptr;};
+      inline string getIndependentIp() const { DARABONBA_PTR_GET_DEFAULT(independentIp_, "") };
+      inline IndependentDeployment& setIndependentIp(string independentIp) { DARABONBA_PTR_SET_VALUE(independentIp_, independentIp) };
+
+
+      // serverSpec Field Functions 
+      bool hasServerSpec() const { return this->serverSpec_ != nullptr;};
+      void deleteServerSpec() { this->serverSpec_ = nullptr;};
+      inline string getServerSpec() const { DARABONBA_PTR_GET_DEFAULT(serverSpec_, "") };
+      inline IndependentDeployment& setServerSpec(string serverSpec) { DARABONBA_PTR_SET_VALUE(serverSpec_, serverSpec) };
+
+
+      // taskId Field Functions 
+      bool hasTaskId() const { return this->taskId_ != nullptr;};
+      void deleteTaskId() { this->taskId_ = nullptr;};
+      inline int64_t getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, 0L) };
+      inline IndependentDeployment& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
+
+
+    protected:
+      // Indicates whether a retry is allowed after the dedicated server fails to start.
+      shared_ptr<bool> canRetry_ {};
+      // The deployment region code of the dedicated server.
+      shared_ptr<string> deployArea_ {};
+      // The DNS record type used when binding a domain name to the dedicated IP address.
+      shared_ptr<string> dnsRecordType_ {};
+      // The eligibility status of the dedicated server. Valid values:
+      // - UPGRADE_REQUIRED: A version upgrade is required.
+      // - AVAILABLE: The dedicated server can be started.
+      // - UNAVAILABLE: The dedicated server is currently unavailable.
+      shared_ptr<string> eligibility_ {};
+      // The status of the dedicated server. Valid values:
+      // - NOT_ENABLED: Not started.
+      // - ENABLING: Starting.
+      // - ACTIVE: Started.
+      // - FAILED: Failed to start.
+      shared_ptr<string> enableStatus_ {};
+      // The dedicated IP address assigned after the dedicated server is started.
+      shared_ptr<string> independentIp_ {};
+      // The unified display specification of the dedicated server. This does not represent the real-time resource usage of the container.
+      shared_ptr<string> serverSpec_ {};
+      // The task ID for starting the dedicated server.
+      shared_ptr<int64_t> taskId_ {};
+    };
+
     virtual bool empty() const override { return this->applicationType_ == nullptr
         && this->applicationTypeText_ == nullptr && this->bizId_ == nullptr && this->chatbiTaskId_ == nullptr && this->chatbiTaskStatus_ == nullptr && this->commodityCode_ == nullptr
-        && this->customerService_ == nullptr && this->deployArea_ == nullptr && this->icpbaNo_ == nullptr && this->instanceId_ == nullptr && this->openChatBi_ == nullptr
-        && this->ordTime_ == nullptr && this->orderId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr && this->seoSite_ == nullptr
-        && this->shareRenderWatermark_ == nullptr && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr && this->templateEtag_ == nullptr
-        && this->templateId_ == nullptr; };
+        && this->customerService_ == nullptr && this->deployArea_ == nullptr && this->icpbaNo_ == nullptr && this->independentDeployment_ == nullptr && this->instanceId_ == nullptr
+        && this->openChatBi_ == nullptr && this->ordTime_ == nullptr && this->orderId_ == nullptr && this->payTime_ == nullptr && this->previewUrl_ == nullptr
+        && this->seoSite_ == nullptr && this->shareRenderWatermark_ == nullptr && this->siteVersion_ == nullptr && this->siteVersionText_ == nullptr && this->source_ == nullptr
+        && this->templateEtag_ == nullptr && this->templateId_ == nullptr; };
     // applicationType Field Functions 
     bool hasApplicationType() const { return this->applicationType_ != nullptr;};
     void deleteApplicationType() { this->applicationType_ = nullptr;};
@@ -138,6 +258,15 @@ namespace Models
     void deleteIcpbaNo() { this->icpbaNo_ = nullptr;};
     inline string getIcpbaNo() const { DARABONBA_PTR_GET_DEFAULT(icpbaNo_, "") };
     inline AppInstanceProfile& setIcpbaNo(string icpbaNo) { DARABONBA_PTR_SET_VALUE(icpbaNo_, icpbaNo) };
+
+
+    // independentDeployment Field Functions 
+    bool hasIndependentDeployment() const { return this->independentDeployment_ != nullptr;};
+    void deleteIndependentDeployment() { this->independentDeployment_ = nullptr;};
+    inline const AppInstanceProfile::IndependentDeployment & getIndependentDeployment() const { DARABONBA_PTR_GET_CONST(independentDeployment_, AppInstanceProfile::IndependentDeployment) };
+    inline AppInstanceProfile::IndependentDeployment getIndependentDeployment() { DARABONBA_PTR_GET(independentDeployment_, AppInstanceProfile::IndependentDeployment) };
+    inline AppInstanceProfile& setIndependentDeployment(const AppInstanceProfile::IndependentDeployment & independentDeployment) { DARABONBA_PTR_SET_VALUE(independentDeployment_, independentDeployment) };
+    inline AppInstanceProfile& setIndependentDeployment(AppInstanceProfile::IndependentDeployment && independentDeployment) { DARABONBA_PTR_SET_RVALUE(independentDeployment_, independentDeployment) };
 
 
     // instanceId Field Functions 
@@ -232,43 +361,51 @@ namespace Models
 
 
   protected:
-    // The application type code.
+    // The application type code. For example, PC_WebSite indicates a PC website.
     shared_ptr<string> applicationType_ {};
-    // The application type text description.
+    // The display name of the application type.
     shared_ptr<string> applicationTypeText_ {};
-    // The business ID.
+    // The business identifier of the application instance.
     shared_ptr<string> bizId_ {};
+    // The asynchronous task ID of ChatBI BuildSchemaIndex.
     shared_ptr<string> chatbiTaskId_ {};
+    // The task status of ChatBI BuildSchemaIndex. Valid values: running, finish, and failed.
     shared_ptr<string> chatbiTaskStatus_ {};
-    // The commodity code.
+    // The commodity code used for placing the order.
     shared_ptr<string> commodityCode_ {};
-    // The customer service information.
+    // The contact information or description of customer service.
     shared_ptr<string> customerService_ {};
-    // The deployment area.
+    // The deployment region code of the application.
     shared_ptr<string> deployArea_ {};
+    // The ICP filing number bound to the custom domain name. Multiple filing numbers are separated by commas (,).
     shared_ptr<string> icpbaNo_ {};
-    // The associated instance ID.
+    // The dedicated server information. Computed in real time by DescribeAppInstance. Not populated by list operations.
+    shared_ptr<AppInstanceProfile::IndependentDeployment> independentDeployment_ {};
+    // The associated Lingxiao instance ID.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether the current user is included in the ChatBI feature canary release whitelist.
     shared_ptr<bool> openChatBi_ {};
-    // The time when the order was placed.
+    // The time when the order was placed, in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> ordTime_ {};
     // The order ID.
     shared_ptr<string> orderId_ {};
-    // The payment time.
+    // The time when the payment was made, in the yyyy-MM-dd HH:mm:ss format.
     shared_ptr<string> payTime_ {};
+    // The URL used to access the application preview page.
     shared_ptr<string> previewUrl_ {};
-    // The SEO site information.
+    // The SEO site configuration identifier.
     shared_ptr<string> seoSite_ {};
+    // The switch for the share rendering watermark. A value of 1 indicates enabled, and a value of 0 indicates disabled. This field is empty if not configured.
     shared_ptr<string> shareRenderWatermark_ {};
     // The site version code.
     shared_ptr<string> siteVersion_ {};
-    // The site version text description.
+    // The display name of the site version, including the deployment region.
     shared_ptr<string> siteVersionText_ {};
-    // The source information.
+    // The identifier of the creation or synchronization source.
     shared_ptr<string> source_ {};
-    // The template ETag identifier.
+    // The ETag identifier of the current application template.
     shared_ptr<string> templateEtag_ {};
-    // The template ID.
+    // The template ID used by the current application.
     shared_ptr<string> templateId_ {};
   };
 

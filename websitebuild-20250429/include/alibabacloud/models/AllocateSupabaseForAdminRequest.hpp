@@ -98,12 +98,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> bizId_ {};
+    // The environment identifier.
     shared_ptr<string> env_ {};
     // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
-    // The sort order. Valid values:
-    // - ASC: ascending order
-    // - DESC: descending order
+    // The sort order. Valid values: ASC and DESC.
     shared_ptr<string> orderType_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNum_ {};

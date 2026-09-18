@@ -14,6 +14,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const BindAppDomainRequest& obj) { 
       DARABONBA_PTR_TO_JSON(BizId, bizId_);
+      DARABONBA_PTR_TO_JSON(DeployType, deployType_);
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
       DARABONBA_PTR_TO_JSON(DomainType, domainType_);
       DARABONBA_PTR_TO_JSON(Extend, extend_);
@@ -21,6 +22,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, BindAppDomainRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(BizId, bizId_);
+      DARABONBA_PTR_FROM_JSON(DeployType, deployType_);
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
       DARABONBA_PTR_FROM_JSON(DomainType, domainType_);
       DARABONBA_PTR_FROM_JSON(Extend, extend_);
@@ -38,12 +40,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bizId_ == nullptr
-        && this->domainName_ == nullptr && this->domainType_ == nullptr && this->extend_ == nullptr && this->operateType_ == nullptr; };
+        && this->deployType_ == nullptr && this->domainName_ == nullptr && this->domainType_ == nullptr && this->extend_ == nullptr && this->operateType_ == nullptr; };
     // bizId Field Functions 
     bool hasBizId() const { return this->bizId_ != nullptr;};
     void deleteBizId() { this->bizId_ = nullptr;};
     inline string getBizId() const { DARABONBA_PTR_GET_DEFAULT(bizId_, "") };
     inline BindAppDomainRequest& setBizId(string bizId) { DARABONBA_PTR_SET_VALUE(bizId_, bizId) };
+
+
+    // deployType Field Functions 
+    bool hasDeployType() const { return this->deployType_ != nullptr;};
+    void deleteDeployType() { this->deployType_ = nullptr;};
+    inline string getDeployType() const { DARABONBA_PTR_GET_DEFAULT(deployType_, "") };
+    inline BindAppDomainRequest& setDeployType(string deployType) { DARABONBA_PTR_SET_VALUE(deployType_, deployType) };
 
 
     // domainName Field Functions 
@@ -77,10 +86,14 @@ namespace Models
   protected:
     // The business ID.
     shared_ptr<string> bizId_ {};
+    // The domain hosting method. Valid values:
+    // - CUSTOMER_ESA: Uses the customer\\"s own Edge Security Acceleration (ESA). Only supported when DomainType is set to CUSTOM.
+    // 
+    // If this parameter is not specified, the original hosting process is used.
+    shared_ptr<string> deployType_ {};
     // The domain name.
     shared_ptr<string> domainName_ {};
     // The domain management type. Valid values:
-    // 
     // - CUSTOM
     // - PLATFORM_PREFIX
     // 

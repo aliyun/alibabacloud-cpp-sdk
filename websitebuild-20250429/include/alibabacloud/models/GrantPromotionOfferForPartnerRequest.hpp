@@ -84,6 +84,7 @@ namespace Models
 
 
   protected:
+    // The activity code.
     shared_ptr<string> activityCode_ {};
     // The activity ID.
     shared_ptr<string> activityId_ {};
@@ -93,7 +94,7 @@ namespace Models
     shared_ptr<string> channel_ {};
     // The employee code.
     shared_ptr<string> employeeCode_ {};
-    // The operation remarks (audit information).
+    // The operation remark (audit information).
     shared_ptr<string> remark_ {};
   };
 

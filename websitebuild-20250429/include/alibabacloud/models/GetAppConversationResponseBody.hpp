@@ -182,7 +182,7 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The update time.
+      // The update time. The time is in ISO 8601 format in the UTC (Z) time zone.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -190,9 +190,9 @@ namespace Models
       shared_ptr<string> metaData_ {};
       // The section ID of the check item.
       shared_ptr<string> sectionId_ {};
-      // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+      // The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
       shared_ptr<string> siteId_ {};
-      // The current viewpoint, which is equivalent to the news title.
+      // The current viewpoint, equivalent to the news title.
       shared_ptr<string> title_ {};
       // The user ID.
       shared_ptr<string> userId_ {};
@@ -285,14 +285,14 @@ namespace Models
   protected:
     // The details of the permission verification failure.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Indicates whether a retry is allowed.
+    // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
     // The application name.
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
@@ -302,7 +302,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
     // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};

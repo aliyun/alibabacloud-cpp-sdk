@@ -227,7 +227,7 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The current page number.
     shared_ptr<int32_t> currentPageNum_ {};
-    // The request result. When QueryMode is set to CONTENT_CREATION, only BizId, Name, Domain, and Version are guaranteed to be valid. Version returns V2.0 only for 2.0 sites and is empty for 1.0 sites.
+    // The request result. When QueryMode is set to CONTENT_CREATION, only BizId, Name, Domain, and Version are guaranteed to be valid. Version returns V2.0 only for version 2.0 sites and is empty for version 1.0 sites.
     shared_ptr<vector<AppInstanceAggregate>> data_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
@@ -249,11 +249,11 @@ namespace Models
     shared_ptr<bool> prePage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // In addition to the pagination limit, the server processes a maximum of 1000 recent records for the current query. If the results exceed 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+    // In addition to the pagination limit, the server processes a maximum of the most recent 1000 records for the current query. If the results exceed 1000 records, **ResultLimit** is **true** and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The exception message.
+    // The error message.
     shared_ptr<string> rootErrorMsg_ {};
     // The start position.
     shared_ptr<string> startPosition_ {};

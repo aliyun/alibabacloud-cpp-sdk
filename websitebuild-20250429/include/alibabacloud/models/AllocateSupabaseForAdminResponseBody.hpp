@@ -293,11 +293,11 @@ namespace Models
       shared_ptr<string> dbPublicUrl_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
-      // The additional information.
+      // The extra information.
       shared_ptr<string> extra_ {};
       // The time when the instance creation was completed.
       shared_ptr<string> instanceCreateFinishedTime_ {};
-      // The creation status of the instance.
+      // The instance creation status.
       shared_ptr<string> instanceCreateStatus_ {};
       // The deletion flag.
       shared_ptr<int32_t> isDeleted_ {};
@@ -306,8 +306,8 @@ namespace Models
       // The service key.
       shared_ptr<string> serviceKey_ {};
       // The instance status. Valid values:
-      // - 0: paused
-      // - 1: running
+      // - 0: Paused.
+      // - 1: Running.
       shared_ptr<int32_t> status_ {};
       // The password for the Supabase Dashboard.
       shared_ptr<string> supabaseDashboardPassword_ {};
@@ -434,9 +434,9 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // The error code.
     shared_ptr<string> rootErrorCode_ {};
-    // The error message.
+    // The root error message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

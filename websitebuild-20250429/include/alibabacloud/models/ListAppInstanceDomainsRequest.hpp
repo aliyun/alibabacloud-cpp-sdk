@@ -125,18 +125,18 @@ namespace Models
     shared_ptr<string> bizId_ {};
     // The domain name keyword. This parameter is optional and used for fuzzy match.
     shared_ptr<string> domainKeyword_ {};
-    // The domain management type. Valid values:
+    // The domain name management type. Valid values:
     // 
     // - CUSTOM
     // - PLATFORM_PREFIX
     // 
-    // Default value: CUSTOM.
+    // If this parameter is not specified, the default value CUSTOM is used.
     shared_ptr<string> domainType_ {};
     // The number of entries per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. This parameter is empty if no more results are available.
+    // The pagination token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};
     // The field by which to sort the results.
     shared_ptr<string> orderColumn_ {};
@@ -149,12 +149,12 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The domain status query mode. Valid values:
+    // The domain name status query mode. Valid values:
     // 
     // - BASIC: returns only the persisted status.
     // - REALTIME: refreshes the external service status.
     // 
-    // Default value: REALTIME.
+    // If this parameter is not specified, the default value REALTIME is used.
     shared_ptr<string> statusQueryMode_ {};
   };
 

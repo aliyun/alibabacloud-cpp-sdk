@@ -138,11 +138,11 @@ namespace Models
       shared_ptr<string> bizId_ {};
       // The primary domain name.
       shared_ptr<string> domain_ {};
-      // The time when the output was created.
+      // The creation time of the output artifact. The time is in ISO 8601 format and includes a time zone offset.
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The time when the output was last modified.
+      // The modification time. The time is in ISO 8601 format with the time zone set to UTC (Z).
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -247,8 +247,8 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};

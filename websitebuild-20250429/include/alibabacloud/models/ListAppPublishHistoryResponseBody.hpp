@@ -303,7 +303,7 @@ namespace Models
         shared_ptr<string> errorStepCode_ {};
         // Indicates whether the task is complete.
         shared_ptr<bool> isFinish_ {};
-        // Indicates whether the resource allocation of the business unit is successful. Valid values:
+        // Indicates whether the resource allocation of the business unit is successful.
         // - true: The allocation is successful.
         // - false: The allocation failed.
         shared_ptr<bool> isSuccess_ {};
@@ -506,7 +506,7 @@ namespace Models
     // 
     // - ExperimentTool: the experiment tool table.
     // 
-    // - DataDiagnosis: data modeling diagnostics.
+    // - DataDiagnosis: data diagnostics.
     shared_ptr<ListAppPublishHistoryResponseBody::Module> module_ {};
     // The token for the next query. This parameter is empty if no more results exist.
     shared_ptr<string> nextToken_ {};

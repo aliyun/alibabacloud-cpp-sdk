@@ -117,7 +117,7 @@ namespace Models
 
 
   protected:
-    // The business group ID.
+    // The ID of the business group.
     shared_ptr<string> bizGroupId_ {};
     // The number of entries per query.
     // 

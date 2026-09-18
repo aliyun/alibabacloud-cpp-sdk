@@ -208,11 +208,11 @@ namespace Models
       shared_ptr<int32_t> enabled_ {};
       // The extension information.
       shared_ptr<map<string, string>> extend_ {};
-      // The creation time.
+      // The creation time. The time is in ISO 8601 format in UTC (Z).
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtCreateTime_ {};
-      // The modification time.
+      // The modification time. The time is in ISO 8601 format in UTC (Z).
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> gmtModifiedTime_ {};
@@ -332,7 +332,7 @@ namespace Models
 
 
   protected:
-    // The detailed reason why access is denied.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // Indicates whether retry is allowed.
     shared_ptr<bool> allowRetry_ {};
@@ -340,8 +340,8 @@ namespace Models
     shared_ptr<string> appName_ {};
     // The dynamic error code.
     shared_ptr<string> dynamicCode_ {};
-    // The dynamic error message, which is used to replace the `%s` in the **ErrMessage** response parameter.
-    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
+    // The dynamic error message, which is used to replace the `%s` variable in the **ErrMessage** return parameter.
+    // > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the value of the request parameter **DtsJobId** is invalid.
     shared_ptr<string> dynamicMessage_ {};
     // The returned error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
@@ -359,7 +359,7 @@ namespace Models
     shared_ptr<string> rootErrorCode_ {};
     // The exception message.
     shared_ptr<string> rootErrorMsg_ {};
-    // Indicates whether the request is processed synchronously.
+    // Indicates whether the request is synchronously processed.
     shared_ptr<bool> synchro_ {};
   };
 

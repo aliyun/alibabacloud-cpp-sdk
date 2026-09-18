@@ -349,7 +349,7 @@ namespace Models
       protected:
         // The application type.
         shared_ptr<string> appType_ {};
-        // The bizId of the associated application instance.
+        // The BizId of the associated application instance.
         shared_ptr<string> bizId_ {};
         // The color scheme.
         shared_ptr<string> colorScheme_ {};
@@ -374,22 +374,22 @@ namespace Models
         // The industry name.
         shared_ptr<string> industryName_ {};
         shared_ptr<bool> isRecommended_ {};
-        // The ID of the user who last modified the resource.
+        // The ID of the last modifier.
         shared_ptr<string> lastModifier_ {};
         // The number of likes.
         shared_ptr<int32_t> likeCount_ {};
-        // Indicates whether the current user has liked this item.
+        // Indicates whether the current user has liked the item.
         shared_ptr<bool> liked_ {};
         // The fix content.
         shared_ptr<string> metadata_ {};
         // The preview URL.
         shared_ptr<string> previewUrl_ {};
-        // The product edition. Valid values:
+        // The edition. Valid values:
         // - **BasicVersion**: Basic Edition.
         // - **EnterpriseVersion**: Enterprise Edition.
         // > This parameter is required only when ProductForm is set to IntegrationForm.
         shared_ptr<string> productVersion_ {};
-        // The product edition name.
+        // The edition name.
         shared_ptr<string> productVersionName_ {};
         // The number of shares.
         shared_ptr<int32_t> shareCount_ {};
@@ -677,7 +677,7 @@ namespace Models
         shared_ptr<int32_t> copyCount_ {};
         // The creator ID.
         shared_ptr<string> creator_ {};
-        // The creation time.
+        // The creation time. The time is in ISO 8601 format in the UTC (Z) time zone.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> gmtCreateTime_ {};
@@ -699,15 +699,15 @@ namespace Models
         shared_ptr<string> lastModifier_ {};
         // The number of likes.
         shared_ptr<int32_t> likeCount_ {};
-        // Indicates whether the current user has liked this item.
+        // Indicates whether the current user has liked the item.
         shared_ptr<bool> liked_ {};
-        // The repair action.
+        // The remediation action.
         shared_ptr<string> metadata_ {};
         // The preview URL.
         shared_ptr<string> previewUrl_ {};
         // The product version. Valid values:
-        // - **BasicVersion**: Basic Edition.
-        // - **EnterpriseVersion**: Enterprise Edition.
+        // - **BasicVersion**: Basic edition.
+        // - **EnterpriseVersion**: Enterprise edition.
         shared_ptr<string> productVersion_ {};
         // The edition name.
         shared_ptr<string> productVersionName_ {};
@@ -811,7 +811,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // In addition to the pagination limit, the server processes a maximum of 1000 recent records for the current query. If the result exceeds 1000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // In addition to the pagination limit, the server processes a maximum of 1,000 most recent records for the current query. If the result exceeds 1,000 records, **ResultLimit** is **true**, and you need to narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -937,7 +937,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The response data.
     shared_ptr<ListAppTemplatesResponseBody::Module> module_ {};
-    // The token for the next query. This parameter is empty if no more results exist.
+    // The token for the next query. This parameter is empty if no more results are available.
     shared_ptr<string> nextToken_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

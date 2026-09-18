@@ -163,13 +163,13 @@ namespace Models
 
 
       protected:
-        // The time when the task was created.
+        // The time when the task was created. The value is in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> createdAt_ {};
         // The primary key.
         shared_ptr<string> id_ {};
-        // Indicates whether this is the default private gateway.
+        // Indicates whether this is the default dedicated gateway.
         shared_ptr<bool> isDefault_ {};
-        // Indicates whether this is a system-defined approval template. Valid values:
+        // Indicates whether the approval template is system-defined. Valid values:
         // - 1: Yes.
         // - 0: No.
         shared_ptr<bool> isSystem_ {};
@@ -253,7 +253,7 @@ namespace Models
 
 
       protected:
-        // The creation date.
+        // The creation date. The value is in ISO 8601 format with the time zone set to UTC (Z).
         shared_ptr<string> createdAt_ {};
         // The primary key.
         shared_ptr<string> id_ {};
@@ -261,7 +261,7 @@ namespace Models
         // - **0**: Not the default report.
         // - **1**: The default report.
         shared_ptr<bool> isDefault_ {};
-        // Indicates whether this is a system-defined approval template. Valid values:
+        // Indicates whether the approval template is system-defined. Valid values:
         // - 1: Yes.
         // - 0: No.
         shared_ptr<bool> isSystem_ {};
@@ -354,7 +354,7 @@ namespace Models
       shared_ptr<int32_t> pageSize_ {};
       // Indicates whether a previous page exists.
       shared_ptr<bool> prePage_ {};
-      // Indicates whether the query results exceed the server-side limit of 1,000 records (excluding pagination limits). If the results exceed 1,000 entries, **ResultLimit** is **true**. Narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
+      // Indicates whether the server-side result limit is reached. The server processes up to 1,000 recent records beyond pagination limits. If the results exceed 1,000, **ResultLimit** is **true** and you must narrow the time range and search again. Otherwise, **ResultLimit** is **false**.
       shared_ptr<bool> resultLimit_ {};
       // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
@@ -474,7 +474,7 @@ namespace Models
     shared_ptr<string> dynamicMessage_ {};
     // The error parameters.
     shared_ptr<vector<Darabonba::Json>> errorArgs_ {};
-    // The number of entries per query.
+    // The maximum number of entries to return per query.
     // 
     // Valid values: 10 to 100. Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
