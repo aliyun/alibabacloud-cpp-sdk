@@ -75,6 +75,24 @@ namespace FCSandbox20260509
       Models::CreateTemplateResponse createTemplate(const Models::CreateTemplateRequest &request);
 
       /**
+       * @summary 创建模板缓存
+       *
+       * @param request CreateTemplateCacheRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateTemplateCacheResponse
+       */
+      Models::CreateTemplateCacheResponse createTemplateCacheWithOptions(const Models::CreateTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建模板缓存
+       *
+       * @param request CreateTemplateCacheRequest
+       * @return CreateTemplateCacheResponse
+       */
+      Models::CreateTemplateCacheResponse createTemplateCache(const Models::CreateTemplateCacheRequest &request);
+
+      /**
        * @summary Creates a volume.
        *
        * @param request CreateVolumeRequest
@@ -165,6 +183,24 @@ namespace FCSandbox20260509
       Models::DeleteTemplateResponse deleteTemplate(const string &templateID, const Models::DeleteTemplateRequest &request);
 
       /**
+       * @summary 删除模板缓存
+       *
+       * @param request DeleteTemplateCacheRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DeleteTemplateCacheResponse
+       */
+      Models::DeleteTemplateCacheResponse deleteTemplateCacheWithOptions(const string &templateID, const Models::DeleteTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 删除模板缓存
+       *
+       * @param request DeleteTemplateCacheRequest
+       * @return DeleteTemplateCacheResponse
+       */
+      Models::DeleteTemplateCacheResponse deleteTemplateCache(const string &templateID, const Models::DeleteTemplateCacheRequest &request);
+
+      /**
        * @summary Deletes a Volume.
        *
        * @param request DeleteVolumeRequest
@@ -217,6 +253,24 @@ namespace FCSandbox20260509
        * @return DescribeQuotaResponse
        */
       Models::DescribeQuotaResponse describeQuota(const Models::DescribeQuotaRequest &request);
+
+      /**
+       * @summary Queries the template cache.
+       *
+       * @param request DescribeTemplateCacheRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeTemplateCacheResponse
+       */
+      Models::DescribeTemplateCacheResponse describeTemplateCacheWithOptions(const string &templateID, const Models::DescribeTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the template cache.
+       *
+       * @param request DescribeTemplateCacheRequest
+       * @return DescribeTemplateCacheResponse
+       */
+      Models::DescribeTemplateCacheResponse describeTemplateCache(const string &templateID, const Models::DescribeTemplateCacheRequest &request);
 
       /**
        * @summary Retrieves the details of a team.
@@ -325,6 +379,24 @@ namespace FCSandbox20260509
        * @return ListTeamsResponse
        */
       Models::ListTeamsResponse listTeams(const Models::ListTeamsRequest &request);
+
+      /**
+       * @summary Queries template caches by using paging.
+       *
+       * @param request ListTemplateCacheRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTemplateCacheResponse
+       */
+      Models::ListTemplateCacheResponse listTemplateCacheWithOptions(const Models::ListTemplateCacheRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries template caches by using paging.
+       *
+       * @param request ListTemplateCacheRequest
+       * @return ListTemplateCacheResponse
+       */
+      Models::ListTemplateCacheResponse listTemplateCache(const Models::ListTemplateCacheRequest &request);
 
       /**
        * @summary Queries a list of templates.

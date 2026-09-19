@@ -19,6 +19,7 @@
 #include <alibabacloud/models/CreateTemplateCopyAction.hpp>
 #include <alibabacloud/models/CreateTemplateEnvdInjectAction.hpp>
 #include <alibabacloud/models/CreateTemplateBuildConfig.hpp>
+#include <alibabacloud/models/CreateTemplateCacheInput.hpp>
 #include <alibabacloud/models/CreateTemplateLogConfig.hpp>
 #include <alibabacloud/models/CreateTemplateStep.hpp>
 #include <alibabacloud/models/CreateTemplateSandboxConfig.hpp>
@@ -53,6 +54,7 @@
 #include <alibabacloud/models/PublicTemplateStatusReason.hpp>
 #include <alibabacloud/models/PublicTemplateStatus.hpp>
 #include <alibabacloud/models/PublicTemplate.hpp>
+#include <alibabacloud/models/PublicTemplateCache.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateRegistryAuthConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateRegistryCertConfig.hpp>
 #include <alibabacloud/models/PublicUpdateTemplateRegistryNetworkConfig.hpp>
@@ -80,6 +82,9 @@
 #include <alibabacloud/models/CreateTemplateRequest.hpp>
 #include <alibabacloud/models/CreateTemplateResponseBody.hpp>
 #include <alibabacloud/models/CreateTemplateResponse.hpp>
+#include <alibabacloud/models/CreateTemplateCacheRequest.hpp>
+#include <alibabacloud/models/CreateTemplateCacheResponseBody.hpp>
+#include <alibabacloud/models/CreateTemplateCacheResponse.hpp>
 #include <alibabacloud/models/CreateVolumeRequest.hpp>
 #include <alibabacloud/models/CreateVolumeResponseBody.hpp>
 #include <alibabacloud/models/CreateVolumeResponse.hpp>
@@ -95,6 +100,9 @@
 #include <alibabacloud/models/DeleteTemplateRequest.hpp>
 #include <alibabacloud/models/DeleteTemplateResponseBody.hpp>
 #include <alibabacloud/models/DeleteTemplateResponse.hpp>
+#include <alibabacloud/models/DeleteTemplateCacheRequest.hpp>
+#include <alibabacloud/models/DeleteTemplateCacheResponseBody.hpp>
+#include <alibabacloud/models/DeleteTemplateCacheResponse.hpp>
 #include <alibabacloud/models/DeleteVolumeRequest.hpp>
 #include <alibabacloud/models/DeleteVolumeResponseBody.hpp>
 #include <alibabacloud/models/DeleteVolumeResponse.hpp>
@@ -104,6 +112,9 @@
 #include <alibabacloud/models/DescribeQuotaRequest.hpp>
 #include <alibabacloud/models/DescribeQuotaResponseBody.hpp>
 #include <alibabacloud/models/DescribeQuotaResponse.hpp>
+#include <alibabacloud/models/DescribeTemplateCacheRequest.hpp>
+#include <alibabacloud/models/DescribeTemplateCacheResponseBody.hpp>
+#include <alibabacloud/models/DescribeTemplateCacheResponse.hpp>
 #include <alibabacloud/models/GetTeamRequest.hpp>
 #include <alibabacloud/models/GetTeamResponseBody.hpp>
 #include <alibabacloud/models/GetTeamResponse.hpp>
@@ -122,6 +133,9 @@
 #include <alibabacloud/models/ListTeamsRequest.hpp>
 #include <alibabacloud/models/ListTeamsResponseBody.hpp>
 #include <alibabacloud/models/ListTeamsResponse.hpp>
+#include <alibabacloud/models/ListTemplateCacheRequest.hpp>
+#include <alibabacloud/models/ListTemplateCacheResponseBody.hpp>
+#include <alibabacloud/models/ListTemplateCacheResponse.hpp>
 #include <alibabacloud/models/ListTemplatesRequest.hpp>
 #include <alibabacloud/models/ListTemplatesResponseBody.hpp>
 #include <alibabacloud/models/ListTemplatesResponse.hpp>
