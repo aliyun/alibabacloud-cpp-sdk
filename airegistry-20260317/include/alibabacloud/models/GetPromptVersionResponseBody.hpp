@@ -114,8 +114,11 @@ namespace Models
 
 
       protected:
+        // Default value
         shared_ptr<string> defaultValue_ {};
+        // Variable description
         shared_ptr<string> description_ {};
+        // Variable name
         shared_ptr<string> name_ {};
       };
 
@@ -188,14 +191,23 @@ namespace Models
 
 
     protected:
+      // Commit message of this version
       shared_ptr<string> commitMsg_ {};
+      // Last modified time of the prompt
       shared_ptr<int64_t> gmtModified_ {};
+      // MD5 hash of the prompt content for this version
       shared_ptr<string> md5_ {};
+      // Unique identifier of the prompt
       shared_ptr<string> promptKey_ {};
+      // Creator of this version
       shared_ptr<string> srcUser_ {};
+      // Version status. Draft: draft / Published: online
       shared_ptr<string> status_ {};
+      // Template content of the prompt version
       shared_ptr<string> template_ {};
+      // List of variables for this version
       shared_ptr<vector<Data::Variables>> variables_ {};
+      // Version number
       shared_ptr<string> version_ {};
     };
 
@@ -218,7 +230,9 @@ namespace Models
 
 
   protected:
+    // Query result
     shared_ptr<GetPromptVersionResponseBody::Data> data_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

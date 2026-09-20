@@ -173,15 +173,25 @@ namespace Models
 
 
       protected:
+        // The list of business tags.
         shared_ptr<vector<string>> bizTags_ {};
+        // The description.
         shared_ptr<string> description_ {};
+        // The version number of the draft version of the prompt. This value is empty if no draft version exists.
         shared_ptr<string> editingVersion_ {};
+        // The time when the prompt was last modified.
         shared_ptr<int64_t> gmtModified_ {};
+        // The mapping between prompt versions and labels.
         shared_ptr<map<string, string>> labels_ {};
+        // The latest version number of the prompt.
         shared_ptr<string> latestVersion_ {};
+        // The number of online versions of the prompt.
         shared_ptr<int32_t> onlineCnt_ {};
+        // The unique identifier of the prompt.
         shared_ptr<string> promptKey_ {};
+        // The version number of the prompt version that is under review. This value is empty if no version is under review.
         shared_ptr<string> reviewingVersion_ {};
+        // The schema version of the prompt.
         shared_ptr<int32_t> schemaVersion_ {};
       };
 
@@ -218,9 +228,13 @@ namespace Models
 
 
     protected:
+      // The list of prompts.
       shared_ptr<vector<Data::PageItems>> pageItems_ {};
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of available pages.
       shared_ptr<int32_t> pagesAvailable_ {};
+      // The total number of prompts.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -243,7 +257,9 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<ListPromptsResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The visibility.
+    // 
     // This parameter is required.
     shared_ptr<string> scope_ {};
+    // The skill name.
+    // 
     // This parameter is required.
     shared_ptr<string> skillName_ {};
   };

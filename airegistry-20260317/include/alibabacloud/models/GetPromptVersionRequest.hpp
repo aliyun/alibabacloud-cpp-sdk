@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // Workspace ID
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // Unique identifier of the prompt
+    // 
     // This parameter is required.
     shared_ptr<string> promptKey_ {};
+    // Version number
+    // 
     // This parameter is required.
     shared_ptr<string> promptVersion_ {};
   };

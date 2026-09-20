@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Draft version number of the created prompt
     shared_ptr<string> data_ {};
+    // Request ID
     shared_ptr<string> requestId_ {};
   };
 

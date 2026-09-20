@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Version number of the created draft version.
     shared_ptr<string> data_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

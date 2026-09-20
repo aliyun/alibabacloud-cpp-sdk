@@ -66,11 +66,19 @@ namespace Models
 
 
   protected:
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The operation scope. Valid values:
+    // - skill: the entire skill.
+    // - version: a specified version.
     shared_ptr<string> scope_ {};
+    // The name of the skill.
+    // 
     // This parameter is required.
     shared_ptr<string> skillName_ {};
+    // The version number. This parameter is required when scope is set to version.
     shared_ptr<string> skillVersion_ {};
   };
 

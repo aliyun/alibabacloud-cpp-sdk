@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // Performs a fuzzy search by name.
     shared_ptr<string> name_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Filters by tags. Separate multiple tags with commas. Results are matched by intersection.
     shared_ptr<string> tags_ {};
   };
 

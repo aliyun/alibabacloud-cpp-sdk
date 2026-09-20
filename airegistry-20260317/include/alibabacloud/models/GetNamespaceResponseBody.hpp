@@ -36,9 +36,12 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
         DARABONBA_PTR_TO_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_PTR_TO_JSON(IpWhitelist, ipWhitelist_);
         DARABONBA_PTR_TO_JSON(Name, name_);
         DARABONBA_PTR_TO_JSON(NamespaceId, namespaceId_);
         DARABONBA_PTR_TO_JSON(PromptCount, promptCount_);
+        DARABONBA_PTR_TO_JSON(PublicAccessEnabled, publicAccessEnabled_);
+        DARABONBA_PTR_TO_JSON(PublicDomain, publicDomain_);
         DARABONBA_PTR_TO_JSON(ScanPolicy, scanPolicy_);
         DARABONBA_PTR_TO_JSON(SkillCount, skillCount_);
         DARABONBA_PTR_TO_JSON(Source, source_);
@@ -48,9 +51,12 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
         DARABONBA_PTR_FROM_JSON(CreatedTime, createdTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_PTR_FROM_JSON(IpWhitelist, ipWhitelist_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
         DARABONBA_PTR_FROM_JSON(NamespaceId, namespaceId_);
         DARABONBA_PTR_FROM_JSON(PromptCount, promptCount_);
+        DARABONBA_PTR_FROM_JSON(PublicAccessEnabled, publicAccessEnabled_);
+        DARABONBA_PTR_FROM_JSON(PublicDomain, publicDomain_);
         DARABONBA_PTR_FROM_JSON(ScanPolicy, scanPolicy_);
         DARABONBA_PTR_FROM_JSON(SkillCount, skillCount_);
         DARABONBA_PTR_FROM_JSON(Source, source_);
@@ -69,8 +75,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->createdTime_ == nullptr
-        && this->description_ == nullptr && this->name_ == nullptr && this->namespaceId_ == nullptr && this->promptCount_ == nullptr && this->scanPolicy_ == nullptr
-        && this->skillCount_ == nullptr && this->source_ == nullptr && this->sourceIndex_ == nullptr && this->tags_ == nullptr; };
+        && this->description_ == nullptr && this->ipWhitelist_ == nullptr && this->name_ == nullptr && this->namespaceId_ == nullptr && this->promptCount_ == nullptr
+        && this->publicAccessEnabled_ == nullptr && this->publicDomain_ == nullptr && this->scanPolicy_ == nullptr && this->skillCount_ == nullptr && this->source_ == nullptr
+        && this->sourceIndex_ == nullptr && this->tags_ == nullptr; };
       // createdTime Field Functions 
       bool hasCreatedTime() const { return this->createdTime_ != nullptr;};
       void deleteCreatedTime() { this->createdTime_ = nullptr;};
@@ -83,6 +90,13 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Data& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // ipWhitelist Field Functions 
+      bool hasIpWhitelist() const { return this->ipWhitelist_ != nullptr;};
+      void deleteIpWhitelist() { this->ipWhitelist_ = nullptr;};
+      inline string getIpWhitelist() const { DARABONBA_PTR_GET_DEFAULT(ipWhitelist_, "") };
+      inline Data& setIpWhitelist(string ipWhitelist) { DARABONBA_PTR_SET_VALUE(ipWhitelist_, ipWhitelist) };
 
 
       // name Field Functions 
@@ -104,6 +118,20 @@ namespace Models
       void deletePromptCount() { this->promptCount_ = nullptr;};
       inline int32_t getPromptCount() const { DARABONBA_PTR_GET_DEFAULT(promptCount_, 0) };
       inline Data& setPromptCount(int32_t promptCount) { DARABONBA_PTR_SET_VALUE(promptCount_, promptCount) };
+
+
+      // publicAccessEnabled Field Functions 
+      bool hasPublicAccessEnabled() const { return this->publicAccessEnabled_ != nullptr;};
+      void deletePublicAccessEnabled() { this->publicAccessEnabled_ = nullptr;};
+      inline bool getPublicAccessEnabled() const { DARABONBA_PTR_GET_DEFAULT(publicAccessEnabled_, false) };
+      inline Data& setPublicAccessEnabled(bool publicAccessEnabled) { DARABONBA_PTR_SET_VALUE(publicAccessEnabled_, publicAccessEnabled) };
+
+
+      // publicDomain Field Functions 
+      bool hasPublicDomain() const { return this->publicDomain_ != nullptr;};
+      void deletePublicDomain() { this->publicDomain_ = nullptr;};
+      inline string getPublicDomain() const { DARABONBA_PTR_GET_DEFAULT(publicDomain_, "") };
+      inline Data& setPublicDomain(string publicDomain) { DARABONBA_PTR_SET_VALUE(publicDomain_, publicDomain) };
 
 
       // scanPolicy Field Functions 
@@ -142,15 +170,35 @@ namespace Models
 
 
     protected:
+      // The time when the namespace was created.
       shared_ptr<string> createdTime_ {};
+      // The description of the namespace.
       shared_ptr<string> description_ {};
+      shared_ptr<string> ipWhitelist_ {};
+      // The namespace name.
       shared_ptr<string> name_ {};
+      // The namespace ID.
       shared_ptr<string> namespaceId_ {};
+      // The number of prompts in the namespace.
       shared_ptr<int32_t> promptCount_ {};
+      shared_ptr<bool> publicAccessEnabled_ {};
+      shared_ptr<string> publicDomain_ {};
+      // The scan policy.
+      // 
+      // The policy contains two configuration items:
+      // - minBlockRiskLevel: the risk level for blocking.
+      //   - high: blocks high-risk items.
+      //   - medium: blocks medium- and high-risk items.
+      //   - low: blocks all risk levels including high, medium, and low.
+      // - maxSkipRatio: the maximum skip ratio. If the scan skip ratio exceeds this value, the scan is considered as failed.
       shared_ptr<string> scanPolicy_ {};
+      // The number of skills in the namespace.
       shared_ptr<int32_t> skillCount_ {};
+      // The source of the namespace.
       shared_ptr<string> source_ {};
+      // The source ordinal number of the namespace.
       shared_ptr<int32_t> sourceIndex_ {};
+      // The tags of the namespace.
       shared_ptr<string> tags_ {};
     };
 
@@ -173,7 +221,9 @@ namespace Models
 
 
   protected:
+    // The namespace information.
     shared_ptr<GetNamespaceResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

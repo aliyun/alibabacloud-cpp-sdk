@@ -100,10 +100,15 @@ namespace Models
 
 
     protected:
+      // The description of the Skill for the current version.
       shared_ptr<string> description_ {};
+      // The Skill name.
       shared_ptr<string> name_ {};
+      // The namespace ID to which the application belongs.
       shared_ptr<string> namespaceId_ {};
+      // The resource mapping (key is the resource name).
       shared_ptr<map<string, DataResourceValue>> resource_ {};
+      // The Skill card content (SKILL.md).
       shared_ptr<string> skillMd_ {};
     };
 
@@ -126,7 +131,9 @@ namespace Models
 
 
   protected:
+    // The detailed information about the Skill version.
     shared_ptr<GetSkillVersionDetailResponseBody::Data> data_ {};
+    // The unique identifier that Alibaba Cloud generated for the request.
     shared_ptr<string> requestId_ {};
   };
 

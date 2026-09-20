@@ -103,14 +103,29 @@ namespace Models
 
 
   protected:
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The field by which to sort the results. Set the value to download_count. Default value: gmt_modified.
     shared_ptr<string> orderBy_ {};
+    // The owner by which to filter the results.
     shared_ptr<string> owner_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
+    // The visibility by which to filter the results. Valid values:
+    // 
+    // - PUBLIC
+    // - PRIVATE
     shared_ptr<string> scope_ {};
+    // The search mode. Valid values:
+    // 
+    // - accurate: exact match.
+    // - blur: fuzzy match.
     shared_ptr<string> search_ {};
+    // The filter keyword.
     shared_ptr<string> skillName_ {};
   };
 

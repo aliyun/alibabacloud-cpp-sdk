@@ -68,9 +68,13 @@ namespace Models
 
 
   protected:
+    // The resource name (including the file name extension).
     shared_ptr<string> name_ {};
+    // The resource type, such as template, data, or script.
     shared_ptr<string> type_ {};
+    // The resource content.
     shared_ptr<string> content_ {};
+    // The resource metadata.
     Darabonba::Json metadata_ {};
   };
 

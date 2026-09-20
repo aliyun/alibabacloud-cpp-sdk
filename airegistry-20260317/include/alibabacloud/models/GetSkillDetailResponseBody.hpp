@@ -39,6 +39,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(BizTags, bizTags_);
         DARABONBA_PTR_TO_JSON(Description, description_);
         DARABONBA_PTR_TO_JSON(DownloadCount, downloadCount_);
+        DARABONBA_PTR_TO_JSON(DraftMode, draftMode_);
         DARABONBA_PTR_TO_JSON(EditingVersion, editingVersion_);
         DARABONBA_PTR_TO_JSON(Enable, enable_);
         DARABONBA_PTR_TO_JSON(From, from_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(BizTags, bizTags_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
         DARABONBA_PTR_FROM_JSON(DownloadCount, downloadCount_);
+        DARABONBA_PTR_FROM_JSON(DraftMode, draftMode_);
         DARABONBA_PTR_FROM_JSON(EditingVersion, editingVersion_);
         DARABONBA_PTR_FROM_JSON(Enable, enable_);
         DARABONBA_PTR_FROM_JSON(From, from_);
@@ -184,21 +186,31 @@ namespace Models
 
 
       protected:
+        // The author.
         shared_ptr<string> author_ {};
+        // The version commit message.
         shared_ptr<string> commitMsg_ {};
+        // The timestamp when the file was created, in milliseconds.
         shared_ptr<int64_t> createTime_ {};
+        // The remarks.
         shared_ptr<string> description_ {};
+        // The number of downloads.
         shared_ptr<int64_t> downloadCount_ {};
+        // The skill review information.
         shared_ptr<string> publishPipelineInfo_ {};
+        // The resource status.
         shared_ptr<string> status_ {};
+        // The update time.
         shared_ptr<int64_t> updateTime_ {};
+        // The version number.
         shared_ptr<string> version_ {};
       };
 
       virtual bool empty() const override { return this->bizTags_ == nullptr
-        && this->description_ == nullptr && this->downloadCount_ == nullptr && this->editingVersion_ == nullptr && this->enable_ == nullptr && this->from_ == nullptr
-        && this->labels_ == nullptr && this->name_ == nullptr && this->namespaceId_ == nullptr && this->onlineCnt_ == nullptr && this->owner_ == nullptr
-        && this->reviewingVersion_ == nullptr && this->scope_ == nullptr && this->updateTime_ == nullptr && this->versions_ == nullptr && this->writeable_ == nullptr; };
+        && this->description_ == nullptr && this->downloadCount_ == nullptr && this->draftMode_ == nullptr && this->editingVersion_ == nullptr && this->enable_ == nullptr
+        && this->from_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr && this->namespaceId_ == nullptr && this->onlineCnt_ == nullptr
+        && this->owner_ == nullptr && this->reviewingVersion_ == nullptr && this->scope_ == nullptr && this->updateTime_ == nullptr && this->versions_ == nullptr
+        && this->writeable_ == nullptr; };
       // bizTags Field Functions 
       bool hasBizTags() const { return this->bizTags_ != nullptr;};
       void deleteBizTags() { this->bizTags_ = nullptr;};
@@ -218,6 +230,13 @@ namespace Models
       void deleteDownloadCount() { this->downloadCount_ = nullptr;};
       inline int64_t getDownloadCount() const { DARABONBA_PTR_GET_DEFAULT(downloadCount_, 0L) };
       inline Data& setDownloadCount(int64_t downloadCount) { DARABONBA_PTR_SET_VALUE(downloadCount_, downloadCount) };
+
+
+      // draftMode Field Functions 
+      bool hasDraftMode() const { return this->draftMode_ != nullptr;};
+      void deleteDraftMode() { this->draftMode_ = nullptr;};
+      inline string getDraftMode() const { DARABONBA_PTR_GET_DEFAULT(draftMode_, "") };
+      inline Data& setDraftMode(string draftMode) { DARABONBA_PTR_SET_VALUE(draftMode_, draftMode) };
 
 
       // editingVersion Field Functions 
@@ -316,21 +335,41 @@ namespace Models
 
 
     protected:
+      // The business tag JSON array string.
       shared_ptr<string> bizTags_ {};
+      // The skill description.
       shared_ptr<string> description_ {};
+      // The total number of downloads.
       shared_ptr<int64_t> downloadCount_ {};
+      // The draft mode. Valid values:
+      // - VERSIONED: Numbered mode. Each draft corresponds to a specific version number.
+      // - HEAD: Workspace mode. A permanent draft workspace overwrites in place and publishes version snapshots.
+      shared_ptr<string> draftMode_ {};
+      // The version that is being edited.
       shared_ptr<string> editingVersion_ {};
+      // Indicates whether the skill is enabled.
       shared_ptr<bool> enable_ {};
+      // The source tag.
       shared_ptr<string> from_ {};
+      // The version label mapping.
       shared_ptr<map<string, string>> labels_ {};
+      // The skill name.
       shared_ptr<string> name_ {};
+      // The namespace ID.
       shared_ptr<string> namespaceId_ {};
+      // The number of online versions.
       shared_ptr<int32_t> onlineCnt_ {};
+      // The UID of the owner.
       shared_ptr<string> owner_ {};
+      // The version that is under review.
       shared_ptr<string> reviewingVersion_ {};
+      // The visibility scope.
       shared_ptr<string> scope_ {};
+      // The update time.
       shared_ptr<int64_t> updateTime_ {};
+      // The list of all version summaries.
       shared_ptr<vector<Data::Versions>> versions_ {};
+      // Indicates whether the skill can be edited.
       shared_ptr<bool> writeable_ {};
     };
 
@@ -353,7 +392,9 @@ namespace Models
 
 
   protected:
+    // The detailed information of the skill.
     shared_ptr<GetSkillDetailResponseBody::Data> data_ {};
+    // The unique request ID generated by Alibaba Cloud for this request.
     shared_ptr<string> requestId_ {};
   };
 

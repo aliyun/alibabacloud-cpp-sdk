@@ -131,11 +131,17 @@ namespace Models
 
 
       protected:
+        // The commit message of the prompt version.
         shared_ptr<string> commitMsg_ {};
+        // The modification date.
         shared_ptr<int64_t> gmtModified_ {};
+        // The unique identifier of the prompt.
         shared_ptr<string> promptKey_ {};
+        // The creator of the prompt version.
         shared_ptr<string> srcUser_ {};
+        // The status of the prompt version.
         shared_ptr<string> status_ {};
+        // The version number.
         shared_ptr<string> version_ {};
       };
 
@@ -172,9 +178,13 @@ namespace Models
 
 
     protected:
+      // The list of prompt versions.
       shared_ptr<vector<Data::PageItems>> pageItems_ {};
+      // The page number. Valid values: 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
+      // The number of available pages.
       shared_ptr<int32_t> pagesAvailable_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -197,7 +207,9 @@ namespace Models
 
 
   protected:
+    // The data returned.
     shared_ptr<ListPromptVersionsResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

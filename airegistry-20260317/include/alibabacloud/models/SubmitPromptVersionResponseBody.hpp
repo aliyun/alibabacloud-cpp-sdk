@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The version number of the published version.
     shared_ptr<string> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

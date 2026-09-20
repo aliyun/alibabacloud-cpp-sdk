@@ -148,11 +148,17 @@ namespace Models
 
 
       protected:
+        // The commit message of the version.
         shared_ptr<string> commitMsg_ {};
+        // The time when the version was last modified.
         shared_ptr<int64_t> gmtModified_ {};
+        // The unique identifier of the prompt.
         shared_ptr<string> promptKey_ {};
+        // The creator of the version.
         shared_ptr<string> srcUser_ {};
+        // The version status. Valid values: draft and online.
         shared_ptr<string> status_ {};
+        // The version number.
         shared_ptr<string> version_ {};
       };
 
@@ -253,17 +259,29 @@ namespace Models
 
 
     protected:
+      // The list of business tags.
       shared_ptr<vector<string>> bizTags_ {};
+      // The description of the prompt.
       shared_ptr<string> description_ {};
+      // The version number of the draft version. This value is empty if no draft version exists.
       shared_ptr<string> editingVersion_ {};
+      // The time when the prompt was last modified.
       shared_ptr<int64_t> gmtModified_ {};
+      // The mapping between prompt labels and versions.
       shared_ptr<map<string, string>> labels_ {};
+      // The version number of the latest version of the prompt.
       shared_ptr<string> latestVersion_ {};
+      // The number of online versions of the prompt.
       shared_ptr<int32_t> onlineCnt_ {};
+      // The unique identifier of the prompt.
       shared_ptr<string> promptKey_ {};
+      // The version number of the prompt version that is under review.
       shared_ptr<string> reviewingVersion_ {};
+      // The schema version.
       shared_ptr<int32_t> schemaVersion_ {};
+      // The list of version details.
       shared_ptr<vector<Data::VersionDetails>> versionDetails_ {};
+      // The list of version numbers.
       shared_ptr<vector<string>> versions_ {};
     };
 
@@ -286,7 +304,9 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<GetPromptResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

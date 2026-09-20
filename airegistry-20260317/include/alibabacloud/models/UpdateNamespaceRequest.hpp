@@ -75,11 +75,24 @@ namespace Models
 
 
   protected:
+    // The workspace description.
     shared_ptr<string> description_ {};
+    // The workspace name.
     shared_ptr<string> name_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The scan policy.
+    // 
+    // The policy contains two configuration items:
+    // - minBlockRiskLevel: the risk level for blocking.
+    //   - high: blocks high-risk items.
+    //   - medium: blocks medium-risk and high-risk items.
+    //   - low: blocks all risk levels including high, medium, and low.
+    // - maxSkipRatio: the max false positive rate. If the scan skip ratio exceeds this value, the scan is considered failed.
     shared_ptr<string> scanPolicy_ {};
+    // The tags, separated by commas. Pass an empty string to clear all tags.
     shared_ptr<string> tags_ {};
   };
 

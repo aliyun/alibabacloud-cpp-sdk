@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The business tags as a JSON array string.
+    // 
     // This parameter is required.
     shared_ptr<string> bizTags_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The skill name.
+    // 
     // This parameter is required.
     shared_ptr<string> skillName_ {};
   };

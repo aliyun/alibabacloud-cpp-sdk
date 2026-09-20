@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // The commit message.
     shared_ptr<string> commitMsg_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The unique identifier of the prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> promptKey_ {};
+    // The updated template content.
+    // 
     // This parameter is required.
     shared_ptr<string> template_ {};
+    // The updated variable definition in JSON format.
     shared_ptr<string> variables_ {};
   };
 

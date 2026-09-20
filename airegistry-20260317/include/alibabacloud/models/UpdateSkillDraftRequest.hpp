@@ -66,11 +66,18 @@ namespace Models
 
 
   protected:
+    // The commit message.
     shared_ptr<string> commitMsg_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The skill card JSON string that contains complete skill information.
+    // 
     // This parameter is required.
     shared_ptr<string> skillCard_ {};
+    // The skill name.
+    // 
     // This parameter is required.
     shared_ptr<string> skillName_ {};
   };

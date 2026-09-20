@@ -94,14 +94,23 @@ namespace Models
 
 
   protected:
+    // Fork from this version. Either this parameter or Template must be specified.
     shared_ptr<string> basedOnVersion_ {};
+    // Commit message.
     shared_ptr<string> commitMsg_ {};
+    // Workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // Unique identifier of the prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> promptKey_ {};
+    // Draft version number. If not specified, the version number is automatically incremented.
     shared_ptr<string> targetVersion_ {};
+    // Prompt template content. Either this parameter or BasedOnVersion must be specified.
     shared_ptr<string> template_ {};
+    // Variable definitions in a JSON array string.
     shared_ptr<string> variables_ {};
   };
 

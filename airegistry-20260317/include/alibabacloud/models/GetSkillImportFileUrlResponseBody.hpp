@@ -87,9 +87,15 @@ namespace Models
 
 
     protected:
+      // The file type.
       shared_ptr<string> contentType_ {};
+      // The maximum allowed file size for upload, in MB.
       shared_ptr<string> maxSize_ {};
+      // The file name in the authorized OSS bucket.
+      // 
+      // > Among the four image input methods (FaceContrastPicture, FaceContrastPictureUrl, CertifyId, and OSS), select one to use.
       shared_ptr<string> ossObjectName_ {};
+      // The file upload URL. The client uses this URL to upload the file.
       shared_ptr<string> uploadUrl_ {};
     };
 
@@ -112,7 +118,9 @@ namespace Models
 
 
   protected:
+    // The returned result.
     shared_ptr<GetSkillImportFileUrlResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

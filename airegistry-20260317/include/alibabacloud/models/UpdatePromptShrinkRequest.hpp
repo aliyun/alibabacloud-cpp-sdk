@@ -75,11 +75,18 @@ namespace Models
 
 
   protected:
+    // The list of business tags. The value is a string array.
     shared_ptr<string> bizTagsShrink_ {};
+    // The description of the prompt.
     shared_ptr<string> description_ {};
+    // The mapping between prompt versions and labels.
     shared_ptr<string> labelsShrink_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The unique identifier of the prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> promptKey_ {};
   };

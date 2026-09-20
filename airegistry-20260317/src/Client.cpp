@@ -17,7 +17,7 @@ namespace AIRegistry20260317
 {
 
 AlibabaCloud::AIRegistry20260317::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "";
+  this->_endpointRule = "regional";
   checkConfig(config);
   this->_endpoint = getEndpoint("airegistry", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +36,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 创建 AI Registry 命名空间
+ * @summary Creates a namespace in AI Registry and returns the corresponding namespace ID.
  *
  * @param request CreateNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -79,7 +79,7 @@ CreateNamespaceResponse Client::createNamespaceWithOptions(const CreateNamespace
 }
 
 /**
- * @summary 创建 AI Registry 命名空间
+ * @summary Creates a namespace in AI Registry and returns the corresponding namespace ID.
  *
  * @param request CreateNamespaceRequest
  * @return CreateNamespaceResponse
@@ -90,7 +90,7 @@ CreateNamespaceResponse Client::createNamespace(const CreateNamespaceRequest &re
 }
 
 /**
- * @summary 创建 Prompt
+ * @summary Create a prompt and create the initial draft version content of that prompt
  *
  * @param request CreatePromptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -149,7 +149,7 @@ CreatePromptResponse Client::createPromptWithOptions(const CreatePromptRequest &
 }
 
 /**
- * @summary 创建 Prompt
+ * @summary Create a prompt and create the initial draft version content of that prompt
  *
  * @param request CreatePromptRequest
  * @return CreatePromptResponse
@@ -160,7 +160,7 @@ CreatePromptResponse Client::createPrompt(const CreatePromptRequest &request) {
 }
 
 /**
- * @summary 创建 Prompt 草稿版本。Prompt 必须已存在，且当前没有正在编辑的草稿。只对草稿版本生效。
+ * @summary Creates a new version of a prompt. The new version defaults to draft status. An error is returned if a draft version already exists.
  *
  * @param request CreatePromptVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -215,7 +215,7 @@ CreatePromptVersionResponse Client::createPromptVersionWithOptions(const CreateP
 }
 
 /**
- * @summary 创建 Prompt 草稿版本。Prompt 必须已存在，且当前没有正在编辑的草稿。只对草稿版本生效。
+ * @summary Creates a new version of a prompt. The new version defaults to draft status. An error is returned if a draft version already exists.
  *
  * @param request CreatePromptVersionRequest
  * @return CreatePromptVersionResponse
@@ -226,7 +226,7 @@ CreatePromptVersionResponse Client::createPromptVersion(const CreatePromptVersio
 }
 
 /**
- * @summary 创建 Skill 草稿版本
+ * @summary Creates a Skill draft and returns the Skill version.
  *
  * @param request CreateSkillDraftRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -277,7 +277,7 @@ CreateSkillDraftResponse Client::createSkillDraftWithOptions(const CreateSkillDr
 }
 
 /**
- * @summary 创建 Skill 草稿版本
+ * @summary Creates a Skill draft and returns the Skill version.
  *
  * @param request CreateSkillDraftRequest
  * @return CreateSkillDraftResponse
@@ -288,7 +288,7 @@ CreateSkillDraftResponse Client::createSkillDraft(const CreateSkillDraftRequest 
 }
 
 /**
- * @summary 删除命名空间
+ * @summary Deletes a specified namespace from the AI Governance Center. The system checks whether the namespace contains any resources in use (such as Skills or Prompts) before deletion. If such resources exist, the deletion fails.
  *
  * @param request DeleteNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -319,7 +319,7 @@ DeleteNamespaceResponse Client::deleteNamespaceWithOptions(const DeleteNamespace
 }
 
 /**
- * @summary 删除命名空间
+ * @summary Deletes a specified namespace from the AI Governance Center. The system checks whether the namespace contains any resources in use (such as Skills or Prompts) before deletion. If such resources exist, the deletion fails.
  *
  * @param request DeleteNamespaceRequest
  * @return DeleteNamespaceResponse
@@ -330,7 +330,7 @@ DeleteNamespaceResponse Client::deleteNamespace(const DeleteNamespaceRequest &re
 }
 
 /**
- * @summary 删除 Prompt
+ * @summary Deletes a specified prompt.
  *
  * @param request DeletePromptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -365,7 +365,7 @@ DeletePromptResponse Client::deletePromptWithOptions(const DeletePromptRequest &
 }
 
 /**
- * @summary 删除 Prompt
+ * @summary Deletes a specified prompt.
  *
  * @param request DeletePromptRequest
  * @return DeletePromptResponse
@@ -376,7 +376,7 @@ DeletePromptResponse Client::deletePrompt(const DeletePromptRequest &request) {
 }
 
 /**
- * @summary 删除 Skill
+ * @summary Deletes a specified Skill.
  *
  * @param request DeleteSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -411,7 +411,7 @@ DeleteSkillResponse Client::deleteSkillWithOptions(const DeleteSkillRequest &req
 }
 
 /**
- * @summary 删除 Skill
+ * @summary Deletes a specified Skill.
  *
  * @param request DeleteSkillRequest
  * @return DeleteSkillResponse
@@ -422,7 +422,7 @@ DeleteSkillResponse Client::deleteSkill(const DeleteSkillRequest &request) {
 }
 
 /**
- * @summary 通过 OSS 下载 Skill 版本 - 返回 OSS 下载 URL
+ * @summary Downloads a skill version through OSS and returns the OSS download URL.
  *
  * @param request DownloadSkillVersionViaOssRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -461,7 +461,7 @@ DownloadSkillVersionViaOssResponse Client::downloadSkillVersionViaOssWithOptions
 }
 
 /**
- * @summary 通过 OSS 下载 Skill 版本 - 返回 OSS 下载 URL
+ * @summary Downloads a skill version through OSS and returns the OSS download URL.
  *
  * @param request DownloadSkillVersionViaOssRequest
  * @return DownloadSkillVersionViaOssResponse
@@ -472,7 +472,7 @@ DownloadSkillVersionViaOssResponse Client::downloadSkillVersionViaOss(const Down
 }
 
 /**
- * @summary 强制发布版本
+ * @summary Force-publishes a version.
  *
  * @param request ForcePublishSkillVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -515,7 +515,7 @@ ForcePublishSkillVersionResponse Client::forcePublishSkillVersionWithOptions(con
 }
 
 /**
- * @summary 强制发布版本
+ * @summary Force-publishes a version.
  *
  * @param request ForcePublishSkillVersionRequest
  * @return ForcePublishSkillVersionResponse
@@ -526,7 +526,7 @@ ForcePublishSkillVersionResponse Client::forcePublishSkillVersion(const ForcePub
 }
 
 /**
- * @summary 获取命名空间详细信息
+ * @summary Queries the details of an AI Governance Center namespace.
  *
  * @param request GetNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -557,7 +557,7 @@ GetNamespaceResponse Client::getNamespaceWithOptions(const GetNamespaceRequest &
 }
 
 /**
- * @summary 获取命名空间详细信息
+ * @summary Queries the details of an AI Governance Center namespace.
  *
  * @param request GetNamespaceRequest
  * @return GetNamespaceResponse
@@ -568,7 +568,7 @@ GetNamespaceResponse Client::getNamespace(const GetNamespaceRequest &request) {
 }
 
 /**
- * @summary 获取 Prompt 详情信息
+ * @summary Retrieves the details of a prompt.
  *
  * @param request GetPromptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -603,7 +603,7 @@ GetPromptResponse Client::getPromptWithOptions(const GetPromptRequest &request, 
 }
 
 /**
- * @summary 获取 Prompt 详情信息
+ * @summary Retrieves the details of a prompt.
  *
  * @param request GetPromptRequest
  * @return GetPromptResponse
@@ -614,7 +614,7 @@ GetPromptResponse Client::getPrompt(const GetPromptRequest &request) {
 }
 
 /**
- * @summary 获取 Prompt 某个版本的信息
+ * @summary Query the detailed information of a specified version of a prompt.
  *
  * @param request GetPromptVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -653,7 +653,7 @@ GetPromptVersionResponse Client::getPromptVersionWithOptions(const GetPromptVers
 }
 
 /**
- * @summary 获取 Prompt 某个版本的信息
+ * @summary Query the detailed information of a specified version of a prompt.
  *
  * @param request GetPromptVersionRequest
  * @return GetPromptVersionResponse
@@ -664,7 +664,7 @@ GetPromptVersionResponse Client::getPromptVersion(const GetPromptVersionRequest 
 }
 
 /**
- * @summary 获取 Skill 详情
+ * @summary Retrieves the metadata and version information of a skill.
  *
  * @param request GetSkillDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -699,7 +699,7 @@ GetSkillDetailResponse Client::getSkillDetailWithOptions(const GetSkillDetailReq
 }
 
 /**
- * @summary 获取 Skill 详情
+ * @summary Retrieves the metadata and version information of a skill.
  *
  * @param request GetSkillDetailRequest
  * @return GetSkillDetailResponse
@@ -710,7 +710,7 @@ GetSkillDetailResponse Client::getSkillDetail(const GetSkillDetailRequest &reque
 }
 
 /**
- * @summary 获取 Skill 导入用 OSS 上传 URL。客户端使用返回的 uploadUrl 执行 PUT 上传后，
+ * @summary Retrieves a pre-signed URL for uploading a Skill to OSS. The client uses the returned URL to perform a PUT request to upload the Skill.
  *
  * @param request GetSkillImportFileUrlRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -745,7 +745,7 @@ GetSkillImportFileUrlResponse Client::getSkillImportFileUrlWithOptions(const Get
 }
 
 /**
- * @summary 获取 Skill 导入用 OSS 上传 URL。客户端使用返回的 uploadUrl 执行 PUT 上传后，
+ * @summary Retrieves a pre-signed URL for uploading a Skill to OSS. The client uses the returned URL to perform a PUT request to upload the Skill.
  *
  * @param request GetSkillImportFileUrlRequest
  * @return GetSkillImportFileUrlResponse
@@ -756,7 +756,7 @@ GetSkillImportFileUrlResponse Client::getSkillImportFileUrl(const GetSkillImport
 }
 
 /**
- * @summary 获取指定版本详情
+ * @summary Retrieves the details of a specified version.
  *
  * @param request GetSkillVersionDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -795,7 +795,7 @@ GetSkillVersionDetailResponse Client::getSkillVersionDetailWithOptions(const Get
 }
 
 /**
- * @summary 获取指定版本详情
+ * @summary Retrieves the details of a specified version.
  *
  * @param request GetSkillVersionDetailRequest
  * @return GetSkillVersionDetailResponse
@@ -806,7 +806,7 @@ GetSkillVersionDetailResponse Client::getSkillVersionDetail(const GetSkillVersio
 }
 
 /**
- * @summary 获取命名空间列表
+ * @summary Lists the namespaces in the AI Governance Center.
  *
  * @param request ListNamespacesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -849,7 +849,7 @@ ListNamespacesResponse Client::listNamespacesWithOptions(const ListNamespacesReq
 }
 
 /**
- * @summary 获取命名空间列表
+ * @summary Lists the namespaces in the AI Governance Center.
  *
  * @param request ListNamespacesRequest
  * @return ListNamespacesResponse
@@ -860,7 +860,7 @@ ListNamespacesResponse Client::listNamespaces(const ListNamespacesRequest &reque
 }
 
 /**
- * @summary 列出Prompt版本列表
+ * @summary Lists the versions of a prompt.
  *
  * @param request ListPromptVersionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -903,7 +903,7 @@ ListPromptVersionsResponse Client::listPromptVersionsWithOptions(const ListPromp
 }
 
 /**
- * @summary 列出Prompt版本列表
+ * @summary Lists the versions of a prompt.
  *
  * @param request ListPromptVersionsRequest
  * @return ListPromptVersionsResponse
@@ -914,7 +914,7 @@ ListPromptVersionsResponse Client::listPromptVersions(const ListPromptVersionsRe
 }
 
 /**
- * @summary 获取Prompt列表
+ * @summary Lists the prompts in a namespace.
  *
  * @param request ListPromptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -965,7 +965,7 @@ ListPromptsResponse Client::listPromptsWithOptions(const ListPromptsRequest &req
 }
 
 /**
- * @summary 获取Prompt列表
+ * @summary Lists the prompts in a namespace.
  *
  * @param request ListPromptsRequest
  * @return ListPromptsResponse
@@ -976,7 +976,7 @@ ListPromptsResponse Client::listPrompts(const ListPromptsRequest &request) {
 }
 
 /**
- * @summary 列出 Skills
+ * @summary Lists skills.
  *
  * @param request ListSkillsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1035,7 +1035,7 @@ ListSkillsResponse Client::listSkillsWithOptions(const ListSkillsRequest &reques
 }
 
 /**
- * @summary 列出 Skills
+ * @summary Lists skills.
  *
  * @param request ListSkillsRequest
  * @return ListSkillsResponse
@@ -1046,7 +1046,7 @@ ListSkillsResponse Client::listSkills(const ListSkillsRequest &request) {
 }
 
 /**
- * @summary 下线版本
+ * @summary Offlines a Skill or a specific version of a Skill.
  *
  * @param request OfflineSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1089,7 +1089,7 @@ OfflineSkillResponse Client::offlineSkillWithOptions(const OfflineSkillRequest &
 }
 
 /**
- * @summary 下线版本
+ * @summary Offlines a Skill or a specific version of a Skill.
  *
  * @param request OfflineSkillRequest
  * @return OfflineSkillResponse
@@ -1100,7 +1100,7 @@ OfflineSkillResponse Client::offlineSkill(const OfflineSkillRequest &request) {
 }
 
 /**
- * @summary 上线 Skill
+ * @summary Publishes a skill or a specific version of a skill.
  *
  * @param request OnlineSkillRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1143,7 +1143,7 @@ OnlineSkillResponse Client::onlineSkillWithOptions(const OnlineSkillRequest &req
 }
 
 /**
- * @summary 上线 Skill
+ * @summary Publishes a skill or a specific version of a skill.
  *
  * @param request OnlineSkillRequest
  * @return OnlineSkillResponse
@@ -1154,7 +1154,7 @@ OnlineSkillResponse Client::onlineSkill(const OnlineSkillRequest &request) {
 }
 
 /**
- * @summary 发布版本
+ * @summary Publishes a specific version of a Skill.
  *
  * @param request PublishSkillVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1197,7 +1197,7 @@ PublishSkillVersionResponse Client::publishSkillVersionWithOptions(const Publish
 }
 
 /**
- * @summary 发布版本
+ * @summary Publishes a specific version of a Skill.
  *
  * @param request PublishSkillVersionRequest
  * @return PublishSkillVersionResponse
@@ -1208,7 +1208,7 @@ PublishSkillVersionResponse Client::publishSkillVersion(const PublishSkillVersio
 }
 
 /**
- * @summary 提交 Prompt 版本, 将 Prompt 的草稿版本转化为正式版本
+ * @summary Publishes a draft version of a prompt as an official version. The specified version must be a draft version.
  *
  * @param request SubmitPromptVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1247,7 +1247,7 @@ SubmitPromptVersionResponse Client::submitPromptVersionWithOptions(const SubmitP
 }
 
 /**
- * @summary 提交 Prompt 版本, 将 Prompt 的草稿版本转化为正式版本
+ * @summary Publishes a draft version of a prompt as an official version. The specified version must be a draft version.
  *
  * @param request SubmitPromptVersionRequest
  * @return SubmitPromptVersionResponse
@@ -1258,7 +1258,7 @@ SubmitPromptVersionResponse Client::submitPromptVersion(const SubmitPromptVersio
 }
 
 /**
- * @summary 提交 Skill Draft 审核
+ * @summary Submits a specific version of a skill for review.
  *
  * @param request SubmitSkillVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1297,7 +1297,7 @@ SubmitSkillVersionResponse Client::submitSkillVersionWithOptions(const SubmitSki
 }
 
 /**
- * @summary 提交 Skill Draft 审核
+ * @summary Submits a specific version of a skill for review.
  *
  * @param request SubmitSkillVersionRequest
  * @return SubmitSkillVersionResponse
@@ -1308,7 +1308,7 @@ SubmitSkillVersionResponse Client::submitSkillVersion(const SubmitSkillVersionRe
 }
 
 /**
- * @summary 更新命名空间信息
+ * @summary Updates namespace information.
  *
  * @param request UpdateNamespaceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1355,7 +1355,7 @@ UpdateNamespaceResponse Client::updateNamespaceWithOptions(const UpdateNamespace
 }
 
 /**
- * @summary 更新命名空间信息
+ * @summary Updates namespace information.
  *
  * @param request UpdateNamespaceRequest
  * @return UpdateNamespaceResponse
@@ -1366,7 +1366,7 @@ UpdateNamespaceResponse Client::updateNamespace(const UpdateNamespaceRequest &re
 }
 
 /**
- * @summary 更新 Prompt 元数据，支持同时更新 description、bizTags、labels。
+ * @summary Modifies the metadata of a prompt, such as the description and business tags.
  *
  * @param tmpReq UpdatePromptRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1423,7 +1423,7 @@ UpdatePromptResponse Client::updatePromptWithOptions(const UpdatePromptRequest &
 }
 
 /**
- * @summary 更新 Prompt 元数据，支持同时更新 description、bizTags、labels。
+ * @summary Modifies the metadata of a prompt, such as the description and business tags.
  *
  * @param request UpdatePromptRequest
  * @return UpdatePromptResponse
@@ -1434,7 +1434,7 @@ UpdatePromptResponse Client::updatePrompt(const UpdatePromptRequest &request) {
 }
 
 /**
- * @summary 更新 Prompt 草稿版本内容。只对草稿版本生效，已发布的版本不可修改。
+ * @summary Updates the content of a prompt version. Only the draft version of a prompt can be modified.
  *
  * @param request UpdatePromptVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1481,7 +1481,7 @@ UpdatePromptVersionResponse Client::updatePromptVersionWithOptions(const UpdateP
 }
 
 /**
- * @summary 更新 Prompt 草稿版本内容。只对草稿版本生效，已发布的版本不可修改。
+ * @summary Updates the content of a prompt version. Only the draft version of a prompt can be modified.
  *
  * @param request UpdatePromptVersionRequest
  * @return UpdatePromptVersionResponse
@@ -1492,7 +1492,7 @@ UpdatePromptVersionResponse Client::updatePromptVersion(const UpdatePromptVersio
 }
 
 /**
- * @summary 更新业务标签
+ * @summary Updates business tags for a skill.
  *
  * @param request UpdateSkillBizTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1531,7 +1531,7 @@ UpdateSkillBizTagsResponse Client::updateSkillBizTagsWithOptions(const UpdateSki
 }
 
 /**
- * @summary 更新业务标签
+ * @summary Updates business tags for a skill.
  *
  * @param request UpdateSkillBizTagsRequest
  * @return UpdateSkillBizTagsResponse
@@ -1542,7 +1542,7 @@ UpdateSkillBizTagsResponse Client::updateSkillBizTags(const UpdateSkillBizTagsRe
 }
 
 /**
- * @summary 更新 Draft
+ * @summary Updates a draft.
  *
  * @param request UpdateSkillDraftRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1585,7 +1585,7 @@ UpdateSkillDraftResponse Client::updateSkillDraftWithOptions(const UpdateSkillDr
 }
 
 /**
- * @summary 更新 Draft
+ * @summary Updates a draft.
  *
  * @param request UpdateSkillDraftRequest
  * @return UpdateSkillDraftResponse
@@ -1596,7 +1596,7 @@ UpdateSkillDraftResponse Client::updateSkillDraft(const UpdateSkillDraftRequest 
 }
 
 /**
- * @summary 更新版本标签
+ * @summary Updates version labels.
  *
  * @param request UpdateSkillLabelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1635,7 +1635,7 @@ UpdateSkillLabelsResponse Client::updateSkillLabelsWithOptions(const UpdateSkill
 }
 
 /**
- * @summary 更新版本标签
+ * @summary Updates version labels.
  *
  * @param request UpdateSkillLabelsRequest
  * @return UpdateSkillLabelsResponse
@@ -1646,7 +1646,7 @@ UpdateSkillLabelsResponse Client::updateSkillLabels(const UpdateSkillLabelsReque
 }
 
 /**
- * @summary 更新可见性
+ * @summary Updates the visibility.
  *
  * @param request UpdateSkillScopeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1685,7 +1685,7 @@ UpdateSkillScopeResponse Client::updateSkillScopeWithOptions(const UpdateSkillSc
 }
 
 /**
- * @summary 更新可见性
+ * @summary Updates the visibility.
  *
  * @param request UpdateSkillScopeRequest
  * @return UpdateSkillScopeResponse
@@ -1696,7 +1696,7 @@ UpdateSkillScopeResponse Client::updateSkillScope(const UpdateSkillScopeRequest 
 }
 
 /**
- * @summary 通过 OSS 上传 Skill (ZIP) - 从 OSS 拉取文件内容后上传到 Nacos
+ * @summary Uploads a skill (ZIP) from OSS by pulling the file content from OSS and uploading it to Nacos.
  *
  * @param request UploadSkillViaOssRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1721,6 +1721,10 @@ UploadSkillViaOssResponse Client::uploadSkillViaOssWithOptions(const UploadSkill
     query["Overwrite"] = request.getOverwrite();
   }
 
+  if (!!request.hasTargetVersion()) {
+    query["TargetVersion"] = request.getTargetVersion();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1739,7 +1743,7 @@ UploadSkillViaOssResponse Client::uploadSkillViaOssWithOptions(const UploadSkill
 }
 
 /**
- * @summary 通过 OSS 上传 Skill (ZIP) - 从 OSS 拉取文件内容后上传到 Nacos
+ * @summary Uploads a skill (ZIP) from OSS by pulling the file content from OSS and uploading it to Nacos.
  *
  * @param request UploadSkillViaOssRequest
  * @return UploadSkillViaOssResponse

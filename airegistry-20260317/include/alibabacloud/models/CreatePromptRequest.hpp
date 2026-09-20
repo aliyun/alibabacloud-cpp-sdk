@@ -103,16 +103,27 @@ namespace Models
 
 
   protected:
+    // Business tags, comma-separated
     shared_ptr<string> bizTags_ {};
+    // Commit message
     shared_ptr<string> commitMsg_ {};
+    // Prompt description
     shared_ptr<string> description_ {};
+    // Workspace ID
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // Prompt unique identifier
+    // 
     // This parameter is required.
     shared_ptr<string> promptKey_ {};
+    // Version number for the initial draft version of the prompt. Defaults to 0.0.1 if not specified.
     shared_ptr<string> targetVersion_ {};
+    // Template content for the initial draft version of the prompt
+    // 
     // This parameter is required.
     shared_ptr<string> template_ {};
+    // Variable definitions, JSON array string, supporting name, description, and defaultValue parameters
     shared_ptr<string> variables_ {};
   };
 

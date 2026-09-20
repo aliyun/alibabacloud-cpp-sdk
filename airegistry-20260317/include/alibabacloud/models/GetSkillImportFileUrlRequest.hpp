@@ -48,7 +48,10 @@ namespace Models
 
 
   protected:
+    // The Content-Type of the upload file. Default value: application/zip.
     shared_ptr<string> contentType_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
   };

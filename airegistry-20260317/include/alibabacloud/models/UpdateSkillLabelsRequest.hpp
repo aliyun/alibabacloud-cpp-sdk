@@ -57,10 +57,16 @@ namespace Models
 
 
   protected:
+    // The JSON string of the version label mapping.
+    // 
     // This parameter is required.
     shared_ptr<string> labels_ {};
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The Skill name.
+    // 
     // This parameter is required.
     shared_ptr<string> skillName_ {};
   };

@@ -84,12 +84,22 @@ namespace Models
 
 
   protected:
+    // The business tags used to filter prompts. Separate multiple tags with commas (,).
     shared_ptr<string> bizTags_ {};
+    // The namespace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
+    // The identifier of the prompt to search for. This parameter is optional.
     shared_ptr<string> promptKey_ {};
+    // The search mode. Valid values:
+    // 
+    // - accurate: exact match.
+    // - blur: fuzzy match.
     shared_ptr<string> search_ {};
   };
 

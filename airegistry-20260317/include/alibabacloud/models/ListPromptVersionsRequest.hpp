@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The workspace ID.
+    // 
     // This parameter is required.
     shared_ptr<string> namespaceId_ {};
+    // The page number. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
+    // The number of entries per page. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // The unique identifier of the prompt.
+    // 
     // This parameter is required.
     shared_ptr<string> promptKey_ {};
   };

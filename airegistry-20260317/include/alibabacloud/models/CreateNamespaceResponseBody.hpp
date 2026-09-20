@@ -59,6 +59,7 @@ namespace Models
 
 
     protected:
+      // The namespace ID. The default namespace cannot be queried, modified, or deleted.
       shared_ptr<string> namespaceId_ {};
     };
 
@@ -81,7 +82,9 @@ namespace Models
 
 
   protected:
+    // The namespace creation result.
     shared_ptr<CreateNamespaceResponseBody::Data> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 
