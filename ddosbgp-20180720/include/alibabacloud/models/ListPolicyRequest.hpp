@@ -77,13 +77,28 @@ namespace Models
   protected:
     // The policy name.
     shared_ptr<string> name_ {};
-    // Settings the page number of the current page in a paged query.
+    // The page number of the current page in a paging query.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries per page in a paged query. Default value: **10**.
+    // The number of entries per page in a paging query. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
     // The applicable product type. Valid values:
+    //  - **ecs**: queries the default policy applicable to ECS.
+    // 
+    // -  **slb**: queries the default policy applicable to SLB.
+    // 
+    // -  **eip**: queries the default policy applicable to EIP.
+    // 
+    //  - **gf-eip**: queries the default policy applicable to elastic IP addresses (EIPs) with Anti-DDoS Proxy Enabled.
+    // 
+    // > This parameter takes effect only when the policy type is `default`.
     shared_ptr<string> productType_ {};
     // The policy type. Valid values:
+    // 
+    // - **default**: the default mitigation policy.
+    // 
+    // - **l3**: the IP-specific mitigation policy.
+    // 
+    // - **l4**: the port-specific mitigation policy.
     shared_ptr<string> type_ {};
   };
 

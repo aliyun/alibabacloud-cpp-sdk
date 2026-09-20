@@ -162,7 +162,7 @@ namespace Models
     shared_ptr<vector<ListPolicyAttachmentRequest::IpPortProtocolList>> ipPortProtocolList_ {};
     // The page number of the current page in a paging query.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of rows per page in a paging query. Default value: **10**.
+    // The number of entries per page in a paging query. Default value: **10**.
     shared_ptr<int64_t> pageSize_ {};
     // The policy ID.
     shared_ptr<string> policyId_ {};
@@ -173,8 +173,8 @@ namespace Models
     shared_ptr<string> policyType_ {};
     // The version of the port-specific mitigation policy. Valid values:
     // 
-    // - **Not specified**: queries the policy associations that attach to the default surf DPI engine.
-    // - **2**: queries the policy associations that attach to the new stream DPI engine.
+    // - **Not specified**: queries the policy associations of the default surf DPI engine.
+    // - **2**: queries the policy associations of the new stream DPI engine.
     shared_ptr<string> portVersion_ {};
   };
 

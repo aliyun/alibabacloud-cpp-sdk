@@ -91,6 +91,7 @@ namespace Models
 
     protected:
       // The IP address of the protection object.
+      // > Prerequisite: The IP address must be added to the Anti-DDoS Origin instance by calling the AddIp operation in advance, and you must call the DescribeInstanceList operation to verify that the IP address has been added to the Anti-DDoS Origin instance.
       // 
       // This parameter is required.
       shared_ptr<string> ip_ {};
@@ -144,8 +145,8 @@ namespace Models
     shared_ptr<string> policyId_ {};
     // The version of the port-specific mitigation policy. Valid values:
     // 
-    // - **Not specified**: Associates the default surf anti-DDoS engine policy.
-    // - **2**: Associates the new stream anti-DDoS engine policy.
+    // - **Not specified**: Binds the default surf protection engine policy.
+    // - **2**: Binds the new stream protection engine policy.
     // > Only port-specific mitigation policies support this parameter.
     shared_ptr<string> portVersion_ {};
   };

@@ -75,6 +75,10 @@ namespace Models
     // The policy name.
     shared_ptr<string> name_ {};
     // The version of the port-specific mitigation policy. Valid values:
+    // 
+    // - **Not specified**: modifies the default surf mitigation engine policy.
+    // - **2**: modifies the new stream mitigation engine policy.
+    // > Only port-specific mitigation policies are supported.
     shared_ptr<string> portVersion_ {};
   };
 

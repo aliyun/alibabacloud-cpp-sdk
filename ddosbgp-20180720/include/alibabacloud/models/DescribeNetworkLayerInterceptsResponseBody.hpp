@@ -164,12 +164,12 @@ namespace Models
       shared_ptr<string> interceptAction_ {};
       // The number of interceptions within the specified time range.
       shared_ptr<int64_t> interceptCount_ {};
-      // The end time of the interception.
+      // The interception end time.
       //  > The value is a Unix/POSIX timestamp. Unit: seconds.
       shared_ptr<int64_t> interceptEndTime_ {};
       // The packet interception module.
       shared_ptr<string> interceptModule_ {};
-      // The start time of the interception.
+      // The interception start time.
       // > The value is a Unix/POSIX timestamp. Unit: seconds.
       shared_ptr<int64_t> interceptStartTime_ {};
       // The network protocol.
@@ -221,7 +221,7 @@ namespace Models
     shared_ptr<vector<DescribeNetworkLayerInterceptsResponseBody::InterceptionRecords>> interceptionRecords_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The total number of interception logs that match the current filter conditions.
+    // The total number of interception log entries that match the current filter conditions.
     shared_ptr<string> totalCnt_ {};
   };
 

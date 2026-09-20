@@ -23,26 +23,57 @@ AlibabaCloud::Ddosbgp20180720::Client::Client(Config &config): OpenApiClient(con
     {"cn-beijing" , "ddosbgp.aliyuncs.com"},
     {"cn-zhangjiakou" , "ddosbgp.aliyuncs.com"},
     {"cn-huhehaote" , "ddosbgp.aliyuncs.com"},
+    {"cn-wulanchabu" , "ddosbgp.aliyuncs.com"},
     {"cn-hangzhou" , "ddosbgp.aliyuncs.com"},
     {"cn-shanghai" , "ddosbgp.aliyuncs.com"},
     {"cn-shenzhen" , "ddosbgp.aliyuncs.com"},
-    {"ap-northeast-1" , "ddosbgp.ap-southeast-1.aliyuncs.com"},
-    {"ap-south-1" , "ddosbgp.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-2" , "ddosbgp.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-3" , "ddosbgp.ap-southeast-1.aliyuncs.com"},
-    {"ap-southeast-5" , "ddosbgp.ap-southeast-1.aliyuncs.com"},
+    {"cn-heyuan" , "ddosbgp.aliyuncs.com"},
+    {"cn-guangzhou" , "ddosbgp.aliyuncs.com"},
     {"cn-chengdu" , "ddosbgp.aliyuncs.com"},
-    {"eu-central-1" , "ddosbgp.ap-southeast-1.aliyuncs.com"},
-    {"eu-west-1" , "ddosbgp.ap-southeast-1.aliyuncs.com"},
-    {"me-east-1" , "ddosbgp.ap-southeast-1.aliyuncs.com"},
-    {"cn-hangzhou-finance" , "ddosbgp.aliyuncs.com"},
+    {"ap-northeast-1" , "ddosbgp.aliyuncs.com"},
+    {"ap-southeast-2" , "ddosbgp.aliyuncs.com"},
+    {"ap-southeast-3" , "ddosbgp.aliyuncs.com"},
+    {"ap-southeast-5" , "ddosbgp.aliyuncs.com"},
+    {"eu-west-1" , "ddosbgp.aliyuncs.com"},
+    {"eu-central-1" , "ddosbgp.aliyuncs.com"},
+    {"ap-south-1" , "ddosbgp.aliyuncs.com"},
+    {"me-east-1" , "ddosbgp.aliyuncs.com"},
     {"cn-shenzhen-finance-1" , "ddosbgp.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "ddosbgp.aliyuncs.com"},
+    {"ap-northeast-2-pop" , "ddosbgp.aliyuncs.com"},
+    {"cn-beijing-finance-1" , "ddosbgp.aliyuncs.com"},
+    {"cn-beijing-finance-pop" , "ddosbgp.aliyuncs.com"},
+    {"cn-beijing-gov-1" , "ddosbgp.aliyuncs.com"},
+    {"cn-beijing-nu16-b01" , "ddosbgp.aliyuncs.com"},
+    {"cn-edge-1" , "ddosbgp.aliyuncs.com"},
+    {"cn-fujian" , "ddosbgp.aliyuncs.com"},
+    {"cn-haidian-cm12-c01" , "ddosbgp.aliyuncs.com"},
+    {"cn-hangzhou-bj-b01" , "ddosbgp.aliyuncs.com"},
+    {"cn-hangzhou-finance" , "ddosbgp.aliyuncs.com"},
+    {"cn-hangzhou-internal-prod-1" , "ddosbgp.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-1" , "ddosbgp.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-2" , "ddosbgp.aliyuncs.com"},
+    {"cn-hangzhou-internal-test-3" , "ddosbgp.aliyuncs.com"},
+    {"cn-hangzhou-test-306" , "ddosbgp.aliyuncs.com"},
+    {"cn-hongkong-finance-pop" , "ddosbgp.aliyuncs.com"},
+    {"cn-huhehaote-nebula-1" , "ddosbgp.aliyuncs.com"},
     {"cn-north-2-gov-1" , "ddosbgp.aliyuncs.com"},
-    {"cn-hongkong" , "ddosbgp.cn-hongkong.aliyuncs.com"},
-    {"ap-southeast-1" , "ddosbgp.ap-southeast-1.aliyuncs.com"},
-    {"us-west-1" , "ddosbgp.us-west-1.aliyuncs.com"},
-    {"us-east-1" , "ddosbgp.us-east-1.aliyuncs.com"}
+    {"cn-qingdao-nebula" , "ddosbgp.aliyuncs.com"},
+    {"cn-shanghai-et15-b01" , "ddosbgp.aliyuncs.com"},
+    {"cn-shanghai-et2-b01" , "ddosbgp.aliyuncs.com"},
+    {"cn-shanghai-finance-1" , "ddosbgp.aliyuncs.com"},
+    {"cn-shanghai-inner" , "ddosbgp.aliyuncs.com"},
+    {"cn-shanghai-internal-test-1" , "ddosbgp.aliyuncs.com"},
+    {"cn-shenzhen-inner" , "ddosbgp.aliyuncs.com"},
+    {"cn-shenzhen-st4-d01" , "ddosbgp.aliyuncs.com"},
+    {"cn-shenzhen-su18-b01" , "ddosbgp.aliyuncs.com"},
+    {"cn-wuhan" , "ddosbgp.aliyuncs.com"},
+    {"cn-yushanfang" , "ddosbgp.aliyuncs.com"},
+    {"cn-zhangbei" , "ddosbgp.aliyuncs.com"},
+    {"cn-zhangbei-na61-b01" , "ddosbgp.aliyuncs.com"},
+    {"cn-zhangjiakou-na62-a01" , "ddosbgp.aliyuncs.com"},
+    {"cn-zhengzhou-nebula-1" , "ddosbgp.aliyuncs.com"},
+    {"eu-west-1-oxs" , "ddosbgp.aliyuncs.com"},
+    {"rus-west-1-pop" , "ddosbgp.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("ddosbgp", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -954,7 +985,7 @@ DescribeExcpetionCountResponse Client::describeExcpetionCount(const DescribeExcp
  *
  * @description This operation is used to query the details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by paging, such as instance IDs, validity periods, and statuses.
  * ### QPS limit
- * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
  *
  * @param request DescribeInstanceListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1037,7 +1068,7 @@ DescribeInstanceListResponse Client::describeInstanceListWithOptions(const Descr
  *
  * @description This operation is used to query the details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by paging, such as instance IDs, validity periods, and statuses.
  * ### QPS limit
- * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
  *
  * @param request DescribeInstanceListRequest
  * @return DescribeInstanceListResponse
@@ -1100,9 +1131,9 @@ DescribeInstanceSpecsResponse Client::describeInstanceSpecs(const DescribeInstan
 /**
  * @summary Queries the network-layer interception records of Anti-DDoS Origin instances.
  *
- * @description This operation is used to perform a paged query of the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. Paging is supported.
+ * @description This operation is used to query the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by using paging.
  * ### QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API invokes are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Invoke this operation at an appropriate frequency.
  *
  * @param request DescribeNetworkLayerInterceptsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1125,6 +1156,10 @@ DescribeNetworkLayerInterceptsResponse Client::describeNetworkLayerInterceptsWit
 
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasInterceptModule()) {
+    query["InterceptModule"] = request.getInterceptModule();
   }
 
   if (!!request.hasNetworkProtocol()) {
@@ -1175,9 +1210,9 @@ DescribeNetworkLayerInterceptsResponse Client::describeNetworkLayerInterceptsWit
 /**
  * @summary Queries the network-layer interception records of Anti-DDoS Origin instances.
  *
- * @description This operation is used to perform a paged query of the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. Paging is supported.
+ * @description This operation is used to query the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by using paging.
  * ### QPS limit
- * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API invokes are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+ * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Invoke this operation at an appropriate frequency.
  *
  * @param request DescribeNetworkLayerInterceptsRequest
  * @return DescribeNetworkLayerInterceptsResponse
@@ -2096,7 +2131,7 @@ ModifyPolicyResponse Client::modifyPolicy(const ModifyPolicyRequest &request) {
 /**
  * @summary Modifies the content of a mitigation policy.
  *
- * @description Make sure that you pass all parameters when you call this operation. If a parameter is left empty, the corresponding configuration is deleted.
+ * @description Ensure that all parameters are specified when you call this operation. If a parameter is not specified, the corresponding configuration is deleted.
  *
  * @param tmpReq ModifyPolicyContentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2147,7 +2182,7 @@ ModifyPolicyContentResponse Client::modifyPolicyContentWithOptions(const ModifyP
 /**
  * @summary Modifies the content of a mitigation policy.
  *
- * @description Make sure that you pass all parameters when you call this operation. If a parameter is left empty, the corresponding configuration is deleted.
+ * @description Ensure that all parameters are specified when you call this operation. If a parameter is not specified, the corresponding configuration is deleted.
  *
  * @param request ModifyPolicyContentRequest
  * @return ModifyPolicyContentResponse

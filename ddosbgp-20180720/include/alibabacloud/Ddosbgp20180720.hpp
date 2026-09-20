@@ -353,7 +353,7 @@ namespace Ddosbgp20180720
        *
        * @description This operation is used to query the details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by paging, such as instance IDs, validity periods, and statuses.
        * ### QPS limit
-       * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
        *
        * @param request DescribeInstanceListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -366,7 +366,7 @@ namespace Ddosbgp20180720
        *
        * @description This operation is used to query the details of all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by paging, such as instance IDs, validity periods, and statuses.
        * ### QPS limit
-       * You can invoke this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Invoke this operation within the limit.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API call is throttled, which may affect your business. Invoke this operation as needed.
        *
        * @param request DescribeInstanceListRequest
        * @return DescribeInstanceListResponse
@@ -393,9 +393,9 @@ namespace Ddosbgp20180720
       /**
        * @summary Queries the network-layer interception records of Anti-DDoS Origin instances.
        *
-       * @description This operation is used to perform a paged query of the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. Paging is supported.
+       * @description This operation is used to query the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by using paging.
        * ### QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API invokes are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Invoke this operation at an appropriate frequency.
        *
        * @param request DescribeNetworkLayerInterceptsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -406,9 +406,9 @@ namespace Ddosbgp20180720
       /**
        * @summary Queries the network-layer interception records of Anti-DDoS Origin instances.
        *
-       * @description This operation is used to perform a paged query of the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account. Paging is supported.
+       * @description This operation is used to query the details of Layer 3 and Layer 4 packet interception records for all Anti-DDoS Origin instances owned by the current Alibaba Cloud account by using paging.
        * ### QPS limit
-       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API invokes are throttled, which may affect your business. Invoke this operation at an appropriate frequency.
+       * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Invoke this operation at an appropriate frequency.
        *
        * @param request DescribeNetworkLayerInterceptsRequest
        * @return DescribeNetworkLayerInterceptsResponse
@@ -709,7 +709,7 @@ namespace Ddosbgp20180720
       /**
        * @summary Modifies the content of a mitigation policy.
        *
-       * @description Make sure that you pass all parameters when you call this operation. If a parameter is left empty, the corresponding configuration is deleted.
+       * @description Ensure that all parameters are specified when you call this operation. If a parameter is not specified, the corresponding configuration is deleted.
        *
        * @param tmpReq ModifyPolicyContentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -720,7 +720,7 @@ namespace Ddosbgp20180720
       /**
        * @summary Modifies the content of a mitigation policy.
        *
-       * @description Make sure that you pass all parameters when you call this operation. If a parameter is left empty, the corresponding configuration is deleted.
+       * @description Ensure that all parameters are specified when you call this operation. If a parameter is not specified, the corresponding configuration is deleted.
        *
        * @param request ModifyPolicyContentRequest
        * @return ModifyPolicyContentResponse

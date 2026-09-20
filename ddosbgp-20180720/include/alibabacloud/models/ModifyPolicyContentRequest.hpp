@@ -139,13 +139,13 @@ namespace Models
 
 
       protected:
-        // The source bandwidth throttling value, in bytes per second.
+        // The source bandwidth throttling value, in bytes per second (byte/s).
         shared_ptr<int32_t> bps_ {};
-        // The source PPS rate limit, in packets per second.
+        // The source PPS rate limit, in packets per second (packet/s).
         shared_ptr<int32_t> pps_ {};
-        // The source SYN bandwidth throttling value, in bytes per second.
+        // The source SYN bandwidth throttling value, in bytes per second (byte/s).
         shared_ptr<int32_t> synBps_ {};
-        // The source SYN PPS rate limit, in packets per second.
+        // The source SYN PPS rate limit, in packets per second (packet/s).
         shared_ptr<int32_t> synPps_ {};
       };
 
@@ -218,6 +218,10 @@ namespace Models
         // This parameter is required.
         shared_ptr<int32_t> exceedLimitTimes_ {};
         // The source rate limiting type. Valid values:
+        // - **3**: Source PPS rate limiting.
+        // - **4**: Source bandwidth throttling.
+        // - **5**: Source SYN PPS rate limiting.
+        // - **6**: Source SYN bandwidth throttling.
         // 
         // This parameter is required.
         shared_ptr<int32_t> type_ {};
@@ -326,6 +330,9 @@ namespace Models
 
       protected:
         // Specifies whether to enable SIP protection. Valid values:
+        // 
+        // - **true**: Enabled.
+        // - **false**: Disabled.
         shared_ptr<bool> enable_ {};
         // The SIP protection level.
         shared_ptr<string> level_ {};
@@ -337,11 +344,11 @@ namespace Models
         shared_ptr<bool> sipModule_ {};
         // The SIP protection port. Valid values: **1** to **65535**.
         shared_ptr<string> sipPort_ {};
-        // The SIP source rate limit value in PPS.
+        // The SIP source rate limit (PPS).
         shared_ptr<int64_t> sipRate_ {};
-        // The SIP activation threshold in Mbit/s.
+        // The SIP activation threshold (Mbps).
         shared_ptr<int64_t> sipStartMbps_ {};
-        // The SIP activation threshold in PPS.
+        // The SIP activation threshold (PPS).
         shared_ptr<int64_t> sipStartPps_ {};
       };
 
@@ -450,13 +457,19 @@ namespace Models
         shared_ptr<string> id_ {};
         // The match action. Valid values:
         // 
+        // - **drop**: Drop.
+        // 
         // This parameter is required.
         shared_ptr<string> matchAction_ {};
         // The protocol type. Valid values:
         // 
+        // - **tcp**: Transmission Control Protocol.
+        // - **udp**: User Datagram Protocol.
+        // 
         // This parameter is required.
         shared_ptr<string> protocol_ {};
-        // The priority number, expressed as an integer.
+        // The priority of the rule, represented as an integer.
+        // >A smaller value indicates a higher priority.
         // 
         // This parameter is required.
         shared_ptr<int32_t> seqNo_ {};
@@ -571,6 +584,8 @@ namespace Models
 
           protected:
             // The end position. Valid values: **0** to **1499**.
+            // 
+            // > The end position must be greater than or equal to the start position.
             shared_ptr<int32_t> end_ {};
             // The start position. Valid values: **0** to **1499**.
             shared_ptr<int32_t> start_ {};
@@ -632,16 +647,41 @@ namespace Models
 
         protected:
           // The detection content.
+          // > If the rule type is **char**, the value must be an ASCII string. If the rule type is **hex**, the value must be a hexadecimal string. Maximum length: 2048.
           shared_ptr<string> arg_ {};
           // The matching content.
+          // 
+          // 1. When **Encode** is set to **str**, the following requirements must be met:
+          // 
+          // - The length of **Content** must not exceed 1500.
+          // 
+          // - **End** - **Start** >= length of **Content**.
+          // 
+          // 2. When **Encode** is set to **hex**, the following requirements must be met:
+          // 
+          // - **Content** must be hexadecimal characters.
+          // 
+          // - The length of **Content** must be an even number.
+          // 
+          // - The length of **Content** must not exceed 3000.
+          // 
+          // - **End** - **Start** + 1 >= length of **Content** / 2.
           shared_ptr<string> content_ {};
           // The detection window length. Valid values: **1** to **2048**.
           shared_ptr<int32_t> depth_ {};
           // The character type. Valid values:
+          // 
+          // - **str**: string.
+          // 
+          // - **hex**: hexadecimal.
           shared_ptr<string> encode_ {};
           // The matching range.
           shared_ptr<ConditionList::Offset> offset_ {};
           // The matching pattern. Valid values:
+          // 
+          // - **contain**: contains.
+          // 
+          // - **not_contain**: does not contain.
           shared_ptr<string> pattern_ {};
           // The detection start position. Valid values: **0** to **2047**.
           shared_ptr<int32_t> position_ {};
@@ -706,51 +746,68 @@ namespace Models
         shared_ptr<string> action_ {};
         // The list of detection conditions.
         shared_ptr<vector<L4RuleList::ConditionList>> conditionList_ {};
-        // The minimum number of bytes in a session flow that triggers rule matching. Valid values: **0** to **2048**.
+        // The minimum number of bytes in a session flow to trigger rule matching. Valid values: **0** to **2048**.
         shared_ptr<int32_t> limited_ {};
         // The logical operator. Valid values:
+        // 
+        // - **0**: executes the action when the rule is matched.
+        // 
+        // - **1**: executes the action when the rule is not matched.
         shared_ptr<string> match_ {};
         // The rule type. Valid values:
+        // 
+        // - **char**: string matching.
+        // 
+        // - **hex**: hexadecimal matching.
         shared_ptr<string> method_ {};
         // The rule name.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
         // The rule priority. Valid values: 1 to 100.
+        // > A smaller value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
       };
 
       class FingerPrintRuleList : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const FingerPrintRuleList& obj) { 
+          DARABONBA_PTR_TO_JSON(Comment, comment_);
           DARABONBA_PTR_TO_JSON(DstPortEnd, dstPortEnd_);
           DARABONBA_PTR_TO_JSON(DstPortStart, dstPortStart_);
           DARABONBA_PTR_TO_JSON(Id, id_);
           DARABONBA_PTR_TO_JSON(MatchAction, matchAction_);
           DARABONBA_PTR_TO_JSON(MaxPktLen, maxPktLen_);
           DARABONBA_PTR_TO_JSON(MinPktLen, minPktLen_);
+          DARABONBA_PTR_TO_JSON(Mode, mode_);
           DARABONBA_PTR_TO_JSON(Offset, offset_);
           DARABONBA_PTR_TO_JSON(PayloadBytes, payloadBytes_);
           DARABONBA_PTR_TO_JSON(Protocol, protocol_);
           DARABONBA_PTR_TO_JSON(RateValue, rateValue_);
+          DARABONBA_PTR_TO_JSON(Rule, rule_);
           DARABONBA_PTR_TO_JSON(SeqNo, seqNo_);
           DARABONBA_PTR_TO_JSON(SrcPortEnd, srcPortEnd_);
           DARABONBA_PTR_TO_JSON(SrcPortStart, srcPortStart_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
         };
         friend void from_json(const Darabonba::Json& j, FingerPrintRuleList& obj) { 
+          DARABONBA_PTR_FROM_JSON(Comment, comment_);
           DARABONBA_PTR_FROM_JSON(DstPortEnd, dstPortEnd_);
           DARABONBA_PTR_FROM_JSON(DstPortStart, dstPortStart_);
           DARABONBA_PTR_FROM_JSON(Id, id_);
           DARABONBA_PTR_FROM_JSON(MatchAction, matchAction_);
           DARABONBA_PTR_FROM_JSON(MaxPktLen, maxPktLen_);
           DARABONBA_PTR_FROM_JSON(MinPktLen, minPktLen_);
+          DARABONBA_PTR_FROM_JSON(Mode, mode_);
           DARABONBA_PTR_FROM_JSON(Offset, offset_);
           DARABONBA_PTR_FROM_JSON(PayloadBytes, payloadBytes_);
           DARABONBA_PTR_FROM_JSON(Protocol, protocol_);
           DARABONBA_PTR_FROM_JSON(RateValue, rateValue_);
+          DARABONBA_PTR_FROM_JSON(Rule, rule_);
           DARABONBA_PTR_FROM_JSON(SeqNo, seqNo_);
           DARABONBA_PTR_FROM_JSON(SrcPortEnd, srcPortEnd_);
           DARABONBA_PTR_FROM_JSON(SrcPortStart, srcPortStart_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
         };
         FingerPrintRuleList() = default ;
         FingerPrintRuleList(const FingerPrintRuleList &) = default ;
@@ -763,10 +820,18 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->dstPortEnd_ == nullptr
-        && this->dstPortStart_ == nullptr && this->id_ == nullptr && this->matchAction_ == nullptr && this->maxPktLen_ == nullptr && this->minPktLen_ == nullptr
-        && this->offset_ == nullptr && this->payloadBytes_ == nullptr && this->protocol_ == nullptr && this->rateValue_ == nullptr && this->seqNo_ == nullptr
-        && this->srcPortEnd_ == nullptr && this->srcPortStart_ == nullptr; };
+        virtual bool empty() const override { return this->comment_ == nullptr
+        && this->dstPortEnd_ == nullptr && this->dstPortStart_ == nullptr && this->id_ == nullptr && this->matchAction_ == nullptr && this->maxPktLen_ == nullptr
+        && this->minPktLen_ == nullptr && this->mode_ == nullptr && this->offset_ == nullptr && this->payloadBytes_ == nullptr && this->protocol_ == nullptr
+        && this->rateValue_ == nullptr && this->rule_ == nullptr && this->seqNo_ == nullptr && this->srcPortEnd_ == nullptr && this->srcPortStart_ == nullptr
+        && this->type_ == nullptr; };
+        // comment Field Functions 
+        bool hasComment() const { return this->comment_ != nullptr;};
+        void deleteComment() { this->comment_ = nullptr;};
+        inline string getComment() const { DARABONBA_PTR_GET_DEFAULT(comment_, "") };
+        inline FingerPrintRuleList& setComment(string comment) { DARABONBA_PTR_SET_VALUE(comment_, comment) };
+
+
         // dstPortEnd Field Functions 
         bool hasDstPortEnd() const { return this->dstPortEnd_ != nullptr;};
         void deleteDstPortEnd() { this->dstPortEnd_ = nullptr;};
@@ -809,6 +874,13 @@ namespace Models
         inline FingerPrintRuleList& setMinPktLen(int32_t minPktLen) { DARABONBA_PTR_SET_VALUE(minPktLen_, minPktLen) };
 
 
+        // mode Field Functions 
+        bool hasMode() const { return this->mode_ != nullptr;};
+        void deleteMode() { this->mode_ = nullptr;};
+        inline int32_t getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, 0) };
+        inline FingerPrintRuleList& setMode(int32_t mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
+
+
         // offset Field Functions 
         bool hasOffset() const { return this->offset_ != nullptr;};
         void deleteOffset() { this->offset_ = nullptr;};
@@ -837,6 +909,13 @@ namespace Models
         inline FingerPrintRuleList& setRateValue(int32_t rateValue) { DARABONBA_PTR_SET_VALUE(rateValue_, rateValue) };
 
 
+        // rule Field Functions 
+        bool hasRule() const { return this->rule_ != nullptr;};
+        void deleteRule() { this->rule_ = nullptr;};
+        inline string getRule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
+        inline FingerPrintRuleList& setRule(string rule) { DARABONBA_PTR_SET_VALUE(rule_, rule) };
+
+
         // seqNo Field Functions 
         bool hasSeqNo() const { return this->seqNo_ != nullptr;};
         void deleteSeqNo() { this->seqNo_ = nullptr;};
@@ -858,51 +937,63 @@ namespace Models
         inline FingerPrintRuleList& setSrcPortStart(int32_t srcPortStart) { DARABONBA_PTR_SET_VALUE(srcPortStart_, srcPortStart) };
 
 
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline int32_t getType() const { DARABONBA_PTR_GET_DEFAULT(type_, 0) };
+        inline FingerPrintRuleList& setType(int32_t type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
       protected:
+        // The rule comment.
+        shared_ptr<string> comment_ {};
         // The end value of the destination port range. Valid values: **0** to **65535**.
-        // 
-        // This parameter is required.
         shared_ptr<int32_t> dstPortEnd_ {};
         // The start value of the destination port range. Valid values: **0** to **65535**.
-        // 
-        // This parameter is required.
         shared_ptr<int32_t> dstPortStart_ {};
         // The rule ID.
         shared_ptr<string> id_ {};
-        // The action to take when a fingerprint match is found. Valid values:
+        // The action to take when the fingerprint is matched. Valid values:
+        // 
+        // - **permit**: allows traffic that matches the fingerprint.
+        // - **drop**: drops traffic that matches the fingerprint.
+        // - **ip_rate**: rate-limits the source IP address of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
+        // - **session_rate**: rate-limits the source session of traffic that matches the fingerprint. The rate limit is specified by the **RateValue** parameter.
         // 
         // This parameter is required.
         shared_ptr<string> matchAction_ {};
         // The maximum packet length. Valid values: **1** to **1500**.
-        // 
-        // This parameter is required.
         shared_ptr<int32_t> maxPktLen_ {};
         // The minimum packet length. Valid values: **1** to **1500**.
-        // 
-        // This parameter is required.
         shared_ptr<int32_t> minPktLen_ {};
+        // The rule mode.
+        shared_ptr<int32_t> mode_ {};
         // The offset. Valid values: **0** to **1500**.
         shared_ptr<int32_t> offset_ {};
-        // The detection payload, expressed in hexadecimal string format.
+        // The detection payload. The value is in hexadecimal string format.
         shared_ptr<string> payloadBytes_ {};
         // The protocol type. Valid values:
         // 
-        // This parameter is required.
+        // - **tcp**: Transmission Control Protocol.
+        // - **udp**: User Datagram Protocol.
         shared_ptr<string> protocol_ {};
-        // The rate limit value. Valid values: **1** to **100000**.
+        // The rate limit. Valid values: **1** to **100000**.
+        // 
+        // > This parameter is required when the match action is source IP rate limiting or source session rate limiting (**MatchAction** is set to **ip_rate** or **session_rate**).
         shared_ptr<int32_t> rateValue_ {};
-        // The priority number, expressed as an integer.
+        // The rule.
+        shared_ptr<string> rule_ {};
+        // The priority of the rule, represented as an integer.
+        // >A smaller value indicates a higher priority.
         // 
         // This parameter is required.
         shared_ptr<int32_t> seqNo_ {};
         // The end value of the source port range. Valid values: **0** to **65535**.
-        // 
-        // This parameter is required.
         shared_ptr<int32_t> srcPortEnd_ {};
         // The start value of the source port range. Valid values: **0** to **65535**.
-        // 
-        // This parameter is required.
         shared_ptr<int32_t> srcPortStart_ {};
+        // The type.
+        shared_ptr<int32_t> type_ {};
       };
 
       virtual bool empty() const override { return this->blackIpListExpireAt_ == nullptr
@@ -1037,19 +1128,23 @@ namespace Models
       shared_ptr<int64_t> blackIpListExpireAt_ {};
       // Specifies whether to disable the ICMP protocol.
       shared_ptr<bool> enableDropIcmp_ {};
-      // Specifies whether to enable AI-based intelligent protection.
+      // Specifies whether to enable AI-based intelligent analysis.
       shared_ptr<bool> enableIntelligence_ {};
-      // Specifies whether to enable port protection.
+      // Specifies whether to enable port-specific mitigation.
       shared_ptr<bool> enableL4Defense_ {};
-      // The list of byte-match filter rules.
+      // The list of Byte-Match Filter rules.
       shared_ptr<vector<Content::FingerPrintRuleList>> fingerPrintRuleList_ {};
-      // The protection level of AI-based intelligent protection. Valid values:
+      // The protection level of AI-based intelligent analysis. Valid values:
+      // 
+      // - **default**: Normal.
+      // - **hard**: Strict.
+      // - **weak**: Loose.
       shared_ptr<string> intelligenceLevel_ {};
       // The list of port-specific mitigation rules.
       shared_ptr<vector<Content::L4RuleList>> l4RuleList_ {};
       // The list of port blocking rules.
       shared_ptr<vector<Content::PortRuleList>> portRuleList_ {};
-      // The list of ports filtered by reflection attack prevention.
+      // The list of ports filtered by the reflection attack prevention feature.
       shared_ptr<vector<int32_t>> reflectBlockUdpPortList_ {};
       // The list of countries for location blacklist.
       shared_ptr<vector<int32_t>> regionBlockCountryList_ {};
@@ -1061,7 +1156,7 @@ namespace Models
       shared_ptr<vector<Content::SourceBlockList>> sourceBlockList_ {};
       // The source rate limiting configuration.
       shared_ptr<Content::SourceLimit> sourceLimit_ {};
-      // Specifies whether to whitelist the back-to-origin IP addresses of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland & outside the Chinese mainland).
+      // Specifies whether to whitelist the back-to-origin IP addresses of Anti-DDoS Pro and Anti-DDoS Premium (the Chinese mainland and outside the Chinese mainland).
       shared_ptr<bool> whitenGfbrNets_ {};
     };
 
@@ -1107,6 +1202,10 @@ namespace Models
     // The policy name.
     shared_ptr<string> name_ {};
     // The version of the port-specific mitigation policy. Valid values:
+    // 
+    // - **Not specified**: modifies the default surf mitigation engine policy.
+    // - **2**: modifies the new stream mitigation engine policy.
+    // > Only port-specific mitigation policies are supported.
     shared_ptr<string> portVersion_ {};
   };
 

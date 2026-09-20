@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DestinationPort, destinationPort_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_TO_JSON(InterceptModule, interceptModule_);
       DARABONBA_PTR_TO_JSON(NetworkProtocol, networkProtocol_);
       DARABONBA_PTR_TO_JSON(Page, page_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
@@ -30,6 +31,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DestinationPort, destinationPort_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      DARABONBA_PTR_FROM_JSON(InterceptModule, interceptModule_);
       DARABONBA_PTR_FROM_JSON(NetworkProtocol, networkProtocol_);
       DARABONBA_PTR_FROM_JSON(Page, page_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
@@ -50,8 +52,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->destinationIp_ == nullptr
-        && this->destinationPort_ == nullptr && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->networkProtocol_ == nullptr && this->page_ == nullptr
-        && this->pageSize_ == nullptr && this->protocolNumber_ == nullptr && this->sourcePort_ == nullptr && this->srcIp_ == nullptr && this->startTime_ == nullptr; };
+        && this->destinationPort_ == nullptr && this->endTime_ == nullptr && this->instanceId_ == nullptr && this->interceptModule_ == nullptr && this->networkProtocol_ == nullptr
+        && this->page_ == nullptr && this->pageSize_ == nullptr && this->protocolNumber_ == nullptr && this->sourcePort_ == nullptr && this->srcIp_ == nullptr
+        && this->startTime_ == nullptr; };
     // destinationIp Field Functions 
     bool hasDestinationIp() const { return this->destinationIp_ != nullptr;};
     void deleteDestinationIp() { this->destinationIp_ = nullptr;};
@@ -78,6 +81,13 @@ namespace Models
     void deleteInstanceId() { this->instanceId_ = nullptr;};
     inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
     inline DescribeNetworkLayerInterceptsRequest& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    // interceptModule Field Functions 
+    bool hasInterceptModule() const { return this->interceptModule_ != nullptr;};
+    void deleteInterceptModule() { this->interceptModule_ = nullptr;};
+    inline string getInterceptModule() const { DARABONBA_PTR_GET_DEFAULT(interceptModule_, "") };
+    inline DescribeNetworkLayerInterceptsRequest& setInterceptModule(string interceptModule) { DARABONBA_PTR_SET_VALUE(interceptModule_, interceptModule) };
 
 
     // networkProtocol Field Functions 
@@ -142,11 +152,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The interception module.
+    shared_ptr<string> interceptModule_ {};
     // The network protocol.
     shared_ptr<string> networkProtocol_ {};
     // The page number.
     shared_ptr<int64_t> page_ {};
-    // Settings for the number of interception logs to return on each page when you perform a paged query. Paging is used to return results.
+    // The number of interception log entries per page in a paged query.
     shared_ptr<int64_t> pageSize_ {};
     // The network protocol number. This is a standard network protocol number.
     shared_ptr<int64_t> protocolNumber_ {};

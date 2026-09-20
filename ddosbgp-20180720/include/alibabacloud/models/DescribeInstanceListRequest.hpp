@@ -207,14 +207,14 @@ namespace Models
     shared_ptr<string> instanceType_ {};
     // The mitigation plan types of the Anti-DDoS Origin instances to query.
     shared_ptr<vector<string>> instanceTypeList_ {};
-    // The IP address of the protected object for the Anti-DDoS Origin instance to query.
+    // The protected IP address of the Anti-DDoS Origin instance to query.
     shared_ptr<string> ip_ {};
     // The protocol type of the IP assets protected by the Anti-DDoS Origin instance to query. Valid values:
     // 
     // - **IPv4**: IPv4 protocol.
     // - **IPv6**: IPv6 protocol.
     shared_ptr<string> ipVersion_ {};
-    // The field used to sort the Anti-DDoS Origin instance list. The value is fixed as **expireTime**, which indicates that instances are sorted by expiration time.
+    // The sort field for the Anti-DDoS Origin instance list. The value is fixed as **expireTime**, which indicates sorting by instance expiration time.
     // 
     // You can use the **Orderdire** parameter to specify the sort order.
     shared_ptr<string> orderby_ {};
@@ -223,25 +223,27 @@ namespace Models
     // - **desc** (default): descending order by expiration time.
     // - **asc**: ascending order by expiration time.
     shared_ptr<string> orderdire_ {};
-    // The number of the page to return when paging is used.
+    // The page number of the current page in a paging query. Settings the current page number.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNo_ {};
-    // The number of instances on each page when paging is used.
+    // The number of instances on each page in a paging query. Settings the number of instances per page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID of the Anti-DDoS Origin instance to query.
     // 
     // > You can call [DescribeRegions](https://help.aliyun.com/document_detail/118703.html) to query all region IDs supported by Anti-DDoS Origin.
+    // >-
+    // >Notice: This parameter is required. If it is not specified, the API returns DDosBgp.CheckError.InvalidRegion(400).</notice>
     shared_ptr<string> regionId_ {};
     // The remark of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
     shared_ptr<string> remark_ {};
     // The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
     // 
-    // If you do not specify this parameter, the instance belongs to the default resource group.
+    // If you do not specify this parameter, the default resource group is used.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags bound to the Anti-DDoS Origin instance to query.
+    // The tags bound to the Anti-DDoS Origin instances to query.
     shared_ptr<vector<DescribeInstanceListRequest::Tag>> tag_ {};
   };
 

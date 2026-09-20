@@ -243,7 +243,7 @@ namespace Models
       // - **true**: Enabled.
       // - **false**: Disabled.
       shared_ptr<bool> autoRenewal_ {};
-      // The number of assets that are assigned public IP addresses protected by the instance that are in blackhole filtering status.
+      // The number of IP addresses that are in blackhole filtering status among the assets that are assigned public IP addresses protected by the instance.
       // 
       // > You can invoke [DeleteBlackhole](https://help.aliyun.com/document_detail/118692.html) to deactivate blackhole filtering for a single protected IP address.
       shared_ptr<string> blackholdingCount_ {};
@@ -254,19 +254,19 @@ namespace Models
       shared_ptr<string> commodityType_ {};
       // The asset overwrite type of the instance.
       // 
-      // - **1**: Supports assets that are assigned public IP addresses in multiple regions worldwide.
+      // - **1**: Supports assets that are assigned public IP addresses in multiple regions globally.
       // - **2**: Supports assets that are assigned public IP addresses in multiple regions in the Chinese mainland.
       // - **3**: Supports assets that are assigned public IP addresses in multiple regions outside the Chinese mainland.
-      // - **4**: Supports assets that are assigned public IP addresses in a single region worldwide.
+      // - **4**: Supports assets that are assigned public IP addresses in a single region globally.
       shared_ptr<int32_t> coverageType_ {};
       // The overdue payment status. Valid values:
       // 
       // - **0**: No overdue payment.
       // - **1**: Overdue payment.
       shared_ptr<int64_t> debtStatus_ {};
-      // The expiration time of the instance. The value is a timestamp. Unit: milliseconds.
+      // The expiration time of the instance. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> expireTime_ {};
-      // The purchase time of the instance. The value is a timestamp. Unit: milliseconds.
+      // The purchase time of the instance. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
@@ -280,6 +280,7 @@ namespace Models
       // - **IPv4**: IPv4 protocol.
       // - **IPv6**: IPv6 protocol.
       shared_ptr<string> ipType_ {};
+      // The full logs property.
       shared_ptr<string> logExt_ {};
       // The type of the cloud service associated with the instance. This parameter is not returned by default. It is returned only when the Anti-DDoS Origin instance is created by another cloud service, with the corresponding cloud service code.
       // 
@@ -328,7 +329,7 @@ namespace Models
   protected:
     // The details of the Anti-DDoS Origin instances.
     shared_ptr<vector<DescribeInstanceListResponseBody::InstanceList>> instanceList_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
     // The total number of Anti-DDoS Origin instances returned.
     shared_ptr<int64_t> total_ {};
