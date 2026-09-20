@@ -20,18 +20,6 @@ namespace PaiRecService20221213
 
 AlibabaCloud::PaiRecService20221213::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-shenzhen" , "pairecservice.cn-shenzhen.aliyuncs.com"},
-    {"cn-shanghai" , "pairecservice.cn-shanghai.aliyuncs.com"},
-    {"cn-hongkong" , "pairecservice.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "pairecservice.cn-hangzhou.aliyuncs.com"},
-    {"cn-beijing" , "pairecservice.cn-beijing.aliyuncs.com"},
-    {"ap-southeast-5" , "pairecservice.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-1" , "pairecservice.ap-southeast-1.aliyuncs.com"},
-    {"eu-central-1" , "pairecservice.eu-central-1.aliyuncs.com"},
-    {"us-east-1" , "pairecservice.us-east-1.aliyuncs.com"},
-    {"us-west-1" , "pairecservice.us-west-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("pairecservice", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -5058,7 +5046,7 @@ GetFeatureConsistencyCheckJobConfigResponse Client::getFeatureConsistencyCheckJo
 }
 
 /**
- * @summary Gets the details of a specified PAI-REC instance.
+ * @summary Retrieves the details of a specified PAIRec instance.
  *
  * @param request GetInstanceRequest
  * @param headers map
@@ -5085,7 +5073,7 @@ GetInstanceResponse Client::getInstanceWithOptions(const string &InstanceId, con
 }
 
 /**
- * @summary Gets the details of a specified PAI-REC instance.
+ * @summary Retrieves the details of a specified PAIRec instance.
  *
  * @param request GetInstanceRequest
  * @return GetInstanceResponse

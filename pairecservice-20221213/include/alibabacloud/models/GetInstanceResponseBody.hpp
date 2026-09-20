@@ -18,10 +18,12 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_TO_JSON(Config, config_);
       DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
+      DARABONBA_PTR_TO_JSON(FeatureStoreInfo, featureStoreInfo_);
       DARABONBA_PTR_TO_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(OperatingTool, operatingTool_);
+      DARABONBA_PTR_TO_JSON(RecommendCustomization, recommendCustomization_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
@@ -32,10 +34,12 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CommodityCode, commodityCode_);
       DARABONBA_PTR_FROM_JSON(Config, config_);
       DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
+      DARABONBA_PTR_FROM_JSON(FeatureStoreInfo, featureStoreInfo_);
       DARABONBA_PTR_FROM_JSON(GmtCreateTime, gmtCreateTime_);
       DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(OperatingTool, operatingTool_);
+      DARABONBA_PTR_FROM_JSON(RecommendCustomization, recommendCustomization_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
@@ -52,6 +56,37 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class RecommendCustomization : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const RecommendCustomization& obj) { 
+        DARABONBA_PTR_TO_JSON(IsEnable, isEnable_);
+      };
+      friend void from_json(const Darabonba::Json& j, RecommendCustomization& obj) { 
+        DARABONBA_PTR_FROM_JSON(IsEnable, isEnable_);
+      };
+      RecommendCustomization() = default ;
+      RecommendCustomization(const RecommendCustomization &) = default ;
+      RecommendCustomization(RecommendCustomization &&) = default ;
+      RecommendCustomization(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~RecommendCustomization() = default ;
+      RecommendCustomization& operator=(const RecommendCustomization &) = default ;
+      RecommendCustomization& operator=(RecommendCustomization &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->isEnable_ == nullptr; };
+      // isEnable Field Functions 
+      bool hasIsEnable() const { return this->isEnable_ != nullptr;};
+      void deleteIsEnable() { this->isEnable_ = nullptr;};
+      inline bool getIsEnable() const { DARABONBA_PTR_GET_DEFAULT(isEnable_, false) };
+      inline RecommendCustomization& setIsEnable(bool isEnable) { DARABONBA_PTR_SET_VALUE(isEnable_, isEnable) };
+
+
+    protected:
+      shared_ptr<bool> isEnable_ {};
+    };
+
     class OperatingTool : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const OperatingTool& obj) { 
@@ -80,12 +115,53 @@ namespace Models
 
 
     protected:
-      // Indicates whether the operating tool is enabled for the instance. Valid values:
+      // Indicates whether the operations tool is enabled for the instance. Valid values:
       // 
-      // - True: Enabled
-      // 
-      // - False: Disabled
+      // - True: Enabled.
+      // - False: Not enabled.
       shared_ptr<bool> isEnable_ {};
+    };
+
+    class FeatureStoreInfo : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const FeatureStoreInfo& obj) { 
+        DARABONBA_PTR_TO_JSON(FeatureDBStatus, featureDBStatus_);
+        DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
+      };
+      friend void from_json(const Darabonba::Json& j, FeatureStoreInfo& obj) { 
+        DARABONBA_PTR_FROM_JSON(FeatureDBStatus, featureDBStatus_);
+        DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
+      };
+      FeatureStoreInfo() = default ;
+      FeatureStoreInfo(const FeatureStoreInfo &) = default ;
+      FeatureStoreInfo(FeatureStoreInfo &&) = default ;
+      FeatureStoreInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~FeatureStoreInfo() = default ;
+      FeatureStoreInfo& operator=(const FeatureStoreInfo &) = default ;
+      FeatureStoreInfo& operator=(FeatureStoreInfo &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->featureDBStatus_ == nullptr
+        && this->instanceId_ == nullptr; };
+      // featureDBStatus Field Functions 
+      bool hasFeatureDBStatus() const { return this->featureDBStatus_ != nullptr;};
+      void deleteFeatureDBStatus() { this->featureDBStatus_ = nullptr;};
+      inline string getFeatureDBStatus() const { DARABONBA_PTR_GET_DEFAULT(featureDBStatus_, "") };
+      inline FeatureStoreInfo& setFeatureDBStatus(string featureDBStatus) { DARABONBA_PTR_SET_VALUE(featureDBStatus_, featureDBStatus) };
+
+
+      // instanceId Field Functions 
+      bool hasInstanceId() const { return this->instanceId_ != nullptr;};
+      void deleteInstanceId() { this->instanceId_ = nullptr;};
+      inline string getInstanceId() const { DARABONBA_PTR_GET_DEFAULT(instanceId_, "") };
+      inline FeatureStoreInfo& setInstanceId(string instanceId) { DARABONBA_PTR_SET_VALUE(instanceId_, instanceId) };
+
+
+    protected:
+      shared_ptr<string> featureDBStatus_ {};
+      shared_ptr<string> instanceId_ {};
     };
 
     class Config : public Darabonba::Model {
@@ -316,14 +392,14 @@ namespace Models
       shared_ptr<vector<Config::DataManagements>> dataManagements_ {};
       // The list of service engines.
       shared_ptr<vector<Config::Engines>> engines_ {};
-      // The list of monitoring components.
+      // The list of supporting features.
       shared_ptr<vector<Config::Monitors>> monitors_ {};
     };
 
     virtual bool empty() const override { return this->chargeType_ == nullptr
-        && this->commodityCode_ == nullptr && this->config_ == nullptr && this->expiredTime_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr
-        && this->instanceId_ == nullptr && this->operatingTool_ == nullptr && this->regionId_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr
-        && this->type_ == nullptr; };
+        && this->commodityCode_ == nullptr && this->config_ == nullptr && this->expiredTime_ == nullptr && this->featureStoreInfo_ == nullptr && this->gmtCreateTime_ == nullptr
+        && this->gmtModifiedTime_ == nullptr && this->instanceId_ == nullptr && this->operatingTool_ == nullptr && this->recommendCustomization_ == nullptr && this->regionId_ == nullptr
+        && this->requestId_ == nullptr && this->status_ == nullptr && this->type_ == nullptr; };
     // chargeType Field Functions 
     bool hasChargeType() const { return this->chargeType_ != nullptr;};
     void deleteChargeType() { this->chargeType_ = nullptr;};
@@ -352,6 +428,15 @@ namespace Models
     void deleteExpiredTime() { this->expiredTime_ = nullptr;};
     inline string getExpiredTime() const { DARABONBA_PTR_GET_DEFAULT(expiredTime_, "") };
     inline GetInstanceResponseBody& setExpiredTime(string expiredTime) { DARABONBA_PTR_SET_VALUE(expiredTime_, expiredTime) };
+
+
+    // featureStoreInfo Field Functions 
+    bool hasFeatureStoreInfo() const { return this->featureStoreInfo_ != nullptr;};
+    void deleteFeatureStoreInfo() { this->featureStoreInfo_ = nullptr;};
+    inline const GetInstanceResponseBody::FeatureStoreInfo & getFeatureStoreInfo() const { DARABONBA_PTR_GET_CONST(featureStoreInfo_, GetInstanceResponseBody::FeatureStoreInfo) };
+    inline GetInstanceResponseBody::FeatureStoreInfo getFeatureStoreInfo() { DARABONBA_PTR_GET(featureStoreInfo_, GetInstanceResponseBody::FeatureStoreInfo) };
+    inline GetInstanceResponseBody& setFeatureStoreInfo(const GetInstanceResponseBody::FeatureStoreInfo & featureStoreInfo) { DARABONBA_PTR_SET_VALUE(featureStoreInfo_, featureStoreInfo) };
+    inline GetInstanceResponseBody& setFeatureStoreInfo(GetInstanceResponseBody::FeatureStoreInfo && featureStoreInfo) { DARABONBA_PTR_SET_RVALUE(featureStoreInfo_, featureStoreInfo) };
 
 
     // gmtCreateTime Field Functions 
@@ -384,6 +469,15 @@ namespace Models
     inline GetInstanceResponseBody& setOperatingTool(GetInstanceResponseBody::OperatingTool && operatingTool) { DARABONBA_PTR_SET_RVALUE(operatingTool_, operatingTool) };
 
 
+    // recommendCustomization Field Functions 
+    bool hasRecommendCustomization() const { return this->recommendCustomization_ != nullptr;};
+    void deleteRecommendCustomization() { this->recommendCustomization_ = nullptr;};
+    inline const GetInstanceResponseBody::RecommendCustomization & getRecommendCustomization() const { DARABONBA_PTR_GET_CONST(recommendCustomization_, GetInstanceResponseBody::RecommendCustomization) };
+    inline GetInstanceResponseBody::RecommendCustomization getRecommendCustomization() { DARABONBA_PTR_GET(recommendCustomization_, GetInstanceResponseBody::RecommendCustomization) };
+    inline GetInstanceResponseBody& setRecommendCustomization(const GetInstanceResponseBody::RecommendCustomization & recommendCustomization) { DARABONBA_PTR_SET_VALUE(recommendCustomization_, recommendCustomization) };
+    inline GetInstanceResponseBody& setRecommendCustomization(GetInstanceResponseBody::RecommendCustomization && recommendCustomization) { DARABONBA_PTR_SET_RVALUE(recommendCustomization_, recommendCustomization) };
+
+
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
@@ -413,29 +507,45 @@ namespace Models
 
 
   protected:
-    // The billing method of the instance. The value is fixed as Subscription.
+    // The billing type of the instance. Currently, only Subscription (prepayment) is supported.
     shared_ptr<string> chargeType_ {};
     // The commodity code of the instance.
     shared_ptr<string> commodityCode_ {};
-    // The instance configurations.
+    // The instance configuration.
     shared_ptr<GetInstanceResponseBody::Config> config_ {};
     // The time when the instance expires.
     shared_ptr<string> expiredTime_ {};
+    shared_ptr<GetInstanceResponseBody::FeatureStoreInfo> featureStoreInfo_ {};
     // The time when the instance was created.
     shared_ptr<string> gmtCreateTime_ {};
     // The time when the instance was last updated.
     shared_ptr<string> gmtModifiedTime_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The operating tool configurations.
+    // The configuration of the operations tool.
     shared_ptr<GetInstanceResponseBody::OperatingTool> operatingTool_ {};
-    // The region ID. Valid values:<br>● cn-shenzhen: Shenzhen<br>● cn-hangzhou: Hangzhou<br>● cn-beijing: Beijing<br>● cn-shanghai: Shanghai<br><br><br><br>
+    shared_ptr<GetInstanceResponseBody::RecommendCustomization> recommendCustomization_ {};
+    // The region ID. Valid values:
+    // 
+    // - cn-shenzhen: China (Shenzhen).
+    // - cn-hangzhou: China (Hangzhou).
+    // - cn-beijing: China (Beijing).
+    // - cn-shanghai: China (Shanghai).
     shared_ptr<string> regionId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The instance status. Valid values:<br>● Initializing<br>● Stopped<br>● Running<br><br><br>
+    // The instance status. Valid values:
+    // 
+    // - Initializing: The instance is being initialized.
+    // - Stopped: The instance is stopped.
+    // - Running: The instance is running.
     shared_ptr<string> status_ {};
-    // The instance type. Valid values:<br>● basic: Basic<br>● highlevel: High-level<br>● advanced: Advanced<br>● standard: Standard<br><br><br><br>
+    // The instance type. Valid values:
+    // 
+    // - basic: Basic Edition.
+    // - highleve: Upgraded Edition.
+    // - advance: Advanced Edition.
+    // - standard: Standard Edition.
     shared_ptr<string> type_ {};
   };
 

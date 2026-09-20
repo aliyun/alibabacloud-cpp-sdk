@@ -1719,7 +1719,7 @@ namespace PaiRecService20221213
       Models::GetFeatureConsistencyCheckJobConfigResponse getFeatureConsistencyCheckJobConfig(const string &FeatureConsistencyCheckJobConfigId, const Models::GetFeatureConsistencyCheckJobConfigRequest &request);
 
       /**
-       * @summary Gets the details of a specified PAI-REC instance.
+       * @summary Retrieves the details of a specified PAIRec instance.
        *
        * @param request GetInstanceRequest
        * @param headers map
@@ -1729,7 +1729,7 @@ namespace PaiRecService20221213
       Models::GetInstanceResponse getInstanceWithOptions(const string &InstanceId, const Models::GetInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Gets the details of a specified PAI-REC instance.
+       * @summary Retrieves the details of a specified PAIRec instance.
        *
        * @param request GetInstanceRequest
        * @return GetInstanceResponse
