@@ -2,6 +2,9 @@
 #ifndef ALIBABACLOUD_AIDGE20260428MODEL_HPP_
 #define ALIBABACLOUD_AIDGE20260428MODEL_HPP_
 #include <darabonba/Core.hpp>
+#include <alibabacloud/models/AiTryOnRequest.hpp>
+#include <alibabacloud/models/AiTryOnResponseBody.hpp>
+#include <alibabacloud/models/AiTryOnResponse.hpp>
 #include <alibabacloud/models/AssetOptimizeLiteRequest.hpp>
 #include <alibabacloud/models/AssetOptimizeLiteResponseBody.hpp>
 #include <alibabacloud/models/AssetOptimizeLiteResponse.hpp>

@@ -128,7 +128,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The intelligent correction result data.
     shared_ptr<TextCorrectResponseBody::Data> data_ {};
-    // The error message. The value "Success" is returned if the call is successful. A specific error message is returned if an exception occurs, such as "The parameters contain sensitive information. Try other input."
+    // The error message. The value "Success" is returned if the call is successful. If an error occurs, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
     shared_ptr<string> message_ {};
     // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};

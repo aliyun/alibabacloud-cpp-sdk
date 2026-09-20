@@ -113,7 +113,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // The format of the translation text. html (web page format. This setting processes the source text and translated text in HTML format). text (text format. This setting processes the source text and translated text as plain text without any format processing).
+    // The format of the translation text. Valid values: html (web page format. This setting processes both the source text and translated text in HTML format) and text (text format. This setting processes both the source text and translated text as plain text without any format processing).
     shared_ptr<string> translateScene_ {};
   };
 

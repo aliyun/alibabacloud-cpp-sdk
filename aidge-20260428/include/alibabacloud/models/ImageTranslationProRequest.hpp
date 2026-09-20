@@ -103,33 +103,33 @@ namespace Models
 
 
   protected:
-    // Specifies whether to use asynchronous mode. Default value: false (synchronous mode). If you set this parameter to true, the API immediately returns a TaskId. Use the query translation result API to retrieve the final result.
+    // Specifies whether to use asynchronous mode. Default value: false (synchronous mode). When set to true, the API immediately returns a TaskId. Use the query translation result API to obtain the final result.
     shared_ptr<bool> async_ {};
-    // The ID of the intervention glossary. This parameter is optional. Create the glossary in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
+    // The ID of the intervention glossary. This parameter is optional. Create the glossary separately in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
     shared_ptr<string> glossary_ {};
     // The URL of the original image. This parameter is required.
     // 
     // Image requirements:
     // - Image URL: Must be publicly accessible.
     // - Format: png, jpeg, jpg, bmp, or webp.
-    // - Pixels: Width and height must not exceed 4000 pixels each.
+    // - Pixels: Both width and height must not exceed 4000.
     // - File size: The original file must be 10 MB or smaller.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to translate text on the image subject. This parameter is optional. Default value: false. This helps protect information such as embedded product names from being translated.
+    // Specifies whether to translate text on the image subject. This parameter is optional. Default value: false. This helps you protect information and avoid translating embedded information such as product names.
     shared_ptr<bool> includingProductArea_ {};
-    // The source language code. This parameter is required. For supported language directions, see [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+    // The source language code. This parameter is required. For supported language directions, see [Language direction mapping](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
     // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
-    // The target language code. This parameter is required. For supported language directions, see [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+    // The target language code. This parameter is required. For supported language directions, see [Language direction mapping](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate brand names on the image. This parameter is optional. Default value: false. This helps protect brand name information from being translated.
+    // Specifies whether to translate brand names on images. This parameter is optional. Default value: false. This helps you protect brand name information from being translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
-    // Specifies whether to return layout information such as text position, font, and color. Set this parameter to true to retrieve layer information for secondary editing with an image editor. Default value: false.
+    // Specifies whether to return layout information such as text position, font, and color. When set to true, layer information is returned for secondary editing with an image editor. Default value: false.
     shared_ptr<bool> useImageEditor_ {};
   };
 

@@ -73,7 +73,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> capabilities_ {};
-    // The source language. This parameter is optional. Default value: auto (automatic detection).
+    // The source language. This parameter is optional. Default value: auto, which indicates automatic detection.
     shared_ptr<string> sourceLanguage_ {};
     // The target language. This parameter is required.
     // 

@@ -111,7 +111,7 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The asynchronous task submit result.
+    // The submit status of the asynchronous task.
     shared_ptr<VideoTranslationResponseBody::Data> data_ {};
     // The description.
     shared_ptr<string> message_ {};

@@ -1,0 +1,81 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_AITRYONREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_AITRYONREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace Aidge20260428
+{
+namespace Models
+{
+  class AiTryOnRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const AiTryOnRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClothImageUrl, clothImageUrl_);
+      DARABONBA_PTR_TO_JSON(ClothType, clothType_);
+      DARABONBA_PTR_TO_JSON(ModelImageUrl, modelImageUrl_);
+      DARABONBA_PTR_TO_JSON(Resolution, resolution_);
+    };
+    friend void from_json(const Darabonba::Json& j, AiTryOnRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClothImageUrl, clothImageUrl_);
+      DARABONBA_PTR_FROM_JSON(ClothType, clothType_);
+      DARABONBA_PTR_FROM_JSON(ModelImageUrl, modelImageUrl_);
+      DARABONBA_PTR_FROM_JSON(Resolution, resolution_);
+    };
+    AiTryOnRequest() = default ;
+    AiTryOnRequest(const AiTryOnRequest &) = default ;
+    AiTryOnRequest(AiTryOnRequest &&) = default ;
+    AiTryOnRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~AiTryOnRequest() = default ;
+    AiTryOnRequest& operator=(const AiTryOnRequest &) = default ;
+    AiTryOnRequest& operator=(AiTryOnRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->clothImageUrl_ == nullptr
+        && this->clothType_ == nullptr && this->modelImageUrl_ == nullptr && this->resolution_ == nullptr; };
+    // clothImageUrl Field Functions 
+    bool hasClothImageUrl() const { return this->clothImageUrl_ != nullptr;};
+    void deleteClothImageUrl() { this->clothImageUrl_ = nullptr;};
+    inline string getClothImageUrl() const { DARABONBA_PTR_GET_DEFAULT(clothImageUrl_, "") };
+    inline AiTryOnRequest& setClothImageUrl(string clothImageUrl) { DARABONBA_PTR_SET_VALUE(clothImageUrl_, clothImageUrl) };
+
+
+    // clothType Field Functions 
+    bool hasClothType() const { return this->clothType_ != nullptr;};
+    void deleteClothType() { this->clothType_ = nullptr;};
+    inline string getClothType() const { DARABONBA_PTR_GET_DEFAULT(clothType_, "") };
+    inline AiTryOnRequest& setClothType(string clothType) { DARABONBA_PTR_SET_VALUE(clothType_, clothType) };
+
+
+    // modelImageUrl Field Functions 
+    bool hasModelImageUrl() const { return this->modelImageUrl_ != nullptr;};
+    void deleteModelImageUrl() { this->modelImageUrl_ = nullptr;};
+    inline string getModelImageUrl() const { DARABONBA_PTR_GET_DEFAULT(modelImageUrl_, "") };
+    inline AiTryOnRequest& setModelImageUrl(string modelImageUrl) { DARABONBA_PTR_SET_VALUE(modelImageUrl_, modelImageUrl) };
+
+
+    // resolution Field Functions 
+    bool hasResolution() const { return this->resolution_ != nullptr;};
+    void deleteResolution() { this->resolution_ = nullptr;};
+    inline string getResolution() const { DARABONBA_PTR_GET_DEFAULT(resolution_, "") };
+    inline AiTryOnRequest& setResolution(string resolution) { DARABONBA_PTR_SET_VALUE(resolution_, resolution) };
+
+
+  protected:
+    // This parameter is required.
+    shared_ptr<string> clothImageUrl_ {};
+    shared_ptr<string> clothType_ {};
+    // This parameter is required.
+    shared_ptr<string> modelImageUrl_ {};
+    // This parameter is required.
+    shared_ptr<string> resolution_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace Aidge20260428
+#endif

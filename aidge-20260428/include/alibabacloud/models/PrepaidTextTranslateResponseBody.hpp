@@ -138,7 +138,7 @@ namespace Models
     protected:
       // The translation result list. Each element corresponds to a translation result for an entry in the input text list.
       shared_ptr<vector<Data::Translations>> translations_ {};
-      // The usage information, including the number of input characters.
+      // The usage information, including the input character count.
       shared_ptr<map<string, int64_t>> usageMap_ {};
     };
 

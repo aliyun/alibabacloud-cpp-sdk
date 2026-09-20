@@ -112,19 +112,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // The list of non-subject element types to detect. Valid values: 1 (background), 2 (border), 3 (watermark), and 4 (splice).
+    // The element types to detect on the non-subject area of the image (1: watermark, 2: logo, 3: text, 4: text-containing color block). You can select multiple element types. This parameter and ObjectDetectElements cannot both be empty.
     shared_ptr<vector<int32_t>> nonObjectDetectElements_ {};
-    // The list of subject element types to detect. Valid values: 1 (product subject), 2 (model), 3 (text), and 4 (logo).
+    // The element types to detect on the image subject (1: watermark, 2: logo, 3: text, 4: text-containing color block). You can select multiple element types.
     shared_ptr<vector<int32_t>> objectDetectElements_ {};
     // Specifies whether to return border pixel information. Valid values: 1 (return) and 0 (do not return).
     shared_ptr<int32_t> returnBorderPixel_ {};
     // Specifies whether to return text information. Valid values: 1 (return) and 0 (do not return).
     shared_ptr<int32_t> returnCharacter_ {};
-    // Specifies whether to return text property information. Valid values: 1 (return) and 0 (do not return).
+    // Specifies whether to return text attribute information. Valid values: 1 (return) and 0 (do not return).
     shared_ptr<int32_t> returnCharacterProp_ {};
     // Specifies whether to return the product count. Valid values: 1 (return) and 0 (do not return).
     shared_ptr<int32_t> returnProductNum_ {};
-    // Specifies whether to return product property information. Valid values: 1 (return) and 0 (do not return).
+    // Specifies whether to return product attribute information. Valid values: 1 (return) and 0 (do not return).
     shared_ptr<int32_t> returnProductProp_ {};
   };
 
