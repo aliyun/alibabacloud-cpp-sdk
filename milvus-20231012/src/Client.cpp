@@ -627,7 +627,7 @@ ListAclGroupsResponse Client::listAclGroups(const ListAclGroupsRequest &request)
 }
 
 /**
- * @summary Retrieves a list of Milvus instances in the current account.
+ * @summary Retrieves the list of Milvus instances under the current account.
  *
  * @param tmpReq ListInstancesRequest
  * @param headers map
@@ -690,7 +690,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Retrieves a list of Milvus instances in the current account.
+ * @summary Retrieves the list of Milvus instances under the current account.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -785,7 +785,7 @@ ListInstancesV2Response Client::listInstancesV2(const ListInstancesV2Request &re
 }
 
 /**
- * @summary Modifies the configuration parameters for Milvus components.
+ * @summary Updates the configuration parameters of various Milvus components.
  *
  * @param request ModifyInstanceConfigRequest
  * @param headers map
@@ -826,7 +826,7 @@ ModifyInstanceConfigResponse Client::modifyInstanceConfigWithOptions(const Modif
 }
 
 /**
- * @summary Modifies the configuration parameters for Milvus components.
+ * @summary Updates the configuration parameters of various Milvus components.
  *
  * @param request ModifyInstanceConfigRequest
  * @return ModifyInstanceConfigResponse

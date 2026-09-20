@@ -61,11 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The reason for the modification.
+    // The reason for the update.
     // 
     // This parameter is required.
     shared_ptr<string> reason_ {};
-    // The custom user configuration.
+    // The user-defined configuration.
     shared_ptr<string> userConfig_ {};
   };
 

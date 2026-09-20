@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The tag key.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The tag value.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -153,7 +153,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags used to filter instances.
+    // The tag information.
     shared_ptr<vector<ListInstancesRequest::Tag>> tag_ {};
   };
 

@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The details of the access denied error.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The returned data.
     shared_ptr<bool> data_ {};

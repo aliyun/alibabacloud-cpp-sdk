@@ -199,7 +199,7 @@ namespace Milvus20231012
       Models::ListAclGroupsResponse listAclGroups(const Models::ListAclGroupsRequest &request);
 
       /**
-       * @summary Retrieves a list of Milvus instances in the current account.
+       * @summary Retrieves the list of Milvus instances under the current account.
        *
        * @param tmpReq ListInstancesRequest
        * @param headers map
@@ -209,7 +209,7 @@ namespace Milvus20231012
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of Milvus instances in the current account.
+       * @summary Retrieves the list of Milvus instances under the current account.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -235,7 +235,7 @@ namespace Milvus20231012
       Models::ListInstancesV2Response listInstancesV2(const Models::ListInstancesV2Request &request);
 
       /**
-       * @summary Modifies the configuration parameters for Milvus components.
+       * @summary Updates the configuration parameters of various Milvus components.
        *
        * @param request ModifyInstanceConfigRequest
        * @param headers map
@@ -245,7 +245,7 @@ namespace Milvus20231012
       Models::ModifyInstanceConfigResponse modifyInstanceConfigWithOptions(const Models::ModifyInstanceConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the configuration parameters for Milvus components.
+       * @summary Updates the configuration parameters of various Milvus components.
        *
        * @param request ModifyInstanceConfigRequest
        * @return ModifyInstanceConfigResponse

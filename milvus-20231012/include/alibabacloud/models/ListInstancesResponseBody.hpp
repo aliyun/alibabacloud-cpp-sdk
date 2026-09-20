@@ -61,6 +61,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ProductCode, productCode_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
         DARABONBA_PTR_TO_JSON(RunningTime, runningTime_);
         DARABONBA_PTR_TO_JSON(SgId, sgId_);
         DARABONBA_PTR_TO_JSON(Tags, tags_);
@@ -85,6 +86,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ProductCode, productCode_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
+        DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
         DARABONBA_PTR_FROM_JSON(RunningTime, runningTime_);
         DARABONBA_PTR_FROM_JSON(SgId, sgId_);
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
@@ -143,9 +145,9 @@ namespace Models
 
 
       protected:
-        // The tag key.
+        // The key of the tag.
         shared_ptr<string> key_ {};
-        // The tag value.
+        // The value of the tag.
         shared_ptr<string> value_ {};
       };
 
@@ -157,6 +159,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(IntranetUrl, intranetUrl_);
           DARABONBA_PTR_TO_JSON(MilvusResourceInfoList, milvusResourceInfoList_);
           DARABONBA_PTR_TO_JSON(ProxyPort, proxyPort_);
+          DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
           DARABONBA_PTR_TO_JSON(TotalCuNum, totalCuNum_);
           DARABONBA_PTR_TO_JSON(TotalDiskSize, totalDiskSize_);
         };
@@ -166,6 +169,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(IntranetUrl, intranetUrl_);
           DARABONBA_PTR_FROM_JSON(MilvusResourceInfoList, milvusResourceInfoList_);
           DARABONBA_PTR_FROM_JSON(ProxyPort, proxyPort_);
+          DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
           DARABONBA_PTR_FROM_JSON(TotalCuNum, totalCuNum_);
           DARABONBA_PTR_FROM_JSON(TotalDiskSize, totalDiskSize_);
         };
@@ -246,22 +250,16 @@ namespace Models
 
         protected:
           // The component type. Valid values:
-          // 
-          // - `standalone`
-          // 
-          // - `proxy`
-          // 
-          // - `mix_coordinator`
-          // 
-          // - `query`
-          // 
-          // - `index`
-          // 
-          // - `data`
+          // - standalone
+          // - proxy
+          // - mix_coordinator
+          // - query
+          // - index
+          // - data
           shared_ptr<string> componentType_ {};
           // The number of CUs.
           shared_ptr<int32_t> cuNum_ {};
-          // The disk size in GB.
+          // The disk size.
           shared_ptr<int32_t> diskSize_ {};
           // The disk type.
           shared_ptr<string> diskType_ {};
@@ -270,8 +268,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->attuPort_ == nullptr
-        && this->internetUrl_ == nullptr && this->intranetUrl_ == nullptr && this->milvusResourceInfoList_ == nullptr && this->proxyPort_ == nullptr && this->totalCuNum_ == nullptr
-        && this->totalDiskSize_ == nullptr; };
+        && this->internetUrl_ == nullptr && this->intranetUrl_ == nullptr && this->milvusResourceInfoList_ == nullptr && this->proxyPort_ == nullptr && this->resourceOwnerId_ == nullptr
+        && this->totalCuNum_ == nullptr && this->totalDiskSize_ == nullptr; };
         // attuPort Field Functions 
         bool hasAttuPort() const { return this->attuPort_ != nullptr;};
         void deleteAttuPort() { this->attuPort_ = nullptr;};
@@ -309,6 +307,13 @@ namespace Models
         inline ClusterInfo& setProxyPort(int32_t proxyPort) { DARABONBA_PTR_SET_VALUE(proxyPort_, proxyPort) };
 
 
+        // resourceOwnerId Field Functions 
+        bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
+        void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
+        inline string getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, "") };
+        inline ClusterInfo& setResourceOwnerId(string resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
         // totalCuNum Field Functions 
         bool hasTotalCuNum() const { return this->totalCuNum_ != nullptr;};
         void deleteTotalCuNum() { this->totalCuNum_ = nullptr;};
@@ -324,28 +329,30 @@ namespace Models
 
 
       protected:
-        // The Attu port.
+        // The port of the Attu component.
         shared_ptr<int32_t> attuPort_ {};
         // The public endpoint.
         shared_ptr<string> internetUrl_ {};
         // The internal endpoint.
         shared_ptr<string> intranetUrl_ {};
-        // A list of resource details for the instance\\"s components.
+        // The resource details.
         shared_ptr<vector<ClusterInfo::MilvusResourceInfoList>> milvusResourceInfoList_ {};
         // The proxy port.
         shared_ptr<int32_t> proxyPort_ {};
-        // The total number of CUs.
+        // The ID of the resource owner account.
+        shared_ptr<string> resourceOwnerId_ {};
+        // The number of CUs.
         shared_ptr<int32_t> totalCuNum_ {};
-        // The total disk size in GB.
+        // The total disk size.
         shared_ptr<int32_t> totalDiskSize_ {};
       };
 
       virtual bool empty() const override { return this->autoBackup_ == nullptr
         && this->beginTime_ == nullptr && this->clusterInfo_ == nullptr && this->clusterName_ == nullptr && this->expireTime_ == nullptr && this->instanceId_ == nullptr
         && this->instanceStatus_ == nullptr && this->nodeType_ == nullptr && this->openPublicNet_ == nullptr && this->packageType_ == nullptr && this->payType_ == nullptr
-        && this->productCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->runningTime_ == nullptr && this->sgId_ == nullptr
-        && this->tags_ == nullptr && this->templateVersion_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr && this->vswId_ == nullptr
-        && this->zoneId_ == nullptr; };
+        && this->productCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerId_ == nullptr && this->runningTime_ == nullptr
+        && this->sgId_ == nullptr && this->tags_ == nullptr && this->templateVersion_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr
+        && this->vswId_ == nullptr && this->zoneId_ == nullptr; };
       // autoBackup Field Functions 
       bool hasAutoBackup() const { return this->autoBackup_ != nullptr;};
       void deleteAutoBackup() { this->autoBackup_ = nullptr;};
@@ -446,6 +453,13 @@ namespace Models
       inline Data& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
+      // resourceOwnerId Field Functions 
+      bool hasResourceOwnerId() const { return this->resourceOwnerId_ != nullptr;};
+      void deleteResourceOwnerId() { this->resourceOwnerId_ = nullptr;};
+      inline string getResourceOwnerId() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerId_, "") };
+      inline Data& setResourceOwnerId(string resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
+
+
       // runningTime Field Functions 
       bool hasRunningTime() const { return this->runningTime_ != nullptr;};
       void deleteRunningTime() { this->runningTime_ = nullptr;};
@@ -507,67 +521,57 @@ namespace Models
     protected:
       // Indicates whether automatic backup is enabled.
       shared_ptr<bool> autoBackup_ {};
-      // The creation time of the instance.
+      // The start time.
       shared_ptr<int64_t> beginTime_ {};
       // The instance details.
       shared_ptr<Data::ClusterInfo> clusterInfo_ {};
       // The instance name.
       shared_ptr<string> clusterName_ {};
-      // The expiration time of the instance.
+      // The expiration time.
       shared_ptr<int64_t> expireTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance status. Valid values:
-      // 
-      // - `creating`: The instance is being created.
-      // 
-      // - `running`: The instance is running.
-      // 
-      // - `updating`: The instance is being updated. This includes scaling the instance, changing configurations, or modifying public network access.
-      // 
-      // - `disable`: The instance is unavailable because it has expired and requires renewal.
-      // 
-      // - `deleting`: The instance is being deleted.
-      // 
-      // - `deleted`: The instance has been deleted.
+      // - creating: Being created.
+      // - running: Running.
+      // - updating: Being upgraded. This includes specification changes, configuration changes, and enabling or disabling public network access.
+      // - disable: Unavailable. The cluster has expired and requires renewal to reactivate.
+      // - deleting: Being deleted.
+      // - deleted: Deleted.
       shared_ptr<string> instanceStatus_ {};
       // The node type.
       shared_ptr<string> nodeType_ {};
       // Indicates whether public network access is enabled.
       shared_ptr<bool> openPublicNet_ {};
-      // The instance edition. Valid values:
-      // 
-      // - `trial`: Trial Edition.
-      // 
-      // - `standard`: Standard Edition.
+      // The edition. Valid values:
+      // - trial: Trial Edition.
+      // - standard: Standard Edition.
       shared_ptr<string> packageType_ {};
-      // The billing method. Valid values:
-      // 
-      // - `0`: pay-as-you-go.
-      // 
-      // - `1`: subscription.
+      // The billing type. Valid values:
+      // - 0: Pay-as-you-go.
+      // - 1: Subscription.
       shared_ptr<int32_t> payType_ {};
-      // The product code.
+      // The commodity code.
       shared_ptr<string> productCode_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
       // The resource group ID.
       shared_ptr<string> resourceGroupId_ {};
-      // The duration the instance has been running.
+      // The ID of the resource owner account.
+      shared_ptr<string> resourceOwnerId_ {};
+      // The running time.
       shared_ptr<int32_t> runningTime_ {};
       // The security group ID.
       shared_ptr<string> sgId_ {};
-      // The tags attached to the instance.
+      // The tag information.
       shared_ptr<vector<Data::Tags>> tags_ {};
-      // The template version.
       shared_ptr<string> templateVersion_ {};
-      // The instance version.
       shared_ptr<string> version_ {};
       // The VPC ID.
       shared_ptr<string> vpcId_ {};
       // The vSwitch ID.
       shared_ptr<string> vswId_ {};
-      // The zone ID.
+      // The zone.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -633,9 +637,9 @@ namespace Models
 
 
   protected:
-    // Details for an access denial error.
+    // The details of the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // An array of instance objects.
+    // The returned data.
     shared_ptr<vector<ListInstancesResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errCode_ {};
@@ -647,7 +651,7 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
-    // The total number of instances found.
+    // The total count.
     shared_ptr<int32_t> total_ {};
   };
 
