@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // The ID of the API.
+    // The ID of the created API.
     shared_ptr<int64_t> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -92,7 +92,7 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The request ID. A unique identifier for the request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

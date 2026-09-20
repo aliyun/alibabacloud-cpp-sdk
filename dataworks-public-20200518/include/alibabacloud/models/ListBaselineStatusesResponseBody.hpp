@@ -222,35 +222,39 @@ namespace Models
 
 
       protected:
-        // The baseline ID.
+        // The ID of the baseline.
         shared_ptr<int64_t> baselineId_ {};
         // The name of the baseline.
         shared_ptr<string> baselineName_ {};
-        // The type of the baseline, including DAILY and HOURLY. Separate multiple types with commas (,).
+        // The type of the baseline. Valid values: DAILY and HOURLY.
         shared_ptr<string> baselineType_ {};
-        // The data timestamp.
+        // The business date timestamp.
         shared_ptr<int64_t> bizdate_ {};
-        // The margin of the baseline instance. Unit: seconds.
+        // The buffer time of the baseline instance, in seconds.
         shared_ptr<int64_t> buffer_ {};
-        // The timestamp of the predicted time when the baseline instance finished running.
+        // The estimated completion time of the baseline instance.
         shared_ptr<int64_t> endCast_ {};
-        // The timestamp of the alerting time of the baseline instance.
+        // The warning time of the baseline instance.
+        // 
+        // The format is a 13-digit number, such as `1553531400000`.
         shared_ptr<int64_t> expTime_ {};
-        // The status of the baseline instance. Valid values: UNFINISH and FINISH.
+        // The completion status of the baseline instance. Valid values: UNFINISH and FINISH.
         shared_ptr<string> finishStatus_ {};
-        // The timestamp of the actual time when the baseline instance finished running. This parameter is returned if the value of the FinishStatus parameter is FINISH.
+        // The completion timestamp of the baseline instance. This parameter is returned only when FinishStatus is FINISH.
         shared_ptr<int64_t> finishTime_ {};
-        // The ID of the cycle of the baseline instance. Valid values of the ID of an hour-level cycle: [1,24]. The ID of a day-level cycle is 1.
+        // The cycle number of the baseline instance. The value is 1 for daily baselines. The value ranges from 1 to 24 for hourly baselines.
         shared_ptr<int32_t> inGroupId_ {};
-        // The ID of the Alibaba Cloud account used by the baseline owner. Multiple IDs are separated by commas (,).
+        // The Alibaba Cloud UID of the baseline owner. Separate multiple owners with commas (,).
         shared_ptr<string> owner_ {};
-        // The priority of the baseline. Valid values: {1,3,5,7,8}.
+        // The priority of the baseline. Valid values: 1, 3, 5, 7, and 8.
         shared_ptr<int32_t> priority_ {};
-        // The ID of the workspace to which the baseline belongs.
+        // The ID of the workspace where the baseline resides.
         shared_ptr<int64_t> projectId_ {};
-        // The timestamp of the actual time when the baseline instance finished running.
+        // The actual completion time of the baseline instance.
+        // 
+        // The format is a 13-digit number, such as `1553531400000`.
         shared_ptr<int64_t> slaTime_ {};
-        // The status of the baseline. Valid values: ERROR, SAFE, DANGEROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes are run before the alert duration begins. The value DANGEROUS indicates that nodes are still running after the alert duration ends but the committed completion time does not arrive. The value OVER indicates that nodes are still running after the committed completion time.
+        // The status of the baseline. Valid values: ERROR, SAFE, DANGEROUS, and OVER.
         shared_ptr<string> status_ {};
       };
 
@@ -289,9 +293,9 @@ namespace Models
     protected:
       // The list of baseline instances.
       shared_ptr<vector<Data::BaselineStatuses>> baselineStatuses_ {};
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of baseline instances.
       shared_ptr<int32_t> totalCount_ {};
@@ -344,17 +348,17 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The list of baseline instances returned.
     shared_ptr<ListBaselineStatusesResponseBody::Data> data_ {};
-    // The error code returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request. You can use the ID to troubleshoot issues.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

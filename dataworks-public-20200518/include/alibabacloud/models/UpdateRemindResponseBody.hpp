@@ -84,7 +84,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the modification to the custom alert rule succeeds.
+    // The result of updating the custom monitoring rule.
     shared_ptr<bool> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -92,12 +92,11 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can use the ID to troubleshoot issues.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the call was successful. Valid values:
+    // - true: Successful.
+    // - false: Failed.
     shared_ptr<bool> success_ {};
   };
 

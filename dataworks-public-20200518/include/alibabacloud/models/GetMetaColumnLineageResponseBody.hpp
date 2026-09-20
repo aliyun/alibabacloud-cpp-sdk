@@ -130,7 +130,7 @@ namespace Models
 
 
       protected:
-        // The EMR cluster ID.
+        // The ID of the EMR cluster.
         shared_ptr<string> clusterId_ {};
         // The unique identifier of the field.
         shared_ptr<string> columnGuid_ {};
@@ -175,9 +175,9 @@ namespace Models
 
 
     protected:
-      // The returned result.
+      // The list of instance data.
       shared_ptr<vector<Data::DataEntityList>> dataEntityList_ {};
-      // The page number.
+      // The page number. Used for pagination.
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};

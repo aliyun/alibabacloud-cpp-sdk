@@ -87,8 +87,8 @@ AlibabaCloud::DataworksPublic20200518::Client::Client(AlibabaCloud::OpenApi::Uti
     {"rus-west-1-pop" , "dataworks.aliyuncs.com"},
     {"us-east-1" , "dataworks.us-east-1.aliyuncs.com"},
     {"us-west-1" , "dataworks.us-west-1.aliyuncs.com"},
-    {"me-central-1" , "dataworks.me-central-1.aliyuncs.com"},
-    {"ap-northeast-2" , "dataworks.ap-northeast-2.aliyuncs.com"}
+    {"ap-northeast-2" , "dataworks.ap-northeast-2.aliyuncs.com"},
+    {"me-central-1" , "dataworks.me-central-1.aliyuncs.com"}
   }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dataworks-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
@@ -241,6 +241,8 @@ AbolishDataServiceApiResponse Client::abolishDataServiceApi(const AbolishDataSer
 /**
  * @summary Adds an entity to a collection.
  *
+ * @description Before you begin: Before calling this operation, activate DataWorks Professional Edition or a higher edition. The Basic Edition and Standard Edition do not support the metadata collection feature.
+ *
  * @param request AddMetaCollectionEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return AddMetaCollectionEntityResponse
@@ -280,6 +282,8 @@ AddMetaCollectionEntityResponse Client::addMetaCollectionEntityWithOptions(const
 /**
  * @summary Adds an entity to a collection.
  *
+ * @description Before you begin: Before calling this operation, activate DataWorks Professional Edition or a higher edition. The Basic Edition and Standard Edition do not support the metadata collection feature.
+ *
  * @param request AddMetaCollectionEntityRequest
  * @return AddMetaCollectionEntityResponse
  */
@@ -289,10 +293,10 @@ AddMetaCollectionEntityResponse Client::addMetaCollectionEntity(const AddMetaCol
 }
 
 /**
- * @summary Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
+ * @summary Adds a DataWorks workspace user to a role. Before calling this operation, you must first add the target account as a member of the DataWorks workspace.
  *
- * @description - Add the target account as a member of the DataWorks workspace. For more information, see [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
- * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, see [Mappings between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
+ * @description - To add the target account as a member of the DataWorks workspace, refer to [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+ * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, refer to [Mapping between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
  *
  * @param request AddProjectMemberToRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -335,10 +339,10 @@ AddProjectMemberToRoleResponse Client::addProjectMemberToRoleWithOptions(const A
 }
 
 /**
- * @summary Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
+ * @summary Adds a DataWorks workspace user to a role. Before calling this operation, you must first add the target account as a member of the DataWorks workspace.
  *
- * @description - Add the target account as a member of the DataWorks workspace. For more information, see [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
- * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, see [Mappings between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
+ * @description - To add the target account as a member of the DataWorks workspace, refer to [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+ * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, refer to [Mapping between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
  *
  * @param request AddProjectMemberToRoleRequest
  * @return AddProjectMemberToRoleResponse
@@ -506,9 +510,9 @@ AddToMetaCategoryResponse Client::addToMetaCategory(const AddToMetaCategoryReque
 
 /**
  * @summary Approves a permission request order.
- * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI ApproveProcessInstance as soon as possible.
+ * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — ApproveProcessInstance.
  *
- * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance) as soon as possible.**.
+ * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance).**
  *
  * @param request ApprovePermissionApplyOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -548,9 +552,9 @@ ApprovePermissionApplyOrderResponse Client::approvePermissionApplyOrderWithOptio
 
 /**
  * @summary Approves a permission request order.
- * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI ApproveProcessInstance as soon as possible.
+ * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — ApproveProcessInstance.
  *
- * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance) as soon as possible.**.
+ * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance).**
  *
  * @param request ApprovePermissionApplyOrderRequest
  * @return ApprovePermissionApplyOrderResponse
@@ -561,7 +565,7 @@ ApprovePermissionApplyOrderResponse Client::approvePermissionApplyOrder(const Ap
 }
 
 /**
- * @summary Sends the processing result of an extension point event by an extension to DataWorks.
+ * @summary Returns the check result of an extension program for an extension point event to the DataWorks platform by calling the CallbackExtension operation when an extension point is triggered during the use of the DataWorks platform.
  *
  * @param request CallbackExtensionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -604,7 +608,7 @@ CallbackExtensionResponse Client::callbackExtensionWithOptions(const CallbackExt
 }
 
 /**
- * @summary Sends the processing result of an extension point event by an extension to DataWorks.
+ * @summary Returns the check result of an extension program for an extension point event to the DataWorks platform by calling the CallbackExtension operation when an extension point is triggered during the use of the DataWorks platform.
  *
  * @param request CallbackExtensionRequest
  * @return CallbackExtensionResponse
@@ -665,7 +669,7 @@ ChangeResourceManagerResourceGroupResponse Client::changeResourceManagerResource
 }
 
 /**
- * @summary Returns the check events for a file that is pending deployment in DataStudio. After a file is committed, DataWorks checks the file and generates events before deployment. Use the returned events to determine whether the file can proceed with deployment validation.
+ * @summary Returns the check result of a file pending deployment to DataWorks. After a file created on the DataWorks DataStudio page is submitted, the file enters the deployment check state. DataWorks returns a file deployment check event to you, and you need to determine whether the file can proceed with deployment verification based on the event content. You can call this operation to return the check result of the file pending deployment to DataWorks.
  *
  * @param request CheckFileDeploymentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -704,7 +708,7 @@ CheckFileDeploymentResponse Client::checkFileDeploymentWithOptions(const CheckFi
 }
 
 /**
- * @summary Returns the check events for a file that is pending deployment in DataStudio. After a file is committed, DataWorks checks the file and generates events before deployment. Use the returned events to determine whether the file can proceed with deployment validation.
+ * @summary Returns the check result of a file pending deployment to DataWorks. After a file created on the DataWorks DataStudio page is submitted, the file enters the deployment check state. DataWorks returns a file deployment check event to you, and you need to determine whether the file can proceed with deployment verification based on the event content. You can call this operation to return the check result of the file pending deployment to DataWorks.
  *
  * @param request CheckFileDeploymentRequest
  * @return CheckFileDeploymentResponse
@@ -777,7 +781,9 @@ CheckMetaPartitionResponse Client::checkMetaPartition(const CheckMetaPartitionRe
 }
 
 /**
- * @summary Checks whether a metatable exists.
+ * @summary Checks whether a table exists.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
  *
  * @param request CheckMetaTableRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -824,7 +830,9 @@ CheckMetaTableResponse Client::checkMetaTableWithOptions(const CheckMetaTableReq
 }
 
 /**
- * @summary Checks whether a metatable exists.
+ * @summary Checks whether a table exists.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
  *
  * @param request CheckMetaTableRequest
  * @return CheckMetaTableResponse
@@ -905,7 +913,7 @@ CreateBaselineResponse Client::createBaseline(const CreateBaselineRequest &reque
 }
 
 /**
- * @summary Creates a workflow in DataStudio.
+ * @summary Creates a business process in DataStudio for data development.
  *
  * @param request CreateBusinessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -956,7 +964,7 @@ CreateBusinessResponse Client::createBusinessWithOptions(const CreateBusinessReq
 }
 
 /**
- * @summary Creates a workflow in DataStudio.
+ * @summary Creates a business process in DataStudio for data development.
  *
  * @param request CreateBusinessRequest
  * @return CreateBusinessResponse
@@ -1301,7 +1309,7 @@ CreateDISyncTaskResponse Client::createDISyncTask(const CreateDISyncTaskRequest 
 /**
  * @deprecated OpenAPI CreateDagComplement is deprecated
  *
- * @summary Calls CreateDagComplement to create a data backfill workflow.
+ * @summary Creates a data backfill workflow by calling CreateDagComplement.
  *
  * @param request CreateDagComplementRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1374,7 +1382,7 @@ CreateDagComplementResponse Client::createDagComplementWithOptions(const CreateD
 /**
  * @deprecated OpenAPI CreateDagComplement is deprecated
  *
- * @summary Calls CreateDagComplement to create a data backfill workflow.
+ * @summary Creates a data backfill workflow by calling CreateDagComplement.
  *
  * @param request CreateDagComplementRequest
  * @return CreateDagComplementResponse
@@ -1447,7 +1455,7 @@ CreateDagTestResponse Client::createDagTest(const CreateDagTestRequest &request)
 }
 
 /**
- * @summary Creates an API.
+ * @summary Creates a Data Service API by calling CreateDataServiceApi.
  *
  * @param request CreateDataServiceApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1550,7 +1558,7 @@ CreateDataServiceApiResponse Client::createDataServiceApiWithOptions(const Creat
 }
 
 /**
- * @summary Creates an API.
+ * @summary Creates a Data Service API by calling CreateDataServiceApi.
  *
  * @param request CreateDataServiceApiRequest
  * @return CreateDataServiceApiResponse
@@ -1801,7 +1809,7 @@ CreateDataSourceResponse Client::createDataSource(const CreateDataSourceRequest 
 }
 
 /**
- * @summary Creates an export task. You can use this operation to create an export task but cannot use this operation to start the created export task.
+ * @summary Creates an export task in DataWorks. This API operation only creates the export task and does not start the export task.
  *
  * @param request CreateExportMigrationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1852,7 +1860,7 @@ CreateExportMigrationResponse Client::createExportMigrationWithOptions(const Cre
 }
 
 /**
- * @summary Creates an export task. You can use this operation to create an export task but cannot use this operation to start the created export task.
+ * @summary Creates an export task in DataWorks. This API operation only creates the export task and does not start the export task.
  *
  * @param request CreateExportMigrationRequest
  * @return CreateExportMigrationResponse
@@ -2287,7 +2295,7 @@ CreateImportMigrationResponse Client::createImportMigrationAdvance(const CreateI
 /**
  * @deprecated OpenAPI CreateManualDag is deprecated
  *
- * @summary The manual workflow must have already been submitted and deployed in the UI, and the Operation Center must be able to find the corresponding manual workflow. Only then can this API be used.
+ * @summary Triggers the execution of a manual business process. The manual business process must have been submitted and published in the console, and the O&M center must be able to find the corresponding manual business process before you can call this operation.
  *
  * @param request CreateManualDagRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2348,7 +2356,7 @@ CreateManualDagResponse Client::createManualDagWithOptions(const CreateManualDag
 /**
  * @deprecated OpenAPI CreateManualDag is deprecated
  *
- * @summary The manual workflow must have already been submitted and deployed in the UI, and the Operation Center must be able to find the corresponding manual workflow. Only then can this API be used.
+ * @summary Triggers the execution of a manual business process. The manual business process must have been submitted and published in the console, and the O&M center must be able to find the corresponding manual business process before you can call this operation.
  *
  * @param request CreateManualDagRequest
  * @return CreateManualDagResponse
@@ -2409,9 +2417,9 @@ CreateMetaCategoryResponse Client::createMetaCategory(const CreateMetaCategoryRe
 }
 
 /**
- * @summary Creates a collection.
+ * @summary Creates a collection object.
  *
- * @description Collections are classified into various types. The names of collections of the same type must be different.
+ * @description Collections have multiple types. The name must be unique within the same collection type.
  *
  * @param request CreateMetaCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2454,9 +2462,9 @@ CreateMetaCollectionResponse Client::createMetaCollectionWithOptions(const Creat
 }
 
 /**
- * @summary Creates a collection.
+ * @summary Creates a collection object.
  *
- * @description Collections are classified into various types. The names of collections of the same type must be different.
+ * @description Collections have multiple types. The name must be unique within the same collection type.
  *
  * @param request CreateMetaCollectionRequest
  * @return CreateMetaCollectionResponse
@@ -2468,9 +2476,9 @@ CreateMetaCollectionResponse Client::createMetaCollection(const CreateMetaCollec
 
 /**
  * @summary Creates a permission request order.
- * Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — ApplyResourceAccessPermission.
+ * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — ApplyResourceAccessPermission as soon as possible.
  *
- * @description **Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission).**
+ * @description **Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission) as soon as possible.**
  *
  * @param request CreatePermissionApplyOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2538,9 +2546,9 @@ CreatePermissionApplyOrderResponse Client::createPermissionApplyOrderWithOptions
 
 /**
  * @summary Creates a permission request order.
- * Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — ApplyResourceAccessPermission.
+ * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — ApplyResourceAccessPermission as soon as possible.
  *
- * @description **Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission).**
+ * @description **Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission) as soon as possible.**
  *
  * @param request CreatePermissionApplyOrderRequest
  * @return CreatePermissionApplyOrderResponse
@@ -2753,7 +2761,7 @@ CreateQualityEntityResponse Client::createQualityEntity(const CreateQualityEntit
 /**
  * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
  *
- * @summary Adds a follower to a partition expression to receive data quality alerts.
+ * @summary Creates a subscriber for a partition expression by calling CreateQualityFollower.
  *
  * @param request CreateQualityFollowerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2802,7 +2810,7 @@ CreateQualityFollowerResponse Client::createQualityFollowerWithOptions(const Cre
 /**
  * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
  *
- * @summary Adds a follower to a partition expression to receive data quality alerts.
+ * @summary Creates a subscriber for a partition expression by calling CreateQualityFollower.
  *
  * @param request CreateQualityFollowerRequest
  * @return CreateQualityFollowerResponse
@@ -3009,7 +3017,7 @@ CreateQualityRuleResponse Client::createQualityRule(const CreateQualityRuleReque
 }
 
 /**
- * @summary Creates a custom alert rule.
+ * @summary Creates a custom alert rule by calling CreateRemind.
  *
  * @param request CreateRemindRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3100,7 +3108,7 @@ CreateRemindResponse Client::createRemindWithOptions(const CreateRemindRequest &
 }
 
 /**
- * @summary Creates a custom alert rule.
+ * @summary Creates a custom alert rule by calling CreateRemind.
  *
  * @param request CreateRemindRequest
  * @return CreateRemindResponse
@@ -3515,7 +3523,7 @@ CreateTableThemeResponse Client::createTableTheme(const CreateTableThemeRequest 
 }
 
 /**
- * @summary Creates a file for a function in DataStudio.
+ * @summary Creates a function type file in DataStudio.
  *
  * @param request CreateUdfFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3594,7 +3602,7 @@ CreateUdfFileResponse Client::createUdfFileWithOptions(const CreateUdfFileReques
 }
 
 /**
- * @summary Creates a file for a function in DataStudio.
+ * @summary Creates a function type file in DataStudio.
  *
  * @param request CreateUdfFileRequest
  * @return CreateUdfFileResponse
@@ -3889,7 +3897,7 @@ DeleteDISyncTaskResponse Client::deleteDISyncTask(const DeleteDISyncTaskRequest 
 }
 
 /**
- * @summary Deletes an API in DataService Studio.
+ * @summary Deletes a DataService API.
  *
  * @param request DeleteDataServiceApiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3928,7 +3936,7 @@ DeleteDataServiceApiResponse Client::deleteDataServiceApiWithOptions(const Delet
 }
 
 /**
- * @summary Deletes an API in DataService Studio.
+ * @summary Deletes a DataService API.
  *
  * @param request DeleteDataServiceApiRequest
  * @return DeleteDataServiceApiResponse
@@ -5009,7 +5017,7 @@ DeployFileResponse Client::deployFile(const DeployFileRequest &request) {
 }
 
 /**
- * @summary Masks data.
+ * @summary Submits data for masking and returns the masked result.
  *
  * @param request DesensitizeDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5036,7 +5044,7 @@ DesensitizeDataResponse Client::desensitizeDataWithOptions(const DesensitizeData
 }
 
 /**
- * @summary Masks data.
+ * @summary Submits data for masking and returns the masked result.
  *
  * @param request DesensitizeDataRequest
  * @return DesensitizeDataResponse
@@ -6797,7 +6805,7 @@ GetAlertMessageResponse Client::getAlertMessage(const GetAlertMessageRequest &re
 }
 
 /**
- * @summary Queries the information about a baseline based on its ID.
+ * @summary Retrieves the baseline configuration based on a baseline ID.
  *
  * @param request GetBaselineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6832,7 +6840,7 @@ GetBaselineResponse Client::getBaselineWithOptions(const GetBaselineRequest &req
 }
 
 /**
- * @summary Queries the information about a baseline based on its ID.
+ * @summary Retrieves the baseline configuration based on a baseline ID.
  *
  * @param request GetBaselineRequest
  * @return GetBaselineResponse
@@ -6843,7 +6851,7 @@ GetBaselineResponse Client::getBaseline(const GetBaselineRequest &request) {
 }
 
 /**
- * @summary Queries the configurations of a baseline.
+ * @summary Retrieves the configuration details of a baseline by calling GetBaselineConfig.
  *
  * @param request GetBaselineConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6874,7 +6882,7 @@ GetBaselineConfigResponse Client::getBaselineConfigWithOptions(const GetBaseline
 }
 
 /**
- * @summary Queries the configurations of a baseline.
+ * @summary Retrieves the configuration details of a baseline by calling GetBaselineConfig.
  *
  * @param request GetBaselineConfigRequest
  * @return GetBaselineConfigResponse
@@ -6885,7 +6893,9 @@ GetBaselineConfigResponse Client::getBaselineConfig(const GetBaselineConfigReque
 }
 
 /**
- * @summary The information about the events that are associated with the instance.
+ * @summary Retrieves the critical path of a baseline instance.
+ *
+ * @description 调用前需准备有效的 BaselineId：可先通过 ListProjects 获取 ProjectId，再调用 ListBaselines，并从其 Data.Baselines[].BaselineId 获取。
  *
  * @param request GetBaselineKeyPathRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6924,7 +6934,9 @@ GetBaselineKeyPathResponse Client::getBaselineKeyPathWithOptions(const GetBaseli
 }
 
 /**
- * @summary The information about the events that are associated with the instance.
+ * @summary Retrieves the critical path of a baseline instance.
+ *
+ * @description 调用前需准备有效的 BaselineId：可先通过 ListProjects 获取 ProjectId，再调用 ListBaselines，并从其 Data.Baselines[].BaselineId 获取。
  *
  * @param request GetBaselineKeyPathRequest
  * @return GetBaselineKeyPathResponse
@@ -6935,7 +6947,7 @@ GetBaselineKeyPathResponse Client::getBaselineKeyPath(const GetBaselineKeyPathRe
 }
 
 /**
- * @summary Retrieves the status of a baseline instance.
+ * @summary Retrieves the details of a baseline instance.
  *
  * @param request GetBaselineStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6974,7 +6986,7 @@ GetBaselineStatusResponse Client::getBaselineStatusWithOptions(const GetBaseline
 }
 
 /**
- * @summary Retrieves the status of a baseline instance.
+ * @summary Retrieves the details of a baseline instance.
  *
  * @param request GetBaselineStatusRequest
  * @return GetBaselineStatusResponse
@@ -7037,7 +7049,7 @@ GetBusinessResponse Client::getBusiness(const GetBusinessRequest &request) {
 /**
  * @deprecated OpenAPI GetDDLJobStatus is deprecated
  *
- * @summary Queries the status of a table creation, update, or deletion task.
+ * @summary Retrieves the status of tasks for creating, updating, and deleting tables.
  *
  * @param request GetDDLJobStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7066,7 +7078,7 @@ GetDDLJobStatusResponse Client::getDDLJobStatusWithOptions(const GetDDLJobStatus
 /**
  * @deprecated OpenAPI GetDDLJobStatus is deprecated
  *
- * @summary Queries the status of a table creation, update, or deletion task.
+ * @summary Retrieves the status of tasks for creating, updating, and deleting tables.
  *
  * @param request GetDDLJobStatusRequest
  * @return GetDDLJobStatusResponse
@@ -7577,6 +7589,8 @@ GetDataServiceGroupResponse Client::getDataServiceGroup(const GetDataServiceGrou
 /**
  * @summary Retrieves the details of a published DataService Studio API.
  *
+ * @description 前置条件：请先开通 DataWorks 企业版或旗舰版，并准备已发布的数据服务 API。ProjectId 可通过 ListProjects 获取，ApiId 可通过 ListDataServicePublishedApis 的 Data.Apis[].ApiId 获取；未开通所需版本时会返回 403 Forbidden.Access。
+ *
  * @param request GetDataServicePublishedApiRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetDataServicePublishedApiResponse
@@ -7615,6 +7629,8 @@ GetDataServicePublishedApiResponse Client::getDataServicePublishedApiWithOptions
 
 /**
  * @summary Retrieves the details of a published DataService Studio API.
+ *
+ * @description 前置条件：请先开通 DataWorks 企业版或旗舰版，并准备已发布的数据服务 API。ProjectId 可通过 ListProjects 获取，ApiId 可通过 ListDataServicePublishedApis 的 Data.Apis[].ApiId 获取；未开通所需版本时会返回 403 Forbidden.Access。
  *
  * @param request GetDataServicePublishedApiRequest
  * @return GetDataServicePublishedApiResponse
@@ -7983,7 +7999,9 @@ GetFolderResponse Client::getFolder(const GetFolderRequest &request) {
 }
 
 /**
- * @summary Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
+ * @summary Queries the extension point data snapshot at the time an extension point event was triggered, based on the message ID of a DataWorks open message.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns a 403 Forbidden.Access error.
  *
  * @param request GetIDEEventDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8018,7 +8036,9 @@ GetIDEEventDetailResponse Client::getIDEEventDetailWithOptions(const GetIDEEvent
 }
 
 /**
- * @summary Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
+ * @summary Queries the extension point data snapshot at the time an extension point event was triggered, based on the message ID of a DataWorks open message.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns a 403 Forbidden.Access error.
  *
  * @param request GetIDEEventDetailRequest
  * @return GetIDEEventDetailResponse
@@ -8397,7 +8417,7 @@ GetInstanceStatusStatisticResponse Client::getInstanceStatusStatistic(const GetI
 /**
  * @deprecated OpenAPI GetManualDagInstances is deprecated
  *
- * @summary Queries the information about instances in a manually triggered workflow.
+ * @summary Queries information about instances of a manually triggered workflow.
  *
  * @param request GetManualDagInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8438,7 +8458,7 @@ GetManualDagInstancesResponse Client::getManualDagInstancesWithOptions(const Get
 /**
  * @deprecated OpenAPI GetManualDagInstances is deprecated
  *
- * @summary Queries the information about instances in a manually triggered workflow.
+ * @summary Queries information about instances of a manually triggered workflow.
  *
  * @param request GetManualDagInstancesRequest
  * @return GetManualDagInstancesResponse
@@ -8449,7 +8469,7 @@ GetManualDagInstancesResponse Client::getManualDagInstances(const GetManualDagIn
 }
 
 /**
- * @summary Queries the information about a category tree.
+ * @summary Queries the tree categories.
  *
  * @param request GetMetaCategoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8488,7 +8508,7 @@ GetMetaCategoryResponse Client::getMetaCategoryWithOptions(const GetMetaCategory
 }
 
 /**
- * @summary Queries the information about a category tree.
+ * @summary Queries the tree categories.
  *
  * @param request GetMetaCategoryRequest
  * @return GetMetaCategoryResponse
@@ -8499,7 +8519,7 @@ GetMetaCategoryResponse Client::getMetaCategory(const GetMetaCategoryRequest &re
 }
 
 /**
- * @summary Queries the information about a collection.
+ * @summary Queries the details of a collection.
  *
  * @param request GetMetaCollectionDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8530,7 +8550,7 @@ GetMetaCollectionDetailResponse Client::getMetaCollectionDetailWithOptions(const
 }
 
 /**
- * @summary Queries the information about a collection.
+ * @summary Queries the details of a collection.
  *
  * @param request GetMetaCollectionDetailRequest
  * @return GetMetaCollectionDetailResponse
@@ -8541,7 +8561,7 @@ GetMetaCollectionDetailResponse Client::getMetaCollectionDetail(const GetMetaCol
 }
 
 /**
- * @summary Queries the lineage of a field in a metatable.
+ * @summary Queries the lineage of a field by calling GetMetaColumnLineage.
  *
  * @param request GetMetaColumnLineageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8604,7 +8624,7 @@ GetMetaColumnLineageResponse Client::getMetaColumnLineageWithOptions(const GetMe
 }
 
 /**
- * @summary Queries the lineage of a field in a metatable.
+ * @summary Queries the lineage of a field by calling GetMetaColumnLineage.
  *
  * @param request GetMetaColumnLineageRequest
  * @return GetMetaColumnLineageResponse
@@ -8615,7 +8635,9 @@ GetMetaColumnLineageResponse Client::getMetaColumnLineage(const GetMetaColumnLin
 }
 
 /**
- * @summary Queries the basic metadata information about a compute engine instance.
+ * @summary Retrieves the basic metadata information of an engine instance.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
  *
  * @param request GetMetaDBInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8642,7 +8664,9 @@ GetMetaDBInfoResponse Client::getMetaDBInfoWithOptions(const GetMetaDBInfoReques
 }
 
 /**
- * @summary Queries the basic metadata information about a compute engine instance.
+ * @summary Retrieves the basic metadata information of an engine instance.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
  *
  * @param request GetMetaDBInfoRequest
  * @return GetMetaDBInfoResponse
@@ -8717,6 +8741,8 @@ GetMetaDBTableListResponse Client::getMetaDBTableList(const GetMetaDBTableListRe
 /**
  * @summary Queries the basic information about a metatable.
  *
+ * @description 前置条件：调用本接口前，请先开通 DataWorks 企业版或旗舰版；未开通时服务会返回 403 Forbidden.Access。
+ *
  * @param request GetMetaTableBasicInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetMetaTableBasicInfoResponse
@@ -8744,6 +8770,8 @@ GetMetaTableBasicInfoResponse Client::getMetaTableBasicInfoWithOptions(const Get
 /**
  * @summary Queries the basic information about a metatable.
  *
+ * @description 前置条件：调用本接口前，请先开通 DataWorks 企业版或旗舰版；未开通时服务会返回 403 Forbidden.Access。
+ *
  * @param request GetMetaTableBasicInfoRequest
  * @return GetMetaTableBasicInfoResponse
  */
@@ -8753,9 +8781,9 @@ GetMetaTableBasicInfoResponse Client::getMetaTableBasicInfo(const GetMetaTableBa
 }
 
 /**
- * @summary Queries the change logs of a metatable.
+ * @summary Retrieves the change log of a table.
  *
- * @description > This API operation is not recommended. A new API operation that provides the same capability will be released soon.
+ * @description > We do not recommend that you use this API operation. A new API operation will be released to replace it.
  *
  * @param request GetMetaTableChangeLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8810,9 +8838,9 @@ GetMetaTableChangeLogResponse Client::getMetaTableChangeLogWithOptions(const Get
 }
 
 /**
- * @summary Queries the change logs of a metatable.
+ * @summary Retrieves the change log of a table.
  *
- * @description > This API operation is not recommended. A new API operation that provides the same capability will be released soon.
+ * @description > We do not recommend that you use this API operation. A new API operation will be released to replace it.
  *
  * @param request GetMetaTableChangeLogRequest
  * @return GetMetaTableChangeLogResponse
@@ -8863,9 +8891,9 @@ GetMetaTableColumnResponse Client::getMetaTableColumn(const GetMetaTableColumnRe
 /**
  * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
  *
- * @summary Retrieves complete metadata for a table, including field details.
+ * @summary Retrieves the complete information about a table, including field information.
  *
- * @description You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
+ * @description Only tables of the EMR engine type are supported.
  *
  * @param request GetMetaTableFullInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8894,9 +8922,9 @@ GetMetaTableFullInfoResponse Client::getMetaTableFullInfoWithOptions(const GetMe
 /**
  * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
  *
- * @summary Retrieves complete metadata for a table, including field details.
+ * @summary Retrieves the complete information about a table, including field information.
  *
- * @description You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
+ * @description Only tables of the EMR engine type are supported.
  *
  * @param request GetMetaTableFullInfoRequest
  * @return GetMetaTableFullInfoResponse
@@ -8907,7 +8935,7 @@ GetMetaTableFullInfoResponse Client::getMetaTableFullInfo(const GetMetaTableFull
 }
 
 /**
- * @summary Queries the instructions on how to use a table.
+ * @summary Retrieves the usage instructions for a table.
  *
  * @param request GetMetaTableIntroWikiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8942,7 +8970,7 @@ GetMetaTableIntroWikiResponse Client::getMetaTableIntroWikiWithOptions(const Get
 }
 
 /**
- * @summary Queries the instructions on how to use a table.
+ * @summary Retrieves the usage instructions for a table.
  *
  * @param request GetMetaTableIntroWikiRequest
  * @return GetMetaTableIntroWikiResponse
@@ -8953,7 +8981,7 @@ GetMetaTableIntroWikiResponse Client::getMetaTableIntroWiki(const GetMetaTableIn
 }
 
 /**
- * @summary Queries the lineage of a metatable.
+ * @summary Queries the data lineage of a table.
  *
  * @param request GetMetaTableLineageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9012,7 +9040,7 @@ GetMetaTableLineageResponse Client::getMetaTableLineageWithOptions(const GetMeta
 }
 
 /**
- * @summary Queries the lineage of a metatable.
+ * @summary Queries the data lineage of a table.
  *
  * @param request GetMetaTableLineageRequest
  * @return GetMetaTableLineageResponse
@@ -9061,7 +9089,7 @@ GetMetaTableListByCategoryResponse Client::getMetaTableListByCategory(const GetM
 }
 
 /**
- * @summary Queries the output information of a metatable.
+ * @summary Retrieves the output information of a table.
  *
  * @param request GetMetaTableOutputRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9112,7 +9140,7 @@ GetMetaTableOutputResponse Client::getMetaTableOutputWithOptions(const GetMetaTa
 }
 
 /**
- * @summary Queries the output information of a metatable.
+ * @summary Retrieves the output information of a table.
  *
  * @param request GetMetaTableOutputRequest
  * @return GetMetaTableOutputResponse
@@ -9265,7 +9293,9 @@ GetMetaTableProducingTasksResponse Client::getMetaTableProducingTasks(const GetM
 }
 
 /**
- * @summary Fetches topics and hierarchy metadata for tables
+ * @summary Queries the theme and level information of a table.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) to activate or upgrade to the required edition.
  *
  * @param request GetMetaTableThemeLevelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9292,7 +9322,9 @@ GetMetaTableThemeLevelResponse Client::getMetaTableThemeLevelWithOptions(const G
 }
 
 /**
- * @summary Fetches topics and hierarchy metadata for tables
+ * @summary Queries the theme and level information of a table.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) to activate or upgrade to the required edition.
  *
  * @param request GetMetaTableThemeLevelRequest
  * @return GetMetaTableThemeLevelResponse
@@ -9395,7 +9427,7 @@ GetMigrationSummaryResponse Client::getMigrationSummary(const GetMigrationSummar
 }
 
 /**
- * @summary Indicates whether the request is successful.
+ * @summary Retrieves the details of a node.
  *
  * @param request GetNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9430,7 +9462,7 @@ GetNodeResponse Client::getNodeWithOptions(const GetNodeRequest &request, const 
 }
 
 /**
- * @summary Indicates whether the request is successful.
+ * @summary Retrieves the details of a node.
  *
  * @param request GetNodeRequest
  * @return GetNodeResponse
@@ -9441,7 +9473,7 @@ GetNodeResponse Client::getNode(const GetNodeRequest &request) {
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Calls GetNodeChildren to retrieve the downstream node list of a node.
  *
  * @param request GetNodeChildrenRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9476,7 +9508,7 @@ GetNodeChildrenResponse Client::getNodeChildrenWithOptions(const GetNodeChildren
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Calls GetNodeChildren to retrieve the downstream node list of a node.
  *
  * @param request GetNodeChildrenRequest
  * @return GetNodeChildrenResponse
@@ -9487,7 +9519,7 @@ GetNodeChildrenResponse Client::getNodeChildren(const GetNodeChildrenRequest &re
 }
 
 /**
- * @summary Queries the code of a node.
+ * @summary Retrieves the code of a node.
  *
  * @param request GetNodeCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9522,7 +9554,7 @@ GetNodeCodeResponse Client::getNodeCodeWithOptions(const GetNodeCodeRequest &req
 }
 
 /**
- * @summary Queries the code of a node.
+ * @summary Retrieves the code of a node.
  *
  * @param request GetNodeCodeRequest
  * @return GetNodeCodeResponse
@@ -9579,7 +9611,7 @@ GetNodeOnBaselineResponse Client::getNodeOnBaseline(const GetNodeOnBaselineReque
 }
 
 /**
- * @summary Queries a list of ancestor nodes of a node.
+ * @summary Calls GetNodeParents to retrieve the list of upstream nodes.
  *
  * @param request GetNodeParentsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9614,7 +9646,7 @@ GetNodeParentsResponse Client::getNodeParentsWithOptions(const GetNodeParentsReq
 }
 
 /**
- * @summary Queries a list of ancestor nodes of a node.
+ * @summary Calls GetNodeParents to retrieve the list of upstream nodes.
  *
  * @param request GetNodeParentsRequest
  * @return GetNodeParentsResponse
@@ -9813,10 +9845,10 @@ GetOptionValueForProjectResponse Client::getOptionValueForProject(const GetOptio
 }
 
 /**
- * @summary Queries the details of a permission request order.
- * Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — GetApplicationContents/GetProcessInstance.
+ * @summary Queries the details of a permission application order.
+ * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: GetApplicationContents/GetProcessInstance.
  *
- * @description **Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — [GetApplicationContents](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_3.75985eba2pEw9l&scm=20140722.H_3040926._.OR_help-T_cn~zh-V_1)/[GetProcessInstance](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_4.64e62414k6cKri&scm=20140722.H_3040933._.OR_help-T_cn~zh-V_1).**
+ * @description **Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: [GetApplicationContents](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents)/[GetProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance).**
  *
  * @param request GetPermissionApplyOrderDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9847,10 +9879,10 @@ GetPermissionApplyOrderDetailResponse Client::getPermissionApplyOrderDetailWithO
 }
 
 /**
- * @summary Queries the details of a permission request order.
- * Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — GetApplicationContents/GetProcessInstance.
+ * @summary Queries the details of a permission application order.
+ * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: GetApplicationContents/GetProcessInstance.
  *
- * @description **Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — [GetApplicationContents](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_3.75985eba2pEw9l&scm=20140722.H_3040926._.OR_help-T_cn~zh-V_1)/[GetProcessInstance](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_4.64e62414k6cKri&scm=20140722.H_3040933._.OR_help-T_cn~zh-V_1).**
+ * @description **Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: [GetApplicationContents](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents)/[GetProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance).**
  *
  * @param request GetPermissionApplyOrderDetailRequest
  * @return GetPermissionApplyOrderDetailResponse
@@ -9861,7 +9893,7 @@ GetPermissionApplyOrderDetailResponse Client::getPermissionApplyOrderDetail(cons
 }
 
 /**
- * @summary Queries the information about a DataWorks workspace.
+ * @summary Queries the details of a DataWorks workspace.
  *
  * @param request GetProjectRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9896,7 +9928,7 @@ GetProjectResponse Client::getProjectWithOptions(const GetProjectRequest &reques
 }
 
 /**
- * @summary Queries the information about a DataWorks workspace.
+ * @summary Queries the details of a DataWorks workspace.
  *
  * @param request GetProjectRequest
  * @return GetProjectResponse
@@ -9907,7 +9939,7 @@ GetProjectResponse Client::getProject(const GetProjectRequest &request) {
 }
 
 /**
- * @deprecated OpenAPI GetProjectDetail is deprecated
+ * @deprecated OpenAPI GetProjectDetail is deprecated, please use dataworks-public::2020-05-18::GetProject instead.
  *
  * @summary Queries the information about a DataWorks workspace.
  *
@@ -9940,7 +9972,7 @@ GetProjectDetailResponse Client::getProjectDetailWithOptions(const GetProjectDet
 }
 
 /**
- * @deprecated OpenAPI GetProjectDetail is deprecated
+ * @deprecated OpenAPI GetProjectDetail is deprecated, please use dataworks-public::2020-05-18::GetProject instead.
  *
  * @summary Queries the information about a DataWorks workspace.
  *
@@ -9955,7 +9987,7 @@ GetProjectDetailResponse Client::getProjectDetail(const GetProjectDetailRequest 
 /**
  * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
  *
- * @summary Call `GetQualityEntity` to retrieve the partition expression.
+ * @summary Retrieves a partition expression.
  *
  * @param request GetQualityEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10004,7 +10036,7 @@ GetQualityEntityResponse Client::getQualityEntityWithOptions(const GetQualityEnt
 /**
  * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
  *
- * @summary Call `GetQualityEntity` to retrieve the partition expression.
+ * @summary Retrieves a partition expression.
  *
  * @param request GetQualityEntityRequest
  * @return GetQualityEntityResponse
@@ -10017,7 +10049,7 @@ GetQualityEntityResponse Client::getQualityEntity(const GetQualityEntityRequest 
 /**
  * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
  *
- * @summary Retrieves the followers of a Partition Expression.
+ * @summary Retrieves the subscribers of a partition expression.
  *
  * @param request GetQualityFollowerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10058,7 +10090,7 @@ GetQualityFollowerResponse Client::getQualityFollowerWithOptions(const GetQualit
 /**
  * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
  *
- * @summary Retrieves the followers of a Partition Expression.
+ * @summary Retrieves the subscribers of a partition expression.
  *
  * @param request GetQualityFollowerRequest
  * @return GetQualityFollowerResponse
@@ -10205,7 +10237,7 @@ GetSensitiveDataResponse Client::getSensitiveData(const GetSensitiveDataRequest 
 /**
  * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
  *
- * @summary Queries the statistics of instances in different periods of a day.
+ * @summary Retrieves the hourly statistical trends of instances for the current day.
  *
  * @param request GetSuccessInstanceTrendRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10238,7 +10270,7 @@ GetSuccessInstanceTrendResponse Client::getSuccessInstanceTrendWithOptions(const
 /**
  * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
  *
- * @summary Queries the statistics of instances in different periods of a day.
+ * @summary Retrieves the hourly statistical trends of instances for the current day.
  *
  * @param request GetSuccessInstanceTrendRequest
  * @return GetSuccessInstanceTrendResponse
@@ -10249,7 +10281,7 @@ GetSuccessInstanceTrendResponse Client::getSuccessInstanceTrend(const GetSuccess
 }
 
 /**
- * @summary Queries the information about an event.
+ * @summary Retrieves the details of an event.
  *
  * @description ****
  *
@@ -10282,7 +10314,7 @@ GetTopicResponse Client::getTopicWithOptions(const GetTopicRequest &request, con
 }
 
 /**
- * @summary Queries the information about an event.
+ * @summary Retrieves the details of an event.
  *
  * @description ****
  *
@@ -10535,7 +10567,7 @@ ListBaselineConfigsResponse Client::listBaselineConfigs(const ListBaselineConfig
 }
 
 /**
- * @summary Queries a list of baseline instances.
+ * @summary Retrieves a list of baseline instances.
  *
  * @param request ListBaselineStatusesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10602,7 +10634,7 @@ ListBaselineStatusesResponse Client::listBaselineStatusesWithOptions(const ListB
 }
 
 /**
- * @summary Queries a list of baseline instances.
+ * @summary Retrieves a list of baseline instances.
  *
  * @param request ListBaselineStatusesRequest
  * @return ListBaselineStatusesResponse
@@ -10803,7 +10835,7 @@ ListCalcEnginesResponse Client::listCalcEngines(const ListCalcEnginesRequest &re
 }
 
 /**
- * @summary Queries the check results of extension point events.
+ * @summary Queries the check list of extension events.
  *
  * @param request ListCheckProcessesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10858,7 +10890,7 @@ ListCheckProcessesResponse Client::listCheckProcessesWithOptions(const ListCheck
 }
 
 /**
- * @summary Queries the check results of extension point events.
+ * @summary Queries the check list of extension events.
  *
  * @param request ListCheckProcessesRequest
  * @return ListCheckProcessesResponse
@@ -10987,9 +11019,9 @@ ListConnectionsResponse Client::listConnections(const ListConnectionsRequest &re
 }
 
 /**
- * @summary Retrieves a list of alert rules configured for a synchronization task.
+ * @summary Queries the list of alerting rules for data integration new-version nodes. Currently supported node types include the MySQL-to-Hologres full-database real-time Solutions.
  *
- * @description Alert rules can be configured when your task includes real-time synchronization.
+ * @description When your task synchronization type includes real-time synchronization, you can configure alert rules.
  *
  * @param request ListDIAlarmRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11028,9 +11060,9 @@ ListDIAlarmRulesResponse Client::listDIAlarmRulesWithOptions(const ListDIAlarmRu
 }
 
 /**
- * @summary Retrieves a list of alert rules configured for a synchronization task.
+ * @summary Queries the list of alerting rules for data integration new-version nodes. Currently supported node types include the MySQL-to-Hologres full-database real-time Solutions.
  *
- * @description Alert rules can be configured when your task includes real-time synchronization.
+ * @description When your task synchronization type includes real-time synchronization, you can configure alert rules.
  *
  * @param request ListDIAlarmRulesRequest
  * @return ListDIAlarmRulesResponse
@@ -11041,9 +11073,10 @@ ListDIAlarmRulesResponse Client::listDIAlarmRules(const ListDIAlarmRulesRequest 
 }
 
 /**
- * @summary Retrieves a list of synchronization tasks.
+ * @summary Queries the list of new-version data integration tasks. Currently supported task types include MySQL-to-Hologres full-database real-time synchronization tasks.
  *
- * @description You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
+ * @description This list operation returns only basic task information. To view detailed task information, call the GetDIJob operation.
+ * Prerequisites: Activate DataWorks Enterprise Edition or Ultimate Edition first. The required ProjectId can be obtained from PageResult.ProjectList[].ProjectId in the ListProjects response. If the required edition is not activated, this operation returns 403 Forbidden.Access.
  *
  * @param request ListDIJobsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11094,9 +11127,10 @@ ListDIJobsResponse Client::listDIJobsWithOptions(const ListDIJobsRequest &reques
 }
 
 /**
- * @summary Retrieves a list of synchronization tasks.
+ * @summary Queries the list of new-version data integration tasks. Currently supported task types include MySQL-to-Hologres full-database real-time synchronization tasks.
  *
- * @description You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
+ * @description This list operation returns only basic task information. To view detailed task information, call the GetDIJob operation.
+ * Prerequisites: Activate DataWorks Enterprise Edition or Ultimate Edition first. The required ProjectId can be obtained from PageResult.ProjectList[].ProjectId in the ListProjects response. If the required edition is not activated, this operation returns 403 Forbidden.Access.
  *
  * @param request ListDIJobsRequest
  * @return ListDIJobsResponse
@@ -11161,18 +11195,18 @@ ListDIProjectConfigResponse Client::listDIProjectConfig(const ListDIProjectConfi
 }
 
 /**
- * @summary Retrieves a list of directed acyclic graphs (DAGs) for a data backfill instance by operation sequence number (OpSeq).
+ * @summary Calls the ListDags operation to retrieve the details of all DAGs for a single data backfill instance based on the OpSeq (unique identifier of the data backfill instance).
  *
- * @description Supported DAG types:
- * - MANUAL: DAG for a manually triggered workflow
- * - SMOKE_TEST: DAG for a smoke testing workflow
- * - SUPPLY_DATA: DAG for a data backfill instance
- * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
- * Supported DAG states:
- * - CREATED: The DAG is created.
- * - RUNNING: The DAG is running.
- * - FAILURE: The DAG fails to run.
- * - SUCCESS: The DAG is successfully run.
+ * @description Dag Type values:
+ * - MANUAL: manual task workflow
+ * - SMOKE_TEST: smoke test workflow
+ * - SUPPLY_DATA: data backfill
+ * - BUSINESS_PROCESS_DAG: one-time business process workflow
+ * Dag Status values:
+ * - CREATED: created
+ * - RUNNING: running
+ * - FAILURE: failed
+ * - SUCCESS: succeeded
  *
  * @param request ListDagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11207,18 +11241,18 @@ ListDagsResponse Client::listDagsWithOptions(const ListDagsRequest &request, con
 }
 
 /**
- * @summary Retrieves a list of directed acyclic graphs (DAGs) for a data backfill instance by operation sequence number (OpSeq).
+ * @summary Calls the ListDags operation to retrieve the details of all DAGs for a single data backfill instance based on the OpSeq (unique identifier of the data backfill instance).
  *
- * @description Supported DAG types:
- * - MANUAL: DAG for a manually triggered workflow
- * - SMOKE_TEST: DAG for a smoke testing workflow
- * - SUPPLY_DATA: DAG for a data backfill instance
- * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
- * Supported DAG states:
- * - CREATED: The DAG is created.
- * - RUNNING: The DAG is running.
- * - FAILURE: The DAG fails to run.
- * - SUCCESS: The DAG is successfully run.
+ * @description Dag Type values:
+ * - MANUAL: manual task workflow
+ * - SMOKE_TEST: smoke test workflow
+ * - SUPPLY_DATA: data backfill
+ * - BUSINESS_PROCESS_DAG: one-time business process workflow
+ * Dag Status values:
+ * - CREATED: created
+ * - RUNNING: running
+ * - FAILURE: failed
+ * - SUCCESS: succeeded
  *
  * @param request ListDagsRequest
  * @return ListDagsResponse
@@ -11229,7 +11263,7 @@ ListDagsResponse Client::listDags(const ListDagsRequest &request) {
 }
 
 /**
- * @summary Retrieves a list of APIs on which other users are granted access permissions.
+ * @summary Retrieves the list of APIs that have been authorized to other users.
  *
  * @param request ListDataServiceApiAuthoritiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11278,7 +11312,7 @@ ListDataServiceApiAuthoritiesResponse Client::listDataServiceApiAuthoritiesWithO
 }
 
 /**
- * @summary Retrieves a list of APIs on which other users are granted access permissions.
+ * @summary Retrieves the list of APIs that have been authorized to other users.
  *
  * @param request ListDataServiceApiAuthoritiesRequest
  * @return ListDataServiceApiAuthoritiesResponse
@@ -11289,7 +11323,7 @@ ListDataServiceApiAuthoritiesResponse Client::listDataServiceApiAuthorities(cons
 }
 
 /**
- * @summary Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the previous month.
+ * @summary Lists the test records of a DataService API. Only data from the last month can be queried.
  *
  * @param request ListDataServiceApiTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11316,7 +11350,7 @@ ListDataServiceApiTestResponse Client::listDataServiceApiTestWithOptions(const L
 }
 
 /**
- * @summary Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the previous month.
+ * @summary Lists the test records of a DataService API. Only data from the last month can be queried.
  *
  * @param request ListDataServiceApiTestRequest
  * @return ListDataServiceApiTestResponse
@@ -11447,7 +11481,7 @@ ListDataServiceApplicationsResponse Client::listDataServiceApplications(const Li
 }
 
 /**
- * @summary Retrieves a list of APIs that you are authorized to access.
+ * @summary Retrieves a list of authorized APIs in DataService.
  *
  * @param request ListDataServiceAuthorizedApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11496,7 +11530,7 @@ ListDataServiceAuthorizedApisResponse Client::listDataServiceAuthorizedApisWithO
 }
 
 /**
- * @summary Retrieves a list of APIs that you are authorized to access.
+ * @summary Retrieves a list of authorized APIs in DataService.
  *
  * @param request ListDataServiceAuthorizedApisRequest
  * @return ListDataServiceAuthorizedApisResponse
@@ -11507,7 +11541,7 @@ ListDataServiceAuthorizedApisResponse Client::listDataServiceAuthorizedApis(cons
 }
 
 /**
- * @summary Retrieves a list of folders.
+ * @summary Queries the list of Data Service folders.
  *
  * @param request ListDataServiceFoldersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11558,7 +11592,7 @@ ListDataServiceFoldersResponse Client::listDataServiceFoldersWithOptions(const L
 }
 
 /**
- * @summary Retrieves a list of folders.
+ * @summary Queries the list of Data Service folders.
  *
  * @param request ListDataServiceFoldersRequest
  * @return ListDataServiceFoldersResponse
@@ -11569,7 +11603,7 @@ ListDataServiceFoldersResponse Client::listDataServiceFolders(const ListDataServ
 }
 
 /**
- * @summary Retrieves a list of business processes.
+ * @summary Queries the list of Data Service business processes.
  *
  * @param request ListDataServiceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11616,7 +11650,7 @@ ListDataServiceGroupsResponse Client::listDataServiceGroupsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves a list of business processes.
+ * @summary Queries the list of Data Service business processes.
  *
  * @param request ListDataServiceGroupsRequest
  * @return ListDataServiceGroupsResponse
@@ -11627,7 +11661,7 @@ ListDataServiceGroupsResponse Client::listDataServiceGroups(const ListDataServic
 }
 
 /**
- * @summary Retrieves a list of published APIs.
+ * @summary Queries the list of published Data Service APIs.
  *
  * @param request ListDataServicePublishedApisRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11682,7 +11716,7 @@ ListDataServicePublishedApisResponse Client::listDataServicePublishedApisWithOpt
 }
 
 /**
- * @summary Retrieves a list of published APIs.
+ * @summary Queries the list of published Data Service APIs.
  *
  * @param request ListDataServicePublishedApisRequest
  * @return ListDataServicePublishedApisResponse
@@ -11863,7 +11897,7 @@ ListEnabledExtensionsForProjectResponse Client::listEnabledExtensionsForProject(
 }
 
 /**
- * @summary Queries a list of entities by tag. Only entities of the maxcompute-table type are supported.
+ * @summary Lists entities by tag. Currently, only entities of the maxcompute-table type are supported.
  *
  * @param tmpReq ListEntitiesByTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11896,7 +11930,7 @@ ListEntitiesByTagsResponse Client::listEntitiesByTagsWithOptions(const ListEntit
 }
 
 /**
- * @summary Queries a list of entities by tag. Only entities of the maxcompute-table type are supported.
+ * @summary Lists entities by tag. Currently, only entities of the maxcompute-table type are supported.
  *
  * @param request ListEntitiesByTagsRequest
  * @return ListEntitiesByTagsResponse
@@ -11907,7 +11941,7 @@ ListEntitiesByTagsResponse Client::listEntitiesByTags(const ListEntitiesByTagsRe
 }
 
 /**
- * @summary Queries a list of tags of an entity. Only entities of the maxcompute-table type are supported.
+ * @summary Lists the tags of an entity. Currently, only entities of the maxcompute-table type are supported.
  *
  * @param request ListEntityTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11934,7 +11968,7 @@ ListEntityTagsResponse Client::listEntityTagsWithOptions(const ListEntityTagsReq
 }
 
 /**
- * @summary Queries a list of tags of an entity. Only entities of the maxcompute-table type are supported.
+ * @summary Lists the tags of an entity. Currently, only entities of the maxcompute-table type are supported.
  *
  * @param request ListEntityTagsRequest
  * @return ListEntityTagsResponse
@@ -11945,7 +11979,7 @@ ListEntityTagsResponse Client::listEntityTags(const ListEntityTagsRequest &reque
 }
 
 /**
- * @summary Queries a list of extensions.
+ * @summary Retrieves the list of extensions from the open platform.
  *
  * @param request ListExtensionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11980,7 +12014,7 @@ ListExtensionsResponse Client::listExtensionsWithOptions(const ListExtensionsReq
 }
 
 /**
- * @summary Queries a list of extensions.
+ * @summary Retrieves the list of extensions from the open platform.
  *
  * @param request ListExtensionsRequest
  * @return ListExtensionsResponse
@@ -12383,7 +12417,7 @@ ListInstanceAmountResponse Client::listInstanceAmount(const ListInstanceAmountRe
 }
 
 /**
- * @summary Retrieves the run history of an instance. Each rerun generates a new historical record.
+ * @summary Retrieves all history records of an instance. A history record is generated each time a node is rerun.
  *
  * @param request ListInstanceHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12418,7 +12452,7 @@ ListInstanceHistoryResponse Client::listInstanceHistoryWithOptions(const ListIns
 }
 
 /**
- * @summary Retrieves the run history of an instance. Each rerun generates a new historical record.
+ * @summary Retrieves all history records of an instance. A history record is generated each time a node is rerun.
  *
  * @param request ListInstanceHistoryRequest
  * @return ListInstanceHistoryResponse
@@ -12429,7 +12463,7 @@ ListInstanceHistoryResponse Client::listInstanceHistory(const ListInstanceHistor
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Retrieves a list of instances.
  *
  * @param request ListInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12516,7 +12550,7 @@ ListInstancesResponse Client::listInstancesWithOptions(const ListInstancesReques
 }
 
 /**
- * @summary Queries a list of instances.
+ * @summary Retrieves a list of instances.
  *
  * @param request ListInstancesRequest
  * @return ListInstancesResponse
@@ -12527,7 +12561,7 @@ ListInstancesResponse Client::listInstances(const ListInstancesRequest &request)
 }
 
 /**
- * @summary Queries the ancestor or descendant lineage of an entity.
+ * @summary Queries the upstream and downstream lineage relationships of an entity.
  *
  * @param request ListLineageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12574,7 +12608,7 @@ ListLineageResponse Client::listLineageWithOptions(const ListLineageRequest &req
 }
 
 /**
- * @summary Queries the ancestor or descendant lineage of an entity.
+ * @summary Queries the upstream and downstream lineage relationships of an entity.
  *
  * @param request ListLineageRequest
  * @return ListLineageResponse
@@ -12689,7 +12723,7 @@ ListMeasureDataResponse Client::listMeasureData(const ListMeasureDataRequest &re
 }
 
 /**
- * @summary Queries the entities in a collection.
+ * @summary Queries entities in a collection.
  *
  * @param request ListMetaCollectionEntitiesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12736,7 +12770,7 @@ ListMetaCollectionEntitiesResponse Client::listMetaCollectionEntitiesWithOptions
 }
 
 /**
- * @summary Queries the entities in a collection.
+ * @summary Queries entities in a collection.
  *
  * @param request ListMetaCollectionEntitiesRequest
  * @return ListMetaCollectionEntitiesResponse
@@ -12747,9 +12781,9 @@ ListMetaCollectionEntitiesResponse Client::listMetaCollectionEntities(const List
 }
 
 /**
- * @summary Retrieves a list of collections. Collections include data albums displayed on the Data Map page and categories created in data albums. You can filter collections by type.
+ * @summary Queries collection information. Collections include albums and subcategories within albums on the Data Map page. You can call this operation to query collection information by specifying a collection type.
  *
- * @description Collections include ALBUM (data album) and ALBUM_CATEGORY (category within a data album).
+ * @description Collections include: ALBUM (album collection) and ALBUM_CATEGORY (subcategory within an album).
  *
  * @param request ListMetaCollectionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12812,9 +12846,9 @@ ListMetaCollectionsResponse Client::listMetaCollectionsWithOptions(const ListMet
 }
 
 /**
- * @summary Retrieves a list of collections. Collections include data albums displayed on the Data Map page and categories created in data albums. You can filter collections by type.
+ * @summary Queries collection information. Collections include albums and subcategories within albums on the Data Map page. You can call this operation to query collection information by specifying a collection type.
  *
- * @description Collections include ALBUM (data album) and ALBUM_CATEGORY (category within a data album).
+ * @description Collections include: ALBUM (album collection) and ALBUM_CATEGORY (subcategory within an album).
  *
  * @param request ListMetaCollectionsRequest
  * @return ListMetaCollectionsResponse
@@ -12825,7 +12859,7 @@ ListMetaCollectionsResponse Client::listMetaCollections(const ListMetaCollection
 }
 
 /**
- * @summary Queries a list of metadatabases.
+ * @summary Queries a list of databases.
  *
  * @param request ListMetaDBRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12852,7 +12886,7 @@ ListMetaDBResponse Client::listMetaDBWithOptions(const ListMetaDBRequest &reques
 }
 
 /**
- * @summary Queries a list of metadatabases.
+ * @summary Queries a list of databases.
  *
  * @param request ListMetaDBRequest
  * @return ListMetaDBResponse
@@ -12923,7 +12957,7 @@ ListMigrationsResponse Client::listMigrations(const ListMigrationsRequest &reque
 /**
  * @deprecated OpenAPI ListNodeIO is deprecated
  *
- * @summary Queries the information about one level of ancestor or descendant nodes of a node.
+ * @summary Queries the information of upstream and downstream nodes. Only one level can be queried.
  *
  * @param request ListNodeIORequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12964,7 +12998,7 @@ ListNodeIOResponse Client::listNodeIOWithOptions(const ListNodeIORequest &reques
 /**
  * @deprecated OpenAPI ListNodeIO is deprecated
  *
- * @summary Queries the information about one level of ancestor or descendant nodes of a node.
+ * @summary Queries the information of upstream and downstream nodes. Only one level can be queried.
  *
  * @param request ListNodeIORequest
  * @return ListNodeIOResponse
@@ -12975,7 +13009,7 @@ ListNodeIOResponse Client::listNodeIO(const ListNodeIORequest &request) {
 }
 
 /**
- * @summary Queries the input and output information about a node. Only the ancestor or descendant nodes at the nearest level can be queried each time.
+ * @summary Queries the input and output information of the current node.
  *
  * @param request ListNodeInputOrOutputRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13014,7 +13048,7 @@ ListNodeInputOrOutputResponse Client::listNodeInputOrOutputWithOptions(const Lis
 }
 
 /**
- * @summary Queries the input and output information about a node. Only the ancestor or descendant nodes at the nearest level can be queried each time.
+ * @summary Queries the input and output information of the current node.
  *
  * @param request ListNodeInputOrOutputRequest
  * @return ListNodeInputOrOutputResponse
@@ -13099,7 +13133,7 @@ ListNodesResponse Client::listNodes(const ListNodesRequest &request) {
 }
 
 /**
- * @summary Queries nodes in a baseline.
+ * @summary Retrieves the nodes in a baseline (excluding the upstream nodes of these nodes).
  *
  * @param request ListNodesByBaselineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13130,7 +13164,7 @@ ListNodesByBaselineResponse Client::listNodesByBaselineWithOptions(const ListNod
 }
 
 /**
- * @summary Queries nodes in a baseline.
+ * @summary Retrieves the nodes in a baseline (excluding the upstream nodes of these nodes).
  *
  * @param request ListNodesByBaselineRequest
  * @return ListNodesByBaselineResponse
@@ -13379,7 +13413,7 @@ ListProjectIdsResponse Client::listProjectIds(const ListProjectIdsRequest &reque
 }
 
 /**
- * @summary Queries a list of existing members in a DataWorks workspace.
+ * @summary Queries the list of existing members in a DataWorks workspace.
  *
  * @param request ListProjectMembersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13418,7 +13452,7 @@ ListProjectMembersResponse Client::listProjectMembersWithOptions(const ListProje
 }
 
 /**
- * @summary Queries a list of existing members in a DataWorks workspace.
+ * @summary Queries the list of existing members in a DataWorks workspace.
  *
  * @param request ListProjectMembersRequest
  * @return ListProjectMembersResponse
@@ -13429,7 +13463,7 @@ ListProjectMembersResponse Client::listProjectMembers(const ListProjectMembersRe
 }
 
 /**
- * @summary Queries a list of roles in a DataWorks workspace.
+ * @summary Retrieves a list of all roles in a workspace.
  *
  * @param request ListProjectRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13460,7 +13494,7 @@ ListProjectRolesResponse Client::listProjectRolesWithOptions(const ListProjectRo
 }
 
 /**
- * @summary Queries a list of roles in a DataWorks workspace.
+ * @summary Retrieves a list of all roles in a workspace.
  *
  * @param request ListProjectRolesRequest
  * @return ListProjectRolesResponse
@@ -13471,7 +13505,7 @@ ListProjectRolesResponse Client::listProjectRoles(const ListProjectRolesRequest 
 }
 
 /**
- * @summary Queries a list of DataWorks workspaces of the tenant to which a user belongs.
+ * @summary Queries the list of DataWorks workspaces under the tenant to which the current user belongs.
  *
  * @param tmpReq ListProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13520,7 +13554,7 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
 }
 
 /**
- * @summary Queries a list of DataWorks workspaces of the tenant to which a user belongs.
+ * @summary Queries the list of DataWorks workspaces under the tenant to which the current user belongs.
  *
  * @param request ListProjectsRequest
  * @return ListProjectsResponse
@@ -13865,7 +13899,7 @@ ListRemindsResponse Client::listReminds(const ListRemindsRequest &request) {
 }
 
 /**
- * @summary Queries a list of resource groups of a specific type.
+ * @summary Queries the list of resource groups of a specified type.
  *
  * @param tmpReq ListResourceGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13918,7 +13952,7 @@ ListResourceGroupsResponse Client::listResourceGroupsWithOptions(const ListResou
 }
 
 /**
- * @summary Queries a list of resource groups of a specific type.
+ * @summary Queries the list of resource groups of a specified type.
  *
  * @param request ListResourceGroupsRequest
  * @return ListResourceGroupsResponse
@@ -13929,7 +13963,7 @@ ListResourceGroupsResponse Client::listResourceGroups(const ListResourceGroupsRe
 }
 
 /**
- * @summary Queries a list of on-duty engineers in a shift schedule.
+ * @summary Retrieves the list of on-duty personnel for a shift schedule.
  *
  * @param request ListShiftPersonnelsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13976,7 +14010,7 @@ ListShiftPersonnelsResponse Client::listShiftPersonnelsWithOptions(const ListShi
 }
 
 /**
- * @summary Queries a list of on-duty engineers in a shift schedule.
+ * @summary Retrieves the list of on-duty personnel for a shift schedule.
  *
  * @param request ListShiftPersonnelsRequest
  * @return ListShiftPersonnelsResponse
@@ -14041,7 +14075,7 @@ ListShiftSchedulesResponse Client::listShiftSchedules(const ListShiftSchedulesRe
 }
 
 /**
- * @summary Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+ * @summary Retrieves the trend of successfully completed instance counts at different hours on the business date for periodic instances generated on that date.
  *
  * @param request ListSuccessInstanceAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14072,7 +14106,7 @@ ListSuccessInstanceAmountResponse Client::listSuccessInstanceAmountWithOptions(c
 }
 
 /**
- * @summary Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+ * @summary Retrieves the trend of successfully completed instance counts at different hours on the business date for periodic instances generated on that date.
  *
  * @param request ListSuccessInstanceAmountRequest
  * @return ListSuccessInstanceAmountResponse
@@ -14209,7 +14243,9 @@ ListTablesResponse Client::listTables(const ListTablesRequest &request) {
 }
 
 /**
- * @summary Queries events.
+ * @summary Queries or searches for a list of events.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
  *
  * @param request ListTopicsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14272,7 +14308,9 @@ ListTopicsResponse Client::listTopicsWithOptions(const ListTopicsRequest &reques
 }
 
 /**
- * @summary Queries events.
+ * @summary Queries or searches for a list of events.
+ *
+ * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
  *
  * @param request ListTopicsRequest
  * @return ListTopicsResponse
@@ -14435,7 +14473,7 @@ QueryDISyncTaskConfigProcessResultResponse Client::queryDISyncTaskConfigProcessR
 }
 
 /**
- * @summary Queries the default data category and data sensitivity level template defined by Data Security Guard.
+ * @summary Queries the default data classification template defined by Data Security Guard.
  *
  * @param request QueryDefaultTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14466,7 +14504,7 @@ QueryDefaultTemplateResponse Client::queryDefaultTemplateWithOptions(const Query
 }
 
 /**
- * @summary Queries the default data category and data sensitivity level template defined by Data Security Guard.
+ * @summary Queries the default data classification template defined by Data Security Guard.
  *
  * @param request QueryDefaultTemplateRequest
  * @return QueryDefaultTemplateResponse
@@ -14531,7 +14569,7 @@ QueryPublicModelEngineResponse Client::queryPublicModelEngine(const QueryPublicM
 }
 
 /**
- * @summary Queries the type of a sensitive data identification rule.
+ * @summary Queries the list of sensitive field recognition methods in Data Protection Umbrella by calling the QueryRecognizeDataByRuleType operation.
  *
  * @param request QueryRecognizeDataByRuleTypeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14566,7 +14604,7 @@ QueryRecognizeDataByRuleTypeResponse Client::queryRecognizeDataByRuleTypeWithOpt
 }
 
 /**
- * @summary Queries the type of a sensitive data identification rule.
+ * @summary Queries the list of sensitive field recognition methods in Data Protection Umbrella by calling the QueryRecognizeDataByRuleType operation.
  *
  * @param request QueryRecognizeDataByRuleTypeRequest
  * @return QueryRecognizeDataByRuleTypeResponse
@@ -14813,9 +14851,9 @@ QuerySensNodeInfoResponse Client::querySensNodeInfo(const QuerySensNodeInfoReque
 }
 
 /**
- * @summary Registers the lineage between self-managed entities to DataWorks.
+ * @summary Registers entity relationships. You can register custom entity relationships.
  *
- * @description This API operation is currently in trial. Users who want to try it out can submit an application. After the administrator adds the user to the trial list, the user can call this operation.
+ * @description This operation is currently in trial. To use this operation, submit a request. After an administrator adds you to the trial list, you can call this operation.
  *
  * @param tmpReq RegisterLineageRelationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14852,9 +14890,9 @@ RegisterLineageRelationResponse Client::registerLineageRelationWithOptions(const
 }
 
 /**
- * @summary Registers the lineage between self-managed entities to DataWorks.
+ * @summary Registers entity relationships. You can register custom entity relationships.
  *
- * @description This API operation is currently in trial. Users who want to try it out can submit an application. After the administrator adds the user to the trial list, the user can call this operation.
+ * @description This operation is currently in trial. To use this operation, submit a request. After an administrator adds you to the trial list, you can call this operation.
  *
  * @param request RegisterLineageRelationRequest
  * @return RegisterLineageRelationResponse
@@ -14865,7 +14903,7 @@ RegisterLineageRelationResponse Client::registerLineageRelation(const RegisterLi
 }
 
 /**
- * @summary Removes tags from an entity. Only entities of the maxcompute-table type are supported.
+ * @summary Removes tags from an entity. Currently, only entities of the maxcompute-table type are supported.
  *
  * @param tmpReq RemoveEntityTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14908,7 +14946,7 @@ RemoveEntityTagsResponse Client::removeEntityTagsWithOptions(const RemoveEntityT
 }
 
 /**
- * @summary Removes tags from an entity. Only entities of the maxcompute-table type are supported.
+ * @summary Removes tags from an entity. Currently, only entities of the maxcompute-table type are supported.
  *
  * @param request RemoveEntityTagsRequest
  * @return RemoveEntityTagsResponse
@@ -14919,7 +14957,7 @@ RemoveEntityTagsResponse Client::removeEntityTags(const RemoveEntityTagsRequest 
 }
 
 /**
- * @summary Removes a role from a user in a DataWorks workspace.
+ * @summary Removes a user from a DataWorks role in a DataWorks workspace.
  *
  * @param request RemoveProjectMemberFromRoleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14958,7 +14996,7 @@ RemoveProjectMemberFromRoleResponse Client::removeProjectMemberFromRoleWithOptio
 }
 
 /**
- * @summary Removes a role from a user in a DataWorks workspace.
+ * @summary Removes a user from a DataWorks role in a DataWorks workspace.
  *
  * @param request RemoveProjectMemberFromRoleRequest
  * @return RemoveProjectMemberFromRoleResponse
@@ -15015,7 +15053,7 @@ RestartInstanceResponse Client::restartInstance(const RestartInstanceRequest &re
 }
 
 /**
- * @summary Resumes a suspended instance.
+ * @summary Resumes a paused instance.
  *
  * @param request ResumeInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15050,7 +15088,7 @@ ResumeInstanceResponse Client::resumeInstanceWithOptions(const ResumeInstanceReq
 }
 
 /**
- * @summary Resumes a suspended instance.
+ * @summary Resumes a paused instance.
  *
  * @param request ResumeInstanceRequest
  * @return ResumeInstanceResponse
@@ -15061,7 +15099,7 @@ ResumeInstanceResponse Client::resumeInstance(const ResumeInstanceRequest &reque
 }
 
 /**
- * @summary Revokes permissions on a table from a user.
+ * @summary Revokes table permissions from a user.
  *
  * @param request RevokeTablePermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15112,7 +15150,7 @@ RevokeTablePermissionResponse Client::revokeTablePermissionWithOptions(const Rev
 }
 
 /**
- * @summary Revokes permissions on a table from a user.
+ * @summary Revokes table permissions from a user.
  *
  * @param request RevokeTablePermissionRequest
  * @return RevokeTablePermissionResponse
@@ -15123,9 +15161,9 @@ RevokeTablePermissionResponse Client::revokeTablePermission(const RevokeTablePer
 }
 
 /**
- * @summary Creates a workflow to backfill data.
+ * @summary Creates a data backfill workflow by calling RunCycleDagNodes.
  *
- * @description For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+ * @description For more information about data backfill, see [Data backfill](https://help.aliyun.com/document_detail/137937.html).
  *
  * @param request RunCycleDagNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15212,9 +15250,9 @@ RunCycleDagNodesResponse Client::runCycleDagNodesWithOptions(const RunCycleDagNo
 }
 
 /**
- * @summary Creates a workflow to backfill data.
+ * @summary Creates a data backfill workflow by calling RunCycleDagNodes.
  *
- * @description For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+ * @description For more information about data backfill, see [Data backfill](https://help.aliyun.com/document_detail/137937.html).
  *
  * @param request RunCycleDagNodesRequest
  * @return RunCycleDagNodesResponse
@@ -15225,7 +15263,7 @@ RunCycleDagNodesResponse Client::runCycleDagNodes(const RunCycleDagNodesRequest 
 }
 
 /**
- * @summary Runs nodes in a manually triggered workflow. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find a manually triggered workflow in Operation Center only after the manually triggered workflow is committed and deployed.
+ * @summary Triggers a manual workflow to run. The manual workflow must have been submitted and published in the environment page before it appears in the Operation Center and can be triggered by this operation.
  *
  * @param request RunManualDagNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15296,7 +15334,7 @@ RunManualDagNodesResponse Client::runManualDagNodesWithOptions(const RunManualDa
 }
 
 /**
- * @summary Runs nodes in a manually triggered workflow. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find a manually triggered workflow in Operation Center only after the manually triggered workflow is committed and deployed.
+ * @summary Triggers a manual workflow to run. The manual workflow must have been submitted and published in the environment page before it appears in the Operation Center and can be triggered by this operation.
  *
  * @param request RunManualDagNodesRequest
  * @return RunManualDagNodesResponse
@@ -15307,7 +15345,7 @@ RunManualDagNodesResponse Client::runManualDagNodes(const RunManualDagNodesReque
 }
 
 /**
- * @summary Creates a workflow to perform smoke testing.
+ * @summary Creates a smoke test workflow by calling the RunSmokeTest operation.
  *
  * @param request RunSmokeTestRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15354,7 +15392,7 @@ RunSmokeTestResponse Client::runSmokeTestWithOptions(const RunSmokeTestRequest &
 }
 
 /**
- * @summary Creates a workflow to perform smoke testing.
+ * @summary Creates a smoke test workflow by calling the RunSmokeTest operation.
  *
  * @param request RunSmokeTestRequest
  * @return RunSmokeTestResponse
@@ -15365,7 +15403,7 @@ RunSmokeTestResponse Client::runSmokeTest(const RunSmokeTestRequest &request) {
 }
 
 /**
- * @summary Runs a manually triggered node.
+ * @summary Runs a trigger node.
  *
  * @param request RunTriggerNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15408,7 +15446,7 @@ RunTriggerNodeResponse Client::runTriggerNodeWithOptions(const RunTriggerNodeReq
 }
 
 /**
- * @summary Runs a manually triggered node.
+ * @summary Runs a trigger node.
  *
  * @param request RunTriggerNodeRequest
  * @return RunTriggerNodeResponse
@@ -15591,7 +15629,7 @@ SearchMetaTablesResponse Client::searchMetaTables(const SearchMetaTablesRequest 
 /**
  * @deprecated OpenAPI SearchNodesByOutput is deprecated
  *
- * @summary Queries a node based on the output.
+ * @summary Queries nodes by exact match based on output.
  *
  * @param request SearchNodesByOutputRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15628,7 +15666,7 @@ SearchNodesByOutputResponse Client::searchNodesByOutputWithOptions(const SearchN
 /**
  * @deprecated OpenAPI SearchNodesByOutput is deprecated
  *
- * @summary Queries a node based on the output.
+ * @summary Queries nodes by exact match based on output.
  *
  * @param request SearchNodesByOutputRequest
  * @return SearchNodesByOutputResponse
@@ -15701,7 +15739,7 @@ SetDataSourceShareResponse Client::setDataSourceShare(const SetDataSourceShareRe
 }
 
 /**
- * @summary Configures tags for an entity. Only entities of the maxcompute-table type are supported.
+ * @summary Sets labels for an entity. Currently, only entities of the maxcompute-table type are supported.
  *
  * @param tmpReq SetEntityTagsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15744,7 +15782,7 @@ SetEntityTagsResponse Client::setEntityTagsWithOptions(const SetEntityTagsReques
 }
 
 /**
- * @summary Configures tags for an entity. Only entities of the maxcompute-table type are supported.
+ * @summary Sets labels for an entity. Currently, only entities of the maxcompute-table type are supported.
  *
  * @param request SetEntityTagsRequest
  * @return SetEntityTagsResponse
@@ -16049,7 +16087,7 @@ StopDISyncInstanceResponse Client::stopDISyncInstance(const StopDISyncInstanceRe
 }
 
 /**
- * @summary Terminates an instance.
+ * @summary Stops an instance.
  *
  * @param request StopInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16084,7 +16122,7 @@ StopInstanceResponse Client::stopInstanceWithOptions(const StopInstanceRequest &
 }
 
 /**
- * @summary Terminates an instance.
+ * @summary Stops an instance.
  *
  * @param request StopInstanceRequest
  * @return StopInstanceResponse
@@ -16207,7 +16245,7 @@ SubmitFileResponse Client::submitFile(const SubmitFileRequest &request) {
 }
 
 /**
- * @summary Suspends an instance.
+ * @summary Pauses an instance.
  *
  * @param request SuspendInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16242,7 +16280,7 @@ SuspendInstanceResponse Client::suspendInstanceWithOptions(const SuspendInstance
 }
 
 /**
- * @summary Suspends an instance.
+ * @summary Pauses an instance.
  *
  * @param request SuspendInstanceRequest
  * @return SuspendInstanceResponse
@@ -17217,9 +17255,9 @@ UpdateDataSourceResponse Client::updateDataSource(const UpdateDataSourceRequest 
 }
 
 /**
- * @summary Updates a file.
+ * @summary Updates a created file.
  *
- * @description When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+ * @description When you debug or call this operation, the parameter values that you specify must be different from the existing file configurations of the node. For example, if a parameter of the source node is set to A, you must change the value to B before you submit the request. If you still specify A, an invalid exception is returned.
  *
  * @param request UpdateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17378,9 +17416,9 @@ UpdateFileResponse Client::updateFileWithOptions(const UpdateFileRequest &reques
 }
 
 /**
- * @summary Updates a file.
+ * @summary Updates a created file.
  *
- * @description When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+ * @description When you debug or call this operation, the parameter values that you specify must be different from the existing file configurations of the node. For example, if a parameter of the source node is set to A, you must change the value to B before you submit the request. If you still specify A, an invalid exception is returned.
  *
  * @param request UpdateFileRequest
  * @return UpdateFileResponse
@@ -17549,9 +17587,9 @@ UpdateMetaCategoryResponse Client::updateMetaCategory(const UpdateMetaCategoryRe
 }
 
 /**
- * @summary Updates the name and comment of a collection.
+ * @summary Updates the name and comment of a collection object.
  *
- * @description Only the Name and Comment fields can be updated.
+ * @description Currently, only the name (Name) and comment (Comment) can be updated.
  *
  * @param request UpdateMetaCollectionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17590,9 +17628,9 @@ UpdateMetaCollectionResponse Client::updateMetaCollectionWithOptions(const Updat
 }
 
 /**
- * @summary Updates the name and comment of a collection.
+ * @summary Updates the name and comment of a collection object.
  *
- * @description Only the Name and Comment fields can be updated.
+ * @description Currently, only the name (Name) and comment (Comment) can be updated.
  *
  * @param request UpdateMetaCollectionRequest
  * @return UpdateMetaCollectionResponse
@@ -17691,7 +17729,7 @@ UpdateMetaTableResponse Client::updateMetaTable(const UpdateMetaTableRequest &re
 }
 
 /**
- * @summary Updates the instructions on how to use a table. If no instruction on how to use the table is available, the instructions that are configured by calling this operation are added.
+ * @summary Updates the description of a table. If the data does not exist, the description is added.
  *
  * @param request UpdateMetaTableIntroWikiRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17728,7 +17766,7 @@ UpdateMetaTableIntroWikiResponse Client::updateMetaTableIntroWikiWithOptions(con
 }
 
 /**
- * @summary Updates the instructions on how to use a table. If no instruction on how to use the table is available, the instructions that are configured by calling this operation are added.
+ * @summary Updates the description of a table. If the data does not exist, the description is added.
  *
  * @param request UpdateMetaTableIntroWikiRequest
  * @return UpdateMetaTableIntroWikiResponse
@@ -17789,7 +17827,7 @@ UpdateNodeOwnerResponse Client::updateNodeOwner(const UpdateNodeOwnerRequest &re
 }
 
 /**
- * @summary Freezes or unfreezes a node.
+ * @summary Freezes or unfreezes a specified node.
  *
  * @param request UpdateNodeRunModeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17828,7 +17866,7 @@ UpdateNodeRunModeResponse Client::updateNodeRunModeWithOptions(const UpdateNodeR
 }
 
 /**
- * @summary Freezes or unfreezes a node.
+ * @summary Freezes or unfreezes a specified node.
  *
  * @param request UpdateNodeRunModeRequest
  * @return UpdateNodeRunModeResponse
@@ -17841,7 +17879,7 @@ UpdateNodeRunModeResponse Client::updateNodeRunMode(const UpdateNodeRunModeReque
 /**
  * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
  *
- * @summary Updates a subscription.
+ * @summary Updates a subscription relationship.
  *
  * @param request UpdateQualityFollowerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17890,7 +17928,7 @@ UpdateQualityFollowerResponse Client::updateQualityFollowerWithOptions(const Upd
 /**
  * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
  *
- * @summary Updates a subscription.
+ * @summary Updates a subscription relationship.
  *
  * @param request UpdateQualityFollowerRequest
  * @return UpdateQualityFollowerResponse
@@ -17903,7 +17941,7 @@ UpdateQualityFollowerResponse Client::updateQualityFollower(const UpdateQualityF
 /**
  * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Updates a specified quality rule.
+ * @summary Calls UpdateQualityRule to update the information of a quality check rule.
  *
  * @param request UpdateQualityRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18020,7 +18058,7 @@ UpdateQualityRuleResponse Client::updateQualityRuleWithOptions(const UpdateQuali
 /**
  * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
  *
- * @summary Updates a specified quality rule.
+ * @summary Calls UpdateQualityRule to update the information of a quality check rule.
  *
  * @param request UpdateQualityRuleRequest
  * @return UpdateQualityRuleResponse
@@ -18031,7 +18069,7 @@ UpdateQualityRuleResponse Client::updateQualityRule(const UpdateQualityRuleReque
 }
 
 /**
- * @summary Modifies a custom alert rule.
+ * @summary Updates a custom monitoring rule.
  *
  * @param request UpdateRemindRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18130,7 +18168,7 @@ UpdateRemindResponse Client::updateRemindWithOptions(const UpdateRemindRequest &
 }
 
 /**
- * @summary Modifies a custom alert rule.
+ * @summary Updates a custom monitoring rule.
  *
  * @param request UpdateRemindRequest
  * @return UpdateRemindResponse
@@ -18267,7 +18305,7 @@ UpdateTableResponse Client::updateTable(const UpdateTableRequest &request) {
 /**
  * @deprecated OpenAPI UpdateTableAddColumn is deprecated
  *
- * @summary Updates the fields in a MaxCompute table.
+ * @summary Updates the column information of a MaxCompute table.
  *
  * @param request UpdateTableAddColumnRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18306,7 +18344,7 @@ UpdateTableAddColumnResponse Client::updateTableAddColumnWithOptions(const Updat
 /**
  * @deprecated OpenAPI UpdateTableAddColumn is deprecated
  *
- * @summary Updates the fields in a MaxCompute table.
+ * @summary Updates the column information of a MaxCompute table.
  *
  * @param request UpdateTableAddColumnRequest
  * @return UpdateTableAddColumnResponse
@@ -18375,7 +18413,7 @@ UpdateTableLevelResponse Client::updateTableLevel(const UpdateTableLevelRequest 
 }
 
 /**
- * @summary Modifies the information about a table, such as the table folder, level, and category.
+ * @summary Modifies the topic, level, and physical category information of a table.
  *
  * @param request UpdateTableModelInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18422,7 +18460,7 @@ UpdateTableModelInfoResponse Client::updateTableModelInfoWithOptions(const Updat
 }
 
 /**
- * @summary Modifies the information about a table, such as the table folder, level, and category.
+ * @summary Modifies the topic, level, and physical category information of a table.
  *
  * @param request UpdateTableModelInfoRequest
  * @return UpdateTableModelInfoResponse
@@ -18483,7 +18521,7 @@ UpdateTableThemeResponse Client::updateTableTheme(const UpdateTableThemeRequest 
 }
 
 /**
- * @summary Updates the file information about a function.
+ * @summary Updates the file information of a function.
  *
  * @param request UpdateUdfFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18558,7 +18596,7 @@ UpdateUdfFileResponse Client::updateUdfFileWithOptions(const UpdateUdfFileReques
 }
 
 /**
- * @summary Updates the file information about a function.
+ * @summary Updates the file information of a function.
  *
  * @param request UpdateUdfFileRequest
  * @return UpdateUdfFileResponse

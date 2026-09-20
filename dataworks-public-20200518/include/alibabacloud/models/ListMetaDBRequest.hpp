@@ -75,9 +75,9 @@ namespace Models
 
 
   protected:
-    // The ID of the E-MapReduce (EMR) cluster. You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to query the ID.
+    // The ID of the EMR cluster. You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The type of the data source. Set the value to emr.
+    // The data type. Currently, only emr is supported.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<int32_t> pageNum_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The DataWorks workspace ID. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
+    // The ID of the DataWorks workspace. You can call [ListProjects](https://help.aliyun.com/document_detail/178393.html) to obtain the workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

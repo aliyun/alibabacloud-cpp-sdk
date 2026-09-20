@@ -75,17 +75,17 @@ namespace Models
 
 
   protected:
-    // The keyword in API names. The keyword is used to search for the APIs whose names contain the keyword.
+    // The keyword of the API name. This parameter is used to filter APIs whose names contain the specified keyword.
     shared_ptr<string> apiNameKeyword_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 100.
+    // The number of entries per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The workspace ID.
+    // The workspace ID. You can obtain this value from the PageResult.ProjectList[].ProjectId field returned by the ListProjects operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The tenant ID. This parameter is deprecated.
+    // **[Deprecated]** The tenant ID.
     shared_ptr<int64_t> tenantId_ {};
   };
 

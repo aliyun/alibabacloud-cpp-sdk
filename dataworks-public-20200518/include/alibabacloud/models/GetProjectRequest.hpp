@@ -48,9 +48,10 @@ namespace Models
 
 
   protected:
-    // The ID of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the ID.
+    // The DataWorks workspace ID.
+    // You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to obtain the workspace ID.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to query the name.
+    // The name of the DataWorks workspace. You can call the [ListProjects](https://help.aliyun.com/document_detail/2780068.html) operation to obtain the workspace name.
     shared_ptr<string> projectIdentifier_ {};
   };
 

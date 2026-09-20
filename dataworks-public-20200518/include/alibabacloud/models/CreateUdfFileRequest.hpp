@@ -149,44 +149,43 @@ namespace Models
 
 
   protected:
-    // The name of the class in which the function is defined. This parameter corresponds to the Class Name parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+    // The name of the class in which the function is defined, which corresponds to the Class Name field in the Create Function form.
     // 
     // This parameter is required.
     shared_ptr<string> className_ {};
-    // The syntax used for calling the function. This parameter corresponds to the Expression Syntax parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+    // The command format for invoking the function, which corresponds to the Command Format field in the Create Function form.
     shared_ptr<string> cmdDescription_ {};
-    // Specifies whether to automatically create the directory that is specified by the FileFolderPath parameter if the directory does not exist. Valid values:
+    // Specifies whether to enable automatic creation of the directory specified by the FileFolderPath parameter if it does not exist. Valid values:
     // 
-    // *   true: The system automatically creates the directory if the directory does not exist.
-    // *   false: The system does not automatically create the directory if the directory does not exist. In this case, the call fails.
+    // - true: Automatically creates the directory if it does not exist.
+    // 
+    // - false: The invocation fails if the directory does not exist.
     shared_ptr<bool> createFolderIfNotExists_ {};
-    // The example for calling the function. This parameter corresponds to the Example parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
+    // The function invocation example, which corresponds to the Example field in the Create Function form.
     shared_ptr<string> example_ {};
-    // The path of the folder in which the file for the function is stored.
+    // The path of the folder where the function file is stored.
     shared_ptr<string> fileFolderPath_ {};
-    // The name of the file for the function.
+    // The name of the function.
     // 
     // This parameter is required.
     shared_ptr<string> fileName_ {};
-    // The type of the function. Valid values: MATH, AGGREGATE, STRING, DATE, ANALYTIC, and OTHER. This parameter corresponds to the Function Type parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
+    // The categorization of the function, which corresponds to the Function Type field in the Create Function form. Valid values: MATH (mathematical operation function), AGGREGATE (aggregate functions), STRING (character string processing function), DATE (date processing function), ANALYTIC (window function), and OTHER (other function).
     // 
     // This parameter is required.
     shared_ptr<string> functionType_ {};
-    // The description of the input parameters of the function. This parameter corresponds to the Parameter Description parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
+    // The description of the function input parameters, which corresponds to the Parameter Description field in the Create Function form.
     shared_ptr<string> parameterDescription_ {};
-    // The ID of the DataWorks workspace. You can click the Workspace Manage icon in the upper-right corner of the DataStudio page to go to the Workspace Management page and view the workspace ID.
+    // The ID of the DataWorks workspace. You can click the small wrench icon in the upper-right corner of the page to go to the storage management page and view the ID.
     shared_ptr<int64_t> projectId_ {};
-    // The unique identifier of the DataWorks workspace. You can click the identifier in the upper-left corner of the DataStudio page to switch to another workspace.
-    // 
-    // You must specify either this parameter or the projectId parameter to determine the DataWorks workspace to which the operation is called.
+    // The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the DataStudio page.
     shared_ptr<string> projectIdentifier_ {};
-    // The names of the resources that are referenced by the function. This parameter corresponds to the Resources parameter in the Register Function section of the configuration tab of the function in the DataWorks console. Multiple resource names are separated by commas (,).
+    // The resources referenced by the function, which corresponds to the Resources field in the Create Function form. Separate multiple resource names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> resources_ {};
-    // The description of the return value of the function. This parameter corresponds to the Return Value parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
+    // The description of the return value of the function, which corresponds to the Return Value field in the Create Function form.
     shared_ptr<string> returnValue_ {};
-    // The description of the function. This parameter corresponds to the Description parameter in the Register Function section of the configuration tab of the function on the DataStudio page.
+    // The description of the function purpose, which corresponds to the Description field in the Create Function form.
     shared_ptr<string> udfDescription_ {};
   };
 

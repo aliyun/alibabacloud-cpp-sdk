@@ -94,7 +94,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

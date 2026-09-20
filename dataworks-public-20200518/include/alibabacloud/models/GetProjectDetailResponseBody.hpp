@@ -324,62 +324,59 @@ namespace Models
 
 
     protected:
-      // The identifier of the shared resource group for Data Integration on which nodes are run.
+      // The identifier of the default data integration resource group for nodes.
       shared_ptr<string> defaultDiResourceGroupIdentifier_ {};
-      // The development type of the workspace. The value is fixed to 4.
+      // The project development type. The value is 4.
       shared_ptr<int32_t> developmentType_ {};
-      // Indicates whether the Develop role is disabled. Valid values:
-      // 
-      // *   **false** (default)
-      // *   **true**
+      // Indicates whether the development role is disabled. Valid values:
+      //  - **false** (default): The development role is enabled.
+      //  - **true**: The development role is disabled.
       shared_ptr<bool> disableDevelopment_ {};
-      // The environments of workspaces in different modes. Workspaces in basic mode provide only the production environment. Workspaces in standard mode provide both the development environment and the production environment.
+      // The environments contained in the workspace. A workspace in basic mode contains only the production environment (PROD). A workspace in standard mode contains the development environment (DEV) and the production environment (PROD).
       shared_ptr<vector<string>> envTypes_ {};
       // The time when the workspace was created.
       shared_ptr<string> gmtCreate_ {};
       // The time when the workspace was last modified.
       shared_ptr<string> gmtModified_ {};
-      // Indicates whether the download operation is allowed.
+      // Indicates whether downloads are allowed.
       shared_ptr<int32_t> isAllowDownload_ {};
-      // Indicates whether the workspace is a default workspace. Valid values:
-      // 
-      // *   1: The workspace is a default workspace.
-      // *   0: The workspace is not a default workspace.
+      // Indicates whether the workspace is the default workspace. Valid values:
+      // - 1: Yes.
+      // - 0: No.
       shared_ptr<int32_t> isDefault_ {};
       // The description of the workspace.
       shared_ptr<string> projectDescription_ {};
-      // The workspace ID.
+      // The ID of the workspace.
       shared_ptr<int32_t> projectId_ {};
-      // The unique identifier of the workspace.
+      // The identifier of the workspace.
       shared_ptr<string> projectIdentifier_ {};
-      // The mode of the workspace. The value 2 indicates that the workspace is in basic mode. The value 3 indicates that the workspace is in standard mode.
+      // The workspace mode. A value of 2 indicates basic mode. A value of 3 indicates standard mode.
       shared_ptr<int32_t> projectMode_ {};
       // The display name of the workspace.
       shared_ptr<string> projectName_ {};
-      // The ID of the Alibaba Cloud account used by the workspace owner.
+      // The Alibaba Cloud ID of the workspace owner.
       shared_ptr<string> projectOwnerBaseId_ {};
-      // Indicates whether the workspace protection feature is enabled.
+      // Indicates whether protected mode is enabled for the workspace.
       shared_ptr<int32_t> protectedMode_ {};
-      // The type of the workspace. Valid values: private and swap.
+      // The type of the workspace. A value of private indicates a private zone. A value of swap indicates a swap zone.
       shared_ptr<string> residentArea_ {};
       // The resource group ID.
       shared_ptr<string> resourceManagerResourceGroupId_ {};
-      // The default maximum number of automatic reruns that are allowed after an error occurs.
+      // The default maximum number of automatic reruns upon an error.
       shared_ptr<int32_t> schedulerMaxRetryTimes_ {};
-      // The interval between automatic reruns after an error occurs.
+      // The default interval between automatic reruns upon an error.
       shared_ptr<int32_t> schedulerRetryInterval_ {};
       // The status of the workspace.
       shared_ptr<int32_t> status_ {};
-      // Indicates whether the MaxCompute tables in the workspace are visible to the users within a tenant. Valid values:
-      // 
-      // *   0: The MaxCompute tables in the workspace are not visible to the users within a tenant.
-      // *   1: The MaxCompute tables in the workspace are visible to the users within a tenant.
+      // The visibility of MaxCompute tables. Valid values:
+      // - 0: MaxCompute tables are not visible to tenant users.
+      // - 1: MaxCompute tables are visible to tenant users.
       shared_ptr<int32_t> tablePrivacyMode_ {};
       // The tag information.
       shared_ptr<vector<Data::Tags>> tags_ {};
       // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
-      // Indicates whether a proxy account is used to access the MaxCompute compute engine.
+      // Indicates whether a proxy account is used to access the MaxCompute engine.
       shared_ptr<bool> useProxyOdpsAccount_ {};
     };
 
@@ -416,13 +413,13 @@ namespace Models
 
 
   protected:
-    // The information about the workspace.
+    // The description of the workspace.
     shared_ptr<GetProjectDetailResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the workspace information was queried successfully.
     shared_ptr<bool> success_ {};
   };
 

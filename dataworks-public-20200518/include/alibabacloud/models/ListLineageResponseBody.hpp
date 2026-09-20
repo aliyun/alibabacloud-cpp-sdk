@@ -143,14 +143,14 @@ namespace Models
         protected:
           // The data channel. Valid values:
           // 
-          // *   **FIRST_PARTY: DataWorks platform**
-          // *   **THIRD_PARTY: user registration**
+          // - **FIRST_PARTY**: DataWorks platform data.
+          // - **THIRD_PARTY**: User-registered data.
           shared_ptr<string> channel_ {};
           // The data source.
           shared_ptr<string> datasource_ {};
-          // The unique relationship ID.
+          // The unique ID of the relation.
           shared_ptr<string> guid_ {};
-          // The task type, which is used to describe the relationship between entities, such as SQL-based calculation, mapping based on report fields, or API operation definition.
+          // The task type, which describes the relationship type between entities. For example, computed by SQL, mapped by report fields, or defined by API.
           shared_ptr<string> type_ {};
         };
 
@@ -182,11 +182,11 @@ namespace Models
 
 
       protected:
-        // The time when the lineage was generated.
+        // The time when the lineage was created.
         shared_ptr<int64_t> createTimestamp_ {};
-        // The information about the entity.
+        // The entity information.
         shared_ptr<Entity> entity_ {};
-        // The array of the relationship structure.
+        // The array of relation structures.
         shared_ptr<vector<DataEntityList::RelationList>> relationList_ {};
       };
 
@@ -209,9 +209,9 @@ namespace Models
 
 
     protected:
-      // The array of the entity structure.
+      // The array of entity structures.
       shared_ptr<vector<Data::DataEntityList>> dataEntityList_ {};
-      // A pagination token. It can be used in the next request to retrieve a new page of results.
+      // The pagination token that specifies the starting point of the next read operation.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -262,7 +262,7 @@ namespace Models
 
 
   protected:
-    // The structure returned.
+    // The response structure.
     shared_ptr<ListLineageResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -270,12 +270,11 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The request ID. Used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

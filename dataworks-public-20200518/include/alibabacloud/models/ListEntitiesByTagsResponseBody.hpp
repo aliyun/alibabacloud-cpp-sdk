@@ -81,9 +81,9 @@ namespace Models
 
 
     protected:
-      // The entities.
+      // The list of entities.
       shared_ptr<vector<Entity>> entityList_ {};
-      // A pagination token. It can be used in the next request to retrieve a new page of results.
+      // The pagination token that specifies the start point of the next read operation.
       shared_ptr<string> nextToken_ {};
     };
 
@@ -134,7 +134,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<ListEntitiesByTagsResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -142,12 +142,12 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // true\\
-    // false
+    // - true: The request was successful.  
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // The structure whose lineage you want to register to DataWorks.
+    // The lineage registration structure.
     // 
     // This parameter is required.
     shared_ptr<LineageRelationRegisterVO> lineageRelationRegisterVO_ {};

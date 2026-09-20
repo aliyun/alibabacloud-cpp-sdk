@@ -55,7 +55,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> qualifiedName_ {};
-    // The tag keys.
+    // The list of tag keys.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> tagKeys_ {};

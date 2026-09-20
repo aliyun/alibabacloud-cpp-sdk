@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The workspace ID.
+    // The ID of the DataWorks workspace that was created.
     shared_ptr<int64_t> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
@@ -74,8 +74,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

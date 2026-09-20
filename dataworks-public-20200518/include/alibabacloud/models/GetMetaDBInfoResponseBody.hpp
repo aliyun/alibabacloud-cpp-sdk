@@ -197,25 +197,29 @@ namespace Models
 
 
     protected:
-      // The compute engine instance ID. Specify the ID in the `Engine type.Engine name` format.
+      // The engine ID, in the format of `Engine type.Engine name`.
       shared_ptr<string> appGuid_ {};
       // The EMR cluster ID.
       shared_ptr<string> clusterBizId_ {};
       // The comment.
       shared_ptr<string> comment_ {};
-      // The time when the compute engine instance was created.
+      // The time when the engine was created.
+      // 
+      // The value is a 13-digit number, for example, `1541576644000`.
       shared_ptr<int64_t> createTime_ {};
-      // The endpoint of the service.
+      // The service endpoint.
       shared_ptr<string> endpoint_ {};
-      // The type of the environment. Valid values: 0 and 1. The value 0 indicates the development environment. The value 1 indicates the production environment.
+      // The environment type. A value of 0 indicates a non-production table. A value of 1 indicates a production table.
       shared_ptr<int32_t> envType_ {};
-      // The storage path of the metadatabase of the EMR cluster.
+      // The data storage address of the EMR database.
       shared_ptr<string> location_ {};
-      // The time when the compute engine instance was modified.
+      // The time when the engine was modified.
+      // 
+      // The value is a 13-digit number, for example, `1541576644000`.
       shared_ptr<int64_t> modifyTime_ {};
-      // The name of the database.
+      // The database name.
       shared_ptr<string> name_ {};
-      // The ID of the Alibaba Cloud account used by the workspace owner.
+      // The Alibaba Cloud account ID of the workspace owner.
       shared_ptr<string> ownerId_ {};
       // The name of the workspace owner.
       shared_ptr<string> ownerName_ {};
@@ -227,7 +231,7 @@ namespace Models
       shared_ptr<string> projectNameCn_ {};
       // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
-      // The type of the metadatabase.
+      // The database type.
       shared_ptr<string> type_ {};
     };
 

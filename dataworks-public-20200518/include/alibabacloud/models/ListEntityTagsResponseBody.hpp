@@ -88,7 +88,7 @@ namespace Models
 
 
   protected:
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<UserEntityTag>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -96,12 +96,12 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // true\\
-    // false
+    // - true: The request was successful.  
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

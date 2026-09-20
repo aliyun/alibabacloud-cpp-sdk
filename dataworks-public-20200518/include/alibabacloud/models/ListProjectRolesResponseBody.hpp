@@ -88,13 +88,13 @@ namespace Models
 
 
     protected:
-      // The code of the role in the DataWorks workspace.
+      // The code of the workspace role.
       shared_ptr<string> projectRoleCode_ {};
-      // The ID of the role in the DataWorks workspace.
+      // The ID of the workspace role.
       shared_ptr<int32_t> projectRoleId_ {};
-      // The name of the role in the DataWorks workspace.
+      // The name of the workspace role.
       shared_ptr<string> projectRoleName_ {};
-      // The type of the role in the DataWorks workspace.
+      // The type of the workspace role.
       shared_ptr<string> projectRoleType_ {};
     };
 
@@ -117,7 +117,7 @@ namespace Models
 
 
   protected:
-    // The roles in the DataWorks workspace.
+    // The list of roles in the workspace.
     shared_ptr<vector<ListProjectRolesResponseBody::ProjectRoleList>> projectRoleList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

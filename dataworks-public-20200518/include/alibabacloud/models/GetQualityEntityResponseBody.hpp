@@ -206,45 +206,43 @@ namespace Models
 
 
     protected:
-      // The time when the partition filter expression was created.
+      // The time when the partition expression was created.
+      // 
+      // The value is a 13-digit number, for example, `1593964800000`.
       shared_ptr<int64_t> createTime_ {};
-      // The level of the partition filter expression. Valid values:
-      // 
-      // - 0 (SQL-level): A data quality check is triggered after each SQL statement is run.
-      // 
-      // - 1 (Task-level): A data quality check is triggered after all SQL statements are run.
+      // The level of the partition expression. Valid values:
+      // - 0 (SQL level): DQC verification is triggered after each SQL statement is executed.
+      // - 1 (Task level): Verification is performed after all SQL statements are executed.
       shared_ptr<int32_t> entityLevel_ {};
       // The type of the engine or data source.
       shared_ptr<string> envType_ {};
-      // The subscribers who receive alert notifications. The value is the ID of an Alibaba Cloud account.
+      // The subscribers. The Alibaba Cloud account IDs that receive alert notifications.
       shared_ptr<string> followers_ {};
-      // Indicates whether the partition filter expression is associated with a scheduling node. Valid values:
-      // 
-      // - true: The partition filter expression is associated with a scheduling node.
-      // 
-      // - false: The partition filter expression is not associated with a scheduling node.
+      // Indicates whether the partition expression is associated with scheduling. Valid values:
+      // - true: Associated with scheduling.
+      // - false: Not associated with scheduling.
       shared_ptr<bool> hasRelativeNode_ {};
-      // The ID of the partition filter expression.
+      // The ID of the partition expression.
       shared_ptr<int64_t> id_ {};
-      // The partition filter expression.
+      // The partition expression.
       shared_ptr<string> matchExpression_ {};
-      // The time when the partition filter expression was last updated.
+      // The time when the partition expression was updated.
+      // 
+      // The value is a 13-digit number, for example, `1593964800000`.
       shared_ptr<int64_t> modifyTime_ {};
-      // The user who updates the partition filter expression. The value is the ID of an Alibaba Cloud account.
+      // The account ID of the user who updated the partition expression.
       shared_ptr<string> modifyUser_ {};
-      // The owner who configures the partition filter expression. The value is the ID of an Alibaba Cloud account.
+      // The owner. The account ID of the user who configured the partition expression.
       shared_ptr<string> onDuty_ {};
-      // The name of the Alibaba Cloud account of the owner.
+      // The Alibaba Cloud account name of the owner.
       shared_ptr<string> onDutyAccountName_ {};
       // The name of the engine or data source.
       shared_ptr<string> projectName_ {};
-      // The scheduling node that is associated with the partition filter expression. This parameter includes the following sub-parameters:
-      // 
-      // - ProjectName: The name of the workspace to which the scheduling node belongs.
-      // 
-      // - NodeID: The ID of the scheduling node.
+      // The information about the scheduling node associated with the partition expression, including:
+      // - ProjectName: the name of the project to which the scheduling node belongs.
+      // - NodeID: the node ID of the scheduling node.
       shared_ptr<string> relativeNode_ {};
-      // The SQL-level partition filter expression.
+      // The SQL-level partition expression.
       shared_ptr<int32_t> sql_ {};
       // The name of the partitioned table.
       shared_ptr<string> tableName_ {};
@@ -299,7 +297,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned information.
     shared_ptr<vector<GetQualityEntityResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -309,7 +307,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

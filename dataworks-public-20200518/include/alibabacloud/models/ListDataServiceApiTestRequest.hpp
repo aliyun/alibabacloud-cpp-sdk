@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The ID of the DataService Studio API on which tests are performed.
+    // The ID of the API to test.
     // 
     // This parameter is required.
     shared_ptr<int64_t> apiId_ {};
-    // The number of entries to return on each page. Maximum value: 100.
+    // The page size. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
   };
 

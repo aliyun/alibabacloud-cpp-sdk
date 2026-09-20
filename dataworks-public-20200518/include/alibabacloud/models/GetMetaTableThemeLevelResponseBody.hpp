@@ -117,17 +117,15 @@ namespace Models
 
 
       protected:
-        // The level of the theme. Valid values:
-        // 
-        // - 1
-        // 
-        // - 2
+        // The theme type. Valid values:
+        // - 1: primary theme.
+        // - 2: secondary theme.
         shared_ptr<int32_t> level_ {};
-        // The name of the theme.
+        // The theme name.
         shared_ptr<string> name_ {};
         // The ID of the parent theme.
         shared_ptr<int64_t> parentId_ {};
-        // The ID of the theme.
+        // The theme ID.
         shared_ptr<int64_t> themeId_ {};
       };
 
@@ -189,15 +187,13 @@ namespace Models
       protected:
         // The description of the level.
         shared_ptr<string> description_ {};
-        // The ID of the level.
+        // The level ID.
         shared_ptr<int64_t> levelId_ {};
-        // The name of the level.
+        // The level name.
         shared_ptr<string> name_ {};
-        // The type of the level. Valid values:
-        // 
-        // - 1: indicates the logical level.
-        // 
-        // - 2: indicates the physical level.
+        // The level type. Valid values:
+        // - 1: logical level.
+        // - 2: physical level.
         shared_ptr<int32_t> type_ {};
       };
 
@@ -222,9 +218,9 @@ namespace Models
 
 
     protected:
-      // The information about the levels of the metatable.
+      // The level information.
       shared_ptr<vector<Entity::Level>> level_ {};
-      // The information about the themes of the metatable.
+      // The theme information.
       shared_ptr<vector<Entity::Theme>> theme_ {};
     };
 
@@ -283,7 +279,7 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can troubleshoot issues based on the ID.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

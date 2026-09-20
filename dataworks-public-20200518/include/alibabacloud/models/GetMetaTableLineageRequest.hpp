@@ -103,17 +103,22 @@ namespace Models
 
 
   protected:
-    // The ID of the E-MapReduce (EMR) cluster. Configure this parameter only if you want to query the lineage of an EMR table.
+    // The ID of the EMR cluster. This parameter is required for EMR scenarios.
     shared_ptr<string> clusterId_ {};
-    // The type of the data source. Valid values: odps and emr.
+    // The data source type. Valid values: odps and emr.
     shared_ptr<string> dataSourceType_ {};
     // The name of the database.
     shared_ptr<string> databaseName_ {};
-    // Specifies the ancestor or descendant lineage that you want to query for a field. Valid values: up and down. The value up indicates the ancestor lineage. The value down indicates the descendant lineage.
+    // The direction of the lineage. Valid values:
+    // 
+    // - up: upstream.
+    // - down: downstream.
     // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
-    // The logic of paging. Configure this parameter based on the value of the response parameter NextPrimaryKey when the value of the response parameter HasNext is true in the previous request.
+    // The pagination logic.
+    // 
+    // If HasNext is set to true and NextPrimaryKey is not empty in the last response, set this parameter to the value of NextPrimaryKey in the next request.
     shared_ptr<string> nextPrimaryKey_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};

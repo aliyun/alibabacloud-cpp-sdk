@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the directed acyclic graph (DAG) for the manually triggered workflow. You can call the [CreateManualDag](https://help.aliyun.com/document_detail/189728.html) operation to query the ID.
+    // Instance ID of the DAG instance that triggers the manual workflow. You can call the [CreateManualDag](https://help.aliyun.com/document_detail/189728.html) operation to obtain instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> dagId_ {};
-    // The environment of Operation Center. Valid values: PROD and DEV.
+    // The environment identifier of the Operation Center. Valid values: PROD (production environment) and DEV (development environment).
     // 
     // This parameter is required.
     shared_ptr<string> projectEnv_ {};
-    // The name of the workspace to which the manually triggered workflow belongs. You can log on to the DataWorks console and go to the Workspace Settings panel to query the name.
+    // The name of the workspace to which the manual workflow belongs. You can obtain the name on the workspace configuration page in the DataWorks console.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};

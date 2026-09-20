@@ -119,9 +119,9 @@ namespace Models
 
 
       protected:
-        // The period corresponding to the commitment time. The space-based line is 1, and the hourly baseline can be configured for up to 24 cycles.
+        // The cycle corresponding to the committed time. The value is 1 for daily baselines. You can configure up to 24 cycles for hourly baselines.
         shared_ptr<int32_t> cycle_ {};
-        // Commitment time, hh:mm format, hh value range is [0,47],mm value range is [0,59].
+        // The committed time in hh:mm format, where hh ranges from 0 to 47 and mm ranges from 0 to 59.
         shared_ptr<string> time_ {};
       };
 
@@ -138,6 +138,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DingRobots, dingRobots_);
           DARABONBA_PTR_TO_JSON(SilenceEndTime, silenceEndTime_);
           DARABONBA_PTR_TO_JSON(SilenceStartTime, silenceStartTime_);
+          DARABONBA_PTR_TO_JSON(TopicSlowConfig, topicSlowConfig_);
           DARABONBA_PTR_TO_JSON(TopicTypes, topicTypes_);
           DARABONBA_PTR_TO_JSON(Webhooks, webhooks_);
         };
@@ -152,6 +153,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DingRobots, dingRobots_);
           DARABONBA_PTR_FROM_JSON(SilenceEndTime, silenceEndTime_);
           DARABONBA_PTR_FROM_JSON(SilenceStartTime, silenceStartTime_);
+          DARABONBA_PTR_FROM_JSON(TopicSlowConfig, topicSlowConfig_);
           DARABONBA_PTR_FROM_JSON(TopicTypes, topicTypes_);
           DARABONBA_PTR_FROM_JSON(Webhooks, webhooks_);
         };
@@ -166,6 +168,48 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class TopicSlowConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const TopicSlowConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(MinOver, minOver_);
+            DARABONBA_PTR_TO_JSON(OverFactor, overFactor_);
+          };
+          friend void from_json(const Darabonba::Json& j, TopicSlowConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(MinOver, minOver_);
+            DARABONBA_PTR_FROM_JSON(OverFactor, overFactor_);
+          };
+          TopicSlowConfig() = default ;
+          TopicSlowConfig(const TopicSlowConfig &) = default ;
+          TopicSlowConfig(TopicSlowConfig &&) = default ;
+          TopicSlowConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~TopicSlowConfig() = default ;
+          TopicSlowConfig& operator=(const TopicSlowConfig &) = default ;
+          TopicSlowConfig& operator=(TopicSlowConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->minOver_ == nullptr
+        && this->overFactor_ == nullptr; };
+          // minOver Field Functions 
+          bool hasMinOver() const { return this->minOver_ != nullptr;};
+          void deleteMinOver() { this->minOver_ = nullptr;};
+          inline int32_t getMinOver() const { DARABONBA_PTR_GET_DEFAULT(minOver_, 0) };
+          inline TopicSlowConfig& setMinOver(int32_t minOver) { DARABONBA_PTR_SET_VALUE(minOver_, minOver) };
+
+
+          // overFactor Field Functions 
+          bool hasOverFactor() const { return this->overFactor_ != nullptr;};
+          void deleteOverFactor() { this->overFactor_ = nullptr;};
+          inline double getOverFactor() const { DARABONBA_PTR_GET_DEFAULT(overFactor_, 0.0) };
+          inline TopicSlowConfig& setOverFactor(double overFactor) { DARABONBA_PTR_SET_VALUE(overFactor_, overFactor) };
+
+
+        protected:
+          shared_ptr<int32_t> minOver_ {};
+          shared_ptr<double> overFactor_ {};
+        };
+
         class DingRobots : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const DingRobots& obj) { 
@@ -204,16 +248,16 @@ namespace Models
 
 
         protected:
-          // Whether @ everyone.
+          // Indicates whether to @ all members.
           shared_ptr<bool> atAll_ {};
-          // DingTalk robot address
+          // The webhook URL of the DingTalk chatbot.
           shared_ptr<string> webUrl_ {};
         };
 
         virtual bool empty() const override { return this->alertInterval_ == nullptr
         && this->alertMaximum_ == nullptr && this->alertMethods_ == nullptr && this->alertRecipient_ == nullptr && this->alertRecipientType_ == nullptr && this->alertType_ == nullptr
-        && this->baselineAlertEnabled_ == nullptr && this->dingRobots_ == nullptr && this->silenceEndTime_ == nullptr && this->silenceStartTime_ == nullptr && this->topicTypes_ == nullptr
-        && this->webhooks_ == nullptr; };
+        && this->baselineAlertEnabled_ == nullptr && this->dingRobots_ == nullptr && this->silenceEndTime_ == nullptr && this->silenceStartTime_ == nullptr && this->topicSlowConfig_ == nullptr
+        && this->topicTypes_ == nullptr && this->webhooks_ == nullptr; };
         // alertInterval Field Functions 
         bool hasAlertInterval() const { return this->alertInterval_ != nullptr;};
         void deleteAlertInterval() { this->alertInterval_ = nullptr;};
@@ -288,6 +332,15 @@ namespace Models
         inline AlertSettings& setSilenceStartTime(string silenceStartTime) { DARABONBA_PTR_SET_VALUE(silenceStartTime_, silenceStartTime) };
 
 
+        // topicSlowConfig Field Functions 
+        bool hasTopicSlowConfig() const { return this->topicSlowConfig_ != nullptr;};
+        void deleteTopicSlowConfig() { this->topicSlowConfig_ = nullptr;};
+        inline const AlertSettings::TopicSlowConfig & getTopicSlowConfig() const { DARABONBA_PTR_GET_CONST(topicSlowConfig_, AlertSettings::TopicSlowConfig) };
+        inline AlertSettings::TopicSlowConfig getTopicSlowConfig() { DARABONBA_PTR_GET(topicSlowConfig_, AlertSettings::TopicSlowConfig) };
+        inline AlertSettings& setTopicSlowConfig(const AlertSettings::TopicSlowConfig & topicSlowConfig) { DARABONBA_PTR_SET_VALUE(topicSlowConfig_, topicSlowConfig) };
+        inline AlertSettings& setTopicSlowConfig(AlertSettings::TopicSlowConfig && topicSlowConfig) { DARABONBA_PTR_SET_RVALUE(topicSlowConfig_, topicSlowConfig) };
+
+
         // topicTypes Field Functions 
         bool hasTopicTypes() const { return this->topicTypes_ != nullptr;};
         void deleteTopicTypes() { this->topicTypes_ = nullptr;};
@@ -307,43 +360,43 @@ namespace Models
 
 
       protected:
-        // The event alert interval, in seconds.
+        // The event alerting interval, in seconds.
         shared_ptr<int32_t> alertInterval_ {};
-        // The maximum number of event alerts.
+        // The maximum number of event alerting notifications.
         shared_ptr<int32_t> alertMaximum_ {};
-        // Alert method list
+        // The list of alert methods.
         shared_ptr<vector<string>> alertMethods_ {};
-        // Alert recipient details.
+        // The alert recipient details.
         // 
-        // AlertRecipientType is OWNER: empty
-        // AlertRecipientType is SHIFT_SCHEDULE: duty table uid
-        // AlertRecipientType is OTHER: uid list, multiple UIDs are in English, split
+        // - If AlertRecipientType is set to OWNER: empty.
+        // - If AlertRecipientType is set to SHIFT_SCHEDULE: the UID of the shift schedule.
+        // - If AlertRecipientType is set to OTHER: a list of UIDs. Separate multiple UIDs with commas (,).
         shared_ptr<string> alertRecipient_ {};
-        // The type of alert recipient.
+        // The type of alert recipient. Valid values:
         // 
-        // - OWNER: task owner
-        // - OTHER: designated person
-        // - SHIFT: SCHEDULE-duty table
+        // - OWNER: node owner.
+        // - OTHER: specified users.
+        // - SHIFT_SCHEDULE: shift schedule.
         shared_ptr<string> alertRecipientType_ {};
-        // Alert type
-        // 
-        // - BASELINE: baseline
-        // - TOPIC: event
+        // The alerting type. Valid values:
+        // - BASELINE: baseline.
+        // - TOPIC: event.
         shared_ptr<string> alertType_ {};
-        // The baseline alarm switch.
+        // The baseline alert switch. This is a baseline-specific configuration. Valid values:
         // 
-        // - true
-        // - false
+        // - true: started.
+        // - false: stopped.
         shared_ptr<bool> baselineAlertEnabled_ {};
-        // DingTalk robot list.
+        // The list of DingTalk chatbots.
         shared_ptr<vector<AlertSettings::DingRobots>> dingRobots_ {};
-        // The end time of the silence. The format is HH:mm:ss.
+        // The silence end time, in the HH:mm:ss format.
         shared_ptr<string> silenceEndTime_ {};
-        // The start time of the silence. Format: HH:mm:ss
+        // The silence start time, in the HH:mm:ss format.
         shared_ptr<string> silenceStartTime_ {};
-        // The list of Event Alert types.
+        shared_ptr<AlertSettings::TopicSlowConfig> topicSlowConfig_ {};
+        // The list of event alerting types. This is an event-specific configuration.
         shared_ptr<vector<string>> topicTypes_ {};
-        // webhook list.
+        // The list of webhooks.
         shared_ptr<vector<string>> webhooks_ {};
       };
 
@@ -442,35 +495,35 @@ namespace Models
 
 
     protected:
-      // Indicates whether the alerting feature is enabled. Valid values:
+      // Indicates whether alerting is started. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true
+      // - false
       shared_ptr<bool> alertEnabled_ {};
-      // The alert margin threshold. Unit: minutes.
+      // The alert margin threshold, in minutes.
       shared_ptr<int32_t> alertMarginThreshold_ {};
       // The alert settings.
       shared_ptr<vector<Data::AlertSettings>> alertSettings_ {};
-      // The baseline ID.
+      // The ID of the baseline.
       shared_ptr<int64_t> baselineId_ {};
       // The name of the baseline.
       shared_ptr<string> baselineName_ {};
       // The type of the baseline. Valid values:
       // 
-      // *   DAILY
-      // *   HOURLY
+      // - DAILY: daily baseline.
+      // - HOURLY: hourly baseline.
       shared_ptr<string> baselineType_ {};
-      // Indicates whether the baseline is enabled.
+      // Indicates whether the baseline is started.
       shared_ptr<bool> enabled_ {};
-      // The node IDs.
+      // The list of upstream nodes of the baseline.
       shared_ptr<vector<int64_t>> nodeIds_ {};
-      // The settings of the committed completion time of the baseline.
+      // The baseline committed time settings.
       shared_ptr<vector<Data::OverTimeSettings>> overTimeSettings_ {};
       // The owner.
       shared_ptr<string> owner_ {};
       // The priority of the baseline. Valid values: 1, 3, 5, 7, and 8.
       shared_ptr<int32_t> priority_ {};
-      // The workspace ID.
+      // The project ID.
       shared_ptr<int64_t> projectId_ {};
     };
 
@@ -521,7 +574,7 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<GetBaselineResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -532,9 +585,8 @@ namespace Models
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // - true
+    // - false
     shared_ptr<bool> success_ {};
   };
 

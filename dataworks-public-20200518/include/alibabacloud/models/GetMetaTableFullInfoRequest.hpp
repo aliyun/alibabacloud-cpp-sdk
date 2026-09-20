@@ -94,25 +94,25 @@ namespace Models
 
 
   protected:
-    // The ID of the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+    // The ID of the EMR cluster. This parameter is required only when the data source type is EMR.
     // 
-    // You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to query the ID.
+    // You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The type of the data source. Set the value to emr.
+    // The data source type. Currently, only EMR is supported.
     shared_ptr<string> dataSourceType_ {};
-    // The name of the database. This parameter is required only if you set the DataSourceType parameter to emr.
+    // The name of the database. This parameter is required only when the data source type is EMR.
     // 
-    // You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to query the database name.
+    // You can call the [ListMetaDB](https://help.aliyun.com/document_detail/185662.html) operation to obtain the database name.
     shared_ptr<string> databaseName_ {};
-    // The page number requested for pagination.
+    // The page number for pagination.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of items per page, with a default of 10 and a maximum of 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique identifier of the table. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the unique identifier of the table.
+    // The globally unique identifier (GUID) of the table. You can call [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) to obtain the GUID of the table.
     shared_ptr<string> tableGuid_ {};
-    // The name of the table in the EMR cluster. This parameter is required only if you set the DataSourceType parameter to emr.
+    // The name of the EMR table. This parameter is required only when the data source type is EMR.
     // 
-    // You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to query the table name.
+    // You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/173916.html) operation to obtain the table name.
     shared_ptr<string> tableName_ {};
   };
 

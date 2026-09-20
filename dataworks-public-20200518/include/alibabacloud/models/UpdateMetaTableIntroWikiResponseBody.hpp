@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The request ID. You can troubleshoot issues based on the ID.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the instructions on how to use the table are updated.
+    // The update result of the table.
     shared_ptr<bool> updateResult_ {};
   };
 

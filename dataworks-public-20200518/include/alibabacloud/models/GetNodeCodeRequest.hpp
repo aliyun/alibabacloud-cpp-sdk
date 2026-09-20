@@ -52,7 +52,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> nodeId_ {};
-    // The environment of the workspace. Valid values: PROD and DEV.
+    // The environment of the workspace. Valid values:
+    // - PROD: production environment
+    // - DEV: development environment
     // 
     // This parameter is required.
     shared_ptr<string> projectEnv_ {};

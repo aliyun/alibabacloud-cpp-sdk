@@ -124,9 +124,9 @@ namespace Models
 
 
         protected:
-          // The code of the event.
+          // The event code.
           shared_ptr<string> eventCode_ {};
-          // The name of the event.
+          // The event name.
           shared_ptr<string> eventName_ {};
         };
 
@@ -179,15 +179,21 @@ namespace Models
       protected:
         // The list of extension point events.
         shared_ptr<vector<Extensions::BindEventList>> bindEventList_ {};
-        // The unique code of the extension.
+        // The unique extension code.
         shared_ptr<string> extensionCode_ {};
         // The description of the extension.
         shared_ptr<string> extensionDesc_ {};
         // The name of the extension.
         shared_ptr<string> extensionName_ {};
-        // The ID of the RAM user.
+        // The RAM user ID.
         shared_ptr<string> owner_ {};
-        // The state of the extension. Valid values: 0: Testing 1: Publishing 3: Disabled 4: Processing 5: Approved 6: Approve Failed
+        // The extension status. Valid values:
+        // 0: testing.
+        // 1: online.
+        // 3: disabled.
+        // 4: pending approval.
+        // 5: approved.
+        // 6: rejected.
         shared_ptr<int32_t> status_ {};
       };
 
@@ -226,11 +232,11 @@ namespace Models
     protected:
       // The list of extensions.
       shared_ptr<vector<PagingInfo::Extensions>> extensions_ {};
-      // The page number.
+      // The page number of the request, used for pagination.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 

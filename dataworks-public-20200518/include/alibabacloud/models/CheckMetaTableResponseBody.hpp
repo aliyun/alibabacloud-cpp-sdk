@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the metatable exists.
+    // Indicates whether the table exists.
     shared_ptr<bool> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

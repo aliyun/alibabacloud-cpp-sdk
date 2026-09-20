@@ -187,33 +187,33 @@ namespace Models
 
 
     protected:
-      // The baseline ID.
+      // The ID of the baseline.
       shared_ptr<int64_t> baselineId_ {};
       // The name of the baseline.
       shared_ptr<string> baselineName_ {};
-      // The type of the baseline. Valid values: DAILY and HOURLY.
+      // The type of the baseline. Valid values: DAILY (daily baseline) and HOURLY (hourly baseline).
       shared_ptr<string> baselineType_ {};
-      // The hour in the alerting time of the day-level baseline. Valid values: [0, 47].
+      // The alert hour of the daily baseline. Valid values: [0, 47\\].
       shared_ptr<int32_t> expHour_ {};
-      // The minute in the alerting time of the day-level baseline. Valid values: [0, 59].
+      // The alert minute of the daily baseline. Valid values: [0, 59\\].
       shared_ptr<int32_t> expMinu_ {};
-      // The alerting time of the hour-level baseline. This parameter is presented as key-value pairs in the JSON format. The key indicates the ID of the cycle, and the value is presented in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+      // The alert time configuration of the hourly baseline in JSON format. The key is the cycle number, and the value is in hh:mm format. Valid values of hh: [0,47\\]. Valid values of mm: [0,59\\].
       shared_ptr<string> hourExpDetail_ {};
-      // The committed completion time of the hour-level baseline. This parameter is presented as key-value pairs in the JSON format. The key indicates the ID of the cycle, and the value is presented in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+      // The committed time configuration of the hourly baseline in JSON format. The key is the cycle number, and the value is in hh:mm format. Valid values of hh: [0,47\\]. Valid values of mm: [0,59\\].
       shared_ptr<string> hourSlaDetail_ {};
-      // Indicates whether the baseline is a default baseline of the workspace. Valid values: true and false.
+      // Indicates whether this is the default baseline of the workspace. Valid values: true and false.
       shared_ptr<bool> isDefault_ {};
-      // The ID of the Alibaba Cloud account used by the baseline owner. Multiple IDs can be specified. The IDs are separated by commas (,).
+      // The Alibaba Cloud UID of the baseline owner. If multiple owners exist, they are separated by commas (,).
       shared_ptr<string> owner_ {};
-      // The priority of the baseline. Valid values: {1,3,5,7,8}.
+      // The priority of the baseline. Valid values: 1, 3, 5, 7, and 8.
       shared_ptr<int32_t> priority_ {};
       // The ID of the workspace.
       shared_ptr<int64_t> projectId_ {};
-      // The hour in the committed completion time of the day-level baseline. Valid values: [0, 47].
+      // The committed hour of the daily baseline. Valid values: [0, 47\\].
       shared_ptr<int32_t> slaHour_ {};
-      // The minute in the committed completion time of the day-level baseline. Valid values: [0, 59].
+      // The committed minute of the daily baseline. Valid values: [0, 59\\].
       shared_ptr<int32_t> slaMinu_ {};
-      // Indicates whether the baseline is enabled. Valid values: true and false.
+      // Indicates whether the baseline is enabled. Valid values: true (enabled) and false (disabled).
       shared_ptr<bool> useFlag_ {};
     };
 

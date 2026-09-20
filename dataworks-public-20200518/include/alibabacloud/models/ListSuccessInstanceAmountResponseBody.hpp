@@ -93,9 +93,11 @@ namespace Models
 
 
       protected:
-        // The number of instances that are successfully run.
+        // The number of successfully completed instances.
         shared_ptr<int32_t> count_ {};
-        // The point in time. The value is an exact hour that ranges from 00:00 to 23:00, such as 00:00, 01:00, or 02:00.
+        // The time point. Valid values: hours on the hour from 00:00 to 23:00, such as 00:00, 01:00, and 02:00.
+        // 
+        // Format: `HH:mm`. Example: `01:00`.
         shared_ptr<string> timePoint_ {};
       };
 
@@ -137,9 +139,11 @@ namespace Models
 
 
       protected:
-        // The number of instances that are successfully run.
+        // The number of successfully completed instances.
         shared_ptr<int32_t> count_ {};
-        // The point in time. The value is an exact hour that ranges from 00:00 to 23:00, such as 00:00, 01:00, or 02:00.
+        // The time point. Valid values: hours on the hour from 00:00 to 23:00, such as 00:00, 01:00, and 02:00.
+        // 
+        // Format: `HH:mm`. Example: `01:00`.
         shared_ptr<string> timePoint_ {};
       };
 
@@ -181,9 +185,11 @@ namespace Models
 
 
       protected:
-        // The number of instances that are successfully run.
+        // The number of successfully completed instances.
         shared_ptr<int32_t> count_ {};
-        // The point in time. The value is an exact hour that ranges from 00:00 to 23:00, such as 00:00, 01:00, or 02:00.
+        // The time point. Valid values: hours on the hour from 00:00 to 23:00, such as 00:00, 01:00, and 02:00.
+        // 
+        // Format: `HH:mm`. Example: `01:00`.
         shared_ptr<string> timePoint_ {};
       };
 
@@ -217,11 +223,11 @@ namespace Models
 
 
     protected:
-      // The average trend.
+      // The historical average trend.
       shared_ptr<vector<InstanceStatusTrend::AvgTrend>> avgTrend_ {};
-      // The trend of the number of auto triggered node instances that are successfully run on the current day.
+      // The trend for the current business date.
       shared_ptr<vector<InstanceStatusTrend::TodayTrend>> todayTrend_ {};
-      // The trend of the number of auto triggered node instances that are successfully run one day earlier than the current day.
+      // The trend for the day before the business date.
       shared_ptr<vector<InstanceStatusTrend::YesterdayTrend>> yesterdayTrend_ {};
     };
 
@@ -244,9 +250,9 @@ namespace Models
 
 
   protected:
-    // Indicates the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+    // The trend data of successfully completed instance counts at different hours on the business date.
     shared_ptr<ListSuccessInstanceAmountResponseBody::InstanceStatusTrend> instanceStatusTrend_ {};
-    // The request ID.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

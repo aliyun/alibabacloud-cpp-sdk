@@ -95,7 +95,9 @@ namespace Models
       protected:
         // The number of instances.
         shared_ptr<int32_t> count_ {};
-        // The point in time. Valid values: 00:00 to 23:00.
+        // The time point, ranging from 00:00 to 23:00.
+        // 
+        // The format is `HH:mm`, for example, `01:00`.
         shared_ptr<string> timePoint_ {};
       };
 
@@ -139,7 +141,9 @@ namespace Models
       protected:
         // The number of instances.
         shared_ptr<int32_t> count_ {};
-        // The point in time. Valid values: 00:00 to 23:00.
+        // The time point, ranging from 00:00 to 23:00.
+        // 
+        // The format is `HH:mm`, for example, `01:00`.
         shared_ptr<string> timePoint_ {};
       };
 
@@ -183,7 +187,9 @@ namespace Models
       protected:
         // The number of instances.
         shared_ptr<int32_t> count_ {};
-        // The point in time. Valid values: 00:00 to 23:00.
+        // The time point, ranging from 00:00 to 23:00.
+        // 
+        // The format is `HH:mm`, for example, `01:00`.
         shared_ptr<string> timePoint_ {};
       };
 
@@ -217,11 +223,11 @@ namespace Models
 
 
     protected:
-      // The average trend.
+      // The historical average trends.
       shared_ptr<vector<InstanceStatusTrend::AvgTrend>> avgTrend_ {};
-      // The trend on the current day.
+      // The trends for today.
       shared_ptr<vector<InstanceStatusTrend::TodayTrend>> todayTrend_ {};
-      // The trend on the previous day.
+      // The trends for yesterday.
       shared_ptr<vector<InstanceStatusTrend::YesterdayTrend>> yesterdayTrend_ {};
     };
 
@@ -244,9 +250,9 @@ namespace Models
 
 
   protected:
-    // The trend of statistics on the instance status in different time periods.
+    // The statistical trends of instance status by time period.
     shared_ptr<GetSuccessInstanceTrendResponseBody::InstanceStatusTrend> instanceStatusTrend_ {};
-    // The request ID.
+    // The unique ID generated for each request.
     shared_ptr<string> requestId_ {};
   };
 

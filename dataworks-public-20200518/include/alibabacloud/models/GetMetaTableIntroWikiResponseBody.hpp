@@ -113,15 +113,19 @@ namespace Models
 
 
     protected:
-      // The description of the metatable.
+      // The description of the table.
       shared_ptr<string> content_ {};
-      // The time when the metatable was created.
+      // The time when the table was created.
+      // 
+      // The value is a 13-digit number, such as `1584444247000`.
       shared_ptr<int64_t> createTime_ {};
-      // The creator of the metatable.
+      // The creator of the table.
       shared_ptr<string> creator_ {};
-      // The name of the user who creates the metatable.
+      // The name of the table creator.
       shared_ptr<string> creatorName_ {};
-      // The time when the metatable was last modified.
+      // The time when the table was modified.
+      // 
+      // The value is a 13-digit number, such as `1584444247000`.
       shared_ptr<int64_t> modifiedTime_ {};
       // The version number.
       shared_ptr<int64_t> version_ {};

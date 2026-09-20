@@ -86,7 +86,7 @@ namespace Models
 
 
   protected:
-    // The returned data about the default data category and data sensitivity level template. The data is in the JSON array format.
+    // The default data classification template returned. The value is in JSON format.
     // 
     // This parameter is required.
     Darabonba::Json data_ {};
@@ -102,14 +102,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can locate logs and troubleshoot issues based on the ID.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     // 
     // This parameter is required.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // - true: The request was successful.
+    // - false: The request failed.
     // 
     // This parameter is required.
     shared_ptr<bool> success_ {};

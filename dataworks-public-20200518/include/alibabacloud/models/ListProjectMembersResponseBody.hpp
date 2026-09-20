@@ -142,17 +142,17 @@ namespace Models
 
 
         protected:
-          // The code of the role. DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
+          // The role code. DataWorks provides preset roles. You can also create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
           shared_ptr<string> projectRoleCode_ {};
           // The role ID.
           shared_ptr<int32_t> projectRoleId_ {};
-          // The name of the role. DataWorks provides built-in roles and allows you to create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
+          // The name of the role. DataWorks provides preset roles. You can also create custom roles based on your business requirements. For more information about roles, see [Overview of users, roles, and permissions](https://help.aliyun.com/document_detail/295463.html).
           shared_ptr<string> projectRoleName_ {};
           // The type of the role. Valid values:
           // 
-          // - 0: SYSTEM, which indicates that the role is a built-in role.
+          // - SYSTEM (0): system role.
           // 
-          // - 2: USER_CUSTOM, which indicates that the role is a custom role.
+          // - USER_CUSTOM (2): custom role.
           shared_ptr<string> projectRoleType_ {};
         };
 
@@ -203,29 +203,25 @@ namespace Models
 
 
       protected:
-        // The nickname of the member.
+        // The nickname of the workspace member.
         shared_ptr<string> nick_ {};
-        // The member ID.
+        // The user ID of the member.
         shared_ptr<string> projectMemberId_ {};
         // The name of the member.
         shared_ptr<string> projectMemberName_ {};
         // The type of the member. Valid values:
         // 
-        // - 1: USER_ALIYUN, which indicates that the member is an Alibaba Cloud account.
-        // 
-        // - 5: USER_UBACCOUNT, which indicates that the member is a RAM user.
-        // 
-        // - 6: USER_STS_ROLE, which indicates that the member is a RAM role.
+        // - 1: Alibaba Cloud account (USER_ALIYUN).
+        // - 5: RAM user (USER_UBACCOUNT).
+        // - 6: RAM role (USER_STS_ROLE).
         shared_ptr<string> projectMemberType_ {};
-        // The roles that are assigned to the member.
+        // The list of roles assigned to the member.
         shared_ptr<vector<ProjectMemberList::ProjectRoleList>> projectRoleList_ {};
-        // The status of the member. Valid values:
-        // 
-        // - 0: NORMAL, which indicates that the member is in a normal state.
-        // 
-        // - 1: FORBIDDEN, which indicates that the member is disabled.
-        // 
-        // - 2: DELETED, which indicates that the member is deleted.
+        // The query status. Valid values:
+        //  
+        // - 0: Normal (NORMAL).
+        // - 1: Disabled (FORBIDDEN).
+        // - 2: Deleted (DELETED).
         shared_ptr<string> status_ {};
       };
 
@@ -262,11 +258,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The information about members in the DataWorks workspace.
+      // The list of workspace members.
       shared_ptr<vector<Data::ProjectMemberList>> projectMemberList_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -291,7 +287,7 @@ namespace Models
 
 
   protected:
-    // The returned results.
+    // The query result.
     shared_ptr<ListProjectMembersResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

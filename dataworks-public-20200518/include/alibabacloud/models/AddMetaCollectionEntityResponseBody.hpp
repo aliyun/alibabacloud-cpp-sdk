@@ -90,16 +90,16 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can use the request ID to query logs and troubleshoot issues.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The result of the operation. Valid values:
+    // The operation result. Valid values: 
     // 
-    // *   true: succeeded
-    // *   false: failed
+    // - true: Succeeded. 
+    // - false: Failed.
     shared_ptr<bool> status_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // true false
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

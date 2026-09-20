@@ -94,21 +94,21 @@ namespace Models
 
 
   protected:
-    // The keyword in API names. The keyword is used to search for the APIs whose names contain the keyword.
+    // The keyword used to filter APIs by name. APIs whose names contain this keyword are returned.
     shared_ptr<string> apiNameKeyword_ {};
-    // The keyword in API paths. The keyword is used to search for the APIs whose paths contain the keyword.
+    // The keyword used to filter APIs by path. APIs whose paths contain this keyword are returned.
     shared_ptr<string> apiPathKeyword_ {};
-    // The ID of the Alibaba Cloud account used by the creator of the APIs. The ID is used to search for the APIs created by the creator.
+    // The Alibaba Cloud ID of the API creator. Only APIs created by this user are returned.
     shared_ptr<string> creatorId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default is 10, and the maximum is 100.
+    // The number of entries per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The workspace ID.
+    // The ID of the workspace.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The tenant ID. To obtain the tenant ID, perform the following steps: Log on to the [DataWorks console](https://workbench.data.aliyun.com/console). Find your workspace and go to the DataStudio page. On the DataStudio page, click the logon username in the upper-right corner and click User Info in the Menu section.
+    // The tenant ID. To obtain the tenant ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console), go to the DataStudio page, click your username in the upper-right corner, and select Menu > User Info.
     shared_ptr<int64_t> tenantId_ {};
   };
 

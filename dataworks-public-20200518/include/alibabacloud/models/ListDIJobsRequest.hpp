@@ -84,19 +84,19 @@ namespace Models
 
 
   protected:
-    // The destination type. If you do not configure this parameter, no limits are imposed on the tasks.
+    // The destination data source type. If this parameter is not specified, no filtering is applied.
     shared_ptr<string> destinationDataSourceType_ {};
-    // The name of the task. Fuzzy match is supported. If you do not configure this parameter, no limits are imposed on the tasks.
+    // The task name. If this parameter is not specified, no filtering is applied. Fuzzy match is supported.
     shared_ptr<string> jobName_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10. Maximum value: 100.
+    // The page size. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the workspace.
+    // The workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The source type. If you do not configure this parameter, no limits are imposed on the tasks.
+    // The source data source type. If this parameter is not specified, no filtering is applied.
     shared_ptr<string> sourceDataSourceType_ {};
   };
 

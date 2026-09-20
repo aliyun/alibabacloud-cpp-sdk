@@ -75,7 +75,16 @@ namespace Models
 
 
   protected:
-    // The alert method. Valid values: 1 (email), 2 (email and SMS), 4 (DingTalk Group Bot), 5 (DingTalk Group Bot with an @all message), 6 (Lark), 7 (WeCom), 8 (webhook), and 9 (Phone Alert).
+    // The notification method. Valid values:
+    // 
+    // - 1: email.
+    // - 2: email and text message.
+    // - 4: DingTalk chatbot.
+    // - 5: DingTalk chatbot @ALL.
+    // - 6: Lark.
+    // - 7: WeCom.
+    // - 8: WEBHOOK.
+    // - 9: phone call alert.
     // 
     // This parameter is required.
     shared_ptr<int32_t> alarmMode_ {};
@@ -83,13 +92,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> entityId_ {};
-    // The Alibaba Cloud account ID of the follower.
+    // The account ID of the subscriber.
     // 
     // This parameter is required.
     shared_ptr<string> follower_ {};
-    // The ID of the DataWorks workspace. To find the workspace ID, log in to the DataWorks console.
+    // The ID of the DataWorks workspace. You can obtain the ID from the DataWorks console.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the compute engine or data source.
+    // The name of the engine or data source.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};

@@ -151,16 +151,20 @@ namespace Models
 
       protected:
         // The time when the folder was created.
+        // 
+        // The format is `yyyy-MM-dd\\"T\\"HH:mm:ssZ`, for example, `2020-09-24T18:37:51+0800`. The time zone offset in this example is `+0800`.
         shared_ptr<string> createdTime_ {};
         // The folder ID.
         shared_ptr<int64_t> folderId_ {};
-        // The name of the folder.
+        // The folder name.
         shared_ptr<string> folderName_ {};
         // The ID of the business process to which the folder belongs.
         shared_ptr<string> groupId_ {};
         // The time when the folder was last modified.
+        // 
+        // The format is `yyyy-MM-dd\\"T\\"HH:mm:ssZ`, for example, `2020-09-24T18:37:51+0800`. The time zone offset in this example is `+0800`.
         shared_ptr<string> modifiedTime_ {};
-        // The ID of the parent folder. The ID of the root folder in a business process is 0, and the ID of a folder created by a user in a business process is greater than 0.
+        // The ID of the parent folder. The root folder ID under a business process is 0. User-created folder IDs are greater than 0.
         shared_ptr<int64_t> parentId_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
@@ -201,13 +205,13 @@ namespace Models
 
 
     protected:
-      // The folders.
+      // The folder list.
       shared_ptr<vector<FolderPagingResult::Folders>> folders_ {};
-      // The page number. The value of this parameter is the same as that of the PageNumber parameter in the request.
+      // The page number, which is the same as the PageNumber parameter in the request.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -230,9 +234,9 @@ namespace Models
 
 
   protected:
-    // The paging result for the folders.
+    // The pagination result of the folder list.
     shared_ptr<ListDataServiceFoldersResponseBody::FolderPagingResult> folderPagingResult_ {};
-    // The request ID.
+    // The request ID. A unique identifier for the request.
     shared_ptr<string> requestId_ {};
   };
 

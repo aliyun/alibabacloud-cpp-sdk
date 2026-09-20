@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The information about the collection.
+    // The collection object.
     shared_ptr<Collection> collection_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -95,13 +95,12 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can locate logs and troubleshoot issues based on the ID.
+    // The request ID. Used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // 
-    // true
-    // 
-    // false
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<bool> success_ {};
   };
 

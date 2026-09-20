@@ -86,7 +86,7 @@ namespace Models
 
 
   protected:
-    // The map returned. The key in the map indicates an output name, and the value in the map indicates the information about the node that generates the output.
+    // The returned data, which is a map. The key is each output that you specify, and the value is the node information that corresponds to the output.
     Darabonba::Json data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -94,9 +94,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

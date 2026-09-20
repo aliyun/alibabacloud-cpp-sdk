@@ -94,25 +94,27 @@ namespace Models
 
 
   protected:
-    // Extension point event encoding.
+    // The event code of the extension point.
     // 
     // This parameter is required.
     shared_ptr<string> eventCode_ {};
-    // The message ID in DataWorks OpenEvent. You can obtain the ID from a received message when an extension point event is triggered.
+    // The message ID of the DataWorks open message. After an extension point event is triggered, you can obtain the message ID from the received event message.
+    // 
+    // <props="china">For the message format, refer to [Message format](https://help.aliyun.com/document_detail/215367.html).
     shared_ptr<string> messageId_ {};
-    // The operator ID.
+    // The ID of the operator.
     shared_ptr<string> operator_ {};
-    // The page number. Default value: 1.
+    // The page number in a paged query. This parameter is used for paging. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in a paged query. This parameter is used for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the workspace.
     shared_ptr<int64_t> projectId_ {};
     // The check status of the extension. Valid values:
     // 
-    // *   CHECKING
-    // *   PASSED
-    // *   BLOCKED
+    // - CHECKING: The check is in progress.
+    // - PASSED: The check is passed.
+    // - BLOCKED: The check is not passed.
     shared_ptr<string> status_ {};
   };
 

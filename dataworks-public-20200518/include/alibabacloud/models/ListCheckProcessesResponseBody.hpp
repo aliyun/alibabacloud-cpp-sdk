@@ -159,26 +159,27 @@ namespace Models
 
 
       protected:
-        // Extension point event encoding.
+        // The event code of the extension point.
         shared_ptr<string> eventCode_ {};
         // The name of the extension point event.
         shared_ptr<string> eventName_ {};
         // The English name of the event.
         shared_ptr<string> eventNameEn_ {};
-        // DataWorks the message ID of the open message. After an extended point event is triggered, you can obtain the message ID from the received event message.
+        // The message ID of the DataWorks open message. After an extension point event is triggered, you can obtain the message ID from the received event message.
         shared_ptr<string> messageId_ {};
-        // The operator ID.
+        // The ID of the operator.
         shared_ptr<string> operator_ {};
-        // The ID of the process instance.
+        // The process instance ID.
         shared_ptr<string> processId_ {};
-        // The name of the check object, such as the file name or node name.
+        // The name of the operation object, such as the file name or node name.
         shared_ptr<string> processName_ {};
         // The ID of the DataWorks workspace.
         shared_ptr<int64_t> projectId_ {};
-        // The status of the extender check.
-        // - CHECKING CHECKING
-        // - PASSED the pass check
-        // - BLOCKED check failed
+        // The check status of the extension. Valid values:
+        // 
+        // - CHECKING: The check is in progress.
+        // - PASSED: The check is passed.
+        // - BLOCKED: The check is not passed.
         shared_ptr<string> status_ {};
       };
 
@@ -215,13 +216,13 @@ namespace Models
 
 
     protected:
-      // The check details of the extension.
+      // The details of the extension check processes.
       shared_ptr<vector<PagingInfo::CheckProcesses>> checkProcesses_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries displayed on each page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -246,7 +247,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListCheckProcessesResponseBody::PagingInfo> pagingInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

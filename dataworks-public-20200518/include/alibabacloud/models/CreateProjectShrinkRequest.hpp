@@ -112,30 +112,30 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. This parameter can be left empty.
+    // The idempotency parameter. This parameter can be left empty.
     shared_ptr<string> clientToken_ {};
-    // Specifies whether to disable the Develop role. Valid values:
+    // Specifies whether to disable the development role. Valid values:
     // 
-    // *   **false** (default)
-    // *   **true**
+    // - **false** (default): enables the development role.
+    // - **true**: disables the development role.
     shared_ptr<bool> disableDevelopment_ {};
-    // Specifies whether to allow you to download the query result from DataStudio. Valid values:
+    // Specifies whether to allow downloading query results from the IDE. Valid values:
     // 
-    // *   **1** (default): allows you to download the query result from DataStudio.
-    // *   **0**: does not allow you to download the query result from DataStudio.
+    // - **1** (default): allows downloading.
+    // - **0**: does not allow downloading.
     shared_ptr<int32_t> isAllowDownload_ {};
-    // The description of the workspace.
+    // The detailed description of the workspace.
     shared_ptr<string> projectDescription_ {};
-    // The name of the workspace. The name can contain only letters, digits, and underscores (_) and must start with a letter or digit.
+    // The name of the workspace. The name can contain only letters, digits, and underscores (_), and must start with a letter or digit.
     // 
     // This parameter is required.
     shared_ptr<string> projectIdentifier_ {};
-    // The mode of the workspace. For more information about the differences between the modes of workspaces, see [Differences between workspaces in basic mode and workspaces in standard mode](https://help.aliyun.com/document_detail/85772.html).
+    // The mode of the workspace. For more information about the differences between modes, see [Must-read: Differences between simple mode and standard mode](https://help.aliyun.com/document_detail/85772.html).
     // 
     // Valid values:
     // 
-    // *   **2** (default): basic mode
-    // *   **3**: standard mode
+    // - **2** (default): simple workspace mode.
+    // - **3**: standard workspace mode.
     shared_ptr<int32_t> projectMode_ {};
     // The display name of the workspace.
     // 
@@ -143,7 +143,7 @@ namespace Models
     shared_ptr<string> projectName_ {};
     // The resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The tags added to the workspace.
+    // The list of tags bound to the workspace.
     shared_ptr<string> tagsShrink_ {};
   };
 

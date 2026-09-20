@@ -167,23 +167,27 @@ namespace Models
 
 
       protected:
-        // The category ID.
+        // The ID of the category.
         shared_ptr<int64_t> categoryId_ {};
         // The remarks of the category.
         shared_ptr<string> comment_ {};
         // The time when the category was created.
+        // 
+        // The value is a 13-digit number, such as `1541576644000`.
         shared_ptr<int64_t> createTime_ {};
-        // The number of category levels.
+        // The depth level of the category.
         shared_ptr<int32_t> depth_ {};
-        // The ID of the user that performed the last operation.
+        // The ID of the user who last performed an operation.
         shared_ptr<string> lastOperatorId_ {};
         // The time when the category was last modified.
+        // 
+        // The value is a 13-digit number, such as `1541576644000`.
         shared_ptr<int64_t> modifiedTime_ {};
         // The name of the category.
         shared_ptr<string> name_ {};
-        // The category owner ID.
+        // The ID of the category owner.
         shared_ptr<string> ownerId_ {};
-        // The parent category ID.
+        // The ID of the parent category.
         shared_ptr<int64_t> parentCategoryId_ {};
       };
 
@@ -220,13 +224,13 @@ namespace Models
 
 
     protected:
-      // The information about the category tree.
+      // The list of data entities.
       shared_ptr<vector<Data::DataEntityList>> dataEntityList_ {};
-      // The page number.
+      // The page number. Used for pagination.
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of categories returned.
+      // The total number of categories.
       shared_ptr<int64_t> totalCount_ {};
     };
 

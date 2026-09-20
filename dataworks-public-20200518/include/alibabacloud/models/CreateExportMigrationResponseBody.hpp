@@ -57,14 +57,13 @@ namespace Models
 
 
   protected:
-    // The export task ID.
+    // The ID of the export task.
     shared_ptr<int64_t> data_ {};
-    // The request ID. You can locate logs and troubleshoot issues based on the ID.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed. You can locate the issue based on the request ID.
     shared_ptr<bool> success_ {};
   };
 

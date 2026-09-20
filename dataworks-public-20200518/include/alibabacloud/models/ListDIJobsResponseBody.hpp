@@ -143,35 +143,26 @@ namespace Models
       protected:
         // The task ID.
         shared_ptr<int64_t> DIJobId_ {};
-        // The type of the destination. The value Hologres is returned.
+        // The destination data source type. Valid values: Hologres.
         shared_ptr<string> destinationDataSourceType_ {};
         // The task name.
         shared_ptr<string> jobName_ {};
-        // The task status. Valid values:
-        // 
-        // - Finished
-        // 
-        // - Initialized
-        // 
-        // - Stopped
-        // 
-        // - Failed
-        // 
-        // - Running
-        // 
-        // - Stopping
+        // The synchronization status. Valid values:
+        // - Finished: Completed successfully.
+        // - Initialized: Initialization completed.
+        // - Stopped: Stopped.
+        // - Failed: Failed.
+        // - Running: Running.
+        // - Stopping: Stopping.
         shared_ptr<string> jobStatus_ {};
         // The synchronization type. Valid values:
-        // 
-        // - FullAndRealtimeIncremental: one-time full synchronization and real-time incremental synchronization
-        // 
-        // - RealtimeIncremental: real-time incremental synchronization
-        // 
-        // - Full: one-time full synchronization
+        // - FullAndRealtimeIncremental: Full and real-time incremental.
+        // - RealtimeIncremental: Real-time incremental.
+        // - Full: Full.
         shared_ptr<string> migrationType_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
-        // The type of the source. The value MySQL is returned.
+        // The source data source type. Valid values: MySQL.
         shared_ptr<string> sourceDataSourceType_ {};
       };
 
@@ -208,13 +199,13 @@ namespace Models
 
 
     protected:
-      // The list of tasks.
+      // The task list.
       shared_ptr<vector<DIJobPaging::DIJobs>> DIJobs_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -237,7 +228,7 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The paginated task results.
     shared_ptr<ListDIJobsResponseBody::DIJobPaging> DIJobPaging_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

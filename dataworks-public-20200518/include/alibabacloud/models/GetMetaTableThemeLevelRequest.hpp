@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The type of the data source. Set the value to odps.
+    // The data type. Currently, only odps is supported.
     // 
     // This parameter is required.
     shared_ptr<string> dataSourceType_ {};
-    // The GUID of the metatable. Specify the GUID in the format of odps.${projectName}.${tableName}.
+    // The unique ID of the table. Format: odps.${projectName}.${tableName}.
     // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};

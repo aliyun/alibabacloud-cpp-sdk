@@ -133,11 +133,11 @@ namespace Models
 
 
       protected:
-        // The timestamp when the event was found.
+        // The timestamp when the event was detected.
         shared_ptr<int64_t> addTime_ {};
-        // The instance ID.
+        // The ID of the instance.
         shared_ptr<int64_t> instanceId_ {};
-        // The event ID.
+        // The ID of the event.
         shared_ptr<int64_t> topicId_ {};
         // The name of the event.
         shared_ptr<string> topicName_ {};
@@ -236,21 +236,29 @@ namespace Models
 
 
       protected:
-        // The timestamp obtained by adding the predicted time when the instance started to run to the historical average running duration of the instance.
+        // The timestamp calculated by adding the historical average run duration to the estimated start time of the instance.
         shared_ptr<int64_t> absTime_ {};
-        // The timestamp of the predicted time when the instance started to run.
+        // The estimated start time of the instance.
         shared_ptr<int64_t> beginCast_ {};
-        // The timestamp of the actual time when the instance started to run.
+        // The timestamp when the instance actually started running.
         shared_ptr<int64_t> beginRunningTime_ {};
-        // The timestamp when the instance started to wait for resources.
+        // The timestamp when the instance entered the waiting-for-resources state.
         shared_ptr<int64_t> beginWaitResTime_ {};
-        // The timestamp when the instance started to wait for the scheduling time.
+        // The timestamp when the instance entered the waiting-for-time state.
         shared_ptr<int64_t> beginWaitTimeTime_ {};
-        // The timestamp of the predicted time when the instance finished running.
+        // The estimated end time of the instance.
         shared_ptr<int64_t> endCast_ {};
-        // The timestamp of the actual time when the instance finished running.
+        // The timestamp when the instance actually finished running.
         shared_ptr<int64_t> finishTime_ {};
-        // The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS. The value NOT_RUN indicates that the instance is not run. The value WAIT_TIME indicates that the instance is waiting to be run. The value WAIT_RESOURCE indicates that the instance is waiting for resources. The value RUNNING indicates that the instance is running. The value CHECKING indicates that data quality is being checked for the instance. The value CHECKING_CONDITION indicates that branch conditions are being checked for the instance. The value FAILURE indicates that the instance fails to run. The value SUCCESS indicates that the instance is run.
+        // The status of the instance. Valid values:
+        // - NOT_RUN: not run.
+        // - WAIT_TIME: waiting for the scheduled time.
+        // - WAIT_RESOURCE: waiting for resources.
+        // - RUNNING: running.
+        // - CHECKING: checking.
+        // - CHECKING_CONDITION: checking conditions.
+        // - FAILURE: failed.
+        // - SUCCESS: succeeded.
         shared_ptr<string> status_ {};
       };
 
@@ -332,25 +340,25 @@ namespace Models
 
 
     protected:
-      // The data timestamp of the instance.
+      // The timestamp of the business date of the instance.
       shared_ptr<int64_t> bizdate_ {};
-      // The ID of the scheduling cycle of the instance. Valid values: 1 to 288.
+      // The cycle number of the instance. Valid values: [1,288\\].
       shared_ptr<int32_t> inGroupId_ {};
       // The ID of the instance.
       shared_ptr<int64_t> instanceId_ {};
-      // The node ID.
+      // The ID of the node.
       shared_ptr<int64_t> nodeId_ {};
       // The name of the node.
       shared_ptr<string> nodeName_ {};
-      // The ID of the Alibaba Cloud account used by the node owner.
+      // The Alibaba Cloud UID of the node owner.
       shared_ptr<string> owner_ {};
-      // The type of the node. Valid values: 23, 10, 6, and 99. The value 23 indicates that the node is a Data Integration node. The value 10 indicates that the node is a MaxCompute SQL node. The value 6 indicates that the node is a Shell node. The value 99 indicates that the node is a zero load node.
+      // The node type. Common node types include Data Integration (23), MaxCompute SQL (10), Shell (6), and virtual node (99).
       shared_ptr<int32_t> prgType_ {};
       // The ID of the workspace to which the node belongs.
       shared_ptr<int64_t> projectId_ {};
-      // The running records of the instance.
+      // The run records of the instance.
       shared_ptr<vector<Data::Runs>> runs_ {};
-      // The information about the events that are associated with the instance.
+      // The event information associated with the instance.
       shared_ptr<vector<Data::Topics>> topics_ {};
     };
 
@@ -401,17 +409,17 @@ namespace Models
 
 
   protected:
-    // The information about the key path.
+    // The critical path information.
     shared_ptr<vector<GetBaselineKeyPathResponseBody::Data>> data_ {};
-    // Error code
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // Error message
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The timestamp when the event was found.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The unique ID of the call. After an error occurs, you can troubleshoot the problem based on the ID.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Whether the call is successful.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

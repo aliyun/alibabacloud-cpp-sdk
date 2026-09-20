@@ -48,11 +48,16 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ID of the instance.
+    // 
+    // You can obtain the ID from Data.Instances[].InstanceId in the ListInstances response.
     // 
     // This parameter is required.
     shared_ptr<int64_t> instanceId_ {};
-    // The environment of the workspace. Valid values: PROD and DEV.
+    // The environment of the workspace. Valid values:
+    // 
+    // - PROD: production environment
+    // - DEV: development environment
     // 
     // This parameter is required.
     shared_ptr<string> projectEnv_ {};

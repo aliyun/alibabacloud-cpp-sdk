@@ -113,13 +113,17 @@ namespace Models
 
 
       protected:
-        // The time when the on-duty engineer starts the shift.
+        // The start time of the on-duty cycle.
+        // 
+        // The value is a 13-digit timestamp, for example, `1593950832000`.
         shared_ptr<int64_t> beginTime_ {};
-        // The time when the on-duty engineer ends the shift.
+        // The end time of the on-duty cycle.
+        // 
+        // The value is a 13-digit timestamp, for example, `1593950832000`.
         shared_ptr<int64_t> endTime_ {};
-        // The name of the on-duty engineer.
+        // The name of the on-duty person.
         shared_ptr<string> shiftPersonName_ {};
-        // The UID of the on-duty engineer.
+        // The UID of the on-duty person.
         shared_ptr<string> shiftPersonUID_ {};
       };
 
@@ -156,13 +160,13 @@ namespace Models
 
 
     protected:
-      // The page number. Valid values: 1 to 100. Default value: 1.
+      // The page number. Minimum value: 1. Maximum value: 100. Default value: 1.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The on-duty engineers in the shift schedule.
+      // The list of on-duty personnel.
       shared_ptr<vector<Paging::ShiftPersons>> shiftPersons_ {};
-      // The total number of entries returned.
+      // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -185,9 +189,9 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The pagination result.
     shared_ptr<ListShiftPersonnelsResponseBody::Paging> paging_ {};
-    // The request ID. You can use the ID to troubleshoot issues.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

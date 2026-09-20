@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The E-MapReduce (EMR) cluster ID.
+    // The ID of the EMR cluster.
     shared_ptr<string> clusterId_ {};
-    // The type of the data source. Valid values: odps and emr.
+    // The data source type. Valid values: odps and emr.
     shared_ptr<string> dataSourceType_ {};
-    // The name of the metadatabase of the EMR cluster.
+    // The name of the EMR database.
     shared_ptr<string> databaseName_ {};
-    // The GUID of the metatable.
+    // The globally unique identifier of the table.
     shared_ptr<string> tableGuid_ {};
-    // The name of the EMR metatable.
+    // The name of the EMR table.
     shared_ptr<string> tableName_ {};
   };
 

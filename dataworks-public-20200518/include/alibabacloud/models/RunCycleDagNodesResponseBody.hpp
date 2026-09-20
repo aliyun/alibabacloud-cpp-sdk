@@ -87,7 +87,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the nodes in the workflow. You can query instances based on the IDs.
+    // The DagId returned by the data backfill instance. You can use this DagId to query the corresponding instances.
     shared_ptr<vector<int64_t>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -95,9 +95,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can use the request ID to query logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

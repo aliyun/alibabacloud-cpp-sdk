@@ -79,15 +79,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> collectionQualifiedName_ {};
-    // The type of the entities.
-    // 
-    // For example, if this parameter is set to maxcompute-table, the entity is a MaxCompute table.
+    // The entity type. Example: maxcompute-table indicates the MaxCompute table type.
     shared_ptr<string> entityType_ {};
     // The search keyword.
     shared_ptr<string> keyword_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The pagination token that specifies the starting point of the current read operation.
     shared_ptr<string> nextToken_ {};
-    // The number of entries per page.
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
   };
 

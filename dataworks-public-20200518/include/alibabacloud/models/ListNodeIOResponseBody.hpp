@@ -87,7 +87,7 @@ namespace Models
 
 
     protected:
-      // The name of the ancestor or descendant node.
+      // The name of the input or output.
       shared_ptr<string> data_ {};
       // The node ID.
       shared_ptr<int64_t> nodeId_ {};
@@ -142,7 +142,7 @@ namespace Models
 
 
   protected:
-    // The node information.
+    // The upstream and downstream information.
     shared_ptr<vector<ListNodeIOResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -150,9 +150,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The ID of the request, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

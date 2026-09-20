@@ -307,71 +307,69 @@ namespace Models
 
 
     protected:
-      // The description of the node.
+      // The baseline ID. The baseline ID configured for the node as a leaf node is returned. If no baseline is configured, a workspace default value is returned.
       shared_ptr<int64_t> baselineId_ {};
-      // The operation that you want to perform. Set the value to **GetNode**.
+      // The ID of the workflow.
       shared_ptr<int64_t> businessId_ {};
-      // The environment of the workspace. Valid values: PROD and DEV.
+      // The connection string.
       shared_ptr<string> connection_ {};
       // The creation time.
+      // 
+      // The value is a 13-digit number, such as `1727280000000`.
       shared_ptr<int64_t> createTime_ {};
-      // The environment of the workspace. Valid values: PROD and DEV.
+      // The CRON expression.
       shared_ptr<string> cronExpress_ {};
       // The deployment date.
+      // 
+      // The value is a 13-digit number, such as `1727280000000`.
       shared_ptr<int64_t> deployDate_ {};
-      // The name of the resource group.
+      // The description of the node.
       shared_ptr<string> description_ {};
-      // The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
+      // The DQC partitioning rule string.
       shared_ptr<string> dqcDescription_ {};
-      // The error message returned.
+      // The DQC type. A value of 0 indicates that no DQC rule is associated. A value of 1 indicates that a DQC rule is associated.
       shared_ptr<int32_t> dqcType_ {};
-      // The file ID.
-      // 
-      // \\*\\*
-      // 
-      // **Warning** The field is deprecated.
+      // The file ID. <warning>This field is deprecated.</warning>
       shared_ptr<int64_t> fileId_ {};
-      // The file type. Different file types have different codes. For more information, see [DataWorks node collection](https://help.aliyun.com/document_detail/600169.html).
+      // The file type. Different file types have different codes. For more information, see [DataWorks nodes](https://help.aliyun.com/document_detail/600169.html).
       shared_ptr<int32_t> fileType_ {};
-      // The version of the file.
+      // The file version.
       shared_ptr<int32_t> fileVersion_ {};
       // The modification time.
+      // 
+      // The value is a 13-digit number, such as `1727280000000`.
       shared_ptr<int64_t> modifyTime_ {};
-      // The HTTP status code returned.
-      shared_ptr<int64_t> nodeId_ {};
-      // The scheduling type of the node. Valid values:
-      // 
-      // - NORMAL: The node is an auto triggered node.
-      // 
-      // - MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
-      // 
-      // - PAUSE: The node is a paused node.
-      // 
-      // - SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
-      shared_ptr<string> nodeName_ {};
       // The ID of the node.
+      shared_ptr<int64_t> nodeId_ {};
+      // The name of the node.
+      shared_ptr<string> nodeName_ {};
+      // The ID of the node owner.
       shared_ptr<string> ownerId_ {};
-      // The CRON expression returned.
+      // The additional parameters.
       shared_ptr<string> paramValues_ {};
-      // The HTTP status code returned.
+      // The priority of the node. Valid values: 1, 3, 5, 7, and 8.
       shared_ptr<int32_t> priority_ {};
-      // The ID of the owner of the node.
-      shared_ptr<string> programType_ {};
-      // Indicates whether the node can be rerun.
-      shared_ptr<int64_t> projectId_ {};
-      // Indicates whether the node is associated with Data Quality. Valid values: 0 and 1. A value of 0 indicates that the node is associated with Data Quality. A value of 1 indicates that the node is not associated with Data Quality.
-      shared_ptr<int64_t> relatedFlowId_ {};
-      // The ID of the workflow to which the node belongs.
-      shared_ptr<int64_t> repeatInterval_ {};
-      // Rerun mode. 0 indicates that you can rerun only if you fail, 1 indicates that you can rerun in all cases, and 2 indicates that you cannot rerun in all cases.
-      shared_ptr<int32_t> repeatMode_ {};
       // The type of the node.
+      shared_ptr<string> programType_ {};
+      // The ID of the workspace.
+      shared_ptr<int64_t> projectId_ {};
+      // The ID of the associated workflow.
+      shared_ptr<int64_t> relatedFlowId_ {};
+      // The interval at which the node is rescheduled after a failure.
+      shared_ptr<int64_t> repeatInterval_ {};
+      // The rerun mode. A value of 0 indicates that the node can be rerun only upon failure. A value of 1 indicates that the node can be rerun in all cases. A value of 2 indicates that the node cannot be rerun in any case.
+      shared_ptr<int32_t> repeatMode_ {};
+      // Indicates whether the node can be rerun.
       shared_ptr<string> repeatability_ {};
       // The unique identifier of the resource group.
       shared_ptr<string> resGroupIdentifier_ {};
-      // The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+      // The name of the resource group.
       shared_ptr<string> resGroupName_ {};
-      // The ID of the workspace.
+      // The scheduling type. Valid values:
+      // - NORMAL: normal scheduling node.
+      // - MANUAL: manual node that is not scheduled on a regular basis.
+      // - PAUSE: paused node.
+      // - SKIP: dry-run node that is scheduled on a regular basis but is directly set to successful when scheduling starts.
       shared_ptr<string> schedulerType_ {};
     };
 
@@ -424,15 +422,15 @@ namespace Models
   protected:
     // The details of the node.
     shared_ptr<GetNodeResponseBody::Data> data_ {};
-    // The ID of the node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The connection string.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The operation that you want to perform. Set the value to **GetNode**.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Other parameters.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The ID of the workflow.
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -143,11 +143,15 @@ namespace Models
         shared_ptr<string> changeContent_ {};
         // The type of the change.
         shared_ptr<string> changeType_ {};
-        // The time when the metatable was created.
+        // The time when the table was created.
+        // 
+        // The format is a 13-digit number, for example, `1590722845000`.
         shared_ptr<int64_t> createTime_ {};
-        // The time when the metatable was modified.
+        // The time when the table was modified.
+        // 
+        // The format is a 13-digit number, for example, `1590722845000`.
         shared_ptr<int64_t> modifiedTime_ {};
-        // The entity on which the change was made. Valid values: TABLE and PARTITION.
+        // The type of the changed object. Valid values: TABLE and PARTITION.
         shared_ptr<string> objectType_ {};
         // The name of the operator.
         shared_ptr<string> operator_ {};
@@ -188,11 +192,11 @@ namespace Models
     protected:
       // The list of instances.
       shared_ptr<vector<Data::DataEntityList>> dataEntityList_ {};
-      // The page number.
+      // The page number. Used for pagination.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of metatables.
+      // The total number of tables.
       shared_ptr<int64_t> totalCount_ {};
     };
 

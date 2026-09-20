@@ -94,29 +94,24 @@ namespace Models
 
 
   protected:
-    // The type of the change. Valid values: CREATE_TABLE, ALTER_TABLE, DROP_TABLE, ADD_PARTITION, and DROP_PARTITION.
+    // The type of change. Valid values: CREATE_TABLE, ALTER_TABLE, DROP_TABLE, ADD_PARTITION, and DROP_PARTITION.
     shared_ptr<string> changeType_ {};
-    // The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-    // 
-    // - By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-    // 
-    // - If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+    // The end date of the table change. Format: yyyy-MM-dd HH:mm:ss.
+    // - If the date validation fails, the system uses the current time as the end date by default.
+    // - If both the start date and end date fail validation, the system automatically retrieves the table change records from the last 30 days.
     shared_ptr<string> endDate_ {};
-    // The entity on which the change is made. Valid values: TABLE and PARTITION.
+    // The type of the changed object. Valid values: TABLE and PARTITION.
     shared_ptr<string> objectType_ {};
-    // The page number.
+    // The page number. Used for pagination.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-    // 
-    // - By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-    // 
-    // - If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+    // The start date of the table change. Format: yyyy-MM-dd HH:mm:ss.
+    // - If the date validation fails, the system uses the current time as the start date by default.
+    // - If both the start date and end date fail validation, the system automatically retrieves the table change records from the last 30 days.
     shared_ptr<string> startDate_ {};
-    // The GUID of the table. Specify the GUID in the odps.projectName.tableName format. You can call the [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) operation to query the GUID.
-    // 
-    // > To query the change logs of a MaxCompute table, you must call the [GetMetaTableChangeLog](https://help.aliyun.com/document_detail/2780094.html) operation.
+    // The globally unique identifier (GUID) of the table. Format: odps.projectName.tableName. You can call [GetMetaDBTableList](https://help.aliyun.com/document_detail/2780086.html) to obtain the GUID of the table.
+    // > Currently, you can call [GetMetaTableChangeLog](https://help.aliyun.com/document_detail/2780094.html) to retrieve the change log of only MaxCompute tables.
     // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};

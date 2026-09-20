@@ -114,21 +114,21 @@ namespace Models
   protected:
     // The ID of the collection administrator.
     shared_ptr<string> administrator_ {};
-    // - ALBUM: data album
-    // 
-    // - ALBUM_CATEGORY: category in a data album
+    // The type of collection to query. Valid values:
+    // - **ALBUM**: album collection.
+    // - **ALBUM_CATEGORY**: subcategory within an album.
     // 
     // This parameter is required.
     shared_ptr<string> collectionType_ {};
-    // The ID of the collection creator.
+    // The user ID of the creator.
     shared_ptr<string> creator_ {};
     // The ID of the collection follower.
     shared_ptr<string> follower_ {};
     // The keyword.
     shared_ptr<string> keyword_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The pagination token that specifies the start point of the current read operation.
     shared_ptr<string> nextToken_ {};
-    // The name of the sorting field.
+    // The name of the field used for sorting.
     shared_ptr<string> orderBy_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};

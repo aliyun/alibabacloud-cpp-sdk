@@ -74,9 +74,9 @@ namespace Models
 
 
     protected:
-      // The key of tag N to add to the workspace.
+      // The tag key.
       shared_ptr<string> key_ {};
-      // The value of tag N to add to the workspace.
+      // The tag value.
       shared_ptr<string> value_ {};
     };
 
@@ -113,13 +113,13 @@ namespace Models
 
 
   protected:
-    // The page number. Valid values: 1 to 100.
+    // The page number. Minimum value: 1. Maximum value: 100.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The tags to add to the workspace.
+    // The list of tags bound to the workspace.
     shared_ptr<vector<ListProjectsRequest::Tags>> tags_ {};
   };
 

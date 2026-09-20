@@ -181,36 +181,33 @@ namespace Models
       protected:
         // The baseline ID.
         shared_ptr<int64_t> baselineId_ {};
-        // The CRON expression. CRON expressions are used to run auto triggered nodes.
+        // The CRON expression. This expression is used for timed scheduling to execute the node task.
         shared_ptr<string> cronExpress_ {};
         // The node ID.
         shared_ptr<int64_t> nodeId_ {};
-        // The name of the node.
+        // The node name.
         shared_ptr<string> nodeName_ {};
-        // The ID of the Alibaba Cloud account used by the node owner.
+        // The DataWorks UID of the node owner.
         shared_ptr<string> ownerId_ {};
-        // The priority. Valid values: 1 to 8. A large value indicates a high priority.
+        // The priority. Valid values: 1 to 8. A larger value indicates a higher priority.
         shared_ptr<int32_t> priority_ {};
-        // The type of the node.
+        // The node type.
         shared_ptr<string> programType_ {};
         // The ID of the workspace to which the node belongs.
         shared_ptr<int64_t> projectId_ {};
-        // Indicates whether the node can be rerun if the node fails to run. Valid values:
-        // 
-        // *   true
-        // *   false
+        // Indicates whether the node can be rerun upon failure. Valid values:
+        // - true: The node can be rerun.
+        // - false: The node cannot be rerun.
         shared_ptr<bool> repeatability_ {};
-        // The scheduling type of the node. Valid values:
-        // 
-        // *   NORMAL: The node is an auto triggered node.
-        // *   MANUAL: The node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
-        // *   PAUSE: The node is a paused node. Paused nodes are started as scheduled but the system sets the status of the nodes to failed when it starts to run them.
-        // *   SKIP: The node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+        // The scheduling type. Valid values:
+        // - NORMAL: normal scheduling node.
+        // - MANUAL: manual node that is not triggered by daily scheduling.
+        // - PAUSE: paused node that is triggered by daily scheduling but is set to failed when scheduling starts.
+        // - SKIP: dry-run node that is triggered by daily scheduling but is set to successful when scheduling starts.
         shared_ptr<string> schedulerType_ {};
-        // The scheduling dependency type.
-        // 
-        // *   **0**: same-cycle scheduling dependency
-        // *   **3**: cross-cycle scheduling dependency
+        // The scheduling dependency type. Valid values:
+        // - **0**: same-cycle dependency.
+        // - **3**: cross-cycle dependency.
         shared_ptr<string> stepType_ {};
       };
 
@@ -225,7 +222,7 @@ namespace Models
 
 
     protected:
-      // The ancestor nodes.
+      // The list of nodes.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 
@@ -276,7 +273,7 @@ namespace Models
 
 
   protected:
-    // The ancestor nodes.
+    // The list of node information returned.
     shared_ptr<GetNodeParentsResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -284,9 +281,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can troubleshoot issues based on the ID.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

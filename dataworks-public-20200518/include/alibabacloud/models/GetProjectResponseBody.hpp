@@ -383,7 +383,7 @@ namespace Models
       shared_ptr<string> appkey_ {};
       // This parameter is deprecated.
       shared_ptr<bool> baseProject_ {};
-      // The ID of the resource group that was allocated by default when you purchased an exclusive resource group for MaxCompute.
+      // The identifier of the default resource group that is automatically assigned when you purchase a MaxCompute exclusive resource group.
       shared_ptr<string> defaultDiResourceGroupIdentifier_ {};
       // This parameter is deprecated.
       shared_ptr<int32_t> destination_ {};
@@ -391,26 +391,23 @@ namespace Models
       shared_ptr<string> devStorageQuota_ {};
       // This parameter is deprecated.
       shared_ptr<int32_t> developmentType_ {};
-      // Indicates whether the Develop role is disabled. Valid values:
-      // 
-      // *   **false** (default)
-      // *   **true**
+      // Indicates whether the development role is disabled. Valid values:
+      //  - **false** (default): The development role is enabled.
+      //  - **true**: The development role is disabled.
       shared_ptr<bool> disableDevelopment_ {};
-      // The environment information of the workspace.
+      // The environment context of the workspace.
       shared_ptr<vector<string>> envTypes_ {};
       // The time when the workspace was created. Example: `Dec 3, 2019 9:12:20 PM`.
       shared_ptr<string> gmtCreate_ {};
       // The time when the workspace was last modified. Example: `Dec 3, 2019 9:12:20 PM`.
       shared_ptr<string> gmtModified_ {};
-      // Indicates whether you are allowed to download the query result from DataStudio. Valid values:
-      // 
-      // *   **1**: You are allowed to download the query result from DataStudio.
-      // *   **0**: You are not allowed to download the query result from DataStudio.
+      // Indicates whether downloading query results from the IDE is allowed. Valid values:
+      // - **1**: Downloading is allowed.
+      // - **0**: Downloading is not allowed.
       shared_ptr<int32_t> isAllowDownload_ {};
-      // Indicates whether the workspace is a default workspace. Valid values:
-      // 
-      // *   **1**: The workspace is a default workspace.
-      // *   **0**: The workspace is not a default workspace.
+      // Indicates whether the workspace is the default workspace. Valid values:
+      // - **1**: Yes.
+      // - **0**: No.
       shared_ptr<int32_t> isDefault_ {};
       // This parameter is deprecated.
       shared_ptr<int32_t> maxFlowNode_ {};
@@ -418,58 +415,53 @@ namespace Models
       shared_ptr<string> prodStorageQuota_ {};
       // The description of the workspace.
       shared_ptr<string> projectDescription_ {};
-      // The ID of the workspace.
+      // The workspace ID.
       shared_ptr<int32_t> projectId_ {};
       // The name of the workspace.
       shared_ptr<string> projectIdentifier_ {};
       // The mode of the workspace. Valid values:
-      // 
-      // *   **2**: The workspace is in basic mode.
-      // *   **3**: The workspace is in standard mode.
+      // - **2**: basic mode.
+      // - **3**: standard mode.
       shared_ptr<int32_t> projectMode_ {};
       // The display name of the workspace.
       shared_ptr<string> projectName_ {};
-      // The ID of the Alibaba Cloud account used by the workspace owner.
+      // The Alibaba Cloud ID of the workspace owner.
       shared_ptr<string> projectOwnerBaseId_ {};
-      // Indicates whether the workspace protection feature is enabled. Valid values:
-      // 
-      // *   **1**: enabled
-      // *   **0**: disabled
+      // Indicates whether protected mode is enabled for the workspace. Valid values:
+      // - **1**: Protected mode is enabled.
+      // - **0**: Protected mode is not enabled.
       shared_ptr<int32_t> protectedMode_ {};
       // The type of the workspace. Valid values:
-      // 
-      // *   **private**
-      // *   **swap**
+      // - **private**: private zone.
+      // - **swap**: swap zone.
       shared_ptr<string> residentArea_ {};
       // The resource group ID.
       shared_ptr<string> resourceManagerResourceGroupId_ {};
-      // The default maximum number of automatic reruns that are allowed after an error occurs.
+      // The default maximum number of automatic reruns upon an error.
       shared_ptr<int32_t> schedulerMaxRetryTimes_ {};
-      // The default interval between automatic reruns after an error occurs. Unit: milliseconds. The maximum interval is 30 minutes. You must pay attention to the conversion between units.
+      // The default interval between automatic reruns upon an error. Unit: ms. The maximum value is 30 minutes. Note the unit conversion.
       shared_ptr<int32_t> schedulerRetryInterval_ {};
       // The status of the workspace. Valid values:
-      // 
-      // *   **0**: AVAILABLE, which indicates that the workspace runs as expected.
-      // *   **1**: DELETED, which indicates that the workspace is deleted.
-      // *   **2**: INITIALIZING, which indicates that the workspace is being initialized.
-      // *   **3**: INIT_FAILED, which indicates that the workspace fails to be initialized.
-      // *   **4**: FORBIDDEN, which indicates that the workspace is manually disabled.
-      // *   **5**: DELETING, which indicates that the workspace is being deleted.
-      // *   **6**: DEL_FAILED, which indicates that the workspace fails to be deleted.
-      // *   **7**: FROZEN, which indicates that the workspace is frozen due to overdue payments.
-      // *   **8**: UPDATING, which indicates that the workspace is being updated. The workspace enters this state after you associate a new compute engine with the workspace and the compute engine is initialized.
-      // *   **9**: UPDATE_FAILED, which indicates that the workspace fails to be updated.
+      // - **0**: AVAILABLE. The workspace is running normally.
+      // - **1**: DELETED. The workspace has been deleted.
+      // - **2**: INITIALIZING. The workspace is being initialized.
+      // - **3**: INIT_FAILED. The workspace failed to be initialized.
+      // - **4**: FORBIDDEN. The workspace is manually disabled.
+      // - **5**: DELETING. The workspace is being deleted.
+      // - **6**: DEL_FAILED. The workspace failed to be deleted.
+      // - **7**: FROZEN. The workspace is frozen due to overdue payment.
+      // - **8**: UPDATING. The workspace is being updated (a compute engine is being added and initialized).
+      // - **9**: UPDATE_FAILED. The workspace failed to be updated (a compute engine failed to be added and initialized).
       shared_ptr<int32_t> status_ {};
-      // Indicates whether the MaxCompute tables in the workspace are visible to the users within a tenant. Valid values:
-      // 
-      // *   **0**: invisible
-      // *   **1**: visible
+      // The visibility of MaxCompute tables. Valid values:
+      // - **0**: MaxCompute tables are not visible to users within the tenant.
+      // - **1**: MaxCompute tables are visible to users within the tenant.
       shared_ptr<int32_t> tablePrivacyMode_ {};
-      // The tags added to the workspace.
+      // The list of tags bound to the workspace.
       shared_ptr<vector<Data::Tags>> tags_ {};
       // The tenant ID.
       shared_ptr<int64_t> tenantId_ {};
-      // Indicates whether a proxy account is used to access the MaxCompute compute engine associated with the workspace.
+      // Indicates whether a proxy account is used to access the MaxCompute engine.
       shared_ptr<bool> useProxyOdpsAccount_ {};
     };
 
@@ -506,16 +498,15 @@ namespace Models
 
 
   protected:
-    // The information about the workspace.
+    // The details of the workspace.
     shared_ptr<GetProjectResponseBody::Data> data_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

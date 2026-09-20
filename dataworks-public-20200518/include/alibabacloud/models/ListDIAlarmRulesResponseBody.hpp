@@ -135,21 +135,17 @@ namespace Models
 
 
         protected:
-          // The time interval for alert calculation. Unit: minutes.
+          // The time window for alert calculation. Unit: minutes.
           shared_ptr<int64_t> duration_ {};
           // The severity level. Valid values:
-          // 
           // - Warning
-          // 
           // - Critical
           shared_ptr<string> severity_ {};
           // The alert threshold.
           // 
-          // - If the alert rule is for task status, no threshold is used.
-          // 
-          // - If the alert rule is for failovers, the threshold is the number of failovers.
-          // 
-          // - If the alert rule is for latency, the threshold is the latency duration, in seconds.
+          // - Task status alert: no threshold.
+          // - Failover count alert: the threshold is the number of failovers.
+          // - Task delay alert: the threshold is the delay duration. Unit: seconds.
           shared_ptr<int64_t> threshold_ {};
         };
 
@@ -216,13 +212,12 @@ namespace Models
 
 
           protected:
-            // The recipient type. Valid values: AliyunUid and DingToken.
+            // The receiver type.
             // 
-            // - If the alert notification method is Mail, Phone, or Sms, the value of this parameter is **AliyunUid**, which indicates the Alibaba Cloud account ID.
-            // 
-            // - If the alert notification method is Ding, the value of this parameter is **DingToken**, which indicates the DingTalk chatbot token.
+            // - If the alert notification channel is email, phone call, or text message, the receiver type is Alibaba Cloud user ID (**AliyunUid**).
+            // - If the alert notification channel is DingTalk, the receiver type is DingTalk token (**DingToken**).
             shared_ptr<string> receiverType_ {};
-            // The recipients.
+            // The list of receiver values.
             shared_ptr<vector<string>> receiverValues_ {};
           };
 
@@ -266,12 +261,10 @@ namespace Models
 
 
           protected:
-            // The alert notification methods.
+            // The list of channels.
             shared_ptr<vector<string>> channels_ {};
             // The severity level. Valid values:
-            // 
             // - Warning
-            // 
             // - Critical
             shared_ptr<string> severity_ {};
           };
@@ -304,11 +297,11 @@ namespace Models
 
 
         protected:
-          // The duration of the alert suppression interval. Unit: minutes.
+          // The alert suppression interval. Unit: minutes.
           shared_ptr<int32_t> inhibitionInterval_ {};
-          // The alert notification methods.
+          // The alert notification channels. Multiple values are supported.
           shared_ptr<vector<NotificationSettings::NotificationChannels>> notificationChannels_ {};
-          // The settings of alert notification recipients.
+          // The alert notification receivers. Multiple values are supported.
           shared_ptr<vector<NotificationSettings::NotificationReceivers>> notificationReceivers_ {};
         };
 
@@ -371,23 +364,20 @@ namespace Models
       protected:
         // The alert rule ID.
         shared_ptr<int64_t> DIAlarmRuleId_ {};
-        // The ID of the task with which the alert rule is associated.
+        // The task ID. This is the task ID associated with the alert rule.
         shared_ptr<int64_t> DIJobId_ {};
-        // The description of the alert rule.
+        // The description.
         shared_ptr<string> description_ {};
         // Indicates whether the alert rule is enabled.
         shared_ptr<bool> enabled_ {};
-        // The metric type in the alert rule. Valid values:
-        // 
-        // - Heartbeat
-        // 
-        // - FailoverCount
-        // 
-        // - Delay
+        // The alert metric type. Valid values:
+        // - Heartbeat: task status alert.
+        // - FailoverCount: failover count alert.
+        // - Delay: task delay alert.
         shared_ptr<string> metricType_ {};
         // The alert notification settings.
         shared_ptr<DIJobAlarmRules::NotificationSettings> notificationSettings_ {};
-        // The conditions that are used to trigger the alert rule.
+        // The list of alert trigger conditions. Multiple conditions are supported.
         shared_ptr<vector<DIJobAlarmRules::TriggerConditions>> triggerConditions_ {};
       };
 
@@ -424,13 +414,13 @@ namespace Models
 
 
     protected:
-      // The alert rules.
+      // The list of alert rules.
       shared_ptr<vector<DIAlarmRulePaging::DIJobAlarmRules>> DIJobAlarmRules_ {};
       // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -453,7 +443,7 @@ namespace Models
 
 
   protected:
-    // The pagination information.
+    // The paginated result of alert rules.
     shared_ptr<ListDIAlarmRulesResponseBody::DIAlarmRulePaging> DIAlarmRulePaging_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

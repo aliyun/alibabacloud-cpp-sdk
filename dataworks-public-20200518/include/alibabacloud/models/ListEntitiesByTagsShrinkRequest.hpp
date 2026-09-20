@@ -70,11 +70,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> entityType_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results.
+    // The pagination token that specifies the start point of the current read operation.
     shared_ptr<string> nextToken_ {};
-    // The number of entries per page. Default value: 10. Valid values: 1 to 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The tags.
+    // The list of tags.
     // 
     // This parameter is required.
     shared_ptr<string> tagsShrink_ {};

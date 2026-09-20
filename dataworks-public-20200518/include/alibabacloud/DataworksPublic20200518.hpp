@@ -42,6 +42,8 @@ namespace DataworksPublic20200518
       /**
        * @summary Adds an entity to a collection.
        *
+       * @description Before you begin: Before calling this operation, activate DataWorks Professional Edition or a higher edition. The Basic Edition and Standard Edition do not support the metadata collection feature.
+       *
        * @param request AddMetaCollectionEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return AddMetaCollectionEntityResponse
@@ -51,16 +53,18 @@ namespace DataworksPublic20200518
       /**
        * @summary Adds an entity to a collection.
        *
+       * @description Before you begin: Before calling this operation, activate DataWorks Professional Edition or a higher edition. The Basic Edition and Standard Edition do not support the metadata collection feature.
+       *
        * @param request AddMetaCollectionEntityRequest
        * @return AddMetaCollectionEntityResponse
        */
       Models::AddMetaCollectionEntityResponse addMetaCollectionEntity(const Models::AddMetaCollectionEntityRequest &request);
 
       /**
-       * @summary Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
+       * @summary Adds a DataWorks workspace user to a role. Before calling this operation, you must first add the target account as a member of the DataWorks workspace.
        *
-       * @description - Add the target account as a member of the DataWorks workspace. For more information, see [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
-       * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, see [Mappings between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
+       * @description - To add the target account as a member of the DataWorks workspace, refer to [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+       * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, refer to [Mapping between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
        *
        * @param request AddProjectMemberToRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -69,10 +73,10 @@ namespace DataworksPublic20200518
       Models::AddProjectMemberToRoleResponse addProjectMemberToRoleWithOptions(const Models::AddProjectMemberToRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Assigns a role to a member of a DataWorks workspace. Before you call this operation, you must add your account to a DataWorks workspace as a member.
+       * @summary Adds a DataWorks workspace user to a role. Before calling this operation, you must first add the target account as a member of the DataWorks workspace.
        *
-       * @description - Add the target account as a member of the DataWorks workspace. For more information, see [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
-       * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, see [Mappings between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
+       * @description - To add the target account as a member of the DataWorks workspace, refer to [Add members to a DataWorks workspace](https://help.aliyun.com/document_detail/136941.html).
+       * - When you add a user to a preset role in a DataWorks workspace, the user is also added as a project role member in the MaxCompute project of the development environment of the workspace. For more information, refer to [Mapping between workspace-level preset roles and MaxCompute engine permissions](https://help.aliyun.com/document_detail/449397.html).
        *
        * @param request AddProjectMemberToRoleRequest
        * @return AddProjectMemberToRoleResponse
@@ -115,9 +119,9 @@ namespace DataworksPublic20200518
 
       /**
        * @summary Approves a permission request order.
-       * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI ApproveProcessInstance as soon as possible.
+       * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — ApproveProcessInstance.
        *
-       * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance) as soon as possible.**.
+       * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance).**
        *
        * @param request ApprovePermissionApplyOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -127,9 +131,9 @@ namespace DataworksPublic20200518
 
       /**
        * @summary Approves a permission request order.
-       * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI ApproveProcessInstance as soon as possible.
+       * Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — ApproveProcessInstance.
        *
-       * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition OpenAPI [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance) as soon as possible.**.
+       * @description **Note: The 2020 edition of OpenAPI will be discontinued. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApproveProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-approveprocessinstance).**
        *
        * @param request ApprovePermissionApplyOrderRequest
        * @return ApprovePermissionApplyOrderResponse
@@ -137,7 +141,7 @@ namespace DataworksPublic20200518
       Models::ApprovePermissionApplyOrderResponse approvePermissionApplyOrder(const Models::ApprovePermissionApplyOrderRequest &request);
 
       /**
-       * @summary Sends the processing result of an extension point event by an extension to DataWorks.
+       * @summary Returns the check result of an extension program for an extension point event to the DataWorks platform by calling the CallbackExtension operation when an extension point is triggered during the use of the DataWorks platform.
        *
        * @param request CallbackExtensionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -146,7 +150,7 @@ namespace DataworksPublic20200518
       Models::CallbackExtensionResponse callbackExtensionWithOptions(const Models::CallbackExtensionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends the processing result of an extension point event by an extension to DataWorks.
+       * @summary Returns the check result of an extension program for an extension point event to the DataWorks platform by calling the CallbackExtension operation when an extension point is triggered during the use of the DataWorks platform.
        *
        * @param request CallbackExtensionRequest
        * @return CallbackExtensionResponse
@@ -171,7 +175,7 @@ namespace DataworksPublic20200518
       Models::ChangeResourceManagerResourceGroupResponse changeResourceManagerResourceGroup(const Models::ChangeResourceManagerResourceGroupRequest &request);
 
       /**
-       * @summary Returns the check events for a file that is pending deployment in DataStudio. After a file is committed, DataWorks checks the file and generates events before deployment. Use the returned events to determine whether the file can proceed with deployment validation.
+       * @summary Returns the check result of a file pending deployment to DataWorks. After a file created on the DataWorks DataStudio page is submitted, the file enters the deployment check state. DataWorks returns a file deployment check event to you, and you need to determine whether the file can proceed with deployment verification based on the event content. You can call this operation to return the check result of the file pending deployment to DataWorks.
        *
        * @param request CheckFileDeploymentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -180,7 +184,7 @@ namespace DataworksPublic20200518
       Models::CheckFileDeploymentResponse checkFileDeploymentWithOptions(const Models::CheckFileDeploymentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Returns the check events for a file that is pending deployment in DataStudio. After a file is committed, DataWorks checks the file and generates events before deployment. Use the returned events to determine whether the file can proceed with deployment validation.
+       * @summary Returns the check result of a file pending deployment to DataWorks. After a file created on the DataWorks DataStudio page is submitted, the file enters the deployment check state. DataWorks returns a file deployment check event to you, and you need to determine whether the file can proceed with deployment verification based on the event content. You can call this operation to return the check result of the file pending deployment to DataWorks.
        *
        * @param request CheckFileDeploymentRequest
        * @return CheckFileDeploymentResponse
@@ -205,7 +209,9 @@ namespace DataworksPublic20200518
       Models::CheckMetaPartitionResponse checkMetaPartition(const Models::CheckMetaPartitionRequest &request);
 
       /**
-       * @summary Checks whether a metatable exists.
+       * @summary Checks whether a table exists.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
        *
        * @param request CheckMetaTableRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -214,7 +220,9 @@ namespace DataworksPublic20200518
       Models::CheckMetaTableResponse checkMetaTableWithOptions(const Models::CheckMetaTableRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether a metatable exists.
+       * @summary Checks whether a table exists.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
        *
        * @param request CheckMetaTableRequest
        * @return CheckMetaTableResponse
@@ -239,7 +247,7 @@ namespace DataworksPublic20200518
       Models::CreateBaselineResponse createBaseline(const Models::CreateBaselineRequest &request);
 
       /**
-       * @summary Creates a workflow in DataStudio.
+       * @summary Creates a business process in DataStudio for data development.
        *
        * @param request CreateBusinessRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -248,7 +256,7 @@ namespace DataworksPublic20200518
       Models::CreateBusinessResponse createBusinessWithOptions(const Models::CreateBusinessRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a workflow in DataStudio.
+       * @summary Creates a business process in DataStudio for data development.
        *
        * @param request CreateBusinessRequest
        * @return CreateBusinessResponse
@@ -338,7 +346,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI CreateDagComplement is deprecated
        *
-       * @summary Calls CreateDagComplement to create a data backfill workflow.
+       * @summary Creates a data backfill workflow by calling CreateDagComplement.
        *
        * @param request CreateDagComplementRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -349,7 +357,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI CreateDagComplement is deprecated
        *
-       * @summary Calls CreateDagComplement to create a data backfill workflow.
+       * @summary Creates a data backfill workflow by calling CreateDagComplement.
        *
        * @param request CreateDagComplementRequest
        * @return CreateDagComplementResponse
@@ -378,7 +386,7 @@ namespace DataworksPublic20200518
       Models::CreateDagTestResponse createDagTest(const Models::CreateDagTestRequest &request);
 
       /**
-       * @summary Creates an API.
+       * @summary Creates a Data Service API by calling CreateDataServiceApi.
        *
        * @param request CreateDataServiceApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -387,7 +395,7 @@ namespace DataworksPublic20200518
       Models::CreateDataServiceApiResponse createDataServiceApiWithOptions(const Models::CreateDataServiceApiRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an API.
+       * @summary Creates a Data Service API by calling CreateDataServiceApi.
        *
        * @param request CreateDataServiceApiRequest
        * @return CreateDataServiceApiResponse
@@ -463,7 +471,7 @@ namespace DataworksPublic20200518
       Models::CreateDataSourceResponse createDataSource(const Models::CreateDataSourceRequest &request);
 
       /**
-       * @summary Creates an export task. You can use this operation to create an export task but cannot use this operation to start the created export task.
+       * @summary Creates an export task in DataWorks. This API operation only creates the export task and does not start the export task.
        *
        * @param request CreateExportMigrationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -472,7 +480,7 @@ namespace DataworksPublic20200518
       Models::CreateExportMigrationResponse createExportMigrationWithOptions(const Models::CreateExportMigrationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an export task. You can use this operation to create an export task but cannot use this operation to start the created export task.
+       * @summary Creates an export task in DataWorks. This API operation only creates the export task and does not start the export task.
        *
        * @param request CreateExportMigrationRequest
        * @return CreateExportMigrationResponse
@@ -569,7 +577,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI CreateManualDag is deprecated
        *
-       * @summary The manual workflow must have already been submitted and deployed in the UI, and the Operation Center must be able to find the corresponding manual workflow. Only then can this API be used.
+       * @summary Triggers the execution of a manual business process. The manual business process must have been submitted and published in the console, and the O&M center must be able to find the corresponding manual business process before you can call this operation.
        *
        * @param request CreateManualDagRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -580,7 +588,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI CreateManualDag is deprecated
        *
-       * @summary The manual workflow must have already been submitted and deployed in the UI, and the Operation Center must be able to find the corresponding manual workflow. Only then can this API be used.
+       * @summary Triggers the execution of a manual business process. The manual business process must have been submitted and published in the console, and the O&M center must be able to find the corresponding manual business process before you can call this operation.
        *
        * @param request CreateManualDagRequest
        * @return CreateManualDagResponse
@@ -605,9 +613,9 @@ namespace DataworksPublic20200518
       Models::CreateMetaCategoryResponse createMetaCategory(const Models::CreateMetaCategoryRequest &request);
 
       /**
-       * @summary Creates a collection.
+       * @summary Creates a collection object.
        *
-       * @description Collections are classified into various types. The names of collections of the same type must be different.
+       * @description Collections have multiple types. The name must be unique within the same collection type.
        *
        * @param request CreateMetaCollectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,9 +624,9 @@ namespace DataworksPublic20200518
       Models::CreateMetaCollectionResponse createMetaCollectionWithOptions(const Models::CreateMetaCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a collection.
+       * @summary Creates a collection object.
        *
-       * @description Collections are classified into various types. The names of collections of the same type must be different.
+       * @description Collections have multiple types. The name must be unique within the same collection type.
        *
        * @param request CreateMetaCollectionRequest
        * @return CreateMetaCollectionResponse
@@ -627,9 +635,9 @@ namespace DataworksPublic20200518
 
       /**
        * @summary Creates a permission request order.
-       * Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — ApplyResourceAccessPermission.
+       * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — ApplyResourceAccessPermission as soon as possible.
        *
-       * @description **Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission).**
+       * @description **Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission) as soon as possible.**
        *
        * @param request CreatePermissionApplyOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -639,9 +647,9 @@ namespace DataworksPublic20200518
 
       /**
        * @summary Creates a permission request order.
-       * Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — ApplyResourceAccessPermission.
+       * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — ApplyResourceAccessPermission as soon as possible.
        *
-       * @description **Note: The 2020 edition of OpenAPI will be deprecated soon. Migrate to the 2024 edition of OpenAPI as soon as possible — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission).**
+       * @description **Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI — [ApplyResourceAccessPermission](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-applyresourceaccesspermission) as soon as possible.**
        *
        * @param request CreatePermissionApplyOrderRequest
        * @return CreatePermissionApplyOrderResponse
@@ -706,7 +714,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
        *
-       * @summary Adds a follower to a partition expression to receive data quality alerts.
+       * @summary Creates a subscriber for a partition expression by calling CreateQualityFollower.
        *
        * @param request CreateQualityFollowerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -717,7 +725,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI CreateQualityFollower is deprecated, please use dataworks-public::2024-05-18::CreateDataQualityAlertRule instead.
        *
-       * @summary Adds a follower to a partition expression to receive data quality alerts.
+       * @summary Creates a subscriber for a partition expression by calling CreateQualityFollower.
        *
        * @param request CreateQualityFollowerRequest
        * @return CreateQualityFollowerResponse
@@ -767,7 +775,7 @@ namespace DataworksPublic20200518
       Models::CreateQualityRuleResponse createQualityRule(const Models::CreateQualityRuleRequest &request);
 
       /**
-       * @summary Creates a custom alert rule.
+       * @summary Creates a custom alert rule by calling CreateRemind.
        *
        * @param request CreateRemindRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -776,7 +784,7 @@ namespace DataworksPublic20200518
       Models::CreateRemindResponse createRemindWithOptions(const Models::CreateRemindRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a custom alert rule.
+       * @summary Creates a custom alert rule by calling CreateRemind.
        *
        * @param request CreateRemindRequest
        * @return CreateRemindResponse
@@ -858,7 +866,7 @@ namespace DataworksPublic20200518
       Models::CreateTableThemeResponse createTableTheme(const Models::CreateTableThemeRequest &request);
 
       /**
-       * @summary Creates a file for a function in DataStudio.
+       * @summary Creates a function type file in DataStudio.
        *
        * @param request CreateUdfFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -867,7 +875,7 @@ namespace DataworksPublic20200518
       Models::CreateUdfFileResponse createUdfFileWithOptions(const Models::CreateUdfFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a file for a function in DataStudio.
+       * @summary Creates a function type file in DataStudio.
        *
        * @param request CreateUdfFileRequest
        * @return CreateUdfFileResponse
@@ -989,7 +997,7 @@ namespace DataworksPublic20200518
       Models::DeleteDISyncTaskResponse deleteDISyncTask(const Models::DeleteDISyncTaskRequest &request);
 
       /**
-       * @summary Deletes an API in DataService Studio.
+       * @summary Deletes a DataService API.
        *
        * @param request DeleteDataServiceApiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -998,7 +1006,7 @@ namespace DataworksPublic20200518
       Models::DeleteDataServiceApiResponse deleteDataServiceApiWithOptions(const Models::DeleteDataServiceApiRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an API in DataService Studio.
+       * @summary Deletes a DataService API.
        *
        * @param request DeleteDataServiceApiRequest
        * @return DeleteDataServiceApiResponse
@@ -1395,7 +1403,7 @@ namespace DataworksPublic20200518
       Models::DeployFileResponse deployFile(const Models::DeployFileRequest &request);
 
       /**
-       * @summary Masks data.
+       * @summary Submits data for masking and returns the masked result.
        *
        * @param request DesensitizeDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1404,7 +1412,7 @@ namespace DataworksPublic20200518
       Models::DesensitizeDataResponse desensitizeDataWithOptions(const Models::DesensitizeDataRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Masks data.
+       * @summary Submits data for masking and returns the masked result.
        *
        * @param request DesensitizeDataRequest
        * @return DesensitizeDataResponse
@@ -2004,7 +2012,7 @@ namespace DataworksPublic20200518
       Models::GetAlertMessageResponse getAlertMessage(const Models::GetAlertMessageRequest &request);
 
       /**
-       * @summary Queries the information about a baseline based on its ID.
+       * @summary Retrieves the baseline configuration based on a baseline ID.
        *
        * @param request GetBaselineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2013,7 +2021,7 @@ namespace DataworksPublic20200518
       Models::GetBaselineResponse getBaselineWithOptions(const Models::GetBaselineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a baseline based on its ID.
+       * @summary Retrieves the baseline configuration based on a baseline ID.
        *
        * @param request GetBaselineRequest
        * @return GetBaselineResponse
@@ -2021,7 +2029,7 @@ namespace DataworksPublic20200518
       Models::GetBaselineResponse getBaseline(const Models::GetBaselineRequest &request);
 
       /**
-       * @summary Queries the configurations of a baseline.
+       * @summary Retrieves the configuration details of a baseline by calling GetBaselineConfig.
        *
        * @param request GetBaselineConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2030,7 +2038,7 @@ namespace DataworksPublic20200518
       Models::GetBaselineConfigResponse getBaselineConfigWithOptions(const Models::GetBaselineConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the configurations of a baseline.
+       * @summary Retrieves the configuration details of a baseline by calling GetBaselineConfig.
        *
        * @param request GetBaselineConfigRequest
        * @return GetBaselineConfigResponse
@@ -2038,7 +2046,9 @@ namespace DataworksPublic20200518
       Models::GetBaselineConfigResponse getBaselineConfig(const Models::GetBaselineConfigRequest &request);
 
       /**
-       * @summary The information about the events that are associated with the instance.
+       * @summary Retrieves the critical path of a baseline instance.
+       *
+       * @description 调用前需准备有效的 BaselineId：可先通过 ListProjects 获取 ProjectId，再调用 ListBaselines，并从其 Data.Baselines[].BaselineId 获取。
        *
        * @param request GetBaselineKeyPathRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2047,7 +2057,9 @@ namespace DataworksPublic20200518
       Models::GetBaselineKeyPathResponse getBaselineKeyPathWithOptions(const Models::GetBaselineKeyPathRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The information about the events that are associated with the instance.
+       * @summary Retrieves the critical path of a baseline instance.
+       *
+       * @description 调用前需准备有效的 BaselineId：可先通过 ListProjects 获取 ProjectId，再调用 ListBaselines，并从其 Data.Baselines[].BaselineId 获取。
        *
        * @param request GetBaselineKeyPathRequest
        * @return GetBaselineKeyPathResponse
@@ -2055,7 +2067,7 @@ namespace DataworksPublic20200518
       Models::GetBaselineKeyPathResponse getBaselineKeyPath(const Models::GetBaselineKeyPathRequest &request);
 
       /**
-       * @summary Retrieves the status of a baseline instance.
+       * @summary Retrieves the details of a baseline instance.
        *
        * @param request GetBaselineStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2064,7 +2076,7 @@ namespace DataworksPublic20200518
       Models::GetBaselineStatusResponse getBaselineStatusWithOptions(const Models::GetBaselineStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the status of a baseline instance.
+       * @summary Retrieves the details of a baseline instance.
        *
        * @param request GetBaselineStatusRequest
        * @return GetBaselineStatusResponse
@@ -2091,7 +2103,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetDDLJobStatus is deprecated
        *
-       * @summary Queries the status of a table creation, update, or deletion task.
+       * @summary Retrieves the status of tasks for creating, updating, and deleting tables.
        *
        * @param request GetDDLJobStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2102,7 +2114,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetDDLJobStatus is deprecated
        *
-       * @summary Queries the status of a table creation, update, or deletion task.
+       * @summary Retrieves the status of tasks for creating, updating, and deleting tables.
        *
        * @param request GetDDLJobStatusRequest
        * @return GetDDLJobStatusResponse
@@ -2308,6 +2320,8 @@ namespace DataworksPublic20200518
       /**
        * @summary Retrieves the details of a published DataService Studio API.
        *
+       * @description 前置条件：请先开通 DataWorks 企业版或旗舰版，并准备已发布的数据服务 API。ProjectId 可通过 ListProjects 获取，ApiId 可通过 ListDataServicePublishedApis 的 Data.Apis[].ApiId 获取；未开通所需版本时会返回 403 Forbidden.Access。
+       *
        * @param request GetDataServicePublishedApiRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetDataServicePublishedApiResponse
@@ -2316,6 +2330,8 @@ namespace DataworksPublic20200518
 
       /**
        * @summary Retrieves the details of a published DataService Studio API.
+       *
+       * @description 前置条件：请先开通 DataWorks 企业版或旗舰版，并准备已发布的数据服务 API。ProjectId 可通过 ListProjects 获取，ApiId 可通过 ListDataServicePublishedApis 的 Data.Apis[].ApiId 获取；未开通所需版本时会返回 403 Forbidden.Access。
        *
        * @param request GetDataServicePublishedApiRequest
        * @return GetDataServicePublishedApiResponse
@@ -2442,7 +2458,9 @@ namespace DataworksPublic20200518
       Models::GetFolderResponse getFolder(const Models::GetFolderRequest &request);
 
       /**
-       * @summary Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
+       * @summary Queries the extension point data snapshot at the time an extension point event was triggered, based on the message ID of a DataWorks open message.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns a 403 Forbidden.Access error.
        *
        * @param request GetIDEEventDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2451,7 +2469,9 @@ namespace DataworksPublic20200518
       Models::GetIDEEventDetailResponse getIDEEventDetailWithOptions(const Models::GetIDEEventDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the data snapshot of an extension point based on the ID of a message in DataWorks OpenEvent when the related extension point event is triggered.
+       * @summary Queries the extension point data snapshot at the time an extension point event was triggered, based on the message ID of a DataWorks open message.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns a 403 Forbidden.Access error.
        *
        * @param request GetIDEEventDetailRequest
        * @return GetIDEEventDetailResponse
@@ -2600,7 +2620,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetManualDagInstances is deprecated
        *
-       * @summary Queries the information about instances in a manually triggered workflow.
+       * @summary Queries information about instances of a manually triggered workflow.
        *
        * @param request GetManualDagInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2611,7 +2631,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetManualDagInstances is deprecated
        *
-       * @summary Queries the information about instances in a manually triggered workflow.
+       * @summary Queries information about instances of a manually triggered workflow.
        *
        * @param request GetManualDagInstancesRequest
        * @return GetManualDagInstancesResponse
@@ -2619,7 +2639,7 @@ namespace DataworksPublic20200518
       Models::GetManualDagInstancesResponse getManualDagInstances(const Models::GetManualDagInstancesRequest &request);
 
       /**
-       * @summary Queries the information about a category tree.
+       * @summary Queries the tree categories.
        *
        * @param request GetMetaCategoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2628,7 +2648,7 @@ namespace DataworksPublic20200518
       Models::GetMetaCategoryResponse getMetaCategoryWithOptions(const Models::GetMetaCategoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a category tree.
+       * @summary Queries the tree categories.
        *
        * @param request GetMetaCategoryRequest
        * @return GetMetaCategoryResponse
@@ -2636,7 +2656,7 @@ namespace DataworksPublic20200518
       Models::GetMetaCategoryResponse getMetaCategory(const Models::GetMetaCategoryRequest &request);
 
       /**
-       * @summary Queries the information about a collection.
+       * @summary Queries the details of a collection.
        *
        * @param request GetMetaCollectionDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2645,7 +2665,7 @@ namespace DataworksPublic20200518
       Models::GetMetaCollectionDetailResponse getMetaCollectionDetailWithOptions(const Models::GetMetaCollectionDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a collection.
+       * @summary Queries the details of a collection.
        *
        * @param request GetMetaCollectionDetailRequest
        * @return GetMetaCollectionDetailResponse
@@ -2653,7 +2673,7 @@ namespace DataworksPublic20200518
       Models::GetMetaCollectionDetailResponse getMetaCollectionDetail(const Models::GetMetaCollectionDetailRequest &request);
 
       /**
-       * @summary Queries the lineage of a field in a metatable.
+       * @summary Queries the lineage of a field by calling GetMetaColumnLineage.
        *
        * @param request GetMetaColumnLineageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2662,7 +2682,7 @@ namespace DataworksPublic20200518
       Models::GetMetaColumnLineageResponse getMetaColumnLineageWithOptions(const Models::GetMetaColumnLineageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the lineage of a field in a metatable.
+       * @summary Queries the lineage of a field by calling GetMetaColumnLineage.
        *
        * @param request GetMetaColumnLineageRequest
        * @return GetMetaColumnLineageResponse
@@ -2670,7 +2690,9 @@ namespace DataworksPublic20200518
       Models::GetMetaColumnLineageResponse getMetaColumnLineage(const Models::GetMetaColumnLineageRequest &request);
 
       /**
-       * @summary Queries the basic metadata information about a compute engine instance.
+       * @summary Retrieves the basic metadata information of an engine instance.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
        *
        * @param request GetMetaDBInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2679,7 +2701,9 @@ namespace DataworksPublic20200518
       Models::GetMetaDBInfoResponse getMetaDBInfoWithOptions(const Models::GetMetaDBInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic metadata information about a compute engine instance.
+       * @summary Retrieves the basic metadata information of an engine instance.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
        *
        * @param request GetMetaDBInfoRequest
        * @return GetMetaDBInfoResponse
@@ -2706,6 +2730,8 @@ namespace DataworksPublic20200518
       /**
        * @summary Queries the basic information about a metatable.
        *
+       * @description 前置条件：调用本接口前，请先开通 DataWorks 企业版或旗舰版；未开通时服务会返回 403 Forbidden.Access。
+       *
        * @param request GetMetaTableBasicInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetMetaTableBasicInfoResponse
@@ -2715,15 +2741,17 @@ namespace DataworksPublic20200518
       /**
        * @summary Queries the basic information about a metatable.
        *
+       * @description 前置条件：调用本接口前，请先开通 DataWorks 企业版或旗舰版；未开通时服务会返回 403 Forbidden.Access。
+       *
        * @param request GetMetaTableBasicInfoRequest
        * @return GetMetaTableBasicInfoResponse
        */
       Models::GetMetaTableBasicInfoResponse getMetaTableBasicInfo(const Models::GetMetaTableBasicInfoRequest &request);
 
       /**
-       * @summary Queries the change logs of a metatable.
+       * @summary Retrieves the change log of a table.
        *
-       * @description > This API operation is not recommended. A new API operation that provides the same capability will be released soon.
+       * @description > We do not recommend that you use this API operation. A new API operation will be released to replace it.
        *
        * @param request GetMetaTableChangeLogRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2732,9 +2760,9 @@ namespace DataworksPublic20200518
       Models::GetMetaTableChangeLogResponse getMetaTableChangeLogWithOptions(const Models::GetMetaTableChangeLogRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the change logs of a metatable.
+       * @summary Retrieves the change log of a table.
        *
-       * @description > This API operation is not recommended. A new API operation that provides the same capability will be released soon.
+       * @description > We do not recommend that you use this API operation. A new API operation will be released to replace it.
        *
        * @param request GetMetaTableChangeLogRequest
        * @return GetMetaTableChangeLogResponse
@@ -2761,9 +2789,9 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
        *
-       * @summary Retrieves complete metadata for a table, including field details.
+       * @summary Retrieves the complete information about a table, including field information.
        *
-       * @description You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
+       * @description Only tables of the EMR engine type are supported.
        *
        * @param request GetMetaTableFullInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2774,9 +2802,9 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetMetaTableFullInfo is deprecated
        *
-       * @summary Retrieves complete metadata for a table, including field details.
+       * @summary Retrieves the complete information about a table, including field information.
        *
-       * @description You can call this operation to query only the information about a table of the E-MapReduce (EMR) compute engine type.
+       * @description Only tables of the EMR engine type are supported.
        *
        * @param request GetMetaTableFullInfoRequest
        * @return GetMetaTableFullInfoResponse
@@ -2784,7 +2812,7 @@ namespace DataworksPublic20200518
       Models::GetMetaTableFullInfoResponse getMetaTableFullInfo(const Models::GetMetaTableFullInfoRequest &request);
 
       /**
-       * @summary Queries the instructions on how to use a table.
+       * @summary Retrieves the usage instructions for a table.
        *
        * @param request GetMetaTableIntroWikiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2793,7 +2821,7 @@ namespace DataworksPublic20200518
       Models::GetMetaTableIntroWikiResponse getMetaTableIntroWikiWithOptions(const Models::GetMetaTableIntroWikiRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the instructions on how to use a table.
+       * @summary Retrieves the usage instructions for a table.
        *
        * @param request GetMetaTableIntroWikiRequest
        * @return GetMetaTableIntroWikiResponse
@@ -2801,7 +2829,7 @@ namespace DataworksPublic20200518
       Models::GetMetaTableIntroWikiResponse getMetaTableIntroWiki(const Models::GetMetaTableIntroWikiRequest &request);
 
       /**
-       * @summary Queries the lineage of a metatable.
+       * @summary Queries the data lineage of a table.
        *
        * @param request GetMetaTableLineageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2810,7 +2838,7 @@ namespace DataworksPublic20200518
       Models::GetMetaTableLineageResponse getMetaTableLineageWithOptions(const Models::GetMetaTableLineageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the lineage of a metatable.
+       * @summary Queries the data lineage of a table.
        *
        * @param request GetMetaTableLineageRequest
        * @return GetMetaTableLineageResponse
@@ -2835,7 +2863,7 @@ namespace DataworksPublic20200518
       Models::GetMetaTableListByCategoryResponse getMetaTableListByCategory(const Models::GetMetaTableListByCategoryRequest &request);
 
       /**
-       * @summary Queries the output information of a metatable.
+       * @summary Retrieves the output information of a table.
        *
        * @param request GetMetaTableOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2844,7 +2872,7 @@ namespace DataworksPublic20200518
       Models::GetMetaTableOutputResponse getMetaTableOutputWithOptions(const Models::GetMetaTableOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the output information of a metatable.
+       * @summary Retrieves the output information of a table.
        *
        * @param request GetMetaTableOutputRequest
        * @return GetMetaTableOutputResponse
@@ -2890,7 +2918,9 @@ namespace DataworksPublic20200518
       Models::GetMetaTableProducingTasksResponse getMetaTableProducingTasks(const Models::GetMetaTableProducingTasksRequest &request);
 
       /**
-       * @summary Fetches topics and hierarchy metadata for tables
+       * @summary Queries the theme and level information of a table.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) to activate or upgrade to the required edition.
        *
        * @param request GetMetaTableThemeLevelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2899,7 +2929,9 @@ namespace DataworksPublic20200518
       Models::GetMetaTableThemeLevelResponse getMetaTableThemeLevelWithOptions(const Models::GetMetaTableThemeLevelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Fetches topics and hierarchy metadata for tables
+       * @summary Queries the theme and level information of a table.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) to activate or upgrade to the required edition.
        *
        * @param request GetMetaTableThemeLevelRequest
        * @return GetMetaTableThemeLevelResponse
@@ -2941,7 +2973,7 @@ namespace DataworksPublic20200518
       Models::GetMigrationSummaryResponse getMigrationSummary(const Models::GetMigrationSummaryRequest &request);
 
       /**
-       * @summary Indicates whether the request is successful.
+       * @summary Retrieves the details of a node.
        *
        * @param request GetNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2950,7 +2982,7 @@ namespace DataworksPublic20200518
       Models::GetNodeResponse getNodeWithOptions(const Models::GetNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Indicates whether the request is successful.
+       * @summary Retrieves the details of a node.
        *
        * @param request GetNodeRequest
        * @return GetNodeResponse
@@ -2958,7 +2990,7 @@ namespace DataworksPublic20200518
       Models::GetNodeResponse getNode(const Models::GetNodeRequest &request);
 
       /**
-       * @summary Queries a list of instances.
+       * @summary Calls GetNodeChildren to retrieve the downstream node list of a node.
        *
        * @param request GetNodeChildrenRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2967,7 +2999,7 @@ namespace DataworksPublic20200518
       Models::GetNodeChildrenResponse getNodeChildrenWithOptions(const Models::GetNodeChildrenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of instances.
+       * @summary Calls GetNodeChildren to retrieve the downstream node list of a node.
        *
        * @param request GetNodeChildrenRequest
        * @return GetNodeChildrenResponse
@@ -2975,7 +3007,7 @@ namespace DataworksPublic20200518
       Models::GetNodeChildrenResponse getNodeChildren(const Models::GetNodeChildrenRequest &request);
 
       /**
-       * @summary Queries the code of a node.
+       * @summary Retrieves the code of a node.
        *
        * @param request GetNodeCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2984,7 +3016,7 @@ namespace DataworksPublic20200518
       Models::GetNodeCodeResponse getNodeCodeWithOptions(const Models::GetNodeCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the code of a node.
+       * @summary Retrieves the code of a node.
        *
        * @param request GetNodeCodeRequest
        * @return GetNodeCodeResponse
@@ -3013,7 +3045,7 @@ namespace DataworksPublic20200518
       Models::GetNodeOnBaselineResponse getNodeOnBaseline(const Models::GetNodeOnBaselineRequest &request);
 
       /**
-       * @summary Queries a list of ancestor nodes of a node.
+       * @summary Calls GetNodeParents to retrieve the list of upstream nodes.
        *
        * @param request GetNodeParentsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3022,7 +3054,7 @@ namespace DataworksPublic20200518
       Models::GetNodeParentsResponse getNodeParentsWithOptions(const Models::GetNodeParentsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of ancestor nodes of a node.
+       * @summary Calls GetNodeParents to retrieve the list of upstream nodes.
        *
        * @param request GetNodeParentsRequest
        * @return GetNodeParentsResponse
@@ -3102,10 +3134,10 @@ namespace DataworksPublic20200518
       Models::GetOptionValueForProjectResponse getOptionValueForProject(const Models::GetOptionValueForProjectRequest &request);
 
       /**
-       * @summary Queries the details of a permission request order.
-       * Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — GetApplicationContents/GetProcessInstance.
+       * @summary Queries the details of a permission application order.
+       * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: GetApplicationContents/GetProcessInstance.
        *
-       * @description **Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — [GetApplicationContents](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_3.75985eba2pEw9l&scm=20140722.H_3040926._.OR_help-T_cn~zh-V_1)/[GetProcessInstance](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_4.64e62414k6cKri&scm=20140722.H_3040933._.OR_help-T_cn~zh-V_1).**
+       * @description **Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: [GetApplicationContents](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents)/[GetProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance).**
        *
        * @param request GetPermissionApplyOrderDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3114,10 +3146,10 @@ namespace DataworksPublic20200518
       Models::GetPermissionApplyOrderDetailResponse getPermissionApplyOrderDetailWithOptions(const Models::GetPermissionApplyOrderDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a permission request order.
-       * Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — GetApplicationContents/GetProcessInstance.
+       * @summary Queries the details of a permission application order.
+       * Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: GetApplicationContents/GetProcessInstance.
        *
-       * @description **Note: The 2020 version of OpenAPI will be discontinued. Please migrate to the 2024 version of OpenAPI as soon as possible — [GetApplicationContents](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_3.75985eba2pEw9l&scm=20140722.H_3040926._.OR_help-T_cn~zh-V_1)/[GetProcessInstance](https://help.aliyun.com/zh/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance?spm=a2c4g.11186623.help-menu-72772.d_1_1_3_12_0_4.64e62414k6cKri&scm=20140722.H_3040933._.OR_help-T_cn~zh-V_1).**
+       * @description **Note: The 2020 version of OpenAPI will be discontinued. Migrate to the 2024 version of OpenAPI as soon as possible: [GetApplicationContents](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getapplicationcontents)/[GetProcessInstance](https://www.alibabacloud.com/help/en/dataworks/developer-reference/api-dataworks-public-2024-05-18-getprocessinstance).**
        *
        * @param request GetPermissionApplyOrderDetailRequest
        * @return GetPermissionApplyOrderDetailResponse
@@ -3125,7 +3157,7 @@ namespace DataworksPublic20200518
       Models::GetPermissionApplyOrderDetailResponse getPermissionApplyOrderDetail(const Models::GetPermissionApplyOrderDetailRequest &request);
 
       /**
-       * @summary Queries the information about a DataWorks workspace.
+       * @summary Queries the details of a DataWorks workspace.
        *
        * @param request GetProjectRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3134,7 +3166,7 @@ namespace DataworksPublic20200518
       Models::GetProjectResponse getProjectWithOptions(const Models::GetProjectRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a DataWorks workspace.
+       * @summary Queries the details of a DataWorks workspace.
        *
        * @param request GetProjectRequest
        * @return GetProjectResponse
@@ -3142,7 +3174,7 @@ namespace DataworksPublic20200518
       Models::GetProjectResponse getProject(const Models::GetProjectRequest &request);
 
       /**
-       * @deprecated OpenAPI GetProjectDetail is deprecated
+       * @deprecated OpenAPI GetProjectDetail is deprecated, please use dataworks-public::2020-05-18::GetProject instead.
        *
        * @summary Queries the information about a DataWorks workspace.
        *
@@ -3153,7 +3185,7 @@ namespace DataworksPublic20200518
       Models::GetProjectDetailResponse getProjectDetailWithOptions(const Models::GetProjectDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @deprecated OpenAPI GetProjectDetail is deprecated
+       * @deprecated OpenAPI GetProjectDetail is deprecated, please use dataworks-public::2020-05-18::GetProject instead.
        *
        * @summary Queries the information about a DataWorks workspace.
        *
@@ -3165,7 +3197,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
        *
-       * @summary Call `GetQualityEntity` to retrieve the partition expression.
+       * @summary Retrieves a partition expression.
        *
        * @param request GetQualityEntityRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3176,7 +3208,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetQualityEntity is deprecated, please use dataworks-public::2024-05-18::GetDataQualityScan instead.
        *
-       * @summary Call `GetQualityEntity` to retrieve the partition expression.
+       * @summary Retrieves a partition expression.
        *
        * @param request GetQualityEntityRequest
        * @return GetQualityEntityResponse
@@ -3186,7 +3218,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
        *
-       * @summary Retrieves the followers of a Partition Expression.
+       * @summary Retrieves the subscribers of a partition expression.
        *
        * @param request GetQualityFollowerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3197,7 +3229,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetQualityFollower is deprecated, please use dataworks-public::2024-05-18::GetDataQualityAlertRule instead.
        *
-       * @summary Retrieves the followers of a Partition Expression.
+       * @summary Retrieves the subscribers of a partition expression.
        *
        * @param request GetQualityFollowerRequest
        * @return GetQualityFollowerResponse
@@ -3262,7 +3294,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
        *
-       * @summary Queries the statistics of instances in different periods of a day.
+       * @summary Retrieves the hourly statistical trends of instances for the current day.
        *
        * @param request GetSuccessInstanceTrendRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3273,7 +3305,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI GetSuccessInstanceTrend is deprecated
        *
-       * @summary Queries the statistics of instances in different periods of a day.
+       * @summary Retrieves the hourly statistical trends of instances for the current day.
        *
        * @param request GetSuccessInstanceTrendRequest
        * @return GetSuccessInstanceTrendResponse
@@ -3281,7 +3313,7 @@ namespace DataworksPublic20200518
       Models::GetSuccessInstanceTrendResponse getSuccessInstanceTrend(const Models::GetSuccessInstanceTrendRequest &request);
 
       /**
-       * @summary Queries the information about an event.
+       * @summary Retrieves the details of an event.
        *
        * @description ****
        *
@@ -3292,7 +3324,7 @@ namespace DataworksPublic20200518
       Models::GetTopicResponse getTopicWithOptions(const Models::GetTopicRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about an event.
+       * @summary Retrieves the details of an event.
        *
        * @description ****
        *
@@ -3378,7 +3410,7 @@ namespace DataworksPublic20200518
       Models::ListBaselineConfigsResponse listBaselineConfigs(const Models::ListBaselineConfigsRequest &request);
 
       /**
-       * @summary Queries a list of baseline instances.
+       * @summary Retrieves a list of baseline instances.
        *
        * @param request ListBaselineStatusesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3387,7 +3419,7 @@ namespace DataworksPublic20200518
       Models::ListBaselineStatusesResponse listBaselineStatusesWithOptions(const Models::ListBaselineStatusesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of baseline instances.
+       * @summary Retrieves a list of baseline instances.
        *
        * @param request ListBaselineStatusesRequest
        * @return ListBaselineStatusesResponse
@@ -3446,7 +3478,7 @@ namespace DataworksPublic20200518
       Models::ListCalcEnginesResponse listCalcEngines(const Models::ListCalcEnginesRequest &request);
 
       /**
-       * @summary Queries the check results of extension point events.
+       * @summary Queries the check list of extension events.
        *
        * @param request ListCheckProcessesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3455,7 +3487,7 @@ namespace DataworksPublic20200518
       Models::ListCheckProcessesResponse listCheckProcessesWithOptions(const Models::ListCheckProcessesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the check results of extension point events.
+       * @summary Queries the check list of extension events.
        *
        * @param request ListCheckProcessesRequest
        * @return ListCheckProcessesResponse
@@ -3518,9 +3550,9 @@ namespace DataworksPublic20200518
       Models::ListConnectionsResponse listConnections(const Models::ListConnectionsRequest &request);
 
       /**
-       * @summary Retrieves a list of alert rules configured for a synchronization task.
+       * @summary Queries the list of alerting rules for data integration new-version nodes. Currently supported node types include the MySQL-to-Hologres full-database real-time Solutions.
        *
-       * @description Alert rules can be configured when your task includes real-time synchronization.
+       * @description When your task synchronization type includes real-time synchronization, you can configure alert rules.
        *
        * @param request ListDIAlarmRulesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3529,9 +3561,9 @@ namespace DataworksPublic20200518
       Models::ListDIAlarmRulesResponse listDIAlarmRulesWithOptions(const Models::ListDIAlarmRulesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of alert rules configured for a synchronization task.
+       * @summary Queries the list of alerting rules for data integration new-version nodes. Currently supported node types include the MySQL-to-Hologres full-database real-time Solutions.
        *
-       * @description Alert rules can be configured when your task includes real-time synchronization.
+       * @description When your task synchronization type includes real-time synchronization, you can configure alert rules.
        *
        * @param request ListDIAlarmRulesRequest
        * @return ListDIAlarmRulesResponse
@@ -3539,9 +3571,10 @@ namespace DataworksPublic20200518
       Models::ListDIAlarmRulesResponse listDIAlarmRules(const Models::ListDIAlarmRulesRequest &request);
 
       /**
-       * @summary Retrieves a list of synchronization tasks.
+       * @summary Queries the list of new-version data integration tasks. Currently supported task types include MySQL-to-Hologres full-database real-time synchronization tasks.
        *
-       * @description You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
+       * @description This list operation returns only basic task information. To view detailed task information, call the GetDIJob operation.
+       * Prerequisites: Activate DataWorks Enterprise Edition or Ultimate Edition first. The required ProjectId can be obtained from PageResult.ProjectList[].ProjectId in the ListProjects response. If the required edition is not activated, this operation returns 403 Forbidden.Access.
        *
        * @param request ListDIJobsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3550,9 +3583,10 @@ namespace DataworksPublic20200518
       Models::ListDIJobsResponse listDIJobsWithOptions(const Models::ListDIJobsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of synchronization tasks.
+       * @summary Queries the list of new-version data integration tasks. Currently supported task types include MySQL-to-Hologres full-database real-time synchronization tasks.
        *
-       * @description You can call this operation to obtain only the basic information about the tasks. If you want to obtain the details of a task, call the GetDIJob operation.
+       * @description This list operation returns only basic task information. To view detailed task information, call the GetDIJob operation.
+       * Prerequisites: Activate DataWorks Enterprise Edition or Ultimate Edition first. The required ProjectId can be obtained from PageResult.ProjectList[].ProjectId in the ListProjects response. If the required edition is not activated, this operation returns 403 Forbidden.Access.
        *
        * @param request ListDIJobsRequest
        * @return ListDIJobsResponse
@@ -3581,18 +3615,18 @@ namespace DataworksPublic20200518
       Models::ListDIProjectConfigResponse listDIProjectConfig(const Models::ListDIProjectConfigRequest &request);
 
       /**
-       * @summary Retrieves a list of directed acyclic graphs (DAGs) for a data backfill instance by operation sequence number (OpSeq).
+       * @summary Calls the ListDags operation to retrieve the details of all DAGs for a single data backfill instance based on the OpSeq (unique identifier of the data backfill instance).
        *
-       * @description Supported DAG types:
-       * - MANUAL: DAG for a manually triggered workflow
-       * - SMOKE_TEST: DAG for a smoke testing workflow
-       * - SUPPLY_DATA: DAG for a data backfill instance
-       * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
-       * Supported DAG states:
-       * - CREATED: The DAG is created.
-       * - RUNNING: The DAG is running.
-       * - FAILURE: The DAG fails to run.
-       * - SUCCESS: The DAG is successfully run.
+       * @description Dag Type values:
+       * - MANUAL: manual task workflow
+       * - SMOKE_TEST: smoke test workflow
+       * - SUPPLY_DATA: data backfill
+       * - BUSINESS_PROCESS_DAG: one-time business process workflow
+       * Dag Status values:
+       * - CREATED: created
+       * - RUNNING: running
+       * - FAILURE: failed
+       * - SUCCESS: succeeded
        *
        * @param request ListDagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3601,18 +3635,18 @@ namespace DataworksPublic20200518
       Models::ListDagsResponse listDagsWithOptions(const Models::ListDagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of directed acyclic graphs (DAGs) for a data backfill instance by operation sequence number (OpSeq).
+       * @summary Calls the ListDags operation to retrieve the details of all DAGs for a single data backfill instance based on the OpSeq (unique identifier of the data backfill instance).
        *
-       * @description Supported DAG types:
-       * - MANUAL: DAG for a manually triggered workflow
-       * - SMOKE_TEST: DAG for a smoke testing workflow
-       * - SUPPLY_DATA: DAG for a data backfill instance
-       * - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
-       * Supported DAG states:
-       * - CREATED: The DAG is created.
-       * - RUNNING: The DAG is running.
-       * - FAILURE: The DAG fails to run.
-       * - SUCCESS: The DAG is successfully run.
+       * @description Dag Type values:
+       * - MANUAL: manual task workflow
+       * - SMOKE_TEST: smoke test workflow
+       * - SUPPLY_DATA: data backfill
+       * - BUSINESS_PROCESS_DAG: one-time business process workflow
+       * Dag Status values:
+       * - CREATED: created
+       * - RUNNING: running
+       * - FAILURE: failed
+       * - SUCCESS: succeeded
        *
        * @param request ListDagsRequest
        * @return ListDagsResponse
@@ -3620,7 +3654,7 @@ namespace DataworksPublic20200518
       Models::ListDagsResponse listDags(const Models::ListDagsRequest &request);
 
       /**
-       * @summary Retrieves a list of APIs on which other users are granted access permissions.
+       * @summary Retrieves the list of APIs that have been authorized to other users.
        *
        * @param request ListDataServiceApiAuthoritiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3629,7 +3663,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceApiAuthoritiesResponse listDataServiceApiAuthoritiesWithOptions(const Models::ListDataServiceApiAuthoritiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of APIs on which other users are granted access permissions.
+       * @summary Retrieves the list of APIs that have been authorized to other users.
        *
        * @param request ListDataServiceApiAuthoritiesRequest
        * @return ListDataServiceApiAuthoritiesResponse
@@ -3637,7 +3671,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceApiAuthoritiesResponse listDataServiceApiAuthorities(const Models::ListDataServiceApiAuthoritiesRequest &request);
 
       /**
-       * @summary Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the previous month.
+       * @summary Lists the test records of a DataService API. Only data from the last month can be queried.
        *
        * @param request ListDataServiceApiTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3646,7 +3680,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceApiTestResponse listDataServiceApiTestWithOptions(const Models::ListDataServiceApiTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the test records of a DataService Studio API. This API operation allows you to query only the test records that are generated within the previous month.
+       * @summary Lists the test records of a DataService API. Only data from the last month can be queried.
        *
        * @param request ListDataServiceApiTestRequest
        * @return ListDataServiceApiTestResponse
@@ -3688,7 +3722,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceApplicationsResponse listDataServiceApplications(const Models::ListDataServiceApplicationsRequest &request);
 
       /**
-       * @summary Retrieves a list of APIs that you are authorized to access.
+       * @summary Retrieves a list of authorized APIs in DataService.
        *
        * @param request ListDataServiceAuthorizedApisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3697,7 +3731,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceAuthorizedApisResponse listDataServiceAuthorizedApisWithOptions(const Models::ListDataServiceAuthorizedApisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of APIs that you are authorized to access.
+       * @summary Retrieves a list of authorized APIs in DataService.
        *
        * @param request ListDataServiceAuthorizedApisRequest
        * @return ListDataServiceAuthorizedApisResponse
@@ -3705,7 +3739,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceAuthorizedApisResponse listDataServiceAuthorizedApis(const Models::ListDataServiceAuthorizedApisRequest &request);
 
       /**
-       * @summary Retrieves a list of folders.
+       * @summary Queries the list of Data Service folders.
        *
        * @param request ListDataServiceFoldersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3714,7 +3748,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceFoldersResponse listDataServiceFoldersWithOptions(const Models::ListDataServiceFoldersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of folders.
+       * @summary Queries the list of Data Service folders.
        *
        * @param request ListDataServiceFoldersRequest
        * @return ListDataServiceFoldersResponse
@@ -3722,7 +3756,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceFoldersResponse listDataServiceFolders(const Models::ListDataServiceFoldersRequest &request);
 
       /**
-       * @summary Retrieves a list of business processes.
+       * @summary Queries the list of Data Service business processes.
        *
        * @param request ListDataServiceGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3731,7 +3765,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceGroupsResponse listDataServiceGroupsWithOptions(const Models::ListDataServiceGroupsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of business processes.
+       * @summary Queries the list of Data Service business processes.
        *
        * @param request ListDataServiceGroupsRequest
        * @return ListDataServiceGroupsResponse
@@ -3739,7 +3773,7 @@ namespace DataworksPublic20200518
       Models::ListDataServiceGroupsResponse listDataServiceGroups(const Models::ListDataServiceGroupsRequest &request);
 
       /**
-       * @summary Retrieves a list of published APIs.
+       * @summary Queries the list of published Data Service APIs.
        *
        * @param request ListDataServicePublishedApisRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3748,7 +3782,7 @@ namespace DataworksPublic20200518
       Models::ListDataServicePublishedApisResponse listDataServicePublishedApisWithOptions(const Models::ListDataServicePublishedApisRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of published APIs.
+       * @summary Queries the list of published Data Service APIs.
        *
        * @param request ListDataServicePublishedApisRequest
        * @return ListDataServicePublishedApisResponse
@@ -3811,7 +3845,7 @@ namespace DataworksPublic20200518
       Models::ListEnabledExtensionsForProjectResponse listEnabledExtensionsForProject(const Models::ListEnabledExtensionsForProjectRequest &request);
 
       /**
-       * @summary Queries a list of entities by tag. Only entities of the maxcompute-table type are supported.
+       * @summary Lists entities by tag. Currently, only entities of the maxcompute-table type are supported.
        *
        * @param tmpReq ListEntitiesByTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3820,7 +3854,7 @@ namespace DataworksPublic20200518
       Models::ListEntitiesByTagsResponse listEntitiesByTagsWithOptions(const Models::ListEntitiesByTagsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of entities by tag. Only entities of the maxcompute-table type are supported.
+       * @summary Lists entities by tag. Currently, only entities of the maxcompute-table type are supported.
        *
        * @param request ListEntitiesByTagsRequest
        * @return ListEntitiesByTagsResponse
@@ -3828,7 +3862,7 @@ namespace DataworksPublic20200518
       Models::ListEntitiesByTagsResponse listEntitiesByTags(const Models::ListEntitiesByTagsRequest &request);
 
       /**
-       * @summary Queries a list of tags of an entity. Only entities of the maxcompute-table type are supported.
+       * @summary Lists the tags of an entity. Currently, only entities of the maxcompute-table type are supported.
        *
        * @param request ListEntityTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3837,7 +3871,7 @@ namespace DataworksPublic20200518
       Models::ListEntityTagsResponse listEntityTagsWithOptions(const Models::ListEntityTagsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of tags of an entity. Only entities of the maxcompute-table type are supported.
+       * @summary Lists the tags of an entity. Currently, only entities of the maxcompute-table type are supported.
        *
        * @param request ListEntityTagsRequest
        * @return ListEntityTagsResponse
@@ -3845,7 +3879,7 @@ namespace DataworksPublic20200518
       Models::ListEntityTagsResponse listEntityTags(const Models::ListEntityTagsRequest &request);
 
       /**
-       * @summary Queries a list of extensions.
+       * @summary Retrieves the list of extensions from the open platform.
        *
        * @param request ListExtensionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3854,7 +3888,7 @@ namespace DataworksPublic20200518
       Models::ListExtensionsResponse listExtensionsWithOptions(const Models::ListExtensionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of extensions.
+       * @summary Retrieves the list of extensions from the open platform.
        *
        * @param request ListExtensionsRequest
        * @return ListExtensionsResponse
@@ -3964,7 +3998,7 @@ namespace DataworksPublic20200518
       Models::ListInstanceAmountResponse listInstanceAmount(const Models::ListInstanceAmountRequest &request);
 
       /**
-       * @summary Retrieves the run history of an instance. Each rerun generates a new historical record.
+       * @summary Retrieves all history records of an instance. A history record is generated each time a node is rerun.
        *
        * @param request ListInstanceHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3973,7 +4007,7 @@ namespace DataworksPublic20200518
       Models::ListInstanceHistoryResponse listInstanceHistoryWithOptions(const Models::ListInstanceHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the run history of an instance. Each rerun generates a new historical record.
+       * @summary Retrieves all history records of an instance. A history record is generated each time a node is rerun.
        *
        * @param request ListInstanceHistoryRequest
        * @return ListInstanceHistoryResponse
@@ -3981,7 +4015,7 @@ namespace DataworksPublic20200518
       Models::ListInstanceHistoryResponse listInstanceHistory(const Models::ListInstanceHistoryRequest &request);
 
       /**
-       * @summary Queries a list of instances.
+       * @summary Retrieves a list of instances.
        *
        * @param request ListInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3990,7 +4024,7 @@ namespace DataworksPublic20200518
       Models::ListInstancesResponse listInstancesWithOptions(const Models::ListInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of instances.
+       * @summary Retrieves a list of instances.
        *
        * @param request ListInstancesRequest
        * @return ListInstancesResponse
@@ -3998,7 +4032,7 @@ namespace DataworksPublic20200518
       Models::ListInstancesResponse listInstances(const Models::ListInstancesRequest &request);
 
       /**
-       * @summary Queries the ancestor or descendant lineage of an entity.
+       * @summary Queries the upstream and downstream lineage relationships of an entity.
        *
        * @param request ListLineageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4007,7 +4041,7 @@ namespace DataworksPublic20200518
       Models::ListLineageResponse listLineageWithOptions(const Models::ListLineageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the ancestor or descendant lineage of an entity.
+       * @summary Queries the upstream and downstream lineage relationships of an entity.
        *
        * @param request ListLineageRequest
        * @return ListLineageResponse
@@ -4049,7 +4083,7 @@ namespace DataworksPublic20200518
       Models::ListMeasureDataResponse listMeasureData(const Models::ListMeasureDataRequest &request);
 
       /**
-       * @summary Queries the entities in a collection.
+       * @summary Queries entities in a collection.
        *
        * @param request ListMetaCollectionEntitiesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4058,7 +4092,7 @@ namespace DataworksPublic20200518
       Models::ListMetaCollectionEntitiesResponse listMetaCollectionEntitiesWithOptions(const Models::ListMetaCollectionEntitiesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the entities in a collection.
+       * @summary Queries entities in a collection.
        *
        * @param request ListMetaCollectionEntitiesRequest
        * @return ListMetaCollectionEntitiesResponse
@@ -4066,9 +4100,9 @@ namespace DataworksPublic20200518
       Models::ListMetaCollectionEntitiesResponse listMetaCollectionEntities(const Models::ListMetaCollectionEntitiesRequest &request);
 
       /**
-       * @summary Retrieves a list of collections. Collections include data albums displayed on the Data Map page and categories created in data albums. You can filter collections by type.
+       * @summary Queries collection information. Collections include albums and subcategories within albums on the Data Map page. You can call this operation to query collection information by specifying a collection type.
        *
-       * @description Collections include ALBUM (data album) and ALBUM_CATEGORY (category within a data album).
+       * @description Collections include: ALBUM (album collection) and ALBUM_CATEGORY (subcategory within an album).
        *
        * @param request ListMetaCollectionsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4077,9 +4111,9 @@ namespace DataworksPublic20200518
       Models::ListMetaCollectionsResponse listMetaCollectionsWithOptions(const Models::ListMetaCollectionsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of collections. Collections include data albums displayed on the Data Map page and categories created in data albums. You can filter collections by type.
+       * @summary Queries collection information. Collections include albums and subcategories within albums on the Data Map page. You can call this operation to query collection information by specifying a collection type.
        *
-       * @description Collections include ALBUM (data album) and ALBUM_CATEGORY (category within a data album).
+       * @description Collections include: ALBUM (album collection) and ALBUM_CATEGORY (subcategory within an album).
        *
        * @param request ListMetaCollectionsRequest
        * @return ListMetaCollectionsResponse
@@ -4087,7 +4121,7 @@ namespace DataworksPublic20200518
       Models::ListMetaCollectionsResponse listMetaCollections(const Models::ListMetaCollectionsRequest &request);
 
       /**
-       * @summary Queries a list of metadatabases.
+       * @summary Queries a list of databases.
        *
        * @param request ListMetaDBRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4096,7 +4130,7 @@ namespace DataworksPublic20200518
       Models::ListMetaDBResponse listMetaDBWithOptions(const Models::ListMetaDBRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of metadatabases.
+       * @summary Queries a list of databases.
        *
        * @param request ListMetaDBRequest
        * @return ListMetaDBResponse
@@ -4123,7 +4157,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI ListNodeIO is deprecated
        *
-       * @summary Queries the information about one level of ancestor or descendant nodes of a node.
+       * @summary Queries the information of upstream and downstream nodes. Only one level can be queried.
        *
        * @param request ListNodeIORequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4134,7 +4168,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI ListNodeIO is deprecated
        *
-       * @summary Queries the information about one level of ancestor or descendant nodes of a node.
+       * @summary Queries the information of upstream and downstream nodes. Only one level can be queried.
        *
        * @param request ListNodeIORequest
        * @return ListNodeIOResponse
@@ -4142,7 +4176,7 @@ namespace DataworksPublic20200518
       Models::ListNodeIOResponse listNodeIO(const Models::ListNodeIORequest &request);
 
       /**
-       * @summary Queries the input and output information about a node. Only the ancestor or descendant nodes at the nearest level can be queried each time.
+       * @summary Queries the input and output information of the current node.
        *
        * @param request ListNodeInputOrOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4151,7 +4185,7 @@ namespace DataworksPublic20200518
       Models::ListNodeInputOrOutputResponse listNodeInputOrOutputWithOptions(const Models::ListNodeInputOrOutputRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the input and output information about a node. Only the ancestor or descendant nodes at the nearest level can be queried each time.
+       * @summary Queries the input and output information of the current node.
        *
        * @param request ListNodeInputOrOutputRequest
        * @return ListNodeInputOrOutputResponse
@@ -4176,7 +4210,7 @@ namespace DataworksPublic20200518
       Models::ListNodesResponse listNodes(const Models::ListNodesRequest &request);
 
       /**
-       * @summary Queries nodes in a baseline.
+       * @summary Retrieves the nodes in a baseline (excluding the upstream nodes of these nodes).
        *
        * @param request ListNodesByBaselineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4185,7 +4219,7 @@ namespace DataworksPublic20200518
       Models::ListNodesByBaselineResponse listNodesByBaselineWithOptions(const Models::ListNodesByBaselineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries nodes in a baseline.
+       * @summary Retrieves the nodes in a baseline (excluding the upstream nodes of these nodes).
        *
        * @param request ListNodesByBaselineRequest
        * @return ListNodesByBaselineResponse
@@ -4275,7 +4309,7 @@ namespace DataworksPublic20200518
       Models::ListProjectIdsResponse listProjectIds(const Models::ListProjectIdsRequest &request);
 
       /**
-       * @summary Queries a list of existing members in a DataWorks workspace.
+       * @summary Queries the list of existing members in a DataWorks workspace.
        *
        * @param request ListProjectMembersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4284,7 +4318,7 @@ namespace DataworksPublic20200518
       Models::ListProjectMembersResponse listProjectMembersWithOptions(const Models::ListProjectMembersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of existing members in a DataWorks workspace.
+       * @summary Queries the list of existing members in a DataWorks workspace.
        *
        * @param request ListProjectMembersRequest
        * @return ListProjectMembersResponse
@@ -4292,7 +4326,7 @@ namespace DataworksPublic20200518
       Models::ListProjectMembersResponse listProjectMembers(const Models::ListProjectMembersRequest &request);
 
       /**
-       * @summary Queries a list of roles in a DataWorks workspace.
+       * @summary Retrieves a list of all roles in a workspace.
        *
        * @param request ListProjectRolesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4301,7 +4335,7 @@ namespace DataworksPublic20200518
       Models::ListProjectRolesResponse listProjectRolesWithOptions(const Models::ListProjectRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of roles in a DataWorks workspace.
+       * @summary Retrieves a list of all roles in a workspace.
        *
        * @param request ListProjectRolesRequest
        * @return ListProjectRolesResponse
@@ -4309,7 +4343,7 @@ namespace DataworksPublic20200518
       Models::ListProjectRolesResponse listProjectRoles(const Models::ListProjectRolesRequest &request);
 
       /**
-       * @summary Queries a list of DataWorks workspaces of the tenant to which a user belongs.
+       * @summary Queries the list of DataWorks workspaces under the tenant to which the current user belongs.
        *
        * @param tmpReq ListProjectsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4318,7 +4352,7 @@ namespace DataworksPublic20200518
       Models::ListProjectsResponse listProjectsWithOptions(const Models::ListProjectsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of DataWorks workspaces of the tenant to which a user belongs.
+       * @summary Queries the list of DataWorks workspaces under the tenant to which the current user belongs.
        *
        * @param request ListProjectsRequest
        * @return ListProjectsResponse
@@ -4427,7 +4461,7 @@ namespace DataworksPublic20200518
       Models::ListRemindsResponse listReminds(const Models::ListRemindsRequest &request);
 
       /**
-       * @summary Queries a list of resource groups of a specific type.
+       * @summary Queries the list of resource groups of a specified type.
        *
        * @param tmpReq ListResourceGroupsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4436,7 +4470,7 @@ namespace DataworksPublic20200518
       Models::ListResourceGroupsResponse listResourceGroupsWithOptions(const Models::ListResourceGroupsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of resource groups of a specific type.
+       * @summary Queries the list of resource groups of a specified type.
        *
        * @param request ListResourceGroupsRequest
        * @return ListResourceGroupsResponse
@@ -4444,7 +4478,7 @@ namespace DataworksPublic20200518
       Models::ListResourceGroupsResponse listResourceGroups(const Models::ListResourceGroupsRequest &request);
 
       /**
-       * @summary Queries a list of on-duty engineers in a shift schedule.
+       * @summary Retrieves the list of on-duty personnel for a shift schedule.
        *
        * @param request ListShiftPersonnelsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4453,7 +4487,7 @@ namespace DataworksPublic20200518
       Models::ListShiftPersonnelsResponse listShiftPersonnelsWithOptions(const Models::ListShiftPersonnelsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of on-duty engineers in a shift schedule.
+       * @summary Retrieves the list of on-duty personnel for a shift schedule.
        *
        * @param request ListShiftPersonnelsRequest
        * @return ListShiftPersonnelsResponse
@@ -4478,7 +4512,7 @@ namespace DataworksPublic20200518
       Models::ListShiftSchedulesResponse listShiftSchedules(const Models::ListShiftSchedulesRequest &request);
 
       /**
-       * @summary Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+       * @summary Retrieves the trend of successfully completed instance counts at different hours on the business date for periodic instances generated on that date.
        *
        * @param request ListSuccessInstanceAmountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4487,7 +4521,7 @@ namespace DataworksPublic20200518
       Models::ListSuccessInstanceAmountResponse listSuccessInstanceAmountWithOptions(const Models::ListSuccessInstanceAmountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the trend of the number of auto triggered node instances that are successfully run every hour on the hour of the current day.
+       * @summary Retrieves the trend of successfully completed instance counts at different hours on the business date for periodic instances generated on that date.
        *
        * @param request ListSuccessInstanceAmountRequest
        * @return ListSuccessInstanceAmountResponse
@@ -4546,7 +4580,9 @@ namespace DataworksPublic20200518
       Models::ListTablesResponse listTables(const Models::ListTablesRequest &request);
 
       /**
-       * @summary Queries events.
+       * @summary Queries or searches for a list of events.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
        *
        * @param request ListTopicsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4555,7 +4591,9 @@ namespace DataworksPublic20200518
       Models::ListTopicsResponse listTopicsWithOptions(const Models::ListTopicsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries events.
+       * @summary Queries or searches for a list of events.
+       *
+       * @description Before you begin: Activate DataWorks Enterprise Edition or Ultimate Edition before calling this operation. If the edition is not activated, the service returns 403 Forbidden.Access.
        *
        * @param request ListTopicsRequest
        * @return ListTopicsResponse
@@ -4620,7 +4658,7 @@ namespace DataworksPublic20200518
       Models::QueryDISyncTaskConfigProcessResultResponse queryDISyncTaskConfigProcessResult(const Models::QueryDISyncTaskConfigProcessResultRequest &request);
 
       /**
-       * @summary Queries the default data category and data sensitivity level template defined by Data Security Guard.
+       * @summary Queries the default data classification template defined by Data Security Guard.
        *
        * @param request QueryDefaultTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4629,7 +4667,7 @@ namespace DataworksPublic20200518
       Models::QueryDefaultTemplateResponse queryDefaultTemplateWithOptions(const Models::QueryDefaultTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the default data category and data sensitivity level template defined by Data Security Guard.
+       * @summary Queries the default data classification template defined by Data Security Guard.
        *
        * @param request QueryDefaultTemplateRequest
        * @return QueryDefaultTemplateResponse
@@ -4662,7 +4700,7 @@ namespace DataworksPublic20200518
       Models::QueryPublicModelEngineResponse queryPublicModelEngine(const Models::QueryPublicModelEngineRequest &request);
 
       /**
-       * @summary Queries the type of a sensitive data identification rule.
+       * @summary Queries the list of sensitive field recognition methods in Data Protection Umbrella by calling the QueryRecognizeDataByRuleType operation.
        *
        * @param request QueryRecognizeDataByRuleTypeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4671,7 +4709,7 @@ namespace DataworksPublic20200518
       Models::QueryRecognizeDataByRuleTypeResponse queryRecognizeDataByRuleTypeWithOptions(const Models::QueryRecognizeDataByRuleTypeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the type of a sensitive data identification rule.
+       * @summary Queries the list of sensitive field recognition methods in Data Protection Umbrella by calling the QueryRecognizeDataByRuleType operation.
        *
        * @param request QueryRecognizeDataByRuleTypeRequest
        * @return QueryRecognizeDataByRuleTypeResponse
@@ -4762,9 +4800,9 @@ namespace DataworksPublic20200518
       Models::QuerySensNodeInfoResponse querySensNodeInfo(const Models::QuerySensNodeInfoRequest &request);
 
       /**
-       * @summary Registers the lineage between self-managed entities to DataWorks.
+       * @summary Registers entity relationships. You can register custom entity relationships.
        *
-       * @description This API operation is currently in trial. Users who want to try it out can submit an application. After the administrator adds the user to the trial list, the user can call this operation.
+       * @description This operation is currently in trial. To use this operation, submit a request. After an administrator adds you to the trial list, you can call this operation.
        *
        * @param tmpReq RegisterLineageRelationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4773,9 +4811,9 @@ namespace DataworksPublic20200518
       Models::RegisterLineageRelationResponse registerLineageRelationWithOptions(const Models::RegisterLineageRelationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Registers the lineage between self-managed entities to DataWorks.
+       * @summary Registers entity relationships. You can register custom entity relationships.
        *
-       * @description This API operation is currently in trial. Users who want to try it out can submit an application. After the administrator adds the user to the trial list, the user can call this operation.
+       * @description This operation is currently in trial. To use this operation, submit a request. After an administrator adds you to the trial list, you can call this operation.
        *
        * @param request RegisterLineageRelationRequest
        * @return RegisterLineageRelationResponse
@@ -4783,7 +4821,7 @@ namespace DataworksPublic20200518
       Models::RegisterLineageRelationResponse registerLineageRelation(const Models::RegisterLineageRelationRequest &request);
 
       /**
-       * @summary Removes tags from an entity. Only entities of the maxcompute-table type are supported.
+       * @summary Removes tags from an entity. Currently, only entities of the maxcompute-table type are supported.
        *
        * @param tmpReq RemoveEntityTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4792,7 +4830,7 @@ namespace DataworksPublic20200518
       Models::RemoveEntityTagsResponse removeEntityTagsWithOptions(const Models::RemoveEntityTagsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes tags from an entity. Only entities of the maxcompute-table type are supported.
+       * @summary Removes tags from an entity. Currently, only entities of the maxcompute-table type are supported.
        *
        * @param request RemoveEntityTagsRequest
        * @return RemoveEntityTagsResponse
@@ -4800,7 +4838,7 @@ namespace DataworksPublic20200518
       Models::RemoveEntityTagsResponse removeEntityTags(const Models::RemoveEntityTagsRequest &request);
 
       /**
-       * @summary Removes a role from a user in a DataWorks workspace.
+       * @summary Removes a user from a DataWorks role in a DataWorks workspace.
        *
        * @param request RemoveProjectMemberFromRoleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4809,7 +4847,7 @@ namespace DataworksPublic20200518
       Models::RemoveProjectMemberFromRoleResponse removeProjectMemberFromRoleWithOptions(const Models::RemoveProjectMemberFromRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a role from a user in a DataWorks workspace.
+       * @summary Removes a user from a DataWorks role in a DataWorks workspace.
        *
        * @param request RemoveProjectMemberFromRoleRequest
        * @return RemoveProjectMemberFromRoleResponse
@@ -4834,7 +4872,7 @@ namespace DataworksPublic20200518
       Models::RestartInstanceResponse restartInstance(const Models::RestartInstanceRequest &request);
 
       /**
-       * @summary Resumes a suspended instance.
+       * @summary Resumes a paused instance.
        *
        * @param request ResumeInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4843,7 +4881,7 @@ namespace DataworksPublic20200518
       Models::ResumeInstanceResponse resumeInstanceWithOptions(const Models::ResumeInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Resumes a suspended instance.
+       * @summary Resumes a paused instance.
        *
        * @param request ResumeInstanceRequest
        * @return ResumeInstanceResponse
@@ -4851,7 +4889,7 @@ namespace DataworksPublic20200518
       Models::ResumeInstanceResponse resumeInstance(const Models::ResumeInstanceRequest &request);
 
       /**
-       * @summary Revokes permissions on a table from a user.
+       * @summary Revokes table permissions from a user.
        *
        * @param request RevokeTablePermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4860,7 +4898,7 @@ namespace DataworksPublic20200518
       Models::RevokeTablePermissionResponse revokeTablePermissionWithOptions(const Models::RevokeTablePermissionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Revokes permissions on a table from a user.
+       * @summary Revokes table permissions from a user.
        *
        * @param request RevokeTablePermissionRequest
        * @return RevokeTablePermissionResponse
@@ -4868,9 +4906,9 @@ namespace DataworksPublic20200518
       Models::RevokeTablePermissionResponse revokeTablePermission(const Models::RevokeTablePermissionRequest &request);
 
       /**
-       * @summary Creates a workflow to backfill data.
+       * @summary Creates a data backfill workflow by calling RunCycleDagNodes.
        *
-       * @description For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+       * @description For more information about data backfill, see [Data backfill](https://help.aliyun.com/document_detail/137937.html).
        *
        * @param request RunCycleDagNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4879,9 +4917,9 @@ namespace DataworksPublic20200518
       Models::RunCycleDagNodesResponse runCycleDagNodesWithOptions(const Models::RunCycleDagNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a workflow to backfill data.
+       * @summary Creates a data backfill workflow by calling RunCycleDagNodes.
        *
-       * @description For more information about data backfill, see [Backfill data](https://help.aliyun.com/document_detail/137937.html).
+       * @description For more information about data backfill, see [Data backfill](https://help.aliyun.com/document_detail/137937.html).
        *
        * @param request RunCycleDagNodesRequest
        * @return RunCycleDagNodesResponse
@@ -4889,7 +4927,7 @@ namespace DataworksPublic20200518
       Models::RunCycleDagNodesResponse runCycleDagNodes(const Models::RunCycleDagNodesRequest &request);
 
       /**
-       * @summary Runs nodes in a manually triggered workflow. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find a manually triggered workflow in Operation Center only after the manually triggered workflow is committed and deployed.
+       * @summary Triggers a manual workflow to run. The manual workflow must have been submitted and published in the environment page before it appears in the Operation Center and can be triggered by this operation.
        *
        * @param request RunManualDagNodesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4898,7 +4936,7 @@ namespace DataworksPublic20200518
       Models::RunManualDagNodesResponse runManualDagNodesWithOptions(const Models::RunManualDagNodesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs nodes in a manually triggered workflow. Before you call this operation, make sure that the manually triggered workflow is committed and deployed. You can find a manually triggered workflow in Operation Center only after the manually triggered workflow is committed and deployed.
+       * @summary Triggers a manual workflow to run. The manual workflow must have been submitted and published in the environment page before it appears in the Operation Center and can be triggered by this operation.
        *
        * @param request RunManualDagNodesRequest
        * @return RunManualDagNodesResponse
@@ -4906,7 +4944,7 @@ namespace DataworksPublic20200518
       Models::RunManualDagNodesResponse runManualDagNodes(const Models::RunManualDagNodesRequest &request);
 
       /**
-       * @summary Creates a workflow to perform smoke testing.
+       * @summary Creates a smoke test workflow by calling the RunSmokeTest operation.
        *
        * @param request RunSmokeTestRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4915,7 +4953,7 @@ namespace DataworksPublic20200518
       Models::RunSmokeTestResponse runSmokeTestWithOptions(const Models::RunSmokeTestRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a workflow to perform smoke testing.
+       * @summary Creates a smoke test workflow by calling the RunSmokeTest operation.
        *
        * @param request RunSmokeTestRequest
        * @return RunSmokeTestResponse
@@ -4923,7 +4961,7 @@ namespace DataworksPublic20200518
       Models::RunSmokeTestResponse runSmokeTest(const Models::RunSmokeTestRequest &request);
 
       /**
-       * @summary Runs a manually triggered node.
+       * @summary Runs a trigger node.
        *
        * @param request RunTriggerNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4932,7 +4970,7 @@ namespace DataworksPublic20200518
       Models::RunTriggerNodeResponse runTriggerNodeWithOptions(const Models::RunTriggerNodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Runs a manually triggered node.
+       * @summary Runs a trigger node.
        *
        * @param request RunTriggerNodeRequest
        * @return RunTriggerNodeResponse
@@ -4997,7 +5035,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI SearchNodesByOutput is deprecated
        *
-       * @summary Queries a node based on the output.
+       * @summary Queries nodes by exact match based on output.
        *
        * @param request SearchNodesByOutputRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5008,7 +5046,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI SearchNodesByOutput is deprecated
        *
-       * @summary Queries a node based on the output.
+       * @summary Queries nodes by exact match based on output.
        *
        * @param request SearchNodesByOutputRequest
        * @return SearchNodesByOutputResponse
@@ -5037,7 +5075,7 @@ namespace DataworksPublic20200518
       Models::SetDataSourceShareResponse setDataSourceShare(const Models::SetDataSourceShareRequest &request);
 
       /**
-       * @summary Configures tags for an entity. Only entities of the maxcompute-table type are supported.
+       * @summary Sets labels for an entity. Currently, only entities of the maxcompute-table type are supported.
        *
        * @param tmpReq SetEntityTagsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5046,7 +5084,7 @@ namespace DataworksPublic20200518
       Models::SetEntityTagsResponse setEntityTagsWithOptions(const Models::SetEntityTagsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Configures tags for an entity. Only entities of the maxcompute-table type are supported.
+       * @summary Sets labels for an entity. Currently, only entities of the maxcompute-table type are supported.
        *
        * @param request SetEntityTagsRequest
        * @return SetEntityTagsResponse
@@ -5156,7 +5194,7 @@ namespace DataworksPublic20200518
       Models::StopDISyncInstanceResponse stopDISyncInstance(const Models::StopDISyncInstanceRequest &request);
 
       /**
-       * @summary Terminates an instance.
+       * @summary Stops an instance.
        *
        * @param request StopInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5165,7 +5203,7 @@ namespace DataworksPublic20200518
       Models::StopInstanceResponse stopInstanceWithOptions(const Models::StopInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Terminates an instance.
+       * @summary Stops an instance.
        *
        * @param request StopInstanceRequest
        * @return StopInstanceResponse
@@ -5211,7 +5249,7 @@ namespace DataworksPublic20200518
       Models::SubmitFileResponse submitFile(const Models::SubmitFileRequest &request);
 
       /**
-       * @summary Suspends an instance.
+       * @summary Pauses an instance.
        *
        * @param request SuspendInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5220,7 +5258,7 @@ namespace DataworksPublic20200518
       Models::SuspendInstanceResponse suspendInstanceWithOptions(const Models::SuspendInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Suspends an instance.
+       * @summary Pauses an instance.
        *
        * @param request SuspendInstanceRequest
        * @return SuspendInstanceResponse
@@ -5497,9 +5535,9 @@ namespace DataworksPublic20200518
       Models::UpdateDataSourceResponse updateDataSource(const Models::UpdateDataSourceRequest &request);
 
       /**
-       * @summary Updates a file.
+       * @summary Updates a created file.
        *
-       * @description When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+       * @description When you debug or call this operation, the parameter values that you specify must be different from the existing file configurations of the node. For example, if a parameter of the source node is set to A, you must change the value to B before you submit the request. If you still specify A, an invalid exception is returned.
        *
        * @param request UpdateFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5508,9 +5546,9 @@ namespace DataworksPublic20200518
       Models::UpdateFileResponse updateFileWithOptions(const Models::UpdateFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a file.
+       * @summary Updates a created file.
        *
-       * @description When you debug or call this operation, you must specify new values for the specified parameters to ensure that the values are different from the original configurations of the file. For example, if the original value of a parameter is A, you must change the value of this parameter to B before you commit the node. If you set the parameter to A, an exception that indicates invalid data occurs.
+       * @description When you debug or call this operation, the parameter values that you specify must be different from the existing file configurations of the node. For example, if a parameter of the source node is set to A, you must change the value to B before you submit the request. If you still specify A, an invalid exception is returned.
        *
        * @param request UpdateFileRequest
        * @return UpdateFileResponse
@@ -5569,9 +5607,9 @@ namespace DataworksPublic20200518
       Models::UpdateMetaCategoryResponse updateMetaCategory(const Models::UpdateMetaCategoryRequest &request);
 
       /**
-       * @summary Updates the name and comment of a collection.
+       * @summary Updates the name and comment of a collection object.
        *
-       * @description Only the Name and Comment fields can be updated.
+       * @description Currently, only the name (Name) and comment (Comment) can be updated.
        *
        * @param request UpdateMetaCollectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5580,9 +5618,9 @@ namespace DataworksPublic20200518
       Models::UpdateMetaCollectionResponse updateMetaCollectionWithOptions(const Models::UpdateMetaCollectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the name and comment of a collection.
+       * @summary Updates the name and comment of a collection object.
        *
-       * @description Only the Name and Comment fields can be updated.
+       * @description Currently, only the name (Name) and comment (Comment) can be updated.
        *
        * @param request UpdateMetaCollectionRequest
        * @return UpdateMetaCollectionResponse
@@ -5611,7 +5649,7 @@ namespace DataworksPublic20200518
       Models::UpdateMetaTableResponse updateMetaTable(const Models::UpdateMetaTableRequest &request);
 
       /**
-       * @summary Updates the instructions on how to use a table. If no instruction on how to use the table is available, the instructions that are configured by calling this operation are added.
+       * @summary Updates the description of a table. If the data does not exist, the description is added.
        *
        * @param request UpdateMetaTableIntroWikiRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5620,7 +5658,7 @@ namespace DataworksPublic20200518
       Models::UpdateMetaTableIntroWikiResponse updateMetaTableIntroWikiWithOptions(const Models::UpdateMetaTableIntroWikiRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the instructions on how to use a table. If no instruction on how to use the table is available, the instructions that are configured by calling this operation are added.
+       * @summary Updates the description of a table. If the data does not exist, the description is added.
        *
        * @param request UpdateMetaTableIntroWikiRequest
        * @return UpdateMetaTableIntroWikiResponse
@@ -5645,7 +5683,7 @@ namespace DataworksPublic20200518
       Models::UpdateNodeOwnerResponse updateNodeOwner(const Models::UpdateNodeOwnerRequest &request);
 
       /**
-       * @summary Freezes or unfreezes a node.
+       * @summary Freezes or unfreezes a specified node.
        *
        * @param request UpdateNodeRunModeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5654,7 +5692,7 @@ namespace DataworksPublic20200518
       Models::UpdateNodeRunModeResponse updateNodeRunModeWithOptions(const Models::UpdateNodeRunModeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Freezes or unfreezes a node.
+       * @summary Freezes or unfreezes a specified node.
        *
        * @param request UpdateNodeRunModeRequest
        * @return UpdateNodeRunModeResponse
@@ -5664,7 +5702,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
        *
-       * @summary Updates a subscription.
+       * @summary Updates a subscription relationship.
        *
        * @param request UpdateQualityFollowerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5675,7 +5713,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI UpdateQualityFollower is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityAlertRule instead.
        *
-       * @summary Updates a subscription.
+       * @summary Updates a subscription relationship.
        *
        * @param request UpdateQualityFollowerRequest
        * @return UpdateQualityFollowerResponse
@@ -5685,7 +5723,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
        *
-       * @summary Updates a specified quality rule.
+       * @summary Calls UpdateQualityRule to update the information of a quality check rule.
        *
        * @param request UpdateQualityRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5696,7 +5734,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI UpdateQualityRule is deprecated, please use dataworks-public::2024-05-18::UpdateDataQualityScan instead.
        *
-       * @summary Updates a specified quality rule.
+       * @summary Calls UpdateQualityRule to update the information of a quality check rule.
        *
        * @param request UpdateQualityRuleRequest
        * @return UpdateQualityRuleResponse
@@ -5704,7 +5742,7 @@ namespace DataworksPublic20200518
       Models::UpdateQualityRuleResponse updateQualityRule(const Models::UpdateQualityRuleRequest &request);
 
       /**
-       * @summary Modifies a custom alert rule.
+       * @summary Updates a custom monitoring rule.
        *
        * @param request UpdateRemindRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5713,7 +5751,7 @@ namespace DataworksPublic20200518
       Models::UpdateRemindResponse updateRemindWithOptions(const Models::UpdateRemindRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a custom alert rule.
+       * @summary Updates a custom monitoring rule.
        *
        * @param request UpdateRemindRequest
        * @return UpdateRemindResponse
@@ -5744,7 +5782,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI UpdateTableAddColumn is deprecated
        *
-       * @summary Updates the fields in a MaxCompute table.
+       * @summary Updates the column information of a MaxCompute table.
        *
        * @param request UpdateTableAddColumnRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5755,7 +5793,7 @@ namespace DataworksPublic20200518
       /**
        * @deprecated OpenAPI UpdateTableAddColumn is deprecated
        *
-       * @summary Updates the fields in a MaxCompute table.
+       * @summary Updates the column information of a MaxCompute table.
        *
        * @param request UpdateTableAddColumnRequest
        * @return UpdateTableAddColumnResponse
@@ -5780,7 +5818,7 @@ namespace DataworksPublic20200518
       Models::UpdateTableLevelResponse updateTableLevel(const Models::UpdateTableLevelRequest &request);
 
       /**
-       * @summary Modifies the information about a table, such as the table folder, level, and category.
+       * @summary Modifies the topic, level, and physical category information of a table.
        *
        * @param request UpdateTableModelInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5789,7 +5827,7 @@ namespace DataworksPublic20200518
       Models::UpdateTableModelInfoResponse updateTableModelInfoWithOptions(const Models::UpdateTableModelInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about a table, such as the table folder, level, and category.
+       * @summary Modifies the topic, level, and physical category information of a table.
        *
        * @param request UpdateTableModelInfoRequest
        * @return UpdateTableModelInfoResponse
@@ -5814,7 +5852,7 @@ namespace DataworksPublic20200518
       Models::UpdateTableThemeResponse updateTableTheme(const Models::UpdateTableThemeRequest &request);
 
       /**
-       * @summary Updates the file information about a function.
+       * @summary Updates the file information of a function.
        *
        * @param request UpdateUdfFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5823,7 +5861,7 @@ namespace DataworksPublic20200518
       Models::UpdateUdfFileResponse updateUdfFileWithOptions(const Models::UpdateUdfFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the file information about a function.
+       * @summary Updates the file information of a function.
        *
        * @param request UpdateUdfFileRequest
        * @return UpdateUdfFileResponse

@@ -63,7 +63,7 @@ namespace Models
     shared_ptr<int64_t> entityId_ {};
     // The ID of the DataWorks workspace.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the engine or data source.
+    // The name of the compute engine or data source.
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};

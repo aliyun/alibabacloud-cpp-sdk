@@ -48,11 +48,14 @@ namespace Models
 
 
   protected:
-    // The output names of the node. If you specify multiple output names, separate them with commas (,).
+    // The output strings of the node. You can specify multiple values. Separate multiple values with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> outputs_ {};
-    // The environment of Operation Center. Valid values: PROD and DEV.
+    // The environment identifier in Operation Center. Valid values:
+    // 
+    // - PROD: production environment.
+    // - DEV: development environment.
     // 
     // This parameter is required.
     shared_ptr<string> projectEnv_ {};

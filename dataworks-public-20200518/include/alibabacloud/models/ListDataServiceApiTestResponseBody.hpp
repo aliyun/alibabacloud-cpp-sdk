@@ -125,21 +125,26 @@ namespace Models
 
 
     protected:
-      // The ID of the DataService Studio API on which the test is performed.
+      // The ID of the API to test.
       shared_ptr<int64_t> apiId_ {};
-      // The time that is consumed to complete the test.
+      // The time consumed by the API request.
       shared_ptr<int32_t> costTime_ {};
-      // The time when the test was initiated.
+      // The time when the task was created.
+      // 
+      // The value is a 13-digit number, such as `1651824913000`.
       shared_ptr<int64_t> createTime_ {};
-      // The request parameters configured for the test.
+      // The request parameters of the test API.
       shared_ptr<string> paramMap_ {};
-      // The status code returned for the test. If the test is not complete, this parameter is not returned.
+      // The return code of the test API. This field is empty if the test is not completed.
       shared_ptr<int64_t> retCode_ {};
-      // The result returned for the test.
+      // The returned data.
       shared_ptr<string> retResult_ {};
-      // The status of the test. Valid values: RUNNING and FINISHED.
+      // Indicates whether the task is completed. Valid values:
+      // 
+      // - RUNNING
+      // - FINISHED
       shared_ptr<string> status_ {};
-      // The ID of the test.
+      // The test ID.
       shared_ptr<int64_t> testId_ {};
     };
 
@@ -162,9 +167,9 @@ namespace Models
 
 
   protected:
-    // The list of test records.
+    // The data list.
     shared_ptr<vector<ListDataServiceApiTestResponseBody::Data>> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -92,9 +92,9 @@ namespace Models
 
 
     protected:
-      // The cycle that corresponds to the committed completion time. For a day-level baseline, set this parameter to 1. For an hour-level baseline, set this parameter to a value that is no more than 24.
+      // The epoch corresponding to the committed time. For daily baselines, the value is 1. For hourly baselines, you can configure up to 24 epochs.
       shared_ptr<int32_t> cycle_ {};
-      // The committed completion time in the hh:mm format. Valid values of hh: [0,47]. Valid values of mm: [0,59].
+      // The committed time in hh:mm format. Valid values of hh: 0 to 47. Valid values of mm: 0 to 59.
       shared_ptr<string> time_ {};
     };
 
@@ -111,6 +111,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DingRobots, dingRobots_);
         DARABONBA_PTR_TO_JSON(SilenceEndTime, silenceEndTime_);
         DARABONBA_PTR_TO_JSON(SilenceStartTime, silenceStartTime_);
+        DARABONBA_PTR_TO_JSON(TopicSlowConfig, topicSlowConfig_);
         DARABONBA_PTR_TO_JSON(TopicTypes, topicTypes_);
         DARABONBA_PTR_TO_JSON(Webhooks, webhooks_);
       };
@@ -125,6 +126,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DingRobots, dingRobots_);
         DARABONBA_PTR_FROM_JSON(SilenceEndTime, silenceEndTime_);
         DARABONBA_PTR_FROM_JSON(SilenceStartTime, silenceStartTime_);
+        DARABONBA_PTR_FROM_JSON(TopicSlowConfig, topicSlowConfig_);
         DARABONBA_PTR_FROM_JSON(TopicTypes, topicTypes_);
         DARABONBA_PTR_FROM_JSON(Webhooks, webhooks_);
       };
@@ -139,6 +141,50 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class TopicSlowConfig : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const TopicSlowConfig& obj) { 
+          DARABONBA_PTR_TO_JSON(MinOver, minOver_);
+          DARABONBA_PTR_TO_JSON(OverFactor, overFactor_);
+        };
+        friend void from_json(const Darabonba::Json& j, TopicSlowConfig& obj) { 
+          DARABONBA_PTR_FROM_JSON(MinOver, minOver_);
+          DARABONBA_PTR_FROM_JSON(OverFactor, overFactor_);
+        };
+        TopicSlowConfig() = default ;
+        TopicSlowConfig(const TopicSlowConfig &) = default ;
+        TopicSlowConfig(TopicSlowConfig &&) = default ;
+        TopicSlowConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~TopicSlowConfig() = default ;
+        TopicSlowConfig& operator=(const TopicSlowConfig &) = default ;
+        TopicSlowConfig& operator=(TopicSlowConfig &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->minOver_ == nullptr
+        && this->overFactor_ == nullptr; };
+        // minOver Field Functions 
+        bool hasMinOver() const { return this->minOver_ != nullptr;};
+        void deleteMinOver() { this->minOver_ = nullptr;};
+        inline int32_t getMinOver() const { DARABONBA_PTR_GET_DEFAULT(minOver_, 0) };
+        inline TopicSlowConfig& setMinOver(int32_t minOver) { DARABONBA_PTR_SET_VALUE(minOver_, minOver) };
+
+
+        // overFactor Field Functions 
+        bool hasOverFactor() const { return this->overFactor_ != nullptr;};
+        void deleteOverFactor() { this->overFactor_ = nullptr;};
+        inline double getOverFactor() const { DARABONBA_PTR_GET_DEFAULT(overFactor_, 0.0) };
+        inline TopicSlowConfig& setOverFactor(double overFactor) { DARABONBA_PTR_SET_VALUE(overFactor_, overFactor) };
+
+
+      protected:
+        // The minimum slowdown threshold. Unit: seconds. Valid values: 300 to 18000.
+        shared_ptr<int32_t> minOver_ {};
+        // The ratio used to calculate the slowdown threshold based on the historical average execution duration of the node. Valid values: 0.1 to 2.
+        shared_ptr<double> overFactor_ {};
+      };
+
       class DingRobots : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const DingRobots& obj) { 
@@ -177,16 +223,18 @@ namespace Models
 
 
       protected:
-        // Specifies whether to remind all members by using the at sign (@). Valid values: true and false.
+        // Specifies whether to @all members. Valid values:
+        // - true: Yes.
+        // - false: No.
         shared_ptr<bool> atAll_ {};
-        // The webhook URL of the DingTalk chatbot.
+        // The webhook URL of the DingTalk group chatbot.
         shared_ptr<string> webUrl_ {};
       };
 
       virtual bool empty() const override { return this->alertInterval_ == nullptr
         && this->alertMaximum_ == nullptr && this->alertMethods_ == nullptr && this->alertRecipient_ == nullptr && this->alertRecipientType_ == nullptr && this->alertType_ == nullptr
-        && this->baselineAlertEnabled_ == nullptr && this->dingRobots_ == nullptr && this->silenceEndTime_ == nullptr && this->silenceStartTime_ == nullptr && this->topicTypes_ == nullptr
-        && this->webhooks_ == nullptr; };
+        && this->baselineAlertEnabled_ == nullptr && this->dingRobots_ == nullptr && this->silenceEndTime_ == nullptr && this->silenceStartTime_ == nullptr && this->topicSlowConfig_ == nullptr
+        && this->topicTypes_ == nullptr && this->webhooks_ == nullptr; };
       // alertInterval Field Functions 
       bool hasAlertInterval() const { return this->alertInterval_ != nullptr;};
       void deleteAlertInterval() { this->alertInterval_ = nullptr;};
@@ -261,6 +309,15 @@ namespace Models
       inline AlertSettings& setSilenceStartTime(string silenceStartTime) { DARABONBA_PTR_SET_VALUE(silenceStartTime_, silenceStartTime) };
 
 
+      // topicSlowConfig Field Functions 
+      bool hasTopicSlowConfig() const { return this->topicSlowConfig_ != nullptr;};
+      void deleteTopicSlowConfig() { this->topicSlowConfig_ = nullptr;};
+      inline const AlertSettings::TopicSlowConfig & getTopicSlowConfig() const { DARABONBA_PTR_GET_CONST(topicSlowConfig_, AlertSettings::TopicSlowConfig) };
+      inline AlertSettings::TopicSlowConfig getTopicSlowConfig() { DARABONBA_PTR_GET(topicSlowConfig_, AlertSettings::TopicSlowConfig) };
+      inline AlertSettings& setTopicSlowConfig(const AlertSettings::TopicSlowConfig & topicSlowConfig) { DARABONBA_PTR_SET_VALUE(topicSlowConfig_, topicSlowConfig) };
+      inline AlertSettings& setTopicSlowConfig(AlertSettings::TopicSlowConfig && topicSlowConfig) { DARABONBA_PTR_SET_RVALUE(topicSlowConfig_, topicSlowConfig) };
+
+
       // topicTypes Field Functions 
       bool hasTopicTypes() const { return this->topicTypes_ != nullptr;};
       void deleteTopicTypes() { this->topicTypes_ = nullptr;};
@@ -280,29 +337,43 @@ namespace Models
 
 
     protected:
-      // The interval at which an event alert notification is sent. Unit: minutes. Minimum value: 5. Maximum value: 1,440.
+      // The event alerting interval. Unit: minutes. Minimum value: 5. Maximum value: 1440.
       shared_ptr<int32_t> alertInterval_ {};
-      // The maximum number of times an event alert notification is sent. Maximum value: 24.
+      // The maximum number of event alerting notifications. Maximum value: 288.
       shared_ptr<int32_t> alertMaximum_ {};
-      // The alert notification methods. Valid values: MAIL, SMS, PHONE, DINGROBOTS, and Webhooks. The value MAIL indicates that alert notifications are sent by email. The value SMS indicates that alert notifications are sent by text message. The value PHONE indicates that alert notifications are sent by phone call. You can use this notification method only in DataWorks Professional Edition or a more advanced edition. The value DINGROBOTS indicates that alert notifications are sent by using a DingTalk chatbot. You can use this notification method only if the RobotUrls parameter is configured. The value Webhooks indicates that alert notifications are sent by WeCom or Lark. You can use this notification method only if the Webhooks parameter is configured.
+      // Valid values:
+      // - MAIL: email.
+      // - SMS: text message.
+      // - PHONE: phone call. Only DataWorks Professional Edition and higher support phone call alerts.
+      // - DINGROBOTS: DingTalk chatbot. This alert method takes effect only after the RobotUrls parameter is configured.
+      // - Webhooks: WeCom or Lark chatbot. This alert method takes effect only after the Webhooks parameter is configured.
       shared_ptr<vector<string>> alertMethods_ {};
-      // The details of the alert recipient. If you set AlertRecipientType to OWNER, leave this parameter empty. If you set AlertRecipientType to SHIFT_SCHEDULE, set this parameter to the name of the shift schedule. If you set AlertRecipientType to OTHER, set this parameter to the employee IDs of specified personnel.
+      // The alert recipient details. For specified users: a list of employee IDs. For on-duty schedule: the schedule name. For owner: leave empty.
       shared_ptr<string> alertRecipient_ {};
-      // The type of the alert recipient. Valid values: OWNER, OTHER, and SHIFT_SCHEDULE. The value OWNER indicates the node owner. The value OTHER indicates specified personnel. The value SHIFT_SCHEDULE indicates personnel in a shift schedule.
+      // The alert recipient type. Valid values:
+      // - OWNER: node owner.
+      // - OTHER: specified users.
+      // - SHIFT_SCHEDULE: on-duty schedule.
       shared_ptr<string> alertRecipientType_ {};
-      // The type of the alert. Valid values: BASELINE and TOPIC. The value BASELINE indicates a baseline alert. The value TOPIC indicates an event alert.
+      // The alert type. Valid values:
+      // - BASELINE: baseline alerting.
+      // - TOPIC: event alerting.
       shared_ptr<string> alertType_ {};
-      // Specifies whether to enable the baseline alerting feature. This feature is specific to baselines. Valid values: true and false.
+      // Specifies whether baseline alerting is enabled. This is a baseline-specific configuration. Valid values:
+      // - true: Enabled.
+      // - false: Disabled.
       shared_ptr<bool> baselineAlertEnabled_ {};
-      // The DingTalk chatbots.
+      // The list of DingTalk chatbots.
       shared_ptr<vector<AlertSettings::DingRobots>> dingRobots_ {};
-      // The end time of silence.
+      // The silence end time.
       shared_ptr<string> silenceEndTime_ {};
-      // The start time of silence.
+      // The silence start time.
       shared_ptr<string> silenceStartTime_ {};
-      // The types of event alerts, which are event-specific configurations.
+      // The threshold configuration for event slowdown alerts.
+      shared_ptr<AlertSettings::TopicSlowConfig> topicSlowConfig_ {};
+      // The event alerting type. This is an event-specific configuration.
       shared_ptr<vector<string>> topicTypes_ {};
-      // The webhook URLs.
+      // The webhook list.
       shared_ptr<vector<string>> webhooks_ {};
     };
 
@@ -406,35 +477,41 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the alerting feature. Valid values: true and false.
+    // Specifies whether alerting is enabled. Valid values:
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> alertEnabled_ {};
-    // The alert margin threshold of the baseline. Unit: minutes.
+    // The baseline alert margin. Unit: minutes.
     shared_ptr<int32_t> alertMarginThreshold_ {};
-    // The alert settings of the baseline.
+    // The baseline alert configurations.
     shared_ptr<vector<UpdateBaselineRequest::AlertSettings>> alertSettings_ {};
-    // The baseline ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
+    // The ID of the baseline. You can call [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> baselineId_ {};
-    // The name of the baseline.
+    // The baseline name.
     shared_ptr<string> baselineName_ {};
-    // The type of the baseline. Valid values: DAILY and HOURLY.
+    // The baseline type. Valid values:
+    // - DAILY: daily baseline.
+    // - HOURLY: hourly baseline.
     shared_ptr<string> baselineType_ {};
-    // Specifies whether to enable the baseline. Valid values: true and false.
+    // Specifies whether the baseline is enabled. Valid values:
+    // - true: Enabled.
+    // - false: Disabled.
     shared_ptr<bool> enabled_ {};
-    // The ancestor nodes of nodes in the baseline. Separate the ancestor nodes with commas (,). If a large number of ancestor nodes exist, we recommend that you create a zero load node and configure the zero load node as the descendant node of nodes in the baseline to facilitate node management.
+    // The list of upstream node IDs for the baseline, separated by commas. If there are many nodes, we recommend that you add a virtual node downstream for easier management.
     shared_ptr<string> nodeIds_ {};
-    // The settings of the committed completion time of the baseline.
+    // The baseline committed time configurations.
     shared_ptr<vector<UpdateBaselineRequest::OvertimeSettings>> overtimeSettings_ {};
-    // The ID of the Alibaba Cloud account used by the baseline owner.
+    // The Alibaba Cloud UID of the baseline owner.
     shared_ptr<string> owner_ {};
-    // The priority of the baseline. Valid values: {1,3,5,7,8}.
+    // The priority of the baseline. Valid values: 1, 3, 5, 7, and 8.
     shared_ptr<int32_t> priority_ {};
-    // The workspace ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
+    // The project ID. You can call [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The ID of the node that you want to disassociate from the baseline. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
+    // The IDs of nodes to remove from the baseline. Separate multiple IDs with commas (,).
     shared_ptr<string> removeNodeIds_ {};
   };
 

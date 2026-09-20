@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the permissions are revoked.
+    // Indicates whether the revocation was successful.
     shared_ptr<bool> revokeSuccess_ {};
   };
 

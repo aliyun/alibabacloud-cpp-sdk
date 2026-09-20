@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The ID of the DataWorks workspace to which the manually triggered node belongs. You can call the [ListProjects](https://help.aliyun.com/document_detail/178393.html) operation to query the ID.
+    // The ID of the DataWorks workspace to which the trigger node belongs. You can call [ListProjects](https://help.aliyun.com/document_detail/178393.html) to query the workspace ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> appId_ {};
-    // The data timestamp of the instance that is generated for the manually triggered node.
+    // The timestamp of the business date for the trigger node instance.
     // 
     // This parameter is required.
     shared_ptr<int64_t> bizDate_ {};
-    // The scheduling time to run the manually triggered node. Set the value to a 13-digit timestamp in milliseconds.
+    // The 13-digit millisecond-level timestamp that specifies the scheduled time of the node task corresponding to the trigger node.
     // 
     // This parameter is required.
     shared_ptr<int64_t> cycleTime_ {};
-    // The ID of the manually triggered node. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
+    // The ID of the trigger node. You can call [ListNodes](https://help.aliyun.com/document_detail/173979.html) to obtain the node ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> nodeId_ {};

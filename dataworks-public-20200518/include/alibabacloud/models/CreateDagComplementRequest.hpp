@@ -130,17 +130,23 @@ namespace Models
 
 
   protected:
-    // An optional parameter. The start time of the task. This parameter is required for hour-level scheduled tasks.
+    // Optional. The start time of the task. This parameter is required for hourly scheduled tasks.
+    // 
+    // Format: `HH:mm:ss`. Example: `00:00:00`.
     shared_ptr<string> bizBeginTime_ {};
-    // An optional parameter. The end time of the task. This parameter is required for hour-level scheduled tasks.
+    // Optional. The end time of the task. This parameter is required for hourly scheduled tasks.
+    // 
+    // Format: `HH:mm:ss`. Example: `23:00:00`.
     shared_ptr<string> bizEndTime_ {};
-    // The end business date of data backfill.
+    // The end business date for the data backfill.
+    // 
+    // Format: `yyyy-MM-dd HH:mm:ss`. Example: `2020-05-21 00:00:00`.
     // 
     // This parameter is required.
     shared_ptr<string> endBizDate_ {};
-    // An optional parameter. The list of node IDs to exclude from data backfill.
+    // Optional. The list of node IDs to exclude from the data backfill.
     shared_ptr<string> excludeNodeIds_ {};
-    // The list of node IDs to include. If you backfill data for only one node, that node must be included in includeNodeIds.
+    // The list of included node IDs. If you want to backfill data for only one node, the node must be included in includeNodeIds.
     // 
     // This parameter is required.
     shared_ptr<string> includeNodeIds_ {};
@@ -148,21 +154,26 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // A JSON string. The key is the node ID, and the value is the actual parameter value.
+    // A JSON string in which the key is the node ID and the value is the actual parameter value.
     shared_ptr<string> nodeParams_ {};
-    // Specifies whether the task can be executed concurrently.
+    // Specifies whether tasks can execute concurrently.
     // 
     // This parameter is required.
     shared_ptr<bool> parallelism_ {};
-    // The environment of the workspace, including PROD and DEV.
+    // The environment of the workspace. Valid values:
+    // 
+    // - PROD: production environment.
+    // - DEV: development environment.
     // 
     // This parameter is required.
     shared_ptr<string> projectEnv_ {};
-    // The ID of the start node for data backfill.
+    // The ID of the root node for the data backfill.
     // 
     // This parameter is required.
     shared_ptr<int64_t> rootNodeId_ {};
-    // The start business date of data backfill.
+    // The start business date for the data backfill.
+    // 
+    // Format: `yyyy-MM-dd HH:mm:ss`. Example: `2020-05-20 00:00:00`.
     // 
     // This parameter is required.
     shared_ptr<string> startBizDate_ {};

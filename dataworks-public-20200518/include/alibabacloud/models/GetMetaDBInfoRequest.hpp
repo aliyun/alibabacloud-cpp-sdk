@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The compute engine instance ID. Specify the ID in the `Engine type.Engine name` format.
+    // The engine ID, in the format of `Engine type.Engine name`.
     shared_ptr<string> appGuid_ {};
-    // The E-MapReduce (EMR) cluster ID.
+    // The cluster ID of the EMR cluster.
     shared_ptr<string> clusterId_ {};
-    // The type of the data source. Valid values: odps and emr.
+    // The data type. Valid values: odps and emr.
     shared_ptr<string> dataSourceType_ {};
-    // The name of the metadatabase of the EMR cluster.
+    // The database of the EMR cluster.
     shared_ptr<string> databaseName_ {};
   };
 

@@ -96,11 +96,11 @@ namespace Models
 
 
     protected:
-      // The node ID.
+      // The ID of the node.
       shared_ptr<int64_t> nodeId_ {};
       // The name of the node.
       shared_ptr<string> nodeName_ {};
-      // The ID of the Alibaba Cloud account used by the node owner.
+      // The Alibaba Cloud UID of the node owner.
       shared_ptr<string> owner_ {};
       // The ID of the workspace to which the node belongs.
       shared_ptr<int64_t> projectId_ {};
@@ -153,7 +153,7 @@ namespace Models
 
 
   protected:
-    // The nodes in the baseline.
+    // The list of nodes in the baseline.
     shared_ptr<vector<ListNodesByBaselineResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -161,9 +161,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can use the ID to troubleshoot issues.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<string> success_ {};
   };
 

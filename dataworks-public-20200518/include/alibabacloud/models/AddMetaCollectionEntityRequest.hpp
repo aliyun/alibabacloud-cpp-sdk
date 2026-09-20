@@ -61,11 +61,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> collectionQualifiedName_ {};
-    // The unique identifier of the entity. Example: maxcompute-table.projectA.tableA.
+    // The unique identifier of the entity.
     // 
     // This parameter is required.
     shared_ptr<string> entityQualifiedName_ {};
-    // The remarks of the entity. Example: latest product table.
+    // The remarks on the entity.
     shared_ptr<string> remark_ {};
   };
 

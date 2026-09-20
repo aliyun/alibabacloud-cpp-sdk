@@ -57,13 +57,15 @@ namespace Models
 
 
   protected:
-    // The ID of the task with which the alert rules are associated.
+    // The task ID. This is the task ID associated with the alert rule.
+    // 
+    // You can obtain this value from DIJobPaging.DIJobs[].DIJobId in the ListDIJobs response.
     // 
     // This parameter is required.
     shared_ptr<int64_t> DIJobId_ {};
     // The page number. Default value: 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Default value: 10.
+    // The page size. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
   };
 

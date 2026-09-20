@@ -57,18 +57,18 @@ namespace Models
 
 
   protected:
-    // The type of node that you want to query. Valid values:
+    // Specifies whether to query upstream or downstream nodes. Valid values:
     // 
-    // *   input: ancestor node
-    // *   output: descendant node
+    // - input: upstream nodes.
+    // - output: downstream nodes.
     // 
     // This parameter is required.
     shared_ptr<string> ioType_ {};
-    // The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the ID.
+    // The node ID. You can call the [ListNodes](https://help.aliyun.com/document_detail/173979.html) operation to query the node ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> nodeId_ {};
-    // The environment of the workspace. Valid values: DEV and PROD.
+    // The environment in which the node runs. Valid values: DEV (development environment) and PROD (production environment).
     // 
     // This parameter is required.
     shared_ptr<string> projectEnv_ {};

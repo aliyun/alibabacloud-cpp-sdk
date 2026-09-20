@@ -198,47 +198,51 @@ namespace Models
 
 
       protected:
-        // The data timestamp.
+        // The business date.
+        // 
+        // The value is a 13-digit number, for example, `1605052800000`.
         shared_ptr<int64_t> bizdate_ {};
         // The creation time.
+        // 
+        // The value is a 13-digit number, for example, `1605052800000`.
         shared_ptr<int64_t> createTime_ {};
         // The creator.
         shared_ptr<string> createUser_ {};
-        // The DAG ID.
+        // DagId。
         shared_ptr<int64_t> dagId_ {};
         // The end time.
+        // 
+        // The value is a 13-digit number, for example, `1605052800000`.
         shared_ptr<int64_t> finishTime_ {};
-        // The actual running time.
+        // The GMT date.
+        // 
+        // The value is a 13-digit number, for example, `1605052800000`.
         shared_ptr<int64_t> gmtdate_ {};
         // The modification time.
+        // 
+        // The value is a 13-digit number, for example, `1605052800000`.
         shared_ptr<int64_t> modifyTime_ {};
         // The name of the DAG.
         shared_ptr<string> name_ {};
-        // The sequence number of the operation.
+        // The operation sequence code.
         shared_ptr<int64_t> opSeq_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
         // The start time.
+        // 
+        // The value is a 13-digit number, for example, `1605052800000`.
         shared_ptr<int64_t> startTime_ {};
         // The status of the DAG. Valid values:
-        // 
-        // - CREATED
-        // 
-        // - RUNNING
-        // 
-        // - FAILURE
-        // 
-        // - SUCCESS
+        // - CREATED: created
+        // - RUNNING: running
+        // - FAILURE: failed
+        // - SUCCESS: succeeded
         shared_ptr<string> status_ {};
         // The type of the DAG. Valid values:
-        // 
-        // - MANUAL: DAG for a manually triggered workflow
-        // 
-        // - SMOKE_TEST: DAG for a smoke testing workflow
-        // 
-        // - SUPPLY_DATA: DAG for a data backfill instance
-        // 
-        // - BUSINESS_PROCESS_DAG: DAG for a one-time workflow
+        // - MANUAL: manual task workflow
+        // - SMOKE_TEST: smoke test workflow
+        // - SUPPLY_DATA: data backfill
+        // - BUSINESS_PROCESS_DAG: one-time business process workflow
         shared_ptr<string> type_ {};
       };
 
@@ -253,7 +257,7 @@ namespace Models
 
 
     protected:
-      // The entities returned.
+      // The returned entities.
       shared_ptr<vector<Data::Dags>> dags_ {};
     };
 
@@ -304,7 +308,7 @@ namespace Models
 
 
   protected:
-    // The details of DAGs.
+    // The details of the DAGs.
     shared_ptr<ListDagsResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -312,9 +316,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID. You can use the ID to locate logs and troubleshoot issues.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

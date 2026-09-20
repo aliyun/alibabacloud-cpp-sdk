@@ -137,19 +137,19 @@ namespace Models
 
 
       protected:
-        // The timestamp at which the metadatabase was created. You can convert the timestamp to the date based on the time zone that you use.
+        // The time when the database was created. The value is a timestamp. You can convert the timestamp to a date based on your time zone.
         shared_ptr<int64_t> createTimeStamp_ {};
-        // The URL of the metadatabase.
+        // The storage address of the database.
         shared_ptr<string> location_ {};
-        // The timestamp at which the metadatabase was updated.
+        // The time when the database was last updated.
         shared_ptr<int64_t> modifiedTimeStamp_ {};
-        // The name of the metadatabase.
+        // The name of the database.
         shared_ptr<string> name_ {};
-        // The owner ID.
+        // The ID of the owner.
         shared_ptr<string> ownerId_ {};
-        // The type of the metadatabase.
+        // The type of the database.
         shared_ptr<string> type_ {};
-        // The UUID of the metadatabase.
+        // The unique identifier of the database.
         shared_ptr<string> UUID_ {};
       };
 
@@ -172,9 +172,9 @@ namespace Models
 
 
     protected:
-      // The metadatabases.
+      // The list of databases.
       shared_ptr<vector<DatabaseInfo::DbList>> dbList_ {};
-      // The total number of the metadatabases returned.
+      // The total number of databases.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -197,7 +197,7 @@ namespace Models
 
 
   protected:
-    // The information about the metadatabases.
+    // The database information.
     shared_ptr<ListMetaDBResponseBody::DatabaseInfo> databaseInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

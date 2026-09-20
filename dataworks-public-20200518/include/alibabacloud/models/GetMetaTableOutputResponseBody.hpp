@@ -150,18 +150,22 @@ namespace Models
 
       protected:
         // The end time.
+        // 
+        // The format is `yyyy-MM-dd HH:mm:ss`, for example, `2020-01-01 00:01:00`.
         shared_ptr<string> endTime_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
         // The start time.
+        // 
+        // The format is `yyyy-MM-dd HH:mm:ss`, for example, `2020-01-01 00:00:00`.
         shared_ptr<string> startTime_ {};
-        // The GUID of the MaxCompute table.
+        // The unique identifier of the ODPS table.
         shared_ptr<string> tableGuid_ {};
         // The task ID.
         shared_ptr<string> taskId_ {};
         // The instance ID.
         shared_ptr<int64_t> taskInstanceId_ {};
-        // The waiting time.
+        // The task wait duration, in seconds.
         shared_ptr<string> waitTime_ {};
       };
 
@@ -198,13 +202,13 @@ namespace Models
 
 
     protected:
-      // The partitions.
+      // The list of instances.
       shared_ptr<vector<Data::DataEntityList>> dataEntityList_ {};
-      // The page number. Valid values: 1 to 30. Default value: 1.
+      // The page number. Default value: 1. Minimum value: 1. Maximum value: 30.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of tables.
       shared_ptr<int64_t> totalCount_ {};
     };
 

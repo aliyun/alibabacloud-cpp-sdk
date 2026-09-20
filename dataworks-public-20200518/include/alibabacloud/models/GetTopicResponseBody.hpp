@@ -270,51 +270,51 @@ namespace Models
 
 
     protected:
-      // The timestamp when the event was found.
+      // The timestamp when the event was discovered.
       shared_ptr<int64_t> addTime_ {};
-      // The timestamp when the first alert was reported.
+      // The timestamp of the first alert.
       shared_ptr<int64_t> alertTime_ {};
-      // The ID of the Alibaba Cloud account used by the alert recipient.
+      // The Alibaba Cloud UID of the assigner.
       shared_ptr<string> assigner_ {};
-      // The margin of the worst baseline instance. Unit: seconds.
+      // The buffer of the worst baseline instance, in seconds.
       shared_ptr<int64_t> baselineBuffer_ {};
-      // The ID of the baseline to which the worst baseline instance belongs.
+      // The baseline ID of the worst baseline instance.
       shared_ptr<int64_t> baselineId_ {};
-      // The ID of the cycle of the worst baseline instance.
+      // The cycle number of the worst baseline instance.
       shared_ptr<int32_t> baselineInGroupId_ {};
-      // The name of the baseline to which the worst baseline instance belongs.
+      // The baseline name of the worst baseline instance.
       shared_ptr<string> baselineName_ {};
-      // The status of the baseline. Valid values: ERROR, SAFE, DANGROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes are run before the alert duration begins. The value DANGROUS indicates that nodes are still running after the alert duration ends but the committed completion time does not arrive. The value OVER indicates that nodes are still running after the committed completion time.
+      // The status of the baseline. Valid values: ERROR, SAFE, DANGROUS (warning), and OVER (exceeded).
       shared_ptr<string> baselineStatus_ {};
-      // The margin of the event. Unit: seconds.
+      // The buffer of the event, in seconds.
       shared_ptr<int64_t> buffer_ {};
-      // The timestamp when the event was last processed.
+      // The timestamp of the last handling.
       shared_ptr<int64_t> dealTime_ {};
-      // The ID of the Alibaba Cloud account used by the user who last processed the event.
+      // The Alibaba Cloud UID of the last handler.
       shared_ptr<string> dealUser_ {};
-      // The timestamp when the event was processed.
+      // The timestamp when the event was resolved.
       shared_ptr<int64_t> fixTime_ {};
-      // The timestamp when the event occurred. A time difference may exist between the time when the event occurred and the time when the event was found.
+      // The timestamp when the event occurred. There may be a time difference between when the event occurred and when it was discovered.
       shared_ptr<int64_t> happenTime_ {};
-      // The ID of the instance that triggered the event.
+      // The instance ID associated with the event.
       shared_ptr<int64_t> instanceId_ {};
-      // The timestamp when the system reports the next alert.
+      // The timestamp of the next alert.
       shared_ptr<int64_t> nextAlertTime_ {};
-      // The ID of the node that triggered the event.
+      // The ID of the node associated with the event.
       shared_ptr<int64_t> nodeId_ {};
-      // The name of the node that triggered the event.
+      // The name of the node associated with the event.
       shared_ptr<string> nodeName_ {};
-      // The ID of the Alibaba Cloud account used by the event owner.
+      // The Alibaba Cloud UID of the event owner.
       shared_ptr<string> owner_ {};
-      // The ID of the workspace to which the node that triggered the event belongs.
+      // The ID of the workspace to which the node associated with the event belongs.
       shared_ptr<int64_t> projectId_ {};
-      // The event ID.
+      // The ID of the event.
       shared_ptr<int64_t> topicId_ {};
       // The name of the event.
       shared_ptr<string> topicName_ {};
-      // The status of the event. Valid values: IGNORE, NEW, FIXING, and RECOVER.
+      // The status of the event. Valid values: IGNORE (ignored), NEW (newly discovered), FIXING (being handled), and RECOVER (recovered).
       shared_ptr<string> topicStatus_ {};
-      // The type of the event. Valid values: SLOW and ERROR. The value SLOW indicates that the duration of the task is significantly longer than the average duration of the task in previous cycles. The value ERROR indicates that the task fails to run.
+      // The type of the event. Valid values: SLOW and ERROR.
       shared_ptr<string> topicType_ {};
     };
 
@@ -373,9 +373,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

@@ -88,7 +88,7 @@ namespace Models
     protected:
       // The unique identifier of the destination entity.
       shared_ptr<string> destEntityQualifiedName_ {};
-      // The ID of the lineage between entities.
+      // The lineage relationship ID between entities.
       shared_ptr<string> relationshipGuid_ {};
       // The unique identifier of the source entity.
       shared_ptr<string> srcEntityQualifiedName_ {};
@@ -147,15 +147,15 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The lineage.
+    // The lineage relationship object.
     shared_ptr<RegisterLineageRelationResponseBody::LineageRelation> lineageRelation_ {};
-    // The request ID. You can locate logs and troubleshoot issues based on the ID.
+    // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // - true
+    // - true: The request was successful.
     // 
-    // - false
+    // - false: The request failed.
     shared_ptr<bool> success_ {};
   };
 

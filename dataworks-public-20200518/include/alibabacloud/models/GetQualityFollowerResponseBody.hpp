@@ -142,29 +142,29 @@ namespace Models
 
 
     protected:
-      // The alarm notification method. Valid values:
-      // 
-      // - 1: by email
-      // 
-      // - 2: by email and SMS
-      // 
-      // - 4: by DingTalk chatbot or webhook
-      // 
-      // - 5: by DingTalk chatbot with the @all keyword
+      // The alert mode. Valid values:
+      // - 1: email
+      // - 2: email and text message
+      // - 4: DingTalk chatbot or webhook
+      // - 5: DingTalk chatbot @ALL
       shared_ptr<int32_t> alarmMode_ {};
-      // The time when the subscription was created. This value is a UNIX timestamp in milliseconds.
+      // The time when the data quality rule subscription was created.
+      // 
+      // The value is a 13-digit number, for example, `1541576644000`.
       shared_ptr<int64_t> createTime_ {};
       // The ID of the partition expression.
       shared_ptr<string> entityId_ {};
-      // The follower who receives alarm notifications.
+      // The subscriber who receives alert notifications.
       shared_ptr<string> follower_ {};
-      // The Alibaba Cloud account name of the follower.
+      // The Alibaba Cloud account name of the subscriber.
       shared_ptr<string> followerAccountName_ {};
-      // The subscription ID.
+      // The ID of the subscription.
       shared_ptr<int64_t> id_ {};
-      // The time when the subscription was last updated. This value is a UNIX timestamp in milliseconds.
+      // The time when the data quality rule subscription was last updated.
+      // 
+      // The value is a 13-digit number, for example, `1541576644000`.
       shared_ptr<int64_t> modifyTime_ {};
-      // The name of the engine or data source.
+      // The name of the compute engine or data source.
       shared_ptr<string> projectName_ {};
       // The name of the partitioned table.
       shared_ptr<string> tableName_ {};
@@ -217,7 +217,7 @@ namespace Models
 
 
   protected:
-    // An array of follower objects.
+    // The subscription information.
     shared_ptr<vector<GetQualityFollowerResponseBody::Data>> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -227,7 +227,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

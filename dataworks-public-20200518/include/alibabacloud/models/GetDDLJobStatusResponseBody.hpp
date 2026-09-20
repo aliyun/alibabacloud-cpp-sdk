@@ -89,11 +89,11 @@ namespace Models
     protected:
       // The content of the task.
       shared_ptr<string> content_ {};
-      // The ID of the ongoing task. If no value is returned for this parameter, all subtasks are complete.
+      // The ID of the task that is in progress. If this parameter is empty, all tasks are completed.
       shared_ptr<string> nextTaskId_ {};
       // The status of the task.
       shared_ptr<string> status_ {};
-      // The task ID.
+      // The ID of the task.
       shared_ptr<string> taskId_ {};
     };
 

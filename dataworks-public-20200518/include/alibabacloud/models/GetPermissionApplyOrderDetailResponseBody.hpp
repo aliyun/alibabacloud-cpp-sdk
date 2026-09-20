@@ -123,15 +123,15 @@ namespace Models
 
 
       protected:
-        // The UID of the Alibaba Cloud account that requested permissions.
+        // The UID of the Alibaba Cloud account that requested the permission.
         shared_ptr<string> granteeId_ {};
-        // The name of the Alibaba Cloud account that requested permissions. The format is consistent with the MaxCompute account format.
-        // - Primary account: ALIYUN$+account name.
+        // The name of the Alibaba Cloud account that requested the permission. The format is the same as the MaxCompute account format.
+        // - Alibaba Cloud account: ALIYUN$+account name.
         // - RAM user: RAM$+account name.
         shared_ptr<string> granteeName_ {};
-        // The type of the entity that requested permissions. Currently, only 1 (user) is supported.
+        // The principal type of the permission applicant. Currently, only the value 1 (user) is supported.
         shared_ptr<int32_t> granteeType_ {};
-        // The subtype of the entity that requested permissions. Valid values:
+        // The principal subtype of the permission applicant. Valid values:
         // - 101: Production Alibaba Cloud account.
         // - 103: Personal Alibaba Cloud account.
         // - 105: Alibaba Cloud account applied on behalf of another user.
@@ -339,7 +339,7 @@ namespace Models
         protected:
           // The MaxCompute project in which the requested object resides.
           shared_ptr<string> maxComputeProjectName_ {};
-          // The detailed information about the requested objects.
+          // The details of the requested object.
           shared_ptr<vector<ProjectMeta::ObjectMetaList>> objectMetaList_ {};
           // The ID of the DataWorks workspace in which the requested object resides.
           shared_ptr<int32_t> workspaceId_ {};
@@ -378,14 +378,14 @@ namespace Models
 
 
       protected:
-        // The reason for the request, used as a reference for the administrator during approval.
+        // The reason for the application, which is used as a reference for administrator approval.
         shared_ptr<string> applyReason_ {};
-        // The expiration time of the requested permissions, displayed as a UNIX timestamp.
-        // If the MaxCompute project does not have LabelSecurity enabled, or the security level of the requested table field is 0 or less than or equal to the security level of the requesting account, only permanent permissions can be requested.
+        // The expiration time of the requested permission. The value is a UNIX timestamp.
+        // If LabelSecurity is not enabled for the MaxCompute project, or the security level of the requested table field is 0 or less than or equal to the security level of the requesting account, only permanent permissions can be requested.
         shared_ptr<int64_t> deadline_ {};
-        // The type of the request order. Currently, only the value 1 is supported, indicating an object ACL permission request.
+        // The type of the application order. Currently, only the value 1 is supported, which indicates an object ACL permission application.
         shared_ptr<int32_t> orderType_ {};
-        // The information about the project and workspace to which the requested object belongs.
+        // The project and workspace information to which the requested object belongs.
         shared_ptr<ApproveContent::ProjectMeta> projectMeta_ {};
       };
 
@@ -417,7 +417,7 @@ namespace Models
 
 
       protected:
-        // The UID of the Alibaba Cloud account that approved the request order.
+        // The UID of the Alibaba Cloud account that approved the application order.
         shared_ptr<string> baseId_ {};
       };
 
@@ -494,28 +494,28 @@ namespace Models
 
 
     protected:
-      // The UID of the Alibaba Cloud account that submitted the request order.
+      // The UID of the Alibaba Cloud account that submitted the application order.
       shared_ptr<string> applyBaseId_ {};
-      // The time when the request order was submitted, displayed as a UNIX timestamp.
+      // The time when the application order was submitted. The value is a UNIX timestamp.
       shared_ptr<int64_t> applyTimestamp_ {};
-      // The list of Alibaba Cloud accounts that approved the request order.
+      // The list of Alibaba Cloud accounts that approved the application order.
       shared_ptr<vector<ApplyOrderDetail::ApproveAccountList>> approveAccountList_ {};
-      // The specific content of the request.
+      // The specific content of the application.
       shared_ptr<ApplyOrderDetail::ApproveContent> approveContent_ {};
-      // The time when the final approval was completed, displayed as a UNIX timestamp.
+      // The time when the final approval was completed. The value is a UNIX timestamp.
       shared_ptr<int64_t> finishAapprovalTimestamp_ {};
       // The final approval comment.
       shared_ptr<string> finishApprovalComment_ {};
-      // The ID of the request order.
+      // The ID of the application order.
       shared_ptr<string> flowId_ {};
-      // The status of the request order. Valid values:
+      // The status of the application order. Valid values:
       // - 1: Pending approval.
       // - 2: Approved and authorization succeeded.
       // - 3: Approved but authorization failed.
       // - 4: Rejected.
       // - 5: Withdrawn.
       shared_ptr<int32_t> flowStatus_ {};
-      // The information about the accounts that requested permissions.
+      // The account information of the permission applicant.
       shared_ptr<vector<ApplyOrderDetail::GranteeObjectList>> granteeObjectList_ {};
     };
 
@@ -538,7 +538,7 @@ namespace Models
 
 
   protected:
-    // The details of the request order.
+    // The details of the application order.
     shared_ptr<GetPermissionApplyOrderDetailResponseBody::ApplyOrderDetail> applyOrderDetail_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

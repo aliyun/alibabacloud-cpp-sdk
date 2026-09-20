@@ -205,33 +205,27 @@ namespace Models
       protected:
         // The description of the field.
         shared_ptr<string> caption_ {};
-        // The unique identifier of the field.
+        // The GUID of the field.
         shared_ptr<string> columnGuid_ {};
         // The name of the field.
         shared_ptr<string> columnName_ {};
-        // The data type of the field.
+        // The type of the field.
         shared_ptr<string> columnType_ {};
-        // The remarks of the field.
+        // The comment of the field.
         shared_ptr<string> comment_ {};
         // Indicates whether the field is a foreign key. Valid values:
-        // 
-        // - true
-        // 
-        // - false
+        // - true: The field is a foreign key.
+        // - false: The field is not a foreign key.
         shared_ptr<bool> isForeignKey_ {};
         // Indicates whether the field is a partition field. Valid values:
-        // 
-        // - true
-        // 
-        // - false
+        // - true: The field is a partition field.
+        // - false: The field is not a partition field.
         shared_ptr<bool> isPartitionColumn_ {};
         // Indicates whether the field is a primary key. Valid values:
-        // 
-        // - true
-        // 
-        // - false
+        // - true: The field is a primary key.
+        // - false: The field is not a primary key.
         shared_ptr<bool> isPrimaryKey_ {};
-        // The sequence number of the field.
+        // The ordinal position of the field.
         shared_ptr<int32_t> position_ {};
       };
 
@@ -398,47 +392,41 @@ namespace Models
 
 
     protected:
-      // The EMR cluster ID.
+      // The ID of the EMR cluster.
       shared_ptr<string> clusterId_ {};
-      // The fields in the table.
+      // The list of fields.
       shared_ptr<vector<Data::ColumnList>> columnList_ {};
-      // The comment on the table.
+      // The comment of the table.
       shared_ptr<string> comment_ {};
-      // The time when the table was created. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
+      // The time when the table was created. The value is a timestamp. You can convert the timestamp to a date based on the time zone that you use.
       shared_ptr<int64_t> createTime_ {};
-      // The size of the storage space that is consumed by the table. Unit: bytes.
+      // The storage space occupied by the table, in bytes.
       shared_ptr<int64_t> dataSize_ {};
       // The name of the database.
       shared_ptr<string> databaseName_ {};
-      // The type of the environment. Valid values:
-      // 
-      // - 0: indicates that the table resides in the development environment.
-      // 
-      // - 1: indicates that the table resides in the production environment.
+      // The environment type. Valid values:
+      // - 0: The table is in the development environment.
+      // - 1: The table is in the production environment.
       shared_ptr<int32_t> envType_ {};
-      // The scope in which the table is visible. Valid values:
-      // 
-      // - 0: indicates that the table is visible to workspace members.
-      // 
-      // - 1: indicates that the table is visible to users within a tenant.
-      // 
-      // - 2: indicates that the table is visible to all tenants.
-      // 
-      // - 3: indicates that the table is visible only to the table owner.
+      // The visibility of the table. Valid values:
+      // - 0: The table is visible to workspace members.
+      // - 1: The table is visible within the tenant.
+      // - 2: The table is visible across tenants.
+      // - 3: The table is visible only to the owner.
       shared_ptr<int32_t> isVisible_ {};
-      // The time when the table was last accessed. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
+      // The time when the table was last accessed. The value is a timestamp. You can convert the timestamp to a date based on the time zone that you use.
       shared_ptr<int64_t> lastAccessTime_ {};
-      // The time when the schema of the table was last changed. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
+      // The time when the table schema was last changed. The value is a timestamp. You can convert the timestamp to a date based on the time zone that you use.
       shared_ptr<int64_t> lastDdlTime_ {};
-      // The time when the table was last updated. A timestamp is returned for this parameter. You can convert the timestamp to the related date based on the time zone that you use.
+      // The time when the table was last updated. The value is a timestamp. You can convert the timestamp to a date based on the time zone that you use.
       shared_ptr<int64_t> lastModifyTime_ {};
-      // The lifecycle of the table. Unit: days.
+      // The lifecycle of the table, in days.
       shared_ptr<int32_t> lifeCycle_ {};
       // The storage path of the Hive table.
       shared_ptr<string> location_ {};
       // The ID of the table owner.
       shared_ptr<string> ownerId_ {};
-      // The partition key column.
+      // The partition keys.
       shared_ptr<string> partitionKeys_ {};
       // The ID of the workspace to which the table belongs.
       shared_ptr<int64_t> projectId_ {};
@@ -446,7 +434,7 @@ namespace Models
       shared_ptr<string> projectName_ {};
       // The schema information of the table.
       shared_ptr<string> schema_ {};
-      // The unique identifier of the table.
+      // The GUID of the table.
       shared_ptr<string> tableGuid_ {};
       // The name of the table.
       shared_ptr<string> tableName_ {};
@@ -511,9 +499,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

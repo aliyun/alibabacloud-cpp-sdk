@@ -121,31 +121,31 @@ namespace Models
 
 
   protected:
-    // The type of the baseline. Valid values: DAILY and HOURLY. The value DAILY indicates that the baseline is scheduled by day. The value HOURLY indicates that the baseline is scheduled by hour. Multiple types are separated by commas (,).
+    // The type of the baseline. Valid values: DAILY and HOURLY. Separate multiple values with commas (,).
     shared_ptr<string> baselineTypes_ {};
-    // The data timestamp of the baseline instance. Specify the time in the ISO 8601 standard in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format. The time must be in UTC.
+    // The business date in UTC format (yyyy-MM-dd\\"T\\"HH:mm:ssZ).
     // 
     // This parameter is required.
     shared_ptr<string> bizdate_ {};
-    // The status of the baseline instance. Valid values: UNFINISH and FINISH. The value UNFINISH indicates that the baseline instance is still running. The value FINISH indicates that the baseline instance finishes running. Multiple states are separated by commas (,).
+    // The completion status of the baseline instance. Valid values: UNFINISH and FINISH. Separate multiple values with commas (,).
     shared_ptr<string> finishStatus_ {};
-    // The ID of the Alibaba Cloud account used by the baseline owner.
+    // The Alibaba Cloud UID of the baseline owner.
     shared_ptr<string> owner_ {};
-    // The number of the page to return. Valid values: 1 to 30. Default value: 1.
+    // The page number. Default value: 1. Minimum value: 1. Maximum value: 30.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Default value: 10. Maximum value: 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The priority of the baseline. Valid values: 1, 3, 5, 7, and 8. Multiple priorities are separated by commas (,).
+    // The priority of the baseline. Valid values: 1, 3, 5, 7, and 8. Separate multiple priorities with commas (,).
     shared_ptr<string> priority_ {};
-    // The keyword of the baseline name used to search for the baseline.
+    // The search keyword. You can search by baseline name or baseline ID. If you enter an hourly baseline ID, all instances of that hourly baseline are returned.
     shared_ptr<string> searchText_ {};
-    // The status of the baseline. Valid values: ERROR, SAFE, DANGEROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes finish running before the alerting time. The value DANGEROUS indicates that nodes are still running after the alerting time but before the committed completion time. The value OVER indicates that nodes are still running after the committed completion time. Multiple states are separated by commas (,).
+    // The status of the baseline. Valid values: ERROR, SAFE, DANGROUS, and OVER. Separate multiple values with commas (,).
     shared_ptr<string> status_ {};
-    // The ID of the event.
+    // The ID of the related event.
     shared_ptr<int64_t> topicId_ {};
   };
 

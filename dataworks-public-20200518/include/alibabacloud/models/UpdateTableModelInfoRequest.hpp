@@ -75,15 +75,17 @@ namespace Models
 
 
   protected:
-    // The ID of the first-level table folder.
+    // The first-level topic ID.
     shared_ptr<int64_t> firstLevelThemeId_ {};
-    // The table level ID.
+    // The level ID.
     shared_ptr<int64_t> levelId_ {};
-    // The type of the table level. Valid values: 1 and 2. The value 1 indicates the logical level. The value 2 indicates the physical level.
+    // The level type. Valid values:
+    // - 1: logical level.
+    // - 2: physical level.
     shared_ptr<int32_t> levelType_ {};
-    // The ID of the second-level table folder.
+    // The second-level topic ID.
     shared_ptr<int64_t> secondLevelThemeId_ {};
-    // The GUID of the table. Specify the GUID in the odps.{projectName}.{tableName} format.
+    // The unique identifier of the table, in the format of odps.{projectName}.{tableName}.
     // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};

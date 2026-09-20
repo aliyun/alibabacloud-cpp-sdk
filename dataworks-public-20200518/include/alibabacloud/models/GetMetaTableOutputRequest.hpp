@@ -86,17 +86,21 @@ namespace Models
   protected:
     // The end date.
     // 
+    // The format is `yyyy-MM-dd`, for example, `2020-05-27`.
+    // 
     // This parameter is required.
     shared_ptr<string> endDate_ {};
-    // The page number. Valid values: 1 to 30. Default value: 1.
+    // The page number. Default value: 1. Minimum value: 1. Maximum value: 30.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The start date.
     // 
+    // The format is `yyyy-MM-dd`, for example, `2020-06-27`.
+    // 
     // This parameter is required.
     shared_ptr<string> startDate_ {};
-    // The GUID of the metatable.
+    // The unique identifier of the table.
     // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};

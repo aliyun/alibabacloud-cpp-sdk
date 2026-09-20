@@ -160,13 +160,13 @@ namespace Models
 
 
         protected:
-          // The time when the access permissions on the API were granted to other users.
+          // The authorization time, in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format (the example time zone is +0800).
           shared_ptr<string> createdTime_ {};
-          // The ID of the Alibaba Cloud account used by the API owner.
+          // The Alibaba Cloud ID of the API owner.
           shared_ptr<string> creatorId_ {};
-          // The end time of the validity period of the authorization.
+          // The end time of the authorization validity period, in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format (the example time zone is +0800).
           shared_ptr<string> endTime_ {};
-          // The ID of the workspace to which the access permissions on the API are granted.
+          // The workspace ID that has been granted the authorization.
           shared_ptr<int64_t> projectId_ {};
         };
 
@@ -259,17 +259,17 @@ namespace Models
         shared_ptr<string> apiName_ {};
         // The path of the API.
         shared_ptr<string> apiPath_ {};
-        // The status of the API. Valid values: 0 and 1. The value 0 indicates that the API is not published. The value 1 indicates that the API is published.
+        // The status of the API. Valid values: 0: unpublished. 1: published.
         shared_ptr<int32_t> apiStatus_ {};
-        // The authorization records.
+        // The list of authorization details for APIs authorized to other users.
         shared_ptr<vector<ApiAuthorizationList::AuthorizationRecords>> authorizationRecords_ {};
-        // The time when the API was created.
+        // The time when the API was created, in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format (the example time zone is +0800).
         shared_ptr<string> createdTime_ {};
-        // The ID of the Alibaba Cloud account used by the API owner.
+        // The Alibaba Cloud ID of the API owner.
         shared_ptr<string> creatorId_ {};
         // The group ID.
         shared_ptr<string> groupId_ {};
-        // The time when the API was last modified.
+        // The time when the API was last modified, in the yyyy-MM-dd\\"T\\"HH:mm:ssZ format (the example time zone is +0800).
         shared_ptr<string> modifiedTime_ {};
         // The workspace ID.
         shared_ptr<int64_t> projectId_ {};
@@ -310,13 +310,13 @@ namespace Models
 
 
     protected:
-      // The APIs on which other users are granted the access permissions.
+      // The response structure.
       shared_ptr<vector<Data::ApiAuthorizationList>> apiAuthorizationList_ {};
-      // The page number. The value of this parameter is the same as that of the PageNumber parameter in the request.
+      // The page number, which is the same as the PageNumber value in the request.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries per page. Valid values: 1 to 100. Default value: 10.
+      // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -367,7 +367,7 @@ namespace Models
 
 
   protected:
-    // The APIs on which other users are granted the access permissions.
+    // The list of APIs authorized to other users.
     shared_ptr<ListDataServiceApiAuthoritiesResponseBody::Data> data_ {};
     // The error code.
     shared_ptr<string> errorCode_ {};
@@ -375,9 +375,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The request ID.
+    // The request ID. A unique identifier for the request.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

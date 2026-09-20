@@ -195,19 +195,19 @@ namespace Models
 
 
       protected:
-        // The timestamp when the event was found.
+        // The timestamp when the event was discovered.
         shared_ptr<int64_t> addTime_ {};
-        // The timestamp when the event was processed.
+        // The timestamp when the event was recovered.
         shared_ptr<int64_t> fixTime_ {};
-        // The timestamp when the event occurred. A time difference may exist between the time when the event occurred and the time when the event was found.
+        // The timestamp when the event occurred. There is a time difference between when the event occurs and when it is discovered.
         shared_ptr<int64_t> happenTime_ {};
-        // The ID of the node instance that triggers the event.
+        // The instance ID associated with the event.
         shared_ptr<int64_t> instanceId_ {};
-        // The ID of the node that triggers the event.
+        // The ID of the node associated with the event.
         shared_ptr<int64_t> nodeId_ {};
         // The name of the node.
         shared_ptr<string> nodeName_ {};
-        // The ID of the Alibaba Cloud account that is used by the node owner.
+        // The Alibaba Cloud UID of the node owner.
         shared_ptr<string> nodeOwner_ {};
         // The ID of the workspace to which the node belongs.
         shared_ptr<int64_t> projectId_ {};
@@ -215,9 +215,9 @@ namespace Models
         shared_ptr<int64_t> topicId_ {};
         // The name of the event.
         shared_ptr<string> topicName_ {};
-        // The status of the event. Valid values: IGNORE, NEW, FIXING, and RECOVER. The value IGNORE indicates that the event is ignored. The value NEW indicates that the event is a new event. The value FIXING indicates that the event is being processed. The value RECOVER indicates that the event is processed.
+        // The status of the event. Valid values: IGNORE (ignored), NEW (newly discovered), FIXING (being processed), and RECOVER (recovered).
         shared_ptr<string> topicStatus_ {};
-        // The type of the event. Valid values: SLOW and ERROR. The value SLOW indicates that the running duration of the node in the current scheduling cycle is significantly longer than the average running duration of the node in previous scheduling cycles. The value ERROR indicates that the node fails to run.
+        // The type of the event. Valid values: SLOW (slow) and ERROR (error).
         shared_ptr<string> topicType_ {};
       };
 
@@ -254,13 +254,13 @@ namespace Models
 
 
     protected:
-      // The page number of the returned page.
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned per page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The events returned.
+      // The list of events.
       shared_ptr<vector<Data::Topics>> topics_ {};
-      // The total number of the events returned.
+      // The total number of events.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -311,17 +311,17 @@ namespace Models
 
 
   protected:
-    // The information about the events returned.
+    // The returned event list.
     shared_ptr<ListTopicsResponseBody::Data> data_ {};
-    // The error code returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request. You can use the ID to troubleshoot issues.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

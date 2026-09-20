@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. We recommend that you set this parameter to a UUID.
+    // The idempotence string. A UUID is recommended.
     shared_ptr<string> clientToken_ {};
-    // The DataWorks workspace ID.
+    // The ID of the DataWorks workspace.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The code of the role. This parameter is optional. If you configure the RoleCode parameter, the user is assigned the role.
+    // The role code. This parameter is optional. If this parameter is specified, the user is also added to the specified role.
     shared_ptr<string> roleCode_ {};
     // The ID of the user to be added.
     // 

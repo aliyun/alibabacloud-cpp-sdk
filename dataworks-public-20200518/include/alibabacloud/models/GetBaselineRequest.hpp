@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The baseline ID. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
+    // The ID of the baseline. You can call [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> baselineId_ {};
-    // The ID of the workspace to which the baseline belongs. You can call the [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) operation to query the ID.
+    // The ID of the workspace monitored by the baseline. You can call [ListBaselines](https://help.aliyun.com/document_detail/2261507.html) to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};

@@ -88,17 +88,17 @@ namespace Models
 
 
     protected:
-      // The name of the field.
+      // The name of the column.
       // 
       // This parameter is required.
       shared_ptr<string> columnName_ {};
-      // The display name of the field.
+      // The Chinese name of the column.
       shared_ptr<string> columnNameCn_ {};
-      // The type of the field. For more information, see MaxCompute field types.
+      // The type of the column. For more information, see the column types supported by MaxCompute.
       // 
       // This parameter is required.
       shared_ptr<string> columnType_ {};
-      // The comment of the field.
+      // The comment of the column.
       shared_ptr<string> comment_ {};
     };
 
@@ -121,11 +121,11 @@ namespace Models
 
 
   protected:
-    // The fields.
+    // The list of columns.
     // 
     // This parameter is required.
     shared_ptr<vector<UpdateTableAddColumnRequest::Column>> column_ {};
-    // The globally unique identifier (GUID) of the MaxCompute table. Specify the GUID in the odps.projectName.tableName format.
+    // The unique identifier of the MaxCompute table. Format: odps.projectName.tableName.
     // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};

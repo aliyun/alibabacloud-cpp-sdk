@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> qualifiedName_ {};
-    // The tags.
+    // The list of labels.
     shared_ptr<string> tagsShrink_ {};
   };
 

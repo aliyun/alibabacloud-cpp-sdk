@@ -119,7 +119,7 @@ namespace Models
 
 
       protected:
-        // The time when the table was created.
+        // The creation time.
         shared_ptr<int64_t> createTimestamp_ {};
         // The name of the database.
         shared_ptr<string> databaseName_ {};
@@ -155,11 +155,11 @@ namespace Models
 
 
     protected:
-      // The information about the table.
+      // The table information.
       shared_ptr<vector<Data::DataEntityList>> dataEntityList_ {};
-      // Indicates whether the next page exists.
+      // Indicates whether there is a next page.
       shared_ptr<bool> hasNext_ {};
-      // The logic of paging. If the value true is returned for the HasNext parameter and a value is returned for the NextPrimaryKey parameter in the response of the previous request, you must use the value of the NextPrimaryKey parameter for the next request.
+      // The pagination key. Set this parameter based on the HasNext and key values returned in the response.
       shared_ptr<string> nextPrimaryKey_ {};
     };
 

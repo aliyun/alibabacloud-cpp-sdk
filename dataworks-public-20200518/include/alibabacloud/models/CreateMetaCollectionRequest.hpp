@@ -66,13 +66,17 @@ namespace Models
 
 
   protected:
-    // The type of the collection.
+    // The collection type.
     // 
     // This parameter is required.
     shared_ptr<string> collectionType_ {};
-    // The comment of the collection. The comment must be 1 to 64 characters in length.
+    // The comment for the collection.
+    // 
+    // Length limit: 1 to 64 characters.
     shared_ptr<string> comment_ {};
-    // The name of the collection. The name must be 1 to 32 characters in length.
+    // The collection name.
+    // 
+    // Length limit: 1 to 32 characters.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};

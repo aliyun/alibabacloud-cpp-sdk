@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The GUID of the metatable.
+    // The unique identifier of the table.
     // 
     // This parameter is required.
     shared_ptr<string> tableGuid_ {};
-    // The version of the instructions.
+    // The version of the usage instructions.
     shared_ptr<int64_t> wikiVersion_ {};
   };
 

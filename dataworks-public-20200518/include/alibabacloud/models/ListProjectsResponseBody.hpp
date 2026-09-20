@@ -138,9 +138,9 @@ namespace Models
 
 
         protected:
-          // The key of tag N added to the workspace.
+          // The tag key.
           shared_ptr<string> key_ {};
-          // The value of tag N added to the workspace.
+          // The tag value.
           shared_ptr<string> value_ {};
         };
 
@@ -242,15 +242,13 @@ namespace Models
 
 
       protected:
-        // Indicates whether the Development role is disabled. Valid values:
-        // 
-        // *   **false**: enabled
-        // *   **true**: disabled
+        // Indicates whether the development role is disabled. Valid values:
+        // -  **false**: The development role is enabled.
+        // -  **true**: The development role is disabled.
         shared_ptr<bool> disableDevelopment_ {};
-        // Indicates whether the workspace is a default workspace. Valid values:
-        // 
-        // *   **1**: The workspace is a default workspace.
-        // *   **0**: The workspace is not a default workspace.
+        // Indicates whether the workspace is the default workspace. Valid values:
+        // - **1**: yes.
+        // - **0**: no.
         shared_ptr<int32_t> isDefault_ {};
         // The description of the workspace.
         shared_ptr<string> projectDescription_ {};
@@ -260,47 +258,44 @@ namespace Models
         shared_ptr<string> projectIdentifier_ {};
         // The display name of the workspace.
         shared_ptr<string> projectName_ {};
-        // The ID of the user used by the workspace owner.
+        // The user ID of the workspace owner.
         shared_ptr<string> projectOwnerBaseId_ {};
         // The status of the workspace. Valid values:
-        // 
-        // *   0: AVAILABLE, which indicates that the workspace is running as expected.
-        // *   1: DELETED, which indicates that the workspace is deleted.
-        // *   2: INITIALIZING, which indicates that the workspace is being initialized.
-        // *   3: INIT_FAILED, which indicates that the workspace fails to be initialized.
-        // *   4: FORBIDDEN, which indicates that the workspace is manually disabled.
-        // *   5: DELETING, which indicates that the workspace is being deleted.
-        // *   6: DEL_FAILED, which indicates that the workspace fails to be deleted.
-        // *   7: FROZEN, which indicates that the workspace is frozen due to overdue payments.
-        // *   8: UPDATING, which indicates that the workspace is being updated. After you associate a compute engine with the workspace, the system initializes the compute engine and updates the workspace.
-        // *   9: UPDATE_FAILED, which indicates that the workspace fails to be updated.
+        // - AVAILABLE: The status value is 0, which indicates that the workspace is Normal.
+        // - DELETED: The status value is 1, which indicates that the workspace is deleted.
+        // - INITIALIZING: The status value is 2, which indicates that the workspace is being initialized.
+        // - INIT_FAILED: The status value is 3, which indicates that the workspace failed to be initialized.
+        // - FORBIDDEN: The status value is 4, which indicates that the workspace is manually disabled.
+        // - DELETING: The status value is 5, which indicates that the workspace is being deleted.
+        // - DEL_FAILED: The status value is 6, which indicates that the workspace failed to be deleted.
+        // - FROZEN: The status value is 7, which indicates that the workspace is frozen due to overdue payment.
+        // - UPDATING: The status value is 8, which indicates that the workspace is being updated (a compute engine is being added and initialized for the project).
+        // - UPDATE_FAILED: The status value is 9, which indicates that the workspace failed to be updated (a compute engine failed to be added and initialized for the project).
         shared_ptr<int32_t> projectStatus_ {};
         // The status code of the workspace. Valid values:
         // 
-        // *   AVAILABLE: 0, which indicates that the workspace is running as expected.
-        // *   DELETED: 1, which indicates that the workspace is deleted.
-        // *   INITIALIZING: 2, which indicates that the workspace is being initialized.
-        // *   INIT_FAILED: 3, which indicates that the workspace fails to be initialized.
-        // *   FORBIDDEN: 4, which indicates that the workspace is manually disabled.
-        // *   DELETING: 5, which indicates that the workspace is being deleted.
-        // *   DEL_FAILED: 6, which indicates that the workspace fails to be deleted.
-        // *   FROZEN: 7, which indicates that the workspace is frozen due to overdue payments.
-        // *   UPDATING: 8, which indicates that the workspace is being updated. After you associate a compute engine with the workspace, the system initializes the compute engine and updates the workspace.
-        // *   UPDATE_FAILED: 9, which indicates that the workspace fails to be updated.
+        // - AVAILABLE: The status value is 0, which indicates that the workspace is Normal.
+        // - DELETED: The status value is 1, which indicates that the workspace is deleted.
+        // - INITIALIZING: The status value is 2, which indicates that the workspace is being initialized.
+        // - INIT_FAILED: The status value is 3, which indicates that the workspace failed to be initialized.
+        // - FORBIDDEN: The status value is 4, which indicates that the workspace is manually disabled.
+        // - DELETING: The status value is 5, which indicates that the workspace is being deleted.
+        // - DEL_FAILED: The status value is 6, which indicates that the workspace failed to be deleted.
+        // - FROZEN: The status value is 7, which indicates that the workspace is frozen due to overdue payment.
+        // - UPDATING: The status value is 8, which indicates that the workspace is being updated (a compute engine is being added and initialized for the project).
+        // - UPDATE_FAILED: The status value is 9, which indicates that the workspace failed to be updated (a compute engine failed to be added and initialized for the project).
         shared_ptr<string> projectStatusCode_ {};
         // The resource group ID.
         shared_ptr<string> resourceManagerResourceGroupId_ {};
-        // Indicates whether the MaxCompute tables in the workspace are visible to the users within a tenant. Valid values:
-        // 
-        // *   **0**: invisible
-        // *   **1**: visible
+        // The visibility permission of MaxCompute tables. Valid values:
+        // - **0**: MaxCompute tables are not visible to users within the tenant.
+        // - **1**: MaxCompute tables are visible to users within the tenant.
         shared_ptr<int32_t> tablePrivacyMode_ {};
-        // The tags added to the workspace.
+        // The list of tags bound to the workspace.
         shared_ptr<vector<ProjectList::Tags>> tags_ {};
-        // Indicates whether a proxy account is used to access the MaxCompute compute engine associated with the workspace. Valid values:
-        // 
-        // *   **false**
-        // *   **true**
+        // Indicates whether a proxy account is used to access the MaxCompute engine. Valid values:
+        // - **false**: A proxy account is not used.
+        // - **true**: A proxy account is used.
         shared_ptr<bool> useProxyOdpsAccount_ {};
       };
 
@@ -337,11 +332,11 @@ namespace Models
 
 
     protected:
-      // The page number.
+      // The current page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};
-      // The DataWorks workspaces.
+      // The list of DataWorks workspaces.
       shared_ptr<vector<PageResult::ProjectList>> projectList_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};
@@ -366,7 +361,7 @@ namespace Models
 
 
   protected:
-    // The results that are returned.
+    // The query result.
     shared_ptr<ListProjectsResponseBody::PageResult> pageResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

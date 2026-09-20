@@ -92,12 +92,11 @@ namespace Models
     shared_ptr<string> httpStatusCode_ {};
     // The unique identifier of the collection.
     shared_ptr<string> qualifiedName_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // *   true
-    // *   false
+    // Indicates whether the call was successful. Valid values:
+    // - true: The call was successful.
+    // - false: The call failed.
     shared_ptr<string> success_ {};
   };
 

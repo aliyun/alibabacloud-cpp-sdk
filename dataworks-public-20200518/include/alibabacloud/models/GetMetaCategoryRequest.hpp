@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The number of the page to return.
+    // The page number. Used for pagination.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 10. Maximum value: 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The category tree ID.
+    // The ID of the tree category.
     shared_ptr<int64_t> parentCategoryId_ {};
   };
 

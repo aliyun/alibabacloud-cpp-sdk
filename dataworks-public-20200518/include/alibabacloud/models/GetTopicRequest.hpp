@@ -38,7 +38,9 @@ namespace Models
 
 
   protected:
-    // The event ID. You can call the [ListTopics](https://help.aliyun.com/document_detail/173973.html) operation to query the ID.
+    // The ID of the event. You can call [listTopics](https://help.aliyun.com/document_detail/173973.html) to obtain the ID.
+    // 
+    // The documentation example is for format demonstration only. Valid TopicId values can be obtained from Data.Topics[].TopicId in the ListTopics response.
     // 
     // This parameter is required.
     shared_ptr<int64_t> topicId_ {};

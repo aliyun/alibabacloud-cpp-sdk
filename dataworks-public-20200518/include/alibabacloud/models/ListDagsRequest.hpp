@@ -48,11 +48,11 @@ namespace Models
 
 
   protected:
-    // The sequence number that uniquely identifies the data backfill operation. You can call the [GetDag](https://help.aliyun.com/document_detail/189753.html) operation to query the sequence number.
+    // The unique identifier of the data backfill instance. You can call the [GetDag](https://help.aliyun.com/document_detail/189753.html) operation to obtain this value.
     // 
     // This parameter is required.
     shared_ptr<int64_t> opSeq_ {};
-    // The environment of the workspace. Valid values: PROD and DEV. The value PROD indicates the production environment, and the value DEV indicates the development environment.
+    // The identifier of the scheduling O&M environment. PROD indicates the production environment, and DEV indicates the development environment.
     // 
     // This parameter is required.
     shared_ptr<string> projectEnv_ {};

@@ -112,25 +112,31 @@ namespace Models
 
 
   protected:
-    // The ID of the E-MapReduce (EMR) cluster. Configure this parameter only when you query data in an EMR compute engine instance.
+    // The ID of the EMR cluster. This parameter is required for EMR scenarios.
     shared_ptr<string> clusterId_ {};
     // The unique identifier of the field.
     shared_ptr<string> columnGuid_ {};
     // The name of the field.
     shared_ptr<string> columnName_ {};
-    // The type of the data source. Valid values: odps and emr.
+    // The data source type. Valid values:
+    // 
+    // - odps
+    // - emr
     shared_ptr<string> dataSourceType_ {};
     // The name of the database.
     shared_ptr<string> databaseName_ {};
-    // Specifies whether to query the ancestor or descendant lineage of the field. The value up indicates the ancestor lineage. The value down indicates the descendant lineage.
+    // The direction of the field lineage. Valid values:
+    // 
+    // - up: upstream.
+    // - down: downstream.
     // 
     // This parameter is required.
     shared_ptr<string> direction_ {};
-    // The number of the page to return.
+    // The page number. Used for pagination.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries to return on each page. Default value: 10. Maximum value: 100.
+    // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the metatable.
+    // The name of the table.
     shared_ptr<string> tableName_ {};
   };
 

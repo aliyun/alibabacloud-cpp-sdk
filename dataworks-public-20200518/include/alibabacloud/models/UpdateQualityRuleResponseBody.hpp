@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // Indicates whether the validation rule was successfully updated.
+    // Indicates whether the quality check rule is updated.
     shared_ptr<bool> data_ {};
-    // The error code returned when the request fails.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned when the request fails.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
     // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request, used for troubleshooting.
+    // The request ID. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was successful.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

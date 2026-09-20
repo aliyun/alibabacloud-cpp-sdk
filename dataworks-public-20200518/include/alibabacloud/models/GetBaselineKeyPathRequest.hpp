@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The name of the event.
+    // The ID of the baseline.
     // 
     // This parameter is required.
     shared_ptr<int64_t> baselineId_ {};
-    // The ID of the instance.
+    // The business date in the yyyy-MM-dd\\"T\\"HH:mm:ssZ UTC format.
     // 
     // This parameter is required.
     shared_ptr<string> bizdate_ {};
-    // The ID of the event.
+    // The cycle number of the baseline instance. The value is 1 for a daily baseline. Valid values for an hourly baseline: [1,24\\].
     // 
     // This parameter is required.
     shared_ptr<int32_t> inGroupId_ {};

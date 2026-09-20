@@ -181,9 +181,9 @@ namespace Models
 
 
       protected:
-        // The timestamp of the predicted time when the instance finished running.
+        // The estimated completion timestamp of the instance.
         shared_ptr<int64_t> endCast_ {};
-        // The timestamp of the actual time when the instance finished running.
+        // The actual completion timestamp of the instance.
         shared_ptr<int64_t> finishTime_ {};
         // The ID of the instance.
         shared_ptr<int64_t> instanceId_ {};
@@ -191,11 +191,11 @@ namespace Models
         shared_ptr<int64_t> nodeId_ {};
         // The name of the node.
         shared_ptr<string> nodeName_ {};
-        // The ID of the Alibaba Cloud account used by the node owner.
+        // The Alibaba Cloud UID of the node owner.
         shared_ptr<string> owner_ {};
         // The ID of the workspace to which the node belongs.
         shared_ptr<int64_t> projectId_ {};
-        // The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS. The value NOT_RUN indicates that the instance is not run. The value WAIT_TIME indicates that the instance is waiting to be run. The value WAIT_RESOURCE indicates that the instance is waiting for resources. The value RUNNING indicates that the instance is running. The value CHECKING indicates that data quality is being checked for the instance. The value CHECKING_CONDITION indicates that branch conditions are being checked for the instance. The value FAILURE indicates that the instance fails to run. The value SUCCESS indicates that the instance is run.
+        // The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS.
         shared_ptr<string> status_ {};
       };
 
@@ -292,9 +292,9 @@ namespace Models
 
 
       protected:
-        // The timestamp of the predicted time when the instance finished running.
+        // The estimated completion timestamp of the instance.
         shared_ptr<int64_t> endCast_ {};
-        // The timestamp of the actual time when the instance finished running.
+        // The actual completion timestamp of the instance.
         shared_ptr<int64_t> finishTime_ {};
         // The ID of the instance.
         shared_ptr<int64_t> instanceId_ {};
@@ -302,11 +302,11 @@ namespace Models
         shared_ptr<int64_t> nodeId_ {};
         // The name of the node.
         shared_ptr<string> nodeName_ {};
-        // The ID of the Alibaba Cloud account used by the node owner.
+        // The Alibaba Cloud UID of the node owner.
         shared_ptr<string> owner_ {};
         // The ID of the workspace to which the node belongs.
         shared_ptr<int64_t> projectId_ {};
-        // The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS. The value NOT_RUN indicates that the instance is not run. The value WAIT_TIME indicates that the instance is waiting to be run. The value WAIT_RESOURCE indicates that the instance is waiting for resources. The value RUNNING indicates that the instance is running. The value CHECKING indicates that data quality is being checked for the instance. The value CHECKING_CONDITION indicates that branch conditions are being checked for the instance. The value FAILURE indicates that the instance fails to run. The value SUCCESS indicates that the instance is run.
+        // The status of the instance. Valid values: NOT_RUN, WAIT_TIME, WAIT_RESOURCE, RUNNING, CHECKING, CHECKING_CONDITION, FAILURE, and SUCCESS.
         shared_ptr<string> status_ {};
       };
 
@@ -435,33 +435,33 @@ namespace Models
       shared_ptr<int64_t> baselineId_ {};
       // The name of the baseline.
       shared_ptr<string> baselineName_ {};
-      // The data timestamp of the baseline instance.
+      // The business date timestamp.
       shared_ptr<int64_t> bizdate_ {};
-      // The information about the key instance.
+      // The information about the critical instance.
       shared_ptr<Data::BlockInstance> blockInstance_ {};
-      // The margin of the baseline instance. Unit: seconds.
+      // The buffer time of the baseline instance, in seconds.
       shared_ptr<float> buffer_ {};
-      // The timestamp of the predicted time when the baseline instance finished running.
+      // The estimated completion timestamp of the baseline instance.
       shared_ptr<int64_t> endCast_ {};
-      // The timestamp of the alerting time of the baseline instance.
+      // The warning timestamp of the baseline instance.
       shared_ptr<int64_t> expTime_ {};
-      // The status of the baseline instance. Valid values: UNFINISH and FINISH. The value UNFINISH indicates that the baseline instance is still running. The value FINISH indicates that the baseline instance finishes running.
+      // Indicates whether the baseline instance is completed. Valid values: UNFINISH and FINISH.
       shared_ptr<string> finishStatus_ {};
-      // The timestamp of the actual time when the baseline instance finished running. This parameter is returned if the value of the FinishStatus parameter is FINISH.
+      // The completion timestamp of the baseline instance. This parameter is returned only when FinishStatus is FINISH.
       shared_ptr<int64_t> finishTime_ {};
-      // The ID of the scheduling cycle of the baseline instance. For a baseline instance that is scheduled by day, the value of this parameter is 1. For a baseline instance that is scheduled by hour, the value of this parameter ranges from 1 to 24.
+      // The cycle number of the baseline instance. The value is 1 for daily baselines. The value ranges from [1,24\\] for hourly baselines.
       shared_ptr<int32_t> inGroupId_ {};
-      // The information about the last generated instance.
+      // The information about the latest instance.
       shared_ptr<Data::LastInstance> lastInstance_ {};
-      // The ID of the Alibaba Cloud account used by the baseline owner. Multiple IDs are separated by commas (,).
+      // The Alibaba Cloud UID of the baseline owner. Multiple owners are separated by commas (,).
       shared_ptr<string> owner_ {};
       // The priority of the baseline. Valid values: 1, 2, 5, 7, and 8.
       shared_ptr<int32_t> priority_ {};
       // The ID of the workspace to which the baseline belongs.
       shared_ptr<int64_t> projectId_ {};
-      // The timestamp of the committed completion time of the baseline instance.
+      // The committed completion timestamp of the baseline instance.
       shared_ptr<int64_t> slaTime_ {};
-      // The status of the baseline. Valid values: ERROR, SAFE, DANGEROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes finish running before the alerting time. The value DANGEROUS indicates that nodes are still running after the alerting time but before the committed completion time. The value OVER indicates that nodes are still running after the committed completion time.
+      // The status of the baseline. Valid values: ERROR, SAFE, DANGROUS (warning), and OVER (exceeded).
       shared_ptr<string> status_ {};
     };
 
@@ -514,15 +514,15 @@ namespace Models
   protected:
     // The details of the baseline instance.
     shared_ptr<GetBaselineStatusResponseBody::Data> data_ {};
-    // The error code returned.
+    // The error code.
     shared_ptr<string> errorCode_ {};
-    // The error message returned.
+    // The error message.
     shared_ptr<string> errorMessage_ {};
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request. You can use the ID to troubleshoot issues.
+    // The unique ID of the request. You can use this ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

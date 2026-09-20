@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the DAG for the manually triggered workflow. You can call an operation with this parameter as a request parameter to query the details and states of the nodes in the manually triggered workflow.
+    // The instance ID of the dagrun for the manual workflow. You can use this DagId with the corresponding API operation to query the details and status of internal node instances for this manual workflow run.
     shared_ptr<int64_t> dagId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
