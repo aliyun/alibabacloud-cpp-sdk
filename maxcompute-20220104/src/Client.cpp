@@ -1664,7 +1664,7 @@ GetPackageResponse Client::getPackage(const string &projectName, const string &p
 }
 
 /**
- * @summary Queries the basic information of a MaxCompute project.
+ * @summary Queries the basic information about a MaxCompute project.
  *
  * @param request GetProjectRequest
  * @param headers map
@@ -1705,7 +1705,7 @@ GetProjectResponse Client::getProjectWithOptions(const string &projectName, cons
 }
 
 /**
- * @summary Queries the basic information of a MaxCompute project.
+ * @summary Queries the basic information about a MaxCompute project.
  *
  * @param request GetProjectRequest
  * @return GetProjectResponse

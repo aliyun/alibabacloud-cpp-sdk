@@ -613,7 +613,7 @@ namespace MaxCompute20220104
       Models::GetPackageResponse getPackage(const string &projectName, const string &packageName, const Models::GetPackageRequest &request);
 
       /**
-       * @summary Queries the basic information of a MaxCompute project.
+       * @summary Queries the basic information about a MaxCompute project.
        *
        * @param request GetProjectRequest
        * @param headers map
@@ -623,7 +623,7 @@ namespace MaxCompute20220104
       Models::GetProjectResponse getProjectWithOptions(const string &projectName, const Models::GetProjectRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information of a MaxCompute project.
+       * @summary Queries the basic information about a MaxCompute project.
        *
        * @param request GetProjectRequest
        * @return GetProjectResponse
