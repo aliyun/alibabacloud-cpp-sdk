@@ -1,0 +1,60 @@
+// This file is auto-generated, don't edit it. Thanks.
+#ifndef ALIBABACLOUD_MODELS_DESCRIBESUBDOMAINREQUEST_HPP_
+#define ALIBABACLOUD_MODELS_DESCRIBESUBDOMAINREQUEST_HPP_
+#include <darabonba/Core.hpp>
+using namespace std;
+using json = nlohmann::json;
+namespace AlibabaCloud
+{
+namespace HBase20190101
+{
+namespace Models
+{
+  class DescribeSubDomainRequest : public Darabonba::Model {
+  public:
+    friend void to_json(Darabonba::Json& j, const DescribeSubDomainRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(RegionId, regionId_);
+      DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
+    };
+    friend void from_json(const Darabonba::Json& j, DescribeSubDomainRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
+      DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
+    };
+    DescribeSubDomainRequest() = default ;
+    DescribeSubDomainRequest(const DescribeSubDomainRequest &) = default ;
+    DescribeSubDomainRequest(DescribeSubDomainRequest &&) = default ;
+    DescribeSubDomainRequest(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DescribeSubDomainRequest() = default ;
+    DescribeSubDomainRequest& operator=(const DescribeSubDomainRequest &) = default ;
+    DescribeSubDomainRequest& operator=(DescribeSubDomainRequest &&) = default ;
+    virtual void validate() const override {
+    };
+    virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+    virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    virtual bool empty() const override { return this->regionId_ == nullptr
+        && this->zoneId_ == nullptr; };
+    // regionId Field Functions 
+    bool hasRegionId() const { return this->regionId_ != nullptr;};
+    void deleteRegionId() { this->regionId_ = nullptr;};
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline DescribeSubDomainRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
+
+
+    // zoneId Field Functions 
+    bool hasZoneId() const { return this->zoneId_ != nullptr;};
+    void deleteZoneId() { this->zoneId_ = nullptr;};
+    inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+    inline DescribeSubDomainRequest& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
+  protected:
+    // The region ID.
+    shared_ptr<string> regionId_ {};
+    // The zone ID.
+    shared_ptr<string> zoneId_ {};
+  };
+
+  } // namespace Models
+} // namespace AlibabaCloud
+} // namespace HBase20190101
+#endif
