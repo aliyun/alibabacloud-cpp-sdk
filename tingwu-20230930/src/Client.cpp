@@ -19,9 +19,6 @@ namespace Tingwu20230930
 
 AlibabaCloud::Tingwu20230930::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-beijing" , "tingwu.cn-beijing.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("tingwu", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -40,7 +37,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Create offline transcription and real-time meeting tasks in Tingwu.
+ * @summary Creates a Tingwu task, including offline transcription tasks and real-time meeting tasks.
  *
  * @param request CreateTaskRequest
  * @param headers map
@@ -91,7 +88,7 @@ CreateTaskResponse Client::createTaskWithOptions(const CreateTaskRequest &reques
 }
 
 /**
- * @summary Create offline transcription and real-time meeting tasks in Tingwu.
+ * @summary Creates a Tingwu task, including offline transcription tasks and real-time meeting tasks.
  *
  * @param request CreateTaskRequest
  * @return CreateTaskResponse

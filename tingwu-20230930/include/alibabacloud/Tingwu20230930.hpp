@@ -21,7 +21,7 @@ namespace Tingwu20230930
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Create offline transcription and real-time meeting tasks in Tingwu.
+       * @summary Creates a Tingwu task, including offline transcription tasks and real-time meeting tasks.
        *
        * @param request CreateTaskRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace Tingwu20230930
       Models::CreateTaskResponse createTaskWithOptions(const Models::CreateTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create offline transcription and real-time meeting tasks in Tingwu.
+       * @summary Creates a Tingwu task, including offline transcription tasks and real-time meeting tasks.
        *
        * @param request CreateTaskRequest
        * @return CreateTaskResponse

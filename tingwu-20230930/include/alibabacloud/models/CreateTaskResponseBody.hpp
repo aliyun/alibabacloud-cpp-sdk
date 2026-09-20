@@ -91,11 +91,11 @@ namespace Models
 
 
     protected:
-      // The stream ingestion URL. Push audio streams to this URL for real-time transcription.
+      // The audio stream push URL generated in the real-time recording scenario. You can use this URL for subsequent real-time audio stream recognition.
       shared_ptr<string> meetingJoinUrl_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
-      // The custom identifier specified during task creation.
+      // The custom identifier set by the user when creating the task.
       shared_ptr<string> taskKey_ {};
       // The task status.
       shared_ptr<string> taskStatus_ {};
@@ -136,11 +136,11 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // The response data.
+    // The response object.
     shared_ptr<CreateTaskResponseBody::Data> data_ {};
-    // The status message.
+    // The status description.
     shared_ptr<string> message_ {};
-    // The request ID, used for troubleshooting only.
+    // The request ID, used only for troubleshooting.
     shared_ptr<string> requestId_ {};
   };
 
