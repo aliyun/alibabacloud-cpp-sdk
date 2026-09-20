@@ -351,7 +351,7 @@ namespace Models
           shared_ptr<int32_t> diskSize_ {};
           // The environment variables.
           shared_ptr<map<string, string>> environmentVariables_ {};
-          // The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
+          // The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
           shared_ptr<string> executionRoleArn_ {};
           // Default value: 200.
           shared_ptr<int32_t> instanceConcurrency_ {};
@@ -625,7 +625,7 @@ namespace Models
           shared_ptr<string> securityGroupId_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The virtual private cloud (VPC) ID.
+          // The VPC ID.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -999,7 +999,7 @@ namespace Models
             shared_ptr<string> event_ {};
             // The hook request headers.
             shared_ptr<map<string, string>> headers_ {};
-            // The hook timeout period. Unit: milliseconds.
+            // The timeout period. Unit: milliseconds.
             shared_ptr<int32_t> timeout_ {};
             // The hook callback URL.
             shared_ptr<string> url_ {};
@@ -1692,7 +1692,7 @@ namespace Models
 
 
       protected:
-        // The API key authentication configuration for callers of code-deployed MCP.
+        // The API key authentication configuration for code-deployed MCP callers.
         shared_ptr<Auth::CodePackage> codePackage_ {};
         // The authentication configuration for direct proxy.
         shared_ptr<Auth::DirectProxy> directProxy_ {};
@@ -1855,9 +1855,9 @@ namespace Models
     protected:
       // The list of MCP service addresses.
       shared_ptr<vector<string>> addresses_ {};
-      // The backend authentication configuration. enabled indicates whether authentication is enabled. directProxy specifies custom authentication headers for direct proxy connections. httpToMcp specifies the list of OpenAPI credentials for HTTP_TO_MCP.
+      // The backend authentication configuration. enabled indicates whether authentication is enabled. directProxy specifies custom authentication headers for direct-connect proxies. httpToMcp specifies the OpenAPI credential list for HTTP_TO_MCP.
       shared_ptr<Data::Auth> auth_ {};
-      // Custom tags. Multiple tags are supported.
+      // The custom tags. Multiple tags are supported.
       shared_ptr<vector<string>> customTags_ {};
       // The deployment configuration for code-deployed MCP services.
       shared_ptr<Data::DeploymentConfig> deploymentConfig_ {};

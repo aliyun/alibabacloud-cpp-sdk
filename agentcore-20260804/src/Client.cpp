@@ -2474,10 +2474,10 @@ GetManagedAgentResponse Client::getManagedAgent(const string &workspaceId, const
 }
 
 /**
- * @summary Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+ * @summary Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
  *
  * @description ## Operation description
- * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+ * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
  *
  * @param request GetMcpRequest
  * @param headers map
@@ -2504,10 +2504,10 @@ GetMcpResponse Client::getMcpWithOptions(const string &workspaceId, const string
 }
 
 /**
- * @summary Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+ * @summary Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
  *
  * @description ## Operation description
- * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+ * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
  *
  * @param request GetMcpRequest
  * @return GetMcpResponse
@@ -3090,7 +3090,7 @@ GetWorkspacePluginResponse Client::getWorkspacePlugin(const string &workspaceId,
 /**
  * @summary Installs an MCP marketplace template.
  *
- * @description Validates input based on the specified template version and creates an MCP in the workspace.
+ * @description Validates the input based on the specified template version and creates an MCP in the workspace.
  *
  * @param tmpReq InstallMcpMarketItemRequest
  * @param headers map
@@ -3141,7 +3141,7 @@ InstallMcpMarketItemResponse Client::installMcpMarketItemWithOptions(const strin
 /**
  * @summary Installs an MCP marketplace template.
  *
- * @description Validates input based on the specified template version and creates an MCP in the workspace.
+ * @description Validates the input based on the specified template version and creates an MCP in the workspace.
  *
  * @param request InstallMcpMarketItemRequest
  * @return InstallMcpMarketItemResponse
@@ -3872,6 +3872,10 @@ ListMcpToolsResponse Client::listMcpTools(const string &workspaceId, const strin
 ListMcpsResponse Client::listMcpsWithOptions(const string &workspaceId, const ListMcpsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCustomTag()) {
+    query["customTag"] = request.getCustomTag();
+  }
+
   if (!!request.hasMaxResults()) {
     query["maxResults"] = request.getMaxResults();
   }
@@ -5558,7 +5562,7 @@ UpdateMcpResponse Client::updateMcp(const string &workspaceId, const string &mcp
 /**
  * @summary Updates MCP parameters by template.
  *
- * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+ * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created, without upgrading the template version.
  *
  * @param tmpReq UpdateMcpTemplateConfigRequest
  * @param headers map
@@ -5609,7 +5613,7 @@ UpdateMcpTemplateConfigResponse Client::updateMcpTemplateConfigWithOptions(const
 /**
  * @summary Updates MCP parameters by template.
  *
- * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+ * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created, without upgrading the template version.
  *
  * @param request UpdateMcpTemplateConfigRequest
  * @return UpdateMcpTemplateConfigResponse

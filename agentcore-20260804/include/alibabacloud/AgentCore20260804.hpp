@@ -1069,10 +1069,10 @@ namespace AgentCore20260804
       Models::GetManagedAgentResponse getManagedAgent(const string &workspaceId, const string &agentId, const Models::GetManagedAgentRequest &request);
 
       /**
-       * @summary Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+       * @summary Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
        *
        * @description ## Operation description
-       * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+       * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
        *
        * @param request GetMcpRequest
        * @param headers map
@@ -1082,10 +1082,10 @@ namespace AgentCore20260804
       Models::GetMcpResponse getMcpWithOptions(const string &workspaceId, const string &mcpServerId, const Models::GetMcpRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+       * @summary Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
        *
        * @description ## Operation description
-       * Queries the details of a specified MCP service, including the address, type, status, authentication configuration, and protocol.
+       * Queries the details of a specified MCP server, including the address, type, status, authentication configuration, and protocol.
        *
        * @param request GetMcpRequest
        * @return GetMcpResponse
@@ -1371,7 +1371,7 @@ namespace AgentCore20260804
       /**
        * @summary Installs an MCP marketplace template.
        *
-       * @description Validates input based on the specified template version and creates an MCP in the workspace.
+       * @description Validates the input based on the specified template version and creates an MCP in the workspace.
        *
        * @param tmpReq InstallMcpMarketItemRequest
        * @param headers map
@@ -1383,7 +1383,7 @@ namespace AgentCore20260804
       /**
        * @summary Installs an MCP marketplace template.
        *
-       * @description Validates input based on the specified template version and creates an MCP in the workspace.
+       * @description Validates the input based on the specified template version and creates an MCP in the workspace.
        *
        * @param request InstallMcpMarketItemRequest
        * @return InstallMcpMarketItemResponse
@@ -2281,7 +2281,7 @@ namespace AgentCore20260804
       /**
        * @summary Updates MCP parameters by template.
        *
-       * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+       * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created, without upgrading the template version.
        *
        * @param tmpReq UpdateMcpTemplateConfigRequest
        * @param headers map
@@ -2293,7 +2293,7 @@ namespace AgentCore20260804
       /**
        * @summary Updates MCP parameters by template.
        *
-       * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created. This operation does not upgrade the template version.
+       * @description Updates the schema-exposed parameters by using the same template version that was bound when the MCP was created, without upgrading the template version.
        *
        * @param request UpdateMcpTemplateConfigRequest
        * @return UpdateMcpTemplateConfigResponse

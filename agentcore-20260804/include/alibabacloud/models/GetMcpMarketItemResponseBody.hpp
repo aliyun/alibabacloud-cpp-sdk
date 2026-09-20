@@ -2,6 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_GETMCPMARKETITEMRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETMCPMARKETITEMRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <map>
+#include <alibabacloud/models/DataI18nValue.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -45,6 +47,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(category, category_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_ANY_TO_JSON(displayMetadata, displayMetadata_);
+        DARABONBA_PTR_TO_JSON(i18n, i18n_);
         DARABONBA_PTR_TO_JSON(iconUrl, iconUrl_);
         DARABONBA_PTR_TO_JSON(installCount, installCount_);
         DARABONBA_PTR_TO_JSON(marketItemId, marketItemId_);
@@ -61,6 +64,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(category, category_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_ANY_FROM_JSON(displayMetadata, displayMetadata_);
+        DARABONBA_PTR_FROM_JSON(i18n, i18n_);
         DARABONBA_PTR_FROM_JSON(iconUrl, iconUrl_);
         DARABONBA_PTR_FROM_JSON(installCount, installCount_);
         DARABONBA_PTR_FROM_JSON(marketItemId, marketItemId_);
@@ -85,9 +89,9 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->category_ == nullptr
-        && this->description_ == nullptr && this->displayMetadata_ == nullptr && this->iconUrl_ == nullptr && this->installCount_ == nullptr && this->marketItemId_ == nullptr
-        && this->mcpType_ == nullptr && this->name_ == nullptr && this->officialTag_ == nullptr && this->protocol_ == nullptr && this->readme_ == nullptr
-        && this->schemaVersion_ == nullptr && this->templateInputSchema_ == nullptr && this->templateVersion_ == nullptr; };
+        && this->description_ == nullptr && this->displayMetadata_ == nullptr && this->i18n_ == nullptr && this->iconUrl_ == nullptr && this->installCount_ == nullptr
+        && this->marketItemId_ == nullptr && this->mcpType_ == nullptr && this->name_ == nullptr && this->officialTag_ == nullptr && this->protocol_ == nullptr
+        && this->readme_ == nullptr && this->schemaVersion_ == nullptr && this->templateInputSchema_ == nullptr && this->templateVersion_ == nullptr; };
       // category Field Functions 
       bool hasCategory() const { return this->category_ != nullptr;};
       void deleteCategory() { this->category_ = nullptr;};
@@ -109,6 +113,15 @@ namespace Models
       Darabonba::Json & getDisplayMetadata() { DARABONBA_GET(displayMetadata_) };
       inline Data& setDisplayMetadata(const Darabonba::Json & displayMetadata) { DARABONBA_SET_VALUE(displayMetadata_, displayMetadata) };
       inline Data& setDisplayMetadata(Darabonba::Json && displayMetadata) { DARABONBA_SET_RVALUE(displayMetadata_, displayMetadata) };
+
+
+      // i18n Field Functions 
+      bool hasI18n() const { return this->i18n_ != nullptr;};
+      void deleteI18n() { this->i18n_ = nullptr;};
+      inline const map<string, DataI18nValue> & getI18n() const { DARABONBA_PTR_GET_CONST(i18n_, map<string, DataI18nValue>) };
+      inline map<string, DataI18nValue> getI18n() { DARABONBA_PTR_GET(i18n_, map<string, DataI18nValue>) };
+      inline Data& setI18n(const map<string, DataI18nValue> & i18n) { DARABONBA_PTR_SET_VALUE(i18n_, i18n) };
+      inline Data& setI18n(map<string, DataI18nValue> && i18n) { DARABONBA_PTR_SET_RVALUE(i18n_, i18n) };
 
 
       // iconUrl Field Functions 
@@ -189,12 +202,14 @@ namespace Models
 
 
     protected:
-      // The category of the MCP marketplace template.
+      // The MCP marketplace template category.
       shared_ptr<string> category_ {};
-      // The description of the MCP service.
+      // The MCP service description.
       shared_ptr<string> description_ {};
-      // The display metadata of the template.
+      // The template display metadata.
       Darabonba::Json displayMetadata_ {};
+      // The multilingual display content, organized by BCP-47 language tags. Falls back to default fields when the specified language is not matched.
+      shared_ptr<map<string, DataI18nValue>> i18n_ {};
       // The icon URL of the MCP marketplace template.
       shared_ptr<string> iconUrl_ {};
       // The number of times the template has been installed.
@@ -203,7 +218,7 @@ namespace Models
       shared_ptr<string> marketItemId_ {};
       // The MCP type.
       shared_ptr<string> mcpType_ {};
-      // The name of the MCP marketplace template.
+      // The MCP marketplace template name.
       shared_ptr<string> name_ {};
       // The official usage tag.
       shared_ptr<string> officialTag_ {};
@@ -215,7 +230,7 @@ namespace Models
       shared_ptr<string> schemaVersion_ {};
       // The template input schema, represented as a JSON Schema string.
       shared_ptr<string> templateInputSchema_ {};
-      // The version of the MCP marketplace template.
+      // The MCP marketplace template version.
       shared_ptr<string> templateVersion_ {};
     };
 

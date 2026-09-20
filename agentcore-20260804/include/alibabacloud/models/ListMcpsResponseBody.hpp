@@ -726,7 +726,7 @@ namespace Models
 
 
         protected:
-          // The MCP endpoint path. For example, /mcp or /sse.
+          // The MCP endpoint path, such as /mcp or /sse.
           shared_ptr<string> endpointPath_ {};
           // The value is fixed to 1.
           shared_ptr<int32_t> sessionConcurrencyPerInstance_ {};
@@ -805,11 +805,11 @@ namespace Models
           shared_ptr<bool> enableInstanceMetrics_ {};
           // Indicates whether request metrics collection is enabled.
           shared_ptr<bool> enableRequestMetrics_ {};
-          // The log splitting begin rule for Function Compute (FC).
+          // The log segmentation begin rule for Function Compute (FC).
           shared_ptr<string> logBeginRule_ {};
           // The Logstore name.
           shared_ptr<string> logstore_ {};
-          // The Simple Log Service project name.
+          // The Log Service project name.
           shared_ptr<string> project_ {};
         };
 
@@ -1104,7 +1104,7 @@ namespace Models
         protected:
           // The temporary code package token returned by GetMcpCodePackageUploadUrl. Use this token to create or update a code deployment after completing the pre-signed upload.
           shared_ptr<string> codePackageToken_ {};
-          // The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and remaining arguments.
+          // The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass in supergateway, --stdio, the full subcommand, and the remaining arguments.
           shared_ptr<vector<string>> command_ {};
           // The code package runtime: python3.13, nodejs22, or java17.
           shared_ptr<string> language_ {};
@@ -1223,11 +1223,11 @@ namespace Models
 
 
         protected:
-          // References an AgentCore Credential when mode is set to CREDENTIAL.
+          // The AgentCore Credential referenced when mode is set to CREDENTIAL.
           shared_ptr<string> credentialId_ {};
           // Indicates whether ingress access control is enabled.
           shared_ptr<bool> enabled_ {};
-          // ANONYMOUS indicates anonymous access. CREDENTIAL indicates using an AgentCore access credential.
+          // ANONYMOUS indicates anonymous access. CREDENTIAL indicates using AgentCore access credentials.
           shared_ptr<string> mode_ {};
         };
 

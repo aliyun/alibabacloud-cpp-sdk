@@ -214,7 +214,7 @@ namespace Models
           shared_ptr<int32_t> diskSize_ {};
           // The environment variables.
           shared_ptr<map<string, string>> environmentVariables_ {};
-          // The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
+          // The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
           shared_ptr<string> executionRoleArn_ {};
           // Default value: 200.
           shared_ptr<int32_t> instanceConcurrency_ {};
@@ -488,7 +488,7 @@ namespace Models
           shared_ptr<string> securityGroupId_ {};
           // The list of vSwitch IDs.
           shared_ptr<vector<string>> vSwitchIds_ {};
-          // The virtual private cloud (VPC) ID.
+          // The VPC ID.
           shared_ptr<string> vpcId_ {};
         };
 
@@ -862,7 +862,7 @@ namespace Models
             shared_ptr<string> event_ {};
             // The hook request headers.
             shared_ptr<map<string, string>> headers_ {};
-            // The hook timeout period. Unit: milliseconds.
+            // The timeout period. Unit: milliseconds.
             shared_ptr<int32_t> timeout_ {};
             // The hook callback URL.
             shared_ptr<string> url_ {};
@@ -1566,7 +1566,7 @@ namespace Models
 
 
       protected:
-        // The API key authentication configuration for callers of code-deployed MCP.
+        // The API key authentication configuration for code-deployed MCP callers.
         shared_ptr<Auth::CodePackage> codePackage_ {};
         // The authentication configuration for direct proxy.
         shared_ptr<Auth::DirectProxy> directProxy_ {};
@@ -1655,7 +1655,7 @@ namespace Models
       shared_ptr<vector<string>> addresses_ {};
       // The backend authentication configuration. When enabled is set to true: for DIRECT_PROXY, specify directProxy (name/value). For HTTP_TO_MCP, specify the httpToMcp array (each item contains id/type/credential. For apiKey, position/name are also required). Multiple authentication objects are supported, and the first one is used as the default upstream credential. HTTP_TO_MCP credentials are merged into the securitySchemes of the Swagger specification.
       shared_ptr<Body::Auth> auth_ {};
-      // Custom tags. Multiple tags are supported.
+      // The custom tags. Multiple tags are supported.
       shared_ptr<vector<string>> customTags_ {};
       // The code deployment configuration. Required when Type is set to CODE_PACKAGE. When creating a Code artifact, you must specify either CodeConfiguration.CodePackageToken or CodePackageUrl, but not both. CodePackageUrl supports only public Alibaba Cloud OSS HTTP(S) addresses.
       shared_ptr<Body::DeploymentConfig> deploymentConfig_ {};
@@ -1696,7 +1696,7 @@ namespace Models
   protected:
     // The request body.
     shared_ptr<CreateMcpRequest::Body> body_ {};
-    // The client token that ensures idempotency of the request.
+    // The client token that is used to ensure the idempotency of the request.
     shared_ptr<string> clientToken_ {};
   };
 

@@ -175,7 +175,7 @@ namespace Models
         shared_ptr<string> schemaVersion_ {};
         // The template input schema, represented as a JSON Schema string.
         shared_ptr<string> templateInputSchema_ {};
-        // Indicates whether an updated template version is available.
+        // Indicates whether a template version update is available.
         shared_ptr<bool> updateAvailable_ {};
       };
 
@@ -207,7 +207,7 @@ namespace Models
 
 
       protected:
-        // The MCP marketplace template ID.
+        // The marketplace template ID for the MCP.
         shared_ptr<string> marketItemId_ {};
       };
 
@@ -353,13 +353,13 @@ namespace Models
         protected:
           // The number of vCPUs. Default value: 0.25.
           shared_ptr<double> cpu_ {};
-          // The temporary disk size. Unit: MB. Valid values: 512 and 10240.
+          // The ephemeral disk size. Unit: MB. Valid values: 512 and 10240.
           shared_ptr<int32_t> diskSize_ {};
           // The environment variables.
           shared_ptr<map<string, string>> environmentVariables_ {};
-          // The Alibaba Cloud Resource Name (ARN) of the RAM role used by user code to access downstream Alibaba Cloud resources.
+          // The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
           shared_ptr<string> executionRoleArn_ {};
-          // The maximum number of concurrent requests per instance. Default value: 200.
+          // The number of concurrent requests per instance. Default value: 200.
           shared_ptr<int32_t> instanceConcurrency_ {};
           // The memory size. Unit: MB. Default value: 512.
           shared_ptr<int32_t> memory_ {};
@@ -803,13 +803,13 @@ namespace Models
 
 
         protected:
-          // The MCP endpoint path, such as /mcp or /sse.
+          // The MCP endpoint path. For example, /mcp or /sse.
           shared_ptr<string> endpointPath_ {};
           // The value is fixed to 1.
           shared_ptr<int32_t> sessionConcurrencyPerInstance_ {};
-          // The session idle timeout period, in seconds. Default value: 1800.
+          // The session idle timeout period. Unit: seconds. Default value: 1800.
           shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
-          // The maximum session lifetime, in seconds. Default value: 21600.
+          // The maximum session lifetime. Unit: seconds. Default value: 21600.
           shared_ptr<int32_t> sessionMaxLifetimeSeconds_ {};
         };
 
@@ -878,11 +878,11 @@ namespace Models
 
 
         protected:
-          // Indicates whether instance metrics are collected.
+          // Indicates whether instance metrics collection is enabled.
           shared_ptr<bool> enableInstanceMetrics_ {};
-          // Indicates whether request metrics are collected.
+          // Indicates whether request metrics collection is enabled.
           shared_ptr<bool> enableRequestMetrics_ {};
-          // The log splitting begin rule for Function Compute (FC).
+          // The log segmentation begin rule for Function Compute (FC).
           shared_ptr<string> logBeginRule_ {};
           // The Logstore name.
           shared_ptr<string> logstore_ {};
@@ -1005,7 +1005,7 @@ namespace Models
             shared_ptr<string> event_ {};
             // The hook request headers.
             shared_ptr<map<string, string>> headers_ {};
-            // The timeout period, in milliseconds.
+            // The timeout period. Unit: milliseconds.
             shared_ptr<int32_t> timeout_ {};
             // The hook callback URL.
             shared_ptr<string> url_ {};
@@ -1181,7 +1181,7 @@ namespace Models
         protected:
           // The temporary code package token returned by GetMcpCodePackageUploadUrl. Use this token to create or update a code deployment after completing the pre-signed upload.
           shared_ptr<string> codePackageToken_ {};
-          // The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and remaining arguments.
+          // The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and the remaining arguments.
           shared_ptr<vector<string>> command_ {};
           // The runtime of the code package: python3.13, nodejs22, or java17.
           shared_ptr<string> language_ {};
@@ -1304,7 +1304,7 @@ namespace Models
           shared_ptr<string> credentialId_ {};
           // Indicates whether ingress access control is enabled.
           shared_ptr<bool> enabled_ {};
-          // ANONYMOUS indicates anonymous access. CREDENTIAL indicates the use of AgentCore access credentials.
+          // ANONYMOUS indicates anonymous access. CREDENTIAL indicates that AgentCore access credentials are used.
           shared_ptr<string> mode_ {};
         };
 
@@ -1883,7 +1883,7 @@ namespace Models
       shared_ptr<Data::Auth> auth_ {};
       // The MCP creation time in ISO 8601 UTC format.
       shared_ptr<string> createdAt_ {};
-      // The custom tags. Multiple values are supported.
+      // The custom tags. Multiple tags are supported.
       shared_ptr<vector<string>> customTags_ {};
       // The deployment configuration for code-deployed MCP.
       shared_ptr<Data::DeploymentConfig> deploymentConfig_ {};
@@ -1893,11 +1893,11 @@ namespace Models
       shared_ptr<string> endpoint_ {};
       // The Function Compute function name that corresponds to the CODE_PACKAGE MCP. This value is empty before the deployment is complete or for other types.
       shared_ptr<string> functionName_ {};
-      // The marketplace source template of the MCP.
+      // The marketplace source template for the MCP.
       shared_ptr<Data::MarketSource> marketSource_ {};
       // The MCP server configuration, represented as a JSON string.
       shared_ptr<string> mcpServerConfig_ {};
-      // The MCP service ID.
+      // The MCP server ID.
       shared_ptr<string> mcpServerId_ {};
       // The name.
       shared_ptr<string> name_ {};
@@ -1915,7 +1915,7 @@ namespace Models
       shared_ptr<Data::Template> template_ {};
       // The type.
       shared_ptr<string> type_ {};
-      // The last updated time of the MCP, in ISO 8601 UTC format.
+      // The last updated time of the MCP in ISO 8601 UTC format.
       shared_ptr<string> updatedAt_ {};
       // The access URL of the MCP service.
       shared_ptr<string> url_ {};

@@ -3,6 +3,8 @@
 #define ALIBABACLOUD_AGENTCORE20260804MODEL_HPP_
 #include <darabonba/Core.hpp>
 #include <alibabacloud/models/DataResourceValue.hpp>
+#include <alibabacloud/models/DataI18nValue.hpp>
+#include <alibabacloud/models/ItemsI18nValue.hpp>
 #include <alibabacloud/models/BatchDeleteModelsRequest.hpp>
 #include <alibabacloud/models/BatchDeleteModelsShrinkRequest.hpp>
 #include <alibabacloud/models/BatchDeleteModelsResponseBody.hpp>

@@ -40,6 +40,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
         DARABONBA_PTR_TO_JSON(addresses, addresses_);
         DARABONBA_PTR_TO_JSON(auth, auth_);
+        DARABONBA_PTR_TO_JSON(customTags, customTags_);
         DARABONBA_PTR_TO_JSON(deploymentConfig, deploymentConfig_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(name, name_);
@@ -50,6 +51,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
         DARABONBA_PTR_FROM_JSON(addresses, addresses_);
         DARABONBA_PTR_FROM_JSON(auth, auth_);
+        DARABONBA_PTR_FROM_JSON(customTags, customTags_);
         DARABONBA_PTR_FROM_JSON(deploymentConfig, deploymentConfig_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(name, name_);
@@ -208,21 +210,21 @@ namespace Models
 
 
         protected:
-          // The number of vCPUs. Default value: 0.25.
+          // Unit: cores. Default value: 0.25.
           shared_ptr<double> cpu_ {};
-          // The ephemeral disk size. Unit: MB. Valid values: 512 and 10240.
+          // Unit: MB. Valid values: 512 and 10240.
           shared_ptr<int32_t> diskSize_ {};
           // The environment variables.
           shared_ptr<map<string, string>> environmentVariables_ {};
-          // The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
+          // The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
           shared_ptr<string> executionRoleArn_ {};
-          // The maximum number of concurrent requests per instance. Default value: 200.
+          // Default value: 200.
           shared_ptr<int32_t> instanceConcurrency_ {};
-          // The memory size. Unit: MB. Default value: 512.
+          // Unit: MB. Default value: 512.
           shared_ptr<int32_t> memory_ {};
-          // The service port. Default value: 9000.
+          // Default value: 9000.
           shared_ptr<int32_t> port_ {};
-          // The function timeout period. Unit: seconds. Default value: 300.
+          // Unit: seconds. Default value: 300.
           shared_ptr<int32_t> timeout_ {};
         };
 
@@ -307,7 +309,7 @@ namespace Models
         protected:
           // Specifies whether to enable parameter transformation and result enhancement.
           shared_ptr<bool> enabled_ {};
-          // The reserved reference to a parameter transformation and result enhancement rule set.
+          // The reserved reference to the parameter transformation and result enhancement rule set.
           shared_ptr<string> ruleSetId_ {};
           // The transformation rule version.
           shared_ptr<string> version_ {};
@@ -660,13 +662,13 @@ namespace Models
 
 
         protected:
-          // The MCP endpoint path. For example, /mcp or /sse.
+          // For example, /mcp or /sse.
           shared_ptr<string> endpointPath_ {};
-          // The number of concurrent sessions per instance. Currently fixed to 1.
+          // Currently fixed to 1.
           shared_ptr<int32_t> sessionConcurrencyPerInstance_ {};
-          // The session idle timeout period. Unit: seconds. Default value: 1800.
+          // Unit: seconds. Default value: 1800.
           shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
-          // The maximum session lifetime. Unit: seconds. Default value: 21600.
+          // Unit: seconds. Default value: 21600.
           shared_ptr<int32_t> sessionMaxLifetimeSeconds_ {};
         };
 
@@ -862,7 +864,7 @@ namespace Models
             shared_ptr<string> event_ {};
             // The hook request headers.
             shared_ptr<map<string, string>> headers_ {};
-            // The timeout period, in milliseconds.
+            // The timeout period. Unit: milliseconds.
             shared_ptr<int32_t> timeout_ {};
             // The hook callback URL.
             shared_ptr<string> url_ {};
@@ -879,7 +881,7 @@ namespace Models
 
 
         protected:
-          // Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
+          // The hooks executed in array order: PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL.
           shared_ptr<vector<HookConfiguration::Hooks>> hooks_ {};
         };
 
@@ -981,9 +983,9 @@ namespace Models
           shared_ptr<string> image_ {};
           // The image registry type.
           shared_ptr<string> imageRegistryType_ {};
-          // Custom containers must expose a standard MCP endpoint. Set this parameter to SELF_HOSTED.
+          // The MCP Runtime mode. Custom containers must expose a standard MCP endpoint. Set this parameter to SELF_HOSTED.
           shared_ptr<string> mcpRuntimeMode_ {};
-          // Currently fixed to CONTAINER_IMAGE.
+          // The container source type. Currently fixed to CONTAINER_IMAGE.
           shared_ptr<string> sourceType_ {};
         };
 
@@ -1045,13 +1047,13 @@ namespace Models
 
 
         protected:
-          // The temporary code package token returned by GetMcpCodePackageUploadUrl. Used to create a code deployment after the pre-signed upload is complete. Specify either this parameter or CodePackageUrl.
+          // The temporary code package token returned by GetMcpCodePackageUploadUrl. Use this token to create a code deployment after completing the pre-signed upload. Specify either this parameter or CodePackageUrl.
           shared_ptr<string> codePackageToken_ {};
-          // The public Alibaba Cloud OSS HTTP(S) URL that can be directly passed in when creating a code deployment. Specify either this parameter or CodePackageToken. Only supported by CreateMcp. Not supported for update or query operations.
+          // The public Alibaba Cloud OSS HTTP(S) URL of the code package. You can pass this URL directly when creating a code deployment. Specify either this parameter or CodePackageToken. Only CreateMcp supports this parameter. Update and query operations do not support this parameter.
           shared_ptr<string> codePackageUrl_ {};
-          // The full startup command, with arguments passed in sequence by parameter boundary. For example, when using supergateway to start a stdio MCP, pass in supergateway, --stdio, the full subcommand, and remaining arguments.
+          // The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and remaining arguments.
           shared_ptr<vector<string>> command_ {};
-          // The code package runtime: python3.13, nodejs22, or java17.
+          // The code package runtime. Valid values: python3.13, nodejs22, and java17.
           shared_ptr<string> language_ {};
         };
 
@@ -1111,13 +1113,13 @@ namespace Models
 
 
         protected:
-          // Specifies whether authorization is enabled.
+          // Specifies whether to enable authorization.
           shared_ptr<bool> authorizationEnabled_ {};
-          // The Alibaba Cloud Resource Name (ARN) of the credential provider.
+          // The ARN of the credential provider.
           shared_ptr<string> credentialProviderArn_ {};
-          // The credential provider type.
+          // The type of the credential provider.
           shared_ptr<string> credentialProviderType_ {};
-          // Specifies whether Agent Identity is enabled.
+          // Specifies whether to enable Agent Identity.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -1172,7 +1174,9 @@ namespace Models
           shared_ptr<string> credentialId_ {};
           // Specifies whether to enable ingress access control.
           shared_ptr<bool> enabled_ {};
-          // ANONYMOUS indicates anonymous access. CREDENTIAL indicates access using an AgentCore credential.
+          // The access control mode. Valid values:
+          // - ANONYMOUS: anonymous access.
+          // - CREDENTIAL: AgentCore credential-based access.
           shared_ptr<string> mode_ {};
         };
 
@@ -1305,11 +1309,13 @@ namespace Models
 
 
       protected:
-        // The MCP ingress access control configuration.
+        // The MCP ingress access control settings.
         shared_ptr<DeploymentConfig::AccessControl> accessControl_ {};
         // The Agent Identity configuration.
         shared_ptr<DeploymentConfig::AgentIdentityConfiguration> agentIdentityConfiguration_ {};
-        // Code indicates a ZIP code package. Container indicates a custom container.
+        // The artifact type. Valid values:
+        // - Code: ZIP code package.
+        // - Container: custom container.
         shared_ptr<string> artifactType_ {};
         // The code package configuration.
         shared_ptr<DeploymentConfig::CodeConfiguration> codeConfiguration_ {};
@@ -1509,15 +1515,15 @@ namespace Models
       protected:
         // The backend authentication configuration for direct proxy.
         shared_ptr<Auth::DirectProxy> directProxy_ {};
-        // Specifies whether the configuration is enabled.
+        // Specifies whether to enable this configuration.
         shared_ptr<bool> enabled_ {};
         // The list of backend authentication configurations for HTTP-to-MCP conversion.
         shared_ptr<vector<Auth::HttpToMcp>> httpToMcp_ {};
       };
 
       virtual bool empty() const override { return this->addresses_ == nullptr
-        && this->auth_ == nullptr && this->deploymentConfig_ == nullptr && this->description_ == nullptr && this->name_ == nullptr && this->protocol_ == nullptr
-        && this->swaggerConfig_ == nullptr && this->type_ == nullptr; };
+        && this->auth_ == nullptr && this->customTags_ == nullptr && this->deploymentConfig_ == nullptr && this->description_ == nullptr && this->name_ == nullptr
+        && this->protocol_ == nullptr && this->swaggerConfig_ == nullptr && this->type_ == nullptr; };
       // addresses Field Functions 
       bool hasAddresses() const { return this->addresses_ != nullptr;};
       void deleteAddresses() { this->addresses_ = nullptr;};
@@ -1534,6 +1540,15 @@ namespace Models
       inline Body::Auth getAuth() { DARABONBA_PTR_GET(auth_, Body::Auth) };
       inline Body& setAuth(const Body::Auth & auth) { DARABONBA_PTR_SET_VALUE(auth_, auth) };
       inline Body& setAuth(Body::Auth && auth) { DARABONBA_PTR_SET_RVALUE(auth_, auth) };
+
+
+      // customTags Field Functions 
+      bool hasCustomTags() const { return this->customTags_ != nullptr;};
+      void deleteCustomTags() { this->customTags_ = nullptr;};
+      inline const vector<string> & getCustomTags() const { DARABONBA_PTR_GET_CONST(customTags_, vector<string>) };
+      inline vector<string> getCustomTags() { DARABONBA_PTR_GET(customTags_, vector<string>) };
+      inline Body& setCustomTags(const vector<string> & customTags) { DARABONBA_PTR_SET_VALUE(customTags_, customTags) };
+      inline Body& setCustomTags(vector<string> && customTags) { DARABONBA_PTR_SET_RVALUE(customTags_, customTags) };
 
 
       // deploymentConfig Field Functions 
@@ -1585,6 +1600,8 @@ namespace Models
       shared_ptr<vector<string>> addresses_ {};
       // The MCP authentication configuration.
       shared_ptr<Body::Auth> auth_ {};
+      // The custom tags. Multiple tags are supported. Custom tags are merged with template fixed tags and deduplicated.
+      shared_ptr<vector<string>> customTags_ {};
       // The deployment configuration for code-deployed MCP.
       shared_ptr<Body::DeploymentConfig> deploymentConfig_ {};
       // The MCP service description.
@@ -1596,9 +1613,10 @@ namespace Models
       // The OpenAPI configuration for HTTP-to-MCP conversion, represented as a JSON string.
       shared_ptr<string> swaggerConfig_ {};
       // The MCP type. Valid values:
-      // - DIRECT_PROXY: direct proxy.
+      // 
+      // - DIRECT_PROXY: Direct proxy.
       // - HTTP_TO_MCP: HTTP-to-MCP conversion.
-      // - CODE_PACKAGE: code deployment.
+      // - CODE_PACKAGE: Code deployment.
       shared_ptr<string> type_ {};
     };
 

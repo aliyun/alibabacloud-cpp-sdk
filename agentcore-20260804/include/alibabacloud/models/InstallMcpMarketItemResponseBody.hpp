@@ -155,7 +155,7 @@ namespace Models
 
 
       protected:
-        // The template version that is currently applied to the MCP service.
+        // The template version currently applied to the MCP.
         shared_ptr<string> appliedTemplateVersion_ {};
         // The latest template version.
         shared_ptr<string> latestTemplateVersion_ {};
@@ -339,21 +339,21 @@ namespace Models
 
 
         protected:
-          // The number of vCPUs. Default value: 0.25.
+          // Unit: cores. Default value: 0.25.
           shared_ptr<double> cpu_ {};
-          // The ephemeral disk size. Unit: MB. Valid values: 512 and 10240.
+          // Unit: MB. Valid values: 512 and 10240.
           shared_ptr<int32_t> diskSize_ {};
           // The environment variables.
           shared_ptr<map<string, string>> environmentVariables_ {};
-          // The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
+          // The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
           shared_ptr<string> executionRoleArn_ {};
-          // The maximum number of concurrent requests per instance. Default value: 200.
+          // Default value: 200.
           shared_ptr<int32_t> instanceConcurrency_ {};
-          // The memory size. Unit: MB. Default value: 512.
+          // Unit: MB. Default value: 512.
           shared_ptr<int32_t> memory_ {};
-          // The service port. Default value: 9000.
+          // Default value: 9000.
           shared_ptr<int32_t> port_ {};
-          // The function timeout period. Unit: seconds. Default value: 300.
+          // Unit: seconds. Default value: 300.
           shared_ptr<int32_t> timeout_ {};
         };
 
@@ -438,7 +438,7 @@ namespace Models
         protected:
           // Specifies whether to enable parameter transformation and result enhancement.
           shared_ptr<bool> enabled_ {};
-          // The reserved reference to a parameter transformation and result enhancement rule set.
+          // The reserved reference to the parameter transformation and result enhancement rule set.
           shared_ptr<string> ruleSetId_ {};
           // The transformation rule version.
           shared_ptr<string> version_ {};
@@ -791,13 +791,13 @@ namespace Models
 
 
         protected:
-          // The MCP endpoint path. For example, /mcp or /sse.
+          // For example, /mcp or /sse.
           shared_ptr<string> endpointPath_ {};
-          // The number of concurrent sessions per instance. Currently fixed to 1.
+          // Currently fixed to 1.
           shared_ptr<int32_t> sessionConcurrencyPerInstance_ {};
-          // The session idle timeout period. Unit: seconds. Default value: 1800.
+          // Unit: seconds. Default value: 1800.
           shared_ptr<int32_t> sessionIdleTimeoutSeconds_ {};
-          // The maximum session lifetime. Unit: seconds. Default value: 21600.
+          // Unit: seconds. Default value: 21600.
           shared_ptr<int32_t> sessionMaxLifetimeSeconds_ {};
         };
 
@@ -993,7 +993,7 @@ namespace Models
             shared_ptr<string> event_ {};
             // The hook request headers.
             shared_ptr<map<string, string>> headers_ {};
-            // The timeout period, in milliseconds.
+            // The timeout period. Unit: milliseconds.
             shared_ptr<int32_t> timeout_ {};
             // The hook callback URL.
             shared_ptr<string> url_ {};
@@ -1010,7 +1010,7 @@ namespace Models
 
 
         protected:
-          // Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
+          // The hooks executed in array order: PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL.
           shared_ptr<vector<HookConfiguration::Hooks>> hooks_ {};
         };
 
@@ -1112,9 +1112,9 @@ namespace Models
           shared_ptr<string> image_ {};
           // The image registry type.
           shared_ptr<string> imageRegistryType_ {};
-          // Custom containers must expose a standard MCP endpoint. Set this parameter to SELF_HOSTED.
+          // The MCP Runtime mode. Custom containers must expose a standard MCP endpoint. Set this parameter to SELF_HOSTED.
           shared_ptr<string> mcpRuntimeMode_ {};
-          // Currently fixed to CONTAINER_IMAGE.
+          // The container source type. Currently fixed to CONTAINER_IMAGE.
           shared_ptr<string> sourceType_ {};
         };
 
@@ -1167,11 +1167,11 @@ namespace Models
 
 
         protected:
-          // The temporary code package token returned by GetMcpCodePackageUploadUrl. After the presigned upload is complete, this token is used to create or update a code deployment.
+          // The temporary code package token returned by GetMcpCodePackageUploadUrl. This token is used to create or update a code deployment after the presigned upload is complete.
           shared_ptr<string> codePackageToken_ {};
-          // The full startup command, with arguments passed in sequence by parameter boundary. For example, when using supergateway to start a stdio MCP, pass in supergateway, --stdio, the full subcommand, and remaining arguments.
+          // The full startup command, with arguments passed in order by parameter boundary. For example, when using supergateway to start a stdio MCP, pass supergateway, --stdio, the full subcommand, and remaining arguments.
           shared_ptr<vector<string>> command_ {};
-          // The code package runtime: python3.13, nodejs22, or java17.
+          // The code package runtime. Valid values: python3.13, nodejs22, and java17.
           shared_ptr<string> language_ {};
         };
 
@@ -1231,13 +1231,13 @@ namespace Models
 
 
         protected:
-          // Specifies whether authorization is enabled.
+          // Specifies whether to enable authorization.
           shared_ptr<bool> authorizationEnabled_ {};
-          // The Alibaba Cloud Resource Name (ARN) of the credential provider.
+          // The ARN of the credential provider.
           shared_ptr<string> credentialProviderArn_ {};
-          // The credential provider type.
+          // The type of the credential provider.
           shared_ptr<string> credentialProviderType_ {};
-          // Specifies whether Agent Identity is enabled.
+          // Specifies whether to enable Agent Identity.
           shared_ptr<bool> enabled_ {};
         };
 
@@ -1292,7 +1292,9 @@ namespace Models
           shared_ptr<string> credentialId_ {};
           // Specifies whether to enable ingress access control.
           shared_ptr<bool> enabled_ {};
-          // ANONYMOUS indicates anonymous access. CREDENTIAL indicates access using an AgentCore credential.
+          // The access control mode. Valid values:
+          // - ANONYMOUS: anonymous access.
+          // - CREDENTIAL: AgentCore credential-based access.
           shared_ptr<string> mode_ {};
         };
 
@@ -1425,11 +1427,13 @@ namespace Models
 
 
       protected:
-        // The MCP ingress access control configuration.
+        // The MCP ingress access control settings.
         shared_ptr<DeploymentConfig::AccessControl> accessControl_ {};
         // The Agent Identity configuration.
         shared_ptr<DeploymentConfig::AgentIdentityConfiguration> agentIdentityConfiguration_ {};
-        // Code indicates a ZIP code package. Container indicates a custom container.
+        // The artifact type. Valid values:
+        // - Code: ZIP code package.
+        // - Container: custom container.
         shared_ptr<string> artifactType_ {};
         // The code package configuration.
         shared_ptr<DeploymentConfig::CodeConfiguration> codeConfiguration_ {};
@@ -1590,17 +1594,17 @@ namespace Models
       shared_ptr<Data::DeploymentConfig> deploymentConfig_ {};
       // The MCP service description.
       shared_ptr<string> description_ {};
-      // The MCP server endpoint.
+      // The MCP service access endpoint.
       shared_ptr<string> endpoint_ {};
-      // The Function Compute function name that corresponds to the code-deployed MCP server.
+      // The Function Compute function name corresponding to the code-deployed MCP.
       shared_ptr<string> functionName_ {};
-      // The marketplace template from which the MCP service originates.
+      // The marketplace template from which the MCP originates.
       shared_ptr<Data::MarketSource> marketSource_ {};
-      // The MCP server ID.
+      // The MCP service ID.
       shared_ptr<string> mcpServerId_ {};
       // The MCP service name.
       shared_ptr<string> name_ {};
-      // The official usage tag, managed by the server.
+      // The official purpose tag, managed by the server.
       shared_ptr<string> officialTag_ {};
       // The MCP protocol.
       shared_ptr<string> protocol_ {};
@@ -1608,14 +1612,15 @@ namespace Models
       shared_ptr<string> status_ {};
       // The reason why the MCP service is in the current status.
       shared_ptr<string> statusReason_ {};
-      // The template version and input schema bound to the MCP service.
+      // The template version and input schema bound to the MCP.
       shared_ptr<Data::Template> template_ {};
       // The MCP type. Valid values:
-      // - DIRECT_PROXY: direct proxy.
+      // 
+      // - DIRECT_PROXY: Direct proxy.
       // - HTTP_TO_MCP: HTTP-to-MCP conversion.
-      // - CODE_PACKAGE: code deployment.
+      // - CODE_PACKAGE: Code deployment.
       shared_ptr<string> type_ {};
-      // Indicates whether the MCP service is still bound by the usage constraints of the official template.
+      // Indicates whether the MCP is still subject to the usage constraints of the official template.
       shared_ptr<bool> usageActive_ {};
     };
 
@@ -1674,7 +1679,7 @@ namespace Models
     shared_ptr<int32_t> httpStatusCode_ {};
     // The response message.
     shared_ptr<string> message_ {};
-    // The request ID, which is used to locate and troubleshoot requests.
+    // The request ID, used for locating and troubleshooting issues.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

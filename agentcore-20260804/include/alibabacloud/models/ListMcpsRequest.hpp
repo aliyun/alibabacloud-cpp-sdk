@@ -13,6 +13,7 @@ namespace Models
   class ListMcpsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ListMcpsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(customTag, customTag_);
       DARABONBA_PTR_TO_JSON(maxResults, maxResults_);
       DARABONBA_PTR_TO_JSON(name, name_);
       DARABONBA_PTR_TO_JSON(nextToken, nextToken_);
@@ -21,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(usageActive, usageActive_);
     };
     friend void from_json(const Darabonba::Json& j, ListMcpsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(customTag, customTag_);
       DARABONBA_PTR_FROM_JSON(maxResults, maxResults_);
       DARABONBA_PTR_FROM_JSON(name, name_);
       DARABONBA_PTR_FROM_JSON(nextToken, nextToken_);
@@ -39,8 +41,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->maxResults_ == nullptr
-        && this->name_ == nullptr && this->nextToken_ == nullptr && this->officialTag_ == nullptr && this->searchType_ == nullptr && this->usageActive_ == nullptr; };
+    virtual bool empty() const override { return this->customTag_ == nullptr
+        && this->maxResults_ == nullptr && this->name_ == nullptr && this->nextToken_ == nullptr && this->officialTag_ == nullptr && this->searchType_ == nullptr
+        && this->usageActive_ == nullptr; };
+    // customTag Field Functions 
+    bool hasCustomTag() const { return this->customTag_ != nullptr;};
+    void deleteCustomTag() { this->customTag_ = nullptr;};
+    inline string getCustomTag() const { DARABONBA_PTR_GET_DEFAULT(customTag_, "") };
+    inline ListMcpsRequest& setCustomTag(string customTag) { DARABONBA_PTR_SET_VALUE(customTag_, customTag) };
+
+
     // maxResults Field Functions 
     bool hasMaxResults() const { return this->maxResults_ != nullptr;};
     void deleteMaxResults() { this->maxResults_ = nullptr;};
@@ -84,6 +94,8 @@ namespace Models
 
 
   protected:
+    // Filters results by custom tag. The tag must be an exact match.
+    shared_ptr<string> customTag_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
     // The MCP service name or service ID. Used together with SearchType.
@@ -98,7 +110,7 @@ namespace Models
     // 
     // Default value: blur.
     shared_ptr<string> searchType_ {};
-    // Specifies whether the service is still bound by the official template usage constraint.
+    // Specifies whether the service is still bound by the official template usage.
     shared_ptr<bool> usageActive_ {};
   };
 
