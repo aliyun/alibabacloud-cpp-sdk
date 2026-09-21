@@ -32,9 +32,11 @@ namespace Models
     class Body : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
+        DARABONBA_PTR_TO_JSON(commitMsg, commitMsg_);
         DARABONBA_PTR_TO_JSON(updateLatestLabel, updateLatestLabel_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
+        DARABONBA_PTR_FROM_JSON(commitMsg, commitMsg_);
         DARABONBA_PTR_FROM_JSON(updateLatestLabel, updateLatestLabel_);
       };
       Body() = default ;
@@ -48,7 +50,15 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->updateLatestLabel_ == nullptr; };
+      virtual bool empty() const override { return this->commitMsg_ == nullptr
+        && this->updateLatestLabel_ == nullptr; };
+      // commitMsg Field Functions 
+      bool hasCommitMsg() const { return this->commitMsg_ != nullptr;};
+      void deleteCommitMsg() { this->commitMsg_ = nullptr;};
+      inline string getCommitMsg() const { DARABONBA_PTR_GET_DEFAULT(commitMsg_, "") };
+      inline Body& setCommitMsg(string commitMsg) { DARABONBA_PTR_SET_VALUE(commitMsg_, commitMsg) };
+
+
       // updateLatestLabel Field Functions 
       bool hasUpdateLatestLabel() const { return this->updateLatestLabel_ != nullptr;};
       void deleteUpdateLatestLabel() { this->updateLatestLabel_ = nullptr;};
@@ -57,6 +67,8 @@ namespace Models
 
 
     protected:
+      // The commit message recorded on the official version produced by this publish operation. Takes effect in HEAD draft mode. If left empty, the draft message is used. Ignored in version Draft mode.
+      shared_ptr<string> commitMsg_ {};
       // Specifies whether to update the latest label.
       shared_ptr<bool> updateLatestLabel_ {};
     };

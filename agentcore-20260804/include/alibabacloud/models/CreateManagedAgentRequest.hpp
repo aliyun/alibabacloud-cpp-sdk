@@ -35,6 +35,7 @@ namespace Models
     class Body : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Body& obj) { 
+        DARABONBA_PTR_TO_JSON(agenticFsMounts, agenticFsMounts_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(environment, environment_);
         DARABONBA_PTR_TO_JSON(harness, harness_);
@@ -50,6 +51,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(tools, tools_);
       };
       friend void from_json(const Darabonba::Json& j, Body& obj) { 
+        DARABONBA_PTR_FROM_JSON(agenticFsMounts, agenticFsMounts_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(environment, environment_);
         DARABONBA_PTR_FROM_JSON(harness, harness_);
@@ -185,8 +187,6 @@ namespace Models
           // This parameter is required.
           shared_ptr<string> name_ {};
           // The version of the template in the AI registry.
-          // 
-          // This parameter is required.
           shared_ptr<string> version_ {};
         };
 
@@ -257,11 +257,15 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Skills& obj) { 
           DARABONBA_PTR_TO_JSON(name, name_);
+          DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(version, version_);
+          DARABONBA_PTR_TO_JSON(versionSelector, versionSelector_);
         };
         friend void from_json(const Darabonba::Json& j, Skills& obj) { 
           DARABONBA_PTR_FROM_JSON(name, name_);
+          DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(version, version_);
+          DARABONBA_PTR_FROM_JSON(versionSelector, versionSelector_);
         };
         Skills() = default ;
         Skills(const Skills &) = default ;
@@ -274,13 +278,62 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class VersionSelector : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const VersionSelector& obj) { 
+            DARABONBA_PTR_TO_JSON(type, type_);
+            DARABONBA_PTR_TO_JSON(value, value_);
+          };
+          friend void from_json(const Darabonba::Json& j, VersionSelector& obj) { 
+            DARABONBA_PTR_FROM_JSON(type, type_);
+            DARABONBA_PTR_FROM_JSON(value, value_);
+          };
+          VersionSelector() = default ;
+          VersionSelector(const VersionSelector &) = default ;
+          VersionSelector(VersionSelector &&) = default ;
+          VersionSelector(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~VersionSelector() = default ;
+          VersionSelector& operator=(const VersionSelector &) = default ;
+          VersionSelector& operator=(VersionSelector &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->type_ == nullptr
+        && this->value_ == nullptr; };
+          // type Field Functions 
+          bool hasType() const { return this->type_ != nullptr;};
+          void deleteType() { this->type_ = nullptr;};
+          inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+          inline VersionSelector& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+          // value Field Functions 
+          bool hasValue() const { return this->value_ != nullptr;};
+          void deleteValue() { this->value_ = nullptr;};
+          inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+          inline VersionSelector& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+        protected:
+          shared_ptr<string> type_ {};
+          shared_ptr<string> value_ {};
+        };
+
         virtual bool empty() const override { return this->name_ == nullptr
-        && this->version_ == nullptr; };
+        && this->sourceType_ == nullptr && this->version_ == nullptr && this->versionSelector_ == nullptr; };
         // name Field Functions 
         bool hasName() const { return this->name_ != nullptr;};
         void deleteName() { this->name_ = nullptr;};
         inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
         inline Skills& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // sourceType Field Functions 
+        bool hasSourceType() const { return this->sourceType_ != nullptr;};
+        void deleteSourceType() { this->sourceType_ = nullptr;};
+        inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+        inline Skills& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
         // version Field Functions 
@@ -290,13 +343,24 @@ namespace Models
         inline Skills& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
 
 
+        // versionSelector Field Functions 
+        bool hasVersionSelector() const { return this->versionSelector_ != nullptr;};
+        void deleteVersionSelector() { this->versionSelector_ = nullptr;};
+        inline const Skills::VersionSelector & getVersionSelector() const { DARABONBA_PTR_GET_CONST(versionSelector_, Skills::VersionSelector) };
+        inline Skills::VersionSelector getVersionSelector() { DARABONBA_PTR_GET(versionSelector_, Skills::VersionSelector) };
+        inline Skills& setVersionSelector(const Skills::VersionSelector & versionSelector) { DARABONBA_PTR_SET_VALUE(versionSelector_, versionSelector) };
+        inline Skills& setVersionSelector(Skills::VersionSelector && versionSelector) { DARABONBA_PTR_SET_RVALUE(versionSelector_, versionSelector) };
+
+
       protected:
         // The skill name.
         // 
         // This parameter is required.
         shared_ptr<string> name_ {};
+        shared_ptr<string> sourceType_ {};
         // The skill version.
         shared_ptr<string> version_ {};
+        shared_ptr<Skills::VersionSelector> versionSelector_ {};
       };
 
       class Runtime : public Darabonba::Model {
@@ -433,15 +497,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable auto scaling. This parameter is required by backend validation when hpa is present.
+          // Specifies whether to enable auto-scaling. This field is validated as required by the backend when hpa is present.
           shared_ptr<bool> enabled_ {};
-          // The maximum number of active sessions per sandbox. This parameter is required by backend validation when hpa is present.
+          // The maximum number of active sessions per sandbox. This field is validated as required by the backend when hpa is present.
           shared_ptr<int32_t> maxConcurrentSessionsPerSandbox_ {};
-          // The maximum number of sandboxes. This parameter is required when HPA is enabled and the value must be no less than the minimum value.
+          // The maximum number of sandboxes. Required when HPA is enabled. The value must be greater than or equal to the minimum value.
           shared_ptr<int32_t> maxSandboxCount_ {};
-          // The minimum number of sandboxes. This parameter is required when HPA is enabled.
+          // The minimum number of sandboxes. Required when HPA is enabled.
           shared_ptr<int32_t> minSandboxCount_ {};
-          // The time in seconds before an inactive session is reclaimed. This parameter is required by backend validation when hpa is present.
+          // The time-to-live (TTL) for a session after inactivity, in seconds. This field is validated as required by the backend when hpa is present.
           shared_ptr<int32_t> sessionTtlSeconds_ {};
         };
 
@@ -473,7 +537,7 @@ namespace Models
 
 
         protected:
-          // The compute specification.
+          // The compute class.
           // 
           // This parameter is required.
           shared_ptr<string> computeClass_ {};
@@ -513,7 +577,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<Runtime::Compute> compute_ {};
-        // The sandbox auto scaling and session configuration.
+        // The sandbox auto-scaling and session configuration.
         shared_ptr<Runtime::Hpa> hpa_ {};
         // The session policy configuration.
         // 
@@ -577,11 +641,11 @@ namespace Models
 
 
       protected:
-        // The OSS bucket name. This parameter is required by backend validation for each mount entry.
+        // The OSS bucket name. This field is validated as required by the backend for each mount entry.
         shared_ptr<string> bucketName_ {};
-        // The absolute mount path in the container. This parameter is required by backend validation for each mount entry.
+        // The absolute mount path in the container. This field is validated as required by the backend for each mount entry.
         shared_ptr<string> mountPath_ {};
-        // The relative object prefix in the bucket. If not specified, the entire bucket is mounted.
+        // The relative object prefix within the bucket. If not specified, the entire bucket is mounted.
         shared_ptr<string> path_ {};
         // Specifies whether to mount in read-only mode. Default value: false.
         shared_ptr<bool> readOnly_ {};
@@ -778,15 +842,15 @@ namespace Models
 
 
         protected:
-          // Specifies whether to enable the token quota. Default value: true. If you set this parameter to false, the token quota is disabled and existing quota rules are deleted.
+          // Specifies whether to enable the token quota. Default value: true. Set to false to disable and delete existing quota rules.
           shared_ptr<bool> enabled_ {};
-          // The quota limit type. This parameter is required by backend validation when the quota is enabled. Fixed value: token.
+          // The quota limit type. This field is validated as required by the backend when the quota is enabled. Fixed value: token.
           shared_ptr<string> limitType_ {};
-          // The quota statistical period. This parameter is required by backend validation when the quota is enabled. Valid values:
+          // The statistical period of the quota. This field is validated as required by the backend when the quota is enabled. Valid values:
           // - day: daily.
           // - month: monthly.
           shared_ptr<string> periodType_ {};
-          // The maximum number of tokens that can be consumed within a single period. This parameter is required by backend validation when the quota is enabled. The value must be greater than 0.
+          // The maximum number of tokens that can be consumed within a single period. This field is validated as required by the backend when the quota is enabled. The value must be greater than 0.
           shared_ptr<int64_t> usageLimit_ {};
         };
 
@@ -910,9 +974,9 @@ namespace Models
 
 
       protected:
-        // The harness configuration.
+        // The runtime harness configuration.
         shared_ptr<Harness::Configuration> configuration_ {};
-        // The harness type.
+        // The runtime harness type.
         shared_ptr<string> type_ {};
       };
 
@@ -1046,10 +1110,85 @@ namespace Models
         shared_ptr<vector<Environment::Variables>> variables_ {};
       };
 
-      virtual bool empty() const override { return this->description_ == nullptr
-        && this->environment_ == nullptr && this->harness_ == nullptr && this->instruction_ == nullptr && this->model_ == nullptr && this->name_ == nullptr
-        && this->network_ == nullptr && this->ossMounts_ == nullptr && this->runtime_ == nullptr && this->skills_ == nullptr && this->subAgents_ == nullptr
-        && this->template_ == nullptr && this->tools_ == nullptr; };
+      class AgenticFsMounts : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const AgenticFsMounts& obj) { 
+          DARABONBA_PTR_TO_JSON(mountPath, mountPath_);
+          DARABONBA_PTR_TO_JSON(path, path_);
+          DARABONBA_PTR_TO_JSON(readOnly, readOnly_);
+          DARABONBA_PTR_TO_JSON(server, server_);
+        };
+        friend void from_json(const Darabonba::Json& j, AgenticFsMounts& obj) { 
+          DARABONBA_PTR_FROM_JSON(mountPath, mountPath_);
+          DARABONBA_PTR_FROM_JSON(path, path_);
+          DARABONBA_PTR_FROM_JSON(readOnly, readOnly_);
+          DARABONBA_PTR_FROM_JSON(server, server_);
+        };
+        AgenticFsMounts() = default ;
+        AgenticFsMounts(const AgenticFsMounts &) = default ;
+        AgenticFsMounts(AgenticFsMounts &&) = default ;
+        AgenticFsMounts(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~AgenticFsMounts() = default ;
+        AgenticFsMounts& operator=(const AgenticFsMounts &) = default ;
+        AgenticFsMounts& operator=(AgenticFsMounts &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->mountPath_ == nullptr
+        && this->path_ == nullptr && this->readOnly_ == nullptr && this->server_ == nullptr; };
+        // mountPath Field Functions 
+        bool hasMountPath() const { return this->mountPath_ != nullptr;};
+        void deleteMountPath() { this->mountPath_ = nullptr;};
+        inline string getMountPath() const { DARABONBA_PTR_GET_DEFAULT(mountPath_, "") };
+        inline AgenticFsMounts& setMountPath(string mountPath) { DARABONBA_PTR_SET_VALUE(mountPath_, mountPath) };
+
+
+        // path Field Functions 
+        bool hasPath() const { return this->path_ != nullptr;};
+        void deletePath() { this->path_ = nullptr;};
+        inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+        inline AgenticFsMounts& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
+        // readOnly Field Functions 
+        bool hasReadOnly() const { return this->readOnly_ != nullptr;};
+        void deleteReadOnly() { this->readOnly_ = nullptr;};
+        inline bool getReadOnly() const { DARABONBA_PTR_GET_DEFAULT(readOnly_, false) };
+        inline AgenticFsMounts& setReadOnly(bool readOnly) { DARABONBA_PTR_SET_VALUE(readOnly_, readOnly) };
+
+
+        // server Field Functions 
+        bool hasServer() const { return this->server_ != nullptr;};
+        void deleteServer() { this->server_ = nullptr;};
+        inline string getServer() const { DARABONBA_PTR_GET_DEFAULT(server_, "") };
+        inline AgenticFsMounts& setServer(string server) { DARABONBA_PTR_SET_VALUE(server_, server) };
+
+
+      protected:
+        // The subdirectory under /mnt/agenticfs/ in the container. This field is validated as required by the backend for each mount entry. Mount targets must not be duplicated or have parent-child overlaps.
+        shared_ptr<string> mountPath_ {};
+        // A non-empty relative directory that exists under the AccessPoint. This field is validated as required by the backend for each mount entry. Root directories, absolute paths, and parent directory segments are not allowed.
+        shared_ptr<string> path_ {};
+        // Specifies whether to mount in read-only mode. Default value: false. This is not a RAM role read-only policy.
+        shared_ptr<bool> readOnly_ {};
+        // The AccessPoint domain name. This field is validated as required by the backend for each mount entry. Do not include the protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
+        shared_ptr<string> server_ {};
+      };
+
+      virtual bool empty() const override { return this->agenticFsMounts_ == nullptr
+        && this->description_ == nullptr && this->environment_ == nullptr && this->harness_ == nullptr && this->instruction_ == nullptr && this->model_ == nullptr
+        && this->name_ == nullptr && this->network_ == nullptr && this->ossMounts_ == nullptr && this->runtime_ == nullptr && this->skills_ == nullptr
+        && this->subAgents_ == nullptr && this->template_ == nullptr && this->tools_ == nullptr; };
+      // agenticFsMounts Field Functions 
+      bool hasAgenticFsMounts() const { return this->agenticFsMounts_ != nullptr;};
+      void deleteAgenticFsMounts() { this->agenticFsMounts_ = nullptr;};
+      inline const vector<Body::AgenticFsMounts> & getAgenticFsMounts() const { DARABONBA_PTR_GET_CONST(agenticFsMounts_, vector<Body::AgenticFsMounts>) };
+      inline vector<Body::AgenticFsMounts> getAgenticFsMounts() { DARABONBA_PTR_GET(agenticFsMounts_, vector<Body::AgenticFsMounts>) };
+      inline Body& setAgenticFsMounts(const vector<Body::AgenticFsMounts> & agenticFsMounts) { DARABONBA_PTR_SET_VALUE(agenticFsMounts_, agenticFsMounts) };
+      inline Body& setAgenticFsMounts(vector<Body::AgenticFsMounts> && agenticFsMounts) { DARABONBA_PTR_SET_RVALUE(agenticFsMounts_, agenticFsMounts) };
+
+
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -1162,11 +1301,13 @@ namespace Models
 
 
     protected:
+      // Omit or set to [] during creation to indicate no AFS mounts. Set to null to reject. The total number of AFS and OSS mounts cannot exceed 10.
+      shared_ptr<vector<Body::AgenticFsMounts>> agenticFsMounts_ {};
       // The description of the managed agent.
       shared_ptr<string> description_ {};
       // The environment configuration.
       shared_ptr<Body::Environment> environment_ {};
-      // The agent harness.
+      // The agent runtime harness.
       shared_ptr<Body::Harness> harness_ {};
       // The agent instruction that guides the behavior of the agent.
       shared_ptr<string> instruction_ {};
@@ -1180,7 +1321,7 @@ namespace Models
       shared_ptr<string> name_ {};
       // The network configuration.
       shared_ptr<Body::Network> network_ {};
-      // The OSS mount list. A maximum of 10 entries are supported.
+      // The OSS mount list. A maximum of 10 entries are allowed.
       shared_ptr<vector<Body::OssMounts>> ossMounts_ {};
       // The runtime configuration.
       // 

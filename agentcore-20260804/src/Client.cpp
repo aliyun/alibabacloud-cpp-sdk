@@ -1566,7 +1566,7 @@ DeleteModelConnectionResponse Client::deleteModelConnection(const string &worksp
 /**
  * @summary Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
  *
  * @param request DeleteSkillRequest
@@ -1596,7 +1596,7 @@ DeleteSkillResponse Client::deleteSkillWithOptions(const string &workspaceId, co
 /**
  * @summary Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Deletes a skill and its related version data from a specified workspace. This operation is irreversible.
  *
  * @param request DeleteSkillRequest
@@ -1981,10 +1981,10 @@ EnableConnectorResponse Client::enableConnector(const string &workspaceId, const
 }
 
 /**
- * @summary Skips the regular review process and forcibly publishes the specified Skill version.
+ * @summary Skips the regular review process and forcibly publishes a specified Skill version.
  *
- * @description ## Request description
- * Skips the regular review process and forcibly publishes the specified Skill version.
+ * @description ## Operation description
+ * Skips the regular review process and forcibly publishes a specified Skill version.
  *
  * @param tmpReq ForcePublishSkillVersionRequest
  * @param headers map
@@ -2023,10 +2023,10 @@ ForcePublishSkillVersionResponse Client::forcePublishSkillVersionWithOptions(con
 }
 
 /**
- * @summary Skips the regular review process and forcibly publishes the specified Skill version.
+ * @summary Skips the regular review process and forcibly publishes a specified Skill version.
  *
- * @description ## Request description
- * Skips the regular review process and forcibly publishes the specified Skill version.
+ * @description ## Operation description
+ * Skips the regular review process and forcibly publishes a specified Skill version.
  *
  * @param request ForcePublishSkillVersionRequest
  * @return ForcePublishSkillVersionResponse
@@ -3045,6 +3045,63 @@ GetWorkspaceAcrRamAuthorizeUrlResponse Client::getWorkspaceAcrRamAuthorizeUrl(co
 }
 
 /**
+ * @summary Queries the RAM authorization URL for mounting AgenticFS in a workspace.
+ *
+ * @description The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+ *
+ * @param request GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
+ */
+GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse Client::getWorkspaceAgenticFsMountRamAuthorizeUrlWithOptions(const string &workspaceId, const GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAccessPointId()) {
+    query["accessPointId"] = request.getAccessPointId();
+  }
+
+  if (!!request.hasFileSystemId()) {
+    query["fileSystemId"] = request.getFileSystemId();
+  }
+
+  if (!!request.hasServer()) {
+    query["server"] = request.getServer();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetWorkspaceAgenticFsMountRamAuthorizeUrl"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/agentic-fs/authorize")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse>();
+}
+
+/**
+ * @summary Queries the RAM authorization URL for mounting AgenticFS in a workspace.
+ *
+ * @description The workspace determines the account, region, and shared role. The resource ARN is constructed based on the specified fileSystemId and accessPointId. The server parameter is used to generate the policy name. This operation does not query NAS or check resource status. The response contains only the authorization URL for the target NAS policy. After completing RAM authorization, call the verification operation.
+ *
+ * @param request GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest
+ * @return GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse
+ */
+GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse Client::getWorkspaceAgenticFsMountRamAuthorizeUrl(const string &workspaceId, const GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return getWorkspaceAgenticFsMountRamAuthorizeUrlWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
  * @summary Queries the plug-in status of a specified workspace.
  *
  * @description ## Operation description\\nQueries the plug-in status of a specified workspace. Returns whether the plug-in is enabled, its lifecycle status, and the currently effective configuration. Currently, two types of plug-ins are supported: collaboration and agentloop. If a plug-in is not installed, its status is DISABLED.\\n.
@@ -3275,10 +3332,10 @@ ListAgentIMChannelsResponse Client::listAgentIMChannels(const string &workspaceI
 }
 
 /**
- * @summary Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+ * @summary Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
  *
  * @description ## Operation description
- * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+ * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
  *
  * @param request ListAgentSpecsRequest
  * @param headers map
@@ -3343,10 +3400,10 @@ ListAgentSpecsResponse Client::listAgentSpecsWithOptions(const string &workspace
 }
 
 /**
- * @summary Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+ * @summary Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
  *
  * @description ## Operation description
- * Queries AgentSpec resources in a specified workspace by using paging, supporting name search, sorting, and filtering by owner, visibility scope, and business labels.
+ * Queries AgentSpec resources in a specified workspace by using paging, and supports name-based search, sorting, and filtering by owner, visibility scope, and business labels.
  *
  * @param request ListAgentSpecsRequest
  * @return ListAgentSpecsResponse
@@ -4333,6 +4390,63 @@ ListServiceEndpointsResponse Client::listServiceEndpoints(const string &workspac
 }
 
 /**
+ * @summary Queries the reference relationships of a skill.
+ *
+ * @param request ListSkillReferencesRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListSkillReferencesResponse
+ */
+ListSkillReferencesResponse Client::listSkillReferencesWithOptions(const string &workspaceId, const string &skillName, const ListSkillReferencesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasPageNo()) {
+    query["pageNo"] = request.getPageNo();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["pageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSelectorType()) {
+    query["selectorType"] = request.getSelectorType();
+  }
+
+  if (!!request.hasSelectorValue()) {
+    query["selectorValue"] = request.getSelectorValue();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListSkillReferences"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/skills/" , Darabonba::Encode::Encoder::percentEncode(skillName) , "/references")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListSkillReferencesResponse>();
+}
+
+/**
+ * @summary Queries the reference relationships of a skill.
+ *
+ * @param request ListSkillReferencesRequest
+ * @return ListSkillReferencesResponse
+ */
+ListSkillReferencesResponse Client::listSkillReferences(const string &workspaceId, const string &skillName, const ListSkillReferencesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return listSkillReferencesWithOptions(workspaceId, skillName, request, headers, runtime);
+}
+
+/**
  * @summary Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
  *
  * @description ## Operation description
@@ -4585,7 +4699,7 @@ ListWorkspacesResponse Client::listWorkspaces(const ListWorkspacesRequest &reque
 /**
  * @summary Takes the online version of a specified Skill offline so that it is no longer used as the online version.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
  *
  * @param tmpReq OfflineSkillRequest
@@ -4627,7 +4741,7 @@ OfflineSkillResponse Client::offlineSkillWithOptions(const string &workspaceId, 
 /**
  * @summary Takes the online version of a specified Skill offline so that it is no longer used as the online version.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Takes the online version of a specified Skill offline so that it is no longer used as the online version.
  *
  * @param request OfflineSkillRequest
@@ -4699,7 +4813,7 @@ OnlineSkillResponse Client::onlineSkill(const string &workspaceId, const string 
 /**
  * @summary Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
  *
  * @param tmpReq PrecheckSkillUploadViaOssRequest
@@ -4741,7 +4855,7 @@ PrecheckSkillUploadViaOssResponse Client::precheckSkillUploadViaOssWithOptions(c
 /**
  * @summary Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Parses and checks one or more Skill ZIP packages uploaded to OSS, and returns the name, version, and conflict check results.
  *
  * @param request PrecheckSkillUploadViaOssRequest
@@ -4754,10 +4868,10 @@ PrecheckSkillUploadViaOssResponse Client::precheckSkillUploadViaOss(const string
 }
 
 /**
- * @summary Publishes a specified Skill version to change its state to published.
+ * @summary Publishes a specified Skill version to transition it to the published state.
  *
  * @description ## Operation description
- * Publishes a specified Skill version to change its state to published.
+ * Publishes a specified Skill version to transition it to the published state.
  *
  * @param tmpReq PublishSkillVersionRequest
  * @param headers map
@@ -4796,10 +4910,10 @@ PublishSkillVersionResponse Client::publishSkillVersionWithOptions(const string 
 }
 
 /**
- * @summary Publishes a specified Skill version to change its state to published.
+ * @summary Publishes a specified Skill version to transition it to the published state.
  *
  * @description ## Operation description
- * Publishes a specified Skill version to change its state to published.
+ * Publishes a specified Skill version to transition it to the published state.
  *
  * @param request PublishSkillVersionRequest
  * @return PublishSkillVersionResponse
@@ -5806,7 +5920,7 @@ UpdateSkillBizTagsResponse Client::updateSkillBizTags(const string &workspaceId,
 /**
  * @summary Updates the version labels and their mappings for a specified Skill.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Updates the version labels and their mappings for a specified Skill.
  *
  * @param tmpReq UpdateSkillLabelsRequest
@@ -5848,7 +5962,7 @@ UpdateSkillLabelsResponse Client::updateSkillLabelsWithOptions(const string &wor
 /**
  * @summary Updates the version labels and their mappings for a specified Skill.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Updates the version labels and their mappings for a specified Skill.
  *
  * @param request UpdateSkillLabelsRequest
@@ -6316,6 +6430,55 @@ VerifyWorkspaceAcrRamAuthorizationResponse Client::verifyWorkspaceAcrRamAuthoriz
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   map<string, string> headers = {};
   return verifyWorkspaceAcrRamAuthorizationWithOptions(workspaceId, request, headers, runtime);
+}
+
+/**
+ * @summary Queries the RAM authorization status of AgenticFS mounting for a workspace.
+ *
+ * @description Determines the shared role and target access point based on the workspace and server, checks whether the role has a mounted policy with the expected name and a type of Custom, and returns AUTHORIZED or UNAUTHORIZED. Consistent with OSS/ACR, this operation does not verify the policy body, role trust, or actual mount read/write permissions. If the upstream query fails, an error is returned.
+ *
+ * @param request VerifyWorkspaceAgenticFsMountRamAuthorizationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return VerifyWorkspaceAgenticFsMountRamAuthorizationResponse
+ */
+VerifyWorkspaceAgenticFsMountRamAuthorizationResponse Client::verifyWorkspaceAgenticFsMountRamAuthorizationWithOptions(const string &workspaceId, const VerifyWorkspaceAgenticFsMountRamAuthorizationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasServer()) {
+    query["server"] = request.getServer();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "VerifyWorkspaceAgenticFsMountRamAuthorization"},
+    {"version" , "2026-08-04"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/workspaces/" , Darabonba::Encode::Encoder::percentEncode(workspaceId) , "/agentic-fs/authorize/verify")},
+    {"method" , "GET"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<VerifyWorkspaceAgenticFsMountRamAuthorizationResponse>();
+}
+
+/**
+ * @summary Queries the RAM authorization status of AgenticFS mounting for a workspace.
+ *
+ * @description Determines the shared role and target access point based on the workspace and server, checks whether the role has a mounted policy with the expected name and a type of Custom, and returns AUTHORIZED or UNAUTHORIZED. Consistent with OSS/ACR, this operation does not verify the policy body, role trust, or actual mount read/write permissions. If the upstream query fails, an error is returned.
+ *
+ * @param request VerifyWorkspaceAgenticFsMountRamAuthorizationRequest
+ * @return VerifyWorkspaceAgenticFsMountRamAuthorizationResponse
+ */
+VerifyWorkspaceAgenticFsMountRamAuthorizationResponse Client::verifyWorkspaceAgenticFsMountRamAuthorization(const string &workspaceId, const VerifyWorkspaceAgenticFsMountRamAuthorizationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return verifyWorkspaceAgenticFsMountRamAuthorizationWithOptions(workspaceId, request, headers, runtime);
 }
 
 /**

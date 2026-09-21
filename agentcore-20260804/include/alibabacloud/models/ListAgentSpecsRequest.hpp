@@ -112,19 +112,19 @@ namespace Models
 
 
   protected:
-    // The AgentSpec name used as a search keyword. Use this parameter together with the search parameter.
+    // The AgentSpec name used as a search keyword. This parameter is used together with the search parameter.
     shared_ptr<string> agentSpecName_ {};
     // The business tag used for fuzzy filtering.
     shared_ptr<string> bizTag_ {};
-    // The field by which to sort results. Set this parameter to download_count to sort by download count. By default, results are sorted by update time.
+    // The field by which to sort the results. Set the value to download_count to sort by download count. By default, results are sorted by update time.
     shared_ptr<string> orderBy_ {};
-    // The owner used to filter results.
+    // The owner used to filter the results.
     shared_ptr<string> owner_ {};
     // The page number. Pages start from 1. Default value: 1.
     shared_ptr<int32_t> pageNo_ {};
     // The number of entries per page. Default value: 10. Maximum value: 50.
     shared_ptr<int32_t> pageSize_ {};
-    // The visibility scope used to filter results. Valid values:
+    // The visibility scope used to filter the results. Valid values:
     // 
     // - PUBLIC
     // - PRIVATE

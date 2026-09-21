@@ -210,6 +210,9 @@
 #include <alibabacloud/models/GetWorkspaceAcrRamAuthorizeUrlRequest.hpp>
 #include <alibabacloud/models/GetWorkspaceAcrRamAuthorizeUrlResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspaceAcrRamAuthorizeUrlResponse.hpp>
+#include <alibabacloud/models/GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest.hpp>
+#include <alibabacloud/models/GetWorkspaceAgenticFsMountRamAuthorizeUrlResponseBody.hpp>
+#include <alibabacloud/models/GetWorkspaceAgenticFsMountRamAuthorizeUrlResponse.hpp>
 #include <alibabacloud/models/GetWorkspacePluginRequest.hpp>
 #include <alibabacloud/models/GetWorkspacePluginResponseBody.hpp>
 #include <alibabacloud/models/GetWorkspacePluginResponse.hpp>
@@ -279,6 +282,9 @@
 #include <alibabacloud/models/ListServiceEndpointsRequest.hpp>
 #include <alibabacloud/models/ListServiceEndpointsResponseBody.hpp>
 #include <alibabacloud/models/ListServiceEndpointsResponse.hpp>
+#include <alibabacloud/models/ListSkillReferencesRequest.hpp>
+#include <alibabacloud/models/ListSkillReferencesResponseBody.hpp>
+#include <alibabacloud/models/ListSkillReferencesResponse.hpp>
 #include <alibabacloud/models/ListSkillsRequest.hpp>
 #include <alibabacloud/models/ListSkillsResponseBody.hpp>
 #include <alibabacloud/models/ListSkillsResponse.hpp>
@@ -410,6 +416,9 @@
 #include <alibabacloud/models/VerifyWorkspaceAcrRamAuthorizationRequest.hpp>
 #include <alibabacloud/models/VerifyWorkspaceAcrRamAuthorizationResponseBody.hpp>
 #include <alibabacloud/models/VerifyWorkspaceAcrRamAuthorizationResponse.hpp>
+#include <alibabacloud/models/VerifyWorkspaceAgenticFsMountRamAuthorizationRequest.hpp>
+#include <alibabacloud/models/VerifyWorkspaceAgenticFsMountRamAuthorizationResponseBody.hpp>
+#include <alibabacloud/models/VerifyWorkspaceAgenticFsMountRamAuthorizationResponse.hpp>
 #include <alibabacloud/models/VerifyWorkspaceOssMountRamAuthorizationRequest.hpp>
 #include <alibabacloud/models/VerifyWorkspaceOssMountRamAuthorizationResponseBody.hpp>
 #include <alibabacloud/models/VerifyWorkspaceOssMountRamAuthorizationResponse.hpp>

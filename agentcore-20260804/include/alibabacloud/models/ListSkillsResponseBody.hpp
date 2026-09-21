@@ -68,6 +68,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(bizTags, bizTags_);
           DARABONBA_PTR_TO_JSON(description, description_);
           DARABONBA_PTR_TO_JSON(downloadCount, downloadCount_);
+          DARABONBA_PTR_TO_JSON(draftMode, draftMode_);
           DARABONBA_PTR_TO_JSON(editingVersion, editingVersion_);
           DARABONBA_PTR_TO_JSON(enable, enable_);
           DARABONBA_PTR_TO_JSON(from, from_);
@@ -85,6 +86,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(bizTags, bizTags_);
           DARABONBA_PTR_FROM_JSON(description, description_);
           DARABONBA_PTR_FROM_JSON(downloadCount, downloadCount_);
+          DARABONBA_PTR_FROM_JSON(draftMode, draftMode_);
           DARABONBA_PTR_FROM_JSON(editingVersion, editingVersion_);
           DARABONBA_PTR_FROM_JSON(enable, enable_);
           DARABONBA_PTR_FROM_JSON(from, from_);
@@ -110,9 +112,9 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->bizTags_ == nullptr
-        && this->description_ == nullptr && this->downloadCount_ == nullptr && this->editingVersion_ == nullptr && this->enable_ == nullptr && this->from_ == nullptr
-        && this->labels_ == nullptr && this->name_ == nullptr && this->onlineCnt_ == nullptr && this->owner_ == nullptr && this->reviewingVersion_ == nullptr
-        && this->scope_ == nullptr && this->updateTime_ == nullptr && this->workspaceId_ == nullptr && this->writeable_ == nullptr; };
+        && this->description_ == nullptr && this->downloadCount_ == nullptr && this->draftMode_ == nullptr && this->editingVersion_ == nullptr && this->enable_ == nullptr
+        && this->from_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr && this->onlineCnt_ == nullptr && this->owner_ == nullptr
+        && this->reviewingVersion_ == nullptr && this->scope_ == nullptr && this->updateTime_ == nullptr && this->workspaceId_ == nullptr && this->writeable_ == nullptr; };
         // bizTags Field Functions 
         bool hasBizTags() const { return this->bizTags_ != nullptr;};
         void deleteBizTags() { this->bizTags_ = nullptr;};
@@ -132,6 +134,13 @@ namespace Models
         void deleteDownloadCount() { this->downloadCount_ = nullptr;};
         inline int64_t getDownloadCount() const { DARABONBA_PTR_GET_DEFAULT(downloadCount_, 0L) };
         inline PageItems& setDownloadCount(int64_t downloadCount) { DARABONBA_PTR_SET_VALUE(downloadCount_, downloadCount) };
+
+
+        // draftMode Field Functions 
+        bool hasDraftMode() const { return this->draftMode_ != nullptr;};
+        void deleteDraftMode() { this->draftMode_ = nullptr;};
+        inline string getDraftMode() const { DARABONBA_PTR_GET_DEFAULT(draftMode_, "") };
+        inline PageItems& setDraftMode(string draftMode) { DARABONBA_PTR_SET_VALUE(draftMode_, draftMode) };
 
 
         // editingVersion Field Functions 
@@ -227,6 +236,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The total number of downloads.
         shared_ptr<int64_t> downloadCount_ {};
+        shared_ptr<string> draftMode_ {};
         // The version that is being edited.
         shared_ptr<string> editingVersion_ {};
         // Indicates whether the Skill is enabled.

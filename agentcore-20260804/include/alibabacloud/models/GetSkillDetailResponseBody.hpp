@@ -39,6 +39,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(bizTags, bizTags_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(downloadCount, downloadCount_);
+        DARABONBA_PTR_TO_JSON(draftMode, draftMode_);
         DARABONBA_PTR_TO_JSON(editingVersion, editingVersion_);
         DARABONBA_PTR_TO_JSON(enable, enable_);
         DARABONBA_PTR_TO_JSON(from, from_);
@@ -57,6 +58,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(bizTags, bizTags_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(downloadCount, downloadCount_);
+        DARABONBA_PTR_FROM_JSON(draftMode, draftMode_);
         DARABONBA_PTR_FROM_JSON(editingVersion, editingVersion_);
         DARABONBA_PTR_FROM_JSON(enable, enable_);
         DARABONBA_PTR_FROM_JSON(from, from_);
@@ -87,6 +89,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const Versions& obj) { 
           DARABONBA_PTR_TO_JSON(author, author_);
           DARABONBA_PTR_TO_JSON(commitMsg, commitMsg_);
+          DARABONBA_PTR_TO_JSON(contentMd5, contentMd5_);
           DARABONBA_PTR_TO_JSON(createTime, createTime_);
           DARABONBA_PTR_TO_JSON(description, description_);
           DARABONBA_PTR_TO_JSON(downloadCount, downloadCount_);
@@ -98,6 +101,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, Versions& obj) { 
           DARABONBA_PTR_FROM_JSON(author, author_);
           DARABONBA_PTR_FROM_JSON(commitMsg, commitMsg_);
+          DARABONBA_PTR_FROM_JSON(contentMd5, contentMd5_);
           DARABONBA_PTR_FROM_JSON(createTime, createTime_);
           DARABONBA_PTR_FROM_JSON(description, description_);
           DARABONBA_PTR_FROM_JSON(downloadCount, downloadCount_);
@@ -118,8 +122,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->author_ == nullptr
-        && this->commitMsg_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->downloadCount_ == nullptr && this->publishPipelineInfo_ == nullptr
-        && this->status_ == nullptr && this->updateTime_ == nullptr && this->version_ == nullptr; };
+        && this->commitMsg_ == nullptr && this->contentMd5_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->downloadCount_ == nullptr
+        && this->publishPipelineInfo_ == nullptr && this->status_ == nullptr && this->updateTime_ == nullptr && this->version_ == nullptr; };
         // author Field Functions 
         bool hasAuthor() const { return this->author_ != nullptr;};
         void deleteAuthor() { this->author_ = nullptr;};
@@ -132,6 +136,13 @@ namespace Models
         void deleteCommitMsg() { this->commitMsg_ = nullptr;};
         inline string getCommitMsg() const { DARABONBA_PTR_GET_DEFAULT(commitMsg_, "") };
         inline Versions& setCommitMsg(string commitMsg) { DARABONBA_PTR_SET_VALUE(commitMsg_, commitMsg) };
+
+
+        // contentMd5 Field Functions 
+        bool hasContentMd5() const { return this->contentMd5_ != nullptr;};
+        void deleteContentMd5() { this->contentMd5_ = nullptr;};
+        inline string getContentMd5() const { DARABONBA_PTR_GET_DEFAULT(contentMd5_, "") };
+        inline Versions& setContentMd5(string contentMd5) { DARABONBA_PTR_SET_VALUE(contentMd5_, contentMd5) };
 
 
         // createTime Field Functions 
@@ -188,11 +199,13 @@ namespace Models
         shared_ptr<string> author_ {};
         // The commit message.
         shared_ptr<string> commitMsg_ {};
+        // The MD5 checksum of the Skill content package for this version, used to verify content consistency.
+        shared_ptr<string> contentMd5_ {};
         // The creation time. This value is a UNIX timestamp in milliseconds.
         shared_ptr<int64_t> createTime_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // The download count.
+        // The number of downloads.
         shared_ptr<int64_t> downloadCount_ {};
         // The publish pipeline information.
         shared_ptr<string> publishPipelineInfo_ {};
@@ -205,9 +218,10 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->bizTags_ == nullptr
-        && this->description_ == nullptr && this->downloadCount_ == nullptr && this->editingVersion_ == nullptr && this->enable_ == nullptr && this->from_ == nullptr
-        && this->labels_ == nullptr && this->name_ == nullptr && this->onlineCnt_ == nullptr && this->owner_ == nullptr && this->reviewingVersion_ == nullptr
-        && this->scope_ == nullptr && this->updateTime_ == nullptr && this->versions_ == nullptr && this->workspaceId_ == nullptr && this->writeable_ == nullptr; };
+        && this->description_ == nullptr && this->downloadCount_ == nullptr && this->draftMode_ == nullptr && this->editingVersion_ == nullptr && this->enable_ == nullptr
+        && this->from_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr && this->onlineCnt_ == nullptr && this->owner_ == nullptr
+        && this->reviewingVersion_ == nullptr && this->scope_ == nullptr && this->updateTime_ == nullptr && this->versions_ == nullptr && this->workspaceId_ == nullptr
+        && this->writeable_ == nullptr; };
       // bizTags Field Functions 
       bool hasBizTags() const { return this->bizTags_ != nullptr;};
       void deleteBizTags() { this->bizTags_ = nullptr;};
@@ -227,6 +241,13 @@ namespace Models
       void deleteDownloadCount() { this->downloadCount_ = nullptr;};
       inline int64_t getDownloadCount() const { DARABONBA_PTR_GET_DEFAULT(downloadCount_, 0L) };
       inline Data& setDownloadCount(int64_t downloadCount) { DARABONBA_PTR_SET_VALUE(downloadCount_, downloadCount) };
+
+
+      // draftMode Field Functions 
+      bool hasDraftMode() const { return this->draftMode_ != nullptr;};
+      void deleteDraftMode() { this->draftMode_ = nullptr;};
+      inline string getDraftMode() const { DARABONBA_PTR_GET_DEFAULT(draftMode_, "") };
+      inline Data& setDraftMode(string draftMode) { DARABONBA_PTR_SET_VALUE(draftMode_, draftMode) };
 
 
       // editingVersion Field Functions 
@@ -325,13 +346,15 @@ namespace Models
 
 
     protected:
-      // The business tag JSON array string.
+      // The business label JSON array string.
       shared_ptr<string> bizTags_ {};
       // The description.
       shared_ptr<string> description_ {};
       // The total number of downloads.
       shared_ptr<int64_t> downloadCount_ {};
-      // The version currently being edited.
+      // The draft pattern. HEAD indicates that the Skill has a persistent draft. VERSIONED indicates that each edit creates a draft with a version number. The server determines the pattern, and the invoker uses it for routing what to do next.
+      shared_ptr<string> draftMode_ {};
+      // The version being edited.
       shared_ptr<string> editingVersion_ {};
       // Indicates whether the Skill is enabled.
       shared_ptr<bool> enable_ {};
@@ -345,7 +368,7 @@ namespace Models
       shared_ptr<int32_t> onlineCnt_ {};
       // The resource owner.
       shared_ptr<string> owner_ {};
-      // The version currently under review.
+      // The version under review.
       shared_ptr<string> reviewingVersion_ {};
       // The visibility scope.
       shared_ptr<string> scope_ {};

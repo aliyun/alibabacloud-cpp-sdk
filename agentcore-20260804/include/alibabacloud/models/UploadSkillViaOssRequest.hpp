@@ -93,7 +93,7 @@ namespace Models
       shared_ptr<string> ossObjectName_ {};
       // Specifies whether to overwrite an existing Skill. Default value: false.
       shared_ptr<bool> overwrite_ {};
-      // The upload version number. This parameter is optional and used as a fallback when the ZIP package contains no version information.
+      // The target upload version number. This parameter is optional and serves as a fallback when the ZIP package does not contain version information.
       shared_ptr<string> targetVersion_ {};
     };
 

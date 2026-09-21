@@ -57,7 +57,7 @@ namespace Models
 
 
     protected:
-      // The version label mapping JSON string.
+      // A JSON string of version label mappings.
       // 
       // This parameter is required.
       shared_ptr<string> labels_ {};

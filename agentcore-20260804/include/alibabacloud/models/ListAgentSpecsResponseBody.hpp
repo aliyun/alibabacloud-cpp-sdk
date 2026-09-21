@@ -107,9 +107,13 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Skills& obj) { 
             DARABONBA_PTR_TO_JSON(name, name_);
+            DARABONBA_PTR_TO_JSON(sourceType, sourceType_);
+            DARABONBA_PTR_TO_JSON(versionSelector, versionSelector_);
           };
           friend void from_json(const Darabonba::Json& j, Skills& obj) { 
             DARABONBA_PTR_FROM_JSON(name, name_);
+            DARABONBA_PTR_FROM_JSON(sourceType, sourceType_);
+            DARABONBA_PTR_FROM_JSON(versionSelector, versionSelector_);
           };
           Skills() = default ;
           Skills(const Skills &) = default ;
@@ -122,7 +126,55 @@ namespace Models
           };
           virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
           virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-          virtual bool empty() const override { return this->name_ == nullptr; };
+          class VersionSelector : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const VersionSelector& obj) { 
+              DARABONBA_PTR_TO_JSON(type, type_);
+              DARABONBA_PTR_TO_JSON(value, value_);
+            };
+            friend void from_json(const Darabonba::Json& j, VersionSelector& obj) { 
+              DARABONBA_PTR_FROM_JSON(type, type_);
+              DARABONBA_PTR_FROM_JSON(value, value_);
+            };
+            VersionSelector() = default ;
+            VersionSelector(const VersionSelector &) = default ;
+            VersionSelector(VersionSelector &&) = default ;
+            VersionSelector(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~VersionSelector() = default ;
+            VersionSelector& operator=(const VersionSelector &) = default ;
+            VersionSelector& operator=(VersionSelector &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->type_ == nullptr
+        && this->value_ == nullptr; };
+            // type Field Functions 
+            bool hasType() const { return this->type_ != nullptr;};
+            void deleteType() { this->type_ = nullptr;};
+            inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+            inline VersionSelector& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+            // value Field Functions 
+            bool hasValue() const { return this->value_ != nullptr;};
+            void deleteValue() { this->value_ = nullptr;};
+            inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+            inline VersionSelector& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+          protected:
+            // The version selector type. Valid values:
+            // 
+            // - LABEL: selects by label.
+            // - VERSION: selects by specific version.
+            shared_ptr<string> type_ {};
+            // The selector value. If the type is LABEL, this value is a label name such as latest. If the type is VERSION, this value is a specific version number.
+            shared_ptr<string> value_ {};
+          };
+
+          virtual bool empty() const override { return this->name_ == nullptr
+        && this->sourceType_ == nullptr && this->versionSelector_ == nullptr; };
           // name Field Functions 
           bool hasName() const { return this->name_ != nullptr;};
           void deleteName() { this->name_ = nullptr;};
@@ -130,9 +182,32 @@ namespace Models
           inline Skills& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+          // sourceType Field Functions 
+          bool hasSourceType() const { return this->sourceType_ != nullptr;};
+          void deleteSourceType() { this->sourceType_ = nullptr;};
+          inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+          inline Skills& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
+
+
+          // versionSelector Field Functions 
+          bool hasVersionSelector() const { return this->versionSelector_ != nullptr;};
+          void deleteVersionSelector() { this->versionSelector_ = nullptr;};
+          inline const Skills::VersionSelector & getVersionSelector() const { DARABONBA_PTR_GET_CONST(versionSelector_, Skills::VersionSelector) };
+          inline Skills::VersionSelector getVersionSelector() { DARABONBA_PTR_GET(versionSelector_, Skills::VersionSelector) };
+          inline Skills& setVersionSelector(const Skills::VersionSelector & versionSelector) { DARABONBA_PTR_SET_VALUE(versionSelector_, versionSelector) };
+          inline Skills& setVersionSelector(Skills::VersionSelector && versionSelector) { DARABONBA_PTR_SET_RVALUE(versionSelector_, versionSelector) };
+
+
         protected:
           // The name.
           shared_ptr<string> name_ {};
+          // The Skill source type. Valid values:
+          // 
+          // - REFERENCE: references the AI Registry.
+          // - STATIC: statically bundled with the package.
+          shared_ptr<string> sourceType_ {};
+          // The referenced version selector. If omitted, the default value is LABEL/latest.
+          shared_ptr<Skills::VersionSelector> versionSelector_ {};
         };
 
         class McpServers : public Darabonba::Model {
@@ -282,7 +357,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The download count.
         shared_ptr<int64_t> downloadCount_ {};
-        // The version currently being edited.
+        // The version that is currently being edited.
         shared_ptr<string> editingVersion_ {};
         // Indicates whether the AgentSpec is enabled.
         shared_ptr<bool> enable_ {};
@@ -296,7 +371,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The number of online versions.
         shared_ptr<int32_t> onlineCnt_ {};
-        // The version currently under review.
+        // The version that is currently under review.
         shared_ptr<string> reviewingVersion_ {};
         // The visibility scope.
         shared_ptr<string> scope_ {};

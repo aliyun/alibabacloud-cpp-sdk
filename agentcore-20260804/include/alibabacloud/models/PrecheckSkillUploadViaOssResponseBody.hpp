@@ -35,9 +35,12 @@ namespace Models
     class Data : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(draftMode, draftMode_);
         DARABONBA_PTR_TO_JSON(editingVersion, editingVersion_);
         DARABONBA_PTR_TO_JSON(entryPath, entryPath_);
         DARABONBA_PTR_TO_JSON(exists, exists_);
+        DARABONBA_PTR_TO_JSON(headRevision, headRevision_);
+        DARABONBA_PTR_TO_JSON(headStatus, headStatus_);
         DARABONBA_PTR_TO_JSON(maxPublishedVersion, maxPublishedVersion_);
         DARABONBA_PTR_TO_JSON(owner, owner_);
         DARABONBA_PTR_TO_JSON(parsedVersion, parsedVersion_);
@@ -49,9 +52,12 @@ namespace Models
         DARABONBA_PTR_TO_JSON(workspaceId, workspaceId_);
       };
       friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(draftMode, draftMode_);
         DARABONBA_PTR_FROM_JSON(editingVersion, editingVersion_);
         DARABONBA_PTR_FROM_JSON(entryPath, entryPath_);
         DARABONBA_PTR_FROM_JSON(exists, exists_);
+        DARABONBA_PTR_FROM_JSON(headRevision, headRevision_);
+        DARABONBA_PTR_FROM_JSON(headStatus, headStatus_);
         DARABONBA_PTR_FROM_JSON(maxPublishedVersion, maxPublishedVersion_);
         DARABONBA_PTR_FROM_JSON(owner, owner_);
         DARABONBA_PTR_FROM_JSON(parsedVersion, parsedVersion_);
@@ -73,10 +79,17 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->editingVersion_ == nullptr
-        && this->entryPath_ == nullptr && this->exists_ == nullptr && this->maxPublishedVersion_ == nullptr && this->owner_ == nullptr && this->parsedVersion_ == nullptr
-        && this->precheckCode_ == nullptr && this->reason_ == nullptr && this->reviewingVersion_ == nullptr && this->skillName_ == nullptr && this->targetVersion_ == nullptr
-        && this->workspaceId_ == nullptr; };
+      virtual bool empty() const override { return this->draftMode_ == nullptr
+        && this->editingVersion_ == nullptr && this->entryPath_ == nullptr && this->exists_ == nullptr && this->headRevision_ == nullptr && this->headStatus_ == nullptr
+        && this->maxPublishedVersion_ == nullptr && this->owner_ == nullptr && this->parsedVersion_ == nullptr && this->precheckCode_ == nullptr && this->reason_ == nullptr
+        && this->reviewingVersion_ == nullptr && this->skillName_ == nullptr && this->targetVersion_ == nullptr && this->workspaceId_ == nullptr; };
+      // draftMode Field Functions 
+      bool hasDraftMode() const { return this->draftMode_ != nullptr;};
+      void deleteDraftMode() { this->draftMode_ = nullptr;};
+      inline string getDraftMode() const { DARABONBA_PTR_GET_DEFAULT(draftMode_, "") };
+      inline Data& setDraftMode(string draftMode) { DARABONBA_PTR_SET_VALUE(draftMode_, draftMode) };
+
+
       // editingVersion Field Functions 
       bool hasEditingVersion() const { return this->editingVersion_ != nullptr;};
       void deleteEditingVersion() { this->editingVersion_ = nullptr;};
@@ -96,6 +109,20 @@ namespace Models
       void deleteExists() { this->exists_ = nullptr;};
       inline bool getExists() const { DARABONBA_PTR_GET_DEFAULT(exists_, false) };
       inline Data& setExists(bool exists) { DARABONBA_PTR_SET_VALUE(exists_, exists) };
+
+
+      // headRevision Field Functions 
+      bool hasHeadRevision() const { return this->headRevision_ != nullptr;};
+      void deleteHeadRevision() { this->headRevision_ = nullptr;};
+      inline string getHeadRevision() const { DARABONBA_PTR_GET_DEFAULT(headRevision_, "") };
+      inline Data& setHeadRevision(string headRevision) { DARABONBA_PTR_SET_VALUE(headRevision_, headRevision) };
+
+
+      // headStatus Field Functions 
+      bool hasHeadStatus() const { return this->headStatus_ != nullptr;};
+      void deleteHeadStatus() { this->headStatus_ = nullptr;};
+      inline string getHeadStatus() const { DARABONBA_PTR_GET_DEFAULT(headStatus_, "") };
+      inline Data& setHeadStatus(string headStatus) { DARABONBA_PTR_SET_VALUE(headStatus_, headStatus) };
 
 
       // maxPublishedVersion Field Functions 
@@ -162,19 +189,25 @@ namespace Models
 
 
     protected:
+      // The draft mode: HEAD or VERSIONED, determined by the server.
+      shared_ptr<string> draftMode_ {};
       // The version currently being edited.
       shared_ptr<string> editingVersion_ {};
       // The entry path of the Skill package.
       shared_ptr<string> entryPath_ {};
       // Indicates whether the Skill already exists.
       shared_ptr<bool> exists_ {};
+      // The content revision identifier of the persistent draft, used to determine whether the local cache has expired. Returned only in HEAD draft mode.
+      shared_ptr<string> headRevision_ {};
+      // The status of the persistent draft: draft, reviewing, or reviewed. Returned only in HEAD draft mode.
+      shared_ptr<string> headStatus_ {};
       // The highest published version.
       shared_ptr<string> maxPublishedVersion_ {};
       // The resource owner.
       shared_ptr<string> owner_ {};
       // The version parsed from the uploaded content.
       shared_ptr<string> parsedVersion_ {};
-      // The pre-check result code.
+      // The dry run result code.
       shared_ptr<string> precheckCode_ {};
       // The reason description.
       shared_ptr<string> reason_ {};
@@ -207,7 +240,7 @@ namespace Models
 
 
   protected:
-    // The returned data.
+    // The response data.
     shared_ptr<vector<PrecheckSkillUploadViaOssResponseBody::Data>> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
