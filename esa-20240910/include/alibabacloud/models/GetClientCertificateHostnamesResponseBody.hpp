@@ -78,7 +78,7 @@ namespace Models
 
 
   protected:
-    // The list of bound hostnames.
+    // The list of bound domain names.
     shared_ptr<vector<string>> hostnames_ {};
     // The client CA certificate ID.
     shared_ptr<string> id_ {};

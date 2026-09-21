@@ -134,23 +134,23 @@ namespace Models
     shared_ptr<string> commonName_ {};
     // The SHA-256 fingerprint of the certificate.
     shared_ptr<string> fingerprintSha256_ {};
-    // The ID of the certificate.
+    // The certificate ID.
     shared_ptr<string> id_ {};
-    // The issuer of the certificate.
+    // The certification authority.
     shared_ptr<string> issuer_ {};
-    // The end of the certificate\\"s validity period (`not after`). The timestamp is in UTC and formatted in ISO 8601.
+    // The end time of the certificate validity period.
     shared_ptr<string> notAfter_ {};
-    // The start of the certificate\\"s validity period (`not before`). The timestamp is in UTC and formatted in ISO 8601.
+    // The start time of the certificate validity period.
     shared_ptr<string> notBefore_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The serial number of the certificate.
+    // The certificate serial number.
     shared_ptr<string> serialNumber_ {};
     // The signature algorithm of the certificate.
     shared_ptr<string> signatureAlgorithm_ {};
-    // The status of the certificate.
+    // The certificate status.
     shared_ptr<string> status_ {};
-    // The validity period of the certificate in days.
+    // The number of days the certificate is valid.
     shared_ptr<string> validityDays_ {};
   };
 

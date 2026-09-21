@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // Specifies the WAF phase from which to retrieve the matching engine information.
+    // The WAF phase. Specifies the WAF phase for which to query the match engine information.
     shared_ptr<string> phase_ {};
-    // Specifies the ID of the site. You can get this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     shared_ptr<int64_t> siteId_ {};
-    // Specifies the application target of the matching engine.
+    // The target. Defines the application target of the match engine.
     shared_ptr<string> target_ {};
-    // Specifies the rule type.
+    // The rule type.
     shared_ptr<string> type_ {};
   };
 

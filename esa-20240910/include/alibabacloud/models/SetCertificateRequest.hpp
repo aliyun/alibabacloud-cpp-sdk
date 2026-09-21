@@ -125,7 +125,7 @@ namespace Models
     shared_ptr<int64_t> casId_ {};
     // The certificate content. This parameter is required when Type is set to upload.
     shared_ptr<string> certificate_ {};
-    // The certificate ID. Certificates of the free type (created by calling the ApplyCertificate operation) are not supported. Certificates of the cas and upload types are supported.
+    // The certificate ID. Free certificates created by calling the ApplyCertificate operation are not supported. Certificate IDs of the cas and upload types are supported.
     shared_ptr<string> id_ {};
     // The keyless server ID. This parameter takes effect only when Type is set to keyless.
     shared_ptr<string> keyServerId_ {};
@@ -135,9 +135,9 @@ namespace Models
     shared_ptr<string> privateKey_ {};
     // The region. This parameter is required when Type is set to cas. Valid values:
     // 
-    // - China site accounts: cn-hangzhou.
+    // - Alibaba Cloud China Website accounts: cn-hangzhou.
     // 
-    // - International site accounts: ap-southeast-1.
+    // - Alibaba Cloud International Website accounts: ap-southeast-1.
     shared_ptr<string> region_ {};
     shared_ptr<string> securityToken_ {};
     // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
@@ -146,11 +146,11 @@ namespace Models
     shared_ptr<int64_t> siteId_ {};
     // The certificate type. Valid values:
     // 
-    // - **cas**: certificate from SSL Certificates Service.
+    // - **cas**: a certificate from SSL Certificates Service.
     // 
-    // - **upload**: custom uploaded certificate.
+    // - **upload**: a custom uploaded certificate.
     // 
-    // - **keyless**: keyless certificate.
+    // - **keyless**: a keyless certificate.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

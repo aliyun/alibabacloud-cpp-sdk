@@ -77,14 +77,14 @@ namespace Models
   protected:
     // The refresh content.
     shared_ptr<string> contentShrink_ {};
-    // Specifies whether to refresh edge computing cached resources. For example, this allows refreshing content cached by the Edge Routine Cache API operation function.
+    // Specifies whether to refresh edge computing cached resources. For example, this allows refreshing content cached by the Edge Routine CacheAPI API operation using edge functions.
     shared_ptr<bool> edgeComputePurge_ {};
     // Specifies whether to refresh resources under the corresponding directory when the back-to-origin content is inconsistent with the origin server resources. Default value: false.
     // - **true**: Refreshes all resources under the corresponding directory.
     // - **false**: Refreshes only the changed resources under the corresponding directory.
     // 
     // > 
-    // >  Effective scope: directory refresh, cache tag refresh, parameter-ignored refresh, hostname refresh, and refreshing all cached content under the site.
+    // >  This parameter applies to directory refresh, cache tag refresh, parameter-ignored refresh, hostname refresh, and entire site cache refresh.
     shared_ptr<bool> force_ {};
     // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
@@ -95,7 +95,7 @@ namespace Models
     // - **cachekey**: cache key refresh.
     // - **cachetag**: cache label refresh.
     // - **directory**: folder refresh.
-    // - **ignoreParams**: parameter-ignored refresh. This refers to removing the question mark (?) and all parameters after it from the request URL. When you commit a parameter-stripped URL through this operation, the committed URL is matched against cached resource URLs after their parameters are stripped. If a cached resource URL matches the committed URL after parameter stripping, the point of presence executes the refresh on the cached resource.
+    // - **ignoreParams**: parameter-ignored refresh. This refers to removing the question mark (?) and all parameters after it from the request URL. When you commit a parameter-stripped URL through this API operation, the committed URL is matched against cached resource URLs after their parameters are stripped. If a cached resource URL matches the committed URL after parameter stripping, the point of presence executes the refresh on the cached resource.
     // - **hostname**: hostname refresh.
     // - **purgeall**: refreshes all cached content under the site.
     // 

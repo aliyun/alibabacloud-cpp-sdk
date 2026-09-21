@@ -336,7 +336,7 @@ namespace Models
     shared_ptr<string> diagnoseUrl_ {};
     // The diagnosed domain name.
     shared_ptr<string> domain_ {};
-    // The expiration time. Unit: seconds. The value is a UNIX timestamp.
+    // The expiration time. The value is a UNIX timestamp. Unit: seconds.
     shared_ptr<int64_t> expireTime_ {};
     // The remaining number of available diagnostic attempts.
     shared_ptr<int64_t> remainDiagnoseTimes_ {};
@@ -344,7 +344,7 @@ namespace Models
     shared_ptr<DescribeTraceDiagnoseReportResponseBody::Report> report_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The report generation status. Valid values:
+    // The report generation status.
     // 
     // 0: succeeded.
     // 1: failed.
@@ -352,7 +352,7 @@ namespace Models
     // 3: running.
     // 4: waiting.
     shared_ptr<string> state_ {};
-    // The status of the diagnostic link. Valid values:
+    // The status of the diagnostic link.
     // 
     // 1: active.
     // 0: expired.

@@ -50,8 +50,8 @@ namespace Models
   protected:
     // Indicates whether the verification passed. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The verification passed.
+    // - **false**: The verification failed.
     shared_ptr<bool> passed_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

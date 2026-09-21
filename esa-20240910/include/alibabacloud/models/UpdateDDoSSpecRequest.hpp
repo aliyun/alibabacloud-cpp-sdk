@@ -70,15 +70,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DDoSBillingMode_ {};
-    // The instance specification for the Chinese mainland.
+    // The instance specification for Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> DDoSBurstableDomesticProtection_ {};
-    // The instance specification for regions outside the Chinese mainland.
+    // The instance specification for regions outside Chinese mainland.
     // 
     // This parameter is required.
     shared_ptr<string> DDoSBurstableOverseasProtection_ {};
-    // The instance ID.
+    // The instance ID. You can call the ListDDoSInstances operation to query the list of DDoS instances.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

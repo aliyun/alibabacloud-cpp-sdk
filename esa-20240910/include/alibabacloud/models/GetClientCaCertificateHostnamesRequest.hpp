@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The client CA certificate ID.
     shared_ptr<string> id_ {};
-    // The site ID. To obtain this ID, call the [ListSites](~~ListSites~~) API.
+    // The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

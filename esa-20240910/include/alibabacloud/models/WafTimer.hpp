@@ -95,7 +95,9 @@ namespace Models
 
 
       protected:
+        // The end time in HH:mm:ss format.
         shared_ptr<string> end_ {};
+        // The start time in HH:mm:ss format.
         shared_ptr<string> start_ {};
       };
 
@@ -118,7 +120,9 @@ namespace Models
 
 
     protected:
+      // The effective period within the epoch.
       shared_ptr<vector<WeeklyPeriods::DailyPeriods>> dailyPeriods_ {};
+      // The days of the week, separated by commas. Values 1-7 represent Monday through Sunday.<br>Example: Monday and Wednesday is "1,3".
       shared_ptr<string> days_ {};
     };
 
@@ -160,7 +164,9 @@ namespace Models
 
 
     protected:
+      // The end time in RFC 3339 UTC format.
       shared_ptr<string> end_ {};
+      // The start time in RFC 3339 UTC format.
       shared_ptr<string> start_ {};
     };
 
@@ -199,9 +205,13 @@ namespace Models
 
 
   protected:
+    // The effective periods.
     shared_ptr<vector<WafTimer::Periods>> periods_ {};
+    // The timer type: permanently effective (permanent/empty), effective during time periods (periods), or periodically effective (weekly).
     shared_ptr<string> scopes_ {};
+    // The weekly effective periods.
     shared_ptr<vector<WafTimer::WeeklyPeriods>> weeklyPeriods_ {};
+    // The time zone. Default value: UTC+00:00.<br>Example: 8 indicates UTC+8, -8 indicates UTC-8.<br>Valid range: -12 to +14.
     shared_ptr<int32_t> zone_ {};
   };
 

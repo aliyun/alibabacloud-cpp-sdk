@@ -66,13 +66,13 @@ namespace Models
 
 
   protected:
-    // The list of name servers assigned to the site, separated by commas (,). This field has a value when the access type of the site is NS. You need to change the DNS servers of the site to these name servers. Then you can verify the site ownership and activate the site.
+    // The list of NS records assigned to the site, separated by commas (,). This field has a value when the access type of the site is NS. You must change the DNS servers of the site to these NS records. Then you can verify the site ownership and activate the site.
     shared_ptr<string> nameServerList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The site ID.
     shared_ptr<int64_t> siteId_ {};
-    // The verification code of the site. When the access type of the site is CNAME, you need to add a TXT record with the record name **_esaauth.[site name]** and the record value set to the **verification code** on the DNS server of the site. Then you can verify the site ownership and activate the site.
+    // The verification code of the site. When the access type of the site is CNAME, you must add a TXT record to the DNS server of the site with the record name **_esaauth.[site name]** and the record value set to the **verification code**. Then you can verify the site ownership and activate the site.
     shared_ptr<string> verifyCode_ {};
   };
 

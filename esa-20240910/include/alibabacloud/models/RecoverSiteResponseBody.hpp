@@ -173,7 +173,7 @@ namespace Models
     // 
     // - **CNAME**: access through CNAME.
     shared_ptr<string> accessType_ {};
-    // The CNAME suffix of the site. For sites accessed through CNAME, this is the suffix that needs to be configured for the CNAME record.
+    // The CNAME suffix of the site. For sites that are accessed through CNAME, this field indicates the CNAME suffix that needs to be configured for records.
     shared_ptr<string> cnameZone_ {};
     // The acceleration region of the site. Valid values:
     // - **domestic**: the Chinese mainland only.
@@ -184,15 +184,15 @@ namespace Models
     shared_ptr<string> createTime_ {};
     // The plan instance ID.
     shared_ptr<string> instanceId_ {};
-    // The list of name servers assigned to the site, separated by commas (,). When the site is accessed through NS, this field contains values. You need to change the DNS servers of the site to these name servers. Then you can verify site ownership and activate the site.
+    // The list of name servers assigned to the site, separated by commas (,). When the site uses NS access, this field contains values. You need to change the DNS servers of the site to these name servers. Then you can verify the site ownership and activate the site.
     shared_ptr<string> nameServerList_ {};
-    // The reason why the site was disabled. Valid values:
+    // The reason why the site was deactivated. Valid values:
     // 
-    // - **expiration_ arrears**: the subscription plan expired or the account has an overdue payment.
-    // - **internally_disabled**: disabled by the system internally.
-    // - **missing_icp**: the domain name lacks an ICP filing.
-    // - **content_violation**: content violation.
-    // - **proactively_disabled**: you proactively disabled the site or the site was disabled due to the usage cap you configured.
+    // - **expiration_arrears**: The subscription plan expired or the account has an overdue payment.
+    // - **internally_disabled**: The site was disabled by the system.
+    // - **missing_icp**: The domain name does not have an ICP filing.
+    // - **content_violation**: Content violation.
+    // - **proactively_disabled**: You proactively disabled the site or the site was disabled because the usage cap you configured was reached.
     shared_ptr<string> offlineReason_ {};
     // The plan name.
     shared_ptr<string> planName_ {};
@@ -206,10 +206,10 @@ namespace Models
     shared_ptr<string> siteName_ {};
     // The site status. Valid values:
     // 
-    // - **pending**: the site is pending configuration.
-    // - **active**: the site is activated.
-    // - **offline**: the site is offline.
-    // - **moved**: the site has been superseded.
+    // - **pending**: The site is pending configuration.
+    // - **active**: The site is activated.
+    // - **offline**: The site is offline.
+    // - **moved**: The site has been replaced.
     shared_ptr<string> status_ {};
     // The modification time.
     shared_ptr<string> updateTime_ {};

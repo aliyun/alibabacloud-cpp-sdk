@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
+      DARABONBA_PTR_TO_JSON(Type, type_);
       DARABONBA_PTR_TO_JSON(ValidOnly, validOnly_);
     };
     friend void from_json(const Darabonba::Json& j, ListCertificatesRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
+      DARABONBA_PTR_FROM_JSON(Type, type_);
       DARABONBA_PTR_FROM_JSON(ValidOnly, validOnly_);
     };
     ListCertificatesRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->keyword_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->siteId_ == nullptr && this->validOnly_ == nullptr; };
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr && this->validOnly_ == nullptr; };
     // keyword Field Functions 
     bool hasKeyword() const { return this->keyword_ != nullptr;};
     void deleteKeyword() { this->keyword_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline ListCertificatesRequest& setSiteId(int64_t siteId) { DARABONBA_PTR_SET_VALUE(siteId_, siteId) };
 
 
+    // type Field Functions 
+    bool hasType() const { return this->type_ != nullptr;};
+    void deleteType() { this->type_ = nullptr;};
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline ListCertificatesRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
     // validOnly Field Functions 
     bool hasValidOnly() const { return this->validOnly_ != nullptr;};
     void deleteValidOnly() { this->validOnly_ = nullptr;};
@@ -85,6 +94,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
+    shared_ptr<string> type_ {};
     // Specifies whether to return only valid certificates.
     shared_ptr<bool> validOnly_ {};
   };

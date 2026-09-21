@@ -66,17 +66,17 @@ namespace Models
 
 
   protected:
-    // The content of the certificate in PEM format.
+    // The certificate content.
     // 
     // This parameter is required.
     shared_ptr<string> certificate_ {};
     // The certificate name.
     shared_ptr<string> name_ {};
-    // The private key for the certificate in PEM format.
+    // The certificate private key.
     // 
     // This parameter is required.
     shared_ptr<string> privateKey_ {};
-    // The site ID. To get this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+    // The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

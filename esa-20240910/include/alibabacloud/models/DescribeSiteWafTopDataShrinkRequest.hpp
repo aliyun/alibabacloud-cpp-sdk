@@ -86,7 +86,7 @@ namespace Models
   protected:
     // The end of the time range to query.
     // 
-    // Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     // 
     // > The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
@@ -100,12 +100,11 @@ namespace Models
     shared_ptr<string> limit_ {};
     // The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
     // 
-    // 
     // If this parameter is left empty, user-level data is queried.
     shared_ptr<string> siteId_ {};
     // The beginning of the time range to query.
     // 
-    // Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     shared_ptr<string> startTime_ {};
   };
 

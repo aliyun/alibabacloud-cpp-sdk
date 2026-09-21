@@ -135,7 +135,7 @@ namespace Models
     protected:
       // The returned data.
       shared_ptr<vector<Data::DetailData>> detailData_ {};
-      // The query dimension.
+      // The query dimensions.
       shared_ptr<string> dimensionName_ {};
       // The query metric value.
       shared_ptr<string> fieldName_ {};
@@ -185,7 +185,7 @@ namespace Models
     shared_ptr<vector<DescribeSiteWafTopDataResponseBody::Data>> data_ {};
     // The end of the time range for the returned data.
     // 
-    // The time is in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
+    // The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC+0.
     shared_ptr<string> endTime_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
@@ -193,7 +193,7 @@ namespace Models
     shared_ptr<float> samplingRate_ {};
     // The beginning of the time range to query.
     // 
-    // Specify the time in ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+    // Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
     shared_ptr<string> startTime_ {};
   };
 

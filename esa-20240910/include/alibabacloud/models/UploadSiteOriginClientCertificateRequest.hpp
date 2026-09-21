@@ -76,7 +76,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> privateKey_ {};
-    // Site ID.
+    // The site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

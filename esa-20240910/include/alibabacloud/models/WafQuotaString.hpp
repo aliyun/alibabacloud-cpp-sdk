@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The regular expression.
     shared_ptr<string> regexp_ {};
   };
 

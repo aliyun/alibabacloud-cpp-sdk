@@ -2,12 +2,12 @@
 #include <alibabacloud/ESA20240910.hpp>
 #include <alibabacloud/Utils.hpp>
 #include <alibabacloud/Openapi.hpp>
-#include <map>
 #include <darabonba/Runtime.hpp>
 #include <darabonba/policy/Retry.hpp>
 #include <darabonba/Exception.hpp>
 #include <darabonba/Convert.hpp>
 #include <darabonba/http/Form.hpp>
+#include <map>
 #include <darabonba/Stream.hpp>
 #include <darabonba/XML.hpp>
 #include <alibabacloud/credentials/Client.hpp>
@@ -29,10 +29,6 @@ namespace ESA20240910
 
 AlibabaCloud::ESA20240910::Client::Client(AlibabaCloud::OpenApi::Utils::Models::Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"ap-southeast-1" , "esa.ap-southeast-1.aliyuncs.com"},
-    {"cn-hangzhou" , "esa.cn-hangzhou.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("esa", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -293,6 +289,10 @@ AddUserBusinessFormResponse Client::addUserBusinessForm(const AddUserBusinessFor
 ApplyCertificateResponse Client::applyCertificateWithOptions(const ApplyCertificateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAlgType()) {
+    query["AlgType"] = request.getAlgType();
+  }
+
   if (!!request.hasDomains()) {
     query["Domains"] = request.getDomains();
   }
@@ -1830,9 +1830,9 @@ CreateCompressionRuleResponse Client::createCompressionRule(const CreateCompress
 }
 
 /**
- * @summary Creates a SaaS domain name for a site.
+ * @summary Creates a SaaS domain name under a site.
  *
- * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+ * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
  * - Each user can invoke this operation up to 100 times per hour.
  *
  * @param request CreateCustomHostnameRequest
@@ -1896,9 +1896,9 @@ CreateCustomHostnameResponse Client::createCustomHostnameWithOptions(const Creat
 }
 
 /**
- * @summary Creates a SaaS domain name for a site.
+ * @summary Creates a SaaS domain name under a site.
  *
- * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+ * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
  * - Each user can invoke this operation up to 100 times per hour.
  *
  * @param request CreateCustomHostnameRequest
@@ -4395,7 +4395,7 @@ CreateScheduledPreloadJobResponse Client::createScheduledPreloadJob(const Create
  * @summary Creates a site.
  *
  * @description - Before creating a site, you must have an active plan instance.
- * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
+ * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
  * - Each user can invoke this operation up to 100 times per hour.
  *
  * @param request CreateSiteRequest
@@ -4450,7 +4450,7 @@ CreateSiteResponse Client::createSiteWithOptions(const CreateSiteRequest &reques
  * @summary Creates a site.
  *
  * @description - Before creating a site, you must have an active plan instance.
- * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
+ * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
  * - Each user can invoke this operation up to 100 times per hour.
  *
  * @param request CreateSiteRequest
@@ -9655,7 +9655,7 @@ DescribeSiteTopDataResponse Client::describeSiteTopData(const DescribeSiteTopDat
  * @summary Retrieves time series data for WAF event analysis of a site.
  *
  * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
- * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+ * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
  *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
  *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
  *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
@@ -9717,7 +9717,7 @@ DescribeSiteWafTimeSeriesDataResponse Client::describeSiteWafTimeSeriesDataWithO
  * @summary Retrieves time series data for WAF event analysis of a site.
  *
  * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
- * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+ * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
  *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
  *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
  *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
@@ -9737,7 +9737,7 @@ DescribeSiteWafTimeSeriesDataResponse Client::describeSiteWafTimeSeriesData(cons
  * @summary Retrieves the top data from WAF event analysis for a website.
  *
  * @description - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
- * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+ * - Because of the high number of access requests during the query time range, data analytics may involve sampling.
  *
  * @param tmpReq DescribeSiteWafTopDataRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9797,7 +9797,7 @@ DescribeSiteWafTopDataResponse Client::describeSiteWafTopDataWithOptions(const D
  * @summary Retrieves the top data from WAF event analysis for a website.
  *
  * @description - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
- * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+ * - Because of the high number of access requests during the query time range, data analytics may involve sampling.
  *
  * @param request DescribeSiteWafTopDataRequest
  * @return DescribeSiteWafTopDataResponse
@@ -9808,9 +9808,9 @@ DescribeSiteWafTopDataResponse Client::describeSiteWafTopData(const DescribeSite
 }
 
 /**
- * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+ * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
  *
- * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+ * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
  *
  * @param request DescribeTraceDiagnoseReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9845,9 +9845,9 @@ DescribeTraceDiagnoseReportResponse Client::describeTraceDiagnoseReportWithOptio
 }
 
 /**
- * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+ * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
  *
- * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+ * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
  *
  * @param request DescribeTraceDiagnoseReportRequest
  * @return DescribeTraceDiagnoseReportResponse
@@ -10280,7 +10280,7 @@ ExportRecordsResponse Client::exportRecords(const ExportRecordsRequest &request)
 }
 
 /**
- * @summary Generates a diagnosis link.
+ * @summary Generates a diagnostic link.
  *
  * @param request GenerateTraceDiagnoseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10315,7 +10315,7 @@ GenerateTraceDiagnoseResponse Client::generateTraceDiagnoseWithOptions(const Gen
 }
 
 /**
- * @summary Generates a diagnosis link.
+ * @summary Generates a diagnostic link.
  *
  * @param request GenerateTraceDiagnoseRequest
  * @return GenerateTraceDiagnoseResponse
@@ -10686,7 +10686,7 @@ GetClientCaCertificateResponse Client::getClientCaCertificate(const GetClientCaC
 }
 
 /**
- * @summary Retrieves the list of hostnames bound to a specified client CA certificate. If no certificate is specified, this operation returns the list of hostnames bound to the ESA CA certificate.
+ * @summary Retrieves the domain name bindinglist for a specified client CA certificate. If no certificate is specified, the domain name binding list for the ESA CA certificate is returned.
  *
  * @param request GetClientCaCertificateHostnamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10721,7 +10721,7 @@ GetClientCaCertificateHostnamesResponse Client::getClientCaCertificateHostnamesW
 }
 
 /**
- * @summary Retrieves the list of hostnames bound to a specified client CA certificate. If no certificate is specified, this operation returns the list of hostnames bound to the ESA CA certificate.
+ * @summary Retrieves the domain name bindinglist for a specified client CA certificate. If no certificate is specified, the domain name binding list for the ESA CA certificate is returned.
  *
  * @param request GetClientCaCertificateHostnamesRequest
  * @return GetClientCaCertificateHostnamesResponse
@@ -10770,7 +10770,7 @@ GetClientCertificateResponse Client::getClientCertificate(const GetClientCertifi
 }
 
 /**
- * @summary Retrieves the list of hostnames bound to a specified client CA certificate. If you do not specify a certificate, the operation returns the list of hostnames for the ESA CA certificate.
+ * @summary Retrieves the domain name bindings for a specified client CA certificate. If no certificate is specified, returns the domain name bindings for the ESA CA certificate.
  *
  * @param request GetClientCertificateHostnamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10797,7 +10797,7 @@ GetClientCertificateHostnamesResponse Client::getClientCertificateHostnamesWithO
 }
 
 /**
- * @summary Retrieves the list of hostnames bound to a specified client CA certificate. If you do not specify a certificate, the operation returns the list of hostnames for the ESA CA certificate.
+ * @summary Retrieves the domain name bindings for a specified client CA certificate. If no certificate is specified, returns the domain name bindings for the ESA CA certificate.
  *
  * @param request GetClientCertificateHostnamesRequest
  * @return GetClientCertificateHostnamesResponse
@@ -14294,7 +14294,7 @@ GetWafBotAppKeyResponse Client::getWafBotAppKey() {
 }
 
 /**
- * @summary Retrieves matching engine information for a site at a given WAF phase, which defines how the WAF detects and handles various network requests.
+ * @summary Retrieves the match engine information for a specified site at a specific WAF phase. This information defines how WAF detects and processes different types of network requests.
  *
  * @param request GetWafFilterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14337,7 +14337,7 @@ GetWafFilterResponse Client::getWafFilterWithOptions(const GetWafFilterRequest &
 }
 
 /**
- * @summary Retrieves matching engine information for a site at a given WAF phase, which defines how the WAF detects and handles various network requests.
+ * @summary Retrieves the match engine information for a specified site at a specific WAF phase. This information defines how WAF detects and processes different types of network requests.
  *
  * @param request GetWafFilterRequest
  * @return GetWafFilterResponse
@@ -14817,6 +14817,10 @@ ListCertificatesResponse Client::listCertificatesWithOptions(const ListCertifica
     query["SiteId"] = request.getSiteId();
   }
 
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
   if (!!request.hasValidOnly()) {
     query["ValidOnly"] = request.getValidOnly();
   }
@@ -15188,7 +15192,7 @@ ListCustomResponseCodeRulesResponse Client::listCustomResponseCodeRules(const Li
 }
 
 /**
- * @summary Retrieves a list of purchased DDoS protection instances.
+ * @summary Queries the list of additionally purchased DDoS security instances.
  *
  * @param request ListDDoSInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15243,7 +15247,7 @@ ListDDoSInstancesResponse Client::listDDoSInstancesWithOptions(const ListDDoSIns
 }
 
 /**
- * @summary Retrieves a list of purchased DDoS protection instances.
+ * @summary Queries the list of additionally purchased DDoS security instances.
  *
  * @param request ListDDoSInstancesRequest
  * @return ListDDoSInstancesResponse
@@ -18759,7 +18763,7 @@ OpenErServiceResponse Client::openErService(const OpenErServiceRequest &request)
 }
 
 /**
- * @summary Prefetches cache content.
+ * @summary Prefetches URLs to warm the cache.
  *
  * @param tmpReq PreloadCachesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18808,7 +18812,7 @@ PreloadCachesResponse Client::preloadCachesWithOptions(const PreloadCachesReques
 }
 
 /**
- * @summary Prefetches cache content.
+ * @summary Prefetches URLs to warm the cache.
  *
  * @param request PreloadCachesRequest
  * @return PreloadCachesResponse
@@ -19633,7 +19637,7 @@ RebuildEdgeContainerAppStagingEnvResponse Client::rebuildEdgeContainerAppStaging
 }
 
 /**
- * @summary Restores the status of a site that has been disabled.
+ * @summary Restores the status of a site that has been deactivated.
  *
  * @param request RecoverSiteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19664,7 +19668,7 @@ RecoverSiteResponse Client::recoverSiteWithOptions(const RecoverSiteRequest &req
 }
 
 /**
- * @summary Restores the status of a site that has been disabled.
+ * @summary Restores the status of a site that has been deactivated.
  *
  * @param request RecoverSiteRequest
  * @return RecoverSiteResponse
@@ -20401,7 +20405,7 @@ SetHttpDDoSAttackRuleStatusResponse Client::setHttpDDoSAttackRuleStatus(const Se
 }
 
 /**
- * @summary Creates or updates a keyless server configuration.
+ * @summary Creates or updates a Keyless server configuration.
  *
  * @param request SetKeylessServerRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20466,7 +20470,7 @@ SetKeylessServerResponse Client::setKeylessServerWithOptions(const SetKeylessSer
 }
 
 /**
- * @summary Creates or updates a keyless server configuration.
+ * @summary Creates or updates a Keyless server configuration.
  *
  * @param request SetKeylessServerRequest
  * @return SetKeylessServerResponse
@@ -21381,7 +21385,7 @@ UpdateCacheTagResponse Client::updateCacheTag(const UpdateCacheTagRequest &reque
 }
 
 /**
- * @summary Modifies the CNAME flattening configuration of a website.
+ * @summary Modifies the CNAME flattening configuration of a site.
  *
  * @param request UpdateCnameFlatteningRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21416,7 +21420,7 @@ UpdateCnameFlatteningResponse Client::updateCnameFlatteningWithOptions(const Upd
 }
 
 /**
- * @summary Modifies the CNAME flattening configuration of a website.
+ * @summary Modifies the CNAME flattening configuration of a site.
  *
  * @param request UpdateCnameFlatteningRequest
  * @return UpdateCnameFlatteningResponse
@@ -21811,7 +21815,13 @@ UpdateCustomScenePolicyResponse Client::updateCustomScenePolicy(const UpdateCust
 }
 
 /**
- * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Modifies the specifications of a DDoS instance.
+ *
+ * @description - Call `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
+ * - Call `ListDDoSInstances` to query the list of DDoS instances.
+ * - Specification changes are not allowed within 31 days of purchase.
+ * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
+ * - After a successful specification change, billing starts immediately on the same day based on the new instance specifications.
  *
  * @param request UpdateDDoSSpecRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21854,7 +21864,13 @@ UpdateDDoSSpecResponse Client::updateDDoSSpecWithOptions(const UpdateDDoSSpecReq
 }
 
 /**
- * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+ * @summary Modifies the specifications of a DDoS instance.
+ *
+ * @description - Call `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
+ * - Call `ListDDoSInstances` to query the list of DDoS instances.
+ * - Specification changes are not allowed within 31 days of purchase.
+ * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
+ * - After a successful specification change, billing starts immediately on the same day based on the new instance specifications.
  *
  * @param request UpdateDDoSSpecRequest
  * @return UpdateDDoSSpecResponse
@@ -24195,7 +24211,7 @@ UpdateSiteAccessTypeResponse Client::updateSiteAccessType(const UpdateSiteAccess
 }
 
 /**
- * @summary Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to traffic distribution changes or improve the access experience for users in specific regions.
+ * @summary Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
  *
  * @param request UpdateSiteCoverageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24230,7 +24246,7 @@ UpdateSiteCoverageResponse Client::updateSiteCoverageWithOptions(const UpdateSit
 }
 
 /**
- * @summary Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to traffic distribution changes or improve the access experience for users in specific regions.
+ * @summary Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
  *
  * @param request UpdateSiteCoverageRequest
  * @return UpdateSiteCoverageResponse
@@ -25791,9 +25807,9 @@ UploadFileResponse Client::uploadFileAdvance(const UploadFileAdvanceRequest &req
 }
 
 /**
- * @summary Uploads an origin server CA certificate.
+ * @summary Uploads a CA certificate for the origin server.
  *
- * @description You can add multiple origins to a site. Edge Security Acceleration (ESA) supports various origin types, including domain names, IP addresses, OSS, and S3. Origin authentication is supported for OSS or S3 origins.
+ * @description You can add multiple origin servers under a source address. Origin servers of the domain name, IP address, OSS, and S3 types are supported. Back-to-origin authentication is supported for OSS and S3 origin servers.
  *
  * @param request UploadOriginCaCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25832,9 +25848,9 @@ UploadOriginCaCertificateResponse Client::uploadOriginCaCertificateWithOptions(c
 }
 
 /**
- * @summary Uploads an origin server CA certificate.
+ * @summary Uploads a CA certificate for the origin server.
  *
- * @description You can add multiple origins to a site. Edge Security Acceleration (ESA) supports various origin types, including domain names, IP addresses, OSS, and S3. Origin authentication is supported for OSS or S3 origins.
+ * @description You can add multiple origin servers under a source address. Origin servers of the domain name, IP address, OSS, and S3 types are supported. Back-to-origin authentication is supported for OSS and S3 origin servers.
  *
  * @param request UploadOriginCaCertificateRequest
  * @return UploadOriginCaCertificateResponse
@@ -25845,7 +25861,7 @@ UploadOriginCaCertificateResponse Client::uploadOriginCaCertificate(const Upload
 }
 
 /**
- * @summary Uploads an origin client certificate for a site.
+ * @summary Uploads a domain-level back-to-origin client certificate.
  *
  * @param request UploadOriginClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25890,7 +25906,7 @@ UploadOriginClientCertificateResponse Client::uploadOriginClientCertificateWithO
 }
 
 /**
- * @summary Uploads an origin client certificate for a site.
+ * @summary Uploads a domain-level back-to-origin client certificate.
  *
  * @param request UploadOriginClientCertificateRequest
  * @return UploadOriginClientCertificateResponse
@@ -25901,7 +25917,7 @@ UploadOriginClientCertificateResponse Client::uploadOriginClientCertificate(cons
 }
 
 /**
- * @summary Upload site origin client certificate
+ * @summary Uploads a site-level back-to-origin client certificate.
  *
  * @param request UploadSiteOriginClientCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25946,7 +25962,7 @@ UploadSiteOriginClientCertificateResponse Client::uploadSiteOriginClientCertific
 }
 
 /**
- * @summary Upload site origin client certificate
+ * @summary Uploads a site-level back-to-origin client certificate.
  *
  * @param request UploadSiteOriginClientCertificateRequest
  * @return UploadSiteOriginClientCertificateResponse
@@ -25999,10 +26015,10 @@ VerifyCustomHostnameResponse Client::verifyCustomHostname(const VerifyCustomHost
 }
 
 /**
- * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+ * @summary Verifies site ownership. A site that passes the verification is automatically activated.
  *
- * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
- * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+ * @description 1. For sites connected through NS, verifies whether the current NS servers of the site are the NS servers assigned by Alibaba Cloud.
+ * 2. For sites connected through CNAME, verifies whether the site has a TXT record with the name _esaauth.[site name] and the content set to the site verification code (see the VerifyCode field in the site information).
  *
  * @param request VerifySiteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26033,10 +26049,10 @@ VerifySiteResponse Client::verifySiteWithOptions(const VerifySiteRequest &reques
 }
 
 /**
- * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+ * @summary Verifies site ownership. A site that passes the verification is automatically activated.
  *
- * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
- * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+ * @description 1. For sites connected through NS, verifies whether the current NS servers of the site are the NS servers assigned by Alibaba Cloud.
+ * 2. For sites connected through CNAME, verifies whether the site has a TXT record with the name _esaauth.[site name] and the content set to the site verification code (see the VerifyCode field in the site information).
  *
  * @param request VerifySiteRequest
  * @return VerifySiteResponse

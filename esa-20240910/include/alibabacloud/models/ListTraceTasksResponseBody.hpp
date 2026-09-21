@@ -196,9 +196,9 @@ namespace Models
       shared_ptr<string> createTime_ {};
       // The diagnose ID.
       shared_ptr<string> diagnoseId_ {};
-      // The diagnostic URL.
+      // The diagnose URL.
       shared_ptr<string> diagnoseUrl_ {};
-      // The domain name to diagnose.
+      // The domain name to be diagnosed.
       shared_ptr<string> domain_ {};
       // The expiration time. The value is a UNIX timestamp. Unit: seconds.
       shared_ptr<int64_t> expireTime_ {};
@@ -212,16 +212,16 @@ namespace Models
       // - 3: Running.
       // - 4: Waiting.
       shared_ptr<string> state_ {};
-      // The status of the diagnostic URL. Valid values:
+      // The status of the diagnose URL. Valid values:
       // 
-      // - 1: active
-      // - 0: expired.
+      // - 1: Active.
+      // - 0: Expired.
       shared_ptr<int64_t> status_ {};
       // The task ID.
       shared_ptr<string> taskId_ {};
       // The time consumed to generate the report.
       shared_ptr<int64_t> timeConsuming_ {};
-      // The diagnostic trace ID.
+      // The trace ID of the diagnostic task.
       shared_ptr<string> traceId_ {};
     };
 
@@ -271,7 +271,7 @@ namespace Models
     shared_ptr<vector<ListTraceTasksResponseBody::List>> list_ {};
     // The page number, starting from 1.
     shared_ptr<int64_t> pageNumber_ {};
-    // The page size. Valid values: any integer from 1 to 1000.
+    // The number of entries per page. Valid values: any integer from 1 to 1000.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

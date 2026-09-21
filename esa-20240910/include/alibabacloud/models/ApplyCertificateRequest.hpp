@@ -13,11 +13,13 @@ namespace Models
   class ApplyCertificateRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ApplyCertificateRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AlgType, algType_);
       DARABONBA_PTR_TO_JSON(Domains, domains_);
       DARABONBA_PTR_TO_JSON(SiteId, siteId_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, ApplyCertificateRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AlgType, algType_);
       DARABONBA_PTR_FROM_JSON(Domains, domains_);
       DARABONBA_PTR_FROM_JSON(SiteId, siteId_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->domains_ == nullptr
-        && this->siteId_ == nullptr && this->type_ == nullptr; };
+    virtual bool empty() const override { return this->algType_ == nullptr
+        && this->domains_ == nullptr && this->siteId_ == nullptr && this->type_ == nullptr; };
+    // algType Field Functions 
+    bool hasAlgType() const { return this->algType_ != nullptr;};
+    void deleteAlgType() { this->algType_ = nullptr;};
+    inline string getAlgType() const { DARABONBA_PTR_GET_DEFAULT(algType_, "") };
+    inline ApplyCertificateRequest& setAlgType(string algType) { DARABONBA_PTR_SET_VALUE(algType_, algType) };
+
+
     // domains Field Functions 
     bool hasDomains() const { return this->domains_ != nullptr;};
     void deleteDomains() { this->domains_ = nullptr;};
@@ -57,7 +66,9 @@ namespace Models
 
 
   protected:
-    // A comma-separated list of domain names.
+    // The algorithm type.
+    shared_ptr<string> algType_ {};
+    // The list of domain names, separated by commas.
     // 
     // This parameter is required.
     shared_ptr<string> domains_ {};
@@ -65,7 +76,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // The certificate type. Valid values: `lets_encrypt` for a Let\\"s Encrypt certificate, `digicert_single` for a Digicert single-domain certificate, and `digicert_wildcard` for a Digicert wildcard certificate.
+    // The certificate type. Valid values:
+    // - lets_encrypt: Let\\"s Encrypt certificate.
+    // - digicert_single: DigiCert single-domain certificate.
+    // - digicert_wildcard: DigiCert wildcard domain certificate.
     shared_ptr<string> type_ {};
   };
 

@@ -112,31 +112,31 @@ namespace Models
 
 
   protected:
-    // The CA certificate used to verify the server certificate of the keyless server. This parameter applies only when `Verify` is set to `true`.
+    // The CA certificate used to verify the server certificate of the Keyless server. This parameter takes effect only when Verify is set to true.
     shared_ptr<string> caCertificate_ {};
-    // The client certificate. This parameter must be used with the `ClientPrivateKey` parameter.
+    // The client certificate. This parameter must be specified together with the client private key.
     shared_ptr<string> clientCertificate_ {};
-    // The client private key. This parameter must be used with the `ClientCertificate` parameter.
+    // The client private key. This parameter must be specified together with the client certificate.
     shared_ptr<string> clientPrivateKey_ {};
-    // The hostname of the keyless server. The value can be a domain name or an IP address.
+    // The hostname of the Keyless server. The value can be a domain name or an IP address.
     // 
     // This parameter is required.
     shared_ptr<string> host_ {};
-    // The keyless server ID.
+    // Keyless server ID。
     shared_ptr<string> id_ {};
-    // The keyless server name.
+    // The name of the Keyless server.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The keyless server port.
+    // The port of the Keyless server.
     // 
     // This parameter is required.
     shared_ptr<int64_t> port_ {};
-    // The site ID. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+    // The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};
-    // Specifies whether to verify the server certificate of the keyless server. Default: false.
+    // Specifies whether to verify the server certificate of the Keyless server. Default value: false.
     shared_ptr<bool> verify_ {};
   };
 

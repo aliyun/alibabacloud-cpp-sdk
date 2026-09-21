@@ -174,7 +174,7 @@ namespace Models
         shared_ptr<string> key_ {};
         // The validation status.
         shared_ptr<string> status_ {};
-        // The DCV type. Valid values: DNS and HTTP.
+        // The DCV type. Valid values: DNS, HTTP.
         shared_ptr<string> type_ {};
         // The DCV content.
         shared_ptr<string> value_ {};
@@ -351,7 +351,7 @@ namespace Models
       shared_ptr<string> casId_ {};
       // The common name of the certificate.
       shared_ptr<string> commonName_ {};
-      // The creation time. Format: YYYY-MM-DD HH:MM:SS, in UTC/GMT time zone.
+      // The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
       shared_ptr<string> createTime_ {};
       // The Domain Control Validation (DCV) information.
       shared_ptr<vector<Result::DCV>> DCV_ {};
@@ -367,9 +367,9 @@ namespace Models
       shared_ptr<string> keyServerId_ {};
       // The certificate name.
       shared_ptr<string> name_ {};
-      // The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in UTC/GMT time zone.
+      // The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
       shared_ptr<string> notAfter_ {};
-      // The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in UTC/GMT time zone.
+      // The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
       shared_ptr<string> notBefore_ {};
       // The public key algorithm of the certificate.
       shared_ptr<string> pubAlg_ {};
@@ -385,18 +385,18 @@ namespace Models
       // - OK: Normal.
       // - Expired: The certificate has expired.
       // - Expiring: The certificate is about to expire (within 30 days).
-      // - Issued: Free certificate - issued.
-      // - Applying: Free certificate - applying.
-      // - ApplyFailed: Free certificate - application failed.
-      // - Canceled: Free certificate - canceled.
+      // - Issued: Free certificate - Issued.
+      // - Applying: Free certificate - Applying.
+      // - ApplyFailed: Free certificate - Application failed.
+      // - Canceled: Free certificate - Canceled.
       shared_ptr<string> status_ {};
       // The certificate type. Valid values:
-      // - cas: SSL Certificates Service certificate.
+      // - cas: Alibaba Cloud SSL certificate.
       // - upload: Custom uploaded certificate.
       // - free: Free certificate.
       // - keyless: Keyless certificate.
       shared_ptr<string> type_ {};
-      // The update time. Format: YYYY-MM-DD HH:MM:SS, in UTC/GMT time zone.
+      // The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
       shared_ptr<string> updateTime_ {};
     };
 

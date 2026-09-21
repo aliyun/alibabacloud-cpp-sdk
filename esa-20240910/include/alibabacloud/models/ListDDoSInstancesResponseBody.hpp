@@ -124,27 +124,23 @@ namespace Models
 
 
     protected:
-      // Time when the instance was purchased
+      // The purchase time of the instance. The time is in ISO 8601 format and displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
-      // DDoS protection specification for the Chinese mainland
+      // The specifications of the DDoS instance in the Chinese mainland.
       shared_ptr<string> DDoSBurstableDomesticProtection_ {};
-      // DDoS protection specification for regions outside the Chinese mainland
+      // The specifications of the DDoS instance outside the Chinese mainland.
       shared_ptr<string> DDoSBurstableOverseasProtection_ {};
-      // Instance ID
+      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // Scheduled release time
+      // The scheduled release time. The time is in ISO 8601 format and displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> reserveReleaseTime_ {};
-      // Associated site package instance ID
+      // The ID of the associated site plan instance.
       shared_ptr<string> siteInstanceId_ {};
-      // Instance status. Valid values:
-      // 
-      // - **online**: Normal service status.
-      // 
-      // - **offline**: Expired but not overdue. Instance is unavailable.
-      // 
-      // - **disable**: Released.
-      // 
-      // - **overdue**: Service suspended due to overdue payment.
+      // The instance status. Valid values:
+      // - **online**: The instance is running normally.
+      // - **offline**: The instance has expired but is not overdue, and is unavailable.
+      // - **disable**: The instance has been released.
+      // - **overdue**: The instance is suspended due to overdue payment.
       shared_ptr<string> status_ {};
     };
 
@@ -195,17 +191,17 @@ namespace Models
 
 
   protected:
-    // Instance details
+    // The instance details.
     shared_ptr<vector<ListDDoSInstancesResponseBody::InstanceInfo>> instanceInfo_ {};
-    // Page number. Default: **1**.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // Number of entries per page
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Total number of entries
+    // The total number of records.
     shared_ptr<int32_t> totalCount_ {};
-    // Total number of pages
+    // The total number of pages.
     shared_ptr<int32_t> totalPage_ {};
   };
 

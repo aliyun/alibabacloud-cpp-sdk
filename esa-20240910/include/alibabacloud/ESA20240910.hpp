@@ -615,9 +615,9 @@ namespace ESA20240910
       Models::CreateCompressionRuleResponse createCompressionRule(const Models::CreateCompressionRuleRequest &request);
 
       /**
-       * @summary Creates a SaaS domain name for a site.
+       * @summary Creates a SaaS domain name under a site.
        *
-       * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+       * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
        * - Each user can invoke this operation up to 100 times per hour.
        *
        * @param request CreateCustomHostnameRequest
@@ -627,9 +627,9 @@ namespace ESA20240910
       Models::CreateCustomHostnameResponse createCustomHostnameWithOptions(const Models::CreateCustomHostnameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a SaaS domain name for a site.
+       * @summary Creates a SaaS domain name under a site.
        *
-       * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid China Internet Content Provider (ICP) filing.
+       * @description - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
        * - Each user can invoke this operation up to 100 times per hour.
        *
        * @param request CreateCustomHostnameRequest
@@ -1255,7 +1255,7 @@ namespace ESA20240910
        * @summary Creates a site.
        *
        * @description - Before creating a site, you must have an active plan instance.
-       * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
+       * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
        * - Each user can invoke this operation up to 100 times per hour.
        *
        * @param request CreateSiteRequest
@@ -1268,7 +1268,7 @@ namespace ESA20240910
        * @summary Creates a site.
        *
        * @description - Before creating a site, you must have an active plan instance.
-       * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Internet Content Provider (ICP) filing.
+       * - If the acceleration area is set to the Chinese mainland only or global, the site domain name must have a valid Chinese Internet Content Provider (ICP) filing.
        * - Each user can invoke this operation up to 100 times per hour.
        *
        * @param request CreateSiteRequest
@@ -3143,7 +3143,7 @@ namespace ESA20240910
        * @summary Retrieves time series data for WAF event analysis of a site.
        *
        * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-       * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+       * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
        *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
        *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
        *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
@@ -3161,7 +3161,7 @@ namespace ESA20240910
        * @summary Retrieves time series data for WAF event analysis of a site.
        *
        * @description - If you do not specify StartTime and EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-       * - The time granularity of returned data varies based on the time span between StartTime and EndTime.
+       * - The time granularity of the returned data varies based on the time span between StartTime and EndTime.
        *   * Less than or equal to 3 hours: returns data at 1-minute granularity.
        *   * Greater than 3 hours and less than or equal to 12 hours: returns data at 5-minute granularity.
        *   * Greater than 12 hours and less than or equal to 1 day: returns data at 15-minute granularity.
@@ -3178,7 +3178,7 @@ namespace ESA20240910
        * @summary Retrieves the top data from WAF event analysis for a website.
        *
        * @description - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-       * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+       * - Because of the high number of access requests during the query time range, data analytics may involve sampling.
        *
        * @param tmpReq DescribeSiteWafTopDataRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3190,7 +3190,7 @@ namespace ESA20240910
        * @summary Retrieves the top data from WAF event analysis for a website.
        *
        * @description - If you do not specify StartTime or EndTime, this operation returns data from the past 24 hours. If you specify StartTime and EndTime, this operation returns data for the specified time range.
-       * - Because of the high volume of access requests during the query period, data analytics may involve sampling.
+       * - Because of the high number of access requests during the query time range, data analytics may involve sampling.
        *
        * @param request DescribeSiteWafTopDataRequest
        * @return DescribeSiteWafTopDataResponse
@@ -3198,9 +3198,9 @@ namespace ESA20240910
       Models::DescribeSiteWafTopDataResponse describeSiteWafTopData(const Models::DescribeSiteWafTopDataRequest &request);
 
       /**
-       * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+       * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
        *
-       * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+       * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
        *
        * @param request DescribeTraceDiagnoseReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3209,9 +3209,9 @@ namespace ESA20240910
       Models::DescribeTraceDiagnoseReportResponse describeTraceDiagnoseReportWithOptions(const Models::DescribeTraceDiagnoseReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+       * @summary Retrieves the details of a diagnostic report. 1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
        *
-       * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client-side diagnostics. 3. Call ListTraceTasks to obtain the TaskId or TraceId. 4. Call this operation to retrieve the report.
+       * @description >Notice: Make sure that you have activated the Layer 4 acceleration service before calling this operation.1. Call GenerateTraceDiagnose to obtain a diagnostic link. 2. Open the link in a browser to complete client diagnostics. 3. Call ListTraceTasks to obtain the TaskId/TraceId. 4. Call this operation to retrieve the report.
        *
        * @param request DescribeTraceDiagnoseReportRequest
        * @return DescribeTraceDiagnoseReportResponse
@@ -3369,7 +3369,7 @@ namespace ESA20240910
       Models::ExportRecordsResponse exportRecords(const Models::ExportRecordsRequest &request);
 
       /**
-       * @summary Generates a diagnosis link.
+       * @summary Generates a diagnostic link.
        *
        * @param request GenerateTraceDiagnoseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3378,7 +3378,7 @@ namespace ESA20240910
       Models::GenerateTraceDiagnoseResponse generateTraceDiagnoseWithOptions(const Models::GenerateTraceDiagnoseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Generates a diagnosis link.
+       * @summary Generates a diagnostic link.
        *
        * @param request GenerateTraceDiagnoseRequest
        * @return GenerateTraceDiagnoseResponse
@@ -3537,7 +3537,7 @@ namespace ESA20240910
       Models::GetClientCaCertificateResponse getClientCaCertificate(const Models::GetClientCaCertificateRequest &request);
 
       /**
-       * @summary Retrieves the list of hostnames bound to a specified client CA certificate. If no certificate is specified, this operation returns the list of hostnames bound to the ESA CA certificate.
+       * @summary Retrieves the domain name bindinglist for a specified client CA certificate. If no certificate is specified, the domain name binding list for the ESA CA certificate is returned.
        *
        * @param request GetClientCaCertificateHostnamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3546,7 +3546,7 @@ namespace ESA20240910
       Models::GetClientCaCertificateHostnamesResponse getClientCaCertificateHostnamesWithOptions(const Models::GetClientCaCertificateHostnamesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of hostnames bound to a specified client CA certificate. If no certificate is specified, this operation returns the list of hostnames bound to the ESA CA certificate.
+       * @summary Retrieves the domain name bindinglist for a specified client CA certificate. If no certificate is specified, the domain name binding list for the ESA CA certificate is returned.
        *
        * @param request GetClientCaCertificateHostnamesRequest
        * @return GetClientCaCertificateHostnamesResponse
@@ -3571,7 +3571,7 @@ namespace ESA20240910
       Models::GetClientCertificateResponse getClientCertificate(const Models::GetClientCertificateRequest &request);
 
       /**
-       * @summary Retrieves the list of hostnames bound to a specified client CA certificate. If you do not specify a certificate, the operation returns the list of hostnames for the ESA CA certificate.
+       * @summary Retrieves the domain name bindings for a specified client CA certificate. If no certificate is specified, returns the domain name bindings for the ESA CA certificate.
        *
        * @param request GetClientCertificateHostnamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3580,7 +3580,7 @@ namespace ESA20240910
       Models::GetClientCertificateHostnamesResponse getClientCertificateHostnamesWithOptions(const Models::GetClientCertificateHostnamesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of hostnames bound to a specified client CA certificate. If you do not specify a certificate, the operation returns the list of hostnames for the ESA CA certificate.
+       * @summary Retrieves the domain name bindings for a specified client CA certificate. If no certificate is specified, returns the domain name bindings for the ESA CA certificate.
        *
        * @param request GetClientCertificateHostnamesRequest
        * @return GetClientCertificateHostnamesResponse
@@ -5112,7 +5112,7 @@ namespace ESA20240910
       Models::GetWafBotAppKeyResponse getWafBotAppKey();
 
       /**
-       * @summary Retrieves matching engine information for a site at a given WAF phase, which defines how the WAF detects and handles various network requests.
+       * @summary Retrieves the match engine information for a specified site at a specific WAF phase. This information defines how WAF detects and processes different types of network requests.
        *
        * @param request GetWafFilterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5121,7 +5121,7 @@ namespace ESA20240910
       Models::GetWafFilterResponse getWafFilterWithOptions(const Models::GetWafFilterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves matching engine information for a site at a given WAF phase, which defines how the WAF detects and handles various network requests.
+       * @summary Retrieves the match engine information for a specified site at a specific WAF phase. This information defines how WAF detects and processes different types of network requests.
        *
        * @param request GetWafFilterRequest
        * @return GetWafFilterResponse
@@ -5435,7 +5435,7 @@ namespace ESA20240910
       Models::ListCustomResponseCodeRulesResponse listCustomResponseCodeRules(const Models::ListCustomResponseCodeRulesRequest &request);
 
       /**
-       * @summary Retrieves a list of purchased DDoS protection instances.
+       * @summary Queries the list of additionally purchased DDoS security instances.
        *
        * @param request ListDDoSInstancesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5444,7 +5444,7 @@ namespace ESA20240910
       Models::ListDDoSInstancesResponse listDDoSInstancesWithOptions(const Models::ListDDoSInstancesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of purchased DDoS protection instances.
+       * @summary Queries the list of additionally purchased DDoS security instances.
        *
        * @param request ListDDoSInstancesRequest
        * @return ListDDoSInstancesResponse
@@ -6820,7 +6820,7 @@ namespace ESA20240910
       Models::OpenErServiceResponse openErService(const Models::OpenErServiceRequest &request);
 
       /**
-       * @summary Prefetches cache content.
+       * @summary Prefetches URLs to warm the cache.
        *
        * @param tmpReq PreloadCachesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6829,7 +6829,7 @@ namespace ESA20240910
       Models::PreloadCachesResponse preloadCachesWithOptions(const Models::PreloadCachesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Prefetches cache content.
+       * @summary Prefetches URLs to warm the cache.
        *
        * @param request PreloadCachesRequest
        * @return PreloadCachesResponse
@@ -7112,7 +7112,7 @@ namespace ESA20240910
       Models::RebuildEdgeContainerAppStagingEnvResponse rebuildEdgeContainerAppStagingEnv(const Models::RebuildEdgeContainerAppStagingEnvRequest &request);
 
       /**
-       * @summary Restores the status of a site that has been disabled.
+       * @summary Restores the status of a site that has been deactivated.
        *
        * @param request RecoverSiteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7121,7 +7121,7 @@ namespace ESA20240910
       Models::RecoverSiteResponse recoverSiteWithOptions(const Models::RecoverSiteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores the status of a site that has been disabled.
+       * @summary Restores the status of a site that has been deactivated.
        *
        * @param request RecoverSiteRequest
        * @return RecoverSiteResponse
@@ -7369,7 +7369,7 @@ namespace ESA20240910
       Models::SetHttpDDoSAttackRuleStatusResponse setHttpDDoSAttackRuleStatus(const Models::SetHttpDDoSAttackRuleStatusRequest &request);
 
       /**
-       * @summary Creates or updates a keyless server configuration.
+       * @summary Creates or updates a Keyless server configuration.
        *
        * @param request SetKeylessServerRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7378,7 +7378,7 @@ namespace ESA20240910
       Models::SetKeylessServerResponse setKeylessServerWithOptions(const Models::SetKeylessServerRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates or updates a keyless server configuration.
+       * @summary Creates or updates a Keyless server configuration.
        *
        * @param request SetKeylessServerRequest
        * @return SetKeylessServerResponse
@@ -7661,7 +7661,7 @@ namespace ESA20240910
       Models::UpdateCacheTagResponse updateCacheTag(const Models::UpdateCacheTagRequest &request);
 
       /**
-       * @summary Modifies the CNAME flattening configuration of a website.
+       * @summary Modifies the CNAME flattening configuration of a site.
        *
        * @param request UpdateCnameFlatteningRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7670,7 +7670,7 @@ namespace ESA20240910
       Models::UpdateCnameFlatteningResponse updateCnameFlatteningWithOptions(const Models::UpdateCnameFlatteningRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the CNAME flattening configuration of a website.
+       * @summary Modifies the CNAME flattening configuration of a site.
        *
        * @param request UpdateCnameFlatteningRequest
        * @return UpdateCnameFlatteningResponse
@@ -7788,7 +7788,13 @@ namespace ESA20240910
       Models::UpdateCustomScenePolicyResponse updateCustomScenePolicy(const Models::UpdateCustomScenePolicyRequest &request);
 
       /**
-       * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Modifies the specifications of a DDoS instance.
+       *
+       * @description - Call `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
+       * - Call `ListDDoSInstances` to query the list of DDoS instances.
+       * - Specification changes are not allowed within 31 days of purchase.
+       * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
+       * - After a successful specification change, billing starts immediately on the same day based on the new instance specifications.
        *
        * @param request UpdateDDoSSpecRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7797,7 +7803,13 @@ namespace ESA20240910
       Models::UpdateDDoSSpecResponse updateDDoSSpecWithOptions(const Models::UpdateDDoSSpecRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the specifications of an Anti-DDoS Pro or Anti-DDoS Premium instance.
+       * @summary Modifies the specifications of a DDoS instance.
+       *
+       * @description - Call `PurchaseDDoSInstance` to purchase a DDoS instance. A newly purchased DDoS instance can only be associated with a pay-as-you-go plan instance.
+       * - Call `ListDDoSInstances` to query the list of DDoS instances.
+       * - Specification changes are not allowed within 31 days of purchase.
+       * - You can change specifications once per calendar month (from the 1st to the 31st of each month).
+       * - After a successful specification change, billing starts immediately on the same day based on the new instance specifications.
        *
        * @param request UpdateDDoSSpecRequest
        * @return UpdateDDoSSpecResponse
@@ -8394,7 +8406,7 @@ namespace ESA20240910
       Models::UpdateSiteAccessTypeResponse updateSiteAccessType(const Models::UpdateSiteAccessTypeRequest &request);
 
       /**
-       * @summary Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to traffic distribution changes or improve the access experience for users in specific regions.
+       * @summary Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
        *
        * @param request UpdateSiteCoverageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8403,7 +8415,7 @@ namespace ESA20240910
       Models::UpdateSiteCoverageResponse updateSiteCoverageWithOptions(const Models::UpdateSiteCoverageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to traffic distribution changes or improve the access experience for users in specific regions.
+       * @summary Modifies the acceleration region of a site. Updates the acceleration configuration of a site to adapt to changes in traffic distribution or improve the access experience for users in specific regions.
        *
        * @param request UpdateSiteCoverageRequest
        * @return UpdateSiteCoverageResponse
@@ -8848,9 +8860,9 @@ namespace ESA20240910
       Models::UploadFileResponse uploadFileAdvance(const Models::UploadFileAdvanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads an origin server CA certificate.
+       * @summary Uploads a CA certificate for the origin server.
        *
-       * @description You can add multiple origins to a site. Edge Security Acceleration (ESA) supports various origin types, including domain names, IP addresses, OSS, and S3. Origin authentication is supported for OSS or S3 origins.
+       * @description You can add multiple origin servers under a source address. Origin servers of the domain name, IP address, OSS, and S3 types are supported. Back-to-origin authentication is supported for OSS and S3 origin servers.
        *
        * @param request UploadOriginCaCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8859,9 +8871,9 @@ namespace ESA20240910
       Models::UploadOriginCaCertificateResponse uploadOriginCaCertificateWithOptions(const Models::UploadOriginCaCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads an origin server CA certificate.
+       * @summary Uploads a CA certificate for the origin server.
        *
-       * @description You can add multiple origins to a site. Edge Security Acceleration (ESA) supports various origin types, including domain names, IP addresses, OSS, and S3. Origin authentication is supported for OSS or S3 origins.
+       * @description You can add multiple origin servers under a source address. Origin servers of the domain name, IP address, OSS, and S3 types are supported. Back-to-origin authentication is supported for OSS and S3 origin servers.
        *
        * @param request UploadOriginCaCertificateRequest
        * @return UploadOriginCaCertificateResponse
@@ -8869,7 +8881,7 @@ namespace ESA20240910
       Models::UploadOriginCaCertificateResponse uploadOriginCaCertificate(const Models::UploadOriginCaCertificateRequest &request);
 
       /**
-       * @summary Uploads an origin client certificate for a site.
+       * @summary Uploads a domain-level back-to-origin client certificate.
        *
        * @param request UploadOriginClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8878,7 +8890,7 @@ namespace ESA20240910
       Models::UploadOriginClientCertificateResponse uploadOriginClientCertificateWithOptions(const Models::UploadOriginClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Uploads an origin client certificate for a site.
+       * @summary Uploads a domain-level back-to-origin client certificate.
        *
        * @param request UploadOriginClientCertificateRequest
        * @return UploadOriginClientCertificateResponse
@@ -8886,7 +8898,7 @@ namespace ESA20240910
       Models::UploadOriginClientCertificateResponse uploadOriginClientCertificate(const Models::UploadOriginClientCertificateRequest &request);
 
       /**
-       * @summary Upload site origin client certificate
+       * @summary Uploads a site-level back-to-origin client certificate.
        *
        * @param request UploadSiteOriginClientCertificateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8895,7 +8907,7 @@ namespace ESA20240910
       Models::UploadSiteOriginClientCertificateResponse uploadSiteOriginClientCertificateWithOptions(const Models::UploadSiteOriginClientCertificateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upload site origin client certificate
+       * @summary Uploads a site-level back-to-origin client certificate.
        *
        * @param request UploadSiteOriginClientCertificateRequest
        * @return UploadSiteOriginClientCertificateResponse
@@ -8920,10 +8932,10 @@ namespace ESA20240910
       Models::VerifyCustomHostnameResponse verifyCustomHostname(const Models::VerifyCustomHostnameRequest &request);
 
       /**
-       * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+       * @summary Verifies site ownership. A site that passes the verification is automatically activated.
        *
-       * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
-       * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+       * @description 1. For sites connected through NS, verifies whether the current NS servers of the site are the NS servers assigned by Alibaba Cloud.
+       * 2. For sites connected through CNAME, verifies whether the site has a TXT record with the name _esaauth.[site name] and the content set to the site verification code (see the VerifyCode field in the site information).
        *
        * @param request VerifySiteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8932,10 +8944,10 @@ namespace ESA20240910
       Models::VerifySiteResponse verifySiteWithOptions(const Models::VerifySiteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Verifies the ownership of a website domain. Websites that pass the verification are automatically activated.
+       * @summary Verifies site ownership. A site that passes the verification is automatically activated.
        *
-       * @description 1.  For a website connected by using NS setup, this operation verifies whether the nameservers of the website are the nameservers assigned by Alibaba Cloud.
-       * 2.  For a website connected by using CNAME setup, this operation verifies whether the website has a TXT record whose hostname is  _esaauth.[websiteDomainName] and record value is the value of VerifyCode to the DNS records of your domain. You can see the VerifyCode field in the site information.
+       * @description 1. For sites connected through NS, verifies whether the current NS servers of the site are the NS servers assigned by Alibaba Cloud.
+       * 2. For sites connected through CNAME, verifies whether the site has a TXT record with the name _esaauth.[site name] and the content set to the site verification code (see the VerifyCode field in the site information).
        *
        * @param request VerifySiteRequest
        * @return VerifySiteResponse

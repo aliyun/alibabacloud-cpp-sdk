@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The source of the request.
+    // The source.
     shared_ptr<string> source_ {};
     // The URL to diagnose.
     // 

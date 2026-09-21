@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The content of the CA certificate.
+    // The certificate content.
     // 
     // This parameter is required.
     shared_ptr<string> certificate_ {};
-    // The name of the certificate.
+    // The certificate name.
     shared_ptr<string> name_ {};
-    // The site ID. You can call the [ListSites](~~ListSites~~) operation to get this ID.
+    // The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
     // 
     // This parameter is required.
     shared_ptr<int64_t> siteId_ {};

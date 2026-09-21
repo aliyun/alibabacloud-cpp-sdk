@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(MatchType, matchType_);
       DARABONBA_ANY_TO_JSON(MatchValue, matchValue_);
       DARABONBA_PTR_TO_JSON(Negate, negate_);
+      DARABONBA_PTR_TO_JSON(Parent, parent_);
     };
     friend void from_json(const Darabonba::Json& j, WafRuleMatch& obj) { 
       DARABONBA_PTR_FROM_JSON(ConvertToLower, convertToLower_);
@@ -31,6 +32,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(MatchType, matchType_);
       DARABONBA_ANY_FROM_JSON(MatchValue, matchValue_);
       DARABONBA_PTR_FROM_JSON(Negate, negate_);
+      DARABONBA_PTR_FROM_JSON(Parent, parent_);
     };
     WafRuleMatch() = default ;
     WafRuleMatch(const WafRuleMatch &) = default ;
@@ -45,7 +47,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->convertToLower_ == nullptr
         && this->criteria_ == nullptr && this->logic_ == nullptr && this->matchOperator_ == nullptr && this->matchType_ == nullptr && this->matchValue_ == nullptr
-        && this->negate_ == nullptr; };
+        && this->negate_ == nullptr && this->parent_ == nullptr; };
     // convertToLower Field Functions 
     bool hasConvertToLower() const { return this->convertToLower_ != nullptr;};
     void deleteConvertToLower() { this->convertToLower_ = nullptr;};
@@ -99,12 +101,19 @@ namespace Models
     inline WafRuleMatch& setNegate(bool negate) { DARABONBA_PTR_SET_VALUE(negate_, negate) };
 
 
+    // parent Field Functions 
+    bool hasParent() const { return this->parent_ != nullptr;};
+    void deleteParent() { this->parent_ = nullptr;};
+    inline string getParent() const { DARABONBA_PTR_GET_DEFAULT(parent_, "") };
+    inline WafRuleMatch& setParent(string parent) { DARABONBA_PTR_SET_VALUE(parent_, parent) };
+
+
   protected:
-    // Specifies whether the value is case-insensitive.
+    // The case-insensitive value setting.
     shared_ptr<bool> convertToLower_ {};
     // The logic list.
     shared_ptr<vector<WafRuleMatch>> criteria_ {};
-    // The logic relationship.
+    // The logical relationship.
     shared_ptr<string> logic_ {};
     // The match operator.
     shared_ptr<string> matchOperator_ {};
@@ -112,8 +121,10 @@ namespace Models
     shared_ptr<string> matchType_ {};
     // The match value.
     Darabonba::Json matchValue_ {};
-    // Specifies whether to negate the match result.
+    // The negation of the match result.
     shared_ptr<bool> negate_ {};
+    // The primary row key of the parent group. This is used for two-level drop-down positioning of enumeration subkey fields. For example, the Parent of ali.websdk.umid is ali.websdk.
+    shared_ptr<string> parent_ {};
   };
 
   } // namespace Models

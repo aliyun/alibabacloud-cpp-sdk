@@ -113,7 +113,9 @@ namespace Models
 
 
       protected:
+        // The list of rejection reasons.
         shared_ptr<vector<string>> reasons_ {};
+        // The moderation status.
         shared_ptr<string> status_ {};
       };
 
@@ -189,10 +191,11 @@ namespace Models
       shared_ptr<string> contentType_ {};
       // The description of the custom response page.
       shared_ptr<string> description_ {};
-      // The ID of the custom response page. You can obtain this value by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
+      // The ID of the custom response page. You can obtain the ID by calling the [ListPages](https://help.aliyun.com/document_detail/2850223.html) operation.
       shared_ptr<int64_t> id_ {};
       // The type of the custom response page.
       shared_ptr<string> kind_ {};
+      // The content moderation result.
       shared_ptr<Pages::Moderation> moderation_ {};
       // The name of the custom response page.
       shared_ptr<string> name_ {};

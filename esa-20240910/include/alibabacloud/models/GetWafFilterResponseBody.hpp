@@ -2,8 +2,8 @@
 #ifndef ALIBABACLOUD_MODELS_GETWAFFILTERRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_GETWAFFILTERRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <vector>
 #include <alibabacloud/models/WafQuotaInteger.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -69,6 +69,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Selector, selector_);
           DARABONBA_PTR_TO_JSON(Sub, sub_);
           DARABONBA_PTR_TO_JSON(SubTip, subTip_);
+          DARABONBA_PTR_TO_JSON(Subs, subs_);
         };
         friend void from_json(const Darabonba::Json& j, Fields& obj) { 
           DARABONBA_PTR_FROM_JSON(Enable, enable_);
@@ -79,6 +80,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Selector, selector_);
           DARABONBA_PTR_FROM_JSON(Sub, sub_);
           DARABONBA_PTR_FROM_JSON(SubTip, subTip_);
+          DARABONBA_PTR_FROM_JSON(Subs, subs_);
         };
         Fields() = default ;
         Fields(const Fields &) = default ;
@@ -91,6 +93,298 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class Subs : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Subs& obj) { 
+            DARABONBA_PTR_TO_JSON(Enable, enable_);
+            DARABONBA_PTR_TO_JSON(Key, key_);
+            DARABONBA_PTR_TO_JSON(Label, label_);
+            DARABONBA_PTR_TO_JSON(Logics, logics_);
+            DARABONBA_PTR_TO_JSON(MinPlan, minPlan_);
+          };
+          friend void from_json(const Darabonba::Json& j, Subs& obj) { 
+            DARABONBA_PTR_FROM_JSON(Enable, enable_);
+            DARABONBA_PTR_FROM_JSON(Key, key_);
+            DARABONBA_PTR_FROM_JSON(Label, label_);
+            DARABONBA_PTR_FROM_JSON(Logics, logics_);
+            DARABONBA_PTR_FROM_JSON(MinPlan, minPlan_);
+          };
+          Subs() = default ;
+          Subs(const Subs &) = default ;
+          Subs(Subs &&) = default ;
+          Subs(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Subs() = default ;
+          Subs& operator=(const Subs &) = default ;
+          Subs& operator=(Subs &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class Logics : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Logics& obj) { 
+              DARABONBA_PTR_TO_JSON(Attributes, attributes_);
+              DARABONBA_PTR_TO_JSON(Enable, enable_);
+              DARABONBA_PTR_TO_JSON(Kind, kind_);
+              DARABONBA_PTR_TO_JSON(MinPlan, minPlan_);
+              DARABONBA_PTR_TO_JSON(Negative, negative_);
+              DARABONBA_PTR_TO_JSON(Operator, operator_);
+              DARABONBA_PTR_TO_JSON(Symbol, symbol_);
+              DARABONBA_PTR_TO_JSON(Tip, tip_);
+              DARABONBA_PTR_TO_JSON(Type, type_);
+              DARABONBA_PTR_TO_JSON(Validator, validator_);
+            };
+            friend void from_json(const Darabonba::Json& j, Logics& obj) { 
+              DARABONBA_PTR_FROM_JSON(Attributes, attributes_);
+              DARABONBA_PTR_FROM_JSON(Enable, enable_);
+              DARABONBA_PTR_FROM_JSON(Kind, kind_);
+              DARABONBA_PTR_FROM_JSON(MinPlan, minPlan_);
+              DARABONBA_PTR_FROM_JSON(Negative, negative_);
+              DARABONBA_PTR_FROM_JSON(Operator, operator_);
+              DARABONBA_PTR_FROM_JSON(Symbol, symbol_);
+              DARABONBA_PTR_FROM_JSON(Tip, tip_);
+              DARABONBA_PTR_FROM_JSON(Type, type_);
+              DARABONBA_PTR_FROM_JSON(Validator, validator_);
+            };
+            Logics() = default ;
+            Logics(const Logics &) = default ;
+            Logics(Logics &&) = default ;
+            Logics(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Logics() = default ;
+            Logics& operator=(const Logics &) = default ;
+            Logics& operator=(Logics &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class Validator : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const Validator& obj) { 
+                DARABONBA_PTR_TO_JSON(ErrMsg, errMsg_);
+                DARABONBA_PTR_TO_JSON(Length, length_);
+                DARABONBA_PTR_TO_JSON(Pattern, pattern_);
+                DARABONBA_PTR_TO_JSON(Range, range_);
+              };
+              friend void from_json(const Darabonba::Json& j, Validator& obj) { 
+                DARABONBA_PTR_FROM_JSON(ErrMsg, errMsg_);
+                DARABONBA_PTR_FROM_JSON(Length, length_);
+                DARABONBA_PTR_FROM_JSON(Pattern, pattern_);
+                DARABONBA_PTR_FROM_JSON(Range, range_);
+              };
+              Validator() = default ;
+              Validator(const Validator &) = default ;
+              Validator(Validator &&) = default ;
+              Validator(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~Validator() = default ;
+              Validator& operator=(const Validator &) = default ;
+              Validator& operator=(Validator &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->errMsg_ == nullptr
+        && this->length_ == nullptr && this->pattern_ == nullptr && this->range_ == nullptr; };
+              // errMsg Field Functions 
+              bool hasErrMsg() const { return this->errMsg_ != nullptr;};
+              void deleteErrMsg() { this->errMsg_ = nullptr;};
+              inline string getErrMsg() const { DARABONBA_PTR_GET_DEFAULT(errMsg_, "") };
+              inline Validator& setErrMsg(string errMsg) { DARABONBA_PTR_SET_VALUE(errMsg_, errMsg) };
+
+
+              // length Field Functions 
+              bool hasLength() const { return this->length_ != nullptr;};
+              void deleteLength() { this->length_ = nullptr;};
+              inline const WafQuotaInteger & getLength() const { DARABONBA_PTR_GET_CONST(length_, WafQuotaInteger) };
+              inline WafQuotaInteger getLength() { DARABONBA_PTR_GET(length_, WafQuotaInteger) };
+              inline Validator& setLength(const WafQuotaInteger & length) { DARABONBA_PTR_SET_VALUE(length_, length) };
+              inline Validator& setLength(WafQuotaInteger && length) { DARABONBA_PTR_SET_RVALUE(length_, length) };
+
+
+              // pattern Field Functions 
+              bool hasPattern() const { return this->pattern_ != nullptr;};
+              void deletePattern() { this->pattern_ = nullptr;};
+              inline string getPattern() const { DARABONBA_PTR_GET_DEFAULT(pattern_, "") };
+              inline Validator& setPattern(string pattern) { DARABONBA_PTR_SET_VALUE(pattern_, pattern) };
+
+
+              // range Field Functions 
+              bool hasRange() const { return this->range_ != nullptr;};
+              void deleteRange() { this->range_ = nullptr;};
+              inline const WafQuotaInteger & getRange() const { DARABONBA_PTR_GET_CONST(range_, WafQuotaInteger) };
+              inline WafQuotaInteger getRange() { DARABONBA_PTR_GET(range_, WafQuotaInteger) };
+              inline Validator& setRange(const WafQuotaInteger & range) { DARABONBA_PTR_SET_VALUE(range_, range) };
+              inline Validator& setRange(WafQuotaInteger && range) { DARABONBA_PTR_SET_RVALUE(range_, range) };
+
+
+            protected:
+              // The error message returned when validation fails.
+              shared_ptr<string> errMsg_ {};
+              // The length limit of the value.
+              shared_ptr<WafQuotaInteger> length_ {};
+              // The regular expression pattern for the value, used for string validation.
+              shared_ptr<string> pattern_ {};
+              // The numeric range of the value, used for number validation.
+              shared_ptr<WafQuotaInteger> range_ {};
+            };
+
+            virtual bool empty() const override { return this->attributes_ == nullptr
+        && this->enable_ == nullptr && this->kind_ == nullptr && this->minPlan_ == nullptr && this->negative_ == nullptr && this->operator_ == nullptr
+        && this->symbol_ == nullptr && this->tip_ == nullptr && this->type_ == nullptr && this->validator_ == nullptr; };
+            // attributes Field Functions 
+            bool hasAttributes() const { return this->attributes_ != nullptr;};
+            void deleteAttributes() { this->attributes_ = nullptr;};
+            inline int32_t getAttributes() const { DARABONBA_PTR_GET_DEFAULT(attributes_, 0) };
+            inline Logics& setAttributes(int32_t attributes) { DARABONBA_PTR_SET_VALUE(attributes_, attributes) };
+
+
+            // enable Field Functions 
+            bool hasEnable() const { return this->enable_ != nullptr;};
+            void deleteEnable() { this->enable_ = nullptr;};
+            inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+            inline Logics& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+            // kind Field Functions 
+            bool hasKind() const { return this->kind_ != nullptr;};
+            void deleteKind() { this->kind_ = nullptr;};
+            inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+            inline Logics& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
+
+
+            // minPlan Field Functions 
+            bool hasMinPlan() const { return this->minPlan_ != nullptr;};
+            void deleteMinPlan() { this->minPlan_ = nullptr;};
+            inline string getMinPlan() const { DARABONBA_PTR_GET_DEFAULT(minPlan_, "") };
+            inline Logics& setMinPlan(string minPlan) { DARABONBA_PTR_SET_VALUE(minPlan_, minPlan) };
+
+
+            // negative Field Functions 
+            bool hasNegative() const { return this->negative_ != nullptr;};
+            void deleteNegative() { this->negative_ = nullptr;};
+            inline bool getNegative() const { DARABONBA_PTR_GET_DEFAULT(negative_, false) };
+            inline Logics& setNegative(bool negative) { DARABONBA_PTR_SET_VALUE(negative_, negative) };
+
+
+            // operator Field Functions 
+            bool hasOperator() const { return this->operator_ != nullptr;};
+            void deleteOperator() { this->operator_ = nullptr;};
+            inline string getOperator() const { DARABONBA_PTR_GET_DEFAULT(operator_, "") };
+            inline Logics& setOperator(string _operator) { DARABONBA_PTR_SET_VALUE(operator_, _operator) };
+
+
+            // symbol Field Functions 
+            bool hasSymbol() const { return this->symbol_ != nullptr;};
+            void deleteSymbol() { this->symbol_ = nullptr;};
+            inline string getSymbol() const { DARABONBA_PTR_GET_DEFAULT(symbol_, "") };
+            inline Logics& setSymbol(string symbol) { DARABONBA_PTR_SET_VALUE(symbol_, symbol) };
+
+
+            // tip Field Functions 
+            bool hasTip() const { return this->tip_ != nullptr;};
+            void deleteTip() { this->tip_ = nullptr;};
+            inline string getTip() const { DARABONBA_PTR_GET_DEFAULT(tip_, "") };
+            inline Logics& setTip(string tip) { DARABONBA_PTR_SET_VALUE(tip_, tip) };
+
+
+            // type Field Functions 
+            bool hasType() const { return this->type_ != nullptr;};
+            void deleteType() { this->type_ = nullptr;};
+            inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+            inline Logics& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+            // validator Field Functions 
+            bool hasValidator() const { return this->validator_ != nullptr;};
+            void deleteValidator() { this->validator_ = nullptr;};
+            inline const Logics::Validator & getValidator() const { DARABONBA_PTR_GET_CONST(validator_, Logics::Validator) };
+            inline Logics::Validator getValidator() { DARABONBA_PTR_GET(validator_, Logics::Validator) };
+            inline Logics& setValidator(const Logics::Validator & validator) { DARABONBA_PTR_SET_VALUE(validator_, validator) };
+            inline Logics& setValidator(Logics::Validator && validator) { DARABONBA_PTR_SET_RVALUE(validator_, validator) };
+
+
+          protected:
+            // The field attributes.
+            shared_ptr<int32_t> attributes_ {};
+            // Indicates whether the current plan supports this match operator.
+            shared_ptr<bool> enable_ {};
+            // The type of the value input field. Valid values:
+            // * select:single: single-select input field
+            // * select:multi: multi-select input field
+            // * input:single: single input field
+            // * input:multi: multi input field
+            shared_ptr<string> kind_ {};
+            // The minimum plan that supports this match operator, displayed when the current plan does not support it.
+            shared_ptr<string> minPlan_ {};
+            // Indicates whether the match result is negated.
+            shared_ptr<bool> negative_ {};
+            // The display label of the match operator.
+            shared_ptr<string> operator_ {};
+            // The parameter of the match operator used internally by the system.
+            shared_ptr<string> symbol_ {};
+            // The input hint that helps users provide valid values required by the rule.
+            shared_ptr<string> tip_ {};
+            // The type of the value. Valid values:
+            // * integer: integer
+            // * integer_slice: integer array
+            // * string: string
+            // * string_slice: string array
+            shared_ptr<string> type_ {};
+            // The validator object that defines the validation rules for values.
+            shared_ptr<Logics::Validator> validator_ {};
+          };
+
+          virtual bool empty() const override { return this->enable_ == nullptr
+        && this->key_ == nullptr && this->label_ == nullptr && this->logics_ == nullptr && this->minPlan_ == nullptr; };
+          // enable Field Functions 
+          bool hasEnable() const { return this->enable_ != nullptr;};
+          void deleteEnable() { this->enable_ = nullptr;};
+          inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+          inline Subs& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+          // key Field Functions 
+          bool hasKey() const { return this->key_ != nullptr;};
+          void deleteKey() { this->key_ = nullptr;};
+          inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+          inline Subs& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+          // label Field Functions 
+          bool hasLabel() const { return this->label_ != nullptr;};
+          void deleteLabel() { this->label_ = nullptr;};
+          inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
+          inline Subs& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+          // logics Field Functions 
+          bool hasLogics() const { return this->logics_ != nullptr;};
+          void deleteLogics() { this->logics_ = nullptr;};
+          inline const vector<Subs::Logics> & getLogics() const { DARABONBA_PTR_GET_CONST(logics_, vector<Subs::Logics>) };
+          inline vector<Subs::Logics> getLogics() { DARABONBA_PTR_GET(logics_, vector<Subs::Logics>) };
+          inline Subs& setLogics(const vector<Subs::Logics> & logics) { DARABONBA_PTR_SET_VALUE(logics_, logics) };
+          inline Subs& setLogics(vector<Subs::Logics> && logics) { DARABONBA_PTR_SET_RVALUE(logics_, logics) };
+
+
+          // minPlan Field Functions 
+          bool hasMinPlan() const { return this->minPlan_ != nullptr;};
+          void deleteMinPlan() { this->minPlan_ = nullptr;};
+          inline string getMinPlan() const { DARABONBA_PTR_GET_DEFAULT(minPlan_, "") };
+          inline Subs& setMinPlan(string minPlan) { DARABONBA_PTR_SET_VALUE(minPlan_, minPlan) };
+
+
+        protected:
+          // Indicates whether the current plan supports this match object.
+          shared_ptr<bool> enable_ {};
+          // The parameter of the sub-item match object.
+          shared_ptr<string> key_ {};
+          // The display label of the sub-item match object.
+          shared_ptr<string> label_ {};
+          // The list of logical operator properties applicable to the sub-item (same structure as the parent Logics).
+          shared_ptr<vector<Subs::Logics>> logics_ {};
+          // The minimum plan that supports this match object, displayed when the current plan does not support it.
+          shared_ptr<string> minPlan_ {};
+        };
+
         class Selector : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Selector& obj) { 
@@ -150,9 +444,9 @@ namespace Models
 
 
           protected:
-            // The label for the data option.
+            // The display label of the available data.
             shared_ptr<string> label_ {};
-            // The value of the data option.
+            // The parameter value of the available data.
             shared_ptr<string> value_ {};
           };
 
@@ -175,9 +469,9 @@ namespace Models
 
 
         protected:
-          // A list of data options available when the selector `Kind` is `data`.
+          // The list of available data when the selector kind is data.
           shared_ptr<vector<Selector::Data>> data_ {};
-          // The selector type, which indicates whether it targets data items or other entities.
+          // The kind of the selector, such as whether it is used for selecting data items or other purposes.
           shared_ptr<string> kind_ {};
         };
 
@@ -280,11 +574,11 @@ namespace Models
           protected:
             // The error message returned when validation fails.
             shared_ptr<string> errMsg_ {};
-            // The length limit for the value.
+            // The length limit of the value.
             shared_ptr<WafQuotaInteger> length_ {};
-            // The regular expression pattern for the value.
+            // The regular expression pattern for the value, used for string validation.
             shared_ptr<string> pattern_ {};
-            // The value range for numeric validation.
+            // The numeric range of the value, used for number validation.
             shared_ptr<WafQuotaInteger> range_ {};
           };
 
@@ -364,47 +658,39 @@ namespace Models
 
 
         protected:
-          // Configurable attributes, such as case sensitivity.
+          // The configurable attributes, such as whether the match is case-sensitive.
           shared_ptr<int32_t> attributes_ {};
-          // Indicates whether the current plan supports this operator.
+          // Indicates whether the current plan supports this match operator.
           shared_ptr<bool> enable_ {};
-          // The input type for the value. Valid values:
-          // 
-          // - `select:single`: A single-select input.
-          // 
-          // - `select:multi`: A multi-select input.
-          // 
-          // - `input:single`: A single-value text input.
-          // 
-          // - `input:multi`: A multi-value text input.
+          // The type of the value input field. Valid values:
+          // * select:single: single-select input field
+          // * select:multi: multi-select input field
+          // * input:single: single input field
+          // * input:multi: multi input field
           shared_ptr<string> kind_ {};
-          // The minimum plan that supports this operator, provided the current plan does not.
+          // The minimum plan that supports this match operator, displayed when the current plan does not support it.
           shared_ptr<string> minPlan_ {};
-          // Indicates whether to negate the match result.
+          // Indicates whether the match result is negated.
           shared_ptr<bool> negative_ {};
-          // The label for the operator.
+          // The display label of the match operator.
           shared_ptr<string> operator_ {};
-          // The internal identifier for the operator.
+          // The parameter of the match operator used internally by the system.
           shared_ptr<string> symbol_ {};
-          // A hint for entering a valid value.
+          // The input hint that helps users provide valid values required by the rule.
           shared_ptr<string> tip_ {};
           // The type of the value. Valid values:
-          // 
-          // - `integer`: An integer.
-          // 
-          // - `integer_slice`: An integer array.
-          // 
-          // - `string`: A string.
-          // 
-          // - `string_slice`: A string array.
+          // * integer: integer
+          // * integer_slice: integer array
+          // * string: string
+          // * string_slice: string array
           shared_ptr<string> type_ {};
-          // The validator, which defines validation rules for the value.
+          // The validator object that defines the validation rules for values.
           shared_ptr<Logics::Validator> validator_ {};
         };
 
         virtual bool empty() const override { return this->enable_ == nullptr
         && this->key_ == nullptr && this->label_ == nullptr && this->logics_ == nullptr && this->minPlan_ == nullptr && this->selector_ == nullptr
-        && this->sub_ == nullptr && this->subTip_ == nullptr; };
+        && this->sub_ == nullptr && this->subTip_ == nullptr && this->subs_ == nullptr; };
         // enable Field Functions 
         bool hasEnable() const { return this->enable_ != nullptr;};
         void deleteEnable() { this->enable_ = nullptr;};
@@ -465,23 +751,34 @@ namespace Models
         inline Fields& setSubTip(string subTip) { DARABONBA_PTR_SET_VALUE(subTip_, subTip) };
 
 
+        // subs Field Functions 
+        bool hasSubs() const { return this->subs_ != nullptr;};
+        void deleteSubs() { this->subs_ = nullptr;};
+        inline const vector<Fields::Subs> & getSubs() const { DARABONBA_PTR_GET_CONST(subs_, vector<Fields::Subs>) };
+        inline vector<Fields::Subs> getSubs() { DARABONBA_PTR_GET(subs_, vector<Fields::Subs>) };
+        inline Fields& setSubs(const vector<Fields::Subs> & subs) { DARABONBA_PTR_SET_VALUE(subs_, subs) };
+        inline Fields& setSubs(vector<Fields::Subs> && subs) { DARABONBA_PTR_SET_RVALUE(subs_, subs) };
+
+
       protected:
         // Indicates whether the current plan supports this match object.
         shared_ptr<bool> enable_ {};
-        // The internal key for the match object.
+        // The parameter of the match object used internally by the system.
         shared_ptr<string> key_ {};
-        // The label for the match object.
+        // The display label of the match object.
         shared_ptr<string> label_ {};
-        // A list of logical operators that define the matching conditions.
+        // The list of logical operator properties that define the logical conditions used for matching.
         shared_ptr<vector<Fields::Logics>> logics_ {};
-        // The minimum plan that supports this match object, provided the current plan does not.
+        // The minimum plan that supports this match object, displayed when the current plan does not support it.
         shared_ptr<string> minPlan_ {};
-        // The selector, which defines how to select the match object.
+        // The selector object that defines how to select the match object.
         shared_ptr<Fields::Selector> selector_ {};
-        // Indicates whether the match object includes subfields.
+        // Indicates whether the match object contains subfields.
         shared_ptr<bool> sub_ {};
-        // A hint for entering the subfield value.
+        // The hint provided to users about how to enter subfields.
         shared_ptr<string> subTip_ {};
+        // The enumerated sub-item list (dropdown subfields for grouped fields such as ali.websdk). Top-level match objects populate this list. Sub-items that are flat fields can be used directly as the left-hand side of an expression.
+        shared_ptr<vector<Fields::Subs>> subs_ {};
       };
 
       virtual bool empty() const override { return this->fields_ == nullptr
@@ -517,11 +814,11 @@ namespace Models
 
 
     protected:
-      // A list of match objects and their properties.
+      // The list that describes match objects and their properties.
       shared_ptr<vector<Filter::Fields>> fields_ {};
-      // The phase at which the WAF processes requests.
+      // The phase in which WAF processes the request.
       shared_ptr<string> phase_ {};
-      // The target of the matching engine.
+      // The target value of the matching engine.
       shared_ptr<string> target_ {};
       // The rule type.
       shared_ptr<string> type_ {};
@@ -546,7 +843,7 @@ namespace Models
 
 
   protected:
-    // The returned matching engine configuration.
+    // The matching engine configuration information returned.
     shared_ptr<GetWafFilterResponseBody::Filter> filter_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
