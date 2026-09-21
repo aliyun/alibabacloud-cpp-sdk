@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the Prometheus view instance.
+    // The instance ID of the Prometheus view graph instance.
     shared_ptr<string> prometheusViewId_ {};
-    // The ID of the request.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

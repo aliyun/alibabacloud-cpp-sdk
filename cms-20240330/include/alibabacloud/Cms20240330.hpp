@@ -2285,9 +2285,9 @@ namespace Cms20240330
       Models::ListContextStoresResponse listContextStores(const string &workspace, const Models::ListContextStoresRequest &request);
 
       /**
-       * @summary Queries the list of DataPipelines.
+       * @summary Queries a list of DataPipelines.
        *
-       * @description Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+       * @description Queries data pipelines in a specified workspace by using paging.
        *
        * @param request ListDataPipelinesRequest
        * @param headers map
@@ -2297,9 +2297,9 @@ namespace Cms20240330
       Models::ListDataPipelinesResponse listDataPipelinesWithOptions(const string &workspace, const Models::ListDataPipelinesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of DataPipelines.
+       * @summary Queries a list of DataPipelines.
        *
-       * @description Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+       * @description Queries data pipelines in a specified workspace by using paging.
        *
        * @param request ListDataPipelinesRequest
        * @return ListDataPipelinesResponse
@@ -3341,9 +3341,9 @@ namespace Cms20240330
       Models::UpdatePrometheusUserSettingResponse updatePrometheusUserSetting(const string &settingKey, const Models::UpdatePrometheusUserSettingRequest &request);
 
       /**
-       * @summary Updates the information about a Prometheus view instance.
+       * @summary Updates the information of a Prometheus view instance.
        *
-       * @description Updates the information about a Prometheus view instance.
+       * @description Updates the information of a Prometheus view instance.
        *
        * @param request UpdatePrometheusViewRequest
        * @param headers map
@@ -3353,9 +3353,9 @@ namespace Cms20240330
       Models::UpdatePrometheusViewResponse updatePrometheusViewWithOptions(const string &prometheusViewId, const Models::UpdatePrometheusViewRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the information about a Prometheus view instance.
+       * @summary Updates the information of a Prometheus view instance.
        *
-       * @description Updates the information about a Prometheus view instance.
+       * @description Updates the information of a Prometheus view instance.
        *
        * @param request UpdatePrometheusViewRequest
        * @return UpdatePrometheusViewResponse

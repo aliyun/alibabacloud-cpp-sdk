@@ -15,11 +15,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const PreviewDataPipelineResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(datasets, datasets_);
+      DARABONBA_ANY_TO_JSON(diagnostics, diagnostics_);
       DARABONBA_PTR_TO_JSON(effectiveScript, effectiveScript_);
       DARABONBA_PTR_TO_JSON(requestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, PreviewDataPipelineResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(datasets, datasets_);
+      DARABONBA_ANY_FROM_JSON(diagnostics, diagnostics_);
       DARABONBA_PTR_FROM_JSON(effectiveScript, effectiveScript_);
       DARABONBA_PTR_FROM_JSON(requestId, requestId_);
     };
@@ -149,7 +151,7 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->datasets_ == nullptr
-        && this->effectiveScript_ == nullptr && this->requestId_ == nullptr; };
+        && this->diagnostics_ == nullptr && this->effectiveScript_ == nullptr && this->requestId_ == nullptr; };
     // datasets Field Functions 
     bool hasDatasets() const { return this->datasets_ != nullptr;};
     void deleteDatasets() { this->datasets_ = nullptr;};
@@ -157,6 +159,15 @@ namespace Models
     inline vector<PreviewDataPipelineResponseBody::Datasets> getDatasets() { DARABONBA_PTR_GET(datasets_, vector<PreviewDataPipelineResponseBody::Datasets>) };
     inline PreviewDataPipelineResponseBody& setDatasets(const vector<PreviewDataPipelineResponseBody::Datasets> & datasets) { DARABONBA_PTR_SET_VALUE(datasets_, datasets) };
     inline PreviewDataPipelineResponseBody& setDatasets(vector<PreviewDataPipelineResponseBody::Datasets> && datasets) { DARABONBA_PTR_SET_RVALUE(datasets_, datasets) };
+
+
+    // diagnostics Field Functions 
+    bool hasDiagnostics() const { return this->diagnostics_ != nullptr;};
+    void deleteDiagnostics() { this->diagnostics_ = nullptr;};
+    inline     const Darabonba::Json & getDiagnostics() const { DARABONBA_GET(diagnostics_) };
+    Darabonba::Json & getDiagnostics() { DARABONBA_GET(diagnostics_) };
+    inline PreviewDataPipelineResponseBody& setDiagnostics(const Darabonba::Json & diagnostics) { DARABONBA_SET_VALUE(diagnostics_, diagnostics) };
+    inline PreviewDataPipelineResponseBody& setDiagnostics(Darabonba::Json && diagnostics) { DARABONBA_SET_RVALUE(diagnostics_, diagnostics) };
 
 
     // effectiveScript Field Functions 
@@ -176,7 +187,9 @@ namespace Models
   protected:
     // The dataset preview results.
     shared_ptr<vector<PreviewDataPipelineResponseBody::Datasets>> datasets_ {};
-    // The effective SPL.
+    // The aggregated diagnostics.
+    Darabonba::Json diagnostics_ {};
+    // The effective SPL script.
     shared_ptr<string> effectiveScript_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -6088,9 +6088,9 @@ ListContextStoresResponse Client::listContextStores(const string &workspace, con
 }
 
 /**
- * @summary Queries the list of DataPipelines.
+ * @summary Queries a list of DataPipelines.
  *
- * @description Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+ * @description Queries data pipelines in a specified workspace by using paging.
  *
  * @param request ListDataPipelinesRequest
  * @param headers map
@@ -6127,9 +6127,9 @@ ListDataPipelinesResponse Client::listDataPipelinesWithOptions(const string &wor
 }
 
 /**
- * @summary Queries the list of DataPipelines.
+ * @summary Queries a list of DataPipelines.
  *
- * @description Uses a paged query to retrieve data stream pipelines in a specified workspace. Paging is supported.
+ * @description Queries data pipelines in a specified workspace by using paging.
  *
  * @param request ListDataPipelinesRequest
  * @return ListDataPipelinesResponse
@@ -9462,9 +9462,9 @@ UpdatePrometheusUserSettingResponse Client::updatePrometheusUserSetting(const st
 }
 
 /**
- * @summary Updates the information about a Prometheus view instance.
+ * @summary Updates the information of a Prometheus view instance.
  *
- * @description Updates the information about a Prometheus view instance.
+ * @description Updates the information of a Prometheus view instance.
  *
  * @param request UpdatePrometheusViewRequest
  * @param headers map
@@ -9521,9 +9521,9 @@ UpdatePrometheusViewResponse Client::updatePrometheusViewWithOptions(const strin
 }
 
 /**
- * @summary Updates the information about a Prometheus view instance.
+ * @summary Updates the information of a Prometheus view instance.
  *
- * @description Updates the information about a Prometheus view instance.
+ * @description Updates the information of a Prometheus view instance.
  *
  * @param request UpdatePrometheusViewRequest
  * @return UpdatePrometheusViewResponse

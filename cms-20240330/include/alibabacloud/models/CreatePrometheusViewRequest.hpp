@@ -225,9 +225,9 @@ namespace Models
 
 
   protected:
-    // Not in use.
+    // Not yet enabled.
     shared_ptr<string> authFreeReadPolicy_ {};
-    // Specifies whether anonymous read is supported.
+    // Specifies whether authentication-free read is supported.
     shared_ptr<bool> enableAuthFreeRead_ {};
     // Specifies whether authToken is supported.
     shared_ptr<bool> enableAuthToken_ {};
@@ -241,13 +241,13 @@ namespace Models
     shared_ptr<string> prometheusViewName_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // Not in use.
+    // Not yet enabled.
     shared_ptr<string> status_ {};
-    // The tags.
+    // The operation to perform.
     shared_ptr<vector<CreatePrometheusViewRequest::Tags>> tags_ {};
     // Valid values:
-    // - V1: legacy version
-    // - V2: new version.
+    // - V1: Legacy version.
+    // - V2: New version.
     // 
     // This parameter is required.
     shared_ptr<string> version_ {};

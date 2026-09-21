@@ -185,7 +185,7 @@ namespace Models
     protected:
       // The datasource config.
       shared_ptr<Source::Config> config_ {};
-      // The data source type.
+      // The type of the data source.
       shared_ptr<string> type_ {};
     };
 
@@ -295,18 +295,26 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const Config& obj) { 
           DARABONBA_PTR_TO_JSON(applications, applications_);
+          DARABONBA_PTR_TO_JSON(assignments, assignments_);
           DARABONBA_PTR_TO_JSON(expression, expression_);
           DARABONBA_PTR_TO_JSON(fields, fields_);
+          DARABONBA_ANY_TO_JSON(parameters, parameters_);
+          DARABONBA_PTR_TO_JSON(projections, projections_);
           DARABONBA_PTR_TO_JSON(rules, rules_);
+          DARABONBA_PTR_TO_JSON(scope, scope_);
           DARABONBA_PTR_TO_JSON(script, script_);
           DARABONBA_PTR_TO_JSON(selector, selector_);
           DARABONBA_PTR_TO_JSON(target, target_);
         };
         friend void from_json(const Darabonba::Json& j, Config& obj) { 
           DARABONBA_PTR_FROM_JSON(applications, applications_);
+          DARABONBA_PTR_FROM_JSON(assignments, assignments_);
           DARABONBA_PTR_FROM_JSON(expression, expression_);
           DARABONBA_PTR_FROM_JSON(fields, fields_);
+          DARABONBA_ANY_FROM_JSON(parameters, parameters_);
+          DARABONBA_PTR_FROM_JSON(projections, projections_);
           DARABONBA_PTR_FROM_JSON(rules, rules_);
+          DARABONBA_PTR_FROM_JSON(scope, scope_);
           DARABONBA_PTR_FROM_JSON(script, script_);
           DARABONBA_PTR_FROM_JSON(selector, selector_);
           DARABONBA_PTR_FROM_JSON(target, target_);
@@ -384,8 +392,288 @@ namespace Models
 
 
         protected:
-          // The service name list.
+          // The list of service names.
           shared_ptr<vector<string>> serviceNames_ {};
+        };
+
+        class Scope : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Scope& obj) { 
+            DARABONBA_PTR_TO_JSON(conditions, conditions_);
+            DARABONBA_PTR_TO_JSON(metricName, metricName_);
+            DARABONBA_PTR_TO_JSON(serviceName, serviceName_);
+          };
+          friend void from_json(const Darabonba::Json& j, Scope& obj) { 
+            DARABONBA_PTR_FROM_JSON(conditions, conditions_);
+            DARABONBA_PTR_FROM_JSON(metricName, metricName_);
+            DARABONBA_PTR_FROM_JSON(serviceName, serviceName_);
+          };
+          Scope() = default ;
+          Scope(const Scope &) = default ;
+          Scope(Scope &&) = default ;
+          Scope(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Scope() = default ;
+          Scope& operator=(const Scope &) = default ;
+          Scope& operator=(Scope &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class ServiceName : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const ServiceName& obj) { 
+              DARABONBA_PTR_TO_JSON(matchType, matchType_);
+              DARABONBA_PTR_TO_JSON(values, values_);
+            };
+            friend void from_json(const Darabonba::Json& j, ServiceName& obj) { 
+              DARABONBA_PTR_FROM_JSON(matchType, matchType_);
+              DARABONBA_PTR_FROM_JSON(values, values_);
+            };
+            ServiceName() = default ;
+            ServiceName(const ServiceName &) = default ;
+            ServiceName(ServiceName &&) = default ;
+            ServiceName(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~ServiceName() = default ;
+            ServiceName& operator=(const ServiceName &) = default ;
+            ServiceName& operator=(ServiceName &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->matchType_ == nullptr
+        && this->values_ == nullptr; };
+            // matchType Field Functions 
+            bool hasMatchType() const { return this->matchType_ != nullptr;};
+            void deleteMatchType() { this->matchType_ = nullptr;};
+            inline string getMatchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
+            inline ServiceName& setMatchType(string matchType) { DARABONBA_PTR_SET_VALUE(matchType_, matchType) };
+
+
+            // values Field Functions 
+            bool hasValues() const { return this->values_ != nullptr;};
+            void deleteValues() { this->values_ = nullptr;};
+            inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+            inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
+            inline ServiceName& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+            inline ServiceName& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
+
+
+          protected:
+            // The matching method.
+            shared_ptr<string> matchType_ {};
+            // The match values.
+            shared_ptr<vector<string>> values_ {};
+          };
+
+          class MetricName : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const MetricName& obj) { 
+              DARABONBA_PTR_TO_JSON(matchType, matchType_);
+              DARABONBA_PTR_TO_JSON(values, values_);
+            };
+            friend void from_json(const Darabonba::Json& j, MetricName& obj) { 
+              DARABONBA_PTR_FROM_JSON(matchType, matchType_);
+              DARABONBA_PTR_FROM_JSON(values, values_);
+            };
+            MetricName() = default ;
+            MetricName(const MetricName &) = default ;
+            MetricName(MetricName &&) = default ;
+            MetricName(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~MetricName() = default ;
+            MetricName& operator=(const MetricName &) = default ;
+            MetricName& operator=(MetricName &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->matchType_ == nullptr
+        && this->values_ == nullptr; };
+            // matchType Field Functions 
+            bool hasMatchType() const { return this->matchType_ != nullptr;};
+            void deleteMatchType() { this->matchType_ = nullptr;};
+            inline string getMatchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
+            inline MetricName& setMatchType(string matchType) { DARABONBA_PTR_SET_VALUE(matchType_, matchType) };
+
+
+            // values Field Functions 
+            bool hasValues() const { return this->values_ != nullptr;};
+            void deleteValues() { this->values_ = nullptr;};
+            inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+            inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
+            inline MetricName& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+            inline MetricName& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
+
+
+          protected:
+            // The matching method.
+            shared_ptr<string> matchType_ {};
+            // The metric names.
+            shared_ptr<vector<string>> values_ {};
+          };
+
+          class Conditions : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Conditions& obj) { 
+              DARABONBA_PTR_TO_JSON(field, field_);
+              DARABONBA_PTR_TO_JSON(matchType, matchType_);
+              DARABONBA_PTR_TO_JSON(values, values_);
+            };
+            friend void from_json(const Darabonba::Json& j, Conditions& obj) { 
+              DARABONBA_PTR_FROM_JSON(field, field_);
+              DARABONBA_PTR_FROM_JSON(matchType, matchType_);
+              DARABONBA_PTR_FROM_JSON(values, values_);
+            };
+            Conditions() = default ;
+            Conditions(const Conditions &) = default ;
+            Conditions(Conditions &&) = default ;
+            Conditions(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Conditions() = default ;
+            Conditions& operator=(const Conditions &) = default ;
+            Conditions& operator=(Conditions &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class Field : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const Field& obj) { 
+                DARABONBA_PTR_TO_JSON(container, container_);
+                DARABONBA_PTR_TO_JSON(kind, kind_);
+                DARABONBA_PTR_TO_JSON(name, name_);
+                DARABONBA_PTR_TO_JSON(path, path_);
+              };
+              friend void from_json(const Darabonba::Json& j, Field& obj) { 
+                DARABONBA_PTR_FROM_JSON(container, container_);
+                DARABONBA_PTR_FROM_JSON(kind, kind_);
+                DARABONBA_PTR_FROM_JSON(name, name_);
+                DARABONBA_PTR_FROM_JSON(path, path_);
+              };
+              Field() = default ;
+              Field(const Field &) = default ;
+              Field(Field &&) = default ;
+              Field(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~Field() = default ;
+              Field& operator=(const Field &) = default ;
+              Field& operator=(Field &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->container_ == nullptr
+        && this->kind_ == nullptr && this->name_ == nullptr && this->path_ == nullptr; };
+              // container Field Functions 
+              bool hasContainer() const { return this->container_ != nullptr;};
+              void deleteContainer() { this->container_ = nullptr;};
+              inline string getContainer() const { DARABONBA_PTR_GET_DEFAULT(container_, "") };
+              inline Field& setContainer(string container) { DARABONBA_PTR_SET_VALUE(container_, container) };
+
+
+              // kind Field Functions 
+              bool hasKind() const { return this->kind_ != nullptr;};
+              void deleteKind() { this->kind_ = nullptr;};
+              inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+              inline Field& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
+
+
+              // name Field Functions 
+              bool hasName() const { return this->name_ != nullptr;};
+              void deleteName() { this->name_ = nullptr;};
+              inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+              inline Field& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+              // path Field Functions 
+              bool hasPath() const { return this->path_ != nullptr;};
+              void deletePath() { this->path_ = nullptr;};
+              inline const vector<string> & getPath() const { DARABONBA_PTR_GET_CONST(path_, vector<string>) };
+              inline vector<string> getPath() { DARABONBA_PTR_GET(path_, vector<string>) };
+              inline Field& setPath(const vector<string> & path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+              inline Field& setPath(vector<string> && path) { DARABONBA_PTR_SET_RVALUE(path_, path) };
+
+
+            protected:
+              // The JSON object container.
+              shared_ptr<string> container_ {};
+              // The reference data type.
+              shared_ptr<string> kind_ {};
+              // The field or dimension name.
+              shared_ptr<string> name_ {};
+              // The JSON literal key path.
+              shared_ptr<vector<string>> path_ {};
+            };
+
+            virtual bool empty() const override { return this->field_ == nullptr
+        && this->matchType_ == nullptr && this->values_ == nullptr; };
+            // field Field Functions 
+            bool hasField() const { return this->field_ != nullptr;};
+            void deleteField() { this->field_ = nullptr;};
+            inline const Conditions::Field & getField() const { DARABONBA_PTR_GET_CONST(field_, Conditions::Field) };
+            inline Conditions::Field getField() { DARABONBA_PTR_GET(field_, Conditions::Field) };
+            inline Conditions& setField(const Conditions::Field & field) { DARABONBA_PTR_SET_VALUE(field_, field) };
+            inline Conditions& setField(Conditions::Field && field) { DARABONBA_PTR_SET_RVALUE(field_, field) };
+
+
+            // matchType Field Functions 
+            bool hasMatchType() const { return this->matchType_ != nullptr;};
+            void deleteMatchType() { this->matchType_ = nullptr;};
+            inline string getMatchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
+            inline Conditions& setMatchType(string matchType) { DARABONBA_PTR_SET_VALUE(matchType_, matchType) };
+
+
+            // values Field Functions 
+            bool hasValues() const { return this->values_ != nullptr;};
+            void deleteValues() { this->values_ = nullptr;};
+            inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+            inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
+            inline Conditions& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+            inline Conditions& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
+
+
+          protected:
+            // The field reference.
+            shared_ptr<Conditions::Field> field_ {};
+            // The matching method.
+            shared_ptr<string> matchType_ {};
+            // The match values.
+            shared_ptr<vector<string>> values_ {};
+          };
+
+          virtual bool empty() const override { return this->conditions_ == nullptr
+        && this->metricName_ == nullptr && this->serviceName_ == nullptr; };
+          // conditions Field Functions 
+          bool hasConditions() const { return this->conditions_ != nullptr;};
+          void deleteConditions() { this->conditions_ = nullptr;};
+          inline const vector<Scope::Conditions> & getConditions() const { DARABONBA_PTR_GET_CONST(conditions_, vector<Scope::Conditions>) };
+          inline vector<Scope::Conditions> getConditions() { DARABONBA_PTR_GET(conditions_, vector<Scope::Conditions>) };
+          inline Scope& setConditions(const vector<Scope::Conditions> & conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
+          inline Scope& setConditions(vector<Scope::Conditions> && conditions) { DARABONBA_PTR_SET_RVALUE(conditions_, conditions) };
+
+
+          // metricName Field Functions 
+          bool hasMetricName() const { return this->metricName_ != nullptr;};
+          void deleteMetricName() { this->metricName_ = nullptr;};
+          inline const Scope::MetricName & getMetricName() const { DARABONBA_PTR_GET_CONST(metricName_, Scope::MetricName) };
+          inline Scope::MetricName getMetricName() { DARABONBA_PTR_GET(metricName_, Scope::MetricName) };
+          inline Scope& setMetricName(const Scope::MetricName & metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
+          inline Scope& setMetricName(Scope::MetricName && metricName) { DARABONBA_PTR_SET_RVALUE(metricName_, metricName) };
+
+
+          // serviceName Field Functions 
+          bool hasServiceName() const { return this->serviceName_ != nullptr;};
+          void deleteServiceName() { this->serviceName_ = nullptr;};
+          inline const Scope::ServiceName & getServiceName() const { DARABONBA_PTR_GET_CONST(serviceName_, Scope::ServiceName) };
+          inline Scope::ServiceName getServiceName() { DARABONBA_PTR_GET(serviceName_, Scope::ServiceName) };
+          inline Scope& setServiceName(const Scope::ServiceName & serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
+          inline Scope& setServiceName(Scope::ServiceName && serviceName) { DARABONBA_PTR_SET_RVALUE(serviceName_, serviceName) };
+
+
+        protected:
+          // The additional field conditions.
+          shared_ptr<vector<Scope::Conditions>> conditions_ {};
+          // The metric name scope.
+          shared_ptr<Scope::MetricName> metricName_ {};
+          // The service name scope.
+          shared_ptr<Scope::ServiceName> serviceName_ {};
         };
 
         class Rules : public Darabonba::Model {
@@ -466,9 +754,9 @@ namespace Models
 
 
         protected:
-          // The retained prefix length.
+          // The length of the prefix to retain.
           shared_ptr<int32_t> keepPrefix_ {};
-          // The retained suffix length.
+          // The length of the suffix to retain.
           shared_ptr<int32_t> keepSuffix_ {};
           // The sensitive keywords.
           shared_ptr<vector<string>> keys_ {};
@@ -480,9 +768,97 @@ namespace Models
           shared_ptr<vector<string>> types_ {};
         };
 
-        virtual bool empty() const override { return this->applications_ == nullptr
-        && this->expression_ == nullptr && this->fields_ == nullptr && this->rules_ == nullptr && this->script_ == nullptr && this->selector_ == nullptr
+        class Projections : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Projections& obj) { 
+            DARABONBA_PTR_TO_JSON(source, source_);
+            DARABONBA_PTR_TO_JSON(target, target_);
+          };
+          friend void from_json(const Darabonba::Json& j, Projections& obj) { 
+            DARABONBA_PTR_FROM_JSON(source, source_);
+            DARABONBA_PTR_FROM_JSON(target, target_);
+          };
+          Projections() = default ;
+          Projections(const Projections &) = default ;
+          Projections(Projections &&) = default ;
+          Projections(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Projections() = default ;
+          Projections& operator=(const Projections &) = default ;
+          Projections& operator=(Projections &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->source_ == nullptr
         && this->target_ == nullptr; };
+          // source Field Functions 
+          bool hasSource() const { return this->source_ != nullptr;};
+          void deleteSource() { this->source_ = nullptr;};
+          inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+          inline Projections& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+          // target Field Functions 
+          bool hasTarget() const { return this->target_ != nullptr;};
+          void deleteTarget() { this->target_ = nullptr;};
+          inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+          inline Projections& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
+
+
+        protected:
+          // The source field.
+          shared_ptr<string> source_ {};
+          // The target field.
+          shared_ptr<string> target_ {};
+        };
+
+        class Assignments : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Assignments& obj) { 
+            DARABONBA_PTR_TO_JSON(expression, expression_);
+            DARABONBA_PTR_TO_JSON(field, field_);
+          };
+          friend void from_json(const Darabonba::Json& j, Assignments& obj) { 
+            DARABONBA_PTR_FROM_JSON(expression, expression_);
+            DARABONBA_PTR_FROM_JSON(field, field_);
+          };
+          Assignments() = default ;
+          Assignments(const Assignments &) = default ;
+          Assignments(Assignments &&) = default ;
+          Assignments(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Assignments() = default ;
+          Assignments& operator=(const Assignments &) = default ;
+          Assignments& operator=(Assignments &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->expression_ == nullptr
+        && this->field_ == nullptr; };
+          // expression Field Functions 
+          bool hasExpression() const { return this->expression_ != nullptr;};
+          void deleteExpression() { this->expression_ = nullptr;};
+          inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+          inline Assignments& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
+
+
+          // field Field Functions 
+          bool hasField() const { return this->field_ != nullptr;};
+          void deleteField() { this->field_ = nullptr;};
+          inline string getField() const { DARABONBA_PTR_GET_DEFAULT(field_, "") };
+          inline Assignments& setField(string field) { DARABONBA_PTR_SET_VALUE(field_, field) };
+
+
+        protected:
+          // The assignment expression.
+          shared_ptr<string> expression_ {};
+          // The output field.
+          shared_ptr<string> field_ {};
+        };
+
+        virtual bool empty() const override { return this->applications_ == nullptr
+        && this->assignments_ == nullptr && this->expression_ == nullptr && this->fields_ == nullptr && this->parameters_ == nullptr && this->projections_ == nullptr
+        && this->rules_ == nullptr && this->scope_ == nullptr && this->script_ == nullptr && this->selector_ == nullptr && this->target_ == nullptr; };
         // applications Field Functions 
         bool hasApplications() const { return this->applications_ != nullptr;};
         void deleteApplications() { this->applications_ = nullptr;};
@@ -490,6 +866,15 @@ namespace Models
         inline vector<string> getApplications() { DARABONBA_PTR_GET(applications_, vector<string>) };
         inline Config& setApplications(const vector<string> & applications) { DARABONBA_PTR_SET_VALUE(applications_, applications) };
         inline Config& setApplications(vector<string> && applications) { DARABONBA_PTR_SET_RVALUE(applications_, applications) };
+
+
+        // assignments Field Functions 
+        bool hasAssignments() const { return this->assignments_ != nullptr;};
+        void deleteAssignments() { this->assignments_ = nullptr;};
+        inline const vector<Config::Assignments> & getAssignments() const { DARABONBA_PTR_GET_CONST(assignments_, vector<Config::Assignments>) };
+        inline vector<Config::Assignments> getAssignments() { DARABONBA_PTR_GET(assignments_, vector<Config::Assignments>) };
+        inline Config& setAssignments(const vector<Config::Assignments> & assignments) { DARABONBA_PTR_SET_VALUE(assignments_, assignments) };
+        inline Config& setAssignments(vector<Config::Assignments> && assignments) { DARABONBA_PTR_SET_RVALUE(assignments_, assignments) };
 
 
         // expression Field Functions 
@@ -508,6 +893,24 @@ namespace Models
         inline Config& setFields(vector<string> && fields) { DARABONBA_PTR_SET_RVALUE(fields_, fields) };
 
 
+        // parameters Field Functions 
+        bool hasParameters() const { return this->parameters_ != nullptr;};
+        void deleteParameters() { this->parameters_ = nullptr;};
+        inline         const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+        Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
+        inline Config& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
+        inline Config& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+
+
+        // projections Field Functions 
+        bool hasProjections() const { return this->projections_ != nullptr;};
+        void deleteProjections() { this->projections_ = nullptr;};
+        inline const vector<Config::Projections> & getProjections() const { DARABONBA_PTR_GET_CONST(projections_, vector<Config::Projections>) };
+        inline vector<Config::Projections> getProjections() { DARABONBA_PTR_GET(projections_, vector<Config::Projections>) };
+        inline Config& setProjections(const vector<Config::Projections> & projections) { DARABONBA_PTR_SET_VALUE(projections_, projections) };
+        inline Config& setProjections(vector<Config::Projections> && projections) { DARABONBA_PTR_SET_RVALUE(projections_, projections) };
+
+
         // rules Field Functions 
         bool hasRules() const { return this->rules_ != nullptr;};
         void deleteRules() { this->rules_ = nullptr;};
@@ -515,6 +918,15 @@ namespace Models
         inline vector<Config::Rules> getRules() { DARABONBA_PTR_GET(rules_, vector<Config::Rules>) };
         inline Config& setRules(const vector<Config::Rules> & rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
         inline Config& setRules(vector<Config::Rules> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
+
+
+        // scope Field Functions 
+        bool hasScope() const { return this->scope_ != nullptr;};
+        void deleteScope() { this->scope_ = nullptr;};
+        inline const Config::Scope & getScope() const { DARABONBA_PTR_GET_CONST(scope_, Config::Scope) };
+        inline Config::Scope getScope() { DARABONBA_PTR_GET(scope_, Config::Scope) };
+        inline Config& setScope(const Config::Scope & scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
+        inline Config& setScope(Config::Scope && scope) { DARABONBA_PTR_SET_RVALUE(scope_, scope) };
 
 
         // script Field Functions 
@@ -543,14 +955,22 @@ namespace Models
 
 
       protected:
-        // The application list.
+        // The list of applications.
         shared_ptr<vector<string>> applications_ {};
+        // The list of field assignments.
+        shared_ptr<vector<Config::Assignments>> assignments_ {};
         // The filter expression.
         shared_ptr<string> expression_ {};
-        // The field list.
+        // The list of fields.
         shared_ptr<vector<string>> fields_ {};
-        // The masking rule list.
+        // The extended parameters.
+        Darabonba::Json parameters_ {};
+        // The list of field projections.
+        shared_ptr<vector<Config::Projections>> projections_ {};
+        // The list of masking rules.
         shared_ptr<vector<Config::Rules>> rules_ {};
+        // The scope in which the pipeline processing processor takes effect.
+        shared_ptr<Config::Scope> scope_ {};
         // The SPL script.
         shared_ptr<string> script_ {};
         // The service selector.
@@ -641,18 +1061,26 @@ namespace Models
         public:
           friend void to_json(Darabonba::Json& j, const Config& obj) { 
             DARABONBA_PTR_TO_JSON(applications, applications_);
+            DARABONBA_PTR_TO_JSON(assignments, assignments_);
             DARABONBA_PTR_TO_JSON(expression, expression_);
             DARABONBA_PTR_TO_JSON(fields, fields_);
+            DARABONBA_ANY_TO_JSON(parameters, parameters_);
+            DARABONBA_PTR_TO_JSON(projections, projections_);
             DARABONBA_PTR_TO_JSON(rules, rules_);
+            DARABONBA_PTR_TO_JSON(scope, scope_);
             DARABONBA_PTR_TO_JSON(script, script_);
             DARABONBA_PTR_TO_JSON(selector, selector_);
             DARABONBA_PTR_TO_JSON(target, target_);
           };
           friend void from_json(const Darabonba::Json& j, Config& obj) { 
             DARABONBA_PTR_FROM_JSON(applications, applications_);
+            DARABONBA_PTR_FROM_JSON(assignments, assignments_);
             DARABONBA_PTR_FROM_JSON(expression, expression_);
             DARABONBA_PTR_FROM_JSON(fields, fields_);
+            DARABONBA_ANY_FROM_JSON(parameters, parameters_);
+            DARABONBA_PTR_FROM_JSON(projections, projections_);
             DARABONBA_PTR_FROM_JSON(rules, rules_);
+            DARABONBA_PTR_FROM_JSON(scope, scope_);
             DARABONBA_PTR_FROM_JSON(script, script_);
             DARABONBA_PTR_FROM_JSON(selector, selector_);
             DARABONBA_PTR_FROM_JSON(target, target_);
@@ -730,8 +1158,288 @@ namespace Models
 
 
           protected:
-            // The service name list.
+            // The list of service names.
             shared_ptr<vector<string>> serviceNames_ {};
+          };
+
+          class Scope : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Scope& obj) { 
+              DARABONBA_PTR_TO_JSON(conditions, conditions_);
+              DARABONBA_PTR_TO_JSON(metricName, metricName_);
+              DARABONBA_PTR_TO_JSON(serviceName, serviceName_);
+            };
+            friend void from_json(const Darabonba::Json& j, Scope& obj) { 
+              DARABONBA_PTR_FROM_JSON(conditions, conditions_);
+              DARABONBA_PTR_FROM_JSON(metricName, metricName_);
+              DARABONBA_PTR_FROM_JSON(serviceName, serviceName_);
+            };
+            Scope() = default ;
+            Scope(const Scope &) = default ;
+            Scope(Scope &&) = default ;
+            Scope(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Scope() = default ;
+            Scope& operator=(const Scope &) = default ;
+            Scope& operator=(Scope &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            class ServiceName : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const ServiceName& obj) { 
+                DARABONBA_PTR_TO_JSON(matchType, matchType_);
+                DARABONBA_PTR_TO_JSON(values, values_);
+              };
+              friend void from_json(const Darabonba::Json& j, ServiceName& obj) { 
+                DARABONBA_PTR_FROM_JSON(matchType, matchType_);
+                DARABONBA_PTR_FROM_JSON(values, values_);
+              };
+              ServiceName() = default ;
+              ServiceName(const ServiceName &) = default ;
+              ServiceName(ServiceName &&) = default ;
+              ServiceName(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~ServiceName() = default ;
+              ServiceName& operator=(const ServiceName &) = default ;
+              ServiceName& operator=(ServiceName &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->matchType_ == nullptr
+        && this->values_ == nullptr; };
+              // matchType Field Functions 
+              bool hasMatchType() const { return this->matchType_ != nullptr;};
+              void deleteMatchType() { this->matchType_ = nullptr;};
+              inline string getMatchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
+              inline ServiceName& setMatchType(string matchType) { DARABONBA_PTR_SET_VALUE(matchType_, matchType) };
+
+
+              // values Field Functions 
+              bool hasValues() const { return this->values_ != nullptr;};
+              void deleteValues() { this->values_ = nullptr;};
+              inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+              inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
+              inline ServiceName& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+              inline ServiceName& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
+
+
+            protected:
+              // The matching method.
+              shared_ptr<string> matchType_ {};
+              // The match values.
+              shared_ptr<vector<string>> values_ {};
+            };
+
+            class MetricName : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const MetricName& obj) { 
+                DARABONBA_PTR_TO_JSON(matchType, matchType_);
+                DARABONBA_PTR_TO_JSON(values, values_);
+              };
+              friend void from_json(const Darabonba::Json& j, MetricName& obj) { 
+                DARABONBA_PTR_FROM_JSON(matchType, matchType_);
+                DARABONBA_PTR_FROM_JSON(values, values_);
+              };
+              MetricName() = default ;
+              MetricName(const MetricName &) = default ;
+              MetricName(MetricName &&) = default ;
+              MetricName(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~MetricName() = default ;
+              MetricName& operator=(const MetricName &) = default ;
+              MetricName& operator=(MetricName &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              virtual bool empty() const override { return this->matchType_ == nullptr
+        && this->values_ == nullptr; };
+              // matchType Field Functions 
+              bool hasMatchType() const { return this->matchType_ != nullptr;};
+              void deleteMatchType() { this->matchType_ = nullptr;};
+              inline string getMatchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
+              inline MetricName& setMatchType(string matchType) { DARABONBA_PTR_SET_VALUE(matchType_, matchType) };
+
+
+              // values Field Functions 
+              bool hasValues() const { return this->values_ != nullptr;};
+              void deleteValues() { this->values_ = nullptr;};
+              inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+              inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
+              inline MetricName& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+              inline MetricName& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
+
+
+            protected:
+              // The matching method.
+              shared_ptr<string> matchType_ {};
+              // The metric names.
+              shared_ptr<vector<string>> values_ {};
+            };
+
+            class Conditions : public Darabonba::Model {
+            public:
+              friend void to_json(Darabonba::Json& j, const Conditions& obj) { 
+                DARABONBA_PTR_TO_JSON(field, field_);
+                DARABONBA_PTR_TO_JSON(matchType, matchType_);
+                DARABONBA_PTR_TO_JSON(values, values_);
+              };
+              friend void from_json(const Darabonba::Json& j, Conditions& obj) { 
+                DARABONBA_PTR_FROM_JSON(field, field_);
+                DARABONBA_PTR_FROM_JSON(matchType, matchType_);
+                DARABONBA_PTR_FROM_JSON(values, values_);
+              };
+              Conditions() = default ;
+              Conditions(const Conditions &) = default ;
+              Conditions(Conditions &&) = default ;
+              Conditions(const Darabonba::Json & obj) { from_json(obj, *this); };
+              virtual ~Conditions() = default ;
+              Conditions& operator=(const Conditions &) = default ;
+              Conditions& operator=(Conditions &&) = default ;
+              virtual void validate() const override {
+              };
+              virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+              virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+              class Field : public Darabonba::Model {
+              public:
+                friend void to_json(Darabonba::Json& j, const Field& obj) { 
+                  DARABONBA_PTR_TO_JSON(container, container_);
+                  DARABONBA_PTR_TO_JSON(kind, kind_);
+                  DARABONBA_PTR_TO_JSON(name, name_);
+                  DARABONBA_PTR_TO_JSON(path, path_);
+                };
+                friend void from_json(const Darabonba::Json& j, Field& obj) { 
+                  DARABONBA_PTR_FROM_JSON(container, container_);
+                  DARABONBA_PTR_FROM_JSON(kind, kind_);
+                  DARABONBA_PTR_FROM_JSON(name, name_);
+                  DARABONBA_PTR_FROM_JSON(path, path_);
+                };
+                Field() = default ;
+                Field(const Field &) = default ;
+                Field(Field &&) = default ;
+                Field(const Darabonba::Json & obj) { from_json(obj, *this); };
+                virtual ~Field() = default ;
+                Field& operator=(const Field &) = default ;
+                Field& operator=(Field &&) = default ;
+                virtual void validate() const override {
+                };
+                virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+                virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+                virtual bool empty() const override { return this->container_ == nullptr
+        && this->kind_ == nullptr && this->name_ == nullptr && this->path_ == nullptr; };
+                // container Field Functions 
+                bool hasContainer() const { return this->container_ != nullptr;};
+                void deleteContainer() { this->container_ = nullptr;};
+                inline string getContainer() const { DARABONBA_PTR_GET_DEFAULT(container_, "") };
+                inline Field& setContainer(string container) { DARABONBA_PTR_SET_VALUE(container_, container) };
+
+
+                // kind Field Functions 
+                bool hasKind() const { return this->kind_ != nullptr;};
+                void deleteKind() { this->kind_ = nullptr;};
+                inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+                inline Field& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
+
+
+                // name Field Functions 
+                bool hasName() const { return this->name_ != nullptr;};
+                void deleteName() { this->name_ = nullptr;};
+                inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+                inline Field& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+                // path Field Functions 
+                bool hasPath() const { return this->path_ != nullptr;};
+                void deletePath() { this->path_ = nullptr;};
+                inline const vector<string> & getPath() const { DARABONBA_PTR_GET_CONST(path_, vector<string>) };
+                inline vector<string> getPath() { DARABONBA_PTR_GET(path_, vector<string>) };
+                inline Field& setPath(const vector<string> & path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+                inline Field& setPath(vector<string> && path) { DARABONBA_PTR_SET_RVALUE(path_, path) };
+
+
+              protected:
+                // The JSON object container.
+                shared_ptr<string> container_ {};
+                // The reference data type.
+                shared_ptr<string> kind_ {};
+                // The field or dimension name.
+                shared_ptr<string> name_ {};
+                // The JSON literal key path.
+                shared_ptr<vector<string>> path_ {};
+              };
+
+              virtual bool empty() const override { return this->field_ == nullptr
+        && this->matchType_ == nullptr && this->values_ == nullptr; };
+              // field Field Functions 
+              bool hasField() const { return this->field_ != nullptr;};
+              void deleteField() { this->field_ = nullptr;};
+              inline const Conditions::Field & getField() const { DARABONBA_PTR_GET_CONST(field_, Conditions::Field) };
+              inline Conditions::Field getField() { DARABONBA_PTR_GET(field_, Conditions::Field) };
+              inline Conditions& setField(const Conditions::Field & field) { DARABONBA_PTR_SET_VALUE(field_, field) };
+              inline Conditions& setField(Conditions::Field && field) { DARABONBA_PTR_SET_RVALUE(field_, field) };
+
+
+              // matchType Field Functions 
+              bool hasMatchType() const { return this->matchType_ != nullptr;};
+              void deleteMatchType() { this->matchType_ = nullptr;};
+              inline string getMatchType() const { DARABONBA_PTR_GET_DEFAULT(matchType_, "") };
+              inline Conditions& setMatchType(string matchType) { DARABONBA_PTR_SET_VALUE(matchType_, matchType) };
+
+
+              // values Field Functions 
+              bool hasValues() const { return this->values_ != nullptr;};
+              void deleteValues() { this->values_ = nullptr;};
+              inline const vector<string> & getValues() const { DARABONBA_PTR_GET_CONST(values_, vector<string>) };
+              inline vector<string> getValues() { DARABONBA_PTR_GET(values_, vector<string>) };
+              inline Conditions& setValues(const vector<string> & values) { DARABONBA_PTR_SET_VALUE(values_, values) };
+              inline Conditions& setValues(vector<string> && values) { DARABONBA_PTR_SET_RVALUE(values_, values) };
+
+
+            protected:
+              // The field reference.
+              shared_ptr<Conditions::Field> field_ {};
+              // The matching method.
+              shared_ptr<string> matchType_ {};
+              // The match values.
+              shared_ptr<vector<string>> values_ {};
+            };
+
+            virtual bool empty() const override { return this->conditions_ == nullptr
+        && this->metricName_ == nullptr && this->serviceName_ == nullptr; };
+            // conditions Field Functions 
+            bool hasConditions() const { return this->conditions_ != nullptr;};
+            void deleteConditions() { this->conditions_ = nullptr;};
+            inline const vector<Scope::Conditions> & getConditions() const { DARABONBA_PTR_GET_CONST(conditions_, vector<Scope::Conditions>) };
+            inline vector<Scope::Conditions> getConditions() { DARABONBA_PTR_GET(conditions_, vector<Scope::Conditions>) };
+            inline Scope& setConditions(const vector<Scope::Conditions> & conditions) { DARABONBA_PTR_SET_VALUE(conditions_, conditions) };
+            inline Scope& setConditions(vector<Scope::Conditions> && conditions) { DARABONBA_PTR_SET_RVALUE(conditions_, conditions) };
+
+
+            // metricName Field Functions 
+            bool hasMetricName() const { return this->metricName_ != nullptr;};
+            void deleteMetricName() { this->metricName_ = nullptr;};
+            inline const Scope::MetricName & getMetricName() const { DARABONBA_PTR_GET_CONST(metricName_, Scope::MetricName) };
+            inline Scope::MetricName getMetricName() { DARABONBA_PTR_GET(metricName_, Scope::MetricName) };
+            inline Scope& setMetricName(const Scope::MetricName & metricName) { DARABONBA_PTR_SET_VALUE(metricName_, metricName) };
+            inline Scope& setMetricName(Scope::MetricName && metricName) { DARABONBA_PTR_SET_RVALUE(metricName_, metricName) };
+
+
+            // serviceName Field Functions 
+            bool hasServiceName() const { return this->serviceName_ != nullptr;};
+            void deleteServiceName() { this->serviceName_ = nullptr;};
+            inline const Scope::ServiceName & getServiceName() const { DARABONBA_PTR_GET_CONST(serviceName_, Scope::ServiceName) };
+            inline Scope::ServiceName getServiceName() { DARABONBA_PTR_GET(serviceName_, Scope::ServiceName) };
+            inline Scope& setServiceName(const Scope::ServiceName & serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
+            inline Scope& setServiceName(Scope::ServiceName && serviceName) { DARABONBA_PTR_SET_RVALUE(serviceName_, serviceName) };
+
+
+          protected:
+            // The additional field conditions.
+            shared_ptr<vector<Scope::Conditions>> conditions_ {};
+            // The metric name scope.
+            shared_ptr<Scope::MetricName> metricName_ {};
+            // The service name scope.
+            shared_ptr<Scope::ServiceName> serviceName_ {};
           };
 
           class Rules : public Darabonba::Model {
@@ -812,9 +1520,9 @@ namespace Models
 
 
           protected:
-            // The retained prefix length.
+            // The length of the prefix to retain.
             shared_ptr<int32_t> keepPrefix_ {};
-            // The retained suffix length.
+            // The length of the suffix to retain.
             shared_ptr<int32_t> keepSuffix_ {};
             // The sensitive keywords.
             shared_ptr<vector<string>> keys_ {};
@@ -826,9 +1534,97 @@ namespace Models
             shared_ptr<vector<string>> types_ {};
           };
 
-          virtual bool empty() const override { return this->applications_ == nullptr
-        && this->expression_ == nullptr && this->fields_ == nullptr && this->rules_ == nullptr && this->script_ == nullptr && this->selector_ == nullptr
+          class Projections : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Projections& obj) { 
+              DARABONBA_PTR_TO_JSON(source, source_);
+              DARABONBA_PTR_TO_JSON(target, target_);
+            };
+            friend void from_json(const Darabonba::Json& j, Projections& obj) { 
+              DARABONBA_PTR_FROM_JSON(source, source_);
+              DARABONBA_PTR_FROM_JSON(target, target_);
+            };
+            Projections() = default ;
+            Projections(const Projections &) = default ;
+            Projections(Projections &&) = default ;
+            Projections(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Projections() = default ;
+            Projections& operator=(const Projections &) = default ;
+            Projections& operator=(Projections &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->source_ == nullptr
         && this->target_ == nullptr; };
+            // source Field Functions 
+            bool hasSource() const { return this->source_ != nullptr;};
+            void deleteSource() { this->source_ = nullptr;};
+            inline string getSource() const { DARABONBA_PTR_GET_DEFAULT(source_, "") };
+            inline Projections& setSource(string source) { DARABONBA_PTR_SET_VALUE(source_, source) };
+
+
+            // target Field Functions 
+            bool hasTarget() const { return this->target_ != nullptr;};
+            void deleteTarget() { this->target_ = nullptr;};
+            inline string getTarget() const { DARABONBA_PTR_GET_DEFAULT(target_, "") };
+            inline Projections& setTarget(string target) { DARABONBA_PTR_SET_VALUE(target_, target) };
+
+
+          protected:
+            // The source field.
+            shared_ptr<string> source_ {};
+            // The target field.
+            shared_ptr<string> target_ {};
+          };
+
+          class Assignments : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const Assignments& obj) { 
+              DARABONBA_PTR_TO_JSON(expression, expression_);
+              DARABONBA_PTR_TO_JSON(field, field_);
+            };
+            friend void from_json(const Darabonba::Json& j, Assignments& obj) { 
+              DARABONBA_PTR_FROM_JSON(expression, expression_);
+              DARABONBA_PTR_FROM_JSON(field, field_);
+            };
+            Assignments() = default ;
+            Assignments(const Assignments &) = default ;
+            Assignments(Assignments &&) = default ;
+            Assignments(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~Assignments() = default ;
+            Assignments& operator=(const Assignments &) = default ;
+            Assignments& operator=(Assignments &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->expression_ == nullptr
+        && this->field_ == nullptr; };
+            // expression Field Functions 
+            bool hasExpression() const { return this->expression_ != nullptr;};
+            void deleteExpression() { this->expression_ = nullptr;};
+            inline string getExpression() const { DARABONBA_PTR_GET_DEFAULT(expression_, "") };
+            inline Assignments& setExpression(string expression) { DARABONBA_PTR_SET_VALUE(expression_, expression) };
+
+
+            // field Field Functions 
+            bool hasField() const { return this->field_ != nullptr;};
+            void deleteField() { this->field_ = nullptr;};
+            inline string getField() const { DARABONBA_PTR_GET_DEFAULT(field_, "") };
+            inline Assignments& setField(string field) { DARABONBA_PTR_SET_VALUE(field_, field) };
+
+
+          protected:
+            // The assignment expression.
+            shared_ptr<string> expression_ {};
+            // The output field.
+            shared_ptr<string> field_ {};
+          };
+
+          virtual bool empty() const override { return this->applications_ == nullptr
+        && this->assignments_ == nullptr && this->expression_ == nullptr && this->fields_ == nullptr && this->parameters_ == nullptr && this->projections_ == nullptr
+        && this->rules_ == nullptr && this->scope_ == nullptr && this->script_ == nullptr && this->selector_ == nullptr && this->target_ == nullptr; };
           // applications Field Functions 
           bool hasApplications() const { return this->applications_ != nullptr;};
           void deleteApplications() { this->applications_ = nullptr;};
@@ -836,6 +1632,15 @@ namespace Models
           inline vector<string> getApplications() { DARABONBA_PTR_GET(applications_, vector<string>) };
           inline Config& setApplications(const vector<string> & applications) { DARABONBA_PTR_SET_VALUE(applications_, applications) };
           inline Config& setApplications(vector<string> && applications) { DARABONBA_PTR_SET_RVALUE(applications_, applications) };
+
+
+          // assignments Field Functions 
+          bool hasAssignments() const { return this->assignments_ != nullptr;};
+          void deleteAssignments() { this->assignments_ = nullptr;};
+          inline const vector<Config::Assignments> & getAssignments() const { DARABONBA_PTR_GET_CONST(assignments_, vector<Config::Assignments>) };
+          inline vector<Config::Assignments> getAssignments() { DARABONBA_PTR_GET(assignments_, vector<Config::Assignments>) };
+          inline Config& setAssignments(const vector<Config::Assignments> & assignments) { DARABONBA_PTR_SET_VALUE(assignments_, assignments) };
+          inline Config& setAssignments(vector<Config::Assignments> && assignments) { DARABONBA_PTR_SET_RVALUE(assignments_, assignments) };
 
 
           // expression Field Functions 
@@ -854,6 +1659,24 @@ namespace Models
           inline Config& setFields(vector<string> && fields) { DARABONBA_PTR_SET_RVALUE(fields_, fields) };
 
 
+          // parameters Field Functions 
+          bool hasParameters() const { return this->parameters_ != nullptr;};
+          void deleteParameters() { this->parameters_ = nullptr;};
+          inline           const Darabonba::Json & getParameters() const { DARABONBA_GET(parameters_) };
+          Darabonba::Json & getParameters() { DARABONBA_GET(parameters_) };
+          inline Config& setParameters(const Darabonba::Json & parameters) { DARABONBA_SET_VALUE(parameters_, parameters) };
+          inline Config& setParameters(Darabonba::Json && parameters) { DARABONBA_SET_RVALUE(parameters_, parameters) };
+
+
+          // projections Field Functions 
+          bool hasProjections() const { return this->projections_ != nullptr;};
+          void deleteProjections() { this->projections_ = nullptr;};
+          inline const vector<Config::Projections> & getProjections() const { DARABONBA_PTR_GET_CONST(projections_, vector<Config::Projections>) };
+          inline vector<Config::Projections> getProjections() { DARABONBA_PTR_GET(projections_, vector<Config::Projections>) };
+          inline Config& setProjections(const vector<Config::Projections> & projections) { DARABONBA_PTR_SET_VALUE(projections_, projections) };
+          inline Config& setProjections(vector<Config::Projections> && projections) { DARABONBA_PTR_SET_RVALUE(projections_, projections) };
+
+
           // rules Field Functions 
           bool hasRules() const { return this->rules_ != nullptr;};
           void deleteRules() { this->rules_ = nullptr;};
@@ -861,6 +1684,15 @@ namespace Models
           inline vector<Config::Rules> getRules() { DARABONBA_PTR_GET(rules_, vector<Config::Rules>) };
           inline Config& setRules(const vector<Config::Rules> & rules) { DARABONBA_PTR_SET_VALUE(rules_, rules) };
           inline Config& setRules(vector<Config::Rules> && rules) { DARABONBA_PTR_SET_RVALUE(rules_, rules) };
+
+
+          // scope Field Functions 
+          bool hasScope() const { return this->scope_ != nullptr;};
+          void deleteScope() { this->scope_ = nullptr;};
+          inline const Config::Scope & getScope() const { DARABONBA_PTR_GET_CONST(scope_, Config::Scope) };
+          inline Config::Scope getScope() { DARABONBA_PTR_GET(scope_, Config::Scope) };
+          inline Config& setScope(const Config::Scope & scope) { DARABONBA_PTR_SET_VALUE(scope_, scope) };
+          inline Config& setScope(Config::Scope && scope) { DARABONBA_PTR_SET_RVALUE(scope_, scope) };
 
 
           // script Field Functions 
@@ -889,14 +1721,22 @@ namespace Models
 
 
         protected:
-          // The application list.
+          // The list of applications.
           shared_ptr<vector<string>> applications_ {};
+          // The list of field assignments.
+          shared_ptr<vector<Config::Assignments>> assignments_ {};
           // The filter expression.
           shared_ptr<string> expression_ {};
-          // The field list.
+          // The list of fields.
           shared_ptr<vector<string>> fields_ {};
-          // The masking rule list.
+          // The extended parameters.
+          Darabonba::Json parameters_ {};
+          // The list of field projections.
+          shared_ptr<vector<Config::Projections>> projections_ {};
+          // The list of masking rules.
           shared_ptr<vector<Config::Rules>> rules_ {};
+          // The scope in which the pipeline processing processor takes effect.
+          shared_ptr<Config::Scope> scope_ {};
           // The SPL script.
           shared_ptr<string> script_ {};
           // The service selector.
