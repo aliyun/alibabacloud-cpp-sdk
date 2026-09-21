@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
+      // The vSwitch IDs.
       shared_ptr<vector<string>> vSwitchIds_ {};
+      // The VPC ID.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -105,7 +108,9 @@ namespace Models
 
 
   protected:
+    // The RAM role that grants the required permissions to the sandbox.
     shared_ptr<string> role_ {};
+    // The VPC configuration.
     shared_ptr<InnerSandboxRuntimeConfig::VpcConfig> vpcConfig_ {};
   };
 

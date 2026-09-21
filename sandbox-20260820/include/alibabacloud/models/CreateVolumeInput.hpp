@@ -115,8 +115,11 @@ namespace Models
 
 
       protected:
+        // The security group ID.
         shared_ptr<string> securityGroupId_ {};
+        // The vSwitch IDs.
         shared_ptr<vector<string>> vSwitchIds_ {};
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -139,7 +142,9 @@ namespace Models
 
 
     protected:
+      // The permission role.
       shared_ptr<string> role_ {};
+      // The VPC configuration.
       shared_ptr<MountConfig::VpcConfig> vpcConfig_ {};
     };
 
@@ -190,8 +195,11 @@ namespace Models
 
 
     protected:
+      // The groupID of the local directory.
       shared_ptr<int32_t> groupID_ {};
+      // The Access Point endpoint address.
       shared_ptr<string> serverAddr_ {};
+      // The userID of the local directory.
       shared_ptr<int32_t> userID_ {};
     };
 
@@ -258,12 +266,19 @@ namespace Models
 
 
   protected:
+    // The AgenticBucket Volume configuration.
     shared_ptr<AgenticBucketVolumeConfig> agenticBucketVolumeConfig_ {};
+    // The AgenticFS Volume configuration.
     shared_ptr<CreateVolumeInput::AgenticFSVolumeConfig> agenticFSVolumeConfig_ {};
+    // The JuiceFS Volume configuration.
     shared_ptr<JuiceFSVolumeConfig> juiceFSVolumeConfig_ {};
+    // The mount configuration.
     shared_ptr<CreateVolumeInput::MountConfig> mountConfig_ {};
+    // The OSS Volume configuration.
     shared_ptr<OSSVolumeConfig> ossVolumeConfig_ {};
+    // The unique identifier of the team.
     shared_ptr<string> teamID_ {};
+    // The name, which must be unique within the team.
     shared_ptr<string> volumeName_ {};
   };
 

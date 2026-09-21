@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The list of allowed TLS cipher suites. If this parameter is not specified, the server default cipher suites are used.
     shared_ptr<vector<string>> cipherSuites_ {};
+    // The maximum TLS protocol version allowed. Example values: TLSv1.2 and TLSv1.3. If this parameter is not specified, the server default value is used. Do not pass an empty string.
     shared_ptr<string> maxVersion_ {};
+    // The minimum TLS protocol version allowed. Example values: TLSv1.2 and TLSv1.3. If this parameter is not specified, the server default value is used. Do not pass an empty string.
     shared_ptr<string> minVersion_ {};
   };
 

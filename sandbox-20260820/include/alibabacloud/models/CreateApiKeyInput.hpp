@@ -81,10 +81,15 @@ namespace Models
 
 
   protected:
+    // The name of the API key. The name can be up to 128 characters in length and can contain letters, digits, spaces, hyphens (-), underscores (_), and periods (.).
     shared_ptr<string> apiKeyName_ {};
+    // The expiration time of the API key. The time is in UTC and in the RFC 3339 format. If you leave this parameter empty, the API key never expires.
     shared_ptr<string> expireTime_ {};
+    // The IP blacklist. After you configure this parameter, IP addresses in the list cannot use the API key. This parameter is mutually exclusive with ipWhitelist.
     shared_ptr<vector<IPConfig>> ipBlacklist_ {};
+    // The IP address whitelist. After you configure this parameter, only IP addresses in the list can use the API key. This parameter is mutually exclusive with ipBlacklist.
     shared_ptr<vector<IPConfig>> ipWhitelist_ {};
+    // The ID of the team to which the API key belongs. The value is in UUID format. If you do not specify this parameter, the default team of the current account is used.
     shared_ptr<string> teamID_ {};
   };
 

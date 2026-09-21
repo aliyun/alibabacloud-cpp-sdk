@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The certificate name, which is used to identify the certificate in the console.
     shared_ptr<string> certName_ {};
+    // The certificate public key content in PEM format, including the complete certificate chain.
     shared_ptr<string> certificate_ {};
+    // The certificate private key content in PEM format. The private key is encrypted and stored on the server side, and is not returned in plaintext when queried.
     shared_ptr<string> privateKey_ {};
   };
 

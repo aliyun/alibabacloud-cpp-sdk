@@ -84,11 +84,17 @@ namespace Models
 
 
   protected:
+    // The access point ID.
     shared_ptr<string> accessPointID_ {};
+    // The workspace ID.
     shared_ptr<string> agenticSpaceID_ {};
+    // The file system ID.
     shared_ptr<string> fileSystemID_ {};
+    // The group ID for local mounting.
     shared_ptr<int32_t> groupID_ {};
+    // The AgenticFS access point address.
     shared_ptr<string> serverAddr_ {};
+    // The user ID for local mounting.
     shared_ptr<int32_t> userID_ {};
   };
 
