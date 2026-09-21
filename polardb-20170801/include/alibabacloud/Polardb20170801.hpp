@@ -818,7 +818,7 @@ namespace Polardb20170801
       Models::CreateAgenticDBTenantApiKeyResponse createAgenticDBTenantApiKey(const Models::CreateAgenticDBTenantApiKeyRequest &request);
 
       /**
-       * @summary Creates an application associated with a PolarDB instance.
+       * @summary Creates an application that is associated with a PolarDB instance.
        *
        * @param tmpReq CreateApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -827,7 +827,7 @@ namespace Polardb20170801
       Models::CreateApplicationResponse createApplicationWithOptions(const Models::CreateApplicationRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application associated with a PolarDB instance.
+       * @summary Creates an application that is associated with a PolarDB instance.
        *
        * @param request CreateApplicationRequest
        * @return CreateApplicationResponse

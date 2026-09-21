@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateApplicationShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AIDBClusterId, AIDBClusterId_);
       DARABONBA_PTR_TO_JSON(AgenticDBBranchSpec, agenticDBBranchSpecShrink_);
+      DARABONBA_PTR_TO_JSON(AgenticDBClusterId, agenticDBClusterId_);
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(Architecture, architecture_);
       DARABONBA_PTR_TO_JSON(AuthProvider, authProvider_);
@@ -62,6 +63,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateApplicationShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AIDBClusterId, AIDBClusterId_);
       DARABONBA_PTR_FROM_JSON(AgenticDBBranchSpec, agenticDBBranchSpecShrink_);
+      DARABONBA_PTR_FROM_JSON(AgenticDBClusterId, agenticDBClusterId_);
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
       DARABONBA_PTR_FROM_JSON(AuthProvider, authProvider_);
@@ -161,15 +163,15 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->AIDBClusterId_ == nullptr
-        && this->agenticDBBranchSpecShrink_ == nullptr && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr && this->authProviderConfig_ == nullptr
-        && this->autoAllocatePublicEip_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->componentsShrink_ == nullptr
-        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dnatEntriesShrink_ == nullptr && this->dnatIpAddress_ == nullptr && this->dryRun_ == nullptr
-        && this->endpointsShrink_ == nullptr && this->knowledgeApplicationSpecShrink_ == nullptr && this->memApplicationSpecShrink_ == nullptr && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr
-        && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parametersShrink_ == nullptr && this->payType_ == nullptr
-        && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr && this->skillTemplateId_ == nullptr
-        && this->storagesShrink_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->vpcNatGatewayId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->agenticDBBranchSpecShrink_ == nullptr && this->agenticDBClusterId_ == nullptr && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr
+        && this->authProviderConfig_ == nullptr && this->autoAllocatePublicEip_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr
+        && this->componentsShrink_ == nullptr && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dnatEntriesShrink_ == nullptr && this->dnatIpAddress_ == nullptr
+        && this->dryRun_ == nullptr && this->endpointsShrink_ == nullptr && this->knowledgeApplicationSpecShrink_ == nullptr && this->memApplicationSpecShrink_ == nullptr && this->modelApi_ == nullptr
+        && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parametersShrink_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr
+        && this->skillTemplateId_ == nullptr && this->storagesShrink_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->vpcNatGatewayId_ == nullptr && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
@@ -182,6 +184,13 @@ namespace Models
     void deleteAgenticDBBranchSpecShrink() { this->agenticDBBranchSpecShrink_ = nullptr;};
     inline string getAgenticDBBranchSpecShrink() const { DARABONBA_PTR_GET_DEFAULT(agenticDBBranchSpecShrink_, "") };
     inline CreateApplicationShrinkRequest& setAgenticDBBranchSpecShrink(string agenticDBBranchSpecShrink) { DARABONBA_PTR_SET_VALUE(agenticDBBranchSpecShrink_, agenticDBBranchSpecShrink) };
+
+
+    // agenticDBClusterId Field Functions 
+    bool hasAgenticDBClusterId() const { return this->agenticDBClusterId_ != nullptr;};
+    void deleteAgenticDBClusterId() { this->agenticDBClusterId_ = nullptr;};
+    inline string getAgenticDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(agenticDBClusterId_, "") };
+    inline CreateApplicationShrinkRequest& setAgenticDBClusterId(string agenticDBClusterId) { DARABONBA_PTR_SET_VALUE(agenticDBClusterId_, agenticDBClusterId) };
 
 
     // applicationType Field Functions 
@@ -485,6 +494,8 @@ namespace Models
     shared_ptr<string> AIDBClusterId_ {};
     // The AgenticDB branch specification.
     shared_ptr<string> agenticDBBranchSpecShrink_ {};
+    // The AgenticDB cluster ID.
+    shared_ptr<string> agenticDBClusterId_ {};
     // The application type. Valid values:
     // 
     // - supabase: Set this value to create a managed Supabase application.
@@ -503,9 +514,9 @@ namespace Models
     shared_ptr<string> authProvider_ {};
     // The authentication provider configuration.
     shared_ptr<string> authProviderConfig_ {};
-    // Specifies whether to enable automatic creation of an elastic IP address (EIP) and attach it to the instance. This is equivalent to associate with an EIP.
+    // Specifies whether to automatically create an elastic IP address (EIP) and associate it with the instance.
     shared_ptr<bool> autoAllocatePublicEip_ {};
-    // Specifies whether to enable automatic creation of a cold storage Polarlakebase instance. Valid values:
+    // Specifies whether to enable automatic creation of a cold storage Polarlakebase. Valid values:
     // * false (default): Automatic creation is disabled.
     // * true: Automatic creation is enabled.
     shared_ptr<bool> autoCreatePolarFs_ {};
@@ -523,7 +534,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The list of expected DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. This parameter can be left empty, which indicates that no DNAT entries are created.
     shared_ptr<string> dnatEntriesShrink_ {};
-    // The DNAT-dedicated NAT IP address that has been allocated (separate from the SNAT IP address) for NAT mapping. The IP address must belong to the specified gateway and be in an available state. The vSwitch of the gateway must belong to a primary CIDR block that is reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: An SNAT entry has been bound to the vSwitch where the application resides.
+    // The DNAT-dedicated NAT IP address allocated by the customer, which must be separate from the SNAT IP address. The IP address must belong to the specified gateway and be in an available state. The vSwitch where the gateway resides must be in a primary CIDR block reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: The customer has bound an SNAT entry to the vSwitch where the application resides.
     shared_ptr<string> dnatIpAddress_ {};
     // Default value: `false`. If you set this parameter to `true`, only parameter and resource validation is performed without actually creating the resource.
     shared_ptr<bool> dryRun_ {};
@@ -541,7 +552,7 @@ namespace Models
     shared_ptr<string> modelBaseUrl_ {};
     // The model source. Valid values:
     // 
-    // * bailian: Alibaba Cloud Model Studio model.
+    // * bailian: Bailian model.
     // * custom: Custom model.
     // * maas: PolarDB model operator.
     shared_ptr<string> modelFrom_ {};
@@ -569,7 +580,7 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The name of the IP whitelist group. Default value: `default`.
     shared_ptr<string> securityIPArrayName_ {};
-    // The IP whitelist. If you do not specify this parameter, the default value is `127.0.0.1`.
+    // The IP whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
     shared_ptr<string> securityIPList_ {};
     // The type of the IP address.
     shared_ptr<string> securityIPType_ {};
@@ -587,7 +598,7 @@ namespace Models
     shared_ptr<string> vSwitchId_ {};
     // The VPC ID.
     shared_ptr<string> vpcId_ {};
-    // The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in an active state.
+    // The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in active status.
     shared_ptr<string> vpcNatGatewayId_ {};
     // The zone. Default value: the primary zone of the instance.
     shared_ptr<string> zoneId_ {};

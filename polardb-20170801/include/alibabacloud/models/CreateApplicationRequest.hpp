@@ -16,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const CreateApplicationRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AIDBClusterId, AIDBClusterId_);
       DARABONBA_PTR_TO_JSON(AgenticDBBranchSpec, agenticDBBranchSpec_);
+      DARABONBA_PTR_TO_JSON(AgenticDBClusterId, agenticDBClusterId_);
       DARABONBA_PTR_TO_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_TO_JSON(Architecture, architecture_);
       DARABONBA_PTR_TO_JSON(AuthProvider, authProvider_);
@@ -62,6 +63,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, CreateApplicationRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AIDBClusterId, AIDBClusterId_);
       DARABONBA_PTR_FROM_JSON(AgenticDBBranchSpec, agenticDBBranchSpec_);
+      DARABONBA_PTR_FROM_JSON(AgenticDBClusterId, agenticDBClusterId_);
       DARABONBA_PTR_FROM_JSON(ApplicationType, applicationType_);
       DARABONBA_PTR_FROM_JSON(Architecture, architecture_);
       DARABONBA_PTR_FROM_JSON(AuthProvider, authProvider_);
@@ -255,13 +257,13 @@ namespace Models
     protected:
       // The mount path inside the container.
       shared_ptr<string> containerMountPath_ {};
-      // The storage endpoint ID.
+      // The ID of the storage endpoint.
       shared_ptr<string> endpointId_ {};
       // The storage mount path.
       shared_ptr<string> mountPath_ {};
       // The storage capacity.
       shared_ptr<string> storageCapacity_ {};
-      // The storage access endpoint.
+      // The storage access address.
       shared_ptr<string> storageEndpoint_ {};
       // The storage instance ID.
       shared_ptr<string> storageInstanceId_ {};
@@ -432,17 +434,17 @@ namespace Models
       shared_ptr<string> dbPassword_ {};
       // The username.
       shared_ptr<string> dbUser_ {};
-      // Required for mem0 applications. The embedder model name, such as text-embedding-v4.
+      // The embedder model name. This parameter is required for mem0 applications, such as text-embedding-v4.
       shared_ptr<string> embedderModel_ {};
       // The vector dimensions.
       shared_ptr<int32_t> embedderModelDimension_ {};
       // The graph LLM model.
       shared_ptr<string> graphLlmModel_ {};
-      // Required for mem0 applications. The LLM model name, such as qwen3-max.
+      // The LLM model name. This parameter is required for mem0 applications, such as qwen3-max.
       shared_ptr<string> llmModel_ {};
-      // The project name, which corresponds to the database schema that stores project data.
+      // The project name, which corresponds to the schema in the database where project data is stored.
       shared_ptr<string> projectName_ {};
-      // Required for mem0 applications. The reranker model name, such as qwen3-rerank.
+      // The reranker model name. This parameter is required for mem0 applications, such as qwen3-rerank.
       shared_ptr<string> rerankerModel_ {};
       // The number of table shards.
       shared_ptr<int32_t> shard_ {};
@@ -499,7 +501,7 @@ namespace Models
       shared_ptr<string> dashboardPassword_ {};
       // The password.
       shared_ptr<string> dbPassword_ {};
-      // Required for knowledge applications. The LLM model name, such as qwen3-max.
+      // The LLM model name. This parameter is required for knowledge applications, such as qwen3-max.
       shared_ptr<string> llmModel_ {};
     };
 
@@ -585,9 +587,9 @@ namespace Models
 
 
     protected:
-      // The frontend port. This parameter is optional. If not specified, the system automatically assigns a port that does not conflict with ports already in use on the gateway. You can query the assignment result by calling the DescribeApplicationAttribute operation.
+      // The frontend port. This parameter is optional. If not specified, the control plane automatically assigns a port that does not conflict with ports already in use on the gateway. You can query the assignment result by calling the DescribeApplicationAttribute operation.
       shared_ptr<int32_t> frontPort_ {};
-      // The port name. Valid values: webui, hermesagent, dashboard, and ssh.
+      // The port name. Valid values: webui | hermesagent | dashboard | ssh.
       shared_ptr<string> portName_ {};
     };
 
@@ -704,7 +706,7 @@ namespace Models
     protected:
       // The specification of the application subcomponent.
       shared_ptr<string> componentClass_ {};
-      // The maximum number of replicas for the application subcomponent with the same specification. Default value: the value of ComponentReplica.
+      // The maximum number of application subcomponents with the same specification. Default value: the value of ComponentReplica.
       // 
       // - Only raycluster supports this parameter.
       shared_ptr<int64_t> componentMaxReplica_ {};
@@ -723,17 +725,17 @@ namespace Models
       // - worker
       // - gpuworker
       shared_ptr<string> componentType_ {};
-      // The maximum number of replicas for component scaling.
+      // The upper limit for component scaling.
       shared_ptr<string> scaleMax_ {};
-      // The minimum number of replicas for component scaling.
+      // The lower limit for component scaling.
       shared_ptr<string> scaleMin_ {};
-      // The list of security groups for the application subcomponent, separated by commas (,).
+      // The list of security groups for the application subcomponent. Separate multiple security groups with commas (,).
       shared_ptr<string> securityGroups_ {};
-      // The name of the whitelist IP address group for the application subcomponent. Default value: default.
+      // The name of the IP whitelist group for the application subcomponent. Default value: default.
       shared_ptr<string> securityIPArrayName_ {};
-      // The whitelist IP addresses of the application subcomponent, separated by commas (,).
+      // The whitelisted IP addresses for the application subcomponent. Separate multiple IP addresses with commas (,).
       shared_ptr<string> securityIPList_ {};
-      // The type of the whitelist IP addresses for the application subcomponent. Default value: ipv4.
+      // The type of the whitelisted IP addresses for the application subcomponent. Default value: ipv4.
       shared_ptr<string> securityIPType_ {};
     };
 
@@ -826,15 +828,15 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->AIDBClusterId_ == nullptr
-        && this->agenticDBBranchSpec_ == nullptr && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr && this->authProviderConfig_ == nullptr
-        && this->autoAllocatePublicEip_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->components_ == nullptr
-        && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dnatEntries_ == nullptr && this->dnatIpAddress_ == nullptr && this->dryRun_ == nullptr
-        && this->endpoints_ == nullptr && this->knowledgeApplicationSpec_ == nullptr && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr && this->modelApiKey_ == nullptr
-        && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parameters_ == nullptr && this->payType_ == nullptr
-        && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr && this->skillTemplateId_ == nullptr
-        && this->storages_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vpcId_ == nullptr && this->vpcNatGatewayId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->agenticDBBranchSpec_ == nullptr && this->agenticDBClusterId_ == nullptr && this->applicationType_ == nullptr && this->architecture_ == nullptr && this->authProvider_ == nullptr
+        && this->authProviderConfig_ == nullptr && this->autoAllocatePublicEip_ == nullptr && this->autoCreatePolarFs_ == nullptr && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr
+        && this->components_ == nullptr && this->DBClusterId_ == nullptr && this->description_ == nullptr && this->dnatEntries_ == nullptr && this->dnatIpAddress_ == nullptr
+        && this->dryRun_ == nullptr && this->endpoints_ == nullptr && this->knowledgeApplicationSpec_ == nullptr && this->memApplicationSpec_ == nullptr && this->modelApi_ == nullptr
+        && this->modelApiKey_ == nullptr && this->modelBaseUrl_ == nullptr && this->modelFrom_ == nullptr && this->modelName_ == nullptr && this->parameters_ == nullptr
+        && this->payType_ == nullptr && this->period_ == nullptr && this->polarFSInstanceId_ == nullptr && this->promotionCode_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->securityGroupId_ == nullptr && this->securityIPArrayName_ == nullptr && this->securityIPList_ == nullptr && this->securityIPType_ == nullptr
+        && this->skillTemplateId_ == nullptr && this->storages_ == nullptr && this->tag_ == nullptr && this->targetVersion_ == nullptr && this->usedTime_ == nullptr
+        && this->vSwitchId_ == nullptr && this->vpcId_ == nullptr && this->vpcNatGatewayId_ == nullptr && this->zoneId_ == nullptr; };
     // AIDBClusterId Field Functions 
     bool hasAIDBClusterId() const { return this->AIDBClusterId_ != nullptr;};
     void deleteAIDBClusterId() { this->AIDBClusterId_ = nullptr;};
@@ -849,6 +851,13 @@ namespace Models
     inline CreateApplicationRequest::AgenticDBBranchSpec getAgenticDBBranchSpec() { DARABONBA_PTR_GET(agenticDBBranchSpec_, CreateApplicationRequest::AgenticDBBranchSpec) };
     inline CreateApplicationRequest& setAgenticDBBranchSpec(const CreateApplicationRequest::AgenticDBBranchSpec & agenticDBBranchSpec) { DARABONBA_PTR_SET_VALUE(agenticDBBranchSpec_, agenticDBBranchSpec) };
     inline CreateApplicationRequest& setAgenticDBBranchSpec(CreateApplicationRequest::AgenticDBBranchSpec && agenticDBBranchSpec) { DARABONBA_PTR_SET_RVALUE(agenticDBBranchSpec_, agenticDBBranchSpec) };
+
+
+    // agenticDBClusterId Field Functions 
+    bool hasAgenticDBClusterId() const { return this->agenticDBClusterId_ != nullptr;};
+    void deleteAgenticDBClusterId() { this->agenticDBClusterId_ = nullptr;};
+    inline string getAgenticDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(agenticDBClusterId_, "") };
+    inline CreateApplicationRequest& setAgenticDBClusterId(string agenticDBClusterId) { DARABONBA_PTR_SET_VALUE(agenticDBClusterId_, agenticDBClusterId) };
 
 
     // applicationType Field Functions 
@@ -1166,6 +1175,8 @@ namespace Models
     shared_ptr<string> AIDBClusterId_ {};
     // The AgenticDB branch specification.
     shared_ptr<CreateApplicationRequest::AgenticDBBranchSpec> agenticDBBranchSpec_ {};
+    // The AgenticDB cluster ID.
+    shared_ptr<string> agenticDBClusterId_ {};
     // The application type. Valid values:
     // 
     // - supabase: Set this value to create a managed Supabase application.
@@ -1184,9 +1195,9 @@ namespace Models
     shared_ptr<string> authProvider_ {};
     // The authentication provider configuration.
     shared_ptr<string> authProviderConfig_ {};
-    // Specifies whether to enable automatic creation of an elastic IP address (EIP) and attach it to the instance. This is equivalent to associate with an EIP.
+    // Specifies whether to automatically create an elastic IP address (EIP) and associate it with the instance.
     shared_ptr<bool> autoAllocatePublicEip_ {};
-    // Specifies whether to enable automatic creation of a cold storage Polarlakebase instance. Valid values:
+    // Specifies whether to enable automatic creation of a cold storage Polarlakebase. Valid values:
     // * false (default): Automatic creation is disabled.
     // * true: Automatic creation is enabled.
     shared_ptr<bool> autoCreatePolarFs_ {};
@@ -1204,7 +1215,7 @@ namespace Models
     shared_ptr<string> description_ {};
     // The list of expected DNAT entries for NAT mapping. Specify this parameter together with VpcNatGatewayId. This parameter can be left empty, which indicates that no DNAT entries are created.
     shared_ptr<vector<CreateApplicationRequest::DnatEntries>> dnatEntries_ {};
-    // The DNAT-dedicated NAT IP address that has been allocated (separate from the SNAT IP address) for NAT mapping. The IP address must belong to the specified gateway and be in an available state. The vSwitch of the gateway must belong to a primary CIDR block that is reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: An SNAT entry has been bound to the vSwitch where the application resides.
+    // The DNAT-dedicated NAT IP address allocated by the customer, which must be separate from the SNAT IP address. The IP address must belong to the specified gateway and be in an available state. The vSwitch where the gateway resides must be in a primary CIDR block reachable from the office network. Specify this parameter together with VpcNatGatewayId. Prerequisite: The customer has bound an SNAT entry to the vSwitch where the application resides.
     shared_ptr<string> dnatIpAddress_ {};
     // Default value: `false`. If you set this parameter to `true`, only parameter and resource validation is performed without actually creating the resource.
     shared_ptr<bool> dryRun_ {};
@@ -1222,7 +1233,7 @@ namespace Models
     shared_ptr<string> modelBaseUrl_ {};
     // The model source. Valid values:
     // 
-    // * bailian: Alibaba Cloud Model Studio model.
+    // * bailian: Bailian model.
     // * custom: Custom model.
     // * maas: PolarDB model operator.
     shared_ptr<string> modelFrom_ {};
@@ -1250,7 +1261,7 @@ namespace Models
     shared_ptr<string> securityGroupId_ {};
     // The name of the IP whitelist group. Default value: `default`.
     shared_ptr<string> securityIPArrayName_ {};
-    // The IP whitelist. If you do not specify this parameter, the default value is `127.0.0.1`.
+    // The IP whitelist. If you do not specify this parameter, the default value `127.0.0.1` is used.
     shared_ptr<string> securityIPList_ {};
     // The type of the IP address.
     shared_ptr<string> securityIPType_ {};
@@ -1268,7 +1279,7 @@ namespace Models
     shared_ptr<string> vSwitchId_ {};
     // The VPC ID.
     shared_ptr<string> vpcId_ {};
-    // The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in an active state.
+    // The VPC NAT gateway ID for NAT mapping. If specified, NAT mapping is enabled when the instance is created. The NAT gateway must be in the same VPC as the application, use the private network type (intranet), and be in active status.
     shared_ptr<string> vpcNatGatewayId_ {};
     // The zone. Default value: the primary zone of the instance.
     shared_ptr<string> zoneId_ {};

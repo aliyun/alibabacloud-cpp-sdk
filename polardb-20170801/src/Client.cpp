@@ -2920,7 +2920,7 @@ CreateAgenticDBTenantApiKeyResponse Client::createAgenticDBTenantApiKey(const Cr
 }
 
 /**
- * @summary Creates an application associated with a PolarDB instance.
+ * @summary Creates an application that is associated with a PolarDB instance.
  *
  * @param tmpReq CreateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2969,6 +2969,10 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 
   if (!!request.hasAgenticDBBranchSpecShrink()) {
     query["AgenticDBBranchSpec"] = request.getAgenticDBBranchSpecShrink();
+  }
+
+  if (!!request.hasAgenticDBClusterId()) {
+    query["AgenticDBClusterId"] = request.getAgenticDBClusterId();
   }
 
   if (!!request.hasApplicationType()) {
@@ -3157,7 +3161,7 @@ CreateApplicationResponse Client::createApplicationWithOptions(const CreateAppli
 }
 
 /**
- * @summary Creates an application associated with a PolarDB instance.
+ * @summary Creates an application that is associated with a PolarDB instance.
  *
  * @param request CreateApplicationRequest
  * @return CreateApplicationResponse
