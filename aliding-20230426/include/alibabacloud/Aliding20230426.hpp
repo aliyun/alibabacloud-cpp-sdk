@@ -3163,6 +3163,24 @@ namespace Aliding20230426
       Models::InvokeAssistantResponse invokeAssistant(const Models::InvokeAssistantRequest &request);
 
       /**
+       * @summary 调用容器操作
+       *
+       * @param request InvokeContainerRequest
+       * @param tmpHeader InvokeContainerHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeContainerResponse
+       */
+      Models::InvokeContainerResponse invokeContainerWithOptions(const Models::InvokeContainerRequest &request, const Models::InvokeContainerHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调用容器操作
+       *
+       * @param request InvokeContainerRequest
+       * @return InvokeContainerResponse
+       */
+      Models::InvokeContainerResponse invokeContainer(const Models::InvokeContainerRequest &request);
+
+      /**
        * @summary 调用AI技能
        *
        * @param tmpReq InvokeSkillRequest

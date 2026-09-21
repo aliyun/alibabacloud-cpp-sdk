@@ -14536,6 +14536,70 @@ InvokeAssistantResponse Client::invokeAssistant(const InvokeAssistantRequest &re
 }
 
 /**
+ * @summary 调用容器操作
+ *
+ * @param request InvokeContainerRequest
+ * @param tmpHeader InvokeContainerHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InvokeContainerResponse
+ */
+InvokeContainerResponse Client::invokeContainerWithOptions(const InvokeContainerRequest &request, const InvokeContainerHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  InvokeContainerShrinkHeaders headers = InvokeContainerShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "accountContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOperationId()) {
+    body["operationId"] = request.getOperationId();
+  }
+
+  if (!!request.hasParams()) {
+    body["params"] = request.getParams();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["accountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InvokeContainer"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/spi/ai/v1/container/invoke")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InvokeContainerResponse>();
+}
+
+/**
+ * @summary 调用容器操作
+ *
+ * @param request InvokeContainerRequest
+ * @return InvokeContainerResponse
+ */
+InvokeContainerResponse Client::invokeContainer(const InvokeContainerRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  InvokeContainerHeaders headers = InvokeContainerHeaders();
+  return invokeContainerWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 调用AI技能
  *
  * @param tmpReq InvokeSkillRequest

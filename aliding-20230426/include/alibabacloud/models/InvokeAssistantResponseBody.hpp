@@ -610,6 +610,7 @@ namespace Models
       class Content : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Content& obj) { 
+          DARABONBA_PTR_TO_JSON(a2uiMessages, a2uiMessages_);
           DARABONBA_PTR_TO_JSON(aguiContent, aguiContent_);
           DARABONBA_PTR_TO_JSON(cardCallback, cardCallback_);
           DARABONBA_PTR_TO_JSON(dingCard, dingCard_);
@@ -620,6 +621,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(type, type_);
         };
         friend void from_json(const Darabonba::Json& j, Content& obj) { 
+          DARABONBA_PTR_FROM_JSON(a2uiMessages, a2uiMessages_);
           DARABONBA_PTR_FROM_JSON(aguiContent, aguiContent_);
           DARABONBA_PTR_FROM_JSON(cardCallback, cardCallback_);
           DARABONBA_PTR_FROM_JSON(dingCard, dingCard_);
@@ -1660,9 +1662,335 @@ namespace Models
           shared_ptr<vector<AguiContent::AguiEventList>> aguiEventList_ {};
         };
 
-        virtual bool empty() const override { return this->aguiContent_ == nullptr
-        && this->cardCallback_ == nullptr && this->dingCard_ == nullptr && this->dingNormalCard_ == nullptr && this->markdown_ == nullptr && this->structView_ == nullptr
-        && this->text_ == nullptr && this->type_ == nullptr; };
+        class A2uiMessages : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const A2uiMessages& obj) { 
+            DARABONBA_PTR_TO_JSON(appendDataModel, appendDataModel_);
+            DARABONBA_PTR_TO_JSON(createSurface, createSurface_);
+            DARABONBA_PTR_TO_JSON(deleteSurface, deleteSurface_);
+            DARABONBA_PTR_TO_JSON(profile, profile_);
+            DARABONBA_PTR_TO_JSON(updateComponents, updateComponents_);
+            DARABONBA_PTR_TO_JSON(updateDataModel, updateDataModel_);
+            DARABONBA_PTR_TO_JSON(version, version_);
+          };
+          friend void from_json(const Darabonba::Json& j, A2uiMessages& obj) { 
+            DARABONBA_PTR_FROM_JSON(appendDataModel, appendDataModel_);
+            DARABONBA_PTR_FROM_JSON(createSurface, createSurface_);
+            DARABONBA_PTR_FROM_JSON(deleteSurface, deleteSurface_);
+            DARABONBA_PTR_FROM_JSON(profile, profile_);
+            DARABONBA_PTR_FROM_JSON(updateComponents, updateComponents_);
+            DARABONBA_PTR_FROM_JSON(updateDataModel, updateDataModel_);
+            DARABONBA_PTR_FROM_JSON(version, version_);
+          };
+          A2uiMessages() = default ;
+          A2uiMessages(const A2uiMessages &) = default ;
+          A2uiMessages(A2uiMessages &&) = default ;
+          A2uiMessages(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~A2uiMessages() = default ;
+          A2uiMessages& operator=(const A2uiMessages &) = default ;
+          A2uiMessages& operator=(A2uiMessages &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class UpdateDataModel : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const UpdateDataModel& obj) { 
+              DARABONBA_PTR_TO_JSON(path, path_);
+              DARABONBA_PTR_TO_JSON(surfaceId, surfaceId_);
+              DARABONBA_ANY_TO_JSON(value, value_);
+            };
+            friend void from_json(const Darabonba::Json& j, UpdateDataModel& obj) { 
+              DARABONBA_PTR_FROM_JSON(path, path_);
+              DARABONBA_PTR_FROM_JSON(surfaceId, surfaceId_);
+              DARABONBA_ANY_FROM_JSON(value, value_);
+            };
+            UpdateDataModel() = default ;
+            UpdateDataModel(const UpdateDataModel &) = default ;
+            UpdateDataModel(UpdateDataModel &&) = default ;
+            UpdateDataModel(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~UpdateDataModel() = default ;
+            UpdateDataModel& operator=(const UpdateDataModel &) = default ;
+            UpdateDataModel& operator=(UpdateDataModel &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->path_ == nullptr
+        && this->surfaceId_ == nullptr && this->value_ == nullptr; };
+            // path Field Functions 
+            bool hasPath() const { return this->path_ != nullptr;};
+            void deletePath() { this->path_ = nullptr;};
+            inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+            inline UpdateDataModel& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
+            // surfaceId Field Functions 
+            bool hasSurfaceId() const { return this->surfaceId_ != nullptr;};
+            void deleteSurfaceId() { this->surfaceId_ = nullptr;};
+            inline string getSurfaceId() const { DARABONBA_PTR_GET_DEFAULT(surfaceId_, "") };
+            inline UpdateDataModel& setSurfaceId(string surfaceId) { DARABONBA_PTR_SET_VALUE(surfaceId_, surfaceId) };
+
+
+            // value Field Functions 
+            bool hasValue() const { return this->value_ != nullptr;};
+            void deleteValue() { this->value_ = nullptr;};
+            inline             const Darabonba::Json & getValue() const { DARABONBA_GET(value_) };
+            Darabonba::Json & getValue() { DARABONBA_GET(value_) };
+            inline UpdateDataModel& setValue(const Darabonba::Json & value) { DARABONBA_SET_VALUE(value_, value) };
+            inline UpdateDataModel& setValue(Darabonba::Json && value) { DARABONBA_SET_RVALUE(value_, value) };
+
+
+          protected:
+            shared_ptr<string> path_ {};
+            shared_ptr<string> surfaceId_ {};
+            Darabonba::Json value_ {};
+          };
+
+          class UpdateComponents : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const UpdateComponents& obj) { 
+              DARABONBA_PTR_TO_JSON(components, components_);
+              DARABONBA_PTR_TO_JSON(surfaceId, surfaceId_);
+            };
+            friend void from_json(const Darabonba::Json& j, UpdateComponents& obj) { 
+              DARABONBA_PTR_FROM_JSON(components, components_);
+              DARABONBA_PTR_FROM_JSON(surfaceId, surfaceId_);
+            };
+            UpdateComponents() = default ;
+            UpdateComponents(const UpdateComponents &) = default ;
+            UpdateComponents(UpdateComponents &&) = default ;
+            UpdateComponents(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~UpdateComponents() = default ;
+            UpdateComponents& operator=(const UpdateComponents &) = default ;
+            UpdateComponents& operator=(UpdateComponents &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->components_ == nullptr
+        && this->surfaceId_ == nullptr; };
+            // components Field Functions 
+            bool hasComponents() const { return this->components_ != nullptr;};
+            void deleteComponents() { this->components_ = nullptr;};
+            inline const vector<Darabonba::Json> & getComponents() const { DARABONBA_PTR_GET_CONST(components_, vector<Darabonba::Json>) };
+            inline vector<Darabonba::Json> getComponents() { DARABONBA_PTR_GET(components_, vector<Darabonba::Json>) };
+            inline UpdateComponents& setComponents(const vector<Darabonba::Json> & components) { DARABONBA_PTR_SET_VALUE(components_, components) };
+            inline UpdateComponents& setComponents(vector<Darabonba::Json> && components) { DARABONBA_PTR_SET_RVALUE(components_, components) };
+
+
+            // surfaceId Field Functions 
+            bool hasSurfaceId() const { return this->surfaceId_ != nullptr;};
+            void deleteSurfaceId() { this->surfaceId_ = nullptr;};
+            inline string getSurfaceId() const { DARABONBA_PTR_GET_DEFAULT(surfaceId_, "") };
+            inline UpdateComponents& setSurfaceId(string surfaceId) { DARABONBA_PTR_SET_VALUE(surfaceId_, surfaceId) };
+
+
+          protected:
+            shared_ptr<vector<Darabonba::Json>> components_ {};
+            shared_ptr<string> surfaceId_ {};
+          };
+
+          class DeleteSurface : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const DeleteSurface& obj) { 
+              DARABONBA_PTR_TO_JSON(surfaceId, surfaceId_);
+            };
+            friend void from_json(const Darabonba::Json& j, DeleteSurface& obj) { 
+              DARABONBA_PTR_FROM_JSON(surfaceId, surfaceId_);
+            };
+            DeleteSurface() = default ;
+            DeleteSurface(const DeleteSurface &) = default ;
+            DeleteSurface(DeleteSurface &&) = default ;
+            DeleteSurface(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~DeleteSurface() = default ;
+            DeleteSurface& operator=(const DeleteSurface &) = default ;
+            DeleteSurface& operator=(DeleteSurface &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->surfaceId_ == nullptr; };
+            // surfaceId Field Functions 
+            bool hasSurfaceId() const { return this->surfaceId_ != nullptr;};
+            void deleteSurfaceId() { this->surfaceId_ = nullptr;};
+            inline string getSurfaceId() const { DARABONBA_PTR_GET_DEFAULT(surfaceId_, "") };
+            inline DeleteSurface& setSurfaceId(string surfaceId) { DARABONBA_PTR_SET_VALUE(surfaceId_, surfaceId) };
+
+
+          protected:
+            shared_ptr<string> surfaceId_ {};
+          };
+
+          class CreateSurface : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const CreateSurface& obj) { 
+              DARABONBA_PTR_TO_JSON(surfaceId, surfaceId_);
+            };
+            friend void from_json(const Darabonba::Json& j, CreateSurface& obj) { 
+              DARABONBA_PTR_FROM_JSON(surfaceId, surfaceId_);
+            };
+            CreateSurface() = default ;
+            CreateSurface(const CreateSurface &) = default ;
+            CreateSurface(CreateSurface &&) = default ;
+            CreateSurface(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~CreateSurface() = default ;
+            CreateSurface& operator=(const CreateSurface &) = default ;
+            CreateSurface& operator=(CreateSurface &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->surfaceId_ == nullptr; };
+            // surfaceId Field Functions 
+            bool hasSurfaceId() const { return this->surfaceId_ != nullptr;};
+            void deleteSurfaceId() { this->surfaceId_ = nullptr;};
+            inline string getSurfaceId() const { DARABONBA_PTR_GET_DEFAULT(surfaceId_, "") };
+            inline CreateSurface& setSurfaceId(string surfaceId) { DARABONBA_PTR_SET_VALUE(surfaceId_, surfaceId) };
+
+
+          protected:
+            shared_ptr<string> surfaceId_ {};
+          };
+
+          class AppendDataModel : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const AppendDataModel& obj) { 
+              DARABONBA_PTR_TO_JSON(path, path_);
+              DARABONBA_PTR_TO_JSON(surfaceId, surfaceId_);
+              DARABONBA_ANY_TO_JSON(value, value_);
+            };
+            friend void from_json(const Darabonba::Json& j, AppendDataModel& obj) { 
+              DARABONBA_PTR_FROM_JSON(path, path_);
+              DARABONBA_PTR_FROM_JSON(surfaceId, surfaceId_);
+              DARABONBA_ANY_FROM_JSON(value, value_);
+            };
+            AppendDataModel() = default ;
+            AppendDataModel(const AppendDataModel &) = default ;
+            AppendDataModel(AppendDataModel &&) = default ;
+            AppendDataModel(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~AppendDataModel() = default ;
+            AppendDataModel& operator=(const AppendDataModel &) = default ;
+            AppendDataModel& operator=(AppendDataModel &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->path_ == nullptr
+        && this->surfaceId_ == nullptr && this->value_ == nullptr; };
+            // path Field Functions 
+            bool hasPath() const { return this->path_ != nullptr;};
+            void deletePath() { this->path_ = nullptr;};
+            inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+            inline AppendDataModel& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
+
+
+            // surfaceId Field Functions 
+            bool hasSurfaceId() const { return this->surfaceId_ != nullptr;};
+            void deleteSurfaceId() { this->surfaceId_ = nullptr;};
+            inline string getSurfaceId() const { DARABONBA_PTR_GET_DEFAULT(surfaceId_, "") };
+            inline AppendDataModel& setSurfaceId(string surfaceId) { DARABONBA_PTR_SET_VALUE(surfaceId_, surfaceId) };
+
+
+            // value Field Functions 
+            bool hasValue() const { return this->value_ != nullptr;};
+            void deleteValue() { this->value_ = nullptr;};
+            inline             const Darabonba::Json & getValue() const { DARABONBA_GET(value_) };
+            Darabonba::Json & getValue() { DARABONBA_GET(value_) };
+            inline AppendDataModel& setValue(const Darabonba::Json & value) { DARABONBA_SET_VALUE(value_, value) };
+            inline AppendDataModel& setValue(Darabonba::Json && value) { DARABONBA_SET_RVALUE(value_, value) };
+
+
+          protected:
+            shared_ptr<string> path_ {};
+            shared_ptr<string> surfaceId_ {};
+            Darabonba::Json value_ {};
+          };
+
+          virtual bool empty() const override { return this->appendDataModel_ == nullptr
+        && this->createSurface_ == nullptr && this->deleteSurface_ == nullptr && this->profile_ == nullptr && this->updateComponents_ == nullptr && this->updateDataModel_ == nullptr
+        && this->version_ == nullptr; };
+          // appendDataModel Field Functions 
+          bool hasAppendDataModel() const { return this->appendDataModel_ != nullptr;};
+          void deleteAppendDataModel() { this->appendDataModel_ = nullptr;};
+          inline const A2uiMessages::AppendDataModel & getAppendDataModel() const { DARABONBA_PTR_GET_CONST(appendDataModel_, A2uiMessages::AppendDataModel) };
+          inline A2uiMessages::AppendDataModel getAppendDataModel() { DARABONBA_PTR_GET(appendDataModel_, A2uiMessages::AppendDataModel) };
+          inline A2uiMessages& setAppendDataModel(const A2uiMessages::AppendDataModel & appendDataModel) { DARABONBA_PTR_SET_VALUE(appendDataModel_, appendDataModel) };
+          inline A2uiMessages& setAppendDataModel(A2uiMessages::AppendDataModel && appendDataModel) { DARABONBA_PTR_SET_RVALUE(appendDataModel_, appendDataModel) };
+
+
+          // createSurface Field Functions 
+          bool hasCreateSurface() const { return this->createSurface_ != nullptr;};
+          void deleteCreateSurface() { this->createSurface_ = nullptr;};
+          inline const A2uiMessages::CreateSurface & getCreateSurface() const { DARABONBA_PTR_GET_CONST(createSurface_, A2uiMessages::CreateSurface) };
+          inline A2uiMessages::CreateSurface getCreateSurface() { DARABONBA_PTR_GET(createSurface_, A2uiMessages::CreateSurface) };
+          inline A2uiMessages& setCreateSurface(const A2uiMessages::CreateSurface & createSurface) { DARABONBA_PTR_SET_VALUE(createSurface_, createSurface) };
+          inline A2uiMessages& setCreateSurface(A2uiMessages::CreateSurface && createSurface) { DARABONBA_PTR_SET_RVALUE(createSurface_, createSurface) };
+
+
+          // deleteSurface Field Functions 
+          bool hasDeleteSurface() const { return this->deleteSurface_ != nullptr;};
+          void deleteDeleteSurface() { this->deleteSurface_ = nullptr;};
+          inline const A2uiMessages::DeleteSurface & getDeleteSurface() const { DARABONBA_PTR_GET_CONST(deleteSurface_, A2uiMessages::DeleteSurface) };
+          inline A2uiMessages::DeleteSurface getDeleteSurface() { DARABONBA_PTR_GET(deleteSurface_, A2uiMessages::DeleteSurface) };
+          inline A2uiMessages& setDeleteSurface(const A2uiMessages::DeleteSurface & deleteSurface) { DARABONBA_PTR_SET_VALUE(deleteSurface_, deleteSurface) };
+          inline A2uiMessages& setDeleteSurface(A2uiMessages::DeleteSurface && deleteSurface) { DARABONBA_PTR_SET_RVALUE(deleteSurface_, deleteSurface) };
+
+
+          // profile Field Functions 
+          bool hasProfile() const { return this->profile_ != nullptr;};
+          void deleteProfile() { this->profile_ = nullptr;};
+          inline string getProfile() const { DARABONBA_PTR_GET_DEFAULT(profile_, "") };
+          inline A2uiMessages& setProfile(string profile) { DARABONBA_PTR_SET_VALUE(profile_, profile) };
+
+
+          // updateComponents Field Functions 
+          bool hasUpdateComponents() const { return this->updateComponents_ != nullptr;};
+          void deleteUpdateComponents() { this->updateComponents_ = nullptr;};
+          inline const A2uiMessages::UpdateComponents & getUpdateComponents() const { DARABONBA_PTR_GET_CONST(updateComponents_, A2uiMessages::UpdateComponents) };
+          inline A2uiMessages::UpdateComponents getUpdateComponents() { DARABONBA_PTR_GET(updateComponents_, A2uiMessages::UpdateComponents) };
+          inline A2uiMessages& setUpdateComponents(const A2uiMessages::UpdateComponents & updateComponents) { DARABONBA_PTR_SET_VALUE(updateComponents_, updateComponents) };
+          inline A2uiMessages& setUpdateComponents(A2uiMessages::UpdateComponents && updateComponents) { DARABONBA_PTR_SET_RVALUE(updateComponents_, updateComponents) };
+
+
+          // updateDataModel Field Functions 
+          bool hasUpdateDataModel() const { return this->updateDataModel_ != nullptr;};
+          void deleteUpdateDataModel() { this->updateDataModel_ = nullptr;};
+          inline const A2uiMessages::UpdateDataModel & getUpdateDataModel() const { DARABONBA_PTR_GET_CONST(updateDataModel_, A2uiMessages::UpdateDataModel) };
+          inline A2uiMessages::UpdateDataModel getUpdateDataModel() { DARABONBA_PTR_GET(updateDataModel_, A2uiMessages::UpdateDataModel) };
+          inline A2uiMessages& setUpdateDataModel(const A2uiMessages::UpdateDataModel & updateDataModel) { DARABONBA_PTR_SET_VALUE(updateDataModel_, updateDataModel) };
+          inline A2uiMessages& setUpdateDataModel(A2uiMessages::UpdateDataModel && updateDataModel) { DARABONBA_PTR_SET_RVALUE(updateDataModel_, updateDataModel) };
+
+
+          // version Field Functions 
+          bool hasVersion() const { return this->version_ != nullptr;};
+          void deleteVersion() { this->version_ = nullptr;};
+          inline string getVersion() const { DARABONBA_PTR_GET_DEFAULT(version_, "") };
+          inline A2uiMessages& setVersion(string version) { DARABONBA_PTR_SET_VALUE(version_, version) };
+
+
+        protected:
+          shared_ptr<A2uiMessages::AppendDataModel> appendDataModel_ {};
+          shared_ptr<A2uiMessages::CreateSurface> createSurface_ {};
+          shared_ptr<A2uiMessages::DeleteSurface> deleteSurface_ {};
+          shared_ptr<string> profile_ {};
+          shared_ptr<A2uiMessages::UpdateComponents> updateComponents_ {};
+          shared_ptr<A2uiMessages::UpdateDataModel> updateDataModel_ {};
+          shared_ptr<string> version_ {};
+        };
+
+        virtual bool empty() const override { return this->a2uiMessages_ == nullptr
+        && this->aguiContent_ == nullptr && this->cardCallback_ == nullptr && this->dingCard_ == nullptr && this->dingNormalCard_ == nullptr && this->markdown_ == nullptr
+        && this->structView_ == nullptr && this->text_ == nullptr && this->type_ == nullptr; };
+        // a2uiMessages Field Functions 
+        bool hasA2uiMessages() const { return this->a2uiMessages_ != nullptr;};
+        void deleteA2uiMessages() { this->a2uiMessages_ = nullptr;};
+        inline const vector<Content::A2uiMessages> & getA2uiMessages() const { DARABONBA_PTR_GET_CONST(a2uiMessages_, vector<Content::A2uiMessages>) };
+        inline vector<Content::A2uiMessages> getA2uiMessages() { DARABONBA_PTR_GET(a2uiMessages_, vector<Content::A2uiMessages>) };
+        inline Content& setA2uiMessages(const vector<Content::A2uiMessages> & a2uiMessages) { DARABONBA_PTR_SET_VALUE(a2uiMessages_, a2uiMessages) };
+        inline Content& setA2uiMessages(vector<Content::A2uiMessages> && a2uiMessages) { DARABONBA_PTR_SET_RVALUE(a2uiMessages_, a2uiMessages) };
+
+
         // aguiContent Field Functions 
         bool hasAguiContent() const { return this->aguiContent_ != nullptr;};
         void deleteAguiContent() { this->aguiContent_ = nullptr;};
@@ -1734,6 +2062,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<vector<Content::A2uiMessages>> a2uiMessages_ {};
         shared_ptr<Content::AguiContent> aguiContent_ {};
         shared_ptr<Content::CardCallback> cardCallback_ {};
         shared_ptr<Content::DingCard> dingCard_ {};

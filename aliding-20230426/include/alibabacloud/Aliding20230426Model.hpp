@@ -1010,6 +1010,11 @@
 #include <alibabacloud/models/InvokeAssistantRequest.hpp>
 #include <alibabacloud/models/InvokeAssistantResponseBody.hpp>
 #include <alibabacloud/models/InvokeAssistantResponse.hpp>
+#include <alibabacloud/models/InvokeContainerHeaders.hpp>
+#include <alibabacloud/models/InvokeContainerShrinkHeaders.hpp>
+#include <alibabacloud/models/InvokeContainerRequest.hpp>
+#include <alibabacloud/models/InvokeContainerResponseBody.hpp>
+#include <alibabacloud/models/InvokeContainerResponse.hpp>
 #include <alibabacloud/models/InvokeSkillHeaders.hpp>
 #include <alibabacloud/models/InvokeSkillShrinkHeaders.hpp>
 #include <alibabacloud/models/InvokeSkillRequest.hpp>
