@@ -34,7 +34,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ProductId, productId_);
       DARABONBA_PTR_TO_JSON(RuleAggQuery, ruleAggQuery_);
       DARABONBA_PTR_TO_JSON(RuleCategory, ruleCategory_);
-      DARABONBA_PTR_TO_JSON(RuleID, ruleID_);
       DARABONBA_PTR_TO_JSON(RuleId, ruleId_);
       DARABONBA_PTR_TO_JSON(RuleName, ruleName_);
       DARABONBA_PTR_TO_JSON(SqlText, sqlText_);
@@ -63,7 +62,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ProductId, productId_);
       DARABONBA_PTR_FROM_JSON(RuleAggQuery, ruleAggQuery_);
       DARABONBA_PTR_FROM_JSON(RuleCategory, ruleCategory_);
-      DARABONBA_PTR_FROM_JSON(RuleID, ruleID_);
       DARABONBA_PTR_FROM_JSON(RuleId, ruleId_);
       DARABONBA_PTR_FROM_JSON(RuleName, ruleName_);
       DARABONBA_PTR_FROM_JSON(SqlText, sqlText_);
@@ -86,8 +84,7 @@ namespace Models
         && this->endTime_ == nullptr && this->executeTimeRange_ == nullptr && this->instanceName_ == nullptr && this->ipType_ == nullptr && this->lang_ == nullptr
         && this->loadWhiteList_ == nullptr && this->logQueryOpJson_ == nullptr && this->logSource_ == nullptr && this->operateType_ == nullptr && this->ossObjectKey_ == nullptr
         && this->pageSize_ == nullptr && this->productCode_ == nullptr && this->productId_ == nullptr && this->ruleAggQuery_ == nullptr && this->ruleCategory_ == nullptr
-        && this->ruleID_ == nullptr && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sqlText_ == nullptr && this->startTime_ == nullptr
-        && this->userName_ == nullptr; };
+        && this->ruleId_ == nullptr && this->ruleName_ == nullptr && this->sqlText_ == nullptr && this->startTime_ == nullptr && this->userName_ == nullptr; };
     // asyncRequestId Field Functions 
     bool hasAsyncRequestId() const { return this->asyncRequestId_ != nullptr;};
     void deleteAsyncRequestId() { this->asyncRequestId_ = nullptr;};
@@ -235,13 +232,6 @@ namespace Models
     inline DescribeAuditLogsRequest& setRuleCategory(string ruleCategory) { DARABONBA_PTR_SET_VALUE(ruleCategory_, ruleCategory) };
 
 
-    // ruleID Field Functions 
-    bool hasRuleID() const { return this->ruleID_ != nullptr;};
-    void deleteRuleID() { this->ruleID_ = nullptr;};
-    inline string getRuleID() const { DARABONBA_PTR_GET_DEFAULT(ruleID_, "") };
-    inline DescribeAuditLogsRequest& setRuleID(string ruleID) { DARABONBA_PTR_SET_VALUE(ruleID_, ruleID) };
-
-
     // ruleId Field Functions 
     bool hasRuleId() const { return this->ruleId_ != nullptr;};
     void deleteRuleId() { this->ruleId_ = nullptr;};
@@ -292,7 +282,7 @@ namespace Models
     shared_ptr<string> effectRowRange_ {};
     // The end time of the alert log. The value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> endTime_ {};
-    // The range of execution time.
+    // The range of the execution time.
     shared_ptr<string> executeTimeRange_ {};
     // The name of the asset instance.
     shared_ptr<string> instanceName_ {};
@@ -302,7 +292,7 @@ namespace Models
     // 
     // - **aliyun**: Alibaba Cloud service.
     shared_ptr<string> ipType_ {};
-    // The language type for sending and receiving messages. Default value: zh_cn. Valid values:
+    // The language of the request and response. Default value: zh_cn. Valid values:
     // 
     // - zh_cn: Chinese.
     // - en_us: English.
@@ -330,12 +320,10 @@ namespace Models
     // - 11: MongoDB
     // - 25: Redis
     shared_ptr<int64_t> productId_ {};
-    // Specifies whether to perform an aggregate query.
+    // Specifies whether to use aggregate query.
     shared_ptr<bool> ruleAggQuery_ {};
     // The rule type.
     shared_ptr<string> ruleCategory_ {};
-    // The ID of the audit policy.
-    shared_ptr<string> ruleID_ {};
     // The rule ID.
     shared_ptr<string> ruleId_ {};
     // The name of the audit policy.

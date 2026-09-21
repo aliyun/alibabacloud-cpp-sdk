@@ -171,27 +171,27 @@ namespace Models
     protected:
       // The user ID of the caller.
       shared_ptr<string> callerUid_ {};
-      // The HTTP status code returned.
+      // The status code.
       shared_ptr<int32_t> code_ {};
-      // The error message returned if the request failed.
+      // The error message.
       shared_ptr<string> error_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The endpoint of the instance.
+      // The IP endpoint of the instance.
       shared_ptr<string> ip_ {};
-      // The ID of the instance owner.
+      // The owner ID.
       shared_ptr<string> ownerId_ {};
-      // The port number of the instance that you want to access.
+      // The port of the target instance.
       shared_ptr<int32_t> port_ {};
-      // The role of the current API caller.
+      // The role information.
       shared_ptr<string> role_ {};
       // The tenant ID.
       shared_ptr<string> tenantId_ {};
-      // The client token that is used to ensure the idempotence of the request.
+      // The client token, which is a custom unique random string.
       shared_ptr<string> token_ {};
       // The unique identifier of the instance.
       shared_ptr<string> uuid_ {};
-      // The VPC ID.
+      // VPC ID。
       shared_ptr<string> vpcId_ {};
     };
 
@@ -242,21 +242,19 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The detailed information, including the error codes and the number of entries that are returned.
+    // The details, including the total number of entries and error codes.
     shared_ptr<AddHDMInstanceResponseBody::Data> data_ {};
     // The returned message.
-    // 
-    // > If the request was successful, **Successful** is returned. If the request failed, an error message such as an error code is returned.
+    // >If the request is successful, **Successful** is returned. If the request fails, an error message is returned, such as an error code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
+    // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<string> success_ {};
     // The reserved parameter.
     shared_ptr<string> synchro_ {};

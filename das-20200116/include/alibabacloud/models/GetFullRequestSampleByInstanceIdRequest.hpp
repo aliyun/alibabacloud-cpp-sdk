@@ -18,7 +18,6 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Role, role_);
       DARABONBA_PTR_TO_JSON(SqlId, sqlId_);
       DARABONBA_PTR_TO_JSON(Start, start_);
-      DARABONBA_PTR_TO_JSON(UserId, userId_);
     };
     friend void from_json(const Darabonba::Json& j, GetFullRequestSampleByInstanceIdRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(End, end_);
@@ -26,7 +25,6 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Role, role_);
       DARABONBA_PTR_FROM_JSON(SqlId, sqlId_);
       DARABONBA_PTR_FROM_JSON(Start, start_);
-      DARABONBA_PTR_FROM_JSON(UserId, userId_);
     };
     GetFullRequestSampleByInstanceIdRequest() = default ;
     GetFullRequestSampleByInstanceIdRequest(const GetFullRequestSampleByInstanceIdRequest &) = default ;
@@ -40,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->end_ == nullptr
-        && this->instanceId_ == nullptr && this->role_ == nullptr && this->sqlId_ == nullptr && this->start_ == nullptr && this->userId_ == nullptr; };
+        && this->instanceId_ == nullptr && this->role_ == nullptr && this->sqlId_ == nullptr && this->start_ == nullptr; };
     // end Field Functions 
     bool hasEnd() const { return this->end_ != nullptr;};
     void deleteEnd() { this->end_ = nullptr;};
@@ -76,17 +74,10 @@ namespace Models
     inline GetFullRequestSampleByInstanceIdRequest& setStart(int64_t start) { DARABONBA_PTR_SET_VALUE(start_, start) };
 
 
-    // userId Field Functions 
-    bool hasUserId() const { return this->userId_ != nullptr;};
-    void deleteUserId() { this->userId_ = nullptr;};
-    inline string getUserId() const { DARABONBA_PTR_GET_DEFAULT(userId_, "") };
-    inline GetFullRequestSampleByInstanceIdRequest& setUserId(string userId) { DARABONBA_PTR_SET_VALUE(userId_, userId) };
-
-
   protected:
-    // The end of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The end of the time range to query. Specify a UNIX timestamp in milliseconds.
     // 
-    // > The end time must be later than the start time. The interval between the start time and the end time must be equal to or greater than 1 hour.
+    // > The end time must be later than the start time, and the interval between the start time and end time cannot be less than 1 hour.
     // 
     // This parameter is required.
     shared_ptr<int64_t> end_ {};
@@ -94,26 +85,21 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The role of the PolarDB-X 2.0 node. Valid values:
+    // The node information of a PolarDB-X 2.0 database instance.
     // 
     // - **polarx_cn**: compute node.
-    // 
     // - **polarx_en**: data node.
     shared_ptr<string> role_ {};
-    // The SQL statement ID.
+    // SQL ID。
     // 
     // This parameter is required.
     shared_ptr<string> sqlId_ {};
-    // The beginning of the time range to query. Set this parameter to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+    // The beginning of the time range to query. Specify a UNIX timestamp in milliseconds.
     // 
-    // > The start time must be within the storage duration of the SQL Explorer feature of the database instance, and can be up to 90 days earlier than the current time.
+    // > The start time must be within the storage duration of SQL Explorer for the database instance and cannot be earlier than 90 days before the current time.
     // 
     // This parameter is required.
     shared_ptr<int64_t> start_ {};
-    // The ID of the Alibaba Cloud account that is used to create the database instance.
-    // 
-    // > This parameter is optional. The system can automatically obtain the account ID based on the value of InstanceId when you call this operation.
-    shared_ptr<string> userId_ {};
   };
 
   } // namespace Models

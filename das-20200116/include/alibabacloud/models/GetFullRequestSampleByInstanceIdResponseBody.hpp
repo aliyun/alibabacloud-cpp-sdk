@@ -232,45 +232,44 @@ namespace Models
 
 
     protected:
-      // The name of the database.
+      // The database name.
       shared_ptr<string> database_ {};
-      // The number of rows fetched by PolarDB-X 2.0 compute nodes.
+      // The number of rows fetched by the PolarDB-X 2.0 compute node (CN).
       shared_ptr<int64_t> frows_ {};
       // The lock wait duration. Unit: seconds.
       shared_ptr<double> lockWaitTime_ {};
       // The number of logical reads.
       shared_ptr<double> logicalRead_ {};
-      // The source IP address.
+      // The source of the access.
       shared_ptr<string> originHost_ {};
       // The number of physical asynchronous reads.
       shared_ptr<double> physicalAsyncRead_ {};
       // The number of physical synchronous reads.
       shared_ptr<double> physicalSyncRead_ {};
-      // The number of rows updated or returned on PolarDB-X 2.0 compute nodes.
+      // The number of rows updated or returned by the PolarDB-X 2.0 compute node (CN).
       shared_ptr<int64_t> rows_ {};
-      // The total number of scanned rows.
-      // 
-      // > This parameter is returned only for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL databases.
+      // The total number of rows examined.
+      // > Currently, the following databases support this field: ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, and PolarDB for MySQL.
       shared_ptr<int64_t> rowsExamined_ {};
-      // The number of rows returned by the SQL statement.
+      // The number of rows returned.
       shared_ptr<int64_t> rowsReturned_ {};
-      // The amount of time consumed to execute the SQL statement. Unit: seconds.
+      // The execution duration. Unit: seconds.
       shared_ptr<double> rt_ {};
-      // The number of scanned rows.
+      // The number of rows scanned.
       shared_ptr<int64_t> scanRows_ {};
-      // The number of requests sent from PolarDB-X 2.0 compute nodes to data nodes.
+      // The number of DN requests from the PolarDB-X 2.0 compute node (CN).
       shared_ptr<int64_t> scnt_ {};
-      // The sample SQL statement.
+      // The SQL sample.
       shared_ptr<string> sql_ {};
-      // The SQL statement ID.
+      // SQL ID。
       shared_ptr<string> sqlId_ {};
       // The type of the SQL statement. Valid values: **SELECT**, **INSERT**, **UPDATE**, **DELETE**, **LOGIN**, **LOGOUT**, **MERGE**, **ALTER**, **CREATEINDEX**, **DROPINDEX**, **CREATE**, **DROP**, **SET**, **DESC**, **REPLACE**, **CALL**, **BEGIN**, **DESCRIBE**, **ROLLBACK**, **FLUSH**, **USE**, **SHOW**, **START**, **COMMIT**, and **RENAME**.
       shared_ptr<string> sqlType_ {};
-      // The time when the SQL statement was executed. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+      // The time when the SQL statement was executed. The value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> timestamp_ {};
-      // The number of updated rows.
+      // The number of rows updated.
       shared_ptr<int64_t> updateRows_ {};
-      // The name of the user who executes the SQL statement.
+      // The username that executed the SQL statement.
       shared_ptr<string> user_ {};
     };
 
@@ -314,21 +313,20 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The response status code.
     shared_ptr<int64_t> code_ {};
     // The returned data.
     shared_ptr<vector<GetFullRequestSampleByInstanceIdResponseBody::Data>> data_ {};
     // The returned message.
     // 
-    // > If the request was successful, **Successful** is returned. If the request failed, an error message that contains information such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**
-    // 
-    // - **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

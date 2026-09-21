@@ -152,54 +152,44 @@ namespace Models
     // The database engine. Valid values:
     // 
     // - **MySQL**
-    // 
     // - **PostgreSQL**
-    // 
     // - **SQLServer**
-    // 
     // - **PolarDBMySQL**
-    // 
     // - **PolarDBPostgreSQL**
-    // 
     // - **Redis**
-    // 
     // - **MongoDB**
-    // 
     // - **PolarDBOracle**
-    // 
     // - **PolarDBX**
     shared_ptr<string> engine_ {};
     // The reserved parameter.
     shared_ptr<string> flushAccount_ {};
-    // The name of the instance.
+    // The instance name.
     shared_ptr<string> instanceAlias_ {};
-    // The type of the instance on which the database is deployed. Valid values:
+    // The database product to which the instance belongs. Valid values:
     // 
-    // - **RDS**: an Alibaba Cloud database instance.
+    // - **RDS**: cloud instance.
+    // - **ECS**: self-managed instance on ECS.
+    // - **IDC**: self-managed instance not on a public cloud.
     // 
-    // - **ECS**: an Elastic Compute Service (ECS) instance on which a self-managed database is deployed.
-    // 
-    // - **IDC**: a self-managed database instance that is not deployed on Alibaba Cloud.
-    // 
-    // > IDC refers to your data center.
+    // > IDC stands for Internet Data Center.
     // 
     // This parameter is required.
     shared_ptr<string> instanceArea_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The endpoint that is used to access the instance over internal networks.
+    // The internal endpoint of the instance to be connected.
     shared_ptr<string> ip_ {};
     // The network type of the instance.
     shared_ptr<string> networkType_ {};
-    // The password for the username.
+    // The password of the username.
     shared_ptr<string> password_ {};
-    // The port that is used to access the instance over internal networks.
+    // The internal network connection port of the instance.
     shared_ptr<string> port_ {};
-    // The ID of the region in which the instance resides.
+    // The region in which the instance resides.
     shared_ptr<string> region_ {};
-    // The username that is used to log on to the database.
+    // The username.
     shared_ptr<string> username_ {};
-    // The virtual private cloud (VPC) ID.
+    // VPC ID。
     shared_ptr<string> vpcId_ {};
     // The reserved parameter.
     shared_ptr<string> context_ {};

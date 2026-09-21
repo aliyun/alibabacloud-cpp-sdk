@@ -680,25 +680,32 @@ namespace Models
         // 
         // > Only ApsaraDB RDS for SQL Server instances are supported.
         shared_ptr<double> CPUTimeSeconds_ {};
+        // The client IP address connected to the Redis proxy.
         shared_ptr<string> clientIp_ {};
+        // The command executed at the Redis proxy layer.
         shared_ptr<string> cmd_ {};
         // The slow query statement.
-        // > Only ApsaraDB for Tair (Redis® OSS-Compatible) database instances are supported.
+        // > Only ApsaraDB Tair (Redis® OSS-Compatible) database instances are supported.
         shared_ptr<string> command_ {};
         // The database name.
         shared_ptr<string> DBName_ {};
+        // Redis Proxy DbId
         shared_ptr<string> dbId_ {};
         // The instance ID.
         shared_ptr<string> dbInstanceName_ {};
         // The number of documents scanned during the MongoDB operation.
         shared_ptr<string> docsExamined_ {};
+        // The extension field that contains additional information about the SQL execution.
+        // > Only PolarDB for MySQL instances are supported.
         shared_ptr<string> extText_ {};
+        // Indicates whether the SQL execution was successful. 0 indicates success. A non-zero value indicates failure.
+        // > Only ApsaraDB for Lindorm instances are supported.
         shared_ptr<string> fail_ {};
-        // The number of rows fetched by the compute node (CN) of the ApsaraDB PolarDB-X 2.0 database instance.
+        // The number of rows fetched by the compute node (CN) of the PolarDB-X 2.0 database.
         // 
-        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+        // > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
         shared_ptr<int64_t> frows_ {};
-        // The source host address.
+        // The source address.
         shared_ptr<string> hostAddress_ {};
         // The number of I/O writes.
         // 
@@ -723,9 +730,15 @@ namespace Models
         // The namespace.
         // > Only ApsaraDB for MongoDB instances are supported.
         shared_ptr<string> namespace_ {};
+        // The node ID.
         shared_ptr<string> nodeId_ {};
+        // The operation type.
+        // > Only ApsaraDB for MongoDB instances are supported.
         shared_ptr<string> opType_ {};
+        // The execution time at the Redis proxy.
         shared_ptr<string> originTime_ {};
+        // The parameter values attached to the SQL statement in parameter query scenarios. Multiple parameters are separated by commas (,).
+        // > Only ApsaraDB for Lindorm database instances are supported.
         shared_ptr<string> params_ {};
         // The number of physical reads.
         // 
@@ -742,18 +755,24 @@ namespace Models
         shared_ptr<int64_t> queryTime_ {};
         // The query duration, in seconds.
         shared_ptr<double> queryTimeSeconds_ {};
+        // The error message when the slow query execution fails.
+        // > Only ApsaraDB for Lindorm instances are supported.
         shared_ptr<string> reason_ {};
+        // The unique identifier of the slow query log record.
+        // > Only ApsaraDB for Lindorm instances are supported.
         shared_ptr<string> reqId_ {};
+        // The request packet size at the Redis proxy layer, in bytes.
         shared_ptr<int64_t> requestSize_ {};
+        // The response packet size at the Redis proxy layer, in bytes.
         shared_ptr<int64_t> responseSize_ {};
         // The number of returned items.
         shared_ptr<string> returnItemNumbers_ {};
         // The number of rows returned.
         // > Only ApsaraDB for MongoDB instances are supported.
         shared_ptr<string> returnNum_ {};
-        // The total number of rows updated or returned by the compute nodes of the ApsaraDB PolarDB-X 2.0 database instance.
+        // The total number of rows updated or returned by the compute nodes of the PolarDB-X 2.0 database instance.
         // 
-        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+        // > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
         shared_ptr<int64_t> rows_ {};
         // The number of rows affected.
         // 
@@ -763,39 +782,40 @@ namespace Models
         shared_ptr<int64_t> rowsExamined_ {};
         // The number of rows returned.
         shared_ptr<int64_t> rowsSent_ {};
+        // The total response time at the Redis proxy layer, in microseconds.
         shared_ptr<int64_t> rt_ {};
         // The SQL text.
         shared_ptr<string> SQLText_ {};
         // The data schema.
         shared_ptr<string> scheme_ {};
-        // The number of DN requests from the compute node (CN) of the ApsaraDB PolarDB-X 2.0 database instance.
+        // The number of data node (DN) requests from the compute node (CN) of the PolarDB-X 2.0 database.
         // 
-        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+        // > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
         shared_ptr<int64_t> scnt_ {};
         // The SQL template ID.
         shared_ptr<string> sqlId_ {};
         // The tag.
         shared_ptr<Logs::SqlTag> sqlTag_ {};
-        // The SQL statement type. Valid values:
+        // The type of the SQL statement. Valid values:
         // - **SELECT**
         // - **UPDATE**
         // - **DELETE**
         shared_ptr<string> sqlType_ {};
-        // The child instance ID.
+        // The sub-instance ID.
         shared_ptr<string> subInstanceId_ {};
         // The table name.
         shared_ptr<string> tableName_ {};
-        // The template ID of the ApsaraDB PolarDB-X 2.0 database instance.
+        // The template ID of the PolarDB-X 2.0 database.
         // 
-        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+        // > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
         shared_ptr<string> templateId_ {};
         // The thread ID.
         shared_ptr<string> threadId_ {};
         // The timestamp.
         shared_ptr<int64_t> timestamp_ {};
-        // The trace ID of PolarDB-X 2.0, which is the execute ID of the SQL statement on the ApsaraDB PolarDB-X 2.0 database node.
+        // The trace ID of PolarDB-X 2.0, which is the execute ID of the SQL statement on the database data node.
         // 
-        // > Only ApsaraDB PolarDB-X 2.0 instances are supported.
+        // > Only ApsaraDB PolarDB-X 2.0 database instances are supported.
         shared_ptr<string> traceId_ {};
       };
 
@@ -881,7 +901,7 @@ namespace Models
       shared_ptr<string> dbInstanceName_ {};
       // The end time.
       shared_ptr<string> endTime_ {};
-      // The number of items in the query log list on the current page.
+      // The number of items in the log list on the current page.
       shared_ptr<int64_t> itemsNumbers_ {};
       // The returned data.
       shared_ptr<vector<Data::Logs>> logs_ {};
@@ -889,7 +909,7 @@ namespace Models
       shared_ptr<int32_t> maxRecordsPerPage_ {};
       // The node ID.
       shared_ptr<string> nodeId_ {};
-      // The page number for the paged query. Pages start from page 1. Default value: 1.
+      // The page number for the paged query. The value starts from 1. Default value: 1.
       shared_ptr<int32_t> pageNumbers_ {};
       // The start time.
       shared_ptr<string> startTime_ {};
@@ -946,11 +966,11 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
+    // Indicates whether the request was successful.
     // 
-    // - **true**: successful.
+    // - **true**: The request was successful.
     // 
-    // - **false**: failed.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

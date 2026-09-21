@@ -114,6 +114,9 @@
 #include <alibabacloud/models/DescribeSlowLogStatisticRequest.hpp>
 #include <alibabacloud/models/DescribeSlowLogStatisticResponseBody.hpp>
 #include <alibabacloud/models/DescribeSlowLogStatisticResponse.hpp>
+#include <alibabacloud/models/DescribeSqlInsightStatisticRequest.hpp>
+#include <alibabacloud/models/DescribeSqlInsightStatisticResponseBody.hpp>
+#include <alibabacloud/models/DescribeSqlInsightStatisticResponse.hpp>
 #include <alibabacloud/models/DescribeSqlLogConfigRequest.hpp>
 #include <alibabacloud/models/DescribeSqlLogConfigResponseBody.hpp>
 #include <alibabacloud/models/DescribeSqlLogConfigResponse.hpp>

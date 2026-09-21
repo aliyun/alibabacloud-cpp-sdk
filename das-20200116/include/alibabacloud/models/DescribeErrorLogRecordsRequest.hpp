@@ -150,14 +150,14 @@ namespace Models
 
 
   protected:
-    // The end time of the query. The value is in the format of a UNIX timestamp. Unit: milliseconds.
-    // >Notice: The value is of the Long type. Precision loss may occur during serialization/deserialization. The value must not be greater than 9007199254740991.
+    // The end time of the query. The value is in the format of a UNIX timestamp, in milliseconds.
+    // >Notice: The data type of this parameter is Long. During the sequence of serialization/deserialization, precision loss may occur. Ensure that the value does not exceed 9007199254740991.
     // 
     // This parameter is required.
     shared_ptr<int64_t> endTime_ {};
     // The filter conditions.
     // 
-    // > Filtering is supported only for error logs of ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for MySQL, PolarDB for PostgreSQL, and PolarDB for PostgreSQL (Compatible with Oracle).
+    // > Only error log filtering for ApsaraDB RDS for MySQL, ApsaraDB RDS for PostgreSQL, PolarDB for MySQL, PolarDB for PostgreSQL, and PolarDB for PostgreSQL (Compatible with Oracle) is supported.
     shared_ptr<vector<DescribeErrorLogRecordsRequest::Filters>> filters_ {};
     // The instance ID.
     // 
@@ -174,11 +174,11 @@ namespace Models
     // - db
     // - mongos
     // 
-    // > This parameter is supported only for ApsaraDB for MongoDB instances.
+    // > Only ApsaraDB for MongoDB instances are supported.
     shared_ptr<string> role_ {};
-    // The start time of the query. The value is in the format of a UNIX timestamp. Unit: milliseconds.
+    // The start time of the query. The value is in the format of a UNIX timestamp, in milliseconds.
     // 
-    // >Notice: The value is of the Long type. Precision loss may occur during serialization/deserialization. The value must not be greater than 9007199254740991.
+    // >Notice: The data type of this parameter is Long. During the sequence of serialization/deserialization, precision loss may occur. Ensure that the value does not exceed 9007199254740991.
     // 
     // This parameter is required.
     shared_ptr<int64_t> startTime_ {};

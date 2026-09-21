@@ -368,7 +368,9 @@ namespace Models
       shared_ptr<string> databaseName_ {};
       // The number of affected rows.
       shared_ptr<int64_t> effectRow_ {};
-      // The execution status. Valid values: 0: failed. 1: succeeded.
+      // The execution status. Valid values:
+      // - 0: failed.
+      // - 1: succeeded.
       shared_ptr<int32_t> executeStatus_ {};
       // The execution duration, in milliseconds.
       shared_ptr<int64_t> executeTime_ {};
@@ -376,7 +378,7 @@ namespace Models
       shared_ptr<int64_t> id_ {};
       // Indicates whether the alert is in the whitelist.
       shared_ptr<bool> inWhiteList_ {};
-      // The instance audit status.
+      // The audit status of the instance.
       shared_ptr<string> instanceAuditStatus_ {};
       // The description of the data asset instance.
       shared_ptr<string> instanceDescription_ {};
@@ -414,7 +416,7 @@ namespace Models
       shared_ptr<int64_t> productId_ {};
       // The rule type.
       shared_ptr<string> ruleCategory_ {};
-      // The ID of the audit policy.
+      // The audit policy ID.
       shared_ptr<string> ruleId_ {};
       // The name of the audit policy.
       shared_ptr<string> ruleName_ {};
@@ -427,14 +429,14 @@ namespace Models
       // The username.
       shared_ptr<string> userName_ {};
       // The risk level. Valid values:
-      // - **1**: low-risk.
-      // - **2**: medium-risk.
-      // - **3**: high-risk.
+      // - **1**: low.
+      // - **2**: medium.
+      // - **3**: high.
       shared_ptr<string> warnLevel_ {};
-      // The name of the risk level. Valid values:
-      // - Low-risk.
-      // - Medium-risk.
-      // - High-risk.
+      // The risk level name. Valid values:
+      // - Low.
+      // - Medium.
+      // - High.
       shared_ptr<string> warnLevelName_ {};
     };
 
@@ -491,7 +493,7 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The client IP addresses in the SQL log records.
     shared_ptr<vector<DescribeAuditLogsResponseBody::Items>> items_ {};
-    // The page size for the paged query. This parameter indicates the number of entries per page for paging.
+    // The page size for the paged query. This value indicates the number of records per page for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

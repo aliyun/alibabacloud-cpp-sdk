@@ -77,6 +77,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Content, content_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(DBInstanceName, DBInstanceName_);
+          DARABONBA_PTR_TO_JSON(Db, db_);
+          DARABONBA_PTR_TO_JSON(User, user_);
+          DARABONBA_PTR_TO_JSON(UserIp, userIp_);
         };
         friend void from_json(const Darabonba::Json& j, Logs& obj) { 
           DARABONBA_PTR_FROM_JSON(Category, category_);
@@ -84,6 +87,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(Content, content_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(DBInstanceName, DBInstanceName_);
+          DARABONBA_PTR_FROM_JSON(Db, db_);
+          DARABONBA_PTR_FROM_JSON(User, user_);
+          DARABONBA_PTR_FROM_JSON(UserIp, userIp_);
         };
         Logs() = default ;
         Logs(const Logs &) = default ;
@@ -97,7 +103,8 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->category_ == nullptr
-        && this->connInfo_ == nullptr && this->content_ == nullptr && this->createTime_ == nullptr && this->DBInstanceName_ == nullptr; };
+        && this->connInfo_ == nullptr && this->content_ == nullptr && this->createTime_ == nullptr && this->DBInstanceName_ == nullptr && this->db_ == nullptr
+        && this->user_ == nullptr && this->userIp_ == nullptr; };
         // category Field Functions 
         bool hasCategory() const { return this->category_ != nullptr;};
         void deleteCategory() { this->category_ = nullptr;};
@@ -133,11 +140,32 @@ namespace Models
         inline Logs& setDBInstanceName(string DBInstanceName) { DARABONBA_PTR_SET_VALUE(DBInstanceName_, DBInstanceName) };
 
 
+        // db Field Functions 
+        bool hasDb() const { return this->db_ != nullptr;};
+        void deleteDb() { this->db_ = nullptr;};
+        inline string getDb() const { DARABONBA_PTR_GET_DEFAULT(db_, "") };
+        inline Logs& setDb(string db) { DARABONBA_PTR_SET_VALUE(db_, db) };
+
+
+        // user Field Functions 
+        bool hasUser() const { return this->user_ != nullptr;};
+        void deleteUser() { this->user_ = nullptr;};
+        inline string getUser() const { DARABONBA_PTR_GET_DEFAULT(user_, "") };
+        inline Logs& setUser(string user) { DARABONBA_PTR_SET_VALUE(user_, user) };
+
+
+        // userIp Field Functions 
+        bool hasUserIp() const { return this->userIp_ != nullptr;};
+        void deleteUserIp() { this->userIp_ = nullptr;};
+        inline string getUserIp() const { DARABONBA_PTR_GET_DEFAULT(userIp_, "") };
+        inline Logs& setUserIp(string userIp) { DARABONBA_PTR_SET_VALUE(userIp_, userIp) };
+
+
       protected:
         // The log category. Valid values:
         // - **NETWORK**: network connectivity log.
         // - **ACCESS**: access control log.
-        // - **-**: common log.
+        // - **-**: general log.
         // - **COMMAND**: slow log.
         // - **SHARDING**: cluster log.
         // - **STORAGE**: storage engine log.
@@ -145,11 +173,11 @@ namespace Models
         // - **ASIO**: asynchronous I/O log.
         // - **WRITE**: slow update log.
         // 
-        // > This parameter is supported only for ApsaraDB for MongoDB instances.
+        // > Only ApsaraDB for MongoDB instances are supported.
         shared_ptr<string> category_ {};
         // The log connection information.
         // 
-        // > This parameter is supported only for ApsaraDB for MongoDB instances.
+        // > Only ApsaraDB for MongoDB instances are supported.
         shared_ptr<string> connInfo_ {};
         // The error log content.
         shared_ptr<string> content_ {};
@@ -159,8 +187,17 @@ namespace Models
         shared_ptr<string> createTime_ {};
         // The node ID.
         // 
-        // > This parameter is supported only for ApsaraDB for MongoDB instances.
+        // > Only ApsaraDB for MongoDB instances are supported.
         shared_ptr<string> DBInstanceName_ {};
+        // The database name.
+        // > Only certain special logs of ApsaraDB RDS for PostgreSQL and PolarDB for PostgreSQL instances are supported.
+        shared_ptr<string> db_ {};
+        // The database account.
+        // > Only certain special logs of ApsaraDB RDS for PostgreSQL and PolarDB for PostgreSQL instances are supported.
+        shared_ptr<string> user_ {};
+        // The client IP address.
+        // > Only certain special logs of ApsaraDB RDS for PostgreSQL and PolarDB for PostgreSQL instances are supported.
+        shared_ptr<string> userIp_ {};
       };
 
       virtual bool empty() const override { return this->endTime_ == nullptr
@@ -220,17 +257,17 @@ namespace Models
     protected:
       // The end time of the query. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> endTime_ {};
-      // The total number of log entries returned on the current page.
+      // The total number of log entries returned.
       shared_ptr<int64_t> itemsNumbers_ {};
       // The log details.
       shared_ptr<vector<Data::Logs>> logs_ {};
-      // The maximum number of entries per page.
+      // The maximum number of records per page.
       shared_ptr<int32_t> maxRecordsPerPage_ {};
-      // The current page number.
+      // The page number of the current query.
       shared_ptr<int32_t> pageNumbers_ {};
       // The start time of the query. The time is in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
       shared_ptr<string> startTime_ {};
-      // The total number of log entries within the specified time range.
+      // The total number of log entries within the query time range.
       shared_ptr<int64_t> totalRecords_ {};
     };
 
@@ -279,14 +316,14 @@ namespace Models
     // The data details.
     shared_ptr<DescribeErrorLogRecordsResponseBody::Data> data_ {};
     // The returned message.
-    // >  If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
+    // > If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request is successful. Valid values:
     // 
-    // - **true**
-    // - **false**
+    // - **true**: The request is successful.
+    // - **false**: The request fails.
     shared_ptr<bool> success_ {};
   };
 

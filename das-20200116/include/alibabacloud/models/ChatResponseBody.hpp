@@ -245,18 +245,23 @@ namespace Models
   protected:
     // The heartbeat.
     shared_ptr<string> activityType_ {};
+    // The agent ID.
     shared_ptr<string> agentId_ {};
     // The response content.
     shared_ptr<string> content_ {};
     // Indicates whether the content is incremental.
     shared_ptr<string> delta_ {};
+    // The step type of STEP_STARTED, such as task.
     shared_ptr<string> kind_ {};
+    // The display name of the sub-agent for STEP_STARTED.
     shared_ptr<string> label_ {};
     // The message ID.
     shared_ptr<string> messageId_ {};
     // The extension key.
     shared_ptr<string> name_ {};
+    // The original ID of the tool call.
     shared_ptr<string> originatingToolCallId_ {};
+    // The parent agent ID.
     shared_ptr<string> parentAgentId_ {};
     // The parent message ID.
     shared_ptr<string> parentMessageId_ {};
@@ -266,14 +271,17 @@ namespace Models
     shared_ptr<string> runId_ {};
     // The execution step name.
     shared_ptr<string> stepName_ {};
+    // The step status of STEP_FINISHED, such as completed.
     shared_ptr<string> stepStatus_ {};
-    // The callback tool class.
+    // The callback utility class.
     shared_ptr<string> taskTrackerId_ {};
     // The thread ID.
     shared_ptr<string> threadId_ {};
+    // The event timestamp.
     shared_ptr<int64_t> timestamp_ {};
+    // The error that occurred during tool invocation.
     shared_ptr<string> toolCallError_ {};
-    // The tool calling invoke ID.
+    // The tool invocation ID.
     shared_ptr<string> toolCallId_ {};
     // The tool name.
     shared_ptr<string> toolCallName_ {};
