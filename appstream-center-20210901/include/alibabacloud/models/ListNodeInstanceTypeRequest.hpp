@@ -188,13 +188,15 @@ namespace Models
   protected:
     // The region ID of the resource. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     shared_ptr<string> bizRegionId_ {};
+    // The billing type.
     shared_ptr<string> chargeType_ {};
     // The number of CPU cores.
     shared_ptr<float> cpu_ {};
     // The number of GPUs.
     shared_ptr<float> gpu_ {};
-    // The GPU memory size. This parameter is meaningful for GPU-accelerated cloud desktops. Unit: MB.
+    // The GPU memory size. This value is meaningful for GPU-accelerated cloud desktops. Unit: MB.
     shared_ptr<int32_t> gpuMemory_ {};
+    // The current specification of the instance for specification change.
     shared_ptr<string> instanceTypeForModify_ {};
     // The language type.
     shared_ptr<string> language_ {};
@@ -206,6 +208,7 @@ namespace Models
     shared_ptr<string> nodeInstanceTypeFamily_ {};
     // CPU/Memory
     shared_ptr<string> orderBy_ {};
+    // The specification change type.
     shared_ptr<string> orderType_ {};
     // The supported operating system type.
     shared_ptr<string> osType_ {};

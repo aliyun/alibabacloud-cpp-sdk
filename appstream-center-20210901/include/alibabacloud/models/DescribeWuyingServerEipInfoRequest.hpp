@@ -49,11 +49,11 @@ namespace Models
 
   protected:
     // The Internet service operation provider. Valid values: 
-    // - ChinaMobile: Shift.
+    // - ChinaMobile: China Shift.
     // - ChinaTelecom: China Telecom.
     // - ChinaUnicom: China Unicom.
     shared_ptr<string> isp_ {};
-    // The workspace ID.
+    // The workspace ID. You can obtain this ID from the WuyingServerIdList returned by CreateWuyingServer after creating a workspace, or query the ID of an existing workspace by calling ListWuyingServer.
     // 
     // This parameter is required.
     shared_ptr<string> wuyingServerId_ {};

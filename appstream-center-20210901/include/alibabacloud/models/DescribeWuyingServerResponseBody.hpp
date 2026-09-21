@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(OsType, osType_);
         DARABONBA_PTR_TO_JSON(PrivateIpSets, privateIpSets_);
         DARABONBA_PTR_TO_JSON(Status, status_);
+        DARABONBA_PTR_TO_JSON(SupportASP, supportASP_);
         DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
         DARABONBA_PTR_TO_JSON(SystemDiskSize, systemDiskSize_);
         DARABONBA_PTR_TO_JSON(WuyingServerId, wuyingServerId_);
@@ -71,6 +72,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(OsType, osType_);
         DARABONBA_PTR_FROM_JSON(PrivateIpSets, privateIpSets_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
+        DARABONBA_PTR_FROM_JSON(SupportASP, supportASP_);
         DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
         DARABONBA_PTR_FROM_JSON(SystemDiskSize, systemDiskSize_);
         DARABONBA_PTR_FROM_JSON(WuyingServerId, wuyingServerId_);
@@ -136,8 +138,8 @@ namespace Models
       virtual bool empty() const override { return this->bandwidth_ == nullptr
         && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr && this->createTime_ == nullptr && this->eniPrivateIpAddressQuantity_ == nullptr && this->expiredTime_ == nullptr
         && this->imageId_ == nullptr && this->imageName_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
-        && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->privateIpSets_ == nullptr && this->status_ == nullptr && this->systemDiskCategory_ == nullptr
-        && this->systemDiskSize_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
+        && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->privateIpSets_ == nullptr && this->status_ == nullptr && this->supportASP_ == nullptr
+        && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
       // bandwidth Field Functions 
       bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
       void deleteBandwidth() { this->bandwidth_ = nullptr;};
@@ -245,6 +247,13 @@ namespace Models
       inline Data& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+      // supportASP Field Functions 
+      bool hasSupportASP() const { return this->supportASP_ != nullptr;};
+      void deleteSupportASP() { this->supportASP_ = nullptr;};
+      inline bool getSupportASP() const { DARABONBA_PTR_GET_DEFAULT(supportASP_, false) };
+      inline Data& setSupportASP(bool supportASP) { DARABONBA_PTR_SET_VALUE(supportASP_, supportASP) };
+
+
       // systemDiskCategory Field Functions 
       bool hasSystemDiskCategory() const { return this->systemDiskCategory_ != nullptr;};
       void deleteSystemDiskCategory() { this->systemDiskCategory_ = nullptr;};
@@ -274,17 +283,17 @@ namespace Models
 
 
     protected:
-      // The bandwidth. Unit: Mbit/s.
+      // The bandwidth size, in Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
       // The region ID.
       shared_ptr<string> bizRegionId_ {};
       // The billing type.
       shared_ptr<string> chargeType_ {};
-      // The time when the workstation was created.
+      // The creation time, in US English date and time format with a 12-hour clock.
       shared_ptr<string> createTime_ {};
-      // The maximum number of private IP addresses per ENI, including the primary IP address.
+      // The maximum number of private IP addresses per NIC, including the primary IP address.
       shared_ptr<int32_t> eniPrivateIpAddressQuantity_ {};
-      // The time when the workstation expires.
+      // The expiration time, in US English date and time format with a 12-hour clock.
       shared_ptr<string> expiredTime_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
@@ -302,15 +311,17 @@ namespace Models
       shared_ptr<string> osType_ {};
       // The set of private IP addresses, including the primary and secondary IP addresses.
       shared_ptr<vector<Data::PrivateIpSets>> privateIpSets_ {};
-      // The status of the development workstation.
+      // The status of the development host.
       shared_ptr<string> status_ {};
+      // Whether ASP streaming connection is supported.
+      shared_ptr<bool> supportASP_ {};
       // The type of the system cloud disk.
       shared_ptr<string> systemDiskCategory_ {};
-      // The size of the system cloud disk. Unit: GB.
+      // The size of the system cloud disk, in GB.
       shared_ptr<int32_t> systemDiskSize_ {};
-      // The ID of the development workstation.
+      // The ID of the development host.
       shared_ptr<string> wuyingServerId_ {};
-      // The name of the development workstation.
+      // The name of the development host.
       shared_ptr<string> wuyingServerName_ {};
     };
 
@@ -333,7 +344,7 @@ namespace Models
 
 
   protected:
-    // The details of the development workstation.
+    // The details of the development host.
     shared_ptr<DescribeWuyingServerResponseBody::Data> data_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};

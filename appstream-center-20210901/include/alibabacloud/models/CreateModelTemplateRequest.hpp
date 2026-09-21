@@ -94,13 +94,13 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> bizType_ {};
-    // The description of the model group.
+    // The template group description.
     shared_ptr<string> description_ {};
-    // The name of the model group.
+    // The template group name.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // The authorization scope. This parameter is optional and effective only for Common model groups. Valid values: ALL_USER and USER_MIXED (strictly uppercase). If not specified, the default value is USER_MIXED for Common groups. Non-Common groups ignore this parameter and use RESOURCE_MIXED.
+    // The authorization scope. This parameter is optional and effective only for Common model groups. Valid values: ALL_USER and USER_MIXED (strictly uppercase). If not specified, Common model groups default to USER_MIXED. Non-Common groups ignore this parameter and use RESOURCE_MIXED.
     shared_ptr<string> refScope_ {};
   };
 

@@ -205,9 +205,9 @@ namespace Models
 
 
           protected:
-            // The maximum multiplier. An empty value indicates no upper limit. For example, Min=1 with an empty Max is displayed as 1x and above.
+            // The maximum multiplier. A null value indicates no upper limit. For example, Min=1 with a null Max is displayed as 1x and above.
             shared_ptr<float> max_ {};
-            // The minimum multiplier. When equal to Max, it is a fixed multiplier. For example, Min=Max=2 is displayed as 2x.
+            // The minimum multiplier. When equal to Max, the multiplier is fixed. For example, Min=Max=2 is displayed as 2x.
             shared_ptr<float> min_ {};
           };
 
@@ -277,7 +277,7 @@ namespace Models
 
 
         protected:
-          // The credit consumption multiplier. An empty value indicates the model does not participate in credit-based billing.
+          // The credit consumption multiplier. A null value indicates that the model does not participate in credit-based billing.
           shared_ptr<LlmInfoList::CreditMultiplier> creditMultiplier_ {};
           // The model description.
           shared_ptr<string> description_ {};
@@ -393,7 +393,7 @@ namespace Models
       shared_ptr<string> modelTemplateId_ {};
       // The model group name.
       shared_ptr<string> modelTemplateName_ {};
-      // The model template association type (returned only when present).
+      // The model template association type (only when present).
       shared_ptr<string> modelTemplateRefType_ {};
       // The resource group ID to which the runtime belongs (null if not assigned to a resource group).
       shared_ptr<string> resourceGroupId_ {};

@@ -13,6 +13,7 @@ namespace Models
   class ModifyBrowserInstanceGroupShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyBrowserInstanceGroupShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthNotificationEnabled, authNotificationEnabled_);
       DARABONBA_PTR_TO_JSON(BrowserConfig, browserConfigShrink_);
       DARABONBA_PTR_TO_JSON(BrowserInstanceGroupId, browserInstanceGroupId_);
       DARABONBA_PTR_TO_JSON(CloudBrowserName, cloudBrowserName_);
@@ -23,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Timers, timersShrink_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyBrowserInstanceGroupShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthNotificationEnabled, authNotificationEnabled_);
       DARABONBA_PTR_FROM_JSON(BrowserConfig, browserConfigShrink_);
       DARABONBA_PTR_FROM_JSON(BrowserInstanceGroupId, browserInstanceGroupId_);
       DARABONBA_PTR_FROM_JSON(CloudBrowserName, cloudBrowserName_);
@@ -43,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->browserConfigShrink_ == nullptr
-        && this->browserInstanceGroupId_ == nullptr && this->cloudBrowserName_ == nullptr && this->maxAmount_ == nullptr && this->networkShrink_ == nullptr && this->policyShrink_ == nullptr
-        && this->storagePolicyShrink_ == nullptr && this->timersShrink_ == nullptr; };
+    virtual bool empty() const override { return this->authNotificationEnabled_ == nullptr
+        && this->browserConfigShrink_ == nullptr && this->browserInstanceGroupId_ == nullptr && this->cloudBrowserName_ == nullptr && this->maxAmount_ == nullptr && this->networkShrink_ == nullptr
+        && this->policyShrink_ == nullptr && this->storagePolicyShrink_ == nullptr && this->timersShrink_ == nullptr; };
+    // authNotificationEnabled Field Functions 
+    bool hasAuthNotificationEnabled() const { return this->authNotificationEnabled_ != nullptr;};
+    void deleteAuthNotificationEnabled() { this->authNotificationEnabled_ = nullptr;};
+    inline bool getAuthNotificationEnabled() const { DARABONBA_PTR_GET_DEFAULT(authNotificationEnabled_, false) };
+    inline ModifyBrowserInstanceGroupShrinkRequest& setAuthNotificationEnabled(bool authNotificationEnabled) { DARABONBA_PTR_SET_VALUE(authNotificationEnabled_, authNotificationEnabled) };
+
+
     // browserConfigShrink Field Functions 
     bool hasBrowserConfigShrink() const { return this->browserConfigShrink_ != nullptr;};
     void deleteBrowserConfigShrink() { this->browserConfigShrink_ = nullptr;};
@@ -103,6 +112,8 @@ namespace Models
 
 
   protected:
+    // Specifies whether to send notification emails for authorization and deauthorization.
+    shared_ptr<bool> authNotificationEnabled_ {};
     // The browser configuration.
     shared_ptr<string> browserConfigShrink_ {};
     // The ID of the cloud browser to modify.

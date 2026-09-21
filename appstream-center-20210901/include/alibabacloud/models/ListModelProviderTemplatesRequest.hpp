@@ -106,13 +106,13 @@ namespace Models
 
 
   protected:
-    // The Agent platform.
+    // The agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The Agent provider name.
+    // The name of the agent provider.
     // 
     // This parameter is required.
     shared_ptr<string> agentProvider_ {};
-    // The business type.
+    // The business type. Not all business types are supported. Only business types within the supported range are valid. Refer to the listed enumeration values.
     // 
     // This parameter is required.
     shared_ptr<int32_t> bizType_ {};

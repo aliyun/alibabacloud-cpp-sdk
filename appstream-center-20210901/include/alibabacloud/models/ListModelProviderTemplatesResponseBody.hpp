@@ -145,7 +145,7 @@ namespace Models
       shared_ptr<string> providerTemplateId_ {};
       // The model provider type.
       shared_ptr<string> providerType_ {};
-      // The WUYING secure gateway proxy ProviderKey.
+      // The ProviderKey of the WUYING secure gateway proxy.
       shared_ptr<string> wuyingProviderKey_ {};
     };
 
@@ -191,9 +191,9 @@ namespace Models
   protected:
     // The list of returned data objects.
     shared_ptr<vector<ListModelProviderTemplatesResponseBody::Data>> data_ {};
-    // The current page number of the query results.
+    // The page number of the current query result.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page in the query result.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

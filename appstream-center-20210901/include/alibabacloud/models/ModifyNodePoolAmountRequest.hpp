@@ -85,9 +85,12 @@ namespace Models
     protected:
       // The total number of subscription nodes after the upgrade.
       // 
+      // > 
+      // > - This value must be greater than the current number of purchased nodes (Amount) in the delivery group. Otherwise, the API returns InvalidAmount.UnIncrease.
+      // 
       // This parameter is required.
       shared_ptr<int32_t> nodeAmount_ {};
-      // The subscription node modification mode.
+      // The modification mode for subscription nodes.
       shared_ptr<string> prePaidNodeAmountModifyMode_ {};
       // The list of nodes whose billing type is to be modified.
       shared_ptr<vector<string>> prePaidNodeAmountModifyNodeIds_ {};
@@ -119,7 +122,7 @@ namespace Models
 
 
   protected:
-    // The delivery group ID.
+    // The ID of the delivery group.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};

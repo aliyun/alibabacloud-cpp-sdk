@@ -117,7 +117,7 @@ namespace Models
 
 
       protected:
-        // The end user ID bound to the instance.
+        // The ID of the end user bound to the instance.
         shared_ptr<string> endUserId_ {};
         // The usage duration of the instance. Unit: seconds.
         shared_ptr<int64_t> usageDuration_ {};
@@ -220,9 +220,9 @@ namespace Models
       shared_ptr<string> appInstanceId_ {};
       // The binding information between the instance and the user.
       shared_ptr<AppInstanceModels::BindInfo> bindInfo_ {};
-      // The billing type of the instance. Valid values:
-      // - **PrePaid**: subscription (prepaid).
-      // - **PostPaid**: pay-as-you-go (postpaid).
+      // The billing method of the instance. Valid values:
+      // - **PrePaid**: subscription.
+      // - **PostPaid**: pay-as-you-go.
       // > This parameter is returned only when the billing mode of the delivery group to which this instance belongs is resource-based billing (ChargeResourceMode=Node).
       shared_ptr<string> chargeType_ {};
       // The creation time.
@@ -231,7 +231,9 @@ namespace Models
       shared_ptr<string> gmtModified_ {};
       // The public IP address of the primary network interface controller (NIC). This value is returned only when the network policy (`StrategyType`) of the delivery group is set to mixed mode pattern (`Mixed`). Otherwise, this value is empty.
       shared_ptr<string> mainEthPublicIp_ {};
+      // The NIC ID of the instance.
       shared_ptr<string> networkInterfaceId_ {};
+      // The private IP address of the egress traffic NIC.
       shared_ptr<string> networkInterfaceIp_ {};
       // The ID of the node on which the instance runs.
       // > This parameter is returned only when the billing mode of the delivery group to which this instance belongs is resource-based billing (ChargeResourceMode=Node).
@@ -284,9 +286,9 @@ namespace Models
   protected:
     // The list of queried application instances.
     shared_ptr<vector<ListAppInstancesResponseBody::AppInstanceModels>> appInstanceModels_ {};
-    // The page number of the query results to display. Specify this parameter.
+    // The page number of the query results to display. We recommend that you specify this parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of query results per page. Maximum value: `100`. Specify this parameter.
+    // The number of query results per page. Maximum value: `100`. We recommend that you specify this parameter.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
         DARABONBA_PTR_TO_JSON(EniPrivateIpAddressQuantity, eniPrivateIpAddressQuantity_);
+        DARABONBA_PTR_TO_JSON(ErdmaStatus, erdmaStatus_);
         DARABONBA_PTR_TO_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_TO_JSON(FotaVersion, fotaVersion_);
         DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -68,6 +69,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Sessions, sessions_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(SubPayType, subPayType_);
+        DARABONBA_PTR_TO_JSON(SupportASP, supportASP_);
         DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
         DARABONBA_PTR_TO_JSON(SystemDiskId, systemDiskId_);
         DARABONBA_PTR_TO_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
@@ -91,6 +93,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
         DARABONBA_PTR_FROM_JSON(EniPrivateIpAddressQuantity, eniPrivateIpAddressQuantity_);
+        DARABONBA_PTR_FROM_JSON(ErdmaStatus, erdmaStatus_);
         DARABONBA_PTR_FROM_JSON(ExpiredTime, expiredTime_);
         DARABONBA_PTR_FROM_JSON(FotaVersion, fotaVersion_);
         DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -110,6 +113,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Sessions, sessions_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(SubPayType, subPayType_);
+        DARABONBA_PTR_FROM_JSON(SupportASP, supportASP_);
         DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
         DARABONBA_PTR_FROM_JSON(SystemDiskId, systemDiskId_);
         DARABONBA_PTR_FROM_JSON(SystemDiskPerformanceLevel, systemDiskPerformanceLevel_);
@@ -173,7 +177,7 @@ namespace Models
 
 
       protected:
-        // The start time of the session.
+        // The session start time in ISO 8601 format.
         shared_ptr<string> resourceSessionStartTime_ {};
         // The user ID.
         shared_ptr<string> userId_ {};
@@ -305,7 +309,9 @@ namespace Models
 
 
       protected:
-        // Indicates whether the IP address is the primary private IP address. A value of true indicates the primary private IP address. A value of false indicates a secondary private IP address.
+        // Indicates whether the IP address is the primary private IP address. Valid values:
+        // - true: The IP address is the primary private IP address.
+        // - false: The IP address is a secondary private IP address.
         shared_ptr<bool> primary_ {};
         // The private IP address.
         shared_ptr<string> privateIpAddress_ {};
@@ -420,27 +426,28 @@ namespace Models
 
 
       protected:
-        // The data cloud disk type.
+        // The type of the data cloud disk.
         shared_ptr<string> dataDiskCategory_ {};
-        // The data cloud disk ID.
+        // The ID of the data cloud disk.
         shared_ptr<string> dataDiskId_ {};
-        // The data cloud disk sequence number.
+        // The sequence number of the data cloud disk.
         shared_ptr<string> dataDiskNo_ {};
-        // The data cloud disk performance level.
+        // The performance level (PL) of the data cloud disk.
         shared_ptr<string> dataDiskPerformanceLevel_ {};
-        // The data cloud disk size. Unit: GB.
+        // The size of the data cloud disk. Unit: GB.
         shared_ptr<int32_t> dataDiskSize_ {};
       };
 
       virtual bool empty() const override { return this->addVirtualNodePoolStatus_ == nullptr
         && this->aliUid_ == nullptr && this->bandwidth_ == nullptr && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr && this->createTime_ == nullptr
-        && this->dataDisk_ == nullptr && this->eniPrivateIpAddressQuantity_ == nullptr && this->expiredTime_ == nullptr && this->fotaVersion_ == nullptr && this->imageId_ == nullptr
-        && this->imageName_ == nullptr && this->instanceInfoList_ == nullptr && this->maxPrice_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr
-        && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->policyGroupIdList_ == nullptr && this->privateIpSets_ == nullptr
-        && this->resourceSessionStatus_ == nullptr && this->securityGroupIds_ == nullptr && this->serverInstanceTypeInfo_ == nullptr && this->sessions_ == nullptr && this->status_ == nullptr
-        && this->subPayType_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskId_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr
-        && this->timerGroupId_ == nullptr && this->users_ == nullptr && this->virtualKubeletIp_ == nullptr && this->virtualNodePoolId_ == nullptr && this->vkUpgradeNeeded_ == nullptr
-        && this->vkVersion_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr && this->zoneId_ == nullptr; };
+        && this->dataDisk_ == nullptr && this->eniPrivateIpAddressQuantity_ == nullptr && this->erdmaStatus_ == nullptr && this->expiredTime_ == nullptr && this->fotaVersion_ == nullptr
+        && this->imageId_ == nullptr && this->imageName_ == nullptr && this->instanceInfoList_ == nullptr && this->maxPrice_ == nullptr && this->networkInterfaceIp_ == nullptr
+        && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->policyGroupIdList_ == nullptr
+        && this->privateIpSets_ == nullptr && this->resourceSessionStatus_ == nullptr && this->securityGroupIds_ == nullptr && this->serverInstanceTypeInfo_ == nullptr && this->sessions_ == nullptr
+        && this->status_ == nullptr && this->subPayType_ == nullptr && this->supportASP_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskId_ == nullptr
+        && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr && this->timerGroupId_ == nullptr && this->users_ == nullptr && this->virtualKubeletIp_ == nullptr
+        && this->virtualNodePoolId_ == nullptr && this->vkUpgradeNeeded_ == nullptr && this->vkVersion_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr
+        && this->zoneId_ == nullptr; };
       // addVirtualNodePoolStatus Field Functions 
       bool hasAddVirtualNodePoolStatus() const { return this->addVirtualNodePoolStatus_ != nullptr;};
       void deleteAddVirtualNodePoolStatus() { this->addVirtualNodePoolStatus_ = nullptr;};
@@ -497,6 +504,13 @@ namespace Models
       void deleteEniPrivateIpAddressQuantity() { this->eniPrivateIpAddressQuantity_ = nullptr;};
       inline int32_t getEniPrivateIpAddressQuantity() const { DARABONBA_PTR_GET_DEFAULT(eniPrivateIpAddressQuantity_, 0) };
       inline WuyingServerList& setEniPrivateIpAddressQuantity(int32_t eniPrivateIpAddressQuantity) { DARABONBA_PTR_SET_VALUE(eniPrivateIpAddressQuantity_, eniPrivateIpAddressQuantity) };
+
+
+      // erdmaStatus Field Functions 
+      bool hasErdmaStatus() const { return this->erdmaStatus_ != nullptr;};
+      void deleteErdmaStatus() { this->erdmaStatus_ = nullptr;};
+      inline string getErdmaStatus() const { DARABONBA_PTR_GET_DEFAULT(erdmaStatus_, "") };
+      inline WuyingServerList& setErdmaStatus(string erdmaStatus) { DARABONBA_PTR_SET_VALUE(erdmaStatus_, erdmaStatus) };
 
 
       // expiredTime Field Functions 
@@ -644,6 +658,13 @@ namespace Models
       inline WuyingServerList& setSubPayType(string subPayType) { DARABONBA_PTR_SET_VALUE(subPayType_, subPayType) };
 
 
+      // supportASP Field Functions 
+      bool hasSupportASP() const { return this->supportASP_ != nullptr;};
+      void deleteSupportASP() { this->supportASP_ = nullptr;};
+      inline bool getSupportASP() const { DARABONBA_PTR_GET_DEFAULT(supportASP_, false) };
+      inline WuyingServerList& setSupportASP(bool supportASP) { DARABONBA_PTR_SET_VALUE(supportASP_, supportASP) };
+
+
       // systemDiskCategory Field Functions 
       bool hasSystemDiskCategory() const { return this->systemDiskCategory_ != nullptr;};
       void deleteSystemDiskCategory() { this->systemDiskCategory_ = nullptr;};
@@ -738,43 +759,45 @@ namespace Models
 
 
     protected:
-      // The status of adding to the virtual node pool.
+      // The status of adding the workstation to a virtual node pool.
       shared_ptr<string> addVirtualNodePoolStatus_ {};
-      // The tenant UID.
+      // The UID of the tenant.
       shared_ptr<int64_t> aliUid_ {};
       // The bandwidth size. Unit: Mbit/s.
       shared_ptr<int32_t> bandwidth_ {};
       // The region.
       shared_ptr<string> bizRegionId_ {};
-      // The billing method.
+      // The payment method.
       shared_ptr<string> chargeType_ {};
-      // The creation time.
+      // The creation time in ISO 8601 format.
       shared_ptr<string> createTime_ {};
       // The list of data cloud disks.
       shared_ptr<vector<WuyingServerList::DataDisk>> dataDisk_ {};
-      // The maximum number of private IP addresses per ENI, including the primary IP address.
+      // The maximum number of private IP addresses per elastic network interface (ENI), including the primary IP address.
       shared_ptr<int32_t> eniPrivateIpAddressQuantity_ {};
-      // The expiration time.
+      // The eRDMA activation status. Valid values: disabled, enabling, enabled, and failed.
+      shared_ptr<string> erdmaStatus_ {};
+      // The expiration time in ISO 8601 format.
       shared_ptr<string> expiredTime_ {};
       // The FOTA version number.
       shared_ptr<string> fotaVersion_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
-      // The image name.
+      // The name of the image.
       shared_ptr<string> imageName_ {};
-      // The list of workspace instance information.
+      // The list of workstation instance information.
       shared_ptr<vector<WuyingServerList::InstanceInfoList>> instanceInfoList_ {};
-      // The maximum price of the spot instance.
+      // The maximum price for the spot instance.
       shared_ptr<float> maxPrice_ {};
       // The internal IP address.
       shared_ptr<string> networkInterfaceIp_ {};
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The office network name.
+      // The name of the office network.
       shared_ptr<string> officeSiteName_ {};
-      // The office network type.
+      // The network type of the office network.
       shared_ptr<string> officeSiteType_ {};
-      // The operating system type.
+      // The type of the operating system.
       shared_ptr<string> osType_ {};
       // The list of policy group IDs.
       shared_ptr<vector<string>> policyGroupIdList_ {};
@@ -792,15 +815,17 @@ namespace Models
       shared_ptr<string> status_ {};
       // The sub-payment type.
       shared_ptr<string> subPayType_ {};
+      // Whether ASP streaming connection is supported.
+      shared_ptr<bool> supportASP_ {};
       // The system cloud disk type.
       shared_ptr<string> systemDiskCategory_ {};
-      // The ID of the system cloud disk.
+      // The system cloud disk ID.
       shared_ptr<string> systemDiskId_ {};
-      // The system cloud disk performance level.
+      // The performance level (PL) of the system cloud disk.
       shared_ptr<string> systemDiskPerformanceLevel_ {};
       // The system cloud disk size. Unit: GB.
       shared_ptr<int32_t> systemDiskSize_ {};
-      // The ID of the timer group.
+      // The timer group ID.
       shared_ptr<string> timerGroupId_ {};
       // The list of authorized users.
       shared_ptr<vector<string>> users_ {};
@@ -808,7 +833,7 @@ namespace Models
       shared_ptr<string> virtualKubeletIp_ {};
       // The virtual node pool ID.
       shared_ptr<string> virtualNodePoolId_ {};
-      // Indicates whether the Virtual Kubelet needs to be upgraded.
+      // Indicates whether a VirtualKubelet upgrade is needed.
       shared_ptr<bool> vkUpgradeNeeded_ {};
       // The Virtual Kubelet version.
       shared_ptr<string> vkVersion_ {};

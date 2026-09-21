@@ -14,6 +14,7 @@ namespace Models
   class ModifyBrowserInstanceGroupRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyBrowserInstanceGroupRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuthNotificationEnabled, authNotificationEnabled_);
       DARABONBA_PTR_TO_JSON(BrowserConfig, browserConfig_);
       DARABONBA_PTR_TO_JSON(BrowserInstanceGroupId, browserInstanceGroupId_);
       DARABONBA_PTR_TO_JSON(CloudBrowserName, cloudBrowserName_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Timers, timers_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyBrowserInstanceGroupRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuthNotificationEnabled, authNotificationEnabled_);
       DARABONBA_PTR_FROM_JSON(BrowserConfig, browserConfig_);
       DARABONBA_PTR_FROM_JSON(BrowserInstanceGroupId, browserInstanceGroupId_);
       DARABONBA_PTR_FROM_JSON(CloudBrowserName, cloudBrowserName_);
@@ -135,7 +137,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable user roaming.
+        // The roaming switch.
         shared_ptr<bool> userProfileSwitch_ {};
       };
 
@@ -241,7 +243,7 @@ namespace Models
 
 
       protected:
-        // Specifies whether to enable the watermark.
+        // The watermark switch.
         shared_ptr<string> watermarkSwitch_ {};
         // The list of watermark types.
         shared_ptr<vector<string>> watermarkTypes_ {};
@@ -524,25 +526,25 @@ namespace Models
         shared_ptr<string> richTextClipboard_ {};
         // The rich text clipboard limit.
         shared_ptr<int32_t> richTextClipboardLimit_ {};
-        // The maximum size of rich text that can be downloaded from the cloud browser through the clipboard.
+        // The size limit for rich text clipboard data transferred from the cloud.
         shared_ptr<int32_t> richTextClipboardReadLimit_ {};
-        // The size unit for rich text downloaded from the cloud browser through the clipboard.
+        // The size unit for rich text clipboard data transferred from the cloud.
         shared_ptr<string> richTextClipboardReadSizeUnit_ {};
         // The rich text clipboard size unit.
         shared_ptr<string> richTextClipboardSizeUnit_ {};
-        // The maximum size of rich text that can be uploaded to the cloud browser through the clipboard.
+        // The size limit for rich text clipboard data transferred to the cloud.
         shared_ptr<int32_t> richTextClipboardWriteLimit_ {};
-        // The size unit for rich text uploaded to the cloud browser through the clipboard.
+        // The size unit for rich text clipboard data transferred to the cloud.
         shared_ptr<string> richTextClipboardWriteSizeUnit_ {};
         // The text clipboard policy.
         shared_ptr<string> textClipboard_ {};
-        // The maximum size of text that can be downloaded from the cloud browser through the clipboard.
+        // The size limit for text clipboard data transferred from the cloud.
         shared_ptr<int32_t> textClipboardReadLimit_ {};
-        // The size unit for text downloaded from the cloud browser through the clipboard.
+        // The size unit for text clipboard data transferred from the cloud.
         shared_ptr<string> textClipboardReadSizeUnit_ {};
-        // The maximum size of text that can be uploaded to the cloud browser through the clipboard.
+        // The size limit for text clipboard data transferred to the cloud.
         shared_ptr<int32_t> textClipboardWriteLimit_ {};
-        // The size unit for text uploaded to the cloud browser through the clipboard.
+        // The size unit for text clipboard data transferred to the cloud.
         shared_ptr<string> textClipboardWriteSizeUnit_ {};
       };
 
@@ -584,7 +586,9 @@ namespace Models
 
 
       protected:
+        // The type of the client.
         shared_ptr<string> clientType_ {};
+        // The status.
         shared_ptr<string> status_ {};
       };
 
@@ -626,7 +630,9 @@ namespace Models
 
 
       protected:
+        // The CIDR block.
         shared_ptr<string> cidrIp_ {};
+        // The description.
         shared_ptr<string> description_ {};
       };
 
@@ -756,27 +762,27 @@ namespace Models
       shared_ptr<string> appContentProtection_ {};
       // The server-side access IP address whitelist.
       shared_ptr<vector<Policy::AuthorizeAccessPolicyRules>> authorizeAccessPolicyRules_ {};
-      // The logon client type control settings.
+      // The client type access control settings.
       shared_ptr<vector<Policy::ClientTypes>> clientTypes_ {};
-      // The clipboard policy.
+      // The clipboard-related policy.
       shared_ptr<Policy::ClipboardPolicy> clipboardPolicy_ {};
-      // The data retention policy upon disconnection.
+      // The data retention policy after disconnection.
       shared_ptr<string> disconnectKeepSession_ {};
-      // The session retention duration upon disconnection.
+      // The session retention duration after disconnection.
       shared_ptr<int32_t> disconnectKeepSessionTime_ {};
       // Specifies whether to enable the floating ball file manager.
       shared_ptr<string> fileManager_ {};
       // The file transfer policy for the web client.
       shared_ptr<string> html5FileTransfer_ {};
-      // The policy for disconnecting sessions when no operation is performed.
+      // Specifies whether to disconnect the session when no operation is performed.
       shared_ptr<string> noOperationDisconnect_ {};
-      // The no-operation disconnect time, in seconds.
+      // The idle timeout period before the session is disconnected, in seconds.
       shared_ptr<int32_t> noOperationDisconnectTime_ {};
       // The policy ID.
       shared_ptr<string> policyId_ {};
       // The policy version.
       shared_ptr<string> policyVersion_ {};
-      // The server-side access IP address whitelist rules to revoke in this request.
+      // The server access IP address whitelist rules to revoke.
       shared_ptr<vector<Policy::RevokeAccessPolicyRules>> revokeAccessPolicyRules_ {};
       // The video policy.
       shared_ptr<Policy::VideoPolicy> videoPolicy_ {};
@@ -847,7 +853,7 @@ namespace Models
 
 
       protected:
-        // The domain name configuration ID. This parameter is required only for modification.
+        // The domain name configuration ID. This parameter is required only when you modify an existing configuration.
         shared_ptr<string> restrictedURLId_ {};
         // The domain name.
         shared_ptr<string> URL_ {};
@@ -985,7 +991,7 @@ namespace Models
       protected:
         // The folder to which the bookmark belongs.
         shared_ptr<string> bookmarkFolder_ {};
-        // The bookmark ID. This parameter is required only for modification scenarios.
+        // The bookmark ID. This parameter is required only for update operations.
         shared_ptr<string> bookmarkId_ {};
         // The bookmark name.
         // 
@@ -1048,7 +1054,7 @@ namespace Models
     protected:
       // The bookmarks.
       shared_ptr<vector<BrowserConfig::Bookmarks>> bookmarks_ {};
-      // The file path of the bookmark list.
+      // The bookmark list file path.
       shared_ptr<string> bookmarksFilePath_ {};
       // The startup parameters.
       shared_ptr<string> browserParam_ {};
@@ -1060,9 +1066,16 @@ namespace Models
       shared_ptr<vector<string>> removeBookmarks_ {};
     };
 
-    virtual bool empty() const override { return this->browserConfig_ == nullptr
-        && this->browserInstanceGroupId_ == nullptr && this->cloudBrowserName_ == nullptr && this->maxAmount_ == nullptr && this->network_ == nullptr && this->policy_ == nullptr
-        && this->storagePolicy_ == nullptr && this->timers_ == nullptr; };
+    virtual bool empty() const override { return this->authNotificationEnabled_ == nullptr
+        && this->browserConfig_ == nullptr && this->browserInstanceGroupId_ == nullptr && this->cloudBrowserName_ == nullptr && this->maxAmount_ == nullptr && this->network_ == nullptr
+        && this->policy_ == nullptr && this->storagePolicy_ == nullptr && this->timers_ == nullptr; };
+    // authNotificationEnabled Field Functions 
+    bool hasAuthNotificationEnabled() const { return this->authNotificationEnabled_ != nullptr;};
+    void deleteAuthNotificationEnabled() { this->authNotificationEnabled_ = nullptr;};
+    inline bool getAuthNotificationEnabled() const { DARABONBA_PTR_GET_DEFAULT(authNotificationEnabled_, false) };
+    inline ModifyBrowserInstanceGroupRequest& setAuthNotificationEnabled(bool authNotificationEnabled) { DARABONBA_PTR_SET_VALUE(authNotificationEnabled_, authNotificationEnabled) };
+
+
     // browserConfig Field Functions 
     bool hasBrowserConfig() const { return this->browserConfig_ != nullptr;};
     void deleteBrowserConfig() { this->browserConfig_ = nullptr;};
@@ -1130,6 +1143,8 @@ namespace Models
 
 
   protected:
+    // Specifies whether to send notification emails for authorization and deauthorization.
+    shared_ptr<bool> authNotificationEnabled_ {};
     // The browser configuration.
     shared_ptr<ModifyBrowserInstanceGroupRequest::BrowserConfig> browserConfig_ {};
     // The ID of the cloud browser to modify.

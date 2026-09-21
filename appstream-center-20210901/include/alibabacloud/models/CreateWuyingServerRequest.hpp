@@ -21,6 +21,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_TO_JSON(DataDisk, dataDisk_);
+      DARABONBA_PTR_TO_JSON(ErdmaEnabled, erdmaEnabled_);
+      DARABONBA_PTR_TO_JSON(GpuDriverVersion, gpuDriverVersion_);
       DARABONBA_PTR_TO_JSON(HostName, hostName_);
       DARABONBA_PTR_TO_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
@@ -50,6 +52,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BizRegionId, bizRegionId_);
       DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
       DARABONBA_PTR_FROM_JSON(DataDisk, dataDisk_);
+      DARABONBA_PTR_FROM_JSON(ErdmaEnabled, erdmaEnabled_);
+      DARABONBA_PTR_FROM_JSON(GpuDriverVersion, gpuDriverVersion_);
       DARABONBA_PTR_FROM_JSON(HostName, hostName_);
       DARABONBA_PTR_FROM_JSON(IdempotenceToken, idempotenceToken_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
@@ -129,21 +133,21 @@ namespace Models
 
 
     protected:
-      // The type of the data cloud disk.
+      // The data cloud disk type.
       shared_ptr<string> dataDiskCategory_ {};
-      // The performance level of the data cloud disk.
+      // The data cloud disk performance level.
       shared_ptr<string> dataDiskPerformanceLevel_ {};
-      // The size of the data cloud disk.
+      // The data cloud disk size.
       shared_ptr<int32_t> dataDiskSize_ {};
     };
 
     virtual bool empty() const override { return this->amount_ == nullptr
         && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bandwidth_ == nullptr && this->bizRegionId_ == nullptr && this->chargeType_ == nullptr
-        && this->dataDisk_ == nullptr && this->hostName_ == nullptr && this->idempotenceToken_ == nullptr && this->imageId_ == nullptr && this->maxPrice_ == nullptr
-        && this->networkStrategyType_ == nullptr && this->officeSiteId_ == nullptr && this->password_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
-        && this->promotionId_ == nullptr && this->savingPlanId_ == nullptr && this->serverInstanceType_ == nullptr && this->serverPortRange_ == nullptr && this->subPayType_ == nullptr
-        && this->systemDiskCategory_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr && this->vSwitchIds_ == nullptr && this->virtualNodePoolId_ == nullptr
-        && this->wuyingServerName_ == nullptr; };
+        && this->dataDisk_ == nullptr && this->erdmaEnabled_ == nullptr && this->gpuDriverVersion_ == nullptr && this->hostName_ == nullptr && this->idempotenceToken_ == nullptr
+        && this->imageId_ == nullptr && this->maxPrice_ == nullptr && this->networkStrategyType_ == nullptr && this->officeSiteId_ == nullptr && this->password_ == nullptr
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr && this->savingPlanId_ == nullptr && this->serverInstanceType_ == nullptr
+        && this->serverPortRange_ == nullptr && this->subPayType_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr
+        && this->vSwitchIds_ == nullptr && this->virtualNodePoolId_ == nullptr && this->wuyingServerName_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -193,6 +197,20 @@ namespace Models
     inline vector<CreateWuyingServerRequest::DataDisk> getDataDisk() { DARABONBA_PTR_GET(dataDisk_, vector<CreateWuyingServerRequest::DataDisk>) };
     inline CreateWuyingServerRequest& setDataDisk(const vector<CreateWuyingServerRequest::DataDisk> & dataDisk) { DARABONBA_PTR_SET_VALUE(dataDisk_, dataDisk) };
     inline CreateWuyingServerRequest& setDataDisk(vector<CreateWuyingServerRequest::DataDisk> && dataDisk) { DARABONBA_PTR_SET_RVALUE(dataDisk_, dataDisk) };
+
+
+    // erdmaEnabled Field Functions 
+    bool hasErdmaEnabled() const { return this->erdmaEnabled_ != nullptr;};
+    void deleteErdmaEnabled() { this->erdmaEnabled_ = nullptr;};
+    inline bool getErdmaEnabled() const { DARABONBA_PTR_GET_DEFAULT(erdmaEnabled_, false) };
+    inline CreateWuyingServerRequest& setErdmaEnabled(bool erdmaEnabled) { DARABONBA_PTR_SET_VALUE(erdmaEnabled_, erdmaEnabled) };
+
+
+    // gpuDriverVersion Field Functions 
+    bool hasGpuDriverVersion() const { return this->gpuDriverVersion_ != nullptr;};
+    void deleteGpuDriverVersion() { this->gpuDriverVersion_ = nullptr;};
+    inline string getGpuDriverVersion() const { DARABONBA_PTR_GET_DEFAULT(gpuDriverVersion_, "") };
+    inline CreateWuyingServerRequest& setGpuDriverVersion(string gpuDriverVersion) { DARABONBA_PTR_SET_VALUE(gpuDriverVersion_, gpuDriverVersion) };
 
 
     // hostName Field Functions 
@@ -338,7 +356,7 @@ namespace Models
 
 
   protected:
-    // The number of workstations to create.
+    // The quantity.
     shared_ptr<int32_t> amount_ {};
     // Specifies whether to enable automatic payment.
     shared_ptr<bool> autoPay_ {};
@@ -346,71 +364,80 @@ namespace Models
     shared_ptr<bool> autoRenew_ {};
     // The bandwidth value. This parameter takes effect only when NetworkStrategyType is set to DirectIp. Unit: Mbit/s. Valid values: 2 to 100.
     shared_ptr<int32_t> bandwidth_ {};
-    // The region ID.
+    // The region.
     shared_ptr<string> bizRegionId_ {};
-    // The billing method.
+    // The billing type.
     shared_ptr<string> chargeType_ {};
     // The list of data cloud disks.
     shared_ptr<vector<CreateWuyingServerRequest::DataDisk>> dataDisk_ {};
+    // Specifies whether to enable dedicated eRDMA network interfaces.
+    shared_ptr<bool> erdmaEnabled_ {};
+    // The GPU driver configuration version, such as grid19.
+    shared_ptr<string> gpuDriverVersion_ {};
     // The hostname. The following limits apply:
     // 
-    // - A period (.) or hyphen (-) cannot be used as the first or last character, and consecutive periods or hyphens are not allowed.
+    // - A period (.) or hyphen (-) cannot be used as the first or last character, and consecutive use is not allowed.
     // 
-    // - Windows workstations: The hostname must be 2 to 15 characters in length. It cannot contain periods (.). Consecutive hyphens are not allowed, and the hostname cannot be all digits. The hostname can contain uppercase and lowercase letters, digits, and hyphens (-).
+    // - Windows workstations: The hostname must be 2 to 15 characters in length. It cannot contain periods (.), consecutive hyphens, or consist entirely of digits. It can contain uppercase and lowercase letters, digits, and hyphens (-).
     // 
     // - Linux workstations:
     // 
-    //   - The hostname must be 2 to 64 characters in length and can contain multiple periods (.). Each segment separated by a period can contain uppercase and lowercase letters, digits, and hyphens (-).
+    //   - The hostname must be 2 to 64 characters in length and can contain multiple periods (.). Each segment between periods can contain uppercase and lowercase letters, digits, and hyphens (-).
     // 
-    //   - You can use the placeholder `${instance_id}` to include the instance ID in the HostName parameter. For example, if you set `HostName=k8s-${instance_id}` and the ECS instance ID is `i-123abc****`, the hostname is `k8s-i-123abc****`.
+    //   - You can use the placeholder `${instance_id}` to include the instance ID in the HostName parameter. For example, if you set `HostName=k8s-${instance_id}` and the created ECS instance ID is `i-123abc****`, the hostname of the instance is `k8s-i-123abc****`.
     // 
-    // - When you create multiple workstation instances at a time, you can use the `name_prefix[begin_number,bits]name_suffix` format to assign sequential hostnames. For example, if you set HostName to `ecd-[1,4]-test`, the hostname of the first workstation is `ecd-0001-test`, the hostname of the second workstation is `ecd-0002-test`, and so on.
+    // - When creating multiple workstation instances at a time, you can use the `name_prefix[begin_number,bits]name_suffix` naming format to uniformly name multiple workstations. For example, if you set Hostname to `ecd-[1,4]-test`, the hostname of the first workstation is `ecd-0001-test`, the hostname of the second workstation is `ecd-0002-test`, and so on.
     // 
     //   - `name_prefix`: The prefix of the hostname.
     // 
     //   - `[begin_number,bits]`: The sequential number in the hostname.
     // 
-    //     - `begin_number`: The starting number. Valid values: 0 to 999999. Default value: 0. If the value is invalid, it is set to 0.
+    //     - `begin_number`: The starting number. Valid values: 0 to 999999. Default value: 0. If an invalid value is specified, the value is set to 0.
     // 
-    //     - `bits`: The number of digits. Valid values: 1 to 6. Default value: 6. If the value is invalid, it is set to 6.
+    //     - `bits`: The number of digits. Valid values: 1 to 6. Default value: 6. If an invalid value is specified, the value is set to 6.
     // 
     //   - `name_suffix`: The suffix of the hostname.
     shared_ptr<string> hostName_ {};
-    // The idempotence token that ensures the uniqueness of the operation.
+    // The idempotency token that ensures operation uniqueness.
     shared_ptr<string> idempotenceToken_ {};
     // The image ID.
     shared_ptr<string> imageId_ {};
+    // The maximum price.
     shared_ptr<float> maxPrice_ {};
     // The network policy type (invite-only preview).
     shared_ptr<string> networkStrategyType_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The logon password of the workstation.
+    // The workstation logon password.
     shared_ptr<string> password_ {};
     // The subscription duration.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration.
+    // The time unit.
     shared_ptr<string> periodUnit_ {};
     // The discount ID.
     // 
     // 
-    // > If PromotionId is specified, the system attempts to apply the corresponding discount.
+    // > If PromotionId is specified, the corresponding discount is applied.
     shared_ptr<string> promotionId_ {};
+    // The savings plan ID.
     shared_ptr<string> savingPlanId_ {};
     // The workstation instance type.
     shared_ptr<string> serverInstanceType_ {};
+    // The service port range.
     shared_ptr<string> serverPortRange_ {};
+    // The sub-billing type.
     shared_ptr<string> subPayType_ {};
-    // The type of the system cloud disk.
+    // The system cloud disk type.
     shared_ptr<string> systemDiskCategory_ {};
-    // The performance level of the system cloud disk.
+    // The system cloud disk performance level.
     shared_ptr<string> systemDiskPerformanceLevel_ {};
-    // The size of the system cloud disk. Unit: GB.
+    // The system cloud disk size. Unit: GB.
     shared_ptr<int32_t> systemDiskSize_ {};
-    // The list of vSwitches in the office network.
+    // The list of office network vSwitches.
     shared_ptr<vector<string>> vSwitchIds_ {};
+    // The virtual node pool ID.
     shared_ptr<string> virtualNodePoolId_ {};
-    // The workstation name. When you create multiple workstations, a numeric suffix is automatically appended.
+    // The workstation name. When creating multiple workstations, a numeric suffix is automatically appended.
     shared_ptr<string> wuyingServerName_ {};
   };
 

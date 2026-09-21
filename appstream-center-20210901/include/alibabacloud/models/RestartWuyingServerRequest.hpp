@@ -51,6 +51,7 @@ namespace Models
 
 
   protected:
+    // The product type.
     shared_ptr<string> productType_ {};
     // The list of workstation IDs.
     shared_ptr<vector<string>> wuyingServerIdList_ {};

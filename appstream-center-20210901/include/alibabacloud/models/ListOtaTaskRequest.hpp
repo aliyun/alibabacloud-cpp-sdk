@@ -66,7 +66,7 @@ namespace Models
 
 
   protected:
-    // The delivery group ID.
+    // The delivery group ID. You can call ListAppInstanceGroup to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<string> appInstanceGroupId_ {};

@@ -60,11 +60,9 @@ namespace Models
 
 
   protected:
-    // Specifies whether to forcibly restart the workstation. Valid values:
-    // 
-    // - True: forcibly
-    // - False: not forcibly
+    // Specifies whether to forcibly restart the workstation.
     shared_ptr<bool> force_ {};
+    // The product type.
     shared_ptr<string> productType_ {};
     // The list of workstation IDs.
     shared_ptr<vector<string>> wuyingServerIdList_ {};

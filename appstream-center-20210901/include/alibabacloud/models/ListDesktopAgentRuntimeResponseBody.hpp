@@ -144,9 +144,9 @@ namespace Models
       protected:
         // Indicates whether the agent has been uninstalled.
         shared_ptr<bool> agentUninstalled_ {};
-        // Indicates whether the third-party channel configuration has been modified (inconsistent with the administrator-distributed configuration).
+        // Indicates whether the third-party channel configuration has been modified (inconsistent with the configuration distributed by the administrator).
         shared_ptr<bool> channelModified_ {};
-        // Indicates whether the model configuration has been modified (inconsistent with the administrator-distributed configuration).
+        // Indicates whether the model configuration has been modified (inconsistent with the configuration distributed by the administrator).
         shared_ptr<bool> modelModified_ {};
       };
 
@@ -302,17 +302,17 @@ namespace Models
         shared_ptr<string> agentInstanceStatus_ {};
         // The agent instance version.
         shared_ptr<string> agentInstanceVersion_ {};
-        // The agent platform (enum name, such as ENTERPRISE, JVS, or ENTERPRISE_JVS).
+        // The agent platform.
         shared_ptr<string> agentPlatform_ {};
-        // The agent provider (enum name, such as OPEN_CLAW or HERMES_AGENT).
+        // The agent provider.
         shared_ptr<string> agentProvider_ {};
-        // Indicates whether a third-party channel has been configured for the agent instance.
+        // Indicates whether the agent instance has a third-party channel configured.
         shared_ptr<bool> channelConfigure_ {};
         // The list of third-party channels configured for the agent instance.
         shared_ptr<vector<string>> channelConfiguredList_ {};
         // The deployment source.
         shared_ptr<string> deploymentSource_ {};
-        // Indicates whether a model has been configured for the agent instance.
+        // Indicates whether the agent instance has a model configured.
         shared_ptr<bool> modelConfigure_ {};
         // The configured model group ID.
         shared_ptr<string> modelTemplateId_ {};
@@ -541,7 +541,7 @@ namespace Models
       shared_ptr<vector<Data::AgentInstanceInfoList>> agentInstanceInfoList_ {};
       // The list of authorized users.
       shared_ptr<vector<string>> authUsers_ {};
-      // Indicates whether a third-party channel has been configured for the agent runtime.
+      // Indicates whether a third-party channel is configured for the agent runtime.
       shared_ptr<bool> channelConfigure_ {};
       // The list of third-party channels configured for the agent runtime.
       shared_ptr<vector<string>> channelConfiguredList_ {};
@@ -553,9 +553,9 @@ namespace Models
       shared_ptr<string> desktopStatus_ {};
       // Indicates whether there is an authorized user with authorization.
       shared_ptr<bool> hasAuthUser_ {};
-      // The management status list, parsed from the managementStatus composite value.
+      // The management status list, parsed from the managementStatus combined value.
       shared_ptr<vector<string>> managementStatuses_ {};
-      // Indicates whether a model has been configured for the agent runtime.
+      // Indicates whether a model is configured for the agent runtime.
       shared_ptr<bool> modelConfigure_ {};
       // The active model template ID. This parameter is returned only when modelConfigure is set to true.
       shared_ptr<string> modelTemplateId_ {};
@@ -567,7 +567,7 @@ namespace Models
       shared_ptr<vector<string>> qrCodeConfiguringList_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The region location (the Chinese mainland or outside China).
+      // The region location (the Chinese mainland or outside the Chinese mainland).
       shared_ptr<string> regionLocation_ {};
       // The resource group information.
       shared_ptr<Data::ResourceGroup> resourceGroup_ {};

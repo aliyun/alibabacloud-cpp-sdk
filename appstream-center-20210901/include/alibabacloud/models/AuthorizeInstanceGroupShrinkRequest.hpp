@@ -15,6 +15,7 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const AuthorizeInstanceGroupShrinkRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AppInstanceGroupId, appInstanceGroupId_);
+      DARABONBA_PTR_TO_JSON(AppInstanceGroupSetId, appInstanceGroupSetId_);
       DARABONBA_PTR_TO_JSON(AppInstancePersistentId, appInstancePersistentId_);
       DARABONBA_PTR_TO_JSON(AuthorizeUserGroupIds, authorizeUserGroupIds_);
       DARABONBA_PTR_TO_JSON(AuthorizeUserIds, authorizeUserIds_);
@@ -26,6 +27,7 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, AuthorizeInstanceGroupShrinkRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AppInstanceGroupId, appInstanceGroupId_);
+      DARABONBA_PTR_FROM_JSON(AppInstanceGroupSetId, appInstanceGroupSetId_);
       DARABONBA_PTR_FROM_JSON(AppInstancePersistentId, appInstancePersistentId_);
       DARABONBA_PTR_FROM_JSON(AuthorizeUserGroupIds, authorizeUserGroupIds_);
       DARABONBA_PTR_FROM_JSON(AuthorizeUserIds, authorizeUserIds_);
@@ -47,13 +49,20 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
-        && this->appInstancePersistentId_ == nullptr && this->authorizeUserGroupIds_ == nullptr && this->authorizeUserIds_ == nullptr && this->avatarId_ == nullptr && this->productType_ == nullptr
-        && this->unAuthorizeUserGroupIds_ == nullptr && this->unAuthorizeUserIds_ == nullptr && this->userMetaShrink_ == nullptr; };
+        && this->appInstanceGroupSetId_ == nullptr && this->appInstancePersistentId_ == nullptr && this->authorizeUserGroupIds_ == nullptr && this->authorizeUserIds_ == nullptr && this->avatarId_ == nullptr
+        && this->productType_ == nullptr && this->unAuthorizeUserGroupIds_ == nullptr && this->unAuthorizeUserIds_ == nullptr && this->userMetaShrink_ == nullptr; };
     // appInstanceGroupId Field Functions 
     bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
     void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
     inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
     inline AuthorizeInstanceGroupShrinkRequest& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
+
+
+    // appInstanceGroupSetId Field Functions 
+    bool hasAppInstanceGroupSetId() const { return this->appInstanceGroupSetId_ != nullptr;};
+    void deleteAppInstanceGroupSetId() { this->appInstanceGroupSetId_ = nullptr;};
+    inline string getAppInstanceGroupSetId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupSetId_, "") };
+    inline AuthorizeInstanceGroupShrinkRequest& setAppInstanceGroupSetId(string appInstanceGroupSetId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupSetId_, appInstanceGroupSetId) };
 
 
     // appInstancePersistentId Field Functions 
@@ -121,29 +130,33 @@ namespace Models
 
 
   protected:
-    // 交付群組 ID。可呼叫 [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) 介面取得。
-    // 
-    // This parameter is required.
+    // The delivery group ID. You can call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) operation to obtain the ID.
     shared_ptr<string> appInstanceGroupId_ {};
-    // 持續性工作階段 ID。
-    shared_ptr<string> appInstancePersistentId_ {};
-    // 授權使用者群組 ID 清單。
-    shared_ptr<vector<string>> authorizeUserGroupIds_ {};
-    // 要新增交付群組授權的使用者名稱清單。可設定 1\\~100 個。
-    shared_ptr<vector<string>> authorizeUserIds_ {};
-    // 使用者分身 ID。
+    // The delivery group set ID. You must specify either AppInstanceGroupSetId or AppInstanceGroupId, but not both.
+    shared_ptr<string> appInstanceGroupSetId_ {};
+    // The persistent session ID.
     // 
-    // > 此參數未開放使用。
+    // > Metric description
+    // > - This parameter is required when the authorization mode of the delivery group is Session. You can call the ListPersistentAppInstances operation to obtain a valid ID.
+    // > - This parameter is required when ProductType is set to WuyingServer. You can call the ListPersistentAppInstances operation to obtain a valid ID.
+    shared_ptr<string> appInstancePersistentId_ {};
+    // The list of authorized user group IDs to grant authorization.
+    shared_ptr<vector<string>> authorizeUserGroupIds_ {};
+    // The list of usernames to add to the delivery group authorization. You can specify 1 to 100 usernames.
+    shared_ptr<vector<string>> authorizeUserIds_ {};
+    // The user avatar ID.
+    // 
+    // > This parameter is not available for public use.
     shared_ptr<string> avatarId_ {};
-    // 產品類型。
+    // The product type.
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // 取消授權使用者群組 ID 清單。
+    // The list of authorized user group IDs to revoke authorization.
     shared_ptr<vector<string>> unAuthorizeUserGroupIds_ {};
-    // 要移除交付群組授權的使用者名稱清單。可設定 1\\~100 個。
+    // The list of usernames to remove from the delivery group authorization. You can specify 1 to 100 usernames.
     shared_ptr<vector<string>> unAuthorizeUserIds_ {};
-    // 使用者資訊。
+    // The user information.
     shared_ptr<string> userMetaShrink_ {};
   };
 

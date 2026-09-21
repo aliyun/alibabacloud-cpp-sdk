@@ -13,12 +13,14 @@ namespace Models
   class ModifyWuyingServerAttributeRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyWuyingServerAttributeRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ErdmaEnabled, erdmaEnabled_);
       DARABONBA_PTR_TO_JSON(Password, password_);
       DARABONBA_PTR_TO_JSON(ProductType, productType_);
       DARABONBA_PTR_TO_JSON(WuyingServerId, wuyingServerId_);
       DARABONBA_PTR_TO_JSON(WuyingServerName, wuyingServerName_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyWuyingServerAttributeRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ErdmaEnabled, erdmaEnabled_);
       DARABONBA_PTR_FROM_JSON(Password, password_);
       DARABONBA_PTR_FROM_JSON(ProductType, productType_);
       DARABONBA_PTR_FROM_JSON(WuyingServerId, wuyingServerId_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->password_ == nullptr
-        && this->productType_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
+    virtual bool empty() const override { return this->erdmaEnabled_ == nullptr
+        && this->password_ == nullptr && this->productType_ == nullptr && this->wuyingServerId_ == nullptr && this->wuyingServerName_ == nullptr; };
+    // erdmaEnabled Field Functions 
+    bool hasErdmaEnabled() const { return this->erdmaEnabled_ != nullptr;};
+    void deleteErdmaEnabled() { this->erdmaEnabled_ = nullptr;};
+    inline bool getErdmaEnabled() const { DARABONBA_PTR_GET_DEFAULT(erdmaEnabled_, false) };
+    inline ModifyWuyingServerAttributeRequest& setErdmaEnabled(bool erdmaEnabled) { DARABONBA_PTR_SET_VALUE(erdmaEnabled_, erdmaEnabled) };
+
+
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
@@ -66,8 +75,11 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable dedicated eRDMA network interfaces. Only true is supported.
+    shared_ptr<bool> erdmaEnabled_ {};
     // The logon password of the workstation.
     shared_ptr<string> password_ {};
+    // The product type.
     shared_ptr<string> productType_ {};
     // The workstation ID.
     shared_ptr<string> wuyingServerId_ {};

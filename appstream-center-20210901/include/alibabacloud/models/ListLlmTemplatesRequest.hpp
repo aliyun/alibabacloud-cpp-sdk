@@ -108,19 +108,24 @@ namespace Models
   protected:
     // The business type. This parameter is required when SmartModel is set to true.
     shared_ptr<int32_t> bizType_ {};
-    // The model code filter. Fuzzy match is supported.
+    // The model code used for filtering. Fuzzy match is supported.
     shared_ptr<string> llmCode_ {};
     // The model template IDs used for filtering.
     shared_ptr<vector<string>> llmTemplateIds_ {};
     // The ID of the associated model group.
     shared_ptr<string> modelTemplateId_ {};
-    // The page number, starting from 1. Values 0 and 1 return the same result.
+    // The page number. Pages start from page 1. Both 0 and 1 return the same result.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the model provider template.
     shared_ptr<string> providerTemplateId_ {};
-    // Specifies whether to query smart models. If set to true, only LLMs under system preset smart models are returned, and BizType is required. Default value: false.
+    // Specifies whether to query smart models. Valid values:
+    // 
+    // - true: Only LLMs under system preset smart models are returned. In this case, BizType is required.
+    // - false: Smart model filtering is not applied.
+    // 
+    // Default value: false.
     shared_ptr<bool> smartModel_ {};
   };
 

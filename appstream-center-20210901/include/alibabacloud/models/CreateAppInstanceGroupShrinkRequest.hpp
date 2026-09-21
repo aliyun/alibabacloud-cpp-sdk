@@ -308,7 +308,7 @@ namespace Models
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal.
     shared_ptr<bool> autoRenew_ {};
-    // The region ID of the delivery group. For information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+    // The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
     // 
     // This parameter is required.
     shared_ptr<string> bizRegionId_ {};
@@ -328,39 +328,39 @@ namespace Models
     shared_ptr<string> networkShrink_ {};
     // The node pool object.
     shared_ptr<string> nodePoolShrink_ {};
-    // The subscription duration of the resource when `ChargeType` is set to `PrePaid`. This parameter is required. The unit is specified by `PeriodUnit`.
+    // The duration for which you want to purchase resources when `ChargeType` is set to `PrePaid`. This parameter is required in this case. The unit is specified by `PeriodUnit`.
     // 
-    // - If `PeriodUnit` is set to `Week`, valid values:
+    // - If `PeriodUnit` is set to `Week`, valid values of this parameter:
     // 
     //    - 1
     // 
-    // - If `PeriodUnit` is set to `Month`, valid values:
+    // - If `PeriodUnit` is set to `Month`, valid values of this parameter:
     // 
     //    - 1
     //    - 2
     //    - 3
     //    - 6
     // 
-    // - If `PeriodUnit` is set to `Year`, valid values:
+    // - If `PeriodUnit` is set to `Year`, valid values of this parameter:
     // 
     //    - 1
     //    - 2
     //    - 3
     // 
-    // > If `ChargeType` is set to `PostPaid`, set this parameter to 1.
+    // > When `ChargeType` is set to `PostPaid`, set this parameter to the fixed value 1.
     // 
     // This parameter is required.
     shared_ptr<int32_t> period_ {};
     // The unit of the subscription duration when `ChargeType` is set to `PrePaid`.
     // 
-    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is not.
-    // If the request parameters do not match the valid combinations, such as `2 Week`, the API call succeeds but an error occurs during the order placement.
+    // > This parameter is case-sensitive. For example, `Week` is valid, but `week` is invalid.
+    // In addition, if the request parameters do not match the valid combinations, such as `2 Week`, the API call succeeds but an error occurs during the order placement phase.
     // 
-    // > If `ChargeType` is set to `PostPaid`, set this parameter to `Month`.
+    // > When `ChargeType` is set to `PostPaid`, set this parameter to the fixed value `Month`.
     // 
     // This parameter is required.
     shared_ptr<string> periodUnit_ {};
-    // The pre-opened AppId.
+    // The pre-opened application ID.
     shared_ptr<string> preOpenAppId_ {};
     // The product type.
     // 
@@ -372,7 +372,7 @@ namespace Models
     shared_ptr<string> runtimePolicyShrink_ {};
     // The security policy.
     shared_ptr<string> securityPolicyShrink_ {};
-    // The application recycling time, in minutes. After an end user disconnects from the cloud application for a period of time, the cloud application process exits. This period is the application recycling time. Set this parameter to `-1` if you do not want to recycle the application. Valid values: -1 and 3 to 300 (integer). Default value: `15`.
+    // The application recycling time, in minutes. After an end user disconnects from a cloud application for a period of time, the cloud application process exits. This period is the application recycling time. Set this parameter to `-1` if you do not want to recycle the application. Valid values: -1 and 3 to 300 (integer). Default value: `15`.
     // 
     // This parameter is required.
     shared_ptr<int32_t> sessionTimeout_ {};
@@ -384,9 +384,9 @@ namespace Models
     shared_ptr<string> userDefinePolicyShrink_ {};
     // The list of authorized user group IDs.
     shared_ptr<vector<string>> userGroupIds_ {};
-    // The user information to be added to the delivery group as assigned users. This field is required if the `Users` parameter is specified.
+    // The information about the users to be added as assigned users of the delivery group. This parameter is required if the `Users` parameter is specified.
     shared_ptr<string> userInfoShrink_ {};
-    // The list of usernames to be added to the delivery group as assigned users.
+    // The list of usernames to be added as assigned users of the delivery group.
     shared_ptr<vector<string>> users_ {};
     // The display policy.
     shared_ptr<string> videoPolicyShrink_ {};

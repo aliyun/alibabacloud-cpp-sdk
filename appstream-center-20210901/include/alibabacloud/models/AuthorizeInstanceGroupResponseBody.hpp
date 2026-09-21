@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // 請求 ID。
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

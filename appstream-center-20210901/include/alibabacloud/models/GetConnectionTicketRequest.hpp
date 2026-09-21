@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AccessType, accessType_);
       DARABONBA_PTR_TO_JSON(AppId, appId_);
       DARABONBA_PTR_TO_JSON(AppInstanceGroupIdList, appInstanceGroupIdList_);
+      DARABONBA_PTR_TO_JSON(AppInstanceGroupSetId, appInstanceGroupSetId_);
       DARABONBA_PTR_TO_JSON(AppInstanceId, appInstanceId_);
       DARABONBA_PTR_TO_JSON(AppInstancePersistentId, appInstancePersistentId_);
       DARABONBA_PTR_TO_JSON(AppPolicyId, appPolicyId_);
@@ -32,6 +33,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AccessType, accessType_);
       DARABONBA_PTR_FROM_JSON(AppId, appId_);
       DARABONBA_PTR_FROM_JSON(AppInstanceGroupIdList, appInstanceGroupIdList_);
+      DARABONBA_PTR_FROM_JSON(AppInstanceGroupSetId, appInstanceGroupSetId_);
       DARABONBA_PTR_FROM_JSON(AppInstanceId, appInstanceId_);
       DARABONBA_PTR_FROM_JSON(AppInstancePersistentId, appInstancePersistentId_);
       DARABONBA_PTR_FROM_JSON(AppPolicyId, appPolicyId_);
@@ -55,9 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->accessType_ == nullptr
-        && this->appId_ == nullptr && this->appInstanceGroupIdList_ == nullptr && this->appInstanceId_ == nullptr && this->appInstancePersistentId_ == nullptr && this->appPolicyId_ == nullptr
-        && this->appStartParam_ == nullptr && this->appVersion_ == nullptr && this->bizRegionId_ == nullptr && this->endUserId_ == nullptr && this->environmentConfig_ == nullptr
-        && this->productType_ == nullptr && this->taskId_ == nullptr; };
+        && this->appId_ == nullptr && this->appInstanceGroupIdList_ == nullptr && this->appInstanceGroupSetId_ == nullptr && this->appInstanceId_ == nullptr && this->appInstancePersistentId_ == nullptr
+        && this->appPolicyId_ == nullptr && this->appStartParam_ == nullptr && this->appVersion_ == nullptr && this->bizRegionId_ == nullptr && this->endUserId_ == nullptr
+        && this->environmentConfig_ == nullptr && this->productType_ == nullptr && this->taskId_ == nullptr; };
     // accessType Field Functions 
     bool hasAccessType() const { return this->accessType_ != nullptr;};
     void deleteAccessType() { this->accessType_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline vector<string> getAppInstanceGroupIdList() { DARABONBA_PTR_GET(appInstanceGroupIdList_, vector<string>) };
     inline GetConnectionTicketRequest& setAppInstanceGroupIdList(const vector<string> & appInstanceGroupIdList) { DARABONBA_PTR_SET_VALUE(appInstanceGroupIdList_, appInstanceGroupIdList) };
     inline GetConnectionTicketRequest& setAppInstanceGroupIdList(vector<string> && appInstanceGroupIdList) { DARABONBA_PTR_SET_RVALUE(appInstanceGroupIdList_, appInstanceGroupIdList) };
+
+
+    // appInstanceGroupSetId Field Functions 
+    bool hasAppInstanceGroupSetId() const { return this->appInstanceGroupSetId_ != nullptr;};
+    void deleteAppInstanceGroupSetId() { this->appInstanceGroupSetId_ = nullptr;};
+    inline string getAppInstanceGroupSetId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupSetId_, "") };
+    inline GetConnectionTicketRequest& setAppInstanceGroupSetId(string appInstanceGroupSetId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupSetId_, appInstanceGroupSetId) };
 
 
     // appInstanceId Field Functions 
@@ -152,11 +161,7 @@ namespace Models
 
 
   protected:
-    // The access type. If you do not specify this parameter, both types are displayed.
-    // 
-    // Valid values:
-    // - INTERNET: Internet access.
-    // - VPC: Express Connect access.
+    // The access type.
     shared_ptr<string> accessType_ {};
     // The application ID.
     // 
@@ -164,9 +169,11 @@ namespace Models
     shared_ptr<string> appId_ {};
     // The list of delivery groups.
     // 
-    // > - If you specify this parameter, application instances are allocated only from the specified authorized delivery groups.
+    // > - If you specify this parameter, application instances are allocated only from the specified and authorized delivery groups.
     // > - If you specify the `AppInstanceId` or `AppInstancePersistentId` parameter, this parameter is required.
     shared_ptr<vector<string>> appInstanceGroupIdList_ {};
+    // The delivery group set ID used to obtain the connection credential.
+    shared_ptr<string> appInstanceGroupSetId_ {};
     // The application instance ID.
     // 
     // > 
@@ -175,8 +182,9 @@ namespace Models
     shared_ptr<string> appInstanceId_ {};
     // The persistent session ID.
     shared_ptr<string> appInstancePersistentId_ {};
+    // The policy ID.
     shared_ptr<string> appPolicyId_ {};
-    // The application startup parameter. For information about how to obtain startup parameters, see [How to obtain application installation parameters and startup parameters](https://help.aliyun.com/document_detail/426045.html).
+    // The application startup parameter. This parameter is optional. You can refer to the method for specifying startup parameters in the image creation documentation and manually verify the startup parameters during image creation. This field is suitable for startup parameters with variable content, allowing API callers to set them flexibly. For more information about how to obtain startup parameters, see [How to obtain application installation parameters and startup parameters](https://help.aliyun.com/document_detail/426045.html).
     shared_ptr<string> appStartParam_ {};
     // The application version. If you specify this parameter, only the specified version of the application is opened. If you do not specify this parameter, any authorized version of the application is opened.
     shared_ptr<string> appVersion_ {};
@@ -194,9 +202,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> productType_ {};
-    // The task ID.
+    // The node ID.
     // 
-    // > This parameter is required for non-initial calls. Use this parameter to query the task status and connection credentials.
+    // > This parameter is required for non-initial calls. Use this parameter query to invoke the node status and connection credential retrieval.
     shared_ptr<string> taskId_ {};
   };
 

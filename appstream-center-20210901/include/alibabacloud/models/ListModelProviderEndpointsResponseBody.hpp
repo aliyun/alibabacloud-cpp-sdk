@@ -133,11 +133,17 @@ namespace Models
 
 
       protected:
+        // The API compatibility type, such as openai-compatible or anthropic-compatible.
         shared_ptr<string> apiType_ {};
+        // The API base URL, such as https://coding.dashscope.aliyuncs.com/v1.
         shared_ptr<string> baseUrl_ {};
+        // The endpoint description, such as Coding Plan - OpenAI compatible protocol.
         shared_ptr<string> description_ {};
+        // The endpoint identifier name, such as coding-openai or cn-beijing.
         shared_ptr<string> name_ {};
+        // The provider URL.
         shared_ptr<string> providerUrl_ {};
+        // The list of tags used for categorization and filtering, such as coding-plan, on-demand, or cn-beijing.
         shared_ptr<vector<string>> tags_ {};
       };
 
@@ -174,9 +180,13 @@ namespace Models
 
 
     protected:
+      // The provider description, such as Alibaba Cloud Bailian.
       shared_ptr<string> description_ {};
+      // The list of all endpoints under the provider.
       shared_ptr<vector<Data::Endpoints>> endpoints_ {};
+      // The provider name, such as bailian or moonshot.
       shared_ptr<string> providerName_ {};
+      // The provider website URL, which is used to direct users to obtain an API key.
       shared_ptr<string> providerUrl_ {};
     };
 
@@ -199,7 +209,9 @@ namespace Models
 
 
   protected:
+    // The returned data object.
     shared_ptr<vector<ListModelProviderEndpointsResponseBody::Data>> data_ {};
+    // The request ID, which uniquely identifies the request.
     shared_ptr<string> requestId_ {};
   };
 

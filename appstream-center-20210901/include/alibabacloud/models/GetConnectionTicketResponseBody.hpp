@@ -150,8 +150,8 @@ namespace Models
     shared_ptr<string> taskStatus_ {};
     // The tenant ID (Alibaba Cloud account UID).
     shared_ptr<int64_t> tenantId_ {};
-    // The credentials for connecting to the cloud application.
-    // > This parameter is returned only on non-initial calls.
+    // The credential for connecting to the cloud application.
+    // > This parameter is returned only for non-initial calls.
     shared_ptr<string> ticket_ {};
   };
 

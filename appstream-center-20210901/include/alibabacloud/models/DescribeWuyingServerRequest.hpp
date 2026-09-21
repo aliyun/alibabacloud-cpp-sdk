@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The ID of the development workstation.
+    // The ID of the development host.
     // 
     // This parameter is required.
     shared_ptr<string> wuyingServerId_ {};

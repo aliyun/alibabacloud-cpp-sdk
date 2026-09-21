@@ -307,11 +307,11 @@ namespace Models
     shared_ptr<vector<string>> agentInstanceVersions_ {};
     // The agent platform.
     shared_ptr<string> agentPlatform_ {};
-    // The list of agent platforms. If AgentPlatform is also specified, AgentPlatform takes precedence and this list is ignored.
+    // The list of agent platforms. If both AgentPlatformList and AgentPlatform are specified, AgentPlatform takes precedence and this list is ignored.
     shared_ptr<vector<string>> agentPlatformList_ {};
     // The agent provider name.
     shared_ptr<string> agentProvider_ {};
-    // The list of agent providers. If AgentProvider is also specified, AgentProvider takes precedence and this list is ignored.
+    // The list of agent providers. If both AgentProviderList and AgentProvider are specified, AgentProvider takes precedence and this list is ignored.
     shared_ptr<vector<string>> agentProviderList_ {};
     // The list of agent template IDs. A match occurs only when all valid templates are assigned.
     shared_ptr<vector<string>> agentTemplateIds_ {};
@@ -331,13 +331,13 @@ namespace Models
     shared_ptr<vector<string>> desktopNames_ {};
     // The list of Cloud Desktop statuses.
     shared_ptr<vector<string>> desktopStatuses_ {};
-    // Indicates whether an authorized user exists for authorization.
+    // Indicates whether authorization is granted to an authorized user.
     shared_ptr<bool> hasAuthUser_ {};
-    // Specifies whether a risk exists. This parameter is used to filter Cloud Desktops with or without risks and takes effect only when IncludeRiskInfo is set to true.
+    // Specifies whether risks exist. This parameter is used to filter Cloud Desktops with or without risks. It takes effect only when IncludeRiskInfo is set to true.
     // 
-    // Set this parameter to true to return only records with risks. Set this parameter to false to return only records without risks. If you do not specify this parameter, no filtering is applied.
+    // Set this parameter to true to return only records with risks. Set this parameter to false to return only records without risks. If this parameter is not specified, no filtering is applied.
     shared_ptr<bool> hasRisk_ {};
-    // Specifies whether to query and return risk information. Default value: false. If set to true, the response includes the RiskInfo field, and the HasRisk filter takes effect.
+    // Specifies whether to query and return risk information. Default value: false. If this parameter is set to true, the RiskInfo field is included in the response, and the HasRisk filter takes effect.
     shared_ptr<bool> includeRiskInfo_ {};
     // The management status filter, such as Hibernated.
     shared_ptr<string> managementStatus_ {};
@@ -347,7 +347,7 @@ namespace Models
     shared_ptr<string> modelTemplateId_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
-    // The page number. Starts from 1. Values 0 and 1 return the same result.
+    // The page number, starting from 1. Values 0 and 1 return the same result.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

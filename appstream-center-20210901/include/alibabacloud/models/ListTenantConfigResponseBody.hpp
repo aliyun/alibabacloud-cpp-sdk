@@ -83,7 +83,10 @@ namespace Models
     protected:
       // Indicates whether resource expiration reminders are enabled.
       shared_ptr<bool> appInstanceGroupExpireRemind_ {};
+      // The support type for creating shared session delivery groups.
       shared_ptr<string> multiSessionSupportType_ {};
+      // The list of region IDs that support creating shared session delivery groups.
+      // Note: This field has a value only when the support type for creating shared session delivery groups is Specific.
       shared_ptr<vector<string>> multiSessionSupportedRegions_ {};
     };
 

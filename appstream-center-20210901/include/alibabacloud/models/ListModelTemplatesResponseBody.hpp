@@ -174,13 +174,11 @@ namespace Models
       shared_ptr<string> modelTemplateId_ {};
       // The template group name.
       shared_ptr<string> name_ {};
-      // The group authorization scope. Valid values:
-      // - ALL_USER: all users.
-      // - USER_MIXED: user mixed (a mix of user groups and users, only for Common groups).
+      // The group authorization scope. Valid values: ALL_USER (all users) and USER_MIXED (a mix of user groups and users, only for Common groups).
       shared_ptr<string> refScope_ {};
-      // The number of authorized users in the group. Returned only when ListModelTemplates is called with refScope=USER_MIXED. Otherwise null.
+      // The number of authorized users in the group. This value is returned only when ListModelTemplates is called and refScope is USER_MIXED. Otherwise, the value is null.
       shared_ptr<int32_t> userCount_ {};
-      // The number of authorized user groups in the group. Returned only when ListModelTemplates is called with refScope=USER_MIXED. Otherwise null.
+      // The number of authorized user groups in the group. This value is returned only when ListModelTemplates is called and refScope is USER_MIXED. Otherwise, the value is null.
       shared_ptr<int32_t> userGroupCount_ {};
     };
 
@@ -226,7 +224,7 @@ namespace Models
   protected:
     // The list of returned data objects.
     shared_ptr<vector<ListModelTemplatesResponseBody::Data>> data_ {};
-    // The current page number of the query results.
+    // The page number of the current query results.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of query results per page.
     shared_ptr<int32_t> pageSize_ {};

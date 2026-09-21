@@ -42,12 +42,14 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const UserGroups& obj) { 
         DARABONBA_PTR_TO_JSON(AppInstanceGroupId, appInstanceGroupId_);
+        DARABONBA_PTR_TO_JSON(AppInstanceGroupSetId, appInstanceGroupSetId_);
         DARABONBA_PTR_TO_JSON(AuthMode, authMode_);
         DARABONBA_PTR_TO_JSON(GroupId, groupId_);
         DARABONBA_PTR_TO_JSON(GroupName, groupName_);
       };
       friend void from_json(const Darabonba::Json& j, UserGroups& obj) { 
         DARABONBA_PTR_FROM_JSON(AppInstanceGroupId, appInstanceGroupId_);
+        DARABONBA_PTR_FROM_JSON(AppInstanceGroupSetId, appInstanceGroupSetId_);
         DARABONBA_PTR_FROM_JSON(AuthMode, authMode_);
         DARABONBA_PTR_FROM_JSON(GroupId, groupId_);
         DARABONBA_PTR_FROM_JSON(GroupName, groupName_);
@@ -64,12 +66,19 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->appInstanceGroupId_ == nullptr
-        && this->authMode_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr; };
+        && this->appInstanceGroupSetId_ == nullptr && this->authMode_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr; };
       // appInstanceGroupId Field Functions 
       bool hasAppInstanceGroupId() const { return this->appInstanceGroupId_ != nullptr;};
       void deleteAppInstanceGroupId() { this->appInstanceGroupId_ = nullptr;};
       inline string getAppInstanceGroupId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupId_, "") };
       inline UserGroups& setAppInstanceGroupId(string appInstanceGroupId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupId_, appInstanceGroupId) };
+
+
+      // appInstanceGroupSetId Field Functions 
+      bool hasAppInstanceGroupSetId() const { return this->appInstanceGroupSetId_ != nullptr;};
+      void deleteAppInstanceGroupSetId() { this->appInstanceGroupSetId_ = nullptr;};
+      inline string getAppInstanceGroupSetId() const { DARABONBA_PTR_GET_DEFAULT(appInstanceGroupSetId_, "") };
+      inline UserGroups& setAppInstanceGroupSetId(string appInstanceGroupSetId) { DARABONBA_PTR_SET_VALUE(appInstanceGroupSetId_, appInstanceGroupSetId) };
 
 
       // authMode Field Functions 
@@ -96,6 +105,8 @@ namespace Models
     protected:
       // The ID of the delivery group.
       shared_ptr<string> appInstanceGroupId_ {};
+      // The ID of the delivery group set.
+      shared_ptr<string> appInstanceGroupSetId_ {};
       // The authorization mode.
       shared_ptr<string> authMode_ {};
       // The ID of the user group.
@@ -150,7 +161,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
     // The list of user group information.
     shared_ptr<vector<ListAuthorizedUserGroupsResponseBody::UserGroups>> userGroups_ {};

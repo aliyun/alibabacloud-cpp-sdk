@@ -87,6 +87,7 @@ namespace Models
 
 
     protected:
+      // The EIP ID.
       shared_ptr<string> eipId_ {};
       // The public IP address.
       shared_ptr<string> ipAddress_ {};
@@ -115,7 +116,7 @@ namespace Models
 
 
   protected:
-    // The Elastic IP Address (EIP) information.
+    // The EIP information.
     shared_ptr<DescribeWuyingServerEipInfoResponseBody::EipInfoModel> eipInfoModel_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
