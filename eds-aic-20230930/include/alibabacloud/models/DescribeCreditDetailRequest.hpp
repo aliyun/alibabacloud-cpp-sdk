@@ -14,6 +14,7 @@ namespace Models
   class DescribeCreditDetailRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeCreditDetailRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AgentTypes, agentTypes_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeCreditDetailRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AgentTypes, agentTypes_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
@@ -44,9 +46,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->endTime_ == nullptr
-        && this->instanceIds_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->packageIds_ == nullptr && this->pageNum_ == nullptr
-        && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+    virtual bool empty() const override { return this->agentTypes_ == nullptr
+        && this->endTime_ == nullptr && this->instanceIds_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->packageIds_ == nullptr
+        && this->pageNum_ == nullptr && this->pageSize_ == nullptr && this->startTime_ == nullptr; };
+    // agentTypes Field Functions 
+    bool hasAgentTypes() const { return this->agentTypes_ != nullptr;};
+    void deleteAgentTypes() { this->agentTypes_ = nullptr;};
+    inline const vector<string> & getAgentTypes() const { DARABONBA_PTR_GET_CONST(agentTypes_, vector<string>) };
+    inline vector<string> getAgentTypes() { DARABONBA_PTR_GET(agentTypes_, vector<string>) };
+    inline DescribeCreditDetailRequest& setAgentTypes(const vector<string> & agentTypes) { DARABONBA_PTR_SET_VALUE(agentTypes_, agentTypes) };
+    inline DescribeCreditDetailRequest& setAgentTypes(vector<string> && agentTypes) { DARABONBA_PTR_SET_RVALUE(agentTypes_, agentTypes) };
+
+
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -108,15 +119,19 @@ namespace Models
 
 
   protected:
+    // The list of agent types, used to filter credit change details by specified agent types.
+    shared_ptr<vector<string>> agentTypes_ {};
     // The end time.
     shared_ptr<int64_t> endTime_ {};
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
+    // The maximum number of entries to read in this request.
     shared_ptr<int32_t> maxResults_ {};
+    // The token for the next query. If a query does not return all results, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue retrieving results.
     shared_ptr<string> nextToken_ {};
-    // The list of plan packages or credit booster packages.
+    // The list of package or credit booster pack IDs.
     shared_ptr<vector<string>> packageIds_ {};
-    // The page number. Default value: 1.
+    // The page number for pagination. Default value: 1.
     shared_ptr<string> pageNum_ {};
     // The number of entries per page.
     shared_ptr<string> pageSize_ {};

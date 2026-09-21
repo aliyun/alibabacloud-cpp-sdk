@@ -91,7 +91,7 @@ namespace Models
   protected:
     // The list of node instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
-    // The list of package IDs.
+    // The list of packages.
     shared_ptr<vector<string>> packageIds_ {};
     // The package specification.
     shared_ptr<string> packageSpec_ {};

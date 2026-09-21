@@ -36,6 +36,9 @@
 #include <alibabacloud/models/CreateAICloudPhoneRequest.hpp>
 #include <alibabacloud/models/CreateAICloudPhoneResponseBody.hpp>
 #include <alibabacloud/models/CreateAICloudPhoneResponse.hpp>
+#include <alibabacloud/models/CreateAgentSkillRequest.hpp>
+#include <alibabacloud/models/CreateAgentSkillResponseBody.hpp>
+#include <alibabacloud/models/CreateAgentSkillResponse.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupRequest.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupShrinkRequest.hpp>
 #include <alibabacloud/models/CreateAndroidInstanceGroupResponseBody.hpp>
@@ -78,6 +81,9 @@
 #include <alibabacloud/models/CreateSystemPropertyTemplateShrinkRequest.hpp>
 #include <alibabacloud/models/CreateSystemPropertyTemplateResponseBody.hpp>
 #include <alibabacloud/models/CreateSystemPropertyTemplateResponse.hpp>
+#include <alibabacloud/models/DeleteAgentSkillRequest.hpp>
+#include <alibabacloud/models/DeleteAgentSkillResponseBody.hpp>
+#include <alibabacloud/models/DeleteAgentSkillResponse.hpp>
 #include <alibabacloud/models/DeleteAndroidInstanceGroupRequest.hpp>
 #include <alibabacloud/models/DeleteAndroidInstanceGroupResponseBody.hpp>
 #include <alibabacloud/models/DeleteAndroidInstanceGroupResponse.hpp>
@@ -175,6 +181,9 @@
 #include <alibabacloud/models/DescribeScheduledTasksRequest.hpp>
 #include <alibabacloud/models/DescribeScheduledTasksResponseBody.hpp>
 #include <alibabacloud/models/DescribeScheduledTasksResponse.hpp>
+#include <alibabacloud/models/DescribeSkillsRequest.hpp>
+#include <alibabacloud/models/DescribeSkillsResponseBody.hpp>
+#include <alibabacloud/models/DescribeSkillsResponse.hpp>
 #include <alibabacloud/models/DescribeSpecRequest.hpp>
 #include <alibabacloud/models/DescribeSpecResponseBody.hpp>
 #include <alibabacloud/models/DescribeSpecResponse.hpp>
@@ -229,6 +238,9 @@
 #include <alibabacloud/models/InstallMonitorAgentRequest.hpp>
 #include <alibabacloud/models/InstallMonitorAgentResponseBody.hpp>
 #include <alibabacloud/models/InstallMonitorAgentResponse.hpp>
+#include <alibabacloud/models/InstallSkillsRequest.hpp>
+#include <alibabacloud/models/InstallSkillsResponseBody.hpp>
+#include <alibabacloud/models/InstallSkillsResponse.hpp>
 #include <alibabacloud/models/InstanceHealerRequest.hpp>
 #include <alibabacloud/models/InstanceHealerResponseBody.hpp>
 #include <alibabacloud/models/InstanceHealerResponse.hpp>
@@ -360,9 +372,15 @@
 #include <alibabacloud/models/UninstallMonitorAgentRequest.hpp>
 #include <alibabacloud/models/UninstallMonitorAgentResponseBody.hpp>
 #include <alibabacloud/models/UninstallMonitorAgentResponse.hpp>
+#include <alibabacloud/models/UninstallSkillsRequest.hpp>
+#include <alibabacloud/models/UninstallSkillsResponseBody.hpp>
+#include <alibabacloud/models/UninstallSkillsResponse.hpp>
 #include <alibabacloud/models/UntagResourcesRequest.hpp>
 #include <alibabacloud/models/UntagResourcesResponseBody.hpp>
 #include <alibabacloud/models/UntagResourcesResponse.hpp>
+#include <alibabacloud/models/UpdateCloudPhoneNodeSystemImageRequest.hpp>
+#include <alibabacloud/models/UpdateCloudPhoneNodeSystemImageResponseBody.hpp>
+#include <alibabacloud/models/UpdateCloudPhoneNodeSystemImageResponse.hpp>
 #include <alibabacloud/models/UpdateCustomImageNameRequest.hpp>
 #include <alibabacloud/models/UpdateCustomImageNameResponseBody.hpp>
 #include <alibabacloud/models/UpdateCustomImageNameResponse.hpp>

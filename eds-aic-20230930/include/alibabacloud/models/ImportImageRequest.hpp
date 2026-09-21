@@ -13,11 +13,13 @@ namespace Models
   class ImportImageRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ImportImageRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(BaseImageId, baseImageId_);
       DARABONBA_PTR_TO_JSON(ImageDescription, imageDescription_);
       DARABONBA_PTR_TO_JSON(ImageFileURL, imageFileURL_);
       DARABONBA_PTR_TO_JSON(ImageName, imageName_);
     };
     friend void from_json(const Darabonba::Json& j, ImportImageRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(BaseImageId, baseImageId_);
       DARABONBA_PTR_FROM_JSON(ImageDescription, imageDescription_);
       DARABONBA_PTR_FROM_JSON(ImageFileURL, imageFileURL_);
       DARABONBA_PTR_FROM_JSON(ImageName, imageName_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->imageDescription_ == nullptr
-        && this->imageFileURL_ == nullptr && this->imageName_ == nullptr; };
+    virtual bool empty() const override { return this->baseImageId_ == nullptr
+        && this->imageDescription_ == nullptr && this->imageFileURL_ == nullptr && this->imageName_ == nullptr; };
+    // baseImageId Field Functions 
+    bool hasBaseImageId() const { return this->baseImageId_ != nullptr;};
+    void deleteBaseImageId() { this->baseImageId_ = nullptr;};
+    inline string getBaseImageId() const { DARABONBA_PTR_GET_DEFAULT(baseImageId_, "") };
+    inline ImportImageRequest& setBaseImageId(string baseImageId) { DARABONBA_PTR_SET_VALUE(baseImageId_, baseImageId) };
+
+
     // imageDescription Field Functions 
     bool hasImageDescription() const { return this->imageDescription_ != nullptr;};
     void deleteImageDescription() { this->imageDescription_ = nullptr;};
@@ -57,9 +66,11 @@ namespace Models
 
 
   protected:
+    // The ID of the base image.
+    shared_ptr<string> baseImageId_ {};
     // The description of the image.
     shared_ptr<string> imageDescription_ {};
-    // The URL of the image. This must be an Alibaba Cloud OSS address.
+    // The URL of the image. The URL must be an Alibaba Cloud Object Storage Service (OSS) address.
     shared_ptr<string> imageFileURL_ {};
     // The name of the image.
     shared_ptr<string> imageName_ {};

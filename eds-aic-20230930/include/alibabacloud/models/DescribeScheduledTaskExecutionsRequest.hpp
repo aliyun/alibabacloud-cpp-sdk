@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The end time of the time range in ISO-8601 format.
+    // The end time of the time range in ISO 8601 format.
     shared_ptr<string> endTime_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
@@ -106,7 +106,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> scheduledId_ {};
-    // The start time of the time range in ISO-8601 format.
+    // The start time of the time range in ISO 8601 format.
     shared_ptr<string> startTime_ {};
     // The status of the scheduled task.
     shared_ptr<string> status_ {};

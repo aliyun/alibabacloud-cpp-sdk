@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_CREATEMOBILEAGENTPACKAGEREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_CREATEMOBILEAGENTPACKAGEREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_TO_JSON(Tag, tag_);
     };
     friend void from_json(const Darabonba::Json& j, CreateMobileAgentPackageRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Amount, amount_);
@@ -45,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PromotionId, promotionId_);
+      DARABONBA_PTR_FROM_JSON(Tag, tag_);
     };
     CreateMobileAgentPackageRequest() = default ;
     CreateMobileAgentPackageRequest(const CreateMobileAgentPackageRequest &) = default ;
@@ -57,10 +60,54 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Tag : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Tag& obj) { 
+        DARABONBA_PTR_TO_JSON(Key, key_);
+        DARABONBA_PTR_TO_JSON(Value, value_);
+      };
+      friend void from_json(const Darabonba::Json& j, Tag& obj) { 
+        DARABONBA_PTR_FROM_JSON(Key, key_);
+        DARABONBA_PTR_FROM_JSON(Value, value_);
+      };
+      Tag() = default ;
+      Tag(const Tag &) = default ;
+      Tag(Tag &&) = default ;
+      Tag(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Tag() = default ;
+      Tag& operator=(const Tag &) = default ;
+      Tag& operator=(Tag &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+      // key Field Functions 
+      bool hasKey() const { return this->key_ != nullptr;};
+      void deleteKey() { this->key_ = nullptr;};
+      inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+      inline Tag& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+      // value Field Functions 
+      bool hasValue() const { return this->value_ != nullptr;};
+      void deleteValue() { this->value_ = nullptr;};
+      inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+      inline Tag& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+    protected:
+      // The tag key. This parameter cannot be empty.
+      shared_ptr<string> key_ {};
+      // The tag value.
+      shared_ptr<string> value_ {};
+    };
+
     virtual bool empty() const override { return this->amount_ == nullptr
         && this->autoPay_ == nullptr && this->autoRenew_ == nullptr && this->bizRegionId_ == nullptr && this->channelCookie_ == nullptr && this->creditAmount_ == nullptr
         && this->creditConfig_ == nullptr && this->imageId_ == nullptr && this->instanceName_ == nullptr && this->mobileAgentPackageSpec_ == nullptr && this->packageSpecId_ == nullptr
-        && this->paidCallbackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr; };
+        && this->paidCallbackUrl_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->promotionId_ == nullptr && this->tag_ == nullptr; };
     // amount Field Functions 
     bool hasAmount() const { return this->amount_ != nullptr;};
     void deleteAmount() { this->amount_ = nullptr;};
@@ -166,26 +213,35 @@ namespace Models
     inline CreateMobileAgentPackageRequest& setPromotionId(string promotionId) { DARABONBA_PTR_SET_VALUE(promotionId_, promotionId) };
 
 
+    // tag Field Functions 
+    bool hasTag() const { return this->tag_ != nullptr;};
+    void deleteTag() { this->tag_ = nullptr;};
+    inline const vector<CreateMobileAgentPackageRequest::Tag> & getTag() const { DARABONBA_PTR_GET_CONST(tag_, vector<CreateMobileAgentPackageRequest::Tag>) };
+    inline vector<CreateMobileAgentPackageRequest::Tag> getTag() { DARABONBA_PTR_GET(tag_, vector<CreateMobileAgentPackageRequest::Tag>) };
+    inline CreateMobileAgentPackageRequest& setTag(const vector<CreateMobileAgentPackageRequest::Tag> & tag) { DARABONBA_PTR_SET_VALUE(tag_, tag) };
+    inline CreateMobileAgentPackageRequest& setTag(vector<CreateMobileAgentPackageRequest::Tag> && tag) { DARABONBA_PTR_SET_RVALUE(tag_, tag) };
+
+
   protected:
     // The number of resource plans.
     shared_ptr<string> amount_ {};
     // Specifies whether to enable automatic payment. Valid values:
     // 
-    // - **true**: enables automatic payment. Make sure that your account balance is sufficient.
-    // - **false** (default): generates an order without charging the account.
+    // - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
+    // - **false** (default): Only an order is generated. No payment is made.
     // 
     // 
     // 
     // 
-    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated. You can log on to the CloudPhone console to complete the payment.
+    // > If your payment method has an insufficient balance, set this parameter to false. An unpaid order is generated. You can log on to the Elastic Cloud Phone console to complete the payment.
     // >
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
     // 
-    // * **true**: enables auto-renewal.
-    // * **false** (default): disables auto-renewal.
+    // * **true**: Auto-renewal is enabled.
+    // * **false** (default): Auto-renewal is disabled.
     shared_ptr<bool> autoRenew_ {};
-    // The region in which the instance resides. Currently, only cn-hangzhou is supported.
+    // The region where the instance resides. Currently, only cn-hangzhou is supported.
     shared_ptr<string> bizRegionId_ {};
     shared_ptr<string> channelCookie_ {};
     // The credit quota.
@@ -210,6 +266,8 @@ namespace Models
     shared_ptr<string> periodUnit_ {};
     // The ID of the promotional campaign.
     shared_ptr<string> promotionId_ {};
+    // The tags.
+    shared_ptr<vector<CreateMobileAgentPackageRequest::Tag>> tag_ {};
   };
 
   } // namespace Models

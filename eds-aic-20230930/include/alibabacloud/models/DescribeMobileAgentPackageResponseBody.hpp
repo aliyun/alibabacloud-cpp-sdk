@@ -50,6 +50,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PackageStatus, packageStatus_);
         DARABONBA_PTR_TO_JSON(PeriodEndTime, periodEndTime_);
         DARABONBA_PTR_TO_JSON(PeriodStartTime, periodStartTime_);
+        DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(UsedCredit, usedCredit_);
       };
       friend void from_json(const Darabonba::Json& j, PackageList& obj) { 
@@ -62,6 +63,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PackageStatus, packageStatus_);
         DARABONBA_PTR_FROM_JSON(PeriodEndTime, periodEndTime_);
         DARABONBA_PTR_FROM_JSON(PeriodStartTime, periodStartTime_);
+        DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(UsedCredit, usedCredit_);
       };
       PackageList() = default ;
@@ -75,9 +77,53 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      class Tags : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Tags& obj) { 
+          DARABONBA_PTR_TO_JSON(Key, key_);
+          DARABONBA_PTR_TO_JSON(Value, value_);
+        };
+        friend void from_json(const Darabonba::Json& j, Tags& obj) { 
+          DARABONBA_PTR_FROM_JSON(Key, key_);
+          DARABONBA_PTR_FROM_JSON(Value, value_);
+        };
+        Tags() = default ;
+        Tags(const Tags &) = default ;
+        Tags(Tags &&) = default ;
+        Tags(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Tags() = default ;
+        Tags& operator=(const Tags &) = default ;
+        Tags& operator=(Tags &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->key_ == nullptr
+        && this->value_ == nullptr; };
+        // key Field Functions 
+        bool hasKey() const { return this->key_ != nullptr;};
+        void deleteKey() { this->key_ = nullptr;};
+        inline string getKey() const { DARABONBA_PTR_GET_DEFAULT(key_, "") };
+        inline Tags& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
+
+
+        // value Field Functions 
+        bool hasValue() const { return this->value_ != nullptr;};
+        void deleteValue() { this->value_ = nullptr;};
+        inline string getValue() const { DARABONBA_PTR_GET_DEFAULT(value_, "") };
+        inline Tags& setValue(string value) { DARABONBA_PTR_SET_VALUE(value_, value) };
+
+
+      protected:
+        // The label key.
+        shared_ptr<string> key_ {};
+        // The label value.
+        shared_ptr<string> value_ {};
+      };
+
       virtual bool empty() const override { return this->expiredAt_ == nullptr
         && this->instanceIds_ == nullptr && this->packageCredit_ == nullptr && this->packageId_ == nullptr && this->packageSpec_ == nullptr && this->packageSpecName_ == nullptr
-        && this->packageStatus_ == nullptr && this->periodEndTime_ == nullptr && this->periodStartTime_ == nullptr && this->usedCredit_ == nullptr; };
+        && this->packageStatus_ == nullptr && this->periodEndTime_ == nullptr && this->periodStartTime_ == nullptr && this->tags_ == nullptr && this->usedCredit_ == nullptr; };
       // expiredAt Field Functions 
       bool hasExpiredAt() const { return this->expiredAt_ != nullptr;};
       void deleteExpiredAt() { this->expiredAt_ = nullptr;};
@@ -143,6 +189,15 @@ namespace Models
       inline PackageList& setPeriodStartTime(string periodStartTime) { DARABONBA_PTR_SET_VALUE(periodStartTime_, periodStartTime) };
 
 
+      // tags Field Functions 
+      bool hasTags() const { return this->tags_ != nullptr;};
+      void deleteTags() { this->tags_ = nullptr;};
+      inline const vector<PackageList::Tags> & getTags() const { DARABONBA_PTR_GET_CONST(tags_, vector<PackageList::Tags>) };
+      inline vector<PackageList::Tags> getTags() { DARABONBA_PTR_GET(tags_, vector<PackageList::Tags>) };
+      inline PackageList& setTags(const vector<PackageList::Tags> & tags) { DARABONBA_PTR_SET_VALUE(tags_, tags) };
+      inline PackageList& setTags(vector<PackageList::Tags> && tags) { DARABONBA_PTR_SET_RVALUE(tags_, tags) };
+
+
       // usedCredit Field Functions 
       bool hasUsedCredit() const { return this->usedCredit_ != nullptr;};
       void deleteUsedCredit() { this->usedCredit_ = nullptr;};
@@ -166,6 +221,8 @@ namespace Models
       shared_ptr<string> packageStatus_ {};
       shared_ptr<string> periodEndTime_ {};
       shared_ptr<string> periodStartTime_ {};
+      // The labels.
+      shared_ptr<vector<PackageList::Tags>> tags_ {};
       // The number of credits that have been used.
       shared_ptr<string> usedCredit_ {};
     };

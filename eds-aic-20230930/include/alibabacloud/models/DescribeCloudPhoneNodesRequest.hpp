@@ -202,11 +202,11 @@ namespace Models
     shared_ptr<string> bandwidthPackageId_ {};
     // The region ID.
     shared_ptr<string> bizRegionId_ {};
-    // The billing type. Only subscription is supported.
+    // The billing method. Only subscription is supported.
     shared_ptr<string> chargeType_ {};
     // The maximum number of entries per page for a paged query. Maximum value: 100. Default value: 20.
     shared_ptr<string> maxResults_ {};
-    // The pagination token for the next query. If the results of a query are not completely returned, the returned NextToken is not empty. You can pass the returned NextToken in the next query to continue retrieving results.
+    // The pagination token for the next query. If the results of a query are not completely returned, the returned NextToken is not empty. You can include the returned NextToken in the next request to continue the query.
     shared_ptr<string> nextToken_ {};
     // The list of cloud phone matrix IDs.
     shared_ptr<vector<string>> nodeIds_ {};

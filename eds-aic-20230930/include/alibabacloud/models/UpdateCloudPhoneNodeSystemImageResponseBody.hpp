@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_RESETANDROIDINSTANCESINGROUPRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_RESETANDROIDINSTANCESINGROUPRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_UPDATECLOUDPHONENODESYSTEMIMAGERESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_UPDATECLOUDPHONENODESYSTEMIMAGERESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 #include <vector>
 using namespace std;
@@ -11,25 +11,25 @@ namespace EdsAic20230930
 {
 namespace Models
 {
-  class ResetAndroidInstancesInGroupResponseBody : public Darabonba::Model {
+  class UpdateCloudPhoneNodeSystemImageResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ResetAndroidInstancesInGroupResponseBody& obj) { 
-      DARABONBA_PTR_TO_JSON(OrderId, orderId_);
+    friend void to_json(Darabonba::Json& j, const UpdateCloudPhoneNodeSystemImageResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(TaskId, taskId_);
       DARABONBA_PTR_TO_JSON(Tasks, tasks_);
     };
-    friend void from_json(const Darabonba::Json& j, ResetAndroidInstancesInGroupResponseBody& obj) { 
-      DARABONBA_PTR_FROM_JSON(OrderId, orderId_);
+    friend void from_json(const Darabonba::Json& j, UpdateCloudPhoneNodeSystemImageResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
       DARABONBA_PTR_FROM_JSON(Tasks, tasks_);
     };
-    ResetAndroidInstancesInGroupResponseBody() = default ;
-    ResetAndroidInstancesInGroupResponseBody(const ResetAndroidInstancesInGroupResponseBody &) = default ;
-    ResetAndroidInstancesInGroupResponseBody(ResetAndroidInstancesInGroupResponseBody &&) = default ;
-    ResetAndroidInstancesInGroupResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ResetAndroidInstancesInGroupResponseBody() = default ;
-    ResetAndroidInstancesInGroupResponseBody& operator=(const ResetAndroidInstancesInGroupResponseBody &) = default ;
-    ResetAndroidInstancesInGroupResponseBody& operator=(ResetAndroidInstancesInGroupResponseBody &&) = default ;
+    UpdateCloudPhoneNodeSystemImageResponseBody() = default ;
+    UpdateCloudPhoneNodeSystemImageResponseBody(const UpdateCloudPhoneNodeSystemImageResponseBody &) = default ;
+    UpdateCloudPhoneNodeSystemImageResponseBody(UpdateCloudPhoneNodeSystemImageResponseBody &&) = default ;
+    UpdateCloudPhoneNodeSystemImageResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~UpdateCloudPhoneNodeSystemImageResponseBody() = default ;
+    UpdateCloudPhoneNodeSystemImageResponseBody& operator=(const UpdateCloudPhoneNodeSystemImageResponseBody &) = default ;
+    UpdateCloudPhoneNodeSystemImageResponseBody& operator=(UpdateCloudPhoneNodeSystemImageResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -93,7 +93,7 @@ namespace Models
 
 
       protected:
-        // The instance ID.
+        // The node ID.
         shared_ptr<string> instanceId_ {};
         // The child task ID.
         shared_ptr<string> taskId_ {};
@@ -124,38 +124,38 @@ namespace Models
       shared_ptr<string> parentTaskId_ {};
     };
 
-    virtual bool empty() const override { return this->orderId_ == nullptr
-        && this->requestId_ == nullptr && this->tasks_ == nullptr; };
-    // orderId Field Functions 
-    bool hasOrderId() const { return this->orderId_ != nullptr;};
-    void deleteOrderId() { this->orderId_ = nullptr;};
-    inline string getOrderId() const { DARABONBA_PTR_GET_DEFAULT(orderId_, "") };
-    inline ResetAndroidInstancesInGroupResponseBody& setOrderId(string orderId) { DARABONBA_PTR_SET_VALUE(orderId_, orderId) };
-
-
+    virtual bool empty() const override { return this->requestId_ == nullptr
+        && this->taskId_ == nullptr && this->tasks_ == nullptr; };
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline ResetAndroidInstancesInGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline UpdateCloudPhoneNodeSystemImageResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+
+
+    // taskId Field Functions 
+    bool hasTaskId() const { return this->taskId_ != nullptr;};
+    void deleteTaskId() { this->taskId_ = nullptr;};
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline UpdateCloudPhoneNodeSystemImageResponseBody& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
     // tasks Field Functions 
     bool hasTasks() const { return this->tasks_ != nullptr;};
     void deleteTasks() { this->tasks_ = nullptr;};
-    inline const ResetAndroidInstancesInGroupResponseBody::Tasks & getTasks() const { DARABONBA_PTR_GET_CONST(tasks_, ResetAndroidInstancesInGroupResponseBody::Tasks) };
-    inline ResetAndroidInstancesInGroupResponseBody::Tasks getTasks() { DARABONBA_PTR_GET(tasks_, ResetAndroidInstancesInGroupResponseBody::Tasks) };
-    inline ResetAndroidInstancesInGroupResponseBody& setTasks(const ResetAndroidInstancesInGroupResponseBody::Tasks & tasks) { DARABONBA_PTR_SET_VALUE(tasks_, tasks) };
-    inline ResetAndroidInstancesInGroupResponseBody& setTasks(ResetAndroidInstancesInGroupResponseBody::Tasks && tasks) { DARABONBA_PTR_SET_RVALUE(tasks_, tasks) };
+    inline const UpdateCloudPhoneNodeSystemImageResponseBody::Tasks & getTasks() const { DARABONBA_PTR_GET_CONST(tasks_, UpdateCloudPhoneNodeSystemImageResponseBody::Tasks) };
+    inline UpdateCloudPhoneNodeSystemImageResponseBody::Tasks getTasks() { DARABONBA_PTR_GET(tasks_, UpdateCloudPhoneNodeSystemImageResponseBody::Tasks) };
+    inline UpdateCloudPhoneNodeSystemImageResponseBody& setTasks(const UpdateCloudPhoneNodeSystemImageResponseBody::Tasks & tasks) { DARABONBA_PTR_SET_VALUE(tasks_, tasks) };
+    inline UpdateCloudPhoneNodeSystemImageResponseBody& setTasks(UpdateCloudPhoneNodeSystemImageResponseBody::Tasks && tasks) { DARABONBA_PTR_SET_RVALUE(tasks_, tasks) };
 
 
   protected:
-    // The order ID for storage reduction. This parameter is returned only when you reduce storage while resetting instances in a cloud phone matrix. It is not returned in other scenarios.
-    shared_ptr<string> orderId_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // The task ID.
+    shared_ptr<string> taskId_ {};
     // The task information.
-    shared_ptr<ResetAndroidInstancesInGroupResponseBody::Tasks> tasks_ {};
+    shared_ptr<UpdateCloudPhoneNodeSystemImageResponseBody::Tasks> tasks_ {};
   };
 
   } // namespace Models

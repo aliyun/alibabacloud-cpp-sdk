@@ -41,6 +41,8 @@ namespace Models
     class Tasks : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Tasks& obj) { 
+        DARABONBA_PTR_TO_JSON(ArtifactCount, artifactCount_);
+        DARABONBA_PTR_TO_JSON(Artifacts, artifacts_);
         DARABONBA_PTR_TO_JSON(CurrentStatus, currentStatus_);
         DARABONBA_PTR_TO_JSON(DigestSource, digestSource_);
         DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -54,6 +56,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UserPrompt, userPrompt_);
       };
       friend void from_json(const Darabonba::Json& j, Tasks& obj) { 
+        DARABONBA_PTR_FROM_JSON(ArtifactCount, artifactCount_);
+        DARABONBA_PTR_FROM_JSON(Artifacts, artifacts_);
         DARABONBA_PTR_FROM_JSON(CurrentStatus, currentStatus_);
         DARABONBA_PTR_FROM_JSON(DigestSource, digestSource_);
         DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -77,9 +81,103 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->currentStatus_ == nullptr
-        && this->digestSource_ == nullptr && this->instanceId_ == nullptr && this->reason_ == nullptr && this->runningAt_ == nullptr && this->steps_ == nullptr
-        && this->taskDigest_ == nullptr && this->taskDuration_ == nullptr && this->taskId_ == nullptr && this->taskResult_ == nullptr && this->userPrompt_ == nullptr; };
+      class Artifacts : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Artifacts& obj) { 
+          DARABONBA_PTR_TO_JSON(ContentType, contentType_);
+          DARABONBA_PTR_TO_JSON(DownloadUrl, downloadUrl_);
+          DARABONBA_PTR_TO_JSON(Name, name_);
+          DARABONBA_PTR_TO_JSON(Size, size_);
+          DARABONBA_PTR_TO_JSON(UpdatedTime, updatedTime_);
+        };
+        friend void from_json(const Darabonba::Json& j, Artifacts& obj) { 
+          DARABONBA_PTR_FROM_JSON(ContentType, contentType_);
+          DARABONBA_PTR_FROM_JSON(DownloadUrl, downloadUrl_);
+          DARABONBA_PTR_FROM_JSON(Name, name_);
+          DARABONBA_PTR_FROM_JSON(Size, size_);
+          DARABONBA_PTR_FROM_JSON(UpdatedTime, updatedTime_);
+        };
+        Artifacts() = default ;
+        Artifacts(const Artifacts &) = default ;
+        Artifacts(Artifacts &&) = default ;
+        Artifacts(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Artifacts() = default ;
+        Artifacts& operator=(const Artifacts &) = default ;
+        Artifacts& operator=(Artifacts &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->contentType_ == nullptr
+        && this->downloadUrl_ == nullptr && this->name_ == nullptr && this->size_ == nullptr && this->updatedTime_ == nullptr; };
+        // contentType Field Functions 
+        bool hasContentType() const { return this->contentType_ != nullptr;};
+        void deleteContentType() { this->contentType_ = nullptr;};
+        inline string getContentType() const { DARABONBA_PTR_GET_DEFAULT(contentType_, "") };
+        inline Artifacts& setContentType(string contentType) { DARABONBA_PTR_SET_VALUE(contentType_, contentType) };
+
+
+        // downloadUrl Field Functions 
+        bool hasDownloadUrl() const { return this->downloadUrl_ != nullptr;};
+        void deleteDownloadUrl() { this->downloadUrl_ = nullptr;};
+        inline string getDownloadUrl() const { DARABONBA_PTR_GET_DEFAULT(downloadUrl_, "") };
+        inline Artifacts& setDownloadUrl(string downloadUrl) { DARABONBA_PTR_SET_VALUE(downloadUrl_, downloadUrl) };
+
+
+        // name Field Functions 
+        bool hasName() const { return this->name_ != nullptr;};
+        void deleteName() { this->name_ = nullptr;};
+        inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+        inline Artifacts& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+        // size Field Functions 
+        bool hasSize() const { return this->size_ != nullptr;};
+        void deleteSize() { this->size_ = nullptr;};
+        inline int64_t getSize() const { DARABONBA_PTR_GET_DEFAULT(size_, 0L) };
+        inline Artifacts& setSize(int64_t size) { DARABONBA_PTR_SET_VALUE(size_, size) };
+
+
+        // updatedTime Field Functions 
+        bool hasUpdatedTime() const { return this->updatedTime_ != nullptr;};
+        void deleteUpdatedTime() { this->updatedTime_ = nullptr;};
+        inline string getUpdatedTime() const { DARABONBA_PTR_GET_DEFAULT(updatedTime_, "") };
+        inline Artifacts& setUpdatedTime(string updatedTime) { DARABONBA_PTR_SET_VALUE(updatedTime_, updatedTime) };
+
+
+      protected:
+        // The MIME type.
+        shared_ptr<string> contentType_ {};
+        // The OSS pre-signed download URL.
+        shared_ptr<string> downloadUrl_ {};
+        // The file name.
+        shared_ptr<string> name_ {};
+        // The file size in bytes.
+        shared_ptr<int64_t> size_ {};
+        // The upload time in ISO 8601 format.
+        shared_ptr<string> updatedTime_ {};
+      };
+
+      virtual bool empty() const override { return this->artifactCount_ == nullptr
+        && this->artifacts_ == nullptr && this->currentStatus_ == nullptr && this->digestSource_ == nullptr && this->instanceId_ == nullptr && this->reason_ == nullptr
+        && this->runningAt_ == nullptr && this->steps_ == nullptr && this->taskDigest_ == nullptr && this->taskDuration_ == nullptr && this->taskId_ == nullptr
+        && this->taskResult_ == nullptr && this->userPrompt_ == nullptr; };
+      // artifactCount Field Functions 
+      bool hasArtifactCount() const { return this->artifactCount_ != nullptr;};
+      void deleteArtifactCount() { this->artifactCount_ = nullptr;};
+      inline int32_t getArtifactCount() const { DARABONBA_PTR_GET_DEFAULT(artifactCount_, 0) };
+      inline Tasks& setArtifactCount(int32_t artifactCount) { DARABONBA_PTR_SET_VALUE(artifactCount_, artifactCount) };
+
+
+      // artifacts Field Functions 
+      bool hasArtifacts() const { return this->artifacts_ != nullptr;};
+      void deleteArtifacts() { this->artifacts_ = nullptr;};
+      inline const vector<Tasks::Artifacts> & getArtifacts() const { DARABONBA_PTR_GET_CONST(artifacts_, vector<Tasks::Artifacts>) };
+      inline vector<Tasks::Artifacts> getArtifacts() { DARABONBA_PTR_GET(artifacts_, vector<Tasks::Artifacts>) };
+      inline Tasks& setArtifacts(const vector<Tasks::Artifacts> & artifacts) { DARABONBA_PTR_SET_VALUE(artifacts_, artifacts) };
+      inline Tasks& setArtifacts(vector<Tasks::Artifacts> && artifacts) { DARABONBA_PTR_SET_RVALUE(artifacts_, artifacts) };
+
+
       // currentStatus Field Functions 
       bool hasCurrentStatus() const { return this->currentStatus_ != nullptr;};
       void deleteCurrentStatus() { this->currentStatus_ = nullptr;};
@@ -158,18 +256,23 @@ namespace Models
 
 
     protected:
+      // The number of task artifacts.
+      shared_ptr<int32_t> artifactCount_ {};
+      // The list of uploaded task artifacts.
+      shared_ptr<vector<Tasks::Artifacts>> artifacts_ {};
       // The current status of the task. Valid values:
       // 
-      // PENDING: The task is being created.
-      // 
-      // RUNNING: The task is running.
-      // 
-      // COMPLETED: The task is completed.
-      // 
-      // FAILED: The task failed.
-      // 
-      // TIMEOUT: The task execution timed out.
+      // - PENDING: The task is being created.
+      // - RUNNING: The task is running.
+      // - COMPLETED: The task is completed.
+      // - FAILED: The task failed.
+      // - TIMEOUT: The task execution timed out.
       shared_ptr<string> currentStatus_ {};
+      // The source of the digest. Valid values:
+      // 
+      // - PROMPT_AUTO: auto-generated.
+      // - RESULT_AUTO: result refinement.
+      // - USER: user-edited.
       shared_ptr<string> digestSource_ {};
       // The Mobile node ID.
       shared_ptr<string> instanceId_ {};
@@ -178,6 +281,7 @@ namespace Models
       shared_ptr<string> runningAt_ {};
       // The number of steps executed.
       shared_ptr<string> steps_ {};
+      // The task digest text, up to 25 characters.
       shared_ptr<string> taskDigest_ {};
       // The task duration. This field is returned only when CurrentStatus is FAILED or COMPLETED.
       shared_ptr<string> taskDuration_ {};
@@ -233,7 +337,7 @@ namespace Models
     shared_ptr<string> code_ {};
     // The number of tasks.
     shared_ptr<int32_t> count_ {};
-    // The message returned by the API.
+    // The response message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

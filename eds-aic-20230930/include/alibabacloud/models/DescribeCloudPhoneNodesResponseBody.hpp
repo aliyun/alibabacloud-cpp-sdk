@@ -539,19 +539,16 @@ namespace Models
 
 
     protected:
-      // The bandwidth plan ID.
+      // The ID of the bandwidth plan.
       shared_ptr<string> bandwidthPackageId_ {};
-      // The status of the bandwidth plan. Valid values:
-      // - 0: initializing
-      // - 1: normal
-      // - 2: deleted
+      // The status of the bandwidth plan. Valid values: 0: initializing. 1: normal. 2: deleted.
       shared_ptr<string> bandwidthPackageStatus_ {};
       // The bandwidth type.
       shared_ptr<string> bandwidthPackageType_ {};
       // The array of tag information.
       shared_ptr<vector<NodeModel::BizTags>> bizTags_ {};
       shared_ptr<string> channel_ {};
-      // The billing type.
+      // The billing method.
       shared_ptr<string> chargeType_ {};
       // The number of CPU cores.
       shared_ptr<string> cpu_ {};
@@ -559,7 +556,7 @@ namespace Models
       shared_ptr<string> gmtCreate_ {};
       // The expiration time of the subscription matrix.
       shared_ptr<string> gmtExpired_ {};
-      // The time when the matrix was last modified.
+      // The most recent modification time.
       shared_ptr<string> gmtModified_ {};
       // The instance type.
       shared_ptr<string> instanceType_ {};
@@ -576,7 +573,7 @@ namespace Models
       // The name of the cloud phone matrix.
       shared_ptr<string> nodeName_ {};
       shared_ptr<string> packageId_ {};
-      // The number of instances provisioned under the cloud phone matrix.
+      // The number of instances under the cloud phone matrix.
       shared_ptr<int32_t> phoneCount_ {};
       // The independent device storage information.
       shared_ptr<NodeModel::PhoneDataInfo> phoneDataInfo_ {};
@@ -640,9 +637,9 @@ namespace Models
   protected:
     // The maximum number of entries per page for a paged query.
     shared_ptr<int32_t> maxResults_ {};
-    // The pagination token for the next query. Valid values:
-    // - If **NextToken** is empty, no more results exist.
-    // - If **NextToken** has a value, the value indicates the token from which the next query starts.
+    // Indicates whether a next query token exists. Valid values:
+    // - If **NextToken** is empty, no next query exists.
+    // - If **NextToken** has a return value, the value is the token for the next query.
     shared_ptr<string> nextToken_ {};
     // The details of the cloud phone matrix.
     shared_ptr<vector<DescribeCloudPhoneNodesResponseBody::NodeModel>> nodeModel_ {};

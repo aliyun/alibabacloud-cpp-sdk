@@ -64,6 +64,7 @@ namespace Models
       class Details : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const Details& obj) { 
+          DARABONBA_PTR_TO_JSON(AgentType, agentType_);
           DARABONBA_PTR_TO_JSON(ApiKeyName, apiKeyName_);
           DARABONBA_PTR_TO_JSON(CachedTokens, cachedTokens_);
           DARABONBA_PTR_TO_JSON(ChangeTime, changeTime_);
@@ -82,6 +83,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(TtftMs, ttftMs_);
         };
         friend void from_json(const Darabonba::Json& j, Details& obj) { 
+          DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
           DARABONBA_PTR_FROM_JSON(ApiKeyName, apiKeyName_);
           DARABONBA_PTR_FROM_JSON(CachedTokens, cachedTokens_);
           DARABONBA_PTR_FROM_JSON(ChangeTime, changeTime_);
@@ -110,10 +112,18 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-        virtual bool empty() const override { return this->apiKeyName_ == nullptr
-        && this->cachedTokens_ == nullptr && this->changeTime_ == nullptr && this->creditChange_ == nullptr && this->description_ == nullptr && this->durationMs_ == nullptr
-        && this->inputTokens_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->modelId_ == nullptr && this->outputTokens_ == nullptr
-        && this->packageId_ == nullptr && this->requestId_ == nullptr && this->taskId_ == nullptr && this->totalTokens_ == nullptr && this->ttftMs_ == nullptr; };
+        virtual bool empty() const override { return this->agentType_ == nullptr
+        && this->apiKeyName_ == nullptr && this->cachedTokens_ == nullptr && this->changeTime_ == nullptr && this->creditChange_ == nullptr && this->description_ == nullptr
+        && this->durationMs_ == nullptr && this->inputTokens_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr && this->modelId_ == nullptr
+        && this->outputTokens_ == nullptr && this->packageId_ == nullptr && this->requestId_ == nullptr && this->taskId_ == nullptr && this->totalTokens_ == nullptr
+        && this->ttftMs_ == nullptr; };
+        // agentType Field Functions 
+        bool hasAgentType() const { return this->agentType_ != nullptr;};
+        void deleteAgentType() { this->agentType_ = nullptr;};
+        inline string getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, "") };
+        inline Details& setAgentType(string agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
         // apiKeyName Field Functions 
         bool hasApiKeyName() const { return this->apiKeyName_ != nullptr;};
         void deleteApiKeyName() { this->apiKeyName_ = nullptr;};
@@ -227,7 +237,11 @@ namespace Models
 
 
       protected:
+        // The agent type. This field is populated only when querying by a single agent type.
+        shared_ptr<string> agentType_ {};
+        // The API key name.
         shared_ptr<string> apiKeyName_ {};
+        // The number of cached tokens.
         shared_ptr<int64_t> cachedTokens_ {};
         // The time when the change occurred.
         shared_ptr<string> changeTime_ {};
@@ -235,19 +249,27 @@ namespace Models
         shared_ptr<string> creditChange_ {};
         // The task description.
         shared_ptr<string> description_ {};
+        // The model inference duration, in milliseconds.
         shared_ptr<int64_t> durationMs_ {};
+        // The number of input tokens.
         shared_ptr<int64_t> inputTokens_ {};
         // The instance ID.
         shared_ptr<string> instanceId_ {};
+        // The instance name.
         shared_ptr<string> instanceName_ {};
+        // The model ID.
         shared_ptr<string> modelId_ {};
+        // The number of output tokens.
         shared_ptr<int64_t> outputTokens_ {};
-        // The ID of the credit or plan package.
+        // The credit or package ID.
         shared_ptr<string> packageId_ {};
+        // The request ID.
         shared_ptr<string> requestId_ {};
-        // The task ID, which is globally unique.
+        // The globally unique task ID.
         shared_ptr<string> taskId_ {};
+        // The total number of tokens.
         shared_ptr<int64_t> totalTokens_ {};
+        // The response time of the first token, in milliseconds.
         shared_ptr<int64_t> ttftMs_ {};
       };
 
@@ -300,8 +322,9 @@ namespace Models
     protected:
       // The credit change details.
       shared_ptr<vector<Data::Details>> details_ {};
+      // The token for the next query.
       shared_ptr<string> nextToken_ {};
-      // The page number. Default value: 1.
+      // The page number for pagination. Default value: 1.
       shared_ptr<int32_t> pageNum_ {};
       // The number of entries per page. Default value: 10. Maximum value: 100.
       shared_ptr<int32_t> pageSize_ {};

@@ -41,7 +41,7 @@ namespace Models
 
 
   protected:
-    // A list of backup file IDs.
+    // The list of backup file IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> backupFileIdList_ {};

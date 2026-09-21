@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_TO_JSON(MaxSteps, maxSteps_);
       DARABONBA_PTR_TO_JSON(RunConfig, runConfigShrink_);
+      DARABONBA_PTR_TO_JSON(SaveArtifacts, saveArtifacts_);
       DARABONBA_PTR_TO_JSON(ScheduleId, scheduleId_);
       DARABONBA_PTR_TO_JSON(Targets, targets_);
       DARABONBA_PTR_TO_JSON(TaskConfigId, taskConfigId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(InstanceIds, instanceIds_);
       DARABONBA_PTR_FROM_JSON(MaxSteps, maxSteps_);
       DARABONBA_PTR_FROM_JSON(RunConfig, runConfigShrink_);
+      DARABONBA_PTR_FROM_JSON(SaveArtifacts, saveArtifacts_);
       DARABONBA_PTR_FROM_JSON(ScheduleId, scheduleId_);
       DARABONBA_PTR_FROM_JSON(Targets, targets_);
       DARABONBA_PTR_FROM_JSON(TaskConfigId, taskConfigId_);
@@ -91,8 +93,8 @@ namespace Models
     };
 
     virtual bool empty() const override { return this->bizRegionId_ == nullptr
-        && this->instanceIds_ == nullptr && this->maxSteps_ == nullptr && this->runConfigShrink_ == nullptr && this->scheduleId_ == nullptr && this->targets_ == nullptr
-        && this->taskConfigId_ == nullptr && this->timeoutSeconds_ == nullptr && this->userPrompt_ == nullptr; };
+        && this->instanceIds_ == nullptr && this->maxSteps_ == nullptr && this->runConfigShrink_ == nullptr && this->saveArtifacts_ == nullptr && this->scheduleId_ == nullptr
+        && this->targets_ == nullptr && this->taskConfigId_ == nullptr && this->timeoutSeconds_ == nullptr && this->userPrompt_ == nullptr; };
     // bizRegionId Field Functions 
     bool hasBizRegionId() const { return this->bizRegionId_ != nullptr;};
     void deleteBizRegionId() { this->bizRegionId_ = nullptr;};
@@ -121,6 +123,13 @@ namespace Models
     void deleteRunConfigShrink() { this->runConfigShrink_ = nullptr;};
     inline string getRunConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(runConfigShrink_, "") };
     inline RunAgentTaskShrinkRequest& setRunConfigShrink(string runConfigShrink) { DARABONBA_PTR_SET_VALUE(runConfigShrink_, runConfigShrink) };
+
+
+    // saveArtifacts Field Functions 
+    bool hasSaveArtifacts() const { return this->saveArtifacts_ != nullptr;};
+    void deleteSaveArtifacts() { this->saveArtifacts_ = nullptr;};
+    inline bool getSaveArtifacts() const { DARABONBA_PTR_GET_DEFAULT(saveArtifacts_, false) };
+    inline RunAgentTaskShrinkRequest& setSaveArtifacts(bool saveArtifacts) { DARABONBA_PTR_SET_VALUE(saveArtifacts_, saveArtifacts) };
 
 
     // scheduleId Field Functions 
@@ -169,9 +178,11 @@ namespace Models
     shared_ptr<int32_t> maxSteps_ {};
     // The runtime configuration that carries the runtime parameters (skills) for this task.
     shared_ptr<string> runConfigShrink_ {};
+    // Specifies whether to write the task artifacts to the user\\"s OSS bucket.
+    shared_ptr<bool> saveArtifacts_ {};
     // The scheduling plan ID. When specified, the execution record is associated with the corresponding scheduled node, which facilitates aggregate query by scheduling dimension through aggregation.
     shared_ptr<string> scheduleId_ {};
-    // The Targets array. Each element is an object that contains InstanceId and SessionId.
+    // An array of target objects. Each element contains an InstanceId and a SessionId.
     shared_ptr<vector<RunAgentTaskShrinkRequest::Targets>> targets_ {};
     // The task configuration ID. This parameter is used to trigger a task with the specified configuration.
     shared_ptr<string> taskConfigId_ {};

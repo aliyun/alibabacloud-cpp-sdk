@@ -18,10 +18,6 @@ namespace EdsAic20230930
 
 AlibabaCloud::EdsAic20230930::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"ap-southeast-1" , "eds-aic.ap-southeast-1.aliyuncs.com"},
-    {"cn-shanghai" , "eds-aic.cn-shanghai.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eds-aic", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -758,6 +754,68 @@ CreateAICloudPhoneResponse Client::createAICloudPhone(const CreateAICloudPhoneRe
 }
 
 /**
+ * @summary Creates a custom skill.
+ *
+ * @param request CreateAgentSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateAgentSkillResponse
+ */
+CreateAgentSkillResponse Client::createAgentSkillWithOptions(const CreateAgentSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasFileList()) {
+    query["FileList"] = request.getFileList();
+  }
+
+  if (!!request.hasIconKey()) {
+    query["IconKey"] = request.getIconKey();
+  }
+
+  if (!!request.hasPackageOssKey()) {
+    query["PackageOssKey"] = request.getPackageOssKey();
+  }
+
+  if (!!request.hasSkillDescription()) {
+    query["SkillDescription"] = request.getSkillDescription();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasSkillPackageUrl()) {
+    query["SkillPackageUrl"] = request.getSkillPackageUrl();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateAgentSkill"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateAgentSkillResponse>();
+}
+
+/**
+ * @summary Creates a custom skill.
+ *
+ * @param request CreateAgentSkillRequest
+ * @return CreateAgentSkillResponse
+ */
+CreateAgentSkillResponse Client::createAgentSkill(const CreateAgentSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createAgentSkillWithOptions(request, runtime);
+}
+
+/**
  * @summary Creates pay-as-you-go or subscription cloud phone instance groups. An instance group can manage multiple instances. You can organize instances with the same functional purpose into the same instance group for unified management.
  *
  * @description <props="china">Before creating a cloud phone instance group, complete real-name verification. For more information, see [verify your identity - Individual account](https://help.aliyun.com/document_detail/48263.html).
@@ -1474,9 +1532,9 @@ CreateKeyPairResponse Client::createKeyPair(const CreateKeyPairRequest &request)
 }
 
 /**
- * @summary Purchases a resource plan.
+ * @summary Purchases a resource plan by placing an order.
  *
- * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
+ * @description This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
  *
  * @param request CreateMobileAgentPackageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1545,6 +1603,10 @@ CreateMobileAgentPackageResponse Client::createMobileAgentPackageWithOptions(con
     query["PromotionId"] = request.getPromotionId();
   }
 
+  if (!!request.hasTag()) {
+    query["Tag"] = request.getTag();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"query" , Utils::Utils::query(query)}
   }).get<map<string, map<string, string>>>());
@@ -1563,9 +1625,9 @@ CreateMobileAgentPackageResponse Client::createMobileAgentPackageWithOptions(con
 }
 
 /**
- * @summary Purchases a resource plan.
+ * @summary Purchases a resource plan by placing an order.
  *
- * @description This operation involves billing. Before you call this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Alibaba Cloud CloudPhone.
+ * @description This operation involves billing. Before using this operation, make sure that you fully understand the [billing methods and pricing](https://www.alibabacloud.com/help/en/ecp/jvs-mobile-billing-instructions) of Elastic Cloud Phone.
  *
  * @param request CreateMobileAgentPackageRequest
  * @return CreateMobileAgentPackageResponse
@@ -1854,6 +1916,48 @@ CreateSystemPropertyTemplateResponse Client::createSystemPropertyTemplate(const 
 }
 
 /**
+ * @summary Deletes custom skills.
+ *
+ * @param request DeleteAgentSkillRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DeleteAgentSkillResponse
+ */
+DeleteAgentSkillResponse Client::deleteAgentSkillWithOptions(const DeleteAgentSkillRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasSkillIds()) {
+    query["SkillIds"] = request.getSkillIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DeleteAgentSkill"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DeleteAgentSkillResponse>();
+}
+
+/**
+ * @summary Deletes custom skills.
+ *
+ * @param request DeleteAgentSkillRequest
+ * @return DeleteAgentSkillResponse
+ */
+DeleteAgentSkillResponse Client::deleteAgentSkill(const DeleteAgentSkillRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return deleteAgentSkillWithOptions(request, runtime);
+}
+
+/**
  * @summary Deletes an Android instance group. All instances in the group are also deleted. This operation cannot be undone. Proceed with caution.
  *
  * @description Pay-as-you-go instance groups can be deleted at any time.
@@ -1944,7 +2048,7 @@ DeleteAppsResponse Client::deleteApps(const DeleteAppsRequest &request) {
 }
 
 /**
- * @summary Deletes a batch of backup files.
+ * @summary Deletes backup files in batches.
  *
  * @param request DeleteBackupFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1975,7 +2079,7 @@ DeleteBackupFileResponse Client::deleteBackupFileWithOptions(const DeleteBackupF
 }
 
 /**
- * @summary Deletes a batch of backup files.
+ * @summary Deletes backup files in batches.
  *
  * @param request DeleteBackupFileRequest
  * @return DeleteBackupFileResponse
@@ -2793,7 +2897,7 @@ DescribeBucketsResponse Client::describeBuckets(const DescribeBucketsRequest &re
 
 /**
  * @summary Queries the details of a cloud phone matrix.
- * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
+ * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
  *
  * @param request DescribeCloudPhoneNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2873,7 +2977,7 @@ DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodesWithOptions(const
 
 /**
  * @summary Queries the details of a cloud phone matrix.
- * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
+ * In the Wuying Cloud Phone system, a matrix (Cloud Phone Server) is a logical resource management snap-in that represents a physical server instance. The physical server can be divided into multiple independently running cloud phone instances that share the underlying compute, storage, and network resources of the matrix. Creating a matrix is equivalent to obtaining a physical server on which you can create cloud phone instances. The number of cloud phone instances that can be created varies depending on the configuration.
  *
  * @param request DescribeCloudPhoneNodesRequest
  * @return DescribeCloudPhoneNodesResponse
@@ -2884,7 +2988,7 @@ DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodes(const DescribeCl
 }
 
 /**
- * @summary Queries all change records of credits.
+ * @summary Queries all credit change records.
  *
  * @param request DescribeCreditDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2893,6 +2997,10 @@ DescribeCloudPhoneNodesResponse Client::describeCloudPhoneNodes(const DescribeCl
 DescribeCreditDetailResponse Client::describeCreditDetailWithOptions(const DescribeCreditDetailRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAgentTypes()) {
+    query["AgentTypes"] = request.getAgentTypes();
+  }
+
   if (!!request.hasEndTime()) {
     query["EndTime"] = request.getEndTime();
   }
@@ -2943,7 +3051,7 @@ DescribeCreditDetailResponse Client::describeCreditDetailWithOptions(const Descr
 }
 
 /**
- * @summary Queries all change records of credits.
+ * @summary Queries all credit change records.
  *
  * @param request DescribeCreditDetailRequest
  * @return DescribeCreditDetailResponse
@@ -3662,7 +3770,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the execution records of agent scheduled tasks.
+ * @summary Queries the execution records of an agent scheduled task.
  *
  * @param request DescribeScheduledTaskExecutionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3717,7 +3825,7 @@ DescribeScheduledTaskExecutionsResponse Client::describeScheduledTaskExecutionsW
 }
 
 /**
- * @summary Queries the execution records of agent scheduled tasks.
+ * @summary Queries the execution records of an agent scheduled task.
  *
  * @param request DescribeScheduledTaskExecutionsRequest
  * @return DescribeScheduledTaskExecutionsResponse
@@ -3795,6 +3903,72 @@ DescribeScheduledTasksResponse Client::describeScheduledTasksWithOptions(const D
 DescribeScheduledTasksResponse Client::describeScheduledTasks(const DescribeScheduledTasksRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return describeScheduledTasksWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries skill information.
+ *
+ * @param request DescribeSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DescribeSkillsResponse
+ */
+DescribeSkillsResponse Client::describeSkillsWithOptions(const DescribeSkillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasLanguage()) {
+    query["Language"] = request.getLanguage();
+  }
+
+  if (!!request.hasPageNumber()) {
+    query["PageNumber"] = request.getPageNumber();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSkillId()) {
+    query["SkillId"] = request.getSkillId();
+  }
+
+  if (!!request.hasStatusFilter()) {
+    query["StatusFilter"] = request.getStatusFilter();
+  }
+
+  if (!!request.hasType()) {
+    query["Type"] = request.getType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DescribeSkills"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DescribeSkillsResponse>();
+}
+
+/**
+ * @summary Queries skill information.
+ *
+ * @param request DescribeSkillsRequest
+ * @return DescribeSkillsResponse
+ */
+DescribeSkillsResponse Client::describeSkills(const DescribeSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return describeSkillsWithOptions(request, runtime);
 }
 
 /**
@@ -4628,10 +4802,10 @@ GetNetworkBlacklistResponse Client::getNetworkBlacklist(const GetNetworkBlacklis
 /**
  * @summary Imports a custom image.
  *
- * @description 1. You can import a custom image to develop custom features or services.
- * 2. First, obtain the required Android Open Source Project (AOSP) image baseline from the platform. Then, create a custom build. After the build is complete, import the image to the platform. For detailed instructions, contact Wuying technical support.
- * 3. Ensure the image tar package is smaller than 2 GB. Otherwise, image parsing may fail.
- * 4. Ensure the Object Storage Service (OSS) address is in mainland China. If the address is outside mainland China or in the Hong Kong region, the image file download may time out.
+ * @description 1. Importing a custom image is applicable to scenarios where you need to develop customized features or services.
+ * 2. Obtain the required AOSP base image from the platform, perform a custom build, and then import the built image to the platform for use. For detailed steps, contact Wuying technical support.
+ * 3. Ensure that the image TAR package is smaller than 2 GB. Otherwise, image parsing may fail.
+ * 4. Ensure that your OSS address is in the Chinese mainland. Addresses outside the Chinese mainland or in Hong Kong (China) may cause image file download timeouts.
  *
  * @param request ImportImageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4640,6 +4814,10 @@ GetNetworkBlacklistResponse Client::getNetworkBlacklist(const GetNetworkBlacklis
 ImportImageResponse Client::importImageWithOptions(const ImportImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasBaseImageId()) {
+    query["BaseImageId"] = request.getBaseImageId();
+  }
+
   if (!!request.hasImageDescription()) {
     query["ImageDescription"] = request.getImageDescription();
   }
@@ -4672,10 +4850,10 @@ ImportImageResponse Client::importImageWithOptions(const ImportImageRequest &req
 /**
  * @summary Imports a custom image.
  *
- * @description 1. You can import a custom image to develop custom features or services.
- * 2. First, obtain the required Android Open Source Project (AOSP) image baseline from the platform. Then, create a custom build. After the build is complete, import the image to the platform. For detailed instructions, contact Wuying technical support.
- * 3. Ensure the image tar package is smaller than 2 GB. Otherwise, image parsing may fail.
- * 4. Ensure the Object Storage Service (OSS) address is in mainland China. If the address is outside mainland China or in the Hong Kong region, the image file download may time out.
+ * @description 1. Importing a custom image is applicable to scenarios where you need to develop customized features or services.
+ * 2. Obtain the required AOSP base image from the platform, perform a custom build, and then import the built image to the platform for use. For detailed steps, contact Wuying technical support.
+ * 3. Ensure that the image TAR package is smaller than 2 GB. Otherwise, image parsing may fail.
+ * 4. Ensure that your OSS address is in the Chinese mainland. Addresses outside the Chinese mainland or in Hong Kong (China) may cause image file download timeouts.
  *
  * @param request ImportImageRequest
  * @return ImportImageResponse
@@ -4833,6 +5011,52 @@ InstallMonitorAgentResponse Client::installMonitorAgentWithOptions(const Install
 InstallMonitorAgentResponse Client::installMonitorAgent(const InstallMonitorAgentRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return installMonitorAgentWithOptions(request, runtime);
+}
+
+/**
+ * @summary Installs skills to instances.
+ *
+ * @param request InstallSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InstallSkillsResponse
+ */
+InstallSkillsResponse Client::installSkillsWithOptions(const InstallSkillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasSkillIds()) {
+    query["SkillIds"] = request.getSkillIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "InstallSkills"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InstallSkillsResponse>();
+}
+
+/**
+ * @summary Installs skills to instances.
+ *
+ * @param request InstallSkillsRequest
+ * @return InstallSkillsResponse
+ */
+InstallSkillsResponse Client::installSkills(const InstallSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return installSkillsWithOptions(request, runtime);
 }
 
 /**
@@ -6412,9 +6636,9 @@ RenewMobileAgentPackageResponse Client::renewMobileAgentPackage(const RenewMobil
 }
 
 /**
- * @summary Resets the instance by reinstalling the operating system using its original image. Note: The reset operation will fail if the image that was used to create the Cloud Phone has since been deleted.
+ * @summary Resets cloud phone instances. A reset reinstalls the system using the image of the cloud phone. For example, the reset fails if the image used when the cloud phone was created has been deleted.
  *
- * @description You can reset an instance (initialize its system) only when the instance is Active, Stopped, Abnormal, Backup Failed, or **Recover Failed**.
+ * @description Resetting (initializing the system) is supported only when the instance is in the **Available, Stopped, Abnormal, Backup Failed, or Restore Failed** state.
  *
  * @param request ResetAndroidInstancesInGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6427,8 +6651,16 @@ ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroupWithOpt
     query["AndroidInstanceIds"] = request.getAndroidInstanceIds();
   }
 
+  if (!!request.hasAutoPay()) {
+    query["AutoPay"] = request.getAutoPay();
+  }
+
   if (!!request.hasIgnoreParamValidation()) {
     query["IgnoreParamValidation"] = request.getIgnoreParamValidation();
+  }
+
+  if (!!request.hasPromotionId()) {
+    query["PromotionId"] = request.getPromotionId();
   }
 
   if (!!request.hasSaleMode()) {
@@ -6437,6 +6669,10 @@ ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroupWithOpt
 
   if (!!request.hasSettingResetType()) {
     query["SettingResetType"] = request.getSettingResetType();
+  }
+
+  if (!!request.hasTargetDataDiskSize()) {
+    query["TargetDataDiskSize"] = request.getTargetDataDiskSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6457,9 +6693,9 @@ ResetAndroidInstancesInGroupResponse Client::resetAndroidInstancesInGroupWithOpt
 }
 
 /**
- * @summary Resets the instance by reinstalling the operating system using its original image. Note: The reset operation will fail if the image that was used to create the Cloud Phone has since been deleted.
+ * @summary Resets cloud phone instances. A reset reinstalls the system using the image of the cloud phone. For example, the reset fails if the image used when the cloud phone was created has been deleted.
  *
- * @description You can reset an instance (initialize its system) only when the instance is Active, Stopped, Abnormal, Backup Failed, or **Recover Failed**.
+ * @description Resetting (initializing the system) is supported only when the instance is in the **Available, Stopped, Abnormal, Backup Failed, or Restore Failed** state.
  *
  * @param request ResetAndroidInstancesInGroupRequest
  * @return ResetAndroidInstancesInGroupResponse
@@ -6553,6 +6789,10 @@ RunAgentTaskResponse Client::runAgentTaskWithOptions(const RunAgentTaskRequest &
 
   if (!!request.hasRunConfigShrink()) {
     query["RunConfig"] = request.getRunConfigShrink();
+  }
+
+  if (!!request.hasSaveArtifacts()) {
+    query["SaveArtifacts"] = request.getSaveArtifacts();
   }
 
   if (!!request.hasScheduleId()) {
@@ -7300,6 +7540,52 @@ UninstallMonitorAgentResponse Client::uninstallMonitorAgent(const UninstallMonit
 }
 
 /**
+ * @summary Uninstalls skills from instances.
+ *
+ * @param request UninstallSkillsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UninstallSkillsResponse
+ */
+UninstallSkillsResponse Client::uninstallSkillsWithOptions(const UninstallSkillsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasInstanceIds()) {
+    query["InstanceIds"] = request.getInstanceIds();
+  }
+
+  if (!!request.hasSkillIds()) {
+    query["SkillIds"] = request.getSkillIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UninstallSkills"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UninstallSkillsResponse>();
+}
+
+/**
+ * @summary Uninstalls skills from instances.
+ *
+ * @param request UninstallSkillsRequest
+ * @return UninstallSkillsResponse
+ */
+UninstallSkillsResponse Client::uninstallSkills(const UninstallSkillsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return uninstallSkillsWithOptions(request, runtime);
+}
+
+/**
  * @summary Removes tags from cloud phones. If a tag is no longer associated with any cloud phone after it is removed, the tag is automatically deleted.
  *
  * @param request UntagResourcesRequest
@@ -7351,6 +7637,56 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
 UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return untagResourcesWithOptions(request, runtime);
+}
+
+/**
+ * @summary Changes the system cloud disk image of a normal matrix node.
+ *
+ * @description After changing the system cloud disk image, the instance may have compatibility issues. Verify compatibility before making the change.
+ *
+ * @param request UpdateCloudPhoneNodeSystemImageRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return UpdateCloudPhoneNodeSystemImageResponse
+ */
+UpdateCloudPhoneNodeSystemImageResponse Client::updateCloudPhoneNodeSystemImageWithOptions(const UpdateCloudPhoneNodeSystemImageRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasImageId()) {
+    query["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasNodeIds()) {
+    query["NodeIds"] = request.getNodeIds();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "UpdateCloudPhoneNodeSystemImage"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<UpdateCloudPhoneNodeSystemImageResponse>();
+}
+
+/**
+ * @summary Changes the system cloud disk image of a normal matrix node.
+ *
+ * @description After changing the system cloud disk image, the instance may have compatibility issues. Verify compatibility before making the change.
+ *
+ * @param request UpdateCloudPhoneNodeSystemImageRequest
+ * @return UpdateCloudPhoneNodeSystemImageResponse
+ */
+UpdateCloudPhoneNodeSystemImageResponse Client::updateCloudPhoneNodeSystemImage(const UpdateCloudPhoneNodeSystemImageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return updateCloudPhoneNodeSystemImageWithOptions(request, runtime);
 }
 
 /**
