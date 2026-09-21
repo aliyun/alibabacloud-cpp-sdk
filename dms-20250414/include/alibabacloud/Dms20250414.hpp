@@ -55,57 +55,6 @@ namespace Dms20250414
       Models::AddUserToDataAgentWorkspaceResponse addUserToDataAgentWorkspace(const Models::AddUserToDataAgentWorkspaceRequest &request);
 
       /**
-       * @summary Creates partitions for a data lake table in a batch.
-       *
-       * @param tmpReq BatchCreateDataLakePartitionsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return BatchCreateDataLakePartitionsResponse
-       */
-      Models::BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitionsWithOptions(const Models::BatchCreateDataLakePartitionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Creates partitions for a data lake table in a batch.
-       *
-       * @param request BatchCreateDataLakePartitionsRequest
-       * @return BatchCreateDataLakePartitionsResponse
-       */
-      Models::BatchCreateDataLakePartitionsResponse batchCreateDataLakePartitions(const Models::BatchCreateDataLakePartitionsRequest &request);
-
-      /**
-       * @summary Batch deletes partitions from a data lake table.
-       *
-       * @param request BatchDeleteDataLakePartitionsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return BatchDeleteDataLakePartitionsResponse
-       */
-      Models::BatchDeleteDataLakePartitionsResponse batchDeleteDataLakePartitionsWithOptions(const Models::BatchDeleteDataLakePartitionsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Batch deletes partitions from a data lake table.
-       *
-       * @param request BatchDeleteDataLakePartitionsRequest
-       * @return BatchDeleteDataLakePartitionsResponse
-       */
-      Models::BatchDeleteDataLakePartitionsResponse batchDeleteDataLakePartitions(const Models::BatchDeleteDataLakePartitionsRequest &request);
-
-      /**
-       * @summary Update partitions in a data lake table in batch.
-       *
-       * @param tmpReq BatchUpdateDataLakePartitionsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return BatchUpdateDataLakePartitionsResponse
-       */
-      Models::BatchUpdateDataLakePartitionsResponse batchUpdateDataLakePartitionsWithOptions(const Models::BatchUpdateDataLakePartitionsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Update partitions in a data lake table in batch.
-       *
-       * @param request BatchUpdateDataLakePartitionsRequest
-       * @return BatchUpdateDataLakePartitionsResponse
-       */
-      Models::BatchUpdateDataLakePartitionsResponse batchUpdateDataLakePartitions(const Models::BatchUpdateDataLakePartitionsRequest &request);
-
-      /**
        * @summary CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
        *
        * @param request CheckDataAgentMemoryConfigRequest
@@ -352,74 +301,6 @@ namespace Dms20250414
       Models::CreateDataAgentWorkspaceResponse createDataAgentWorkspace(const Models::CreateDataAgentWorkspaceRequest &request);
 
       /**
-       * @summary Creates a data lake database.
-       *
-       * @param tmpReq CreateDataLakeDatabaseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateDataLakeDatabaseResponse
-       */
-      Models::CreateDataLakeDatabaseResponse createDataLakeDatabaseWithOptions(const Models::CreateDataLakeDatabaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Creates a data lake database.
-       *
-       * @param request CreateDataLakeDatabaseRequest
-       * @return CreateDataLakeDatabaseResponse
-       */
-      Models::CreateDataLakeDatabaseResponse createDataLakeDatabase(const Models::CreateDataLakeDatabaseRequest &request);
-
-      /**
-       * @summary Creates a user-defined function (UDF) for a data lake.
-       *
-       * @param tmpReq CreateDataLakeFunctionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateDataLakeFunctionResponse
-       */
-      Models::CreateDataLakeFunctionResponse createDataLakeFunctionWithOptions(const Models::CreateDataLakeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Creates a user-defined function (UDF) for a data lake.
-       *
-       * @param request CreateDataLakeFunctionRequest
-       * @return CreateDataLakeFunctionResponse
-       */
-      Models::CreateDataLakeFunctionResponse createDataLakeFunction(const Models::CreateDataLakeFunctionRequest &request);
-
-      /**
-       * @summary Creates a partition for a data lake table.
-       *
-       * @param tmpReq CreateDataLakePartitionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateDataLakePartitionResponse
-       */
-      Models::CreateDataLakePartitionResponse createDataLakePartitionWithOptions(const Models::CreateDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Creates a partition for a data lake table.
-       *
-       * @param request CreateDataLakePartitionRequest
-       * @return CreateDataLakePartitionResponse
-       */
-      Models::CreateDataLakePartitionResponse createDataLakePartition(const Models::CreateDataLakePartitionRequest &request);
-
-      /**
-       * @summary Creates a data lake table in Data Management (DMS).
-       *
-       * @param tmpReq CreateDataLakeTableRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateDataLakeTableResponse
-       */
-      Models::CreateDataLakeTableResponse createDataLakeTableWithOptions(const Models::CreateDataLakeTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Creates a data lake table in Data Management (DMS).
-       *
-       * @param request CreateDataLakeTableRequest
-       * @return CreateDataLakeTableResponse
-       */
-      Models::CreateDataLakeTableResponse createDataLakeTable(const Models::CreateDataLakeTableRequest &request);
-
-      /**
        * @summary Creates an SQL template.
        *
        * @param request CreateOneMetaSqlTemplateRequest
@@ -592,74 +473,6 @@ namespace Dms20250414
        * @return DeleteDataAgentWorkspaceResponse
        */
       Models::DeleteDataAgentWorkspaceResponse deleteDataAgentWorkspace(const Models::DeleteDataAgentWorkspaceRequest &request);
-
-      /**
-       * @summary Deletes a data lake database.
-       *
-       * @param request DeleteDataLakeDatabaseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteDataLakeDatabaseResponse
-       */
-      Models::DeleteDataLakeDatabaseResponse deleteDataLakeDatabaseWithOptions(const Models::DeleteDataLakeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Deletes a data lake database.
-       *
-       * @param request DeleteDataLakeDatabaseRequest
-       * @return DeleteDataLakeDatabaseResponse
-       */
-      Models::DeleteDataLakeDatabaseResponse deleteDataLakeDatabase(const Models::DeleteDataLakeDatabaseRequest &request);
-
-      /**
-       * @summary Deletes a user-defined function in a data lake.
-       *
-       * @param request DeleteDataLakeFunctionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteDataLakeFunctionResponse
-       */
-      Models::DeleteDataLakeFunctionResponse deleteDataLakeFunctionWithOptions(const Models::DeleteDataLakeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Deletes a user-defined function in a data lake.
-       *
-       * @param request DeleteDataLakeFunctionRequest
-       * @return DeleteDataLakeFunctionResponse
-       */
-      Models::DeleteDataLakeFunctionResponse deleteDataLakeFunction(const Models::DeleteDataLakeFunctionRequest &request);
-
-      /**
-       * @summary Deletes a partition from a data lake table.
-       *
-       * @param tmpReq DeleteDataLakePartitionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteDataLakePartitionResponse
-       */
-      Models::DeleteDataLakePartitionResponse deleteDataLakePartitionWithOptions(const Models::DeleteDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Deletes a partition from a data lake table.
-       *
-       * @param request DeleteDataLakePartitionRequest
-       * @return DeleteDataLakePartitionResponse
-       */
-      Models::DeleteDataLakePartitionResponse deleteDataLakePartition(const Models::DeleteDataLakePartitionRequest &request);
-
-      /**
-       * @summary Deletes a data lake table.
-       *
-       * @param request DeleteDataLakeTableRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteDataLakeTableResponse
-       */
-      Models::DeleteDataLakeTableResponse deleteDataLakeTableWithOptions(const Models::DeleteDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Deletes a data lake table.
-       *
-       * @param request DeleteDataLakeTableRequest
-       * @return DeleteDataLakeTableResponse
-       */
-      Models::DeleteDataLakeTableResponse deleteDataLakeTable(const Models::DeleteDataLakeTableRequest &request);
 
       /**
        * @summary Deletes a document from a specified knowledge base.
@@ -1120,91 +933,6 @@ namespace Dms20250414
        * @return GetDataAgentWorkspaceInfoResponse
        */
       Models::GetDataAgentWorkspaceInfoResponse getDataAgentWorkspaceInfo(const Models::GetDataAgentWorkspaceInfoRequest &request);
-
-      /**
-       * @summary Retrieves the data catalog of a data lake.
-       *
-       * @param request GetDataLakeCatalogRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetDataLakeCatalogResponse
-       */
-      Models::GetDataLakeCatalogResponse getDataLakeCatalogWithOptions(const Models::GetDataLakeCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves the data catalog of a data lake.
-       *
-       * @param request GetDataLakeCatalogRequest
-       * @return GetDataLakeCatalogResponse
-       */
-      Models::GetDataLakeCatalogResponse getDataLakeCatalog(const Models::GetDataLakeCatalogRequest &request);
-
-      /**
-       * @summary Retrieves information about a database in a data lake.
-       *
-       * @param request GetDataLakeDatabaseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetDataLakeDatabaseResponse
-       */
-      Models::GetDataLakeDatabaseResponse getDataLakeDatabaseWithOptions(const Models::GetDataLakeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves information about a database in a data lake.
-       *
-       * @param request GetDataLakeDatabaseRequest
-       * @return GetDataLakeDatabaseResponse
-       */
-      Models::GetDataLakeDatabaseResponse getDataLakeDatabase(const Models::GetDataLakeDatabaseRequest &request);
-
-      /**
-       * @summary Retrieves the details of a user-defined function in a data lake.
-       *
-       * @param request GetDataLakeFunctionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetDataLakeFunctionResponse
-       */
-      Models::GetDataLakeFunctionResponse getDataLakeFunctionWithOptions(const Models::GetDataLakeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves the details of a user-defined function in a data lake.
-       *
-       * @param request GetDataLakeFunctionRequest
-       * @return GetDataLakeFunctionResponse
-       */
-      Models::GetDataLakeFunctionResponse getDataLakeFunction(const Models::GetDataLakeFunctionRequest &request);
-
-      /**
-       * @summary Retrieves the details of a data lakehouse table partition.
-       *
-       * @param tmpReq GetDataLakePartitionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetDataLakePartitionResponse
-       */
-      Models::GetDataLakePartitionResponse getDataLakePartitionWithOptions(const Models::GetDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves the details of a data lakehouse table partition.
-       *
-       * @param request GetDataLakePartitionRequest
-       * @return GetDataLakePartitionResponse
-       */
-      Models::GetDataLakePartitionResponse getDataLakePartition(const Models::GetDataLakePartitionRequest &request);
-
-      /**
-       * @summary Retrieves information about a table in a data lake.
-       *
-       * @param request GetDataLakeTableRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return GetDataLakeTableResponse
-       */
-      Models::GetDataLakeTableResponse getDataLakeTableWithOptions(const Models::GetDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves information about a table in a data lake.
-       *
-       * @param request GetDataLakeTableRequest
-       * @return GetDataLakeTableResponse
-       */
-      Models::GetDataLakeTableResponse getDataLakeTable(const Models::GetDataLakeTableRequest &request);
 
       /**
        * @summary Queries the MCP Server connectivity and tool list results by the Session ID returned when the detection was started.
@@ -1685,176 +1413,6 @@ namespace Dms20250414
       Models::ListDataCenterTableResponse listDataCenterTable(const Models::ListDataCenterTableRequest &request);
 
       /**
-       * @summary Retrieves a list of data lake catalogs.
-       *
-       * @param request ListDataLakeCatalogRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakeCatalogResponse
-       */
-      Models::ListDataLakeCatalogResponse listDataLakeCatalogWithOptions(const Models::ListDataLakeCatalogRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves a list of data lake catalogs.
-       *
-       * @param request ListDataLakeCatalogRequest
-       * @return ListDataLakeCatalogResponse
-       */
-      Models::ListDataLakeCatalogResponse listDataLakeCatalog(const Models::ListDataLakeCatalogRequest &request);
-
-      /**
-       * @summary Retrieves a list of databases in a data lake.
-       *
-       * @param request ListDataLakeDatabaseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakeDatabaseResponse
-       */
-      Models::ListDataLakeDatabaseResponse listDataLakeDatabaseWithOptions(const Models::ListDataLakeDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves a list of databases in a data lake.
-       *
-       * @param request ListDataLakeDatabaseRequest
-       * @return ListDataLakeDatabaseResponse
-       */
-      Models::ListDataLakeDatabaseResponse listDataLakeDatabase(const Models::ListDataLakeDatabaseRequest &request);
-
-      /**
-       * @summary Retrieves a list of data lake functions.
-       *
-       * @param request ListDataLakeFunctionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakeFunctionResponse
-       */
-      Models::ListDataLakeFunctionResponse listDataLakeFunctionWithOptions(const Models::ListDataLakeFunctionRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves a list of data lake functions.
-       *
-       * @param request ListDataLakeFunctionRequest
-       * @return ListDataLakeFunctionResponse
-       */
-      Models::ListDataLakeFunctionResponse listDataLakeFunction(const Models::ListDataLakeFunctionRequest &request);
-
-      /**
-       * @summary Retrieves a list of data lake function names.
-       *
-       * @param request ListDataLakeFunctionNameRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakeFunctionNameResponse
-       */
-      Models::ListDataLakeFunctionNameResponse listDataLakeFunctionNameWithOptions(const Models::ListDataLakeFunctionNameRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves a list of data lake function names.
-       *
-       * @param request ListDataLakeFunctionNameRequest
-       * @return ListDataLakeFunctionNameResponse
-       */
-      Models::ListDataLakeFunctionNameResponse listDataLakeFunctionName(const Models::ListDataLakeFunctionNameRequest &request);
-
-      /**
-       * @summary Retrieves the list of partitions of a data lake table.
-       *
-       * @param tmpReq ListDataLakePartitionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakePartitionResponse
-       */
-      Models::ListDataLakePartitionResponse listDataLakePartitionWithOptions(const Models::ListDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves the list of partitions of a data lake table.
-       *
-       * @param request ListDataLakePartitionRequest
-       * @return ListDataLakePartitionResponse
-       */
-      Models::ListDataLakePartitionResponse listDataLakePartition(const Models::ListDataLakePartitionRequest &request);
-
-      /**
-       * @summary Retrieves a list of partitions for a data lake table based on filter conditions.
-       *
-       * @param request ListDataLakePartitionByFilterRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakePartitionByFilterResponse
-       */
-      Models::ListDataLakePartitionByFilterResponse listDataLakePartitionByFilterWithOptions(const Models::ListDataLakePartitionByFilterRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves a list of partitions for a data lake table based on filter conditions.
-       *
-       * @param request ListDataLakePartitionByFilterRequest
-       * @return ListDataLakePartitionByFilterResponse
-       */
-      Models::ListDataLakePartitionByFilterResponse listDataLakePartitionByFilter(const Models::ListDataLakePartitionByFilterRequest &request);
-
-      /**
-       * @summary Retrieves a list of partition names for a data lake table.
-       *
-       * @param request ListDataLakePartitionNameRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakePartitionNameResponse
-       */
-      Models::ListDataLakePartitionNameResponse listDataLakePartitionNameWithOptions(const Models::ListDataLakePartitionNameRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves a list of partition names for a data lake table.
-       *
-       * @param request ListDataLakePartitionNameRequest
-       * @return ListDataLakePartitionNameResponse
-       */
-      Models::ListDataLakePartitionNameResponse listDataLakePartitionName(const Models::ListDataLakePartitionNameRequest &request);
-
-      /**
-       * @summary Retrieves a list of data lake tables.
-       *
-       * @param request ListDataLakeTableRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakeTableResponse
-       */
-      Models::ListDataLakeTableResponse listDataLakeTableWithOptions(const Models::ListDataLakeTableRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves a list of data lake tables.
-       *
-       * @param request ListDataLakeTableRequest
-       * @return ListDataLakeTableResponse
-       */
-      Models::ListDataLakeTableResponse listDataLakeTable(const Models::ListDataLakeTableRequest &request);
-
-      /**
-       * @summary Retrieves a list of data lake table names.
-       *
-       * @param request ListDataLakeTableNameRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakeTableNameResponse
-       */
-      Models::ListDataLakeTableNameResponse listDataLakeTableNameWithOptions(const Models::ListDataLakeTableNameRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves a list of data lake table names.
-       *
-       * @param request ListDataLakeTableNameRequest
-       * @return ListDataLakeTableNameResponse
-       */
-      Models::ListDataLakeTableNameResponse listDataLakeTableName(const Models::ListDataLakeTableNameRequest &request);
-
-      /**
-       * @summary Retrieves the basic information about tables in a data lake.
-       *
-       * @param request ListDataLakeTablebaseInfoRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return ListDataLakeTablebaseInfoResponse
-       */
-      Models::ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfoWithOptions(const Models::ListDataLakeTablebaseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Retrieves the basic information about tables in a data lake.
-       *
-       * @param request ListDataLakeTablebaseInfoRequest
-       * @return ListDataLakeTablebaseInfoResponse
-       */
-      Models::ListDataLakeTablebaseInfoResponse listDataLakeTablebaseInfo(const Models::ListDataLakeTablebaseInfoRequest &request);
-
-      /**
        * @summary Queries a list of chunks.
        *
        * @param request ListDocumentChunksRequest
@@ -2086,6 +1644,23 @@ namespace Dms20250414
        * @return RemoveUserToDataAgentWorkspaceResponse
        */
       Models::RemoveUserToDataAgentWorkspaceResponse removeUserToDataAgentWorkspace(const Models::RemoveUserToDataAgentWorkspaceRequest &request);
+
+      /**
+       * @summary Resets the Access Token of a specified data gateway. The associated Agent and name are retained, and only the plaintext Access Token is regenerated. The old Access Token becomes invalid immediately. The new plaintext Access Token is returned only once in this response. Store it securely right away. Only the creator of the Access Token can reset it, and only Access Tokens issued by the console (source=console) can be reset.
+       *
+       * @param request ResetAgenticApiKeyRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ResetAgenticApiKeyResponse
+       */
+      Models::ResetAgenticApiKeyResponse resetAgenticApiKeyWithOptions(const Models::ResetAgenticApiKeyRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Resets the Access Token of a specified data gateway. The associated Agent and name are retained, and only the plaintext Access Token is regenerated. The old Access Token becomes invalid immediately. The new plaintext Access Token is returned only once in this response. Store it securely right away. Only the creator of the Access Token can reset it, and only Access Tokens issued by the console (source=console) can be reset.
+       *
+       * @param request ResetAgenticApiKeyRequest
+       * @return ResetAgenticApiKeyResponse
+       */
+      Models::ResetAgenticApiKeyResponse resetAgenticApiKey(const Models::ResetAgenticApiKeyRequest &request);
 
       /**
        * @summary Query a knowledge base
@@ -2343,74 +1918,6 @@ namespace Dms20250414
        * @return UpdateDataAgentWorkspaceMemberRoleResponse
        */
       Models::UpdateDataAgentWorkspaceMemberRoleResponse updateDataAgentWorkspaceMemberRole(const Models::UpdateDataAgentWorkspaceMemberRoleRequest &request);
-
-      /**
-       * @summary Updates the information of a data lakehouse database.
-       *
-       * @param tmpReq UpdateDataLakeDatabaseRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateDataLakeDatabaseResponse
-       */
-      Models::UpdateDataLakeDatabaseResponse updateDataLakeDatabaseWithOptions(const Models::UpdateDataLakeDatabaseRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Updates the information of a data lakehouse database.
-       *
-       * @param request UpdateDataLakeDatabaseRequest
-       * @return UpdateDataLakeDatabaseResponse
-       */
-      Models::UpdateDataLakeDatabaseResponse updateDataLakeDatabase(const Models::UpdateDataLakeDatabaseRequest &request);
-
-      /**
-       * @summary Update a user-defined function in a data lake.
-       *
-       * @param tmpReq UpdateDataLakeFunctionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateDataLakeFunctionResponse
-       */
-      Models::UpdateDataLakeFunctionResponse updateDataLakeFunctionWithOptions(const Models::UpdateDataLakeFunctionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Update a user-defined function in a data lake.
-       *
-       * @param request UpdateDataLakeFunctionRequest
-       * @return UpdateDataLakeFunctionResponse
-       */
-      Models::UpdateDataLakeFunctionResponse updateDataLakeFunction(const Models::UpdateDataLakeFunctionRequest &request);
-
-      /**
-       * @summary Updates the partition information of a data lake table.
-       *
-       * @param tmpReq UpdateDataLakePartitionRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateDataLakePartitionResponse
-       */
-      Models::UpdateDataLakePartitionResponse updateDataLakePartitionWithOptions(const Models::UpdateDataLakePartitionRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Updates the partition information of a data lake table.
-       *
-       * @param request UpdateDataLakePartitionRequest
-       * @return UpdateDataLakePartitionResponse
-       */
-      Models::UpdateDataLakePartitionResponse updateDataLakePartition(const Models::UpdateDataLakePartitionRequest &request);
-
-      /**
-       * @summary Updates the information of a data lake table.
-       *
-       * @param tmpReq UpdateDataLakeTableRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateDataLakeTableResponse
-       */
-      Models::UpdateDataLakeTableResponse updateDataLakeTableWithOptions(const Models::UpdateDataLakeTableRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Updates the information of a data lake table.
-       *
-       * @param request UpdateDataLakeTableRequest
-       * @return UpdateDataLakeTableResponse
-       */
-      Models::UpdateDataLakeTableResponse updateDataLakeTable(const Models::UpdateDataLakeTableRequest &request);
 
       /**
        * @summary Updates the description of a document.

@@ -44,6 +44,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AgentId, agentId_);
         DARABONBA_PTR_TO_JSON(AgentStatus, agentStatus_);
         DARABONBA_PTR_TO_JSON(Artifacts, artifacts_);
+        DARABONBA_PTR_TO_JSON(Capabilities, capabilities_);
         DARABONBA_PTR_TO_JSON(ChatHistoryLocations, chatHistoryLocations_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DataSources, dataSources_);
@@ -61,6 +62,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
         DARABONBA_PTR_FROM_JSON(AgentStatus, agentStatus_);
         DARABONBA_PTR_FROM_JSON(Artifacts, artifacts_);
+        DARABONBA_PTR_FROM_JSON(Capabilities, capabilities_);
         DARABONBA_PTR_FROM_JSON(ChatHistoryLocations, chatHistoryLocations_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DataSources, dataSources_);
@@ -222,16 +224,16 @@ namespace Models
         // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
         // The stage of the custom agent. Valid values:
-        // - **debug**: The debug stage.
-        // - **prod**: The production stage.
+        // - **debug**: Test stage.
+        // - **prod**: Production stage.
         shared_ptr<string> customAgentStage_ {};
-        // Specifies whether to enable web search.
+        // Specifies whether web search is enabled.
         shared_ptr<bool> enableSearch_ {};
-        // The encryption key for storing artifacts in OSS (both built-in and user-specified). This is typically specified in CreateDataAgentSession.
+        // The encryption key used to store artifacts in OSS (including built-in and user-specified OSS). This is typically specified in CreateDataAgentSession.
         shared_ptr<string> encryptKey_ {};
-        // The encryption type for storing artifacts in OSS (both built-in and user-specified).
+        // The encryption type used to store artifacts in OSS (including built-in and user-specified OSS).
         shared_ptr<string> encryptType_ {};
-        // The list of knowledge base IDs for the current session.
+        // The list of knowledge base IDs for this session.
         shared_ptr<vector<string>> kbUuidList_ {};
         // The language. Valid values:
         // - **CHINESE**: Chinese.
@@ -240,15 +242,16 @@ namespace Models
         // The list of MCP server IDs in the session configuration.
         shared_ptr<vector<string>> mcpServerIds_ {};
         // The mode. Valid values:
-        // - **ASK_DATA**: The ask-data mode.
-        // - **ANALYSIS**: The analysis mode.
-        // - **INSIGHT**: The insight mode.
+        //  - **ASK_DATA**: Ask data mode.
+        //  - **ANALYSIS**: Analysis mode.
+        //  - **INSIGHT**: Insight mode.
         shared_ptr<string> mode_ {};
         // The report page width.
         shared_ptr<int64_t> reportPageWidth_ {};
         // The report watermark.
         shared_ptr<string> reportWaterMark_ {};
-        // The name of the user OSS bucket. Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
+        // The name of the user OSS bucket.
+        // - Analysis process files and report artifacts can be uploaded to the user-specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -303,7 +306,7 @@ namespace Models
         shared_ptr<string> content_ {};
         // The similarity score of this record. The scoring algorithm is related to the algorithm (l2/ip/cosine) specified when the index was created.
         shared_ptr<double> score_ {};
-        // The type of the recalled knowledge.
+        // The category of the recalled knowledge.
         shared_ptr<string> type_ {};
       };
 
@@ -345,11 +348,11 @@ namespace Models
 
 
       protected:
-        // The data source category. Valid values:
+        // The source of the data source. Valid values:
         // 
-        // - **CHAT**: Specified through the CreateDataAgentSession or SendChatMessage operation during a conversation.
+        // - **CHAT**: Specified during a conversation by calling the CreateDataAgentSession or SendChatMessage operation.
         // 
-        // - **CUSTOM_AGENT**: From the preset analysis data scope in a custom agent.
+        // - **CUSTOM_AGENT**: Derived from the preset analysis data scope in a custom agent.
         shared_ptr<string> category_ {};
         // The data source details.
         // 
@@ -399,6 +402,54 @@ namespace Models
         shared_ptr<string> key_ {};
         // The OSS download URL of the chat history replay record.
         shared_ptr<string> url_ {};
+      };
+
+      class Capabilities : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const Capabilities& obj) { 
+          DARABONBA_PTR_TO_JSON(Id, id_);
+          DARABONBA_PTR_TO_JSON(Type, type_);
+        };
+        friend void from_json(const Darabonba::Json& j, Capabilities& obj) { 
+          DARABONBA_PTR_FROM_JSON(Id, id_);
+          DARABONBA_PTR_FROM_JSON(Type, type_);
+        };
+        Capabilities() = default ;
+        Capabilities(const Capabilities &) = default ;
+        Capabilities(Capabilities &&) = default ;
+        Capabilities(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~Capabilities() = default ;
+        Capabilities& operator=(const Capabilities &) = default ;
+        Capabilities& operator=(Capabilities &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->id_ == nullptr
+        && this->type_ == nullptr; };
+        // id Field Functions 
+        bool hasId() const { return this->id_ != nullptr;};
+        void deleteId() { this->id_ = nullptr;};
+        inline string getId() const { DARABONBA_PTR_GET_DEFAULT(id_, "") };
+        inline Capabilities& setId(string id) { DARABONBA_PTR_SET_VALUE(id_, id) };
+
+
+        // type Field Functions 
+        bool hasType() const { return this->type_ != nullptr;};
+        void deleteType() { this->type_ = nullptr;};
+        inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+        inline Capabilities& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
+
+
+      protected:
+        // The ID of the mounted capability.
+        // - If Type is set to skill, this value indicates the skill ID.
+        // - If Type is set to dms_kb, this value indicates the knowledge base ID.
+        shared_ptr<string> id_ {};
+        // The type. Valid values:
+        // - skill: skill.
+        // - dms_kb: knowledge base.
+        shared_ptr<string> type_ {};
       };
 
       class Artifacts : public Darabonba::Model {
@@ -496,15 +547,15 @@ namespace Models
       protected:
         // The brief description of the artifact. This value may be empty.
         shared_ptr<string> description_ {};
-        // The time when the backend completed the artifact task. The value is a UNIX timestamp accurate to seconds.
+        // The time when the backend completed the artifact task. This is a UNIX timestamp accurate to the second.
         shared_ptr<string> finishTime_ {};
         // The artifact ID, which is globally unique. If the report is produced by calling SendChatMessage with MessageType set to REPORT, the artifact ID is the same as the MessageId in the response of the SendChatMessage operation.
         shared_ptr<string> id_ {};
-        // The artifact name, which is typically a string concatenated by the system. This name is aligned with the name field in the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
+        // The artifact name, which is typically a string concatenated by the system. This value is aligned with the name field of the ListFileUpload operation. You can use this field to query the download URL of the artifact file.
         shared_ptr<string> name_ {};
-        // The time when the backend received the artifact request. The value is a UNIX timestamp accurate to seconds.
+        // The time when the backend received the artifact request. This is a UNIX timestamp accurate to the second.
         shared_ptr<string> receiveTime_ {};
-        // The time when the backend actually started running the artifact task. The value is a UNIX timestamp accurate to seconds.
+        // The time when the backend actually started running the artifact task. This is a UNIX timestamp accurate to the second.
         shared_ptr<string> startTime_ {};
         // The artifact status. Valid values:
         // 
@@ -516,14 +567,14 @@ namespace Models
         // 
         // - FAILED: The task failed.
         shared_ptr<string> status_ {};
-        // The artifact type. Valid values: TextReport, WebReport.
+        // The artifact type. Valid values: [TextReport, WebReport].
         shared_ptr<string> type_ {};
       };
 
       virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->agentStatus_ == nullptr && this->artifacts_ == nullptr && this->chatHistoryLocations_ == nullptr && this->createTime_ == nullptr && this->dataSources_ == nullptr
-        && this->favoriteInWorkspace_ == nullptr && this->file_ == nullptr && this->recallResults_ == nullptr && this->saved_ == nullptr && this->sessionConfig_ == nullptr
-        && this->sessionId_ == nullptr && this->sessionStatus_ == nullptr && this->title_ == nullptr && this->userId_ == nullptr; };
+        && this->agentStatus_ == nullptr && this->artifacts_ == nullptr && this->capabilities_ == nullptr && this->chatHistoryLocations_ == nullptr && this->createTime_ == nullptr
+        && this->dataSources_ == nullptr && this->favoriteInWorkspace_ == nullptr && this->file_ == nullptr && this->recallResults_ == nullptr && this->saved_ == nullptr
+        && this->sessionConfig_ == nullptr && this->sessionId_ == nullptr && this->sessionStatus_ == nullptr && this->title_ == nullptr && this->userId_ == nullptr; };
       // agentId Field Functions 
       bool hasAgentId() const { return this->agentId_ != nullptr;};
       void deleteAgentId() { this->agentId_ = nullptr;};
@@ -545,6 +596,15 @@ namespace Models
       inline vector<Data::Artifacts> getArtifacts() { DARABONBA_PTR_GET(artifacts_, vector<Data::Artifacts>) };
       inline Data& setArtifacts(const vector<Data::Artifacts> & artifacts) { DARABONBA_PTR_SET_VALUE(artifacts_, artifacts) };
       inline Data& setArtifacts(vector<Data::Artifacts> && artifacts) { DARABONBA_PTR_SET_RVALUE(artifacts_, artifacts) };
+
+
+      // capabilities Field Functions 
+      bool hasCapabilities() const { return this->capabilities_ != nullptr;};
+      void deleteCapabilities() { this->capabilities_ = nullptr;};
+      inline const vector<Data::Capabilities> & getCapabilities() const { DARABONBA_PTR_GET_CONST(capabilities_, vector<Data::Capabilities>) };
+      inline vector<Data::Capabilities> getCapabilities() { DARABONBA_PTR_GET(capabilities_, vector<Data::Capabilities>) };
+      inline Data& setCapabilities(const vector<Data::Capabilities> & capabilities) { DARABONBA_PTR_SET_VALUE(capabilities_, capabilities) };
+      inline Data& setCapabilities(vector<Data::Capabilities> && capabilities) { DARABONBA_PTR_SET_RVALUE(capabilities_, capabilities) };
 
 
       // chatHistoryLocations Field Functions 
@@ -646,21 +706,23 @@ namespace Models
       shared_ptr<string> agentStatus_ {};
       // The list of artifacts produced by the session. Currently, only reports are included.
       shared_ptr<vector<Data::Artifacts>> artifacts_ {};
+      // The capabilities (knowledge bases, skills, and others) mounted to the session.
+      shared_ptr<vector<Data::Capabilities>> capabilities_ {};
       // The chat history replay records.
       shared_ptr<vector<Data::ChatHistoryLocations>> chatHistoryLocations_ {};
       // The time when the session was created.
       shared_ptr<int64_t> createTime_ {};
       // The list of data sources used in the current session.
       shared_ptr<vector<Data::DataSources>> dataSources_ {};
-      // Indicates whether the session is saved as a favorite in the workspace by the current logged-in user.
+      // Indicates whether the session is favorited by the current user in the workspace.
       shared_ptr<string> favoriteInWorkspace_ {};
       // The file ID.
       shared_ptr<string> file_ {};
-      // The recall results from the knowledge base and memory for the current session.
+      // The recall results from knowledge bases and memory in this session.
       shared_ptr<vector<Data::RecallResults>> recallResults_ {};
-      // Indicates whether the session is saved as a favorite by the current logged-in user.
+      // Indicates whether the session is favorited by the current user.
       shared_ptr<bool> saved_ {};
-      // The session configuration item.
+      // The session configuration items.
       shared_ptr<Data::SessionConfig> sessionConfig_ {};
       // The agent session ID.
       shared_ptr<string> sessionId_ {};
@@ -720,9 +782,9 @@ namespace Models
     shared_ptr<string> errorMessage_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The return value. Valid values:
+    // The return value description. Valid values:
     // 
-    // - **true**: Successful.
+    // - **true**: Succeeded.
     // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };

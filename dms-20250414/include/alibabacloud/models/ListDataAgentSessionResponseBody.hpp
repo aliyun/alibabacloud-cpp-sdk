@@ -161,9 +161,9 @@ namespace Models
       protected:
         // The custom agent ID.
         shared_ptr<string> customAgentId_ {};
-        // The usage stage of the custom agent. Valid values:
+        // The stage of the custom agent. Valid values:
         // - **debug**: Debug stage.
-        // - **prod**: Production environment stage.
+        // - **prod**: Production stage.
         shared_ptr<string> customAgentStage_ {};
         // Specifies whether to enable web search.
         shared_ptr<bool> enableSearch_ {};
@@ -178,7 +178,7 @@ namespace Models
         shared_ptr<string> mode_ {};
         // The name of the user OSS bucket.
         // 
-        // - Analysis process files and report outputs can be uploaded to the user-specified OSS bucket.
+        // Analysis process files and report outputs can be uploaded to the user-specified OSS bucket.
         shared_ptr<string> userOssBucket_ {};
       };
 
@@ -360,7 +360,7 @@ namespace Models
   protected:
     // The response struct.
     shared_ptr<vector<ListDataAgentSessionResponseBody::Data>> data_ {};
-    // The error code returned when the request is abnormal.
+    // The error code returned when the request fails.
     shared_ptr<string> errorCode_ {};
     // The error message returned when the call fails.
     shared_ptr<string> errorMessage_ {};

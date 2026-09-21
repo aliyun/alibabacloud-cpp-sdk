@@ -140,14 +140,15 @@ namespace Models
 
 
   protected:
-    // The end time for session creation.
+    // The end time of the session creation time range.
     shared_ptr<int64_t> createEndTime_ {};
-    // The start time for session creation.
+    // The start time of the session creation time range.
     shared_ptr<int64_t> createStartTime_ {};
+    // The ID of the session creator.
     shared_ptr<string> creatorId_ {};
     // The custom agent ID.
     shared_ptr<string> customAgentId_ {};
-    // The current Data Management unit.
+    // The current DMS unit.
     shared_ptr<string> DMSUnit_ {};
     // Specifies whether to retrieve only favorited sessions.
     shared_ptr<bool> isSaved_ {};
