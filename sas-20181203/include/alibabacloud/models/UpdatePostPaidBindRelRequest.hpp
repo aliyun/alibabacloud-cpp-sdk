@@ -178,7 +178,7 @@ namespace Models
     // - **0**: Disabled.
     // - **1**: Enabled.
     shared_ptr<int32_t> autoBind_ {};
-    // The edition to automatically bind when new assets are added. Valid values:
+    // The edition that is automatically bound when new assets are added. Valid values:
     // - **1**: Free Edition 
     // - **3**: Enterprise Edition
     // - **5**: Advanced Edition
@@ -187,11 +187,11 @@ namespace Models
     shared_ptr<int32_t> autoBindVersion_ {};
     // The binding action parameter.
     shared_ptr<vector<UpdatePostPaidBindRelRequest::BindAction>> bindAction_ {};
-    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    // Specifies whether to perform only a dry run of the request. Valid values: true: performs only a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
     shared_ptr<bool> dryRun_ {};
-    // The abbreviated name of the cloud service. Valid values:
+    // The abbreviation of the cloud service. Valid values:
     // - **sas**: Security Center
     shared_ptr<string> productCode_ {};
     // Specifies whether to forcibly upgrade the edition.

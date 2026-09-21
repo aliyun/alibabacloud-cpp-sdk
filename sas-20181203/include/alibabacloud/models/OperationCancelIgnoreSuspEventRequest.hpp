@@ -62,7 +62,7 @@ namespace Models
   protected:
     // The remarks.
     shared_ptr<string> remark_ {};
-    // The Alibaba Cloud account ID of the member account in the resource directory.
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
     // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The list of alert IDs.

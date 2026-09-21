@@ -102,15 +102,17 @@ namespace Models
     // 
     // > Call the [DescribeChartList](~~DescribeChartList~~) operation to obtain this parameter. This parameter is required if the report version is 2.0.0.
     shared_ptr<string> chartId_ {};
-    // The language type for the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response messages. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
-    // - **en**: English.
+    // - **en**: English
     shared_ptr<string> lang_ {};
     // The report ID.
     // 
     // > Call the [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) operation to obtain this parameter.
     shared_ptr<int64_t> reportId_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource directory.
+    // > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The end timestamp for statistics. Unit: milliseconds.
     shared_ptr<int64_t> timeEnd_ {};

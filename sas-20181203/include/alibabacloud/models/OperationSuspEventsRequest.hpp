@@ -100,22 +100,24 @@ namespace Models
     shared_ptr<string> from_ {};
     // The operation to perform on the alert. Valid values:
     // 
-    // - **deal**: handles the alert (quarantine).
-    // - **ignore**: ignores the alert.
-    // - **mark_mis_info**: marks the alert as a false positive (adds it to the whitelist).
-    // - **rm_mark_mis_info**: unmarks the alert as a false positive (removes it from the whitelist).
-    // - **offline_handled**: marks the alert as handled.
+    // - **deal**: Handle the alert (quarantine).
+    // - **ignore**: Ignore the alert.
+    // - **mark_mis_info**: Mark as false positive (add to whitelist).
+    // - **rm_mark_mis_info**: Unmark as false positive (remove from whitelist).
+    // - **offline_handled**: Mark as handled.
     // 
     // This parameter is required.
     shared_ptr<string> operation_ {};
+    // The Alibaba Cloud account ID of a member account in the resource directory.
+    // > You can call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};
     // The sub-operation type to perform when quarantining the alert event. Valid values:
     // 
-    // - **killAndQuaraFileByPidAndMd5andPath**: terminates the process by PID and quarantines the source file of the process.
-    // - **quaraFileByMd5andPath**: quarantines the source file of the process.
-    // - **killAndQuaraFileByMd5andPath**: terminates the process and quarantines the source file of the process.
+    // - **killAndQuaraFileByPidAndMd5andPath**: Terminate the process by PID and quarantine the source file of the process.
+    // - **quaraFileByMd5andPath**: Quarantine the source file of the process.
+    // - **killAndQuaraFileByMd5andPath**: Terminate the process and quarantine the source file of the process.
     shared_ptr<string> subOperation_ {};
     // The list of alert event IDs.
     // 
@@ -125,8 +127,8 @@ namespace Models
     shared_ptr<string> suspiciousEventIds_ {};
     // The type of the exception event to handle. Valid values:
     // 
-    // - **alarm**: alert.
-    // - **Empty**: exception.
+    // - **alarm**: alert
+    // - **Empty**: exception
     shared_ptr<string> warnType_ {};
   };
 

@@ -92,7 +92,7 @@ namespace Models
     // 
     // - 2: suspicious
     // 
-    // - 3: high-risk.
+    // - 3: high-risk
     shared_ptr<int32_t> alertLevel_ {};
     // The page number of the current page in a paged query.
     shared_ptr<int32_t> currentPage_ {};
@@ -101,15 +101,15 @@ namespace Models
     // The operating system type. Valid values:
     // 
     // - **windows**: Windows
-    // - **linux**: Linux.
+    // - **linux**: Linux
     shared_ptr<string> platform_ {};
     // The rule action. Valid values:
     // 
-    // - **block**: blocks the request.
+    // - **block**: Block.
     // 
-    // - **monitor**: monitors the request.
+    // - **monitor**: Monitor.
     // 
-    // - **pass**: allows the request.
+    // - **pass**: Allow.
     shared_ptr<string> ruleAction_ {};
     // The rule name.
     shared_ptr<string> ruleName_ {};

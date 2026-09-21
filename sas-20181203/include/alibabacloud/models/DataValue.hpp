@@ -13,6 +13,17 @@ namespace Models
   class DataValue : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DataValue& obj) { 
+      DARABONBA_PTR_TO_JSON(RiskMachine, riskMachine_);
+      DARABONBA_PTR_TO_JSON(ScanMachine, scanMachine_);
+      DARABONBA_PTR_TO_JSON(MaliciousFile, maliciousFile_);
+      DARABONBA_PTR_TO_JSON(Vulnerability, vulnerability_);
+      DARABONBA_PTR_TO_JSON(LastTaskTime, lastTaskTime_);
+      DARABONBA_PTR_TO_JSON(BaselineCheckCount, baselineCheckCount_);
+      DARABONBA_PTR_TO_JSON(ScaVulCount, scaVulCount_);
+      DARABONBA_PTR_TO_JSON(CveVulCount, cveVulCount_);
+      DARABONBA_PTR_TO_JSON(SysVulCount, sysVulCount_);
+      DARABONBA_PTR_TO_JSON(SensitiveFileCount, sensitiveFileCount_);
+      DARABONBA_PTR_TO_JSON(EstimateUsedSize, estimateUsedSize_);
       DARABONBA_PTR_TO_JSON(CveNum, cveNum_);
       DARABONBA_PTR_TO_JSON(EmgNum, emgNum_);
       DARABONBA_PTR_TO_JSON(SysNum, sysNum_);
@@ -25,6 +36,17 @@ namespace Models
       DARABONBA_PTR_TO_JSON(SysAsapNum, sysAsapNum_);
     };
     friend void from_json(const Darabonba::Json& j, DataValue& obj) { 
+      DARABONBA_PTR_FROM_JSON(RiskMachine, riskMachine_);
+      DARABONBA_PTR_FROM_JSON(ScanMachine, scanMachine_);
+      DARABONBA_PTR_FROM_JSON(MaliciousFile, maliciousFile_);
+      DARABONBA_PTR_FROM_JSON(Vulnerability, vulnerability_);
+      DARABONBA_PTR_FROM_JSON(LastTaskTime, lastTaskTime_);
+      DARABONBA_PTR_FROM_JSON(BaselineCheckCount, baselineCheckCount_);
+      DARABONBA_PTR_FROM_JSON(ScaVulCount, scaVulCount_);
+      DARABONBA_PTR_FROM_JSON(CveVulCount, cveVulCount_);
+      DARABONBA_PTR_FROM_JSON(SysVulCount, sysVulCount_);
+      DARABONBA_PTR_FROM_JSON(SensitiveFileCount, sensitiveFileCount_);
+      DARABONBA_PTR_FROM_JSON(EstimateUsedSize, estimateUsedSize_);
       DARABONBA_PTR_FROM_JSON(CveNum, cveNum_);
       DARABONBA_PTR_FROM_JSON(EmgNum, emgNum_);
       DARABONBA_PTR_FROM_JSON(SysNum, sysNum_);
@@ -47,9 +69,88 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->cveNum_ == nullptr
-        && this->emgNum_ == nullptr && this->sysNum_ == nullptr && this->cmsNum_ == nullptr && this->appNum_ == nullptr && this->scaNum_ == nullptr
-        && this->vulAsapSum_ == nullptr && this->vulLaterSum_ == nullptr && this->vulNntfSum_ == nullptr && this->sysAsapNum_ == nullptr; };
+    virtual bool empty() const override { return this->riskMachine_ == nullptr
+        && this->scanMachine_ == nullptr && this->maliciousFile_ == nullptr && this->vulnerability_ == nullptr && this->lastTaskTime_ == nullptr && this->baselineCheckCount_ == nullptr
+        && this->scaVulCount_ == nullptr && this->cveVulCount_ == nullptr && this->sysVulCount_ == nullptr && this->sensitiveFileCount_ == nullptr && this->estimateUsedSize_ == nullptr
+        && this->cveNum_ == nullptr && this->emgNum_ == nullptr && this->sysNum_ == nullptr && this->cmsNum_ == nullptr && this->appNum_ == nullptr
+        && this->scaNum_ == nullptr && this->vulAsapSum_ == nullptr && this->vulLaterSum_ == nullptr && this->vulNntfSum_ == nullptr && this->sysAsapNum_ == nullptr; };
+    // riskMachine Field Functions 
+    bool hasRiskMachine() const { return this->riskMachine_ != nullptr;};
+    void deleteRiskMachine() { this->riskMachine_ = nullptr;};
+    inline int32_t getRiskMachine() const { DARABONBA_PTR_GET_DEFAULT(riskMachine_, 0) };
+    inline DataValue& setRiskMachine(int32_t riskMachine) { DARABONBA_PTR_SET_VALUE(riskMachine_, riskMachine) };
+
+
+    // scanMachine Field Functions 
+    bool hasScanMachine() const { return this->scanMachine_ != nullptr;};
+    void deleteScanMachine() { this->scanMachine_ = nullptr;};
+    inline int32_t getScanMachine() const { DARABONBA_PTR_GET_DEFAULT(scanMachine_, 0) };
+    inline DataValue& setScanMachine(int32_t scanMachine) { DARABONBA_PTR_SET_VALUE(scanMachine_, scanMachine) };
+
+
+    // maliciousFile Field Functions 
+    bool hasMaliciousFile() const { return this->maliciousFile_ != nullptr;};
+    void deleteMaliciousFile() { this->maliciousFile_ = nullptr;};
+    inline int32_t getMaliciousFile() const { DARABONBA_PTR_GET_DEFAULT(maliciousFile_, 0) };
+    inline DataValue& setMaliciousFile(int32_t maliciousFile) { DARABONBA_PTR_SET_VALUE(maliciousFile_, maliciousFile) };
+
+
+    // vulnerability Field Functions 
+    bool hasVulnerability() const { return this->vulnerability_ != nullptr;};
+    void deleteVulnerability() { this->vulnerability_ = nullptr;};
+    inline int32_t getVulnerability() const { DARABONBA_PTR_GET_DEFAULT(vulnerability_, 0) };
+    inline DataValue& setVulnerability(int32_t vulnerability) { DARABONBA_PTR_SET_VALUE(vulnerability_, vulnerability) };
+
+
+    // lastTaskTime Field Functions 
+    bool hasLastTaskTime() const { return this->lastTaskTime_ != nullptr;};
+    void deleteLastTaskTime() { this->lastTaskTime_ = nullptr;};
+    inline int64_t getLastTaskTime() const { DARABONBA_PTR_GET_DEFAULT(lastTaskTime_, 0L) };
+    inline DataValue& setLastTaskTime(int64_t lastTaskTime) { DARABONBA_PTR_SET_VALUE(lastTaskTime_, lastTaskTime) };
+
+
+    // baselineCheckCount Field Functions 
+    bool hasBaselineCheckCount() const { return this->baselineCheckCount_ != nullptr;};
+    void deleteBaselineCheckCount() { this->baselineCheckCount_ = nullptr;};
+    inline int32_t getBaselineCheckCount() const { DARABONBA_PTR_GET_DEFAULT(baselineCheckCount_, 0) };
+    inline DataValue& setBaselineCheckCount(int32_t baselineCheckCount) { DARABONBA_PTR_SET_VALUE(baselineCheckCount_, baselineCheckCount) };
+
+
+    // scaVulCount Field Functions 
+    bool hasScaVulCount() const { return this->scaVulCount_ != nullptr;};
+    void deleteScaVulCount() { this->scaVulCount_ = nullptr;};
+    inline int32_t getScaVulCount() const { DARABONBA_PTR_GET_DEFAULT(scaVulCount_, 0) };
+    inline DataValue& setScaVulCount(int32_t scaVulCount) { DARABONBA_PTR_SET_VALUE(scaVulCount_, scaVulCount) };
+
+
+    // cveVulCount Field Functions 
+    bool hasCveVulCount() const { return this->cveVulCount_ != nullptr;};
+    void deleteCveVulCount() { this->cveVulCount_ = nullptr;};
+    inline int32_t getCveVulCount() const { DARABONBA_PTR_GET_DEFAULT(cveVulCount_, 0) };
+    inline DataValue& setCveVulCount(int32_t cveVulCount) { DARABONBA_PTR_SET_VALUE(cveVulCount_, cveVulCount) };
+
+
+    // sysVulCount Field Functions 
+    bool hasSysVulCount() const { return this->sysVulCount_ != nullptr;};
+    void deleteSysVulCount() { this->sysVulCount_ = nullptr;};
+    inline int32_t getSysVulCount() const { DARABONBA_PTR_GET_DEFAULT(sysVulCount_, 0) };
+    inline DataValue& setSysVulCount(int32_t sysVulCount) { DARABONBA_PTR_SET_VALUE(sysVulCount_, sysVulCount) };
+
+
+    // sensitiveFileCount Field Functions 
+    bool hasSensitiveFileCount() const { return this->sensitiveFileCount_ != nullptr;};
+    void deleteSensitiveFileCount() { this->sensitiveFileCount_ = nullptr;};
+    inline int32_t getSensitiveFileCount() const { DARABONBA_PTR_GET_DEFAULT(sensitiveFileCount_, 0) };
+    inline DataValue& setSensitiveFileCount(int32_t sensitiveFileCount) { DARABONBA_PTR_SET_VALUE(sensitiveFileCount_, sensitiveFileCount) };
+
+
+    // estimateUsedSize Field Functions 
+    bool hasEstimateUsedSize() const { return this->estimateUsedSize_ != nullptr;};
+    void deleteEstimateUsedSize() { this->estimateUsedSize_ = nullptr;};
+    inline int64_t getEstimateUsedSize() const { DARABONBA_PTR_GET_DEFAULT(estimateUsedSize_, 0L) };
+    inline DataValue& setEstimateUsedSize(int64_t estimateUsedSize) { DARABONBA_PTR_SET_VALUE(estimateUsedSize_, estimateUsedSize) };
+
+
     // cveNum Field Functions 
     bool hasCveNum() const { return this->cveNum_ != nullptr;};
     void deleteCveNum() { this->cveNum_ = nullptr;};
@@ -121,6 +222,28 @@ namespace Models
 
 
   protected:
+    // The number of risky hosts.
+    shared_ptr<int32_t> riskMachine_ {};
+    // The number of scanned hosts.
+    shared_ptr<int32_t> scanMachine_ {};
+    // The total number of malicious sample files.
+    shared_ptr<int32_t> maliciousFile_ {};
+    // The number of vulnerability risks.
+    shared_ptr<int32_t> vulnerability_ {};
+    // The timestamp of the last scan time. Unit: milliseconds.
+    shared_ptr<int64_t> lastTaskTime_ {};
+    // The total number of baseline check items.
+    shared_ptr<int32_t> baselineCheckCount_ {};
+    // The total number of application vulnerabilities.
+    shared_ptr<int32_t> scaVulCount_ {};
+    // The total number of system vulnerabilities.
+    shared_ptr<int32_t> cveVulCount_ {};
+    // The total number of Windows system vulnerabilities.
+    shared_ptr<int32_t> sysVulCount_ {};
+    // The total number of sensitive files.
+    shared_ptr<int32_t> sensitiveFileCount_ {};
+    // The estimated detection volume. Unit: GB. This field is not returned by the batch statistics operation.
+    shared_ptr<int64_t> estimateUsedSize_ {};
     // The number of Linux software vulnerabilities.
     shared_ptr<int32_t> cveNum_ {};
     // The number of emergency vulnerabilities. This field is 0 when ImageVul is set to true.

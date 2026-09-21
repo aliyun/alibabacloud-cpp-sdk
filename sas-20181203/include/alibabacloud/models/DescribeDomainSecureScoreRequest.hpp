@@ -62,8 +62,8 @@ namespace Models
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The Alibaba Cloud account ID of the member account in the resource directory.
-    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The source IP address of the request.
     shared_ptr<string> sourceIp_ {};

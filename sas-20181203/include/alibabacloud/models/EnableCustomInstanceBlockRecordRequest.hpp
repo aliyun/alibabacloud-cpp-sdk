@@ -66,14 +66,15 @@ namespace Models
 
 
   protected:
-    // The IP address that you want to block.
+    // The IP address for brute-force attacks prevention that you want to enable on the server.
     // 
     // This parameter is required.
     shared_ptr<string> blockIp_ {};
-    // The traffic direction from the IP address that you want to block. Valid value:
+    // The direction in which the brute-force attacks blocking policy blocks the IP address on the server.
     // 
-    // *   **in**
-    // *   **out**
+    // Valid values:
+    // - **in**: inbound
+    // - **out**: outbound
     shared_ptr<string> bound_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The UUID of the server.

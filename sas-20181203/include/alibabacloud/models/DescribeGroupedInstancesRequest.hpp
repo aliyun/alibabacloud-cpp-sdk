@@ -130,7 +130,7 @@ namespace Models
 
 
   protected:
-    // The page number of the first page to return. Default value: **1**, which indicates that the query results are returned starting from page 1.
+    // The page number of the first page to return. Default value: **1**, which indicates that results are returned starting from page 1.
     shared_ptr<int32_t> currentPage_ {};
     // The name of the asset group to query. Fuzzy match is supported.
     shared_ptr<string> fieldValue_ {};
@@ -149,12 +149,12 @@ namespace Models
     // The type of assets to query. Set the value to **ecs**, which indicates Elastic Compute Service (ECS) instances.
     shared_ptr<string> machineTypes_ {};
     // Settings for whether to enable paged query. Default value: **true**. Valid values:
-    // - **true**: Paged query is enabled.
-    // - **false**: Paged query is disabled. Paging is not performed.
+    // - **true**: Paging is enabled.
+    // - **false**: Paging is disabled.
     shared_ptr<bool> noPage_ {};
     // The number of entries per page in a paged query. Default value: **20**, which indicates that 20 entries of asset information are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the Alibaba Cloud account that is added as a member of a resource folder for member accounts.
+    // The ID of the Alibaba Cloud account that is associated with member accounts in a resource folder.
     // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The edition-based filter condition for querying assets. Valid values:

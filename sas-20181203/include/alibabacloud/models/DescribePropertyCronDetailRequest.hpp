@@ -121,31 +121,31 @@ namespace Models
 
 
   protected:
-    // The page number of the page to return. Default value: **1**, which indicates that the first page is returned.
+    // The page number of the results to return. Default value: **1**, which indicates that the results start from page 1.
     shared_ptr<int32_t> currentPage_ {};
     // Specifies whether fuzzy match is supported for the scheduled task path. Set this parameter to **1** to enable fuzzy match. Other values or an empty value indicate that fuzzy match is not supported.
     shared_ptr<string> extend_ {};
-    // The pagination token that marks the position from which you want to start reading. Leave this parameter empty to read from the beginning.
+    // The token that marks the current position from which to start reading. Leave this parameter empty to start reading from the beginning.
     // 
     // > You do not need to specify this parameter for the first call. The response includes the NextToken value for the second call. Each subsequent response includes the NextToken value for the next call.
     shared_ptr<string> nextToken_ {};
-    // Settings the number of scheduled task asset fingerprint information entries displayed per page in a paging query. Default value: **10**, which indicates that 10 entries of scheduled task asset fingerprint information are displayed per page.
+    // Settings the number of entries per page in a paging query. Default value: **10**, which indicates that 10 fingerprint entries of scheduled task assets are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The name or IP address of the server that you want to query.
+    // The name or IP address of the server to query.
     shared_ptr<string> remark_ {};
     // The Alibaba Cloud account ID of the member accounts in the resource folder.
     // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The task path that you want to query.
+    // The path of the scheduled task to query.
     shared_ptr<string> source_ {};
     // Specifies whether to use the NextToken method to retrieve the vulnerability list data. If you use this parameter, TotalCount is no longer returned. Valid values:
     // 
     // - **true**: Use the NextToken method.
     // - **false**: Do not use the NextToken method.
     shared_ptr<bool> useNextToken_ {};
-    // The account name of the scheduled task that you want to query.
+    // The account name of the scheduled task to query.
     shared_ptr<string> user_ {};
-    // The UUID of the server that you want to query.
+    // The UUID of the server to query.
     shared_ptr<string> uuid_ {};
   };
 

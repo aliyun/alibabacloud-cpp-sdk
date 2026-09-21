@@ -114,7 +114,7 @@ namespace Models
         // 
         // > The valid range is 0 to the deduction threshold of the security score rule.
         shared_ptr<int32_t> scoreThreshold_ {};
-        // The sub-rule type of the individual deduction item. The mapping between security score types and sub-rule types is as follows:
+        // The sub-rule type of the individual deduction item. The relationship between security score types and sub-rule types is as follows:
         // - SS_REINFORCE: Key feature configuration.
         //   - XPRESS_INSTALL: Security Center service authorization is not enabled.
         //   - REINFORCE_SUSPICIOUS: The anti-virus feature is not enabled.
@@ -137,7 +137,7 @@ namespace Models
         //   - ERM_UNCHECK: One unscanned emergency vulnerability exists.
         // 
         // - SS_HC: Baseline issues.
-        //   - WEAK_EXPLOIT: A weak password risk exposed to the Internet exists.
+        //   - WEAK_EXPLOIT: A weak password risk with Internet Exposure exists.
         //   - WEAK_PASSWORD: A weak password risk exists.
         //   - HC_EXPLOIT: A high-risk intrusion vulnerability exists.
         //   - HC_OTHER_WARNING: A security configuration risk exists.
@@ -147,7 +147,7 @@ namespace Models
         //   - CSPM_RISK_NOT_PASS: One failed security risk check item exists.
         //   - CSPM_COMPLIANCE_NOT_PASS: One failed compliance check item exists.
         // 
-        // - SS_AK: AccessKey pair leak risk. Categorization not applicable.
+        // - SS_AK: AccessKey pair leak risk.
         shared_ptr<string> subRuleType_ {};
       };
 
@@ -187,7 +187,7 @@ namespace Models
       shared_ptr<string> ruleType_ {};
       // The deduction value of the security score rule.
       // 
-      // > The valid range is 0 to 100. The sum of all security score rule deduction thresholds must equal 100.
+      // > The valid range is 0 to 100. The sum of deduction thresholds for all security score rules must equal 100.
       shared_ptr<int32_t> score_ {};
       // The list of individual deduction items for the security score rule.
       shared_ptr<vector<SecurityScoreRuleList::SecurityScoreItemList>> securityScoreItemList_ {};
@@ -330,9 +330,9 @@ namespace Models
         // - **SS_SAS_APP_VUL**: Pending application vulnerabilities to fix.
         // - **SS_SAS_SYS_VUL**: Pending system vulnerabilities to fix.
         // - **SS_SAS_CLOUD_HC**: Pending Cloud Security Posture Management (CSPM) risks.
-        // - **SS_SDDP_DATA_RISK**: Pending data security risks to address.
+        // - **SS_SDDP_DATA_RISK**: Pending data security risks to remediate.
         // - **SS_WAF_API_RISK**: Pending API security risks.
-        // - **SS_DDOS_BH_ASSET**: Assets in DDoS blackhole filtering status.
+        // - **SS_DDOS_BH_ASSET**: Assets under DDoS blackhole filtering.
         // - **SS_SAS_AK_LEAK**: Unhandled AccessKey/SecretKey leak events.
         // - **SS_PRODUCT_CONNECT**: Security products not properly connected.
         // - **SS_KEY_CONFIG**: Key feature configuration.
@@ -379,7 +379,7 @@ namespace Models
       shared_ptr<string> category_ {};
       // The deduction threshold for the security score rule category.
       // 
-      // > The valid range is 0 to 100. The sum of all security score rule category deduction thresholds must equal 100.
+      // > The valid range is 0 to 100. The sum of deduction thresholds for all security score rule categories must equal 100.
       shared_ptr<int32_t> scoreThreshold_ {};
       // The list of deductions by security score rule type.
       shared_ptr<vector<SecurityScoreCategoryList::SecurityRuleList>> securityRuleList_ {};
@@ -433,7 +433,7 @@ namespace Models
     // - true: Yes.
     // - false: No.
     shared_ptr<bool> resetSecurityScoreRule_ {};
-    // The ID of the member account in the resource directory.
+    // The ID of the Alibaba Cloud account of the member accounts in the resource directory.
     // > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The list of new version security score rule deductions.

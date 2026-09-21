@@ -48,12 +48,12 @@ namespace Models
 
 
   protected:
-    // The language of the request and response. Default value: **zh**. Valid values:
+    // The language type for the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // The Alibaba Cloud account ID of the member accounts in the resource directory folder.
     // >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };

@@ -157,11 +157,11 @@ namespace Models
         shared_ptr<string> moduleDisp_ {};
         // The module status. Valid values:
         // - **0**: In use.
-        // - **1**: Usage exception.
+        // - **1**: Abnormal.
         // - **2**: Validity verification in progress.
         // - **3**: Validity verification timed out.
         shared_ptr<int32_t> moduleServiceStatus_ {};
-        // The description of permissions associated with the module.
+        // The associate permission description for the module.
         shared_ptr<string> moduleStatement_ {};
       };
 
@@ -260,7 +260,7 @@ namespace Models
       shared_ptr<string> secretId_ {};
       // The AK usage status. Valid values:
       // - **0**: In use.
-      // - **1**: Usage exception.
+      // - **1**: Abnormal.
       // - **2**: Validity verification in progress.
       // - **3**: Validity verification timed out.
       shared_ptr<int32_t> serviceStatus_ {};
@@ -303,7 +303,7 @@ namespace Models
 
 
   protected:
-    // The information about the added AK.
+    // The AK information that is added.
     shared_ptr<AddCloudVendorAccountAKResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

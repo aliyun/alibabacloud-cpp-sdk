@@ -97,7 +97,7 @@ namespace Models
     // - **true**: Successful.
     // - **false**: Failed.
     shared_ptr<bool> success_ {};
-    // The time consumed by the task, in seconds.
+    // The time consumed by the task. Unit: seconds.
     shared_ptr<int64_t> timeCost_ {};
   };
 

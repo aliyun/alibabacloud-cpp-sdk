@@ -55,7 +55,7 @@ namespace Sas20181203
       Models::AddBaselineCheckWhiteRecordResponse addBaselineCheckWhiteRecord(const Models::AddBaselineCheckWhiteRecordRequest &request);
 
       /**
-       * @summary Adds instances to the whitelist at the check item level for cloud platform configuration checks.
+       * @summary Adds instances to the whitelist at the instance level for a specific check item in cloud platform configuration checks.
        *
        * @param request AddCheckInstanceResultWhiteListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -64,7 +64,7 @@ namespace Sas20181203
       Models::AddCheckInstanceResultWhiteListResponse addCheckInstanceResultWhiteListWithOptions(const Models::AddCheckInstanceResultWhiteListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Adds instances to the whitelist at the check item level for cloud platform configuration checks.
+       * @summary Adds instances to the whitelist at the instance level for a specific check item in cloud platform configuration checks.
        *
        * @param request AddCheckInstanceResultWhiteListRequest
        * @return AddCheckInstanceResultWhiteListResponse
@@ -297,7 +297,9 @@ namespace Sas20181203
       Models::AddProtectVpcListResponse addProtectVpcList(const Models::AddProtectVpcListRequest &request);
 
       /**
-       * @summary Upgrades the Security Center agent in batches.
+       * @summary Creates a release batch for Security Center upgrades.
+       *
+       * @description Before calling this operation, call GetCurrentVersionPublish to check the account eligibility. You can call this operation only when the returned BigCustomer parameter is true, which indicates that the account is a premium customer.
        *
        * @param request AddPublishBatchRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -306,7 +308,9 @@ namespace Sas20181203
       Models::AddPublishBatchResponse addPublishBatchWithOptions(const Models::AddPublishBatchRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades the Security Center agent in batches.
+       * @summary Creates a release batch for Security Center upgrades.
+       *
+       * @description Before calling this operation, call GetCurrentVersionPublish to check the account eligibility. You can call this operation only when the returned BigCustomer parameter is true, which indicates that the account is a premium customer.
        *
        * @param request AddPublishBatchRequest
        * @return AddPublishBatchResponse
@@ -968,6 +972,8 @@ namespace Sas20181203
       /**
        * @summary Creates a container runtime scan task in the appNames dimension.
        *
+       * @description Before calling this operation, make sure that your current Security Center edition supports container runtime scanning. Call [DescribeVersionConfig](~~DescribeVersionConfig~~) and verify that the response parameter IsNewContainerVersion is true, which indicates that container runtime scanning is available. If the value is false, upgrade your Security Center edition before calling this operation.
+       *
        * @param request CreateContainerScanTaskByAppNameRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateContainerScanTaskByAppNameResponse
@@ -976,6 +982,8 @@ namespace Sas20181203
 
       /**
        * @summary Creates a container runtime scan task in the appNames dimension.
+       *
+       * @description Before calling this operation, make sure that your current Security Center edition supports container runtime scanning. Call [DescribeVersionConfig](~~DescribeVersionConfig~~) and verify that the response parameter IsNewContainerVersion is true, which indicates that container runtime scanning is available. If the value is false, upgrade your Security Center edition before calling this operation.
        *
        * @param request CreateContainerScanTaskByAppNameRequest
        * @return CreateContainerScanTaskByAppNameResponse
@@ -1203,6 +1211,8 @@ namespace Sas20181203
       /**
        * @summary Creates a honeypot management node.
        *
+       * @description Before creating a management node, make sure that your account has a sufficient honeypot probe quota. Call [DescribeHoneyPotAuth](~~DescribeHoneyPotAuth~~) and [ListHoneypotNode](~~ListHoneypotNode~~) to query the quota and node usage. If the quota is insufficient, call [DeleteHoneypotNode](~~DeleteHoneypotNode~~) to release existing nodes or purchase more probe capacity.
+       *
        * @param request CreateHoneypotNodeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CreateHoneypotNodeResponse
@@ -1211,6 +1221,8 @@ namespace Sas20181203
 
       /**
        * @summary Creates a honeypot management node.
+       *
+       * @description Before creating a management node, make sure that your account has a sufficient honeypot probe quota. Call [DescribeHoneyPotAuth](~~DescribeHoneyPotAuth~~) and [ListHoneypotNode](~~ListHoneypotNode~~) to query the quota and node usage. If the quota is insufficient, call [DeleteHoneypotNode](~~DeleteHoneypotNode~~) to release existing nodes or purchase more probe capacity.
        *
        * @param request CreateHoneypotNodeRequest
        * @return CreateHoneypotNodeResponse
@@ -1290,7 +1302,7 @@ namespace Sas20181203
       Models::CreateHybridProxyClusterResponse createHybridProxyCluster(const Models::CreateHybridProxyClusterRequest &request);
 
       /**
-       * @summary Creates a defense rule in the container firewall module.
+       * @summary Creates a container firewall blocking rule.
        *
        * @param tmpReq CreateInterceptionRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1299,7 +1311,7 @@ namespace Sas20181203
       Models::CreateInterceptionRuleResponse createInterceptionRuleWithOptions(const Models::CreateInterceptionRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a defense rule in the container firewall module.
+       * @summary Creates a container firewall blocking rule.
        *
        * @param request CreateInterceptionRuleRequest
        * @return CreateInterceptionRuleResponse
@@ -1535,7 +1547,7 @@ namespace Sas20181203
       /**
        * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
        *
-       * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
+       * @description Before you call this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images that the image scan task covers and the number of authorizations consumed. Make sure that sufficient authorizations are available for the image scan task to prevent the image scan task from being overwritten due to insufficient authorizations.
        *
        * @param request CreateOssScanConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1546,7 +1558,7 @@ namespace Sas20181203
       /**
        * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
        *
-       * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
+       * @description Before you call this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images that the image scan task covers and the number of authorizations consumed. Make sure that sufficient authorizations are available for the image scan task to prevent the image scan task from being overwritten due to insufficient authorizations.
        *
        * @param request CreateOssScanConfigRequest
        * @return CreateOssScanConfigResponse
@@ -1554,9 +1566,9 @@ namespace Sas20181203
       Models::CreateOssScanConfigResponse createOssScanConfig(const Models::CreateOssScanConfigRequest &request);
 
       /**
-       * @summary Creates an automatic control policy for new accounts in the multi-account security management feature of Security Center. Member accounts under the automatic control policy folder are automatically added to the monitoring account list.
+       * @summary Creates an automatic control policy for new accounts in the multi-account security management feature of Security Center. Member accounts under the automatic control policy folder are automatically added to the monitored account list.
        *
-       * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+       * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center. Before calling this operation, enable the multi-account security management feature by calling [EnableServiceAccessResourceDirectory](~~EnableServiceAccessResourceDirectory~~).
        *
        * @param request CreateRdDefaultSyncListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1565,9 +1577,9 @@ namespace Sas20181203
       Models::CreateRdDefaultSyncListResponse createRdDefaultSyncListWithOptions(const Models::CreateRdDefaultSyncListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an automatic control policy for new accounts in the multi-account security management feature of Security Center. Member accounts under the automatic control policy folder are automatically added to the monitoring account list.
+       * @summary Creates an automatic control policy for new accounts in the multi-account security management feature of Security Center. Member accounts under the automatic control policy folder are automatically added to the monitored account list.
        *
-       * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+       * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center. Before calling this operation, enable the multi-account security management feature by calling [EnableServiceAccessResourceDirectory](~~EnableServiceAccessResourceDirectory~~).
        *
        * @param request CreateRdDefaultSyncListRequest
        * @return CreateRdDefaultSyncListResponse
@@ -1592,7 +1604,7 @@ namespace Sas20181203
       Models::CreateRestoreJobResponse createRestoreJob(const Models::CreateRestoreJobRequest &request);
 
       /**
-       * @summary Starts a trial of Security Center.
+       * @summary Starts a free trial of Security Center.
        *
        * @param tmpReq CreateSasTrialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1601,7 +1613,7 @@ namespace Sas20181203
       Models::CreateSasTrialResponse createSasTrialWithOptions(const Models::CreateSasTrialRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts a trial of Security Center.
+       * @summary Starts a free trial of Security Center.
        *
        * @param request CreateSasTrialRequest
        * @return CreateSasTrialResponse
@@ -1609,7 +1621,7 @@ namespace Sas20181203
       Models::CreateSasTrialResponse createSasTrial(const Models::CreateSasTrialRequest &request);
 
       /**
-       * @summary Creates a service-linked role and grants Security Center access to cloud resources.
+       * @summary Creates a service-linked role and authorizes Security Center to access cloud resources.
        *
        * @description For more information about service-linked roles, see [Service-linked roles](https://help.aliyun.com/document_detail/160674.html).
        *
@@ -1620,7 +1632,7 @@ namespace Sas20181203
       Models::CreateServiceLinkedRoleResponse createServiceLinkedRoleWithOptions(const Models::CreateServiceLinkedRoleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a service-linked role and grants Security Center access to cloud resources.
+       * @summary Creates a service-linked role and authorizes Security Center to access cloud resources.
        *
        * @description For more information about service-linked roles, see [Service-linked roles](https://help.aliyun.com/document_detail/160674.html).
        *
@@ -1674,7 +1686,7 @@ namespace Sas20181203
       Models::CreateSimilarSecurityEventsQueryTaskResponse createSimilarSecurityEventsQueryTask(const Models::CreateSimilarSecurityEventsQueryTaskRequest &request);
 
       /**
-       * @summary Creates a task under My Policies in Task Center.
+       * @summary Creates a task under My Policies in the task center.
        *
        * @description Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
        *
@@ -1685,7 +1697,7 @@ namespace Sas20181203
       Models::CreateSoarStrategyTaskResponse createSoarStrategyTaskWithOptions(const Models::CreateSoarStrategyTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a task under My Policies in Task Center.
+       * @summary Creates a task under My Policies in the task center.
        *
        * @description Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
        *
@@ -1712,7 +1724,11 @@ namespace Sas20181203
       Models::CreateSuspEventNoteResponse createSuspEventNote(const Models::CreateSuspEventNoteRequest &request);
 
       /**
-       * @summary Creates an anti-ransomware policy for a database.
+       * @summary Creates a database anti-ransomware policy.
+       *
+       * @description Before calling this operation, choose one of the following paths:
+       * - If DatabaseAddByUser is not set to true, install the Security Center agent on the ECS instance first, call StartDiscoverDatabaseTask to initiate database discovery, and then call DescribeUniBackupDatabase to confirm that the target database has been discovered.
+       * - If DatabaseAddByUser is set to true, you can manually register the database.
        *
        * @param tmpReq CreateUniBackupPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1721,7 +1737,11 @@ namespace Sas20181203
       Models::CreateUniBackupPolicyResponse createUniBackupPolicyWithOptions(const Models::CreateUniBackupPolicyRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an anti-ransomware policy for a database.
+       * @summary Creates a database anti-ransomware policy.
+       *
+       * @description Before calling this operation, choose one of the following paths:
+       * - If DatabaseAddByUser is not set to true, install the Security Center agent on the ECS instance first, call StartDiscoverDatabaseTask to initiate database discovery, and then call DescribeUniBackupDatabase to confirm that the target database has been discovered.
+       * - If DatabaseAddByUser is set to true, you can manually register the database.
        *
        * @param request CreateUniBackupPolicyRequest
        * @return CreateUniBackupPolicyResponse
@@ -1729,7 +1749,7 @@ namespace Sas20181203
       Models::CreateUniBackupPolicyResponse createUniBackupPolicy(const Models::CreateUniBackupPolicyRequest &request);
 
       /**
-       * @summary Creates a restoration task for anti-ransomware database protection.
+       * @summary Creates a recovery task for database anti-ransomware.
        *
        * @param request CreateUniRestorePlanRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1738,7 +1758,7 @@ namespace Sas20181203
       Models::CreateUniRestorePlanResponse createUniRestorePlanWithOptions(const Models::CreateUniRestorePlanRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a restoration task for anti-ransomware database protection.
+       * @summary Creates a recovery task for database anti-ransomware.
        *
        * @param request CreateUniRestorePlanRequest
        * @return CreateUniRestorePlanResponse
@@ -2623,7 +2643,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead.
        *
-       * @summary Deletes alert whitelisting configurations in batches.
+       * @summary Deletes alert whitelist configurations in batches.
        *
        * @param request DeleteSecurityEventMarkMissListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2634,7 +2654,7 @@ namespace Sas20181203
       /**
        * @deprecated OpenAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead.
        *
-       * @summary Deletes alert whitelisting configurations in batches.
+       * @summary Deletes alert whitelist configurations in batches.
        *
        * @param request DeleteSecurityEventMarkMissListRequest
        * @return DeleteSecurityEventMarkMissListResponse
@@ -3463,6 +3483,11 @@ namespace Sas20181203
       /**
        * @summary Queries the statistics of charts configured in a security report.
        *
+       * @description Before querying chart data for a custom report, perform the following steps in order:
+       * 1. Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain the ReportId and confirm the report version.
+       * 2. Call [DescribeChartList](~~DescribeChartList~~), set ProjectCode to customize_report, and pass in the ReportId to obtain the chart ID.
+       * 3. Call this operation to query chart data. If the report version is 1.0.0, the CharId parameter is required. If the report version is 2.0.0, the ChartId parameter is required. Use the IDs returned by the corresponding report and chart.
+       *
        * @param request DescribeChartDataRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeChartDataResponse
@@ -3471,6 +3496,11 @@ namespace Sas20181203
 
       /**
        * @summary Queries the statistics of charts configured in a security report.
+       *
+       * @description Before querying chart data for a custom report, perform the following steps in order:
+       * 1. Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain the ReportId and confirm the report version.
+       * 2. Call [DescribeChartList](~~DescribeChartList~~), set ProjectCode to customize_report, and pass in the ReportId to obtain the chart ID.
+       * 3. Call this operation to query chart data. If the report version is 1.0.0, the CharId parameter is required. If the report version is 2.0.0, the ChartId parameter is required. Use the IDs returned by the corresponding report and chart.
        *
        * @param request DescribeChartDataRequest
        * @return DescribeChartDataResponse
@@ -3856,7 +3886,7 @@ namespace Sas20181203
       Models::DescribeClusterNetworkResponse describeClusterNetwork(const Models::DescribeClusterNetworkRequest &request);
 
       /**
-       * @summary Queries the scanner status information for a Kubernetes cluster.
+       * @summary Queries the scanner status information of a Kubernetes cluster.
        *
        * @param request DescribeClusterScannerListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3865,7 +3895,7 @@ namespace Sas20181203
       Models::DescribeClusterScannerListResponse describeClusterScannerListWithOptions(const Models::DescribeClusterScannerListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the scanner status information for a Kubernetes cluster.
+       * @summary Queries the scanner status information of a Kubernetes cluster.
        *
        * @param request DescribeClusterScannerListRequest
        * @return DescribeClusterScannerListResponse
@@ -4198,7 +4228,7 @@ namespace Sas20181203
       Models::DescribeCountScannedImageResponse describeCountScannedImage();
 
       /**
-       * @summary Queries the filter conditions that are used to search for assets in fuzzy match mode.
+       * @summary Queries the fuzzy match conditions for asset properties that can be displayed when you query assets.
        *
        * @param request DescribeCriteriaRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4207,7 +4237,7 @@ namespace Sas20181203
       Models::DescribeCriteriaResponse describeCriteriaWithOptions(const Models::DescribeCriteriaRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the filter conditions that are used to search for assets in fuzzy match mode.
+       * @summary Queries the fuzzy match conditions for asset properties that can be displayed when you query assets.
        *
        * @param request DescribeCriteriaRequest
        * @return DescribeCriteriaResponse
@@ -4266,7 +4296,7 @@ namespace Sas20181203
       Models::DescribeCustomizeReportConfigDetailResponse describeCustomizeReportConfigDetail(const Models::DescribeCustomizeReportConfigDetailRequest &request);
 
       /**
-       * @summary Queries security reports.
+       * @summary Queries the list of security reports.
        *
        * @param request DescribeCustomizeReportListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4275,7 +4305,7 @@ namespace Sas20181203
       Models::DescribeCustomizeReportListResponse describeCustomizeReportListWithOptions(const Models::DescribeCustomizeReportListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries security reports.
+       * @summary Queries the list of security reports.
        *
        * @param request DescribeCustomizeReportListRequest
        * @return DescribeCustomizeReportListResponse
@@ -4861,7 +4891,7 @@ namespace Sas20181203
       Models::DescribeFrontVulPatchListResponse describeFrontVulPatchList(const Models::DescribeFrontVulPatchListRequest &request);
 
       /**
-       * @summary Queries the investigation and tracing graph of Cloud Workload Protection Platform (CWPP) alert events to visually investigate and reconstruct cyberattack processes.
+       * @summary Queries the investigation and tracing graph of a Cloud Workload Protection Platform (CWPP) alert event to visually investigate and reconstruct the cyberattack process.
        *
        * @param request DescribeGraph4InvestigationOnlineRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4870,7 +4900,7 @@ namespace Sas20181203
       Models::DescribeGraph4InvestigationOnlineResponse describeGraph4InvestigationOnlineWithOptions(const Models::DescribeGraph4InvestigationOnlineRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the investigation and tracing graph of Cloud Workload Protection Platform (CWPP) alert events to visually investigate and reconstruct cyberattack processes.
+       * @summary Queries the investigation and tracing graph of a Cloud Workload Protection Platform (CWPP) alert event to visually investigate and reconstruct the cyberattack process.
        *
        * @param request DescribeGraph4InvestigationOnlineRequest
        * @return DescribeGraph4InvestigationOnlineResponse
@@ -5369,7 +5399,7 @@ namespace Sas20181203
       Models::DescribeImageFixTaskResponse describeImageFixTask(const Models::DescribeImageFixTaskRequest &request);
 
       /**
-       * @summary Queries a list of image vulnerabilities.
+       * @summary Queries the list of image vulnerabilities.
        *
        * @param request DescribeImageGroupedVulListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5378,7 +5408,7 @@ namespace Sas20181203
       Models::DescribeImageGroupedVulListResponse describeImageGroupedVulListWithOptions(const Models::DescribeImageGroupedVulListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of image vulnerabilities.
+       * @summary Queries the list of image vulnerabilities.
        *
        * @param request DescribeImageGroupedVulListRequest
        * @return DescribeImageGroupedVulListResponse
@@ -5643,7 +5673,7 @@ namespace Sas20181203
       /**
        * @summary Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
        *
-       * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
+       * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first. Wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
        *
        * @param request DescribeImageVulListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5654,7 +5684,7 @@ namespace Sas20181203
       /**
        * @summary Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
        *
-       * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
+       * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first. Wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
        *
        * @param request DescribeImageVulListRequest
        * @return DescribeImageVulListResponse
@@ -5949,7 +5979,9 @@ namespace Sas20181203
       Models::DescribeModuleConfigResponse describeModuleConfig();
 
       /**
-       * @summary Queries the list of accounts that are added to the multi-account management feature as members.
+       * @summary Queries the list of monitored accounts for multi-account management.
+       *
+       * @description The caller must be a resource directory management account or a Security Center delegated administrator account. Before invoking this operation, verify the role of the current account in the resource directory. Member accounts must be configured as delegated administrators by the management account before they can execute management operations.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return DescribeMonitorAccountsResponse
@@ -5957,7 +5989,9 @@ namespace Sas20181203
       Models::DescribeMonitorAccountsResponse describeMonitorAccountsWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of accounts that are added to the multi-account management feature as members.
+       * @summary Queries the list of monitored accounts for multi-account management.
+       *
+       * @description The caller must be a resource directory management account or a Security Center delegated administrator account. Before invoking this operation, verify the role of the current account in the resource directory. Member accounts must be configured as delegated administrators by the management account before they can execute management operations.
        *
        * @return DescribeMonitorAccountsResponse
        */
@@ -6100,7 +6134,7 @@ namespace Sas20181203
       Models::DescribePropertyCountResponse describePropertyCount(const Models::DescribePropertyCountRequest &request);
 
       /**
-       * @summary Queries the details of the scheduled task list in host assets.
+       * @summary Queries the details of scheduled tasks in the host asset fingerprint list.
        *
        * @param request DescribePropertyCronDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6109,7 +6143,7 @@ namespace Sas20181203
       Models::DescribePropertyCronDetailResponse describePropertyCronDetailWithOptions(const Models::DescribePropertyCronDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of the scheduled task list in host assets.
+       * @summary Queries the details of scheduled tasks in the host asset fingerprint list.
        *
        * @param request DescribePropertyCronDetailRequest
        * @return DescribePropertyCronDetailResponse
@@ -7606,7 +7640,7 @@ namespace Sas20181203
       Models::DescribeUuidVulNumClassifyStatisticResponse describeUuidVulNumClassifyStatistic(const Models::DescribeUuidVulNumClassifyStatisticRequest &request);
 
       /**
-       * @summary Retrieves the list of servers that support vulnerability fix based on vulnerability names.
+       * @summary Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
        *
        * @param request DescribeUuidsByVulNamesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7615,7 +7649,7 @@ namespace Sas20181203
       Models::DescribeUuidsByVulNamesResponse describeUuidsByVulNamesWithOptions(const Models::DescribeUuidsByVulNamesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of servers that support vulnerability fix based on vulnerability names.
+       * @summary Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
        *
        * @param request DescribeUuidsByVulNamesRequest
        * @return DescribeUuidsByVulNamesResponse
@@ -7929,7 +7963,7 @@ namespace Sas20181203
       Models::DescribeVulTargetStatisticsResponse describeVulTargetStatistics(const Models::DescribeVulTargetStatisticsRequest &request);
 
       /**
-       * @summary Queries vulnerability whitelists by paging.
+       * @summary Queries vulnerability whitelist entries by paging.
        *
        * @param request DescribeVulWhitelistRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -7938,7 +7972,7 @@ namespace Sas20181203
       Models::DescribeVulWhitelistResponse describeVulWhitelistWithOptions(const Models::DescribeVulWhitelistRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries vulnerability whitelists by paging.
+       * @summary Queries vulnerability whitelist entries by paging.
        *
        * @param request DescribeVulWhitelistRequest
        * @return DescribeVulWhitelistResponse
@@ -8408,7 +8442,9 @@ namespace Sas20181203
       Models::EnableCustomBlockRecordResponse enableCustomBlockRecord(const Models::EnableCustomBlockRecordRequest &request);
 
       /**
-       * @summary Enables a custom rule for an instance.
+       * @summary Enables the status of a specific instance in a custom rule.
+       *
+       * @description Before calling this operation, associate the target instance with a specified blocking rule by calling [ModifyCustomBlockRecord](~~ModifyCustomBlockRecord~~). You can call [CreateCustomBlockRecord](~~CreateCustomBlockRecord~~) to create a rule, call [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) to query rules, and then perform the association and enablement operations.
        *
        * @param request EnableCustomInstanceBlockRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -8417,7 +8453,9 @@ namespace Sas20181203
       Models::EnableCustomInstanceBlockRecordResponse enableCustomInstanceBlockRecordWithOptions(const Models::EnableCustomInstanceBlockRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Enables a custom rule for an instance.
+       * @summary Enables the status of a specific instance in a custom rule.
+       *
+       * @description Before calling this operation, associate the target instance with a specified blocking rule by calling [ModifyCustomBlockRecord](~~ModifyCustomBlockRecord~~). You can call [CreateCustomBlockRecord](~~CreateCustomBlockRecord~~) to create a rule, call [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) to query rules, and then perform the association and enablement operations.
        *
        * @param request EnableCustomInstanceBlockRecordRequest
        * @return EnableCustomInstanceBlockRecordResponse
@@ -8753,6 +8791,27 @@ namespace Sas20181203
        * @return GetAgentlessTaskCountResponse
        */
       Models::GetAgentlessTaskCountResponse getAgentlessTaskCount(const Models::GetAgentlessTaskCountRequest &request);
+
+      /**
+       * @summary Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+       *
+       * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+       *
+       * @param request GetAgentlessTaskCountBatchRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAgentlessTaskCountBatchResponse
+       */
+      Models::GetAgentlessTaskCountBatchResponse getAgentlessTaskCountBatchWithOptions(const Models::GetAgentlessTaskCountBatchRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+       *
+       * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+       *
+       * @param request GetAgentlessTaskCountBatchRequest
+       * @return GetAgentlessTaskCountBatchResponse
+       */
+      Models::GetAgentlessTaskCountBatchResponse getAgentlessTaskCountBatch(const Models::GetAgentlessTaskCountBatchRequest &request);
 
       /**
        * @summary Retrieves the estimated scan volume for agentless detection.
@@ -9612,11 +9671,16 @@ namespace Sas20181203
       /**
        * @summary Retrieves file detection results in batches by HashKey.
        *
-       * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+       * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. To submit files for detection, refer to [CreateFileDetect](~~CreateFileDetect~~).
        * ### File unique identifier
-       * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
+       * All file detection-related operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
        * ### Query detection results
-       * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
+       * You can filter file properties by using the FileLabel field in the Ext extension field. For example, you can combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can use the Highlight field in the Ext extension field to locate malicious code segments in web shell files. The Highlight field is a list type. Each element in the list corresponds to a code range, and the numbers represent the offset in characters from the beginning of the file.
+       * Before querying file detection results, complete the following steps in order:
+       * 1. Call [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) to obtain OSS upload parameters.
+       * 2. Use the returned signature information to upload the file to OSS by using a form. For more information about the upload method, see [OSS PostObject form upload documentation](https://www.alibabacloud.com/help/zh/oss/developer-reference/postobject).
+       * 3. Call [CreateFileDetect](~~CreateFileDetect~~) to submit a file detection task.
+       * 4. Call [GetFileDetectResult](~~GetFileDetectResult~~) to query the detection result.
        *
        * @param request GetFileDetectResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9627,11 +9691,16 @@ namespace Sas20181203
       /**
        * @summary Retrieves file detection results in batches by HashKey.
        *
-       * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+       * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. To submit files for detection, refer to [CreateFileDetect](~~CreateFileDetect~~).
        * ### File unique identifier
-       * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
+       * All file detection-related operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
        * ### Query detection results
-       * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
+       * You can filter file properties by using the FileLabel field in the Ext extension field. For example, you can combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can use the Highlight field in the Ext extension field to locate malicious code segments in web shell files. The Highlight field is a list type. Each element in the list corresponds to a code range, and the numbers represent the offset in characters from the beginning of the file.
+       * Before querying file detection results, complete the following steps in order:
+       * 1. Call [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) to obtain OSS upload parameters.
+       * 2. Use the returned signature information to upload the file to OSS by using a form. For more information about the upload method, see [OSS PostObject form upload documentation](https://www.alibabacloud.com/help/zh/oss/developer-reference/postobject).
+       * 3. Call [CreateFileDetect](~~CreateFileDetect~~) to submit a file detection task.
+       * 4. Call [GetFileDetectResult](~~GetFileDetectResult~~) to query the detection result.
        *
        * @param request GetFileDetectResultRequest
        * @return GetFileDetectResultResponse
@@ -9722,7 +9791,7 @@ namespace Sas20181203
       Models::GetFileProtectDashboardResponse getFileProtectDashboard();
 
       /**
-       * @summary Retrieves information about core file monitoring events.
+       * @summary Retrieves the details of a core file monitoring event.
        *
        * @param request GetFileProtectEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -9731,7 +9800,7 @@ namespace Sas20181203
       Models::GetFileProtectEventResponse getFileProtectEventWithOptions(const Models::GetFileProtectEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves information about core file monitoring events.
+       * @summary Retrieves the details of a core file monitoring event.
        *
        * @param request GetFileProtectEventRequest
        * @return GetFileProtectEventResponse
@@ -9992,7 +10061,7 @@ namespace Sas20181203
       Models::GetInstallCodeForUuidResponse getInstallCodeForUuid(const Models::GetInstallCodeForUuidRequest &request);
 
       /**
-       * @summary Count the number of security events for a single instance
+       * @summary Retrieves the alerting statistics information for a server.
        *
        * @param request GetInstanceAlarmStatisticsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10001,7 +10070,7 @@ namespace Sas20181203
       Models::GetInstanceAlarmStatisticsResponse getInstanceAlarmStatisticsWithOptions(const Models::GetInstanceAlarmStatisticsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Count the number of security events for a single instance
+       * @summary Retrieves the alerting statistics information for a server.
        *
        * @param request GetInstanceAlarmStatisticsRequest
        * @return GetInstanceAlarmStatisticsResponse
@@ -10475,7 +10544,7 @@ namespace Sas20181203
       Models::GetSasContainerWebDefenseRuleResponse getSasContainerWebDefenseRule(const Models::GetSasContainerWebDefenseRuleRequest &request);
 
       /**
-       * @summary Retrieves the application list of container file defense configurations.
+       * @summary Retrieves the application list for container file defense configurations.
        *
        * @param request GetSasContainerWebDefenseRuleApplicationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10484,7 +10553,7 @@ namespace Sas20181203
       Models::GetSasContainerWebDefenseRuleApplicationResponse getSasContainerWebDefenseRuleApplicationWithOptions(const Models::GetSasContainerWebDefenseRuleApplicationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the application list of container file defense configurations.
+       * @summary Retrieves the application list for container file defense configurations.
        *
        * @param request GetSasContainerWebDefenseRuleApplicationRequest
        * @return GetSasContainerWebDefenseRuleApplicationResponse
@@ -10543,7 +10612,7 @@ namespace Sas20181203
       Models::GetSensitiveDefineRuleConfigResponse getSensitiveDefineRuleConfig(const Models::GetSensitiveDefineRuleConfigRequest &request);
 
       /**
-       * @summary Retrieves the authorization details of a Serverless application.
+       * @summary Retrieves the authorization details of a serverless application.
        *
        * @param request GetServerlessAppAuthDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -10552,7 +10621,7 @@ namespace Sas20181203
       Models::GetServerlessAppAuthDetailResponse getServerlessAppAuthDetailWithOptions(const Models::GetServerlessAppAuthDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the authorization details of a Serverless application.
+       * @summary Retrieves the authorization details of a serverless application.
        *
        * @param request GetServerlessAppAuthDetailRequest
        * @return GetServerlessAppAuthDetailResponse
@@ -10883,6 +10952,8 @@ namespace Sas20181203
       /**
        * @summary Batch processes alert events based on the same IP rule or type.
        *
+       * @description Before processing, call [DescribeSuspEvents](~~DescribeSuspEvents~~) to check the CanBeDealOnLine and EventStatus fields of the events. An event can be processed only when CanBeDealOnLine is true. If CanBeDealOnLine is false or EventStatus is 64, the event has expired and cannot be processed by this operation. [DescribeSecurityEventOperations](~~DescribeSecurityEventOperations~~) returns an empty array for expired events.
+       *
        * @param request HandleSimilarSecurityEventsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return HandleSimilarSecurityEventsResponse
@@ -10891,6 +10962,8 @@ namespace Sas20181203
 
       /**
        * @summary Batch processes alert events based on the same IP rule or type.
+       *
+       * @description Before processing, call [DescribeSuspEvents](~~DescribeSuspEvents~~) to check the CanBeDealOnLine and EventStatus fields of the events. An event can be processed only when CanBeDealOnLine is true. If CanBeDealOnLine is false or EventStatus is 64, the event has expired and cannot be processed by this operation. [DescribeSecurityEventOperations](~~DescribeSecurityEventOperations~~) returns an empty array for expired events.
        *
        * @param request HandleSimilarSecurityEventsRequest
        * @return HandleSimilarSecurityEventsResponse
@@ -11059,7 +11132,7 @@ namespace Sas20181203
       Models::InstallPmAgentResponse installPmAgent(const Models::InstallPmAgentRequest &request);
 
       /**
-       * @summary Installs the anti-ransomware agent for databases.
+       * @summary Installs the anti-ransomware client for databases.
        *
        * @param request InstallUniBackupAgentRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11068,7 +11141,7 @@ namespace Sas20181203
       Models::InstallUniBackupAgentResponse installUniBackupAgentWithOptions(const Models::InstallUniBackupAgentRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Installs the anti-ransomware agent for databases.
+       * @summary Installs the anti-ransomware client for databases.
        *
        * @param request InstallUniBackupAgentRequest
        * @return InstallUniBackupAgentResponse
@@ -11982,7 +12055,7 @@ namespace Sas20181203
       Models::ListFileProtectClientEventResponse listFileProtectClientEvent(const Models::ListFileProtectClientEventRequest &request);
 
       /**
-       * @summary Retrieves a list of file protection rules.
+       * @summary Retrieves the list of file protection rules.
        *
        * @param request ListFileProtectClientRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -11991,7 +12064,7 @@ namespace Sas20181203
       Models::ListFileProtectClientRuleResponse listFileProtectClientRuleWithOptions(const Models::ListFileProtectClientRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of file protection rules.
+       * @summary Retrieves the list of file protection rules.
        *
        * @param request ListFileProtectClientRuleRequest
        * @return ListFileProtectClientRuleResponse
@@ -12390,7 +12463,7 @@ namespace Sas20181203
       Models::ListInterceptionHistoryResponse listInterceptionHistory(const Models::ListInterceptionHistoryRequest &request);
 
       /**
-       * @summary Queries defense rules that are configured for the container firewall feature.
+       * @summary Queries micro-segmentation defense rules.
        *
        * @param request ListInterceptionRulePageRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -12399,7 +12472,7 @@ namespace Sas20181203
       Models::ListInterceptionRulePageResponse listInterceptionRulePageWithOptions(const Models::ListInterceptionRulePageRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries defense rules that are configured for the container firewall feature.
+       * @summary Queries micro-segmentation defense rules.
        *
        * @param request ListInterceptionRulePageRequest
        * @return ListInterceptionRulePageResponse
@@ -12797,9 +12870,10 @@ namespace Sas20181203
       Models::ListPublishBatchResponse listPublishBatch(const Models::ListPublishBatchRequest &request);
 
       /**
-       * @summary Queries the automatic management policies of members that are added to Security Center for multi-account management. The members in the automatic control management directory are automatically added to the member list of Security Center.
+       * @summary Queries the automatic control policy for new accounts in Security Center under the multi-account security management feature. Member accounts under the automatic control policy folder are automatically added to the monitoring account list.
        *
-       * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+       * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+       * Before calling this operation, enable the multi-account security management feature by calling [EnableServiceAccessResourceDirectory](~~EnableServiceAccessResourceDirectory~~). Otherwise, the API returns a ServiceDisable error.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListRdDefaultSyncListResponse
@@ -12807,9 +12881,10 @@ namespace Sas20181203
       Models::ListRdDefaultSyncListResponse listRdDefaultSyncListWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the automatic management policies of members that are added to Security Center for multi-account management. The members in the automatic control management directory are automatically added to the member list of Security Center.
+       * @summary Queries the automatic control policy for new accounts in Security Center under the multi-account security management feature. Member accounts under the automatic control policy folder are automatically added to the monitoring account list.
        *
-       * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+       * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+       * Before calling this operation, enable the multi-account security management feature by calling [EnableServiceAccessResourceDirectory](~~EnableServiceAccessResourceDirectory~~). Otherwise, the API returns a ServiceDisable error.
        *
        * @return ListRdDefaultSyncListResponse
        */
@@ -13067,7 +13142,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectProcessResponse listUnknownThreatDetectProcess(const Models::ListUnknownThreatDetectProcessRequest &request);
 
       /**
-       * @summary Queries the list of intelligent behavior analysis policies.
+       * @summary Queries the list of intelligent behavior analytics policies.
        *
        * @param request ListUnknownThreatDetectStrategyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13076,7 +13151,7 @@ namespace Sas20181203
       Models::ListUnknownThreatDetectStrategyResponse listUnknownThreatDetectStrategyWithOptions(const Models::ListUnknownThreatDetectStrategyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of intelligent behavior analysis policies.
+       * @summary Queries the list of intelligent behavior analytics policies.
        *
        * @param request ListUnknownThreatDetectStrategyRequest
        * @return ListUnknownThreatDetectStrategyResponse
@@ -13237,7 +13312,9 @@ namespace Sas20181203
       Models::MarkMonitorAccountsResponse markMonitorAccounts(const Models::MarkMonitorAccountsRequest &request);
 
       /**
-       * @summary Handles an AccessKey pair leak record.
+       * @summary Handles AccessKey leak records.
+       *
+       * @description An HTTP 200 status code only indicates that the request was accepted, not that the record was actually modified. Call [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) to query and verify the operation result.
        *
        * @param request ModifyAccessKeyLeakDealRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -13246,7 +13323,9 @@ namespace Sas20181203
       Models::ModifyAccessKeyLeakDealResponse modifyAccessKeyLeakDealWithOptions(const Models::ModifyAccessKeyLeakDealRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Handles an AccessKey pair leak record.
+       * @summary Handles AccessKey leak records.
+       *
+       * @description An HTTP 200 status code only indicates that the request was accepted, not that the record was actually modified. Call [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) to query and verify the operation result.
        *
        * @param request ModifyAccessKeyLeakDealRequest
        * @return ModifyAccessKeyLeakDealResponse
@@ -14485,7 +14564,9 @@ namespace Sas20181203
       Models::ModifyWebLockRefreshResponse modifyWebLockRefresh(const Models::ModifyWebLockRefreshRequest &request);
 
       /**
-       * @summary Creates web tamper proofing protection for a specified server and enables the protection.
+       * @summary Creates web tamper-proofing protection for a specified server and enables the protection.
+       *
+       * @description Before you invoke this operation, purchase and allocate the web tamper-proofing value-added service authorization for the specified server. You can query the number of active authorizations by using the WhiteCount field of [DescribeWebLockStatus](~~DescribeWebLockStatus~~), and allocate authorizations through the console or by invoking [BindAuthToMachine](~~BindAuthToMachine~~).
        *
        * @param request ModifyWebLockStartRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -14494,7 +14575,9 @@ namespace Sas20181203
       Models::ModifyWebLockStartResponse modifyWebLockStartWithOptions(const Models::ModifyWebLockStartRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates web tamper proofing protection for a specified server and enables the protection.
+       * @summary Creates web tamper-proofing protection for a specified server and enables the protection.
+       *
+       * @description Before you invoke this operation, purchase and allocate the web tamper-proofing value-added service authorization for the specified server. You can query the number of active authorizations by using the WhiteCount field of [DescribeWebLockStatus](~~DescribeWebLockStatus~~), and allocate authorizations through the console or by invoking [BindAuthToMachine](~~BindAuthToMachine~~).
        *
        * @param request ModifyWebLockStartRequest
        * @return ModifyWebLockStartResponse
@@ -14869,7 +14952,7 @@ namespace Sas20181203
       Models::OperateWebLockFileEventsResponse operateWebLockFileEvents(const Models::OperateWebLockFileEventsRequest &request);
 
       /**
-       * @summary Unmarks ignored anomaly alert events.
+       * @summary Settings the specified anomaly alerting events to unignored.
        *
        * @param request OperationCancelIgnoreSuspEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -14878,7 +14961,7 @@ namespace Sas20181203
       Models::OperationCancelIgnoreSuspEventResponse operationCancelIgnoreSuspEventWithOptions(const Models::OperationCancelIgnoreSuspEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unmarks ignored anomaly alert events.
+       * @summary Settings the specified anomaly alerting events to unignored.
        *
        * @param request OperationCancelIgnoreSuspEventRequest
        * @return OperationCancelIgnoreSuspEventResponse
@@ -15036,7 +15119,7 @@ namespace Sas20181203
       Models::PublicSyncAndCreateImageScanTaskResponse publicSyncAndCreateImageScanTask(const Models::PublicSyncAndCreateImageScanTaskRequest &request);
 
       /**
-       * @summary Queries the number of security alert events that occurred in each attack phase.
+       * @summary Queries the number of security alert events that occurred in each attack stage.
        *
        * @param request QueryAttackCountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15045,7 +15128,7 @@ namespace Sas20181203
       Models::QueryAttackCountResponse queryAttackCountWithOptions(const Models::QueryAttackCountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the number of security alert events that occurred in each attack phase.
+       * @summary Queries the number of security alert events that occurred in each attack stage.
        *
        * @param request QueryAttackCountRequest
        * @return QueryAttackCountResponse
@@ -15144,7 +15227,7 @@ namespace Sas20181203
       Models::QueryJenkinsImageRegistryPersistenceDayResponse queryJenkinsImageRegistryPersistenceDay(const Models::QueryJenkinsImageRegistryPersistenceDayRequest &request);
 
       /**
-       * @summary Queries the node result of a database dry run.
+       * @summary Queries the result of a database pre-check node.
        *
        * @param request QueryPreCheckDatabaseRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15153,7 +15236,7 @@ namespace Sas20181203
       Models::QueryPreCheckDatabaseResponse queryPreCheckDatabaseWithOptions(const Models::QueryPreCheckDatabaseRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the node result of a database dry run.
+       * @summary Queries the result of a database pre-check node.
        *
        * @param request QueryPreCheckDatabaseRequest
        * @return QueryPreCheckDatabaseResponse
@@ -15382,7 +15465,7 @@ namespace Sas20181203
       Models::RetryInstallProbeResponse retryInstallProbe(const Models::RetryInstallProbeRequest &request);
 
       /**
-       * @summary Restores a quarantined file.
+       * @summary Restores a quarantined file from the quarantine.
        *
        * @param request RollbackSuspEventQuaraFileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15391,7 +15474,7 @@ namespace Sas20181203
       Models::RollbackSuspEventQuaraFileResponse rollbackSuspEventQuaraFileWithOptions(const Models::RollbackSuspEventQuaraFileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restores a quarantined file.
+       * @summary Restores a quarantined file from the quarantine.
        *
        * @param request RollbackSuspEventQuaraFileRequest
        * @return RollbackSuspEventQuaraFileResponse
@@ -15416,7 +15499,7 @@ namespace Sas20181203
       Models::SasInstallCodeResponse sasInstallCode(const Models::SasInstallCodeRequest &request);
 
       /**
-       * @summary Saves the configurations of a custom security report.
+       * @summary Saves the configuration of a custom security report.
        *
        * @param request SaveCustomizeReportConfigRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15425,7 +15508,7 @@ namespace Sas20181203
       Models::SaveCustomizeReportConfigResponse saveCustomizeReportConfigWithOptions(const Models::SaveCustomizeReportConfigRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Saves the configurations of a custom security report.
+       * @summary Saves the configuration of a custom security report.
        *
        * @param request SaveCustomizeReportConfigRequest
        * @return SaveCustomizeReportConfigResponse
@@ -15450,7 +15533,7 @@ namespace Sas20181203
       Models::SaveImageBaselineStrategyResponse saveImageBaselineStrategy(const Models::SaveImageBaselineStrategyRequest &request);
 
       /**
-       * @summary Saves alert settings.
+       * @summary Saves user security alert settings.
        *
        * @param request SaveSuspEventUserSettingRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15459,7 +15542,7 @@ namespace Sas20181203
       Models::SaveSuspEventUserSettingResponse saveSuspEventUserSettingWithOptions(const Models::SaveSuspEventUserSettingRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Saves alert settings.
+       * @summary Saves user security alert settings.
        *
        * @param request SaveSuspEventUserSettingRequest
        * @return SaveSuspEventUserSettingResponse
@@ -15505,7 +15588,7 @@ namespace Sas20181203
       Models::SaveWhiteListStrategyAssetsResponse saveWhiteListStrategyAssets(const Models::SaveWhiteListStrategyAssetsRequest &request);
 
       /**
-       * @summary Sends a security daily report to a specified email address. Only security reports with a custom time period as the report cycle are supported.
+       * @summary Sends a security daily report to a specified email address. Only security reports whose report period is set to a custom time range are supported.
        *
        * @param request SendCustomizeReportRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15514,7 +15597,7 @@ namespace Sas20181203
       Models::SendCustomizeReportResponse sendCustomizeReportWithOptions(const Models::SendCustomizeReportRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Sends a security daily report to a specified email address. Only security reports with a custom time period as the report cycle are supported.
+       * @summary Sends a security daily report to a specified email address. Only security reports whose report period is set to a custom time range are supported.
        *
        * @param request SendCustomizeReportRequest
        * @return SendCustomizeReportResponse
@@ -15749,6 +15832,8 @@ namespace Sas20181203
       /**
        * @summary Stops a honeypot.
        *
+       * @description Before calling this operation, ensure that you have sufficient honeypot probe quota. First, create a management node by calling CreateHoneypotNode, then create a honeypot by calling CreateHoneypot. Wait until the honeypot enters the running state before calling this operation.
+       *
        * @param request StopHoneypotRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return StopHoneypotResponse
@@ -15757,6 +15842,8 @@ namespace Sas20181203
 
       /**
        * @summary Stops a honeypot.
+       *
+       * @description Before calling this operation, ensure that you have sufficient honeypot probe quota. First, create a management node by calling CreateHoneypotNode, then create a honeypot by calling CreateHoneypot. Wait until the honeypot enters the running state before calling this operation.
        *
        * @param request StopHoneypotRequest
        * @return StopHoneypotResponse
@@ -15798,7 +15885,7 @@ namespace Sas20181203
       Models::SubmitOperationTaskResponse submitOperationTask(const Models::SubmitOperationTaskRequest &request);
 
       /**
-       * @summary Submits a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
+       * @summary Submits a free one-click scan. The scan scope includes free vulnerability scanning categories and free Cloud Security Posture Management (CSPM) check items.
        *
        * @param runtime runtime options for this request RuntimeOptions
        * @return SubmitTenantCheckResponse
@@ -15806,7 +15893,7 @@ namespace Sas20181203
       Models::SubmitTenantCheckResponse submitTenantCheckWithOptions(const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
+       * @summary Submits a free one-click scan. The scan scope includes free vulnerability scanning categories and free Cloud Security Posture Management (CSPM) check items.
        *
        * @return SubmitTenantCheckResponse
        */
@@ -15925,7 +16012,7 @@ namespace Sas20181203
       Models::UninstallUniBackupAgentResponse uninstallUniBackupAgent(const Models::UninstallUniBackupAgentRequest &request);
 
       /**
-       * @summary Updates the status of the honeypot installation time.
+       * @summary Modifies the processing status of a honeypot alert event.
        *
        * @param request UpdateAlarmEventRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -15934,7 +16021,7 @@ namespace Sas20181203
       Models::UpdateAlarmEventResponse updateAlarmEventWithOptions(const Models::UpdateAlarmEventRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the status of the honeypot installation time.
+       * @summary Modifies the processing status of a honeypot alert event.
        *
        * @param request UpdateAlarmEventRequest
        * @return UpdateAlarmEventResponse
@@ -16452,7 +16539,7 @@ namespace Sas20181203
       Models::UpdateOssScanConfigResponse updateOssScanConfig(const Models::UpdateOssScanConfigRequest &request);
 
       /**
-       * @summary Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
+       * @summary Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
        *
        * @param request UpdatePostPaidBindRelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -16461,7 +16548,7 @@ namespace Sas20181203
       Models::UpdatePostPaidBindRelResponse updatePostPaidBindRelWithOptions(const Models::UpdatePostPaidBindRelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
+       * @summary Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
        *
        * @param request UpdatePostPaidBindRelRequest
        * @return UpdatePostPaidBindRelResponse
@@ -16664,6 +16751,15 @@ namespace Sas20181203
       /**
        * @summary Upgrades the version of an anti-ransomware backup policy.
        *
+       * @description This operation upgrades a v1.0.0 backup policy to v2.0.0. Before you call this operation, make sure that the ECS instance is running, Cloud Assistant is installed, the Security Center agent is online, and a v1.0.0 policy exists. You can call [CreateBackupPolicy](~~CreateBackupPolicy~~) with PolicyVersion set to 1.0.0 to create a policy, and then call DescribeBackupPolicies to obtain the policy ID.
+       * Before you call this operation, you can check or complete the following prerequisites:
+       * | Prerequisite | Related API |
+       * | --- | --- |
+       * | The ECS instance is running. | [Ecs/StartInstance](https://api.aliyun.com/document/Ecs/2014-05-26/StartInstance) |
+       * | Cloud Assistant is installed on the ECS instance. | [Ecs/InstallCloudAssistant](https://api.aliyun.com/document/Ecs/2014-05-26/InstallCloudAssistant) |
+       * | The Security Center agent is installed. | [OperateAgentClientInstall](~~OperateAgentClientInstall~~) |
+       * | Check the agent installation status. | [DescribeAgentInstallStatus](~~DescribeAgentInstallStatus~~) |
+       *
        * @param request UpgradeBackupPolicyVersionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UpgradeBackupPolicyVersionResponse
@@ -16672,6 +16768,15 @@ namespace Sas20181203
 
       /**
        * @summary Upgrades the version of an anti-ransomware backup policy.
+       *
+       * @description This operation upgrades a v1.0.0 backup policy to v2.0.0. Before you call this operation, make sure that the ECS instance is running, Cloud Assistant is installed, the Security Center agent is online, and a v1.0.0 policy exists. You can call [CreateBackupPolicy](~~CreateBackupPolicy~~) with PolicyVersion set to 1.0.0 to create a policy, and then call DescribeBackupPolicies to obtain the policy ID.
+       * Before you call this operation, you can check or complete the following prerequisites:
+       * | Prerequisite | Related API |
+       * | --- | --- |
+       * | The ECS instance is running. | [Ecs/StartInstance](https://api.aliyun.com/document/Ecs/2014-05-26/StartInstance) |
+       * | Cloud Assistant is installed on the ECS instance. | [Ecs/InstallCloudAssistant](https://api.aliyun.com/document/Ecs/2014-05-26/InstallCloudAssistant) |
+       * | The Security Center agent is installed. | [OperateAgentClientInstall](~~OperateAgentClientInstall~~) |
+       * | Check the agent installation status. | [DescribeAgentInstallStatus](~~DescribeAgentInstallStatus~~) |
        *
        * @param request UpgradeBackupPolicyVersionRequest
        * @return UpgradeBackupPolicyVersionResponse
@@ -16725,6 +16830,12 @@ namespace Sas20181203
       /**
        * @summary Creates and confirms a record after a honeypot file is uploaded.
        *
+       * @description Before calling this operation, complete the following steps in order:
+       * 1. Call [CreateHoneypotNode](~~CreateHoneypotNode~~) to create a management node, or call [ListHoneypotNode](~~ListHoneypotNode~~) to query existing nodes and obtain a valid NodeId.
+       * 2. Call [GetHoneyPotUploadPolicyInfo](~~GetHoneyPotUploadPolicyInfo~~) to obtain the OSS upload credentials, upload policy, and Data.Key.
+       * 3. Use the returned STS credentials to upload the file to the specified bucket by using the OSS PostObject protocol.
+       * 4. After the file is uploaded, call this operation to register the upload result.
+       *
        * @param request UploadedHoneyPotFileRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return UploadedHoneyPotFileResponse
@@ -16733,6 +16844,12 @@ namespace Sas20181203
 
       /**
        * @summary Creates and confirms a record after a honeypot file is uploaded.
+       *
+       * @description Before calling this operation, complete the following steps in order:
+       * 1. Call [CreateHoneypotNode](~~CreateHoneypotNode~~) to create a management node, or call [ListHoneypotNode](~~ListHoneypotNode~~) to query existing nodes and obtain a valid NodeId.
+       * 2. Call [GetHoneyPotUploadPolicyInfo](~~GetHoneyPotUploadPolicyInfo~~) to obtain the OSS upload credentials, upload policy, and Data.Key.
+       * 3. Use the returned STS credentials to upload the file to the specified bucket by using the OSS PostObject protocol.
+       * 4. After the file is uploaded, call this operation to register the upload result.
        *
        * @param request UploadedHoneyPotFileRequest
        * @return UploadedHoneyPotFileResponse

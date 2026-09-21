@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // The list of file identifiers. A maximum of 100 elements can be specified.
+    // The list of file identifiers. A maximum of 200 elements can be specified.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> hashKeyList_ {};

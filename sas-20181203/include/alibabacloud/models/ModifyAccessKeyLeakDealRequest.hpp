@@ -69,14 +69,14 @@ namespace Models
 
 
   protected:
-    // The ID of the AccessKey pair leak record.
-    // >Call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to obtain this parameter. This parameter and the **IdList** parameter cannot both be empty.
+    // The ID of the AccessKey leak record.
+    // >Call the [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) operation to obtain this parameter. This parameter and **IdList** cannot both be empty.
     shared_ptr<int64_t> id_ {};
-    // The IDs of the AccessKey pair leak records.
+    // The collection of AccessKey leak record IDs.
     shared_ptr<vector<int64_t>> idList_ {};
-    // The remarks for handling the AccessKey pair leak record.
+    // The remarks for handling the AccessKey leak record.
     shared_ptr<string> remark_ {};
-    // The method to handle the AccessKey pair leak information. Valid values:
+    // The method used to handle the AccessKey leak information. Valid values:
     // - **manual**: Manual handling.
     // - **disable**: Disable.
     // - **add-whitelist**: Add to whitelist.

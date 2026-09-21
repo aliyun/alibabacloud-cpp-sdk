@@ -57,14 +57,15 @@ namespace Models
 
 
   protected:
-    // The data source of the exception. Set the value to sas.
+    // The source of the exception event data. Set the value to sas.
     shared_ptr<string> from_ {};
-    // The severities of alert notifications. Valid values:
-    // 
-    // *   **remind**
-    // *   **suspicious**
-    // *   **serious**
+    // The alert level for alert notifications. Valid values:
+    // - **remind**: Reminder.
+    // - **suspicious**: Suspicious.
+    // - **serious**: Urgent.
     shared_ptr<string> levelsOn_ {};
+    // The ID of the member account in the resource directory.
+    // >You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

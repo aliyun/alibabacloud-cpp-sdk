@@ -48,13 +48,16 @@ namespace Models
 
 
   protected:
-    // The target object value. Valid values:
-    // - If the task type is **IMAGE_SCAN**, the target object value is the **Digest** of the image.
-    // - If the task type is **ASSETS_COLLECTION**, the target object value is the **Uuid** of the server.
+    // The target object value.
+    // 
+    // - If TaskType is set to IMAGE_SCAN, you must provide the image digest.
+    // - If TaskType is set to ASSETS_COLLECTION, you must provide the machine UUID.
+    // 
+    // If this parameter is not provided in the preceding scenarios, the service returns HTTP 400 with error code -101.
     shared_ptr<string> target_ {};
     // The task type. Valid values:
     // - **ASSETS_COLLECTION**: asset information collection task
-    // - **IMAGE_SCAN**: image scan task.
+    // - **IMAGE_SCAN**: image scan task
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

@@ -66,9 +66,7 @@ namespace Models
 
 
   protected:
-    // The SAE application ID.
-    // 
-    // > You can call the [ListMachineApps](~~ListMachineApps~~) operation to obtain this value.
+    // The SAE application ID. You can call [ListMachineApps](~~ListMachineApps~~) to obtain the ID. This parameter is required. If this parameter is not specified, the API returns HTTP 400 with the error code missingParams.
     shared_ptr<string> appId_ {};
     // The region ID of the application.
     shared_ptr<string> appRegionId_ {};

@@ -77,9 +77,9 @@ namespace Models
   protected:
     // The asset selection identifier.
     shared_ptr<string> assetSelectionType_ {};
-    // The number of days after the model is initially created before learning ends.
+    // The number of days after the model is initially created before the learning phase ends.
     shared_ptr<int32_t> durationDaysAfterInit_ {};
-    // The number of days after no new processes are added to the model before learning ends.
+    // The number of days after which the model ends when no new processes are added.
     shared_ptr<int32_t> durationDaysAfterStop_ {};
     // The policy name.
     shared_ptr<string> name_ {};

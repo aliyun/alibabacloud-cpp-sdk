@@ -104,7 +104,7 @@ namespace Models
       protected:
         // The failure code.
         shared_ptr<string> code_ {};
-        // The completion status of the check. Valid values:
+        // The check completion status. Valid values:
         // 
         // - **0**: Unprocessed.
         // - **1**: Collecting.
@@ -116,7 +116,7 @@ namespace Models
         // - **cve**: Linux software vulnerability
         // - **sys**: Windows system vulnerability
         // - **cms**: Web-CMS vulnerability
-        // - **sca**: sca vulnerability
+        // - **sca**: SCA vulnerability
         shared_ptr<string> type_ {};
       };
 

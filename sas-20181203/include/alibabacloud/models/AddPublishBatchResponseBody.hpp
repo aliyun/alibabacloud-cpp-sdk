@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The ID of the release batch.
+    // The release batch ID.
     shared_ptr<int64_t> batchId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -60,7 +60,7 @@ namespace Models
 
 
   protected:
-    // The list of alert whitelisting rule IDs.
+    // The list of alert whitelist rule IDs.
     shared_ptr<vector<int64_t>> ids_ {};
     // The Alibaba Cloud account ID of the member accounts in the resource folder.
     // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.

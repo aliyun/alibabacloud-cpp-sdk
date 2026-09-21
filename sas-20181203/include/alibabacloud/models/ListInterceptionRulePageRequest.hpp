@@ -75,27 +75,28 @@ namespace Models
 
 
   protected:
-    // The ID of the container cluster.
+    // The ID of the container cluster to query.
+    // 
+    // This parameter must be the ID of an ACK cluster that has the container firewall feature enabled. Call DescribeClusterInfoList with Type set to interceptionSwitch, or call ListClusterInterceptionConfig to query available clusters.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
     // The query condition.
     shared_ptr<string> criteria_ {};
-    // The type of the query condition. Valid values:
-    // 
-    // *   **ID**
-    // *   **RULE_NAME**
-    // *   **SRC_TARGET**
-    // *   **DST_TARGET**
-    // *   **DST_PORT**
-    // *   **RULE_SWITCH**
-    // *   **INTERCEPTOR_TYPE**
+    // The type of the search condition. Valid values:
+    // - **ID** 
+    // - **RULE_NAME**
+    // - **SRC_TARGET**
+    // - **DST_TARGET**
+    // - **DST_PORT**
+    // - **RULE_SWITCH**
+    // - **INTERCEPTOR_TYPE**
     shared_ptr<string> criteriaType_ {};
-    // The number of the page to return.
+    // The page number of the current page when using paging.
     // 
     // This parameter is required.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries to return on each page.
+    // The number of entries per page when using paging.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};

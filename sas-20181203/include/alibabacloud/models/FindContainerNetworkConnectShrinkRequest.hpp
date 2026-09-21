@@ -96,20 +96,30 @@ namespace Models
   protected:
     // The query type of the element to query. Valid values:
     // 
-    // - **EDGE**: connection information
+    // - **EDGE**: connection information.
+    // 
+    // This parameter is required. If this parameter is not specified, the service returns error code -101.
     shared_ptr<string> criteriaType_ {};
-    // The page number of the page to return in a paged query. Default value: **1**, which indicates that the first page is returned.
+    // The page number of the page to return in a paginated query. Default value: **1**, which indicates the first page.
     shared_ptr<int64_t> currentPage_ {};
     // The destination node information, which is used to filter destination nodes.
+    // 
+    // This parameter is required. If this parameter is not specified, the service returns error code -101.
     shared_ptr<string> dstNodeShrink_ {};
     // The end time of the network connectivity. Specify a UNIX timestamp in milliseconds.
+    // 
+    // This parameter is required. If this parameter is not specified, the service returns error code -101.
     shared_ptr<int64_t> endTime_ {};
-    // The maximum number of entries per page in a paged query. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+    // The maximum number of entries per page when paging is used. Default value: 20. If this parameter is left empty, 20 entries are returned.
     // > Do not leave PageSize empty.
     shared_ptr<int64_t> pageSize_ {};
     // The source node information, which is used to filter source nodes.
+    // 
+    // This parameter is required. If this parameter is not specified, the service returns error code -101.
     shared_ptr<string> srcNodeShrink_ {};
     // The start time of the network connectivity. Specify a UNIX timestamp in milliseconds.
+    // 
+    // This parameter is required. If this parameter is not specified, the service returns error code -101.
     shared_ptr<int64_t> startTime_ {};
   };
 

@@ -123,7 +123,7 @@ namespace Models
     shared_ptr<string> containerFieldName_ {};
     // The value of the field that you want to query. Separate multiple values with commas (,).
     shared_ptr<string> containerFieldValue_ {};
-    // The container IDs.
+    // The container ID.
     shared_ptr<string> containerIds_ {};
     // The source identifier of the request. Set this parameter to **sas**.
     shared_ptr<string> from_ {};

@@ -291,8 +291,8 @@ namespace Models
     shared_ptr<string> digest_ {};
     // The name of the container image.
     shared_ptr<string> image_ {};
-    // The container image instance ID.
-    // > Invoke the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the container image instance ID from the **InstanceId** response parameter.
+    // The ID of the container image instance.
+    // > Call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry to obtain the container image instance ID from the **InstanceId** response parameter.
     shared_ptr<string> instanceId_ {};
     // The name of the vulnerability.
     shared_ptr<string> name_ {};
@@ -303,7 +303,7 @@ namespace Models
     // 
     // - **asap**: high
     // - **later**: medium
-    // - **nntf**: low.
+    // - **nntf**: low
     shared_ptr<string> necessity_ {};
     // The maximum number of entries per page in a paging query. Default value: 20.
     shared_ptr<int32_t> pageSize_ {};
@@ -321,13 +321,13 @@ namespace Models
     // - **us-east-1**: US (Virginia)
     // - **us-west-1**: US (Silicon Valley)
     // - **eu-central-1**: Germany (Frankfurt)
-    // - **eu-west-1**: UK (London).
+    // - **eu-west-1**: UK (London)
     shared_ptr<string> regionId_ {};
     // The ID of the image repository.
-    // > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry and obtain the value of the **RepoId** response parameter.
+    // > Call the [ListRepository](https://help.aliyun.com/document_detail/145293.html) operation of Container Registry to obtain the image repository ID from the **RepoId** response parameter.
     shared_ptr<string> repoId_ {};
-    // The container image instance ID.
-    // > Invoke the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry and obtain the container image instance ID from the **InstanceId** response parameter.
+    // The ID of the container image instance.
+    // > Call the [ListRepository](https://help.aliyun.com/document_detail/451339.html) operation of Container Registry to obtain the container image instance ID from the **InstanceId** response parameter.
     shared_ptr<string> repoInstanceId_ {};
     // The name of the image repository.
     // > Fuzzy match is supported.
@@ -347,8 +347,10 @@ namespace Models
     // - **us-east-1**: US (Virginia)
     // - **us-west-1**: US (Silicon Valley)
     // - **eu-central-1**: Germany (Frankfurt)
-    // - **eu-west-1**: UK (London).
+    // - **eu-west-1**: UK (London)
     shared_ptr<string> repoRegionId_ {};
+    // The ID of the Alibaba Cloud account of a member account in the resource folder.
+    // > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The scan scope. Valid values:
     // 
@@ -364,7 +366,7 @@ namespace Models
     shared_ptr<string> tag_ {};
     // The vulnerability type. Valid values:
     // - **cve**: system vulnerability
-    // - **sca**: application vulnerability.
+    // - **sca**: application vulnerability
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -158,7 +158,7 @@ namespace Models
     protected:
       // The timestamp when the rule was created. Unit: milliseconds.
       shared_ptr<int64_t> gmtCreate_ {};
-      // The timestamp when the rule was modified. Unit: milliseconds.
+      // The timestamp when the rule was last modified. Unit: milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
       // The rule action mode. Valid values:
       // - **0**: Allow

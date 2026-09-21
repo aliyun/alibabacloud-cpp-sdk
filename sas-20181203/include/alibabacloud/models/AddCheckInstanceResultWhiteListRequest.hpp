@@ -161,13 +161,17 @@ namespace Models
     shared_ptr<int64_t> checkId_ {};
     // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    // Specifies whether to perform only a dry run. Valid values:
+    // - true: performs only a dry run without executing the actual operation.
+    // - false: performs the actual operation.
+    // 
+    // Default value: false.
     shared_ptr<bool> dryRun_ {};
     // The collection of asset instance IDs.
     shared_ptr<vector<string>> instanceIds_ {};
     // The collection of asset instance information.
     shared_ptr<vector<AddCheckInstanceResultWhiteListRequest::InstanceList>> instanceList_ {};
-    // The remarks. Maximum length: 65535 bytes.
+    // The remarks. Maximum length: 65,535 bytes.
     shared_ptr<string> remark_ {};
     // The rule type. Default value: **WHITE**. Valid values:
     // - WHITE: whitelist

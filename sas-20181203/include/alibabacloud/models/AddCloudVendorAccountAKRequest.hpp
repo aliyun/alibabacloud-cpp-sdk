@@ -161,27 +161,29 @@ namespace Models
     // - **primary**: Primary account.
     // - **sub**: Sub-account.
     // - **ctdr**: Agentic SOC.
-    // >Warning: When the vendor is **CHAITIN**, **FORTINET**, **THREATBOOK**, or **WIZ**, set this parameter to ctdr.</warning>
+    // >Warning: If the vendor is **CHAITIN**, **FORTINET**, **THREATBOOK**, or **WIZ**, set this parameter to ctdr.</warning>
     // 
     // This parameter is required.
     shared_ptr<string> akType_ {};
     // The list of AK-associated modules.
+    // 
+    // If AkType is set to ctdr, this parameter is required. Specify at least one module, such as SIEM, HOST, or CSPM. If this parameter is not specified, the API returns HTTP 400 with error code -101.
     shared_ptr<vector<string>> authModules_ {};
     // The account ID.
     // 
     // > The account ID of the connected cloud vendor. This parameter is required when the permission description includes Cloud Threat Detection and Response (CTDR).
     shared_ptr<string> ctdrCloudUserId_ {};
-    // The account domain for access. Valid values:
+    // The account domain for connection. Valid values:
     // - **china**: China
     // - **global**: Global
     // - **europe**: Huawei Cloud Europe
     // 
-    // > This parameter is valid only when **Vendor** is set to **HUAWEICLOUD**, **Azure**, **AWS**, **VOLCENGINE**, **KingsoftCloud**, **UCloud**, or **BaiduCloud**, and is required. Set this parameter to **china** for KingsoftCloud and BaiduCloud, and to **global** for UCloud.
+    // > This parameter is valid only when **Vendor** is set to **HUAWEICLOUD**, **Azure**, **AWS**, **VOLCENGINE**, **KingsoftCloud**, **UCloud**, or **BaiduCloud**, and is required. For KingsoftCloud and BaiduCloud, set this parameter to **china**. For UCloud, set this parameter to **global**.
     shared_ptr<string> domain_ {};
     // The extended information.
     // 
-    // > Used to record extended information for different vendors.
-    // >Google Cloud is accessed through a service account. ExtendInfo stores the JSON-formatted service key file, excluding the private_key_id and private_key fields. The file contains the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, and universe_domain.
+    // > Used to store extended information for different vendors.
+    // >Google Cloud is connected through a service account. ExtendInfo stores the JSON-formatted service key file, excluding the private_key_id and private_key fields. The file contains the following fields: type, project_id, client_email, client_id, auth_uri, token_uri, auth_provider_x509_cert_url, client_x509_cert_url, and universe_domain.
     shared_ptr<string> extendInfo_ {};
     // The language type for the request and response messages. Default value: **zh**. Valid values:
     // - **zh**: Chinese
@@ -192,14 +194,14 @@ namespace Models
     shared_ptr<vector<string>> regions_ {};
     // The AK parameter ID. Valid values:
     // 
-    // 1. When AkType is set to primary:
+    // 1. If AkType is set to primary:
     // - **Tencent**: AccessKeyId of the primary account
     // - **HUAWEICLOUD**: AccessKeyId of the primary account
     // - **Azure**: ClientId
     // - **AWS**: AccessKeyId of the primary account
     // - **VOLCENGINE**: AccessKeyId of the primary account
     // 
-    // 2. When AkType is set to sub:
+    // 2. If AkType is set to sub:
     // - **Tencent**: AccessKeyId of the sub-account
     // - **HUAWEICLOUD**: AccessKeyId of the sub-account
     // - **Azure**: ClientId
@@ -207,25 +209,25 @@ namespace Models
     // - **VOLCENGINE**: AccessKeyId of the sub-account
     // - **google**: private_key_id
     // 
-    // >If AkType is set to **primary**, this value is the SecretID of the primary account on the third-party cloud. If AkType is set to **sub**, this value is the Access Key ID of the sub-account on the third-party cloud. For **Azure**, no distinction is made, and this value is the **appId** in the authentication information. Google Cloud is accessed through a service account. AkType defaults to sub, and this value is the private_key_id property value from the JSON-formatted service key file.
+    // >If AkType is set to **primary**, this value is the SecretID of the primary account on the third-party cloud. If AkType is set to **sub**, this value is the Access Key ID of the sub-account on the third-party cloud. For **Azure**, no distinction is made. This value is the **appId** in the authentication information. Google Cloud is connected through a service account. AkType defaults to sub, and this value is the private_key_id property value from the JSON-formatted service key file.
     // 
     // This parameter is required.
     shared_ptr<string> secretId_ {};
     // The AK parameter secret. Valid values:
     // 
-    // 1. When AkType is set to primary:
+    // 1. If AkType is set to primary:
     // - **Tencent**: SecretAccessKey of the primary account
     // - **HUAWEICLOUD**: SecretAccessKey of the primary account
     // - **Azure**: ClientSecret
     // - **AWS**: SecretAccessKey of the primary account
     // 
-    // 2. When AkType is set to sub:
+    // 2. If AkType is set to sub:
     // - **Tencent**: SecretAccessKey of the sub-account
     // - **HUAWEICLOUD**: SecretAccessKey of the sub-account
     // - **Azure**: ClientSecret
     // - **AWS**: SecretAccessKey of the sub-account
     // - **google**: private_key
-    // >If AkType is set to **primary**, this value is the Secret Access Key of the primary account on the third-party cloud. If AkType is set to **sub**, this value is the Secret Access Key of the sub-account on the third-party cloud. For **Azure**, no distinction is made, and this value is the **password** in the authentication information. Google Cloud is accessed through a service account. AkType defaults to sub, and this value is the private_key property value from the JSON-formatted service key file.
+    // >If AkType is set to **primary**, this value is the Secret Access Key of the primary account on the third-party cloud. If AkType is set to **sub**, this value is the Secret Access Key of the sub-account on the third-party cloud. For **Azure**, no distinction is made. This value is the **password** in the authentication information. Google Cloud is connected through a service account. AkType defaults to sub, and this value is the private_key property value from the JSON-formatted service key file.
     // 
     // This parameter is required.
     shared_ptr<string> secretKey_ {};

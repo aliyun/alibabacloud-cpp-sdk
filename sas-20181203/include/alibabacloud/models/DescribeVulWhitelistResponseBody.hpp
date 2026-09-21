@@ -201,11 +201,11 @@ namespace Models
 
 
   protected:
-    // The number of entries on the current page when paging.
+    // The number of entries on the current page in the paged query.
     shared_ptr<int32_t> count_ {};
-    // The current page number when paging.
+    // The page number of the current page in the paged query.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of entries per page when paging.
+    // The number of entries per page in the paged query.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

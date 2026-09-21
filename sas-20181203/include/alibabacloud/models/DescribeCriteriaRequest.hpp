@@ -66,17 +66,19 @@ namespace Models
 
 
   protected:
-    // The type of the asset. Valid values:
+    // The Asset Type to query. Valid values:
     // 
-    // *   Set the value to **ecs**, which specifies to query all Elastic Compute Service (ECS) instances.
+    // - **ecs**: queries all ECS servers.
     shared_ptr<string> machineTypes_ {};
+    // The ID of the Alibaba Cloud account of the member accounts in the resource folder.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // Specifies whether the keyword that you specify for fuzzy search can be automatically matched. Default value: **false**. Valid values:
+    // Specifies whether the fuzzy query field supports automatic matching. Default value: **false**. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Supported.
+    // - **false**: Not supported.
     shared_ptr<bool> supportAutoTag_ {};
-    // The keyword that you specify for fuzzy search when you query the asset.
+    // The fuzzy match value entered when querying assets.
     shared_ptr<string> value_ {};
   };
 

@@ -237,7 +237,7 @@ namespace Models
           shared_ptr<string> fullVersion_ {};
           // The SHA256 value of the container image layer digest.
           shared_ptr<string> layer_ {};
-          // The detailed information about the vulnerability match.
+          // The details of the vulnerability match.
           shared_ptr<string> matchDetail_ {};
           // The rule hits.
           shared_ptr<vector<string>> matchList_ {};
@@ -245,7 +245,7 @@ namespace Models
           shared_ptr<string> name_ {};
           // The path of the software that contains the vulnerability.
           shared_ptr<string> path_ {};
-          // The command used to fix the vulnerability.
+          // The command to fix the vulnerability.
           shared_ptr<string> updateCmd_ {};
           // The version number of the software package.
           shared_ptr<string> version_ {};
@@ -533,13 +533,13 @@ namespace Models
       shared_ptr<string> aliasName_ {};
       // Indicates whether the vulnerability can be fixed in the console. Valid values:
       // 
-      // - **yes**: Fixable.
-      // - **no**: Not fixable.
+      // - **yes**: The vulnerability can be fixed.
+      // - **no**: The vulnerability cannot be fixed.
       shared_ptr<string> canFix_ {};
-      // Specifies whether the software package that causes the vulnerability can be upgraded through Security Center. Valid values:
+      // Indicates whether the software package that causes the vulnerability can be upgraded by using Security Center. Valid values:
       // 
-      // - **true**: Supported.
-      // - **false**: Not supported.
+      // - **true**: The upgrade is supported.
+      // - **false**: The upgrade is not supported.
       shared_ptr<bool> canUpdate_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
@@ -549,7 +549,7 @@ namespace Models
       shared_ptr<string> containerId_ {};
       // The extended content of the vulnerability information.
       shared_ptr<VulRecords::ExtendContentJson> extendContentJson_ {};
-      // The timestamp when the vulnerability was first detected, in milliseconds.
+      // The timestamp when the vulnerability was first detected. Unit: milliseconds.
       shared_ptr<int64_t> firstTs_ {};
       // The image name.
       shared_ptr<string> image_ {};
@@ -563,7 +563,7 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The private IP address of the asset.
       shared_ptr<string> intranetIp_ {};
-      // The timestamp when the vulnerability was last detected, in milliseconds.
+      // The timestamp when the vulnerability was last detected. Unit: milliseconds.
       shared_ptr<int64_t> lastTs_ {};
       // The list of container image layers.
       shared_ptr<vector<string>> layers_ {};
@@ -573,7 +573,7 @@ namespace Models
       // - **image**: Image.
       // - **container**: Container.
       shared_ptr<string> maliciousSource_ {};
-      // The timestamp when the vulnerability status was modified, in milliseconds.
+      // The timestamp when the vulnerability status was modified. Unit: milliseconds.
       shared_ptr<int64_t> modifyTs_ {};
       // The name of the vulnerability.
       shared_ptr<string> name_ {};
@@ -581,11 +581,11 @@ namespace Models
       shared_ptr<string> namespace_ {};
       // The priority level of the vulnerability fix. Valid values:
       // 
-      // - **asap**: High.
-      // - **later**: Medium.
-      // - **nntf**: Low.
+      // - **asap**: high
+      // - **later**: medium
+      // - **nntf**: low
       // 
-      // > Fix vulnerabilities with the **High** priority level as soon as possible.
+      // > Fix vulnerabilities with the **high** priority level as soon as possible.
       shared_ptr<string> necessity_ {};
       // The name of the pod.
       shared_ptr<string> pod_ {};
@@ -597,7 +597,7 @@ namespace Models
       shared_ptr<string> repoName_ {};
       // The namespace of the container image repository.
       shared_ptr<string> repoNamespace_ {};
-      // The timestamp of the scan, in milliseconds.
+      // The timestamp of the scan. Unit: milliseconds.
       shared_ptr<int64_t> scanTime_ {};
       // The fix status of the vulnerability. Valid values:
       // - **1**: Unfixed.
@@ -618,7 +618,7 @@ namespace Models
       shared_ptr<string> targetType_ {};
       // The vulnerability type. Valid values:
       // - **cve**: system vulnerability
-      // - **sca**: application vulnerability.
+      // - **sca**: application vulnerability
       shared_ptr<string> type_ {};
       // The UUID of the container image.
       shared_ptr<string> uuid_ {};
@@ -645,7 +645,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The vulnerability information returned.
+    // The vulnerability information returned by the query.
     shared_ptr<vector<DescribeCanFixVulListResponseBody::VulRecords>> vulRecords_ {};
   };
 

@@ -556,13 +556,13 @@ namespace Models
     shared_ptr<string> code_ {};
     // The response data.
     shared_ptr<DescribeGraph4InvestigationOnlineResponseBody::Data> data_ {};
-    // The message returned for the request.
+    // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was successful. Valid values:
-    // - **true**: The API call was successful.
-    // - **false**: The API call failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

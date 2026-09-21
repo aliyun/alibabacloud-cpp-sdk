@@ -48,8 +48,10 @@ namespace Models
 
 
   protected:
-    // The ID of the configuration. This parameter is optional. If you do not specify this parameter, a default ID is generated.
+    // The ID of the configuration. This parameter is optional. If you do not specify this parameter, an ID is automatically generated.
     shared_ptr<int64_t> configId_ {};
+    // The ID of the member accounts in the resource directory.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

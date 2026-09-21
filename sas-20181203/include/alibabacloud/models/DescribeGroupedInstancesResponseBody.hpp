@@ -209,16 +209,16 @@ namespace Models
       // The name of the server group.
       shared_ptr<string> fieldAliasName_ {};
       // The server group type. Valid values:
-      // - **0**: Default group.
-      // - **1**: Other group.
+      // - **0**: default group
+      // - **1**: other group
       shared_ptr<int32_t> groupFlag_ {};
-      // The total number of compute cores of all assets of the specified asset type.
+      // The total number of compute cores for all assets of the specified asset type.
       // 
-      // > If the request parameter **MachineTypes** is not set, this parameter returns the total number of compute cores of assets of all types.
+      // > If the **MachineTypes** request parameter is not set, this parameter returns the total number of compute cores for assets of all types.
       shared_ptr<int64_t> instanceCoreCount_ {};
       // The total number of assets of the specified asset type.
       // 
-      // > If the request parameter **MachineTypes** is not set, this parameter returns the total number of assets of all types.
+      // > If the **MachineTypes** request parameter is not set, this parameter returns the total number of assets of all types.
       shared_ptr<string> instanceCount_ {};
       // The operating system type of the asset. Valid values:
       // - **windows**

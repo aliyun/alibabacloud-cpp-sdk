@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The container application name.
+    // The container application names.
     shared_ptr<string> appNames_ {};
     // The cluster ID.
     shared_ptr<string> clusterId_ {};
-    // The language type of the request and response.
+    // The language of the request and response. Valid values:
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};

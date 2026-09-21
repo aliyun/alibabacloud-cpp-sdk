@@ -114,22 +114,24 @@ namespace Models
   protected:
     // The defense mode. Valid values:
     // 
-    // - **block**: block
-    // - **audit**: alert.
+    // - **block**: Block.
+    // - **audit**: Alert.
     // 
     // This parameter is required.
     shared_ptr<string> defenceMode_ {};
     // The protection directories. Separate multiple directories with commas (,).
     // 
+    // The server automatically appends a forward slash (/) to the end of the directory path during storage. Use paths with a trailing slash to avoid matching inconsistencies.
+    // 
     // This parameter is required.
     shared_ptr<string> dir_ {};
-    // The folder that does not require web tamper proofing protection (excluded folder).
-    // > This parameter is required when the Defense mode **Mode** is set to the **blacklist** pattern.
+    // The directories that do not require web tamper-proofing protection (excluded directories).
+    // > This parameter is required when the protection mode **Mode** is set to **blacklist**.
     shared_ptr<string> exclusiveDir_ {};
-    // The files that do not require web tamper proofing protection (excluded files).
-    // > This parameter is required when the Defense mode **Mode** is set to the **blacklist** pattern.
+    // The files that do not require web tamper-proofing protection (excluded files).
+    // > This parameter is required when the protection mode **Mode** is set to **blacklist**.
     shared_ptr<string> exclusiveFile_ {};
-    // The file types that do not require web tamper proofing protection (excluded file types). Separate multiple file types with commas (,). Valid values:
+    // The file types that do not require web tamper-proofing protection (excluded file types). Separate multiple file types with semicolons (;). Valid values:
     // - php
     // - jsp
     // - asp
@@ -145,9 +147,9 @@ namespace Models
     // - gif
     // - png
     // 
-    // > This parameter is required when the Defense mode **Mode** is set to the **blacklist** pattern.
+    // > This parameter is required when the protection mode **Mode** is set to **blacklist**.
     shared_ptr<string> exclusiveFileType_ {};
-    // The file types that require web tamper proofing protection. Separate multiple file types with commas (,). Valid values:
+    // The file types that require web tamper-proofing protection. Separate multiple file types with semicolons (;). Valid values:
     // - php
     // - jsp
     // - asp
@@ -163,17 +165,18 @@ namespace Models
     // - gif
     // - png
     // 
-    // > This parameter is required when the Defense mode **Mode** is set to the **whitelist** pattern.
+    // > This parameter is required when the protection mode **Mode** is set to **whitelist**.
     shared_ptr<string> inclusiveFileType_ {};
-    // The local backup path used to back up the protection directories. The format of the protection directory path may differ between Linux servers and Windows servers. Make sure that you enter the path in the correct format. The following examples show the directory formats:
+    // The local backup path used to securely back up the protection directories.  
+    // The format of the protection directory path may differ between Linux servers and Windows servers. Make sure that you enter the correct format. The following directory formats are provided for reference:
     //  - Linux server: /usr/local/aegis/bak
-    //  - Windows server: C:\\Program Files (x86)\\Alibaba\\Aegis\\bak.
+    //  - Windows server: C:\\Program Files (x86)\\Alibaba\\Aegis\\bak
     // 
     // This parameter is required.
     shared_ptr<string> localBackupDir_ {};
     // The protection type. Valid values:
-    // - **whitelist**: whitelist mode. Protects the specified protection directories and file types.
-    // - **blacklist**: blacklist mode. Protects all subdirectories, file types, and specified files in the protection directories that are not excluded.
+    // - **whitelist**: Whitelist mode. Protects the specified protection directories and file types.
+    // - **blacklist**: Blacklist mode. Protects all subdirectories, file types, and specified files under the protection directories that are not excluded.
     // 
     // This parameter is required.
     shared_ptr<string> mode_ {};

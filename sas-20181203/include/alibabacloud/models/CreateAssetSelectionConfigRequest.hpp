@@ -85,9 +85,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> businessType_ {};
-    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    // Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual operation. false: performs the actual request. Default value: false.
     shared_ptr<bool> dryRun_ {};
     // The operating system of the target asset. Valid values:
     // 
@@ -101,12 +101,12 @@ namespace Models
     // >- **AGENTLESS_VUL_WHITE_LIST_[ID]**: the value is **all**.
     // >- **FILE_PROTECT_RULE_SWITCH_TYPE_[ID]**: the value is **linux**.
     shared_ptr<string> platform_ {};
-    // The target asset type. Valid values:
+    // The Asset Type of the target. Valid values:
     // 
     // - **all_instance**: all servers.
-    // - **instance**: select by server.
-    // - **group**: select by group.
-    // - **vpc**: select by VPC.
+    // - **instance**: selected by server.
+    // - **group**: selected by group.
+    // - **vpc**: selected by VPC.
     // 
     // This parameter is required.
     shared_ptr<string> targetType_ {};

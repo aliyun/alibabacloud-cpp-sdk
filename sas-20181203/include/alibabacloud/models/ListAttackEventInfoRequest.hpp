@@ -129,27 +129,31 @@ namespace Models
     // - 211: ASP WebShell upload
     // - 215: Special extension WebShell upload
     // - ai_webshell: WebShell upload intelligent defense
-    // - java_common_rce: Java common remote code execution (RCE) vulnerability blocked
+    // - java_common_rce: Java common RCE vulnerability blocked
     // - alinet_webrce: Adaptive web attack defense
     shared_ptr<string> attackType_ {};
-    // The number of the page to return in a paged query.
+    // The number of the page to return in a paging query.
     shared_ptr<int32_t> currentPage_ {};
     // The Attack Target Ports of the Attack Target.
     shared_ptr<string> dstPort_ {};
     // The timestamp of the end time.
+    // 
+    // This parameter is required. If this parameter is not specified, the API returns HTTP 400.
     shared_ptr<int64_t> endTime_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The maximum number of entries to return on each page in a paged query.
+    // The maximum number of entries to return on each page in a paging query.
     shared_ptr<int32_t> pageSize_ {};
     // The Attack Source IP Addresses.
     shared_ptr<string> srcIp_ {};
     // The timestamp of the start time.
     // 
-    // This field is a UNIX timestamp. Unit: milliseconds.
+    // This parameter is a UNIX timestamp. Unit: milliseconds.
+    // 
+    // This parameter is required. If this parameter is not specified, the API returns HTTP 400.
     shared_ptr<int64_t> startTime_ {};
   };
 

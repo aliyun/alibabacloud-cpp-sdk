@@ -125,7 +125,7 @@ namespace Models
 
 
     protected:
-      // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of failure.
+      // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
       shared_ptr<string> code_ {};
       // Indicates whether the file is identified as a compressed archive.
       // 
@@ -139,48 +139,52 @@ namespace Models
       shared_ptr<string> ext_ {};
       // The file identifier.
       shared_ptr<string> hashKey_ {};
-      // The detailed information of the error code.
+      // The detailed information about the error code.
       shared_ptr<string> message_ {};
       // The file detection result. Valid values:
       // 
       // - **0**: Safe file.
       // - **1**: Suspicious file.
-      // - **3**: Detection in progress. Wait for the result.
+      // - **3**: Detection in progress. Wait for the detection to complete.
       shared_ptr<int32_t> result_ {};
       // The file detection score. The mapping between score ranges and risk levels is as follows:
       // 
-      // - 0-60: Safe.
-      // - 61-70: Risky.
-      // - 71-80: Suspicious.
-      // - 81-100: Malicious.
+      // - 0–60: Safe.
+      // - 61–70: Risky.
+      // - 71–80: Suspicious.
+      // - 81–100: Malicious.
       // 
       // >Notice: A higher score indicates a more suspicious file.
+      // 
+      // This field is returned only when Result is 1 (suspicious file). This field is not returned when Result is 0 or 3.
       shared_ptr<int32_t> score_ {};
       // The virus type. Valid values:
       // 
-      // - **Trojan**: trojan
-      // - **WebShell**: web shell
-      // - **Backdoor**: backdoor
-      // - **RansomWare**: ransomware
-      // - **Scanner**: scanner
-      // - **Stealer**: credential stealer
-      // - **Malbaseware**: contaminated base software
-      // - **Hacktool**: hacking tool
-      // - **Engtest**: DPI engine test program
-      // - **Downloader**: downloader trojan
-      // - **Virus**: file infector virus
-      // - **Miner**: mining programs
-      // - **Worm**: worms
-      // - **DDoS**: DDoS Trojan
-      // - **Malware**: malware
-      // - **RiskWare**: riskware
-      // - **Proxytool**: proxy tool
-      // - **Suspicious**: suspicious program
-      // - **MalScript**: malicious script
-      // - **Rootkit**: rootkit
-      // - **Exploit**: vulnerability exploits
+      // - **Trojan**: Trojan.
+      // - **WebShell**: Web shell.
+      // - **Backdoor**: Backdoor.
+      // - **RansomWare**: Ransomware.
+      // - **Scanner**: Scanner.
+      // - **Stealer**: Credential stealer.
+      // - **Malbaseware**: Contaminated base software.
+      // - **Hacktool**: Hacking tool.
+      // - **Engtest**: DPI engine test program.
+      // - **Downloader**: Downloader Trojan.
+      // - **Virus**: File infector virus.
+      // - **Miner**: Mining programs.
+      // - **Worm**: Worms.
+      // - **DDoS**: DDoS Trojan.
+      // - **Malware**: Malware.
+      // - **RiskWare**: Riskware.
+      // - **Proxytool**: Proxy tool.
+      // - **Suspicious**: Suspicious program.
+      // - **MalScript**: Malicious script.
+      // - **Rootkit**: Rootkit.
+      // - **Exploit**: Vulnerability exploits.
       // 
       // > This parameter is not supported when Result is 0 or 3.
+      // 
+      // This field is returned only when Result is 1 (suspicious file). This field is not returned when Result is 0 or 3.
       shared_ptr<string> virusType_ {};
     };
 

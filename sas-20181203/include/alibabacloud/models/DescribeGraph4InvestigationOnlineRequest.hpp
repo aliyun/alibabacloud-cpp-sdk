@@ -76,10 +76,14 @@ namespace Models
 
   protected:
     // The ID of the alert event. You can call [DescribeSuspEvents](~~DescribeSuspEvents~~) to obtain the alert event ID. The value is in the data.SuspEvents[index].UniqueInfo path.
+    // 
+    // This parameter is required. If this parameter is not specified, the API returns error code -101.
     shared_ptr<string> anomalyId_ {};
     // The UUID of the asset associated with the alert event. You can call [DescribeSuspEvents](~~DescribeSuspEvents~~) to obtain the asset UUID. The value is in the data.SuspEvents[index].Uuid path.
+    // 
+    // This parameter is required. If this parameter is not specified, the API returns error code -101.
     shared_ptr<string> anomalyUuid_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // The language of the content within the request and response. Default value: **zh**. Valid values:
     // 
     // - **zh**: Chinese
     // - **en**: English

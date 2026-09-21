@@ -70,17 +70,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> batchName_ {};
-    // The interval between two release batches.
+    // The interval between release batches.
     // 
     // This parameter is required.
     shared_ptr<int32_t> interval_ {};
-    // The dimension based on which the asset is selected. Valid values:
+    // The dimension for asset selection. Valid values:
     // 
-    // *   **0**: selects the asset by instance.
-    // *   **1**: selects the asset by machine group.
-    // *   **2**: selects the asset by the ID of the instance that is deployed in the virtual private cloud (VPC).
+    // - **0**: server instance
+    // - **1**: server group
+    // - **2**: VPC-connected instance ID
     shared_ptr<int32_t> operationBase_ {};
-    // The version to which you want to upgrade the agent.
+    // The target version to which you want to upgrade.
     // 
     // This parameter is required.
     shared_ptr<string> upgradeVersion_ {};

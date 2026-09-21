@@ -80,7 +80,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> strategyId_ {};
-    // The policy name. Fixed value: Automated Batch Vulnerability Fix Policy.
+    // The policy name. Set the value to: Automated Batch Vulnerability Fix Policy.
     // 
     // This parameter is required.
     shared_ptr<string> strategyName_ {};
@@ -88,22 +88,22 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> strategyTaskName_ {};
-    // The parameter information of the policy. A string in JSONArray format with the following items:
+    // The parameter information of the policy. The value is a string in JSONArray format. The following items are included:
     // 
     // Vulnerability configuration item. Valid values:
     // - name: vluList
     // - associationProperty: sasAllVul
-    // - value: basic information about the vulnerability
+    // - value: the basic information of the vulnerability.
     // 
     // Snapshot configuration item. Valid values:
     // - name: snapshotConfig
     // - associationProperty: snapshotConfig
-    // - value: storage time information
+    // - value: the storage time information.
     // 
     // Notification configuration. Valid values:
     // - name: notifyConfig
     // - associationProperty: notifyConfig
-    // - value: email or DingTalk configuration information.
+    // - value: the configuration information of email or DingTalk notifications.
     // 
     // This parameter is required.
     shared_ptr<string> strategyTaskParams_ {};

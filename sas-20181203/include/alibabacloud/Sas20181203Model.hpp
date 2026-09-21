@@ -1470,6 +1470,9 @@
 #include <alibabacloud/models/GetAgentlessTaskCountRequest.hpp>
 #include <alibabacloud/models/GetAgentlessTaskCountResponseBody.hpp>
 #include <alibabacloud/models/GetAgentlessTaskCountResponse.hpp>
+#include <alibabacloud/models/GetAgentlessTaskCountBatchRequest.hpp>
+#include <alibabacloud/models/GetAgentlessTaskCountBatchResponseBody.hpp>
+#include <alibabacloud/models/GetAgentlessTaskCountBatchResponse.hpp>
 #include <alibabacloud/models/GetAgentlessTaskUsedSizeEstimateRequest.hpp>
 #include <alibabacloud/models/GetAgentlessTaskUsedSizeEstimateResponseBody.hpp>
 #include <alibabacloud/models/GetAgentlessTaskUsedSizeEstimateResponse.hpp>

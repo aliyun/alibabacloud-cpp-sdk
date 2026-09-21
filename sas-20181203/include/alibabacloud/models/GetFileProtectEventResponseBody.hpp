@@ -243,65 +243,63 @@ namespace Models
 
 
     protected:
-      // The severity of alerts. Valid values:
+      // The alert notification level. Valid values:
       // 
-      // - 0: does not generate alerts
+      // - 0: No alert.
       // 
-      // - 1: sends notifications
+      // - 1: Reminder.
       // 
-      // - 2: suspicious
+      // - 2: Suspicious.
       // 
-      // - 3: high-risk
+      // - 3: High-risk.
       shared_ptr<int32_t> alertLevel_ {};
       // The event command line.
       shared_ptr<string> cmdLine_ {};
-      // The path to the file.
+      // The file path.
       shared_ptr<string> filePath_ {};
-      // The permissions to run the process.
+      // The process permissions.
       shared_ptr<string> filePermission_ {};
-      // The timestamp at which the event was first detected.
+      // The timestamp when the event first occurred.
       shared_ptr<int64_t> firstTime_ {};
-      // The time when the event was handled.
+      // The time when the event was handled. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> handleTime_ {};
-      // The ID of the event.
+      // The unique ID.
       shared_ptr<int64_t> id_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> instanceName_ {};
       // The public IP address of the associated instance.
       shared_ptr<string> internetIp_ {};
       // The private IP address of the associated instance.
       shared_ptr<string> intranetIp_ {};
-      // The time when the event last occurred.
+      // The timestamp when the event most recently occurred. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> latestTime_ {};
-      // The operation that the process performed on the file.
+      // The operation performed by the process on the file.
       shared_ptr<string> operation_ {};
-      // The type of the operating system. Valid values:
+      // The operating system type. Valid values:
       // 
-      // - **windows**: Windows
-      // 
-      // - **linux**: Linux
+      // - **windows**: Windows.
+      // - **linux**: Linux.
       shared_ptr<string> platform_ {};
-      // The path to the process.
+      // The process path.
       shared_ptr<string> procPath_ {};
       // The process ID of the event.
       shared_ptr<string> processId_ {};
       // The remarks.
       shared_ptr<string> remark_ {};
-      // The name of the rule.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The status of the event. Valid values:
+      // The event status. Valid values:
       // 
-      // - 0: not handled
-      // 
-      // - 1: handled
-      // 
-      // - 2: added to the whitelist
+      // - 0: Unhandled. 
+      // - 1: Manually handled.
+      // - 2: Whitelisted.
+      // - 3: Ignored.
       shared_ptr<int32_t> status_ {};
-      // User ID of the user who started the current process.
+      // The user ID that started the current process.
       shared_ptr<string> userId_ {};
       // The username that started the current process.
       shared_ptr<string> userName_ {};
-      // The UUID of the asset.
+      // The UUID of the asset instance.
       shared_ptr<string> uuid_ {};
     };
 
@@ -324,9 +322,9 @@ namespace Models
 
 
   protected:
-    // The details of the returned data.
+    // The returned data details.
     shared_ptr<GetFileProtectEventResponseBody::Data> data_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

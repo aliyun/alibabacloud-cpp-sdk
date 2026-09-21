@@ -197,7 +197,7 @@ AddBaselineCheckWhiteRecordResponse Client::addBaselineCheckWhiteRecord(const Ad
 }
 
 /**
- * @summary Adds instances to the whitelist at the check item level for cloud platform configuration checks.
+ * @summary Adds instances to the whitelist at the instance level for a specific check item in cloud platform configuration checks.
  *
  * @param request AddCheckInstanceResultWhiteListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -256,7 +256,7 @@ AddCheckInstanceResultWhiteListResponse Client::addCheckInstanceResultWhiteListW
 }
 
 /**
- * @summary Adds instances to the whitelist at the check item level for cloud platform configuration checks.
+ * @summary Adds instances to the whitelist at the instance level for a specific check item in cloud platform configuration checks.
  *
  * @param request AddCheckInstanceResultWhiteListRequest
  * @return AddCheckInstanceResultWhiteListResponse
@@ -1179,7 +1179,9 @@ AddProtectVpcListResponse Client::addProtectVpcList(const AddProtectVpcListReque
 }
 
 /**
- * @summary Upgrades the Security Center agent in batches.
+ * @summary Creates a release batch for Security Center upgrades.
+ *
+ * @description Before calling this operation, call GetCurrentVersionPublish to check the account eligibility. You can call this operation only when the returned BigCustomer parameter is true, which indicates that the account is a premium customer.
  *
  * @param request AddPublishBatchRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1222,7 +1224,9 @@ AddPublishBatchResponse Client::addPublishBatchWithOptions(const AddPublishBatch
 }
 
 /**
- * @summary Upgrades the Security Center agent in batches.
+ * @summary Creates a release batch for Security Center upgrades.
+ *
+ * @description Before calling this operation, call GetCurrentVersionPublish to check the account eligibility. You can call this operation only when the returned BigCustomer parameter is true, which indicates that the account is a premium customer.
  *
  * @param request AddPublishBatchRequest
  * @return AddPublishBatchResponse
@@ -3373,6 +3377,8 @@ CreateContainerScanTaskResponse Client::createContainerScanTask(const CreateCont
 /**
  * @summary Creates a container runtime scan task in the appNames dimension.
  *
+ * @description Before calling this operation, make sure that your current Security Center edition supports container runtime scanning. Call [DescribeVersionConfig](~~DescribeVersionConfig~~) and verify that the response parameter IsNewContainerVersion is true, which indicates that container runtime scanning is available. If the value is false, upgrade your Security Center edition before calling this operation.
+ *
  * @param request CreateContainerScanTaskByAppNameRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateContainerScanTaskByAppNameResponse
@@ -3411,6 +3417,8 @@ CreateContainerScanTaskByAppNameResponse Client::createContainerScanTaskByAppNam
 
 /**
  * @summary Creates a container runtime scan task in the appNames dimension.
+ *
+ * @description Before calling this operation, make sure that your current Security Center edition supports container runtime scanning. Call [DescribeVersionConfig](~~DescribeVersionConfig~~) and verify that the response parameter IsNewContainerVersion is true, which indicates that container runtime scanning is available. If the value is false, upgrade your Security Center edition before calling this operation.
  *
  * @param request CreateContainerScanTaskByAppNameRequest
  * @return CreateContainerScanTaskByAppNameResponse
@@ -4093,6 +4101,8 @@ CreateHoneypotResponse Client::createHoneypot(const CreateHoneypotRequest &reque
 /**
  * @summary Creates a honeypot management node.
  *
+ * @description Before creating a management node, make sure that your account has a sufficient honeypot probe quota. Call [DescribeHoneyPotAuth](~~DescribeHoneyPotAuth~~) and [ListHoneypotNode](~~ListHoneypotNode~~) to query the quota and node usage. If the quota is insufficient, call [DeleteHoneypotNode](~~DeleteHoneypotNode~~) to release existing nodes or purchase more probe capacity.
+ *
  * @param request CreateHoneypotNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CreateHoneypotNodeResponse
@@ -4135,6 +4145,8 @@ CreateHoneypotNodeResponse Client::createHoneypotNodeWithOptions(const CreateHon
 
 /**
  * @summary Creates a honeypot management node.
+ *
+ * @description Before creating a management node, make sure that your account has a sufficient honeypot probe quota. Call [DescribeHoneyPotAuth](~~DescribeHoneyPotAuth~~) and [ListHoneypotNode](~~ListHoneypotNode~~) to query the quota and node usage. If the quota is insufficient, call [DeleteHoneypotNode](~~DeleteHoneypotNode~~) to release existing nodes or purchase more probe capacity.
  *
  * @param request CreateHoneypotNodeRequest
  * @return CreateHoneypotNodeResponse
@@ -4397,7 +4409,7 @@ CreateHybridProxyClusterResponse Client::createHybridProxyCluster(const CreateHy
 }
 
 /**
- * @summary Creates a defense rule in the container firewall module.
+ * @summary Creates a container firewall blocking rule.
  *
  * @param tmpReq CreateInterceptionRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4470,7 +4482,7 @@ CreateInterceptionRuleResponse Client::createInterceptionRuleWithOptions(const C
 }
 
 /**
- * @summary Creates a defense rule in the container firewall module.
+ * @summary Creates a container firewall blocking rule.
  *
  * @param request CreateInterceptionRuleRequest
  * @return CreateInterceptionRuleResponse
@@ -5331,7 +5343,7 @@ CreateOssBucketScanTaskResponse Client::createOssBucketScanTask(const CreateOssB
 /**
  * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
  *
- * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
+ * @description Before you call this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images that the image scan task covers and the number of authorizations consumed. Make sure that sufficient authorizations are available for the image scan task to prevent the image scan task from being overwritten due to insufficient authorizations.
  *
  * @param request CreateOssScanConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5432,7 +5444,7 @@ CreateOssScanConfigResponse Client::createOssScanConfigWithOptions(const CreateO
 /**
  * @summary Creates a scan policy for detecting malicious files in OSS under the malicious file detection feature.
  *
- * @description Before calling this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images covered by the image scan task and the number of authorizations consumed. Ensure that sufficient authorizations are available for the image scan task to prevent the task from being interrupted due to insufficient authorizations.
+ * @description Before you call this operation, call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of container images that the image scan task covers and the number of authorizations consumed. Make sure that sufficient authorizations are available for the image scan task to prevent the image scan task from being overwritten due to insufficient authorizations.
  *
  * @param request CreateOssScanConfigRequest
  * @return CreateOssScanConfigResponse
@@ -5443,9 +5455,9 @@ CreateOssScanConfigResponse Client::createOssScanConfig(const CreateOssScanConfi
 }
 
 /**
- * @summary Creates an automatic control policy for new accounts in the multi-account security management feature of Security Center. Member accounts under the automatic control policy folder are automatically added to the monitoring account list.
+ * @summary Creates an automatic control policy for new accounts in the multi-account security management feature of Security Center. Member accounts under the automatic control policy folder are automatically added to the monitored account list.
  *
- * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+ * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center. Before calling this operation, enable the multi-account security management feature by calling [EnableServiceAccessResourceDirectory](~~EnableServiceAccessResourceDirectory~~).
  *
  * @param request CreateRdDefaultSyncListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5476,9 +5488,9 @@ CreateRdDefaultSyncListResponse Client::createRdDefaultSyncListWithOptions(const
 }
 
 /**
- * @summary Creates an automatic control policy for new accounts in the multi-account security management feature of Security Center. Member accounts under the automatic control policy folder are automatically added to the monitoring account list.
+ * @summary Creates an automatic control policy for new accounts in the multi-account security management feature of Security Center. Member accounts under the automatic control policy folder are automatically added to the monitored account list.
  *
- * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+ * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center. Before calling this operation, enable the multi-account security management feature by calling [EnableServiceAccessResourceDirectory](~~EnableServiceAccessResourceDirectory~~).
  *
  * @param request CreateRdDefaultSyncListRequest
  * @return CreateRdDefaultSyncListResponse
@@ -5559,7 +5571,7 @@ CreateRestoreJobResponse Client::createRestoreJob(const CreateRestoreJobRequest 
 }
 
 /**
- * @summary Starts a trial of Security Center.
+ * @summary Starts a free trial of Security Center.
  *
  * @param tmpReq CreateSasTrialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5622,7 +5634,7 @@ CreateSasTrialResponse Client::createSasTrialWithOptions(const CreateSasTrialReq
 }
 
 /**
- * @summary Starts a trial of Security Center.
+ * @summary Starts a free trial of Security Center.
  *
  * @param request CreateSasTrialRequest
  * @return CreateSasTrialResponse
@@ -5633,7 +5645,7 @@ CreateSasTrialResponse Client::createSasTrial(const CreateSasTrialRequest &reque
 }
 
 /**
- * @summary Creates a service-linked role and grants Security Center access to cloud resources.
+ * @summary Creates a service-linked role and authorizes Security Center to access cloud resources.
  *
  * @description For more information about service-linked roles, see [Service-linked roles](https://help.aliyun.com/document_detail/160674.html).
  *
@@ -5674,7 +5686,7 @@ CreateServiceLinkedRoleResponse Client::createServiceLinkedRoleWithOptions(const
 }
 
 /**
- * @summary Creates a service-linked role and grants Security Center access to cloud resources.
+ * @summary Creates a service-linked role and authorizes Security Center to access cloud resources.
  *
  * @description For more information about service-linked roles, see [Service-linked roles](https://help.aliyun.com/document_detail/160674.html).
  *
@@ -5805,7 +5817,7 @@ CreateSimilarSecurityEventsQueryTaskResponse Client::createSimilarSecurityEvents
 }
 
 /**
- * @summary Creates a task under My Policies in Task Center.
+ * @summary Creates a task under My Policies in the task center.
  *
  * @description Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
  *
@@ -5854,7 +5866,7 @@ CreateSoarStrategyTaskResponse Client::createSoarStrategyTaskWithOptions(const C
 }
 
 /**
- * @summary Creates a task under My Policies in Task Center.
+ * @summary Creates a task under My Policies in the task center.
  *
  * @description Only the Enterprise and Ultimate editions of Security Center support this API operation. Other editions do not support this operation.
  *
@@ -5917,7 +5929,11 @@ CreateSuspEventNoteResponse Client::createSuspEventNote(const CreateSuspEventNot
 }
 
 /**
- * @summary Creates an anti-ransomware policy for a database.
+ * @summary Creates a database anti-ransomware policy.
+ *
+ * @description Before calling this operation, choose one of the following paths:
+ * - If DatabaseAddByUser is not set to true, install the Security Center agent on the ECS instance first, call StartDiscoverDatabaseTask to initiate database discovery, and then call DescribeUniBackupDatabase to confirm that the target database has been discovered.
+ * - If DatabaseAddByUser is set to true, you can manually register the database.
  *
  * @param tmpReq CreateUniBackupPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6002,7 +6018,11 @@ CreateUniBackupPolicyResponse Client::createUniBackupPolicyWithOptions(const Cre
 }
 
 /**
- * @summary Creates an anti-ransomware policy for a database.
+ * @summary Creates a database anti-ransomware policy.
+ *
+ * @description Before calling this operation, choose one of the following paths:
+ * - If DatabaseAddByUser is not set to true, install the Security Center agent on the ECS instance first, call StartDiscoverDatabaseTask to initiate database discovery, and then call DescribeUniBackupDatabase to confirm that the target database has been discovered.
+ * - If DatabaseAddByUser is set to true, you can manually register the database.
  *
  * @param request CreateUniBackupPolicyRequest
  * @return CreateUniBackupPolicyResponse
@@ -6013,7 +6033,7 @@ CreateUniBackupPolicyResponse Client::createUniBackupPolicy(const CreateUniBacku
 }
 
 /**
- * @summary Creates a restoration task for anti-ransomware database protection.
+ * @summary Creates a recovery task for database anti-ransomware.
  *
  * @param request CreateUniRestorePlanRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6068,7 +6088,7 @@ CreateUniRestorePlanResponse Client::createUniRestorePlanWithOptions(const Creat
 }
 
 /**
- * @summary Creates a restoration task for anti-ransomware database protection.
+ * @summary Creates a recovery task for database anti-ransomware.
  *
  * @param request CreateUniRestorePlanRequest
  * @return CreateUniRestorePlanResponse
@@ -8443,7 +8463,7 @@ DeleteSearchConditionResponse Client::deleteSearchCondition(const DeleteSearchCo
 /**
  * @deprecated OpenAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead.
  *
- * @summary Deletes alert whitelisting configurations in batches.
+ * @summary Deletes alert whitelist configurations in batches.
  *
  * @param request DeleteSecurityEventMarkMissListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8484,7 +8504,7 @@ DeleteSecurityEventMarkMissListResponse Client::deleteSecurityEventMarkMissListW
 /**
  * @deprecated OpenAPI DeleteSecurityEventMarkMissList is deprecated, please use Sas::2018-12-03::ModifySecurityEventMarkMissIndividually instead.
  *
- * @summary Deletes alert whitelisting configurations in batches.
+ * @summary Deletes alert whitelist configurations in batches.
  *
  * @param request DeleteSecurityEventMarkMissListRequest
  * @return DeleteSecurityEventMarkMissListResponse
@@ -10945,6 +10965,11 @@ DescribeCanTrySasResponse Client::describeCanTrySas() {
 /**
  * @summary Queries the statistics of charts configured in a security report.
  *
+ * @description Before querying chart data for a custom report, perform the following steps in order:
+ * 1. Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain the ReportId and confirm the report version.
+ * 2. Call [DescribeChartList](~~DescribeChartList~~), set ProjectCode to customize_report, and pass in the ReportId to obtain the chart ID.
+ * 3. Call this operation to query chart data. If the report version is 1.0.0, the CharId parameter is required. If the report version is 2.0.0, the ChartId parameter is required. Use the IDs returned by the corresponding report and chart.
+ *
  * @param request DescribeChartDataRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeChartDataResponse
@@ -10999,6 +11024,11 @@ DescribeChartDataResponse Client::describeChartDataWithOptions(const DescribeCha
 
 /**
  * @summary Queries the statistics of charts configured in a security report.
+ *
+ * @description Before querying chart data for a custom report, perform the following steps in order:
+ * 1. Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain the ReportId and confirm the report version.
+ * 2. Call [DescribeChartList](~~DescribeChartList~~), set ProjectCode to customize_report, and pass in the ReportId to obtain the chart ID.
+ * 3. Call this operation to query chart data. If the report version is 1.0.0, the CharId parameter is required. If the report version is 2.0.0, the ChartId parameter is required. Use the IDs returned by the corresponding report and chart.
  *
  * @param request DescribeChartDataRequest
  * @return DescribeChartDataResponse
@@ -12261,7 +12291,7 @@ DescribeClusterNetworkResponse Client::describeClusterNetwork(const DescribeClus
 }
 
 /**
- * @summary Queries the scanner status information for a Kubernetes cluster.
+ * @summary Queries the scanner status information of a Kubernetes cluster.
  *
  * @param request DescribeClusterScannerListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12300,7 +12330,7 @@ DescribeClusterScannerListResponse Client::describeClusterScannerListWithOptions
 }
 
 /**
- * @summary Queries the scanner status information for a Kubernetes cluster.
+ * @summary Queries the scanner status information of a Kubernetes cluster.
  *
  * @param request DescribeClusterScannerListRequest
  * @return DescribeClusterScannerListResponse
@@ -13179,7 +13209,7 @@ DescribeCountScannedImageResponse Client::describeCountScannedImage() {
 }
 
 /**
- * @summary Queries the filter conditions that are used to search for assets in fuzzy match mode.
+ * @summary Queries the fuzzy match conditions for asset properties that can be displayed when you query assets.
  *
  * @param request DescribeCriteriaRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13222,7 +13252,7 @@ DescribeCriteriaResponse Client::describeCriteriaWithOptions(const DescribeCrite
 }
 
 /**
- * @summary Queries the filter conditions that are used to search for assets in fuzzy match mode.
+ * @summary Queries the fuzzy match conditions for asset properties that can be displayed when you query assets.
  *
  * @param request DescribeCriteriaRequest
  * @return DescribeCriteriaResponse
@@ -13407,7 +13437,7 @@ DescribeCustomizeReportConfigDetailResponse Client::describeCustomizeReportConfi
 }
 
 /**
- * @summary Queries security reports.
+ * @summary Queries the list of security reports.
  *
  * @param request DescribeCustomizeReportListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13462,7 +13492,7 @@ DescribeCustomizeReportListResponse Client::describeCustomizeReportListWithOptio
 }
 
 /**
- * @summary Queries security reports.
+ * @summary Queries the list of security reports.
  *
  * @param request DescribeCustomizeReportListRequest
  * @return DescribeCustomizeReportListResponse
@@ -15165,7 +15195,7 @@ DescribeFrontVulPatchListResponse Client::describeFrontVulPatchList(const Descri
 }
 
 /**
- * @summary Queries the investigation and tracing graph of Cloud Workload Protection Platform (CWPP) alert events to visually investigate and reconstruct cyberattack processes.
+ * @summary Queries the investigation and tracing graph of a Cloud Workload Protection Platform (CWPP) alert event to visually investigate and reconstruct the cyberattack process.
  *
  * @param request DescribeGraph4InvestigationOnlineRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15212,7 +15242,7 @@ DescribeGraph4InvestigationOnlineResponse Client::describeGraph4InvestigationOnl
 }
 
 /**
- * @summary Queries the investigation and tracing graph of Cloud Workload Protection Platform (CWPP) alert events to visually investigate and reconstruct cyberattack processes.
+ * @summary Queries the investigation and tracing graph of a Cloud Workload Protection Platform (CWPP) alert event to visually investigate and reconstruct the cyberattack process.
  *
  * @param request DescribeGraph4InvestigationOnlineRequest
  * @return DescribeGraph4InvestigationOnlineResponse
@@ -16915,7 +16945,7 @@ DescribeImageFixTaskResponse Client::describeImageFixTask(const DescribeImageFix
 }
 
 /**
- * @summary Queries a list of image vulnerabilities.
+ * @summary Queries the list of image vulnerabilities.
  *
  * @param request DescribeImageGroupedVulListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17042,7 +17072,7 @@ DescribeImageGroupedVulListResponse Client::describeImageGroupedVulListWithOptio
 }
 
 /**
- * @summary Queries a list of image vulnerabilities.
+ * @summary Queries the list of image vulnerabilities.
  *
  * @param request DescribeImageGroupedVulListRequest
  * @return DescribeImageGroupedVulListResponse
@@ -17963,7 +17993,7 @@ DescribeImageStatisticsResponse Client::describeImageStatistics() {
 /**
  * @summary Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
  *
- * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
+ * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first. Wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
  *
  * @param request DescribeImageVulListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18116,7 +18146,7 @@ DescribeImageVulListResponse Client::describeImageVulListWithOptions(const Descr
 /**
  * @summary Queries the details of vulnerabilities detected by image security scans and the list of container images affected by the vulnerabilities.
  *
- * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first, wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
+ * @description To view the latest container image vulnerability information, call the [PublicCreateImageScanTask](~~PublicCreateImageScanTask~~) operation to create an image scan task first. Wait 1 to 5 minutes, and then call this operation to query the container image vulnerability list.
  *
  * @param request DescribeImageVulListRequest
  * @return DescribeImageVulListResponse
@@ -18891,7 +18921,9 @@ DescribeModuleConfigResponse Client::describeModuleConfig() {
 }
 
 /**
- * @summary Queries the list of accounts that are added to the multi-account management feature as members.
+ * @summary Queries the list of monitored accounts for multi-account management.
+ *
+ * @description The caller must be a resource directory management account or a Security Center delegated administrator account. Before invoking this operation, verify the role of the current account in the resource directory. Member accounts must be configured as delegated administrators by the management account before they can execute management operations.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return DescribeMonitorAccountsResponse
@@ -18913,7 +18945,9 @@ DescribeMonitorAccountsResponse Client::describeMonitorAccountsWithOptions(const
 }
 
 /**
- * @summary Queries the list of accounts that are added to the multi-account management feature as members.
+ * @summary Queries the list of monitored accounts for multi-account management.
+ *
+ * @description The caller must be a resource directory management account or a Security Center delegated administrator account. Before invoking this operation, verify the role of the current account in the resource directory. Member accounts must be configured as delegated administrators by the management account before they can execute management operations.
  *
  * @return DescribeMonitorAccountsResponse
  */
@@ -19395,7 +19429,7 @@ DescribePropertyCountResponse Client::describePropertyCount(const DescribeProper
 }
 
 /**
- * @summary Queries the details of the scheduled task list in host assets.
+ * @summary Queries the details of scheduled tasks in the host asset fingerprint list.
  *
  * @param request DescribePropertyCronDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19462,7 +19496,7 @@ DescribePropertyCronDetailResponse Client::describePropertyCronDetailWithOptions
 }
 
 /**
- * @summary Queries the details of the scheduled task list in host assets.
+ * @summary Queries the details of scheduled tasks in the host asset fingerprint list.
  *
  * @param request DescribePropertyCronDetailRequest
  * @return DescribePropertyCronDetailResponse
@@ -24121,7 +24155,7 @@ DescribeUuidVulNumClassifyStatisticResponse Client::describeUuidVulNumClassifySt
 }
 
 /**
- * @summary Retrieves the list of servers that support vulnerability fix based on vulnerability names.
+ * @summary Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
  *
  * @param request DescribeUuidsByVulNamesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24212,7 +24246,7 @@ DescribeUuidsByVulNamesResponse Client::describeUuidsByVulNamesWithOptions(const
 }
 
 /**
- * @summary Retrieves the list of servers that support vulnerability fix based on vulnerability names.
+ * @summary Retrieves the list of servers that support vulnerability fixing based on vulnerability names.
  *
  * @param request DescribeUuidsByVulNamesRequest
  * @return DescribeUuidsByVulNamesResponse
@@ -25119,7 +25153,7 @@ DescribeVulTargetStatisticsResponse Client::describeVulTargetStatistics(const De
 }
 
 /**
- * @summary Queries vulnerability whitelists by paging.
+ * @summary Queries vulnerability whitelist entries by paging.
  *
  * @param request DescribeVulWhitelistRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25162,7 +25196,7 @@ DescribeVulWhitelistResponse Client::describeVulWhitelistWithOptions(const Descr
 }
 
 /**
- * @summary Queries vulnerability whitelists by paging.
+ * @summary Queries vulnerability whitelist entries by paging.
  *
  * @param request DescribeVulWhitelistRequest
  * @return DescribeVulWhitelistResponse
@@ -26573,7 +26607,9 @@ EnableCustomBlockRecordResponse Client::enableCustomBlockRecord(const EnableCust
 }
 
 /**
- * @summary Enables a custom rule for an instance.
+ * @summary Enables the status of a specific instance in a custom rule.
+ *
+ * @description Before calling this operation, associate the target instance with a specified blocking rule by calling [ModifyCustomBlockRecord](~~ModifyCustomBlockRecord~~). You can call [CreateCustomBlockRecord](~~CreateCustomBlockRecord~~) to create a rule, call [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) to query rules, and then perform the association and enablement operations.
  *
  * @param request EnableCustomInstanceBlockRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -26616,7 +26652,9 @@ EnableCustomInstanceBlockRecordResponse Client::enableCustomInstanceBlockRecordW
 }
 
 /**
- * @summary Enables a custom rule for an instance.
+ * @summary Enables the status of a specific instance in a custom rule.
+ *
+ * @description Before calling this operation, associate the target instance with a specified blocking rule by calling [ModifyCustomBlockRecord](~~ModifyCustomBlockRecord~~). You can call [CreateCustomBlockRecord](~~CreateCustomBlockRecord~~) to create a rule, call [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) to query rules, and then perform the association and enablement operations.
  *
  * @param request EnableCustomInstanceBlockRecordRequest
  * @return EnableCustomInstanceBlockRecordResponse
@@ -27802,6 +27840,58 @@ GetAgentlessTaskCountResponse Client::getAgentlessTaskCountWithOptions(const Get
 GetAgentlessTaskCountResponse Client::getAgentlessTaskCount(const GetAgentlessTaskCountRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getAgentlessTaskCountWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+ *
+ * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+ *
+ * @param request GetAgentlessTaskCountBatchRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAgentlessTaskCountBatchResponse
+ */
+GetAgentlessTaskCountBatchResponse Client::getAgentlessTaskCountBatchWithOptions(const GetAgentlessTaskCountBatchRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasTargetType()) {
+    query["TargetType"] = request.getTargetType();
+  }
+
+  json body = {};
+  if (!!request.hasUuidList()) {
+    body["UuidList"] = request.getUuidList();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetAgentlessTaskCountBatch"},
+    {"version" , "2018-12-03"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAgentlessTaskCountBatchResponse>();
+}
+
+/**
+ * @summary Retrieves agentless detection risk statistics for resources in batches of 1 to 100 resources per request.
+ *
+ * @description Only Alibaba Cloud accounts that have activated the pay-as-you-go billing method for Security Center agentless detection can call this operation. UuidList can contain up to 100 UUIDs. Duplicate UUIDs are deduplicated based on the order of first occurrence. The returned Data is keyed by UUID and does not aggregate results across multiple resources. RiskMachine, ScanMachine, and LastTaskTime are account-level statistics and remain consistent across all resources in the same request.
+ *
+ * @param request GetAgentlessTaskCountBatchRequest
+ * @return GetAgentlessTaskCountBatchResponse
+ */
+GetAgentlessTaskCountBatchResponse Client::getAgentlessTaskCountBatch(const GetAgentlessTaskCountBatchRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAgentlessTaskCountBatchWithOptions(request, runtime);
 }
 
 /**
@@ -30125,11 +30215,16 @@ GetFileDetectReportResponse Client::getFileDetectReport(const GetFileDetectRepor
 /**
  * @summary Retrieves file detection results in batches by HashKey.
  *
- * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+ * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. To submit files for detection, refer to [CreateFileDetect](~~CreateFileDetect~~).
  * ### File unique identifier
- * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
+ * All file detection-related operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
  * ### Query detection results
- * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
+ * You can filter file properties by using the FileLabel field in the Ext extension field. For example, you can combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can use the Highlight field in the Ext extension field to locate malicious code segments in web shell files. The Highlight field is a list type. Each element in the list corresponds to a code range, and the numbers represent the offset in characters from the beginning of the file.
+ * Before querying file detection results, complete the following steps in order:
+ * 1. Call [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) to obtain OSS upload parameters.
+ * 2. Use the returned signature information to upload the file to OSS by using a form. For more information about the upload method, see [OSS PostObject form upload documentation](https://www.alibabacloud.com/help/zh/oss/developer-reference/postobject).
+ * 3. Call [CreateFileDetect](~~CreateFileDetect~~) to submit a file detection task.
+ * 4. Call [GetFileDetectResult](~~GetFileDetectResult~~) to query the detection result.
  *
  * @param request GetFileDetectResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30170,11 +30265,16 @@ GetFileDetectResultResponse Client::getFileDetectResultWithOptions(const GetFile
 /**
  * @summary Retrieves file detection results in batches by HashKey.
  *
- * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. For the detection submission operation, refer to [CreateFileDetect](~~CreateFileDetect~~).
+ * @description You can retrieve detection results only for files that have been submitted for detection. Detection results are retained for 5 hours and can be queried repeatedly within this period. To submit files for detection, refer to [CreateFileDetect](~~CreateFileDetect~~).
  * ### File unique identifier
- * All file detection operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
+ * All file detection-related operations include the HashKey parameter, which represents the unique identifier of the file being detected and is used to query detection results. Only the MD5 or SHA-256 hash of the complete file content is supported.
  * ### Query detection results
- * You can filter file properties by using the FileLabel in the Ext extension field. For example, combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can locate malicious code segments in web shell files by using the Highlight field in the Ext extension field. The Highlight field is a list type, where each element corresponds to a code range. The numbers represent the offset in characters relative to the file header.
+ * You can filter file properties by using the FileLabel field in the Ext extension field. For example, you can combine the encrypted and Zip properties to filter encrypted archives. Supported file labels for compressed file types: Zip, RAR, 7-Zip, XAR, ZLib, GZip, and tar. You can use the Highlight field in the Ext extension field to locate malicious code segments in web shell files. The Highlight field is a list type. Each element in the list corresponds to a code range, and the numbers represent the offset in characters from the beginning of the file.
+ * Before querying file detection results, complete the following steps in order:
+ * 1. Call [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) to obtain OSS upload parameters.
+ * 2. Use the returned signature information to upload the file to OSS by using a form. For more information about the upload method, see [OSS PostObject form upload documentation](https://www.alibabacloud.com/help/zh/oss/developer-reference/postobject).
+ * 3. Call [CreateFileDetect](~~CreateFileDetect~~) to submit a file detection task.
+ * 4. Call [GetFileDetectResult](~~GetFileDetectResult~~) to query the detection result.
  *
  * @param request GetFileDetectResultRequest
  * @return GetFileDetectResultResponse
@@ -30386,7 +30486,7 @@ GetFileProtectDashboardResponse Client::getFileProtectDashboard() {
 }
 
 /**
- * @summary Retrieves information about core file monitoring events.
+ * @summary Retrieves the details of a core file monitoring event.
  *
  * @param request GetFileProtectEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -30417,7 +30517,7 @@ GetFileProtectEventResponse Client::getFileProtectEventWithOptions(const GetFile
 }
 
 /**
- * @summary Retrieves information about core file monitoring events.
+ * @summary Retrieves the details of a core file monitoring event.
  *
  * @param request GetFileProtectEventRequest
  * @return GetFileProtectEventResponse
@@ -31136,7 +31236,7 @@ GetInstallCodeForUuidResponse Client::getInstallCodeForUuid(const GetInstallCode
 }
 
 /**
- * @summary Count the number of security events for a single instance
+ * @summary Retrieves the alerting statistics information for a server.
  *
  * @param request GetInstanceAlarmStatisticsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -31175,7 +31275,7 @@ GetInstanceAlarmStatisticsResponse Client::getInstanceAlarmStatisticsWithOptions
 }
 
 /**
- * @summary Count the number of security events for a single instance
+ * @summary Retrieves the alerting statistics information for a server.
  *
  * @param request GetInstanceAlarmStatisticsRequest
  * @return GetInstanceAlarmStatisticsResponse
@@ -32390,7 +32490,7 @@ GetSasContainerWebDefenseRuleResponse Client::getSasContainerWebDefenseRule(cons
 }
 
 /**
- * @summary Retrieves the application list of container file defense configurations.
+ * @summary Retrieves the application list for container file defense configurations.
  *
  * @param request GetSasContainerWebDefenseRuleApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32421,7 +32521,7 @@ GetSasContainerWebDefenseRuleApplicationResponse Client::getSasContainerWebDefen
 }
 
 /**
- * @summary Retrieves the application list of container file defense configurations.
+ * @summary Retrieves the application list for container file defense configurations.
  *
  * @param request GetSasContainerWebDefenseRuleApplicationRequest
  * @return GetSasContainerWebDefenseRuleApplicationResponse
@@ -32570,7 +32670,7 @@ GetSensitiveDefineRuleConfigResponse Client::getSensitiveDefineRuleConfig(const 
 }
 
 /**
- * @summary Retrieves the authorization details of a Serverless application.
+ * @summary Retrieves the authorization details of a serverless application.
  *
  * @param request GetServerlessAppAuthDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -32613,7 +32713,7 @@ GetServerlessAppAuthDetailResponse Client::getServerlessAppAuthDetailWithOptions
 }
 
 /**
- * @summary Retrieves the authorization details of a Serverless application.
+ * @summary Retrieves the authorization details of a serverless application.
  *
  * @param request GetServerlessAppAuthDetailRequest
  * @return GetServerlessAppAuthDetailResponse
@@ -33519,6 +33619,8 @@ HandleSimilarMaliciousFilesResponse Client::handleSimilarMaliciousFiles(const Ha
 /**
  * @summary Batch processes alert events based on the same IP rule or type.
  *
+ * @description Before processing, call [DescribeSuspEvents](~~DescribeSuspEvents~~) to check the CanBeDealOnLine and EventStatus fields of the events. An event can be processed only when CanBeDealOnLine is true. If CanBeDealOnLine is false or EventStatus is 64, the event has expired and cannot be processed by this operation. [DescribeSecurityEventOperations](~~DescribeSecurityEventOperations~~) returns an empty array for expired events.
+ *
  * @param request HandleSimilarSecurityEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return HandleSimilarSecurityEventsResponse
@@ -33577,6 +33679,8 @@ HandleSimilarSecurityEventsResponse Client::handleSimilarSecurityEventsWithOptio
 
 /**
  * @summary Batch processes alert events based on the same IP rule or type.
+ *
+ * @description Before processing, call [DescribeSuspEvents](~~DescribeSuspEvents~~) to check the CanBeDealOnLine and EventStatus fields of the events. An event can be processed only when CanBeDealOnLine is true. If CanBeDealOnLine is false or EventStatus is 64, the event has expired and cannot be processed by this operation. [DescribeSecurityEventOperations](~~DescribeSecurityEventOperations~~) returns an empty array for expired events.
  *
  * @param request HandleSimilarSecurityEventsRequest
  * @return HandleSimilarSecurityEventsResponse
@@ -34087,7 +34191,7 @@ InstallPmAgentResponse Client::installPmAgent(const InstallPmAgentRequest &reque
 }
 
 /**
- * @summary Installs the anti-ransomware agent for databases.
+ * @summary Installs the anti-ransomware client for databases.
  *
  * @param request InstallUniBackupAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -34118,7 +34222,7 @@ InstallUniBackupAgentResponse Client::installUniBackupAgentWithOptions(const Ins
 }
 
 /**
- * @summary Installs the anti-ransomware agent for databases.
+ * @summary Installs the anti-ransomware client for databases.
  *
  * @param request InstallUniBackupAgentRequest
  * @return InstallUniBackupAgentResponse
@@ -37095,7 +37199,7 @@ ListFileProtectClientEventResponse Client::listFileProtectClientEvent(const List
 }
 
 /**
- * @summary Retrieves a list of file protection rules.
+ * @summary Retrieves the list of file protection rules.
  *
  * @param request ListFileProtectClientRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -37146,7 +37250,7 @@ ListFileProtectClientRuleResponse Client::listFileProtectClientRuleWithOptions(c
 }
 
 /**
- * @summary Retrieves a list of file protection rules.
+ * @summary Retrieves the list of file protection rules.
  *
  * @param request ListFileProtectClientRuleRequest
  * @return ListFileProtectClientRuleResponse
@@ -38420,7 +38524,7 @@ ListInterceptionHistoryResponse Client::listInterceptionHistory(const ListInterc
 }
 
 /**
- * @summary Queries defense rules that are configured for the container firewall feature.
+ * @summary Queries micro-segmentation defense rules.
  *
  * @param request ListInterceptionRulePageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -38467,7 +38571,7 @@ ListInterceptionRulePageResponse Client::listInterceptionRulePageWithOptions(con
 }
 
 /**
- * @summary Queries defense rules that are configured for the container firewall feature.
+ * @summary Queries micro-segmentation defense rules.
  *
  * @param request ListInterceptionRulePageRequest
  * @return ListInterceptionRulePageResponse
@@ -39712,9 +39816,10 @@ ListPublishBatchResponse Client::listPublishBatch(const ListPublishBatchRequest 
 }
 
 /**
- * @summary Queries the automatic management policies of members that are added to Security Center for multi-account management. The members in the automatic control management directory are automatically added to the member list of Security Center.
+ * @summary Queries the automatic control policy for new accounts in Security Center under the multi-account security management feature. Member accounts under the automatic control policy folder are automatically added to the monitoring account list.
  *
- * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+ * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+ * Before calling this operation, enable the multi-account security management feature by calling [EnableServiceAccessResourceDirectory](~~EnableServiceAccessResourceDirectory~~). Otherwise, the API returns a ServiceDisable error.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListRdDefaultSyncListResponse
@@ -39736,9 +39841,10 @@ ListRdDefaultSyncListResponse Client::listRdDefaultSyncListWithOptions(const Dar
 }
 
 /**
- * @summary Queries the automatic management policies of members that are added to Security Center for multi-account management. The members in the automatic control management directory are automatically added to the member list of Security Center.
+ * @summary Queries the automatic control policy for new accounts in Security Center under the multi-account security management feature. Member accounts under the automatic control policy folder are automatically added to the monitoring account list.
  *
- * @description You must use the management account of your resource directory or a delegated administrator account of Security Center to call this operation.
+ * @description Call this operation by using the management account of the resource directory or the delegated administrator account of Security Center.
+ * Before calling this operation, enable the multi-account security management feature by calling [EnableServiceAccessResourceDirectory](~~EnableServiceAccessResourceDirectory~~). Otherwise, the API returns a ServiceDisable error.
  *
  * @return ListRdDefaultSyncListResponse
  */
@@ -40574,7 +40680,7 @@ ListUnknownThreatDetectProcessResponse Client::listUnknownThreatDetectProcess(co
 }
 
 /**
- * @summary Queries the list of intelligent behavior analysis policies.
+ * @summary Queries the list of intelligent behavior analytics policies.
  *
  * @param request ListUnknownThreatDetectStrategyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -40621,7 +40727,7 @@ ListUnknownThreatDetectStrategyResponse Client::listUnknownThreatDetectStrategyW
 }
 
 /**
- * @summary Queries the list of intelligent behavior analysis policies.
+ * @summary Queries the list of intelligent behavior analytics policies.
  *
  * @param request ListUnknownThreatDetectStrategyRequest
  * @return ListUnknownThreatDetectStrategyResponse
@@ -41138,7 +41244,9 @@ MarkMonitorAccountsResponse Client::markMonitorAccounts(const MarkMonitorAccount
 }
 
 /**
- * @summary Handles an AccessKey pair leak record.
+ * @summary Handles AccessKey leak records.
+ *
+ * @description An HTTP 200 status code only indicates that the request was accepted, not that the record was actually modified. Call [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) to query and verify the operation result.
  *
  * @param request ModifyAccessKeyLeakDealRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -41181,7 +41289,9 @@ ModifyAccessKeyLeakDealResponse Client::modifyAccessKeyLeakDealWithOptions(const
 }
 
 /**
- * @summary Handles an AccessKey pair leak record.
+ * @summary Handles AccessKey leak records.
+ *
+ * @description An HTTP 200 status code only indicates that the request was accepted, not that the record was actually modified. Call [DescribeAccesskeyLeakList](~~DescribeAccesskeyLeakList~~) to query and verify the operation result.
  *
  * @param request ModifyAccessKeyLeakDealRequest
  * @return ModifyAccessKeyLeakDealResponse
@@ -45332,7 +45442,9 @@ ModifyWebLockRefreshResponse Client::modifyWebLockRefresh(const ModifyWebLockRef
 }
 
 /**
- * @summary Creates web tamper proofing protection for a specified server and enables the protection.
+ * @summary Creates web tamper-proofing protection for a specified server and enables the protection.
+ *
+ * @description Before you invoke this operation, purchase and allocate the web tamper-proofing value-added service authorization for the specified server. You can query the number of active authorizations by using the WhiteCount field of [DescribeWebLockStatus](~~DescribeWebLockStatus~~), and allocate authorizations through the console or by invoking [BindAuthToMachine](~~BindAuthToMachine~~).
  *
  * @param request ModifyWebLockStartRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -45395,7 +45507,9 @@ ModifyWebLockStartResponse Client::modifyWebLockStartWithOptions(const ModifyWeb
 }
 
 /**
- * @summary Creates web tamper proofing protection for a specified server and enables the protection.
+ * @summary Creates web tamper-proofing protection for a specified server and enables the protection.
+ *
+ * @description Before you invoke this operation, purchase and allocate the web tamper-proofing value-added service authorization for the specified server. You can query the number of active authorizations by using the WhiteCount field of [DescribeWebLockStatus](~~DescribeWebLockStatus~~), and allocate authorizations through the console or by invoking [BindAuthToMachine](~~BindAuthToMachine~~).
  *
  * @param request ModifyWebLockStartRequest
  * @return ModifyWebLockStartResponse
@@ -46534,7 +46648,7 @@ OperateWebLockFileEventsResponse Client::operateWebLockFileEvents(const OperateW
 }
 
 /**
- * @summary Unmarks ignored anomaly alert events.
+ * @summary Settings the specified anomaly alerting events to unignored.
  *
  * @param request OperationCancelIgnoreSuspEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -46573,7 +46687,7 @@ OperationCancelIgnoreSuspEventResponse Client::operationCancelIgnoreSuspEventWit
 }
 
 /**
- * @summary Unmarks ignored anomaly alert events.
+ * @summary Settings the specified anomaly alerting events to unignored.
  *
  * @param request OperationCancelIgnoreSuspEventRequest
  * @return OperationCancelIgnoreSuspEventResponse
@@ -47060,7 +47174,7 @@ PublicSyncAndCreateImageScanTaskResponse Client::publicSyncAndCreateImageScanTas
 }
 
 /**
- * @summary Queries the number of security alert events that occurred in each attack phase.
+ * @summary Queries the number of security alert events that occurred in each attack stage.
  *
  * @param request QueryAttackCountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -47109,7 +47223,7 @@ QueryAttackCountResponse Client::queryAttackCountWithOptions(const QueryAttackCo
 }
 
 /**
- * @summary Queries the number of security alert events that occurred in each attack phase.
+ * @summary Queries the number of security alert events that occurred in each attack stage.
  *
  * @param request QueryAttackCountRequest
  * @return QueryAttackCountResponse
@@ -47362,7 +47476,7 @@ QueryJenkinsImageRegistryPersistenceDayResponse Client::queryJenkinsImageRegistr
 }
 
 /**
- * @summary Queries the node result of a database dry run.
+ * @summary Queries the result of a database pre-check node.
  *
  * @param request QueryPreCheckDatabaseRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -47401,7 +47515,7 @@ QueryPreCheckDatabaseResponse Client::queryPreCheckDatabaseWithOptions(const Que
 }
 
 /**
- * @summary Queries the node result of a database dry run.
+ * @summary Queries the result of a database pre-check node.
  *
  * @param request QueryPreCheckDatabaseRequest
  * @return QueryPreCheckDatabaseResponse
@@ -48014,7 +48128,7 @@ RetryInstallProbeResponse Client::retryInstallProbe(const RetryInstallProbeReque
 }
 
 /**
- * @summary Restores a quarantined file.
+ * @summary Restores a quarantined file from the quarantine.
  *
  * @param request RollbackSuspEventQuaraFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -48057,7 +48171,7 @@ RollbackSuspEventQuaraFileResponse Client::rollbackSuspEventQuaraFileWithOptions
 }
 
 /**
- * @summary Restores a quarantined file.
+ * @summary Restores a quarantined file from the quarantine.
  *
  * @param request RollbackSuspEventQuaraFileRequest
  * @return RollbackSuspEventQuaraFileResponse
@@ -48110,7 +48224,7 @@ SasInstallCodeResponse Client::sasInstallCode(const SasInstallCodeRequest &reque
 }
 
 /**
- * @summary Saves the configurations of a custom security report.
+ * @summary Saves the configuration of a custom security report.
  *
  * @param request SaveCustomizeReportConfigRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -48221,7 +48335,7 @@ SaveCustomizeReportConfigResponse Client::saveCustomizeReportConfigWithOptions(c
 }
 
 /**
- * @summary Saves the configurations of a custom security report.
+ * @summary Saves the configuration of a custom security report.
  *
  * @param request SaveCustomizeReportConfigRequest
  * @return SaveCustomizeReportConfigResponse
@@ -48294,7 +48408,7 @@ SaveImageBaselineStrategyResponse Client::saveImageBaselineStrategy(const SaveIm
 }
 
 /**
- * @summary Saves alert settings.
+ * @summary Saves user security alert settings.
  *
  * @param request SaveSuspEventUserSettingRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -48333,7 +48447,7 @@ SaveSuspEventUserSettingResponse Client::saveSuspEventUserSettingWithOptions(con
 }
 
 /**
- * @summary Saves alert settings.
+ * @summary Saves user security alert settings.
  *
  * @param request SaveSuspEventUserSettingRequest
  * @return SaveSuspEventUserSettingResponse
@@ -48464,7 +48578,7 @@ SaveWhiteListStrategyAssetsResponse Client::saveWhiteListStrategyAssets(const Sa
 }
 
 /**
- * @summary Sends a security daily report to a specified email address. Only security reports with a custom time period as the report cycle are supported.
+ * @summary Sends a security daily report to a specified email address. Only security reports whose report period is set to a custom time range are supported.
  *
  * @param request SendCustomizeReportRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -48499,7 +48613,7 @@ SendCustomizeReportResponse Client::sendCustomizeReportWithOptions(const SendCus
 }
 
 /**
- * @summary Sends a security daily report to a specified email address. Only security reports with a custom time period as the report cycle are supported.
+ * @summary Sends a security daily report to a specified email address. Only security reports whose report period is set to a custom time range are supported.
  *
  * @param request SendCustomizeReportRequest
  * @return SendCustomizeReportResponse
@@ -49128,6 +49242,8 @@ StartVirusScanTaskResponse Client::startVirusScanTask(const StartVirusScanTaskRe
 /**
  * @summary Stops a honeypot.
  *
+ * @description Before calling this operation, ensure that you have sufficient honeypot probe quota. First, create a management node by calling CreateHoneypotNode, then create a honeypot by calling CreateHoneypot. Wait until the honeypot enters the running state before calling this operation.
+ *
  * @param request StopHoneypotRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return StopHoneypotResponse
@@ -49162,6 +49278,8 @@ StopHoneypotResponse Client::stopHoneypotWithOptions(const StopHoneypotRequest &
 
 /**
  * @summary Stops a honeypot.
+ *
+ * @description Before calling this operation, ensure that you have sufficient honeypot probe quota. First, create a management node by calling CreateHoneypotNode, then create a honeypot by calling CreateHoneypot. Wait until the honeypot enters the running state before calling this operation.
  *
  * @param request StopHoneypotRequest
  * @return StopHoneypotResponse
@@ -49284,7 +49402,7 @@ SubmitOperationTaskResponse Client::submitOperationTask(const SubmitOperationTas
 }
 
 /**
- * @summary Submits a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
+ * @summary Submits a free one-click scan. The scan scope includes free vulnerability scanning categories and free Cloud Security Posture Management (CSPM) check items.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return SubmitTenantCheckResponse
@@ -49306,7 +49424,7 @@ SubmitTenantCheckResponse Client::submitTenantCheckWithOptions(const Darabonba::
 }
 
 /**
- * @summary Submits a free quick scan task, which includes vulnerability detection in the free category and free check items of Cloud Security Posture Management (CSPM).
+ * @summary Submits a free one-click scan. The scan scope includes free vulnerability scanning categories and free Cloud Security Posture Management (CSPM) check items.
  *
  * @return SubmitTenantCheckResponse
  */
@@ -49582,7 +49700,7 @@ UninstallUniBackupAgentResponse Client::uninstallUniBackupAgent(const UninstallU
 }
 
 /**
- * @summary Updates the status of the honeypot installation time.
+ * @summary Modifies the processing status of a honeypot alert event.
  *
  * @param request UpdateAlarmEventRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -49627,7 +49745,7 @@ UpdateAlarmEventResponse Client::updateAlarmEventWithOptions(const UpdateAlarmEv
 }
 
 /**
- * @summary Updates the status of the honeypot installation time.
+ * @summary Modifies the processing status of a honeypot alert event.
  *
  * @param request UpdateAlarmEventRequest
  * @return UpdateAlarmEventResponse
@@ -51630,7 +51748,7 @@ UpdateOssScanConfigResponse Client::updateOssScanConfig(const UpdateOssScanConfi
 }
 
 /**
- * @summary Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
+ * @summary Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
  *
  * @param request UpdatePostPaidBindRelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -51685,7 +51803,7 @@ UpdatePostPaidBindRelResponse Client::updatePostPaidBindRelWithOptions(const Upd
 }
 
 /**
- * @summary Changes the protection edition bound to a server after you activate the pay-as-you-go billing method for host and container security.
+ * @summary Changes the protection edition bound to a server after you enable the pay-as-you-go billing method for host and container security.
  *
  * @param request UpdatePostPaidBindRelRequest
  * @return UpdatePostPaidBindRelResponse
@@ -52254,6 +52372,15 @@ UpdateWhiteListStrategyStatusResponse Client::updateWhiteListStrategyStatus(cons
 /**
  * @summary Upgrades the version of an anti-ransomware backup policy.
  *
+ * @description This operation upgrades a v1.0.0 backup policy to v2.0.0. Before you call this operation, make sure that the ECS instance is running, Cloud Assistant is installed, the Security Center agent is online, and a v1.0.0 policy exists. You can call [CreateBackupPolicy](~~CreateBackupPolicy~~) with PolicyVersion set to 1.0.0 to create a policy, and then call DescribeBackupPolicies to obtain the policy ID.
+ * Before you call this operation, you can check or complete the following prerequisites:
+ * | Prerequisite | Related API |
+ * | --- | --- |
+ * | The ECS instance is running. | [Ecs/StartInstance](https://api.aliyun.com/document/Ecs/2014-05-26/StartInstance) |
+ * | Cloud Assistant is installed on the ECS instance. | [Ecs/InstallCloudAssistant](https://api.aliyun.com/document/Ecs/2014-05-26/InstallCloudAssistant) |
+ * | The Security Center agent is installed. | [OperateAgentClientInstall](~~OperateAgentClientInstall~~) |
+ * | Check the agent installation status. | [DescribeAgentInstallStatus](~~DescribeAgentInstallStatus~~) |
+ *
  * @param request UpgradeBackupPolicyVersionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpgradeBackupPolicyVersionResponse
@@ -52284,6 +52411,15 @@ UpgradeBackupPolicyVersionResponse Client::upgradeBackupPolicyVersionWithOptions
 
 /**
  * @summary Upgrades the version of an anti-ransomware backup policy.
+ *
+ * @description This operation upgrades a v1.0.0 backup policy to v2.0.0. Before you call this operation, make sure that the ECS instance is running, Cloud Assistant is installed, the Security Center agent is online, and a v1.0.0 policy exists. You can call [CreateBackupPolicy](~~CreateBackupPolicy~~) with PolicyVersion set to 1.0.0 to create a policy, and then call DescribeBackupPolicies to obtain the policy ID.
+ * Before you call this operation, you can check or complete the following prerequisites:
+ * | Prerequisite | Related API |
+ * | --- | --- |
+ * | The ECS instance is running. | [Ecs/StartInstance](https://api.aliyun.com/document/Ecs/2014-05-26/StartInstance) |
+ * | Cloud Assistant is installed on the ECS instance. | [Ecs/InstallCloudAssistant](https://api.aliyun.com/document/Ecs/2014-05-26/InstallCloudAssistant) |
+ * | The Security Center agent is installed. | [OperateAgentClientInstall](~~OperateAgentClientInstall~~) |
+ * | Check the agent installation status. | [DescribeAgentInstallStatus](~~DescribeAgentInstallStatus~~) |
  *
  * @param request UpgradeBackupPolicyVersionRequest
  * @return UpgradeBackupPolicyVersionResponse
@@ -52402,6 +52538,12 @@ UpgradeVersionByUuidsResponse Client::upgradeVersionByUuids(const UpgradeVersion
 /**
  * @summary Creates and confirms a record after a honeypot file is uploaded.
  *
+ * @description Before calling this operation, complete the following steps in order:
+ * 1. Call [CreateHoneypotNode](~~CreateHoneypotNode~~) to create a management node, or call [ListHoneypotNode](~~ListHoneypotNode~~) to query existing nodes and obtain a valid NodeId.
+ * 2. Call [GetHoneyPotUploadPolicyInfo](~~GetHoneyPotUploadPolicyInfo~~) to obtain the OSS upload credentials, upload policy, and Data.Key.
+ * 3. Use the returned STS credentials to upload the file to the specified bucket by using the OSS PostObject protocol.
+ * 4. After the file is uploaded, call this operation to register the upload result.
+ *
  * @param request UploadedHoneyPotFileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UploadedHoneyPotFileResponse
@@ -52456,6 +52598,12 @@ UploadedHoneyPotFileResponse Client::uploadedHoneyPotFileWithOptions(const Uploa
 
 /**
  * @summary Creates and confirms a record after a honeypot file is uploaded.
+ *
+ * @description Before calling this operation, complete the following steps in order:
+ * 1. Call [CreateHoneypotNode](~~CreateHoneypotNode~~) to create a management node, or call [ListHoneypotNode](~~ListHoneypotNode~~) to query existing nodes and obtain a valid NodeId.
+ * 2. Call [GetHoneyPotUploadPolicyInfo](~~GetHoneyPotUploadPolicyInfo~~) to obtain the OSS upload credentials, upload policy, and Data.Key.
+ * 3. Use the returned STS credentials to upload the file to the specified bucket by using the OSS PostObject protocol.
+ * 4. After the file is uploaded, call this operation to register the upload result.
  *
  * @param request UploadedHoneyPotFileRequest
  * @return UploadedHoneyPotFileResponse

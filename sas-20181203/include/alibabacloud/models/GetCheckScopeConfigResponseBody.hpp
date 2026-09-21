@@ -111,19 +111,19 @@ namespace Models
 
 
     protected:
-      // The automatic scan configuration as a JSON string. The following fields are included:
+      // The automatic scan configuration as a JSON string. The fields are described as follows:
       // 
-      // - **autoInclude**: specifies whether to enable automatic scanning. Valid values: **true**: enabled. **false**: disabled.
+      // - **autoInclude**: specifies whether to enable automatic scan. Valid values: **true**: enabled. **false**: disabled.
       // - **autoRule**: the enablement configuration.
       // - **ruleOperator**: the enablement configuration rule. The value is **include**.
       // - **operator**: the logical operator. The value is **or**.
       // - **rule**: the rule.
       // - **condition**: the rule condition. Valid values: **vendor**: vendor. **assetType**: level-1 asset type. **assetSubType**: level-2 asset type.
-      // > For more information, see the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
+      // > For specific meanings, refer to the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
       shared_ptr<string> autoConfig_ {};
       // The automatic scan configuration type. Valid values:
-      // - **0**: automatic scanning is disabled
-      // - **1**: automatically scan newly added cloud assets
+      // - **0**: Automatic scan is disabled.
+      // - **1**: Automatically scan newly added cloud assets.
       shared_ptr<int32_t> autoType_ {};
       // The ID of the configuration.
       shared_ptr<string> configId_ {};
@@ -132,8 +132,8 @@ namespace Models
       // The modification time.
       shared_ptr<string> gmtModified_ {};
       // The scan scope configuration type. Valid values:
-      // - **1**: scan by instance
-      // - **3**: scan all
+      // - **1**: scan by instance.
+      // - **3**: scan all.
       shared_ptr<int32_t> type_ {};
     };
 

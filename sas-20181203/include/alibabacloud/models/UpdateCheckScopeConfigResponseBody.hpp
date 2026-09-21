@@ -111,19 +111,19 @@ namespace Models
 
 
     protected:
-      // The automatic scan configuration as a JSON string. The following fields are included:
+      // The JSON string of the automatic scan configuration. The following fields are included:
       // 
-      // - **autoInclude**: specifies whether to enable automatic scan. Valid values: **true**: enabled. **false**: disabled.
-      // - **autoRule**: the enablement configuration.
-      // - **ruleOperator**: the enablement configuration rule. Set the value to **include**.
+      // - **autoInclude**: specifies whether to enable automatic scanning. Valid values: **true**: enabled. **false**: disabled.
+      // - **autoRule**: the configuration for enabling automatic scanning.
+      // - **ruleOperator**: the rule operator for the configuration. Set the value to **include**.
       // - **operator**: the logical operator. Set the value to **or**.
       // - **rule**: the rule.
-      // - **condition**: the rule condition. Valid values: **vendor**: vendor. **assetType**: level-1 asset type. **assetSubType**: level-2 asset type.
-      // > For more information, refer to the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
+      // - **condition**: the rule condition. Valid values: **vendor**: vendor, **assetType**: primary asset type, **assetSubType**: secondary asset type.
+      // > For specific meanings, refer to the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation.
       shared_ptr<string> autoConfig_ {};
-      // The automatic scan configuration type. Valid values:
-      // - **0**: disable automatic scan
-      // - **1**: automatically scan newly added cloud assets
+      // The type of the automatic scan configuration. Valid values:
+      // - **0**: Automatic scan is disabled.
+      // - **1**: Automatically scan newly added cloud assets.
       shared_ptr<int32_t> autoType_ {};
       // The ID of the configuration.
       shared_ptr<string> configId_ {};
@@ -131,7 +131,7 @@ namespace Models
       shared_ptr<string> gmtCreate_ {};
       // The modification time.
       shared_ptr<string> gmtModified_ {};
-      // The scan scope configuration type. Valid values:
+      // The type of the scan scope configuration. Valid values:
       // - **1**: scan by instance
       // - **3**: scan all
       shared_ptr<int32_t> type_ {};
@@ -177,11 +177,11 @@ namespace Models
 
 
   protected:
-    // The result code. A value of **200** indicates success. Other values indicate failure. You can use this field to determine the cause of the failure.
+    // The result code. A value of **200** indicates success. Any other value indicates failure. You can use this field to determine the cause of the failure.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<UpdateCheckScopeConfigResponseBody::Data> data_ {};
-    // The response message.
+    // The returned message of the request result.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -216,17 +216,17 @@ namespace Models
     shared_ptr<vector<string>> bucketNameList_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. When the maximum number of decompressed files is exceeded, the decompression operation stops. The detection of files that have already been decompressed is not affected.
+    // The maximum number of files to decompress. Minimum value: 1. Maximum value: 1000. When the maximum number of decompressed files is exceeded, the decompression operation stops immediately. The scanning of files that have already been decompressed is not affected.
     shared_ptr<int32_t> decompressMaxFileCount_ {};
-    // The maximum number of decompression layers when multiple levels of nested compressed files exist. Minimum value: 1. Maximum value: 5. When the maximum number of decompression layers is exceeded, the decompression operation stops. The detection of files that have already been decompressed is not affected.
+    // The maximum number of decompression layers when nested compressed files exist. Minimum value: 1. Maximum value: 5. When the maximum number of decompression layers is exceeded, the decompression operation stops immediately. The scanning of files that have already been decompressed is not affected.
     shared_ptr<int32_t> decompressMaxLayer_ {};
     // The list of decryption types.
     shared_ptr<vector<string>> decryptionList_ {};
-    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    // Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual request. false: performs the actual request. Default value: false.
     shared_ptr<bool> dryRun_ {};
     // Specifies whether to enable the policy. Valid values:
-    // - **1**: Enabled.
-    // - **0**: Disabled.
+    // - **1**: Enable.
+    // - **0**: Disable.
     shared_ptr<int32_t> enable_ {};
     // The scan stop time, in the HH:mm:ss format.
     shared_ptr<string> endTime_ {};
@@ -234,13 +234,13 @@ namespace Models
     shared_ptr<vector<string>> keyPrefixList_ {};
     // The list of file suffixes to scan.
     shared_ptr<vector<string>> keySuffixList_ {};
-    // Specifies that only files whose last modification time is after the specified timestamp are scanned. Unit: milliseconds.
+    // Scans files whose last modification time is after the specified timestamp. Unit: milliseconds.
     shared_ptr<int64_t> lastModifiedStartTime_ {};
     // The policy name.
     shared_ptr<string> name_ {};
-    // Specifies whether to enable real-time incremental detection. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
+    // Specifies whether to enable real-time incremental scanning. If this parameter is set to true, the ScanDayList, StartTime, and EndTime parameters do not take effect.
     shared_ptr<bool> realTimeIncr_ {};
-    // The scan schedule. The number represents the day of the week.
+    // The scan schedule. The number indicates the day of the week.
     shared_ptr<vector<int32_t>> scanDayList_ {};
     // The business source. Valid values:
     // - **OSS**: OSS.

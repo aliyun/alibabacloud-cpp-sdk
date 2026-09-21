@@ -69,8 +69,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> reportId_ {};
-    // The Alibaba Cloud account ID of the member accounts in the resource directory.
-    // > You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The Alibaba Cloud account ID of the member account in the resource directory.
+    // > You can call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

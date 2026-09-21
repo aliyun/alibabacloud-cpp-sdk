@@ -63,7 +63,7 @@ namespace Models
 
 
     protected:
-      // The ID of the baseline check policy.
+      // The policy ID.
       shared_ptr<int32_t> strategyId_ {};
     };
 
@@ -100,16 +100,16 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // The result returned.
+    // The response result.
     shared_ptr<ModifyStrategyResponseBody::Result> result_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

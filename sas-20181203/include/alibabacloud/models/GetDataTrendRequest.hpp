@@ -81,7 +81,7 @@ namespace Models
     // - **VUL_NEW**: number of new vulnerability risks
     // - **VUL_OPERATE**: number of handled vulnerability risks
     // - **SUSP_NEW**: number of new alert risks
-    // - **SUSP_OPERATE**: number of handled alert risks.
+    // - **SUSP_OPERATE**: number of handled alert risks
     // 
     // This parameter is required.
     shared_ptr<string> bizTypes_ {};
@@ -95,6 +95,8 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> interval_ {};
+    // The Alibaba Cloud account ID of the member accounts in the resource directory.
+    // > Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The start timestamp of the query. Unit: milliseconds.
     // 

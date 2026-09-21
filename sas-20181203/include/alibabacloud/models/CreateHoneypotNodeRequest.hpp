@@ -80,7 +80,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> nodeName_ {};
-    // The list of allowed CIDR blocks. This parameter is required. At least one allowed CIDR block must be specified (such as 0.0.0.0/0). If this parameter is not specified, the API returns InvalidParam (400).
+    // The list of allowed CIDR blocks. This parameter is required. At least one allowed CIDR block must be specified, such as 0.0.0.0/0. If this parameter is not specified, the API returns InvalidParam (400).
     shared_ptr<vector<string>> securityGroupProbeIpList_ {};
   };
 

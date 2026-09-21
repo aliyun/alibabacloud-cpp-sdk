@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // The number of entries returned on the current page.
+      // The number of entries on the current page when using paging.
       shared_ptr<int32_t> count_ {};
-      // The page number of the returned page.
+      // The page number of the current page when using paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The number of entries returned per page.
+      // The maximum number of entries per page when using paging.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records in the query result.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -230,25 +230,24 @@ namespace Models
 
 
       protected:
-        // The name of the application.
+        // The application name.
         shared_ptr<string> appName_ {};
-        // An array that consists of the images of the network object.
+        // The list of associated images.
         shared_ptr<vector<string>> imageList_ {};
         // The namespace.
         shared_ptr<string> namespace_ {};
-        // The type of the defense rule. Valid values:
-        // 
-        // *   **suggest**: intelligently recommended rule
-        // *   **customize**: custom rule
-        // *   **system**: system rule
+        // The rule type. Valid values:
+        // - **suggest**: intelligent recommendation
+        // - **customize**: user-defined
+        // - **system**: system
         shared_ptr<string> ruleType_ {};
-        // An array that consists of tags added to the source network object.
+        // The list of source tags for the network object.
         shared_ptr<vector<string>> tagList_ {};
         // The ID of the network object.
         shared_ptr<int32_t> targetId_ {};
         // The name of the network object.
         shared_ptr<string> targetName_ {};
-        // The type of the affected assets.
+        // The type of the affected asset.
         shared_ptr<string> targetType_ {};
       };
 
@@ -360,21 +359,20 @@ namespace Models
 
 
       protected:
-        // The name of the application.
+        // The application name.
         shared_ptr<string> appName_ {};
-        // An array that consists of the affected images.
+        // The list of affected images.
         shared_ptr<vector<string>> imageList_ {};
         // The namespace.
         shared_ptr<string> namespace_ {};
-        // An array that consists of information about the ports used by the destination server.
+        // The port information of the destination server.
         shared_ptr<vector<string>> ports_ {};
-        // The type of the defense rule. Valid values:
-        // 
-        // *   **suggest**: intelligently recommended rule
-        // *   **customize**: custom rule
-        // *   **system**: system rule
+        // The rule type. Valid values:
+        // - **suggest**: intelligent recommendation
+        // - **customize**: user-defined
+        // - **system**: system
         shared_ptr<string> ruleType_ {};
-        // An array that consists of tags added to the destination network object.
+        // The list of destination tags for the network object.
         shared_ptr<vector<string>> tagList_ {};
         // The ID of the network object.
         shared_ptr<int32_t> targetId_ {};
@@ -448,29 +446,28 @@ namespace Models
 
 
     protected:
-      // The destination network object.
+      // The destination object.
       shared_ptr<InterceptionRuleList::DstTarget> dstTarget_ {};
       // The interception mode. Valid values:
-      // 
-      // *   **0**: monitor
-      // *   **1**: block
-      // *   **2**: alert
-      // *   **3**: allow
+      // - **0**: monitor mode
+      // - **1**: Block Mode
+      // - **2**: alert mode
+      // - **3**: allow mode
       shared_ptr<int64_t> interceptType_ {};
-      // The order in which the entries are sorted.
+      // The sort order.
       shared_ptr<int64_t> orderIndex_ {};
-      // The ID of the defense rule.
+      // The rule ID.
       shared_ptr<int64_t> ruleId_ {};
-      // The name of the defense rule.
+      // The rule name.
       shared_ptr<string> ruleName_ {};
-      // The status of the defense rule. Valid values:
+      // The switch status of the scheduling rule. Valid values:
       // 
-      // *   **1**: enabled
-      // *   **0**: disabled
+      // - **1**: Enabled.
+      // - **0**: Disabled.
       shared_ptr<int32_t> ruleSwitch_ {};
-      // The type of the defense rule.
+      // The rule type.
       shared_ptr<string> ruleType_ {};
-      // The source network object.
+      // The source object.
       shared_ptr<InterceptionRuleList::SrcTarget> srcTarget_ {};
     };
 
@@ -502,11 +499,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of information about the defense rules.
+    // The list of queried rules.
     shared_ptr<vector<ListInterceptionRulePageResponseBody::InterceptionRuleList>> interceptionRuleList_ {};
-    // The pagination information.
+    // The pagination information of the query result.
     shared_ptr<ListInterceptionRulePageResponseBody::PageInfo> pageInfo_ {};
-    // The ID of the request, which is used to locate and troubleshoot issues.
+    // The request ID, which is a unique identifier generated by Alibaba Cloud for this request. You can use it to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

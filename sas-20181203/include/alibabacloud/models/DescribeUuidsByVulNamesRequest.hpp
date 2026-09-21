@@ -179,7 +179,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether the vulnerability is handled. Valid values:
+    // Specifies whether the vulnerability has been handled. Valid values:
     // - **y**: Handled.
     // - **n**: Not handled.
     shared_ptr<string> dealed_ {};
@@ -193,13 +193,13 @@ namespace Models
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The vulnerability level. Separate multiple levels with commas (,). Valid values:
+    // The vulnerability severity level. Separate multiple levels with commas (,). Valid values:
     // 
     // - **high**: High.
     // - **medium**: Medium.
     // - **low**: Low.
     shared_ptr<string> level_ {};
-    // The priority level of the vulnerability fix. Separate multiple levels with commas (,). Valid values:
+    // The priority level of vulnerability fixing to query. Separate multiple levels with commas (,). Valid values:
     // 
     // - **asap**: High.
     // - **later**: Medium.

@@ -79,6 +79,8 @@ namespace Models
     // The list of vulnerability types for the one-click scan.
     shared_ptr<vector<string>> types_ {};
     // The UUID of the server to query.
+    // 
+    // This parameter is required. If this parameter is not specified, the API returns HTTP 503 with the error code ServiceUnavailable.
     shared_ptr<string> uuid_ {};
   };
 

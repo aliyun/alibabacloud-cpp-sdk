@@ -57,17 +57,20 @@ namespace Models
 
 
   protected:
-    // The ID of the export task.
-    // > You can call [ExportCustomizeReport](~~ExportCustomizeReport~~) to obtain this parameter.
+    // The ID of the export task. Obtain this ID by following these steps:
+    // 
+    // 1. Call [DescribeCustomizeReportList](~~DescribeCustomizeReportList~~) to obtain the ReportId.
+    // 2. Pass the ReportId to [ExportCustomizeReport](~~ExportCustomizeReport~~) to obtain the ExportId from the response.
+    // 3. Pass the ExportId to this operation to query the export status.
     // 
     // This parameter is required.
     shared_ptr<int64_t> exportId_ {};
     // The language type for the request and response messages. Default value: **zh**. Valid values:
-    // - **zh**: Chinese.
-    // - **en**: English.
+    // - **zh**: Chinese
+    // - **en**: English
     shared_ptr<string> lang_ {};
-    // The Alibaba Cloud account ID of the member accounts in the resource directory.
-    // > You can call [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) to obtain this parameter.
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

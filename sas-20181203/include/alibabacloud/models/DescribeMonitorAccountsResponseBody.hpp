@@ -101,20 +101,21 @@ namespace Models
     protected:
       // The Alibaba Cloud account ID of the member.
       shared_ptr<string> accountId_ {};
-      // The time when it was added to the control list, in timestamp format with second precision.
+      // The time when the account was added to the management list. The value is a UNIX timestamp in seconds.
       shared_ptr<int64_t> addTime_ {};
-      // The account ID of the operator.
+      // The Alibaba Cloud account ID of the administrator.
       shared_ptr<string> operatorUid_ {};
-      // Basic service switch. Values: 
-      // - **0**: Off 
-      // - **1**: On
+      // The basic service switch. Valid values:
+      // - **0**: off
+      // - **1**: on
       shared_ptr<int32_t> postBasicService_ {};
-      // The purchased version of Cloud Security Center. Values:
-      // - **0** or **1**: Free Edition 
-      // - **2** or **3**: Enterprise Edition
-      //  - **5**: Advanced Edition 
-      // - **6**: Anti-Virus Edition 
-      // - **7**: Flagship Edition
+      // The purchased edition of Security Center. Valid values:
+      // 
+      // - **0** or **1**: Free Edition
+      // - **2** or **3**: Enterprise Edition  
+      // - **5**: Advanced Edition  
+      // - **6**: Anti-virus Edition 
+      // - **7**: Ultimate Edition
       shared_ptr<string> sasVersion_ {};
     };
 
@@ -146,11 +147,11 @@ namespace Models
 
 
   protected:
-    // List of member account information.
+    // The list of member account information.
     shared_ptr<vector<DescribeMonitorAccountsResponseBody::AccountIdInfos>> accountIdInfos_ {};
-    // The IDs of the members.
+    // The list of member account IDs.
     shared_ptr<vector<string>> accountIds_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

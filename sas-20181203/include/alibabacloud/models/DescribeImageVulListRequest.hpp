@@ -303,11 +303,11 @@ namespace Models
     shared_ptr<string> aliasName_ {};
     // The ID of the container cluster.
     shared_ptr<string> clusterId_ {};
-    // The name of the cluster.
+    // The cluster name.
     shared_ptr<string> clusterName_ {};
-    // The ID of the container.
+    // The container ID.
     shared_ptr<string> containerId_ {};
-    // The page number of the page to return in the query results. Default value: **1**, which indicates the first page.
+    // The page number of the page to return in the query results. Default value: **1**, which indicates that the first page is returned.
     shared_ptr<int32_t> currentPage_ {};
     // Specifies whether the vulnerability has been handled. Valid values:
     // - **y**: Handled.
@@ -317,7 +317,7 @@ namespace Models
     shared_ptr<string> digest_ {};
     // Specifies whether to group results by image asset before pagination. If set to true, one vulnerability record is returned for each asset, and TotalCount indicates the total number of assets. If set to false or not specified, results are paginated by vulnerability record. Asset grouping is not applied when MaxId is specified.
     shared_ptr<bool> groupByAsset_ {};
-    // The name of the container image.
+    // The container image name.
     shared_ptr<string> image_ {};
     // The ID of the asset instance.
     shared_ptr<string> instanceId_ {};
@@ -329,12 +329,12 @@ namespace Models
     shared_ptr<string> name_ {};
     // The namespace.
     shared_ptr<string> namespace_ {};
-    // The priority level for fixing the vulnerability. Valid values:
-    // - **asap**: High-priority vulnerability that must be fixed as soon as possible.
-    // - **later**: Medium-priority vulnerability that can be fixed later.
-    // - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
+    // The priority of vulnerability fixing. Valid values:
+    // - **asap**: high-priority vulnerability
+    // - **later**: medium-priority vulnerability
+    // - **nntf**: low-priority vulnerability
     shared_ptr<string> necessity_ {};
-    // The number of entries per page in a paged query. Default value: **10**, which indicates 10 vulnerability entries per page.
+    // Settings for paged query. The number of vulnerabilities to display on each page during paging. Default value: **10**, which indicates that 10 vulnerabilities are displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The pod.
     shared_ptr<string> pod_ {};
@@ -350,8 +350,8 @@ namespace Models
     shared_ptr<string> repoNamespace_ {};
     // The region ID of the container image repository.
     shared_ptr<string> repoRegionId_ {};
-    // The Alibaba Cloud account ID of the member accounts in the resource directory.
-    // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The ID of the Alibaba Cloud account that is added as one of the member accounts in a resource folder.
+    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The vulnerability tag. Valid values:
     // 
@@ -366,11 +366,11 @@ namespace Models
     shared_ptr<string> statusList_ {};
     // The tag of the container image.
     shared_ptr<string> tag_ {};
-    // The type of vulnerability to query. Set the value to **cve**, which indicates container image vulnerabilities.
+    // The type of the vulnerability to query. Set the value to **cve**, which indicates container image vulnerabilities.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};
-    // The UUIDs of asset instances. Separate multiple UUIDs with commas (,).
+    // The UUIDs of the asset instances. Separate multiple UUIDs with commas (,).
     shared_ptr<string> uuids_ {};
   };
 

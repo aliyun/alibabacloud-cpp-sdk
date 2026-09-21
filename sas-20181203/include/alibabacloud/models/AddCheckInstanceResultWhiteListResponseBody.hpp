@@ -61,7 +61,7 @@ namespace Models
   protected:
     // **[Deprecated]** The result of adding instances to the whitelist. This field is deprecated and can be ignored.
     Darabonba::Json data_ {};
-    // The unique identifier that Alibaba Cloud generated for the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The rule ID of the whitelist.
     shared_ptr<string> ruleId_ {};

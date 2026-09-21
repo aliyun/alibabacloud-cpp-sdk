@@ -90,11 +90,11 @@ namespace Models
 
 
     protected:
-      // The number of entries displayed on the current page.
+      // The number of entries on the current page.
       shared_ptr<int32_t> count_ {};
-      // The page number of the current page in a paging query.
+      // The page number of the current page in a paged query. This is used for paging.
       shared_ptr<int32_t> currentPage_ {};
-      // The maximum number of entries displayed on each page in a paging query.
+      // The maximum number of entries per page in a paged query. This is used for paging.
       shared_ptr<int32_t> pageSize_ {};
       // The total number of entries returned.
       shared_ptr<int32_t> totalCount_ {};

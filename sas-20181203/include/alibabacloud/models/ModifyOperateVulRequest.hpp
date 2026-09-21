@@ -103,9 +103,9 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. Only ASCII characters are supported. The token can be up to 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Use a different token for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    // Specifies whether to perform only a dry run, without performing the actual request. Valid values: true: performs only a dry run without performing the actual operation. false: performs the actual request. Default value: false.
     shared_ptr<bool> dryRun_ {};
     // The source identifier of the request. Set the value to **sas**.
     shared_ptr<string> from_ {};
@@ -114,13 +114,13 @@ namespace Models
     // - **name**: The name of the vulnerability.
     // - **uuid**: The UUID of the server on which the vulnerability is detected.
     // - **tag**: The tag of the vulnerability. Valid values:
-    //     - **oval**: Linux software vulnerability.
-    //     - **system**: Windows system vulnerability.
-    //     - **cms**: Web-CMS vulnerability.
+    //     - **oval**: Linux software vulnerability
+    //     - **system**: Windows system vulnerability
+    //     - **cms**: Web-CMS vulnerability
     // 
     // > For other vulnerability types, call the [DescribeVulList](~~DescribeVulList~~) operation to obtain the vulnerability information.
     // 
-    // - **isFront**: Specifies whether the Windows patch is a prerequisite patch. This field is required only when handling Windows system vulnerabilities and can be ignored for other vulnerability types. Valid values:
+    // - **isFront**: Specifies whether the Windows patch is a prerequisite patch. This parameter is required only when handling Windows system vulnerabilities and can be ignored for other vulnerability types. Valid values:
     //     - **0**: No.
     //     - **1**: Yes.
     // 
@@ -138,20 +138,20 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> operateType_ {};
     // The reason for ignoring the vulnerability.
-    // > This parameter is required only when the operation type is **ignore** (OperateType is set to **vul_ignore**).
+    // > This parameter is required only when the operation type is **ignore** (that is, **OperateType** is set to **vul_ignore**).
     shared_ptr<string> reason_ {};
     // The Alibaba Cloud account ID of the member accounts in the resource folder.
     // > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The type of the vulnerability to handle. Valid values:
-    // - **cve**: Linux software vulnerability.
-    // - **sys**: Windows system vulnerability.
-    // - **cms**: Web-CMS vulnerability.
-    // - **emg**: emergency vulnerability.
-    // - **app**: application vulnerability.
-    // - **sca**: software constituency parsing vulnerability.
+    // - **cve**: Linux software vulnerability
+    // - **sys**: Windows system vulnerability
+    // - **cms**: Web-CMS vulnerability
+    // - **emg**: emergency vulnerability
+    // - **app**: application vulnerability
+    // - **sca**: software constituency parsing vulnerability
     // 
-    // > Emergency vulnerabilities (emg), application vulnerabilities (app), and software constituency parsing vulnerabilities (sca) do not support the execute vulnerability fix operation.
+    // > Emergency vulnerabilities (emg), application vulnerabilities (app), and software constituency parsing vulnerabilities (sca) do not support the vulnerability fix operation. You cannot execute the fix operation for these types.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

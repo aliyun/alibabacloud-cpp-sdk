@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the report.
+    // The report ID.
     shared_ptr<int64_t> reportId_ {};
-    // The request ID.
+    // The request ID. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The page number when paging. Minimum value: 1. Default value: 1.
+    // The page number when you perform a paged query. Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> currentPage_ {};
-    // The language type for the request and response messages. Default value: **zh**. Valid values:
+    // The language type of the request and response. Default value: **zh**. Valid values:
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
-    // The number of entries per page when paging. Default value: 10.
+    // The number of entries per page when you perform a paged query. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The Alibaba Cloud account ID of the member accounts in the resource directory.
-    // >Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // The Alibaba Cloud account ID of the member accounts in the resource folder.
+    // >You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };
 

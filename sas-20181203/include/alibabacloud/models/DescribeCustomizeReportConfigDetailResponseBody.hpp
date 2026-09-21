@@ -241,7 +241,7 @@ namespace Models
 
 
   protected:
-    // The IDs of report chart configurations. Multiple IDs are separated by commas (,).
+    // The IDs of the report chart configurations. Multiple IDs are separated by commas (,).
     shared_ptr<string> chartIds_ {};
     // The group type. Valid values:
     // - **ALIYUN_RG**: ALIYUN_RG.
@@ -251,7 +251,7 @@ namespace Models
     // - **0**: The report is not a default report.
     // - **1**: The report is a default report.
     shared_ptr<int32_t> isDefault_ {};
-    // Indicates whether newly added accounts are included by default. Valid values:
+    // Indicates whether newly added accounts are connected by default. Valid values:
     // 
     // - **true**: Yes.
     // - **false**: No.

@@ -80,10 +80,10 @@ namespace Models
     protected:
       // The operation type. Valid values:
       // 
-      // - **add**: adds the asset.
-      // - **del**: deletes the asset.
+      // - **add**: Add.
+      // - **del**: Delete.
       shared_ptr<string> operation_ {};
-      // The asset ID. If you select assets by machine, the value is the UUID of the machine. If you select assets by group, the value is the group ID. If you select assets by VPC, the value is the VPC ID.
+      // The asset ID. If you select assets by server, set this parameter to the UUID of the server. If you select assets by group, set this parameter to the group ID. If you select assets by VPC, set this parameter to the VPC ID.
       shared_ptr<string> target_ {};
     };
 
@@ -134,17 +134,17 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. Different requests should use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. Different requests must use different tokens. The token supports only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The conditions for searching assets. This parameter is in JSON format. Pay attention to the letter case when you specify this parameter.
     // > You can search for assets by instance ID, instance name, VPC ID, region, public IP address, and other conditions. Call the [DescribeCriteria](~~DescribeCriteria~~) operation to query the supported search conditions.
     shared_ptr<string> criteria_ {};
-    // The operation type for criteria. Valid values:
+    // The operation type for the criteria. Valid values:
     // 
     // - **add**: adds assets.
     // - **del**: deletes assets.
     shared_ptr<string> criteriaOperation_ {};
-    // 是否只预检此次请求。true：仅检查请求，不执行实际操作；false：正常执行请求。默认值为 false。
+    // Specifies whether to perform only a dry run. true: performs only a dry run without executing the actual operation. false: performs the actual operation. Default value: false.
     shared_ptr<bool> dryRun_ {};
     // The unique identifier of the asset selection.
     // 

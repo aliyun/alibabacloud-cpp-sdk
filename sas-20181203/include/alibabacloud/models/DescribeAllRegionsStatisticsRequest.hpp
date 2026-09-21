@@ -85,7 +85,7 @@ namespace Models
     // The asset name or public IP address.
     shared_ptr<string> remark_ {};
     // The ID of the Alibaba Cloud account of the member accounts in the resource folder.
-    // > You can invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+    // > Invoke the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
     // The IP address of the access source.
     shared_ptr<string> sourceIp_ {};

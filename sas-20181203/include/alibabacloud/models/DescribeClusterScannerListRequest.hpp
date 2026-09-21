@@ -63,15 +63,21 @@ namespace Models
 
   protected:
     // The list of cluster IDs.
+    // 
+    // You must specify at least one of StatusList and ClusterIdList. If neither is specified, the API returns HTTP 400 with the error code InvalidParam.
+    // 
+    // Before calling this operation, make sure that an ACK cluster exists. You can obtain the cluster ID by calling the [DescribeClusters](https://api.aliyun.com/document/CS/2015-12-15/DescribeClusters) operation of Container Service.
     shared_ptr<vector<string>> clusterIdList_ {};
     // The language type for the request and response messages.
     // - **zh**: Chinese
     // - **en**: English
     shared_ptr<string> lang_ {};
     // The list of scanner statuses. Valid values:
-    // - **online**: running
-    // - **offline**: offline
-    // - **not_installed**: not installed
+    // - **online**: Running.
+    // - **offline**: Offline.
+    // - **not_installed**: Not installed.
+    // 
+    // You must specify at least one of StatusList and ClusterIdList. If neither is specified, the API returns HTTP 400 with the error code InvalidParam.
     shared_ptr<vector<string>> statusList_ {};
   };
 

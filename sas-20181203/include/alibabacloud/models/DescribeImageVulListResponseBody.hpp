@@ -291,7 +291,7 @@ namespace Models
         shared_ptr<string> os_ {};
         // The operating system release version corresponding to the container image.
         shared_ptr<string> osRelease_ {};
-        // The list of software packages that caused the vulnerability.
+        // The list of software packages that cause the vulnerability.
         shared_ptr<vector<ExtendContentJson::RpmEntityList>> rpmEntityList_ {};
       };
 
@@ -557,21 +557,21 @@ namespace Models
       shared_ptr<bool> agentlessCanFix_ {};
       // The alias of the vulnerability.
       shared_ptr<string> aliasName_ {};
-      // Indicates whether the vulnerability can be fixed in the console. Valid values:
+      // Indicates whether the vulnerability can be fixed from the console. Valid values:
       // 
       // - **yes**: Can be fixed.
       // - **no**: Cannot be fixed.
       shared_ptr<string> canFix_ {};
-      // Indicates whether the software package that caused the vulnerability can be upgraded through Security Center. Valid values:
+      // Indicates whether the software package that causes the vulnerability can be upgraded through Security Center. Valid values:
       // 
       // - **true**: Upgrade is supported.
       // - **false**: Upgrade is not supported.
       shared_ptr<bool> canUpdate_ {};
       // The cluster ID.
       shared_ptr<string> clusterId_ {};
-      // The name of the cluster.
+      // The cluster name.
       shared_ptr<string> clusterName_ {};
-      // The ID of the container.
+      // The container ID.
       shared_ptr<string> containerId_ {};
       // The extended content of the vulnerability information.
       shared_ptr<VulRecords::ExtendContentJson> extendContentJson_ {};
@@ -603,16 +603,16 @@ namespace Models
       shared_ptr<string> name_ {};
       // The namespace.
       shared_ptr<string> namespace_ {};
-      // The priority level for fixing the vulnerability. Valid values:
-      // - **asap**: High-priority vulnerability that must be fixed as soon as possible.
-      // - **later**: Medium-priority vulnerability that can be fixed later.
-      // - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
+      // The priority of vulnerability fixing. Valid values:
+      // - **asap**: high-priority vulnerability
+      // - **later**: medium-priority vulnerability
+      // - **nntf**: low-priority vulnerability
       shared_ptr<string> necessity_ {};
       // The pod.
       shared_ptr<string> pod_ {};
       // The ID of the vulnerability.
       shared_ptr<int64_t> primaryId_ {};
-      // The details of the related vulnerability.
+      // The details of the associated vulnerability.
       shared_ptr<string> related_ {};
       // The name of the container image repository.
       shared_ptr<string> repoName_ {};
@@ -685,11 +685,11 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paging query.
+    // The page number of the current page when paging is used.
     shared_ptr<int32_t> currentPage_ {};
-    // The number of vulnerabilities displayed per page in a paging query. Default value: **10**, which indicates that 10 vulnerabilities are displayed per page.
+    // The number of vulnerabilities displayed per page when paging is used. Default value: **10**, which indicates that 10 vulnerabilities are displayed per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the request ID to troubleshoot issues.
+    // The ID of the request. Alibaba Cloud generates a unique identifier for each request. You can use the ID to troubleshoot issues.
     shared_ptr<string> requestId_ {};
     // The total number of vulnerabilities returned by the query.
     shared_ptr<int32_t> totalCount_ {};

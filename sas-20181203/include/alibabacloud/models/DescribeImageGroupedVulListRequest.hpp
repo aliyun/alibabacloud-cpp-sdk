@@ -262,7 +262,7 @@ namespace Models
 
 
   protected:
-    // Specifies whether to filter by agentless fix capability. true: queries only vulnerabilities that support agentless fix. false: queries vulnerabilities that are not marked as supporting agentless fix. If this parameter is not specified, no filtering is applied based on this condition.
+    // Specifies whether to filter by agentless fix capability. If set to true, only vulnerabilities that support agentless fix are returned. If set to false, only vulnerabilities that are not marked as supporting agentless fix are returned. If not specified, no filtering is applied based on this condition.
     shared_ptr<bool> agentlessCanFix_ {};
     // The alias of the vulnerability.
     shared_ptr<string> aliasName_ {};
@@ -281,7 +281,7 @@ namespace Models
     shared_ptr<string> imageLayer_ {};
     // The tag of the image.
     shared_ptr<string> imageTag_ {};
-    // Specifies whether to query vulnerabilities only for the latest image. If this parameter is not set, vulnerabilities for all images are queried. Valid values:
+    // Specifies whether to query vulnerabilities only for the latest image. If this parameter is not specified, vulnerabilities for all images are queried. Valid values:
     // 
     // - **0**: No.
     // - **1**: Yes.
@@ -293,11 +293,11 @@ namespace Models
     // The name of the vulnerability.
     shared_ptr<string> name_ {};
     // The priority level for fixing the vulnerability. Valid values:
-    // - **asap**: High-priority vulnerability that must be fixed as soon as possible.
+    // - **asap**: High-priority vulnerability that requires immediate fixing.
     // - **later**: Medium-priority vulnerability that can be fixed later.
     // - **nntf**: Low-priority vulnerability that does not need to be fixed for now.
     shared_ptr<string> necessity_ {};
-    // The number of image vulnerabilities to display on each page in a paging query. Default value: **20**, which indicates 20 image vulnerabilities per page.
+    // Settings for the number of image vulnerabilities to display on each page in a paging query. Default value: **20**, which indicates that 20 image vulnerabilities are displayed on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the vulnerability patch.
     shared_ptr<int64_t> patchId_ {};

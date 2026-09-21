@@ -53,7 +53,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> noteId_ {};
-    // The Alibaba Cloud account ID of the member account in the resource directory.
+    // The ID of the Alibaba Cloud account of the member accounts in the resource directory.
     // >Call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
   };

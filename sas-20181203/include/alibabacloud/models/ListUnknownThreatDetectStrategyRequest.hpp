@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paging query.
+    // The page number of the current page when using paged query. This is used for paging.
     // 
     // This parameter is required.
     shared_ptr<string> currentPage_ {};
@@ -83,7 +83,7 @@ namespace Models
     shared_ptr<string> id_ {};
     // The policy name.
     shared_ptr<string> name_ {};
-    // The number of entries to display on each page in a paging query.
+    // The number of entries to display on each page when using paged query. This is used for paging.
     // 
     // This parameter is required.
     shared_ptr<string> pageSize_ {};

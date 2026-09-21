@@ -57,8 +57,10 @@ namespace Models
 
 
   protected:
+    // The Alibaba Cloud account ID of the member account in the resource directory.
+    // >You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
     shared_ptr<int64_t> resourceDirectoryAccountId_ {};
-    // The scan range. Valid values:
+    // The check scope. Valid values:
     // - **FULL**: scans all check items
     // - **POLICY**: scans custom-configured check items
     shared_ptr<string> scanRange_ {};
