@@ -183,7 +183,7 @@ namespace Models
         shared_ptr<string> name_ {};
         // The ID of the DataWorks workspace.
         // 
-        // Note: For system-defined roles, this parameter returns -1.
+        // Note: For default system workspace roles, the ProjectId returns a fixed value of -1.
         shared_ptr<int64_t> projectId_ {};
         // The type of the workspace role.
         shared_ptr<string> type_ {};
@@ -222,13 +222,13 @@ namespace Models
 
 
     protected:
-      // The returned page number.
+      // The page number. Used for paging.
       shared_ptr<string> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<string> pageSize_ {};
-      // A list of workspace roles.
+      // The list of workspace roles.
       shared_ptr<vector<PagingInfo::ProjectRoles>> projectRoles_ {};
-      // The total number of matching entries.
+      // The total number of entries that meet the conditions.
       shared_ptr<string> totalCount_ {};
     };
 
@@ -253,7 +253,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListProjectRolesResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID. Use this ID to locate logs and troubleshoot issues.
+    // The request ID. Used for locating logs and troubleshooting issues.
     shared_ptr<string> requestId_ {};
   };
 
