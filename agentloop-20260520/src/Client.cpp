@@ -3214,6 +3214,10 @@ UpdateDatasetResponse Client::updateDatasetWithOptions(const string &agentSpace,
     body["description"] = request.getDescription();
   }
 
+  if (!!request.hasRenames()) {
+    body["renames"] = request.getRenames();
+  }
+
   if (!!request.hasSchema()) {
     body["schema"] = request.getSchema();
   }
