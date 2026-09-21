@@ -62,6 +62,7 @@ namespace Models
         friend void to_json(Darabonba::Json& j, const FileSystem& obj) { 
           DARABONBA_PTR_TO_JSON(AccessPointCount, accessPointCount_);
           DARABONBA_PTR_TO_JSON(AutoSnapshotPolicyId, autoSnapshotPolicyId_);
+          DARABONBA_PTR_TO_JSON(AutoUpgradeConfig, autoUpgradeConfig_);
           DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
           DARABONBA_PTR_TO_JSON(Capacity, capacity_);
           DARABONBA_PTR_TO_JSON(ChargeType, chargeType_);
@@ -98,6 +99,7 @@ namespace Models
         friend void from_json(const Darabonba::Json& j, FileSystem& obj) { 
           DARABONBA_PTR_FROM_JSON(AccessPointCount, accessPointCount_);
           DARABONBA_PTR_FROM_JSON(AutoSnapshotPolicyId, autoSnapshotPolicyId_);
+          DARABONBA_PTR_FROM_JSON(AutoUpgradeConfig, autoUpgradeConfig_);
           DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
           DARABONBA_PTR_FROM_JSON(Capacity, capacity_);
           DARABONBA_PTR_FROM_JSON(ChargeType, chargeType_);
@@ -845,14 +847,76 @@ namespace Models
           shared_ptr<string> URI_ {};
         };
 
+        class AutoUpgradeConfig : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const AutoUpgradeConfig& obj) { 
+            DARABONBA_PTR_TO_JSON(capacityUsedRatio, capacityUsedRatio_);
+            DARABONBA_PTR_TO_JSON(enabled, enabled_);
+            DARABONBA_PTR_TO_JSON(step, step_);
+            DARABONBA_PTR_TO_JSON(time, time_);
+          };
+          friend void from_json(const Darabonba::Json& j, AutoUpgradeConfig& obj) { 
+            DARABONBA_PTR_FROM_JSON(capacityUsedRatio, capacityUsedRatio_);
+            DARABONBA_PTR_FROM_JSON(enabled, enabled_);
+            DARABONBA_PTR_FROM_JSON(step, step_);
+            DARABONBA_PTR_FROM_JSON(time, time_);
+          };
+          AutoUpgradeConfig() = default ;
+          AutoUpgradeConfig(const AutoUpgradeConfig &) = default ;
+          AutoUpgradeConfig(AutoUpgradeConfig &&) = default ;
+          AutoUpgradeConfig(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~AutoUpgradeConfig() = default ;
+          AutoUpgradeConfig& operator=(const AutoUpgradeConfig &) = default ;
+          AutoUpgradeConfig& operator=(AutoUpgradeConfig &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->capacityUsedRatio_ == nullptr
+        && this->enabled_ == nullptr && this->step_ == nullptr && this->time_ == nullptr; };
+          // capacityUsedRatio Field Functions 
+          bool hasCapacityUsedRatio() const { return this->capacityUsedRatio_ != nullptr;};
+          void deleteCapacityUsedRatio() { this->capacityUsedRatio_ = nullptr;};
+          inline int32_t getCapacityUsedRatio() const { DARABONBA_PTR_GET_DEFAULT(capacityUsedRatio_, 0) };
+          inline AutoUpgradeConfig& setCapacityUsedRatio(int32_t capacityUsedRatio) { DARABONBA_PTR_SET_VALUE(capacityUsedRatio_, capacityUsedRatio) };
+
+
+          // enabled Field Functions 
+          bool hasEnabled() const { return this->enabled_ != nullptr;};
+          void deleteEnabled() { this->enabled_ = nullptr;};
+          inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+          inline AutoUpgradeConfig& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
+
+
+          // step Field Functions 
+          bool hasStep() const { return this->step_ != nullptr;};
+          void deleteStep() { this->step_ = nullptr;};
+          inline int32_t getStep() const { DARABONBA_PTR_GET_DEFAULT(step_, 0) };
+          inline AutoUpgradeConfig& setStep(int32_t step) { DARABONBA_PTR_SET_VALUE(step_, step) };
+
+
+          // time Field Functions 
+          bool hasTime() const { return this->time_ != nullptr;};
+          void deleteTime() { this->time_ = nullptr;};
+          inline int32_t getTime() const { DARABONBA_PTR_GET_DEFAULT(time_, 0) };
+          inline AutoUpgradeConfig& setTime(int32_t time) { DARABONBA_PTR_SET_VALUE(time_, time) };
+
+
+        protected:
+          shared_ptr<int32_t> capacityUsedRatio_ {};
+          shared_ptr<bool> enabled_ {};
+          shared_ptr<int32_t> step_ {};
+          shared_ptr<int32_t> time_ {};
+        };
+
         virtual bool empty() const override { return this->accessPointCount_ == nullptr
-        && this->autoSnapshotPolicyId_ == nullptr && this->bandwidth_ == nullptr && this->capacity_ == nullptr && this->chargeType_ == nullptr && this->createTime_ == nullptr
-        && this->description_ == nullptr && this->encryptType_ == nullptr && this->expiredTime_ == nullptr && this->fileSystemId_ == nullptr && this->fileSystemType_ == nullptr
-        && this->KMSKeyId_ == nullptr && this->ldap_ == nullptr && this->meteredArchiveSize_ == nullptr && this->meteredIASize_ == nullptr && this->meteredSize_ == nullptr
-        && this->mountTargets_ == nullptr && this->options_ == nullptr && this->packages_ == nullptr && this->protocolType_ == nullptr && this->quorumVswId_ == nullptr
-        && this->redundancyType_ == nullptr && this->redundancyVSwitchIds_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr
-        && this->storageType_ == nullptr && this->supportedFeatures_ == nullptr && this->tags_ == nullptr && this->version_ == nullptr && this->vpcId_ == nullptr
-        && this->vscTarget_ == nullptr && this->vswIds_ == nullptr && this->zoneId_ == nullptr; };
+        && this->autoSnapshotPolicyId_ == nullptr && this->autoUpgradeConfig_ == nullptr && this->bandwidth_ == nullptr && this->capacity_ == nullptr && this->chargeType_ == nullptr
+        && this->createTime_ == nullptr && this->description_ == nullptr && this->encryptType_ == nullptr && this->expiredTime_ == nullptr && this->fileSystemId_ == nullptr
+        && this->fileSystemType_ == nullptr && this->KMSKeyId_ == nullptr && this->ldap_ == nullptr && this->meteredArchiveSize_ == nullptr && this->meteredIASize_ == nullptr
+        && this->meteredSize_ == nullptr && this->mountTargets_ == nullptr && this->options_ == nullptr && this->packages_ == nullptr && this->protocolType_ == nullptr
+        && this->quorumVswId_ == nullptr && this->redundancyType_ == nullptr && this->redundancyVSwitchIds_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->status_ == nullptr && this->storageType_ == nullptr && this->supportedFeatures_ == nullptr && this->tags_ == nullptr && this->version_ == nullptr
+        && this->vpcId_ == nullptr && this->vscTarget_ == nullptr && this->vswIds_ == nullptr && this->zoneId_ == nullptr; };
         // accessPointCount Field Functions 
         bool hasAccessPointCount() const { return this->accessPointCount_ != nullptr;};
         void deleteAccessPointCount() { this->accessPointCount_ = nullptr;};
@@ -865,6 +929,15 @@ namespace Models
         void deleteAutoSnapshotPolicyId() { this->autoSnapshotPolicyId_ = nullptr;};
         inline string getAutoSnapshotPolicyId() const { DARABONBA_PTR_GET_DEFAULT(autoSnapshotPolicyId_, "") };
         inline FileSystem& setAutoSnapshotPolicyId(string autoSnapshotPolicyId) { DARABONBA_PTR_SET_VALUE(autoSnapshotPolicyId_, autoSnapshotPolicyId) };
+
+
+        // autoUpgradeConfig Field Functions 
+        bool hasAutoUpgradeConfig() const { return this->autoUpgradeConfig_ != nullptr;};
+        void deleteAutoUpgradeConfig() { this->autoUpgradeConfig_ = nullptr;};
+        inline const FileSystem::AutoUpgradeConfig & getAutoUpgradeConfig() const { DARABONBA_PTR_GET_CONST(autoUpgradeConfig_, FileSystem::AutoUpgradeConfig) };
+        inline FileSystem::AutoUpgradeConfig getAutoUpgradeConfig() { DARABONBA_PTR_GET(autoUpgradeConfig_, FileSystem::AutoUpgradeConfig) };
+        inline FileSystem& setAutoUpgradeConfig(const FileSystem::AutoUpgradeConfig & autoUpgradeConfig) { DARABONBA_PTR_SET_VALUE(autoUpgradeConfig_, autoUpgradeConfig) };
+        inline FileSystem& setAutoUpgradeConfig(FileSystem::AutoUpgradeConfig && autoUpgradeConfig) { DARABONBA_PTR_SET_RVALUE(autoUpgradeConfig_, autoUpgradeConfig) };
 
 
         // bandwidth Field Functions 
@@ -1110,6 +1183,7 @@ namespace Models
       protected:
         shared_ptr<string> accessPointCount_ {};
         shared_ptr<string> autoSnapshotPolicyId_ {};
+        shared_ptr<FileSystem::AutoUpgradeConfig> autoUpgradeConfig_ {};
         shared_ptr<int64_t> bandwidth_ {};
         shared_ptr<int64_t> capacity_ {};
         shared_ptr<string> chargeType_ {};
@@ -1201,7 +1275,7 @@ namespace Models
     shared_ptr<DescribeFileSystemsResponseBody::FileSystems> fileSystems_ {};
     // The page number of the file system list.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of file systems per page.
+    // The number of file systems on each page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

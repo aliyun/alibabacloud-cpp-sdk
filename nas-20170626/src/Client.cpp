@@ -7480,11 +7480,19 @@ ModifyFileSystemResponse Client::modifyFileSystemWithOptions(const ModifyFileSys
   tmpReq.validate();
   ModifyFileSystemShrinkRequest request = ModifyFileSystemShrinkRequest();
   Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasAutoUpgradeConfig()) {
+    request.setAutoUpgradeConfigShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getAutoUpgradeConfig(), "AutoUpgradeConfig", "json"));
+  }
+
   if (!!tmpReq.hasOptions()) {
     request.setOptionsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getOptions(), "Options", "json"));
   }
 
   json query = {};
+  if (!!request.hasAutoUpgradeConfigShrink()) {
+    query["AutoUpgradeConfig"] = request.getAutoUpgradeConfigShrink();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
   }

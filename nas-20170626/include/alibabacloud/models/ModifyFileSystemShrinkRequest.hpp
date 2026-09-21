@@ -13,11 +13,13 @@ namespace Models
   class ModifyFileSystemShrinkRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyFileSystemShrinkRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AutoUpgradeConfig, autoUpgradeConfigShrink_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_TO_JSON(Options, optionsShrink_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyFileSystemShrinkRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AutoUpgradeConfig, autoUpgradeConfigShrink_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(FileSystemId, fileSystemId_);
       DARABONBA_PTR_FROM_JSON(Options, optionsShrink_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->fileSystemId_ == nullptr && this->optionsShrink_ == nullptr; };
+    virtual bool empty() const override { return this->autoUpgradeConfigShrink_ == nullptr
+        && this->description_ == nullptr && this->fileSystemId_ == nullptr && this->optionsShrink_ == nullptr; };
+    // autoUpgradeConfigShrink Field Functions 
+    bool hasAutoUpgradeConfigShrink() const { return this->autoUpgradeConfigShrink_ != nullptr;};
+    void deleteAutoUpgradeConfigShrink() { this->autoUpgradeConfigShrink_ = nullptr;};
+    inline string getAutoUpgradeConfigShrink() const { DARABONBA_PTR_GET_DEFAULT(autoUpgradeConfigShrink_, "") };
+    inline ModifyFileSystemShrinkRequest& setAutoUpgradeConfigShrink(string autoUpgradeConfigShrink) { DARABONBA_PTR_SET_VALUE(autoUpgradeConfigShrink_, autoUpgradeConfigShrink) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -57,20 +66,22 @@ namespace Models
 
 
   protected:
-    // The file system description.
+    // The auto-scaling configuration.
+    shared_ptr<string> autoUpgradeConfigShrink_ {};
+    // The description of the file system.
     // 
     // Limits:
     // 
     // - The description must be 2 to 128 characters in length.
-    // - The description must start with a letter or Chinese character and cannot start with `http://` or `https://`.
+    // - The description must start with a letter. It cannot start with `http://` or `https://`.
     // - The description can contain digits, colons (:), underscores (_), or hyphens (-).
     shared_ptr<string> description_ {};
     // The file system ID.
     // 
     // - General-purpose NAS: `31a8e4****`.
     // 
-    // - Extreme NAS: must start with `extreme-`, for example, `extreme-0015****`.
-    // - CPFS: must start with `cpfs-`, for example, `cpfs-125487****`.
+    // - Extreme NAS: The ID must start with `extreme-`, for example, `extreme-0015****`.
+    // - Cloud Parallel File Storage (CPFS): The ID must start with `cpfs-`, for example, `cpfs-125487****`.
     // 
     // This parameter is required.
     shared_ptr<string> fileSystemId_ {};
