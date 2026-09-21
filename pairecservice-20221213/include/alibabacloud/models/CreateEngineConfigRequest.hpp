@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Environment, environment_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(Name, name_);
+      DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, CreateEngineConfigRequest& obj) { 
@@ -26,6 +27,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Environment, environment_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
+      DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     CreateEngineConfigRequest() = default ;
@@ -40,7 +42,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configValue_ == nullptr
-        && this->description_ == nullptr && this->environment_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr && this->type_ == nullptr; };
+        && this->description_ == nullptr && this->environment_ == nullptr && this->instanceId_ == nullptr && this->name_ == nullptr && this->sceneId_ == nullptr
+        && this->type_ == nullptr; };
     // configValue Field Functions 
     bool hasConfigValue() const { return this->configValue_ != nullptr;};
     void deleteConfigValue() { this->configValue_ = nullptr;};
@@ -76,6 +79,13 @@ namespace Models
     inline CreateEngineConfigRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+    // sceneId Field Functions 
+    bool hasSceneId() const { return this->sceneId_ != nullptr;};
+    void deleteSceneId() { this->sceneId_ = nullptr;};
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline CreateEngineConfigRequest& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -100,6 +110,7 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The name of the engine configuration.
     shared_ptr<string> name_ {};
+    shared_ptr<string> sceneId_ {};
     // The type of the engine configuration.
     shared_ptr<string> type_ {};
   };

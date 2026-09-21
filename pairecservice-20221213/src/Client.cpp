@@ -477,7 +477,7 @@ CheckTrafficControlTaskExpressionResponse Client::checkTrafficControlTaskExpress
 }
 
 /**
- * @summary Clones an engine configuration.
+ * @summary Clones a DPI engine configuration.
  *
  * @param request CloneEngineConfigRequest
  * @param headers map
@@ -503,6 +503,10 @@ CloneEngineConfigResponse Client::cloneEngineConfigWithOptions(const string &Eng
     body["InstanceId"] = request.getInstanceId();
   }
 
+  if (!!request.hasSceneId()) {
+    body["SceneId"] = request.getSceneId();
+  }
+
   OpenApiRequest req = OpenApiRequest(json({
     {"headers" , headers},
     {"body" , Utils::Utils::parseToMap(body)}
@@ -522,7 +526,7 @@ CloneEngineConfigResponse Client::cloneEngineConfigWithOptions(const string &Eng
 }
 
 /**
- * @summary Clones an engine configuration.
+ * @summary Clones a DPI engine configuration.
  *
  * @param request CloneEngineConfigRequest
  * @return CloneEngineConfigResponse
@@ -1320,6 +1324,10 @@ CreateEngineConfigResponse Client::createEngineConfigWithOptions(const CreateEng
 
   if (!!request.hasName()) {
     body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSceneId()) {
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasType()) {
@@ -6536,7 +6544,7 @@ ListDataDiagnosisReportsResponse Client::listDataDiagnosisReports(const string &
 }
 
 /**
- * @summary Retrieves the list of engine configurations.
+ * @summary Retrieves a list of engine configurations.
  *
  * @param request ListEngineConfigsRequest
  * @param headers map
@@ -6566,6 +6574,10 @@ ListEngineConfigsResponse Client::listEngineConfigsWithOptions(const ListEngineC
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.getSceneId();
+  }
+
   if (!!request.hasStatus()) {
     query["Status"] = request.getStatus();
   }
@@ -6593,7 +6605,7 @@ ListEngineConfigsResponse Client::listEngineConfigsWithOptions(const ListEngineC
 }
 
 /**
- * @summary Retrieves the list of engine configurations.
+ * @summary Retrieves a list of engine configurations.
  *
  * @param request ListEngineConfigsRequest
  * @return ListEngineConfigsResponse
@@ -6723,7 +6735,7 @@ ListExperimentsResponse Client::listExperiments(const ListExperimentsRequest &re
 }
 
 /**
- * @summary Retrieves a list of feature consistency check task configurations.
+ * @summary Retrieves the list of feature consistency check task configurations.
  *
  * @param request ListFeatureConsistencyCheckJobConfigsRequest
  * @param headers map
@@ -6749,6 +6761,10 @@ ListFeatureConsistencyCheckJobConfigsResponse Client::listFeatureConsistencyChec
     query["PageSize"] = request.getPageSize();
   }
 
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.getSceneId();
+  }
+
   if (!!request.hasSortBy()) {
     query["SortBy"] = request.getSortBy();
   }
@@ -6772,7 +6788,7 @@ ListFeatureConsistencyCheckJobConfigsResponse Client::listFeatureConsistencyChec
 }
 
 /**
- * @summary Retrieves a list of feature consistency check task configurations.
+ * @summary Retrieves the list of feature consistency check task configurations.
  *
  * @param request ListFeatureConsistencyCheckJobConfigsRequest
  * @return ListFeatureConsistencyCheckJobConfigsResponse
@@ -7866,6 +7882,10 @@ ListSampleConsistencyJobsResponse Client::listSampleConsistencyJobsWithOptions(c
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasSceneId()) {
+    query["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasSortBy()) {
@@ -9358,12 +9378,12 @@ ReportSampleConsistencyJobResponse Client::reportSampleConsistencyJob(const stri
 }
 
 /**
- * @summary Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+ * @summary Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
  *
  * @description ## Operation description
- * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
- * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
- * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+ * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+ * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+ * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
  * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
  * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
  *
@@ -9452,12 +9472,12 @@ return Darabonba::FutureGenerator<json>(__retrun);
 }
 
 /**
- * @summary Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+ * @summary Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
  *
  * @description ## Operation description
- * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
- * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
- * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+ * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+ * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+ * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
  * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
  * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
  *
@@ -9532,12 +9552,12 @@ ShoppingAssistantResponse Client::shoppingAssistantWithOptions(const ShoppingAss
 }
 
 /**
- * @summary Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+ * @summary Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
  *
  * @description ## Operation description
- * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
- * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
- * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+ * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+ * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+ * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
  * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
  * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
  *
@@ -10452,6 +10472,10 @@ UpdateEngineConfigResponse Client::updateEngineConfigWithOptions(const string &E
 
   if (!!request.hasName()) {
     body["Name"] = request.getName();
+  }
+
+  if (!!request.hasSceneId()) {
+    body["SceneId"] = request.getSceneId();
   }
 
   if (!!request.hasType()) {

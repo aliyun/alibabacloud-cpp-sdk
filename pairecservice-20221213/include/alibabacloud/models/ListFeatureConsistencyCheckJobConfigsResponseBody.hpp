@@ -568,7 +568,7 @@ namespace Models
 
 
     protected:
-      // Indicates whether to enable feature comparison.
+      // Indicates whether feature comparison is enabled.
       shared_ptr<bool> compareFeature_ {};
       shared_ptr<string> datasetId_ {};
       shared_ptr<string> datasetMountPath_ {};
@@ -576,7 +576,7 @@ namespace Models
       shared_ptr<string> datasetType_ {};
       shared_ptr<string> datasetUri_ {};
       shared_ptr<string> defaultRoute_ {};
-      // The name of the EAS service.
+      // The service name of EAS.
       shared_ptr<string> easServiceName_ {};
       // The path of the EasyRec package.
       shared_ptr<string> easyRecPackagePath_ {};
@@ -584,53 +584,51 @@ namespace Models
       shared_ptr<string> easyRecVersion_ {};
       // The ID of the feature consistency check configuration.
       shared_ptr<string> featureConsistencyCheckJobConfigId_ {};
-      // The features to exclude from the results. Separate multiple features with a comma (,).
+      // The features to exclude from display. Separate multiple features with commas (,).
       shared_ptr<string> featureDisplayExclude_ {};
-      // The ID of the data source for feature landing.
+      // The ID of the data landing resource.
       shared_ptr<string> featureLandingResourceId_ {};
-      // The URI of the data source for feature landing.
+      // The URI of the data landing resource.
       shared_ptr<string> featureLandingResourceUri_ {};
-      // The high-priority features to read from the user table. If a feature is not found, the system retrieves it from the behavior table. Separate multiple features with a comma (,).
+      // The feature priority. Separate multiple features with commas (,). This parameter specifies which features are preferentially read from the user table. If the user table is empty, the features are queried from the behavior table.
       shared_ptr<string> featurePriority_ {};
-      // The primary key for the item side in the feature store.
+      // The primary key on the item side in Feature Store.
       shared_ptr<string> featureStoreItemId_ {};
-      // The ID of the model in the feature store.
+      // feature store model ID。
       shared_ptr<string> featureStoreModelId_ {};
-      // The ID of the feature store project.
+      // The Feature Store project ID.
       shared_ptr<string> featureStoreProjectId_ {};
-      // The name of the feature store project.
+      // The Feature Store project name.
       shared_ptr<string> featureStoreProjectName_ {};
-      // The name of the feature view that contains item features within the sequence features.
+      // The name of the feature view that contains the item features in the sequence feature.
       shared_ptr<string> featureStoreSeqFeatureView_ {};
-      // The primary key for the user side in the feature store.
+      // The primary key on the user side in Feature Store.
       shared_ptr<string> featureStoreUserId_ {};
-      // The version of the `fg_jar` file.
+      // The version of fg_jar.
       shared_ptr<string> fgJarVersion_ {};
-      // The name of the `fg_json` file.
+      // The name of the fg_json file.
       shared_ptr<string> fgJsonFileName_ {};
-      // Indicates whether to generate a ZIP package.
+      // Indicates whether a zip package needs to be generated.
       shared_ptr<bool> generateZip_ {};
       // The time when the configuration was created.
       shared_ptr<string> gmtCreateTime_ {};
       // The time when the configuration was last updated.
       shared_ptr<string> gmtModifiedTime_ {};
-      // The name of the `item_id` field.
+      // The name of the item_id field.
       shared_ptr<string> itemIdField_ {};
       // The name of the item table.
       shared_ptr<string> itemTable_ {};
       // The partition field of the item table.
       shared_ptr<string> itemTablePartitionField_ {};
-      // The format of the partition field of the item table. Valid values:
-      // 
-      // - `yyyymmdd`
-      // 
-      // - `yyyy-mm-dd`
+      // The format of the item table partition field. Valid values:
+      // - yyyymmdd
+      // - yyyy-mm-dd
       shared_ptr<string> itemTablePartitionFieldFormat_ {};
-      // The end time of the latest job based on this configuration.
+      // The end time of the most recently created job.
       shared_ptr<string> latestJobGmtSamplingEndTime_ {};
-      // The start time of the latest job based on this configuration.
+      // The start time of the most recently created job.
       shared_ptr<string> latestJobGmtSamplingStartTime_ {};
-      // The ID of the most recent job created from this configuration.
+      // The ID of the most recently created job based on this configuration.
       shared_ptr<string> latestJobId_ {};
       // The name of the feature consistency check configuration.
       shared_ptr<string> name_ {};
@@ -642,41 +640,36 @@ namespace Models
       shared_ptr<int32_t> predictWorkerCpu_ {};
       shared_ptr<int32_t> predictWorkerMemory_ {};
       shared_ptr<string> resourceConfig_ {};
-      // The sample rate, a value from 0 to 1.
+      // The sampling rate. Valid values: 0 to 1.
       shared_ptr<string> sampleRate_ {};
-      // The ID of the scene.
+      // The scene ID.
       shared_ptr<string> sceneId_ {};
       // The name of the scene.
       shared_ptr<string> sceneName_ {};
       shared_ptr<string> securityGroupId_ {};
       // The ID of the service.
       shared_ptr<string> serviceId_ {};
-      // The name of the service.
+      // The service name.
       shared_ptr<string> serviceName_ {};
-      // The status of the configuration. Valid values:
-      // 
-      // - `Editable`: The configuration is editable.
-      // 
-      // - `Uneditable`: The configuration is not editable.
+      // The status. Valid values:
+      // - Editable: Editable.
+      // - Uneditable: Not editable.
       shared_ptr<string> status_ {};
       shared_ptr<string> switchId_ {};
-      // Indicates whether to use a feature store. Valid values:
+      // Indicates whether Feature Store is used. Valid values:
       // 
-      // - `true`: A feature store is used. In this case, the response includes parameters such as `FeatureStoreProjectId`, `FeatureStoreProjectName`, `FeatureStoreModelId`, `FeatureStoreUserId`, and `FeatureStoreItemId`.
-      // 
-      // - `false`: A feature store is not used. In this case, the response includes parameters such as `UserTable`, `UserIdField`, `UserTablePartitionField`, `UserTablePartitionFieldFormat`, `ItemTable`, `ItemIdField`, `ItemTablePartitionField`, and `ItemTablePartitionFieldFormat`.
+      // - true: Feature Store is used. In this case, FeatureStoreProjectId, FeatureStoreProjectName, FeatureStoreModelId, FeatureStoreUserId, and FeatureStoreItemId are returned.
+      // - false: Feature Store is not used. In this case, UserTable, UserIdField, UserTablePartitionField, UserTablePartitionFieldFormat, ItemTable, ItemIdField, ItemTablePartitionField, and ItemTablePartitionFieldFormat are returned.
       shared_ptr<string> useFeatureStore_ {};
-      // The name of the `user_id` field.
+      // The name of the user_id field.
       shared_ptr<string> userIdField_ {};
       // The name of the user table.
       shared_ptr<string> userTable_ {};
       // The partition field of the user table.
       shared_ptr<string> userTablePartitionField_ {};
-      // The format of the partition field of the user table. Valid values:
-      // 
-      // - `yyyymmdd`
-      // 
-      // - `yyyy-mm-dd`
+      // The format of the user table partition field. Valid values:
+      // - yyyymmdd
+      // - yyyy-mm-dd
       shared_ptr<string> userTablePartitionFieldFormat_ {};
       shared_ptr<string> vpcId_ {};
       // The name of the workflow.
@@ -714,7 +707,7 @@ namespace Models
     shared_ptr<vector<ListFeatureConsistencyCheckJobConfigsResponseBody::FeatureConsistencyCheckConfigs>> featureConsistencyCheckConfigs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of configurations.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

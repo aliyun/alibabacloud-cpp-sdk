@@ -21,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(GmtReleasedTime, gmtReleasedTime_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
@@ -33,6 +34,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(GmtReleasedTime, gmtReleasedTime_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
@@ -49,7 +51,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->configValue_ == nullptr
         && this->description_ == nullptr && this->environment_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr && this->gmtReleasedTime_ == nullptr
-        && this->name_ == nullptr && this->requestId_ == nullptr && this->status_ == nullptr && this->type_ == nullptr; };
+        && this->name_ == nullptr && this->requestId_ == nullptr && this->sceneId_ == nullptr && this->status_ == nullptr && this->type_ == nullptr; };
     // configValue Field Functions 
     bool hasConfigValue() const { return this->configValue_ != nullptr;};
     void deleteConfigValue() { this->configValue_ = nullptr;};
@@ -106,6 +108,13 @@ namespace Models
     inline GetEngineConfigResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // sceneId Field Functions 
+    bool hasSceneId() const { return this->sceneId_ != nullptr;};
+    void deleteSceneId() { this->sceneId_ = nullptr;};
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline GetEngineConfigResponseBody& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -143,6 +152,7 @@ namespace Models
     shared_ptr<string> name_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
+    shared_ptr<string> sceneId_ {};
     // The status. Valid values:
     // 
     // - Released: published.

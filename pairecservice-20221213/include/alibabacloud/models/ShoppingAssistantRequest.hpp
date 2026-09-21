@@ -259,7 +259,7 @@ namespace Models
   protected:
     // The additional configuration.
     shared_ptr<string> config_ {};
-    // The contents.
+    // The content.
     shared_ptr<ShoppingAssistantRequest::Contents> contents_ {};
     // The conversation ID. This parameter is not yet effective.
     shared_ptr<string> conversationId_ {};

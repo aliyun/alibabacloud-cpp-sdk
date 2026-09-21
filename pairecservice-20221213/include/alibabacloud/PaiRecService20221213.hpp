@@ -177,7 +177,7 @@ namespace PaiRecService20221213
       Models::CheckTrafficControlTaskExpressionResponse checkTrafficControlTaskExpression(const Models::CheckTrafficControlTaskExpressionRequest &request);
 
       /**
-       * @summary Clones an engine configuration.
+       * @summary Clones a DPI engine configuration.
        *
        * @param request CloneEngineConfigRequest
        * @param headers map
@@ -187,7 +187,7 @@ namespace PaiRecService20221213
       Models::CloneEngineConfigResponse cloneEngineConfigWithOptions(const string &EngineConfigId, const Models::CloneEngineConfigRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Clones an engine configuration.
+       * @summary Clones a DPI engine configuration.
        *
        * @param request CloneEngineConfigRequest
        * @return CloneEngineConfigResponse
@@ -2323,7 +2323,7 @@ namespace PaiRecService20221213
       Models::ListDataDiagnosisReportsResponse listDataDiagnosisReports(const string &DataDiagnosisId, const Models::ListDataDiagnosisReportsRequest &request);
 
       /**
-       * @summary Retrieves the list of engine configurations.
+       * @summary Retrieves a list of engine configurations.
        *
        * @param request ListEngineConfigsRequest
        * @param headers map
@@ -2333,7 +2333,7 @@ namespace PaiRecService20221213
       Models::ListEngineConfigsResponse listEngineConfigsWithOptions(const Models::ListEngineConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the list of engine configurations.
+       * @summary Retrieves a list of engine configurations.
        *
        * @param request ListEngineConfigsRequest
        * @return ListEngineConfigsResponse
@@ -2377,7 +2377,7 @@ namespace PaiRecService20221213
       Models::ListExperimentsResponse listExperiments(const Models::ListExperimentsRequest &request);
 
       /**
-       * @summary Retrieves a list of feature consistency check task configurations.
+       * @summary Retrieves the list of feature consistency check task configurations.
        *
        * @param request ListFeatureConsistencyCheckJobConfigsRequest
        * @param headers map
@@ -2387,7 +2387,7 @@ namespace PaiRecService20221213
       Models::ListFeatureConsistencyCheckJobConfigsResponse listFeatureConsistencyCheckJobConfigsWithOptions(const Models::ListFeatureConsistencyCheckJobConfigsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves a list of feature consistency check task configurations.
+       * @summary Retrieves the list of feature consistency check task configurations.
        *
        * @param request ListFeatureConsistencyCheckJobConfigsRequest
        * @return ListFeatureConsistencyCheckJobConfigsResponse
@@ -3339,12 +3339,12 @@ namespace PaiRecService20221213
       Models::ReportSampleConsistencyJobResponse reportSampleConsistencyJob(const string &SampleConsistencyJobId, const Models::ReportSampleConsistencyJobRequest &request);
 
       /**
-       * @summary Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+       * @summary Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
        *
        * @description ## Operation description
-       * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
-       * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
-       * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+       * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+       * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+       * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
        * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
        * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
        *
@@ -3356,12 +3356,12 @@ namespace PaiRecService20221213
       FutureGenerator<Models::ShoppingAssistantResponse> shoppingAssistantWithSSE(const Models::ShoppingAssistantRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+       * @summary Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
        *
        * @description ## Operation description
-       * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
-       * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
-       * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+       * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+       * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+       * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
        * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
        * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
        *
@@ -3373,12 +3373,12 @@ namespace PaiRecService20221213
       Models::ShoppingAssistantResponse shoppingAssistantWithOptions(const Models::ShoppingAssistantRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Conducts conversations with users through an AI shopping guide to provide product recommendation services.
+       * @summary Conducts a conversation with a user through an AI shopping assistant to provide product recommendation services.
        *
        * @description ## Operation description
-       * - This API is used to send conversation messages to the AI shopping guide and supports Server-Sent Events (SSE).
-       * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these values to obtain optimal responses.
-       * - The `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
+       * - This API operation sends conversation messages to the AI shopping assistant and supports Server-Sent Events (SSE).
+       * - `InstanceId`, `SessionId`, `SceneId`, `ServiceId`, `Environment`, `Uid`, and `Language` are required parameters. Ensure the accuracy of these parameters to get the best response.
+       * - `InputMessage` must contain at least one text-type message that describes the user\\"s request or question.
        * - Based on the provided input, the system returns corresponding recommendation results or other relevant information.
        * - Check the returned `StopReason` field to understand whether the session has ended and the reason.
        *

@@ -45,6 +45,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GmtModifiedTime, gmtModifiedTime_);
         DARABONBA_PTR_TO_JSON(GmtReleasedTime, gmtReleasedTime_);
         DARABONBA_PTR_TO_JSON(Name, name_);
+        DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
         DARABONBA_PTR_TO_JSON(Status, status_);
         DARABONBA_PTR_TO_JSON(Type, type_);
         DARABONBA_PTR_TO_JSON(Version, version_);
@@ -58,6 +59,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GmtModifiedTime, gmtModifiedTime_);
         DARABONBA_PTR_FROM_JSON(GmtReleasedTime, gmtReleasedTime_);
         DARABONBA_PTR_FROM_JSON(Name, name_);
+        DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
         DARABONBA_PTR_FROM_JSON(Status, status_);
         DARABONBA_PTR_FROM_JSON(Type, type_);
         DARABONBA_PTR_FROM_JSON(Version, version_);
@@ -75,7 +77,8 @@ namespace Models
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->configValue_ == nullptr
         && this->description_ == nullptr && this->engineConfigId_ == nullptr && this->environment_ == nullptr && this->gmtCreateTime_ == nullptr && this->gmtModifiedTime_ == nullptr
-        && this->gmtReleasedTime_ == nullptr && this->name_ == nullptr && this->status_ == nullptr && this->type_ == nullptr && this->version_ == nullptr; };
+        && this->gmtReleasedTime_ == nullptr && this->name_ == nullptr && this->sceneId_ == nullptr && this->status_ == nullptr && this->type_ == nullptr
+        && this->version_ == nullptr; };
       // configValue Field Functions 
       bool hasConfigValue() const { return this->configValue_ != nullptr;};
       void deleteConfigValue() { this->configValue_ = nullptr;};
@@ -132,6 +135,13 @@ namespace Models
       inline EngineConfigs& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // sceneId Field Functions 
+      bool hasSceneId() const { return this->sceneId_ != nullptr;};
+      void deleteSceneId() { this->sceneId_ = nullptr;};
+      inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+      inline EngineConfigs& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
+
+
       // status Field Functions 
       bool hasStatus() const { return this->status_ != nullptr;};
       void deleteStatus() { this->status_ = nullptr;};
@@ -160,13 +170,13 @@ namespace Models
       shared_ptr<string> description_ {};
       // The engine configuration ID.
       shared_ptr<string> engineConfigId_ {};
-      // The runtime environment.
+      // The runtime environment. Valid values:
       // 
-      // - Daily: daily environment.
+      // - Daily: Daily environment.
       // 
-      // - Pre: staging environment.
+      // - Pre: Pre-release environment.
       // 
-      // - Prod: production environment.
+      // - Prod: Production environment.
       shared_ptr<string> environment_ {};
       // The creation time.
       shared_ptr<string> gmtCreateTime_ {};
@@ -176,11 +186,13 @@ namespace Models
       shared_ptr<string> gmtReleasedTime_ {};
       // The engine configuration name.
       shared_ptr<string> name_ {};
-      // The status.
+      // The scene ID.
+      shared_ptr<string> sceneId_ {};
+      // The status. Valid values:
       // 
-      // - Released: released.
+      // - Released: Released.
       // 
-      // - UnReleased: not released.
+      // - UnReleased: Not released.
       shared_ptr<string> status_ {};
       // The engine configuration type.
       shared_ptr<string> type_ {};
@@ -218,7 +230,7 @@ namespace Models
     shared_ptr<vector<ListEngineConfigsResponseBody::EngineConfigs>> engineConfigs_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of elements in the list.
+    // The total number of entries in the list.
     shared_ptr<int64_t> totalCount_ {};
   };
 

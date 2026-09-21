@@ -16,6 +16,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Citation, citation_);
       DARABONBA_PTR_TO_JSON(Content, content_);
       DARABONBA_PTR_TO_JSON(ConversationId, conversationId_);
+      DARABONBA_PTR_TO_JSON(EnableSuggestion, enableSuggestion_);
       DARABONBA_PTR_TO_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_TO_JSON(Event, event_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Citation, citation_);
       DARABONBA_PTR_FROM_JSON(Content, content_);
       DARABONBA_PTR_FROM_JSON(ConversationId, conversationId_);
+      DARABONBA_PTR_FROM_JSON(EnableSuggestion, enableSuggestion_);
       DARABONBA_PTR_FROM_JSON(ErrorCode, errorCode_);
       DARABONBA_PTR_FROM_JSON(Event, event_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
@@ -192,7 +194,7 @@ namespace Models
     protected:
       // The citation information.
       shared_ptr<Result::Citation> citation_ {};
-      // The returned content.
+      // The response content.
       shared_ptr<string> content_ {};
       // The error message.
       shared_ptr<string> errorCode_ {};
@@ -240,15 +242,15 @@ namespace Models
 
 
     protected:
-      // The ID of the `item`.
+      // The ID of the item.
       shared_ptr<string> itemId_ {};
       // The reference data type. Fixed value: `item`.
       shared_ptr<string> type_ {};
     };
 
     virtual bool empty() const override { return this->citation_ == nullptr
-        && this->content_ == nullptr && this->conversationId_ == nullptr && this->errorCode_ == nullptr && this->event_ == nullptr && this->requestId_ == nullptr
-        && this->result_ == nullptr && this->sessionId_ == nullptr && this->stopReason_ == nullptr; };
+        && this->content_ == nullptr && this->conversationId_ == nullptr && this->enableSuggestion_ == nullptr && this->errorCode_ == nullptr && this->event_ == nullptr
+        && this->requestId_ == nullptr && this->result_ == nullptr && this->sessionId_ == nullptr && this->stopReason_ == nullptr; };
     // citation Field Functions 
     bool hasCitation() const { return this->citation_ != nullptr;};
     void deleteCitation() { this->citation_ = nullptr;};
@@ -270,6 +272,13 @@ namespace Models
     void deleteConversationId() { this->conversationId_ = nullptr;};
     inline string getConversationId() const { DARABONBA_PTR_GET_DEFAULT(conversationId_, "") };
     inline ShoppingAssistantResponseBody& setConversationId(string conversationId) { DARABONBA_PTR_SET_VALUE(conversationId_, conversationId) };
+
+
+    // enableSuggestion Field Functions 
+    bool hasEnableSuggestion() const { return this->enableSuggestion_ != nullptr;};
+    void deleteEnableSuggestion() { this->enableSuggestion_ = nullptr;};
+    inline bool getEnableSuggestion() const { DARABONBA_PTR_GET_DEFAULT(enableSuggestion_, false) };
+    inline ShoppingAssistantResponseBody& setEnableSuggestion(bool enableSuggestion) { DARABONBA_PTR_SET_VALUE(enableSuggestion_, enableSuggestion) };
 
 
     // errorCode Field Functions 
@@ -319,10 +328,12 @@ namespace Models
   protected:
     // The citation information.
     shared_ptr<ShoppingAssistantResponseBody::Citation> citation_ {};
-    // The returned content.
+    // The response content.
     shared_ptr<string> content_ {};
     // The session ID.
     shared_ptr<string> conversationId_ {};
+    // Indicates whether suggestions are provided.
+    shared_ptr<bool> enableSuggestion_ {};
     // The error message.
     shared_ptr<string> errorCode_ {};
     // The event.

@@ -18,6 +18,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
       DARABONBA_PTR_TO_JSON(Status, status_);
       DARABONBA_PTR_TO_JSON(Version, version_);
     };
@@ -27,6 +28,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
       DARABONBA_PTR_FROM_JSON(Version, version_);
     };
@@ -42,8 +44,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->environment_ == nullptr
-        && this->instanceId_ == nullptr && this->name_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->status_ == nullptr
-        && this->version_ == nullptr; };
+        && this->instanceId_ == nullptr && this->name_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sceneId_ == nullptr
+        && this->status_ == nullptr && this->version_ == nullptr; };
     // environment Field Functions 
     bool hasEnvironment() const { return this->environment_ != nullptr;};
     void deleteEnvironment() { this->environment_ = nullptr;};
@@ -79,6 +81,13 @@ namespace Models
     inline ListEngineConfigsRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // sceneId Field Functions 
+    bool hasSceneId() const { return this->sceneId_ != nullptr;};
+    void deleteSceneId() { this->sceneId_ = nullptr;};
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline ListEngineConfigsRequest& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
+
+
     // status Field Functions 
     bool hasStatus() const { return this->status_ != nullptr;};
     void deleteStatus() { this->status_ = nullptr;};
@@ -94,13 +103,13 @@ namespace Models
 
 
   protected:
-    // The runtime environment.
+    // The runtime environment. Valid values:
     // 
-    // - Daily: daily environment.
+    // - Daily: Daily environment.
     // 
-    // - Pre: staging environment.
+    // - Pre: Pre-release environment.
     // 
-    // - Prod: production environment.
+    // - Prod: Production environment.
     shared_ptr<string> environment_ {};
     // The instance ID. You can obtain the instance ID by calling the [ListInstances](https://help.aliyun.com/document_detail/2411819.html) operation.
     // 
@@ -110,15 +119,17 @@ namespace Models
     shared_ptr<string> name_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The status filter.
+    // The scene ID.
+    shared_ptr<string> sceneId_ {};
+    // The status filter. Valid values:
     // 
-    // - Released: released.
+    // - Released: Released.
     // 
-    // - Unreleased: not released.
+    // - Unreleased: Not released.
     shared_ptr<string> status_ {};
-    // The version filter.
+    // The version filter. Valid values:
     // 
     // latest: the most recently updated version.
     shared_ptr<string> version_ {};

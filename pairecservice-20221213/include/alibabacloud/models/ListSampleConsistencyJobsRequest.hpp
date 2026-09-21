@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
     };
     friend void from_json(const Darabonba::Json& j, ListSampleConsistencyJobsRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
     };
     ListSampleConsistencyJobsRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr; };
+        && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sceneId_ == nullptr && this->sortBy_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline ListSampleConsistencyJobsRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // sceneId Field Functions 
+    bool hasSceneId() const { return this->sceneId_ != nullptr;};
+    void deleteSceneId() { this->sceneId_ = nullptr;};
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline ListSampleConsistencyJobsRequest& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
+
+
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
@@ -80,6 +89,7 @@ namespace Models
     shared_ptr<string> order_ {};
     shared_ptr<int64_t> pageNumber_ {};
     shared_ptr<int64_t> pageSize_ {};
+    shared_ptr<string> sceneId_ {};
     shared_ptr<string> sortBy_ {};
   };
 

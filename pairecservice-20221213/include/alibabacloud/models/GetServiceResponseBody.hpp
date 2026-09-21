@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Region, region_);
       DARABONBA_PTR_TO_JSON(RepositoryId, repositoryId_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
+      DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
       DARABONBA_PTR_TO_JSON(ServiceConfig, serviceConfig_);
       DARABONBA_PTR_TO_JSON(ServiceResourceUri, serviceResourceUri_);
     };
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Region, region_);
       DARABONBA_PTR_FROM_JSON(RepositoryId, repositoryId_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
+      DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
       DARABONBA_PTR_FROM_JSON(ServiceConfig, serviceConfig_);
       DARABONBA_PTR_FROM_JSON(ServiceResourceUri, serviceResourceUri_);
     };
@@ -127,24 +129,24 @@ namespace Models
 
 
     protected:
-      // The release content.
+      // The publish content.
       shared_ptr<string> content_ {};
       // The image version.
       shared_ptr<string> imageVersion_ {};
-      // The release information.
+      // The publish information.
       shared_ptr<string> releaseInfo_ {};
-      // The release order ID.
+      // The publish order ID.
       shared_ptr<string> releaseOrderId_ {};
       // The publisher, including the name and UID of the Resource Access Management (RAM) users.
       shared_ptr<string> releaser_ {};
-      // The release title.
+      // The publish title.
       shared_ptr<string> topic_ {};
     };
 
     virtual bool empty() const override { return this->crInstanceId_ == nullptr
         && this->description_ == nullptr && this->engineConfigId_ == nullptr && this->gmtReleasedTime_ == nullptr && this->imageAuth_ == nullptr && this->imageName_ == nullptr
         && this->latestProdReleaseOrder_ == nullptr && this->name_ == nullptr && this->region_ == nullptr && this->repositoryId_ == nullptr && this->requestId_ == nullptr
-        && this->serviceConfig_ == nullptr && this->serviceResourceUri_ == nullptr; };
+        && this->sceneId_ == nullptr && this->serviceConfig_ == nullptr && this->serviceResourceUri_ == nullptr; };
     // crInstanceId Field Functions 
     bool hasCrInstanceId() const { return this->crInstanceId_ != nullptr;};
     void deleteCrInstanceId() { this->crInstanceId_ = nullptr;};
@@ -224,6 +226,13 @@ namespace Models
     inline GetServiceResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
+    // sceneId Field Functions 
+    bool hasSceneId() const { return this->sceneId_ != nullptr;};
+    void deleteSceneId() { this->sceneId_ = nullptr;};
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline GetServiceResponseBody& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
+
+
     // serviceConfig Field Functions 
     bool hasServiceConfig() const { return this->serviceConfig_ != nullptr;};
     void deleteServiceConfig() { this->serviceConfig_ = nullptr;};
@@ -239,31 +248,33 @@ namespace Models
 
 
   protected:
-    // The Container Registry Enterprise instance ID selected by the user when a non-official image is used.
+    // The instance ID of the Container Registry Enterprise instance selected when a non-official image is used.
     shared_ptr<string> crInstanceId_ {};
     // The service description.
     shared_ptr<string> description_ {};
     // The engine configuration ID.
     shared_ptr<string> engineConfigId_ {};
-    // The time of the most recent production release.
+    // The time of the most recent production publish.
     shared_ptr<string> gmtReleasedTime_ {};
     // The image secret.
     shared_ptr<string> imageAuth_ {};
     // The image name.
     shared_ptr<string> imageName_ {};
-    // The most recent production release record.
+    // The most recent production publish record.
     shared_ptr<GetServiceResponseBody::LatestProdReleaseOrder> latestProdReleaseOrder_ {};
     // The service name.
     shared_ptr<string> name_ {};
     // The region where the service is deployed.
     shared_ptr<string> region_ {};
-    // The Container Registry Enterprise Edition repository ID selected by the user when a non-official image is used.
+    // The ID of the Container Registry Enterprise Edition repository selected when a non-official image is used.
     shared_ptr<string> repositoryId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The configuration used to publish the service, such as the service configuration in EAS.
+    // The scenario.
+    shared_ptr<string> sceneId_ {};
+    // The configuration used to publish the service, such as the Elastic Algorithm Service (EAS) service configuration.
     shared_ptr<string> serviceConfig_ {};
-    // The resource address used to publish the service, such as the resource group name in Elastic Algorithm Service (EAS).
+    // The resource address used to publish the service, such as the EAS resource group name.
     shared_ptr<string> serviceResourceUri_ {};
   };
 

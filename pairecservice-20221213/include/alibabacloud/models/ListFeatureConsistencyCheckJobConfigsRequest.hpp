@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Order, order_);
       DARABONBA_PTR_TO_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(SceneId, sceneId_);
       DARABONBA_PTR_TO_JSON(SortBy, sortBy_);
     };
     friend void from_json(const Darabonba::Json& j, ListFeatureConsistencyCheckJobConfigsRequest& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Order, order_);
       DARABONBA_PTR_FROM_JSON(PageNumber, pageNumber_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(SceneId, sceneId_);
       DARABONBA_PTR_FROM_JSON(SortBy, sortBy_);
     };
     ListFeatureConsistencyCheckJobConfigsRequest() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sortBy_ == nullptr; };
+        && this->order_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->sceneId_ == nullptr && this->sortBy_ == nullptr; };
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline ListFeatureConsistencyCheckJobConfigsRequest& setPageSize(string pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // sceneId Field Functions 
+    bool hasSceneId() const { return this->sceneId_ != nullptr;};
+    void deleteSceneId() { this->sceneId_ = nullptr;};
+    inline string getSceneId() const { DARABONBA_PTR_GET_DEFAULT(sceneId_, "") };
+    inline ListFeatureConsistencyCheckJobConfigsRequest& setSceneId(string sceneId) { DARABONBA_PTR_SET_VALUE(sceneId_, sceneId) };
+
+
     // sortBy Field Functions 
     bool hasSortBy() const { return this->sortBy_ != nullptr;};
     void deleteSortBy() { this->sortBy_ = nullptr;};
@@ -75,25 +84,23 @@ namespace Models
 
 
   protected:
-    // The instance ID. To obtain an instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
+    // The instance ID. For information about how to obtain an instance ID, see [ListInstances](https://help.aliyun.com/document_detail/2411819.html).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The sort order.
-    // 
-    // - `ASC`: Ascending order.
-    // 
-    // - `DESC`: Descending order.
+    // The sort order. Valid values:
+    // - ASC: ascending order.
+    // - DESC: descending order.
     shared_ptr<string> order_ {};
-    // The page number. The value starts at 1. The default value is 1.
+    // The page number. Minimum value: 1. Default value: 1.
     shared_ptr<string> pageNumber_ {};
     // The page size.
     shared_ptr<string> pageSize_ {};
-    // The field to sort by.
-    // 
-    // - `GmtCreateTime`: Creation time.
-    // 
-    // - `GmtModifiedTime`: Modified time.
+    // The scene ID.
+    shared_ptr<string> sceneId_ {};
+    // The field used to sort the results. Valid values:
+    // - GmtCreateTime: sorts by creation time.
+    // - GmtModifiedTime: sorts by update time.
     shared_ptr<string> sortBy_ {};
   };
 
