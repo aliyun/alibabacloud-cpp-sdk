@@ -104,7 +104,7 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> skillName_ {};
-      // The draft version number to assign. If not specified, the version number is automatically incremented.
+      // The draft version number. If not specified, the version number is automatically incremented.
       shared_ptr<string> targetVersion_ {};
     };
 

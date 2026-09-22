@@ -1611,7 +1611,7 @@ DeleteSkillResponse Client::deleteSkill(const string &workspaceId, const string 
 /**
  * @summary Deletes the draft version currently being edited for a specified Skill.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Deletes the draft version currently being edited for a specified Skill.
  *
  * @param request DeleteSkillDraftRequest
@@ -1641,7 +1641,7 @@ DeleteSkillDraftResponse Client::deleteSkillDraftWithOptions(const string &works
 /**
  * @summary Deletes the draft version currently being edited for a specified Skill.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Deletes the draft version currently being edited for a specified Skill.
  *
  * @param request DeleteSkillDraftRequest
@@ -1883,7 +1883,7 @@ DownloadAgentSpecViaOssResponse Client::downloadAgentSpecViaOss(const string &wo
 /**
  * @summary Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
  *
  * @param request DownloadSkillVersionViaOssRequest
@@ -1913,7 +1913,7 @@ DownloadSkillVersionViaOssResponse Client::downloadSkillVersionViaOssWithOptions
 /**
  * @summary Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
  *
- * @description ## Request description
+ * @description ## Operation description
  * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
  *
  * @param request DownloadSkillVersionViaOssRequest
@@ -4447,10 +4447,10 @@ ListSkillReferencesResponse Client::listSkillReferences(const string &workspaceI
 }
 
 /**
- * @summary Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+ * @summary Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
  *
  * @description ## Operation description
- * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+ * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
  *
  * @param request ListSkillsRequest
  * @param headers map
@@ -4515,10 +4515,10 @@ ListSkillsResponse Client::listSkillsWithOptions(const string &workspaceId, cons
 }
 
 /**
- * @summary Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+ * @summary Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
  *
  * @description ## Operation description
- * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+ * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
  *
  * @param request ListSkillsRequest
  * @return ListSkillsResponse
@@ -4925,10 +4925,10 @@ PublishSkillVersionResponse Client::publishSkillVersion(const string &workspaceI
 }
 
 /**
- * @summary Converts a specified Skill version back into an editable draft for further modifications.
+ * @summary Converts a specified Skill version back to an editable draft so that you can continue to modify it.
  *
- * @description ## Operation description
- * Converts a specified Skill version back into an editable draft for further modifications.
+ * @description ## Request description
+ * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
  *
  * @param tmpReq RedraftSkillVersionRequest
  * @param headers map
@@ -4967,10 +4967,10 @@ RedraftSkillVersionResponse Client::redraftSkillVersionWithOptions(const string 
 }
 
 /**
- * @summary Converts a specified Skill version back into an editable draft for further modifications.
+ * @summary Converts a specified Skill version back to an editable draft so that you can continue to modify it.
  *
- * @description ## Operation description
- * Converts a specified Skill version back into an editable draft for further modifications.
+ * @description ## Request description
+ * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
  *
  * @param request RedraftSkillVersionRequest
  * @return RedraftSkillVersionResponse

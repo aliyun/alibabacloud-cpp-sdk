@@ -653,7 +653,7 @@ namespace AgentCore20260804
       /**
        * @summary Deletes the draft version currently being edited for a specified Skill.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * Deletes the draft version currently being edited for a specified Skill.
        *
        * @param request DeleteSkillDraftRequest
@@ -666,7 +666,7 @@ namespace AgentCore20260804
       /**
        * @summary Deletes the draft version currently being edited for a specified Skill.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * Deletes the draft version currently being edited for a specified Skill.
        *
        * @param request DeleteSkillDraftRequest
@@ -781,7 +781,7 @@ namespace AgentCore20260804
       /**
        * @summary Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
        *
        * @param request DownloadSkillVersionViaOssRequest
@@ -794,7 +794,7 @@ namespace AgentCore20260804
       /**
        * @summary Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
        *
-       * @description ## Request description
+       * @description ## Operation description
        * Retrieves a pre-signed OSS download URL for a specified Skill version, which is used to download the corresponding Skill ZIP package.
        *
        * @param request DownloadSkillVersionViaOssRequest
@@ -1857,10 +1857,10 @@ namespace AgentCore20260804
       Models::ListSkillReferencesResponse listSkillReferences(const string &workspaceId, const string &skillName, const Models::ListSkillReferencesRequest &request);
 
       /**
-       * @summary Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+       * @summary Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
        *
        * @description ## Operation description
-       * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+       * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
        *
        * @param request ListSkillsRequest
        * @param headers map
@@ -1870,10 +1870,10 @@ namespace AgentCore20260804
       Models::ListSkillsResponse listSkillsWithOptions(const string &workspaceId, const Models::ListSkillsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+       * @summary Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
        *
        * @description ## Operation description
-       * Performs a paged query of Skills in a specified workspace, and returns basic Skill information, version status, and paging details.
+       * Performs a paged query of Skills in a specified workspace and returns basic Skill information, version status, and paging information.
        *
        * @param request ListSkillsRequest
        * @return ListSkillsResponse
@@ -2035,10 +2035,10 @@ namespace AgentCore20260804
       Models::PublishSkillVersionResponse publishSkillVersion(const string &workspaceId, const string &skillName, const string &skillVersion, const Models::PublishSkillVersionRequest &request);
 
       /**
-       * @summary Converts a specified Skill version back into an editable draft for further modifications.
+       * @summary Converts a specified Skill version back to an editable draft so that you can continue to modify it.
        *
-       * @description ## Operation description
-       * Converts a specified Skill version back into an editable draft for further modifications.
+       * @description ## Request description
+       * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
        *
        * @param tmpReq RedraftSkillVersionRequest
        * @param headers map
@@ -2048,10 +2048,10 @@ namespace AgentCore20260804
       Models::RedraftSkillVersionResponse redraftSkillVersionWithOptions(const string &workspaceId, const string &skillName, const string &skillVersion, const Models::RedraftSkillVersionRequest &tmpReq, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Converts a specified Skill version back into an editable draft for further modifications.
+       * @summary Converts a specified Skill version back to an editable draft so that you can continue to modify it.
        *
-       * @description ## Operation description
-       * Converts a specified Skill version back into an editable draft for further modifications.
+       * @description ## Request description
+       * Converts a specified Skill version back to an editable draft so that you can continue to modify it.
        *
        * @param request RedraftSkillVersionRequest
        * @return RedraftSkillVersionResponse

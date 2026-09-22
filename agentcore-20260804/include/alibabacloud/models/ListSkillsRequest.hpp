@@ -112,11 +112,11 @@ namespace Models
 
 
   protected:
-    // The maximum number of entries to return per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // The sort field. The value download_count is supported. Default value: gmt_modified.
+    // The field by which to sort results. The value download_count is supported. Default value: gmt_modified.
     shared_ptr<string> orderBy_ {};
     // Filters results by owner.
     shared_ptr<string> owner_ {};

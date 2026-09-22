@@ -236,8 +236,13 @@ namespace Models
         shared_ptr<string> description_ {};
         // The total number of downloads.
         shared_ptr<int64_t> downloadCount_ {};
+        // The draft mode. Valid values:
+        // - HEAD: The Skill has a persistent draft.
+        // - VERSIONED: Each edit creates a versioned draft.
+        // 
+        // The value is determined by the server. The caller uses this value to render the status column.
         shared_ptr<string> draftMode_ {};
-        // The version that is being edited.
+        // The version that is being edited. In HEAD draft mode, the value is HEAD.
         shared_ptr<string> editingVersion_ {};
         // Indicates whether the Skill is enabled.
         shared_ptr<bool> enable_ {};
@@ -251,7 +256,7 @@ namespace Models
         shared_ptr<int32_t> onlineCnt_ {};
         // The resource owner.
         shared_ptr<string> owner_ {};
-        // The version that is under review.
+        // The version that is under review. In HEAD draft mode, the value is HEAD.
         shared_ptr<string> reviewingVersion_ {};
         // The visibility scope.
         shared_ptr<string> scope_ {};
@@ -341,7 +346,7 @@ namespace Models
   protected:
     // The returned data.
     shared_ptr<ListSkillsResponseBody::Data> data_ {};
-    // The maximum number of entries to return per page.
+    // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
