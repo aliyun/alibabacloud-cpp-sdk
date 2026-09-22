@@ -151,37 +151,39 @@ namespace Models
 
 
     protected:
-      // The user account type.
+      // The account type of the user. Valid values:
       // 
-      // - `simple`: convenience account.
-      // - `ad`: Active Directory (AD) domain account.
+      // - simple: Convenience account.
+      // - ad: Active Directory (AD) domain account, which originates from an enterprise AD domain.
       shared_ptr<string> accountType_ {};
-      // The application ID specified in this query. This field is not returned if no application filter condition is specified.
+      // The application ID. Returned only when AppId is specified in the request. The value is the same as the request parameter. Not returned if AppId is not specified or when querying by delivery group set.
       shared_ptr<string> appId_ {};
-      // The delivery group ID to which the authorization relationship belongs. When querying cloud browsers, this is the browser group ID. When querying by set, this field is the primary delivery group ID of the set.
+      // The delivery group ID associated with the user\\"s authorization relationship. When querying by delivery group, this value is the same as the request parameter. When querying by delivery group set, this value is the primary delivery group ID of the set.
       shared_ptr<string> appInstanceGroupId_ {};
-      // The delivery group set ID of this query. This field is returned when querying by set.
+      // The delivery group set ID. Returned only when querying by delivery group set. The value is the same as the AppInstanceGroupSetId request parameter.
       shared_ptr<string> appInstanceGroupSetId_ {};
-      // The list of persistent session IDs authorized to the user. This field is returned when the authorization mode is `Session`.
+      // The list of persistent session IDs granted to the user. Returned only when the delivery group authorization mode (AuthMode) is `Session`. This list is not affected by the AppInstancePersistentId request parameter and always includes all persistent sessions granted to the user.
       shared_ptr<vector<string>> appInstancePersistentIds_ {};
-      // The authorization mode of the delivery group. Valid values:
+      // The authorization mode of the delivery group, which determines the scope of results returned by this operation. Valid values:
       // 
-      // - `App`: Authorization by application.
-      // - `Session`: Authorization by persistent session.
-      // - `AppInstanceGroup`: Authorization by delivery group.
+      // - App: Application-level authorization. Applications within the delivery group are authorized to users without restricting which sessions the users can use.
+      // - Session: Session-level authorization. Persistent sessions within the delivery group are authorized to users without restricting which applications the users can use. In this case, AppInstancePersistentIds returns the persistent sessions granted to the user.
+      // - AppInstanceGroup: Delivery group-level authorization. The entire delivery group is authorized to users, allowing them to open any application using any session within the delivery group.
+      // 
+      // When querying by delivery group set, the authorization mode of the primary delivery group in the set is returned.
       shared_ptr<string> authMode_ {};
-      // The email address of the user. This field may not be returned if the email address is not available.
+      // The email address of the user. Returned only when the account information of the user can be retrieved.
       shared_ptr<string> email_ {};
-      // The authorized username.
+      // The username. To remove authorization, pass this value to the UnAuthorizeUserIds parameter of the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) or [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation.
       shared_ptr<string> endUserId_ {};
       // Indicates whether the query is not restricted to a specific application. Valid values:
       // 
-      // - `true`: No application filter condition is specified.
-      // - `false`: An application filter condition is specified.
+      // - true: AppId is not specified in the request. All authorized users under the delivery group are returned.
+      // - false: AppId is specified in the request. Only users authorized for that specific application are returned.
       // 
-      // This field is determined by the query conditions and cannot be used alone to determine whether the user is authorized for all applications.
+      // > This field is determined by whether the AppId request parameter is specified. It does not reflect the actual scope of applications authorized to the user and cannot be used to determine whether the user is authorized for all applications.
       shared_ptr<string> isAuthAllApps_ {};
-      // The phone number of the user. This field may not be returned if the phone number is not available.
+      // The phone number of the user. Returned only when the account information of the user can be retrieved.
       shared_ptr<string> phone_ {};
     };
 
@@ -225,15 +227,18 @@ namespace Models
 
 
   protected:
-    // The current page number.
+    // The current page number, which is the same as the PageNumber request parameter.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of records per page in this request.
+    // The number of records per page, which is the same as the PageSize request parameter.
     shared_ptr<int32_t> pageSize_ {};
-    // The request ID, which is used to locate this call.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of authorization records that match the query conditions.
+    // The total number of records that match the query conditions. Use this value to determine whether to continue paging.
+    // 
+    // - When the authorization mode is `App` or `AppInstanceGroup`, this is the number of authorization records. If the same user has multiple authorization records, the user is counted multiple times. Therefore, this value may be greater than the actual number of users.
+    // - When the authorization mode is `Session`, this is the deduplicated user count.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of authorized users on the current page. An empty list is returned if no authorization records are matched.
+    // The list of authorized users on the current page. Multiple authorization records for the same user are merged into a single entry. An empty list is returned if no authorized users match the conditions.
     shared_ptr<vector<ListAuthorizedUsersResponseBody::Users>> users_ {};
   };
 
