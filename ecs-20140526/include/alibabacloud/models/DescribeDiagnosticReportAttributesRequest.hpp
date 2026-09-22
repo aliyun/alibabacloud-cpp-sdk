@@ -52,7 +52,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The diagnostic report ID.
+    // The ID of the diagnostic report.
     // 
     // This parameter is required.
     shared_ptr<string> reportId_ {};

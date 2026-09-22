@@ -156,7 +156,7 @@ namespace Models
     // 
     // connectionTrackingConfiguration: queries the network connectivity tracking configuration.
     // 
-    // Default value:
+    // Default value: empty.
     shared_ptr<string> attribute_ {};
     // The ID of the network interface controller (NIC).
     // 
@@ -164,7 +164,7 @@ namespace Models
     shared_ptr<string> networkInterfaceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the network interface controller (NIC). You can invoke [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the network interface controller (NIC). You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

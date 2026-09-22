@@ -176,7 +176,7 @@ namespace Models
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page for a paged query.
+    // The number of entries per page for the paged query.
     // 
     // Maximum value: 50.
     // 
@@ -190,12 +190,12 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The deployment strategy. Valid values:
     // 
-    // - Availability: high availability.
-    // - AvailabilityGroup: high availability for deployment set groups.
-    // - LowLatency: low network latency.
+    // - Availability: high availability strategy.
+    // - AvailabilityGroup: high availability group strategy.
+    // - LowLatency: low network latency strategy.
     shared_ptr<string> strategy_ {};
     // The deployment type. Valid values:
-    // - host: physical server
+    // - host: physical machine
     // - sw: vSwitch
     // - rack: rack
     // 

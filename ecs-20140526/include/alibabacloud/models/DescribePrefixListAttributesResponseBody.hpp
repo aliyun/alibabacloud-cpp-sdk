@@ -183,10 +183,10 @@ namespace Models
   protected:
     // The address family of the prefix list. Valid values:
     // 
-    // - IPv4
-    // - IPv6
+    // - IPv4.
+    // - IPv6.
     shared_ptr<string> addressFamily_ {};
-    // The time when the prefix list was created.
+    // The time when the prefix list was created. The time is displayed in ISO 8601 format in UTC.
     shared_ptr<string> creationTime_ {};
     // The description of the prefix list.
     shared_ptr<string> description_ {};

@@ -163,12 +163,12 @@ namespace Models
 
 
     protected:
-      // Specifies whether the Cloud Assistant session feature is enabled. Valid values:
+      // The toggle for the Cloud Assistant session feature. Valid values:
       // * true: Enabled.
       // * false: Disabled.
       // 
-      // Note:
-      // * Enabling or disabling the session feature takes effect across all regions.
+      // Precautions:
+      // * Enabling or disabling the session feature takes effect in all regions.
       shared_ptr<bool> sessionManagerEnabled_ {};
     };
 
@@ -256,7 +256,7 @@ namespace Models
       shared_ptr<string> logSizeLimit_ {};
       // The maximum memory usage allowed for the Cloud Assistant Agent main process.
       shared_ptr<string> memoryLimit_ {};
-      // The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. When this limit is reached, Cloud Assistant Agent automatically stops running.
+      // The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. After this limit is reached, the Cloud Assistant Agent automatically stops running.
       shared_ptr<int32_t> overloadLimit_ {};
     };
 
@@ -487,11 +487,11 @@ namespace Models
 
     protected:
       shared_ptr<AgentUpgradeConfig::AllowedUpgradeWindows> allowedUpgradeWindows_ {};
-      // Indicates whether Cloud Assistant Agent checks for and performs updates immediately upon startup.
+      // Indicates whether the Cloud Assistant Agent checks for and performs updates immediately upon startup.
       shared_ptr<bool> bootstrapUpgrade_ {};
-      // Indicates whether Cloud Assistant Agent is prohibited from checking for and performing updates.
+      // Indicates whether the Cloud Assistant Agent is prohibited from checking for and performing updates.
       shared_ptr<bool> disableUpgrade_ {};
-      // Indicates whether the custom Agent upgrade configuration is enabled. If the value is false or empty, the default behavior is to attempt an upgrade every 30 minutes.
+      // Indicates whether the custom Agent upgrade configuration is enabled. If the query result is false or empty, the default behavior of attempting an upgrade every 30 minutes is retained.
       shared_ptr<bool> enabled_ {};
       // The time zone of the allowed upgrade time windows.
       shared_ptr<string> timeZone_ {};

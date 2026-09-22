@@ -98,7 +98,7 @@ namespace Models
     protected:
       // The tag key attached to the block storage resource. N specifies that you can set one or more tag keys. The value of N in this parameter corresponds to the value of N in the `Tag.N.Value` parameter to form a key-value pair. Valid values of N: 1 to 20.
       // 
-      // If you use a single tag to filter resources, the number of resources with the tag cannot exceed 1,000. If you use multiple tags to filter resources, the number of resources that are attached to all specified tags cannot exceed 1,000.
+      // If you use a single tag to filter resources, the resource count with that tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that are attached to all specified tags cannot exceed 1,000.
       shared_ptr<string> key_ {};
       // The tag value attached to the block storage resource. N specifies that you can set one or more tag values. The value of N in this parameter corresponds to the value of N in the `Tag.N.Key` parameter to form a key-value pair. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
@@ -308,7 +308,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The lifecycle status of the block storage device. For more information, see [Disk status table](https://help.aliyun.com/document_detail/25689.html). Valid values: 
+    // The lifecycle status of the block storage device. For more information, see [Disk states](https://help.aliyun.com/document_detail/25689.html). Valid values: 
     // 
     // - In_use: in use.
     // - Available: to be attached.

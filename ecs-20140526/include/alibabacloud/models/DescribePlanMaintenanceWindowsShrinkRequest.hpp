@@ -105,7 +105,7 @@ namespace Models
   protected:
     // Specifies whether the window is enabled or disabled.
     shared_ptr<bool> enable_ {};
-    // The number of entries per page for a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+    // The number of entries per page in a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
@@ -113,7 +113,7 @@ namespace Models
     shared_ptr<string> planWindowId_ {};
     // The name of the O&M window.
     shared_ptr<string> planWindowName_ {};
-    // The region ID of the instance. You can call DescribeRegions to query the most recent region list.
+    // The region ID. This parameter is required by the Alibaba Cloud SDK for routing purposes. However, setting any region ID for this operation makes no difference. The response returns all O&M windows that meet the specified conditions across all regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

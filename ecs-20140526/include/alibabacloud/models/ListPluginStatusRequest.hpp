@@ -141,7 +141,7 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The plugin name. The full character set is supported. The name can be up to 255 characters in length.
+    // The plugin name. Full character set is supported. The name can be up to 255 characters in length.
     // 
     // - If you do not specify this parameter, the status of all installed plugins on the instance is queried.
     // 
@@ -153,9 +153,9 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter is about to go offline. Use NextToken and MaxResults to perform a paging query instead.
+    // > This parameter will be offline soon. Use NextToken and MaxResults to complete paged query operations. Paging is handled by these parameters instead.
     shared_ptr<int64_t> pageNumber_ {};
-    // > This parameter is about to go offline. Use NextToken and MaxResults to perform a paging query instead.
+    // > This parameter will be offline soon. Use NextToken and MaxResults to complete paged query operations. Paging is handled by these parameters instead.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 

@@ -129,7 +129,7 @@ namespace Models
       protected:
         // The tag key of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
         // 
-        // If you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+        // If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
         // 
         // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
         shared_ptr<string> tagKey_ {};
@@ -278,17 +278,17 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The internal IP address of the managed instance.
       shared_ptr<string> intranetIp_ {};
-      // The number of times that Cloud Assistant tasks were run on the managed instance.
+      // The number of times that Cloud Assistant tasks have been executed on the managed instance.
       shared_ptr<int64_t> invocationCount_ {};
-      // The time when the last Cloud Assistant task was run.
+      // The time when the last Cloud Assistant task was executed. The time is displayed in ISO 8601 format in UTC.
       shared_ptr<string> lastInvokedTime_ {};
-      // The machine ID of the managed instance.
+      // The machine code of the managed instance.
       shared_ptr<string> machineId_ {};
       // The operating system of the managed instance.
       shared_ptr<string> osType_ {};
-      // The version of the operating system.
+      // The version information of the operating system.
       shared_ptr<string> osVersion_ {};
-      // The registration time of the managed instance.
+      // The time when the managed instance was registered. The time is displayed in ISO 8601 format in UTC.
       shared_ptr<string> registrationTime_ {};
       // The ID of the resource group to which the managed instance belongs.
       shared_ptr<string> resourceGroupId_ {};
@@ -349,7 +349,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The page number of the managed instance list.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page as specified in the request.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

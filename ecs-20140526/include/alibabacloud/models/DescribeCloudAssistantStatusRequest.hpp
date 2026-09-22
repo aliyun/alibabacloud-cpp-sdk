@@ -135,7 +135,7 @@ namespace Models
   protected:
     // The list of instance IDs.
     shared_ptr<vector<string>> instanceId_ {};
-    // The maximum number of entries per page for a paged query. If **InstanceId** is specified, this parameter is ignored.
+    // The maximum number of entries per page for a paged query. If **InstanceId** is set, this parameter is ignored.
     // 
     // Maximum value: 50.
     // 

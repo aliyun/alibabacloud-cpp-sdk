@@ -146,7 +146,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to trigger real O&M operations. Valid values:<br>- true: Triggers real O&M operations. The system actually stops or releases the instance. Exercise caution when you perform this operation, or use instances that do not run workloads for testing.<br>- false (default): Only simulates event notifications without affecting the actual lifecycle of the instance.
+    // Specifies whether to trigger real O&M operations. Valid values:<br>- true: Triggers real O&M operations. The system will actually stop or release the instance. Test with caution or use instances that do not run workloads.<br>- false (default): Only simulates event notifications without affecting the actual lifecycle of the instance.
     shared_ptr<bool> triggerRealOps_ {};
   };
 

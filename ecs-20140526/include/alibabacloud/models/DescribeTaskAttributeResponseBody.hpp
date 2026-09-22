@@ -324,11 +324,11 @@ namespace Models
 
 
   protected:
-    // The time when the task was created.
+    // The time when the task was created. The time is displayed in ISO 8601 format in UTC.
     shared_ptr<string> creationTime_ {};
     // The number of failed tasks.
     shared_ptr<int32_t> failedCount_ {};
-    // The time when the task was completed.
+    // The time when the task was completed. The time is displayed in ISO 8601 format in UTC.
     shared_ptr<string> finishedTime_ {};
     shared_ptr<DescribeTaskAttributeResponseBody::OperationProgressSet> operationProgressSet_ {};
     // The region ID.

@@ -175,7 +175,7 @@ namespace Models
     protected:
       // The number of associated resources.
       shared_ptr<int32_t> associationCount_ {};
-      // The time when the port range list was created.
+      // The time when the port range list was created. The time is in ISO 8601 format and displayed in UTC.
       shared_ptr<string> creationTime_ {};
       // The description of the port range list.
       shared_ptr<string> description_ {};
@@ -217,7 +217,7 @@ namespace Models
 
 
   protected:
-    // The pagination token returned in this call. If this value is empty, no more data is available.
+    // The pagination token returned in this call. If the return value is empty, no more data is available.
     shared_ptr<string> nextToken_ {};
     // The port range list information.
     shared_ptr<vector<DescribePortRangeListsResponseBody::PortRangeLists>> portRangeLists_ {};

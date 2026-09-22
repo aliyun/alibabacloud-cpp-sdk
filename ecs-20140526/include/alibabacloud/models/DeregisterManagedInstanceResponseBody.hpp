@@ -181,7 +181,7 @@ namespace Models
     protected:
       // The activation code ID.
       shared_ptr<string> activationId_ {};
-      // The version number of Cloud Assistant Agent.
+      // The version number of the Cloud Assistant Agent.
       shared_ptr<string> agentVersion_ {};
       // The hostname of the managed instance.
       shared_ptr<string> hostname_ {};
@@ -193,17 +193,17 @@ namespace Models
       shared_ptr<string> internetIp_ {};
       // The internal IP address of the managed instance.
       shared_ptr<string> intranetIp_ {};
-      // The number of times that Cloud Assistant tasks were run on the managed instance.
+      // The number of times that Cloud Assistant tasks were executed on the managed instance.
       shared_ptr<int64_t> invocationCount_ {};
-      // The time when the last Cloud Assistant task was run.
+      // The time when the last Cloud Assistant task was executed. The time is displayed in ISO 8601 format in UTC.
       shared_ptr<string> lastInvokedTime_ {};
-      // The machine ID of the managed instance.
+      // The machine code of the managed instance.
       shared_ptr<string> machineId_ {};
       // The operating system of the managed instance.
       shared_ptr<string> osType_ {};
       // The version of the operating system.
       shared_ptr<string> osVersion_ {};
-      // The time when the managed instance was registered.
+      // The time when the managed instance was registered. The time is displayed in ISO 8601 format in UTC.
       shared_ptr<string> registrationTime_ {};
       // The ID of the resource group to which the managed instance belongs.
       shared_ptr<string> resourceGroupId_ {};

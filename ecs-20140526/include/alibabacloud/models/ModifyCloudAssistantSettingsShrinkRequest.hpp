@@ -142,7 +142,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The Cloud Assistant resource usage configuration. This parameter takes effect only when the Cloud Assistant Agent version meets the following minimum requirements:
+    // The Cloud Assistant resource usage configuration. This setting takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
     // 
     // - Windows: 2.1.4.1065
     // 

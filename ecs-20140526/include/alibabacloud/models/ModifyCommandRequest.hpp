@@ -140,7 +140,7 @@ namespace Models
 
 
   protected:
-    // > This parameter is deprecated and does not take effect.
+    // > This parameter is deprecated and does not take effect even if specified.
     shared_ptr<string> commandContent_ {};
     // The command ID. You can call [DescribeCommands](https://help.aliyun.com/document_detail/64843.html) to query all available command IDs.
     // 
@@ -160,7 +160,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The maximum timeout period for the command to run on ECS instances. Unit: seconds. If the command cannot be completed within the specified timeout period, the command process is forcefully terminated by canceling the PID of the command.
+    // The maximum timeout period for the command to run on ECS instances. Unit: seconds. If the command cannot be completed within the specified timeout period, the command times out. When a timeout occurs, the command process is forcefully terminated by canceling the PID of the command.
     shared_ptr<int64_t> timeout_ {};
     // The execution path. The path can be up to 200 characters in length.
     shared_ptr<string> workingDir_ {};

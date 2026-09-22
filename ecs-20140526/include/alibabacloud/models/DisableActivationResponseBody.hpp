@@ -144,7 +144,7 @@ namespace Models
     protected:
       // The activation code ID.
       shared_ptr<string> activationId_ {};
-      // The creation time.
+      // The time when the activation code was created. The time is displayed in ISO 8601 format in UTC.
       shared_ptr<string> creationTime_ {};
       // The number of deregistered instances.
       shared_ptr<int32_t> deregisteredCount_ {};

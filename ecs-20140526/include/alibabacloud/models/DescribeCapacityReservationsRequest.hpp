@@ -98,9 +98,9 @@ namespace Models
     protected:
       // The tag key. N indicates that you can set multiple tag keys for filtering. Valid values of N: 1 to 20.
       // 
-      // If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count with all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+      // If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1000. If the resource count exceeds 1000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
       shared_ptr<string> key_ {};
-      // The tag value. N indicates that you can set multiple tag values for filtering. Valid values of N: 1 to 20.
+      // The tag value. N indicates that you can specify multiple tag values for filtering. Valid values of N: 1 to 20.
       shared_ptr<string> value_ {};
     };
 
@@ -132,7 +132,7 @@ namespace Models
 
 
     protected:
-      // The list of capacity reservation IDs. The value can be a JSON array that consists of up to 100 IDs. Separate the IDs with commas (,).
+      // The list of capacity reservation IDs. The value can be a JSON array that consists of up to 100 IDs, separated by commas (,).
       shared_ptr<string> ids_ {};
     };
 
@@ -258,7 +258,7 @@ namespace Models
     // 
     // Default value: PostPaid.
     shared_ptr<string> instanceChargeType_ {};
-    // The instance type. You can use the instance type to query only active capacity reservations. Released capacity reservations can be queried only by using PrivatePoolOptions.Ids.
+    // The instance type. You can use the instance type to query only active capacity reservations. Released capacity reservations can only be queried by using PrivatePoolOptions.Ids.
     shared_ptr<string> instanceType_ {};
     // The maximum number of entries per page for a paged query.
     // 
@@ -292,8 +292,8 @@ namespace Models
     // 
     // - All: all states.
     // - Pending: initializing. A capacity reservation that takes effect at a specified time enters the initializing state first.
-    // - Preparing: being prepared. A capacity reservation that takes effect at a specified time is in the Preparing state during the resource delivery phase.
-    // - Prepared: to take effect. A capacity reservation that takes effect at a specified time is in the Prepared state after resource delivery is complete but before the service takes effect.
+    // - Preparing: being prepared. A capacity reservation that takes effect at a specified time is in the being prepared state during the resource delivery phase.
+    // - Prepared: to take effect. A capacity reservation that takes effect at a specified time is in the to take effect state after resource delivery is complete but before the service officially takes effect.
     // - Active: active.
     // - Released: released, including manual release and automatic release upon expiration.
     // 

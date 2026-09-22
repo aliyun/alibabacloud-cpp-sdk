@@ -282,9 +282,9 @@ namespace Models
   protected:
     // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<vector<CopySnapshotRequest::Arn>> arn_ {};
-    // Guarantees the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. The value of ClientToken can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
+    // Ensures the idempotence of the request. The value is generated from your client and must be unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The ID of the destination region to which to copy the snapshot.
+    // The ID of the destination region for the new snapshot.
     // 
     // This parameter is required.
     shared_ptr<string> destinationRegionId_ {};
@@ -309,7 +309,7 @@ namespace Models
     // 
     // Default value: false.
     shared_ptr<bool> encrypted_ {};
-    // The customer master key (CMK) in Key Management Service (KMS) in the destination region.
+    // The customer master key (CMK) in the destination region.
     shared_ptr<string> KMSKeyId_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The region ID of the source snapshot. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
@@ -320,7 +320,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The retention period of the new snapshot, in days. The snapshot is automatically released when the retention period expires. Valid values: 1 to 65536.
+    // The retention period of the new snapshot, in days. The snapshot undergoes automatic release when the retention period expires. Valid values: 1 to 65536.
     // 
     // Default value: null, which indicates that the snapshot is not subject to automatic release.
     shared_ptr<int32_t> retentionDays_ {};

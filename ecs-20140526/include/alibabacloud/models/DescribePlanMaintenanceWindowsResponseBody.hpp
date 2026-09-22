@@ -132,9 +132,9 @@ namespace Models
 
 
         protected:
-          // The end time of the maintenance time window.
+          // The end time of the maintenance time window. Format: "Day of the week,HH:mm". Example: Monday,22:00.
           shared_ptr<string> endTime_ {};
-          // The start time of the maintenance time window.
+          // The start time of the maintenance time window. Format: "Day of the week,HH:mm". Example: Monday,22:00.
           shared_ptr<string> startTime_ {};
         };
 
@@ -157,11 +157,11 @@ namespace Models
 
 
       protected:
-        // The cycle type. Valid values:
+        // The type of the recurrence cycle. Valid values:
         // - Daily: daily recurrence.
         // - Weekly: weekly recurrence.
         shared_ptr<string> periodUnit_ {};
-        // The time ranges within the recurring cycle of the O&M window (UTC time zone).
+        // The time ranges within the recurrence cycle of the O&M window (in UTC).
         shared_ptr<vector<TimePeriod::RangeList>> rangeList_ {};
       };
 
@@ -260,7 +260,7 @@ namespace Models
       protected:
         // The ID of the resource group to which the O&M window applies.
         shared_ptr<string> resourceGroupId_ {};
-        // The resource type for which the O&M window is configured.
+        // The type of resource for which the O&M window is configured.
         shared_ptr<string> scope_ {};
         // The tags to which the O&M window applies.
         shared_ptr<vector<TargetResource::Tags>> tags_ {};
@@ -352,11 +352,11 @@ namespace Models
       shared_ptr<string> planWindowId_ {};
       // The name of the O&M window.
       shared_ptr<string> planWindowName_ {};
-      // The supported maintenance actions.
+      // The supported maintenance action.
       shared_ptr<string> supportMaintenanceAction_ {};
       // The resources to which the O&M window applies.
       shared_ptr<PlanMaintenanceWindowList::TargetResource> targetResource_ {};
-      // The recurring cycle of the window.
+      // The recurrence cycle of the window.
       shared_ptr<PlanMaintenanceWindowList::TimePeriod> timePeriod_ {};
     };
 
@@ -400,7 +400,7 @@ namespace Models
 
 
   protected:
-    // The number of entries per page for a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
+    // The number of entries per page in a paged query. Maximum value: 100. Default value: If the value is not specified or is less than 10, the default value is 10. If the value is greater than 100, the default value is 100.
     shared_ptr<int32_t> maxResults_ {};
     // The query token returned by this call.
     shared_ptr<string> nextToken_ {};
@@ -408,7 +408,7 @@ namespace Models
     shared_ptr<vector<DescribePlanMaintenanceWindowsResponseBody::PlanMaintenanceWindowList>> planMaintenanceWindowList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries that match the query conditions. This parameter is optional and may not be returned by default.
+    // The total number of entries that match the request conditions. This is an optional parameter and may not be returned by default.
     shared_ptr<int32_t> totalCount_ {};
   };
 

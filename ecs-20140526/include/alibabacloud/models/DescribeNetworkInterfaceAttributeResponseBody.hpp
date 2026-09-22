@@ -564,7 +564,7 @@ namespace Models
 
 
     protected:
-      // The communication pattern of the network interface controller (NIC).
+      // The communication mode of the network interface controller (NIC).
       shared_ptr<string> networkInterfaceTrafficMode_ {};
       // The number of queues for the network interface controller (NIC).
       shared_ptr<int32_t> queueNumber_ {};
@@ -900,7 +900,7 @@ namespace Models
       // 
       // > If your ECS instance is used with NLB or CLB, the default timeout period for connections in the `TIME_WAIT` state is 15 seconds.
       shared_ptr<int32_t> tcpClosedAndTimeWaitTimeout_ {};
-      // The timeout period for TCP connections in the established state. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
+      // The timeout period for TCP connections in the ESTABLISHED state. Unit: seconds. Valid values: [30, 60, 80, 100, 200, 300, 500, 700, 910].
       shared_ptr<int32_t> tcpEstablishedTimeout_ {};
       // The timeout period for UDP flows. Unit: seconds. Valid values: [10, 20, 30, 60, 80, 100].
       // 
@@ -1502,9 +1502,9 @@ namespace Models
     // 
     // Before you use this parameter, read [Connection timeout management](https://help.aliyun.com/document_detail/2865958.html).
     // 
-    // > This parameter is returned only when the `Attribute` input parameter is set to `connectionTrackingConfiguration`.
+    // > This parameter is returned only when the Attribute input parameter is set to connectionTrackingConfiguration.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::ConnectionTrackingConfiguration> connectionTrackingConfiguration_ {};
-    // The time when the network interface controller (NIC) was created.
+    // The time when the network interface controller (NIC) was created. The time is in ISO 8601 format and displayed in UTC.
     shared_ptr<string> creationTime_ {};
     // Indicates whether the ENI is retained when the associated instance is released. Valid values:
     // 
@@ -1518,7 +1518,7 @@ namespace Models
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::EnhancedNetwork> enhancedNetwork_ {};
     // The ID of the instance to which the network interface controller (NIC) is attached.
     // 
-    // > Network interface controllers (NICs) that are managed and controlled by other Alibaba Cloud services do not return an instance ID.
+    // > Network interface controllers (NICs) that are managed and controlled by other Alibaba Cloud services do not return instance IDs.
     shared_ptr<string> instanceId_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv4PrefixSets> ipv4PrefixSets_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Ipv6PrefixSets> ipv6PrefixSets_ {};
@@ -1531,10 +1531,10 @@ namespace Models
     shared_ptr<string> networkInterfaceName_ {};
     // The traffic parameters of the network interface controller (NIC).
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::NetworkInterfaceTrafficConfig> networkInterfaceTrafficConfig_ {};
-    // The communication pattern of the network interface controller (NIC). Valid values:
+    // The communication mode of the network interface controller (NIC). Valid values:
     // 
-    // - Standard: uses the TCP communication pattern.
-    // - HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the RDMA communication pattern.
+    // - Standard: TCP communication mode is used.
+    // - HighPerformance: Elastic RDMA Interface (ERI) is enabled and RDMA communication mode is used.
     // 
     // > The HighPerformance parameter value is supported only by the c7re RDMA enhanced instance family.
     shared_ptr<string> networkInterfaceTrafficMode_ {};
@@ -1546,15 +1546,15 @@ namespace Models
     // The QoS rate limit settings.
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::QoSConfig> qoSConfig_ {};
     // The number of queues for the Elastic Network Interface (ENI).
-    // * If the Elastic Network Interface (ENI) is a primary network interface controller (NIC): the default number of queues for the primary network interface controller (NIC) based on the instance type is returned.
+    // * If the ENI is a primary network interface controller (NIC): the default number of queues for the primary NIC that the instance type allows is returned.
     // 
-    // * If the Elastic Network Interface (ENI) is a secondary ENI:
+    // * If the ENI is a secondary ENI:
     //     * If the secondary ENI is in the InUse state:
-    //         * If the number of queues has not been modified, the default number of queues for the secondary ENI based on the instance type is returned.
-    //         * If the number of queues has been modified, the modified number of queues is returned.
+    //         * If the number of queues for the secondary ENI has not been modified, the default number of queues for the secondary ENI that the instance type allows is returned.
+    //         * If the number of queues for the secondary ENI has been modified, the modified number of queues is returned.
     //     * If the secondary ENI is in the active (Available) state:
-    //         * If the number of queues has not been modified, an empty value is returned.
-    //         * If the number of queues has been modified, the modified number of queues is returned.
+    //         * If the number of queues for the secondary ENI has not been modified, an empty value is returned.
+    //         * If the number of queues for the secondary ENI has been modified, the modified number of queues is returned.
     shared_ptr<int32_t> queueNumber_ {};
     // > This parameter is in invitational preview and is not publicly available.
     shared_ptr<int32_t> queuePairNumber_ {};
@@ -1581,7 +1581,7 @@ namespace Models
     // * Detaching: being detached.
     // * Deleting: being deleted.
     // 
-    // Default value: empty, which indicates that network interface controllers (NICs) in all statuses are queried.
+    // Default value: empty, which indicates that network interface controllers (NICs) in all states are queried.
     shared_ptr<string> status_ {};
     shared_ptr<DescribeNetworkInterfaceAttributeResponseBody::Tags> tags_ {};
     // > This parameter is in invitational preview and is not publicly available.

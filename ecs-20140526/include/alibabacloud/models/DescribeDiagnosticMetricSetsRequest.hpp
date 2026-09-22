@@ -96,7 +96,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The list of diagnostic metric set IDs.
     shared_ptr<vector<string>> metricSetIds_ {};
-    // The pagination token. Set this parameter to the NextToken value returned in the previous call. You do not need to set this parameter for the first request.
+    // The pagination token. Set this parameter to the value of `NextToken` returned in the previous call. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 

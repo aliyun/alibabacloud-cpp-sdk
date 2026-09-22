@@ -213,9 +213,9 @@ namespace Models
 
 
   protected:
-    // The page number of the current page in a paged query.
+    // The page number of the current page in the paging query.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries on the current page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

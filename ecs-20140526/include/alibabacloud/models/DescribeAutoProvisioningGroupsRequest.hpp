@@ -212,16 +212,17 @@ namespace Models
     shared_ptr<string> autoProvisioningGroupName_ {};
     // The list of statuses of auto-provisioning groups.
     shared_ptr<vector<string>> autoProvisioningGroupStatus_ {};
+    // The type of the auto-provisioning group. Valid values: request, maintain, and candidate.
     shared_ptr<vector<string>> autoProvisioningGroupTypes_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the paging query to return.
+    // The page number of the list to return in a paging query.
     // 
     // Minimum value: 1.
     // 
     // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in the paging query. Settings:
+    // The number of entries per page in a paging query.
     // 
     // Maximum value: 100.
     // 

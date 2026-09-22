@@ -1056,16 +1056,16 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDisksResponseBody::Disks> disks_ {};
-    // The pagination token returned in this call.
+    // The query token returned in this call.
     shared_ptr<string> nextToken_ {};
-    // > This parameter will be offline soon. Use NextToken and MaxResults for paging operations.
+    // > This parameter will be offline soon. Use `NextToken` and `MaxResults` to perform paging query operations.
     shared_ptr<int32_t> pageNumber_ {};
-    // > This parameter will be offline soon. Use NextToken and MaxResults for paging operations.
+    // > This parameter will be offline soon. Use `NextToken` and `MaxResults` to perform paging query operations.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
-    // > When you use the MaxResults and NextToken parameters for paging, the returned TotalCount value is invalid.
+    // > When you use `MaxResults` and `NextToken` parameters to perform a paging query, the returned `TotalCount` parameter value is invalid.
     shared_ptr<int32_t> totalCount_ {};
   };
 

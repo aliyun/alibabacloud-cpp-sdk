@@ -149,11 +149,11 @@ namespace Models
   protected:
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the resource. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
+    // The region ID of the resources. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The IDs of the resources. Array length: 1 to 50.
+    // The list of resource IDs. Array length: 1 to 50.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> resourceId_ {};

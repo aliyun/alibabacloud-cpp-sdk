@@ -165,7 +165,7 @@ namespace Models
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number of the results.
+    // The page number of the query results.
     // 
     // Minimum value: 1.
     // 
@@ -192,7 +192,7 @@ namespace Models
     // - ImportImage: import an image.
     // - ExportImage: export an image.
     // - RedeployInstance: redeploy an ECS instance.
-    // - ModifyDiskSpec: change the cloud disk type.
+    // - ModifyDiskSpec: change the type of a cloud disk.
     // - ArchiveSnapshot: archive a snapshot.
     shared_ptr<string> taskAction_ {};
     // The task group ID.

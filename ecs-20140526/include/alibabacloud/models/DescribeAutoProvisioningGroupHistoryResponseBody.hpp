@@ -489,7 +489,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of scheduling tasks queried.
+    // The total number of queried scheduling tasks.
     shared_ptr<int32_t> totalCount_ {};
   };
 

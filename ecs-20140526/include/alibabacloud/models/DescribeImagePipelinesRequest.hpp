@@ -187,7 +187,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The template name.
     shared_ptr<string> name_ {};
-    // The pagination token. Set this parameter to the value of `NextToken` returned by the previous call. You do not need to set this parameter for the first request.
+    // The pagination token. Set the value to the `NextToken` value returned in the previous call to this operation. You do not need to set this parameter for the first request.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};

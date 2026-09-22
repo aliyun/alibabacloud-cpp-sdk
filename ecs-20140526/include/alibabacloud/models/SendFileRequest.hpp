@@ -106,7 +106,7 @@ namespace Models
     protected:
       // The key of the tag for file sending. Valid values of N: 1 to 20. The tag key cannot be an empty string.
       // 
-      // If you use a single tag to filter resources, the resource count with this tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count with all the specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call [ListTagResources](https://help.aliyun.com/document_detail/110425.html) to query the resources.
+      // If you use a single tag to filter resources, the resource count with the tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
       // 
       // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
@@ -261,24 +261,24 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. **ClientToken** supports only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](https://help.aliyun.com/document_detail/25693.html).
     shared_ptr<string> clientToken_ {};
-    // The content of the file. The file content cannot exceed 32 KB after Base64 encoding.
+    // The content of the file. After Base64 encoding, the content cannot exceed 32 KB in size.
     // 
-    // - If `ContentType` is set to `PlainText`, this parameter specifies the plain text content.
+    // - If `ContentType` is set to `PlainText`, this parameter specifies the content in plaintext.
     // - If `ContentType` is set to `Base64`, this parameter specifies the Base64-encoded content.
     // 
     // This parameter is required.
     shared_ptr<string> content_ {};
     // The content type of the file. Valid values:
     // - PlainText: plain text.
-    // - Base64: Base64-encoded.
+    // - Base64: Base64 encoding.
     // 
     // Default value: PlainText.
     shared_ptr<string> contentType_ {};
-    // The description of the file. The full character set is supported. The description cannot exceed 512 characters in length.
+    // The description. The full character set is supported. The description cannot exceed 512 characters in length.
     shared_ptr<string> description_ {};
-    // The group of the file. This parameter takes effect only on Linux instances. Default value: root. The value cannot exceed 64 characters in length.
+    // The user group of the file. This parameter takes effect only on Linux instances. Default value: root. The value cannot exceed 64 characters in length.
     // 
-    // > If you specify a different user group, make sure that the user group exists on the instance.
+    // > If you specify another user group, make sure that the user group exists on the instance.
     shared_ptr<string> fileGroup_ {};
     // The permissions on the file. This parameter takes effect only on Linux instances. You can configure this parameter in the same way as you run the chmod command.
     // 
@@ -286,7 +286,7 @@ namespace Models
     shared_ptr<string> fileMode_ {};
     // The owner of the file. This parameter takes effect only on Linux instances. Default value: root. The value cannot exceed 64 characters in length.
     // 
-    // > If you specify a different user, make sure that the user exists on the instance.
+    // > If you specify another user, make sure that the user exists on the instance.
     shared_ptr<string> fileOwner_ {};
     // The IDs of the ECS instances to which you want to send the file. You can specify up to 50 instance IDs. Valid values of N: 1 to 50.
     // 
@@ -310,7 +310,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the resource group for file sending. If you specify this parameter:
     // 
-    // - The ECS instances specified by InstanceId must belong to this resource group.
+    // - The ECS instance specified by InstanceId must belong to this resource group.
     // 
     // - You can filter file sending results by specifying this parameter when you call [DescribeSendFileResults](https://help.aliyun.com/document_detail/184117.html).
     shared_ptr<string> resourceGroupId_ {};
@@ -318,7 +318,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The tags.
     shared_ptr<vector<SendFileRequest::Tag>> tag_ {};
-    // The destination directory on the target ECS instances where the file is sent. If the directory does not exist, it is automatically created. The directory path cannot exceed 255 characters in length.
+    // The destination folder on the target ECS instances for the file to be sent. If the folder does not exist, automatic creation is performed. The value cannot exceed 255 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> targetDir_ {};

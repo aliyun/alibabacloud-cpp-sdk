@@ -98,7 +98,7 @@ namespace Models
     protected:
       // The tag key of the file sending task. Valid values of N: 1 to 20. The tag key cannot be an empty string.
       // 
-      // If you use a single tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that have all specified tags attached cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query resources.
+      // If you use one tag to filter resources, the resource count with the specified tag cannot exceed 1,000. If you use multiple tags to filter resources, the resource count of resources that are attached with all specified tags cannot exceed 1,000. If the resource count exceeds 1,000, call the [ListTagResources](https://help.aliyun.com/document_detail/110425.html) operation to query the resources.
       // 
       // The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
       shared_ptr<string> key_ {};
@@ -220,9 +220,9 @@ namespace Models
 
 
   protected:
-    // The instance ID. If you specify this parameter, all file sending records of the specified instance are queried.
+    // The instance ID. After you specify this parameter, all file sending records of the instance are queried.
     shared_ptr<string> instanceId_ {};
-    // The overall sending status of the file. The overall status depends on the combined execution status of all instances in the sending task. Valid values:
+    // The overall sending status of the file. The overall status depends on the common execution status of all target instances. Valid values:
     // 
     // - Pending: The system is validating or sending the file. The overall status is Pending if the file sending status of at least one instance is Pending.
     // - Running: The file is being sent on instances. The overall status is Running if the file sending status of at least one instance is Running.
@@ -238,25 +238,25 @@ namespace Models
     // 
     // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The file name. If you specify this parameter, all sending records of the file with the specified name are queried.
+    // The name of the file. After you specify this parameter, all sending records of the file are queried.
     shared_ptr<string> name_ {};
     // The pagination token. Set this parameter to the NextToken value returned in the previous API call.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging operations.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging queries.
     shared_ptr<int64_t> pageNumber_ {};
-    // > This parameter is about to be deprecated. Use NextToken and MaxResults to complete paging operations.
+    // > This parameter is about to be deprecated. Use NextToken and MaxResults to perform paging queries.
     shared_ptr<int64_t> pageSize_ {};
     // The region ID of the ECS instance. You can call [DescribeRegions](https://help.aliyun.com/document_detail/25609.html) to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the file sending task belongs. After you specify this parameter, you must also specify ResourceGroupId when sending a file. This parameter allows you to filter file sending results by resource group.
+    // The ID of the resource group to which the file sending task belongs. After you specify this parameter, you must also specify ResourceGroupId when sending files. This way, you can filter the file sending results of the specified resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The list of tags.
+    // The tags.
     shared_ptr<vector<DescribeSendFileResultsRequest::Tag>> tag_ {};
   };
 

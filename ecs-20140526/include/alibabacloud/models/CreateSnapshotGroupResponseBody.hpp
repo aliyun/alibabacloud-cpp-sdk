@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the snapshot consistency group.
+    // The ID of the snapshot-consistent group.
     shared_ptr<string> snapshotGroupId_ {};
   };
 

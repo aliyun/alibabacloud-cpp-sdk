@@ -138,8 +138,8 @@ namespace Models
       // * true: Enabled.
       // * false: Disabled.
       // 
-      // Note:
-      // * Enabling or disabling the session feature takes effect across all regions.
+      // Precautions:
+      // * Enabling or disabling the session feature takes effect in all regions.
       shared_ptr<bool> sessionManagerEnabled_ {};
     };
 
@@ -233,7 +233,7 @@ namespace Models
       // - Minimum value: 7.
       // - Maximum value: 365.
       shared_ptr<int32_t> logFileCountLimit_ {};
-      // The maximum size of a single Cloud Assistant log file. You must specify the unit (B|KB|MB).
+      // The size limit of a single Cloud Assistant log file. You must specify the unit (B|KB|MB).
       // - Default value: 100MB.
       // - Minimum value: 10MB.
       // - Maximum value: 1024MB.
@@ -243,7 +243,7 @@ namespace Models
       // - Minimum value: 35MB.
       // - Maximum value: 1024MB.
       shared_ptr<string> memoryLimit_ {};
-      // The maximum number of consecutive times that CPU or memory resources usage can exceed the limit before the Cloud Assistant Agent automatically stops running.
+      // The maximum number of consecutive times that CPU or memory resources usage can exceed the limit. When this limit is reached, the Cloud Assistant Agent automatically stops running.
       // - Default value: 3.
       // - Minimum value: 3.
       shared_ptr<int32_t> overloadLimit_ {};
@@ -331,18 +331,18 @@ namespace Models
       // - AES256
       // - SM4
       shared_ptr<string> encryptionAlgorithm_ {};
-      // The ID of the customer master key (CMK) when the encryption method is set to KMS.
+      // The customer master key (CMK) ID when the encryption method is set to KMS.
       shared_ptr<string> encryptionKeyId_ {};
       // The OSS encryption method. Valid values:
-      // - Inherit: inherits the encryption method of the bucket.
-      // - OssManaged: OSS-managed encryption.
-      // - KMS: Key Management Service (KMS) encryption.
+      // - Inherit: Inherits the encryption method of the bucket.
+      // - OssManaged: Uses OSS-managed encryption.
+      // - KMS: Uses KMS-based encryption.
       shared_ptr<string> encryptionType_ {};
-      // The directory prefix of the OSS bucket. The following limits apply:
+      // The directory prefix of the OSS bucket. Constraints:
       // - The prefix cannot exceed 254 characters in length.
       // - The prefix cannot start with a forward slash (/) or a backslash (\\).
       // 
-      // > Note: Set this parameter to an empty string ("") if no directory prefix is required. If a prefix was previously configured and is no longer needed, set this parameter to an empty string ("") to clear it.
+      // > Note: Pass an empty string ("") to indicate that no directory prefix is required. If a prefix was previously set and is no longer needed, pass an empty string ("") to clear it.
       shared_ptr<string> prefix_ {};
     };
 
@@ -417,17 +417,17 @@ namespace Models
       // 
       // The interval between time windows cannot be less than 1 hour.
       // 
-      // Format: Start time (HH:mm)-End time (HH:mm).
+      // Format: start time (HH:mm)-end time (HH:mm).
       // 
-      // Example: [
+      // For example, [
       // "02:00-03:00",
       // "05:00-06:00"
       // ]
-      // This indicates that upgrades are allowed daily from 02:00 to 03:00 and from 05:00 to 06:00 in the UTC time zone.
+      // indicates that upgrades are allowed daily from 02:00 to 03:00 and from 05:00 to 06:00 in the UTC time zone.
       shared_ptr<vector<string>> allowedUpgradeWindow_ {};
-      // Specifies whether the Cloud Assistant Agent checks for updates and performs an upgrade immediately upon startup. Default value: true.
+      // Specifies whether the Cloud Assistant Agent checks for version updates and performs upgrades immediately upon startup. Default value: true.
       // 
-      // This parameter takes effect only when the Cloud Assistant Agent version meets the following minimum requirements:
+      // This setting takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
       // 
       // - Windows: 2.1.4.1065
       // 
@@ -435,20 +435,20 @@ namespace Models
       shared_ptr<bool> bootstrapUpgrade_ {};
       // Specifies whether to prevent the Cloud Assistant Agent from checking for and performing updates. Default value: false.
       // 
-      // This parameter takes effect only when the Cloud Assistant Agent version meets the following minimum requirements:
+      // This setting takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
       // 
       // - Windows: 2.1.4.1065
       // 
       // - Linux: 2.2.4.1065
       shared_ptr<bool> disableUpgrade_ {};
-      // Specifies whether to enable the custom Agent upgrade configuration. If this parameter is set to false, the system attempts to upgrade the Agent every 30 minutes by default.
+      // Specifies whether to enable custom Agent upgrade configuration. If set to false, the default behavior of attempting an upgrade every 30 minutes is retained.
       // 
       // Default value: false.
       shared_ptr<bool> enabled_ {};
-      // The time zone for the allowed upgrade time windows. Default value: UTC.
-      // The time zone can be specified in the following formats:
-      // - Full time zone name, such as Asia/Shanghai or America/Los_Angeles.
-      // - GMT offset from Greenwich Mean Time, such as GMT+8:00 or GMT-7:00. Leading zeros are not supported for the hour value.
+      // The time zone for the allowed upgrade time windows. The default time zone is UTC.
+      // The time zone can be specified in the following two formats:
+      // - Full time zone name: such as Asia/Shanghai or America/Los_Angeles.
+      // - GMT offset from Greenwich Mean Time: such as GMT+8:00 or GMT-7:00. Leading zeros are not supported for the hour value.
       shared_ptr<string> timeZone_ {};
     };
 
@@ -555,7 +555,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The Cloud Assistant resource usage configuration. This parameter takes effect only when the Cloud Assistant Agent version meets the following minimum requirements:
+    // The Cloud Assistant resource usage configuration. This setting takes effect only when the Cloud Assistant Agent version is not earlier than the following versions:
     // 
     // - Windows: 2.1.4.1065
     // 

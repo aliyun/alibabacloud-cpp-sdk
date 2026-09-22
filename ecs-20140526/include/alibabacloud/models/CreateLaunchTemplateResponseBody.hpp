@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The launch template ID.
+    // The ID of the launch template.
     shared_ptr<string> launchTemplateId_ {};
-    // The launch template version number.
+    // The version number of the launch template.
     shared_ptr<int64_t> launchTemplateVersionNumber_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

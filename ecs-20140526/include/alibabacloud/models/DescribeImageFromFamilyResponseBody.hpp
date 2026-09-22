@@ -472,7 +472,7 @@ namespace Models
       // - i386
       // - x86_64
       shared_ptr<string> architecture_ {};
-      // The time when the image was created.
+      // The time when the image was created. The time follows the ISO 8601 standard in UTC.
       shared_ptr<string> creationTime_ {};
       // The description of the image.
       shared_ptr<string> description_ {};
@@ -486,7 +486,7 @@ namespace Models
       // The alias of the image owner. Valid values:
       // - system: public image.
       // - self: your custom image.
-      // - others: shared image from other users.
+      // - others: public image of another user.
       // - marketplace: Alibaba Cloud Marketplace image.
       shared_ptr<string> imageOwnerAlias_ {};
       // The image version.
@@ -499,7 +499,7 @@ namespace Models
       shared_ptr<bool> isSubscribed_ {};
       // Indicates whether cloud-init is supported.
       shared_ptr<bool> isSupportCloudinit_ {};
-      // Indicates whether the image can run on an I/O optimized instance.
+      // Indicates whether the image can be used on I/O optimized instances.
       shared_ptr<bool> isSupportIoOptimized_ {};
       // The China-locale display name of the operating system.
       shared_ptr<string> OSName_ {};
@@ -522,9 +522,9 @@ namespace Models
       // - CreateFailed: failed to be created
       shared_ptr<string> status_ {};
       shared_ptr<Image::Tags> tags_ {};
-      // The type of resource that references the image. Valid values:
-      // - instance: One or more ECS instances have been created from the image.
-      // - none: No ECS instances have been created from the image.
+      // The type of resource to which the image is associated. Valid values:
+      // - instance: one or more ECS instances have been created from the image.
+      // - none: no ECS instances have been created from the image.
       shared_ptr<string> usage_ {};
     };
 
