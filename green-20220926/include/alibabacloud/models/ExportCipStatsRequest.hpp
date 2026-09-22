@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EndDate, endDate_);
       DARABONBA_PTR_TO_JSON(ExportType, exportType_);
       DARABONBA_PTR_TO_JSON(Label, label_);
+      DARABONBA_PTR_TO_JSON(Query, query_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_TO_JSON(ServiceCode, serviceCode_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EndDate, endDate_);
       DARABONBA_PTR_FROM_JSON(ExportType, exportType_);
       DARABONBA_PTR_FROM_JSON(Label, label_);
+      DARABONBA_PTR_FROM_JSON(Query, query_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceType, resourceType_);
       DARABONBA_PTR_FROM_JSON(ServiceCode, serviceCode_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->byMonth_ == nullptr
-        && this->endDate_ == nullptr && this->exportType_ == nullptr && this->label_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr
-        && this->serviceCode_ == nullptr && this->startDate_ == nullptr && this->subUid_ == nullptr && this->type_ == nullptr; };
+        && this->endDate_ == nullptr && this->exportType_ == nullptr && this->label_ == nullptr && this->query_ == nullptr && this->regionId_ == nullptr
+        && this->resourceType_ == nullptr && this->serviceCode_ == nullptr && this->startDate_ == nullptr && this->subUid_ == nullptr && this->type_ == nullptr; };
     // byMonth Field Functions 
     bool hasByMonth() const { return this->byMonth_ != nullptr;};
     void deleteByMonth() { this->byMonth_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteLabel() { this->label_ = nullptr;};
     inline string getLabel() const { DARABONBA_PTR_GET_DEFAULT(label_, "") };
     inline ExportCipStatsRequest& setLabel(string label) { DARABONBA_PTR_SET_VALUE(label_, label) };
+
+
+    // query Field Functions 
+    bool hasQuery() const { return this->query_ != nullptr;};
+    void deleteQuery() { this->query_ = nullptr;};
+    inline string getQuery() const { DARABONBA_PTR_GET_DEFAULT(query_, "") };
+    inline ExportCipStatsRequest& setQuery(string query) { DARABONBA_PTR_SET_VALUE(query_, query) };
 
 
     // regionId Field Functions 
@@ -128,11 +137,13 @@ namespace Models
     // The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
     shared_ptr<string> endDate_ {};
     // The export type. Valid values:
-    // - **level**: export by risk level.
-    // - **label**: export by label.
+    // - **level**: Export by risk level.
+    // - **label**: Export by label.
     shared_ptr<string> exportType_ {};
     // The task label to export.
     shared_ptr<string> label_ {};
+    // The query condition.
+    shared_ptr<string> query_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
     // The resource type.
@@ -144,11 +155,11 @@ namespace Models
     // The UID of the RAM user.
     shared_ptr<string> subUid_ {};
     // The type. Valid values:
-    // - **cip**: Content Moderation invocation volume statistics.
-    // - **risk_level**: Content Moderation risk level statistics.
-    // - **content_moderation**: AI safety guardrail content compliance risk level and tag statistics.
-    // - **sensitive_data**: AI safety guardrail sensitive data risk level and tag statistics.
-    // - **prompt_attack**: AI safety guardrail prompt risk level and tag statistics.
+    // - **cip**: Content Moderation invoke volume statistics.
+    // - **risk_level**: Content Moderation security risk level statistics.
+    // - **content_moderation**: AI Safety Guardrail content compliance risk level and tag statistics.
+    // - **sensitive_data**: AI Safety Guardrail sensitive data risk level and tag statistics.
+    // - **prompt_attack**: AI Safety Guardrail prompt risk level and tag statistics.
     shared_ptr<string> type_ {};
   };
 

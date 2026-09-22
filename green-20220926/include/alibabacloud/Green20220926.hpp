@@ -562,7 +562,7 @@ namespace Green20220926
       Models::ExportAnswerSampleResponse exportAnswerSample(const Models::ExportAnswerSampleRequest &request);
 
       /**
-       * @summary Exports call usage statistics.
+       * @summary Exports call volume.
        *
        * @param request ExportCipStatsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -571,7 +571,7 @@ namespace Green20220926
       Models::ExportCipStatsResponse exportCipStatsWithOptions(const Models::ExportCipStatsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Exports call usage statistics.
+       * @summary Exports call volume.
        *
        * @param request ExportCipStatsRequest
        * @return ExportCipStatsResponse

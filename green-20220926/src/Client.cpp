@@ -1924,7 +1924,7 @@ ExportAnswerSampleResponse Client::exportAnswerSample(const ExportAnswerSampleRe
 }
 
 /**
- * @summary Exports call usage statistics.
+ * @summary Exports call volume.
  *
  * @param request ExportCipStatsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1952,6 +1952,10 @@ ExportCipStatsResponse Client::exportCipStatsWithOptions(const ExportCipStatsReq
 
   if (!!request.hasLabel()) {
     body["Label"] = request.getLabel();
+  }
+
+  if (!!request.hasQuery()) {
+    body["Query"] = request.getQuery();
   }
 
   if (!!request.hasResourceType()) {
@@ -1993,7 +1997,7 @@ ExportCipStatsResponse Client::exportCipStatsWithOptions(const ExportCipStatsReq
 }
 
 /**
- * @summary Exports call usage statistics.
+ * @summary Exports call volume.
  *
  * @param request ExportCipStatsRequest
  * @return ExportCipStatsResponse
