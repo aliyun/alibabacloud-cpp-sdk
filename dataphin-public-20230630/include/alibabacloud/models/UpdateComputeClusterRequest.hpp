@@ -105,8 +105,12 @@ namespace Models
 
 
       protected:
+        // The configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> key_ {};
+        // The value of the configuration item.
+        // 
         // This parameter is required.
         shared_ptr<string> value_ {};
       };
@@ -162,9 +166,11 @@ namespace Models
 
 
       protected:
-        // 管控模式。CREATE_COMPUTE_SOURCE：有创建计算源权限即可使用；USER_DEFINE：仅白名单用户/用户组可用
+        // The control mode.
         shared_ptr<string> clusterSafetyAuthType_ {};
+        // The list of whitelist user group IDs.
         shared_ptr<vector<string>> userGroupIds_ {};
+        // The list of whitelist user IDs.
         shared_ptr<vector<string>> userIds_ {};
       };
 
@@ -227,15 +233,25 @@ namespace Models
 
 
     protected:
+      // The list of cluster administrator IDs.
       shared_ptr<vector<string>> clusterAdmins_ {};
+      // The cluster security control configuration.
       shared_ptr<ClusterConfig::ClusterSafetyControl> clusterSafetyControl_ {};
+      // The connection configuration items.
+      // 
       // This parameter is required.
       shared_ptr<vector<ClusterConfig::ConfigList>> configList_ {};
+      // The cluster description.
       shared_ptr<string> des_ {};
+      // The cluster name.
+      // 
       // This parameter is required.
       shared_ptr<string> name_ {};
+      // The cluster type.
+      // 
       // This parameter is required.
       shared_ptr<string> type_ {};
+      // The cluster version.
       shared_ptr<string> typeVersion_ {};
     };
 
@@ -272,12 +288,19 @@ namespace Models
 
 
   protected:
+    // The cluster configuration.
+    // 
     // This parameter is required.
     shared_ptr<UpdateComputeClusterRequest::ClusterConfig> clusterConfig_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
     shared_ptr<string> opUserId_ {};
   };
 

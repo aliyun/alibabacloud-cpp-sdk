@@ -57,10 +57,12 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const DeptUserMapping& obj) { 
           DARABONBA_PTR_TO_JSON(DepartmentIdList, departmentIdList_);
+          DARABONBA_PTR_TO_JSON(SourceType, sourceType_);
           DARABONBA_PTR_TO_JSON(SourceUserId, sourceUserId_);
         };
         friend void from_json(const Darabonba::Json& j, DeptUserMapping& obj) { 
           DARABONBA_PTR_FROM_JSON(DepartmentIdList, departmentIdList_);
+          DARABONBA_PTR_FROM_JSON(SourceType, sourceType_);
           DARABONBA_PTR_FROM_JSON(SourceUserId, sourceUserId_);
         };
         DeptUserMapping() = default ;
@@ -75,7 +77,7 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->departmentIdList_ == nullptr
-        && this->sourceUserId_ == nullptr; };
+        && this->sourceType_ == nullptr && this->sourceUserId_ == nullptr; };
         // departmentIdList Field Functions 
         bool hasDepartmentIdList() const { return this->departmentIdList_ != nullptr;};
         void deleteDepartmentIdList() { this->departmentIdList_ = nullptr;};
@@ -83,6 +85,13 @@ namespace Models
         inline vector<string> getDepartmentIdList() { DARABONBA_PTR_GET(departmentIdList_, vector<string>) };
         inline DeptUserMapping& setDepartmentIdList(const vector<string> & departmentIdList) { DARABONBA_PTR_SET_VALUE(departmentIdList_, departmentIdList) };
         inline DeptUserMapping& setDepartmentIdList(vector<string> && departmentIdList) { DARABONBA_PTR_SET_RVALUE(departmentIdList_, departmentIdList) };
+
+
+        // sourceType Field Functions 
+        bool hasSourceType() const { return this->sourceType_ != nullptr;};
+        void deleteSourceType() { this->sourceType_ = nullptr;};
+        inline string getSourceType() const { DARABONBA_PTR_GET_DEFAULT(sourceType_, "") };
+        inline DeptUserMapping& setSourceType(string sourceType) { DARABONBA_PTR_SET_VALUE(sourceType_, sourceType) };
 
 
         // sourceUserId Field Functions 
@@ -95,6 +104,7 @@ namespace Models
       protected:
         // The list of department IDs to which the user belongs. If this parameter is left empty, the user-department affiliation is deleted.
         shared_ptr<vector<string>> departmentIdList_ {};
+        shared_ptr<string> sourceType_ {};
         // The user ID in the user system. This value is the unique identifier of the user.
         // 
         // This parameter is required.

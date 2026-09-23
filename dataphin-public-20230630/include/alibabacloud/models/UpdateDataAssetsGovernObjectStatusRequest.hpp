@@ -92,10 +92,16 @@ namespace Models
 
 
     protected:
+      // Specifies whether to notify the owner. This parameter takes effect only when the status is reverted to NEW.
       shared_ptr<bool> alertOwners_ {};
+      // The list of governance object IDs.
+      // 
       // This parameter is required.
       shared_ptr<vector<int64_t>> governObjectIds_ {};
+      // The operation description.
       shared_ptr<string> remark_ {};
+      // The target status. Valid values: FINISHED / NEW / IGNORE / CANCEL_IGNORE.
+      // 
       // This parameter is required.
       shared_ptr<string> targetStatus_ {};
     };
@@ -126,9 +132,14 @@ namespace Models
 
 
   protected:
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
     shared_ptr<string> opUserId_ {};
+    // The update command.
+    // 
     // This parameter is required.
     shared_ptr<UpdateDataAssetsGovernObjectStatusRequest::UpdateCommand> updateCommand_ {};
   };

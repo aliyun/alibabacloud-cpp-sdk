@@ -18,13 +18,6 @@ namespace DataphinPublic20230630
 
 AlibabaCloud::DataphinPublic20230630::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-beijing" , "dataphin-public.cn-beijing.aliyuncs.com"},
-    {"cn-chengdu" , "dataphin-public.cn-chengdu.aliyuncs.com"},
-    {"cn-hangzhou" , "dataphin-public.cn-hangzhou.aliyuncs.com"},
-    {"cn-shanghai" , "dataphin-public.cn-shanghai.aliyuncs.com"},
-    {"cn-shenzhen" , "dataphin-public.cn-shenzhen.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("dataphin-public", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -1839,13 +1832,13 @@ CreateDataSourceResponse Client::createDataSource(const CreateDataSourceRequest 
 }
 
 /**
- * @summary Creates a new dataset under a specified project. Available since v6.2.0.
+ * @summary Creates a dataset in a specified project. Online version: v6.2.0.
  *
  * @description ## Operation description
- * - This API creates a new dataset in a specified project.
+ * - This API operation creates a dataset in a specified project.
  * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
  * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
- * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+ * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
  * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
  * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
  * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
@@ -1899,13 +1892,13 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
 }
 
 /**
- * @summary Creates a new dataset under a specified project. Available since v6.2.0.
+ * @summary Creates a dataset in a specified project. Online version: v6.2.0.
  *
  * @description ## Operation description
- * - This API creates a new dataset in a specified project.
+ * - This API operation creates a dataset in a specified project.
  * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
  * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
- * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+ * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
  * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
  * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
  * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
@@ -3709,7 +3702,7 @@ DeleteBizUnitResponse Client::deleteBizUnit(const DeleteBizUnitRequest &request)
 }
 
 /**
- * @summary 删除集群。
+ * @summary Deletes a cluster. Online version: v6.3.0.
  *
  * @param request DeleteComputeClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3748,7 +3741,7 @@ DeleteComputeClusterResponse Client::deleteComputeClusterWithOptions(const Delet
 }
 
 /**
- * @summary 删除集群。
+ * @summary Deletes a cluster. Online version: v6.3.0.
  *
  * @param request DeleteComputeClusterRequest
  * @return DeleteComputeClusterResponse
@@ -8901,7 +8894,7 @@ GetLlmModelProviderByNameResponse Client::getLlmModelProviderByName(const GetLlm
 }
 
 /**
- * @summary 查询所有大模型服务供应商和可用模型列表
+ * @summary Queries all large language model service providers and available models. Available since v6.3.0.
  *
  * @param request GetLlmModelProvidersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8936,7 +8929,7 @@ GetLlmModelProvidersResponse Client::getLlmModelProvidersWithOptions(const GetLl
 }
 
 /**
- * @summary 查询所有大模型服务供应商和可用模型列表
+ * @summary Queries all large language model service providers and available models. Available since v6.3.0.
  *
  * @param request GetLlmModelProvidersRequest
  * @return GetLlmModelProvidersResponse
@@ -11074,6 +11067,60 @@ GetSecuritySecretKeyResponse Client::getSecuritySecretKeyWithOptions(const GetSe
 GetSecuritySecretKeyResponse Client::getSecuritySecretKey(const GetSecuritySecretKeyRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSecuritySecretKeyWithOptions(request, runtime);
+}
+
+/**
+ * @summary Retrieves the Dataphin server version.
+ *
+ * @description Queries the details of a published API based on the AppKey.
+ *
+ * @param request GetServerVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetServerVersionResponse
+ */
+GetServerVersionResponse Client::getServerVersionWithOptions(const GetServerVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasEnv()) {
+    query["Env"] = request.getEnv();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetServerVersion"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetServerVersionResponse>();
+}
+
+/**
+ * @summary Retrieves the Dataphin server version.
+ *
+ * @description Queries the details of a published API based on the AppKey.
+ *
+ * @param request GetServerVersionRequest
+ * @return GetServerVersionResponse
+ */
+GetServerVersionResponse Client::getServerVersion(const GetServerVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getServerVersionWithOptions(request, runtime);
 }
 
 /**
@@ -16865,7 +16912,7 @@ RemoveQualityRuleSchedulesResponse Client::removeQualityRuleSchedules(const Remo
 }
 
 /**
- * @summary Removes a tenant member. Only superusers and system administrators can call this API operation.
+ * @summary Removes a tenant member. Only super administrators and system administrators can invoke this API operation.
  *
  * @param tmpReq RemoveTenantMemberRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16912,7 +16959,7 @@ RemoveTenantMemberResponse Client::removeTenantMemberWithOptions(const RemoveTen
 }
 
 /**
- * @summary Removes a tenant member. Only superusers and system administrators can call this API operation.
+ * @summary Removes a tenant member. Only super administrators and system administrators can invoke this API operation.
  *
  * @param request RemoveTenantMemberRequest
  * @return RemoveTenantMemberResponse
@@ -18455,7 +18502,7 @@ UpdateBizUnitResponse Client::updateBizUnit(const UpdateBizUnitRequest &request)
 }
 
 /**
- * @summary 修改集群。
+ * @summary Modifies a cluster. Online version: v6.3.0.
  *
  * @param tmpReq UpdateComputeClusterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18506,7 +18553,7 @@ UpdateComputeClusterResponse Client::updateComputeClusterWithOptions(const Updat
 }
 
 /**
- * @summary 修改集群。
+ * @summary Modifies a cluster. Online version: v6.3.0.
  *
  * @param request UpdateComputeClusterRequest
  * @return UpdateComputeClusterResponse
@@ -18575,10 +18622,10 @@ UpdateComputeSourceResponse Client::updateComputeSource(const UpdateComputeSourc
 }
 
 /**
- * @summary 根据治理项id，批量修改问题清单对象的状态。
+ * @summary Batch updates the status of issue checklist objects by governance item ID. Online since v6.3.0.
  *
- * @description ## 请求说明
- * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+ * @description ## Operation description
+ * - This API operation updates the status of existing issue checklists under a specific project.
  *
  * @param tmpReq UpdateDataAssetsGovernObjectStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18625,10 +18672,10 @@ UpdateDataAssetsGovernObjectStatusResponse Client::updateDataAssetsGovernObjectS
 }
 
 /**
- * @summary 根据治理项id，批量修改问题清单对象的状态。
+ * @summary Batch updates the status of issue checklist objects by governance item ID. Online since v6.3.0.
  *
- * @description ## 请求说明
- * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+ * @description ## Operation description
+ * - This API operation updates the status of existing issue checklists under a specific project.
  *
  * @param request UpdateDataAssetsGovernObjectStatusRequest
  * @return UpdateDataAssetsGovernObjectStatusResponse

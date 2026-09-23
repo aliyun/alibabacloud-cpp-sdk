@@ -66,12 +66,19 @@ namespace Models
 
 
   protected:
+    // The cluster configuration.
+    // 
     // This parameter is required.
     shared_ptr<string> clusterConfigShrink_ {};
+    // The cluster ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> id_ {};
+    // The tenant ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
     shared_ptr<string> opUserId_ {};
   };
 

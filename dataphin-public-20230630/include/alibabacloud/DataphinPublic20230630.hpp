@@ -558,13 +558,13 @@ namespace DataphinPublic20230630
       Models::CreateDataSourceResponse createDataSource(const Models::CreateDataSourceRequest &request);
 
       /**
-       * @summary Creates a new dataset under a specified project. Available since v6.2.0.
+       * @summary Creates a dataset in a specified project. Online version: v6.2.0.
        *
        * @description ## Operation description
-       * - This API creates a new dataset in a specified project.
+       * - This API operation creates a dataset in a specified project.
        * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
        * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-       * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+       * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
        * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
        * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
        * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
@@ -576,13 +576,13 @@ namespace DataphinPublic20230630
       Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a new dataset under a specified project. Available since v6.2.0.
+       * @summary Creates a dataset in a specified project. Online version: v6.2.0.
        *
        * @description ## Operation description
-       * - This API creates a new dataset in a specified project.
+       * - This API operation creates a dataset in a specified project.
        * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
        * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
-       * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios respectively.
+       * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
        * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
        * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
        * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
@@ -1129,7 +1129,7 @@ namespace DataphinPublic20230630
       Models::DeleteBizUnitResponse deleteBizUnit(const Models::DeleteBizUnitRequest &request);
 
       /**
-       * @summary 删除集群。
+       * @summary Deletes a cluster. Online version: v6.3.0.
        *
        * @param request DeleteComputeClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1138,7 +1138,7 @@ namespace DataphinPublic20230630
       Models::DeleteComputeClusterResponse deleteComputeClusterWithOptions(const Models::DeleteComputeClusterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除集群。
+       * @summary Deletes a cluster. Online version: v6.3.0.
        *
        * @param request DeleteComputeClusterRequest
        * @return DeleteComputeClusterResponse
@@ -2745,7 +2745,7 @@ namespace DataphinPublic20230630
       Models::GetLlmModelProviderByNameResponse getLlmModelProviderByName(const Models::GetLlmModelProviderByNameRequest &request);
 
       /**
-       * @summary 查询所有大模型服务供应商和可用模型列表
+       * @summary Queries all large language model service providers and available models. Available since v6.3.0.
        *
        * @param request GetLlmModelProvidersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2754,7 +2754,7 @@ namespace DataphinPublic20230630
       Models::GetLlmModelProvidersResponse getLlmModelProvidersWithOptions(const Models::GetLlmModelProvidersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询所有大模型服务供应商和可用模型列表
+       * @summary Queries all large language model service providers and available models. Available since v6.3.0.
        *
        * @param request GetLlmModelProvidersRequest
        * @return GetLlmModelProvidersResponse
@@ -3443,6 +3443,27 @@ namespace DataphinPublic20230630
        * @return GetSecuritySecretKeyResponse
        */
       Models::GetSecuritySecretKeyResponse getSecuritySecretKey(const Models::GetSecuritySecretKeyRequest &request);
+
+      /**
+       * @summary Retrieves the Dataphin server version.
+       *
+       * @description Queries the details of a published API based on the AppKey.
+       *
+       * @param request GetServerVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetServerVersionResponse
+       */
+      Models::GetServerVersionResponse getServerVersionWithOptions(const Models::GetServerVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves the Dataphin server version.
+       *
+       * @description Queries the details of a published API based on the AppKey.
+       *
+       * @param request GetServerVersionRequest
+       * @return GetServerVersionResponse
+       */
+      Models::GetServerVersionResponse getServerVersion(const Models::GetServerVersionRequest &request);
 
       /**
        * @summary Retrieves the Spark client information of the cluster associated with a compute source.
@@ -5179,7 +5200,7 @@ namespace DataphinPublic20230630
       Models::RemoveQualityRuleSchedulesResponse removeQualityRuleSchedules(const Models::RemoveQualityRuleSchedulesRequest &request);
 
       /**
-       * @summary Removes a tenant member. Only superusers and system administrators can call this API operation.
+       * @summary Removes a tenant member. Only super administrators and system administrators can invoke this API operation.
        *
        * @param tmpReq RemoveTenantMemberRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5188,7 +5209,7 @@ namespace DataphinPublic20230630
       Models::RemoveTenantMemberResponse removeTenantMemberWithOptions(const Models::RemoveTenantMemberRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a tenant member. Only superusers and system administrators can call this API operation.
+       * @summary Removes a tenant member. Only super administrators and system administrators can invoke this API operation.
        *
        * @param request RemoveTenantMemberRequest
        * @return RemoveTenantMemberResponse
@@ -5650,7 +5671,7 @@ namespace DataphinPublic20230630
       Models::UpdateBizUnitResponse updateBizUnit(const Models::UpdateBizUnitRequest &request);
 
       /**
-       * @summary 修改集群。
+       * @summary Modifies a cluster. Online version: v6.3.0.
        *
        * @param tmpReq UpdateComputeClusterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5659,7 +5680,7 @@ namespace DataphinPublic20230630
       Models::UpdateComputeClusterResponse updateComputeClusterWithOptions(const Models::UpdateComputeClusterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改集群。
+       * @summary Modifies a cluster. Online version: v6.3.0.
        *
        * @param request UpdateComputeClusterRequest
        * @return UpdateComputeClusterResponse
@@ -5684,10 +5705,10 @@ namespace DataphinPublic20230630
       Models::UpdateComputeSourceResponse updateComputeSource(const Models::UpdateComputeSourceRequest &request);
 
       /**
-       * @summary 根据治理项id，批量修改问题清单对象的状态。
+       * @summary Batch updates the status of issue checklist objects by governance item ID. Online since v6.3.0.
        *
-       * @description ## 请求说明
-       * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+       * @description ## Operation description
+       * - This API operation updates the status of existing issue checklists under a specific project.
        *
        * @param tmpReq UpdateDataAssetsGovernObjectStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5696,10 +5717,10 @@ namespace DataphinPublic20230630
       Models::UpdateDataAssetsGovernObjectStatusResponse updateDataAssetsGovernObjectStatusWithOptions(const Models::UpdateDataAssetsGovernObjectStatusRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据治理项id，批量修改问题清单对象的状态。
+       * @summary Batch updates the status of issue checklist objects by governance item ID. Online since v6.3.0.
        *
-       * @description ## 请求说明
-       * - 该 API 用于更新特定项目下已存在的问题清单的状态。
+       * @description ## Operation description
+       * - This API operation updates the status of existing issue checklists under a specific project.
        *
        * @param request UpdateDataAssetsGovernObjectStatusRequest
        * @return UpdateDataAssetsGovernObjectStatusResponse

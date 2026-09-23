@@ -86,11 +86,11 @@ namespace Models
   protected:
     // The error code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The connectivity check result of the data source.
+    // The result of the data source connectivity check.
     shared_ptr<bool> data_ {};
     // The HTTP status code returned by the backend.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
+    // The error message returned if the request failed.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

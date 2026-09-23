@@ -680,6 +680,9 @@
 #include <alibabacloud/models/GetSecuritySecretKeyRequest.hpp>
 #include <alibabacloud/models/GetSecuritySecretKeyResponseBody.hpp>
 #include <alibabacloud/models/GetSecuritySecretKeyResponse.hpp>
+#include <alibabacloud/models/GetServerVersionRequest.hpp>
+#include <alibabacloud/models/GetServerVersionResponseBody.hpp>
+#include <alibabacloud/models/GetServerVersionResponse.hpp>
 #include <alibabacloud/models/GetSparkLocalClientInfoRequest.hpp>
 #include <alibabacloud/models/GetSparkLocalClientInfoResponseBody.hpp>
 #include <alibabacloud/models/GetSparkLocalClientInfoResponse.hpp>

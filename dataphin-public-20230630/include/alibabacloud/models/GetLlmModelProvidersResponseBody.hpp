@@ -188,15 +188,35 @@ namespace Models
 
 
       protected:
+        // The Chinese name of the model.
         shared_ptr<string> cnName_ {};
+        // The description of the model.
         shared_ptr<string> description_ {};
+        // The list of available dimension values for the embedding model. This value is returned only for embedding models.
         shared_ptr<vector<int32_t>> embeddingDimensions_ {};
+        // The enabling status.
         shared_ptr<bool> enabled_ {};
+        // The model invocation method. Valid values:
+        // - OPEN_AI
+        // - DASH_SCOPE
         shared_ptr<string> invokeType_ {};
+        // The model ID.
         shared_ptr<int64_t> modelId_ {};
+        // The list of model modality types. Valid values:
+        // - TEXT: text
+        // - IMAGE: image
+        // - AUDIO: audio
+        // - VIDEO: video
+        // - EMBEDDING: embedding
         shared_ptr<vector<string>> modelTypes_ {};
+        // The name of the model.
         shared_ptr<string> name_ {};
+        // The service provider.
         shared_ptr<string> serviceProvider_ {};
+        // The list of model task capabilities. Valid values:
+        // - ASR: speech recognition
+        // - TTS: speech synthesis
+        // - TRANSLATION: speech translation
         shared_ptr<vector<string>> tasks_ {};
       };
 
@@ -255,12 +275,27 @@ namespace Models
 
 
     protected:
+      // The base URL of the model.
       shared_ptr<string> baseUrl_ {};
+      // The enabling status.
       shared_ptr<bool> enabled_ {};
+      // The ID of the model service provider.
       shared_ptr<int64_t> id_ {};
+      // The list of models provided by the model service provider.
       shared_ptr<vector<Data::LlmModels>> llmModels_ {};
+      // The source of the model service provider. Valid values:
+      // - BUILTIN_MODEL: built-in
+      // - BYOM: user-provided
       shared_ptr<string> providerSource_ {};
+      // The provider type. Valid values:
+      // - BAILIAN
+      // - DEEPSEEK
+      // - AI_STACK
+      // - VLLM
+      // - AGENT_ONE
+      // - DATAPHIN
       shared_ptr<string> providerType_ {};
+      // The name of the model service provider.
       shared_ptr<string> serviceProvider_ {};
     };
 
@@ -311,11 +346,17 @@ namespace Models
 
 
   protected:
+    // The backend response code.
     shared_ptr<string> code_ {};
+    // The list of large language model service providers and available models.
     shared_ptr<vector<GetLlmModelProvidersResponseBody::Data>> data_ {};
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
+    // The details of the backend exception.
     shared_ptr<string> message_ {};
+    // Id of the request
     shared_ptr<string> requestId_ {};
+    // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};
   };
 
