@@ -124,20 +124,22 @@ namespace Models
 
 
     protected:
-      // The time when the service credential was created.
+      // The time when the service credential was created. The time follows RFC 3339 (UTC). Example: 2026-01-01T10:05:24Z.
       shared_ptr<string> createTime_ {};
-      // The expiration time of the service credential.
-      // This field is not returned for permanently valid service credentials.
+      // The expiration time of the service credential. This field is not returned for service credentials that never expire. The time follows RFC 3339 (UTC). Example: 2026-02-01T10:05:24Z.
       shared_ptr<string> expirationTime_ {};
-      // The service credential ID.
+      // The ID of the service credential.
       shared_ptr<string> serviceCredentialId_ {};
-      // The service credential name.
+      // The name of the service credential.
       shared_ptr<string> serviceCredentialName_ {};
       // The secret of the service credential.
       shared_ptr<string> serviceCredentialSecret_ {};
-      // The Alibaba Cloud service name.
+      // The service name of the Alibaba Cloud service.
       shared_ptr<string> serviceName_ {};
-      // The status of the service credential.
+      // The status of the service credential. Valid values:
+      // - Active: enabled.
+      // - Inactive: disabled.
+      // - Expired: expired.
       shared_ptr<string> status_ {};
       // The logon name of the RAM user.
       shared_ptr<string> userPrincipalName_ {};

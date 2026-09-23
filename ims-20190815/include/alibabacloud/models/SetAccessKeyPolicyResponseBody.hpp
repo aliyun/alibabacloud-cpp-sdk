@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The AccessKey ID.
+    // The access key ID.
     shared_ptr<string> accessKeyId_ {};
     // The network access restriction policy.
     // 

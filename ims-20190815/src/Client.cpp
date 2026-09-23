@@ -17,10 +17,7 @@ namespace Ims20190815
 {
 
 AlibabaCloud::Ims20190815::Client::Client(Config &config): OpenApiClient(config){
-  this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"cn-hangzhou" , "ims.aliyuncs.com"}
-  }).get<map<string, string>>();
+  this->_endpointRule = "central";
   checkConfig(config);
   this->_endpoint = getEndpoint("ims", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -701,7 +698,7 @@ CreateSAMLProviderResponse Client::createSAMLProvider(const CreateSAMLProviderRe
 }
 
 /**
- * @summary Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+ * @summary Creates a service credential for a Resource Access Management (RAM) user in a specified Alibaba Cloud service.
  *
  * @param request CreateServiceCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -744,7 +741,7 @@ CreateServiceCredentialResponse Client::createServiceCredentialWithOptions(const
 }
 
 /**
- * @summary Creates a service credential for a Resource Access Management (RAM) user in a specified cloud service.
+ * @summary Creates a service credential for a Resource Access Management (RAM) user in a specified Alibaba Cloud service.
  *
  * @param request CreateServiceCredentialRequest
  * @return CreateServiceCredentialResponse
@@ -1179,7 +1176,7 @@ DeleteOIDCProviderResponse Client::deleteOIDCProvider(const DeleteOIDCProviderRe
 }
 
 /**
- * @summary Deletes a passkey for a Resource Access Management (RAM) user.
+ * @summary Deletes a passkey of a RAM user.
  *
  * @param request DeletePasskeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1214,7 +1211,7 @@ DeletePasskeyResponse Client::deletePasskeyWithOptions(const DeletePasskeyReques
 }
 
 /**
- * @summary Deletes a passkey for a Resource Access Management (RAM) user.
+ * @summary Deletes a passkey of a RAM user.
  *
  * @param request DeletePasskeyRequest
  * @return DeletePasskeyResponse
@@ -1267,7 +1264,10 @@ DeleteSAMLProviderResponse Client::deleteSAMLProvider(const DeleteSAMLProviderRe
 }
 
 /**
- * @summary Deletes a service credential of a Resource Access Management (RAM) user.
+ * @summary Deletes the service credential of a Resource Access Management (RAM) user.
+ *
+ * @description ### 使用说明
+ * 删除服务凭证前，必须先调用 `UpdateServiceCredential` 将目标服务凭证的 `Status` 设置为 `Inactive`，再调用本接口。`Active` 状态的服务凭证不能直接删除。
  *
  * @param request DeleteServiceCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1302,7 +1302,10 @@ DeleteServiceCredentialResponse Client::deleteServiceCredentialWithOptions(const
 }
 
 /**
- * @summary Deletes a service credential of a Resource Access Management (RAM) user.
+ * @summary Deletes the service credential of a Resource Access Management (RAM) user.
+ *
+ * @description ### 使用说明
+ * 删除服务凭证前，必须先调用 `UpdateServiceCredential` 将目标服务凭证的 `Status` 设置为 `Inactive`，再调用本接口。`Active` 状态的服务凭证不能直接删除。
  *
  * @param request DeleteServiceCredentialRequest
  * @return DeleteServiceCredentialResponse
@@ -1837,7 +1840,7 @@ GetAccountSecurityPracticeReportResponse Client::getAccountSecurityPracticeRepor
 }
 
 /**
- * @summary Retrieves the overview for an Alibaba Cloud account (root account).
+ * @summary Queries the overview information of an Alibaba Cloud account.
  *
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetAccountSummaryResponse
@@ -1859,7 +1862,7 @@ GetAccountSummaryResponse Client::getAccountSummaryWithOptions(const Darabonba::
 }
 
 /**
- * @summary Retrieves the overview for an Alibaba Cloud account (root account).
+ * @summary Queries the overview information of an Alibaba Cloud account.
  *
  * @return GetAccountSummaryResponse
  */
@@ -1963,6 +1966,8 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 /**
  * @summary Queries installation information about a specified installed application.
  *
+ * @description 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
+ *
  * @param request GetApplicationProvisionInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetApplicationProvisionInfoResponse
@@ -1993,6 +1998,8 @@ GetApplicationProvisionInfoResponse Client::getApplicationProvisionInfoWithOptio
 
 /**
  * @summary Queries installation information about a specified installed application.
+ *
+ * @description 调用本接口前，目标应用必须已经安装；可先调用 `ProvisionApplication` 安装应用，并使用已安装应用的 `AppId`。仅使用 `CreateApplication` 返回、但尚未安装的应用 ID 调用会失败。
  *
  * @param request GetApplicationProvisionInfoRequest
  * @return GetApplicationProvisionInfoResponse
@@ -2083,6 +2090,8 @@ GetDefaultDomainResponse Client::getDefaultDomain() {
 /**
  * @summary Queries information about an installed external application.
  *
+ * @description 调用本接口时，`AppId` 必须来自当前账号已安装的外部应用。可先调用 `ListExternalApplications` 获取；如果账号中没有已安装的外部应用，需先调用 `ProvisionExternalApplication` 安装。
+ *
  * @param request GetExternalApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetExternalApplicationResponse
@@ -2113,6 +2122,8 @@ GetExternalApplicationResponse Client::getExternalApplicationWithOptions(const G
 
 /**
  * @summary Queries information about an installed external application.
+ *
+ * @description 调用本接口时，`AppId` 必须来自当前账号已安装的外部应用。可先调用 `ListExternalApplications` 获取；如果账号中没有已安装的外部应用，需先调用 `ProvisionExternalApplication` 安装。
  *
  * @param request GetExternalApplicationRequest
  * @return GetExternalApplicationResponse
@@ -2249,6 +2260,8 @@ GetGroupResponse Client::getGroup(const GetGroupRequest &request) {
 /**
  * @summary Queries the console logon settings for a Resource Access Management (RAM) user.
  *
+ * @description 查询前，目标 RAM 用户必须已有控制台登录配置（`LoginProfile`）；如果尚未配置，需先调用 `CreateLoginProfile` 创建登录配置。
+ *
  * @param request GetLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetLoginProfileResponse
@@ -2279,6 +2292,8 @@ GetLoginProfileResponse Client::getLoginProfileWithOptions(const GetLoginProfile
 
 /**
  * @summary Queries the console logon settings for a Resource Access Management (RAM) user.
+ *
+ * @description 查询前，目标 RAM 用户必须已有控制台登录配置（`LoginProfile`）；如果尚未配置，需先调用 `CreateLoginProfile` 创建登录配置。
  *
  * @param request GetLoginProfileRequest
  * @return GetLoginProfileResponse
@@ -2827,7 +2842,7 @@ ListAppSecretIdsResponse Client::listAppSecretIds(const ListAppSecretIdsRequest 
 }
 
 /**
- * @summary Queries installation information about all installed applications.
+ * @summary Queries the installation information of all installed applications.
  *
  * @param request ListApplicationProvisionInfosRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2858,7 +2873,7 @@ ListApplicationProvisionInfosResponse Client::listApplicationProvisionInfosWithO
 }
 
 /**
- * @summary Queries installation information about all installed applications.
+ * @summary Queries the installation information of all installed applications.
  *
  * @param request ListApplicationProvisionInfosRequest
  * @return ListApplicationProvisionInfosResponse
@@ -3239,7 +3254,7 @@ ListSAMLProvidersResponse Client::listSAMLProviders(const ListSAMLProvidersReque
 }
 
 /**
- * @summary Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+ * @summary Retrieves the list of service credentials for a Resource Access Management (RAM) user or all Resource Access Management (RAM) users under an Alibaba Cloud account.
  *
  * @param request ListServiceCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3286,7 +3301,7 @@ ListServiceCredentialsResponse Client::listServiceCredentialsWithOptions(const L
 }
 
 /**
- * @summary Retrieves the list of service credentials for a Resource Access Management (RAM) user or all RAM users under an Alibaba Cloud account.
+ * @summary Retrieves the list of service credentials for a Resource Access Management (RAM) user or all Resource Access Management (RAM) users under an Alibaba Cloud account.
  *
  * @param request ListServiceCredentialsRequest
  * @return ListServiceCredentialsResponse
@@ -3597,7 +3612,7 @@ ListUsersInRecycleBinResponse Client::listUsersInRecycleBin(const ListUsersInRec
 }
 
 /**
- * @summary Queries multi-factor authentication (MFA) devices.
+ * @summary Queries the list of multi-factor authentication devices.
  *
  * @param request ListVirtualMFADevicesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3632,7 +3647,7 @@ ListVirtualMFADevicesResponse Client::listVirtualMFADevicesWithOptions(const Lis
 }
 
 /**
- * @summary Queries multi-factor authentication (MFA) devices.
+ * @summary Queries the list of multi-factor authentication devices.
  *
  * @param request ListVirtualMFADevicesRequest
  * @return ListVirtualMFADevicesResponse
@@ -3735,9 +3750,9 @@ ProvisionExternalApplicationResponse Client::provisionExternalApplication(const 
 }
 
 /**
- * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+ * @summary Invokes RemoveClientIdFromOIDCProvider to remove a specified client ID from an OIDC IdP.
  *
- * @description ###
+ * @description ### Usage notes
  * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
  *
  * @param request RemoveClientIdFromOIDCProviderRequest
@@ -3773,9 +3788,9 @@ RemoveClientIdFromOIDCProviderResponse Client::removeClientIdFromOIDCProviderWit
 }
 
 /**
- * @summary Removes a client ID from an OpenID Connect (OIDC) identity provider (IdP).
+ * @summary Invokes RemoveClientIdFromOIDCProvider to remove a specified client ID from an OIDC IdP.
  *
- * @description ###
+ * @description ### Usage notes
  * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
  *
  * @param request RemoveClientIdFromOIDCProviderRequest
@@ -3973,7 +3988,7 @@ RestoreUserFromRecycleBinResponse Client::restoreUserFromRecycleBin(const Restor
 }
 
 /**
- * @summary Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary Settings the network access restriction policy for an access key of an Alibaba Cloud account or a Resource Access Management (RAM) user.
  *
  * @param request SetAccessKeyPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4012,7 +4027,7 @@ SetAccessKeyPolicyResponse Client::setAccessKeyPolicyWithOptions(const SetAccess
 }
 
 /**
- * @summary Settings the network access restriction policy for an AccessKey pair of an Alibaba Cloud account or a Resource Access Management (RAM) user.
+ * @summary Settings the network access restriction policy for an access key of an Alibaba Cloud account or a Resource Access Management (RAM) user.
  *
  * @param request SetAccessKeyPolicyRequest
  * @return SetAccessKeyPolicyResponse
@@ -4625,7 +4640,7 @@ UpdateAccessKeyResponse Client::updateAccessKey(const UpdateAccessKeyRequest &re
 }
 
 /**
- * @summary Modifies the configuration information of an application.
+ * @summary Modifies the configuration of a specified application.
  *
  * @param request UpdateApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4688,7 +4703,7 @@ UpdateApplicationResponse Client::updateApplicationWithOptions(const UpdateAppli
 }
 
 /**
- * @summary Modifies the configuration information of an application.
+ * @summary Modifies the configuration of a specified application.
  *
  * @param request UpdateApplicationRequest
  * @return UpdateApplicationResponse
@@ -4699,7 +4714,7 @@ UpdateApplicationResponse Client::updateApplication(const UpdateApplicationReque
 }
 
 /**
- * @summary Modifies information about a Resource Access Management (RAM) user group.
+ * @summary Modifies the basic information of a specified user group.
  *
  * @param request UpdateGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4742,7 +4757,7 @@ UpdateGroupResponse Client::updateGroupWithOptions(const UpdateGroupRequest &req
 }
 
 /**
- * @summary Modifies information about a Resource Access Management (RAM) user group.
+ * @summary Modifies the basic information of a specified user group.
  *
  * @param request UpdateGroupRequest
  * @return UpdateGroupResponse
@@ -4753,7 +4768,7 @@ UpdateGroupResponse Client::updateGroup(const UpdateGroupRequest &request) {
 }
 
 /**
- * @summary Modifies the console logon settings for a Resource Access Management (RAM) user.
+ * @summary Modifies the console logon information of a specified Resource Access Management (RAM) user.
  *
  * @param request UpdateLoginProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4800,7 +4815,7 @@ UpdateLoginProfileResponse Client::updateLoginProfileWithOptions(const UpdateLog
 }
 
 /**
- * @summary Modifies the console logon settings for a Resource Access Management (RAM) user.
+ * @summary Modifies the console logon information of a specified Resource Access Management (RAM) user.
  *
  * @param request UpdateLoginProfileRequest
  * @return UpdateLoginProfileResponse
@@ -4871,7 +4886,7 @@ UpdateOIDCProviderResponse Client::updateOIDCProvider(const UpdateOIDCProviderRe
 }
 
 /**
- * @summary Updates the name of a passkey.
+ * @summary Updates a passkey.
  *
  * @param request UpdatePasskeyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4910,7 +4925,7 @@ UpdatePasskeyResponse Client::updatePasskeyWithOptions(const UpdatePasskeyReques
 }
 
 /**
- * @summary Updates the name of a passkey.
+ * @summary Updates a passkey.
  *
  * @param request UpdatePasskeyRequest
  * @return UpdatePasskeyResponse
@@ -4979,7 +4994,7 @@ UpdateSAMLProviderResponse Client::updateSAMLProvider(const UpdateSAMLProviderRe
 }
 
 /**
- * @summary Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+ * @summary Updates the status or name of a service credential for a Resource Access Management (RAM) user.
  *
  * @param request UpdateServiceCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5022,7 +5037,7 @@ UpdateServiceCredentialResponse Client::updateServiceCredentialWithOptions(const
 }
 
 /**
- * @summary Modifies the status or name of a service credential for a Resource Access Management (RAM) user.
+ * @summary Updates the status or name of a service credential for a Resource Access Management (RAM) user.
  *
  * @param request UpdateServiceCredentialRequest
  * @return UpdateServiceCredentialResponse
@@ -5033,9 +5048,7 @@ UpdateServiceCredentialResponse Client::updateServiceCredential(const UpdateServ
 }
 
 /**
- * @summary Modifies the information about a RAM user.
- *
- * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+ * @summary Invokes UpdateUser to modify the information of a Resource Access Management (RAM) user.
  *
  * @param request UpdateUserRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5090,9 +5103,7 @@ UpdateUserResponse Client::updateUserWithOptions(const UpdateUserRequest &reques
 }
 
 /**
- * @summary Modifies the information about a RAM user.
- *
- * @description This topic provides an example to show how to modify the name of a RAM user from `test@example.onaliyun.com` to `new@example.onaliyun.com`.
+ * @summary Invokes UpdateUser to modify the information of a Resource Access Management (RAM) user.
  *
  * @param request UpdateUserRequest
  * @return UpdateUserResponse

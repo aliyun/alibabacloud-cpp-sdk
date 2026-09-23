@@ -55,20 +55,26 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const ApplicationProvisionInfo& obj) { 
           DARABONBA_PTR_TO_JSON(AccountId, accountId_);
+          DARABONBA_PTR_TO_JSON(AppCategory, appCategory_);
           DARABONBA_PTR_TO_JSON(AppId, appId_);
           DARABONBA_PTR_TO_JSON(AppName, appName_);
+          DARABONBA_PTR_TO_JSON(AssignmentType, assignmentType_);
           DARABONBA_PTR_TO_JSON(CreateDate, createDate_);
           DARABONBA_PTR_TO_JSON(DelegatedScope, delegatedScope_);
           DARABONBA_PTR_TO_JSON(DisplayName, displayName_);
+          DARABONBA_PTR_TO_JSON(NeedPrincipalConsent, needPrincipalConsent_);
           DARABONBA_PTR_TO_JSON(UpdateDate, updateDate_);
         };
         friend void from_json(const Darabonba::Json& j, ApplicationProvisionInfo& obj) { 
           DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
+          DARABONBA_PTR_FROM_JSON(AppCategory, appCategory_);
           DARABONBA_PTR_FROM_JSON(AppId, appId_);
           DARABONBA_PTR_FROM_JSON(AppName, appName_);
+          DARABONBA_PTR_FROM_JSON(AssignmentType, assignmentType_);
           DARABONBA_PTR_FROM_JSON(CreateDate, createDate_);
           DARABONBA_PTR_FROM_JSON(DelegatedScope, delegatedScope_);
           DARABONBA_PTR_FROM_JSON(DisplayName, displayName_);
+          DARABONBA_PTR_FROM_JSON(NeedPrincipalConsent, needPrincipalConsent_);
           DARABONBA_PTR_FROM_JSON(UpdateDate, updateDate_);
         };
         ApplicationProvisionInfo() = default ;
@@ -191,13 +197,20 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->accountId_ == nullptr
-        && this->appId_ == nullptr && this->appName_ == nullptr && this->createDate_ == nullptr && this->delegatedScope_ == nullptr && this->displayName_ == nullptr
-        && this->updateDate_ == nullptr; };
+        && this->appCategory_ == nullptr && this->appId_ == nullptr && this->appName_ == nullptr && this->assignmentType_ == nullptr && this->createDate_ == nullptr
+        && this->delegatedScope_ == nullptr && this->displayName_ == nullptr && this->needPrincipalConsent_ == nullptr && this->updateDate_ == nullptr; };
         // accountId Field Functions 
         bool hasAccountId() const { return this->accountId_ != nullptr;};
         void deleteAccountId() { this->accountId_ = nullptr;};
         inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
         inline ApplicationProvisionInfo& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
+        // appCategory Field Functions 
+        bool hasAppCategory() const { return this->appCategory_ != nullptr;};
+        void deleteAppCategory() { this->appCategory_ = nullptr;};
+        inline string getAppCategory() const { DARABONBA_PTR_GET_DEFAULT(appCategory_, "") };
+        inline ApplicationProvisionInfo& setAppCategory(string appCategory) { DARABONBA_PTR_SET_VALUE(appCategory_, appCategory) };
 
 
         // appId Field Functions 
@@ -212,6 +225,13 @@ namespace Models
         void deleteAppName() { this->appName_ = nullptr;};
         inline string getAppName() const { DARABONBA_PTR_GET_DEFAULT(appName_, "") };
         inline ApplicationProvisionInfo& setAppName(string appName) { DARABONBA_PTR_SET_VALUE(appName_, appName) };
+
+
+        // assignmentType Field Functions 
+        bool hasAssignmentType() const { return this->assignmentType_ != nullptr;};
+        void deleteAssignmentType() { this->assignmentType_ = nullptr;};
+        inline string getAssignmentType() const { DARABONBA_PTR_GET_DEFAULT(assignmentType_, "") };
+        inline ApplicationProvisionInfo& setAssignmentType(string assignmentType) { DARABONBA_PTR_SET_VALUE(assignmentType_, assignmentType) };
 
 
         // createDate Field Functions 
@@ -237,6 +257,13 @@ namespace Models
         inline ApplicationProvisionInfo& setDisplayName(string displayName) { DARABONBA_PTR_SET_VALUE(displayName_, displayName) };
 
 
+        // needPrincipalConsent Field Functions 
+        bool hasNeedPrincipalConsent() const { return this->needPrincipalConsent_ != nullptr;};
+        void deleteNeedPrincipalConsent() { this->needPrincipalConsent_ = nullptr;};
+        inline bool getNeedPrincipalConsent() const { DARABONBA_PTR_GET_DEFAULT(needPrincipalConsent_, false) };
+        inline ApplicationProvisionInfo& setNeedPrincipalConsent(bool needPrincipalConsent) { DARABONBA_PTR_SET_VALUE(needPrincipalConsent_, needPrincipalConsent) };
+
+
         // updateDate Field Functions 
         bool hasUpdateDate() const { return this->updateDate_ != nullptr;};
         void deleteUpdateDate() { this->updateDate_ = nullptr;};
@@ -246,11 +273,14 @@ namespace Models
 
       protected:
         shared_ptr<string> accountId_ {};
+        shared_ptr<string> appCategory_ {};
         shared_ptr<string> appId_ {};
         shared_ptr<string> appName_ {};
+        shared_ptr<string> assignmentType_ {};
         shared_ptr<string> createDate_ {};
         shared_ptr<ApplicationProvisionInfo::DelegatedScope> delegatedScope_ {};
         shared_ptr<string> displayName_ {};
+        shared_ptr<bool> needPrincipalConsent_ {};
         shared_ptr<string> updateDate_ {};
       };
 

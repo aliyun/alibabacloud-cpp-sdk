@@ -66,19 +66,19 @@ namespace Models
 
 
   protected:
-    // The name of the RAM user group.
+    // The name of the user group.
     shared_ptr<string> groupName_ {};
-    // The new description.
+    // The new comments.
     // 
-    // The description can be up to 128 characters in length.
+    // Maximum length: 128 characters.
     shared_ptr<string> newComments_ {};
-    // The new display name of the RAM user group.
+    // The new display name of the user group.
     // 
-    // The name can be up to 24 characters in length.
+    // Maximum length: 24 characters.
     shared_ptr<string> newDisplayName_ {};
-    // The new name of the RAM user group.
+    // The new name of the user group.
     // 
-    // The name can be up to 64 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-).
+    // Maximum length: 64 characters. The name can contain letters, digits, periods (.), underscores (_), and hyphens (-).
     shared_ptr<string> newGroupName_ {};
   };
 

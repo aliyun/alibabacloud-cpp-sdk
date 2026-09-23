@@ -116,8 +116,13 @@ namespace Models
 
     protected:
       // The creation time.
+      // 
+      // Format: RFC 3339 (UTC), for example, 2026-03-15T09:20:58Z.
       shared_ptr<string> createTime_ {};
-      // The expiration time. This field is not returned for permanent service credentials.
+      // The expiration time.
+      // This field is not returned for permanent service credentials.
+      // 
+      // Format: RFC 3339 (UTC), for example, 2026-04-15T09:20:58Z.
       shared_ptr<string> expirationTime_ {};
       // The service credential ID.
       shared_ptr<string> serviceCredentialId_ {};

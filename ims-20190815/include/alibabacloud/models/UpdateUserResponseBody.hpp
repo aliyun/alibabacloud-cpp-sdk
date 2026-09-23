@@ -142,35 +142,38 @@ namespace Models
 
 
     protected:
-      // The description.
+      // The comments.
       shared_ptr<string> comments_ {};
-      // The time when the RAM user was created.
+      // The time when the Resource Access Management (RAM) user was created.
+      // 
+      // Format: RFC 3339 (UTC). Example: 2020-10-12T09:12:00Z.
       shared_ptr<string> createDate_ {};
-      // The display name of the RAM user.
+      // The display name of the Resource Access Management (RAM) user.
       shared_ptr<string> displayName_ {};
-      // The email address of the RAM user.
+      // The email address of the Resource Access Management (RAM) user.
       // 
-      // > This parameter is valid only on the China site (aliyun.com).
+      // > This parameter is applicable only to China site (aliyun.com).
       shared_ptr<string> email_ {};
-      // The last time when the RAM user logged on to the Alibaba Cloud Management Console.
+      // The most recent time when the Resource Access Management (RAM) user logged on to the console.
+      // 
+      // Format: RFC 3339 (UTC). Example: 2020-10-12T09:12:00Z.
       shared_ptr<string> lastLoginDate_ {};
-      // The mobile phone number of the RAM user.
+      // The mobile phone number of the Resource Access Management (RAM) user.
       // 
-      // > This parameter is valid only on the China site (aliyun.com).
+      // > This parameter is applicable only to China site (aliyun.com).
       shared_ptr<string> mobilePhone_ {};
-      // The source of the RAM user. Valid values:
-      // 
-      // - Manual: The RAM user is manually created in the RAM console.
-      // 
-      // - SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
-      // 
-      // - CloudSSO: The RAM user is mapped from a CloudSSO user.
+      // The synchronization type. Valid values:
+      // - Manual: The Resource Access Management (RAM) user was manually created in RAM.
+      // - SCIM: The Resource Access Management (RAM) user was created by using the System for Cross-domain Identity Management protocol.
+      // - CloudSSO: The user was created by using CloudSSO.
       shared_ptr<string> provisionType_ {};
-      // The time when the information about the RAM user was updated.
+      // The time when the Resource Access Management (RAM) user was last updated.
+      // 
+      // Format: RFC 3339 (UTC). Example: 2020-10-13T09:19:49Z.
       shared_ptr<string> updateDate_ {};
-      // The ID of the RAM user.
+      // The ID of the Resource Access Management (RAM) user.
       shared_ptr<string> userId_ {};
-      // The logon name of the RAM user.
+      // The logon name of the Resource Access Management (RAM) user.
       shared_ptr<string> userPrincipalName_ {};
     };
 
@@ -195,7 +198,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the RAM user.
+    // The Resource Access Management (RAM) user information.
     shared_ptr<UpdateUserResponseBody::User> user_ {};
   };
 

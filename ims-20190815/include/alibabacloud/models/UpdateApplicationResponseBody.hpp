@@ -225,7 +225,6 @@ namespace Models
 
 
       protected:
-        // The information about the permissions that are granted on the application.
         shared_ptr<DelegatedScope::PredefinedScopes> predefinedScopes_ {};
       };
 
@@ -338,7 +337,7 @@ namespace Models
     protected:
       // The validity period of the access token. Unit: seconds.
       shared_ptr<int32_t> accessTokenValidity_ {};
-      // The ID of the Alibaba Cloud account to which the application belongs.
+      // The Alibaba Cloud account ID to which the application belongs.
       shared_ptr<string> accountId_ {};
       // The application ID.
       shared_ptr<string> appId_ {};
@@ -346,27 +345,28 @@ namespace Models
       shared_ptr<string> appName_ {};
       // The application type.
       shared_ptr<string> appType_ {};
-      // The time when the application was created.
+      // The creation time.
+      // 
+      // Format: RFC 3339 (UTC). Example: 2020-10-23T08:06:57Z.
       shared_ptr<string> createDate_ {};
-      // The information about the permissions that are granted on the application.
+      // The permission scope information of the application.
       shared_ptr<Application::DelegatedScope> delegatedScope_ {};
       // The display name of the application.
       shared_ptr<string> displayName_ {};
-      // Indicates whether the application can be installed by using other Alibaba Cloud accounts.
+      // Indicates whether the application is allowed to be installed by other accounts.
       shared_ptr<bool> isMultiTenant_ {};
       // The OAuth protocol version of the application. Valid values:
-      // 
-      // - `2.0`: OAuth 2.0
-      // 
-      // - `2.1`: OAuth 2.1
+      // + `2.0`: OAuth 2.0 protocol.
+      // + `2.1`: OAuth 2.1 protocol.
       shared_ptr<string> protocolVersion_ {};
-      // The redirect URLs.
       shared_ptr<Application::RedirectUris> redirectUris_ {};
       // The validity period of the refresh token. Unit: seconds.
       shared_ptr<int32_t> refreshTokenValidity_ {};
-      // Indicates whether a secret is required.
+      // Indicates whether an application secret is required.
       shared_ptr<bool> secretRequired_ {};
-      // The time when the application was updated.
+      // The update time.
+      // 
+      // Format: RFC 3339 (UTC). Example: 2020-10-23T08:06:57Z.
       shared_ptr<string> updateDate_ {};
     };
 

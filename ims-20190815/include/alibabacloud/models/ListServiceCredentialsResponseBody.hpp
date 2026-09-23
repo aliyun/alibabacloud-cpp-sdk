@@ -123,14 +123,18 @@ namespace Models
 
     protected:
       // The time when the service credential was created.
+      // 
+      // Format: RFC 3339 (UTC). Example: 2026-05-07T05:49:57Z.
       shared_ptr<string> createTime_ {};
       // The expiration time. This field is not returned for permanent service credentials.
+      // 
+      // Format: RFC 3339 (UTC). Example: 2026-06-07T05:49:57Z.
       shared_ptr<string> expirationTime_ {};
       // The ID of the service credential.
       shared_ptr<string> serviceCredentialId_ {};
       // The name of the service credential.
       shared_ptr<string> serviceCredentialName_ {};
-      // The service name of the Alibaba Cloud service.
+      // The Alibaba Cloud service name.
       shared_ptr<string> serviceName_ {};
       // The status of the service credential.
       shared_ptr<string> status_ {};
@@ -178,11 +182,11 @@ namespace Models
 
 
   protected:
-    // Indicates whether there is a next page of results.
+    // Indicates whether there is a next page.
     shared_ptr<bool> isTruncated_ {};
     // The maximum number of entries per page.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results.
+    // The token used to retrieve the next page of results.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

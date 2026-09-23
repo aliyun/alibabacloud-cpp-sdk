@@ -289,56 +289,57 @@ namespace Models
 
 
     protected:
-      // The maximum number of access keys that a RAM user can have.
+      // The maximum number of AccessKey pairs that each Resource Access Management (RAM) user can have.
       shared_ptr<int32_t> accessKeysPerUserQuota_ {};
-      // The maximum number of access keys that an Alibaba Cloud account can have.
+      // The maximum number of AccessKey pairs for the Alibaba Cloud account.
       shared_ptr<int32_t> accountAccessKeysPerAccountQuota_ {};
-      // The maximum number of custom policies that can be attached to a user group.
+      // The maximum number of custom policies that can be attached to each user group.
       shared_ptr<int32_t> attachedPoliciesPerGroupQuota_ {};
-      // The maximum number of custom policies that can be attached to a RAM role.
+      // The maximum number of custom policies that can be attached to each RAM role.
       shared_ptr<int32_t> attachedPoliciesPerRoleQuota_ {};
-      // The maximum number of custom policies that can be attached to a RAM user.
+      // The maximum number of custom policies that can be attached to each RAM user.
       shared_ptr<int32_t> attachedPoliciesPerUserQuota_ {};
-      // The maximum number of system policies that can be attached to a user group.
+      // The maximum number of system policies that can be attached to each user group.
       shared_ptr<int32_t> attachedSystemPoliciesPerGroupQuota_ {};
-      // The maximum number of system policies that can be attached to a RAM role.
+      // The maximum number of system policies that can be attached to each RAM role.
       shared_ptr<int32_t> attachedSystemPoliciesPerRoleQuota_ {};
-      // The maximum number of system policies that can be attached to a RAM user.
+      // The maximum number of system policies that can be attached to each RAM user.
       shared_ptr<int32_t> attachedSystemPoliciesPerUserQuota_ {};
+      // The maximum number of authorized clients that each RAM user can have.
       shared_ptr<int32_t> authorizedClientPerUserQuota_ {};
-      // The maximum number of conditions allowed in a network access control policy for an account or an access key.
+      // The maximum number of policy entries that can be specified in an account-level or AccessKey-level network access restriction policy.
       shared_ptr<int32_t> conditionsPerAKPolicyQuota_ {};
       // The number of user groups.
       shared_ptr<int32_t> groups_ {};
-      // The maximum number of user groups to which a RAM user can be added.
+      // The maximum number of user groups that each Resource Access Management (RAM) user can join.
       shared_ptr<int32_t> groupsPerUserQuota_ {};
       // The maximum number of user groups that can be created.
       shared_ptr<int32_t> groupsQuota_ {};
-      // The maximum number of IP addresses or CIDR blocks allowed in a network access control policy for an account or an access key.
+      // The maximum number of IP addresses that can be specified in an account-level or AccessKey-level network access restriction policy.
       shared_ptr<int32_t> IPItemsPerAKPolicyQuota_ {};
-      // The number of virtual MFA devices.
+      // The number of virtual multi-factor authentication devices.
       shared_ptr<int32_t> MFADevices_ {};
-      // The number of virtual MFA devices in use.
+      // The number of virtual multi-factor authentication devices in use.
       shared_ptr<int32_t> MFADevicesInUse_ {};
       // The number of custom policies.
       shared_ptr<int32_t> policies_ {};
       // The maximum number of custom policies that can be created.
       shared_ptr<int32_t> policiesQuota_ {};
-      // The maximum character length of a policy document.
+      // The maximum length of the access policy content.
       shared_ptr<int32_t> policySizeQuota_ {};
       // The number of RAM roles.
       shared_ptr<int32_t> roles_ {};
       // The maximum number of RAM roles that can be created.
       shared_ptr<int32_t> rolesQuota_ {};
-      // The maximum number of service-specific credentials that a RAM user can create for each service.
+      // The maximum number of API keys that each user can create for each service.
       shared_ptr<int32_t> serviceCredentialsPerUserPerServiceQuota_ {};
-      // The number of RAM users.
+      // The number of Resource Access Management (RAM) users.
       shared_ptr<int32_t> users_ {};
-      // The maximum number of RAM users that can be created.
+      // The maximum number of Resource Access Management (RAM) users that can be created.
       shared_ptr<int32_t> usersQuota_ {};
-      // The maximum number of versions that can be created for a policy.
+      // The maximum number of access policy versions.
       shared_ptr<int32_t> versionsPerPolicyQuota_ {};
-      // The maximum number of virtual MFA devices that can be created.
+      // The maximum number of virtual multi-factor authentication devices that can be created.
       shared_ptr<int32_t> virtualMFADevicesQuota_ {};
     };
 
@@ -361,9 +362,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // An overview of the Alibaba Cloud account.
+    // The overview information of the Alibaba Cloud account.
     shared_ptr<GetAccountSummaryResponseBody::SummaryMap> summaryMap_ {};
   };
 

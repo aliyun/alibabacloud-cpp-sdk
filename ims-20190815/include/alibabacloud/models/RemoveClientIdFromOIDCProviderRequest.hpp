@@ -48,13 +48,13 @@ namespace Models
 
 
   protected:
-    // The client ID that you want to remove.
+    // The client ID to remove.
     // 
-    // The client ID can contain letters, digits, and special characters and cannot start with the special characters. The special characters are `periods, (.), hyphens (-), underscores (_), colons (:), and forward slashes (/)`.\\`\\`
+    // Format: letters, digits, and the special characters `.-_:/` are allowed. The value cannot start with the special characters `.-_:/`.
     // 
-    // The client ID can be up to 128 characters in length.
+    // Length: up to 128 characters.
     shared_ptr<string> clientId_ {};
-    // The name of the OIDC IdP.
+    // The name of an existing OIDC IdP that has the target `ClientId` attached. If you have not created or attached one, call `CreateOIDCProvider` (with `ClientIds` specified) or `AddClientIdToOIDCProvider` first.
     shared_ptr<string> OIDCProviderName_ {};
   };
 

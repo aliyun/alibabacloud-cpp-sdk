@@ -59,7 +59,7 @@ namespace Models
   protected:
     // The access key ID.
     shared_ptr<string> accessKeyId_ {};
-    // The network access restriction policy. The value is a JSON string. For more information, see the AccessKeyPolicy structure description in the SetAccessKeyPolicy documentation.
+    // The network access restriction policy. The value is a JSON-formatted string. For more information about the AccessKeyPolicy structure, see the SetAccessKeyPolicy documentation.
     shared_ptr<string> accessKeyPolicy_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

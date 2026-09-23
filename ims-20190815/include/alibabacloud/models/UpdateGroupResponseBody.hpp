@@ -105,17 +105,21 @@ namespace Models
 
 
     protected:
-      // The description.
+      // The comments.
       shared_ptr<string> comments_ {};
       // The creation time.
+      // 
+      // Format: RFC 3339 (UTC). Example: 2020-10-19T16:15:17Z.
       shared_ptr<string> createDate_ {};
-      // The display name of the RAM user group.
+      // The display name of the user group.
       shared_ptr<string> displayName_ {};
-      // The ID of the RAM user group.
+      // The ID of the user group.
       shared_ptr<string> groupId_ {};
-      // The name of the RAM user group.
+      // The name of the user group.
       shared_ptr<string> groupName_ {};
       // The update time.
+      // 
+      // Format: RFC 3339 (UTC). Example: 2020-10-20T03:44:27Z.
       shared_ptr<string> updateDate_ {};
     };
 
@@ -138,7 +142,7 @@ namespace Models
 
 
   protected:
-    // The information about the RAM user group.
+    // The user group information.
     shared_ptr<UpdateGroupResponseBody::Group> group_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -94,37 +94,36 @@ namespace Models
 
 
   protected:
-    // The new description of the RAM user.
+    // The new comments.
     // 
-    // The description must be 1 to 128 characters in length.
+    // The comments must be 1 to 128 characters in length.
     shared_ptr<string> newComments_ {};
-    // The new display name of the RAM user.
+    // The new display name of the Resource Access Management (RAM) user.
     // 
     // The name must be 1 to 24 characters in length.
     shared_ptr<string> newDisplayName_ {};
-    // The new email address of the RAM user.
+    // The new email address of the Resource Access Management (RAM) user.
     // 
-    // > This parameter is valid only on the China site (aliyun.com).
+    // > This parameter is applicable only to China site (aliyun.com).
     shared_ptr<string> newEmail_ {};
-    // The new mobile phone number of the RAM user.
+    // The new mobile phone number of the Resource Access Management (RAM) user.
     // 
-    // Format: \\<Country code>-\\<Mobile phone number>.
+    // Format: area code-phone number.
     // 
-    // > This parameter is valid only on the China site (aliyun.com).
+    // > This parameter is applicable only to China site (aliyun.com).
     shared_ptr<string> newMobilePhone_ {};
-    // The new logon name of the RAM user.
+    // The new logon name of the Resource Access Management (RAM) user.
     // 
-    // The name is in the format of `<username>@<AccountAlias>.onaliyun.com`. `<username>` indicates the name of the RAM user. `<AccountAlias>.onaliyun.com` indicates the default domain name.
+    // The format is `<username>@<AccountAlias>.onaliyun.com`, where `<username>` is the RAM username and `<AccountAlias>.onaliyun.com` is the default domain name.
     // 
-    // The value of `NewUserPrincipalName` must be `1 to 128` characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The value of `<username>` must be `1 to 64` characters in length.
+    // The `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (_). The `<username>` must be 1 to 64 characters in length.
     shared_ptr<string> newUserPrincipalName_ {};
-    // The ID of the RAM user.
-    // 
-    // > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+    // The ID of the specified Resource Access Management (RAM) user.
+    // > You must specify either the `UserPrincipalName` or `UserId` parameter, but not both.
     shared_ptr<string> userId_ {};
-    // The logon name of the RAM user.
+    // The logon name of the specified Resource Access Management (RAM) user.
     // 
-    // > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+    // > You must specify either the `UserPrincipalName` or `UserId` parameter, but not both.
     shared_ptr<string> userPrincipalName_ {};
   };
 

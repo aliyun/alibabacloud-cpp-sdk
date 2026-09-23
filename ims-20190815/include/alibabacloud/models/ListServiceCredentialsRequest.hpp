@@ -77,13 +77,13 @@ namespace Models
   protected:
     // Specifies whether to query service credentials for all Resource Access Management (RAM) users under the Alibaba Cloud account.
     // 
-    // If this parameter is set to true, you cannot specify UserPrincipalName at the same time.
+    // When the value is true, you cannot specify UserPrincipalName at the same time.
     shared_ptr<bool> allUsers_ {};
     // The maximum number of entries per page. Valid values: 1 to 100. Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to retrieve the next page of results. You do not need to specify this parameter for the first API call.
+    // The token used to retrieve the next page of results. This parameter is not required for the first API call.
     shared_ptr<string> nextToken_ {};
-    // The service name of the Alibaba Cloud service.
+    // The Alibaba Cloud service name.
     shared_ptr<string> serviceName_ {};
     // The logon name of the Resource Access Management (RAM) user.
     // 
