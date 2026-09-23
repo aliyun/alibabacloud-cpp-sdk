@@ -93,7 +93,7 @@ namespace WafOpenapi20211001
       Models::ClearMajorProtectionBlackIpResponse clearMajorProtectionBlackIp(const Models::ClearMajorProtectionBlackIpRequest &request);
 
       /**
-       * @summary Copies a protection template.
+       * @summary Copies the current mitigation template and generates a new mitigation template.
        *
        * @param request CopyDefenseTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -102,7 +102,7 @@ namespace WafOpenapi20211001
       Models::CopyDefenseTemplateResponse copyDefenseTemplateWithOptions(const Models::CopyDefenseTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Copies a protection template.
+       * @summary Copies the current mitigation template and generates a new mitigation template.
        *
        * @param request CopyDefenseTemplateRequest
        * @return CopyDefenseTemplateResponse
@@ -222,7 +222,7 @@ namespace WafOpenapi20211001
       Models::CreateDefenseResourceGroupResponse createDefenseResourceGroup(const Models::CreateDefenseResourceGroupRequest &request);
 
       /**
-       * @summary Creates a web core protection rule.
+       * @summary Creates a Web core protection rule.
        *
        * @param request CreateDefenseRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -231,7 +231,7 @@ namespace WafOpenapi20211001
       Models::CreateDefenseRuleResponse createDefenseRuleWithOptions(const Models::CreateDefenseRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a web core protection rule.
+       * @summary Creates a Web core protection rule.
        *
        * @param request CreateDefenseRuleRequest
        * @return CreateDefenseRuleResponse
@@ -607,7 +607,7 @@ namespace WafOpenapi20211001
       Models::DeleteDefenseRuleBlockIpResponse deleteDefenseRuleBlockIp(const Models::DeleteDefenseRuleBlockIpRequest &request);
 
       /**
-       * @summary Deletes a protection rule template.
+       * @summary Deletes a protection template.
        *
        * @param request DeleteDefenseTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -616,7 +616,7 @@ namespace WafOpenapi20211001
       Models::DeleteDefenseTemplateResponse deleteDefenseTemplateWithOptions(const Models::DeleteDefenseTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes a protection rule template.
+       * @summary Deletes a protection template.
        *
        * @param request DeleteDefenseTemplateRequest
        * @return DeleteDefenseTemplateResponse
@@ -1579,7 +1579,7 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseResourceOwnerUidResponse describeDefenseResourceOwnerUid(const Models::DescribeDefenseResourceOwnerUidRequest &request);
 
       /**
-       * @summary Queries the protection templates of a protected object or a protected object group.
+       * @summary Queries the protection templates of a protected object or protected object group.
        *
        * @param request DescribeDefenseResourceTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1588,7 +1588,7 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseResourceTemplatesResponse describeDefenseResourceTemplatesWithOptions(const Models::DescribeDefenseResourceTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the protection templates of a protected object or a protected object group.
+       * @summary Queries the protection templates of a protected object or protected object group.
        *
        * @param request DescribeDefenseResourceTemplatesRequest
        * @return DescribeDefenseResourceTemplatesResponse
@@ -1685,7 +1685,7 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseSceneConfigResponse describeDefenseSceneConfig(const Models::DescribeDefenseSceneConfigRequest &request);
 
       /**
-       * @summary Retrieves the details of a specific protection template.
+       * @summary Queries a single protection template.
        *
        * @param request DescribeDefenseTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1694,7 +1694,7 @@ namespace WafOpenapi20211001
       Models::DescribeDefenseTemplateResponse describeDefenseTemplateWithOptions(const Models::DescribeDefenseTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the details of a specific protection template.
+       * @summary Queries a single protection template.
        *
        * @param request DescribeDefenseTemplateRequest
        * @return DescribeDefenseTemplateResponse
@@ -3813,7 +3813,7 @@ namespace WafOpenapi20211001
       Models::ModifyDefenseSceneConfigResponse modifyDefenseSceneConfig(const Models::ModifyDefenseSceneConfigRequest &request);
 
       /**
-       * @summary Modifies a defense template.
+       * @summary Modifies a protection template.
        *
        * @param request ModifyDefenseTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3822,7 +3822,7 @@ namespace WafOpenapi20211001
       Models::ModifyDefenseTemplateResponse modifyDefenseTemplateWithOptions(const Models::ModifyDefenseTemplateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies a defense template.
+       * @summary Modifies a protection template.
        *
        * @param request ModifyDefenseTemplateRequest
        * @return ModifyDefenseTemplateResponse
@@ -3830,7 +3830,7 @@ namespace WafOpenapi20211001
       Models::ModifyDefenseTemplateResponse modifyDefenseTemplate(const Models::ModifyDefenseTemplateRequest &request);
 
       /**
-       * @summary Changes the status of a protection rule template.
+       * @summary Modifies the status of a protection template.
        *
        * @param request ModifyDefenseTemplateStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3839,7 +3839,7 @@ namespace WafOpenapi20211001
       Models::ModifyDefenseTemplateStatusResponse modifyDefenseTemplateStatusWithOptions(const Models::ModifyDefenseTemplateStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the status of a protection rule template.
+       * @summary Modifies the status of a protection template.
        *
        * @param request ModifyDefenseTemplateStatusRequest
        * @return ModifyDefenseTemplateStatusResponse
@@ -4207,7 +4207,7 @@ namespace WafOpenapi20211001
       Models::ModifyResourceLogStatusResponse modifyResourceLogStatus(const Models::ModifyResourceLogStatusRequest &request);
 
       /**
-       * @summary Attaches protected objects to or detaches protected objects from a protection template.
+       * @summary Associates or disassociates protected resources with or from a protection template.
        *
        * @param request ModifyTemplateResourcesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4216,7 +4216,7 @@ namespace WafOpenapi20211001
       Models::ModifyTemplateResourcesResponse modifyTemplateResourcesWithOptions(const Models::ModifyTemplateResourcesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Attaches protected objects to or detaches protected objects from a protection template.
+       * @summary Associates or disassociates protected resources with or from a protection template.
        *
        * @param request ModifyTemplateResourcesRequest
        * @return ModifyTemplateResourcesResponse

@@ -13,6 +13,7 @@ namespace Models
   class ModifyResourceLogStatusRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyResourceLogStatusRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Resource, resource_);
@@ -22,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TraceStatus, traceStatus_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyResourceLogStatusRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Resource, resource_);
@@ -85,9 +87,16 @@ namespace Models
       shared_ptr<string> workspace_ {};
     };
 
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->regionId_ == nullptr && this->resource_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->status_ == nullptr && this->traceConfig_ == nullptr
-        && this->traceStatus_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resource_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->status_ == nullptr
+        && this->traceConfig_ == nullptr && this->traceStatus_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyResourceLogStatusRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -140,9 +149,13 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+    // - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Log.Control.DryRunOperation is returned.
+    // - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+    shared_ptr<bool> dryRun_ {};
     // Instance ID of the WAF instance.
     // 
-    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -172,9 +185,9 @@ namespace Models
     // 
     // - **true**: Enabled.
     // 
-    // - **false**: Disabled.
+    // - **false**: Shutdown.
     // 
-    // > To enable Tracing Analysis, you must first enable the log status **Status** for the protected object.
+    // > To enable Tracing Analysis, you must first enable the log status **Status** of the protected object.
     shared_ptr<bool> traceStatus_ {};
   };
 

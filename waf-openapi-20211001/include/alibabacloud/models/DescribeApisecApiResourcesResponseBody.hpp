@@ -282,22 +282,22 @@ namespace Models
       shared_ptr<int64_t> abnormalNum_ {};
       // The number of account security events associated with the asset.
       shared_ptr<int64_t> accountEventNum_ {};
-      // The total access volume in the last 30 days.
+      // The total number of access requests in the last 30 days.
       shared_ptr<int64_t> allCnt_ {};
       // The API operation.
       shared_ptr<string> apiFormat_ {};
       // The ID of the API.
       shared_ptr<string> apiId_ {};
-      // The API information, which is a string converted from a JSON object constructed with a series of parameters. The parameters include:
+      // API-related information, which is a JSON string constructed from a series of parameters. The parameters include:
       // - **param_num**: the number of API parameters.
       // - **request_method**: the request method.
       // - **protocol**: the request protocol.
       // - **api_url**: the request URL.
       // - **poc_payload**: the request.
-      // - **request**: the request sample.
-      // - **response**: the response sample.
+      // - **request**: the request example.
+      // - **response**: the response example.
       // - **param**: the request parameters.
-      // > This field is returned only when the **ApiId** parameter is specified.
+      // > This value is returned only when the **ApiId** request parameter is specified.
       shared_ptr<string> apiInfo_ {};
       // The request method of the API. Valid values:
       // - **GET**: GET request.
@@ -309,54 +309,54 @@ namespace Models
       // - **PATCH**: PATCH request.
       // - **OPTIONS**: OPTIONS request.
       shared_ptr<string> apiMethod_ {};
-      // The sensitive information involved in the API, which is a string converted from a JSON object constructed with a series of parameters. The parameters include:
-      // - **request_sensitive_list**: the list of sensitive data types in the request.
-      // - **response_sensitive_list**: the list of sensitive data types in the response.
+      // Sensitive information related to the API, which is a JSON string constructed from a series of parameters. The parameters include:
+      // - **request_sensitive_list**: the list of sensitive data types in requests.
+      // - **response_sensitive_list**: the list of sensitive data types in responses.
       // - **sensitive_list**: the list of sensitive data types.
       // - **sensitive_level**: the sensitivity level.
       shared_ptr<string> apiSensitive_ {};
-      // The sensitive data in the API request.
+      // The sensitive data in API requests.
       shared_ptr<string> apiSensitiveRequest_ {};
-      // The sensitive data in the API response.
+      // The sensitive data in API responses.
       shared_ptr<string> apiSensitiveResponse_ {};
       // The status of the API. Valid values:
-      // - **NewbornInterface**: newly added.
-      // - **OfflineInterface**: inactive.
-      // - **normal**: normal.
+      // - **NewbornInterface**: New.
+      // - **OfflineInterface**: Inactive.
+      // - **normal**: Normal.
       shared_ptr<string> apiStatus_ {};
       // The business purpose of the API.
-      // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
+      // > Call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
       shared_ptr<string> apiTag_ {};
       // The service object. Valid values:
-      // - **PublicAPI**: public service.
-      // - **ThirdpartAPI**: third-party collaboration.
-      // - **InternalAPI**: internal office.
+      // - **PublicAPI**: Public service.
+      // - **ThirdpartAPI**: Third-party collaboration.
+      // - **InternalAPI**: Internal office.
       shared_ptr<string> apiType_ {};
       // Specifies whether the API has an authentication field. Valid values:
-      // - **0**: has authentication.
-      // - **1**: does not have authentication.
+      // - **0**: Has authentication.
+      // - **1**: Does not have authentication.
       shared_ptr<string> authFlag_ {};
-      // The bot access volume in the last 30 days.
+      // The number of bot access requests in the last 30 days.
       shared_ptr<int64_t> botCnt_ {};
-      // The cross-border access volume in the last 30 days.
+      // The number of cross-border access requests in the last 30 days.
       shared_ptr<int64_t> crossBorderCnt_ {};
       // The number of security events associated with the API.
       shared_ptr<int64_t> eventNum_ {};
-      // The list of API samples.
+      // The list of API examples.
       shared_ptr<vector<string>> examples_ {};
-      // The time when the API asset was first discovered, in UNIX timestamp (UTC) format. Unit: seconds.
+      // The time when the API asset was first discovered. The value is a UNIX timestamp (UTC), in seconds.
       shared_ptr<int64_t> farthestTs_ {};
       // Specifies whether the API is followed. Valid values:
-      // - **1**: followed.
-      // - **0**: not followed.
+      // - **1**: Followed.
+      // - **0**: Not followed.
       shared_ptr<int32_t> follow_ {};
-      // The most recent access time of the API asset, in UNIX timestamp (UTC) format. Unit: seconds.
+      // The most recent access time of the API asset. The value is a UNIX timestamp (UTC), in seconds.
       shared_ptr<int64_t> lastestTs_ {};
       // The domain name or IP address to which the API operation belongs.
       shared_ptr<string> matchedHost_ {};
       // The remarks.
       shared_ptr<string> note_ {};
-      // The list of protected objects corresponding to the asset.
+      // The list of protected objects associated with the asset.
       shared_ptr<vector<string>> resources_ {};
     };
 

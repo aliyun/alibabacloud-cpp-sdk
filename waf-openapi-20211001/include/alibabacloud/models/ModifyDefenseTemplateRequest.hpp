@@ -14,6 +14,8 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDefenseTemplateRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(Detail, detail_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -22,6 +24,8 @@ namespace Models
     };
     friend void from_json(const Darabonba::Json& j, ModifyDefenseTemplateRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(Detail, detail_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -40,12 +44,27 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr; };
+        && this->detail_ == nullptr && this->dryRun_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr
+        && this->templateId_ == nullptr && this->templateName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyDefenseTemplateRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // detail Field Functions 
+    bool hasDetail() const { return this->detail_ != nullptr;};
+    void deleteDetail() { this->detail_ = nullptr;};
+    inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
+    inline ModifyDefenseTemplateRequest& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyDefenseTemplateRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // instanceId Field Functions 
@@ -84,15 +103,21 @@ namespace Models
 
 
   protected:
-    // The description of the protection template.
+    // The description of the protection template that you want to modify.
     shared_ptr<string> description_ {};
+    // The details of the template. For more information, see the Detail parameter in [CreateDefenseTemplate](https://help.aliyun.com/document_detail/461613.html).
+    shared_ptr<string> detail_ {};
+    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+    // - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+    // - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+    shared_ptr<bool> dryRun_ {};
     // The ID of the WAF instance.
     // 
-    // > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region of the WAF instance. Valid values:
+    // The region in which the WAF instance is deployed. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -100,13 +125,13 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the protection template to modify.
+    // The ID of the protection template that you want to modify.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
-    // The name of the protection template. The name must be 1 to 255 characters long and can contain Chinese characters, letters, digits, underscores (_), periods (.), and hyphens (-).
+    // The name of the protection template that you want to modify. The name must be 1 to 255 characters in length and can contain Chinese characters, letters, digits, underscores (_), periods (.), and hyphens (-).
     // 
-    // > Template names must be unique for the same protection scenario (**DefenseScene**).
+    // > Template names within the same protection scenario (**DefenseScene**) must be unique.
     // 
     // This parameter is required.
     shared_ptr<string> templateName_ {};

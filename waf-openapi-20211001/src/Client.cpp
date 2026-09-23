@@ -286,7 +286,7 @@ ClearMajorProtectionBlackIpResponse Client::clearMajorProtectionBlackIp(const Cl
 }
 
 /**
- * @summary Copies a protection template.
+ * @summary Copies the current mitigation template and generates a new mitigation template.
  *
  * @param request CopyDefenseTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -295,6 +295,10 @@ ClearMajorProtectionBlackIpResponse Client::clearMajorProtectionBlackIp(const Cl
 CopyDefenseTemplateResponse Client::copyDefenseTemplateWithOptions(const CopyDefenseTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -329,7 +333,7 @@ CopyDefenseTemplateResponse Client::copyDefenseTemplateWithOptions(const CopyDef
 }
 
 /**
- * @summary Copies a protection template.
+ * @summary Copies the current mitigation template and generates a new mitigation template.
  *
  * @param request CopyDefenseTemplateRequest
  * @return CopyDefenseTemplateResponse
@@ -778,7 +782,7 @@ CreateDefenseResourceGroupResponse Client::createDefenseResourceGroup(const Crea
 }
 
 /**
- * @summary Creates a web core protection rule.
+ * @summary Creates a Web core protection rule.
  *
  * @param request CreateDefenseRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -793,6 +797,10 @@ CreateDefenseRuleResponse Client::createDefenseRuleWithOptions(const CreateDefen
 
   if (!!request.hasDefenseType()) {
     query["DefenseType"] = request.getDefenseType();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasInstanceId()) {
@@ -839,7 +847,7 @@ CreateDefenseRuleResponse Client::createDefenseRuleWithOptions(const CreateDefen
 }
 
 /**
- * @summary Creates a web core protection rule.
+ * @summary Creates a Web core protection rule.
  *
  * @param request CreateDefenseRuleRequest
  * @return CreateDefenseRuleResponse
@@ -869,6 +877,14 @@ CreateDefenseTemplateResponse Client::createDefenseTemplateWithOptions(const Cre
 
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDetail()) {
+    query["Detail"] = request.getDetail();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasInstanceId()) {
@@ -2069,6 +2085,10 @@ DeleteDefenseRuleResponse Client::deleteDefenseRuleWithOptions(const DeleteDefen
     query["DefenseType"] = request.getDefenseType();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -2180,7 +2200,7 @@ DeleteDefenseRuleBlockIpResponse Client::deleteDefenseRuleBlockIp(const DeleteDe
 }
 
 /**
- * @summary Deletes a protection rule template.
+ * @summary Deletes a protection template.
  *
  * @param request DeleteDefenseTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2189,6 +2209,10 @@ DeleteDefenseRuleBlockIpResponse Client::deleteDefenseRuleBlockIp(const DeleteDe
 DeleteDefenseTemplateResponse Client::deleteDefenseTemplateWithOptions(const DeleteDefenseTemplateRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -2223,7 +2247,7 @@ DeleteDefenseTemplateResponse Client::deleteDefenseTemplateWithOptions(const Del
 }
 
 /**
- * @summary Deletes a protection rule template.
+ * @summary Deletes a protection template.
  *
  * @param request DeleteDefenseTemplateRequest
  * @return DeleteDefenseTemplateResponse
@@ -3125,6 +3149,10 @@ DescribeApisecApiResourcesResponse Client::describeApisecApiResourcesWithOptions
 
   if (!!request.hasApiId()) {
     query["ApiId"] = request.getApiId();
+  }
+
+  if (!!request.hasApiIds()) {
+    query["ApiIds"] = request.getApiIds();
   }
 
   if (!!request.hasApiMethod()) {
@@ -5870,7 +5898,7 @@ DescribeDefenseResourceOwnerUidResponse Client::describeDefenseResourceOwnerUid(
 }
 
 /**
- * @summary Queries the protection templates of a protected object or a protected object group.
+ * @summary Queries the protection templates of a protected object or protected object group.
  *
  * @param request DescribeDefenseResourceTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5933,7 +5961,7 @@ DescribeDefenseResourceTemplatesResponse Client::describeDefenseResourceTemplate
 }
 
 /**
- * @summary Queries the protection templates of a protected object or a protected object group.
+ * @summary Queries the protection templates of a protected object or protected object group.
  *
  * @param request DescribeDefenseResourceTemplatesRequest
  * @return DescribeDefenseResourceTemplatesResponse
@@ -6278,7 +6306,7 @@ DescribeDefenseSceneConfigResponse Client::describeDefenseSceneConfig(const Desc
 }
 
 /**
- * @summary Retrieves the details of a specific protection template.
+ * @summary Queries a single protection template.
  *
  * @param request DescribeDefenseTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6321,7 +6349,7 @@ DescribeDefenseTemplateResponse Client::describeDefenseTemplateWithOptions(const
 }
 
 /**
- * @summary Retrieves the details of a specific protection template.
+ * @summary Queries a single protection template.
  *
  * @param request DescribeDefenseTemplateRequest
  * @return DescribeDefenseTemplateResponse
@@ -13485,6 +13513,10 @@ ModifyDefenseRuleResponse Client::modifyDefenseRuleWithOptions(const ModifyDefen
     query["DefenseType"] = request.getDefenseType();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -13613,6 +13645,10 @@ ModifyDefenseRuleStatusResponse Client::modifyDefenseRuleStatusWithOptions(const
     query["DefenseType"] = request.getDefenseType();
   }
 
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -13730,7 +13766,7 @@ ModifyDefenseSceneConfigResponse Client::modifyDefenseSceneConfig(const ModifyDe
 }
 
 /**
- * @summary Modifies a defense template.
+ * @summary Modifies a protection template.
  *
  * @param request ModifyDefenseTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13741,6 +13777,14 @@ ModifyDefenseTemplateResponse Client::modifyDefenseTemplateWithOptions(const Mod
   json query = {};
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasDetail()) {
+    query["Detail"] = request.getDetail();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasInstanceId()) {
@@ -13781,7 +13825,7 @@ ModifyDefenseTemplateResponse Client::modifyDefenseTemplateWithOptions(const Mod
 }
 
 /**
- * @summary Modifies a defense template.
+ * @summary Modifies a protection template.
  *
  * @param request ModifyDefenseTemplateRequest
  * @return ModifyDefenseTemplateResponse
@@ -13792,7 +13836,7 @@ ModifyDefenseTemplateResponse Client::modifyDefenseTemplate(const ModifyDefenseT
 }
 
 /**
- * @summary Changes the status of a protection rule template.
+ * @summary Modifies the status of a protection template.
  *
  * @param request ModifyDefenseTemplateStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13801,6 +13845,10 @@ ModifyDefenseTemplateResponse Client::modifyDefenseTemplate(const ModifyDefenseT
 ModifyDefenseTemplateStatusResponse Client::modifyDefenseTemplateStatusWithOptions(const ModifyDefenseTemplateStatusRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -13839,7 +13887,7 @@ ModifyDefenseTemplateStatusResponse Client::modifyDefenseTemplateStatusWithOptio
 }
 
 /**
- * @summary Changes the status of a protection rule template.
+ * @summary Modifies the status of a protection template.
  *
  * @param request ModifyDefenseTemplateStatusRequest
  * @return ModifyDefenseTemplateStatusResponse
@@ -15043,6 +15091,10 @@ ModifyResourceLogStatusResponse Client::modifyResourceLogStatusWithOptions(const
   }
 
   json query = {};
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
+  }
+
   if (!!request.hasInstanceId()) {
     query["InstanceId"] = request.getInstanceId();
   }
@@ -15100,7 +15152,7 @@ ModifyResourceLogStatusResponse Client::modifyResourceLogStatus(const ModifyReso
 }
 
 /**
- * @summary Attaches protected objects to or detaches protected objects from a protection template.
+ * @summary Associates or disassociates protected resources with or from a protection template.
  *
  * @param request ModifyTemplateResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15119,6 +15171,10 @@ ModifyTemplateResourcesResponse Client::modifyTemplateResourcesWithOptions(const
 
   if (!!request.hasBindResources()) {
     query["BindResources"] = request.getBindResources();
+  }
+
+  if (!!request.hasDryRun()) {
+    query["DryRun"] = request.getDryRun();
   }
 
   if (!!request.hasInstanceId()) {
@@ -15167,7 +15223,7 @@ ModifyTemplateResourcesResponse Client::modifyTemplateResourcesWithOptions(const
 }
 
 /**
- * @summary Attaches protected objects to or detaches protected objects from a protection template.
+ * @summary Associates or disassociates protected resources with or from a protection template.
  *
  * @param request ModifyTemplateResourcesRequest
  * @return ModifyTemplateResourcesResponse

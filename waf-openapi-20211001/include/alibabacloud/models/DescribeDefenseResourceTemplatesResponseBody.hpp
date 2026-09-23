@@ -38,6 +38,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(DefenseScene, defenseScene_);
         DARABONBA_PTR_TO_JSON(DefenseSubScene, defenseSubScene_);
         DARABONBA_PTR_TO_JSON(Description, description_);
+        DARABONBA_ANY_TO_JSON(Detail, detail_);
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
         DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
@@ -49,6 +50,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(DefenseScene, defenseScene_);
         DARABONBA_PTR_FROM_JSON(DefenseSubScene, defenseSubScene_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
+        DARABONBA_ANY_FROM_JSON(Detail, detail_);
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
         DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
@@ -68,8 +70,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->defenseScene_ == nullptr
-        && this->defenseSubScene_ == nullptr && this->description_ == nullptr && this->gmtModified_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr
-        && this->templateOrigin_ == nullptr && this->templateStatus_ == nullptr && this->templateType_ == nullptr; };
+        && this->defenseSubScene_ == nullptr && this->description_ == nullptr && this->detail_ == nullptr && this->gmtModified_ == nullptr && this->templateId_ == nullptr
+        && this->templateName_ == nullptr && this->templateOrigin_ == nullptr && this->templateStatus_ == nullptr && this->templateType_ == nullptr; };
       // defenseScene Field Functions 
       bool hasDefenseScene() const { return this->defenseScene_ != nullptr;};
       void deleteDefenseScene() { this->defenseScene_ = nullptr;};
@@ -89,6 +91,15 @@ namespace Models
       void deleteDescription() { this->description_ = nullptr;};
       inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
       inline Templates& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+      // detail Field Functions 
+      bool hasDetail() const { return this->detail_ != nullptr;};
+      void deleteDetail() { this->detail_ = nullptr;};
+      inline       const Darabonba::Json & getDetail() const { DARABONBA_GET(detail_) };
+      Darabonba::Json & getDetail() { DARABONBA_GET(detail_) };
+      inline Templates& setDetail(const Darabonba::Json & detail) { DARABONBA_SET_VALUE(detail_, detail) };
+      inline Templates& setDetail(Darabonba::Json && detail) { DARABONBA_SET_RVALUE(detail_, detail) };
 
 
       // gmtModified Field Functions 
@@ -134,15 +145,17 @@ namespace Models
 
 
     protected:
-      // The protection scenario. For more information, refer to the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+      // The protection scenario. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
       shared_ptr<string> defenseScene_ {};
       // The sub-scenario of the protection template. Valid values:
-      // - **web**: the bot management web protection scenario template.
-      // - **app**: the bot management app protection scenario template.
-      // - **basic**: the bot management basic protection template.
+      // - **web**: bot management web protection scenario template.
+      // - **app**: bot management app protection scenario template.
+      // - **basic**: bot management basic protection template.
       shared_ptr<string> defenseSubScene_ {};
       // The description of the template.
       shared_ptr<string> description_ {};
+      // The detailed template information. For more information, see the Detail parameter in [CreateDefenseTemplate](https://help.aliyun.com/document_detail/461613.html).
+      Darabonba::Json detail_ {};
       // The time when the protection template was created. The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<int64_t> gmtModified_ {};
       // The ID of the protection template.

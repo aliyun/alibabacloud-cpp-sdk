@@ -152,10 +152,10 @@ namespace Models
     // The protection scenario. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
     shared_ptr<string> defenseScene_ {};
     // The sub-scenario of the protection template. Valid values:
-    // - **web**: BOT management web protection scenario template.
-    // - **app**: BOT management app protection scenario template.
-    // - **basic**: BOT management basic protection template.
-    // - **bot_custom_acl**: BOT management advanced custom rule protection template.
+    // - **web**: bot management web protection scenario template.
+    // - **app**: bot management app protection scenario template.
+    // - **basic**: bot management basic protection template.
+    // - **bot_custom_acl**: bot management advanced custom rule protection template.
     shared_ptr<string> defenseSubScene_ {};
     // The ID of the WAF instance.
     // 
@@ -163,9 +163,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The page number to return in a paging query request. Default value: **1**.
+    // The page number to return in a paging request. Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page in a paging query. Default value: **20**.
+    // The number of entries per page when paging. Default value: **20**.
     shared_ptr<int32_t> pageSize_ {};
     // The region where the WAF instance is deployed. Valid values:
     // 
@@ -173,7 +173,7 @@ namespace Models
     // 
     // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
-    // The name of the protected object, protection group, or the ID of the protected asset.
+    // The name of the protected object, the name of the protected object group, or the ID of the protected asset.
     // 
     // > This parameter is used together with the ResourceType parameter. Both parameters must have values for filtering to take effect.
     shared_ptr<string> resource_ {};
@@ -189,8 +189,8 @@ namespace Models
     // The name of the protection template to query.
     shared_ptr<string> templateName_ {};
     // The templatetype of the protection template. Valid values:
-    // - **user_default**: user default protection.
-    // - **user_custom**: user custom protection.
+    // - **user_default**: default protection.
+    // - **user_custom**: custom protection.
     shared_ptr<string> templateType_ {};
   };
 

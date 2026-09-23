@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBEAPISECAPIRESOURCESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBEAPISECAPIRESOURCESREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -15,6 +16,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const DescribeApisecApiResourcesRequest& obj) { 
       DARABONBA_PTR_TO_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_TO_JSON(ApiId, apiId_);
+      DARABONBA_PTR_TO_JSON(ApiIds, apiIds_);
       DARABONBA_PTR_TO_JSON(ApiMethod, apiMethod_);
       DARABONBA_PTR_TO_JSON(ApiStatus, apiStatus_);
       DARABONBA_PTR_TO_JSON(ApiTag, apiTag_);
@@ -40,6 +42,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, DescribeApisecApiResourcesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiFormat, apiFormat_);
       DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
+      DARABONBA_PTR_FROM_JSON(ApiIds, apiIds_);
       DARABONBA_PTR_FROM_JSON(ApiMethod, apiMethod_);
       DARABONBA_PTR_FROM_JSON(ApiStatus, apiStatus_);
       DARABONBA_PTR_FROM_JSON(ApiTag, apiTag_);
@@ -74,11 +77,11 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiFormat_ == nullptr
-        && this->apiId_ == nullptr && this->apiMethod_ == nullptr && this->apiStatus_ == nullptr && this->apiTag_ == nullptr && this->apiType_ == nullptr
-        && this->authFlag_ == nullptr && this->clusterId_ == nullptr && this->endTime_ == nullptr && this->follow_ == nullptr && this->instanceId_ == nullptr
-        && this->matchedHost_ == nullptr && this->note_ == nullptr && this->orderKey_ == nullptr && this->orderWay_ == nullptr && this->pageNumber_ == nullptr
-        && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->requestSensitiveType_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->sensitiveLevel_ == nullptr
-        && this->sensitiveType_ == nullptr && this->startTime_ == nullptr; };
+        && this->apiId_ == nullptr && this->apiIds_ == nullptr && this->apiMethod_ == nullptr && this->apiStatus_ == nullptr && this->apiTag_ == nullptr
+        && this->apiType_ == nullptr && this->authFlag_ == nullptr && this->clusterId_ == nullptr && this->endTime_ == nullptr && this->follow_ == nullptr
+        && this->instanceId_ == nullptr && this->matchedHost_ == nullptr && this->note_ == nullptr && this->orderKey_ == nullptr && this->orderWay_ == nullptr
+        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->regionId_ == nullptr && this->requestSensitiveType_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr
+        && this->sensitiveLevel_ == nullptr && this->sensitiveType_ == nullptr && this->startTime_ == nullptr; };
     // apiFormat Field Functions 
     bool hasApiFormat() const { return this->apiFormat_ != nullptr;};
     void deleteApiFormat() { this->apiFormat_ = nullptr;};
@@ -91,6 +94,15 @@ namespace Models
     void deleteApiId() { this->apiId_ = nullptr;};
     inline string getApiId() const { DARABONBA_PTR_GET_DEFAULT(apiId_, "") };
     inline DescribeApisecApiResourcesRequest& setApiId(string apiId) { DARABONBA_PTR_SET_VALUE(apiId_, apiId) };
+
+
+    // apiIds Field Functions 
+    bool hasApiIds() const { return this->apiIds_ != nullptr;};
+    void deleteApiIds() { this->apiIds_ = nullptr;};
+    inline const vector<string> & getApiIds() const { DARABONBA_PTR_GET_CONST(apiIds_, vector<string>) };
+    inline vector<string> getApiIds() { DARABONBA_PTR_GET(apiIds_, vector<string>) };
+    inline DescribeApisecApiResourcesRequest& setApiIds(const vector<string> & apiIds) { DARABONBA_PTR_SET_VALUE(apiIds_, apiIds) };
+    inline DescribeApisecApiResourcesRequest& setApiIds(vector<string> && apiIds) { DARABONBA_PTR_SET_RVALUE(apiIds_, apiIds) };
 
 
     // apiMethod Field Functions 
@@ -245,6 +257,8 @@ namespace Models
     shared_ptr<string> apiFormat_ {};
     // The ID of the API.
     shared_ptr<string> apiId_ {};
+    // The list of API IDs.
+    shared_ptr<vector<string>> apiIds_ {};
     // The request method of the API. Valid values:
     // - **GET**: GET request.
     // - **POST**: POST request.
@@ -256,22 +270,22 @@ namespace Models
     // - **OPTIONS**: OPTIONS request.
     shared_ptr<string> apiMethod_ {};
     // The status of the API. Valid values:
-    // - **NewbornInterface**: newly added.
-    // - **OfflineInterface**: inactive.
-    // - **normal**: normal.
+    // - **NewbornInterface**: New.
+    // - **OfflineInterface**: Inactive.
+    // - **normal**: Normal.
     shared_ptr<string> apiStatus_ {};
     // The business purpose of the API.
     // 
     // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported business purposes.
     shared_ptr<string> apiTag_ {};
     // The service object. Valid values:
-    // - **PublicAPI**: public service.
-    // - **ThirdpartAPI**: third-party collaboration.
-    // - **InternalAPI**: internal office.
+    // - **PublicAPI**: Public service.
+    // - **ThirdpartAPI**: Third-party collaboration.
+    // - **InternalAPI**: Internal office.
     shared_ptr<string> apiType_ {};
     // Specifies whether the API has an authentication field. Valid values:
-    // - **0**: has authentication.
-    // - **1**: does not have authentication.
+    // - **0**: Has authentication.
+    // - **1**: Does not have authentication.
     shared_ptr<string> authFlag_ {};
     // The ID of the hybrid cloud cluster.
     // > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
@@ -279,8 +293,8 @@ namespace Models
     // The end time of the query, in UNIX timestamp (UTC) format. Unit: seconds.
     shared_ptr<string> endTime_ {};
     // Specifies whether the API is followed. Valid values:
-    // - **1**: followed.
-    // - **0**: not followed.
+    // - **1**: Followed.
+    // - **0**: Not followed.
     shared_ptr<int64_t> follow_ {};
     // The ID of the WAF instance.
     // 
@@ -302,14 +316,14 @@ namespace Models
     // - **lastestTs**: most recent access time.
     shared_ptr<string> orderKey_ {};
     // The sort order. Valid values:
-    // - **desc**: descending order (default).
-    // - **asc**: ascending order.
+    // - **desc**: Descending order (default).
+    // - **asc**: Ascending order.
     shared_ptr<string> orderWay_ {};
-    // The page number to return in a paging query. Default value: **1**, which indicates that the first page is returned.
+    // The page number of the page to return in a paged query. Default value: **1**, which indicates the first page.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries to return on each page in a paging query. Default value: **10**, which indicates that each page contains 10 entries.
+    // The number of entries to return on each page in a paged query. Default value: **10**, which indicates 10 entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The region where the WAF instance is deployed. Valid values:
+    // The region where the WAF instance resides. Valid values:
     // 
     // - **cn-hangzhou**: the Chinese mainland.
     // 
@@ -322,10 +336,10 @@ namespace Models
     // The Alibaba Cloud resource group ID.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
     // The sensitivity level of the API. Valid values:
-    // - **L1**: high sensitivity.
-    // - **L2**: medium sensitivity.
-    // - **L3**: low sensitivity.
-    // - **N**: not sensitive.
+    // - **L1**: High sensitivity.
+    // - **L2**: Medium sensitivity.
+    // - **L3**: Low sensitivity.
+    // - **N**: Not sensitive.
     shared_ptr<string> sensitiveLevel_ {};
     // The type of sensitive data in the response.
     // > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive data types.

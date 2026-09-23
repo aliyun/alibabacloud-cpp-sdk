@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(BindAssets, bindAssets_);
       DARABONBA_PTR_TO_JSON(BindResourceGroups, bindResourceGroups_);
       DARABONBA_PTR_TO_JSON(BindResources, bindResources_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(BindAssets, bindAssets_);
       DARABONBA_PTR_FROM_JSON(BindResourceGroups, bindResourceGroups_);
       DARABONBA_PTR_FROM_JSON(BindResources, bindResources_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -49,8 +51,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->bindAssets_ == nullptr
-        && this->bindResourceGroups_ == nullptr && this->bindResources_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr
-        && this->templateId_ == nullptr && this->unbindAssets_ == nullptr && this->unbindResourceGroups_ == nullptr && this->unbindResources_ == nullptr; };
+        && this->bindResourceGroups_ == nullptr && this->bindResources_ == nullptr && this->dryRun_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr
+        && this->resourceManagerResourceGroupId_ == nullptr && this->templateId_ == nullptr && this->unbindAssets_ == nullptr && this->unbindResourceGroups_ == nullptr && this->unbindResources_ == nullptr; };
     // bindAssets Field Functions 
     bool hasBindAssets() const { return this->bindAssets_ != nullptr;};
     void deleteBindAssets() { this->bindAssets_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     inline vector<string> getBindResources() { DARABONBA_PTR_GET(bindResources_, vector<string>) };
     inline ModifyTemplateResourcesRequest& setBindResources(const vector<string> & bindResources) { DARABONBA_PTR_SET_VALUE(bindResources_, bindResources) };
     inline ModifyTemplateResourcesRequest& setBindResources(vector<string> && bindResources) { DARABONBA_PTR_SET_RVALUE(bindResources_, bindResources) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyTemplateResourcesRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // instanceId Field Functions 
@@ -134,15 +143,19 @@ namespace Models
 
 
   protected:
-    // The IDs of the protected assets to attach. The value is in the [**"XX1","XX2",...**] format.
+    // The IDs of the protected assets to associate, in the format of ["XX1","XX2",...].
     shared_ptr<vector<string>> bindAssets_ {};
-    // The protected object groups to attach. The value is in the [**"group1","group2",...**] format.
+    // The protected object groups to associate, in the format of [**"group1","group2",...**].
     shared_ptr<vector<string>> bindResourceGroups_ {};
-    // The protected objects to attach. The value is in the [**"XX1","XX2",...**] format.
+    // The protected objects to associate, in the format of [**"XX1","XX2",...**].
     shared_ptr<vector<string>> bindResources_ {};
-    // The ID of the Web Application Firewall (WAF) instance.
+    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+    // - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+    // - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+    shared_ptr<bool> dryRun_ {};
+    // Instance ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -158,11 +171,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
-    // The IDs of the protected assets to detach. The value is in the [**"XX1","XX2",...**] format.
+    // The IDs of the protected assets to disassociate, in the format of ["XX1","XX2",...].
     shared_ptr<vector<string>> unbindAssets_ {};
-    // The protected object groups to detach. The value is in the [**"group1","group2",...**] format.
+    // The protected object groups to disassociate, in the format of [**"group1","group2",...**].
     shared_ptr<vector<string>> unbindResourceGroups_ {};
-    // The protected objects to detach. The value is in the [**"XX1","XX2",...**] format.
+    // The protected objects to disassociate, in the format of [**"XX1","XX2",...**].
     shared_ptr<vector<string>> unbindResources_ {};
   };
 

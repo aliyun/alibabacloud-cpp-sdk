@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyDefenseRuleRequest& obj) { 
       DARABONBA_PTR_TO_JSON(DefenseScene, defenseScene_);
       DARABONBA_PTR_TO_JSON(DefenseType, defenseType_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(Resource, resource_);
@@ -25,6 +26,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModifyDefenseRuleRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(DefenseScene, defenseScene_);
       DARABONBA_PTR_FROM_JSON(DefenseType, defenseType_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(Resource, resource_);
@@ -44,8 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defenseScene_ == nullptr
-        && this->defenseType_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resource_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr
-        && this->rules_ == nullptr && this->templateId_ == nullptr; };
+        && this->defenseType_ == nullptr && this->dryRun_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resource_ == nullptr
+        && this->resourceManagerResourceGroupId_ == nullptr && this->rules_ == nullptr && this->templateId_ == nullptr; };
     // defenseScene Field Functions 
     bool hasDefenseScene() const { return this->defenseScene_ != nullptr;};
     void deleteDefenseScene() { this->defenseScene_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     void deleteDefenseType() { this->defenseType_ = nullptr;};
     inline string getDefenseType() const { DARABONBA_PTR_GET_DEFAULT(defenseType_, "") };
     inline ModifyDefenseRuleRequest& setDefenseType(string defenseType) { DARABONBA_PTR_SET_VALUE(defenseType_, defenseType) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyDefenseRuleRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // instanceId Field Functions 
@@ -107,6 +116,10 @@ namespace Models
     shared_ptr<string> defenseScene_ {};
     // The type of the protection rule.
     shared_ptr<string> defenseType_ {};
+    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+    // - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+    // - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+    shared_ptr<bool> dryRun_ {};
     // Instance ID of the WAF instance.
     // 
     // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
@@ -124,7 +137,7 @@ namespace Models
     shared_ptr<string> resource_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The details of the protection rule. The value is a string that is converted from a JSON object constructed by a series of parameters. When you configure this parameter, you must specify the rule ID and the protection rule configuration to modify. The following parameters are included:
+    // The details of the protection rule. The value is a string that is converted from a JSON object constructed by a series of parameters. When you configure this parameter, specify the rule ID and the protection rule configuration to modify. The following parameters are included:
     // 
     // - **id**: Long | Required | The rule ID.
     // 

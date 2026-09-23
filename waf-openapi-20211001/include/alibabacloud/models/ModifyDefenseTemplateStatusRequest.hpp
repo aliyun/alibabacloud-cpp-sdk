@@ -13,6 +13,7 @@ namespace Models
   class ModifyDefenseTemplateStatusRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const ModifyDefenseTemplateStatusRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -20,6 +21,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(TemplateStatus, templateStatus_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyDefenseTemplateStatusRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -37,8 +39,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->templateId_ == nullptr && this->templateStatus_ == nullptr; };
+    virtual bool empty() const override { return this->dryRun_ == nullptr
+        && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->templateId_ == nullptr && this->templateStatus_ == nullptr; };
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline ModifyDefenseTemplateStatusRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -75,28 +84,30 @@ namespace Models
 
 
   protected:
-    // The ID of the Web Application Firewall (WAF) instance.
+    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+    // - **true**: Sends a dry run request. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+    // - **false**: Sends a normal request. The specified operation is performed after the request passes the check.
+    shared_ptr<bool> dryRun_ {};
+    // Instance ID of the WAF instance.
     // 
-    // > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+    // > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID of the WAF instance. Valid values:
+    // The region where the WAF instance is deployed. Valid values:
     // 
-    // - **cn-hangzhou**: The Chinese mainland.
+    // - **cn-hangzhou**: the Chinese mainland.
     // 
-    // - **ap-southeast-1**: Outside the Chinese mainland.
+    // - **ap-southeast-1**: outside the Chinese mainland.
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The ID of the protection template.
+    // The ID of the protection rule template.
     // 
     // This parameter is required.
     shared_ptr<int64_t> templateId_ {};
-    // The new status of the protection rule template. Valid values:
-    // 
+    // The status of the protection template that you want to set. Valid values:
     // - **0**: Disabled.
-    // 
     // - **1**: Enabled.
     // 
     // This parameter is required.

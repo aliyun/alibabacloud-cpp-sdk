@@ -17,6 +17,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DefenseScene, defenseScene_);
       DARABONBA_PTR_TO_JSON(DefenseSubScene, defenseSubScene_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(Detail, detail_);
+      DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(RegionId, regionId_);
       DARABONBA_PTR_TO_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -31,6 +33,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DefenseScene, defenseScene_);
       DARABONBA_PTR_FROM_JSON(DefenseSubScene, defenseSubScene_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(Detail, detail_);
+      DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
       DARABONBA_PTR_FROM_JSON(ResourceManagerResourceGroupId, resourceManagerResourceGroupId_);
@@ -53,9 +57,9 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->defenseScene_ == nullptr
-        && this->defenseSubScene_ == nullptr && this->description_ == nullptr && this->instanceId_ == nullptr && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr
-        && this->templateName_ == nullptr && this->templateOrigin_ == nullptr && this->templateStatus_ == nullptr && this->templateType_ == nullptr && this->unbindResourceGroups_ == nullptr
-        && this->unbindResources_ == nullptr; };
+        && this->defenseSubScene_ == nullptr && this->description_ == nullptr && this->detail_ == nullptr && this->dryRun_ == nullptr && this->instanceId_ == nullptr
+        && this->regionId_ == nullptr && this->resourceManagerResourceGroupId_ == nullptr && this->templateName_ == nullptr && this->templateOrigin_ == nullptr && this->templateStatus_ == nullptr
+        && this->templateType_ == nullptr && this->unbindResourceGroups_ == nullptr && this->unbindResources_ == nullptr; };
     // defenseScene Field Functions 
     bool hasDefenseScene() const { return this->defenseScene_ != nullptr;};
     void deleteDefenseScene() { this->defenseScene_ = nullptr;};
@@ -75,6 +79,20 @@ namespace Models
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline CreateDefenseTemplateRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // detail Field Functions 
+    bool hasDetail() const { return this->detail_ != nullptr;};
+    void deleteDetail() { this->detail_ = nullptr;};
+    inline string getDetail() const { DARABONBA_PTR_GET_DEFAULT(detail_, "") };
+    inline CreateDefenseTemplateRequest& setDetail(string detail) { DARABONBA_PTR_SET_VALUE(detail_, detail) };
+
+
+    // dryRun Field Functions 
+    bool hasDryRun() const { return this->dryRun_ != nullptr;};
+    void deleteDryRun() { this->dryRun_ = nullptr;};
+    inline bool getDryRun() const { DARABONBA_PTR_GET_DEFAULT(dryRun_, false) };
+    inline CreateDefenseTemplateRequest& setDryRun(bool dryRun) { DARABONBA_PTR_SET_VALUE(dryRun_, dryRun) };
 
 
     // instanceId Field Functions 
@@ -149,13 +167,23 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> defenseScene_ {};
-    // The sub-scenario of the protection template. This parameter is supported only for advanced bot management scenarios.
+    // The sub-scenario of the protection template. This parameter is supported only for the advanced bot management scenario.
     shared_ptr<string> defenseSubScene_ {};
     // The description of the protection template to create.
     shared_ptr<string> description_ {};
+    // The detailed template information, which is a JSON-formatted string. Different key-value pairs represent different attributes of the protected object. For more information, see the Detail description.
+    // 
+    // > This parameter applies only to the new version of basic protection (**waf_base**) and the new version of bot management (**bot_manager**) protection scenarios. This parameter is required for the new version of bot management (**bot_manager**) protection scenario.
+    shared_ptr<string> detail_ {};
+    // Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
+    // 
+    // - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+    // 
+    // - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+    shared_ptr<bool> dryRun_ {};
     // The ID of the WAF instance.
     // 
-    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+    // > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the ID of the current WAF instance.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
@@ -167,7 +195,7 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The ID of the Alibaba Cloud resource group.
     shared_ptr<string> resourceManagerResourceGroupId_ {};
-    // The name of the protection template to create. The name must be 1 to 255 characters in length and can contain Chinese characters, letters, digits, underscores (_), periods (.), or hyphens (-).
+    // The name of the protection template to create. The name must be 1 to 255 characters in length and can contain Chinese characters, letters, digits, underscores (_), periods (.), and hyphens (-).
     // 
     // > Template names must be unique within the same protection scenario (**DefenseScene**).
     // 
@@ -190,10 +218,10 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> templateType_ {};
     // The protected object groups to unbind when creating a default protection template. Use the format [**"group1","group2",……**].
-    // > This parameter takes effect only when you create a **default template** (the value of **TemplateType** is **user_default**).
+    // > This parameter takes effect only when creating a **default template** (when **TemplateType** is set to **user_default**).
     shared_ptr<vector<string>> unbindResourceGroups_ {};
     // The protected objects to unbind when creating a default protection template. Use the format [**"XX1","XX2",……**].
-    // > This parameter takes effect only when you create a **default template** (the value of **TemplateType** is **user_default**).
+    // > This parameter takes effect only when creating a **default template** (when **TemplateType** is set to **user_default**).
     shared_ptr<vector<string>> unbindResources_ {};
   };
 
