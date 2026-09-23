@@ -37,6 +37,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ChannelInfos& obj) { 
         DARABONBA_PTR_TO_JSON(ChannelName, channelName_);
         DARABONBA_PTR_TO_JSON(DBClusterId, DBClusterId_);
+        DARABONBA_PTR_TO_JSON(EniId, eniId_);
         DARABONBA_PTR_TO_JSON(Notes, notes_);
         DARABONBA_PTR_TO_JSON(RegionId, regionId_);
         DARABONBA_PTR_TO_JSON(TargetDBClusterId, targetDBClusterId_);
@@ -48,6 +49,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, ChannelInfos& obj) { 
         DARABONBA_PTR_FROM_JSON(ChannelName, channelName_);
         DARABONBA_PTR_FROM_JSON(DBClusterId, DBClusterId_);
+        DARABONBA_PTR_FROM_JSON(EniId, eniId_);
         DARABONBA_PTR_FROM_JSON(Notes, notes_);
         DARABONBA_PTR_FROM_JSON(RegionId, regionId_);
         DARABONBA_PTR_FROM_JSON(TargetDBClusterId, targetDBClusterId_);
@@ -68,8 +70,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->channelName_ == nullptr
-        && this->DBClusterId_ == nullptr && this->notes_ == nullptr && this->regionId_ == nullptr && this->targetDBClusterId_ == nullptr && this->targetIp_ == nullptr
-        && this->targetPort_ == nullptr && this->targetType_ == nullptr && this->vpcId_ == nullptr; };
+        && this->DBClusterId_ == nullptr && this->eniId_ == nullptr && this->notes_ == nullptr && this->regionId_ == nullptr && this->targetDBClusterId_ == nullptr
+        && this->targetIp_ == nullptr && this->targetPort_ == nullptr && this->targetType_ == nullptr && this->vpcId_ == nullptr; };
       // channelName Field Functions 
       bool hasChannelName() const { return this->channelName_ != nullptr;};
       void deleteChannelName() { this->channelName_ = nullptr;};
@@ -82,6 +84,13 @@ namespace Models
       void deleteDBClusterId() { this->DBClusterId_ = nullptr;};
       inline string getDBClusterId() const { DARABONBA_PTR_GET_DEFAULT(DBClusterId_, "") };
       inline ChannelInfos& setDBClusterId(string DBClusterId) { DARABONBA_PTR_SET_VALUE(DBClusterId_, DBClusterId) };
+
+
+      // eniId Field Functions 
+      bool hasEniId() const { return this->eniId_ != nullptr;};
+      void deleteEniId() { this->eniId_ = nullptr;};
+      inline string getEniId() const { DARABONBA_PTR_GET_DEFAULT(eniId_, "") };
+      inline ChannelInfos& setEniId(string eniId) { DARABONBA_PTR_SET_VALUE(eniId_, eniId) };
 
 
       // notes Field Functions 
@@ -138,6 +147,7 @@ namespace Models
       shared_ptr<string> channelName_ {};
       // The ID of the source cluster.
       shared_ptr<string> DBClusterId_ {};
+      shared_ptr<string> eniId_ {};
       // The notes about the channel.
       shared_ptr<string> notes_ {};
       // The region ID.

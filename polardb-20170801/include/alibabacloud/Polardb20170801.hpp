@@ -6925,7 +6925,7 @@ namespace Polardb20170801
       Models::ModifyDBClusterDescriptionZonalResponse modifyDBClusterDescriptionZonal(const Models::ModifyDBClusterDescriptionZonalRequest &request);
 
       /**
-       * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
+       * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
        *
        * @param request ModifyDBClusterEndpointRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -6934,7 +6934,7 @@ namespace Polardb20170801
       Models::ModifyDBClusterEndpointResponse modifyDBClusterEndpointWithOptions(const Models::ModifyDBClusterEndpointRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
+       * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
        *
        * @param request ModifyDBClusterEndpointRequest
        * @return ModifyDBClusterEndpointResponse

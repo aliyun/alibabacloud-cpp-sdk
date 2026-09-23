@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_TO_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_TO_JSON(TargetDBClusterId, targetDBClusterId_);
       DARABONBA_PTR_TO_JSON(TargetIp, targetIp_);
       DARABONBA_PTR_TO_JSON(TargetPort, targetPort_);
@@ -39,6 +40,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ResourceOwnerId, resourceOwnerId_);
+      DARABONBA_PTR_FROM_JSON(SecurityGroupId, securityGroupId_);
       DARABONBA_PTR_FROM_JSON(TargetDBClusterId, targetDBClusterId_);
       DARABONBA_PTR_FROM_JSON(TargetIp, targetIp_);
       DARABONBA_PTR_FROM_JSON(TargetPort, targetPort_);
@@ -57,8 +59,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->channelName_ == nullptr
         && this->clientToken_ == nullptr && this->DBClusterId_ == nullptr && this->notes_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->targetDBClusterId_ == nullptr
-        && this->targetIp_ == nullptr && this->targetPort_ == nullptr && this->vpcId_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->securityGroupId_ == nullptr
+        && this->targetDBClusterId_ == nullptr && this->targetIp_ == nullptr && this->targetPort_ == nullptr && this->vpcId_ == nullptr; };
     // channelName Field Functions 
     bool hasChannelName() const { return this->channelName_ != nullptr;};
     void deleteChannelName() { this->channelName_ = nullptr;};
@@ -129,6 +131,13 @@ namespace Models
     inline CreateNetworkChannelRequest& setResourceOwnerId(int64_t resourceOwnerId) { DARABONBA_PTR_SET_VALUE(resourceOwnerId_, resourceOwnerId) };
 
 
+    // securityGroupId Field Functions 
+    bool hasSecurityGroupId() const { return this->securityGroupId_ != nullptr;};
+    void deleteSecurityGroupId() { this->securityGroupId_ = nullptr;};
+    inline string getSecurityGroupId() const { DARABONBA_PTR_GET_DEFAULT(securityGroupId_, "") };
+    inline CreateNetworkChannelRequest& setSecurityGroupId(string securityGroupId) { DARABONBA_PTR_SET_VALUE(securityGroupId_, securityGroupId) };
+
+
     // targetDBClusterId Field Functions 
     bool hasTargetDBClusterId() const { return this->targetDBClusterId_ != nullptr;};
     void deleteTargetDBClusterId() { this->targetDBClusterId_ = nullptr;};
@@ -178,6 +187,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
+    shared_ptr<string> securityGroupId_ {};
     // The name of the destination instance.
     shared_ptr<string> targetDBClusterId_ {};
     // The IP address of the destination instance.

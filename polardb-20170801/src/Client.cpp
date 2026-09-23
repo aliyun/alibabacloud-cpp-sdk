@@ -6009,6 +6009,10 @@ CreateNetworkChannelResponse Client::createNetworkChannelWithOptions(const Creat
     query["ResourceOwnerId"] = request.getResourceOwnerId();
   }
 
+  if (!!request.hasSecurityGroupId()) {
+    query["SecurityGroupId"] = request.getSecurityGroupId();
+  }
+
   if (!!request.hasTargetDBClusterId()) {
     query["TargetDBClusterId"] = request.getTargetDBClusterId();
   }
@@ -25747,7 +25751,7 @@ ModifyDBClusterDescriptionZonalResponse Client::modifyDBClusterDescriptionZonal(
 }
 
 /**
- * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
+ * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
  *
  * @param request ModifyDBClusterEndpointRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -25830,7 +25834,7 @@ ModifyDBClusterEndpointResponse Client::modifyDBClusterEndpointWithOptions(const
 }
 
 /**
- * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, the consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
+ * @summary Modifies the cluster endpoint attributes of a PolarDB cluster, including the read/write mode, whether new nodes are automatically added to the endpoint, consistency level, transaction splitting, whether the primary node accepts read requests, and connection pooling.
  *
  * @param request ModifyDBClusterEndpointRequest
  * @return ModifyDBClusterEndpointResponse

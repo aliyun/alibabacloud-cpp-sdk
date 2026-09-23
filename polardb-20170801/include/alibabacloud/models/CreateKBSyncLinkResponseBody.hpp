@@ -124,6 +124,8 @@ namespace Models
     // The client ID.
     shared_ptr<string> clientId_ {};
     // The time when the synchronization link was created.
+    // 
+    // The time is in the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
     shared_ptr<string> creationTime_ {};
     // The description of the synchronization link.
     shared_ptr<string> description_ {};
@@ -137,7 +139,7 @@ namespace Models
     shared_ptr<string> linkName_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
-    // The source directory address for synchronization.
+    // The directory address of the synchronization source.
     shared_ptr<string> sourceDir_ {};
     // The synchronization interval. Unit: minutes.
     shared_ptr<int32_t> syncIntervalMinutes_ {};

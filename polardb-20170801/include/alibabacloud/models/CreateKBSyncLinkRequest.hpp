@@ -176,15 +176,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> linkName_ {};
-    // The MCP Server address for DingTalk documents.
+    // The MCP Server endpoint for DingTalk documents.
     shared_ptr<string> mcpEndpoint_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The MCP Server address for DingTalk sheets.
+    // The MCP Server endpoint for DingTalk spreadsheets.
     shared_ptr<string> sheetMcpEndpoint_ {};
-    // The source directory address for synchronization.
+    // The directory address of the synchronization source.
     // 
     // This parameter is required.
     shared_ptr<string> sourceDir_ {};
