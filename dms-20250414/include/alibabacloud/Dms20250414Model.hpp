@@ -164,6 +164,9 @@
 #include <alibabacloud/models/DescribeCustomAgentRequest.hpp>
 #include <alibabacloud/models/DescribeCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/DescribeCustomAgentResponse.hpp>
+#include <alibabacloud/models/DescribeCustomAgentMonitorMetricsRequest.hpp>
+#include <alibabacloud/models/DescribeCustomAgentMonitorMetricsResponseBody.hpp>
+#include <alibabacloud/models/DescribeCustomAgentMonitorMetricsResponse.hpp>
 #include <alibabacloud/models/DescribeDataAgentMetricsRequest.hpp>
 #include <alibabacloud/models/DescribeDataAgentMetricsResponseBody.hpp>
 #include <alibabacloud/models/DescribeDataAgentMetricsResponse.hpp>
@@ -262,6 +265,9 @@
 #include <alibabacloud/models/ListCustomAgentRequest.hpp>
 #include <alibabacloud/models/ListCustomAgentResponseBody.hpp>
 #include <alibabacloud/models/ListCustomAgentResponse.hpp>
+#include <alibabacloud/models/ListCustomAgentMonitorSessionsRequest.hpp>
+#include <alibabacloud/models/ListCustomAgentMonitorSessionsResponseBody.hpp>
+#include <alibabacloud/models/ListCustomAgentMonitorSessionsResponse.hpp>
 #include <alibabacloud/models/ListDataAgentAccuracyTestInstancesRequest.hpp>
 #include <alibabacloud/models/ListDataAgentAccuracyTestInstancesResponseBody.hpp>
 #include <alibabacloud/models/ListDataAgentAccuracyTestInstancesResponse.hpp>

@@ -598,6 +598,23 @@ namespace Dms20250414
       Models::DescribeCustomAgentResponse describeCustomAgent(const Models::DescribeCustomAgentRequest &request);
 
       /**
+       * @summary DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+       *
+       * @param request DescribeCustomAgentMonitorMetricsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DescribeCustomAgentMonitorMetricsResponse
+       */
+      Models::DescribeCustomAgentMonitorMetricsResponse describeCustomAgentMonitorMetricsWithOptions(const Models::DescribeCustomAgentMonitorMetricsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary DescribeCustomAgentMonitorMetrics - Retrieves monitoring metrics data for custom agents, including trend data.
+       *
+       * @param request DescribeCustomAgentMonitorMetricsRequest
+       * @return DescribeCustomAgentMonitorMetricsResponse
+       */
+      Models::DescribeCustomAgentMonitorMetricsResponse describeCustomAgentMonitorMetrics(const Models::DescribeCustomAgentMonitorMetricsRequest &request);
+
+      /**
        * @summary Queries DataAgent metrics.
        *
        * @param request DescribeDataAgentMetricsRequest
@@ -1195,6 +1212,23 @@ namespace Dms20250414
        * @return ListCustomAgentResponse
        */
       Models::ListCustomAgentResponse listCustomAgent(const Models::ListCustomAgentRequest &request);
+
+      /**
+       * @summary ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+       *
+       * @param request ListCustomAgentMonitorSessionsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListCustomAgentMonitorSessionsResponse
+       */
+      Models::ListCustomAgentMonitorSessionsResponse listCustomAgentMonitorSessionsWithOptions(const Models::ListCustomAgentMonitorSessionsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary ListCustomAgentMonitorSessions - Retrieves the list of monitoring sessions for custom agents.
+       *
+       * @param request ListCustomAgentMonitorSessionsRequest
+       * @return ListCustomAgentMonitorSessionsResponse
+       */
+      Models::ListCustomAgentMonitorSessionsResponse listCustomAgentMonitorSessions(const Models::ListCustomAgentMonitorSessionsRequest &request);
 
       /**
        * @summary Lists accuracy test configuration items that meet the specified conditions.
