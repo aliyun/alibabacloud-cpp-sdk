@@ -133,20 +133,21 @@ namespace Models
 
 
     protected:
-      // The code of the financial unit.
+      // The code of the cost center.
       shared_ptr<string> costCenterCode_ {};
-      // The ID of the financial unit.
+      // The ID of the cost center.
       shared_ptr<int64_t> costCenterId_ {};
-      // The name of the financial unit. The name must be unique within the same account.
+      // The name of the cost center. The name must be unique within the same account.
       shared_ptr<string> costCenterName_ {};
-      // The level of the financial unit node.
+      // The level of the cost center node.
       shared_ptr<int32_t> level_ {};
-      // The ID of the user who owns the financial unit.
+      // The ID of the user who owns the cost center.
       shared_ptr<int64_t> ownerAccountId_ {};
-      // The ID of the parent financial unit.
+      // The ID of the parent cost center.
       shared_ptr<int64_t> parentCostCenterId_ {};
-      // The ID of the previous financial unit.
+      // The ID of the previous cost center.
       shared_ptr<int64_t> prevCostCenterId_ {};
+      // The priority of the cost center.
       shared_ptr<int32_t> priority_ {};
     };
 
@@ -199,7 +200,7 @@ namespace Models
 
 
   protected:
-    // The list of financial unit data.
+    // The list of cost center data.
     shared_ptr<vector<QueryCostCenterResponseBody::CostCenterDtoList>> costCenterDtoList_ {};
     // The current page number.
     shared_ptr<int32_t> currentPage_ {};

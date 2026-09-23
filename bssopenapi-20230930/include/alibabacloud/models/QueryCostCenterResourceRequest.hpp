@@ -80,9 +80,9 @@ namespace Models
 
 
     protected:
-      // The list of accessed accounts. An empty value indicates that all accounts under the current entity ID are selected.
+      // The list of account IDs to access. If this parameter is empty, all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
-      // The enterprise entity ID.
+      // The ID of the enterprise entity.
       // 
       // This parameter is required.
       shared_ptr<string> ecId_ {};
@@ -135,17 +135,17 @@ namespace Models
 
 
   protected:
-    // The ID of the cost center.
+    // The ID of the financial unit.
     shared_ptr<int64_t> costCenterId_ {};
-    // The list of enterprises and accounts. An empty value indicates querying the current account.
+    // The list of enterprises and accounts. If this parameter is empty, the current account is queried.
     shared_ptr<vector<QueryCostCenterResourceRequest::EcIdAccountIds>> ecIdAccountIds_ {};
-    // The maximum number of records per query.
+    // The maximum number of records to return in a single query.
     shared_ptr<int32_t> maxResults_ {};
-    // The first-level marketplace ID. If empty, the marketplace ID of the current user is used by default.
+    // The ID of the primary marketplace. If this parameter is empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
-    // The token for the next query. An empty NextToken indicates that there are no more results.
+    // The token for the next query. If this parameter is empty, no more results exist.
     shared_ptr<string> nextToken_ {};
-    // The owner user ID of the cost center.
+    // The ID of the owner of the financial unit.
     shared_ptr<int64_t> ownerAccountId_ {};
   };
 

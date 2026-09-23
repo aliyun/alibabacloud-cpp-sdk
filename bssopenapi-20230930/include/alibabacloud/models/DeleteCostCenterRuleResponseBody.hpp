@@ -59,9 +59,9 @@ namespace Models
 
 
   protected:
-    // The ID of the financial unit allocation rule.
+    // The ID of the cost center allocation rule.
     shared_ptr<int64_t> data_ {};
-    // The response metadata.
+    // The response struct metadata.
     Darabonba::Json metadata_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -182,25 +182,25 @@ namespace Models
 
 
       protected:
-        // The cost center code.
+        // The code of the financial unit.
         shared_ptr<string> costCenterCode_ {};
-        // The cost center ID.
+        // The ID of the financial unit.
         shared_ptr<int64_t> costCenterId_ {};
-        // The cost center name.
+        // The name of the financial unit.
         shared_ptr<string> costCenterName_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
         // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The owner account ID of the cost center.
+        // The ID of the user to whom the financial unit belongs.
         shared_ptr<int64_t> ownerAccountId_ {};
-        // The parent cost center ID.
+        // The ID of the parent financial unit.
         shared_ptr<int64_t> parentCostCenterId_ {};
-        // The previous cost center ID.
+        // The ID of the preceding financial unit.
         shared_ptr<int64_t> prevCostCenterId_ {};
-        // The root cost center ID.
+        // The ID of the root financial unit.
         shared_ptr<int64_t> rootCostCenterId_ {};
-        // The sharing ratio.
+        // The cost allocation ratio.
         shared_ptr<double> shareRatio_ {};
       };
 
@@ -306,23 +306,23 @@ namespace Models
 
 
       protected:
-        // The cost center code.
+        // The code of the financial unit.
         shared_ptr<string> costCenterCode_ {};
-        // The cost center ID.
+        // The ID of the financial unit.
         shared_ptr<int64_t> costCenterId_ {};
-        // The cost center name.
+        // The name of the financial unit.
         shared_ptr<string> costCenterName_ {};
         // The creation time.
         shared_ptr<string> gmtCreate_ {};
         // The modification time.
         shared_ptr<string> gmtModified_ {};
-        // The owner account ID of the cost center.
+        // The ID of the user to whom the financial unit belongs.
         shared_ptr<int64_t> ownerAccountId_ {};
-        // The parent cost center ID.
+        // The ID of the parent financial unit.
         shared_ptr<int64_t> parentCostCenterId_ {};
-        // The previous cost center ID.
+        // The ID of the preceding financial unit.
         shared_ptr<int64_t> prevCostCenterId_ {};
-        // The root cost center ID.
+        // The ID of the root financial unit.
         shared_ptr<int64_t> rootCostCenterId_ {};
       };
 
@@ -383,18 +383,19 @@ namespace Models
 
 
     protected:
-      // The source cost center rule details.
+      // The rule information of the source financial unit.
       shared_ptr<vector<Data::FromCostCenterShareRuleDetails>> fromCostCenterShareRuleDetails_ {};
+      // The last modification time.
       shared_ptr<string> gmtModified_ {};
-      // The owner account ID of the cost center.
+      // The ID of the user to whom the financial unit belongs.
       shared_ptr<int64_t> ownerAccountId_ {};
-      // The sharing rule ID.
+      // The ID of the cost allocation rule.
       shared_ptr<int64_t> shareRuleId_ {};
-      // The sharing rule name.
+      // The name of the cost allocation rule.
       shared_ptr<string> shareRuleName_ {};
-      // The sharing rule type.
+      // The type of the cost allocation rule.
       shared_ptr<string> shareRuleType_ {};
-      // The target cost center rule details.
+      // The rule information of the target financial unit.
       shared_ptr<vector<Data::ToCostCenterShareRuleDetails>> toCostCenterShareRuleDetails_ {};
     };
 
@@ -449,11 +450,11 @@ namespace Models
   protected:
     // The returned data list.
     shared_ptr<vector<QueryCostCenterShareRuleResponseBody::Data>> data_ {};
-    // Reserved field.
+    // A reserved field.
     shared_ptr<int32_t> maxResults_ {};
-    // The response metadata.
+    // The metadata of the response structure.
     Darabonba::Json metadata_ {};
-    // Reserved field.
+    // A reserved field.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

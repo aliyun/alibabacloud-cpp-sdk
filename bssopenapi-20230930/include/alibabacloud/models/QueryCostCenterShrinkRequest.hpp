@@ -90,9 +90,9 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
     shared_ptr<string> ecIdAccountIdsShrink_ {};
-    // The ID of the primary sales channel. If this parameter is left empty, the sales channel ID of the current user is used by default.
+    // The ID of the primary marketplace. If this parameter is left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
-    // The ID of the user who owns the financial unit.
+    // The ID of the user who owns the cost center.
     // 
     // This parameter is required.
     shared_ptr<int64_t> ownerAccountId_ {};
@@ -100,7 +100,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the parent financial unit. A value of -1 indicates the root financial unit.
+    // The ID of the parent cost center. A value of -1 indicates the root cost center.
     // 
     // This parameter is required.
     shared_ptr<int64_t> parentCostCenterId_ {};

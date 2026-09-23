@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // Billing month (format: YYYYMM)
+    // The billing cycle month in the format of YYYYMM.
     // 
     // This parameter is required.
     shared_ptr<int32_t> billingMonth_ {};
-    // Whether to display data rows with zero payable amount
+    // Specifies whether to display data rows with a payable amount of 0.
     shared_ptr<bool> displayZeroAmountBills_ {};
-    // Whether to aggregate and display by cost center level
+    // Specifies whether to display results grouped by financial unit level.
     shared_ptr<bool> groupByCostCenterLevel_ {};
-    // Cost type
+    // The cost type.
     // 
     // This parameter is required.
     shared_ptr<string> metrics_ {};
-    // Account ID that owns the resource
+    // The account ID of the resource ownership.
     shared_ptr<int64_t> ownerAccountId_ {};
   };
 

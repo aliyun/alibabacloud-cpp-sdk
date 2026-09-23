@@ -166,29 +166,29 @@ namespace Models
 
 
     protected:
-      // Shared allocation amount
+      // The apportioned amount.
       shared_ptr<string> allocatedAmount_ {};
-      // Cost center code
+      // The financial unit code.
       shared_ptr<string> costCenterCode_ {};
-      // Cost center ID
+      // The financial unit ID.
       shared_ptr<int64_t> costCenterId_ {};
-      // Cost center name
+      // The financial unit name.
       shared_ptr<string> costCenterName_ {};
-      // Cost type amount
+      // The cost type amount.
       shared_ptr<string> directAmount_ {};
-      // Level
+      // The level.
       shared_ptr<int32_t> level_ {};
-      // Account ID that owns the resource
+      // The account ID of the resource ownership.
       shared_ptr<int64_t> ownerAccountId_ {};
-      // Account name that owns the resource
+      // The account name of the resource ownership.
       shared_ptr<string> ownerAccountName_ {};
-      // Parent cost center ID
+      // The parent financial unit ID.
       shared_ptr<int64_t> parentCostCenterId_ {};
-      // Previous cost center ID
+      // The preceding financial unit ID.
       shared_ptr<int64_t> preCostCenterId_ {};
-      // Total (sum of cost type amount and shared allocation amount)
+      // The total amount (the sum of the cost type amount and the apportioned amount).
       shared_ptr<string> totalAllocatedAmount_ {};
-      // Cost type amount percentage
+      // The percentage of the cost type amount.
       shared_ptr<string> totalAllocatedAmountPercent_ {};
     };
 
@@ -227,13 +227,13 @@ namespace Models
 
 
   protected:
-    // Cost center consumption amount details list
+    // The list of cost center consumption amount details.
     shared_ptr<vector<QueryCostByCostCenterResponseBody::ConsumeAmountList>> consumeAmountList_ {};
-    // Response structure metadata
+    // The response structure metadata.
     Darabonba::Json metadata_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Sum of totalAllocatedAmount across all cost centers
+    // The sum of totalAllocatedAmount across all cost centers.
     shared_ptr<string> totalAmount_ {};
   };
 

@@ -160,6 +160,68 @@ AddCouponDeductTagResponse Client::addCouponDeductTag(const AddCouponDeductTagRe
 }
 
 /**
+ * @summary 席位新增
+ *
+ * @param request AddCreditSeatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return AddCreditSeatsResponse
+ */
+AddCreditSeatsResponse Client::addCreditSeatsWithOptions(const AddCreditSeatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasConfigs()) {
+    query["Configs"] = request.getConfigs();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.getProductType();
+  }
+
+  if (!!request.hasSeats()) {
+    query["Seats"] = request.getSeats();
+  }
+
+  if (!!request.hasSubscriptionType()) {
+    query["SubscriptionType"] = request.getSubscriptionType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "AddCreditSeats"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<AddCreditSeatsResponse>();
+}
+
+/**
+ * @summary 席位新增
+ *
+ * @param request AddCreditSeatsRequest
+ * @return AddCreditSeatsResponse
+ */
+AddCreditSeatsResponse Client::addCreditSeats(const AddCreditSeatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return addCreditSeatsWithOptions(request, runtime);
+}
+
+/**
  * @summary Allocates resource instances (instance-based and attached-resource-based) from a source cost center to a destination cost center.
  *
  * @param tmpReq AllocateCostCenterResourceRequest
@@ -328,169 +390,7 @@ CheckAccountExistResponse Client::checkAccountExist(const CheckAccountExistReque
 }
 
 /**
- * @summary Checks whether a specified budgetName exists.
- *
- * @param request CheckBudgetNameExistsRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return CheckBudgetNameExistsResponse
- */
-CheckBudgetNameExistsResponse Client::checkBudgetNameExistsWithOptions(const CheckBudgetNameExistsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasNbid()) {
-    query["Nbid"] = request.getNbid();
-  }
-
-  json body = {};
-  if (!!request.hasBudgetName()) {
-    body["BudgetName"] = request.getBudgetName();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "CheckBudgetNameExists"},
-    {"version" , "2023-09-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CheckBudgetNameExistsResponse>();
-}
-
-/**
- * @summary Checks whether a specified budgetName exists.
- *
- * @param request CheckBudgetNameExistsRequest
- * @return CheckBudgetNameExistsResponse
- */
-CheckBudgetNameExistsResponse Client::checkBudgetNameExists(const CheckBudgetNameExistsRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return checkBudgetNameExistsWithOptions(request, runtime);
-}
-
-/**
- * @summary Creates a budget.
- *
- * @param tmpReq CreateBudgetRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return CreateBudgetResponse
- */
-CreateBudgetResponse Client::createBudgetWithOptions(const CreateBudgetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
-  tmpReq.validate();
-  CreateBudgetShrinkRequest request = CreateBudgetShrinkRequest();
-  Utils::Utils::convert(tmpReq, request);
-  if (!!tmpReq.hasCycleQuota()) {
-    request.setCycleQuotaShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCycleQuota(), "CycleQuota", "json"));
-  }
-
-  if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
-  }
-
-  if (!!tmpReq.hasQueryFilter()) {
-    request.setQueryFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryFilter(), "QueryFilter", "json"));
-  }
-
-  if (!!tmpReq.hasWarnConfs()) {
-    request.setWarnConfsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWarnConfs(), "WarnConfs", "json"));
-  }
-
-  json query = {};
-  if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
-  }
-
-  if (!!request.hasNbid()) {
-    query["Nbid"] = request.getNbid();
-  }
-
-  json body = {};
-  if (!!request.hasBudgetName()) {
-    body["BudgetName"] = request.getBudgetName();
-  }
-
-  if (!!request.hasBudgetType()) {
-    body["BudgetType"] = request.getBudgetType();
-  }
-
-  if (!!request.hasComment()) {
-    body["Comment"] = request.getComment();
-  }
-
-  if (!!request.hasCycleEndPeriod()) {
-    body["CycleEndPeriod"] = request.getCycleEndPeriod();
-  }
-
-  if (!!request.hasCycleQuotaShrink()) {
-    body["CycleQuota"] = request.getCycleQuotaShrink();
-  }
-
-  if (!!request.hasCycleStartPeriod()) {
-    body["CycleStartPeriod"] = request.getCycleStartPeriod();
-  }
-
-  if (!!request.hasCycleType()) {
-    body["CycleType"] = request.getCycleType();
-  }
-
-  if (!!request.hasMetric()) {
-    body["Metric"] = request.getMetric();
-  }
-
-  if (!!request.hasQueryFilterShrink()) {
-    body["QueryFilter"] = request.getQueryFilterShrink();
-  }
-
-  if (!!request.hasQuota()) {
-    body["Quota"] = request.getQuota();
-  }
-
-  if (!!request.hasQuotaType()) {
-    body["QuotaType"] = request.getQuotaType();
-  }
-
-  if (!!request.hasWarnConfsShrink()) {
-    body["WarnConfs"] = request.getWarnConfsShrink();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "CreateBudget"},
-    {"version" , "2023-09-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<CreateBudgetResponse>();
-}
-
-/**
- * @summary Creates a budget.
- *
- * @param request CreateBudgetRequest
- * @return CreateBudgetResponse
- */
-CreateBudgetResponse Client::createBudget(const CreateBudgetRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return createBudgetWithOptions(request, runtime);
-}
-
-/**
- * @summary Create Cost Center
+ * @summary Creates cost centers.
  *
  * @description Creates one or more cost centers.
  *
@@ -533,7 +433,7 @@ CreateCostCenterResponse Client::createCostCenterWithOptions(const CreateCostCen
 }
 
 /**
- * @summary Create Cost Center
+ * @summary Creates cost centers.
  *
  * @description Creates one or more cost centers.
  *
@@ -546,7 +446,7 @@ CreateCostCenterResponse Client::createCostCenter(const CreateCostCenterRequest 
 }
 
 /**
- * @summary Create a financial unit auto-allocation rule
+ * @summary Creates an automatic allocation rule for a financial unit.
  *
  * @param tmpReq CreateCostCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -593,7 +493,7 @@ CreateCostCenterRuleResponse Client::createCostCenterRuleWithOptions(const Creat
 }
 
 /**
- * @summary Create a financial unit auto-allocation rule
+ * @summary Creates an automatic allocation rule for a financial unit.
  *
  * @param request CreateCostCenterRuleRequest
  * @return CreateCostCenterRuleResponse
@@ -601,6 +501,76 @@ CreateCostCenterRuleResponse Client::createCostCenterRuleWithOptions(const Creat
 CreateCostCenterRuleResponse Client::createCostCenterRule(const CreateCostCenterRuleRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createCostCenterRuleWithOptions(request, runtime);
+}
+
+/**
+ * @summary 创建坐席
+ *
+ * @param request CreateCreditSeatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CreateCreditSeatResponse
+ */
+CreateCreditSeatResponse Client::createCreditSeatWithOptions(const CreateCreditSeatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPeriodUnit()) {
+    query["PeriodUnit"] = request.getPeriodUnit();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.getProductType();
+  }
+
+  if (!!request.hasSubscriptionConfigs()) {
+    query["SubscriptionConfigs"] = request.getSubscriptionConfigs();
+  }
+
+  if (!!request.hasSubscriptionType()) {
+    query["SubscriptionType"] = request.getSubscriptionType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "CreateCreditSeat"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CreateCreditSeatResponse>();
+}
+
+/**
+ * @summary 创建坐席
+ *
+ * @param request CreateCreditSeatRequest
+ * @return CreateCreditSeatResponse
+ */
+CreateCreditSeatResponse Client::createCreditSeat(const CreateCreditSeatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return createCreditSeatWithOptions(request, runtime);
 }
 
 /**
@@ -818,16 +788,16 @@ CreateInvoiceResponse Client::createInvoice(const CreateInvoiceRequest &request)
 /**
  * @summary Creates a bill report subscription.
  *
- * @description When calling this operation, note the following:
- * - A user can subscribe to one type of bill file at a time.
- * - Except for monthly bill PDFs, after subscription, starting from the next day, the system pushes a bill file that contains full detailed data from the beginning of the current month to date. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
+ * @description When you call this operation, note the following items:
+ * - You can subscribe to one type of bill file at a time.
+ * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
  * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
- * - Bill files generated on a daily basis may have latency. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. Pull the full file for the previous month at the beginning of each month.
- * > Apply for permissions as described in the documentation: [Bill subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription)
- * - This subscription is the same feature as Expenses and Costs - Bill Subscription. Subscriptions are shared between the two.
- * - When subscribing to a directory under a bucket, ensure the directory name complies with the naming conventions:
+ * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+ * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+ * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
+ * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
  *     - Emojis are not allowed. Use valid UTF-8 characters.
- *     - / is used to separate paths and can quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+ *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
  *     - Subdirectories named .. are not allowed.
  *     - The total length must be 1 to 254 characters.
  * - File names:
@@ -836,7 +806,7 @@ CreateInvoiceResponse Client::createInvoice(const CreateInvoiceRequest &request)
  *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
  *     
  *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
- * - Monthly bill PDF type files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format is the same.
+ * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
  *
  * @param tmpReq CreateReportDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -929,16 +899,16 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
 /**
  * @summary Creates a bill report subscription.
  *
- * @description When calling this operation, note the following:
- * - A user can subscribe to one type of bill file at a time.
- * - Except for monthly bill PDFs, after subscription, starting from the next day, the system pushes a bill file that contains full detailed data from the beginning of the current month to date. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
+ * @description When you call this operation, note the following items:
+ * - You can subscribe to one type of bill file at a time.
+ * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
  * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
- * - Bill files generated on a daily basis may have latency. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. Pull the full file for the previous month at the beginning of each month.
- * > Apply for permissions as described in the documentation: [Bill subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription)
- * - This subscription is the same feature as Expenses and Costs - Bill Subscription. Subscriptions are shared between the two.
- * - When subscribing to a directory under a bucket, ensure the directory name complies with the naming conventions:
+ * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+ * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+ * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
+ * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
  *     - Emojis are not allowed. Use valid UTF-8 characters.
- *     - / is used to separate paths and can quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+ *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
  *     - Subdirectories named .. are not allowed.
  *     - The total length must be 1 to 254 characters.
  * - File names:
@@ -947,7 +917,7 @@ CreateReportDefinitionResponse Client::createReportDefinitionWithOptions(const C
  *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
  *     
  *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
- * - Monthly bill PDF type files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format is the same.
+ * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
  *
  * @param request CreateReportDefinitionRequest
  * @return CreateReportDefinitionResponse
@@ -958,57 +928,9 @@ CreateReportDefinitionResponse Client::createReportDefinition(const CreateReport
 }
 
 /**
- * @summary Deletes a budget.
+ * @summary Deletes a cost center.
  *
- * @param request DeleteBudgetRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DeleteBudgetResponse
- */
-DeleteBudgetResponse Client::deleteBudgetWithOptions(const DeleteBudgetRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasNbid()) {
-    query["Nbid"] = request.getNbid();
-  }
-
-  json body = {};
-  if (!!request.hasBudgetName()) {
-    body["BudgetName"] = request.getBudgetName();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "DeleteBudget"},
-    {"version" , "2023-09-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DeleteBudgetResponse>();
-}
-
-/**
- * @summary Deletes a budget.
- *
- * @param request DeleteBudgetRequest
- * @return DeleteBudgetResponse
- */
-DeleteBudgetResponse Client::deleteBudget(const DeleteBudgetRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return deleteBudgetWithOptions(request, runtime);
-}
-
-/**
- * @summary Delete Cost Center
- *
- * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+ * @description This operation is in canary release and is available only to specific whitelisted users. Calling this operation too frequently may cause performance issues such as response timeouts.
  *
  * @param request DeleteCostCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1047,9 +969,9 @@ DeleteCostCenterResponse Client::deleteCostCenterWithOptions(const DeleteCostCen
 }
 
 /**
- * @summary Delete Cost Center
+ * @summary Deletes a cost center.
  *
- * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+ * @description This operation is in canary release and is available only to specific whitelisted users. Calling this operation too frequently may cause performance issues such as response timeouts.
  *
  * @param request DeleteCostCenterRequest
  * @return DeleteCostCenterResponse
@@ -1060,9 +982,9 @@ DeleteCostCenterResponse Client::deleteCostCenter(const DeleteCostCenterRequest 
 }
 
 /**
- * @summary Delete financial unit automatic allocation rule
+ * @summary Deletes an automatic allocation rule for a cost center.
  *
- * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+ * @description This API is in canary release and is available only to specific whitelisted users. Calling this API too frequently may cause performance issues such as response timeouts.
  *
  * @param tmpReq DeleteCostCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1109,9 +1031,9 @@ DeleteCostCenterRuleResponse Client::deleteCostCenterRuleWithOptions(const Delet
 }
 
 /**
- * @summary Delete financial unit automatic allocation rule
+ * @summary Deletes an automatic allocation rule for a cost center.
  *
- * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+ * @description This API is in canary release and is available only to specific whitelisted users. Calling this API too frequently may cause performance issues such as response timeouts.
  *
  * @param request DeleteCostCenterRuleRequest
  * @return DeleteCostCenterRuleResponse
@@ -1229,118 +1151,6 @@ DeleteReportDefinitionResponse Client::deleteReportDefinitionWithOptions(const D
 DeleteReportDefinitionResponse Client::deleteReportDefinition(const DeleteReportDefinitionRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return deleteReportDefinitionWithOptions(request, runtime);
-}
-
-/**
- * @summary Query a Single Budget
- *
- * @param request DescribeBudgetRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeBudgetResponse
- */
-DescribeBudgetResponse Client::describeBudgetWithOptions(const DescribeBudgetRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasNbid()) {
-    query["Nbid"] = request.getNbid();
-  }
-
-  json body = {};
-  if (!!request.hasBudgetName()) {
-    body["BudgetName"] = request.getBudgetName();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "DescribeBudget"},
-    {"version" , "2023-09-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeBudgetResponse>();
-}
-
-/**
- * @summary Query a Single Budget
- *
- * @param request DescribeBudgetRequest
- * @return DescribeBudgetResponse
- */
-DescribeBudgetResponse Client::describeBudget(const DescribeBudgetRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeBudgetWithOptions(request, runtime);
-}
-
-/**
- * @summary Queries a list of budgets.
- *
- * @param request DescribeBudgetsRequest
- * @param runtime runtime options for this request RuntimeOptions
- * @return DescribeBudgetsResponse
- */
-DescribeBudgetsResponse Client::describeBudgetsWithOptions(const DescribeBudgetsRequest &request, const Darabonba::RuntimeOptions &runtime) {
-  request.validate();
-  json query = {};
-  if (!!request.hasNbid()) {
-    query["Nbid"] = request.getNbid();
-  }
-
-  json body = {};
-  if (!!request.hasBudgetName()) {
-    body["BudgetName"] = request.getBudgetName();
-  }
-
-  if (!!request.hasBudgetType()) {
-    body["BudgetType"] = request.getBudgetType();
-  }
-
-  if (!!request.hasExpireStatus()) {
-    body["ExpireStatus"] = request.getExpireStatus();
-  }
-
-  if (!!request.hasPageNo()) {
-    body["PageNo"] = request.getPageNo();
-  }
-
-  if (!!request.hasPageSize()) {
-    body["PageSize"] = request.getPageSize();
-  }
-
-  OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
-  Params params = Params(json({
-    {"action" , "DescribeBudgets"},
-    {"version" , "2023-09-30"},
-    {"protocol" , "HTTPS"},
-    {"pathname" , "/"},
-    {"method" , "POST"},
-    {"authType" , "AK"},
-    {"style" , "RPC"},
-    {"reqBodyType" , "formData"},
-    {"bodyType" , "json"}
-  }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<DescribeBudgetsResponse>();
-}
-
-/**
- * @summary Queries a list of budgets.
- *
- * @param request DescribeBudgetsRequest
- * @return DescribeBudgetsResponse
- */
-DescribeBudgetsResponse Client::describeBudgets(const DescribeBudgetsRequest &request) {
-  Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return describeBudgetsWithOptions(request, runtime);
 }
 
 /**
@@ -2154,7 +1964,7 @@ GetFundAccountTransactionDetailsResponse Client::getFundAccountTransactionDetail
 }
 
 /**
- * @summary Queries the details of a specific order for a user or a reseller\\"s customer.
+ * @summary Queries the details of a specific order for a user or a reseller customer.
  *
  * @param request GetOrderDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2193,7 +2003,7 @@ GetOrderDetailResponse Client::getOrderDetailWithOptions(const GetOrderDetailReq
 }
 
 /**
- * @summary Queries the details of a specific order for a user or a reseller\\"s customer.
+ * @summary Queries the details of a specific order for a user or a reseller customer.
  *
  * @param request GetOrderDetailRequest
  * @return GetOrderDetailResponse
@@ -2204,7 +2014,7 @@ GetOrderDetailResponse Client::getOrderDetail(const GetOrderDetailRequest &reque
 }
 
 /**
- * @summary Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+ * @summary Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
  *
  * @param request GetOrdersRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2275,7 +2085,7 @@ GetOrdersResponse Client::getOrdersWithOptions(const GetOrdersRequest &request, 
 }
 
 /**
- * @summary Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+ * @summary Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
  *
  * @param request GetOrdersRequest
  * @return GetOrdersResponse
@@ -2816,7 +2626,7 @@ ListReportDefinitionsResponse Client::listReportDefinitions(const ListReportDefi
 }
 
 /**
- * @summary Modify cost centers
+ * @summary Modifies one or more cost centers.
  *
  * @description Modifies one or more cost centers.
  *
@@ -2859,7 +2669,7 @@ ModifyCostCenterResponse Client::modifyCostCenterWithOptions(const ModifyCostCen
 }
 
 /**
- * @summary Modify cost centers
+ * @summary Modifies one or more cost centers.
  *
  * @description Modifies one or more cost centers.
  *
@@ -2872,9 +2682,9 @@ ModifyCostCenterResponse Client::modifyCostCenter(const ModifyCostCenterRequest 
 }
 
 /**
- * @summary Modify financial unit rules
+ * @summary Modifies the automatic allocation rule of a financial unit.
  *
- * @description Modify one or more financial units
+ * @description Modifies one or more financial units.
  *
  * @param tmpReq ModifyCostCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2925,9 +2735,9 @@ ModifyCostCenterRuleResponse Client::modifyCostCenterRuleWithOptions(const Modif
 }
 
 /**
- * @summary Modify financial unit rules
+ * @summary Modifies the automatic allocation rule of a financial unit.
  *
- * @description Modify one or more financial units
+ * @description Modifies one or more financial units.
  *
  * @param request ModifyCostCenterRuleRequest
  * @return ModifyCostCenterRuleResponse
@@ -3004,9 +2814,9 @@ PayOrderResponse Client::payOrder(const PayOrderRequest &request) {
 }
 
 /**
- * @summary Query cost center expense overview
+ * @summary Queries the cost overview of financial units.
  *
- * @description Query cost center expense overview results for a specified billing period
+ * @description Queries the cost overview results of a financial unit for a specified billing cycle.
  *
  * @param request QueryCostByCostCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3053,9 +2863,9 @@ QueryCostByCostCenterResponse Client::queryCostByCostCenterWithOptions(const Que
 }
 
 /**
- * @summary Query cost center expense overview
+ * @summary Queries the cost overview of financial units.
  *
- * @description Query cost center expense overview results for a specified billing period
+ * @description Queries the cost overview results of a financial unit for a specified billing cycle.
  *
  * @param request QueryCostByCostCenterRequest
  * @return QueryCostByCostCenterResponse
@@ -3066,9 +2876,9 @@ QueryCostByCostCenterResponse Client::queryCostByCostCenter(const QueryCostByCos
 }
 
 /**
- * @summary Queries financial units.
+ * @summary Queries cost centers.
  *
- * @description Queries a parent financial unit and its child financial units.
+ * @description Queries a parent cost center and its child cost centers.
  *
  * @param tmpReq QueryCostCenterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3125,9 +2935,9 @@ QueryCostCenterResponse Client::queryCostCenterWithOptions(const QueryCostCenter
 }
 
 /**
- * @summary Queries financial units.
+ * @summary Queries cost centers.
  *
- * @description Queries a parent financial unit and its child financial units.
+ * @description Queries a parent cost center and its child cost centers.
  *
  * @param request QueryCostCenterRequest
  * @return QueryCostCenterResponse
@@ -3138,7 +2948,7 @@ QueryCostCenterResponse Client::queryCostCenter(const QueryCostCenterRequest &re
 }
 
 /**
- * @summary Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
+ * @summary Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
  *
  * @param request QueryCostCenterResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3191,7 +3001,7 @@ QueryCostCenterResourceResponse Client::queryCostCenterResourceWithOptions(const
 }
 
 /**
- * @summary Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
+ * @summary Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
  *
  * @param request QueryCostCenterResourceRequest
  * @return QueryCostCenterResourceResponse
@@ -3202,9 +3012,9 @@ QueryCostCenterResourceResponse Client::queryCostCenterResource(const QueryCostC
 }
 
 /**
- * @summary Query cost center rules
+ * @summary Queries the automatic allocation rules of a cost center.
  *
- * @description Query parent cost center and its child cost centers.
+ * @description Queries a parent cost center and its child cost centers.
  *
  * @param request QueryCostCenterRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3245,9 +3055,9 @@ QueryCostCenterRuleResponse Client::queryCostCenterRuleWithOptions(const QueryCo
 }
 
 /**
- * @summary Query cost center rules
+ * @summary Queries the automatic allocation rules of a cost center.
  *
- * @description Query parent cost center and its child cost centers.
+ * @description Queries a parent cost center and its child cost centers.
  *
  * @param request QueryCostCenterRuleRequest
  * @return QueryCostCenterRuleResponse
@@ -3258,9 +3068,9 @@ QueryCostCenterRuleResponse Client::queryCostCenterRule(const QueryCostCenterRul
 }
 
 /**
- * @summary Query cost center sharing rules
+ * @summary Queries the cost allocation rules of financial units.
  *
- * @description Queries the sharing rules of user cost centers.
+ * @description Queries the cost allocation rules of a user\\"s financial units.
  *
  * @param request QueryCostCenterShareRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3307,9 +3117,9 @@ QueryCostCenterShareRuleResponse Client::queryCostCenterShareRuleWithOptions(con
 }
 
 /**
- * @summary Query cost center sharing rules
+ * @summary Queries the cost allocation rules of financial units.
  *
- * @description Queries the sharing rules of user cost centers.
+ * @description Queries the cost allocation rules of a user\\"s financial units.
  *
  * @param request QueryCostCenterShareRuleRequest
  * @return QueryCostCenterShareRuleResponse
@@ -3322,7 +3132,7 @@ QueryCostCenterShareRuleResponse Client::queryCostCenterShareRule(const QueryCos
 /**
  * @summary Queries the SLA compensation list for a user.
  *
- * @description Provides the SLA compensation details list for a user. Only data from the last two months is available.
+ * @description Queries the SLA compensation details list for a user. Only data from the last two months is available.
  *
  * @param request QueryMonthlySlaListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3385,7 +3195,7 @@ QueryMonthlySlaListResponse Client::queryMonthlySlaListWithOptions(const QueryMo
 /**
  * @summary Queries the SLA compensation list for a user.
  *
- * @description Provides the SLA compensation details list for a user. Only data from the last two months is available.
+ * @description Queries the SLA compensation details list for a user. Only data from the last two months is available.
  *
  * @param request QueryMonthlySlaListRequest
  * @return QueryMonthlySlaListResponse
@@ -3396,7 +3206,131 @@ QueryMonthlySlaListResponse Client::queryMonthlySlaList(const QueryMonthlySlaLis
 }
 
 /**
- * @summary Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
+ * @summary 减席位
+ *
+ * @param request ReduceCreditSeatsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ReduceCreditSeatsResponse
+ */
+ReduceCreditSeatsResponse Client::reduceCreditSeatsWithOptions(const ReduceCreditSeatsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.getProductType();
+  }
+
+  if (!!request.hasSubscriptionType()) {
+    query["SubscriptionType"] = request.getSubscriptionType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ReduceCreditSeats"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ReduceCreditSeatsResponse>();
+}
+
+/**
+ * @summary 减席位
+ *
+ * @param request ReduceCreditSeatsRequest
+ * @return ReduceCreditSeatsResponse
+ */
+ReduceCreditSeatsResponse Client::reduceCreditSeats(const ReduceCreditSeatsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return reduceCreditSeatsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 整体续费席位
+ *
+ * @param request RenewCreditSeatRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RenewCreditSeatResponse
+ */
+RenewCreditSeatResponse Client::renewCreditSeatWithOptions(const RenewCreditSeatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAutoRenew()) {
+    query["AutoRenew"] = request.getAutoRenew();
+  }
+
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
+  }
+
+  if (!!request.hasPeriod()) {
+    query["Period"] = request.getPeriod();
+  }
+
+  if (!!request.hasPeriodUnit()) {
+    query["PeriodUnit"] = request.getPeriodUnit();
+  }
+
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
+  }
+
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.getProductType();
+  }
+
+  if (!!request.hasSubscriptionType()) {
+    query["SubscriptionType"] = request.getSubscriptionType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RenewCreditSeat"},
+    {"version" , "2023-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RenewCreditSeatResponse>();
+}
+
+/**
+ * @summary 整体续费席位
+ *
+ * @param request RenewCreditSeatRequest
+ * @return RenewCreditSeatResponse
+ */
+RenewCreditSeatResponse Client::renewCreditSeat(const RenewCreditSeatRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return renewCreditSeatWithOptions(request, runtime);
+}
+
+/**
+ * @summary Modifies cost allocation rules for financial units, including creating, updating, and deleting allocation rules.
  *
  * @param tmpReq SaveCostCenterShareRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3457,7 +3391,7 @@ SaveCostCenterShareRuleResponse Client::saveCostCenterShareRuleWithOptions(const
 }
 
 /**
- * @summary Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
+ * @summary Modifies cost allocation rules for financial units, including creating, updating, and deleting allocation rules.
  *
  * @param request SaveCostCenterShareRuleRequest
  * @return SaveCostCenterShareRuleResponse
@@ -3468,7 +3402,7 @@ SaveCostCenterShareRuleResponse Client::saveCostCenterShareRule(const SaveCostCe
 }
 
 /**
- * @summary Set the credit control limit for a fund account
+ * @summary Sets the credit limit for a fund account.
  *
  * @param request SetFundAccountCreditAmountRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3477,6 +3411,10 @@ SaveCostCenterShareRuleResponse Client::saveCostCenterShareRule(const SaveCostCe
 SetFundAccountCreditAmountResponse Client::setFundAccountCreditAmountWithOptions(const SetFundAccountCreditAmountRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json body = {};
+  if (!!request.hasCancelCredit()) {
+    body["CancelCredit"] = request.getCancelCredit();
+  }
+
   if (!!request.hasCreditAmount()) {
     body["CreditAmount"] = request.getCreditAmount();
   }
@@ -3507,7 +3445,7 @@ SetFundAccountCreditAmountResponse Client::setFundAccountCreditAmountWithOptions
 }
 
 /**
- * @summary Set the credit control limit for a fund account
+ * @summary Sets the credit limit for a fund account.
  *
  * @param request SetFundAccountCreditAmountRequest
  * @return SetFundAccountCreditAmountResponse
@@ -3630,9 +3568,9 @@ SetSavingPlanUserDeductRuleResponse Client::setSavingPlanUserDeductRule(const Se
 }
 
 /**
- * @summary User claims coupons for the last two months.
+ * @summary Claims SLA compensation coupons for the last two months.
  *
- * @description 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+ * @description 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
  * 2. Claim by month or by record.
  * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
  *
@@ -3679,9 +3617,9 @@ SubmitSlaCouponApplyResponse Client::submitSlaCouponApplyWithOptions(const Submi
 }
 
 /**
- * @summary User claims coupons for the last two months.
+ * @summary Claims SLA compensation coupons for the last two months.
  *
- * @description 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+ * @description 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
  * 2. Claim by month or by record.
  * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
  *
@@ -3694,100 +3632,44 @@ SubmitSlaCouponApplyResponse Client::submitSlaCouponApply(const SubmitSlaCouponA
 }
 
 /**
- * @summary Updates a budget.
+ * @summary 升级席位
  *
- * @param tmpReq UpdateBudgetRequest
+ * @param request UpgradeCreditSeatRequest
  * @param runtime runtime options for this request RuntimeOptions
- * @return UpdateBudgetResponse
+ * @return UpgradeCreditSeatResponse
  */
-UpdateBudgetResponse Client::updateBudgetWithOptions(const UpdateBudgetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
-  tmpReq.validate();
-  UpdateBudgetShrinkRequest request = UpdateBudgetShrinkRequest();
-  Utils::Utils::convert(tmpReq, request);
-  if (!!tmpReq.hasCycleQuota()) {
-    request.setCycleQuotaShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCycleQuota(), "CycleQuota", "json"));
-  }
-
-  if (!!tmpReq.hasEcIdAccountIds()) {
-    request.setEcIdAccountIdsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getEcIdAccountIds(), "EcIdAccountIds", "json"));
-  }
-
-  if (!!tmpReq.hasQueryFilter()) {
-    request.setQueryFilterShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQueryFilter(), "QueryFilter", "json"));
-  }
-
-  if (!!tmpReq.hasWarnConfs()) {
-    request.setWarnConfsShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getWarnConfs(), "WarnConfs", "json"));
-  }
-
+UpgradeCreditSeatResponse Client::upgradeCreditSeatWithOptions(const UpgradeCreditSeatRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
   json query = {};
-  if (!!request.hasEcIdAccountIdsShrink()) {
-    query["EcIdAccountIds"] = request.getEcIdAccountIdsShrink();
+  if (!!request.hasClientToken()) {
+    query["ClientToken"] = request.getClientToken();
   }
 
-  if (!!request.hasNbid()) {
-    query["Nbid"] = request.getNbid();
+  if (!!request.hasConfigs()) {
+    query["Configs"] = request.getConfigs();
   }
 
-  json body = {};
-  if (!!request.hasBudgetName()) {
-    body["BudgetName"] = request.getBudgetName();
+  if (!!request.hasInstanceId()) {
+    query["InstanceId"] = request.getInstanceId();
   }
 
-  if (!!request.hasBudgetType()) {
-    body["BudgetType"] = request.getBudgetType();
+  if (!!request.hasProductCode()) {
+    query["ProductCode"] = request.getProductCode();
   }
 
-  if (!!request.hasComment()) {
-    body["Comment"] = request.getComment();
+  if (!!request.hasProductType()) {
+    query["ProductType"] = request.getProductType();
   }
 
-  if (!!request.hasCycleEndPeriod()) {
-    body["CycleEndPeriod"] = request.getCycleEndPeriod();
-  }
-
-  if (!!request.hasCycleQuotaShrink()) {
-    body["CycleQuota"] = request.getCycleQuotaShrink();
-  }
-
-  if (!!request.hasCycleStartPeriod()) {
-    body["CycleStartPeriod"] = request.getCycleStartPeriod();
-  }
-
-  if (!!request.hasCycleType()) {
-    body["CycleType"] = request.getCycleType();
-  }
-
-  if (!!request.hasMetric()) {
-    body["Metric"] = request.getMetric();
-  }
-
-  if (!!request.hasOriginalBudgetName()) {
-    body["OriginalBudgetName"] = request.getOriginalBudgetName();
-  }
-
-  if (!!request.hasQueryFilterShrink()) {
-    body["QueryFilter"] = request.getQueryFilterShrink();
-  }
-
-  if (!!request.hasQuota()) {
-    body["Quota"] = request.getQuota();
-  }
-
-  if (!!request.hasQuotaType()) {
-    body["QuotaType"] = request.getQuotaType();
-  }
-
-  if (!!request.hasWarnConfsShrink()) {
-    body["WarnConfs"] = request.getWarnConfsShrink();
+  if (!!request.hasSubscriptionType()) {
+    query["SubscriptionType"] = request.getSubscriptionType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
-    {"query" , Utils::Utils::query(query)},
-    {"body" , Utils::Utils::parseToMap(body)}
-  }));
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
   Params params = Params(json({
-    {"action" , "UpdateBudget"},
+    {"action" , "UpgradeCreditSeat"},
     {"version" , "2023-09-30"},
     {"protocol" , "HTTPS"},
     {"pathname" , "/"},
@@ -3797,18 +3679,18 @@ UpdateBudgetResponse Client::updateBudgetWithOptions(const UpdateBudgetRequest &
     {"reqBodyType" , "formData"},
     {"bodyType" , "json"}
   }).get<map<string, string>>());
-  return json(callApi(params, req, runtime)).get<UpdateBudgetResponse>();
+  return json(callApi(params, req, runtime)).get<UpgradeCreditSeatResponse>();
 }
 
 /**
- * @summary Updates a budget.
+ * @summary 升级席位
  *
- * @param request UpdateBudgetRequest
- * @return UpdateBudgetResponse
+ * @param request UpgradeCreditSeatRequest
+ * @return UpgradeCreditSeatResponse
  */
-UpdateBudgetResponse Client::updateBudget(const UpdateBudgetRequest &request) {
+UpgradeCreditSeatResponse Client::upgradeCreditSeat(const UpgradeCreditSeatRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
-  return updateBudgetWithOptions(request, runtime);
+  return upgradeCreditSeatWithOptions(request, runtime);
 }
 } // namespace AlibabaCloud
 } // namespace BssOpenApi20230930

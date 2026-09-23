@@ -78,7 +78,7 @@ namespace Models
 
 
     protected:
-      // The list of accounts to access. If empty, all accounts under the current entity ID are selected.
+      // The list of accounts to access. An empty value indicates that all accounts under the current entity ID are selected.
       shared_ptr<vector<int64_t>> accountIds_ {};
       // The enterprise entity ID.
       // 
@@ -126,15 +126,15 @@ namespace Models
 
 
   protected:
-    // The list of enterprises and accounts. If empty, the current account is queried.
+    // The list of enterprises and accounts. An empty value indicates that the current account is queried.
     shared_ptr<vector<QueryCostCenterShareRuleRequest::EcIdAccountIds>> ecIdAccountIds_ {};
-    // Reserved field.
+    // A reserved field.
     shared_ptr<int32_t> maxResults_ {};
-    // The primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+    // The ID of the primary sales channel. If empty, the sales channel ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
-    // Reserved field.
+    // A reserved field.
     shared_ptr<string> nextToken_ {};
-    // The owner account ID of the cost center.
+    // The ID of the user to whom the financial unit belongs.
     shared_ptr<int64_t> ownerAccountId_ {};
   };
 

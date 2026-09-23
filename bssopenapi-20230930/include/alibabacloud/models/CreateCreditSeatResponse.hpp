@@ -1,9 +1,9 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_UPDATEBUDGETRESPONSE_HPP_
-#define ALIBABACLOUD_MODELS_UPDATEBUDGETRESPONSE_HPP_
+#ifndef ALIBABACLOUD_MODELS_CREATECREDITSEATRESPONSE_HPP_
+#define ALIBABACLOUD_MODELS_CREATECREDITSEATRESPONSE_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
-#include <alibabacloud/models/UpdateBudgetResponseBody.hpp>
+#include <alibabacloud/models/CreateCreditSeatResponseBody.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -12,25 +12,25 @@ namespace BssOpenApi20230930
 {
 namespace Models
 {
-  class UpdateBudgetResponse : public Darabonba::Model {
+  class CreateCreditSeatResponse : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const UpdateBudgetResponse& obj) { 
+    friend void to_json(Darabonba::Json& j, const CreateCreditSeatResponse& obj) { 
       DARABONBA_PTR_TO_JSON(headers, headers_);
       DARABONBA_PTR_TO_JSON(statusCode, statusCode_);
       DARABONBA_PTR_TO_JSON(body, body_);
     };
-    friend void from_json(const Darabonba::Json& j, UpdateBudgetResponse& obj) { 
+    friend void from_json(const Darabonba::Json& j, CreateCreditSeatResponse& obj) { 
       DARABONBA_PTR_FROM_JSON(headers, headers_);
       DARABONBA_PTR_FROM_JSON(statusCode, statusCode_);
       DARABONBA_PTR_FROM_JSON(body, body_);
     };
-    UpdateBudgetResponse() = default ;
-    UpdateBudgetResponse(const UpdateBudgetResponse &) = default ;
-    UpdateBudgetResponse(UpdateBudgetResponse &&) = default ;
-    UpdateBudgetResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~UpdateBudgetResponse() = default ;
-    UpdateBudgetResponse& operator=(const UpdateBudgetResponse &) = default ;
-    UpdateBudgetResponse& operator=(UpdateBudgetResponse &&) = default ;
+    CreateCreditSeatResponse() = default ;
+    CreateCreditSeatResponse(const CreateCreditSeatResponse &) = default ;
+    CreateCreditSeatResponse(CreateCreditSeatResponse &&) = default ;
+    CreateCreditSeatResponse(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CreateCreditSeatResponse() = default ;
+    CreateCreditSeatResponse& operator=(const CreateCreditSeatResponse &) = default ;
+    CreateCreditSeatResponse& operator=(CreateCreditSeatResponse &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -42,30 +42,30 @@ namespace Models
     void deleteHeaders() { this->headers_ = nullptr;};
     inline const map<string, string> & getHeaders() const { DARABONBA_PTR_GET_CONST(headers_, map<string, string>) };
     inline map<string, string> getHeaders() { DARABONBA_PTR_GET(headers_, map<string, string>) };
-    inline UpdateBudgetResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
-    inline UpdateBudgetResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
+    inline CreateCreditSeatResponse& setHeaders(const map<string, string> & headers) { DARABONBA_PTR_SET_VALUE(headers_, headers) };
+    inline CreateCreditSeatResponse& setHeaders(map<string, string> && headers) { DARABONBA_PTR_SET_RVALUE(headers_, headers) };
 
 
     // statusCode Field Functions 
     bool hasStatusCode() const { return this->statusCode_ != nullptr;};
     void deleteStatusCode() { this->statusCode_ = nullptr;};
     inline int32_t getStatusCode() const { DARABONBA_PTR_GET_DEFAULT(statusCode_, 0) };
-    inline UpdateBudgetResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
+    inline CreateCreditSeatResponse& setStatusCode(int32_t statusCode) { DARABONBA_PTR_SET_VALUE(statusCode_, statusCode) };
 
 
     // body Field Functions 
     bool hasBody() const { return this->body_ != nullptr;};
     void deleteBody() { this->body_ = nullptr;};
-    inline const UpdateBudgetResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, UpdateBudgetResponseBody) };
-    inline UpdateBudgetResponseBody getBody() { DARABONBA_PTR_GET(body_, UpdateBudgetResponseBody) };
-    inline UpdateBudgetResponse& setBody(const UpdateBudgetResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
-    inline UpdateBudgetResponse& setBody(UpdateBudgetResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
+    inline const CreateCreditSeatResponseBody & getBody() const { DARABONBA_PTR_GET_CONST(body_, CreateCreditSeatResponseBody) };
+    inline CreateCreditSeatResponseBody getBody() { DARABONBA_PTR_GET(body_, CreateCreditSeatResponseBody) };
+    inline CreateCreditSeatResponse& setBody(const CreateCreditSeatResponseBody & body) { DARABONBA_PTR_SET_VALUE(body_, body) };
+    inline CreateCreditSeatResponse& setBody(CreateCreditSeatResponseBody && body) { DARABONBA_PTR_SET_RVALUE(body_, body) };
 
 
   protected:
     shared_ptr<map<string, string>> headers_ {};
     shared_ptr<int32_t> statusCode_ {};
-    shared_ptr<UpdateBudgetResponseBody> body_ {};
+    shared_ptr<CreateCreditSeatResponseBody> body_ {};
   };
 
   } // namespace Models

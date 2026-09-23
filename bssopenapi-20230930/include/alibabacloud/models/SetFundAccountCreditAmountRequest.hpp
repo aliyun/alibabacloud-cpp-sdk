@@ -13,11 +13,13 @@ namespace Models
   class SetFundAccountCreditAmountRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const SetFundAccountCreditAmountRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(CancelCredit, cancelCredit_);
       DARABONBA_PTR_TO_JSON(CreditAmount, creditAmount_);
       DARABONBA_PTR_TO_JSON(Currency, currency_);
       DARABONBA_PTR_TO_JSON(FundAccountId, fundAccountId_);
     };
     friend void from_json(const Darabonba::Json& j, SetFundAccountCreditAmountRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(CancelCredit, cancelCredit_);
       DARABONBA_PTR_FROM_JSON(CreditAmount, creditAmount_);
       DARABONBA_PTR_FROM_JSON(Currency, currency_);
       DARABONBA_PTR_FROM_JSON(FundAccountId, fundAccountId_);
@@ -33,8 +35,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->creditAmount_ == nullptr
-        && this->currency_ == nullptr && this->fundAccountId_ == nullptr; };
+    virtual bool empty() const override { return this->cancelCredit_ == nullptr
+        && this->creditAmount_ == nullptr && this->currency_ == nullptr && this->fundAccountId_ == nullptr; };
+    // cancelCredit Field Functions 
+    bool hasCancelCredit() const { return this->cancelCredit_ != nullptr;};
+    void deleteCancelCredit() { this->cancelCredit_ = nullptr;};
+    inline string getCancelCredit() const { DARABONBA_PTR_GET_DEFAULT(cancelCredit_, "") };
+    inline SetFundAccountCreditAmountRequest& setCancelCredit(string cancelCredit) { DARABONBA_PTR_SET_VALUE(cancelCredit_, cancelCredit) };
+
+
     // creditAmount Field Functions 
     bool hasCreditAmount() const { return this->creditAmount_ != nullptr;};
     void deleteCreditAmount() { this->creditAmount_ = nullptr;};
@@ -57,15 +66,21 @@ namespace Models
 
 
   protected:
-    // Credit limit
+    // Specifies whether to cancel credit control. Valid values:
+    // - true: Cancel credit control.
+    // - false or empty: Set credit control.
+    // 
+    // When canceling credit control, CreditAmount must be set to 0.
+    shared_ptr<string> cancelCredit_ {};
+    // The credit limit.
     // 
     // This parameter is required.
     shared_ptr<string> creditAmount_ {};
-    // Currency for the credit control limit. Currently, only CNY is supported in mainland China, and only USD is supported for international use.
+    // The currency of the credit limit. Currently, only CNY is supported for Chinese mainland accounts, and only USD is supported for international accounts.
     // 
     // This parameter is required.
     shared_ptr<string> currency_ {};
-    // Fund account ID. If not specified, the account owned by the current account (owner) is used by default.
+    // The fund account ID. If this parameter is not specified, the account owned by the current account is used by default.
     shared_ptr<int64_t> fundAccountId_ {};
   };
 

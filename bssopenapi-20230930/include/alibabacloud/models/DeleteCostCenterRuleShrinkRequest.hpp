@@ -57,12 +57,12 @@ namespace Models
 
 
   protected:
-    // Financial unit ID.
+    // The cost center ID.
     shared_ptr<int64_t> costCenterId_ {};
-    // Rule expression.
-    // **This field does not need to be entered during the delete operation.**
+    // The rule expression.
+    // **This field does not need to be specified for delete operations.**
     shared_ptr<string> filterExpressionShrink_ {};
-    // Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
+    // The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

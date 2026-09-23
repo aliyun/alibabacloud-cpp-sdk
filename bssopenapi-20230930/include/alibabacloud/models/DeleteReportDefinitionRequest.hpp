@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the primary sales channel. If this parameter is left empty, the ID of the sales channel to which the current user belongs is used by default.
+    // The primary sales channel ID. If this parameter is left empty, the channel ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
-    // The ID of the bill subscription task.
+    // The bill subscription task ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> reportTaskId_ {};

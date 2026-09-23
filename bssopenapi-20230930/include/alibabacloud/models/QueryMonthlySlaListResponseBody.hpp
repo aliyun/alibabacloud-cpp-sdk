@@ -153,13 +153,13 @@ namespace Models
     protected:
       // The service availability.
       shared_ptr<double> availableRate_ {};
-      // The unique ID of the damage record, used for targeted claims.
+      // The unique identifier of the damaged record, which is used to call the applyCoupon operation for targeted claim.
       shared_ptr<string> damagedId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The month in yyyyMM format.
+      // The month in the yyyyMM format.
       shared_ptr<int32_t> month_ {};
-      // The monthly service fee.
+      // The monthly service charge.
       shared_ptr<double> monthlyServiceCharge_ {};
       // The compensation description.
       shared_ptr<string> payDescription_ {};
@@ -229,7 +229,7 @@ namespace Models
     shared_ptr<int32_t> currentPage_ {};
     // The data list.
     shared_ptr<vector<QueryMonthlySlaListResponseBody::Data>> data_ {};
-    // The response struct metadata.
+    // The response metadata.
     Darabonba::Json metadata_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};

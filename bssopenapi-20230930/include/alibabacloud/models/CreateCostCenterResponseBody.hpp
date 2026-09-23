@@ -90,13 +90,13 @@ namespace Models
 
 
     protected:
-      // Cost center ID
+      // The cost center ID.
       shared_ptr<int64_t> costCenterId_ {};
-      // Cost center name (must be unique within the same account)
+      // The cost center name. The name must be unique within the same account.
       shared_ptr<string> costCenterName_ {};
-      // Owner user ID of the cost center
+      // The owner user ID of the cost center.
       shared_ptr<int64_t> ownerAccountId_ {};
-      // Parent cost center ID
+      // The parent cost center ID.
       shared_ptr<int64_t> parentCostCenterId_ {};
     };
 
@@ -128,11 +128,11 @@ namespace Models
 
 
   protected:
-    // Data list
+    // The data list.
     shared_ptr<vector<CreateCostCenterResponseBody::CostCenterDtoList>> costCenterDtoList_ {};
-    // Response metadata
+    // The response struct metadata.
     Darabonba::Json metadata_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -59,7 +59,7 @@ namespace Models
 
 
   protected:
-    // The metadata of the response.
+    // The response struct metadata.
     Darabonba::Json metadata_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

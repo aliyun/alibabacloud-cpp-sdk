@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // The list of sharing rules to create.
+    // The list of allocation rules to create.
     shared_ptr<string> createShareRuleListShrink_ {};
-    // The list of sharing rules to modify.
+    // The list of allocation rules to update.
     shared_ptr<string> modifyShareRuleListShrink_ {};
-    // The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
+    // The ID of the level-1 sales channel. If this parameter is left empty, the ID of the sales channel to which the current user belongs is used by default.
     shared_ptr<string> nbid_ {};
-    // The user ID of the cost center owner.
+    // The ID of the user who owns the financial unit.
     shared_ptr<int64_t> ownerAccountId_ {};
-    // The list of sharing rules to delete.
+    // The list of allocation rules to delete.
     shared_ptr<string> removeShareRuleListShrink_ {};
   };
 

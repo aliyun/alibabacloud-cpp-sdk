@@ -59,11 +59,11 @@ namespace Models
 
 
   protected:
-    // Financial unit allocation rule ID
+    // The allocation rule ID of the financial unit.
     shared_ptr<int64_t> data_ {};
-    // Response metadata
+    // The response struct metadata.
     Darabonba::Json metadata_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

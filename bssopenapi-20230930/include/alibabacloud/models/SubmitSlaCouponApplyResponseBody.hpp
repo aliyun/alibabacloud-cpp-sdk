@@ -77,15 +77,15 @@ namespace Models
 
 
   protected:
-    // Response structure metadata.
+    // The response struct metadata.
     Darabonba::Json metadata_ {};
-    // Unique request identifier used to tag a request for troubleshooting.
+    // The unique request ID, which is used to identify a request and troubleshoot issues.
     shared_ptr<string> requestId_ {};
-    // Total claimed amount.
+    // The total claimed amount.
     shared_ptr<double> sumCoupon_ {};
-    // End time.
+    // The end time.
     shared_ptr<string> validEndTime_ {};
-    // Start time.
+    // The start time.
     shared_ptr<string> validStartTime_ {};
   };
 

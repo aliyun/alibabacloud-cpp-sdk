@@ -12,6 +12,9 @@
 #include <alibabacloud/models/AddCouponDeductTagShrinkRequest.hpp>
 #include <alibabacloud/models/AddCouponDeductTagResponseBody.hpp>
 #include <alibabacloud/models/AddCouponDeductTagResponse.hpp>
+#include <alibabacloud/models/AddCreditSeatsRequest.hpp>
+#include <alibabacloud/models/AddCreditSeatsResponseBody.hpp>
+#include <alibabacloud/models/AddCreditSeatsResponse.hpp>
 #include <alibabacloud/models/AllocateCostCenterResourceRequest.hpp>
 #include <alibabacloud/models/AllocateCostCenterResourceShrinkRequest.hpp>
 #include <alibabacloud/models/AllocateCostCenterResourceResponseBody.hpp>
@@ -22,13 +25,6 @@
 #include <alibabacloud/models/CheckAccountExistRequest.hpp>
 #include <alibabacloud/models/CheckAccountExistResponseBody.hpp>
 #include <alibabacloud/models/CheckAccountExistResponse.hpp>
-#include <alibabacloud/models/CheckBudgetNameExistsRequest.hpp>
-#include <alibabacloud/models/CheckBudgetNameExistsResponseBody.hpp>
-#include <alibabacloud/models/CheckBudgetNameExistsResponse.hpp>
-#include <alibabacloud/models/CreateBudgetRequest.hpp>
-#include <alibabacloud/models/CreateBudgetShrinkRequest.hpp>
-#include <alibabacloud/models/CreateBudgetResponseBody.hpp>
-#include <alibabacloud/models/CreateBudgetResponse.hpp>
 #include <alibabacloud/models/CreateCostCenterRequest.hpp>
 #include <alibabacloud/models/CreateCostCenterShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCostCenterResponseBody.hpp>
@@ -37,6 +33,9 @@
 #include <alibabacloud/models/CreateCostCenterRuleShrinkRequest.hpp>
 #include <alibabacloud/models/CreateCostCenterRuleResponseBody.hpp>
 #include <alibabacloud/models/CreateCostCenterRuleResponse.hpp>
+#include <alibabacloud/models/CreateCreditSeatRequest.hpp>
+#include <alibabacloud/models/CreateCreditSeatResponseBody.hpp>
+#include <alibabacloud/models/CreateCreditSeatResponse.hpp>
 #include <alibabacloud/models/CreateFundAccountPayRelationRequest.hpp>
 #include <alibabacloud/models/CreateFundAccountPayRelationShrinkRequest.hpp>
 #include <alibabacloud/models/CreateFundAccountPayRelationResponseBody.hpp>
@@ -52,9 +51,6 @@
 #include <alibabacloud/models/CreateReportDefinitionShrinkRequest.hpp>
 #include <alibabacloud/models/CreateReportDefinitionResponseBody.hpp>
 #include <alibabacloud/models/CreateReportDefinitionResponse.hpp>
-#include <alibabacloud/models/DeleteBudgetRequest.hpp>
-#include <alibabacloud/models/DeleteBudgetResponseBody.hpp>
-#include <alibabacloud/models/DeleteBudgetResponse.hpp>
 #include <alibabacloud/models/DeleteCostCenterRequest.hpp>
 #include <alibabacloud/models/DeleteCostCenterResponseBody.hpp>
 #include <alibabacloud/models/DeleteCostCenterResponse.hpp>
@@ -69,12 +65,6 @@
 #include <alibabacloud/models/DeleteReportDefinitionRequest.hpp>
 #include <alibabacloud/models/DeleteReportDefinitionResponseBody.hpp>
 #include <alibabacloud/models/DeleteReportDefinitionResponse.hpp>
-#include <alibabacloud/models/DescribeBudgetRequest.hpp>
-#include <alibabacloud/models/DescribeBudgetResponseBody.hpp>
-#include <alibabacloud/models/DescribeBudgetResponse.hpp>
-#include <alibabacloud/models/DescribeBudgetsRequest.hpp>
-#include <alibabacloud/models/DescribeBudgetsResponseBody.hpp>
-#include <alibabacloud/models/DescribeBudgetsResponse.hpp>
 #include <alibabacloud/models/DescribeCouponRequest.hpp>
 #include <alibabacloud/models/DescribeCouponShrinkRequest.hpp>
 #include <alibabacloud/models/DescribeCouponResponseBody.hpp>
@@ -184,6 +174,12 @@
 #include <alibabacloud/models/QueryMonthlySlaListRequest.hpp>
 #include <alibabacloud/models/QueryMonthlySlaListResponseBody.hpp>
 #include <alibabacloud/models/QueryMonthlySlaListResponse.hpp>
+#include <alibabacloud/models/ReduceCreditSeatsRequest.hpp>
+#include <alibabacloud/models/ReduceCreditSeatsResponseBody.hpp>
+#include <alibabacloud/models/ReduceCreditSeatsResponse.hpp>
+#include <alibabacloud/models/RenewCreditSeatRequest.hpp>
+#include <alibabacloud/models/RenewCreditSeatResponseBody.hpp>
+#include <alibabacloud/models/RenewCreditSeatResponse.hpp>
 #include <alibabacloud/models/SaveCostCenterShareRuleRequest.hpp>
 #include <alibabacloud/models/SaveCostCenterShareRuleShrinkRequest.hpp>
 #include <alibabacloud/models/SaveCostCenterShareRuleResponseBody.hpp>
@@ -201,9 +197,8 @@
 #include <alibabacloud/models/SubmitSlaCouponApplyRequest.hpp>
 #include <alibabacloud/models/SubmitSlaCouponApplyResponseBody.hpp>
 #include <alibabacloud/models/SubmitSlaCouponApplyResponse.hpp>
-#include <alibabacloud/models/UpdateBudgetRequest.hpp>
-#include <alibabacloud/models/UpdateBudgetShrinkRequest.hpp>
-#include <alibabacloud/models/UpdateBudgetResponseBody.hpp>
-#include <alibabacloud/models/UpdateBudgetResponse.hpp>
+#include <alibabacloud/models/UpgradeCreditSeatRequest.hpp>
+#include <alibabacloud/models/UpgradeCreditSeatResponseBody.hpp>
+#include <alibabacloud/models/UpgradeCreditSeatResponse.hpp>
 
 #endif

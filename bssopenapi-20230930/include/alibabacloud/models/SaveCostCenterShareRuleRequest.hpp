@@ -118,21 +118,21 @@ namespace Models
 
 
     protected:
-      // The list of source cost centers.
+      // The list of source financial units.
       shared_ptr<vector<int64_t>> fromCostCenterList_ {};
-      // The list of sharing ratios.
+      // The list of allocation ratios.
       shared_ptr<vector<double>> shareRatioList_ {};
-      // The ID of the sharing rule.
+      // The ID of the allocation rule.
       // 
       // This parameter is required.
       shared_ptr<int64_t> shareRuleId_ {};
-      // The name of the sharing rule.
+      // The name of the allocation rule.
       shared_ptr<string> shareRuleName_ {};
-      // The type of the sharing rule.
+      // The type of the allocation rule.
       // 
       // This parameter is required.
       shared_ptr<string> shareType_ {};
-      // The list of target cost centers.
+      // The list of destination financial units.
       shared_ptr<vector<int64_t>> toCostCenterList_ {};
     };
 
@@ -207,17 +207,17 @@ namespace Models
 
 
     protected:
-      // The list of source cost centers.
+      // The list of source financial units.
       shared_ptr<vector<int64_t>> fromCostCenterList_ {};
-      // The list of sharing ratios.
+      // The list of allocation ratios.
       shared_ptr<vector<double>> shareRatioList_ {};
-      // The name of the sharing rule.
+      // The name of the allocation rule.
       shared_ptr<string> shareRuleName_ {};
-      // The type of the sharing rule.
+      // The type of the allocation rule.
       // 
       // This parameter is required.
       shared_ptr<string> shareType_ {};
-      // The list of target cost centers.
+      // The list of destination financial units.
       shared_ptr<vector<int64_t>> toCostCenterList_ {};
     };
 
@@ -265,15 +265,15 @@ namespace Models
 
 
   protected:
-    // The list of sharing rules to create.
+    // The list of allocation rules to create.
     shared_ptr<vector<SaveCostCenterShareRuleRequest::CreateShareRuleList>> createShareRuleList_ {};
-    // The list of sharing rules to modify.
+    // The list of allocation rules to update.
     shared_ptr<vector<SaveCostCenterShareRuleRequest::ModifyShareRuleList>> modifyShareRuleList_ {};
-    // The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
+    // The ID of the level-1 sales channel. If this parameter is left empty, the ID of the sales channel to which the current user belongs is used by default.
     shared_ptr<string> nbid_ {};
-    // The user ID of the cost center owner.
+    // The ID of the user who owns the financial unit.
     shared_ptr<int64_t> ownerAccountId_ {};
-    // The list of sharing rules to delete.
+    // The list of allocation rules to delete.
     shared_ptr<vector<int64_t>> removeShareRuleList_ {};
   };
 

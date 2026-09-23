@@ -119,13 +119,13 @@ namespace Models
 
 
       protected:
-        // Condition filter key
+        // The filter condition key.
         shared_ptr<string> code_ {};
-        // Condition filter key name (deprecated)
+        // The filter condition key name (deprecated).
         shared_ptr<string> codeName_ {};
-        // Association relationship between code and value
+        // The association between the code and value.
         shared_ptr<string> selectType_ {};
-        // Condition filter value list
+        // The list of filter condition values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -173,15 +173,15 @@ namespace Models
 
 
     protected:
-      // Operation type
+      // The operation type.
       shared_ptr<string> expressionType_ {};
-      // Sub-condition filter
+      // The sub-condition filter.
       shared_ptr<FilterExpression::FilterValues> filterValues_ {};
-      // Filter condition (deprecated)
+      // The filter condition (deprecated).
       Darabonba::Json operand_ {};
-      // Condition expression
+      // The conditional expression.
       shared_ptr<vector<Darabonba::Json>> operands_ {};
-      // Relational expression
+      // The relational expression.
       shared_ptr<string> operatorType_ {};
     };
 
@@ -211,11 +211,11 @@ namespace Models
 
 
   protected:
-    // Financial unit ID
+    // The financial unit ID.
     shared_ptr<int64_t> costCenterId_ {};
-    // Rule expression
+    // The rule expression.
     shared_ptr<CreateCostCenterRuleRequest::FilterExpression> filterExpression_ {};
-    // First-level marketplace ID. If left empty, the ID of the marketplace to which the current user belongs is used by default.
+    // The level-1 marketplace ID. If left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

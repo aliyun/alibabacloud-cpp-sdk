@@ -161,25 +161,25 @@ namespace Models
 
 
   protected:
-    // The start billing cycle for push. After successful subscription, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly bill PDF subscriptions and does not re-push historical data. Data within the last year can be pushed.
+    // The start billing cycle for push. After a successful subscription, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly bill PDF subscriptions and does not trigger re-push of historical data. Data within the last year can be pushed.
     shared_ptr<string> beginBillingCycle_ {};
-    // Email subscription configuration. Specifies whether to include enterprise multi-account members in the bill.
+    // An email subscription configuration. Specifies whether to include enterprise multi-account members in the bill.
     shared_ptr<string> includeMembers_ {};
     // The MaxCompute project name.
     shared_ptr<string> mcProject_ {};
     // The MaxCompute subscription table name.
     shared_ptr<string> mcTableName_ {};
-    // The primary sales site ID. If left empty, the system uses the site ID of the current user by default.
+    // The primary sales site ID. If this parameter is left empty, the site ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
-    // Email subscription configuration. Specifies whether to skip sending emails when no bills are available.
+    // An email subscription configuration. Specifies whether to skip sending emails when no bills are available.
     shared_ptr<string> notSendOnNoData_ {};
     // The name of the OSS bucket for file storage.
     shared_ptr<string> ossBucketName_ {};
-    // The UID of the OSS owner that stores the files. If this is a Bid/Reseller subscription and you need to push to a sub-account\\"s OSS, specify this parameter. The account must be a sub-account of the calling account, and the AliyunConsumeDump2OSSRole permission must be granted to this account. Regular users do not need to specify this parameter. The default value is the calling account.
+    // The UID of the OSS owner that stores the files. If you are a Bid/Reseller subscriber and need to push files to a sub-account\\"s OSS, specify this parameter. The account must be a sub-account of the calling account, and the AliyunConsumeDump2OSSRole permission must be granted to this account. Regular users do not need to specify this parameter. The default value is the calling account.
     shared_ptr<int64_t> ossBucketOwnerAccountId_ {};
     // The OSS bucket storage path.
     shared_ptr<string> ossBucketPath_ {};
-    // The subscription source. Valid values: OSS, MC, or MSC_EMAIL.
+    // The subscription source. Valid values: OSS, MC, and MSC_EMAIL.
     shared_ptr<string> reportSourceType_ {};
     // The subscription type. Valid values:
     // - consumeDetailBillV2: consumption details (supported only for OSS/MC subscriptions).
@@ -190,11 +190,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> reportType_ {};
-    // The user-specified subscription fields.
+    // The fields specified by the user for subscription.
     shared_ptr<vector<string>> selectedFields_ {};
-    // Email subscription configuration. Specifies whether to include bill attachments in emails.
+    // An email subscription configuration. Specifies whether to include bill attachments in emails.
     shared_ptr<string> sendWithAttach_ {};
-    // Email subscription configuration. Specifies whether to split attachments by user ID.
+    // An email subscription configuration. Specifies whether to split attachments by user ID.
     shared_ptr<string> splitFileOnUserId_ {};
   };
 

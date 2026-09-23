@@ -206,9 +206,9 @@ namespace Models
     protected:
       // The attached resource type of the attached-resource instance. This parameter is required only for attached-resource product instances.
       // - Currently, eight commodities support attached resources. The commodity codes are oss, dcdn, snapshot, vod, cdn, live, and cbwp.
-      // - You can call the QueryCostUnitResource operation to obtain all billing instances (including attached-resource instances with their attached resources) under a specific cost center (including the unallocated cost center) of a user.
+      // - You can call the QueryCostUnitResource operation to retrieve all billing instances (including attached-resource instances with their attached resource types) under a specific cost center (including the unallocated cost center) of a user.
       shared_ptr<string> apportionCode_ {};
-      // The attached resource name.
+      // The name of the attached resource.
       shared_ptr<string> apportionName_ {};
       // The commodity code of the billing instance. This parameter is required.
       shared_ptr<string> commodityCode_ {};
@@ -226,7 +226,7 @@ namespace Models
       shared_ptr<string> resourceId_ {};
       // The custom nickname of the resource.
       shared_ptr<string> resourceNick_ {};
-      // The resource source. Valid values:
+      // The source of the resource. Valid values:
       // - AUTO_ALLOCATE: automatic allocation.
       // - MANUAL_ALLOCATE: manual allocation.
       shared_ptr<string> resourceSource_ {};
@@ -238,7 +238,7 @@ namespace Models
       shared_ptr<string> resourceType_ {};
       // The ID of the owner of the billing instance. This parameter is required.
       shared_ptr<int64_t> resourceUserId_ {};
-      // The resource ownership username.
+      // The username of the resource ownership user.
       shared_ptr<string> resourceUserName_ {};
     };
 
@@ -284,7 +284,7 @@ namespace Models
   protected:
     // The ID of the source cost center. This parameter is required.
     // 
-    // - 0 indicates that the cost center is unallocated.
+    // - 0 indicates the unallocated cost center.
     // - A value greater than 0 indicates an allocated cost center ID.
     shared_ptr<int64_t> fromCostCenterId_ {};
     // The ID of the owner of the source cost center.
@@ -297,8 +297,8 @@ namespace Models
     shared_ptr<vector<AllocateCostCenterResourceRequest::ResourceInstanceList>> resourceInstanceList_ {};
     // The ID of the destination cost center. Valid values:
     // 
-    // - -1: moves the allocated resource to the unallocated state.
-    // - A value greater than 0: allocates the resource to the specified cost center.
+    // - -1: moves allocated resources back to the unallocated state.
+    // - A value greater than 0: allocates resources to the specified cost center.
     shared_ptr<int64_t> toCostCenterId_ {};
   };
 

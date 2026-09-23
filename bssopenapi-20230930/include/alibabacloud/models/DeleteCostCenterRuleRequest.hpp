@@ -119,13 +119,13 @@ namespace Models
 
 
       protected:
-        // The condition filter key.
+        // The filter condition key.
         shared_ptr<string> code_ {};
-        // The condition filter key name.
+        // The name of the filter condition key.
         shared_ptr<string> codeName_ {};
-        // The association between Code and value.
+        // The association between code and value.
         shared_ptr<string> selectType_ {};
-        // The condition filter values.
+        // The filter condition values.
         shared_ptr<vector<string>> values_ {};
       };
 
@@ -211,12 +211,12 @@ namespace Models
 
 
   protected:
-    // Financial unit ID.
+    // The cost center ID.
     shared_ptr<int64_t> costCenterId_ {};
-    // Rule expression.
-    // **This field does not need to be entered during the delete operation.**
+    // The rule expression.
+    // **This field does not need to be specified for delete operations.**
     shared_ptr<DeleteCostCenterRuleRequest::FilterExpression> filterExpression_ {};
-    // Level-1 marketplace ID. If empty, the marketplace ID of the current user is used by default.
+    // The primary marketplace ID. If left empty, the marketplace ID of the current user is used by default.
     shared_ptr<string> nbid_ {};
   };
 

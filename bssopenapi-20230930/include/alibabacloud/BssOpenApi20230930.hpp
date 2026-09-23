@@ -38,6 +38,23 @@ namespace BssOpenApi20230930
       Models::AddCouponDeductTagResponse addCouponDeductTag(const Models::AddCouponDeductTagRequest &request);
 
       /**
+       * @summary 席位新增
+       *
+       * @param request AddCreditSeatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return AddCreditSeatsResponse
+       */
+      Models::AddCreditSeatsResponse addCreditSeatsWithOptions(const Models::AddCreditSeatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 席位新增
+       *
+       * @param request AddCreditSeatsRequest
+       * @return AddCreditSeatsResponse
+       */
+      Models::AddCreditSeatsResponse addCreditSeats(const Models::AddCreditSeatsRequest &request);
+
+      /**
        * @summary Allocates resource instances (instance-based and attached-resource-based) from a source cost center to a destination cost center.
        *
        * @param tmpReq AllocateCostCenterResourceRequest
@@ -93,41 +110,7 @@ namespace BssOpenApi20230930
       Models::CheckAccountExistResponse checkAccountExist(const Models::CheckAccountExistRequest &request);
 
       /**
-       * @summary Checks whether a specified budgetName exists.
-       *
-       * @param request CheckBudgetNameExistsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CheckBudgetNameExistsResponse
-       */
-      Models::CheckBudgetNameExistsResponse checkBudgetNameExistsWithOptions(const Models::CheckBudgetNameExistsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Checks whether a specified budgetName exists.
-       *
-       * @param request CheckBudgetNameExistsRequest
-       * @return CheckBudgetNameExistsResponse
-       */
-      Models::CheckBudgetNameExistsResponse checkBudgetNameExists(const Models::CheckBudgetNameExistsRequest &request);
-
-      /**
-       * @summary Creates a budget.
-       *
-       * @param tmpReq CreateBudgetRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return CreateBudgetResponse
-       */
-      Models::CreateBudgetResponse createBudgetWithOptions(const Models::CreateBudgetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Creates a budget.
-       *
-       * @param request CreateBudgetRequest
-       * @return CreateBudgetResponse
-       */
-      Models::CreateBudgetResponse createBudget(const Models::CreateBudgetRequest &request);
-
-      /**
-       * @summary Create Cost Center
+       * @summary Creates cost centers.
        *
        * @description Creates one or more cost centers.
        *
@@ -138,7 +121,7 @@ namespace BssOpenApi20230930
       Models::CreateCostCenterResponse createCostCenterWithOptions(const Models::CreateCostCenterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create Cost Center
+       * @summary Creates cost centers.
        *
        * @description Creates one or more cost centers.
        *
@@ -148,7 +131,7 @@ namespace BssOpenApi20230930
       Models::CreateCostCenterResponse createCostCenter(const Models::CreateCostCenterRequest &request);
 
       /**
-       * @summary Create a financial unit auto-allocation rule
+       * @summary Creates an automatic allocation rule for a financial unit.
        *
        * @param tmpReq CreateCostCenterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -157,12 +140,29 @@ namespace BssOpenApi20230930
       Models::CreateCostCenterRuleResponse createCostCenterRuleWithOptions(const Models::CreateCostCenterRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Create a financial unit auto-allocation rule
+       * @summary Creates an automatic allocation rule for a financial unit.
        *
        * @param request CreateCostCenterRuleRequest
        * @return CreateCostCenterRuleResponse
        */
       Models::CreateCostCenterRuleResponse createCostCenterRule(const Models::CreateCostCenterRuleRequest &request);
+
+      /**
+       * @summary 创建坐席
+       *
+       * @param request CreateCreditSeatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CreateCreditSeatResponse
+       */
+      Models::CreateCreditSeatResponse createCreditSeatWithOptions(const Models::CreateCreditSeatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 创建坐席
+       *
+       * @param request CreateCreditSeatRequest
+       * @return CreateCreditSeatResponse
+       */
+      Models::CreateCreditSeatResponse createCreditSeat(const Models::CreateCreditSeatRequest &request);
 
       /**
        * @summary Create payment relationships for a fund account
@@ -218,16 +218,16 @@ namespace BssOpenApi20230930
       /**
        * @summary Creates a bill report subscription.
        *
-       * @description When calling this operation, note the following:
-       * - A user can subscribe to one type of bill file at a time.
-       * - Except for monthly bill PDFs, after subscription, starting from the next day, the system pushes a bill file that contains full detailed data from the beginning of the current month to date. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
+       * @description When you call this operation, note the following items:
+       * - You can subscribe to one type of bill file at a time.
+       * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
        * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
-       * - Bill files generated on a daily basis may have latency. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. Pull the full file for the previous month at the beginning of each month.
-       * > Apply for permissions as described in the documentation: [Bill subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription)
-       * - This subscription is the same feature as Expenses and Costs - Bill Subscription. Subscriptions are shared between the two.
-       * - When subscribing to a directory under a bucket, ensure the directory name complies with the naming conventions:
+       * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+       * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+       * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
+       * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
        *     - Emojis are not allowed. Use valid UTF-8 characters.
-       *     - / is used to separate paths and can quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+       *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
        *     - Subdirectories named .. are not allowed.
        *     - The total length must be 1 to 254 characters.
        * - File names:
@@ -236,7 +236,7 @@ namespace BssOpenApi20230930
        *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
        *     
        *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
-       * - Monthly bill PDF type files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format is the same.
+       * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
        *
        * @param tmpReq CreateReportDefinitionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -247,16 +247,16 @@ namespace BssOpenApi20230930
       /**
        * @summary Creates a bill report subscription.
        *
-       * @description When calling this operation, note the following:
-       * - A user can subscribe to one type of bill file at a time.
-       * - Except for monthly bill PDFs, after subscription, starting from the next day, the system pushes a bill file that contains full detailed data from the beginning of the current month to date. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
+       * @description When you call this operation, note the following items:
+       * - You can subscribe to one type of bill file at a time.
+       * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
        * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
-       * - Bill files generated on a daily basis may have latency. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. Pull the full file for the previous month at the beginning of each month.
-       * > Apply for permissions as described in the documentation: [Bill subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription)
-       * - This subscription is the same feature as Expenses and Costs - Bill Subscription. Subscriptions are shared between the two.
-       * - When subscribing to a directory under a bucket, ensure the directory name complies with the naming conventions:
+       * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+       * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
+       * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
+       * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
        *     - Emojis are not allowed. Use valid UTF-8 characters.
-       *     - / is used to separate paths and can quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
+       *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
        *     - Subdirectories named .. are not allowed.
        *     - The total length must be 1 to 254 characters.
        * - File names:
@@ -265,7 +265,7 @@ namespace BssOpenApi20230930
        *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
        *     
        *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
-       * - Monthly bill PDF type files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format is the same.
+       * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
        *
        * @param request CreateReportDefinitionRequest
        * @return CreateReportDefinitionResponse
@@ -273,26 +273,9 @@ namespace BssOpenApi20230930
       Models::CreateReportDefinitionResponse createReportDefinition(const Models::CreateReportDefinitionRequest &request);
 
       /**
-       * @summary Deletes a budget.
+       * @summary Deletes a cost center.
        *
-       * @param request DeleteBudgetRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DeleteBudgetResponse
-       */
-      Models::DeleteBudgetResponse deleteBudgetWithOptions(const Models::DeleteBudgetRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Deletes a budget.
-       *
-       * @param request DeleteBudgetRequest
-       * @return DeleteBudgetResponse
-       */
-      Models::DeleteBudgetResponse deleteBudget(const Models::DeleteBudgetRequest &request);
-
-      /**
-       * @summary Delete Cost Center
-       *
-       * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+       * @description This operation is in canary release and is available only to specific whitelisted users. Calling this operation too frequently may cause performance issues such as response timeouts.
        *
        * @param request DeleteCostCenterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -301,9 +284,9 @@ namespace BssOpenApi20230930
       Models::DeleteCostCenterResponse deleteCostCenterWithOptions(const Models::DeleteCostCenterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete Cost Center
+       * @summary Deletes a cost center.
        *
-       * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+       * @description This operation is in canary release and is available only to specific whitelisted users. Calling this operation too frequently may cause performance issues such as response timeouts.
        *
        * @param request DeleteCostCenterRequest
        * @return DeleteCostCenterResponse
@@ -311,9 +294,9 @@ namespace BssOpenApi20230930
       Models::DeleteCostCenterResponse deleteCostCenter(const Models::DeleteCostCenterRequest &request);
 
       /**
-       * @summary Delete financial unit automatic allocation rule
+       * @summary Deletes an automatic allocation rule for a cost center.
        *
-       * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+       * @description This API is in canary release and is available only to specific whitelisted users. Calling this API too frequently may cause performance issues such as response timeouts.
        *
        * @param tmpReq DeleteCostCenterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -322,9 +305,9 @@ namespace BssOpenApi20230930
       Models::DeleteCostCenterRuleResponse deleteCostCenterRuleWithOptions(const Models::DeleteCostCenterRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Delete financial unit automatic allocation rule
+       * @summary Deletes an automatic allocation rule for a cost center.
        *
-       * @description This API is in canary release and is only available to whitelisted users. Excessive calls may cause performance issues such as response timeouts.
+       * @description This API is in canary release and is available only to specific whitelisted users. Calling this API too frequently may cause performance issues such as response timeouts.
        *
        * @param request DeleteCostCenterRuleRequest
        * @return DeleteCostCenterRuleResponse
@@ -364,40 +347,6 @@ namespace BssOpenApi20230930
        * @return DeleteReportDefinitionResponse
        */
       Models::DeleteReportDefinitionResponse deleteReportDefinition(const Models::DeleteReportDefinitionRequest &request);
-
-      /**
-       * @summary Query a Single Budget
-       *
-       * @param request DescribeBudgetRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeBudgetResponse
-       */
-      Models::DescribeBudgetResponse describeBudgetWithOptions(const Models::DescribeBudgetRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Query a Single Budget
-       *
-       * @param request DescribeBudgetRequest
-       * @return DescribeBudgetResponse
-       */
-      Models::DescribeBudgetResponse describeBudget(const Models::DescribeBudgetRequest &request);
-
-      /**
-       * @summary Queries a list of budgets.
-       *
-       * @param request DescribeBudgetsRequest
-       * @param runtime runtime options for this request RuntimeOptions
-       * @return DescribeBudgetsResponse
-       */
-      Models::DescribeBudgetsResponse describeBudgetsWithOptions(const Models::DescribeBudgetsRequest &request, const Darabonba::RuntimeOptions &runtime);
-
-      /**
-       * @summary Queries a list of budgets.
-       *
-       * @param request DescribeBudgetsRequest
-       * @return DescribeBudgetsResponse
-       */
-      Models::DescribeBudgetsResponse describeBudgets(const Models::DescribeBudgetsRequest &request);
 
       /**
        * @summary Queries a list of coupons.
@@ -604,7 +553,7 @@ namespace BssOpenApi20230930
       Models::GetFundAccountTransactionDetailsResponse getFundAccountTransactionDetails(const Models::GetFundAccountTransactionDetailsRequest &request);
 
       /**
-       * @summary Queries the details of a specific order for a user or a reseller\\"s customer.
+       * @summary Queries the details of a specific order for a user or a reseller customer.
        *
        * @param request GetOrderDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -613,7 +562,7 @@ namespace BssOpenApi20230930
       Models::GetOrderDetailResponse getOrderDetailWithOptions(const Models::GetOrderDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specific order for a user or a reseller\\"s customer.
+       * @summary Queries the details of a specific order for a user or a reseller customer.
        *
        * @param request GetOrderDetailRequest
        * @return GetOrderDetailResponse
@@ -621,7 +570,7 @@ namespace BssOpenApi20230930
       Models::GetOrderDetailResponse getOrderDetail(const Models::GetOrderDetailRequest &request);
 
       /**
-       * @summary Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+       * @summary Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
        *
        * @param request GetOrdersRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -630,7 +579,7 @@ namespace BssOpenApi20230930
       Models::GetOrdersResponse getOrdersWithOptions(const Models::GetOrdersRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the order list of a user or a reseller customer. By default, this operation queries orders created within the most recent hour. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+       * @summary Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
        *
        * @param request GetOrdersRequest
        * @return GetOrdersResponse
@@ -789,7 +738,7 @@ namespace BssOpenApi20230930
       Models::ListReportDefinitionsResponse listReportDefinitions(const Models::ListReportDefinitionsRequest &request);
 
       /**
-       * @summary Modify cost centers
+       * @summary Modifies one or more cost centers.
        *
        * @description Modifies one or more cost centers.
        *
@@ -800,7 +749,7 @@ namespace BssOpenApi20230930
       Models::ModifyCostCenterResponse modifyCostCenterWithOptions(const Models::ModifyCostCenterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify cost centers
+       * @summary Modifies one or more cost centers.
        *
        * @description Modifies one or more cost centers.
        *
@@ -810,9 +759,9 @@ namespace BssOpenApi20230930
       Models::ModifyCostCenterResponse modifyCostCenter(const Models::ModifyCostCenterRequest &request);
 
       /**
-       * @summary Modify financial unit rules
+       * @summary Modifies the automatic allocation rule of a financial unit.
        *
-       * @description Modify one or more financial units
+       * @description Modifies one or more financial units.
        *
        * @param tmpReq ModifyCostCenterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -821,9 +770,9 @@ namespace BssOpenApi20230930
       Models::ModifyCostCenterRuleResponse modifyCostCenterRuleWithOptions(const Models::ModifyCostCenterRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modify financial unit rules
+       * @summary Modifies the automatic allocation rule of a financial unit.
        *
-       * @description Modify one or more financial units
+       * @description Modifies one or more financial units.
        *
        * @param request ModifyCostCenterRuleRequest
        * @return ModifyCostCenterRuleResponse
@@ -848,9 +797,9 @@ namespace BssOpenApi20230930
       Models::PayOrderResponse payOrder(const Models::PayOrderRequest &request);
 
       /**
-       * @summary Query cost center expense overview
+       * @summary Queries the cost overview of financial units.
        *
-       * @description Query cost center expense overview results for a specified billing period
+       * @description Queries the cost overview results of a financial unit for a specified billing cycle.
        *
        * @param request QueryCostByCostCenterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -859,9 +808,9 @@ namespace BssOpenApi20230930
       Models::QueryCostByCostCenterResponse queryCostByCostCenterWithOptions(const Models::QueryCostByCostCenterRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query cost center expense overview
+       * @summary Queries the cost overview of financial units.
        *
-       * @description Query cost center expense overview results for a specified billing period
+       * @description Queries the cost overview results of a financial unit for a specified billing cycle.
        *
        * @param request QueryCostByCostCenterRequest
        * @return QueryCostByCostCenterResponse
@@ -869,9 +818,9 @@ namespace BssOpenApi20230930
       Models::QueryCostByCostCenterResponse queryCostByCostCenter(const Models::QueryCostByCostCenterRequest &request);
 
       /**
-       * @summary Queries financial units.
+       * @summary Queries cost centers.
        *
-       * @description Queries a parent financial unit and its child financial units.
+       * @description Queries a parent cost center and its child cost centers.
        *
        * @param tmpReq QueryCostCenterRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -880,9 +829,9 @@ namespace BssOpenApi20230930
       Models::QueryCostCenterResponse queryCostCenterWithOptions(const Models::QueryCostCenterRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries financial units.
+       * @summary Queries cost centers.
        *
-       * @description Queries a parent financial unit and its child financial units.
+       * @description Queries a parent cost center and its child cost centers.
        *
        * @param request QueryCostCenterRequest
        * @return QueryCostCenterResponse
@@ -890,7 +839,7 @@ namespace BssOpenApi20230930
       Models::QueryCostCenterResponse queryCostCenter(const Models::QueryCostCenterRequest &request);
 
       /**
-       * @summary Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
+       * @summary Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
        *
        * @param request QueryCostCenterResourceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -899,7 +848,7 @@ namespace BssOpenApi20230930
       Models::QueryCostCenterResourceResponse queryCostCenterResourceWithOptions(const Models::QueryCostCenterResourceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of resource instances that belong to a cost center of the user. When CostCenterId is 0, it queries unallocated primary and sub-resource instances.
+       * @summary Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
        *
        * @param request QueryCostCenterResourceRequest
        * @return QueryCostCenterResourceResponse
@@ -907,9 +856,9 @@ namespace BssOpenApi20230930
       Models::QueryCostCenterResourceResponse queryCostCenterResource(const Models::QueryCostCenterResourceRequest &request);
 
       /**
-       * @summary Query cost center rules
+       * @summary Queries the automatic allocation rules of a cost center.
        *
-       * @description Query parent cost center and its child cost centers.
+       * @description Queries a parent cost center and its child cost centers.
        *
        * @param request QueryCostCenterRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -918,9 +867,9 @@ namespace BssOpenApi20230930
       Models::QueryCostCenterRuleResponse queryCostCenterRuleWithOptions(const Models::QueryCostCenterRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query cost center rules
+       * @summary Queries the automatic allocation rules of a cost center.
        *
-       * @description Query parent cost center and its child cost centers.
+       * @description Queries a parent cost center and its child cost centers.
        *
        * @param request QueryCostCenterRuleRequest
        * @return QueryCostCenterRuleResponse
@@ -928,9 +877,9 @@ namespace BssOpenApi20230930
       Models::QueryCostCenterRuleResponse queryCostCenterRule(const Models::QueryCostCenterRuleRequest &request);
 
       /**
-       * @summary Query cost center sharing rules
+       * @summary Queries the cost allocation rules of financial units.
        *
-       * @description Queries the sharing rules of user cost centers.
+       * @description Queries the cost allocation rules of a user\\"s financial units.
        *
        * @param request QueryCostCenterShareRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -939,9 +888,9 @@ namespace BssOpenApi20230930
       Models::QueryCostCenterShareRuleResponse queryCostCenterShareRuleWithOptions(const Models::QueryCostCenterShareRuleRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Query cost center sharing rules
+       * @summary Queries the cost allocation rules of financial units.
        *
-       * @description Queries the sharing rules of user cost centers.
+       * @description Queries the cost allocation rules of a user\\"s financial units.
        *
        * @param request QueryCostCenterShareRuleRequest
        * @return QueryCostCenterShareRuleResponse
@@ -951,7 +900,7 @@ namespace BssOpenApi20230930
       /**
        * @summary Queries the SLA compensation list for a user.
        *
-       * @description Provides the SLA compensation details list for a user. Only data from the last two months is available.
+       * @description Queries the SLA compensation details list for a user. Only data from the last two months is available.
        *
        * @param request QueryMonthlySlaListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -962,7 +911,7 @@ namespace BssOpenApi20230930
       /**
        * @summary Queries the SLA compensation list for a user.
        *
-       * @description Provides the SLA compensation details list for a user. Only data from the last two months is available.
+       * @description Queries the SLA compensation details list for a user. Only data from the last two months is available.
        *
        * @param request QueryMonthlySlaListRequest
        * @return QueryMonthlySlaListResponse
@@ -970,7 +919,41 @@ namespace BssOpenApi20230930
       Models::QueryMonthlySlaListResponse queryMonthlySlaList(const Models::QueryMonthlySlaListRequest &request);
 
       /**
-       * @summary Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
+       * @summary 减席位
+       *
+       * @param request ReduceCreditSeatsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ReduceCreditSeatsResponse
+       */
+      Models::ReduceCreditSeatsResponse reduceCreditSeatsWithOptions(const Models::ReduceCreditSeatsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 减席位
+       *
+       * @param request ReduceCreditSeatsRequest
+       * @return ReduceCreditSeatsResponse
+       */
+      Models::ReduceCreditSeatsResponse reduceCreditSeats(const Models::ReduceCreditSeatsRequest &request);
+
+      /**
+       * @summary 整体续费席位
+       *
+       * @param request RenewCreditSeatRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RenewCreditSeatResponse
+       */
+      Models::RenewCreditSeatResponse renewCreditSeatWithOptions(const Models::RenewCreditSeatRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 整体续费席位
+       *
+       * @param request RenewCreditSeatRequest
+       * @return RenewCreditSeatResponse
+       */
+      Models::RenewCreditSeatResponse renewCreditSeat(const Models::RenewCreditSeatRequest &request);
+
+      /**
+       * @summary Modifies cost allocation rules for financial units, including creating, updating, and deleting allocation rules.
        *
        * @param tmpReq SaveCostCenterShareRuleRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -979,7 +962,7 @@ namespace BssOpenApi20230930
       Models::SaveCostCenterShareRuleResponse saveCostCenterShareRuleWithOptions(const Models::SaveCostCenterShareRuleRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies cost center sharing rules, including creating, modifying, and deleting sharing rules.
+       * @summary Modifies cost allocation rules for financial units, including creating, updating, and deleting allocation rules.
        *
        * @param request SaveCostCenterShareRuleRequest
        * @return SaveCostCenterShareRuleResponse
@@ -987,7 +970,7 @@ namespace BssOpenApi20230930
       Models::SaveCostCenterShareRuleResponse saveCostCenterShareRule(const Models::SaveCostCenterShareRuleRequest &request);
 
       /**
-       * @summary Set the credit control limit for a fund account
+       * @summary Sets the credit limit for a fund account.
        *
        * @param request SetFundAccountCreditAmountRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -996,7 +979,7 @@ namespace BssOpenApi20230930
       Models::SetFundAccountCreditAmountResponse setFundAccountCreditAmountWithOptions(const Models::SetFundAccountCreditAmountRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Set the credit control limit for a fund account
+       * @summary Sets the credit limit for a fund account.
        *
        * @param request SetFundAccountCreditAmountRequest
        * @return SetFundAccountCreditAmountResponse
@@ -1038,9 +1021,9 @@ namespace BssOpenApi20230930
       Models::SetSavingPlanUserDeductRuleResponse setSavingPlanUserDeductRule(const Models::SetSavingPlanUserDeductRuleRequest &request);
 
       /**
-       * @summary User claims coupons for the last two months.
+       * @summary Claims SLA compensation coupons for the last two months.
        *
-       * @description 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+       * @description 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
        * 2. Claim by month or by record.
        * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
        *
@@ -1051,9 +1034,9 @@ namespace BssOpenApi20230930
       Models::SubmitSlaCouponApplyResponse submitSlaCouponApplyWithOptions(const Models::SubmitSlaCouponApplyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary User claims coupons for the last two months.
+       * @summary Claims SLA compensation coupons for the last two months.
        *
-       * @description 1. Call QueryMonthlySlaList to obtain the claimable months and records.
+       * @description 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
        * 2. Claim by month or by record.
        * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
        *
@@ -1063,21 +1046,21 @@ namespace BssOpenApi20230930
       Models::SubmitSlaCouponApplyResponse submitSlaCouponApply(const Models::SubmitSlaCouponApplyRequest &request);
 
       /**
-       * @summary Updates a budget.
+       * @summary 升级席位
        *
-       * @param tmpReq UpdateBudgetRequest
+       * @param request UpgradeCreditSeatRequest
        * @param runtime runtime options for this request RuntimeOptions
-       * @return UpdateBudgetResponse
+       * @return UpgradeCreditSeatResponse
        */
-      Models::UpdateBudgetResponse updateBudgetWithOptions(const Models::UpdateBudgetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+      Models::UpgradeCreditSeatResponse upgradeCreditSeatWithOptions(const Models::UpgradeCreditSeatRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a budget.
+       * @summary 升级席位
        *
-       * @param request UpdateBudgetRequest
-       * @return UpdateBudgetResponse
+       * @param request UpgradeCreditSeatRequest
+       * @return UpgradeCreditSeatResponse
        */
-      Models::UpdateBudgetResponse updateBudget(const Models::UpdateBudgetRequest &request);
+      Models::UpgradeCreditSeatResponse upgradeCreditSeat(const Models::UpgradeCreditSeatRequest &request);
   };
 } // namespace AlibabaCloud
 } // namespace BssOpenApi20230930
