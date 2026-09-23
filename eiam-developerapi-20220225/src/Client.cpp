@@ -20,14 +20,6 @@ namespace EiamDeveloperapi20220225
 
 AlibabaCloud::EiamDeveloperapi20220225::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"eu-central-1" , "eiam-developerapi.eu-central-1.aliyuncs.com"},
-    {"cn-hongkong" , "eiam-developerapi.cn-hongkong.aliyuncs.com"},
-    {"cn-hangzhou" , "eiam-developerapi.cn-hangzhou.aliyuncs.com"},
-    {"ap-southeast-5" , "eiam-developerapi.ap-southeast-5.aliyuncs.com"},
-    {"ap-southeast-1" , "eiam-developerapi.ap-southeast-1.aliyuncs.com"},
-    {"ap-northeast-2" , "eiam-developerapi.ap-northeast-2.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("eiam-developerapi", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -383,7 +375,7 @@ CreateUserResponse Client::createUser(const string &instanceId, const string &ap
  * @summary Creates an account-specific credential.
  *
  * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
- * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+ * Ensure that the Access Token you pass in has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
  * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
  *
  * @param request CreateUserExclusiveCredentialRequest
@@ -457,7 +449,7 @@ CreateUserExclusiveCredentialResponse Client::createUserExclusiveCredentialWithO
  * @summary Creates an account-specific credential.
  *
  * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
- * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+ * Ensure that the Access Token you pass in has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
  * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
  *
  * @param request CreateUserExclusiveCredentialRequest
@@ -2314,7 +2306,7 @@ ListUsersForGroupResponse Client::listUsersForGroup(const string &instanceId, co
  * @summary Retrieves temporary access credentials for a cloud account role (CloudAccountRole).
  *
  * @description This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
- * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+ * Ensure that the Access Token you provide has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
  * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
  *
  * @param request ObtainCloudAccountRoleAccessCredentialRequest
@@ -2364,7 +2356,7 @@ ObtainCloudAccountRoleAccessCredentialResponse Client::obtainCloudAccountRoleAcc
  * @summary Retrieves temporary access credentials for a cloud account role (CloudAccountRole).
  *
  * @description This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
- * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+ * Ensure that the Access Token you provide has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
  * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
  *
  * @param request ObtainCloudAccountRoleAccessCredentialRequest
@@ -2377,11 +2369,11 @@ ObtainCloudAccountRoleAccessCredentialResponse Client::obtainCloudAccountRoleAcc
 }
 
 /**
- * @summary Retrieves the plaintext of a secret.
+ * @summary Queries credential information and retrieves the credential plaintext.
  *
- * @description This API uses an access token from IDaaS for authentication and authorization.
- * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
- * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
+ * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+ * Ensure that the Access Token you pass in has the "Obtain Static Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+ * > The corresponding scope is `urn:cloud:idaas:pam|credential:obtain`.
  *
  * @param request ObtainCredentialRequest
  * @param headers ObtainCredentialHeaders
@@ -2423,11 +2415,11 @@ ObtainCredentialResponse Client::obtainCredentialWithOptions(const string &insta
 }
 
 /**
- * @summary Retrieves the plaintext of a secret.
+ * @summary Queries credential information and retrieves the credential plaintext.
  *
- * @description This API uses an access token from IDaaS for authentication and authorization.
- * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
- * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
+ * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+ * Ensure that the Access Token you pass in has the "Obtain Static Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+ * > The corresponding scope is `urn:cloud:idaas:pam|credential:obtain`.
  *
  * @param request ObtainCredentialRequest
  * @return ObtainCredentialResponse
@@ -2663,6 +2655,60 @@ PatchOrganizationalUnitResponse Client::patchOrganizationalUnit(const string &in
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   PatchOrganizationalUnitHeaders headers = PatchOrganizationalUnitHeaders();
   return patchOrganizationalUnitWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
+}
+
+/**
+ * @summary Moves an organizational unit.
+ *
+ * @param request PatchOrganizationalUnitParentIdRequest
+ * @param headers PatchOrganizationalUnitParentIdHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return PatchOrganizationalUnitParentIdResponse
+ */
+PatchOrganizationalUnitParentIdResponse Client::patchOrganizationalUnitParentIdWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const PatchOrganizationalUnitParentIdRequest &request, const PatchOrganizationalUnitParentIdHeaders &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasParentId()) {
+    body["parentId"] = request.getParentId();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAuthorization()) {
+    realHeaders["Authorization"] = Darabonba::Convert::stringVal(headers.getAuthorization());
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "PatchOrganizationalUnitParentId"},
+    {"version" , "2022-02-25"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/v2/" , Darabonba::Encode::Encoder::percentEncode(instanceId) , "/" , Darabonba::Encode::Encoder::percentEncode(applicationId) , "/organizationalUnits/" , Darabonba::Encode::Encoder::percentEncode(organizationalUnitId) , "/parentId")},
+    {"method" , "PATCH"},
+    {"authType" , "Anonymous"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "none"}
+  }).get<map<string, string>>());
+  return json(doROARequest(params.getAction(), params.getVersion(), params.getProtocol(), params.getMethod(), params.getAuthType(), params.getPathname(), params.getBodyType(), req, runtime)).get<PatchOrganizationalUnitParentIdResponse>();
+}
+
+/**
+ * @summary Moves an organizational unit.
+ *
+ * @param request PatchOrganizationalUnitParentIdRequest
+ * @return PatchOrganizationalUnitParentIdResponse
+ */
+PatchOrganizationalUnitParentIdResponse Client::patchOrganizationalUnitParentId(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const PatchOrganizationalUnitParentIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  PatchOrganizationalUnitParentIdHeaders headers = PatchOrganizationalUnitParentIdHeaders();
+  return patchOrganizationalUnitParentIdWithOptions(instanceId, applicationId, organizationalUnitId, request, headers, runtime);
 }
 
 /**

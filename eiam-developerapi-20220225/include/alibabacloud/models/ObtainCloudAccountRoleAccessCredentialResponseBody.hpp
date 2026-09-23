@@ -120,9 +120,13 @@ namespace Models
 
 
       protected:
+        // The STS Token expiration time (UTC).
         shared_ptr<string> expiration_ {};
+        // The access key ID.
         shared_ptr<string> tmpSecretId_ {};
+        // The secret access key.
         shared_ptr<string> tmpSecretKey_ {};
+        // The session security token of the temporary credentials.
         shared_ptr<string> token_ {};
       };
 
@@ -184,11 +188,11 @@ namespace Models
       protected:
         // The access key ID.
         shared_ptr<string> accessKeyId_ {};
-        // The expiration time of the STS Token (UTC).
+        // The STS Token expiration time (UTC).
         shared_ptr<string> expiration_ {};
         // The secret access key.
         shared_ptr<string> secretAccessKey_ {};
-        // The session token of the temporary credentials.
+        // The session security token of the temporary credentials.
         shared_ptr<string> sessionToken_ {};
       };
 
@@ -252,7 +256,7 @@ namespace Models
         shared_ptr<string> accessKeyId_ {};
         // The access key secret.
         shared_ptr<string> accessKeySecret_ {};
-        // The expiration time of the token (UTC).
+        // The token expiration time (UTC).
         shared_ptr<string> expiration_ {};
         // The security token.
         shared_ptr<string> securityToken_ {};
@@ -295,13 +299,14 @@ namespace Models
 
 
     protected:
-      // The expiration time of the temporary access credentials for the cloud account role, in UNIX timestamp format and in seconds.
+      // The expiration time of the temporary access credentials for the cloud account role, in UNIX timestamp format (seconds).
       shared_ptr<int64_t> accessCredentialExpiresAt_ {};
       // The temporary identity credentials (STS Token) for assuming an Alibaba Cloud RAM role.
       // > This field is returned only when the cloud account type associated with the cloud account role is Alibaba Cloud (alibaba_cloud).
       shared_ptr<CloudAccountRoleAccessCredential::AlibabaCloudStsToken> alibabaCloudStsToken_ {};
       // The STS Token representing an AWS role.
       shared_ptr<CloudAccountRoleAccessCredential::AwsStsToken> awsStsToken_ {};
+      // The STS Token representing a Tencent Cloud role.
       shared_ptr<CloudAccountRoleAccessCredential::TencentCloudStsToken> tencentCloudStsToken_ {};
     };
 

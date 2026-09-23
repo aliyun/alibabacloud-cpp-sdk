@@ -148,6 +148,9 @@
 #include <alibabacloud/models/PatchOrganizationalUnitHeaders.hpp>
 #include <alibabacloud/models/PatchOrganizationalUnitRequest.hpp>
 #include <alibabacloud/models/PatchOrganizationalUnitResponse.hpp>
+#include <alibabacloud/models/PatchOrganizationalUnitParentIdHeaders.hpp>
+#include <alibabacloud/models/PatchOrganizationalUnitParentIdRequest.hpp>
+#include <alibabacloud/models/PatchOrganizationalUnitParentIdResponse.hpp>
 #include <alibabacloud/models/PatchUserHeaders.hpp>
 #include <alibabacloud/models/PatchUserRequest.hpp>
 #include <alibabacloud/models/PatchUserResponse.hpp>

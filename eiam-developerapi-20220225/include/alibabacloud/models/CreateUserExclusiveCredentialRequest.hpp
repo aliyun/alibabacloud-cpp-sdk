@@ -177,6 +177,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<CreateUserExclusiveCredentialRequest::CredentialContent> credentialContent_ {};
+    // The external unique identifier of the credential.
     shared_ptr<string> credentialExternalId_ {};
     // The credential identifier.
     // 
@@ -198,6 +199,7 @@ namespace Models
     shared_ptr<string> credentialType_ {};
     // The credential description.
     shared_ptr<string> description_ {};
+    // Specifies whether to return the encrypted ciphertext of the credential.
     shared_ptr<bool> returnCiphertext_ {};
   };
 

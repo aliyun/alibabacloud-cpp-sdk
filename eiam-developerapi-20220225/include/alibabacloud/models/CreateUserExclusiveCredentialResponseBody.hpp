@@ -57,6 +57,7 @@ namespace Models
 
 
   protected:
+    // The encrypted ciphertext of the credential.
     shared_ptr<string> credentialCiphertext_ {};
     // The credential ID.
     shared_ptr<string> credentialId_ {};

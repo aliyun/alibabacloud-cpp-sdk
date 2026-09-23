@@ -120,9 +120,9 @@ namespace Models
 
 
       protected:
-        // The `client_id` for OAuth 2.0.
+        // The client_id of the OAuth protocol.
         shared_ptr<string> clientId_ {};
-        // The `client_secret` for OAuth 2.0.
+        // The client_secret of the OAuth protocol.
         shared_ptr<string> clientSecret_ {};
       };
 
@@ -154,7 +154,7 @@ namespace Models
 
 
       protected:
-        // The API key value.
+        // The value of the API Key.
         shared_ptr<string> apiKey_ {};
       };
 
@@ -179,9 +179,9 @@ namespace Models
 
 
     protected:
-      // Contains details for an API key credential. Returned only when `credentialType` is `api_key`.
+      // The credential content of the API Key credential type.
       shared_ptr<CredentialContent::ApiKeyContent> apiKeyContent_ {};
-      // Contains details for an OAuth client credential. Returned only when `credentialType` is `oauth_client`.
+      // The credential content of the OAuth client authentication credential type.
       shared_ptr<CredentialContent::OauthClientContent> oauthClientContent_ {};
     };
 
@@ -312,16 +312,15 @@ namespace Models
 
 
   protected:
-    // The creation time of the credential, formatted as a Unix timestamp in milliseconds.
+    // The creation time, in UNIX timestamp format. Unit: milliseconds.
     shared_ptr<int64_t> createTime_ {};
-    // The detailed content of the credential. The structure of this object depends on the value of `credentialType`.
+    // The credential content.
     shared_ptr<ObtainCredentialResponseBody::CredentialContent> credentialContent_ {};
-    // Indicates how the credential was created. Valid values:
-    // 
-    // - `system_init`: System-initiated.
-    // 
-    // - `user_custom`: User-created.
+    // The creation type of the credential. Valid values:
+    // - system_init: Created by the system.
+    // - user_custom: Created by the user.
     shared_ptr<string> credentialCreationType_ {};
+    // The external unique identifier of the credential.
     shared_ptr<string> credentialExternalId_ {};
     // The credential ID.
     shared_ptr<string> credentialId_ {};
@@ -329,39 +328,32 @@ namespace Models
     shared_ptr<string> credentialIdentifier_ {};
     // The credential name.
     shared_ptr<string> credentialName_ {};
-    // The usage scenario for the credential. Valid values:
-    // 
-    // - `llm`: For use with a large language model.
-    // 
-    // - `saas`: For use with a third-party SaaS application.
+    // The Scenarios label of the credential. Valid values:
+    // - llm: Large language model.
+    // - saas: Third-party SaaS service.
     shared_ptr<string> credentialScenarioLabel_ {};
-    // The sharing scope of the credential, such as whether it is exclusive to a specific account.
+    // The credential sharing scope.
     shared_ptr<string> credentialSharingScope_ {};
-    // The ID of the credential\\"s subject.
+    // The subject ID that the credential belongs to.
     shared_ptr<string> credentialSubjectId_ {};
-    // The credential\\"s subject type. Valid values:
-    // 
-    // - `authentication_token_provider`: An authentication token provider.
+    // The subject type that the credential belongs to. Valid values:
+    // - authentication_token_provider: Authentication token provider.
     shared_ptr<string> credentialSubjectType_ {};
     // The credential type. Valid values:
-    // 
-    // - `api_key`: The credential is an API key.
-    // 
-    // - `oauth_client`: The credential represents an OAuth client.
+    // - api_key: API Key authentication credential.
+    // - oauth_client: OAuth client authentication credential.
     shared_ptr<string> credentialType_ {};
     // The credential description.
     shared_ptr<string> description_ {};
-    // The ID of the account that exclusively owns the credential. This field is present only when `credentialSharingScope` is `user_exclusive`.
+    // The exclusive account ID of the credential.
     shared_ptr<string> exclusiveUserId_ {};
     // The EIAM instance ID.
     shared_ptr<string> instanceId_ {};
-    // The status of the credential. Valid values:
-    // 
-    // - `enabled`: The credential can be used.
-    // 
-    // - `disabled`: The credential cannot be used.
+    // The credential status. Valid values:
+    // - enabled: Enabled.
+    // - disabled: Disabled.
     shared_ptr<string> status_ {};
-    // The last update time of the credential, formatted as a Unix timestamp in milliseconds.
+    // The update time, in UNIX timestamp format. Unit: milliseconds.
     shared_ptr<int64_t> updateTime_ {};
   };
 

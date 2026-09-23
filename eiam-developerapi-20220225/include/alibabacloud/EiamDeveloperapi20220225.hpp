@@ -114,7 +114,7 @@ namespace EiamDeveloperapi20220225
        * @summary Creates an account-specific credential.
        *
        * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
-       * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * Ensure that the Access Token you pass in has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
        * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
        *
        * @param request CreateUserExclusiveCredentialRequest
@@ -128,7 +128,7 @@ namespace EiamDeveloperapi20220225
        * @summary Creates an account-specific credential.
        *
        * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
-       * Ensure that the Access Token you provide has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * Ensure that the Access Token you pass in has the "Manage Static Credentials" permission for the IDaaS built-in PAM application (Privileged Access Management).
        * > The corresponding scope is `urn:cloud:idaas:pam|credential:manage`.
        *
        * @param request CreateUserExclusiveCredentialRequest
@@ -858,7 +858,7 @@ namespace EiamDeveloperapi20220225
        * @summary Retrieves temporary access credentials for a cloud account role (CloudAccountRole).
        *
        * @description This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
-       * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * Ensure that the Access Token you provide has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
        * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
        *
        * @param request ObtainCloudAccountRoleAccessCredentialRequest
@@ -872,7 +872,7 @@ namespace EiamDeveloperapi20220225
        * @summary Retrieves temporary access credentials for a cloud account role (CloudAccountRole).
        *
        * @description This API authenticates and authorizes requests based on an Access Token issued by IDaaS.
-       * Ensure that the Access Token has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * Ensure that the Access Token you provide has the "Obtain Cloud Role Access Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
        * > The corresponding scope is `urn:cloud:idaas:pam|cloud_account_role:obtain_access_credential`.
        *
        * @param request ObtainCloudAccountRoleAccessCredentialRequest
@@ -881,11 +881,11 @@ namespace EiamDeveloperapi20220225
       Models::ObtainCloudAccountRoleAccessCredentialResponse obtainCloudAccountRoleAccessCredential(const string &instanceId, const Models::ObtainCloudAccountRoleAccessCredentialRequest &request);
 
       /**
-       * @summary Retrieves the plaintext of a secret.
+       * @summary Queries credential information and retrieves the credential plaintext.
        *
-       * @description This API uses an access token from IDaaS for authentication and authorization.
-       * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
-       * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
+       * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+       * Ensure that the Access Token you pass in has the "Obtain Static Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * > The corresponding scope is `urn:cloud:idaas:pam|credential:obtain`.
        *
        * @param request ObtainCredentialRequest
        * @param headers ObtainCredentialHeaders
@@ -895,11 +895,11 @@ namespace EiamDeveloperapi20220225
       Models::ObtainCredentialResponse obtainCredentialWithOptions(const string &instanceId, const Models::ObtainCredentialRequest &request, const Models::ObtainCredentialHeaders &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves the plaintext of a secret.
+       * @summary Queries credential information and retrieves the credential plaintext.
        *
-       * @description This API uses an access token from IDaaS for authentication and authorization.
-       * The access token must have permissions to obtain static credentials for the built-in privileged access management (PAM) application in IDaaS.
-       * > The required scope is `urn:cloud:idaas:pam|credential:obtain`.
+       * @description This API uses an Access Token issued by IDaaS for identity authentication and authorization.
+       * Ensure that the Access Token you pass in has the "Obtain Static Credential" permission for the IDaaS built-in PAM application (Privileged Access Management).
+       * > The corresponding scope is `urn:cloud:idaas:pam|credential:obtain`.
        *
        * @param request ObtainCredentialRequest
        * @return ObtainCredentialResponse
@@ -989,6 +989,24 @@ namespace EiamDeveloperapi20220225
        * @return PatchOrganizationalUnitResponse
        */
       Models::PatchOrganizationalUnitResponse patchOrganizationalUnit(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::PatchOrganizationalUnitRequest &request);
+
+      /**
+       * @summary Moves an organizational unit.
+       *
+       * @param request PatchOrganizationalUnitParentIdRequest
+       * @param headers PatchOrganizationalUnitParentIdHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PatchOrganizationalUnitParentIdResponse
+       */
+      Models::PatchOrganizationalUnitParentIdResponse patchOrganizationalUnitParentIdWithOptions(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::PatchOrganizationalUnitParentIdRequest &request, const Models::PatchOrganizationalUnitParentIdHeaders &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Moves an organizational unit.
+       *
+       * @param request PatchOrganizationalUnitParentIdRequest
+       * @return PatchOrganizationalUnitParentIdResponse
+       */
+      Models::PatchOrganizationalUnitParentIdResponse patchOrganizationalUnitParentId(const string &instanceId, const string &applicationId, const string &organizationalUnitId, const Models::PatchOrganizationalUnitParentIdRequest &request);
 
       /**
        * @summary Modifies an Employee Identity and Access Management (EIAM) account.

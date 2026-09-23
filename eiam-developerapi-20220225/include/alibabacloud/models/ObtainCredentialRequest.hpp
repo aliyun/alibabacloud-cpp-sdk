@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The identifier for the credential to obtain.
+    // The credential identifier.
     // 
     // This parameter is required.
     shared_ptr<string> credentialIdentifier_ {};

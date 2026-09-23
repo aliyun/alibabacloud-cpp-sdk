@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_OBTAINCREDENTIALHEADERS_HPP_
-#define ALIBABACLOUD_MODELS_OBTAINCREDENTIALHEADERS_HPP_
+#ifndef ALIBABACLOUD_MODELS_PATCHORGANIZATIONALUNITPARENTIDHEADERS_HPP_
+#define ALIBABACLOUD_MODELS_PATCHORGANIZATIONALUNITPARENTIDHEADERS_HPP_
 #include <darabonba/Core.hpp>
 #include <map>
 using namespace std;
@@ -11,23 +11,23 @@ namespace EiamDeveloperapi20220225
 {
 namespace Models
 {
-  class ObtainCredentialHeaders : public Darabonba::Model {
+  class PatchOrganizationalUnitParentIdHeaders : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ObtainCredentialHeaders& obj) { 
+    friend void to_json(Darabonba::Json& j, const PatchOrganizationalUnitParentIdHeaders& obj) { 
       DARABONBA_PTR_TO_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_TO_JSON(Authorization, authorization_);
     };
-    friend void from_json(const Darabonba::Json& j, ObtainCredentialHeaders& obj) { 
+    friend void from_json(const Darabonba::Json& j, PatchOrganizationalUnitParentIdHeaders& obj) { 
       DARABONBA_PTR_FROM_JSON(commonHeaders, commonHeaders_);
       DARABONBA_PTR_FROM_JSON(Authorization, authorization_);
     };
-    ObtainCredentialHeaders() = default ;
-    ObtainCredentialHeaders(const ObtainCredentialHeaders &) = default ;
-    ObtainCredentialHeaders(ObtainCredentialHeaders &&) = default ;
-    ObtainCredentialHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ObtainCredentialHeaders() = default ;
-    ObtainCredentialHeaders& operator=(const ObtainCredentialHeaders &) = default ;
-    ObtainCredentialHeaders& operator=(ObtainCredentialHeaders &&) = default ;
+    PatchOrganizationalUnitParentIdHeaders() = default ;
+    PatchOrganizationalUnitParentIdHeaders(const PatchOrganizationalUnitParentIdHeaders &) = default ;
+    PatchOrganizationalUnitParentIdHeaders(PatchOrganizationalUnitParentIdHeaders &&) = default ;
+    PatchOrganizationalUnitParentIdHeaders(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~PatchOrganizationalUnitParentIdHeaders() = default ;
+    PatchOrganizationalUnitParentIdHeaders& operator=(const PatchOrganizationalUnitParentIdHeaders &) = default ;
+    PatchOrganizationalUnitParentIdHeaders& operator=(PatchOrganizationalUnitParentIdHeaders &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -39,21 +39,20 @@ namespace Models
     void deleteCommonHeaders() { this->commonHeaders_ = nullptr;};
     inline const map<string, string> & getCommonHeaders() const { DARABONBA_PTR_GET_CONST(commonHeaders_, map<string, string>) };
     inline map<string, string> getCommonHeaders() { DARABONBA_PTR_GET(commonHeaders_, map<string, string>) };
-    inline ObtainCredentialHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
-    inline ObtainCredentialHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
+    inline PatchOrganizationalUnitParentIdHeaders& setCommonHeaders(const map<string, string> & commonHeaders) { DARABONBA_PTR_SET_VALUE(commonHeaders_, commonHeaders) };
+    inline PatchOrganizationalUnitParentIdHeaders& setCommonHeaders(map<string, string> && commonHeaders) { DARABONBA_PTR_SET_RVALUE(commonHeaders_, commonHeaders) };
 
 
     // authorization Field Functions 
     bool hasAuthorization() const { return this->authorization_ != nullptr;};
     void deleteAuthorization() { this->authorization_ = nullptr;};
     inline string getAuthorization() const { DARABONBA_PTR_GET_DEFAULT(authorization_, "") };
-    inline ObtainCredentialHeaders& setAuthorization(string authorization) { DARABONBA_PTR_SET_VALUE(authorization_, authorization) };
+    inline PatchOrganizationalUnitParentIdHeaders& setAuthorization(string authorization) { DARABONBA_PTR_SET_VALUE(authorization_, authorization) };
 
 
   protected:
     shared_ptr<map<string, string>> commonHeaders_ {};
-    // The authentication information. Format: Bearer ${access_token}. 
-    // > Enter the Access Token issued by IDaaS.
+    // The authentication information. Format: Bearer access_token.
     // 
     // This parameter is required.
     shared_ptr<string> authorization_ {};
