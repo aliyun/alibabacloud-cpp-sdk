@@ -92,7 +92,12 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The subscription period unit.
+    // The subscription period. Valid values:
+    // 
+    // - Month: month.
+    // - Year: year.
+    // - Hour: hour.
+    // - Day: day.
     // 
     // This parameter is required.
     shared_ptr<string> pricingCycle_ {};

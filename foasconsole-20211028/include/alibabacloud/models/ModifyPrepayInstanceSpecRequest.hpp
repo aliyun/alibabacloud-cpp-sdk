@@ -129,7 +129,9 @@ namespace Models
 
 
     protected:
+      // The number of CPUs for zone-disaster recovery resources.
       shared_ptr<int32_t> cpu_ {};
+      // The memory size of zone-disaster recovery resources, in GB. The value must be 4 times the number of CPUs.
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -192,15 +194,19 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable zone-disaster recovery resources for the workspace.
     shared_ptr<bool> ha_ {};
+    // The resource specifications for zone-disaster recovery.
     shared_ptr<ModifyPrepayInstanceSpecRequest::HaResourceSpec> haResourceSpec_ {};
+    // The list of vSwitch IDs in the secondary zone for zone-disaster recovery.
     shared_ptr<vector<string>> haVSwitchIds_ {};
+    // The ID of the secondary zone for zone-disaster recovery.
     shared_ptr<string> haZoneId_ {};
     // The order instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The region ID.
+    // The region.
     // 
     // This parameter is required.
     shared_ptr<string> region_ {};

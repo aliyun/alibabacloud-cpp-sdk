@@ -1530,7 +1530,7 @@ QueryConvertInstancePriceResponse Client::queryConvertInstancePrice(const QueryC
 }
 
 /**
- * @summary Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
+ * @summary Queries the estimated refund amount after your Flink instance is switched from subscription to pay-as-you-go. After the switch, your usage is metered hourly and billed accordingly.
  *
  * @param request QueryConvertPrepayInstancePriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1565,7 +1565,7 @@ QueryConvertPrepayInstancePriceResponse Client::queryConvertPrepayInstancePriceW
 }
 
 /**
- * @summary Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
+ * @summary Queries the estimated refund amount after your Flink instance is switched from subscription to pay-as-you-go. After the switch, your usage is metered hourly and billed accordingly.
  *
  * @param request QueryConvertPrepayInstancePriceRequest
  * @return QueryConvertPrepayInstancePriceResponse
@@ -1842,9 +1842,9 @@ QueryRenewInstancePriceResponse Client::queryRenewInstancePrice(const QueryRenew
 }
 
 /**
- * @summary Renews a subscription Realtime Compute for Apache Flink workspace.
+ * @summary Renews a subscription fully managed Flink workspace.
  *
- * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
+ * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of the fully managed Flink service.**
  *
  * @param request RenewInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1895,9 +1895,9 @@ RenewInstanceResponse Client::renewInstanceWithOptions(const RenewInstanceReques
 }
 
 /**
- * @summary Renews a subscription Realtime Compute for Apache Flink workspace.
+ * @summary Renews a subscription fully managed Flink workspace.
  *
- * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
+ * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of the fully managed Flink service.**
  *
  * @param request RenewInstanceRequest
  * @return RenewInstanceResponse

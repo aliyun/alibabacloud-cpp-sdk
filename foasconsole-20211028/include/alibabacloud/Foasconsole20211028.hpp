@@ -483,7 +483,7 @@ namespace Foasconsole20211028
       Models::QueryConvertInstancePriceResponse queryConvertInstancePrice(const Models::QueryConvertInstancePriceRequest &request);
 
       /**
-       * @summary Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
+       * @summary Queries the estimated refund amount after your Flink instance is switched from subscription to pay-as-you-go. After the switch, your usage is metered hourly and billed accordingly.
        *
        * @param request QueryConvertPrepayInstancePriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -492,7 +492,7 @@ namespace Foasconsole20211028
       Models::QueryConvertPrepayInstancePriceResponse queryConvertPrepayInstancePriceWithOptions(const Models::QueryConvertPrepayInstancePriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the estimated refund amount after converting your Flink instance from subscription to pay-as-you-go. After the conversion, your usage is metered hourly and bills are generated accordingly.
+       * @summary Queries the estimated refund amount after your Flink instance is switched from subscription to pay-as-you-go. After the switch, your usage is metered hourly and billed accordingly.
        *
        * @param request QueryConvertPrepayInstancePriceRequest
        * @return QueryConvertPrepayInstancePriceResponse
@@ -551,9 +551,9 @@ namespace Foasconsole20211028
       Models::QueryRenewInstancePriceResponse queryRenewInstancePrice(const Models::QueryRenewInstancePriceRequest &request);
 
       /**
-       * @summary Renews a subscription Realtime Compute for Apache Flink workspace.
+       * @summary Renews a subscription fully managed Flink workspace.
        *
-       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
+       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of the fully managed Flink service.**
        *
        * @param request RenewInstanceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -562,9 +562,9 @@ namespace Foasconsole20211028
       Models::RenewInstanceResponse renewInstanceWithOptions(const Models::RenewInstanceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Renews a subscription Realtime Compute for Apache Flink workspace.
+       * @summary Renews a subscription fully managed Flink workspace.
        *
-       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of Realtime Compute for Apache Flink.**
+       * @description **Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of the fully managed Flink service.**
        *
        * @param request RenewInstanceRequest
        * @return RenewInstanceResponse

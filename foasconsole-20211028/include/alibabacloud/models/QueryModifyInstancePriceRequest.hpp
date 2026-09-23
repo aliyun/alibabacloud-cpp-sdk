@@ -134,7 +134,7 @@ namespace Models
     protected:
       // The number of CPUs for zone-disaster recovery.
       shared_ptr<int32_t> cpu_ {};
-      // The memory size for zone-disaster recovery.
+      // The active memory size for zone-disaster recovery.
       shared_ptr<int32_t> memoryGB_ {};
     };
 

@@ -115,7 +115,7 @@ namespace Models
 
 
       protected:
-        // The promotion rule description.
+        // The description of the promotion rule.
         shared_ptr<string> description_ {};
         // The promotion ID.
         shared_ptr<int64_t> ruleId_ {};
@@ -184,6 +184,8 @@ namespace Models
         // The coupon ID.
         shared_ptr<string> promotionOptionNo_ {};
         // Indicates whether the coupon is selected. Valid values:
+        // - true: Selected.
+        // - false: Not selected.
         shared_ptr<bool> selected_ {};
       };
 
@@ -261,15 +263,15 @@ namespace Models
 
 
       protected:
-        // The price reduction rate.
+        // The price reduction ratio.
         shared_ptr<string> cheapRate_ {};
-        // The standard total price after the price reduction.
+        // The total list price after the price reduction.
         shared_ptr<string> cheapStandAmount_ {};
         // Indicates whether to display the price reduction percentage.
         shared_ptr<bool> isShow_ {};
         // The monthly equivalent price.
         shared_ptr<string> monthPrice_ {};
-        // The original standard total price.
+        // The original total list price.
         shared_ptr<string> originalStandAmount_ {};
         // The start time of the price reduction.
         shared_ptr<string> startTime_ {};
@@ -385,7 +387,7 @@ namespace Models
       shared_ptr<PriceInfo::DepreciateInfo> depreciateInfo_ {};
       // The discount amount.
       shared_ptr<float> discountAmount_ {};
-      // Indicates whether the enterprise customer discount is applied.
+      // Indicates whether an enterprise discount is applied.
       shared_ptr<bool> isContractActivity_ {};
       // The Lingxiao request ID of the call.
       shared_ptr<string> lxRequestId_ {};
@@ -397,9 +399,9 @@ namespace Models
       shared_ptr<float> originalAmount_ {};
       // The promotion rules.
       shared_ptr<vector<PriceInfo::Rules>> rules_ {};
-      // The promotional price based on the official website discount.
+      // The promotional price based on the standard discount from the official website.
       shared_ptr<string> standDiscountPrice_ {};
-      // The official website discounted price or direct sales contract discounted price.
+      // The standard discounted price on the official website or the direct sales contract discounted price.
       shared_ptr<string> standPrice_ {};
       // The final price, which is the original price minus the discount.
       shared_ptr<float> tradeAmount_ {};

@@ -180,16 +180,20 @@ namespace Models
     shared_ptr<string> architectureType_ {};
     // Specifies whether to enable auto-renewal. Valid values:
     // 
-    // - **true**: enables auto-renewal.
-    // - **false**: does not enable auto-renewal. (Default)
+    // - **true**: Enabled.
+    // - **false**: Disabled (default).
     // 
-    // >This parameter is invalid for pay-as-you-go instances.
+    // > This parameter does not take effect for pay-as-you-go instances.
     shared_ptr<bool> autoRenew_ {};
-    // The billing type. Valid values:
+    // The billing method. Valid values:
+    // 
+    // - POST: pay-as-you-go.
+    // - PRE: subscription.
     // 
     // This parameter is required.
     shared_ptr<string> chargeType_ {};
     // The number of billing cycles.
+    // > When ChargeType is set to PRE, the Duration parameter is required.
     shared_ptr<int32_t> duration_ {};
     // The extended reserved field.
     shared_ptr<string> extra_ {};
@@ -212,6 +216,9 @@ namespace Models
     // The storage information.
     shared_ptr<string> storageShrink_ {};
     // Specifies whether to use a coupon. Valid values:
+    // 
+    // - true: Use a coupon.
+    // - false: Do not use a coupon.
     shared_ptr<bool> usePromotionCode_ {};
     // The vSwitch IDs.
     shared_ptr<string> vSwitchIdsShrink_ {};

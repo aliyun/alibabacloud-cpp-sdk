@@ -170,10 +170,11 @@ namespace Models
 
 
       protected:
-        // The number of used CPUs.
+        // The number of CPUs used.
         shared_ptr<float> cpu_ {};
+        // The number of compute units (CUs) used.
         shared_ptr<float> cu_ {};
-        // The amount of used memory.
+        // The amount of memory used.
         shared_ptr<float> memoryGB_ {};
       };
 
@@ -259,7 +260,9 @@ namespace Models
 
 
       protected:
+        // The number of CPUs for subscription resources.
         shared_ptr<int32_t> cpu_ {};
+        // The memory size for subscription resources. Unit: GB.
         shared_ptr<int32_t> memoryGB_ {};
       };
 
@@ -301,7 +304,9 @@ namespace Models
 
 
       protected:
+        // The maximum CPU limit for pay-as-you-go resources.
         shared_ptr<int32_t> cpu_ {};
+        // The maximum memory limit for pay-as-you-go resources. Unit: GB.
         shared_ptr<int32_t> memoryGB_ {};
       };
 
@@ -394,7 +399,9 @@ namespace Models
       shared_ptr<int64_t> gmtCreate_ {};
       // The modification time.
       shared_ptr<int64_t> gmtModified_ {};
+      // The subscription resources allocated to the namespace.
       shared_ptr<Namespaces::GuaranteedResourceSpec> guaranteedResourceSpec_ {};
+      // Indicates whether zone-disaster recovery is enabled for the namespace.
       shared_ptr<bool> ha_ {};
       // The name of the namespace.
       shared_ptr<string> namespace_ {};
@@ -476,7 +483,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
     // - true: Successful.
     // - false: Failed.

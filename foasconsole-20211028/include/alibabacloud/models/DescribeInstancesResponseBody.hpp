@@ -213,7 +213,7 @@ namespace Models
       protected:
         // The VPC CIDR block.
         shared_ptr<string> cidrBlock_ {};
-        // The VPC description.
+        // The description of the VPC.
         shared_ptr<string> description_ {};
         // The region ID.
         shared_ptr<string> regionId_ {};
@@ -483,7 +483,7 @@ namespace Models
 
 
       protected:
-        // Indicates whether fully managed storage is selected. Valid values:
+        // Specifies whether fully managed storage is selected. Valid values:
         // - true: Used.
         // - false: Not used.
         shared_ptr<bool> fullyManaged_ {};
@@ -1820,9 +1820,9 @@ namespace Models
       shared_ptr<Instances::OssInfo> ossInfo_ {};
       // The region to which the instance belongs.
       shared_ptr<string> region_ {};
-      // The time when the instance was created.
+      // The time when the instance was created. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> resourceCreateTime_ {};
-      // The overdue time.
+      // The time when the instance expires. This value is a UNIX timestamp in milliseconds.
       shared_ptr<int64_t> resourceExpiredTime_ {};
       // The resource group.
       shared_ptr<string> resourceGroupId_ {};

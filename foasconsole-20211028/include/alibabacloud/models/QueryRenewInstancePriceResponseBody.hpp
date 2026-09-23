@@ -181,7 +181,7 @@ namespace Models
         shared_ptr<string> promotionDesc_ {};
         // The coupon name.
         shared_ptr<string> promotionName_ {};
-        // The coupon ID.
+        // The coupon number.
         shared_ptr<string> promotionOptionNo_ {};
         // Indicates whether the coupon is selected. Valid values:
         // 
@@ -269,13 +269,13 @@ namespace Models
         shared_ptr<string> cheapRate_ {};
         // The total list price after the price reduction.
         shared_ptr<string> cheapStandAmount_ {};
-        // Indicates whether to display the price reduction percentage.
+        // Indicates whether the price reduction percentage is displayed.
         shared_ptr<bool> isShow_ {};
-        // The monthly equivalent price.
+        // The equivalent monthly price.
         shared_ptr<string> monthPrice_ {};
         // The original total list price.
         shared_ptr<string> originalStandAmount_ {};
-        // The start time of the price reduction.
+        // The start time of the price reduction, in ISO 8601 format.
         shared_ptr<string> startTime_ {};
       };
 
@@ -399,11 +399,11 @@ namespace Models
       shared_ptr<vector<PriceInfo::OptionalPromotions>> optionalPromotions_ {};
       // The original price.
       shared_ptr<float> originalAmount_ {};
-      // The promotion rules.
+      // The promotion rule group.
       shared_ptr<vector<PriceInfo::Rules>> rules_ {};
-      // The promotional price based on the standard discount on the official website.
+      // The promotional price based on the standard website discount.
       shared_ptr<string> standDiscountPrice_ {};
-      // The standard discounted price on the official website or the direct sales contract discounted price.
+      // The list price with the website discount or direct sales contract discount applied.
       shared_ptr<string> standPrice_ {};
       // The final price, which is the original price minus the discount amount.
       shared_ptr<float> tradeAmount_ {};
@@ -435,7 +435,7 @@ namespace Models
 
 
   protected:
-    // The price information, including the price and discount rules.
+    // The price information, including the price and promotion rules.
     shared_ptr<QueryRenewInstancePriceResponseBody::PriceInfo> priceInfo_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

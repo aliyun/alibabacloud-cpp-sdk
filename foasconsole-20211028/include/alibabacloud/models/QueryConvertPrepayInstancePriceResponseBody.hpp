@@ -267,15 +267,15 @@ namespace Models
       protected:
         // The price reduction ratio.
         shared_ptr<string> cheapRate_ {};
-        // The reduced list price total.
+        // The list price total after the price reduction.
         shared_ptr<string> cheapStandAmount_ {};
-        // Indicates whether to display the price reduction percentage.
+        // Indicates whether the price reduction is displayed.
         shared_ptr<bool> isShow_ {};
         // The equivalent monthly price.
         shared_ptr<string> monthPrice_ {};
         // The original list price total.
         shared_ptr<string> originalStandAmount_ {};
-        // The price reduction start time.
+        // The price reduction start time in ISO 8601 format.
         shared_ptr<string> startTime_ {};
       };
 
@@ -401,9 +401,9 @@ namespace Models
       shared_ptr<float> originalAmount_ {};
       // The promotion rules.
       shared_ptr<vector<PriceInfo::Rules>> rules_ {};
-      // The discounted price based on the official website discount.
+      // The discounted price based on the list discount.
       shared_ptr<string> standDiscountPrice_ {};
-      // The official website discount price or direct sales contract discount price.
+      // The list discount price or direct sales contract discount price.
       shared_ptr<string> standPrice_ {};
       // The final price, which is the original price minus the discount.
       shared_ptr<float> tradeAmount_ {};

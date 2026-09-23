@@ -192,7 +192,7 @@ namespace Models
       // - true: Use fully managed storage.
       // - false: Do not use fully managed storage.
       shared_ptr<bool> fullyManaged_ {};
-      // The Object Storage Service (OSS) storage.
+      // The OSS storage configurations.
       shared_ptr<Storage::Oss> oss_ {};
     };
 
@@ -283,7 +283,7 @@ namespace Models
     protected:
       // The number of CPUs for zone-disaster recovery.
       shared_ptr<int32_t> cpu_ {};
-      // The memory size for zone-disaster recovery. The value is active memory allocated for high availability (HA).
+      // The memory size for zone-disaster recovery high availability (HA).
       shared_ptr<int32_t> memoryGB_ {};
     };
 
@@ -581,7 +581,7 @@ namespace Models
     shared_ptr<int32_t> duration_ {};
     // The extended field.
     shared_ptr<string> extra_ {};
-    // Specifies whether to enable zone-disaster recovery resources.
+    // Specifies whether to use zone-disaster recovery resources.
     shared_ptr<bool> ha_ {};
     // The zone-disaster recovery resource specifications.
     shared_ptr<CreateInstanceRequest::HaResourceSpec> haResourceSpec_ {};
@@ -591,7 +591,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> instanceName_ {};
-    // The type of monitoring and alerting service. You can select Application Real-Time Monitoring Service (ARMS) or CloudMonitor.
+    // The type of the monitoring and alerting service. You can select ARMS or CloudMonitor.
     shared_ptr<string> monitorType_ {};
     // The billing cycle of the subscription instance. Valid values:
     // 

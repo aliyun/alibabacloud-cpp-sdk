@@ -179,7 +179,7 @@ namespace Models
   protected:
     // The processor architecture. Valid values: X86 and ARM.
     shared_ptr<string> architectureType_ {};
-    // The payment type.
+    // The billing method.
     shared_ptr<string> chargeType_ {};
     // Specifies whether hybrid billing is used.
     shared_ptr<bool> elastic_ {};
