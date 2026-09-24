@@ -41,6 +41,7 @@ namespace Models
     class CloudDriveGroups : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const CloudDriveGroups& obj) { 
+        DARABONBA_PTR_TO_JSON(AuthDimension, authDimension_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(DirectoryId, directoryId_);
         DARABONBA_PTR_TO_JSON(DriveId, driveId_);
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(UsedSize, usedSize_);
       };
       friend void from_json(const Darabonba::Json& j, CloudDriveGroups& obj) { 
+        DARABONBA_PTR_FROM_JSON(AuthDimension, authDimension_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(DirectoryId, directoryId_);
         DARABONBA_PTR_FROM_JSON(DriveId, driveId_);
@@ -73,9 +75,16 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->directoryId_ == nullptr && this->driveId_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr && this->orgId_ == nullptr
-        && this->status_ == nullptr && this->totalSize_ == nullptr && this->usedSize_ == nullptr; };
+      virtual bool empty() const override { return this->authDimension_ == nullptr
+        && this->createTime_ == nullptr && this->directoryId_ == nullptr && this->driveId_ == nullptr && this->groupId_ == nullptr && this->groupName_ == nullptr
+        && this->orgId_ == nullptr && this->status_ == nullptr && this->totalSize_ == nullptr && this->usedSize_ == nullptr; };
+      // authDimension Field Functions 
+      bool hasAuthDimension() const { return this->authDimension_ != nullptr;};
+      void deleteAuthDimension() { this->authDimension_ = nullptr;};
+      inline string getAuthDimension() const { DARABONBA_PTR_GET_DEFAULT(authDimension_, "") };
+      inline CloudDriveGroups& setAuthDimension(string authDimension) { DARABONBA_PTR_SET_VALUE(authDimension_, authDimension) };
+
+
       // createTime Field Functions 
       bool hasCreateTime() const { return this->createTime_ != nullptr;};
       void deleteCreateTime() { this->createTime_ = nullptr;};
@@ -140,6 +149,8 @@ namespace Models
 
 
     protected:
+      // The authorization dimension.
+      shared_ptr<string> authDimension_ {};
       // The creation time. The time is in the ISO 8601 standard in the UTC format: yyyy-MM-ddTHH:mm:ssZ.
       shared_ptr<string> createTime_ {};
       // The office network ID.
@@ -202,13 +213,13 @@ namespace Models
   protected:
     // The list of cloud disk team spaces.
     shared_ptr<vector<DescribeCloudDiskGroupDrivesResponseBody::CloudDriveGroups>> cloudDriveGroups_ {};
-    // The total number of entries.
+    // The total count.
     shared_ptr<int64_t> count_ {};
-    // The token for the next query. If NextToken is empty, no more results are available.
+    // The pagination token for the next query. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful.
+    // Indicates whether the operation is successful.
     shared_ptr<bool> success_ {};
   };
 

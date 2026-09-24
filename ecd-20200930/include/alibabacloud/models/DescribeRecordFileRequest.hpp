@@ -13,6 +13,7 @@ namespace Models
   class DescribeRecordFileRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeRecordFileRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AuditStatus, auditStatus_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(EndTime, endTime_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
@@ -28,6 +29,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Status, status_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeRecordFileRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AuditStatus, auditStatus_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
@@ -53,10 +55,17 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->desktopId_ == nullptr
-        && this->endTime_ == nullptr && this->endUserId_ == nullptr && this->fileName_ == nullptr && this->orderBy_ == nullptr && this->orderSort_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->recordType_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr; };
+    virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && this->desktopId_ == nullptr && this->endTime_ == nullptr && this->endUserId_ == nullptr && this->fileName_ == nullptr && this->orderBy_ == nullptr
+        && this->orderSort_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->recordType_ == nullptr && this->regionId_ == nullptr
+        && this->resourceType_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr; };
+    // auditStatus Field Functions 
+    bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
+    void deleteAuditStatus() { this->auditStatus_ = nullptr;};
+    inline string getAuditStatus() const { DARABONBA_PTR_GET_DEFAULT(auditStatus_, "") };
+    inline DescribeRecordFileRequest& setAuditStatus(string auditStatus) { DARABONBA_PTR_SET_VALUE(auditStatus_, auditStatus) };
+
+
     // desktopId Field Functions 
     bool hasDesktopId() const { return this->desktopId_ != nullptr;};
     void deleteDesktopId() { this->desktopId_ = nullptr;};
@@ -149,6 +158,13 @@ namespace Models
 
 
   protected:
+    // The audit status. Valid values:
+    // 
+    // - AI_ANALYZED: AI analysis completed.
+    // - REVIEWING: Under review.
+    // - REVIEWED: Reviewed.
+    // - UNREVIEWED: Not reviewed.
+    shared_ptr<string> auditStatus_ {};
     // The Cloud Desktop ID.
     shared_ptr<string> desktopId_ {};
     // The end time of the query. Format: yyyyMMddHHmmss.
@@ -157,9 +173,9 @@ namespace Models
     shared_ptr<string> endUserId_ {};
     // The name of the recording file.
     shared_ptr<string> fileName_ {};
-    // The field used for sorting. If this parameter is not specified, the results are sorted by recording start time in descending order. Valid values:
+    // The field used for sorting. If not specified, results are sorted by recording start time in descending order. Valid values:
     // 
-    // - startTime: recording start time.
+    // - startTime: the recording start time.
     shared_ptr<string> orderBy_ {};
     // The sort order. Valid values:
     // 
@@ -168,7 +184,7 @@ namespace Models
     shared_ptr<string> orderSort_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The maximum number of rows per page in a paging query.
+    // The maximum number of rows per page in a paged query. This parameter is used for paging.
     shared_ptr<int32_t> pageSize_ {};
     // The type of the screen recording file. Valid values:
     // 
@@ -187,8 +203,8 @@ namespace Models
     shared_ptr<string> startTime_ {};
     // The status of the screen recording file. Valid values:
     // 
-    // - 0: uploaded.
-    // - 1: uploading.
+    // - 0: Upload succeeded.
+    // - 1: Uploading.
     shared_ptr<int32_t> status_ {};
   };
 

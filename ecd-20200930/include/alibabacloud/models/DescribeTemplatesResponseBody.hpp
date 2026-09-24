@@ -59,6 +59,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_TO_JSON(ImageId, imageId_);
         DARABONBA_PTR_TO_JSON(ImageType, imageType_);
+        DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_TO_JSON(Period, period_);
         DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
         DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
@@ -88,6 +89,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(GmtModified, gmtModified_);
         DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
         DARABONBA_PTR_FROM_JSON(ImageType, imageType_);
+        DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
         DARABONBA_PTR_FROM_JSON(Period, period_);
         DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
         DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
@@ -216,6 +218,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(ResourceInstanceType, resourceInstanceType_);
           DARABONBA_PTR_TO_JSON(SnapshotPolicyId, snapshotPolicyId_);
           DARABONBA_PTR_TO_JSON(SubnetId, subnetId_);
+          DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
           DARABONBA_PTR_TO_JSON(VolumeEncryptionEnable, volumeEncryptionEnable_);
           DARABONBA_PTR_TO_JSON(VolumeEncryptionKey, volumeEncryptionKey_);
         };
@@ -228,6 +231,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(ResourceInstanceType, resourceInstanceType_);
           DARABONBA_PTR_FROM_JSON(SnapshotPolicyId, snapshotPolicyId_);
           DARABONBA_PTR_FROM_JSON(SubnetId, subnetId_);
+          DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
           DARABONBA_PTR_FROM_JSON(VolumeEncryptionEnable, volumeEncryptionEnable_);
           DARABONBA_PTR_FROM_JSON(VolumeEncryptionKey, volumeEncryptionKey_);
         };
@@ -244,7 +248,7 @@ namespace Models
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->cpuCount_ == nullptr
         && this->gpuSpec_ == nullptr && this->memorySize_ == nullptr && this->officeSiteId_ == nullptr && this->regionId_ == nullptr && this->resourceInstanceType_ == nullptr
-        && this->snapshotPolicyId_ == nullptr && this->subnetId_ == nullptr && this->volumeEncryptionEnable_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
+        && this->snapshotPolicyId_ == nullptr && this->subnetId_ == nullptr && this->virtualNodePoolId_ == nullptr && this->volumeEncryptionEnable_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
         // cpuCount Field Functions 
         bool hasCpuCount() const { return this->cpuCount_ != nullptr;};
         void deleteCpuCount() { this->cpuCount_ = nullptr;};
@@ -301,6 +305,13 @@ namespace Models
         inline RegionConfigList& setSubnetId(string subnetId) { DARABONBA_PTR_SET_VALUE(subnetId_, subnetId) };
 
 
+        // virtualNodePoolId Field Functions 
+        bool hasVirtualNodePoolId() const { return this->virtualNodePoolId_ != nullptr;};
+        void deleteVirtualNodePoolId() { this->virtualNodePoolId_ = nullptr;};
+        inline string getVirtualNodePoolId() const { DARABONBA_PTR_GET_DEFAULT(virtualNodePoolId_, "") };
+        inline RegionConfigList& setVirtualNodePoolId(string virtualNodePoolId) { DARABONBA_PTR_SET_VALUE(virtualNodePoolId_, virtualNodePoolId) };
+
+
         // volumeEncryptionEnable Field Functions 
         bool hasVolumeEncryptionEnable() const { return this->volumeEncryptionEnable_ != nullptr;};
         void deleteVolumeEncryptionEnable() { this->volumeEncryptionEnable_ = nullptr;};
@@ -318,7 +329,7 @@ namespace Models
       protected:
         // The number of vCPUs included in the cloud computer specification.
         shared_ptr<int32_t> cpuCount_ {};
-        // The GPU memory information. This field is displayed only when the specification is a graphics-accelerated type.
+        // The GPU memory information. This field is displayed only when the specification is a graphics type.
         shared_ptr<string> gpuSpec_ {};
         // The memory size. Unit: MiB.
         shared_ptr<int64_t> memorySize_ {};
@@ -332,6 +343,8 @@ namespace Models
         shared_ptr<string> snapshotPolicyId_ {};
         // The subnet ID.
         shared_ptr<string> subnetId_ {};
+        // The virtual node pool ID.
+        shared_ptr<string> virtualNodePoolId_ {};
         // Indicates whether disk encryption is enabled.
         shared_ptr<bool> volumeEncryptionEnable_ {};
         // The KMS key ID used when disk encryption is enabled.
@@ -378,17 +391,17 @@ namespace Models
       protected:
         // The performance level of the data cloud disk.
         shared_ptr<string> performanceLevel_ {};
-        // The data cloud disk size. Unit: GiB.
+        // The size of the data cloud disk. Unit: GiB.
         shared_ptr<string> size_ {};
       };
 
       virtual bool empty() const override { return this->autoPay_ == nullptr
         && this->autoRenew_ == nullptr && this->chargeType_ == nullptr && this->dataDiskList_ == nullptr && this->defaultLanguage_ == nullptr && this->description_ == nullptr
-        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->imageId_ == nullptr && this->imageType_ == nullptr && this->period_ == nullptr
-        && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->postPaidAfterUsedUp_ == nullptr && this->productType_ == nullptr && this->regionConfigList_ == nullptr
-        && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceTagList_ == nullptr && this->siteConfigList_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr
-        && this->systemDiskSize_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr && this->timerGroupId_ == nullptr
-        && this->userDuration_ == nullptr; };
+        && this->gmtCreate_ == nullptr && this->gmtModified_ == nullptr && this->imageId_ == nullptr && this->imageType_ == nullptr && this->instanceName_ == nullptr
+        && this->period_ == nullptr && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr && this->postPaidAfterUsedUp_ == nullptr && this->productType_ == nullptr
+        && this->regionConfigList_ == nullptr && this->requestId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceTagList_ == nullptr && this->siteConfigList_ == nullptr
+        && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr && this->templateType_ == nullptr
+        && this->timerGroupId_ == nullptr && this->userDuration_ == nullptr; };
       // autoPay Field Functions 
       bool hasAutoPay() const { return this->autoPay_ != nullptr;};
       void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -459,6 +472,13 @@ namespace Models
       void deleteImageType() { this->imageType_ = nullptr;};
       inline string getImageType() const { DARABONBA_PTR_GET_DEFAULT(imageType_, "") };
       inline Data& setImageType(string imageType) { DARABONBA_PTR_SET_VALUE(imageType_, imageType) };
+
+
+      // instanceName Field Functions 
+      bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+      void deleteInstanceName() { this->instanceName_ = nullptr;};
+      inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+      inline Data& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
       // period Field Functions 
@@ -589,7 +609,7 @@ namespace Models
     protected:
       // Indicates whether automatic payment is enabled for subscription orders.
       shared_ptr<bool> autoPay_ {};
-      // Indicates whether auto-renewal is enabled for the subscription shared cloud computer.
+      // Indicates whether auto-renewal is enabled for subscription shared cloud computers.
       shared_ptr<bool> autoRenew_ {};
       // The billing type of the cloud computer.
       shared_ptr<string> chargeType_ {};
@@ -599,21 +619,34 @@ namespace Models
       shared_ptr<string> defaultLanguage_ {};
       // The template description.
       shared_ptr<string> description_ {};
-      // The creation time of the template (UTC).
+      // The time when the template was created (UTC).
       shared_ptr<string> gmtCreate_ {};
-      // The update time of the template (UTC).
+      // The time when the template was last updated (UTC).
       shared_ptr<string> gmtModified_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
       // The image type.
       shared_ptr<string> imageType_ {};
-      // The subscription duration of the subscription shared cloud computer. This parameter takes effect only when ChargeType is set to PrePaid, and is required in that case. The unit is specified by PeriodUnit.
+      // The instance name.
+      shared_ptr<string> instanceName_ {};
+      // The subscription duration of the subscription shared cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
+      // - If `PeriodUnit` is set to `Month`, valid values:
+      //     - 1
+      //     - 2
+      //     - 3
+      //     - 6
+      // - If `PeriodUnit` is set to `Year`, valid values:
+      //     - 1
+      //     - 2
+      //     - 3
+      //     - 4
+      //     - 5
       shared_ptr<int32_t> period_ {};
-      // The unit of the subscription billing duration. Billable methods use this parameter to specify the time unit.
+      // The unit of the duration for the subscription billable methods.
       shared_ptr<string> periodUnit_ {};
-      // The policy group ID.
+      // The policy ID.
       shared_ptr<string> policyGroupId_ {};
-      // Indicates whether the cloud computer automatically switches to pay-as-you-go billing after the duration plan is exhausted.
+      // Indicates whether the cloud computer automatically switches to pay-as-you-go billing after the duration package is exhausted.
       shared_ptr<bool> postPaidAfterUsedUp_ {};
       // The product type.
       shared_ptr<string> productType_ {};
@@ -639,7 +672,7 @@ namespace Models
       shared_ptr<string> templateType_ {};
       // The scheduled task group ID.
       shared_ptr<string> timerGroupId_ {};
-      // The per-user usage duration plan.
+      // The per-user duration package.
       shared_ptr<string> userDuration_ {};
     };
 
@@ -712,7 +745,7 @@ namespace Models
 
 
   protected:
-    // The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
+    // The modification result. A value of `success` indicates success. Otherwise, an error message is returned.
     shared_ptr<string> code_ {};
     // The list of queried template information.
     shared_ptr<vector<DescribeTemplatesResponseBody::Data>> data_ {};
@@ -726,7 +759,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation is successful.
+    // Indicates whether the operation was successful.
     shared_ptr<bool> success_ {};
     // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};

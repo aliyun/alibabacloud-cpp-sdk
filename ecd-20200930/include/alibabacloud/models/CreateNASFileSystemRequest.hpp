@@ -13,8 +13,10 @@ namespace Models
   class CreateNASFileSystemRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateNASFileSystemRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(Capacity, capacity_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(EncryptType, encryptType_);
+      DARABONBA_PTR_TO_JSON(FileSystemType, fileSystemType_);
       DARABONBA_PTR_TO_JSON(Name, name_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
@@ -22,8 +24,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(StorageType, storageType_);
     };
     friend void from_json(const Darabonba::Json& j, CreateNASFileSystemRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(Capacity, capacity_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(EncryptType, encryptType_);
+      DARABONBA_PTR_FROM_JSON(FileSystemType, fileSystemType_);
       DARABONBA_PTR_FROM_JSON(Name, name_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
       DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
@@ -41,9 +45,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->encryptType_ == nullptr && this->name_ == nullptr && this->officeSiteId_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr
-        && this->storageType_ == nullptr; };
+    virtual bool empty() const override { return this->capacity_ == nullptr
+        && this->description_ == nullptr && this->encryptType_ == nullptr && this->fileSystemType_ == nullptr && this->name_ == nullptr && this->officeSiteId_ == nullptr
+        && this->protocolType_ == nullptr && this->regionId_ == nullptr && this->storageType_ == nullptr; };
+    // capacity Field Functions 
+    bool hasCapacity() const { return this->capacity_ != nullptr;};
+    void deleteCapacity() { this->capacity_ = nullptr;};
+    inline int64_t getCapacity() const { DARABONBA_PTR_GET_DEFAULT(capacity_, 0L) };
+    inline CreateNASFileSystemRequest& setCapacity(int64_t capacity) { DARABONBA_PTR_SET_VALUE(capacity_, capacity) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
@@ -56,6 +67,13 @@ namespace Models
     void deleteEncryptType() { this->encryptType_ = nullptr;};
     inline string getEncryptType() const { DARABONBA_PTR_GET_DEFAULT(encryptType_, "") };
     inline CreateNASFileSystemRequest& setEncryptType(string encryptType) { DARABONBA_PTR_SET_VALUE(encryptType_, encryptType) };
+
+
+    // fileSystemType Field Functions 
+    bool hasFileSystemType() const { return this->fileSystemType_ != nullptr;};
+    void deleteFileSystemType() { this->fileSystemType_ = nullptr;};
+    inline string getFileSystemType() const { DARABONBA_PTR_GET_DEFAULT(fileSystemType_, "") };
+    inline CreateNASFileSystemRequest& setFileSystemType(string fileSystemType) { DARABONBA_PTR_SET_VALUE(fileSystemType_, fileSystemType) };
 
 
     // name Field Functions 
@@ -94,10 +112,14 @@ namespace Models
 
 
   protected:
+    // The capacity.
+    shared_ptr<int64_t> capacity_ {};
     // The description of the NAS file system.
     shared_ptr<string> description_ {};
-    // Specifies whether to use a Key Management Service (KMS) managed key to encrypt data stored in the file system. Encrypted data does not need to be decrypted during read and write operations.
+    // Specifies whether the file system uses a key managed by Key Management Service (KMS) to encrypt data stored on the file system. Encrypted data does not need to be decrypted during read and write operations.
     shared_ptr<string> encryptType_ {};
+    // The file system type.
+    shared_ptr<string> fileSystemType_ {};
     // The name of the NAS file system. The name must meet the following requirements: The name must be 2 to 128 characters in length and can contain letters and Chinese characters. The name must start with a letter or a Chinese character and cannot start with `http://` or `https://`. The name can contain digits, underscores (_), or hyphens (-).
     shared_ptr<string> name_ {};
     // The office network ID.

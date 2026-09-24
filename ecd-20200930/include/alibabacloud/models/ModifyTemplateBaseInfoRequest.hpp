@@ -14,11 +14,13 @@ namespace Models
   public:
     friend void to_json(Darabonba::Json& j, const ModifyTemplateBaseInfoRequest& obj) { 
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
       DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
     };
     friend void from_json(const Darabonba::Json& j, ModifyTemplateBaseInfoRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
       DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
     };
@@ -34,12 +36,19 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->description_ == nullptr
-        && this->templateId_ == nullptr && this->templateName_ == nullptr; };
+        && this->instanceName_ == nullptr && this->templateId_ == nullptr && this->templateName_ == nullptr; };
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline ModifyTemplateBaseInfoRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // instanceName Field Functions 
+    bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+    void deleteInstanceName() { this->instanceName_ = nullptr;};
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline ModifyTemplateBaseInfoRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // templateId Field Functions 
@@ -59,6 +68,8 @@ namespace Models
   protected:
     // The template description.
     shared_ptr<string> description_ {};
+    // The instance name.
+    shared_ptr<string> instanceName_ {};
     // The template ID.
     // 
     // This parameter is required.

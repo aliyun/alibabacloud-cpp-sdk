@@ -22,6 +22,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DefaultLanguage, defaultLanguage_);
       DARABONBA_PTR_TO_JSON(Description, description_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
+      DARABONBA_PTR_TO_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_TO_JSON(Period, period_);
       DARABONBA_PTR_TO_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_TO_JSON(PolicyGroupId, policyGroupId_);
@@ -46,6 +47,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DefaultLanguage, defaultLanguage_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
+      DARABONBA_PTR_FROM_JSON(InstanceName, instanceName_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
       DARABONBA_PTR_FROM_JSON(PeriodUnit, periodUnit_);
       DARABONBA_PTR_FROM_JSON(PolicyGroupId, policyGroupId_);
@@ -168,6 +170,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(ResourceInstanceType, resourceInstanceType_);
         DARABONBA_PTR_TO_JSON(SnapshotPolicyId, snapshotPolicyId_);
         DARABONBA_PTR_TO_JSON(SubnetId, subnetId_);
+        DARABONBA_PTR_TO_JSON(VirtualNodePoolId, virtualNodePoolId_);
         DARABONBA_PTR_TO_JSON(VolumeEncryptionEnable, volumeEncryptionEnable_);
         DARABONBA_PTR_TO_JSON(VolumeEncryptionKey, volumeEncryptionKey_);
       };
@@ -177,6 +180,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(ResourceInstanceType, resourceInstanceType_);
         DARABONBA_PTR_FROM_JSON(SnapshotPolicyId, snapshotPolicyId_);
         DARABONBA_PTR_FROM_JSON(SubnetId, subnetId_);
+        DARABONBA_PTR_FROM_JSON(VirtualNodePoolId, virtualNodePoolId_);
         DARABONBA_PTR_FROM_JSON(VolumeEncryptionEnable, volumeEncryptionEnable_);
         DARABONBA_PTR_FROM_JSON(VolumeEncryptionKey, volumeEncryptionKey_);
       };
@@ -192,8 +196,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->officeSiteId_ == nullptr
-        && this->regionId_ == nullptr && this->resourceInstanceType_ == nullptr && this->snapshotPolicyId_ == nullptr && this->subnetId_ == nullptr && this->volumeEncryptionEnable_ == nullptr
-        && this->volumeEncryptionKey_ == nullptr; };
+        && this->regionId_ == nullptr && this->resourceInstanceType_ == nullptr && this->snapshotPolicyId_ == nullptr && this->subnetId_ == nullptr && this->virtualNodePoolId_ == nullptr
+        && this->volumeEncryptionEnable_ == nullptr && this->volumeEncryptionKey_ == nullptr; };
       // officeSiteId Field Functions 
       bool hasOfficeSiteId() const { return this->officeSiteId_ != nullptr;};
       void deleteOfficeSiteId() { this->officeSiteId_ = nullptr;};
@@ -229,6 +233,13 @@ namespace Models
       inline RegionConfigList& setSubnetId(string subnetId) { DARABONBA_PTR_SET_VALUE(subnetId_, subnetId) };
 
 
+      // virtualNodePoolId Field Functions 
+      bool hasVirtualNodePoolId() const { return this->virtualNodePoolId_ != nullptr;};
+      void deleteVirtualNodePoolId() { this->virtualNodePoolId_ = nullptr;};
+      inline string getVirtualNodePoolId() const { DARABONBA_PTR_GET_DEFAULT(virtualNodePoolId_, "") };
+      inline RegionConfigList& setVirtualNodePoolId(string virtualNodePoolId) { DARABONBA_PTR_SET_VALUE(virtualNodePoolId_, virtualNodePoolId) };
+
+
       // volumeEncryptionEnable Field Functions 
       bool hasVolumeEncryptionEnable() const { return this->volumeEncryptionEnable_ != nullptr;};
       void deleteVolumeEncryptionEnable() { this->volumeEncryptionEnable_ = nullptr;};
@@ -246,17 +257,19 @@ namespace Models
     protected:
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
-      // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
+      // The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
       shared_ptr<string> regionId_ {};
       // The cloud computer specification ID.
       shared_ptr<string> resourceInstanceType_ {};
-      // The ID of the automatic snapshot policy.
+      // The automatic snapshot policy ID.
       shared_ptr<string> snapshotPolicyId_ {};
       // The subnet ID.
       shared_ptr<string> subnetId_ {};
+      // The virtual node pool, used in workstation scenarios.
+      shared_ptr<string> virtualNodePoolId_ {};
       // Specifies whether to enable disk encryption.
       shared_ptr<bool> volumeEncryptionEnable_ {};
-      // The ID of the KMS key used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+      // The KMS key ID used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
       shared_ptr<string> volumeEncryptionKey_ {};
     };
 
@@ -300,18 +313,18 @@ namespace Models
     protected:
       // The performance level of the data disk. Default value: `AutoPL`.
       shared_ptr<string> performanceLevel_ {};
-      // The size of the data cloud disk. Unit: GiB. Valid values: 40 to 2040. The value must be a multiple of 10.
+      // The data cloud disk size. Unit: GiB. Valid values: 40 to 2040, in increments of 10 GiB.
       // 
-      // >Notice: The larger the ESSD cloud disk capacity, the higher the performance level (PL) available (for example, PL2 is available for capacities of 460 GiB or more). Higher performance levels (PLs) incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements. Note: Only standard SSD and ESSD cloud disks are supported.
+      // >Notice: The larger the ESSD cloud disk capacity, the higher the available performance level (PL) (for example, PL2 is available for capacities of 460 GiB or more). Higher performance levels (PLs) incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements.
       shared_ptr<int32_t> size_ {};
     };
 
     virtual bool empty() const override { return this->autoPay_ == nullptr
         && this->autoRenew_ == nullptr && this->bizType_ == nullptr && this->chargeType_ == nullptr && this->dataDiskList_ == nullptr && this->defaultLanguage_ == nullptr
-        && this->description_ == nullptr && this->imageId_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr && this->policyGroupId_ == nullptr
-        && this->postPaidAfterUsedUp_ == nullptr && this->productType_ == nullptr && this->regionConfigList_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceTagList_ == nullptr
-        && this->siteConfigList_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr && this->templateName_ == nullptr && this->timerGroupId_ == nullptr
-        && this->userDuration_ == nullptr; };
+        && this->description_ == nullptr && this->imageId_ == nullptr && this->instanceName_ == nullptr && this->period_ == nullptr && this->periodUnit_ == nullptr
+        && this->policyGroupId_ == nullptr && this->postPaidAfterUsedUp_ == nullptr && this->productType_ == nullptr && this->regionConfigList_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->resourceTagList_ == nullptr && this->siteConfigList_ == nullptr && this->systemDiskPerformanceLevel_ == nullptr && this->systemDiskSize_ == nullptr && this->templateName_ == nullptr
+        && this->timerGroupId_ == nullptr && this->userDuration_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -368,6 +381,13 @@ namespace Models
     void deleteImageId() { this->imageId_ = nullptr;};
     inline string getImageId() const { DARABONBA_PTR_GET_DEFAULT(imageId_, "") };
     inline CreateTemplateRequest& setImageId(string imageId) { DARABONBA_PTR_SET_VALUE(imageId_, imageId) };
+
+
+    // instanceName Field Functions 
+    bool hasInstanceName() const { return this->instanceName_ != nullptr;};
+    void deleteInstanceName() { this->instanceName_ = nullptr;};
+    inline string getInstanceName() const { DARABONBA_PTR_GET_DEFAULT(instanceName_, "") };
+    inline CreateTemplateRequest& setInstanceName(string instanceName) { DARABONBA_PTR_SET_VALUE(instanceName_, instanceName) };
 
 
     // period Field Functions 
@@ -475,7 +495,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether automatic payment is enabled for the subscription order.
+    // Specifies whether automatic payment is enabled for the subscription order.
     shared_ptr<bool> autoPay_ {};
     // Specifies whether to enable auto-renewal for the subscription cloud computer.
     shared_ptr<bool> autoRenew_ {};
@@ -483,17 +503,19 @@ namespace Models
     shared_ptr<string> bizType_ {};
     // The billing method of the cloud computer.
     shared_ptr<string> chargeType_ {};
-    // The size and specification configurations of data disks.
+    // The data disk size and specification configurations.
     shared_ptr<vector<CreateTemplateRequest::DataDiskList>> dataDiskList_ {};
     // The default language set when the cloud computer starts. This parameter takes effect only when a system image is used to create the cloud computer.
     shared_ptr<string> defaultLanguage_ {};
     // The description of the template. The description must meet the following requirements:
     // 
-    // - The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
-    // - The description can contain Chinese characters, letters, digits, spaces, and special characters. Line breaks are supported.
+    // - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+    // - The description can contain Chinese characters, letters, digits, spaces, and special characters, and supports line breaks.
     shared_ptr<string> description_ {};
-    // The ID of the cloud computer image. You can query the ID on the image management page. System images and custom images are supported.
+    // The cloud computer image ID. You can query the ID on the image management page. System images, custom images, and other image types are supported.
     shared_ptr<string> imageId_ {};
+    // The instance name.
+    shared_ptr<string> instanceName_ {};
     // The subscription duration of the subscription cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
     // - If `PeriodUnit` is set to `Month`, valid values:
     //     - 1
@@ -515,27 +537,27 @@ namespace Models
     shared_ptr<bool> postPaidAfterUsedUp_ {};
     // The product type. Set the value to `CloudDesktop`.
     shared_ptr<string> productType_ {};
-    // The region-specific template configurations. You can specify multiple configurations. The configuration that matches the specific region is used.
+    // The region-specific template configurations. Multiple configurations are supported. The configuration that matches the specific region is used.
     // 
-    // > You can specify configurations for up to 20 regions.
+    // > You can configure up to 20 regions.
     shared_ptr<vector<CreateTemplateRequest::RegionConfigList>> regionConfigList_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The tags of the cloud computer in key-value format. You can specify up to 20 tags.
+    // The cloud computer tags in key-value format. You can specify up to 20 tags.
     shared_ptr<vector<CreateTemplateRequest::ResourceTagList>> resourceTagList_ {};
     // The site configuration management.
     shared_ptr<vector<CreateTemplateRequest::SiteConfigList>> siteConfigList_ {};
-    // The type of the system disk.
+    // The system disk type.
     // 
-    // > Only high-frequency and GPU-accelerated cloud computer specifications support ESSD disks.
+    // > Only high frequency and graphics cloud computer specifications support ESSD disks.
     shared_ptr<string> systemDiskPerformanceLevel_ {};
-    // The size of the system disk. Unit: GiB. Valid values: 40 to 500. The value must be a multiple of 10.
+    // The system disk size. Unit: GiB. Valid values: 40 to 500, in increments of 10 GiB.
     // 
-    // > The system disk size cannot be smaller than the image size.
+    // > The system disk size cannot be smaller than the size of the configured image.
     shared_ptr<int32_t> systemDiskSize_ {};
     // The name of the template. The name must meet the following requirements:
     // 
-    // - The name must be 2 to 126 characters in length.
+    // - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
     // - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
     // - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
     // 

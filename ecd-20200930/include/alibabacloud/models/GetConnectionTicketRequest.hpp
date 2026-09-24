@@ -13,6 +13,7 @@ namespace Models
   class GetConnectionTicketRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const GetConnectionTicketRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClientType, clientType_);
       DARABONBA_PTR_TO_JSON(CommandContent, commandContent_);
       DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
@@ -25,6 +26,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Uuid, uuid_);
     };
     friend void from_json(const Darabonba::Json& j, GetConnectionTicketRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClientType, clientType_);
       DARABONBA_PTR_FROM_JSON(CommandContent, commandContent_);
       DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
       DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
@@ -47,9 +49,16 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->commandContent_ == nullptr
-        && this->desktopId_ == nullptr && this->endUserId_ == nullptr && this->ownerId_ == nullptr && this->password_ == nullptr && this->regionId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->taskId_ == nullptr && this->uuid_ == nullptr; };
+    virtual bool empty() const override { return this->clientType_ == nullptr
+        && this->commandContent_ == nullptr && this->desktopId_ == nullptr && this->endUserId_ == nullptr && this->ownerId_ == nullptr && this->password_ == nullptr
+        && this->regionId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr && this->taskId_ == nullptr && this->uuid_ == nullptr; };
+    // clientType Field Functions 
+    bool hasClientType() const { return this->clientType_ != nullptr;};
+    void deleteClientType() { this->clientType_ = nullptr;};
+    inline string getClientType() const { DARABONBA_PTR_GET_DEFAULT(clientType_, "") };
+    inline GetConnectionTicketRequest& setClientType(string clientType) { DARABONBA_PTR_SET_VALUE(clientType_, clientType) };
+
+
     // commandContent Field Functions 
     bool hasCommandContent() const { return this->commandContent_ != nullptr;};
     void deleteCommandContent() { this->commandContent_ = nullptr;};
@@ -121,12 +130,14 @@ namespace Models
 
 
   protected:
-    // Specifies a custom user-mode application that is automatically started after the credential is obtained.
+    // The client type.
+    shared_ptr<string> clientType_ {};
+    // The custom user-mode application to configure. After the credential is obtained, the application is automatically started.
     // 
-    // - appPath: a value of the String type that specifies the application startup file path, such as `"C:\\Program Files (x86)\\000\\000.exe"`. Use double backslashes (\\\\) as path separators.
-    // - appParameter: a value of the String type that specifies the application startup parameters, such as `"meetingid 000 meetingname aaa"`. Separate parameters with spaces.
+    // - appPath: a value of the STRING type that specifies the path of the application startup file. Example: `"C:\\Program Files (x86)\\000\\000.exe"`. Use double backslashes (\\\\) as path separators.
+    // - appParameter: a value of the STRING type that specifies the application startup parameters. Example: `"meetingid 000 meetingname aaa"`. Separate parameters with spaces.
     shared_ptr<string> commandContent_ {};
-    // The ID of the cloud computer for which to generate a connection credential. This parameter is required to generate the credential.
+    // The ID of the cloud computer for which you want to generate a connection credential. This parameter is required to generate the credential.
     shared_ptr<string> desktopId_ {};
     // The username of the authorized user of the cloud computer. You must specify an existing authorized user of the cloud computer to generate the credential.
     shared_ptr<string> endUserId_ {};

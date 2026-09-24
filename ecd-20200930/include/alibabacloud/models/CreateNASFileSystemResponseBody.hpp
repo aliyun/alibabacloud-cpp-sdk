@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(FileSystemName, fileSystemName_);
       DARABONBA_PTR_TO_JSON(MountTargetDomain, mountTargetDomain_);
       DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateNASFileSystemResponseBody& obj) { 
@@ -24,6 +25,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(FileSystemName, fileSystemName_);
       DARABONBA_PTR_FROM_JSON(MountTargetDomain, mountTargetDomain_);
       DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
+      DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
     };
     CreateNASFileSystemResponseBody() = default ;
@@ -38,7 +40,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->fileSystemId_ == nullptr
-        && this->fileSystemName_ == nullptr && this->mountTargetDomain_ == nullptr && this->officeSiteId_ == nullptr && this->requestId_ == nullptr; };
+        && this->fileSystemName_ == nullptr && this->mountTargetDomain_ == nullptr && this->officeSiteId_ == nullptr && this->protocolType_ == nullptr && this->requestId_ == nullptr; };
     // fileSystemId Field Functions 
     bool hasFileSystemId() const { return this->fileSystemId_ != nullptr;};
     void deleteFileSystemId() { this->fileSystemId_ = nullptr;};
@@ -67,6 +69,13 @@ namespace Models
     inline CreateNASFileSystemResponseBody& setOfficeSiteId(string officeSiteId) { DARABONBA_PTR_SET_VALUE(officeSiteId_, officeSiteId) };
 
 
+    // protocolType Field Functions 
+    bool hasProtocolType() const { return this->protocolType_ != nullptr;};
+    void deleteProtocolType() { this->protocolType_ = nullptr;};
+    inline string getProtocolType() const { DARABONBA_PTR_GET_DEFAULT(protocolType_, "") };
+    inline CreateNASFileSystemResponseBody& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
+
+
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
@@ -83,6 +92,8 @@ namespace Models
     shared_ptr<string> mountTargetDomain_ {};
     // The office network ID.
     shared_ptr<string> officeSiteId_ {};
+    // The protocol type.
+    shared_ptr<string> protocolType_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
   };

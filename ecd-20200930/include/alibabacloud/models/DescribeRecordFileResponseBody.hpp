@@ -37,6 +37,7 @@ namespace Models
     class RecordFiles : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const RecordFiles& obj) { 
+        DARABONBA_PTR_TO_JSON(AuditStatus, auditStatus_);
         DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
         DARABONBA_PTR_TO_JSON(DesktopName, desktopName_);
         DARABONBA_PTR_TO_JSON(EndUserId, endUserId_);
@@ -54,6 +55,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Status, status_);
       };
       friend void from_json(const Darabonba::Json& j, RecordFiles& obj) { 
+        DARABONBA_PTR_FROM_JSON(AuditStatus, auditStatus_);
         DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
         DARABONBA_PTR_FROM_JSON(DesktopName, desktopName_);
         DARABONBA_PTR_FROM_JSON(EndUserId, endUserId_);
@@ -136,10 +138,19 @@ namespace Models
         shared_ptr<string> eventType_ {};
       };
 
-      virtual bool empty() const override { return this->desktopId_ == nullptr
-        && this->desktopName_ == nullptr && this->endUserId_ == nullptr && this->eventDetails_ == nullptr && this->fileName_ == nullptr && this->fileSize_ == nullptr
-        && this->policyId_ == nullptr && this->recordEndTime_ == nullptr && this->recordExpire_ == nullptr && this->recordStartTime_ == nullptr && this->recordType_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr && this->status_ == nullptr; };
+      virtual bool empty() const override { return this->auditStatus_ == nullptr
+        && this->desktopId_ == nullptr && this->desktopName_ == nullptr && this->endUserId_ == nullptr && this->eventDetails_ == nullptr && this->fileName_ == nullptr
+        && this->fileSize_ == nullptr && this->policyId_ == nullptr && this->recordEndTime_ == nullptr && this->recordExpire_ == nullptr && this->recordStartTime_ == nullptr
+        && this->recordType_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->resourceGroupName_ == nullptr && this->status_ == nullptr; };
+      // auditStatus Field Functions 
+      bool hasAuditStatus() const { return this->auditStatus_ != nullptr;};
+      void deleteAuditStatus() { this->auditStatus_ = nullptr;};
+      inline const vector<string> & getAuditStatus() const { DARABONBA_PTR_GET_CONST(auditStatus_, vector<string>) };
+      inline vector<string> getAuditStatus() { DARABONBA_PTR_GET(auditStatus_, vector<string>) };
+      inline RecordFiles& setAuditStatus(const vector<string> & auditStatus) { DARABONBA_PTR_SET_VALUE(auditStatus_, auditStatus) };
+      inline RecordFiles& setAuditStatus(vector<string> && auditStatus) { DARABONBA_PTR_SET_RVALUE(auditStatus_, auditStatus) };
+
+
       // desktopId Field Functions 
       bool hasDesktopId() const { return this->desktopId_ != nullptr;};
       void deleteDesktopId() { this->desktopId_ = nullptr;};
@@ -248,25 +259,27 @@ namespace Models
 
 
     protected:
+      // The audit status list.
+      shared_ptr<vector<string>> auditStatus_ {};
       // The Cloud Desktop ID.
       shared_ptr<string> desktopId_ {};
-      // The name of the Cloud Desktop.
+      // The Cloud Desktop name.
       shared_ptr<string> desktopName_ {};
       // The name of the end user.
       shared_ptr<string> endUserId_ {};
       // The event details.
       shared_ptr<vector<RecordFiles::EventDetails>> eventDetails_ {};
-      // The name of the file.
+      // The file name.
       shared_ptr<string> fileName_ {};
-      // The size of the file. Unit: bytes.
+      // The file size. Unit: bytes.
       shared_ptr<int64_t> fileSize_ {};
       // The ID of the control policy.
       shared_ptr<string> policyId_ {};
-      // The time when the recording ended. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The recording end time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> recordEndTime_ {};
       // The expiration time of the screen recording file.
       shared_ptr<int64_t> recordExpire_ {};
-      // The time when the recording started. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+      // The recording start time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
       shared_ptr<string> recordStartTime_ {};
       // The type of the screen recording file. Valid values:
       // 
@@ -283,8 +296,8 @@ namespace Models
       shared_ptr<string> resourceGroupName_ {};
       // The status of the screen recording file. Valid values:
       // 
-      // - 0: uploaded.
-      // - 1: uploading.
+      // - 0: Upload succeeded.
+      // - 1: Uploading.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -314,11 +327,11 @@ namespace Models
 
 
   protected:
-    // The details of the recording files.
+    // The details of the recording file list.
     shared_ptr<vector<DescribeRecordFileResponseBody::RecordFiles>> recordFiles_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

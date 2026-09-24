@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // The cloud computer ID.
+    // The ID of the cloud computer.
     shared_ptr<string> desktopId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ticket used to connect to the user instance. Before you use the ticket, Base64-decode its content and save it as an xxx.ica file, and then open the file. The following Python code provides an example:
+    // The ticket used to connect to the user instance. Before you use the ticket, Base64-decode its content, save the decoded content as an xxx.ica file, and then open the file. Python code example:
     // 
     // ```
     // import base64
@@ -118,7 +118,7 @@ namespace Models
     shared_ptr<string> taskMessage_ {};
     // The task status.
     shared_ptr<string> taskStatus_ {};
-    // The connection credential for the cloud computer.
+    // The connection credential of the cloud computer.
     shared_ptr<string> ticket_ {};
   };
 

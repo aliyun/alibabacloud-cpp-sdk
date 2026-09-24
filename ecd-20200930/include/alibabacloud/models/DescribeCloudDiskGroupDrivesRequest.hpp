@@ -83,10 +83,10 @@ namespace Models
     shared_ptr<string> groupName_ {};
     // The number of entries per page for a paged query.
     // 
-    // - Maximum value: 100
-    // - Default value: 20
+    // - Maximum value: 100.
+    // - Default value: 20.
     shared_ptr<int32_t> maxResults_ {};
-    // The token for the next query. If NextToken is empty, no more results are available.
+    // The pagination token for the next query. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The region ID.
     // 

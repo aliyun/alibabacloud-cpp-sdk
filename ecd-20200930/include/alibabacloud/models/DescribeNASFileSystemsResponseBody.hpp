@@ -39,6 +39,7 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const FileSystems& obj) { 
         DARABONBA_PTR_TO_JSON(AllowOperateUserDrive, allowOperateUserDrive_);
         DARABONBA_PTR_TO_JSON(AppInstanceGroups, appInstanceGroups_);
+        DARABONBA_PTR_TO_JSON(Bandwidth, bandwidth_);
         DARABONBA_PTR_TO_JSON(Capacity, capacity_);
         DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
         DARABONBA_PTR_TO_JSON(Description, description_);
@@ -67,6 +68,7 @@ namespace Models
       friend void from_json(const Darabonba::Json& j, FileSystems& obj) { 
         DARABONBA_PTR_FROM_JSON(AllowOperateUserDrive, allowOperateUserDrive_);
         DARABONBA_PTR_FROM_JSON(AppInstanceGroups, appInstanceGroups_);
+        DARABONBA_PTR_FROM_JSON(Bandwidth, bandwidth_);
         DARABONBA_PTR_FROM_JSON(Capacity, capacity_);
         DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
         DARABONBA_PTR_FROM_JSON(Description, description_);
@@ -236,11 +238,12 @@ namespace Models
       };
 
       virtual bool empty() const override { return this->allowOperateUserDrive_ == nullptr
-        && this->appInstanceGroups_ == nullptr && this->capacity_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr && this->desktopGroups_ == nullptr
-        && this->encryptionEnabled_ == nullptr && this->fileSystemId_ == nullptr && this->fileSystemName_ == nullptr && this->fileSystemStatus_ == nullptr && this->fileSystemType_ == nullptr
-        && this->meteredSize_ == nullptr && this->mountTargetDomain_ == nullptr && this->mountTargetStatus_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
-        && this->officeSites_ == nullptr && this->productType_ == nullptr && this->profileCompatible_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr
-        && this->scene_ == nullptr && this->sizeQuota_ == nullptr && this->storageType_ == nullptr && this->supportAcl_ == nullptr && this->zoneId_ == nullptr; };
+        && this->appInstanceGroups_ == nullptr && this->bandwidth_ == nullptr && this->capacity_ == nullptr && this->createTime_ == nullptr && this->description_ == nullptr
+        && this->desktopGroups_ == nullptr && this->encryptionEnabled_ == nullptr && this->fileSystemId_ == nullptr && this->fileSystemName_ == nullptr && this->fileSystemStatus_ == nullptr
+        && this->fileSystemType_ == nullptr && this->meteredSize_ == nullptr && this->mountTargetDomain_ == nullptr && this->mountTargetStatus_ == nullptr && this->officeSiteId_ == nullptr
+        && this->officeSiteName_ == nullptr && this->officeSites_ == nullptr && this->productType_ == nullptr && this->profileCompatible_ == nullptr && this->protocolType_ == nullptr
+        && this->regionId_ == nullptr && this->scene_ == nullptr && this->sizeQuota_ == nullptr && this->storageType_ == nullptr && this->supportAcl_ == nullptr
+        && this->zoneId_ == nullptr; };
       // allowOperateUserDrive Field Functions 
       bool hasAllowOperateUserDrive() const { return this->allowOperateUserDrive_ != nullptr;};
       void deleteAllowOperateUserDrive() { this->allowOperateUserDrive_ = nullptr;};
@@ -255,6 +258,13 @@ namespace Models
       inline vector<FileSystems::AppInstanceGroups> getAppInstanceGroups() { DARABONBA_PTR_GET(appInstanceGroups_, vector<FileSystems::AppInstanceGroups>) };
       inline FileSystems& setAppInstanceGroups(const vector<FileSystems::AppInstanceGroups> & appInstanceGroups) { DARABONBA_PTR_SET_VALUE(appInstanceGroups_, appInstanceGroups) };
       inline FileSystems& setAppInstanceGroups(vector<FileSystems::AppInstanceGroups> && appInstanceGroups) { DARABONBA_PTR_SET_RVALUE(appInstanceGroups_, appInstanceGroups) };
+
+
+      // bandwidth Field Functions 
+      bool hasBandwidth() const { return this->bandwidth_ != nullptr;};
+      void deleteBandwidth() { this->bandwidth_ = nullptr;};
+      inline int64_t getBandwidth() const { DARABONBA_PTR_GET_DEFAULT(bandwidth_, 0L) };
+      inline FileSystems& setBandwidth(int64_t bandwidth) { DARABONBA_PTR_SET_VALUE(bandwidth_, bandwidth) };
 
 
       // capacity Field Functions 
@@ -434,12 +444,14 @@ namespace Models
       shared_ptr<bool> allowOperateUserDrive_ {};
       // The list of cloud application delivery group objects bound to the UPM-supported NAS file system.
       shared_ptr<vector<FileSystems::AppInstanceGroups>> appInstanceGroups_ {};
+      // The bandwidth.
+      shared_ptr<int64_t> bandwidth_ {};
       // The total capacity of the NAS file system. Unit: GiB.
       // 
       // - If the storage type is Capacity, the capacity is fixed at 10 PiB (10485760 GiB).
       // - If the storage type is Performance, the capacity is fixed at 1 PiB (1048576 GiB).
       shared_ptr<int64_t> capacity_ {};
-      // The time when the NAS file system was created.
+      // The time when the NAS file system was created. The time is in the ISO 8601 format in UTC.
       shared_ptr<string> createTime_ {};
       // The description of the NAS file system.
       shared_ptr<string> description_ {};
@@ -467,6 +479,7 @@ namespace Models
       shared_ptr<string> officeSiteName_ {};
       // The list of office networks.
       shared_ptr<vector<FileSystems::OfficeSites>> officeSites_ {};
+      // The product type of the NAS file system.
       shared_ptr<string> productType_ {};
       // Indicates whether the User Profile Management (UPM) feature is supported.
       shared_ptr<bool> profileCompatible_ {};
@@ -479,12 +492,13 @@ namespace Models
       shared_ptr<string> regionId_ {};
       // The storage mode of the NAS file system.
       shared_ptr<string> scene_ {};
+      // The capacity quota of the NAS file system.
       shared_ptr<int64_t> sizeQuota_ {};
       // The storage type of the NAS file system.
       shared_ptr<string> storageType_ {};
       // Indicates whether the SMB ACL feature is supported.
       shared_ptr<bool> supportAcl_ {};
-      // The zone ID.
+      // The zone.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -514,9 +528,9 @@ namespace Models
 
 
   protected:
-    // The NAS file system information.
+    // The NAS file system information list.
     shared_ptr<vector<DescribeNASFileSystemsResponseBody::FileSystems>> fileSystems_ {};
-    // The pagination token for the next query. If NextToken is empty, no more results exist.
+    // The pagination token for the next query. An empty value indicates that no more results exist.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

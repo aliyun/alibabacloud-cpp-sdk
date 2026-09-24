@@ -42,9 +42,11 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const VulDesktops& obj) { 
         DARABONBA_PTR_TO_JSON(ConfigGroupId, configGroupId_);
+        DARABONBA_PTR_TO_JSON(ConnectionStatus, connectionStatus_);
         DARABONBA_PTR_TO_JSON(CveCount, cveCount_);
         DARABONBA_PTR_TO_JSON(Cves, cves_);
         DARABONBA_PTR_TO_JSON(DesktopId, desktopId_);
+        DARABONBA_PTR_TO_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_TO_JSON(Disabled, disabled_);
         DARABONBA_PTR_TO_JSON(FirstFoundTime, firstFoundTime_);
         DARABONBA_PTR_TO_JSON(FixRecords, fixRecords_);
@@ -56,9 +58,11 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, VulDesktops& obj) { 
         DARABONBA_PTR_FROM_JSON(ConfigGroupId, configGroupId_);
+        DARABONBA_PTR_FROM_JSON(ConnectionStatus, connectionStatus_);
         DARABONBA_PTR_FROM_JSON(CveCount, cveCount_);
         DARABONBA_PTR_FROM_JSON(Cves, cves_);
         DARABONBA_PTR_FROM_JSON(DesktopId, desktopId_);
+        DARABONBA_PTR_FROM_JSON(DesktopStatus, desktopStatus_);
         DARABONBA_PTR_FROM_JSON(Disabled, disabled_);
         DARABONBA_PTR_FROM_JSON(FirstFoundTime, firstFoundTime_);
         DARABONBA_PTR_FROM_JSON(FixRecords, fixRecords_);
@@ -240,7 +244,7 @@ namespace Models
 
 
       protected:
-        // The CVE ID.
+        // The CVE ID of the vulnerability.
         shared_ptr<string> cveId_ {};
         // The vulnerability level.
         shared_ptr<string> cveLevel_ {};
@@ -250,21 +254,28 @@ namespace Models
         shared_ptr<string> cveUrl_ {};
         // The vulnerability score.
         shared_ptr<string> impactScore_ {};
-        // The reference URL.
+        // The reference URL for the vulnerability details.
         shared_ptr<string> referenceUrl_ {};
-        // The release time. The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+        // The release time. The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
         shared_ptr<string> releaseTime_ {};
       };
 
       virtual bool empty() const override { return this->configGroupId_ == nullptr
-        && this->cveCount_ == nullptr && this->cves_ == nullptr && this->desktopId_ == nullptr && this->disabled_ == nullptr && this->firstFoundTime_ == nullptr
-        && this->fixRecords_ == nullptr && this->patchIds_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->status_ == nullptr
-        && this->vulLevel_ == nullptr; };
+        && this->connectionStatus_ == nullptr && this->cveCount_ == nullptr && this->cves_ == nullptr && this->desktopId_ == nullptr && this->desktopStatus_ == nullptr
+        && this->disabled_ == nullptr && this->firstFoundTime_ == nullptr && this->fixRecords_ == nullptr && this->patchIds_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->status_ == nullptr && this->vulLevel_ == nullptr; };
       // configGroupId Field Functions 
       bool hasConfigGroupId() const { return this->configGroupId_ != nullptr;};
       void deleteConfigGroupId() { this->configGroupId_ = nullptr;};
       inline string getConfigGroupId() const { DARABONBA_PTR_GET_DEFAULT(configGroupId_, "") };
       inline VulDesktops& setConfigGroupId(string configGroupId) { DARABONBA_PTR_SET_VALUE(configGroupId_, configGroupId) };
+
+
+      // connectionStatus Field Functions 
+      bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
+      void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};
+      inline string getConnectionStatus() const { DARABONBA_PTR_GET_DEFAULT(connectionStatus_, "") };
+      inline VulDesktops& setConnectionStatus(string connectionStatus) { DARABONBA_PTR_SET_VALUE(connectionStatus_, connectionStatus) };
 
 
       // cveCount Field Functions 
@@ -288,6 +299,13 @@ namespace Models
       void deleteDesktopId() { this->desktopId_ = nullptr;};
       inline string getDesktopId() const { DARABONBA_PTR_GET_DEFAULT(desktopId_, "") };
       inline VulDesktops& setDesktopId(string desktopId) { DARABONBA_PTR_SET_VALUE(desktopId_, desktopId) };
+
+
+      // desktopStatus Field Functions 
+      bool hasDesktopStatus() const { return this->desktopStatus_ != nullptr;};
+      void deleteDesktopStatus() { this->desktopStatus_ = nullptr;};
+      inline string getDesktopStatus() const { DARABONBA_PTR_GET_DEFAULT(desktopStatus_, "") };
+      inline VulDesktops& setDesktopStatus(string desktopStatus) { DARABONBA_PTR_SET_VALUE(desktopStatus_, desktopStatus) };
 
 
       // disabled Field Functions 
@@ -353,19 +371,23 @@ namespace Models
     protected:
       // The configuration task ID.
       shared_ptr<string> configGroupId_ {};
+      // The connection status of the cloud desktop.
+      shared_ptr<string> connectionStatus_ {};
       // The number of vulnerabilities.
       shared_ptr<int32_t> cveCount_ {};
-      // The list of vulnerability details.
+      // The vulnerability details.
       shared_ptr<vector<VulDesktops::Cves>> cves_ {};
-      // The ID of the cloud computer affected by the vulnerability.
+      // The ID of the cloud desktop affected by the vulnerability.
       shared_ptr<string> desktopId_ {};
+      // The running status of the cloud desktop.
+      shared_ptr<string> desktopStatus_ {};
       // Indicates whether the activation code is disabled.
       shared_ptr<bool> disabled_ {};
-      // The time when the vulnerability was first discovered.
+      // The time when the vulnerability was first detected. Format: yyyy-MM-dd HH:mm:ss.
       shared_ptr<string> firstFoundTime_ {};
-      // The list of fix records for the cloud computer.
+      // The fix records of the cloud desktop.
       shared_ptr<vector<VulDesktops::FixRecords>> fixRecords_ {};
-      // The list of patch IDs.
+      // The patch IDs.
       shared_ptr<vector<string>> patchIds_ {};
       // The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
       shared_ptr<string> regionId_ {};
@@ -427,9 +449,9 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // The list of cloud computers affected by the vulnerability.
+    // The details of cloud desktops affected by the vulnerability.
     shared_ptr<vector<DescribeVulDesktopsResponseBody::VulDesktops>> vulDesktops_ {};
   };
 

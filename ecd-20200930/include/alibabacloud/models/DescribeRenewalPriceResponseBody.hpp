@@ -192,9 +192,9 @@ namespace Models
 
 
         protected:
-          // The promotion rule description.
+          // The description of the promotion rule.
           shared_ptr<string> optionCode_ {};
-          // The promotion description.
+          // The description of the promotion.
           shared_ptr<string> promotionDesc_ {};
           // The promotion ID.
           shared_ptr<string> promotionId_ {};

@@ -100,6 +100,8 @@ namespace Models
         DARABONBA_PTR_TO_JSON(PolicyGroupNameList, policyGroupNameList_);
         DARABONBA_PTR_TO_JSON(Progress, progress_);
         DARABONBA_PTR_TO_JSON(ProtocolType, protocolType_);
+        DARABONBA_PTR_TO_JSON(ReservePoolId, reservePoolId_);
+        DARABONBA_PTR_TO_JSON(ReservePoolName, reservePoolName_);
         DARABONBA_PTR_TO_JSON(ResourceGroups, resourceGroups_);
         DARABONBA_PTR_TO_JSON(SerialNumber, serialNumber_);
         DARABONBA_PTR_TO_JSON(SessionType, sessionType_);
@@ -115,6 +117,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(Tags, tags_);
         DARABONBA_PTR_TO_JSON(VolumeEncryptionEnabled, volumeEncryptionEnabled_);
         DARABONBA_PTR_TO_JSON(VolumeEncryptionKey, volumeEncryptionKey_);
+        DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
         DARABONBA_PTR_TO_JSON(ZoneType, zoneType_);
       };
       friend void from_json(const Darabonba::Json& j, Desktops& obj) { 
@@ -175,6 +178,8 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(PolicyGroupNameList, policyGroupNameList_);
         DARABONBA_PTR_FROM_JSON(Progress, progress_);
         DARABONBA_PTR_FROM_JSON(ProtocolType, protocolType_);
+        DARABONBA_PTR_FROM_JSON(ReservePoolId, reservePoolId_);
+        DARABONBA_PTR_FROM_JSON(ReservePoolName, reservePoolName_);
         DARABONBA_PTR_FROM_JSON(ResourceGroups, resourceGroups_);
         DARABONBA_PTR_FROM_JSON(SerialNumber, serialNumber_);
         DARABONBA_PTR_FROM_JSON(SessionType, sessionType_);
@@ -190,6 +195,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(Tags, tags_);
         DARABONBA_PTR_FROM_JSON(VolumeEncryptionEnabled, volumeEncryptionEnabled_);
         DARABONBA_PTR_FROM_JSON(VolumeEncryptionKey, volumeEncryptionKey_);
+        DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
         DARABONBA_PTR_FROM_JSON(ZoneType, zoneType_);
       };
       Desktops() = default ;
@@ -294,7 +300,7 @@ namespace Models
 
 
       protected:
-        // The ID of the user connected to the cloud desktop.
+        // The ID of the user who is connected to the cloud desktop.
         shared_ptr<string> endUserId_ {};
         // The time when the cloud desktop session was established. The time is in the ISO 8601 standard in UTC.
         shared_ptr<string> establishmentTime_ {};
@@ -416,7 +422,7 @@ namespace Models
 
 
         protected:
-          // The NAS file system description.
+          // The description of the NAS file system.
           shared_ptr<string> description_ {};
           // The KB number of the system patch.
           shared_ptr<string> kb_ {};
@@ -614,7 +620,7 @@ namespace Models
         // The disk category.
         // - cloud_efficiency (ultra cloud disk)
         //    - cloud_auto (ultra-fast cloud disk)
-        //    - cloud_essd (enhanced standard SSD cloud disk. Only specific types are supported.)
+        //    - cloud_essd (enhanced standard SSD. Only specific types are supported.)
         shared_ptr<string> diskCategory_ {};
         // The disk ID.
         shared_ptr<string> diskId_ {};
@@ -784,10 +790,10 @@ namespace Models
         && this->memory_ == nullptr && this->networkInterfaceId_ == nullptr && this->networkInterfaceIp_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
         && this->officeSiteType_ == nullptr && this->officeSiteVpcType_ == nullptr && this->osType_ == nullptr && this->osUpdate_ == nullptr && this->platform_ == nullptr
         && this->policyGroupId_ == nullptr && this->policyGroupIdList_ == nullptr && this->policyGroupName_ == nullptr && this->policyGroupNameList_ == nullptr && this->progress_ == nullptr
-        && this->protocolType_ == nullptr && this->resourceGroups_ == nullptr && this->serialNumber_ == nullptr && this->sessionType_ == nullptr && this->sessions_ == nullptr
-        && this->snapshotPolicyId_ == nullptr && this->snapshotPolicyName_ == nullptr && this->standardStartTime_ == nullptr && this->startTime_ == nullptr && this->subnetId_ == nullptr
-        && this->supportHibernation_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr && this->tags_ == nullptr && this->volumeEncryptionEnabled_ == nullptr
-        && this->volumeEncryptionKey_ == nullptr && this->zoneType_ == nullptr; };
+        && this->protocolType_ == nullptr && this->reservePoolId_ == nullptr && this->reservePoolName_ == nullptr && this->resourceGroups_ == nullptr && this->serialNumber_ == nullptr
+        && this->sessionType_ == nullptr && this->sessions_ == nullptr && this->snapshotPolicyId_ == nullptr && this->snapshotPolicyName_ == nullptr && this->standardStartTime_ == nullptr
+        && this->startTime_ == nullptr && this->subnetId_ == nullptr && this->supportHibernation_ == nullptr && this->systemDiskCategory_ == nullptr && this->systemDiskSize_ == nullptr
+        && this->tags_ == nullptr && this->volumeEncryptionEnabled_ == nullptr && this->volumeEncryptionKey_ == nullptr && this->zoneId_ == nullptr && this->zoneType_ == nullptr; };
       // accountType Field Functions 
       bool hasAccountType() const { return this->accountType_ != nullptr;};
       void deleteAccountType() { this->accountType_ = nullptr;};
@@ -1205,6 +1211,20 @@ namespace Models
       inline Desktops& setProtocolType(string protocolType) { DARABONBA_PTR_SET_VALUE(protocolType_, protocolType) };
 
 
+      // reservePoolId Field Functions 
+      bool hasReservePoolId() const { return this->reservePoolId_ != nullptr;};
+      void deleteReservePoolId() { this->reservePoolId_ = nullptr;};
+      inline string getReservePoolId() const { DARABONBA_PTR_GET_DEFAULT(reservePoolId_, "") };
+      inline Desktops& setReservePoolId(string reservePoolId) { DARABONBA_PTR_SET_VALUE(reservePoolId_, reservePoolId) };
+
+
+      // reservePoolName Field Functions 
+      bool hasReservePoolName() const { return this->reservePoolName_ != nullptr;};
+      void deleteReservePoolName() { this->reservePoolName_ = nullptr;};
+      inline string getReservePoolName() const { DARABONBA_PTR_GET_DEFAULT(reservePoolName_, "") };
+      inline Desktops& setReservePoolName(string reservePoolName) { DARABONBA_PTR_SET_VALUE(reservePoolName_, reservePoolName) };
+
+
       // resourceGroups Field Functions 
       bool hasResourceGroups() const { return this->resourceGroups_ != nullptr;};
       void deleteResourceGroups() { this->resourceGroups_ = nullptr;};
@@ -1316,6 +1336,13 @@ namespace Models
       inline Desktops& setVolumeEncryptionKey(string volumeEncryptionKey) { DARABONBA_PTR_SET_VALUE(volumeEncryptionKey_, volumeEncryptionKey) };
 
 
+      // zoneId Field Functions 
+      bool hasZoneId() const { return this->zoneId_ != nullptr;};
+      void deleteZoneId() { this->zoneId_ = nullptr;};
+      inline string getZoneId() const { DARABONBA_PTR_GET_DEFAULT(zoneId_, "") };
+      inline Desktops& setZoneId(string zoneId) { DARABONBA_PTR_SET_VALUE(zoneId_, zoneId) };
+
+
       // zoneType Field Functions 
       bool hasZoneType() const { return this->zoneType_ != nullptr;};
       void deleteZoneType() { this->zoneType_ = nullptr;};
@@ -1407,9 +1434,9 @@ namespace Models
       shared_ptr<vector<string>> managementFlags_ {};
       // The memory size. Unit: MiB.
       shared_ptr<int64_t> memory_ {};
-      // The ID of the secondary ENI created by the cloud desktop service for the RAM or AD user. This value cannot be modified.
+      // The ID of the secondary network interface controller (NIC) created by the cloud desktop service for the RAM or AD user. This value cannot be modified.
       shared_ptr<string> networkInterfaceId_ {};
-      // The IP address of the secondary ENI created by the cloud desktop service for the RAM or AD user.
+      // The IP address of the secondary NIC created by the cloud desktop service for the RAM or AD user.
       shared_ptr<string> networkInterfaceIp_ {};
       // The office network ID.
       shared_ptr<string> officeSiteId_ {};
@@ -1437,6 +1464,8 @@ namespace Models
       shared_ptr<string> progress_ {};
       // The protocol type.
       shared_ptr<string> protocolType_ {};
+      shared_ptr<string> reservePoolId_ {};
+      shared_ptr<string> reservePoolName_ {};
       // The list of enterprise resource group information.
       shared_ptr<vector<Desktops::ResourceGroups>> resourceGroups_ {};
       // The serial number of the terminal.
@@ -1449,7 +1478,7 @@ namespace Models
       shared_ptr<string> snapshotPolicyId_ {};
       // The snapshot policy name.
       shared_ptr<string> snapshotPolicyName_ {};
-      // The start time of the query. The time is in the ISO 8601 standard and in UTC+0, in the format of `yyyy-mm-ddthh:mm:ssz`.
+      // The start time of the query. The time is in the ISO 8601 standard and in UTC+0. Format: `yyyy-mm-ddthh:mm:ssz`.
       shared_ptr<string> standardStartTime_ {};
       // The time when the cloud desktop was first started. The time is in the ISO 8601 standard in UTC.
       shared_ptr<string> startTime_ {};
@@ -1467,6 +1496,7 @@ namespace Models
       shared_ptr<bool> volumeEncryptionEnabled_ {};
       // The ID of the Key Management Service (KMS) key used for disk encryption. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain the key ID.
       shared_ptr<string> volumeEncryptionKey_ {};
+      shared_ptr<string> zoneId_ {};
       // The type of the zone. Default value: `AvailabilityZone`, which indicates a regular cloud zone.
       shared_ptr<string> zoneType_ {};
     };
@@ -1520,7 +1550,7 @@ namespace Models
   protected:
     // The details of the cloud desktops.
     shared_ptr<vector<DescribeDesktopsResponseBody::Desktops>> desktops_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token for the next query. If this parameter is empty, no more results are available.
     shared_ptr<string> nextToken_ {};
     // The page number of the current page in a paged query.
     shared_ptr<int32_t> pageNumber_ {};

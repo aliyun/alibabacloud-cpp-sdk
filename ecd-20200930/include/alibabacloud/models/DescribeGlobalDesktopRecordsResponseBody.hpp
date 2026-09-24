@@ -49,6 +49,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(EndUserIds, endUserIds_);
         DARABONBA_PTR_TO_JSON(GpuSpec, gpuSpec_);
         DARABONBA_PTR_TO_JSON(LatestConnectionTime, latestConnectionTime_);
+        DARABONBA_PTR_TO_JSON(LatestSessionEndTime, latestSessionEndTime_);
         DARABONBA_PTR_TO_JSON(Memory, memory_);
         DARABONBA_PTR_TO_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_TO_JSON(OfficeSiteName, officeSiteName_);
@@ -78,6 +79,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(EndUserIds, endUserIds_);
         DARABONBA_PTR_FROM_JSON(GpuSpec, gpuSpec_);
         DARABONBA_PTR_FROM_JSON(LatestConnectionTime, latestConnectionTime_);
+        DARABONBA_PTR_FROM_JSON(LatestSessionEndTime, latestSessionEndTime_);
         DARABONBA_PTR_FROM_JSON(Memory, memory_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteId, officeSiteId_);
         DARABONBA_PTR_FROM_JSON(OfficeSiteName, officeSiteName_);
@@ -145,8 +147,7 @@ namespace Models
       protected:
         // The end user ID.
         shared_ptr<string> endUserId_ {};
-        // The session creation time.
-        // The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+        // The time when the session was created. The time is in the ISO 8601 standard (UTC): yyyy-MM-ddTHH:mm:ssZ.
         shared_ptr<string> establishmentTime_ {};
       };
 
@@ -197,10 +198,10 @@ namespace Models
       virtual bool empty() const override { return this->connectionStatus_ == nullptr
         && this->cpu_ == nullptr && this->creationTime_ == nullptr && this->desktopGroupId_ == nullptr && this->desktopGroupName_ == nullptr && this->desktopId_ == nullptr
         && this->desktopName_ == nullptr && this->desktopStatus_ == nullptr && this->endUserId_ == nullptr && this->endUserIds_ == nullptr && this->gpuSpec_ == nullptr
-        && this->latestConnectionTime_ == nullptr && this->memory_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr && this->officeSiteType_ == nullptr
-        && this->osType_ == nullptr && this->platform_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr && this->resourceGroups_ == nullptr
-        && this->sessionIdleTime_ == nullptr && this->sessions_ == nullptr && this->statusChangeTime_ == nullptr && this->subPayType_ == nullptr && this->totalConnectionTime_ == nullptr
-        && this->upTime_ == nullptr; };
+        && this->latestConnectionTime_ == nullptr && this->latestSessionEndTime_ == nullptr && this->memory_ == nullptr && this->officeSiteId_ == nullptr && this->officeSiteName_ == nullptr
+        && this->officeSiteType_ == nullptr && this->osType_ == nullptr && this->platform_ == nullptr && this->protocolType_ == nullptr && this->regionId_ == nullptr
+        && this->resourceGroups_ == nullptr && this->sessionIdleTime_ == nullptr && this->sessions_ == nullptr && this->statusChangeTime_ == nullptr && this->subPayType_ == nullptr
+        && this->totalConnectionTime_ == nullptr && this->upTime_ == nullptr; };
       // connectionStatus Field Functions 
       bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
       void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};
@@ -285,6 +286,13 @@ namespace Models
       void deleteLatestConnectionTime() { this->latestConnectionTime_ = nullptr;};
       inline int64_t getLatestConnectionTime() const { DARABONBA_PTR_GET_DEFAULT(latestConnectionTime_, 0L) };
       inline Sessions& setLatestConnectionTime(int64_t latestConnectionTime) { DARABONBA_PTR_SET_VALUE(latestConnectionTime_, latestConnectionTime) };
+
+
+      // latestSessionEndTime Field Functions 
+      bool hasLatestSessionEndTime() const { return this->latestSessionEndTime_ != nullptr;};
+      void deleteLatestSessionEndTime() { this->latestSessionEndTime_ = nullptr;};
+      inline string getLatestSessionEndTime() const { DARABONBA_PTR_GET_DEFAULT(latestSessionEndTime_, "") };
+      inline Sessions& setLatestSessionEndTime(string latestSessionEndTime) { DARABONBA_PTR_SET_VALUE(latestSessionEndTime_, latestSessionEndTime) };
 
 
       // memory Field Functions 
@@ -401,7 +409,7 @@ namespace Models
       shared_ptr<string> connectionStatus_ {};
       // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
-      // The creation time of the cloud desktop. The time is in the ISO 8601 standard (UTC).
+      // The time when the cloud desktop was created. The time is in the ISO 8601 standard (UTC).
       shared_ptr<string> creationTime_ {};
       // The shared cloud desktop ID.
       shared_ptr<string> desktopGroupId_ {};
@@ -421,6 +429,8 @@ namespace Models
       shared_ptr<string> gpuSpec_ {};
       // The duration of the most recent connection to the cloud desktop. Unit: seconds.
       shared_ptr<int64_t> latestConnectionTime_ {};
+      // The latest end time of the current session. The time is in the ISO 8601 standard (UTC): yyyy-MM-ddTHH:mm:ssZ.
+      shared_ptr<string> latestSessionEndTime_ {};
       // The memory of the cloud desktop. Unit: MiB.
       shared_ptr<int64_t> memory_ {};
       // The office network ID.
@@ -434,7 +444,7 @@ namespace Models
       // - Windows
       // - Linux
       shared_ptr<string> osType_ {};
-      // The specific operating system model.
+      // The specific operating system version.
       shared_ptr<string> platform_ {};
       // The protocol type. Valid values:
       // 
@@ -449,7 +459,7 @@ namespace Models
       shared_ptr<int64_t> sessionIdleTime_ {};
       // The session details.
       shared_ptr<vector<Sessions::SessionsItem>> sessions_ {};
-      // The UNIX timestamp of the cloud desktop status change. Unit: milliseconds.
+      // The UNIX timestamp when the cloud desktop status changed. Unit: milliseconds.
       shared_ptr<int64_t> statusChangeTime_ {};
       // The billing method of the cloud desktop. Valid values:
       // 

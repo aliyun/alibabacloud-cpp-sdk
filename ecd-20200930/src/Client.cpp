@@ -3694,16 +3694,16 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
 }
 
 /**
- * @summary Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
+ * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
  *
- * @description Before creating cloud computers, complete the following preparations:
- * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
- *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
- *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+ * @description Before creating cloud desktops, complete the following preparations:
+ * - Create an office network (formerly workspace) and users. For more information about the related API operations or documentation, see:
+ *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+ *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
  * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
  * **Call examples:**
  * <details>
- * <summary>Example of creating with a template</summary>
+ * <summary>Example of creating a cloud desktop by using a template</summary>
  * ```
  * {
  *   "RegionId": "cn-hangzhou",
@@ -3717,7 +3717,7 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
  * ```
  * </details>
  * <details>
- * <summary>Example of creating without a template</summary>
+ * <summary>Example of creating a cloud desktop without a template</summary>
  * ```
  * {
  *   "RegionId": "cn-hangzhou",
@@ -3737,7 +3737,7 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
  * ```
  * </details>
  * <details>
- * <summary>Example of creating a monthly hourly package</summary>
+ * <summary>Example of creating a cloud desktop with a monthly hourly package</summary>
  * ```
  * {
  *   "RegionId": "cn-hangzhou",
@@ -3762,7 +3762,7 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
  * ```
  * </details>
  * <details>
- * <summary>Example of creating an Agent resource</summary>
+ * <summary>Example of creating an agent resource</summary>
  * ```
  * {
  *   "RegionId": "cn-hangzhou",
@@ -3782,7 +3782,7 @@ CreateDesktopOversoldGroupResponse Client::createDesktopOversoldGroup(const Crea
  * }
  * ```
  * </details>
- * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+ * To have the cloud desktop automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
  *
  * @param tmpReq CreateDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3925,6 +3925,10 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
     query["ResellerOwnerUid"] = request.getResellerOwnerUid();
   }
 
+  if (!!request.hasReservePoolId()) {
+    query["ReservePoolId"] = request.getReservePoolId();
+  }
+
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
   }
@@ -3995,16 +3999,16 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
 }
 
 /**
- * @summary Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
+ * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
  *
- * @description Before creating cloud computers, complete the following preparations:
- * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
- *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
- *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+ * @description Before creating cloud desktops, complete the following preparations:
+ * - Create an office network (formerly workspace) and users. For more information about the related API operations or documentation, see:
+ *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+ *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
  * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
  * **Call examples:**
  * <details>
- * <summary>Example of creating with a template</summary>
+ * <summary>Example of creating a cloud desktop by using a template</summary>
  * ```
  * {
  *   "RegionId": "cn-hangzhou",
@@ -4018,7 +4022,7 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
  * ```
  * </details>
  * <details>
- * <summary>Example of creating without a template</summary>
+ * <summary>Example of creating a cloud desktop without a template</summary>
  * ```
  * {
  *   "RegionId": "cn-hangzhou",
@@ -4038,7 +4042,7 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
  * ```
  * </details>
  * <details>
- * <summary>Example of creating a monthly hourly package</summary>
+ * <summary>Example of creating a cloud desktop with a monthly hourly package</summary>
  * ```
  * {
  *   "RegionId": "cn-hangzhou",
@@ -4063,7 +4067,7 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
  * ```
  * </details>
  * <details>
- * <summary>Example of creating an Agent resource</summary>
+ * <summary>Example of creating an agent resource</summary>
  * ```
  * {
  *   "RegionId": "cn-hangzhou",
@@ -4083,7 +4087,7 @@ CreateDesktopsResponse Client::createDesktopsWithOptions(const CreateDesktopsReq
  * }
  * ```
  * </details>
- * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+ * To have the cloud desktop automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
  *
  * @param request CreateDesktopsRequest
  * @return CreateDesktopsResponse
@@ -4438,12 +4442,20 @@ CreateImageResponse Client::createImage(const CreateImageRequest &request) {
 CreateNASFileSystemResponse Client::createNASFileSystemWithOptions(const CreateNASFileSystemRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasCapacity()) {
+    query["Capacity"] = request.getCapacity();
+  }
+
   if (!!request.hasDescription()) {
     query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEncryptType()) {
     query["EncryptType"] = request.getEncryptType();
+  }
+
+  if (!!request.hasFileSystemType()) {
+    query["FileSystemType"] = request.getFileSystemType();
   }
 
   if (!!request.hasName()) {
@@ -5546,9 +5558,9 @@ CreateSubnetResponse Client::createSubnet(const CreateSubnetRequest &request) {
 /**
  * @summary Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
  *
- * @description When you call this operation, note the following items:
+ * @description When you call this operation, take note of the following items:
  * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
- * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+ * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
  *
  * @param request CreateTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5588,6 +5600,10 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 
   if (!!request.hasImageId()) {
     body["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasInstanceName()) {
+    body["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasPeriod()) {
@@ -5669,9 +5685,9 @@ CreateTemplateResponse Client::createTemplateWithOptions(const CreateTemplateReq
 /**
  * @summary Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
  *
- * @description When you call this operation, note the following items:
+ * @description When you call this operation, take note of the following items:
  * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
- * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+ * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
  *
  * @param request CreateTemplateRequest
  * @return CreateTemplateResponse
@@ -7118,7 +7134,7 @@ DeleteSubnetResponse Client::deleteSubnet(const DeleteSubnetRequest &request) {
 /**
  * @summary Deletes a custom cloud computer template.
  *
- * @description After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+ * @description After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
  *
  * @param request DeleteTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7155,7 +7171,7 @@ DeleteTemplatesResponse Client::deleteTemplatesWithOptions(const DeleteTemplates
 /**
  * @summary Deletes a custom cloud computer template.
  *
- * @description After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+ * @description After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
  *
  * @param request DeleteTemplatesRequest
  * @return DeleteTemplatesResponse
@@ -7806,7 +7822,7 @@ DescribeClientEventsResponse Client::describeClientEvents(const DescribeClientEv
 /**
  * @summary Queries the list of cloud disk team spaces.
  *
- * @description The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
+ * @description The cloud disk team list is obtained through synchronization from the Wuying client > User Management > organization structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
  *
  * @param request DescribeCloudDiskGroupDrivesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7855,7 +7871,7 @@ DescribeCloudDiskGroupDrivesResponse Client::describeCloudDiskGroupDrivesWithOpt
 /**
  * @summary Queries the list of cloud disk team spaces.
  *
- * @description The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
+ * @description The cloud disk team list is obtained through synchronization from the Wuying client > User Management > organization structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
  *
  * @param request DescribeCloudDiskGroupDrivesRequest
  * @return DescribeCloudDiskGroupDrivesResponse
@@ -9161,6 +9177,10 @@ DescribeDesktopsResponse Client::describeDesktopsWithOptions(const DescribeDeskt
     query["RegionId"] = request.getRegionId();
   }
 
+  if (!!request.hasReservePoolId()) {
+    query["ReservePoolId"] = request.getReservePoolId();
+  }
+
   if (!!request.hasResourceGroupId()) {
     query["ResourceGroupId"] = request.getResourceGroupId();
   }
@@ -9808,9 +9828,9 @@ DescribeFotaTasksResponse Client::describeFotaTasks(const DescribeFotaTasksReque
 }
 
 /**
- * @summary Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
+ * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
  *
- * @description - China site users should select Shanghai as the site. International site users should select Singapore.
+ * @description - China site users must select Shanghai as the site. International site users must select Singapore.
  * - By default, both deleted and non-deleted cloud desktops are queried.
  * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
  * - Sort conditions cannot be used together with other conditions.
@@ -9916,9 +9936,9 @@ DescribeGlobalDesktopRecordsResponse Client::describeGlobalDesktopRecordsWithOpt
 }
 
 /**
- * @summary Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
+ * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
  *
- * @description - China site users should select Shanghai as the site. International site users should select Singapore.
+ * @description - China site users must select Shanghai as the site. International site users must select Singapore.
  * - By default, both deleted and non-deleted cloud desktops are queried.
  * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
  * - Sort conditions cannot be used together with other conditions.
@@ -10350,7 +10370,7 @@ DescribeImagesResponse Client::describeImages(const DescribeImagesRequest &reque
 /**
  * @summary Queries the execution list and status of Cloud Assistant scripts.
  *
- * @description - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
+ * @description - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
  * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
  *
  * @param request DescribeInvocationsRequest
@@ -10428,7 +10448,7 @@ DescribeInvocationsResponse Client::describeInvocationsWithOptions(const Describ
 /**
  * @summary Queries the execution list and status of Cloud Assistant scripts.
  *
- * @description - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
+ * @description - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
  * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
  *
  * @param request DescribeInvocationsRequest
@@ -11711,6 +11731,10 @@ DescribeQosRulesResponse Client::describeQosRules(const DescribeQosRulesRequest 
 DescribeRecordFileResponse Client::describeRecordFileWithOptions(const DescribeRecordFileRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasAuditStatus()) {
+    query["AuditStatus"] = request.getAuditStatus();
+  }
+
   if (!!request.hasDesktopId()) {
     query["DesktopId"] = request.getDesktopId();
   }
@@ -11974,7 +11998,7 @@ DescribeRegionsResponse Client::describeRegions(const DescribeRegionsRequest &re
 }
 
 /**
- * @summary Queries the renewal price of a Wuying product.
+ * @summary Queries the renewal price of an Elastic Desktop Service product.
  *
  * @param request DescribeRenewalPriceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12033,7 +12057,7 @@ DescribeRenewalPriceResponse Client::describeRenewalPriceWithOptions(const Descr
 }
 
 /**
- * @summary Queries the renewal price of a Wuying product.
+ * @summary Queries the renewal price of an Elastic Desktop Service product.
  *
  * @param request DescribeRenewalPriceRequest
  * @return DescribeRenewalPriceResponse
@@ -13070,10 +13094,10 @@ DescribeVirtualMFADevicesResponse Client::describeVirtualMFADevices(const Descri
 }
 
 /**
- * @summary Retrieves cloud computer information for a vulnerability.
+ * @summary Retrieves cloud desktop information for a vulnerability.
  *
- * @description - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
- * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+ * @description - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
+ * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
  *
  * @param request DescribeVulDesktopsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13082,12 +13106,20 @@ DescribeVirtualMFADevicesResponse Client::describeVirtualMFADevices(const Descri
 DescribeVulDesktopsResponse Client::describeVulDesktopsWithOptions(const DescribeVulDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasConnectionStatus()) {
+    query["ConnectionStatus"] = request.getConnectionStatus();
+  }
+
   if (!!request.hasCveId()) {
     query["CveId"] = request.getCveId();
   }
 
   if (!!request.hasDesktopIdList()) {
     query["DesktopIdList"] = request.getDesktopIdList();
+  }
+
+  if (!!request.hasDesktopStatus()) {
+    query["DesktopStatus"] = request.getDesktopStatus();
   }
 
   if (!!request.hasIncludeFixResult()) {
@@ -13160,10 +13192,10 @@ DescribeVulDesktopsResponse Client::describeVulDesktopsWithOptions(const Describ
 }
 
 /**
- * @summary Retrieves cloud computer information for a vulnerability.
+ * @summary Retrieves cloud desktop information for a vulnerability.
  *
- * @description - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
- * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+ * @description - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
+ * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
  *
  * @param request DescribeVulDesktopsRequest
  * @return DescribeVulDesktopsResponse
@@ -13960,6 +13992,56 @@ ExportDesktopListInfoResponse Client::exportDesktopListInfo(const ExportDesktopL
 }
 
 /**
+ * @summary Queries desktop data statistics by different dimensions.
+ *
+ * @param request GetAggregatedDesktopsRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetAggregatedDesktopsResponse
+ */
+GetAggregatedDesktopsResponse Client::getAggregatedDesktopsWithOptions(const GetAggregatedDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAggregationFactor()) {
+    query["AggregationFactor"] = request.getAggregationFactor();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  if (!!request.hasSearchRegionId()) {
+    query["SearchRegionId"] = request.getSearchRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetAggregatedDesktops"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetAggregatedDesktopsResponse>();
+}
+
+/**
+ * @summary Queries desktop data statistics by different dimensions.
+ *
+ * @param request GetAggregatedDesktopsRequest
+ * @return GetAggregatedDesktopsResponse
+ */
+GetAggregatedDesktopsResponse Client::getAggregatedDesktops(const GetAggregatedDesktopsRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getAggregatedDesktopsWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
  *
  * @param request GetAsyncTaskRequest
@@ -14008,7 +14090,7 @@ GetAsyncTaskResponse Client::getAsyncTask(const GetAsyncTaskRequest &request) {
 /**
  * @summary Retrieves the connection credential for a cloud computer.
  *
- * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
+ * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
  *
  * @param request GetConnectionTicketRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14017,6 +14099,10 @@ GetAsyncTaskResponse Client::getAsyncTask(const GetAsyncTaskRequest &request) {
 GetConnectionTicketResponse Client::getConnectionTicketWithOptions(const GetConnectionTicketRequest &request, const Darabonba::RuntimeOptions &runtime) {
   request.validate();
   json query = {};
+  if (!!request.hasClientType()) {
+    query["ClientType"] = request.getClientType();
+  }
+
   if (!!request.hasCommandContent()) {
     query["CommandContent"] = request.getCommandContent();
   }
@@ -14077,7 +14163,7 @@ GetConnectionTicketResponse Client::getConnectionTicketWithOptions(const GetConn
 /**
  * @summary Retrieves the connection credential for a cloud computer.
  *
- * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
+ * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
  *
  * @param request GetConnectionTicketRequest
  * @return GetConnectionTicketResponse
@@ -18702,7 +18788,7 @@ ModifySecurityGroupAttributeResponse Client::modifySecurityGroupAttribute(const 
 /**
  * @summary Modifies all parameters of a custom cloud computer template.
  *
- * @description >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+ * @description >Warning: To ensure compatibility with unset parameters and default upgrade logic in the template, this operation uses full parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
  *
  * @param request ModifyTemplateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18738,6 +18824,10 @@ ModifyTemplateResponse Client::modifyTemplateWithOptions(const ModifyTemplateReq
 
   if (!!request.hasImageId()) {
     body["ImageId"] = request.getImageId();
+  }
+
+  if (!!request.hasInstanceName()) {
+    body["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasPeriod()) {
@@ -18819,7 +18909,7 @@ ModifyTemplateResponse Client::modifyTemplateWithOptions(const ModifyTemplateReq
 /**
  * @summary Modifies all parameters of a custom cloud computer template.
  *
- * @description >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+ * @description >Warning: To ensure compatibility with unset parameters and default upgrade logic in the template, this operation uses full parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
  *
  * @param request ModifyTemplateRequest
  * @return ModifyTemplateResponse
@@ -18830,9 +18920,9 @@ ModifyTemplateResponse Client::modifyTemplate(const ModifyTemplateRequest &reque
 }
 
 /**
- * @summary Modifies the basic information of a custom cloud computer template, including the template name and description.
+ * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
  *
- * @description This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
+ * @description This operation is used only to modify the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
  *
  * @param request ModifyTemplateBaseInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18843,6 +18933,10 @@ ModifyTemplateBaseInfoResponse Client::modifyTemplateBaseInfoWithOptions(const M
   json body = {};
   if (!!request.hasDescription()) {
     body["Description"] = request.getDescription();
+  }
+
+  if (!!request.hasInstanceName()) {
+    body["InstanceName"] = request.getInstanceName();
   }
 
   if (!!request.hasTemplateId()) {
@@ -18871,9 +18965,9 @@ ModifyTemplateBaseInfoResponse Client::modifyTemplateBaseInfoWithOptions(const M
 }
 
 /**
- * @summary Modifies the basic information of a custom cloud computer template, including the template name and description.
+ * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
  *
- * @description This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
+ * @description This operation is used only to modify the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
  *
  * @param request ModifyTemplateBaseInfoRequest
  * @return ModifyTemplateBaseInfoResponse
@@ -19307,6 +19401,84 @@ QueryActiveUserStatisticResponse Client::queryActiveUserStatisticWithOptions(con
 QueryActiveUserStatisticResponse Client::queryActiveUserStatistic(const QueryActiveUserStatisticRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return queryActiveUserStatisticWithOptions(request, runtime);
+}
+
+/**
+ * @summary Queries the connection duration statistics of authorized users based on specified conditions. Statistics can be collected by daily cumulative duration or by individual session details.
+ *
+ * @param request QueryAuthUserConnectDurationListRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return QueryAuthUserConnectDurationListResponse
+ */
+QueryAuthUserConnectDurationListResponse Client::queryAuthUserConnectDurationListWithOptions(const QueryAuthUserConnectDurationListRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasComparisonOperator()) {
+    query["ComparisonOperator"] = request.getComparisonOperator();
+  }
+
+  if (!!request.hasDataDate()) {
+    query["DataDate"] = request.getDataDate();
+  }
+
+  if (!!request.hasIsAdUser()) {
+    query["IsAdUser"] = request.getIsAdUser();
+  }
+
+  if (!!request.hasNextToken()) {
+    query["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPageNum()) {
+    query["PageNum"] = request.getPageNum();
+  }
+
+  if (!!request.hasPageSize()) {
+    query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasStatisticType()) {
+    query["StatisticType"] = request.getStatisticType();
+  }
+
+  if (!!request.hasThreshold()) {
+    query["Threshold"] = request.getThreshold();
+  }
+
+  if (!!request.hasUserName()) {
+    query["UserName"] = request.getUserName();
+  }
+
+  if (!!request.hasWithDetail()) {
+    query["WithDetail"] = request.getWithDetail();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "QueryAuthUserConnectDurationList"},
+    {"version" , "2020-09-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<QueryAuthUserConnectDurationListResponse>();
+}
+
+/**
+ * @summary Queries the connection duration statistics of authorized users based on specified conditions. Statistics can be collected by daily cumulative duration or by individual session details.
+ *
+ * @param request QueryAuthUserConnectDurationListRequest
+ * @return QueryAuthUserConnectDurationListResponse
+ */
+QueryAuthUserConnectDurationListResponse Client::queryAuthUserConnectDurationList(const QueryAuthUserConnectDurationListRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return queryAuthUserConnectDurationListWithOptions(request, runtime);
 }
 
 /**

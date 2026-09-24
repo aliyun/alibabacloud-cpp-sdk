@@ -14,8 +14,10 @@ namespace Models
   class DescribeVulDesktopsRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeVulDesktopsRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ConnectionStatus, connectionStatus_);
       DARABONBA_PTR_TO_JSON(CveId, cveId_);
       DARABONBA_PTR_TO_JSON(DesktopIdList, desktopIdList_);
+      DARABONBA_PTR_TO_JSON(DesktopStatus, desktopStatus_);
       DARABONBA_PTR_TO_JSON(IncludeFixResult, includeFixResult_);
       DARABONBA_PTR_TO_JSON(Language, language_);
       DARABONBA_PTR_TO_JSON(MaxResults, maxResults_);
@@ -31,8 +33,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VulLevel, vulLevel_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeVulDesktopsRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ConnectionStatus, connectionStatus_);
       DARABONBA_PTR_FROM_JSON(CveId, cveId_);
       DARABONBA_PTR_FROM_JSON(DesktopIdList, desktopIdList_);
+      DARABONBA_PTR_FROM_JSON(DesktopStatus, desktopStatus_);
       DARABONBA_PTR_FROM_JSON(IncludeFixResult, includeFixResult_);
       DARABONBA_PTR_FROM_JSON(Language, language_);
       DARABONBA_PTR_FROM_JSON(MaxResults, maxResults_);
@@ -58,10 +62,18 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->cveId_ == nullptr
-        && this->desktopIdList_ == nullptr && this->includeFixResult_ == nullptr && this->language_ == nullptr && this->maxResults_ == nullptr && this->nextToken_ == nullptr
-        && this->onlyCurrentMonthFixAttempted_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->patchId_ == nullptr && this->regionId_ == nullptr
-        && this->resourceGroupId_ == nullptr && this->searchRegionId_ == nullptr && this->statusList_ == nullptr && this->vulLevel_ == nullptr; };
+    virtual bool empty() const override { return this->connectionStatus_ == nullptr
+        && this->cveId_ == nullptr && this->desktopIdList_ == nullptr && this->desktopStatus_ == nullptr && this->includeFixResult_ == nullptr && this->language_ == nullptr
+        && this->maxResults_ == nullptr && this->nextToken_ == nullptr && this->onlyCurrentMonthFixAttempted_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr
+        && this->patchId_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->searchRegionId_ == nullptr && this->statusList_ == nullptr
+        && this->vulLevel_ == nullptr; };
+    // connectionStatus Field Functions 
+    bool hasConnectionStatus() const { return this->connectionStatus_ != nullptr;};
+    void deleteConnectionStatus() { this->connectionStatus_ = nullptr;};
+    inline string getConnectionStatus() const { DARABONBA_PTR_GET_DEFAULT(connectionStatus_, "") };
+    inline DescribeVulDesktopsRequest& setConnectionStatus(string connectionStatus) { DARABONBA_PTR_SET_VALUE(connectionStatus_, connectionStatus) };
+
+
     // cveId Field Functions 
     bool hasCveId() const { return this->cveId_ != nullptr;};
     void deleteCveId() { this->cveId_ = nullptr;};
@@ -76,6 +88,13 @@ namespace Models
     inline vector<string> getDesktopIdList() { DARABONBA_PTR_GET(desktopIdList_, vector<string>) };
     inline DescribeVulDesktopsRequest& setDesktopIdList(const vector<string> & desktopIdList) { DARABONBA_PTR_SET_VALUE(desktopIdList_, desktopIdList) };
     inline DescribeVulDesktopsRequest& setDesktopIdList(vector<string> && desktopIdList) { DARABONBA_PTR_SET_RVALUE(desktopIdList_, desktopIdList) };
+
+
+    // desktopStatus Field Functions 
+    bool hasDesktopStatus() const { return this->desktopStatus_ != nullptr;};
+    void deleteDesktopStatus() { this->desktopStatus_ = nullptr;};
+    inline string getDesktopStatus() const { DARABONBA_PTR_GET_DEFAULT(desktopStatus_, "") };
+    inline DescribeVulDesktopsRequest& setDesktopStatus(string desktopStatus) { DARABONBA_PTR_SET_VALUE(desktopStatus_, desktopStatus) };
 
 
     // includeFixResult Field Functions 
@@ -172,13 +191,20 @@ namespace Models
 
 
   protected:
-    // The CVE ID.
+    // The connection status of the cloud desktop. Valid values: CONNECTED and DISCONNECTED.
+    shared_ptr<string> connectionStatus_ {};
+    // The CVE ID of the vulnerability.
     shared_ptr<string> cveId_ {};
-    // The list of cloud computer IDs.
+    // The list of cloud desktop IDs.
     shared_ptr<vector<string>> desktopIdList_ {};
+    // The running status of the cloud desktop.
+    shared_ptr<string> desktopStatus_ {};
     // Specifies whether to include patch update results.
     shared_ptr<bool> includeFixResult_ {};
-    // The language type of the returned information.
+    // The language of the returned information. Valid values:
+    // 
+    // - **ch**: Chinese.
+    // - **en**: English.
     shared_ptr<string> language_ {};
     // The number of entries per page in a paged query.
     // 
@@ -188,7 +214,7 @@ namespace Models
     shared_ptr<int32_t> maxResults_ {};
     // The pagination token for the next page.
     shared_ptr<string> nextToken_ {};
-    // Specifies whether to include only cloud computers on which fix tasks were executed in the current month.
+    // Specifies whether to include only cloud desktops that have had fix tasks executed in the current month.
     shared_ptr<bool> onlyCurrentMonthFixAttempted_ {};
     // The page number of the current page in a paged query.
     shared_ptr<int32_t> pageNumber_ {};
@@ -200,17 +226,17 @@ namespace Models
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The region ID used to filter cloud computer information for a specific region.
+    // The region ID used to filter cloud desktop information for a specific region.
     shared_ptr<string> searchRegionId_ {};
     // The list of vulnerability status details.
     shared_ptr<vector<string>> statusList_ {};
-    // The security level of the intrusion prevention event. Valid values:
+    // The severity level of the intrusion prevention event. Valid values:
     // 
-    // - **low**: Low risk.
-    // - **medium**: Medium risk.
-    // - **critical**: High risk.
+    // - **low**: Low.
+    // - **medium**: Medium.
+    // - **critical**: Critical.
     // 
-    // > If you do not set this parameter, vulnerabilities of all security levels are queried.
+    // > If you do not set this parameter, vulnerabilities of all severity levels are queried.
     shared_ptr<string> vulLevel_ {};
   };
 

@@ -845,16 +845,16 @@ namespace Ecd20200930
       Models::CreateDesktopOversoldGroupResponse createDesktopOversoldGroup(const Models::CreateDesktopOversoldGroupRequest &request);
 
       /**
-       * @summary Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
+       * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
        *
-       * @description Before creating cloud computers, complete the following preparations:
-       * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
-       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+       * @description Before creating cloud desktops, complete the following preparations:
+       * - Create an office network (formerly workspace) and users. For more information about the related API operations or documentation, see:
+       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
        * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
        * **Call examples:**
        * <details>
-       * <summary>Example of creating with a template</summary>
+       * <summary>Example of creating a cloud desktop by using a template</summary>
        * ```
        * {
        *   "RegionId": "cn-hangzhou",
@@ -868,7 +868,7 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>Example of creating without a template</summary>
+       * <summary>Example of creating a cloud desktop without a template</summary>
        * ```
        * {
        *   "RegionId": "cn-hangzhou",
@@ -888,7 +888,7 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>Example of creating a monthly hourly package</summary>
+       * <summary>Example of creating a cloud desktop with a monthly hourly package</summary>
        * ```
        * {
        *   "RegionId": "cn-hangzhou",
@@ -913,7 +913,7 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>Example of creating an Agent resource</summary>
+       * <summary>Example of creating an agent resource</summary>
        * ```
        * {
        *   "RegionId": "cn-hangzhou",
@@ -933,7 +933,7 @@ namespace Ecd20200930
        * }
        * ```
        * </details>
-       * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+       * To have the cloud desktop automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
        *
        * @param tmpReq CreateDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -942,16 +942,16 @@ namespace Ecd20200930
       Models::CreateDesktopsResponse createDesktopsWithOptions(const Models::CreateDesktopsRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates one or more cloud computers. If user information is provided during creation, the cloud computers are assigned directly.
+       * @summary Creates one or more cloud desktops. If user information is specified during creation, the cloud desktops are directly assigned to the users.
        *
-       * @description Before creating cloud computers, complete the following preparations:
-       * - Create an office network (formerly workspace) and users. For related API operations or documentation, refer to:
-       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html), [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
-       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html), [Create AD users](https://help.aliyun.com/document_detail/188619.html).
+       * @description Before creating cloud desktops, complete the following preparations:
+       * - Create an office network (formerly workspace) and users. For more information about the related API operations or documentation, see:
+       *     - Convenience office network: [CreateSimpleOfficeSite](https://help.aliyun.com/document_detail/215416.html) and [CreateUsers](https://help.aliyun.com/document_detail/437832.html).
+       *     - AD office network: [CreateADConnectorOfficeSite](https://help.aliyun.com/document_detail/215417.html) and [Create AD users](https://help.aliyun.com/document_detail/188619.html).
        * - Call [CreatePolicyGroup](https://help.aliyun.com/document_detail/188889.html) to create a policy, or confirm that an existing policy is available.
        * **Call examples:**
        * <details>
-       * <summary>Example of creating with a template</summary>
+       * <summary>Example of creating a cloud desktop by using a template</summary>
        * ```
        * {
        *   "RegionId": "cn-hangzhou",
@@ -965,7 +965,7 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>Example of creating without a template</summary>
+       * <summary>Example of creating a cloud desktop without a template</summary>
        * ```
        * {
        *   "RegionId": "cn-hangzhou",
@@ -985,7 +985,7 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>Example of creating a monthly hourly package</summary>
+       * <summary>Example of creating a cloud desktop with a monthly hourly package</summary>
        * ```
        * {
        *   "RegionId": "cn-hangzhou",
@@ -1010,7 +1010,7 @@ namespace Ecd20200930
        * ```
        * </details>
        * <details>
-       * <summary>Example of creating an Agent resource</summary>
+       * <summary>Example of creating an agent resource</summary>
        * ```
        * {
        *   "RegionId": "cn-hangzhou",
@@ -1030,7 +1030,7 @@ namespace Ecd20200930
        * }
        * ```
        * </details>
-       * To have cloud computers automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
+       * To have the cloud desktop automatically run custom command scripts, use the `UserCommands` field to configure custom commands.
        *
        * @param request CreateDesktopsRequest
        * @return CreateDesktopsResponse
@@ -1380,9 +1380,9 @@ namespace Ecd20200930
       /**
        * @summary Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
        *
-       * @description When you call this operation, note the following items:
+       * @description When you call this operation, take note of the following items:
        * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
-       * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+       * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
        *
        * @param request CreateTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1393,9 +1393,9 @@ namespace Ecd20200930
       /**
        * @summary Creates a custom cloud computer template. A cloud computer template is a collection of cloud computer configurations that reduces the configuration steps and accelerates the creation of cloud computers.
        *
-       * @description When you call this operation, note the following items:
+       * @description When you call this operation, take note of the following items:
        * - Most parameters in the instance launch template are optional. When you create a template, Alibaba Cloud does not strictly verify the existence or validity of parameter values. Parameter values are validated only when you create an instance by using the template.
-       * - For parameters that have region attributes in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
+       * - For region-specific parameters in the template, if the region does not match when you create a cloud computer by using the template, these parameters do not take effect.
        *
        * @param request CreateTemplateRequest
        * @return CreateTemplateResponse
@@ -1931,7 +1931,7 @@ namespace Ecd20200930
       /**
        * @summary Deletes a custom cloud computer template.
        *
-       * @description After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+       * @description After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
        *
        * @param request DeleteTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1942,7 +1942,7 @@ namespace Ecd20200930
       /**
        * @summary Deletes a custom cloud computer template.
        *
-       * @description After the template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
+       * @description After a template is deleted, cloud computers that were created based on the template are not affected, and resources associated with the template are not affected.
        *
        * @param request DeleteTemplatesRequest
        * @return DeleteTemplatesResponse
@@ -2113,7 +2113,7 @@ namespace Ecd20200930
       /**
        * @summary Queries the list of cloud disk team spaces.
        *
-       * @description The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
+       * @description The cloud disk team list is obtained through synchronization from the Wuying client > User Management > organization structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
        *
        * @param request DescribeCloudDiskGroupDrivesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2124,7 +2124,7 @@ namespace Ecd20200930
       /**
        * @summary Queries the list of cloud disk team spaces.
        *
-       * @description The cloud disk team list is synchronized from the Wuying client > User Management > Organization Structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
+       * @description The cloud disk team list is obtained through synchronization from the Wuying client > User Management > organization structure. To use team spaces, shift users to a specified organization in the User Management interface. Users can then see the team space menu bar in the cloud disk client.
        *
        * @param request DescribeCloudDiskGroupDrivesRequest
        * @return DescribeCloudDiskGroupDrivesResponse
@@ -2569,9 +2569,9 @@ namespace Ecd20200930
       Models::DescribeFotaTasksResponse describeFotaTasks(const Models::DescribeFotaTasksRequest &request);
 
       /**
-       * @summary Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
+       * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
        *
-       * @description - China site users should select Shanghai as the site. International site users should select Singapore.
+       * @description - China site users must select Shanghai as the site. International site users must select Singapore.
        * - By default, both deleted and non-deleted cloud desktops are queried.
        * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
        * - Sort conditions cannot be used together with other conditions.
@@ -2583,9 +2583,9 @@ namespace Ecd20200930
       Models::DescribeGlobalDesktopRecordsResponse describeGlobalDesktopRecordsWithOptions(const Models::DescribeGlobalDesktopRecordsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information of all recent cloud desktops and their corresponding usage duration records.
+       * @summary Queries the basic information about all recent cloud desktops and the corresponding usage duration records.
        *
-       * @description - China site users should select Shanghai as the site. International site users should select Singapore.
+       * @description - China site users must select Shanghai as the site. International site users must select Singapore.
        * - By default, both deleted and non-deleted cloud desktops are queried.
        * - Deleted cloud desktops can only be queried if they were deleted within the last three months.
        * - Sort conditions cannot be used together with other conditions.
@@ -2708,7 +2708,7 @@ namespace Ecd20200930
       /**
        * @summary Queries the execution list and status of Cloud Assistant scripts.
        *
-       * @description - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
+       * @description - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
        * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
        *
        * @param request DescribeInvocationsRequest
@@ -2720,7 +2720,7 @@ namespace Ecd20200930
       /**
        * @summary Queries the execution list and status of Cloud Assistant scripts.
        *
-       * @description - After you run a command, it does not necessarily succeed or produce the expected results. Check the actual execution results based on the response values returned by this operation.
+       * @description - After you run a command, the command is not guaranteed to succeed or produce the expected results. Check the actual execution results based on the response of this operation.
        * - You can query execution information from the last two weeks. A maximum of 100,000 execution records are retained.
        *
        * @param request DescribeInvocationsRequest
@@ -3238,7 +3238,7 @@ namespace Ecd20200930
       Models::DescribeRegionsResponse describeRegions(const Models::DescribeRegionsRequest &request);
 
       /**
-       * @summary Queries the renewal price of a Wuying product.
+       * @summary Queries the renewal price of an Elastic Desktop Service product.
        *
        * @param request DescribeRenewalPriceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3247,7 +3247,7 @@ namespace Ecd20200930
       Models::DescribeRenewalPriceResponse describeRenewalPriceWithOptions(const Models::DescribeRenewalPriceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the renewal price of a Wuying product.
+       * @summary Queries the renewal price of an Elastic Desktop Service product.
        *
        * @param request DescribeRenewalPriceRequest
        * @return DescribeRenewalPriceResponse
@@ -3529,10 +3529,10 @@ namespace Ecd20200930
       Models::DescribeVirtualMFADevicesResponse describeVirtualMFADevices(const Models::DescribeVirtualMFADevicesRequest &request);
 
       /**
-       * @summary Retrieves cloud computer information for a vulnerability.
+       * @summary Retrieves cloud desktop information for a vulnerability.
        *
-       * @description - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
-       * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+       * @description - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
+       * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
        *
        * @param request DescribeVulDesktopsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3541,10 +3541,10 @@ namespace Ecd20200930
       Models::DescribeVulDesktopsResponse describeVulDesktopsWithOptions(const Models::DescribeVulDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retrieves cloud computer information for a vulnerability.
+       * @summary Retrieves cloud desktop information for a vulnerability.
        *
-       * @description - This operation uses a centralized domain name. The access point is in the China (Shanghai) region. Other regions are not supported.
-       * - The cloud computer status information returned by this operation has a 1 to 3 second delay from the actual values.
+       * @description - This operation uses a centralized endpoint in the Shanghai region. Calls from other regions are not supported.
+       * - The cloud desktop status information returned by this operation has a 1 to 3 second delay from the actual values.
        *
        * @param request DescribeVulDesktopsRequest
        * @return DescribeVulDesktopsResponse
@@ -3794,6 +3794,23 @@ namespace Ecd20200930
       Models::ExportDesktopListInfoResponse exportDesktopListInfo(const Models::ExportDesktopListInfoRequest &request);
 
       /**
+       * @summary Queries desktop data statistics by different dimensions.
+       *
+       * @param request GetAggregatedDesktopsRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetAggregatedDesktopsResponse
+       */
+      Models::GetAggregatedDesktopsResponse getAggregatedDesktopsWithOptions(const Models::GetAggregatedDesktopsRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries desktop data statistics by different dimensions.
+       *
+       * @param request GetAggregatedDesktopsRequest
+       * @return GetAggregatedDesktopsResponse
+       */
+      Models::GetAggregatedDesktopsResponse getAggregatedDesktops(const Models::GetAggregatedDesktopsRequest &request);
+
+      /**
        * @summary Retrieves the details of a folder copy asynchronous node based on the AsyncTaskId parameter returned by the CopyCdsFile operation.
        *
        * @param request GetAsyncTaskRequest
@@ -3813,7 +3830,7 @@ namespace Ecd20200930
       /**
        * @summary Retrieves the connection credential for a cloud computer.
        *
-       * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
+       * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
        *
        * @param request GetConnectionTicketRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -3824,7 +3841,7 @@ namespace Ecd20200930
       /**
        * @summary Retrieves the connection credential for a cloud computer.
        *
-       * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires in 10 minutes.
+       * @description The cloud computer must be in the Running state. The ticket obtained by calling this operation expires after 10 minutes.
        *
        * @param request GetConnectionTicketRequest
        * @return GetConnectionTicketResponse
@@ -4988,7 +5005,7 @@ namespace Ecd20200930
       /**
        * @summary Modifies all parameters of a custom cloud computer template.
        *
-       * @description >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+       * @description >Warning: To ensure compatibility with unset parameters and default upgrade logic in the template, this operation uses full parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
        *
        * @param request ModifyTemplateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -4999,7 +5016,7 @@ namespace Ecd20200930
       /**
        * @summary Modifies all parameters of a custom cloud computer template.
        *
-       * @description >Warning: To ensure compatibility with the logic for unset parameters and default upgrades in the template, this operation uses a full-parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
+       * @description >Warning: To ensure compatibility with unset parameters and default upgrade logic in the template, this operation uses full parameter update logic. In other words, any parameter that is not specified is treated as being set to empty.
        *
        * @param request ModifyTemplateRequest
        * @return ModifyTemplateResponse
@@ -5007,9 +5024,9 @@ namespace Ecd20200930
       Models::ModifyTemplateResponse modifyTemplate(const Models::ModifyTemplateRequest &request);
 
       /**
-       * @summary Modifies the basic information of a custom cloud computer template, including the template name and description.
+       * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
        *
-       * @description This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
+       * @description This operation is used only to modify the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
        *
        * @param request ModifyTemplateBaseInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -5018,9 +5035,9 @@ namespace Ecd20200930
       Models::ModifyTemplateBaseInfoResponse modifyTemplateBaseInfoWithOptions(const Models::ModifyTemplateBaseInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the basic information of a custom cloud computer template, including the template name and description.
+       * @summary Modifies the basic information of a custom cloud computer template, including the template name and template description.
        *
-       * @description This operation only modifies the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
+       * @description This operation is used only to modify the name and description of a custom cloud computer template. To modify the parameters of a custom cloud computer template, use [ModifyTemplate](https://help.aliyun.com/document_detail/2925841.html).
        *
        * @param request ModifyTemplateBaseInfoRequest
        * @return ModifyTemplateBaseInfoResponse
@@ -5157,6 +5174,23 @@ namespace Ecd20200930
        * @return QueryActiveUserStatisticResponse
        */
       Models::QueryActiveUserStatisticResponse queryActiveUserStatistic(const Models::QueryActiveUserStatisticRequest &request);
+
+      /**
+       * @summary Queries the connection duration statistics of authorized users based on specified conditions. Statistics can be collected by daily cumulative duration or by individual session details.
+       *
+       * @param request QueryAuthUserConnectDurationListRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return QueryAuthUserConnectDurationListResponse
+       */
+      Models::QueryAuthUserConnectDurationListResponse queryAuthUserConnectDurationListWithOptions(const Models::QueryAuthUserConnectDurationListRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Queries the connection duration statistics of authorized users based on specified conditions. Statistics can be collected by daily cumulative duration or by individual session details.
+       *
+       * @param request QueryAuthUserConnectDurationListRequest
+       * @return QueryAuthUserConnectDurationListResponse
+       */
+      Models::QueryAuthUserConnectDurationListResponse queryAuthUserConnectDurationList(const Models::QueryAuthUserConnectDurationListRequest &request);
 
       /**
        * @summary Queries the usage duration ranking and details of each end user under a tenant within a specified date range. Aggregates offline statistical data, summarizes connection duration by user dimension, and populates basic information and per-desktop usage duration details for users on the current page.

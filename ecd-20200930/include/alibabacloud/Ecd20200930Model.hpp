@@ -568,6 +568,9 @@
 #include <alibabacloud/models/ExportDesktopListInfoRequest.hpp>
 #include <alibabacloud/models/ExportDesktopListInfoResponseBody.hpp>
 #include <alibabacloud/models/ExportDesktopListInfoResponse.hpp>
+#include <alibabacloud/models/GetAggregatedDesktopsRequest.hpp>
+#include <alibabacloud/models/GetAggregatedDesktopsResponseBody.hpp>
+#include <alibabacloud/models/GetAggregatedDesktopsResponse.hpp>
 #include <alibabacloud/models/GetAsyncTaskRequest.hpp>
 #include <alibabacloud/models/GetAsyncTaskResponseBody.hpp>
 #include <alibabacloud/models/GetAsyncTaskResponse.hpp>
@@ -782,6 +785,9 @@
 #include <alibabacloud/models/QueryActiveUserStatisticRequest.hpp>
 #include <alibabacloud/models/QueryActiveUserStatisticResponseBody.hpp>
 #include <alibabacloud/models/QueryActiveUserStatisticResponse.hpp>
+#include <alibabacloud/models/QueryAuthUserConnectDurationListRequest.hpp>
+#include <alibabacloud/models/QueryAuthUserConnectDurationListResponseBody.hpp>
+#include <alibabacloud/models/QueryAuthUserConnectDurationListResponse.hpp>
 #include <alibabacloud/models/QueryEndUserHistoryUsageRequest.hpp>
 #include <alibabacloud/models/QueryEndUserHistoryUsageResponseBody.hpp>
 #include <alibabacloud/models/QueryEndUserHistoryUsageResponse.hpp>

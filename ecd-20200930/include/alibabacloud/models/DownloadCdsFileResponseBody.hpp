@@ -125,7 +125,7 @@ namespace Models
       shared_ptr<string> downloadUrl_ {};
       // Deprecated.
       shared_ptr<string> expirationSecond_ {};
-      // The expiration time of the file download URL.
+      // The expiration time of the file download URL. The time follows the ISO 8601 standard in UTC and is accurate to milliseconds. Format: yyyy-MM-ddTHH:mm:ss.SSSZ.
       shared_ptr<string> expirationTime_ {};
       // The file ID.
       shared_ptr<string> fileId_ {};
