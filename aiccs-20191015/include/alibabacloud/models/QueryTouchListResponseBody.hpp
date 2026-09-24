@@ -246,35 +246,35 @@ namespace Models
 
 
         protected:
-          // Inbound call caller number.
+          // The calling number for inbound calls.
           shared_ptr<string> ani_ {};
-          // For outbound calls, this is the called number. For inbound calls, this is also the called number.
+          // The called number for both outbound and inbound calls.
           shared_ptr<string> dnis_ {};
-          // Satisfaction Level. Valid values:  
-          // - **2**: Level 2 satisfaction.  
-          // - **3**: Level 3 satisfaction.  
-          // - **4**: Level 4 satisfaction.  
-          // - **5**: Level 5 satisfaction.
+          // The satisfaction level. Valid values:
+          // - **2**: 2-level satisfaction.
+          // - **3**: 3-level satisfaction.
+          // - **4**: 4-level satisfaction.
+          // - **5**: 5-level satisfaction.
           shared_ptr<int32_t> evaluationLevel_ {};
-          // Satisfaction rating. Valid values:
+          // The satisfaction score. Valid values:
           // - **1**: Very dissatisfied.
           // - **2**: Dissatisfied.
           // - **3**: Neutral.
           // - **4**: Satisfied.
           // - **5**: Very satisfied.
           shared_ptr<int32_t> evaluationScore_ {};
-          // Evaluation solution.
+          // The evaluation Solutions.
           shared_ptr<int32_t> evaluationSolution_ {};
-          // Evaluation status. Valid values:
+          // The evaluation status. Valid values:
           // - **-1**: Evaluation not initiated.
           // - **0**: Not evaluated.
           // - **1**: Evaluated.
           shared_ptr<int32_t> evaluationStatus_ {};
-          // Duration until first response (unit: seconds).
+          // The first response duration, in seconds.
           shared_ptr<int32_t> onlineJoinRespInterval_ {};
-          // Online session source.
+          // The online session source.
           shared_ptr<int32_t> onlineSessionSource_ {};
-          // Outbound call caller number.
+          // The calling number for outbound calls.
           shared_ptr<string> outCallRouteNumber_ {};
         };
 
@@ -486,74 +486,74 @@ namespace Models
 
 
       protected:
-        // Tenant ID.
+        // The tenant ID.
         shared_ptr<int64_t> buId_ {};
-        // Session ID.
+        // The session ID.
         shared_ptr<string> channelId_ {};
-        // Contact channel.
+        // The touch channel.
         shared_ptr<int32_t> channelType_ {};
-        // Session end time. UNIX timestamp format (unit: milliseconds).
+        // The session end time. The value is a timestamp in milliseconds.
         shared_ptr<int64_t> closeTime_ {};
-        // Skill group name.
+        // The skill group name.
         shared_ptr<string> commonQueueName_ {};
-        // Department ID.
+        // The department ID.
         shared_ptr<int64_t> depId_ {};
-        // Extension fields.
+        // The extended fields.
         shared_ptr<Data::ExtAttrs> extAttrs_ {};
-        // Large object.
+        // The large field.
         Darabonba::Json extAttrsString_ {};
-        // Feedback.
+        // The feedback.
         shared_ptr<string> feedback_ {};
-        // Conversation pickup time, in UNIX timestamp format (unit: milliseconds).
+        // The session pickup time. The value is a timestamp in milliseconds.
         shared_ptr<int64_t> firstTime_ {};
-        // Conversation initiator.
+        // The session initiator.
         shared_ptr<int64_t> fromId_ {};
-        // Creation Time, in UNIX timestamp format (unit: milliseconds).
+        // The creation time. The value is a timestamp in milliseconds.
         shared_ptr<int64_t> gmtCreate_ {};
-        // Update Time. UNIX timestamp format (unit: milliseconds).
+        // The update time. The value is a timestamp in milliseconds.
         shared_ptr<int64_t> gmtModified_ {};
-        // Membership ID.
+        // The member ID.
         shared_ptr<int64_t> memberId_ {};
-        // Membership name.
+        // The member name.
         shared_ptr<string> memberName_ {};
-        // Parent contact ID.
+        // The parent touch ID.
         shared_ptr<int64_t> parentTouchId_ {};
-        // Skill group ID.
+        // The skill group ID.
         shared_ptr<int64_t> queueId_ {};
-        // Service agent ID.
+        // The agent ID.
         shared_ptr<int64_t> servicerId_ {};
-        // Service agent name.
+        // The agent name.
         shared_ptr<string> servicerName_ {};
-        // Contact status. Valid values:  
-        // - **1**: Incoming call received.  
-        // - **2**: Agent has joined.  
-        // - **3**: In conversation.  
+        // The touch status. Valid values:
+        // - **1**: Queued.
+        // - **2**: Agent connected.
+        // - **3**: In call.
         // - **4**: Ended.
         shared_ptr<int32_t> status_ {};
-        // Change owner list.
+        // The transfer list.
         shared_ptr<string> switchUser_ {};
-        // Conversation recipient.
+        // The session receiver.
         shared_ptr<int64_t> toId_ {};
-        // The reason why the session ended. Valid values:  
-        // - **0**: Unknown.  
-        // - **1**: Contact failed.  
-        // - **2**: Terminated by customer.  
-        // - **3**: Terminated by agent.  
-        // - **4**: Call abnormally interrupted.  
-        // - **5**: Terminated due to change owner.  
-        // - **6**: Terminated by system.
+        // The session end reason. Valid values:
+        // - **0**: Unknown.
+        // - **1**: Touch unsuccessful.
+        // - **2**: Customer terminated.
+        // - **3**: Agent terminated.
+        // - **4**: Call abnormally interrupted.
+        // - **5**: Transfer terminated.
+        // - **6**: System terminated.
         shared_ptr<string> touchContent_ {};
-        // End reason.
+        // The end reason.
         shared_ptr<int32_t> touchEndReason_ {};
-        // Touch ID.
+        // The contact ID.
         shared_ptr<string> touchId_ {};
-        // Conversation duration (unit: seconds).
+        // The session duration, in seconds.
         shared_ptr<string> touchTime_ {};
-        // Touch type. Valid values:
+        // The touch type. Valid values:
         // - **1**: Active touch.
         // - **2**: Passive touch.
         shared_ptr<int32_t> touchType_ {};
-        // User touch ID.
+        // The user touch ID.
         shared_ptr<int64_t> userTouchId_ {};
       };
 
@@ -619,21 +619,21 @@ namespace Models
 
 
     protected:
-      // Current page number.
+      // The current page number.
       shared_ptr<int32_t> currentPage_ {};
-      // Data.
+      // The data.
       shared_ptr<vector<ResultData::Data>> data_ {};
       // Indicates whether the result is empty.
       shared_ptr<bool> empty_ {};
-      // The page number of the next page.
+      // The next page number.
       shared_ptr<int32_t> nextPage_ {};
-      // Page size.
+      // The page size.
       shared_ptr<int32_t> onePageSize_ {};
-      // Previous page number.
+      // The previous page number.
       shared_ptr<int32_t> previousPage_ {};
-      // Total number of pages.
+      // The total number of pages.
       shared_ptr<int32_t> totalPage_ {};
-      // Total number of query results.
+      // The total number of results.
       shared_ptr<int32_t> totalResults_ {};
     };
 
@@ -677,16 +677,16 @@ namespace Models
 
 
   protected:
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // Description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Data result.
+    // The data result.
     shared_ptr<QueryTouchListResponseBody::ResultData> resultData_ {};
-    // Indicates whether the API call succeeded. Valid values:  
-    // - **true**: Succeeded.  
+    // Indicates whether the API call was successful. Valid values:
+    // - **true**: Successful.
     // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };

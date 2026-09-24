@@ -82,6 +82,9 @@ namespace Models
           DARABONBA_PTR_TO_JSON(LatestPublishTime, latestPublishTime_);
           DARABONBA_PTR_TO_JSON(ModifyTime, modifyTime_);
           DARABONBA_PTR_TO_JSON(Scene, scene_);
+          DARABONBA_PTR_TO_JSON(ServiceDirection, serviceDirection_);
+          DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
+          DARABONBA_PTR_TO_JSON(TemplateName, templateName_);
         };
         friend void from_json(const Darabonba::Json& j, List& obj) { 
           DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
@@ -98,6 +101,9 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(LatestPublishTime, latestPublishTime_);
           DARABONBA_PTR_FROM_JSON(ModifyTime, modifyTime_);
           DARABONBA_PTR_FROM_JSON(Scene, scene_);
+          DARABONBA_PTR_FROM_JSON(ServiceDirection, serviceDirection_);
+          DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
+          DARABONBA_PTR_FROM_JSON(TemplateName, templateName_);
         };
         List() = default ;
         List(const List &) = default ;
@@ -113,7 +119,8 @@ namespace Models
         virtual bool empty() const override { return this->agentId_ == nullptr
         && this->agentMode_ == nullptr && this->agentName_ == nullptr && this->applicationCode_ == nullptr && this->createTime_ == nullptr && this->deployBranchId_ == nullptr
         && this->deployBranchName_ == nullptr && this->description_ == nullptr && this->effectiveVersionId_ == nullptr && this->effectiveVersionName_ == nullptr && this->isAvailable_ == nullptr
-        && this->latestPublishTime_ == nullptr && this->modifyTime_ == nullptr && this->scene_ == nullptr; };
+        && this->latestPublishTime_ == nullptr && this->modifyTime_ == nullptr && this->scene_ == nullptr && this->serviceDirection_ == nullptr && this->templateId_ == nullptr
+        && this->templateName_ == nullptr; };
         // agentId Field Functions 
         bool hasAgentId() const { return this->agentId_ != nullptr;};
         void deleteAgentId() { this->agentId_ = nullptr;};
@@ -212,36 +219,65 @@ namespace Models
         inline List& setScene(string scene) { DARABONBA_PTR_SET_VALUE(scene_, scene) };
 
 
+        // serviceDirection Field Functions 
+        bool hasServiceDirection() const { return this->serviceDirection_ != nullptr;};
+        void deleteServiceDirection() { this->serviceDirection_ = nullptr;};
+        inline string getServiceDirection() const { DARABONBA_PTR_GET_DEFAULT(serviceDirection_, "") };
+        inline List& setServiceDirection(string serviceDirection) { DARABONBA_PTR_SET_VALUE(serviceDirection_, serviceDirection) };
+
+
+        // templateId Field Functions 
+        bool hasTemplateId() const { return this->templateId_ != nullptr;};
+        void deleteTemplateId() { this->templateId_ = nullptr;};
+        inline int64_t getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
+        inline List& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
+        // templateName Field Functions 
+        bool hasTemplateName() const { return this->templateName_ != nullptr;};
+        void deleteTemplateName() { this->templateName_ = nullptr;};
+        inline string getTemplateName() const { DARABONBA_PTR_GET_DEFAULT(templateName_, "") };
+        inline List& setTemplateName(string templateName) { DARABONBA_PTR_SET_VALUE(templateName_, templateName) };
+
+
       protected:
         // The agent ID.
         shared_ptr<int64_t> agentId_ {};
-        // The agent creation mode. Valid values:<br>
-        // `0`: Prompt mode (`PROMPT`). `1`: Conversation flow mode (`CONVERSATION`).<br>
+        // The agent building mode. Valid values:
+        // 
+        // - 0: prompt mode (PROMPT).
+        // - 1: dialog flow mode (CONVERSATION).
         shared_ptr<int64_t> agentMode_ {};
         // The agent name.
         shared_ptr<string> agentName_ {};
         // The application code.
         shared_ptr<string> applicationCode_ {};
-        // The creation time.
+        // The creation time, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
-        // The deployment branch ID.
+        // The ID of the branch being deployed.
         shared_ptr<int64_t> deployBranchId_ {};
-        // The effective branch name.
+        // The name of the active branch.
         shared_ptr<string> deployBranchName_ {};
         // The agent description.
         shared_ptr<string> description_ {};
-        // The effective version ID.
+        // The ID of the active version.
         shared_ptr<int64_t> effectiveVersionId_ {};
-        // The effective version name.
+        // The name of the active version.
         shared_ptr<string> effectiveVersionName_ {};
-        // Specifies whether the agent can be used for outbound calls. A value of `true` means the agent\\"s current deployment branch has a published version.
+        // Indicates whether the agent is available for outbound calls. A value of True indicates that the current deployment branch of the agent has a published version and is available for outbound calls.
         shared_ptr<bool> isAvailable_ {};
-        // The most recent publish time.
+        // The latest version publish time, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> latestPublishTime_ {};
-        // The last modified time.
+        // The last modification time, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> modifyTime_ {};
-        // The scene.
+        // The scenario.
         shared_ptr<string> scene_ {};
+        // The service direction.
+        shared_ptr<string> serviceDirection_ {};
+        // The source template ID.
+        shared_ptr<int64_t> templateId_ {};
+        // The source template name.
+        shared_ptr<string> templateName_ {};
       };
 
       virtual bool empty() const override { return this->list_ == nullptr
@@ -283,7 +319,7 @@ namespace Models
       shared_ptr<int64_t> pageNo_ {};
       // The page size.
       shared_ptr<int64_t> pageSize_ {};
-      // The total count.
+      // The total number of records.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -334,21 +370,19 @@ namespace Models
 
 
   protected:
-    // The access denied detail.
+    // The details about the access denial.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data.
     shared_ptr<PageQueryAgentListNewResponseBody::Data> data_ {};
-    // The message that describes the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Specifies whether the request succeeded.
-    // 
-    // - **`true`**: The request succeeded.
-    // 
-    // - **`false`**: The request failed.
+    // Indicates whether the API call was successful.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -87,9 +87,9 @@ namespace Models
 
 
   protected:
-    // The base models.
+    // The foundation model.
     shared_ptr<vector<string>> baseModel_ {};
-    // The ID of the test scenario.
+    // The scenario ID.
     shared_ptr<string> modelCode_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};

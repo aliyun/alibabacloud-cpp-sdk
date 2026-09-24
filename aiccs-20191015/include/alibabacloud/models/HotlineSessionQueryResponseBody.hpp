@@ -356,19 +356,19 @@ namespace Models
         shared_ptr<string> activeTransferId_ {};
         // The call duration. Unit: seconds.
         // 
-        // > No call duration is available for unanswered calls.
+        // > No call duration is available in scenarios where the call is not connected.
         shared_ptr<int32_t> callContinueTime_ {};
         // The call result. Valid values:
         // 
-        // - **normal**: The call ended normally.
-        // - **touchRouteError**: The call was terminated in the queue.
-        // - **touchInQueue**: The call was terminated in the queue.
-        // - **touchInLoss**: The call was terminated in the queue.
-        // - **userHangup**: The user hung up or the call was terminated in the IVR.
-        // - **sysHangup**: The system hung up or the call was terminated in the IVR.
-        // - **transferAgent**: The user hung up or the call was terminated in the IVR.
-        // - **dailing**: The agent hung up or the call was terminated during ringing.
-        // - **TouchRingCallLoss**: The call was terminated in the queue or during ringing.
+        // - **normal**: normal hangup.
+        // - **touchRouteError**: queue hangup.
+        // - **touchInQueue**: queue hangup.
+        // - **touchInLoss**: queue hangup.
+        // - **userHangup**: user hangup or IVR hangup.
+        // - **sysHangup**: system hangup or IVR hangup.
+        // - **transferAgent**: user hangup or IVR hangup.
+        // - **dailing**: agent hangup or ringing hangup.
+        // - **TouchRingCallLoss**: queue hangup or ringing hangup.
         shared_ptr<string> callResult_ {};
         // The call type. Valid values:
         // - **1**: outbound call
@@ -377,37 +377,37 @@ namespace Models
         shared_ptr<int32_t> callType_ {};
         // The called number.
         shared_ptr<string> calledNumber_ {};
-        // The number of the caller. For example, a mobile phone number, an agent number, or a robot number.
+        // The number of the caller. For example, a mobile phone number of a user, an agent number, or a robot number.
         shared_ptr<string> callingNumber_ {};
-        // The time when the call was created.
+        // The time when the call was created. Format: YYYY-MM-DD HH:mm:ss.
         // 
-        // > - For outbound calls, this is the time when the outbound call was initiated.
-        // - For inbound calls, this is the time when the call entered the ACC system.
+        // > - For outbound call scenarios, this is the time when the outbound call was initiated.
+        // - For inbound call scenarios, this is the time when the call entered the ACC system.
         shared_ptr<string> createTime_ {};
         // The satisfaction rating level. Valid values:
         // 
-        // - **2**: level-2 satisfaction
-        // - **3**: level-3 satisfaction
-        // - **4**: level-4 satisfaction
-        // - **5**: level-5 satisfaction
+        // - **2**: 2-level satisfaction
+        // - **3**: 3-level satisfaction
+        // - **4**: 4-level satisfaction
+        // - **5**: 5-level satisfaction
         // 
-        // > No data is available for outbound calls or unanswered calls.
+        // > No data is available for outbound call scenarios or scenarios where the call is not connected.
         shared_ptr<int32_t> evaluationLevel_ {};
-        // The satisfaction score. Valid values:
+        // The satisfaction rating score. Valid values:
         // - **1**: Very dissatisfied.
         // - **2**: Dissatisfied.
         // - **3**: Average.
         // - **4**: Satisfied.
         // - **5**: Very satisfied.
         // 
-        // > No data is available for outbound calls or unanswered calls.
+        // > No data is available for outbound call scenarios or scenarios where the call is not connected.
         shared_ptr<int32_t> evaluationScore_ {};
         // The skill group ID.
         // 
-        // > When CallType is set to **1**, no skill group information is available for outbound calls.
+        // > When CallType is set to **1**, no skill group information is available for outbound call scenarios.
         shared_ptr<int64_t> groupId_ {};
         // The skill group name.
-        // > When CallType is set to **1**, no skill group information is available for outbound calls.
+        // > When CallType is set to **1**, no skill group information is available for outbound call scenarios.
         shared_ptr<string> groupName_ {};
         // The party that hung up. Valid values:
         // 
@@ -416,20 +416,20 @@ namespace Models
         // - **3**: Agent hung up.
         // - **null**: Unknown.
         shared_ptr<string> hangUpRole_ {};
-        // The hang-up time.
+        // The hang-up time. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> hangUpTime_ {};
         // The globally unique ID of the call details.
         shared_ptr<string> id_ {};
-        // The time when the call entered the queue for hotline assignment.
-        // > No queue entry time is available for outbound calls.
+        // The time when the call entered the queue for hotline assignment. Format: YYYY-MM-DD HH:mm:ss.
+        // > No queue entry time is available for outbound call scenarios.
         shared_ptr<string> inQueueTime_ {};
         // The member ID.
         shared_ptr<string> memberId_ {};
         // The member name.
         shared_ptr<string> memberName_ {};
-        // The time when the call left the queue for hotline assignment.
+        // The time when the call left the queue for hotline assignment. Format: YYYY-MM-DD HH:mm:ss.
         // 
-        // > No queue exit time is available for outbound calls.
+        // > No queue exit time is available for outbound call scenarios.
         shared_ptr<string> outQueueTime_ {};
         // The agent ID or transferred phone number.
         // > This value is Null in non-transfer scenarios.
@@ -440,27 +440,27 @@ namespace Models
         // 
         // > This value is Null in non-transfer scenarios.
         shared_ptr<string> passiveTransferIdType_ {};
-        // The time when the call was answered.
+        // The time when the call was answered. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> pickUpTime_ {};
-        // The queue wait duration.
+        // The queue waiting duration.
         shared_ptr<int32_t> queueUpContinueTime_ {};
         // The ringing duration. Unit: seconds.
         // 
-        // > No ringing duration is available for outbound calls.
+        // > No ringing duration is available for outbound call scenarios.
         shared_ptr<int32_t> ringContinueTime_ {};
-        // The time when ringing ended.
+        // The time when ringing ended. Format: YYYY-MM-DD HH:mm:ss.
         // 
-        // > No ringing end time is available for outbound calls.
+        // > No ringing end time is available for outbound call scenarios.
         shared_ptr<string> ringEndTime_ {};
-        // The time when ringing started.
+        // The time when ringing started. Format: YYYY-MM-DD HH:mm:ss.
         // 
-        // > No ringing start time is available for outbound calls.
+        // > No ringing start time is available for outbound call scenarios.
         shared_ptr<string> ringStartTime_ {};
         // The agent ID.
-        // > No agent information is available before an agent is assigned for inbound calls.
+        // > No agent information is available before the call is assigned to an agent in inbound call scenarios.
         shared_ptr<string> servicerId_ {};
         // The agent name.
-        // > No agent information is available before an agent is assigned for inbound calls.
+        // > No agent information is available before the call is assigned to an agent in inbound call scenarios.
         shared_ptr<string> servicerName_ {};
         // The long-distance call.
         shared_ptr<string> trunkCall_ {};

@@ -250,7 +250,7 @@ namespace Models
 
 
   protected:
-    // The code of the agent that is already online.
+    // The code of the agent that has been published.
     shared_ptr<string> agentId_ {};
     // The application code. This parameter is used when the creation source is engine.
     shared_ptr<string> applicationCode_ {};
@@ -258,19 +258,19 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> callDayShrink_ {};
-    // The expiration date of outbound call details (specific deadline).
+    // The expiration date of outbound call details (specific deadline). Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> callExpireDate_ {};
     // The expiration duration of outbound call details. Unit: minutes.
     shared_ptr<int64_t> callExpireMinutes_ {};
     // The outbound call validity type. Valid values:
     // 
-    // 0: permanently valid.
-    // 1: valid for a specified duration after import.
-    // 2: valid until a specified date.
+    // 0: Permanently valid.
+    // 1: Valid for a specified duration after import.
+    // 2: Valid until a specified date.
     shared_ptr<int64_t> callExpireType_ {};
     // The retry interval. Unit: minutes. The maximum value is 720 minutes.
     shared_ptr<int64_t> callRetryInterval_ {};
-    // The list of failure retry reasons.
+    // The list of retry reasons for failed calls.
     shared_ptr<string> callRetryReasonShrink_ {};
     // The number of retries. The maximum value is 3.
     shared_ptr<int64_t> callRetryTimes_ {};
@@ -285,30 +285,30 @@ namespace Models
     shared_ptr<string> linePhoneNum_ {};
     // Specifies whether to enable retry. Valid values:
     // 
-    // - true: enabled.
+    // - true: Enabled.
     // 
-    // - false (default): disabled.
+    // - false (default): Disabled.
     shared_ptr<bool> missCallRetry_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The number type. This parameter is used when the creation source is engine. Valid values:
     // 
     // - 0: Alibaba Cloud number.
     // 
-    // - 1: customer-provided line.
+    // - 1: Customer-provided line.
     shared_ptr<int64_t> phoneType_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The creation source. Valid values:
     // 
-    // - 0: created by agent.
+    // - 0: Created by an agent.
     // 
-    // - 1: created by engine.
+    // - 1: Created by an engine.
     shared_ptr<int64_t> source_ {};
-    // The start mode. Valid values:
+    // The start type. Valid values:
     // 
-    // - IMMEDIATE: starts immediately.
+    // - IMMEDIATE: Start immediately.
     // 
-    // - SCHEDULE: starts at a scheduled time.
+    // - SCHEDULE: Start at a scheduled time.
     // 
     // This parameter is required.
     shared_ptr<string> startType_ {};
@@ -318,7 +318,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
-    // The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when the StartType parameter is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
+    // The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when StartType is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
     shared_ptr<int64_t> taskStartTime_ {};
     // The service instance used for outbound calls.
     shared_ptr<string> virtualNumber_ {};

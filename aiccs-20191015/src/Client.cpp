@@ -284,7 +284,7 @@ AddLargeModelResponse Client::addLargeModel(const AddLargeModelRequest &request)
 }
 
 /**
- * @summary Add a model application
+ * @summary Creates a large language model application.
  *
  * @param tmpReq AddModelApplicationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -409,7 +409,7 @@ AddModelApplicationResponse Client::addModelApplicationWithOptions(const AddMode
 }
 
 /**
- * @summary Add a model application
+ * @summary Creates a large language model application.
  *
  * @param request AddModelApplicationRequest
  * @return AddModelApplicationResponse
@@ -496,7 +496,7 @@ AddSkillGroupResponse Client::addSkillGroup(const AddSkillGroupRequest &request)
 }
 
 /**
- * @summary Invoke the AiccsSmartCall API to initiate an Intelligent Speech Interaction call.
+ * @summary Invokes the AiccsSmartCall operation to initiate an intelligent interactive voice response call.
  *
  * @param request AiccsSmartCallRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -651,7 +651,7 @@ AiccsSmartCallResponse Client::aiccsSmartCallWithOptions(const AiccsSmartCallReq
 }
 
 /**
- * @summary Invoke the AiccsSmartCall API to initiate an Intelligent Speech Interaction call.
+ * @summary Invokes the AiccsSmartCall operation to initiate an intelligent interactive voice response call.
  *
  * @param request AiccsSmartCallRequest
  * @return AiccsSmartCallResponse
@@ -1428,14 +1428,14 @@ CreateAiCallTaskResponse Client::createAiCallTask(const CreateAiCallTaskRequest 
 }
 
 /**
- * @summary Create an Intelligent Outbound Call Job. You can configure the Task Type, job name, outbound caller ID, callee number deduplication policy, and other settings when creating the job.
+ * @summary Creates an intelligent outbound call task. You can set the task type, task name, outbound caller numbers, callee number deduplication policy, and more when creating the task.
  *
- * @description - The **Data** field in the response parameters of this API is the job ID.  
- * - After creating an Intelligent Outbound Call Job, if you need to make updates, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API to update the outbound call job.
- * ### Queries per second (QPS) Limit
- * - Per-user invocation frequency: No Rate Limiting.
- * - API frequency: 20 queries per second (QPS).
- * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ * @description - The **Data** parameter in the response is the task ID.
+ * - After you create an intelligent outbound call task, you can call the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) operation to update the task.
+ * ### QPS limit
+ * - Per-user call frequency: not throttled.
+ * - API frequency: 20 calls per second.
+ * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
  *
  * @param tmpReq CreateAiOutboundTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1516,14 +1516,14 @@ CreateAiOutboundTaskResponse Client::createAiOutboundTaskWithOptions(const Creat
 }
 
 /**
- * @summary Create an Intelligent Outbound Call Job. You can configure the Task Type, job name, outbound caller ID, callee number deduplication policy, and other settings when creating the job.
+ * @summary Creates an intelligent outbound call task. You can set the task type, task name, outbound caller numbers, callee number deduplication policy, and more when creating the task.
  *
- * @description - The **Data** field in the response parameters of this API is the job ID.  
- * - After creating an Intelligent Outbound Call Job, if you need to make updates, you can invoke the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) API to update the outbound call job.
- * ### Queries per second (QPS) Limit
- * - Per-user invocation frequency: No Rate Limiting.
- * - API frequency: 20 queries per second (QPS).
- * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ * @description - The **Data** parameter in the response is the task ID.
+ * - After you create an intelligent outbound call task, you can call the [UpdateAiOutboundTask](https://help.aliyun.com/document_detail/2718021.html) operation to update the task.
+ * ### QPS limit
+ * - Per-user call frequency: not throttled.
+ * - API frequency: 20 calls per second.
+ * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
  *
  * @param request CreateAiOutboundTaskRequest
  * @return CreateAiOutboundTaskResponse
@@ -3542,13 +3542,13 @@ GetAiOutboundTaskBizDataResponse Client::getAiOutboundTaskBizData(const GetAiOut
 }
 
 /**
- * @summary Obtain the outbound call job details by instance ID and job ID.
+ * @summary Retrieves the details of an outbound call task based on the instance ID and task ID.
  *
- * @description The outbound call job details include the job ID, job status, task type, outbound caller number, callee number repetition policy, and other information. For more information, see [Response parameters](#api-detail-40).  
- * ### Queries per second (QPS) limits  
- * - Per-user invocation frequency: 100 times per second.  
- * - API invocation frequency: 100 times per second.  
- * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ * @description The outbound call task details include the task ID, task status, task type, outbound caller number, callee number deduplication policy, and other information. For more information, see [Response elements](#api-detail-40).
+ * ### QPS limit
+ * - Per-user call rate: 100 calls per second.
+ * - API call rate: 100 calls per second.
+ * > If the total calls from multiple users exceed the API call rate, throttling is triggered.
  *
  * @param request GetAiOutboundTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3575,13 +3575,13 @@ GetAiOutboundTaskDetailResponse Client::getAiOutboundTaskDetailWithOptions(const
 }
 
 /**
- * @summary Obtain the outbound call job details by instance ID and job ID.
+ * @summary Retrieves the details of an outbound call task based on the instance ID and task ID.
  *
- * @description The outbound call job details include the job ID, job status, task type, outbound caller number, callee number repetition policy, and other information. For more information, see [Response parameters](#api-detail-40).  
- * ### Queries per second (QPS) limits  
- * - Per-user invocation frequency: 100 times per second.  
- * - API invocation frequency: 100 times per second.  
- * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ * @description The outbound call task details include the task ID, task status, task type, outbound caller number, callee number deduplication policy, and other information. For more information, see [Response elements](#api-detail-40).
+ * ### QPS limit
+ * - Per-user call rate: 100 calls per second.
+ * - API call rate: 100 calls per second.
+ * > If the total calls from multiple users exceed the API call rate, throttling is triggered.
  *
  * @param request GetAiOutboundTaskDetailRequest
  * @return GetAiOutboundTaskDetailResponse
@@ -6344,7 +6344,7 @@ HoldCallResponse Client::holdCall(const HoldCallRequest &request) {
  *
  * @description Call details include the total number of records, call results, agent names, call time, and other information.
  * ### QPS limit
- * - Per-user call frequency: not throttled.
+ * - Single-user call frequency: not throttled.
  * - API frequency: 80 calls per second.
  * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
  *
@@ -6485,7 +6485,7 @@ HotlineSessionQueryResponse Client::hotlineSessionQueryWithOptions(const Hotline
  *
  * @description Call details include the total number of records, call results, agent names, call time, and other information.
  * ### QPS limit
- * - Per-user call frequency: not throttled.
+ * - Single-user call frequency: not throttled.
  * - API frequency: 80 calls per second.
  * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
  *
@@ -6578,12 +6578,12 @@ ImportOneTaskPhoneNumberResponse Client::importOneTaskPhoneNumber(const ImportOn
 }
 
 /**
- * @summary Imports callee data for a call task.
+ * @summary Imports callee data for a voice call task.
  *
- * @description - You can import callee data by calling this operation. Alternatively, go to the **call task management** page, click **Import Callee Data**, download the template, and then upload your file.
- * - This API operation currently supports only the JSON data type for importing callee data.
- * - Ensure that you have created a call task before you call this operation.
- * - To create a call task, go to the **call task management** page and click **Create Call Task**, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+ * @description - You can call this operation to import callee data, or import callee data on the **Call Task Management** page by clicking Import Callee Data, downloading the template, and uploading the file.
+ * - This operation currently supports only the JSON data type for importing callee data.
+ * - Before calling this operation, make sure that you have a successfully created call task.
+ * - If you do not have a successfully created call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param tmpReq ImportTaskNumberDatasRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6650,12 +6650,12 @@ ImportTaskNumberDatasResponse Client::importTaskNumberDatasWithOptions(const Imp
 }
 
 /**
- * @summary Imports callee data for a call task.
+ * @summary Imports callee data for a voice call task.
  *
- * @description - You can import callee data by calling this operation. Alternatively, go to the **call task management** page, click **Import Callee Data**, download the template, and then upload your file.
- * - This API operation currently supports only the JSON data type for importing callee data.
- * - Ensure that you have created a call task before you call this operation.
- * - To create a call task, go to the **call task management** page and click **Create Call Task**, or call the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+ * @description - You can call this operation to import callee data, or import callee data on the **Call Task Management** page by clicking Import Callee Data, downloading the template, and uploading the file.
+ * - This operation currently supports only the JSON data type for importing callee data.
+ * - Before calling this operation, make sure that you have a successfully created call task.
+ * - If you do not have a successfully created call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param request ImportTaskNumberDatasRequest
  * @return ImportTaskNumberDatasResponse
@@ -7684,9 +7684,9 @@ ListTaskResponse Client::listTask(const ListTaskRequest &request) {
 /**
  * @summary Retrieves the details of a call task for an intelligent contact robot.
  *
- * @description - Call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
- * - Before calling this operation, make sure that the intelligent contact robot you created has successfully started a task.
- * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
+ * @description - You can call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
+ * - Before calling this operation, make sure that your intelligent contact robot has been created and the task has been started.
+ * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page, or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
  * - The optional parameters in this operation are filter conditions for the call task details. If you do not specify them, all task details are returned.
  * ### QPS limit
  * - Per-user call frequency: not throttled.
@@ -7760,9 +7760,9 @@ ListTaskDetailResponse Client::listTaskDetailWithOptions(const ListTaskDetailReq
 /**
  * @summary Retrieves the details of a call task for an intelligent contact robot.
  *
- * @description - Call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
- * - Before calling this operation, make sure that the intelligent contact robot you created has successfully started a task.
- * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
+ * @description - You can call this operation to retrieve the details of a call task for an intelligent contact robot. You can also view the details on the [**Task Management**](https://aiccs.console.aliyun.com/job/list) > **Details** page.
+ * - Before calling this operation, make sure that your intelligent contact robot has been created and the task has been started.
+ * - If you do not have a created call task, create and start a task on the [Task Management](https://aiccs.console.aliyun.com/job/list) page, or by calling the [CreateTask](https://help.aliyun.com/document_detail/2718003.html) and [StartTask](https://help.aliyun.com/document_detail/2718005.html) operations.
  * - The optional parameters in this operation are filter conditions for the call task details. If you do not specify them, all task details are returned.
  * ### QPS limit
  * - Per-user call frequency: not throttled.
@@ -8250,7 +8250,7 @@ MakeDoubleCallResponse Client::makeDoubleCall(const MakeDoubleCallRequest &reque
 }
 
 /**
- * @summary Returns a paginated list of agents.
+ * @summary Queries the list of communication agents.
  *
  * @param request PageQueryAgentListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8309,7 +8309,7 @@ PageQueryAgentListResponse Client::pageQueryAgentListWithOptions(const PageQuery
 }
 
 /**
- * @summary Returns a paginated list of agents.
+ * @summary Queries the list of communication agents.
  *
  * @param request PageQueryAgentListRequest
  * @return PageQueryAgentListResponse
@@ -8320,7 +8320,7 @@ PageQueryAgentListResponse Client::pageQueryAgentList(const PageQueryAgentListRe
 }
 
 /**
- * @summary Retrieve a paginated list of agents (agency mode V2)
+ * @summary Queries agents by paging (managed pattern V2).
  *
  * @param request PageQueryAgentListNewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8337,6 +8337,10 @@ PageQueryAgentListNewResponse Client::pageQueryAgentListNewWithOptions(const Pag
     query["AgentName"] = request.getAgentName();
   }
 
+  if (!!request.hasInboundConfigurableOnly()) {
+    query["InboundConfigurableOnly"] = request.getInboundConfigurableOnly();
+  }
+
   if (!!request.hasIsAvailable()) {
     query["IsAvailable"] = request.getIsAvailable();
   }
@@ -8351,6 +8355,14 @@ PageQueryAgentListNewResponse Client::pageQueryAgentListNewWithOptions(const Pag
 
   if (!!request.hasPageSize()) {
     query["PageSize"] = request.getPageSize();
+  }
+
+  if (!!request.hasServiceDirection()) {
+    query["ServiceDirection"] = request.getServiceDirection();
+  }
+
+  if (!!request.hasTemplateId()) {
+    query["TemplateId"] = request.getTemplateId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8371,7 +8383,7 @@ PageQueryAgentListNewResponse Client::pageQueryAgentListNewWithOptions(const Pag
 }
 
 /**
- * @summary Retrieve a paginated list of agents (agency mode V2)
+ * @summary Queries agents by paging (managed pattern V2).
  *
  * @param request PageQueryAgentListNewRequest
  * @return PageQueryAgentListNewResponse
@@ -8382,10 +8394,10 @@ PageQueryAgentListNewResponse Client::pageQueryAgentListNew(const PageQueryAgent
 }
 
 /**
- * @summary Queries call task details by page.
+ * @summary Queries the details of voice call tasks by page.
  *
- * @description - Before querying call task details, make sure that you have created a call task.
- * - If you have not created a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+ * @description - Before querying voice call task details, make sure that you have created a voice call task.
+ * - If you have not created a voice call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param tmpReq QueryAiCallDetailPageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8498,10 +8510,10 @@ QueryAiCallDetailPageResponse Client::queryAiCallDetailPageWithOptions(const Que
 }
 
 /**
- * @summary Queries call task details by page.
+ * @summary Queries the details of voice call tasks by page.
  *
- * @description - Before querying call task details, make sure that you have created a call task.
- * - If you have not created a call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
+ * @description - Before querying voice call task details, make sure that you have created a voice call task.
+ * - If you have not created a voice call task, create one on the **Call Task Management** page or by calling the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) operation.
  *
  * @param request QueryAiCallDetailPageRequest
  * @return QueryAiCallDetailPageResponse
@@ -8512,7 +8524,7 @@ QueryAiCallDetailPageResponse Client::queryAiCallDetailPage(const QueryAiCallDet
 }
 
 /**
- * @summary Queries the basic information of a call task.
+ * @summary Queries the basic information of a voice call task.
  *
  * @param request QueryAiCallTaskDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8555,7 +8567,7 @@ QueryAiCallTaskDetailResponse Client::queryAiCallTaskDetailWithOptions(const Que
 }
 
 /**
- * @summary Queries the basic information of a call task.
+ * @summary Queries the basic information of a voice call task.
  *
  * @param request QueryAiCallTaskDetailRequest
  * @return QueryAiCallTaskDetailResponse
@@ -8648,7 +8660,7 @@ QueryAiCallTaskPageResponse Client::queryAiCallTaskPage(const QueryAiCallTaskPag
 }
 
 /**
- * @summary Retrieve the details of a communication agent.
+ * @summary Queries the details of a communication agent.
  *
  * @param request QueryAiVoiceAgentDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8691,7 +8703,7 @@ QueryAiVoiceAgentDetailResponse Client::queryAiVoiceAgentDetailWithOptions(const
 }
 
 /**
- * @summary Retrieve the details of a communication agent.
+ * @summary Queries the details of a communication agent.
  *
  * @param request QueryAiVoiceAgentDetailRequest
  * @return QueryAiVoiceAgentDetailResponse
@@ -8702,14 +8714,14 @@ QueryAiVoiceAgentDetailResponse Client::queryAiVoiceAgentDetail(const QueryAiVoi
 }
 
 /**
- * @summary Gets details for a specified agent, including its basic, branch, and version information.
+ * @summary Queries the details of a specified agent, including basic information, branch information, and version information.
  *
- * @description ## Usage notes
- * - This API retrieves the details of a communication agent.
- * - If you do not specify `BranchId` and `VersionId`, the API returns the configuration for the latest published version on the effective branch. If the effective branch only contains a draft version, no configuration is returned.
- * - If you specify only `BranchId`, the API returns the configuration for the latest published version on the specified branch. If the specified branch only contains a draft version, no configuration is returned.
- * - If you specify both `BranchId` and `VersionId`, the API returns the configuration for the specified version.
- * - When `BranchDeployStatus` is `1` (branch deployed) and `VersionPublishStatus` is `1` (version published), imported outbound tasks use the configuration of this branch.
+ * @description ## Operation description
+ * - This operation queries the details of a communication agent.
+ * - If both `BranchId` and `VersionId` are empty, the latest published version configuration of the currently active branch is returned. If the active branch has only a draft version, no configuration is returned.
+ * - If only `BranchId` has a value, the latest published version configuration of the specified branch is returned. If the branch has only a draft version, no configuration is returned.
+ * - If both `BranchId` and `VersionId` have values, the configuration of the specified version is returned.
+ * - When `BranchDeployStatus = 1` (branch is deployed and online) and `VersionPublishStatus = 1` (version is published), the branch configuration is the one used by imported outbound call tasks.
  *
  * @param request QueryAiVoiceAgentDetailNewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8748,14 +8760,14 @@ QueryAiVoiceAgentDetailNewResponse Client::queryAiVoiceAgentDetailNewWithOptions
 }
 
 /**
- * @summary Gets details for a specified agent, including its basic, branch, and version information.
+ * @summary Queries the details of a specified agent, including basic information, branch information, and version information.
  *
- * @description ## Usage notes
- * - This API retrieves the details of a communication agent.
- * - If you do not specify `BranchId` and `VersionId`, the API returns the configuration for the latest published version on the effective branch. If the effective branch only contains a draft version, no configuration is returned.
- * - If you specify only `BranchId`, the API returns the configuration for the latest published version on the specified branch. If the specified branch only contains a draft version, no configuration is returned.
- * - If you specify both `BranchId` and `VersionId`, the API returns the configuration for the specified version.
- * - When `BranchDeployStatus` is `1` (branch deployed) and `VersionPublishStatus` is `1` (version published), imported outbound tasks use the configuration of this branch.
+ * @description ## Operation description
+ * - This operation queries the details of a communication agent.
+ * - If both `BranchId` and `VersionId` are empty, the latest published version configuration of the currently active branch is returned. If the active branch has only a draft version, no configuration is returned.
+ * - If only `BranchId` has a value, the latest published version configuration of the specified branch is returned. If the branch has only a draft version, no configuration is returned.
+ * - If both `BranchId` and `VersionId` have values, the configuration of the specified version is returned.
+ * - When `BranchDeployStatus = 1` (branch is deployed and online) and `VersionPublishStatus = 1` (version is published), the branch configuration is the one used by imported outbound call tasks.
  *
  * @param request QueryAiVoiceAgentDetailNewRequest
  * @return QueryAiVoiceAgentDetailNewResponse
@@ -8766,11 +8778,11 @@ QueryAiVoiceAgentDetailNewResponse Client::queryAiVoiceAgentDetailNew(const Quer
 }
 
 /**
- * @summary Gets call details.
+ * @summary Queries the details of a call.
  *
- * @description - This API retrieves call details. You can also view these details on the **call task management** > **details** > **execution history** > **completed** > **call details** page.
- * - Before calling this API, make sure you have created a call task and imported called number data.
- * - You can create a call task and import called number data either on the **call task management** page or by using the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) APIs.
+ * @description - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page.
+ * - Before calling this operation, make sure that you have created a call task and imported callee data.
+ * - If you do not have a created call task, create a call task and import callee data on the **Call Task Management** page, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
  *
  * @param request QueryConversationDetailInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8821,11 +8833,11 @@ QueryConversationDetailInfoResponse Client::queryConversationDetailInfoWithOptio
 }
 
 /**
- * @summary Gets call details.
+ * @summary Queries the details of a call.
  *
- * @description - This API retrieves call details. You can also view these details on the **call task management** > **details** > **execution history** > **completed** > **call details** page.
- * - Before calling this API, make sure you have created a call task and imported called number data.
- * - You can create a call task and import called number data either on the **call task management** page or by using the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) APIs.
+ * @description - You can use this operation to query call details. You can also view call details in the **Call Task Management** > **Details** > **Execution Records** > **Completed** > **Call Details** page.
+ * - Before calling this operation, make sure that you have created a call task and imported callee data.
+ * - If you do not have a created call task, create a call task and import callee data on the **Call Task Management** page, or use the [CreateAiCallTask](https://help.aliyun.com/document_detail/2926796.html) and [ImportTaskNumberDatas](https://help.aliyun.com/document_detail/2926815.html) operations to create a call task and import callee data.
  *
  * @param request QueryConversationDetailInfoRequest
  * @return QueryConversationDetailInfoResponse
@@ -9158,11 +9170,11 @@ QueryOutboundTaskResponse Client::queryOutboundTask(const QueryOutboundTaskReque
 /**
  * @summary Queries the skill group list of the Cloud Customer Service System by instance ID.
  *
- * @description This API allows you to query information such as the display name, description, channel type, and ID of skill groups. For details, see [Response Parameters](#api-detail-40).
- * ### Queries per second (QPS) limit
- * - Per-user invocation frequency: No rate limiting.
- * - API frequency: 1000 queries per second.
- * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ * @description This operation queries information about skill groups, such as the display name, description, channel type, and ID. For more information, see [Response elements](#api-detail-40).
+ * ### QPS limit
+ * - Single-user call frequency: not throttled.
+ * - API frequency: 1,000 calls per second.
+ * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
  *
  * @param request QuerySkillGroupsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9215,11 +9227,11 @@ QuerySkillGroupsResponse Client::querySkillGroupsWithOptions(const QuerySkillGro
 /**
  * @summary Queries the skill group list of the Cloud Customer Service System by instance ID.
  *
- * @description This API allows you to query information such as the display name, description, channel type, and ID of skill groups. For details, see [Response Parameters](#api-detail-40).
- * ### Queries per second (QPS) limit
- * - Per-user invocation frequency: No rate limiting.
- * - API frequency: 1000 queries per second.
- * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ * @description This operation queries information about skill groups, such as the display name, description, channel type, and ID. For more information, see [Response elements](#api-detail-40).
+ * ### QPS limit
+ * - Single-user call frequency: not throttled.
+ * - API frequency: 1,000 calls per second.
+ * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
  *
  * @param request QuerySkillGroupsRequest
  * @return QuerySkillGroupsResponse
@@ -9420,13 +9432,13 @@ QueryTicketsResponse Client::queryTickets(const QueryTicketsRequest &request) {
 }
 
 /**
- * @summary Query contact data by instance, list of contact IDs, list of session IDs, and so on.
+ * @summary Queries contact data based on instance, contact ID list, session ID list, and other conditions.
  *
- * @description This API allows you to query contact data such as contact status, session recipient, agent name, contact channel, satisfaction rating, and evaluation status. For details, see [Response parameters](#api-detail-40).  
- * ### Queries per second (QPS) limit  
- * - Per-user invocation frequency: No Rate Limiting.  
- * - API frequency: 50 queries per second (QPS).  
- * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ * @description This operation queries contact data, including contact status, session acceptor, agent name, contact channel, satisfaction score, and evaluation status. For more information, see [Response elements](#api-detail-40).
+ * ### QPS limit
+ * - Per-user call frequency: not throttled.
+ * - API frequency: 50 calls per second.
+ * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
  *
  * @param request QueryTouchListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -9529,13 +9541,13 @@ QueryTouchListResponse Client::queryTouchListWithOptions(const QueryTouchListReq
 }
 
 /**
- * @summary Query contact data by instance, list of contact IDs, list of session IDs, and so on.
+ * @summary Queries contact data based on instance, contact ID list, session ID list, and other conditions.
  *
- * @description This API allows you to query contact data such as contact status, session recipient, agent name, contact channel, satisfaction rating, and evaluation status. For details, see [Response parameters](#api-detail-40).  
- * ### Queries per second (QPS) limit  
- * - Per-user invocation frequency: No Rate Limiting.  
- * - API frequency: 50 queries per second (QPS).  
- * > If the total invocations from multiple users exceed the API frequency limit, throttling will be triggered.
+ * @description This operation queries contact data, including contact status, session acceptor, agent name, contact channel, satisfaction score, and evaluation status. For more information, see [Response elements](#api-detail-40).
+ * ### QPS limit
+ * - Per-user call frequency: not throttled.
+ * - API frequency: 50 calls per second.
+ * > If the total calls from multiple users exceed the API frequency, throttling is triggered.
  *
  * @param request QueryTouchListRequest
  * @return QueryTouchListResponse
@@ -11152,7 +11164,7 @@ TerminateAiOutboundTaskResponse Client::terminateAiOutboundTask(const TerminateA
 }
 
 /**
- * @summary TestLargeModel
+ * @summary Tests a gateway large language model.
  *
  * @param tmpReq TestLargeModelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11209,7 +11221,7 @@ TestLargeModelResponse Client::testLargeModelWithOptions(const TestLargeModelReq
 }
 
 /**
- * @summary TestLargeModel
+ * @summary Tests a gateway large language model.
  *
  * @param request TestLargeModelRequest
  * @return TestLargeModelResponse
@@ -11378,7 +11390,7 @@ UpdateAgentResponse Client::updateAgent(const UpdateAgentRequest &request) {
 /**
  * @summary Updates the configuration of a voice call task.
  *
- * @description Before updating the configuration of a call task, make sure that the task status is stopped.
+ * @description Before updating the configuration of a call task, make sure that the task is in the Stopped state.
  *
  * @param tmpReq UpdateAiCallTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11517,7 +11529,7 @@ UpdateAiCallTaskResponse Client::updateAiCallTaskWithOptions(const UpdateAiCallT
 /**
  * @summary Updates the configuration of a voice call task.
  *
- * @description Before updating the configuration of a call task, make sure that the task status is stopped.
+ * @description Before updating the configuration of a call task, make sure that the task is in the Stopped state.
  *
  * @param request UpdateAiCallTaskRequest
  * @return UpdateAiCallTaskResponse
@@ -11528,13 +11540,13 @@ UpdateAiCallTaskResponse Client::updateAiCallTask(const UpdateAiCallTaskRequest 
 }
 
 /**
- * @summary Update an outbound call job by instance ID and job ID.
+ * @summary Updates an outbound call task based on the instance ID and task ID.
  *
- * @description This API supports updating information such as the task name, task description, outbound caller number, and skill group ID. For details, see [Request Parameters](#api-detail-35).
- * ### Queries per second (QPS) limit
- * - Per-user invocation frequency: No rate limiting.
- * - API frequency: 20 times per second.
- * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
+ * @description This operation allows you to update the task name, task description, outbound caller number, skill group ID, and other information. For more details, refer to [Request parameters](#api-detail-35).
+ * ### QPS limit
+ * - Per-user call frequency: not throttled.
+ * - API frequency: 20 calls per second.
+ * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
  *
  * @param tmpReq UpdateAiOutboundTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11615,13 +11627,13 @@ UpdateAiOutboundTaskResponse Client::updateAiOutboundTaskWithOptions(const Updat
 }
 
 /**
- * @summary Update an outbound call job by instance ID and job ID.
+ * @summary Updates an outbound call task based on the instance ID and task ID.
  *
- * @description This API supports updating information such as the task name, task description, outbound caller number, and skill group ID. For details, see [Request Parameters](#api-detail-35).
- * ### Queries per second (QPS) limit
- * - Per-user invocation frequency: No rate limiting.
- * - API frequency: 20 times per second.
- * > Throttling is triggered if the total invocations from multiple users exceed the API frequency limit.
+ * @description This operation allows you to update the task name, task description, outbound caller number, skill group ID, and other information. For more details, refer to [Request parameters](#api-detail-35).
+ * ### QPS limit
+ * - Per-user call frequency: not throttled.
+ * - API frequency: 20 calls per second.
+ * > If the total calls from multiple users exceed the API frequency, throttling is also triggered.
  *
  * @param request UpdateAiOutboundTaskRequest
  * @return UpdateAiOutboundTaskResponse

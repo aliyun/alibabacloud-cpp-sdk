@@ -416,7 +416,7 @@ namespace Models
 
 
   protected:
-    // The application code.
+    // The code of the application.
     // 
     // This parameter is required.
     shared_ptr<string> applicationCode_ {};
@@ -428,44 +428,47 @@ namespace Models
     shared_ptr<bool> callAssistantHangup_ {};
     // Specifies whether to enable call assistant recognition.
     shared_ptr<bool> callAssistantRecognize_ {};
-    // Specifies whether to enable call-connected event push. Disabled by default.
+    // Specifies whether to enable call-connected event push. This feature is disabled by default.
     shared_ptr<bool> callConnectedTriggerModel_ {};
-    // The enumeration of allowed key digits, separated by commas, such as 1,2,3. Maximum of 20 values.
+    // The enumeration of allowed key digits, specified as comma-separated text such as 1,2,3. A maximum of 20 values are supported.
     shared_ptr<string> dtmfAllowedDigits_ {};
-    // Specifies whether to enable automatic validation of key values.
+    // Specifies whether to enable automatic key value validation.
     shared_ptr<bool> dtmfAutoValidateEnable_ {};
     // The number of DTMF key digits. Valid values: 1 to 12.
     shared_ptr<int64_t> dtmfDigitCount_ {};
     // The DTMF input timeout period in seconds. Valid values: 1 to 10.
     shared_ptr<int64_t> dtmfInputTimeout_ {};
     // The action to take when the input is out of range. Valid values:
-    // - RETURN_MODEL: return to the model
-    // - AUTO_RETRY: automatically retry
+    // - RETURN_MODEL
+    // - AUTO_RETRY
     shared_ptr<string> dtmfOutOfRangeAction_ {};
-    // The number of retry attempts (PlayTimes). Valid values: 1 to 3. Takes effect only when DtmfOutOfRangeAction is set to AUTO_RETRY.
+    // The number of retry attempts (PlayTimes). Valid values: 1 to 3. This parameter takes effect only when DtmfOutOfRangeAction is set to AUTO_RETRY.
     shared_ptr<int64_t> dtmfRetryPlayTimes_ {};
-    // The custom retry prompt text. Maximum length: 50 characters. If left empty, the default message is used.
+    // The custom retry prompt text. The maximum length is 50 characters. If this parameter is left empty, the default prompt "Invalid input. Enter again." is used.
     shared_ptr<string> dtmfRetryPromptText_ {};
+    // The maximum number of DTMF key sending attempts.
     shared_ptr<int64_t> dtmfSendMaxCount_ {};
+    // The timeout period for waiting for DTMF key sending.
     shared_ptr<int64_t> dtmfSendWaitTimeout_ {};
-    // The scenario name.
+    // The name of the scenario.
     shared_ptr<string> dyvmsSceneName_ {};
     // Specifies whether to enable DTMF key collection. Default value: false.
     shared_ptr<bool> enableDtmfReceive_ {};
+    // Specifies whether to enable DTMF key sending.
     shared_ptr<bool> enableDtmfSend_ {};
-    // Specifies whether to enable Morse code configuration. Disabled by default.
+    // Specifies whether to enable Morse code configuration. This feature is disabled by default.
     shared_ptr<bool> enableMorse_ {};
     // The interruption configuration.
     shared_ptr<string> interruptConfigShrink_ {};
-    // The model code.
+    // The code of the model.
     shared_ptr<string> modelCode_ {};
-    // The model version.
+    // The version of the model.
     shared_ptr<string> modelVersion_ {};
     // Specifies whether the first mute event triggers the model.
     shared_ptr<bool> muteActive_ {};
     // The mute duration.
     shared_ptr<int64_t> muteDuration_ {};
-    // The number of consecutive mute events after which the system proactively hangs up.
+    // The number of consecutive mute events before the system proactively hangs up.
     shared_ptr<int64_t> muteHangupNum_ {};
     // The push mode for mute events.
     shared_ptr<string> mutePushMode_ {};
@@ -474,9 +477,9 @@ namespace Models
     shared_ptr<int64_t> pauseTime_ {};
     // The prompt.
     shared_ptr<string> prompt_ {};
-    // The qualification ID.
+    // The ID of the qualification.
     shared_ptr<int64_t> qualificationId_ {};
-    // The qualification name.
+    // The name of the qualification.
     shared_ptr<string> qualificationName_ {};
     // The URL of the recording audio file.
     shared_ptr<string> recordingFile_ {};
@@ -486,9 +489,9 @@ namespace Models
     shared_ptr<int64_t> sessionTimeout_ {};
     // The source. Fixed value: USER.
     shared_ptr<string> source_ {};
-    // The speech script content.
+    // The content of the speech script.
     shared_ptr<string> speechContent_ {};
-    // The speech script ID.
+    // The ID of the speech script.
     shared_ptr<int64_t> speechId_ {};
     // The opening statement.
     shared_ptr<string> startWord_ {};

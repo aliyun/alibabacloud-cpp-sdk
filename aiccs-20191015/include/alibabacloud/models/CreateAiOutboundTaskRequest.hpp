@@ -88,9 +88,9 @@ namespace Models
 
 
     protected:
-      // Number of retries. Valid values: **1 to 3**.
+      // The number of retries. Valid values: **1 to 3**.
       shared_ptr<int32_t> count_ {};
-      // Retry interval. Valid values: **1 to 60**, unit: minutes.
+      // The retry interval. Valid values: **1 to 60**. Unit: minutes.
       shared_ptr<int32_t> interval_ {};
     };
 
@@ -179,50 +179,50 @@ namespace Models
 
 
   protected:
-    // Concurrent call rate for automated outbound calls.
+    // The call concurrency for automatic outbound calls.
     shared_ptr<int32_t> concurrentRate_ {};
-    // Job description. Length: 0 to 100 characters.
+    // The task description. The description can be up to 100 characters in length.
     shared_ptr<string> description_ {};
-    // Job execution time, in JSON format.
+    // The task execution time. The value is in JSON format.
     // 
-    // > The end time must be later than the start time.
+    // > The end time (end) must be later than the start time (start).
     // 
     // This parameter is required.
     shared_ptr<string> executionTime_ {};
-    // Fixed outbound ratio for predictive dialing. Valid values: **≥1**.
+    // The fixed call ratio for predictive outbound calls. Valid values: **≥ 1**.
     shared_ptr<float> forecastCallRate_ {};
-    // The skill group ID (for predictive outbound calls) or IVR ID (for automated outbound calls). You can obtain this information in the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // The skill group ID (for predictive outbound calls) or IVR ID (for automatic outbound calls). You can obtain this information from the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
     // 
     // This parameter is required.
     shared_ptr<int64_t> handlerId_ {};
-    // AICCS instance ID.  
-    // You can obtain it from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance.
+    // You can obtain the instance ID from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Job name. Length: 1 to 15 characters.
+    // The task name. The name must be 1 to 15 characters in length.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
-    // Called number deduplication policy. Valid values:
-    // - **0**: Remove duplicates within the job.
-    // - **1**: Do not remove duplicates.
+    // The callee number deduplication policy. Valid values:
+    // - **0**: deduplicate within the task.
+    // - **1**: no deduplication.
     // 
     // This parameter is required.
     shared_ptr<int32_t> numRepeated_ {};
-    // Outbound caller numbers.  
+    // The outbound caller numbers.
     // 
-    // > Must be purchased numbers. Separate multiple numbers with commas (,).
+    // > The numbers must be purchased numbers. Separate multiple numbers with commas (,).
     // 
     // This parameter is required.
     shared_ptr<vector<string>> outboundNums_ {};
-    // Failed call retry policy.  
+    // The failed call retry policy.
     // 
-    // > If empty, no retries are performed.
+    // > If the value is empty, no retry is performed.
     shared_ptr<CreateAiOutboundTaskRequest::RecallRule> recallRule_ {};
-    // Task Type. Valid values:  
-    // - **2**: Predictive outbound call.  
-    // - **3**: Automated outbound call.
+    // The task type. Valid values:
+    // - **2**: predictive outbound call.
+    // - **3**: automatic outbound call.
     // 
     // This parameter is required.
     shared_ptr<int32_t> type_ {};

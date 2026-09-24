@@ -104,29 +104,22 @@ namespace Models
 
   protected:
     // The data type. Valid values:
-    // 
     // - EXCEL
-    // 
     // - JSON
-    // 
-    // 
-    //   >Notice: 
-    // 
-    //   API calls currently support only the JSON data type.
+    // >Notice: API calls currently support only the JSON data type.
     // 
     // This parameter is required.
     shared_ptr<string> dataType_ {};
     shared_ptr<int64_t> encryptionType_ {};
     // The OSS file path. This parameter is optional.
-    // 
-    // > Importing data by specifying an OSS file path is not available because API calls currently support only the JSON data type.
+    // > API calls do not currently support the Excel data type. Therefore, uploading an OSS file path is currently unavailable.
     shared_ptr<string> ossFileName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // If `DataType` is set to `JSON`, you must use this parameter to upload the data. You can import up to 1,000 records per request.
+    // If DataType is set to JSON, upload data through this field. A maximum of 1000 records can be uploaded at a time.
     shared_ptr<string> phoneNumberListShrink_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the call task.
+    // The task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

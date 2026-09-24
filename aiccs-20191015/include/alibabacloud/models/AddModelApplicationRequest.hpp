@@ -211,27 +211,25 @@ namespace Models
       shared_ptr<int64_t> backgroundVolume_ {};
       // The account ID.
       shared_ptr<int64_t> customerAccountId_ {};
-      // Specifies whether to enable mixing.
+      // Specifies whether to enable audio mixing.
       shared_ptr<bool> mixingEnabled_ {};
       // The mixing template ID.
       shared_ptr<int64_t> mixingTemplate_ {};
       // The resource ID.
       shared_ptr<string> resourceId_ {};
-      // The speech speed for TTS playback. Valid values: -200–200. The default value is 0.
+      // The speed for TTS variable playback. Valid values: -200 to 200. Default value: 0.
       shared_ptr<int64_t> ttsSpeed_ {};
       // The voice style.
       shared_ptr<string> ttsStyle_ {};
-      // The volume for TTS playback. Valid values: 0–100. The default value is 0.
+      // The volume for TTS variable playback. Valid values: 0 to 100. Default value: 0.
       shared_ptr<int64_t> ttsVolume_ {};
       // The voice code.
       shared_ptr<string> voiceCode_ {};
-      // The voice type.
+      // The voice type. Valid values:
       // 
-      // ```
-      // SYSTEM: System voice
-      // COSYCLONE: Cloned voice
-      // BL-CUSTOM: Premium custom cloned voice
-      // ```
+      // - SYSTEM: system voice.
+      // - COSYCLONE: cloned voice.
+      // - BL-CUSTOM: custom premium cloned voice.
       shared_ptr<string> voiceType_ {};
     };
 
@@ -405,7 +403,7 @@ namespace Models
 
 
   protected:
-    // The number of concurrent requests per second (CPS).
+    // The number of concurrent requests for the application.
     // 
     // This parameter is required.
     shared_ptr<int64_t> applicationCps_ {};
@@ -413,9 +411,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> applicationName_ {};
-    // Specifies whether to push an event notification when a call is connected. The default value is false.
+    // Specifies whether to enable call-connected event push. Disabled by default.
     shared_ptr<bool> callConnectedTriggerModel_ {};
-    // The scene name.
+    // The scenario name.
     shared_ptr<string> dyvmsSceneName_ {};
     // The model code.
     // 
@@ -427,36 +425,36 @@ namespace Models
     shared_ptr<bool> muteActive_ {};
     // The mute duration.
     shared_ptr<int64_t> muteDuration_ {};
-    // The number of consecutive mute events that trigger an automatic hang-up.
+    // The number of consecutive mute events before the system proactively hangs up the call.
     shared_ptr<int64_t> muteHangupNum_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The prompt.
     shared_ptr<string> prompt_ {};
     // The qualification ID.
     shared_ptr<int64_t> qualificationId_ {};
-    // The name of the qualification.
+    // The qualification name.
     shared_ptr<string> qualificationName_ {};
-    // The URL of the audio file for the opening line. This parameter is required if `StartWordType` is set to `1`.
+    // The URL of the recorded audio file for the opening statement. This parameter is required when the opening statement type is set to 1.
     shared_ptr<string> recordingFile_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source. The value must be `USER`.
+    // The source. Fixed value: USER.
     shared_ptr<string> source_ {};
     // The speech script content.
     shared_ptr<string> speechContent_ {};
     // The speech script ID.
     shared_ptr<int64_t> speechId_ {};
-    // The opening line.
+    // The opening statement.
     // 
     // This parameter is required.
     shared_ptr<string> startWord_ {};
-    // The type of the opening line.
+    // The type of the opening statement.
     shared_ptr<int64_t> startWordType_ {};
-    // The TTS configuration, including voice, volume, speech speed, and more.
+    // The text-to-speech (TTS) configuration, including voice, volume, and speed.
     // 
     // This parameter is required.
     shared_ptr<AddModelApplicationRequest::TtsConfig> ttsConfig_ {};
-    // The purpose of the application.
+    // The usage description.
     shared_ptr<string> usageDesc_ {};
   };
 

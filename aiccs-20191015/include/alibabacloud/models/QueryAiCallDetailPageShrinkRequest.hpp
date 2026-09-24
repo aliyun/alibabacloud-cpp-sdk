@@ -216,21 +216,21 @@ namespace Models
     // The batch ID. On the **Call Task Management** page, click Details to view the batch ID.
     shared_ptr<string> batchId_ {};
     // The call result. Valid values:
-    // - CALL_FORWARDING: call forwarding.
-    // - INCOMING_CALL_BARRED: incoming call barred.
-    // - CALL_REJECTED: call rejected.
-    // - ANSWERED: answered.
-    // - USER_BUSY: user busy.
-    // - POWERED_OFF: powered off.
-    // - NO_USER_RESPONSE: out of service area.
-    // - OPERATOR_BLOCK: blocked by carrier.
-    // - OTHERS: other status.
-    // - SUSPEND: suspended.
-    // - CANCEL: canceled by caller.
-    // - INVALID_NUMBER: invalid number.
-    // - UNAVAILABLE: temporarily unavailable.
-    // - NETWORK_BUSY: network busy.
-    // - NO_ANSWER: no answer.
+    // - CALL_FORWARDING: Call forwarding.
+    // - INCOMING_CALL_BARRED: Incoming call barred.
+    // - CALL_REJECTED: Call rejected.
+    // - ANSWERED: Answered.
+    // - USER_BUSY: User busy.
+    // - POWERED_OFF: Powered off.
+    // - NO_USER_RESPONSE: Out of service area.
+    // - OPERATOR_BLOCK: Blocked by carrier.
+    // - OTHERS: Other status.
+    // - SUSPEND: Service suspended.
+    // - CANCEL: Caller canceled.
+    // - INVALID_NUMBER: Invalid number.
+    // - UNAVAILABLE: Temporarily unavailable.
+    // - NETWORK_BUSY: Network busy.
+    // - NO_ANSWER: No answer.
     shared_ptr<string> callResult_ {};
     // The called number.
     shared_ptr<string> calledNumber_ {};
@@ -238,15 +238,15 @@ namespace Models
     shared_ptr<string> detailIdsShrink_ {};
     // The encryption type. Valid values: 0: no encryption. 1: MD5. 2: SHA256. 3: SM3.
     shared_ptr<int64_t> encryptionType_ {};
-    // The end calling time. This value is a timestamp in milliseconds.
+    // The end calling time. This value is a UNIX timestamp. Unit: ms.
     shared_ptr<int64_t> endCallingTime_ {};
-    // The end import time. This value is a timestamp in milliseconds.
+    // The end import time. This value is a UNIX timestamp. Unit: ms.
     shared_ptr<int64_t> endImportedTime_ {};
-    // The major intent. On the [Communication Agent Management](https://aiccs.console.aliyun.com/agent/customize) page, click agent details to view the major intent.
+    // The major intent. On the [Communication Agent Management](https://aiccs.console.aliyun.com/agent/customize) page, click the agent details to view the major intent.
     shared_ptr<string> majorIntent_ {};
-    // The maximum conversation duration. Unit: minutes.
+    // The maximum call duration. Unit: minutes.
     shared_ptr<int64_t> maxConversationDuration_ {};
-    // The minimum conversation duration. Unit: minutes.
+    // The minimum call duration. Unit: minutes.
     shared_ptr<int64_t> minConversationDuration_ {};
     // The ID reserved for the caller. This ID is returned to the caller in the receipt message.
     shared_ptr<string> outId_ {};
@@ -257,17 +257,17 @@ namespace Models
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The start calling time. This value is a timestamp in milliseconds.
+    // The start calling time. This value is a UNIX timestamp. Unit: ms.
     shared_ptr<int64_t> startCallingTime_ {};
-    // The start import time. This value is a timestamp in milliseconds.
+    // The start import time. This value is a UNIX timestamp. Unit: ms.
     shared_ptr<int64_t> startImportedTime_ {};
     // The task status. Valid values:
     // 
-    // - 0: pending.
+    // - 0: Pending.
     // 
-    // - 1: completed.
+    // - 1: Completed.
     // 
-    // - 2: failed.
+    // - 2: Failed.
     // 
     // This parameter is required.
     shared_ptr<int64_t> status_ {};

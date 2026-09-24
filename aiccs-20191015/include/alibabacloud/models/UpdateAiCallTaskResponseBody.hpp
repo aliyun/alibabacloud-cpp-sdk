@@ -90,9 +90,9 @@ namespace Models
     shared_ptr<string> code_ {};
     // The update result. Valid values:
     // 
-    // - **true**: Updated.
+    // - **true**: The update is successful.
     // 
-    // - **false**: Failed to update.
+    // - **false**: The update failed.
     shared_ptr<bool> data_ {};
     // The error message. This parameter is returned only when an exception occurs.
     shared_ptr<string> message_ {};

@@ -313,7 +313,7 @@ namespace Models
         shared_ptr<string> branchName_ {};
         // The version ID.
         shared_ptr<int64_t> branchVersionId_ {};
-        // The expiration time of the outbound call detail.
+        // The expiration time of the outbound call detail. Format: YYYY-MM-DD HH:mm:ss.
         shared_ptr<int64_t> callExpireTime_ {};
         // The call ID.
         shared_ptr<string> callId_ {};
@@ -321,16 +321,16 @@ namespace Models
         shared_ptr<string> callResult_ {};
         // The called number.
         shared_ptr<string> calledNumber_ {};
-        // The calling time. This value is a timestamp in milliseconds.
+        // The calling time. This value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> callingTime_ {};
-        // The conversation duration. Unit: seconds.
+        // The call duration. Unit: seconds.
         shared_ptr<int64_t> conversationDuration_ {};
-        // The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The format is as follows:
+        // The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The structure is as follows:
         // ```json
         // [
         //     {
         //         "content":"Chat content",
-        //         "role":"Role",//Valid values: user, assistant (bot)
+        //         "role":"Role",//Valid values: user and assistant (bot).
         //     }
         // ]
         // ```
@@ -341,25 +341,25 @@ namespace Models
         shared_ptr<string> detailId_ {};
         // The encryption type. Valid values: 0: no encryption. 1: MD5. 2: SHA256. 3: SM3.
         shared_ptr<int64_t> encryptionType_ {};
-        // The reason for call failure. This field is available only when the call fails.
+        // The reason for the call failure. This field is returned only when the call fails.
         shared_ptr<string> failedReason_ {};
-        // The import time. This value is a timestamp in milliseconds.
+        // The import time. This value is a UNIX timestamp. Unit: milliseconds.
         shared_ptr<int64_t> importedTime_ {};
         // The major intent.
         shared_ptr<string> majorIntent_ {};
-        // The variable information used at runtime, stored in this field as key-value pairs.
+        // The variable information used at runtime. The information is stored in this field as key-value pairs.
         shared_ptr<string> options_ {};
-        // The external business serial number reserved for external input. A unique ID can be used for business association.
+        // The external business serial number reserved for external input. You can use a unique ID for business association.
         shared_ptr<string> outId_ {};
-        // The download path of the recording file. This field is available only after the recording file is generated.
+        // The download path of the recording file. This field is returned only after the recording file is generated.
         shared_ptr<string> recordingFilePath_ {};
         // The task detail status. Valid values:
-        // - 0: initialized.
-        // - 1: waiting to call.
-        // - 2: waiting to retry.
-        // - 3: calling.
-        // - 4: call ended.
-        // - 5: call failed.
+        // - 0: Initialization.
+        // - 1: Waiting for call.
+        // - 2: Waiting for retry.
+        // - 3: Calling.
+        // - 4: Call ended.
+        // - 5: Call failed.
         // 
         // Only 4 and 5 are desired states.
         shared_ptr<int64_t> status_ {};
@@ -461,19 +461,19 @@ namespace Models
 
 
   protected:
-    // The detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryAiCallDetailPageResponseBody::Data> data_ {};
-    // The status code description.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call was successful. Valid values:
-    // - **true**: successful.
-    // - **false**: failed.
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

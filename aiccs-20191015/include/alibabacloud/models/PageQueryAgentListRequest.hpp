@@ -103,18 +103,18 @@ namespace Models
 
 
   protected:
-    // The unique identifier for the agent.
+    // The agent ID.
     shared_ptr<string> agentId_ {};
-    // The name of the agent.
+    // The agent name.
     shared_ptr<string> agentName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from 1. The default value is 1.
+    // The page number, starting from 1. Default value: 1.
     shared_ptr<int64_t> pageNo_ {};
-    // The number of entries to return per page. The default value is 10.
+    // The page size. Default value: 10.
     shared_ptr<int64_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the agent.
+    // The agent status.
     shared_ptr<int64_t> status_ {};
   };
 

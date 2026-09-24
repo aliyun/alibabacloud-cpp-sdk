@@ -301,15 +301,15 @@ namespace Models
     shared_ptr<vector<string>> acidList_ {};
     // The call result. Valid values:
     // 
-    // - **normal**: The call ended normally.
-    // - **touchRouteError**: The call was terminated in the queue.
-    // - **touchInQueue**: The call was terminated in the queue.
-    // - **touchInLoss**: The call was terminated in the queue.
-    // - **userHangup**: The user hung up or the call was terminated in the IVR.
-    // - **sysHangup**: The system hung up or the call was terminated in the IVR.
-    // - **transferAgent**: The user hung up or the call was terminated in the IVR.
-    // - **dailing**: The agent hung up or the call was terminated during ringing.
-    // - **TouchRingCallLoss**: The call was terminated in the queue or during ringing.
+    // - **normal**: normal hangup.
+    // - **touchRouteError**: queue hangup.
+    // - **touchInQueue**: queue hangup.
+    // - **touchInLoss**: queue hangup.
+    // - **userHangup**: user hangup or IVR hangup.
+    // - **sysHangup**: system hangup or IVR hangup.
+    // - **transferAgent**: user hangup or IVR hangup.
+    // - **dailing**: agent hangup or ringing hangup.
+    // - **TouchRingCallLoss**: queue hangup or ringing hangup.
     shared_ptr<string> callResult_ {};
     // The list of call results.
     shared_ptr<vector<string>> callResultList_ {};
@@ -320,11 +320,11 @@ namespace Models
     shared_ptr<int32_t> callType_ {};
     // The list of call types.
     shared_ptr<vector<int32_t>> callTypeList_ {};
-    // The number of the caller. For example, a mobile phone number, an agent number, or a robot number.
+    // The number of the caller. For example, a mobile phone number of a user, an agent number, or a robot number.
     shared_ptr<string> calledNumber_ {};
     // The list of called numbers.
     shared_ptr<vector<string>> calledNumberList_ {};
-    // The number of the callee. For example, a mobile phone number, an agent number, or a robot number.
+    // The number of the callee. For example, a mobile phone number of a user, an agent number, or a robot number.
     shared_ptr<string> callingNumber_ {};
     // The list of calling numbers.
     shared_ptr<vector<string>> callingNumberList_ {};
@@ -337,7 +337,7 @@ namespace Models
     // The globally unique ID of the call details.
     shared_ptr<string> id_ {};
     // The ID of the Artificial Intelligence Cloud Call Service (AICCS) instance.
-    // You can obtain the instance ID from **Instance Management** in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
+    // You can obtain the instance ID from <b>Instance Management</b> in the left-side navigation pane of the [Artificial Intelligence Cloud Call Service console](https://aiccs.console.aliyun.com/overview).
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};

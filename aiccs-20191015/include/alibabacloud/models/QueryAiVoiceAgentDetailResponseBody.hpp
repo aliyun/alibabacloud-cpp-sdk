@@ -220,11 +220,11 @@ namespace Models
 
 
           protected:
-            // The description of the enumerated value.
+            // The description of the enumeration value.
             shared_ptr<string> description_ {};
-            // The unique ID of the enumerated value.
+            // The unique ID of the enum value.
             shared_ptr<string> id_ {};
-            // The enumerated value.
+            // The enumeration value.
             shared_ptr<string> value_ {};
           };
 
@@ -292,18 +292,19 @@ namespace Models
         protected:
           // The unique ID of the variable.
           shared_ptr<string> id_ {};
-          // The description of the variable.
+          // The variable description.
           shared_ptr<string> phoneTagDescription_ {};
-          // A list of enumerated values for the variable. This parameter is returned only if the value of `PhoneTagType` is `ENUM`.
+          // The list of enumeration values for the variable. This field is present only when the variable value type is ENUM.
           shared_ptr<vector<PhoneTagConfig::PhoneTagEnum>> phoneTagEnum_ {};
-          // The key of the variable.
+          // The variable key name.
           shared_ptr<string> phoneTagKey_ {};
-          // The name of the variable.
+          // The Chinese name of the variable.
           shared_ptr<string> phoneTagName_ {};
-          // Specifies whether the variable is required.
+          // Indicates whether the variable is required.
           shared_ptr<bool> phoneTagRequired_ {};
+          // The source of the call variable.
           shared_ptr<string> phoneTagSource_ {};
-          // The data type of the variable.
+          // The variable value type.
           shared_ptr<string> phoneTagType_ {};
         };
 
@@ -381,11 +382,11 @@ namespace Models
 
 
           protected:
-            // The description of the enumerated value.
+            // The description of the tag enum value.
             shared_ptr<string> description_ {};
-            // The unique ID of the enumerated value.
+            // The unique ID of the tag enum value.
             shared_ptr<string> id_ {};
-            // The enumerated value.
+            // The tag enum value.
             shared_ptr<string> value_ {};
           };
 
@@ -431,13 +432,13 @@ namespace Models
         protected:
           // The unique ID of the tag.
           shared_ptr<string> id_ {};
-          // The description of the tag.
+          // The tag description.
           shared_ptr<string> outputTagDescription_ {};
-          // The enumerated values for the tag. This parameter is returned only if the value of `OutputTagType` is `ENUM`.
+          // The tag enum values. This field is available only when the tag value type is ENUM.
           shared_ptr<vector<OutputTagConfig::OutputTagEnum>> outputTagEnum_ {};
-          // The name of the tag.
+          // The tag name.
           shared_ptr<string> outputTagName_ {};
-          // The data type of the tag.
+          // The tag value type.
           shared_ptr<string> outputTagType_ {};
         };
 
@@ -515,11 +516,11 @@ namespace Models
 
 
           protected:
-            // The description of the value.
+            // The description of the valid value.
             shared_ptr<string> description_ {};
-            // The unique ID of the value.
+            // The unique ID of the valid value.
             shared_ptr<string> id_ {};
-            // The value.
+            // The valid value.
             shared_ptr<string> value_ {};
           };
 
@@ -563,15 +564,15 @@ namespace Models
 
 
         protected:
-          // The ID of the main intent.
+          // The main intent ID.
           shared_ptr<string> id_ {};
           // The description of the main intent.
           shared_ptr<string> mainPurposeDescription_ {};
           // The list of valid values for the main intent.
           shared_ptr<vector<MainPurpose::MainPurposeEnum>> mainPurposeEnum_ {};
-          // The name of the main intent.
+          // The main intent name.
           shared_ptr<string> mainPurposeName_ {};
-          // The value type of the main intent. Currently, only the `ENUM` type is supported.
+          // The value type of the main intent. Currently, only the ENUM type is supported.
           shared_ptr<string> mainPurposeType_ {};
         };
 
@@ -631,11 +632,11 @@ namespace Models
 
 
         protected:
-          // Specifies whether to output the content as an exception tag.
+          // Specifies whether to output as an exception tag.
           shared_ptr<bool> exceptionSign_ {};
           // The exception type.
           shared_ptr<string> exceptionType_ {};
-          // The reply.
+          // The reply content.
           shared_ptr<string> reply_ {};
           // Specifies whether interruption is supported.
           shared_ptr<bool> supportBreak_ {};
@@ -688,9 +689,9 @@ namespace Models
 
 
         protected:
-          // The description of the subtask.
+          // The subtask description.
           shared_ptr<string> childTaskDescription_ {};
-          // The name of the subtask.
+          // The subtask name.
           shared_ptr<string> childTaskName_ {};
           // The unique ID of the subtask.
           shared_ptr<string> id_ {};
@@ -887,23 +888,23 @@ namespace Models
 
 
       protected:
-        // The configuration for the basic task.
+        // The basic task configuration.
         shared_ptr<string> basicTaskDescription_ {};
         // The business scenario.
         shared_ptr<int64_t> businessType_ {};
         // The list of subtask configurations.
         shared_ptr<vector<AiVoiceAgentModelConfig::ChildTaskList>> childTaskList_ {};
-        // Specifies whether custom exception handling is enabled.
+        // Indicates whether custom exception handling is enabled.
         shared_ptr<bool> customExceptionEnable_ {};
-        // The ID of the custom exception file.
+        // The custom exception file ID.
         shared_ptr<string> customExceptionFileId_ {};
         // The name of the custom exception file.
         shared_ptr<string> customExceptionFileName_ {};
-        // This parameter is deprecated and will be removed in a future release.
+        // **[Deprecated]** This field is deprecated and will be removed in the future.
         shared_ptr<vector<AiVoiceAgentModelConfig::CustomExceptionList>> customExceptionList_ {};
-        // This parameter is deprecated and will be removed in a future release.
+        // **[Deprecated]** This field is deprecated and will be removed in the future.
         shared_ptr<string> customExceptionUrlPath_ {};
-        // The voice style.
+        // The language style.
         shared_ptr<int64_t> customExceptionVoiceStyle_ {};
         // The description of the advanced task flow.
         shared_ptr<string> flowDesc_ {};
@@ -911,21 +912,23 @@ namespace Models
         shared_ptr<vector<string>> knowledgeDocIdList_ {};
         // The list of knowledge document names.
         shared_ptr<vector<string>> knowledgeDocNameList_ {};
-        // A list of original file names for the knowledge base documents.
+        // The list of original file names of knowledge base documents.
         shared_ptr<vector<string>> knowledgeDocOriginalNameList_ {};
-        // Specifies whether the agent is associated with a knowledge base.
+        // Indicates whether a knowledge base is associated.
         shared_ptr<bool> knowledgeEnable_ {};
-        // The ID of the knowledge base.
+        // The knowledge base ID.
         shared_ptr<string> knowledgeId_ {};
         // The main intent configuration.
         shared_ptr<AiVoiceAgentModelConfig::MainPurpose> mainPurpose_ {};
-        // The output tag configuration.
+        // The output tag configurations.
         shared_ptr<vector<AiVoiceAgentModelConfig::OutputTagConfig>> outputTagConfig_ {};
         // The call variable configuration.
         shared_ptr<vector<AiVoiceAgentModelConfig::PhoneTagConfig>> phoneTagConfig_ {};
         // The opening statement.
         shared_ptr<string> prologue_ {};
+        // The URL of the opening greeting recording audio file. This field has a value only when StartWordType is set to 1.
         shared_ptr<string> recordingFile_ {};
+        // The opening statement type. Valid values: 0: text. 1: recording.
         shared_ptr<int64_t> startWordType_ {};
         // The system role.
         shared_ptr<string> sysRole_ {};
@@ -1069,26 +1072,32 @@ namespace Models
 
 
         protected:
+          // Indicates whether background sound is enabled.
           shared_ptr<bool> backgroundEnabled_ {};
+          // The background sound ID.
           shared_ptr<int64_t> backgroundSound_ {};
+          // The background sound volume. Valid values: 0: low. 1: medium. 2: high.
           shared_ptr<int64_t> backgroundVolume_ {};
+          // Indicates whether audio mixing is enabled.
           shared_ptr<bool> mixingEnabled_ {};
+          // The mixing template ID.
           shared_ptr<int64_t> mixingTemplate_ {};
-          // The TTS speech rate.
+          // The voice speed during TTS playback.
           // 
+          // > 
           // > - Valid values: -200 to 200. Default value: 0.
-          // >
-          // > - If this parameter is not specified, the speech rate configured for the large model application is used.
+          // > - If no value is specified, the voice speed configured in the large model application is used by default.
           shared_ptr<int64_t> ttsSpeed_ {};
           // The voice style.
           shared_ptr<string> ttsStyle_ {};
           // The TTS playback volume.
-          // 
+          // > 
           // > - Valid values: 0 to 100. Default value: 0.
-          // >
-          // > - If this parameter is not specified, the volume configured for the large model application is used.
+          // > - If no value is specified, the volume configured in the large model application is used by default.
           shared_ptr<int64_t> ttsVolume_ {};
+          // The voice code.
           shared_ptr<string> voiceCode_ {};
+          // The voice type. Valid values: SYSTEM: system voice. COSYCLONE: cloned voice. BL-CUSTOM: custom premium cloned voice.
           shared_ptr<string> voiceType_ {};
         };
 
@@ -1166,29 +1175,26 @@ namespace Models
 
 
         protected:
-          // Specifies whether to hang up the call if an answering machine is detected.
+          // Specifies whether to hang up when an intelligent answering service is detected.
           shared_ptr<bool> callAssistantHangup_ {};
-          // Whether answering machine detection is enabled.
+          // Specifies whether intelligent answering service detection is enabled.
           shared_ptr<bool> callAssistantRecognize_ {};
-          // Specifies whether to trigger the model on the first silence event.
+          // Specifies whether the first silence triggers the model.
           shared_ptr<bool> muteActive_ {};
-          // Silence duration.
-          // 
-          // > - Maximum value: 15 s.
+          // The silence duration.
           // >
-          // > - Minimum value: 3 s.
+          // >- Maximum value: 15s.
+          // >- Minimum value: 3s.
           shared_ptr<int64_t> muteDuration_ {};
-          // The system automatically disconnects the call after a specified number of consecutive silence events.
-          // 
-          // > - Maximum value: 5.
+          // The number of consecutive silence events before the system proactively hangs up.
           // >
-          // > - Minimum value: 1.
+          // >- Maximum value: 5.
+          // >- Minimum value: 1.
           shared_ptr<int64_t> muteHangupNum_ {};
-          // The maximum call duration, in seconds. The call automatically disconnects when this duration is exceeded.
-          // 
-          // > - Maximum value: 3600.
+          // The maximum call duration. The call is automatically hung up after the timeout. Unit: seconds.
           // >
-          // > - Minimum value: 600.
+          // >- Maximum value: 3600.
+          // >- Minimum value: 600.
           shared_ptr<int64_t> sessionTimeout_ {};
         };
 
@@ -1224,7 +1230,7 @@ namespace Models
         shared_ptr<AiVoiceAgentCallConfig::EventConfig> eventConfig_ {};
         // The TTS configuration.
         shared_ptr<AiVoiceAgentCallConfig::TtsConfig> ttsConfig_ {};
-        // The ID of the hotword.
+        // The hot word ID.
         shared_ptr<string> vocabId_ {};
       };
 
@@ -1299,23 +1305,23 @@ namespace Models
 
 
     protected:
-      // The ID of the agent.
+      // The agent ID.
       shared_ptr<int64_t> agentId_ {};
-      // The name of the agent.
+      // The agent name.
       shared_ptr<string> agentName_ {};
-      // The voice configuration for AI-powered outbound calls.
+      // The intelligent outbound call voice configuration.
       shared_ptr<Data::AiVoiceAgentCallConfig> aiVoiceAgentCallConfig_ {};
-      // The model configuration for the agent.
+      // The agent model configuration.
       shared_ptr<Data::AiVoiceAgentModelConfig> aiVoiceAgentModelConfig_ {};
-      // The name of the business scenario.
+      // The business scenario name.
       shared_ptr<string> businessTypeName_ {};
-      // The description of the agent.
+      // The agent description.
       shared_ptr<string> description_ {};
-      // The name of the knowledge base.
+      // The knowledge base name.
       shared_ptr<string> knowledgeName_ {};
-      // The status of the agent.
+      // The agent status.
       shared_ptr<int64_t> status_ {};
-      // The name of the voice style.
+      // The language style name.
       shared_ptr<string> voiceStyleName_ {};
     };
 
@@ -1366,20 +1372,18 @@ namespace Models
 
 
   protected:
-    // The detailed reason why the access was denied.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
-    // Status code.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The details of the agent.
+    // The agent details.
     shared_ptr<QueryAiVoiceAgentDetailResponseBody::Data> data_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call is successful. Possible values:
-    // 
-    // - **true**: The operation was successful.
-    // 
+    // Indicates whether the API call is successful. Valid values:
+    // - **true**: Successful.
     // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };

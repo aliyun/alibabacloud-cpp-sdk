@@ -15,18 +15,24 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const PageQueryAgentListNewRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AgentId, agentId_);
       DARABONBA_PTR_TO_JSON(AgentName, agentName_);
+      DARABONBA_PTR_TO_JSON(InboundConfigurableOnly, inboundConfigurableOnly_);
       DARABONBA_PTR_TO_JSON(IsAvailable, isAvailable_);
       DARABONBA_PTR_TO_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_TO_JSON(ServiceDirection, serviceDirection_);
+      DARABONBA_PTR_TO_JSON(TemplateId, templateId_);
     };
     friend void from_json(const Darabonba::Json& j, PageQueryAgentListNewRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AgentId, agentId_);
       DARABONBA_PTR_FROM_JSON(AgentName, agentName_);
+      DARABONBA_PTR_FROM_JSON(InboundConfigurableOnly, inboundConfigurableOnly_);
       DARABONBA_PTR_FROM_JSON(IsAvailable, isAvailable_);
       DARABONBA_PTR_FROM_JSON(PageIndex, pageIndex_);
       DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+      DARABONBA_PTR_FROM_JSON(ServiceDirection, serviceDirection_);
+      DARABONBA_PTR_FROM_JSON(TemplateId, templateId_);
     };
     PageQueryAgentListNewRequest() = default ;
     PageQueryAgentListNewRequest(const PageQueryAgentListNewRequest &) = default ;
@@ -40,7 +46,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->agentId_ == nullptr
-        && this->agentName_ == nullptr && this->isAvailable_ == nullptr && this->pageIndex_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr; };
+        && this->agentName_ == nullptr && this->inboundConfigurableOnly_ == nullptr && this->isAvailable_ == nullptr && this->pageIndex_ == nullptr && this->pageNo_ == nullptr
+        && this->pageSize_ == nullptr && this->serviceDirection_ == nullptr && this->templateId_ == nullptr; };
     // agentId Field Functions 
     bool hasAgentId() const { return this->agentId_ != nullptr;};
     void deleteAgentId() { this->agentId_ = nullptr;};
@@ -53,6 +60,13 @@ namespace Models
     void deleteAgentName() { this->agentName_ = nullptr;};
     inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
     inline PageQueryAgentListNewRequest& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
+
+
+    // inboundConfigurableOnly Field Functions 
+    bool hasInboundConfigurableOnly() const { return this->inboundConfigurableOnly_ != nullptr;};
+    void deleteInboundConfigurableOnly() { this->inboundConfigurableOnly_ = nullptr;};
+    inline bool getInboundConfigurableOnly() const { DARABONBA_PTR_GET_DEFAULT(inboundConfigurableOnly_, false) };
+    inline PageQueryAgentListNewRequest& setInboundConfigurableOnly(bool inboundConfigurableOnly) { DARABONBA_PTR_SET_VALUE(inboundConfigurableOnly_, inboundConfigurableOnly) };
 
 
     // isAvailable Field Functions 
@@ -83,19 +97,39 @@ namespace Models
     inline PageQueryAgentListNewRequest& setPageSize(int64_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+    // serviceDirection Field Functions 
+    bool hasServiceDirection() const { return this->serviceDirection_ != nullptr;};
+    void deleteServiceDirection() { this->serviceDirection_ = nullptr;};
+    inline string getServiceDirection() const { DARABONBA_PTR_GET_DEFAULT(serviceDirection_, "") };
+    inline PageQueryAgentListNewRequest& setServiceDirection(string serviceDirection) { DARABONBA_PTR_SET_VALUE(serviceDirection_, serviceDirection) };
+
+
+    // templateId Field Functions 
+    bool hasTemplateId() const { return this->templateId_ != nullptr;};
+    void deleteTemplateId() { this->templateId_ = nullptr;};
+    inline int64_t getTemplateId() const { DARABONBA_PTR_GET_DEFAULT(templateId_, 0L) };
+    inline PageQueryAgentListNewRequest& setTemplateId(int64_t templateId) { DARABONBA_PTR_SET_VALUE(templateId_, templateId) };
+
+
   protected:
-    // The agent ID.
+    // Agent ID
     shared_ptr<string> agentId_ {};
     // The agent name.
     shared_ptr<string> agentName_ {};
-    // Indicates whether the agent is available for outbound calls. The value is `true` if the agent\\"s current deployment branch has a published version.
+    // Specifies whether to return only candidate agents that are configurable for inbound calls.
+    shared_ptr<bool> inboundConfigurableOnly_ {};
+    // Specifies whether the agent is available for outbound calls. A value of True indicates that the current deployment branch of the agent has a published version and is available for outbound calls.
     shared_ptr<bool> isAvailable_ {};
-    // The page index. This parameter is deprecated. Use `PageNo` instead.
+    // The page number. This parameter is deprecated. Use PageNo instead.
     shared_ptr<int64_t> pageIndex_ {};
     // The page number.
     shared_ptr<int64_t> pageNo_ {};
-    // The page size.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The service direction.
+    shared_ptr<string> serviceDirection_ {};
+    // The source template ID.
+    shared_ptr<int64_t> templateId_ {};
   };
 
   } // namespace Models

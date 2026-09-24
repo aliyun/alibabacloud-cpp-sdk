@@ -250,27 +250,27 @@ namespace Models
 
 
   protected:
-    // The available call days.
+    // The callable days.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> callDay_ {};
-    // The expiration date of outbound call details (the specific deadline).
+    // The expiration date of outbound call details (the specific deadline). Format: YYYY-MM-DD HH:mm:ss.
     shared_ptr<string> callExpireDate_ {};
     // The expiration duration of outbound call details. Unit: minutes.
     shared_ptr<int64_t> callExpireMinutes_ {};
     // The outbound call validity type. Valid values:
     // 
-    // 0: permanently valid.
-    // 1: valid for a specified duration after import.
-    // 2: valid until a specified date.
+    // 0: Permanently valid.
+    // 1: Valid for a specified period after import.
+    // 2: Valid until a specified date.
     shared_ptr<int64_t> callExpireType_ {};
-    // The retry interval. Unit: minutes. The maximum value is 120 minutes.
+    // The retry interval. Unit: minutes. The maximum value is 120.
     shared_ptr<int64_t> callRetryInterval_ {};
-    // The reasons for retry upon failure.
+    // The reasons for retrying failed calls.
     shared_ptr<vector<string>> callRetryReason_ {};
     // The number of retries. The maximum value is 3.
     shared_ptr<int64_t> callRetryTimes_ {};
-    // The available call time periods.
+    // The callable time periods.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> callTime_ {};
@@ -296,15 +296,15 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The creation source. Valid values:
     // 
-    // 0: created by agent.
+    // 0: Created by agent.
     // 
-    // 1: created by engine.
+    // 1: Created by engine.
     shared_ptr<int64_t> source_ {};
     // The start mode. Valid values:
     // 
-    // - IMMEDIATE: starts immediately.
+    // - IMMEDIATE: Starts immediately.
     // 
-    // - SCHEDULE: starts at a scheduled time.
+    // - SCHEDULE: Starts at a scheduled time.
     // 
     // This parameter is required.
     shared_ptr<string> startType_ {};
@@ -320,7 +320,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> taskName_ {};
-    // The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when the StartType parameter is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
+    // The preset start time of the task. The value is a UNIX timestamp in milliseconds. This parameter is valid and required when StartType is set to SCHEDULE. The task automatically starts at the time specified by this parameter.
     shared_ptr<int64_t> taskStartTime_ {};
     // The service instance used for outbound calls.
     shared_ptr<string> virtualNumber_ {};

@@ -213,15 +213,15 @@ namespace Models
         shared_ptr<string> direction_ {};
         // The call duration. Unit: seconds.
         shared_ptr<int32_t> duration_ {};
-        // The end time.
+        // The end time in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> endTime_ {};
         // The detail ID.
         shared_ptr<int64_t> id_ {};
         // The current retry count.
         shared_ptr<int32_t> retryCurTimes_ {};
-        // The retry count.
+        // The total number of retries.
         shared_ptr<int32_t> retryTimes_ {};
-        // The start time.
+        // The start time in the YYYY-MM-DD HH:mm:ss format.
         shared_ptr<string> startTime_ {};
         // The detail status.
         shared_ptr<string> status_ {};
@@ -270,7 +270,7 @@ namespace Models
       shared_ptr<int64_t> pageNo_ {};
       // The current page number.
       shared_ptr<int64_t> pageSize_ {};
-      // The list of task details.
+      // The list of task records.
       shared_ptr<vector<Data::Record>> record_ {};
       // The total number of tasks.
       shared_ptr<int64_t> total_ {};
@@ -324,9 +324,9 @@ namespace Models
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation was successful. Valid values:
-    // - **true**: The operation was successful.
-    // - **false**: The operation failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

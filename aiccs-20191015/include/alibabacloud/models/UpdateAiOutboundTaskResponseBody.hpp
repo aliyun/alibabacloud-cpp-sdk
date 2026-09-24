@@ -68,13 +68,13 @@ namespace Models
   protected:
     // The status code.
     shared_ptr<string> code_ {};
-    // Description of the status code.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API invocation succeeded.
-    // - **true**: Succeeded.
-    // - **false**: Failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: The call was successful.
+    // - **false**: The call failed.
     shared_ptr<bool> success_ {};
   };
 

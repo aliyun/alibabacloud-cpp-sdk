@@ -84,17 +84,17 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denied error.
+    // The detailed reason for access denial.
     shared_ptr<string> accessDeniedDetail_ {};
-    // The status code. A value of OK indicates a successful request.
+    // The status code. A value of OK indicates that the request was successful.
     shared_ptr<string> code_ {};
-    // The returned application code.
+    // The returned data, which is the application code.
     shared_ptr<string> data_ {};
-    // The message that explains the status code.
+    // The description of the status code.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was successful.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 

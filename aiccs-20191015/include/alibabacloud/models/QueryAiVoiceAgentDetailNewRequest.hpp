@@ -57,13 +57,13 @@ namespace Models
 
 
   protected:
-    // The ID of the agent.
+    // The agent ID.
     // 
     // This parameter is required.
     shared_ptr<string> agentId_ {};
-    // The ID of the branch. If you do not specify this parameter, the active branch is used.
+    // The branch ID. If this parameter is left empty, the currently active branch is automatically used.
     shared_ptr<string> branchId_ {};
-    // The ID of the version. If you do not specify this parameter, the system uses the latest published version for the specified branch. You must specify BranchId when you use this parameter.
+    // The version ID. If this parameter is left empty, the latest published version of the corresponding branch is used. This parameter must be used together with BranchId.
     shared_ptr<string> versionId_ {};
   };
 

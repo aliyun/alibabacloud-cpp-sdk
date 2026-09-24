@@ -143,9 +143,9 @@ namespace Models
 
 
       protected:
-        // The end time.
+        // The end time in the format of HH:mm:ss.
         shared_ptr<string> endTime_ {};
-        // The start time.
+        // The start time in the format of HH:mm:ss.
         shared_ptr<string> startTime_ {};
       };
 
@@ -187,9 +187,9 @@ namespace Models
 
 
       protected:
-        // The end time.
+        // The end time in the format of HH:mm:ss.
         shared_ptr<string> endTime_ {};
-        // The start time.
+        // The start time in the format of HH:mm:ss.
         shared_ptr<string> startTime_ {};
       };
 
@@ -376,34 +376,39 @@ namespace Models
 
 
     protected:
-      // The ID of the published agent.
+      // The code of the published agent.
       shared_ptr<string> agentId_ {};
       // The agent name.
       shared_ptr<string> agentName_ {};
+      // The application code.
       shared_ptr<string> applicationCode_ {};
+      // The application name.
       shared_ptr<string> applicationName_ {};
       // The list of callable days.
       shared_ptr<vector<string>> callDays_ {};
-      // The expiration date of outbound call details (specific deadline).
+      // The expiration date of outbound call details (specific deadline) in the format of YYYY-MM-DD HH:mm:ss.
       shared_ptr<string> callExpireDate_ {};
-      // The expiration duration of outbound call details, in minutes.
+      // The expiration duration of outbound call details. Unit: minutes.
       shared_ptr<int64_t> callExpireMinutes_ {};
-      // The outbound call validity type. Valid values:
+      // The expiration type of outbound calls. Valid values:
       // 
-      // 0: Permanently valid.
-      // 1: Valid for a period of time after import.
-      // 2: Valid until a specified time.
+      // 0: permanently valid.
+      // 1: valid for a period of time after import.
+      // 2: valid until a specified time.
       shared_ptr<int64_t> callExpireType_ {};
       // The allowed call time periods.
       shared_ptr<vector<Data::CallTimes>> callTimes_ {};
-      // The callable time periods for the current outbound call instance.
+      // The callable time periods of the current outbound call instance.
       shared_ptr<vector<Data::CallableTimes>> callableTimes_ {};
       // The caller number.
       shared_ptr<string> callerNumber_ {};
       // The task concurrency.
       shared_ptr<int64_t> concurrentCount_ {};
+      // The line encoding.
       shared_ptr<string> lineEncoding_ {};
+      // The phone number of the custom line.
       shared_ptr<string> linePhoneNum_ {};
+      // The phone number type. Valid values: 0 indicates an Alibaba Cloud number. 1 indicates a custom line provided by the customer.
       shared_ptr<int64_t> phoneType_ {};
       // The actual start time of the task. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> realStartTime_ {};
@@ -415,11 +420,11 @@ namespace Models
       shared_ptr<bool> retryEnable_ {};
       // The retry interval. Unit: minutes.
       shared_ptr<int64_t> retryInterval_ {};
-      // The list of reasons that allow retry on failure.
+      // The list of failure reasons that allow retry.
       shared_ptr<vector<string>> retryReasons_ {};
       // The scheduled start time of the task. This value is a timestamp in milliseconds.
       shared_ptr<int64_t> startTime_ {};
-      // The start type. Valid values:
+      // The start mode. Valid values:
       // 
       // - IMMEDIATE: Start immediately.
       // 
@@ -478,17 +483,17 @@ namespace Models
 
 
   protected:
-    // The access denial details. This field is returned only when RAM authentication fails.
+    // The details about the access denial. This parameter is returned only when the RAM permission verification fails.
     shared_ptr<string> accessDeniedDetail_ {};
     // The error code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<QueryAiCallTaskDetailResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned for successful calls.
+    // The error message. This parameter is not returned if the call is successful.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the API call was successful. Valid values:
+    // Indicates whether the call was successful. Valid values:
     // - **true**: Successful.
     // - **false**: Failed.
     shared_ptr<bool> success_ {};

@@ -468,6 +468,7 @@ namespace Models
     protected:
       // The batch ID.
       shared_ptr<string> batchId_ {};
+      // The branch ID.
       shared_ptr<int64_t> branchId_ {};
       // The unique ID of the call.
       shared_ptr<string> callId_ {};
@@ -475,14 +476,14 @@ namespace Models
       // - CALL_FORWARDING: Call forwarding.
       // - INCOMING_CALL_BARRED: Incoming call barred.
       // - CALL_REJECTED: Call rejected.
-      // - ANSWERED: User answered.
+      // - ANSWERED: Answered by the user.
       // - USER_BUSY: Callee busy.
       // - POWERED_OFF: Powered off.
       // - NO_USER_RESPONSE: Out of service area.
-      // - OPERATOR_BLOCK: Operator blocked.
+      // - OPERATOR_BLOCK: Blocked by the carrier.
       // - OTHERS: Other status.
       // - SUSPEND: Service suspended.
-      // - CANCEL: Caller canceled.
+      // - CANCEL: Canceled by the caller.
       // - INVALID_NUMBER: Invalid number.
       // - UNAVAILABLE: Temporarily unavailable.
       // - NETWORK_BUSY: Network busy.
@@ -492,7 +493,7 @@ namespace Models
       shared_ptr<string> calledPhone_ {};
       // The caller number.
       shared_ptr<string> callerPhone_ {};
-      // The chat record information. The structure is a JSON array, sorted in chronological order. The format is as follows:
+      // The chat record information. The structure is a JSON array, and the chat records are sorted in chronological order. The format is as follows:
       // ```json
       // [
       //     {
@@ -506,7 +507,7 @@ namespace Models
       shared_ptr<int64_t> conversationTurnCount_ {};
       // The task detail ID.
       shared_ptr<string> detailId_ {};
-      // The call duration in seconds. The value is 0 if the call is not connected.
+      // The call duration. The value is 0 if the call is not connected. Unit: seconds.
       shared_ptr<int64_t> duration_ {};
       shared_ptr<int64_t> encryptionType_ {};
       // The failure reason.
@@ -520,7 +521,7 @@ namespace Models
       shared_ptr<int64_t> importedTime_ {};
       // The major intent.
       shared_ptr<string> majorIntent_ {};
-      // The variable information used at runtime, stored in this field as key-value pairs.
+      // The variable information used at runtime, stored in key-value format in this field.
       shared_ptr<string> options_ {};
       // The external business serial number. You can use a unique ID for business association.
       shared_ptr<string> outId_ {};
@@ -593,11 +594,11 @@ namespace Models
 
 
   protected:
-    // The detailed reason for access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
-    // The returned result data.
+    // The returned data.
     shared_ptr<QueryConversationDetailInfoNewResponseBody::Data> data_ {};
     // The description of the status code.
     shared_ptr<string> message_ {};

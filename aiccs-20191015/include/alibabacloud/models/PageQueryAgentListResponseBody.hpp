@@ -210,19 +210,19 @@ namespace Models
         shared_ptr<string> agentName_ {};
         // The application code.
         shared_ptr<string> applicationCode_ {};
-        // The reason for the review failure.
+        // The reason for review failure.
         shared_ptr<string> auditReason_ {};
-        // The reason for the build failure.
+        // The reason for build failure.
         shared_ptr<string> buildFailReason_ {};
         // The business scenario name.
         shared_ptr<string> businessTypeName_ {};
-        // The time the agent was created.
+        // The creation time, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> createTime_ {};
         // The agent description.
         shared_ptr<string> description_ {};
-        // The time the agent was last online.
+        // The most recent online time, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> lastOnlineTime_ {};
-        // The time the agent was last modified.
+        // The most recent modification time, in the format of YYYY-MM-DD HH:mm:ss.
         shared_ptr<string> modifyTime_ {};
         // The agent status.
         shared_ptr<int64_t> status_ {};
@@ -264,13 +264,13 @@ namespace Models
 
 
     protected:
-      // A list of agents.
+      // The list of agent data.
       shared_ptr<vector<Data::List>> list_ {};
       // The page number.
       shared_ptr<int64_t> pageNo_ {};
-      // The number of entries per page.
+      // The page size.
       shared_ptr<int64_t> pageSize_ {};
-      // The total count of entries.
+      // The total number of entries.
       shared_ptr<int64_t> total_ {};
     };
 
@@ -321,21 +321,19 @@ namespace Models
 
 
   protected:
-    // The detailed reason for the access denial.
+    // The detailed reason why access was denied.
     shared_ptr<string> accessDeniedDetail_ {};
     // The status code.
     shared_ptr<string> code_ {};
     // The returned data.
     shared_ptr<PageQueryAgentListResponseBody::Data> data_ {};
-    // The description of the status code.
+    // The status code description.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request was successful. Valid values:
-    // 
-    // - **true**: The request was successful.
-    // 
-    // - **false**: The request failed.
+    // Indicates whether the call was successful. Valid values:
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 
