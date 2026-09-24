@@ -1509,6 +1509,90 @@ namespace Elasticsearch20170613
       Models::InterruptLogstashTaskResponse interruptLogstashTask(const string &InstanceId, const Models::InterruptLogstashTaskRequest &request);
 
       /**
+       * @summary Calls the Alibaba Cloud Elasticsearch Agent service based on the JSON-RPC 2.0 protocol. Supports creating and managing Agent sessions, sending messages and receiving SSE streaming responses, resuming from breakpoints, canceling in-progress tasks, and handling human-in-the-loop (HITL) interactions initiated by the Agent. Currently available only in the Shanghai region.
+       *
+       * @param request InvokeEsAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeEsAgentResponse
+       */
+      FutureGenerator<Models::InvokeEsAgentResponse> invokeEsAgentWithSSE(const Models::InvokeEsAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Calls the Alibaba Cloud Elasticsearch Agent service based on the JSON-RPC 2.0 protocol. Supports creating and managing Agent sessions, sending messages and receiving SSE streaming responses, resuming from breakpoints, canceling in-progress tasks, and handling human-in-the-loop (HITL) interactions initiated by the Agent. Currently available only in the Shanghai region.
+       *
+       * @param request InvokeEsAgentRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeEsAgentResponse
+       */
+      Models::InvokeEsAgentResponse invokeEsAgentWithOptions(const Models::InvokeEsAgentRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Calls the Alibaba Cloud Elasticsearch Agent service based on the JSON-RPC 2.0 protocol. Supports creating and managing Agent sessions, sending messages and receiving SSE streaming responses, resuming from breakpoints, canceling in-progress tasks, and handling human-in-the-loop (HITL) interactions initiated by the Agent. Currently available only in the Shanghai region.
+       *
+       * @param request InvokeEsAgentRequest
+       * @return InvokeEsAgentResponse
+       */
+      Models::InvokeEsAgentResponse invokeEsAgent(const Models::InvokeEsAgentRequest &request);
+
+      /**
+       * @summary Uses a registered managed credential to proxy access to the native ES API. The accessible scope is determined by the permissions of the credential on the ES side. When calling this operation through a RAM user with a managed credential, the caller must have both the permission for this operation and the elasticsearch:UseCredential permission for the credential being used.
+       *
+       * @description Refer to the following example for RAM user authorization. Replace the region, account, and other information as needed.
+       * ```
+       * {
+       *     "Version": "1",
+       *     "Statement": [
+       *         {
+       *             "Effect": "Allow",
+       *             "Action": "elasticsearch:InvokeEsRequest",
+       *             "Resource": "*"
+       *         },
+       *         {
+       *             "Effect": "Allow",
+       *             "Action": "elasticsearch:UseCredential",
+       *             "Resource": "acs:elasticsearch:{#regionId}:{#accountId}:instances/{#instanceId}/credentials/{#credentialId}"
+       *         }
+       *     ]
+       * }
+       * ```
+       *
+       * @param request InvokeEsRequestRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokeEsRequestResponse
+       */
+      Models::InvokeEsRequestResponse invokeEsRequestWithOptions(const string &instanceId, const Models::InvokeEsRequestRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Uses a registered managed credential to proxy access to the native ES API. The accessible scope is determined by the permissions of the credential on the ES side. When calling this operation through a RAM user with a managed credential, the caller must have both the permission for this operation and the elasticsearch:UseCredential permission for the credential being used.
+       *
+       * @description Refer to the following example for RAM user authorization. Replace the region, account, and other information as needed.
+       * ```
+       * {
+       *     "Version": "1",
+       *     "Statement": [
+       *         {
+       *             "Effect": "Allow",
+       *             "Action": "elasticsearch:InvokeEsRequest",
+       *             "Resource": "*"
+       *         },
+       *         {
+       *             "Effect": "Allow",
+       *             "Action": "elasticsearch:UseCredential",
+       *             "Resource": "acs:elasticsearch:{#regionId}:{#accountId}:instances/{#instanceId}/credentials/{#credentialId}"
+       *         }
+       *     ]
+       * }
+       * ```
+       *
+       * @param request InvokeEsRequestRequest
+       * @return InvokeEsRequestResponse
+       */
+      Models::InvokeEsRequestResponse invokeEsRequest(const string &instanceId, const Models::InvokeEsRequestRequest &request);
+
+      /**
        * @summary Retrieves the list of Container Service for Kubernetes (ACK) clusters.
        *
        * @param request ListAckClustersRequest
@@ -3395,16 +3479,16 @@ namespace Elasticsearch20170613
       Models::UpdateIndexTemplateResponse updateIndexTemplate(const string &InstanceId, const string &IndexTemplate, const Models::UpdateIndexTemplateRequest &request);
 
       /**
-       * @summary Upgrades an Elasticsearch cluster by increasing the number of nodes, roles, specifications, or disk configurations.
+       * @summary Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
        *
        * @description When you call this operation, take note of the following items:
-       * - You cannot change the configurations of an instance when the instance status is activating, invalid, or freeze (inactive).
-       * - If the cluster is under heavy load, indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeouts may occur. Configure a retry mechanism on the client side before you change the cluster configurations to minimize the impact on your business.
+       * - You cannot change the configuration when the instance status is activating, invalid, or inactive (freeze).
+       * - If the cluster has a high load and indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeout may occur. Configure a retry mechanism on the client before you change the cluster configuration to reduce the impact on your business.
        * - You can change the configuration of only one type of node at a time (data node, dedicated master node, warm node, client node, Kibana node, or elastic node).
-       * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of instances with 1 vCPU and 2 GB of memory, dedicated master nodes with 2 vCPUs and 2 GB of memory, or instances of version 7.4. If you have confirmed that purchased specifications you purchased are no longer available for sale, perform the following operations first:
-       *   - For instances with 1 vCPU and 2 GB of memory or 2 vCPUs and 2 GB of memory, upgrade purchased specifications to a stable specification that is available on the buy page. For available specifications on the buy page, see <props="china"><ph>[Parameters on the buy page (Commercial Edition)](https://help.aliyun.com/document_detail/97672.html) or [Parameters on the buy page (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Parameters on the buy page](https://help.aliyun.com/document_detail/163243.html).
-       *   - For version 7.4, purchase a new instance of version 7.10 and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
-       * For more precautions, see [Upgrade cluster configurations](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configurations](https://help.aliyun.com/document_detail/198887.html).
+       * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of 1-vCPU 2 GiB instances, 2-vCPU 2 GiB dedicated master nodes, or version 7.4 instances. If you have confirmed that the purchased specifications are no longer available for sale, perform the following operations first:
+       *   - For 1-vCPU 2 GiB and 2-vCPU 2 GiB specifications, upgrade to a stable specification available on the buy page in advance. For available specifications on the buy page, see <props="china"><ph>[Buy page parameters (commercial edition)](https://help.aliyun.com/document_detail/97672.html) or [Buy page parameters (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Buy page parameters](https://help.aliyun.com/document_detail/163243.html).
+       *   - For version 7.4, purchase a version 7.10 instance and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
+       * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
        *
        * @param request UpdateInstanceRequest
        * @param headers map
@@ -3414,16 +3498,16 @@ namespace Elasticsearch20170613
       Models::UpdateInstanceResponse updateInstanceWithOptions(const string &InstanceId, const Models::UpdateInstanceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Upgrades an Elasticsearch cluster by increasing the number of nodes, roles, specifications, or disk configurations.
+       * @summary Upgrades the configuration of an Elasticsearch cluster, including the number of nodes, roles, specifications, and disk configurations.
        *
        * @description When you call this operation, take note of the following items:
-       * - You cannot change the configurations of an instance when the instance status is activating, invalid, or freeze (inactive).
-       * - If the cluster is under heavy load, indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeouts may occur. Configure a retry mechanism on the client side before you change the cluster configurations to minimize the impact on your business.
+       * - You cannot change the configuration when the instance status is activating, invalid, or inactive (freeze).
+       * - If the cluster has a high load and indexes have no replicas, and a large number of write or query requests exist during the upgrade or decrease the quota procedure, occasional access timeout may occur. Configure a retry mechanism on the client before you change the cluster configuration to reduce the impact on your business.
        * - You can change the configuration of only one type of node at a time (data node, dedicated master node, warm node, client node, Kibana node, or elastic node).
-       * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of instances with 1 vCPU and 2 GB of memory, dedicated master nodes with 2 vCPUs and 2 GB of memory, or instances of version 7.4. If you have confirmed that purchased specifications you purchased are no longer available for sale, perform the following operations first:
-       *   - For instances with 1 vCPU and 2 GB of memory or 2 vCPUs and 2 GB of memory, upgrade purchased specifications to a stable specification that is available on the buy page. For available specifications on the buy page, see <props="china"><ph>[Parameters on the buy page (Commercial Edition)](https://help.aliyun.com/document_detail/97672.html) or [Parameters on the buy page (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Parameters on the buy page](https://help.aliyun.com/document_detail/163243.html).
-       *   - For version 7.4, purchase a new instance of version 7.10 and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
-       * For more precautions, see [Upgrade cluster configurations](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configurations](https://help.aliyun.com/document_detail/198887.html).
+       * - For the health and stability of your cluster, since May 2021, Alibaba Cloud Elasticsearch no longer supports the purchase of 1-vCPU 2 GiB instances, 2-vCPU 2 GiB dedicated master nodes, or version 7.4 instances. If you have confirmed that the purchased specifications are no longer available for sale, perform the following operations first:
+       *   - For 1-vCPU 2 GiB and 2-vCPU 2 GiB specifications, upgrade to a stable specification available on the buy page in advance. For available specifications on the buy page, see <props="china"><ph>[Buy page parameters (commercial edition)](https://help.aliyun.com/document_detail/97672.html) or [Buy page parameters (Advanced Edition)](https://help.aliyun.com/document_detail/143091.html)</ph><props="intl">[Buy page parameters](https://help.aliyun.com/document_detail/163243.html).
+       *   - For version 7.4, purchase a version 7.10 instance and then migrate data. <props="china"><ph>For data migration, see [Migration solution selection guide](https://help.aliyun.com/document_detail/96650.html).</ph>
+       * For more precautions, see [Upgrade cluster configuration](https://help.aliyun.com/document_detail/96650.html) and [Downgrade cluster configuration](https://help.aliyun.com/document_detail/198887.html).
        *
        * @param request UpdateInstanceRequest
        * @return UpdateInstanceResponse
@@ -4047,8 +4131,8 @@ namespace Elasticsearch20170613
       /**
        * @summary Creates an Elasticsearch instance.
        *
-       * @description ### Before you begin
-       * - Make sure that you fully understand the billing and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+       * @description ### Precautions
+       * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch billing rules](https://help.aliyun.com/document_detail/260947.html).
        * - You must complete real-name verification before creating an instance.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
        * - You do not need to specify a zone when creating an instance. The instance is created in the same zone as the selected VPC by default.
        *
@@ -4062,8 +4146,8 @@ namespace Elasticsearch20170613
       /**
        * @summary Creates an Elasticsearch instance.
        *
-       * @description ### Before you begin
-       * - Make sure that you fully understand the billing and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch pricing](https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.7.657d2cbeRoSPCd#/elasticsearch/detail).
+       * @description ### Precautions
+       * - Before using this operation, make sure that you fully understand the billing methods and pricing of Elasticsearch. For more information, see [Alibaba Cloud Elasticsearch billing rules](https://help.aliyun.com/document_detail/260947.html).
        * - You must complete real-name verification before creating an instance.<props="china"><ph> For more information, see [Real-name verification](https://help.aliyun.com/document_detail/37175.html).</ph>
        * - You do not need to specify a zone when creating an instance. The instance is created in the same zone as the selected VPC by default.
        *

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_DESCRIBESNAPSHOTSETTINGRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_DESCRIBESNAPSHOTSETTINGRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -35,10 +36,12 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const Result& obj) { 
         DARABONBA_PTR_TO_JSON(Enable, enable_);
+        DARABONBA_PTR_TO_JSON(Indices, indices_);
         DARABONBA_PTR_TO_JSON(QuartzRegex, quartzRegex_);
       };
       friend void from_json(const Darabonba::Json& j, Result& obj) { 
         DARABONBA_PTR_FROM_JSON(Enable, enable_);
+        DARABONBA_PTR_FROM_JSON(Indices, indices_);
         DARABONBA_PTR_FROM_JSON(QuartzRegex, quartzRegex_);
       };
       Result() = default ;
@@ -53,12 +56,21 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->enable_ == nullptr
-        && this->quartzRegex_ == nullptr; };
+        && this->indices_ == nullptr && this->quartzRegex_ == nullptr; };
       // enable Field Functions 
       bool hasEnable() const { return this->enable_ != nullptr;};
       void deleteEnable() { this->enable_ = nullptr;};
       inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
       inline Result& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+      // indices Field Functions 
+      bool hasIndices() const { return this->indices_ != nullptr;};
+      void deleteIndices() { this->indices_ = nullptr;};
+      inline const vector<string> & getIndices() const { DARABONBA_PTR_GET_CONST(indices_, vector<string>) };
+      inline vector<string> getIndices() { DARABONBA_PTR_GET(indices_, vector<string>) };
+      inline Result& setIndices(const vector<string> & indices) { DARABONBA_PTR_SET_VALUE(indices_, indices) };
+      inline Result& setIndices(vector<string> && indices) { DARABONBA_PTR_SET_RVALUE(indices_, indices) };
 
 
       // quartzRegex Field Functions 
@@ -71,7 +83,9 @@ namespace Models
     protected:
       // Indicates whether automatic backup is enabled.
       shared_ptr<bool> enable_ {};
-      // The automatic backup time configuration, which uses a Quartz Cron expression.
+      // The list of indexes to back up.
+      shared_ptr<vector<string>> indices_ {};
+      // The automatic backup time configuration, specified as a Quartz Cron expression.
       shared_ptr<string> quartzRegex_ {};
     };
 

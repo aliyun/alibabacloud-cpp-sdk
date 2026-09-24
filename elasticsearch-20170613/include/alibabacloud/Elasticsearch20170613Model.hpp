@@ -238,6 +238,12 @@
 #include <alibabacloud/models/InterruptLogstashTaskRequest.hpp>
 #include <alibabacloud/models/InterruptLogstashTaskResponseBody.hpp>
 #include <alibabacloud/models/InterruptLogstashTaskResponse.hpp>
+#include <alibabacloud/models/InvokeEsAgentRequest.hpp>
+#include <alibabacloud/models/InvokeEsAgentResponseBody.hpp>
+#include <alibabacloud/models/InvokeEsAgentResponse.hpp>
+#include <alibabacloud/models/InvokeEsRequestRequest.hpp>
+#include <alibabacloud/models/InvokeEsRequestResponseBody.hpp>
+#include <alibabacloud/models/InvokeEsRequestResponse.hpp>
 #include <alibabacloud/models/ListAckClustersRequest.hpp>
 #include <alibabacloud/models/ListAckClustersResponseBody.hpp>
 #include <alibabacloud/models/ListAckClustersResponse.hpp>

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The data backup configuration, including the automatic backup start time and the scheduled backup switch.
     shared_ptr<string> body_ {};
   };
 

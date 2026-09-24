@@ -355,7 +355,7 @@ namespace Models
       shared_ptr<string> createdAt_ {};
       // The instance name.
       shared_ptr<string> description_ {};
-      // The internal-facing access endpoint of the instance for private network access.
+      // The internal-facing access domain name of the instance for private network access.
       shared_ptr<string> domain_ {};
       // The instance version.
       shared_ptr<string> esVersion_ {};
@@ -371,8 +371,8 @@ namespace Models
       shared_ptr<Result::NodeSpec> nodeSpec_ {};
       // The billing method of the instance. Valid values:
       // 
-      // - prepaid: subscription.
-      // - postpaid: pay-as-you-go.
+      // - prepaid: Subscription.
+      // - postpaid: Pay-as-you-go.
       shared_ptr<string> paymentType_ {};
       // The status of the instance. Valid values:
       // 
@@ -416,7 +416,9 @@ namespace Models
 
 
   protected:
+    // The error code. This parameter is returned only when an exception occurs.
     shared_ptr<string> code_ {};
+    // The error message. This parameter is returned only when an exception occurs.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

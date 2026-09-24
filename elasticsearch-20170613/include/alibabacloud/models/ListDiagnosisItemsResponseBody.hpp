@@ -35,16 +35,26 @@ namespace Models
     class Result : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const Result& obj) { 
+        DARABONBA_PTR_TO_JSON(billable, billable_);
+        DARABONBA_PTR_TO_JSON(category, category_);
         DARABONBA_PTR_TO_JSON(description, description_);
         DARABONBA_PTR_TO_JSON(esApiRequired, esApiRequired_);
         DARABONBA_PTR_TO_JSON(key, key_);
+        DARABONBA_PTR_TO_JSON(level, level_);
         DARABONBA_PTR_TO_JSON(name, name_);
+        DARABONBA_PTR_TO_JSON(sortOrder, sortOrder_);
+        DARABONBA_PTR_TO_JSON(supportedModes, supportedModes_);
       };
       friend void from_json(const Darabonba::Json& j, Result& obj) { 
+        DARABONBA_PTR_FROM_JSON(billable, billable_);
+        DARABONBA_PTR_FROM_JSON(category, category_);
         DARABONBA_PTR_FROM_JSON(description, description_);
         DARABONBA_PTR_FROM_JSON(esApiRequired, esApiRequired_);
         DARABONBA_PTR_FROM_JSON(key, key_);
+        DARABONBA_PTR_FROM_JSON(level, level_);
         DARABONBA_PTR_FROM_JSON(name, name_);
+        DARABONBA_PTR_FROM_JSON(sortOrder, sortOrder_);
+        DARABONBA_PTR_FROM_JSON(supportedModes, supportedModes_);
       };
       Result() = default ;
       Result(const Result &) = default ;
@@ -57,8 +67,23 @@ namespace Models
       };
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-      virtual bool empty() const override { return this->description_ == nullptr
-        && this->esApiRequired_ == nullptr && this->key_ == nullptr && this->name_ == nullptr; };
+      virtual bool empty() const override { return this->billable_ == nullptr
+        && this->category_ == nullptr && this->description_ == nullptr && this->esApiRequired_ == nullptr && this->key_ == nullptr && this->level_ == nullptr
+        && this->name_ == nullptr && this->sortOrder_ == nullptr && this->supportedModes_ == nullptr; };
+      // billable Field Functions 
+      bool hasBillable() const { return this->billable_ != nullptr;};
+      void deleteBillable() { this->billable_ = nullptr;};
+      inline bool getBillable() const { DARABONBA_PTR_GET_DEFAULT(billable_, false) };
+      inline Result& setBillable(bool billable) { DARABONBA_PTR_SET_VALUE(billable_, billable) };
+
+
+      // category Field Functions 
+      bool hasCategory() const { return this->category_ != nullptr;};
+      void deleteCategory() { this->category_ = nullptr;};
+      inline string getCategory() const { DARABONBA_PTR_GET_DEFAULT(category_, "") };
+      inline Result& setCategory(string category) { DARABONBA_PTR_SET_VALUE(category_, category) };
+
+
       // description Field Functions 
       bool hasDescription() const { return this->description_ != nullptr;};
       void deleteDescription() { this->description_ = nullptr;};
@@ -80,6 +105,13 @@ namespace Models
       inline Result& setKey(string key) { DARABONBA_PTR_SET_VALUE(key_, key) };
 
 
+      // level Field Functions 
+      bool hasLevel() const { return this->level_ != nullptr;};
+      void deleteLevel() { this->level_ = nullptr;};
+      inline string getLevel() const { DARABONBA_PTR_GET_DEFAULT(level_, "") };
+      inline Result& setLevel(string level) { DARABONBA_PTR_SET_VALUE(level_, level) };
+
+
       // name Field Functions 
       bool hasName() const { return this->name_ != nullptr;};
       void deleteName() { this->name_ = nullptr;};
@@ -87,14 +119,44 @@ namespace Models
       inline Result& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
+      // sortOrder Field Functions 
+      bool hasSortOrder() const { return this->sortOrder_ != nullptr;};
+      void deleteSortOrder() { this->sortOrder_ = nullptr;};
+      inline int32_t getSortOrder() const { DARABONBA_PTR_GET_DEFAULT(sortOrder_, 0) };
+      inline Result& setSortOrder(int32_t sortOrder) { DARABONBA_PTR_SET_VALUE(sortOrder_, sortOrder) };
+
+
+      // supportedModes Field Functions 
+      bool hasSupportedModes() const { return this->supportedModes_ != nullptr;};
+      void deleteSupportedModes() { this->supportedModes_ = nullptr;};
+      inline const vector<string> & getSupportedModes() const { DARABONBA_PTR_GET_CONST(supportedModes_, vector<string>) };
+      inline vector<string> getSupportedModes() { DARABONBA_PTR_GET(supportedModes_, vector<string>) };
+      inline Result& setSupportedModes(const vector<string> & supportedModes) { DARABONBA_PTR_SET_VALUE(supportedModes_, supportedModes) };
+      inline Result& setSupportedModes(vector<string> && supportedModes) { DARABONBA_PTR_SET_RVALUE(supportedModes_, supportedModes) };
+
+
     protected:
-      // The description of the diagnostic item.
+      // Indicates whether billable tokens are consumed. The value is true when level is ADVANCED.
+      shared_ptr<bool> billable_ {};
+      // The category code. You can use this value to group diagnostic items by category.
+      shared_ptr<string> category_ {};
+      // The diagnostic item description.
       shared_ptr<string> description_ {};
+      // Indicates whether the cluster API is accessed.
       shared_ptr<bool> esApiRequired_ {};
-      // The identifier of the diagnostic item.
+      // The diagnostic item identifier.
       shared_ptr<string> key_ {};
-      // The name of the diagnostic item.
+      // The diagnostic item level. Valid values:
+      // 
+      // - BASIC: basic inspection item (free).
+      // - ADVANCED: advanced inspection item (consumes billable tokens).
+      shared_ptr<string> level_ {};
+      // The diagnostic item name.
       shared_ptr<string> name_ {};
+      // The sort order number for display.
+      shared_ptr<int32_t> sortOrder_ {};
+      // The supported execution modes. Basic items support RULE and AGENT. Advanced items support only AGENT.
+      shared_ptr<vector<string>> supportedModes_ {};
     };
 
     virtual bool empty() const override { return this->requestId_ == nullptr
