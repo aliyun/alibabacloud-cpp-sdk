@@ -16,12 +16,14 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ApiId, apiId_);
       DARABONBA_PTR_TO_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_TO_JSON(RagId, ragId_);
+      DARABONBA_PTR_TO_JSON(Rule, rule_);
       DARABONBA_PTR_TO_JSON(Type, type_);
     };
     friend void from_json(const Darabonba::Json& j, MerchandisePlacementDetectionRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(ApiId, apiId_);
       DARABONBA_PTR_FROM_JSON(ImageUrl, imageUrl_);
       DARABONBA_PTR_FROM_JSON(RagId, ragId_);
+      DARABONBA_PTR_FROM_JSON(Rule, rule_);
       DARABONBA_PTR_FROM_JSON(Type, type_);
     };
     MerchandisePlacementDetectionRequest() = default ;
@@ -36,7 +38,7 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->apiId_ == nullptr
-        && this->imageUrl_ == nullptr && this->ragId_ == nullptr && this->type_ == nullptr; };
+        && this->imageUrl_ == nullptr && this->ragId_ == nullptr && this->rule_ == nullptr && this->type_ == nullptr; };
     // apiId Field Functions 
     bool hasApiId() const { return this->apiId_ != nullptr;};
     void deleteApiId() { this->apiId_ = nullptr;};
@@ -58,6 +60,13 @@ namespace Models
     inline MerchandisePlacementDetectionRequest& setRagId(string ragId) { DARABONBA_PTR_SET_VALUE(ragId_, ragId) };
 
 
+    // rule Field Functions 
+    bool hasRule() const { return this->rule_ != nullptr;};
+    void deleteRule() { this->rule_ = nullptr;};
+    inline string getRule() const { DARABONBA_PTR_GET_DEFAULT(rule_, "") };
+    inline MerchandisePlacementDetectionRequest& setRule(string rule) { DARABONBA_PTR_SET_VALUE(rule_, rule) };
+
+
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
@@ -74,6 +83,7 @@ namespace Models
     shared_ptr<string> imageUrl_ {};
     // The ID of the customer-specific SKU vector library, which determines which library is used for recall. The library must be created in advance through the library creation process.
     shared_ptr<string> ragId_ {};
+    shared_ptr<string> rule_ {};
     // The business type (reserved for future routing by business line). The current release supports skincare.
     shared_ptr<string> type_ {};
   };
