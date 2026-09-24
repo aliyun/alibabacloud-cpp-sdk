@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_IMAGETRANSLATIONPLUSRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_IMAGETRANSLATIONPLUSRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_PETHEALTHANALYSISRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_PETHEALTHANALYSISRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,29 +10,29 @@ namespace Aidge20260428
 {
 namespace Models
 {
-  class ImageTranslationPlusResponseBody : public Darabonba::Model {
+  class PetHealthAnalysisResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ImageTranslationPlusResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const PetHealthAnalysisResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, ImageTranslationPlusResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, PetHealthAnalysisResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    ImageTranslationPlusResponseBody() = default ;
-    ImageTranslationPlusResponseBody(const ImageTranslationPlusResponseBody &) = default ;
-    ImageTranslationPlusResponseBody(ImageTranslationPlusResponseBody &&) = default ;
-    ImageTranslationPlusResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ImageTranslationPlusResponseBody() = default ;
-    ImageTranslationPlusResponseBody& operator=(const ImageTranslationPlusResponseBody &) = default ;
-    ImageTranslationPlusResponseBody& operator=(ImageTranslationPlusResponseBody &&) = default ;
+    PetHealthAnalysisResponseBody() = default ;
+    PetHealthAnalysisResponseBody(const PetHealthAnalysisResponseBody &) = default ;
+    PetHealthAnalysisResponseBody(PetHealthAnalysisResponseBody &&) = default ;
+    PetHealthAnalysisResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~PetHealthAnalysisResponseBody() = default ;
+    PetHealthAnalysisResponseBody& operator=(const PetHealthAnalysisResponseBody &) = default ;
+    PetHealthAnalysisResponseBody& operator=(PetHealthAnalysisResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID. Use this ID to poll for results through the queryTaskResult operation.
+      // The asynchronous task ID used for QueryAsyncTaskResult queries.
       shared_ptr<string> taskId_ {};
     };
 
@@ -75,51 +75,49 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline ImageTranslationPlusResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline PetHealthAnalysisResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ImageTranslationPlusResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ImageTranslationPlusResponseBody::Data) };
-    inline ImageTranslationPlusResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ImageTranslationPlusResponseBody::Data) };
-    inline ImageTranslationPlusResponseBody& setData(const ImageTranslationPlusResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ImageTranslationPlusResponseBody& setData(ImageTranslationPlusResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const PetHealthAnalysisResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, PetHealthAnalysisResponseBody::Data) };
+    inline PetHealthAnalysisResponseBody::Data getData() { DARABONBA_PTR_GET(data_, PetHealthAnalysisResponseBody::Data) };
+    inline PetHealthAnalysisResponseBody& setData(const PetHealthAnalysisResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline PetHealthAnalysisResponseBody& setData(PetHealthAnalysisResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline ImageTranslationPlusResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline PetHealthAnalysisResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline ImageTranslationPlusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline PetHealthAnalysisResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline ImageTranslationPlusResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline PetHealthAnalysisResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code.
     shared_ptr<string> code_ {};
     // The asynchronous task submit status.
-    shared_ptr<ImageTranslationPlusResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    shared_ptr<PetHealthAnalysisResponseBody::Data> data_ {};
+    // The response message or failure description.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call failed.
+    // Indicates whether the call is successful.
     shared_ptr<bool> success_ {};
   };
 

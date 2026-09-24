@@ -119,15 +119,15 @@ namespace Models
     shared_ptr<string> imageUrl_ {};
     // Specifies whether to translate text on the image subject. This parameter is optional. Default value: false. This helps you protect information and avoid translating embedded information such as product names.
     shared_ptr<bool> includingProductArea_ {};
-    // The source language code. This parameter is required. For supported language directions, see [Language direction mapping](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+    // The source language code. This parameter is required. For supported language directions, see [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
     // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
-    // The target language code. This parameter is required. For supported language directions, see [Language direction mapping](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+    // The target language code. This parameter is required. For supported language directions, see [Language Direction Mapping Table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate brand names on images. This parameter is optional. Default value: false. This helps you protect brand name information from being translated.
+    // Specifies whether to translate brand names on the image. This parameter is optional. Default value: false. This helps you protect brand name information from being translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
     // Specifies whether to return layout information such as text position, font, and color. When set to true, layer information is returned for secondary editing with an image editor. Default value: false.
     shared_ptr<bool> useImageEditor_ {};

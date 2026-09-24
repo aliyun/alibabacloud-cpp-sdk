@@ -23,6 +23,9 @@
 #include <alibabacloud/models/DiduiAreaDeductionShrinkRequest.hpp>
 #include <alibabacloud/models/DiduiAreaDeductionResponseBody.hpp>
 #include <alibabacloud/models/DiduiAreaDeductionResponse.hpp>
+#include <alibabacloud/models/DiduiAreaDeductionProRequest.hpp>
+#include <alibabacloud/models/DiduiAreaDeductionProResponseBody.hpp>
+#include <alibabacloud/models/DiduiAreaDeductionProResponse.hpp>
 #include <alibabacloud/models/DocumentTranslateRequest.hpp>
 #include <alibabacloud/models/DocumentTranslateResponseBody.hpp>
 #include <alibabacloud/models/DocumentTranslateResponse.hpp>
@@ -30,6 +33,9 @@
 #include <alibabacloud/models/EcomVideoRecreationShrinkRequest.hpp>
 #include <alibabacloud/models/EcomVideoRecreationResponseBody.hpp>
 #include <alibabacloud/models/EcomVideoRecreationResponse.hpp>
+#include <alibabacloud/models/GeneralRephotographyDetectionRequest.hpp>
+#include <alibabacloud/models/GeneralRephotographyDetectionResponseBody.hpp>
+#include <alibabacloud/models/GeneralRephotographyDetectionResponse.hpp>
 #include <alibabacloud/models/ImageCroppingRequest.hpp>
 #include <alibabacloud/models/ImageCroppingResponseBody.hpp>
 #include <alibabacloud/models/ImageCroppingResponse.hpp>
@@ -65,9 +71,16 @@
 #include <alibabacloud/models/MerchandisePlacementDetectionRequest.hpp>
 #include <alibabacloud/models/MerchandisePlacementDetectionResponseBody.hpp>
 #include <alibabacloud/models/MerchandisePlacementDetectionResponse.hpp>
+#include <alibabacloud/models/MerchandisePlacementDetectionProRequest.hpp>
+#include <alibabacloud/models/MerchandisePlacementDetectionProResponseBody.hpp>
+#include <alibabacloud/models/MerchandisePlacementDetectionProResponse.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckRequest.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckResponseBody.hpp>
 #include <alibabacloud/models/PackageWeightSizeCheckResponse.hpp>
+#include <alibabacloud/models/PetHealthAnalysisRequest.hpp>
+#include <alibabacloud/models/PetHealthAnalysisShrinkRequest.hpp>
+#include <alibabacloud/models/PetHealthAnalysisResponseBody.hpp>
+#include <alibabacloud/models/PetHealthAnalysisResponse.hpp>
 #include <alibabacloud/models/PrepaidTextTranslateRequest.hpp>
 #include <alibabacloud/models/PrepaidTextTranslateShrinkRequest.hpp>
 #include <alibabacloud/models/PrepaidTextTranslateResponseBody.hpp>

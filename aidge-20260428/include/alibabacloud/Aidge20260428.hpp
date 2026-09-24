@@ -367,6 +367,43 @@ namespace Aidge20260428
       Models::DiduiAreaDeductionResponse diduiAreaDeduction(const Models::DiduiAreaDeductionRequest &request);
 
       /**
+       * @summary Analyzes the floor display area based on product recognition, SKU asset knowledge base, and a dedicated area reasoning model building. The product first locates floor display products, then reads the actual length, width, height, and reference images of the corresponding SKUs to infer the two side lengths and area of the bounding rectangle of the floor display footprint. This is applicable to floor display scale assessment and inspection review in retail stores.
+       *
+       * @description **Scenarios**
+       * - Floor display area assessment: Infers the bounding rectangle area of the floor display footprint based on an overall photo of the floor display and the actual dimensions of the products.
+       * - Multi-SKU mixed arrangement analysis: Uses the dimensions of each different product to participate in side length inference.
+       * - Area result review: Verifies results by combining the original image, product assets, and the returned two side lengths and area.
+       * **Features**
+       * - SKU asset-driven: Specifies the asset knowledge base through ragId. Each participating product must have a name, positive length, width, and height values, and at least one HTTPS reference image.
+       * - Phased area inference: Sequentially forms decision edges, SKU projections, dimension accumulation, and final area.
+       * - Unified units: SKU asset dimensions are stored in centimeters. Result side lengths are output in meters and area in square meters.
+       * - Completeness and numerical validation: Returns failure when there are missing assets, no valid bounding boxes, or the area does not satisfy product consistency.
+       *
+       * @param request DiduiAreaDeductionProRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DiduiAreaDeductionProResponse
+       */
+      Models::DiduiAreaDeductionProResponse diduiAreaDeductionProWithOptions(const Models::DiduiAreaDeductionProRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Analyzes the floor display area based on product recognition, SKU asset knowledge base, and a dedicated area reasoning model building. The product first locates floor display products, then reads the actual length, width, height, and reference images of the corresponding SKUs to infer the two side lengths and area of the bounding rectangle of the floor display footprint. This is applicable to floor display scale assessment and inspection review in retail stores.
+       *
+       * @description **Scenarios**
+       * - Floor display area assessment: Infers the bounding rectangle area of the floor display footprint based on an overall photo of the floor display and the actual dimensions of the products.
+       * - Multi-SKU mixed arrangement analysis: Uses the dimensions of each different product to participate in side length inference.
+       * - Area result review: Verifies results by combining the original image, product assets, and the returned two side lengths and area.
+       * **Features**
+       * - SKU asset-driven: Specifies the asset knowledge base through ragId. Each participating product must have a name, positive length, width, and height values, and at least one HTTPS reference image.
+       * - Phased area inference: Sequentially forms decision edges, SKU projections, dimension accumulation, and final area.
+       * - Unified units: SKU asset dimensions are stored in centimeters. Result side lengths are output in meters and area in square meters.
+       * - Completeness and numerical validation: Returns failure when there are missing assets, no valid bounding boxes, or the area does not satisfy product consistency.
+       *
+       * @param request DiduiAreaDeductionProRequest
+       * @return DiduiAreaDeductionProResponse
+       */
+      Models::DiduiAreaDeductionProResponse diduiAreaDeductionPro(const Models::DiduiAreaDeductionProRequest &request);
+
+      /**
        * @summary Designed specifically for document translation. Supports translation between more than 400 language pairs (including bridged pairs) to handle multi-scenario, multi-page, and highly complex document translation. Scanned documents are not currently supported.
        * Excels in the following areas:
        * - Content accuracy: translation accuracy, parameter and unit accuracy.
@@ -477,6 +514,43 @@ namespace Aidge20260428
        * @return EcomVideoRecreationResponse
        */
       Models::EcomVideoRecreationResponse ecomVideoRecreation(const Models::EcomVideoRecreationRequest &request);
+
+      /**
+       * @summary Provides a general-purpose image review service built on recapture recognition and multimodal large model element localization. The service determines whether an image is a recaptured photo and locates primary physical products, screen display areas, printed photos, and visible recapture clues. It is applicable to risk screening and manual review of inspection photos across multiple store categories.
+       *
+       * @description **Scenarios**
+       * 1. Inspection photo review: Screens photos submitted by stores for recapture risks.
+       * 2. Screen or printed photo recapture verification: Locates visible screens, printed photos, and other carriers.
+       * 3. Review clue display: Annotates products and visible clues on the original image to assist re-examination.
+       * **Features**
+       * 1. General recapture detection: Returns an isFake Boolean result.
+       * 2. Review element localization: Distinguishes physical products, screens, printed photos, and visible recapture clues. Products displayed within a screen are not redundantly output as physical products.
+       * 3. Separate presentation of clues and conclusions: Localization text describes only visible phenomena. Normal reflections or standard packaging prints are not directly treated as recapture evidence.
+       * Supports a single HTTPS image as input. Supplementary localization returns up to 12 targets, each containing a category, a bounding box, and up to 24 characters of visible text. The coverage field indicates whether the localization is complete.
+       *
+       * @param request GeneralRephotographyDetectionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GeneralRephotographyDetectionResponse
+       */
+      Models::GeneralRephotographyDetectionResponse generalRephotographyDetectionWithOptions(const Models::GeneralRephotographyDetectionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Provides a general-purpose image review service built on recapture recognition and multimodal large model element localization. The service determines whether an image is a recaptured photo and locates primary physical products, screen display areas, printed photos, and visible recapture clues. It is applicable to risk screening and manual review of inspection photos across multiple store categories.
+       *
+       * @description **Scenarios**
+       * 1. Inspection photo review: Screens photos submitted by stores for recapture risks.
+       * 2. Screen or printed photo recapture verification: Locates visible screens, printed photos, and other carriers.
+       * 3. Review clue display: Annotates products and visible clues on the original image to assist re-examination.
+       * **Features**
+       * 1. General recapture detection: Returns an isFake Boolean result.
+       * 2. Review element localization: Distinguishes physical products, screens, printed photos, and visible recapture clues. Products displayed within a screen are not redundantly output as physical products.
+       * 3. Separate presentation of clues and conclusions: Localization text describes only visible phenomena. Normal reflections or standard packaging prints are not directly treated as recapture evidence.
+       * Supports a single HTTPS image as input. Supplementary localization returns up to 12 targets, each containing a category, a bounding box, and up to 24 characters of visible text. The coverage field indicates whether the localization is complete.
+       *
+       * @param request GeneralRephotographyDetectionRequest
+       * @return GeneralRephotographyDetectionResponse
+       */
+      Models::GeneralRephotographyDetectionResponse generalRephotographyDetection(const Models::GeneralRephotographyDetectionRequest &request);
 
       /**
        * @summary Intelligently crops images to specified dimensions, automatically identifies the main subject area, and precisely crops to various sizes to meet design requirements across different scenarios. (Synchronous)
@@ -992,12 +1066,12 @@ namespace Aidge20260428
       Models::ImageRemoveResponse imageRemove(const Models::ImageRemoveRequest &request);
 
       /**
-       * @summary The Image Translation PLUS edition is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Image Translation Lite and Pro editions. Use this edition for the following 8 language directions. More language directions will be supported in the future.
+       * @summary Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Lite and Pro editions. We recommend using it for the following 12 language pairs, with more language pairs to be supported in the future.
        *
        * @description ## Product Introduction
-       * Image Translation PLUS is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Image Translation Lite and Pro editions. We recommend using it for the following 8 language pairs, with more language pairs to be supported in the future.
+       * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Lite and Pro editions. We recommend using it for the following 8 language pairs, with more language pairs to be supported in the future.
        * Supported language pairs:
-       * | **Ordinal number** | **Source language** |  | **Target language** |  |
+       * | **No.** | **Source language** |  | **Target language** |  |
        * | --- | --- | --- | --- | --- |
        * |  | Language code | Language name | Language code | Language name |
        * | 1 | en | English | ar | Arabic |
@@ -1019,7 +1093,7 @@ namespace Aidge20260428
        *     
        * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
        *     
-       * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying a translation (ABC-DEF), or removing text (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+       * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying a translation (ABC-DEF), or removing text (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
        *
        * @param request ImageTranslationPlusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1028,12 +1102,12 @@ namespace Aidge20260428
       Models::ImageTranslationPlusResponse imageTranslationPlusWithOptions(const Models::ImageTranslationPlusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The Image Translation PLUS edition is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Image Translation Lite and Pro editions. Use this edition for the following 8 language directions. More language directions will be supported in the future.
+       * @summary Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Lite and Pro editions. We recommend using it for the following 12 language pairs, with more language pairs to be supported in the future.
        *
        * @description ## Product Introduction
-       * Image Translation PLUS is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Image Translation Lite and Pro editions. We recommend using it for the following 8 language pairs, with more language pairs to be supported in the future.
+       * Image Translation Plus is designed specifically for e-commerce images. It uses a Mixture of Experts (MOE) architecture and delivers superior translation accuracy for multiple minority languages compared to the Lite and Pro editions. We recommend using it for the following 8 language pairs, with more language pairs to be supported in the future.
        * Supported language pairs:
-       * | **Ordinal number** | **Source language** |  | **Target language** |  |
+       * | **No.** | **Source language** |  | **Target language** |  |
        * | --- | --- | --- | --- | --- |
        * |  | Language code | Language name | Language code | Language name |
        * | 1 | en | English | ar | Arabic |
@@ -1055,7 +1129,7 @@ namespace Aidge20260428
        *     
        * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
        *     
-       * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying a translation (ABC-DEF), or removing text (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+       * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying a translation (ABC-DEF), or removing text (ABC-empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
        *
        * @param request ImageTranslationPlusRequest
        * @return ImageTranslationPlusResponse
@@ -1063,17 +1137,17 @@ namespace Aidge20260428
       Models::ImageTranslationPlusResponse imageTranslationPlus(const Models::ImageTranslationPlusRequest &request);
 
       /**
-       * @summary Image Translation Pro is designed for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
+       * @summary Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language directions (including bridged directions).
        *
        * @description ## Product Introduction
-       * Image Translation Pro is designed for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language directions (including bridged directions).
+       * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language directions (including bridged directions).
        * ## Scenarios
        * E-commerce product images, marketing images, and images for various other scenarios.
        * ## Features
        * - **Product subject protection**: Specify whether to translate text on the product subject. This helps you protect subject information from being translated, such as embedded information like product names.
-       * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
+       * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK package is not yet available. Follow platform notifications for updates.
        * - **Brand name protection**: Specify whether to translate brand names on images. This helps you protect brand name information from being translated.
-       * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+       * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
        * - <props="china"> **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
        *
        * @param request ImageTranslationProRequest
@@ -1083,17 +1157,17 @@ namespace Aidge20260428
       Models::ImageTranslationProResponse imageTranslationProWithOptions(const Models::ImageTranslationProRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Image Translation Pro is designed for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 100 language directions (including bridged directions).
+       * @summary Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language directions (including bridged directions).
        *
        * @description ## Product Introduction
-       * Image Translation Pro is designed for e-commerce images. It integrates multimodal large model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language directions (including bridged directions).
+       * Image Translation Pro is designed for e-commerce images. It integrates multimodal foundation model technology to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language directions (including bridged directions).
        * ## Scenarios
        * E-commerce product images, marketing images, and images for various other scenarios.
        * ## Features
        * - **Product subject protection**: Specify whether to translate text on the product subject. This helps you protect subject information from being translated, such as embedded information like product names.
-       * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK is not yet available. Follow platform notifications for updates.
+       * - **Post-translation editing**: Specify whether to return layout information such as text position, font, and color. This can be used for secondary editing when integrated with an image editor. The editor SDK package is not yet available. Follow platform notifications for updates.
        * - **Brand name protection**: Specify whether to translate brand names on images. This helps you protect brand name information from being translated.
-       * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+       * - **Translation intervention**: Customize translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and remove text (ABC→empty value). This is commonly used for brand name protection and similar scenarios. Pass the corresponding intervention glossary ID when calling the API. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
        * - <props="china"> **Image editor integration**: For more information, see [Image Translation Editor Protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
        *
        * @param request ImageTranslationProRequest
@@ -1102,20 +1176,20 @@ namespace Aidge20260428
       Models::ImageTranslationProResponse imageTranslationPro(const Models::ImageTranslationProRequest &request);
 
       /**
-       * @summary Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, making it easy to integrate with image editors for secondary editing of translation results.
+       * @summary Image Translation is designed specifically for e-commerce images. It supports more than 400 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, which facilitates secondary editing of translation results through an image editor.
        *
        * @description # 1. Product Introduction
-       * Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, making it easy to integrate with image editors for secondary editing of translation results.
-       * # 2. Applicable scenarios
+       * Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, which facilitates secondary editing of translation results through an image editor.
+       * # 2. Common scenarios
        * E-commerce product images, marketing images, and images for various other scenarios.
        * # 3. Features
-       * *   **Product area protection**: Allows you to choose whether to translate text on the product area of an image. This helps protect product area information from being translated, avoiding translation of embedded information such as product names.
+       * *   **Product area protection**: You can choose whether to translate text on the product area of an image. This helps protect product area information from being translated, such as embedded product names.
        *     
-       * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
+       * *   **Brand name protection**: You can choose whether to translate brand names on images. This helps protect brand name information from being translated.
        *     
-       * *   **Secondary editing after translation (layer information)**: Allows you to choose whether to return layer information such as text position, font, and color. This information can be used to integrate with image editors for secondary editing of translation results. For the availability of the editor SDK package, follow platform notifications.
+       * *   **Secondary editing after translation (layer information)**: You can choose whether to return layer information such as text position, font, and color. This information can be used to connect to an image editor for secondary editing of translation results. For the release progress of the editor SDK package, follow platform notifications.
        *     
-       * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying translations (ABC-DEF), or removing text (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+       * *   **Translation intervention**: You can customize translation results, including keeping text untranslated (ABC-ABC), specifying translations (ABC-DEF), or removing text (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
        * *   **Image editor integration**: For more information, see [Image Translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
        *
        * @param request ImageTranslationStandardRequest
@@ -1125,20 +1199,20 @@ namespace Aidge20260428
       Models::ImageTranslationStandardResponse imageTranslationStandardWithOptions(const Models::ImageTranslationStandardRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, making it easy to integrate with image editors for secondary editing of translation results.
+       * @summary Image Translation is designed specifically for e-commerce images. It supports more than 400 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, which facilitates secondary editing of translation results through an image editor.
        *
        * @description # 1. Product Introduction
-       * Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, making it easy to integrate with image editors for secondary editing of translation results.
-       * # 2. Applicable scenarios
+       * Image Translation is designed specifically for e-commerce images. It supports more than 100 language directions (including bridging), accurately processes complex text layouts within images, and ensures that translated content matches the image content. This helps e-commerce platforms and developers easily achieve multilingual conversion and rendering of image content. The product also returns layer information such as text position, font, and color within images, which facilitates secondary editing of translation results through an image editor.
+       * # 2. Common scenarios
        * E-commerce product images, marketing images, and images for various other scenarios.
        * # 3. Features
-       * *   **Product area protection**: Allows you to choose whether to translate text on the product area of an image. This helps protect product area information from being translated, avoiding translation of embedded information such as product names.
+       * *   **Product area protection**: You can choose whether to translate text on the product area of an image. This helps protect product area information from being translated, such as embedded product names.
        *     
-       * *   **Brand name protection**: Allows you to choose whether to translate brand names on images. This helps protect brand name information from being translated.
+       * *   **Brand name protection**: You can choose whether to translate brand names on images. This helps protect brand name information from being translated.
        *     
-       * *   **Secondary editing after translation (layer information)**: Allows you to choose whether to return layer information such as text position, font, and color. This information can be used to integrate with image editors for secondary editing of translation results. For the availability of the editor SDK package, follow platform notifications.
+       * *   **Secondary editing after translation (layer information)**: You can choose whether to return layer information such as text position, font, and color. This information can be used to connect to an image editor for secondary editing of translation results. For the release progress of the editor SDK package, follow platform notifications.
        *     
-       * *   **Translation intervention**: Allows you to customize translation results, including keeping text untranslated (ABC-ABC), specifying translations (ABC-DEF), or removing text (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+       * *   **Translation intervention**: You can customize translation results, including keeping text untranslated (ABC-ABC), specifying translations (ABC-DEF), or removing text (ABC-empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API operation. This meets your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
        * *   **Image editor integration**: For more information, see [Image Translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
        *
        * @param request ImageTranslationStandardRequest
@@ -1229,24 +1303,24 @@ namespace Aidge20260428
       Models::MaterialInspectionResponse materialInspection(const Models::MaterialInspectionRequest &request);
 
       /**
-       * @summary Detects and identifies products displayed on store shelves or floor stacks by combining a multimodal large language model (MLLM) with visual vector recall, targeting shelf and floor-stack inspection scenarios in offline retail and channel stores. The service first uses an MLLM to detect the bounding box and preliminary name of each product in a store photo, then performs similarity recall against a customer-specific SKU vector library to exact match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This is applicable to large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
+       * @summary Detects and identifies products displayed on store shelves or floor stacks by using a multimodal large language model (MLLM) combined with visual vector recall. The service is designed for shelf and floor stack inspection scenarios in offline retail and channel stores. It first uses the MLLM to detect the bounding box and preliminary name of each product in a store photo, then performs similarity recall against a customer-specific SKU vector library to exactly match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This service is suitable for large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
        *
        * @description ## **Product Introduction**
-       * Display detection is an intelligent store product display recognition capability built on a multimodal large language model (MLLM) combined with visual vector recall. It targets shelf and floor-stack display inspection scenarios in offline retail and channel stores. For store photos of shelves and floor stacks, the service first uses an MLLM to detect the bounding box and preliminary name of each product, then performs similarity recall against a customer-specific SKU vector library to exact match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This is applicable to large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
+       * Display detection is an intelligent product display recognition capability built on a multimodal large language model (MLLM) combined with visual vector recall. It is designed for shelf and floor stack inspection scenarios in offline retail and channel stores. The service takes real photos of store shelves and floor stacks, first uses the MLLM to detect the bounding box and preliminary name of each product, then performs similarity recall against a customer-specific SKU vector library to exactly match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This service is suitable for large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
        * ## **Scenarios**
-       * -   **Shelf/floor-stack display recognition and inventory**: Identifies each product in a shelf or floor-stack image, matches it to the customer\\"s SKU library, and outputs a per-product list (product name + position + similarity score), replacing manual counting.
+       * -   **Shelf/floor stack display recognition and inventory**: Identifies each product in a shelf or floor stack image, matches it to the customer\\"s SKU library, and outputs a per-product list (product name + position + similarity score), replacing manual counting.
        *     
-       * -   **Distribution verification/SKU compliance**: Verifies whether a store displays the specified SKUs as required by headquarters and whether any out-of-stock or misplaced items exist, supporting batch automated verification during sales promotions or new product launches.
+       * -   **Distribution verification/SKU compliance**: Verifies whether a store displays the specified SKUs as required by headquarters and whether any out-of-stock or misplaced items exist. This supports batch automated verification during sales promotions or new product launches.
        *     
-       * -   **Customer-specific SKU library**: Customers can upload their own standard SKU images to build a dedicated vector library (isolated by `RagId`). During recognition, recall is performed only within the corresponding customer library, ensuring name accuracy and data isolation between customers.
-       * ## **Features**
-       * -   **Two-stage detection + recall pipeline**: The MLLM detects each product box and preliminary name across the entire image (semantic-level understanding, adapted for dense displays and partial occlusion). Then, visual embedding vectors perform similarity retrieval within the customer\\"s SKU library, and the top-1 precise SKU name overrides the preliminary name, balancing recall rate and name accuracy.
+       * -   **Customer-specific SKU library**: Customers can upload their own standard SKU images to build a dedicated vector library (isolated by `RagId`). During recognition, retrieval is performed only within the corresponding customer library, ensuring name accuracy and data isolation between customers.
+       * ## **Functions and features**
+       * -   **Two-stage detection + retrieval pipeline**: The MLLM detects each product bounding box and preliminary name across the entire image (semantic-level understanding, adapted for dense displays and partial occlusion). Then, visual embedding vectors are used for similarity retrieval within the customer\\"s SKU library, and the top-1 precise SKU name overrides the preliminary name, balancing recall rate and name accuracy.
        *     
-       * -   **Dedicated vector library with isolated recall**: A dedicated SKU vector library is maintained for each customer by `RagId`. Recognition retrieves only within the corresponding library, ensuring strict isolation between customers. Newly added or updated SKUs take effect in real time.
+       * -   **Isolated retrieval with dedicated vector libraries**: A dedicated SKU vector library is maintained for each customer by `RagId`. Recognition retrieves only within the corresponding library, ensuring strict isolation between customers. Newly added or updated SKUs take effect in real time.
        *     
-       * -   **Per-product structured output**: Output is unified as `Result.Items[]`, with each product independently providing a bounding box, recalled SKU name, SKU code, and similarity score. This facilitates direct integration with downstream inventory/verification systems and supports case-level manual review and traceability.
+       * -   **Per-product structured output**: Output is unified as `Result.Items[]`, with each product independently providing a bounding box, recalled SKU name, SKU code, and similarity score. This facilitates direct integration with downstream inventory and verification systems and supports case-level manual review and traceability.
        *     
-       * -   **Supported input formats**: Currently supports image URLs accessible over the Internet or from OSS. A single shelf or floor-stack image is sufficient for recognition, and the output structure is consistent.
+       * -   **Supported input formats**: Currently supports image URLs accessible over the Internet or through OSS. A single shelf or floor stack image is sufficient for recognition, and the output structure is consistent.
        *
        * @param request MerchandisePlacementDetectionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1255,29 +1329,66 @@ namespace Aidge20260428
       Models::MerchandisePlacementDetectionResponse merchandisePlacementDetectionWithOptions(const Models::MerchandisePlacementDetectionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Detects and identifies products displayed on store shelves or floor stacks by combining a multimodal large language model (MLLM) with visual vector recall, targeting shelf and floor-stack inspection scenarios in offline retail and channel stores. The service first uses an MLLM to detect the bounding box and preliminary name of each product in a store photo, then performs similarity recall against a customer-specific SKU vector library to exact match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This is applicable to large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
+       * @summary Detects and identifies products displayed on store shelves or floor stacks by using a multimodal large language model (MLLM) combined with visual vector recall. The service is designed for shelf and floor stack inspection scenarios in offline retail and channel stores. It first uses the MLLM to detect the bounding box and preliminary name of each product in a store photo, then performs similarity recall against a customer-specific SKU vector library to exactly match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This service is suitable for large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
        *
        * @description ## **Product Introduction**
-       * Display detection is an intelligent store product display recognition capability built on a multimodal large language model (MLLM) combined with visual vector recall. It targets shelf and floor-stack display inspection scenarios in offline retail and channel stores. For store photos of shelves and floor stacks, the service first uses an MLLM to detect the bounding box and preliminary name of each product, then performs similarity recall against a customer-specific SKU vector library to exact match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This is applicable to large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
+       * Display detection is an intelligent product display recognition capability built on a multimodal large language model (MLLM) combined with visual vector recall. It is designed for shelf and floor stack inspection scenarios in offline retail and channel stores. The service takes real photos of store shelves and floor stacks, first uses the MLLM to detect the bounding box and preliminary name of each product, then performs similarity recall against a customer-specific SKU vector library to exactly match each product to the customer\\"s own SKUs, and outputs per-product structured results that can be directly integrated with business systems. This service is suitable for large-scale, high-concurrent visual recognition pipelines such as remote display auditing by headquarters, SKU distribution verification, and display compliance inspection for offline stores.
        * ## **Scenarios**
-       * -   **Shelf/floor-stack display recognition and inventory**: Identifies each product in a shelf or floor-stack image, matches it to the customer\\"s SKU library, and outputs a per-product list (product name + position + similarity score), replacing manual counting.
+       * -   **Shelf/floor stack display recognition and inventory**: Identifies each product in a shelf or floor stack image, matches it to the customer\\"s SKU library, and outputs a per-product list (product name + position + similarity score), replacing manual counting.
        *     
-       * -   **Distribution verification/SKU compliance**: Verifies whether a store displays the specified SKUs as required by headquarters and whether any out-of-stock or misplaced items exist, supporting batch automated verification during sales promotions or new product launches.
+       * -   **Distribution verification/SKU compliance**: Verifies whether a store displays the specified SKUs as required by headquarters and whether any out-of-stock or misplaced items exist. This supports batch automated verification during sales promotions or new product launches.
        *     
-       * -   **Customer-specific SKU library**: Customers can upload their own standard SKU images to build a dedicated vector library (isolated by `RagId`). During recognition, recall is performed only within the corresponding customer library, ensuring name accuracy and data isolation between customers.
-       * ## **Features**
-       * -   **Two-stage detection + recall pipeline**: The MLLM detects each product box and preliminary name across the entire image (semantic-level understanding, adapted for dense displays and partial occlusion). Then, visual embedding vectors perform similarity retrieval within the customer\\"s SKU library, and the top-1 precise SKU name overrides the preliminary name, balancing recall rate and name accuracy.
+       * -   **Customer-specific SKU library**: Customers can upload their own standard SKU images to build a dedicated vector library (isolated by `RagId`). During recognition, retrieval is performed only within the corresponding customer library, ensuring name accuracy and data isolation between customers.
+       * ## **Functions and features**
+       * -   **Two-stage detection + retrieval pipeline**: The MLLM detects each product bounding box and preliminary name across the entire image (semantic-level understanding, adapted for dense displays and partial occlusion). Then, visual embedding vectors are used for similarity retrieval within the customer\\"s SKU library, and the top-1 precise SKU name overrides the preliminary name, balancing recall rate and name accuracy.
        *     
-       * -   **Dedicated vector library with isolated recall**: A dedicated SKU vector library is maintained for each customer by `RagId`. Recognition retrieves only within the corresponding library, ensuring strict isolation between customers. Newly added or updated SKUs take effect in real time.
+       * -   **Isolated retrieval with dedicated vector libraries**: A dedicated SKU vector library is maintained for each customer by `RagId`. Recognition retrieves only within the corresponding library, ensuring strict isolation between customers. Newly added or updated SKUs take effect in real time.
        *     
-       * -   **Per-product structured output**: Output is unified as `Result.Items[]`, with each product independently providing a bounding box, recalled SKU name, SKU code, and similarity score. This facilitates direct integration with downstream inventory/verification systems and supports case-level manual review and traceability.
+       * -   **Per-product structured output**: Output is unified as `Result.Items[]`, with each product independently providing a bounding box, recalled SKU name, SKU code, and similarity score. This facilitates direct integration with downstream inventory and verification systems and supports case-level manual review and traceability.
        *     
-       * -   **Supported input formats**: Currently supports image URLs accessible over the Internet or from OSS. A single shelf or floor-stack image is sufficient for recognition, and the output structure is consistent.
+       * -   **Supported input formats**: Currently supports image URLs accessible over the Internet or through OSS. A single shelf or floor stack image is sufficient for recognition, and the output structure is consistent.
        *
        * @param request MerchandisePlacementDetectionRequest
        * @return MerchandisePlacementDetectionResponse
        */
       Models::MerchandisePlacementDetectionResponse merchandisePlacementDetection(const Models::MerchandisePlacementDetectionRequest &request);
+
+      /**
+       * @summary Detects the positions and names of visible products in an image based on a dedicated visual model. The product supports default recognition rules for the Genki Forest business type and custom rules provided by the invoker. It outputs per-product positions and names, applicable to beverage display inspection and product location display.
+       *
+       * @description ## Scenarios
+       * - Beverage display recognition: Uses default rules for the Genki Forest business type to recognize visible beverage products.
+       * - Custom detection rules: Specifies product recognition tasks that comply with output constraints through the rule parameter.
+       * - Product location display: Uses per-product names and bounding boxes for display, statistics, or manual review.
+       * ## Features
+       * - Direct product recognition: Each product outputs a bounding box and a name. The name is returned as unknown if it cannot be determined.
+       * - Two rule entry points: A non-empty rule takes priority. If no valid rule is provided, the type must be set to Genki Forest.
+       * - Unified result validation: Bounding box coordinates are converted to integers and restricted to the range 0–1000. Reversed coordinates are swapped. Missing names default to unknown. The entire batch fails if any item is not a valid product object, has an invalid bounding box, or has no area.
+       * - Result scope: Currently outputs detected names and positions only. Vector library recall, SKU codes, and similarity scores are not included.
+       *
+       * @param request MerchandisePlacementDetectionProRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MerchandisePlacementDetectionProResponse
+       */
+      Models::MerchandisePlacementDetectionProResponse merchandisePlacementDetectionProWithOptions(const Models::MerchandisePlacementDetectionProRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Detects the positions and names of visible products in an image based on a dedicated visual model. The product supports default recognition rules for the Genki Forest business type and custom rules provided by the invoker. It outputs per-product positions and names, applicable to beverage display inspection and product location display.
+       *
+       * @description ## Scenarios
+       * - Beverage display recognition: Uses default rules for the Genki Forest business type to recognize visible beverage products.
+       * - Custom detection rules: Specifies product recognition tasks that comply with output constraints through the rule parameter.
+       * - Product location display: Uses per-product names and bounding boxes for display, statistics, or manual review.
+       * ## Features
+       * - Direct product recognition: Each product outputs a bounding box and a name. The name is returned as unknown if it cannot be determined.
+       * - Two rule entry points: A non-empty rule takes priority. If no valid rule is provided, the type must be set to Genki Forest.
+       * - Unified result validation: Bounding box coordinates are converted to integers and restricted to the range 0–1000. Reversed coordinates are swapped. Missing names default to unknown. The entire batch fails if any item is not a valid product object, has an invalid bounding box, or has no area.
+       * - Result scope: Currently outputs detected names and positions only. Vector library recall, SKU codes, and similarity scores are not included.
+       *
+       * @param request MerchandisePlacementDetectionProRequest
+       * @return MerchandisePlacementDetectionProResponse
+       */
+      Models::MerchandisePlacementDetectionProResponse merchandisePlacementDetectionPro(const Models::MerchandisePlacementDetectionProRequest &request);
 
       /**
        * @summary An intelligent logistics parcel review product built on the collaboration of a multimodal large language model (MLLM) and dedicated vision algorithms. It targets automated compliance review for the "piece-weight-dimension" stage in e-commerce logistics. The product performs structured review across multiple dimensions, including bounding box validity, bounding box fit, and foreign object interference for parcels on scanning platforms. It supports different hardware capture scenarios such as white and green background boards, and outputs Boolean review conclusions with Chinese-language reason descriptions that can be directly integrated with business systems. It is suitable for large-scale, high-concurrency inbound quality inspection pipelines.
@@ -1323,6 +1434,41 @@ namespace Aidge20260428
        * @return PackageWeightSizeCheckResponse
        */
       Models::PackageWeightSizeCheckResponse packageWeightSizeCheck(const Models::PackageWeightSizeCheckRequest &request);
+
+      /**
+       * @summary Analyzes pet excrement images using a pet multimodal model building product. Supports uploading pet excrement images, determines by default whether excrement is present in the image, locates and performs categorization on each visible excrement area, and returns model-generated text containing the categorization results. The invoker can also optionally provide a user prompt and a system prompt to customize image analysis requirements and response format.
+       * Applicable scenarios:
+       * 1. Excrement image analysis: Upload pet excrement images for analysis using the default method.
+       * 2. Observation record organization: Combine multiple excrement images to assist in organizing visible features and observation records.
+       * 3. Custom image-text analysis: Provide a user prompt to specify the image content to focus on and the analysis requirements.
+       *
+       * @description 1. Multi-image input: image_url is a required array of HTTPS image URLs. 
+       * 2. Default excrement analysis: If user_prompt is not specified or is an empty string, the system determines whether excrement is present and outputs the location, urine clump/feces category, and subcategory for each region. 
+       * 3. Custom analysis: user_prompt and system_prompt are both optional. You can specify analysis requirements and system prompts separately. When submitting custom prompts, use values that comply with JSON string escaping rules.
+       * 4. Text result response: result is always a String. Even if the model text itself is JSON, it is not automatically converted to an object.
+       *
+       * @param tmpReq PetHealthAnalysisRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return PetHealthAnalysisResponse
+       */
+      Models::PetHealthAnalysisResponse petHealthAnalysisWithOptions(const Models::PetHealthAnalysisRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Analyzes pet excrement images using a pet multimodal model building product. Supports uploading pet excrement images, determines by default whether excrement is present in the image, locates and performs categorization on each visible excrement area, and returns model-generated text containing the categorization results. The invoker can also optionally provide a user prompt and a system prompt to customize image analysis requirements and response format.
+       * Applicable scenarios:
+       * 1. Excrement image analysis: Upload pet excrement images for analysis using the default method.
+       * 2. Observation record organization: Combine multiple excrement images to assist in organizing visible features and observation records.
+       * 3. Custom image-text analysis: Provide a user prompt to specify the image content to focus on and the analysis requirements.
+       *
+       * @description 1. Multi-image input: image_url is a required array of HTTPS image URLs. 
+       * 2. Default excrement analysis: If user_prompt is not specified or is an empty string, the system determines whether excrement is present and outputs the location, urine clump/feces category, and subcategory for each region. 
+       * 3. Custom analysis: user_prompt and system_prompt are both optional. You can specify analysis requirements and system prompts separately. When submitting custom prompts, use values that comply with JSON string escaping rules.
+       * 4. Text result response: result is always a String. Even if the model text itself is JSON, it is not automatically converted to an object.
+       *
+       * @param request PetHealthAnalysisRequest
+       * @return PetHealthAnalysisResponse
+       */
+      Models::PetHealthAnalysisResponse petHealthAnalysis(const Models::PetHealthAnalysisRequest &request);
 
       /**
        * @summary Maas-MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 400 language directions (including bridged translations), especially Chinese-English, Chinese-to-multilingual, and English-to-multilingual translations. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
@@ -1810,31 +1956,31 @@ namespace Aidge20260428
       Models::TextCorrectResponse textCorrect(const Models::TextCorrectRequest &request);
 
       /**
-       * @summary Maas-MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+       * @summary Maas-MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 400 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 31 languages in query phrases and 35 languages in general scenarios. If you do not specify a source language, automatic language detection is performed.
        *
        * @description ## Product Introduction
-       * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+       * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic language detection is performed.
        * ## Common scenarios
-       * - **Product titles**: Marco MT can accurately translate phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
-       * - **Product descriptions**: Product descriptions are typically long with diverse and complex formatting. Marco MT supports long text translation and HTML format, delivering excellent translation quality and format preservation.
-       * - **Product attributes**: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and specifications.
-       * - **Customer service conversations**: In customer service scenarios, Marco MT can handle issues such as missing context and typos, and supports polite expressions for certain language directions.
-       * Marco MT can also be used for general translation scenarios such as office work, meetings, and daily conversations.
+       * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
+       * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco MT large model translation supports long text translation and HTML formatting, delivering excellent translation quality and format preservation.
+       * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and specifications.
+       * - Customer service conversations: In customer service scenarios, Marco MT optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
+       * Marco MT large model translation can also be used for general-purpose translation scenarios such as office work, meetings, and daily conversations.
        * ## Functions and features
        * - **Supported language directions**   
-       * Marco MT supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+       * Marco MT large model translation supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
        * - **Ultra-low hallucination rate and high-speed inference**   
-       * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it delivers faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+       * Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
        * - **Supported text format types**   
-       * Currently supports text and html text types.
-       * - **Translation intervention**   
-       * Supports custom translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+       * Currently, text and html text types are supported.
+       * - **Translation intervention support**   
+       * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
        * ## Translation quality comparison
        * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
        * |----------|---------------|-----------------------|-----------------------|---------------------|
        * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
        * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
-       * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression — correctly identifies "key bag" rather than "keychain," avoiding ambiguity about the product |
+       * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression as "key bag" rather than "keychain", avoiding ambiguity about the product subject in other translations |
        *
        * @param tmpReq TextTranslateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1843,31 +1989,31 @@ namespace Aidge20260428
       Models::TextTranslateResponse textTranslateWithOptions(const Models::TextTranslateRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Maas-MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+       * @summary Maas-MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 400 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 31 languages in query phrases and 35 languages in general scenarios. If you do not specify a source language, automatic language detection is performed.
        *
        * @description ## Product Introduction
-       * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, continuously optimized for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 language directions. If you do not specify a source language, automatic detection is performed.
+       * Marco MT is an e-commerce translation model trained on over 1 billion high-quality bilingual sentence pairs, with continuous optimization for e-commerce-specific terminology such as brands, models, materials, and attributes. It supports mutual translation among more than 100 language directions (including bridged directions), especially Chinese-English, Chinese-multilingual, and English-multilingual translation. It supports language detection for 24 languages. If you do not specify a source language, automatic language detection is performed.
        * ## Common scenarios
-       * - **Product titles**: Marco MT can accurately translate phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
-       * - **Product descriptions**: Product descriptions are typically long with diverse and complex formatting. Marco MT supports long text translation and HTML format, delivering excellent translation quality and format preservation.
-       * - **Product attributes**: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and specifications.
-       * - **Customer service conversations**: In customer service scenarios, Marco MT can handle issues such as missing context and typos, and supports polite expressions for certain language directions.
-       * Marco MT can also be used for general translation scenarios such as office work, meetings, and daily conversations.
+       * - Product titles: Marco MT large model translation accurately translates phrases, keywords, and trending terms in product titles into the target language, improving product visibility on e-commerce platforms.
+       * - Product descriptions: Product descriptions are typically long with diverse and complex formatting. Marco MT large model translation supports long text translation and HTML formatting, delivering excellent translation quality and format preservation.
+       * - Product attributes: Product attribute terms are typically short and may contain e-commerce-specific terms such as model numbers and specifications.
+       * - Customer service conversations: In customer service scenarios, Marco MT optimizes issues such as missing context and typos, and supports polite expressions for certain language directions.
+       * Marco MT large model translation can also be used for general-purpose translation scenarios such as office work, meetings, and daily conversations.
        * ## Functions and features
        * - **Supported language directions**   
-       * Marco MT supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+       * Marco MT large model translation supports mutual translation among more than 100 languages and language detection for 24 languages. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
        * - **Ultra-low hallucination rate and high-speed inference**   
-       * Marco MT is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it delivers faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
+       * Marco MT large model translation is a large language model with preference alignment for translation scenarios. Compared with general-purpose large language models, it provides faster translation inference and an extremely low hallucination rate, making it especially suitable for large-scale invocation scenarios.
        * - **Supported text format types**   
-       * Currently supports text and html text types.
-       * - **Translation intervention**   
-       * Supports custom translation results, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
+       * Currently, text and html text types are supported.
+       * - **Translation intervention support**   
+       * Custom translation results are supported, including do-not-translate (ABC→ABC), specified translation (ABC→DEF), and skip translation (ABC→empty value). This is commonly used for scenarios such as brand name protection. Simply pass the corresponding intervention glossary ID when calling the API to meet your translation needs across different scenarios. You can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.
        * ## Translation quality comparison
        * | **Source text** | **Aidge translation** | **Other translation product 1** | **Other translation product 2** | **Aidge translation advantage** |
        * |----------|---------------|-----------------------|-----------------------|---------------------|
        * | 75mm 4Pin 0.38A GA81S2U 12V GTX 960 Cooling Fan for Zotac GTX960 Graphics Card Cooling Fan | 75mm 4Pin 0.38A GA81S2U 12V GTX 960, ventilador de enfriamiento para tarjeta gráfica Zotac GTX960. | Ventilador de refrigeración de 75mm 4Pin 0.38A GA81S2U 12V para la tarjeta gráfica Zotac GTX960 Ventilador de enfriamiento GTX 960. | Ventilador de refrigeración para tarjeta gráfica Zotac GTX960, 75mm, 4 pines, 0,38A, GA81S2U, 12V, GTX 960 | Clearer product subject |
        * | New Arrival Classic Style Luxury Brand 6 Hands Swiss Automatic Mechanical Men\\"s Business Steel Watch | Nueva llegada, reloj mecánico automático de lujo con 6 manecillas, estilo clásico, de acero para hombres de negocios | Nueva Llegada Reloj De Acero de Negocios para Hombre con Mecanismo Automático Suizo y 6 Agujas de Estilo Clásico de Marca de Lujo. | Reloj de acero de negocios para hombre, mecánico automático suizo, marca de lujo, estilo clásico, 6 manos, nueva llegada | More complete sentence structure, clearer expression, and more reasonable segmentation |
-       * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression — correctly identifies "key bag" rather than "keychain," avoiding ambiguity about the product |
+       * | Men Key Bag Genuine Cow Leather Buckets Key Cases Pouch Zipper Keychain Auto Car Key Case Women Home Key Holder Wallet | Sac à clés pour hommes en cuir de vache véritable, étuis à clés, pochette à fermeture éclair, porte-clés, étui à clé de voiture, porte-clés pour femmes, organisateur de portefeuille | Porte-clés sac en cuir de vache véritable, étuis à clés en forme de seau, pochette à fermeture éclair, porte-clés auto pour voiture, étui à clés pour femmes, organisateur de clés de maison, portefeuille. | Hommes porte-clés en cuir de vache véritable sac/pochette fermature éclair porte-clés Auto voiture porte-clés femmes maison porte-clés organisateur portefeuille | Clearer and more accurate product subject expression as "key bag" rather than "keychain", avoiding ambiguity about the product subject in other translations |
        *
        * @param request TextTranslateRequest
        * @return TextTranslateResponse

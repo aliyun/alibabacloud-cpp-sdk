@@ -94,28 +94,28 @@ namespace Models
 
 
   protected:
-    // The intervention glossary ID. Optional. You must create the glossary separately in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
+    // The intervention glossary ID. This parameter is optional. You must create the glossary separately in the console and provide its ID. If the glossary ID is empty, the translation results are not modified.
     shared_ptr<string> glossary_ {};
-    // - Image URL: Must be publicly accessible.
-    // - Format: png, jpeg, jpg, bmp, webp
-    // - Pixels: Both width and height must not exceed 4000
-    // - File size: Original file ≤ 10 MB
+    // - Image URL: The URL must be publicly accessible.
+    // - Format: png, jpeg, jpg, bmp, or webp.
+    // - Pixels: The width and height must not exceed 4000 pixels each.
+    // - File size: The original file must be 10 MB or smaller.
     // 
     // This parameter is required.
     shared_ptr<string> imageUrl_ {};
-    // Specifies whether to translate text on the product area of an image. Optional. Default value: false. This helps protect information by avoiding translation of embedded information such as product names.
+    // Specifies whether to translate text on the product area of the image. This parameter is optional. Default value: false. This helps protect information by preventing translation of embedded content such as product names.
     shared_ptr<bool> includingProductArea_ {};
-    // The source language code. Required. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+    // The source language code. This parameter is required. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
     // 
     // This parameter is required.
     shared_ptr<string> sourceLanguage_ {};
-    // The target language code. Required. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
+    // The target language code. This parameter is required. For supported language directions, see [Language direction mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).
     // 
     // This parameter is required.
     shared_ptr<string> targetLanguage_ {};
-    // Specifies whether to translate brand names on images. Optional. Default value: false. This helps protect brand name information from being translated.
+    // Specifies whether to translate brand names on the image. This parameter is optional. Default value: false. This helps protect brand name information from being translated.
     shared_ptr<bool> translatingBrandInTheProduct_ {};
-    // Specifies whether to return layer information such as text position, font, and color. If you set this parameter to true, layer information is returned, which can be used to integrate with image editors for secondary editing. Default value: false.
+    // Specifies whether to return layer information such as text position, font, and color. If you set this parameter to true, layer information is returned for secondary editing through an image editor. Default value: false.
     shared_ptr<bool> useImageEditor_ {};
   };
 

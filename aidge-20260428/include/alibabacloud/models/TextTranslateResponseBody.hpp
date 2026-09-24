@@ -188,7 +188,7 @@ namespace Models
     shared_ptr<TextTranslateResponseBody::Data> data_ {};
     // The error message. The value "Success" is returned for successful calls. For failed calls, a specific error message is returned, such as "The parameters contain sensitive information. Try other input."
     shared_ptr<string> message_ {};
-    // The request ID, used to uniquely identify a request.
+    // The request ID, which uniquely identifies a single request.
     shared_ptr<string> requestId_ {};
     // Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
     shared_ptr<bool> success_ {};

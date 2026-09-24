@@ -409,7 +409,7 @@ namespace Models
             shared_ptr<Texts::ImageRect> imageRect_ {};
             // The language.
             shared_ptr<string> language_ {};
-            // The line count.
+            // The number of lines.
             shared_ptr<int32_t> lineCount_ {};
             // The text area.
             shared_ptr<Texts::TextRect> textRect_ {};
@@ -484,7 +484,7 @@ namespace Models
           shared_ptr<int32_t> fontsize_ {};
           // The horizontal layout.
           shared_ptr<string> horizontalLayout_ {};
-          // The line count.
+          // The number of lines.
           shared_ptr<int32_t> lineCount_ {};
           // The list of texts.
           shared_ptr<vector<TextAreas::Texts>> texts_ {};
@@ -659,15 +659,15 @@ namespace Models
       protected:
         // The list of fonts used.
         shared_ptr<vector<string>> font_ {};
-        // The product area rectangles.
+        // The rectangle of the product area.
         shared_ptr<EditInfo::GoodsRects> goodsRects_ {};
-        // The product image URL.
+        // The URL of the product image.
         shared_ptr<string> goodsUrl_ {};
         // The list of target languages.
         shared_ptr<vector<string>> languages_ {};
-        // The original image URL.
+        // The URL of the original image.
         shared_ptr<string> pictUrl_ {};
-        // The repaired image URL.
+        // The URL of the repaired image.
         shared_ptr<string> repairedUrl_ {};
         // The list of repaired image URLs.
         shared_ptr<vector<string>> repairedUrls_ {};
@@ -755,9 +755,9 @@ namespace Models
 
 
   protected:
-    // The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
+    // The response code. 200 indicates a successful call. For other response codes, refer to the error code information.
     shared_ptr<string> code_ {};
-    // The translation result data, including the translated image URL and usage information.
+    // The translation result data, including the URL of the translated image and usage information.
     shared_ptr<ImageTranslationStandardResponseBody::Data> data_ {};
     // The error message. "Success" is returned for a successful call. A specific error message is returned for a failed call.
     shared_ptr<string> message_ {};

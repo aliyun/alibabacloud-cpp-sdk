@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_IMAGETRANSLATIONPLUSRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_IMAGETRANSLATIONPLUSRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_DIDUIAREADEDUCTIONPRORESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_DIDUIAREADEDUCTIONPRORESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,29 +10,29 @@ namespace Aidge20260428
 {
 namespace Models
 {
-  class ImageTranslationPlusResponseBody : public Darabonba::Model {
+  class DiduiAreaDeductionProResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const ImageTranslationPlusResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const DiduiAreaDeductionProResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(Message, message_);
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, ImageTranslationPlusResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, DiduiAreaDeductionProResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(Message, message_);
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    ImageTranslationPlusResponseBody() = default ;
-    ImageTranslationPlusResponseBody(const ImageTranslationPlusResponseBody &) = default ;
-    ImageTranslationPlusResponseBody(ImageTranslationPlusResponseBody &&) = default ;
-    ImageTranslationPlusResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~ImageTranslationPlusResponseBody() = default ;
-    ImageTranslationPlusResponseBody& operator=(const ImageTranslationPlusResponseBody &) = default ;
-    ImageTranslationPlusResponseBody& operator=(ImageTranslationPlusResponseBody &&) = default ;
+    DiduiAreaDeductionProResponseBody() = default ;
+    DiduiAreaDeductionProResponseBody(const DiduiAreaDeductionProResponseBody &) = default ;
+    DiduiAreaDeductionProResponseBody(DiduiAreaDeductionProResponseBody &&) = default ;
+    DiduiAreaDeductionProResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~DiduiAreaDeductionProResponseBody() = default ;
+    DiduiAreaDeductionProResponseBody& operator=(const DiduiAreaDeductionProResponseBody &) = default ;
+    DiduiAreaDeductionProResponseBody& operator=(DiduiAreaDeductionProResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -65,7 +65,7 @@ namespace Models
 
 
     protected:
-      // The asynchronous task ID. Use this ID to poll for results through the queryTaskResult operation.
+      // The ID of the asynchronous task, which is used to call QueryAsyncTaskResult to query the task result.
       shared_ptr<string> taskId_ {};
     };
 
@@ -75,51 +75,49 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline ImageTranslationPlusResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline DiduiAreaDeductionProResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const ImageTranslationPlusResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, ImageTranslationPlusResponseBody::Data) };
-    inline ImageTranslationPlusResponseBody::Data getData() { DARABONBA_PTR_GET(data_, ImageTranslationPlusResponseBody::Data) };
-    inline ImageTranslationPlusResponseBody& setData(const ImageTranslationPlusResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline ImageTranslationPlusResponseBody& setData(ImageTranslationPlusResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const DiduiAreaDeductionProResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, DiduiAreaDeductionProResponseBody::Data) };
+    inline DiduiAreaDeductionProResponseBody::Data getData() { DARABONBA_PTR_GET(data_, DiduiAreaDeductionProResponseBody::Data) };
+    inline DiduiAreaDeductionProResponseBody& setData(const DiduiAreaDeductionProResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline DiduiAreaDeductionProResponseBody& setData(DiduiAreaDeductionProResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline ImageTranslationPlusResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline DiduiAreaDeductionProResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline ImageTranslationPlusResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline DiduiAreaDeductionProResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline ImageTranslationPlusResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline DiduiAreaDeductionProResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The error code. This parameter is not returned if the call is successful.
+    // The error code.
     shared_ptr<string> code_ {};
-    // The asynchronous task submit status.
-    shared_ptr<ImageTranslationPlusResponseBody::Data> data_ {};
-    // The error message. This parameter is not returned if the call is successful.
+    // The submit status of the asynchronous task.
+    shared_ptr<DiduiAreaDeductionProResponseBody::Data> data_ {};
+    // The response message or failure description.
     shared_ptr<string> message_ {};
-    // Id of the request
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the call is successful. Valid values:
-    // - true: The call is successful.
-    // - false: The call failed.
+    // Indicates whether the call was successful.
     shared_ptr<bool> success_ {};
   };
 
