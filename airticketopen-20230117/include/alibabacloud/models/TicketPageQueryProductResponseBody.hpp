@@ -74,10 +74,10 @@ namespace Models
           DARABONBA_PTR_TO_JSON(RefundRule, refundRule_);
           DARABONBA_PTR_TO_JSON(Region, region_);
           DARABONBA_PTR_TO_JSON(ScenicId, scenicId_);
+          DARABONBA_PTR_TO_JSON(SellerAgent, sellerAgent_);
           DARABONBA_PTR_TO_JSON(Session, session_);
           DARABONBA_PTR_TO_JSON(SettlePriceCalculateType, settlePriceCalculateType_);
           DARABONBA_PTR_TO_JSON(Spu, spu_);
-          DARABONBA_PTR_TO_JSON(SupplierName, supplierName_);
           DARABONBA_PTR_TO_JSON(TicketKind, ticketKind_);
           DARABONBA_PTR_TO_JSON(UseRule, useRule_);
         };
@@ -94,10 +94,10 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(RefundRule, refundRule_);
           DARABONBA_PTR_FROM_JSON(Region, region_);
           DARABONBA_PTR_FROM_JSON(ScenicId, scenicId_);
+          DARABONBA_PTR_FROM_JSON(SellerAgent, sellerAgent_);
           DARABONBA_PTR_FROM_JSON(Session, session_);
           DARABONBA_PTR_FROM_JSON(SettlePriceCalculateType, settlePriceCalculateType_);
           DARABONBA_PTR_FROM_JSON(Spu, spu_);
-          DARABONBA_PTR_FROM_JSON(SupplierName, supplierName_);
           DARABONBA_PTR_FROM_JSON(TicketKind, ticketKind_);
           DARABONBA_PTR_FROM_JSON(UseRule, useRule_);
         };
@@ -865,6 +865,48 @@ namespace Models
           shared_ptr<string> sessionEndTime_ {};
           shared_ptr<string> sessionName_ {};
           shared_ptr<string> sessionStartTime_ {};
+        };
+
+        class SellerAgent : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const SellerAgent& obj) { 
+            DARABONBA_PTR_TO_JSON(AgentName, agentName_);
+            DARABONBA_PTR_TO_JSON(AgentType, agentType_);
+          };
+          friend void from_json(const Darabonba::Json& j, SellerAgent& obj) { 
+            DARABONBA_PTR_FROM_JSON(AgentName, agentName_);
+            DARABONBA_PTR_FROM_JSON(AgentType, agentType_);
+          };
+          SellerAgent() = default ;
+          SellerAgent(const SellerAgent &) = default ;
+          SellerAgent(SellerAgent &&) = default ;
+          SellerAgent(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~SellerAgent() = default ;
+          SellerAgent& operator=(const SellerAgent &) = default ;
+          SellerAgent& operator=(SellerAgent &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->agentName_ == nullptr
+        && this->agentType_ == nullptr; };
+          // agentName Field Functions 
+          bool hasAgentName() const { return this->agentName_ != nullptr;};
+          void deleteAgentName() { this->agentName_ = nullptr;};
+          inline string getAgentName() const { DARABONBA_PTR_GET_DEFAULT(agentName_, "") };
+          inline SellerAgent& setAgentName(string agentName) { DARABONBA_PTR_SET_VALUE(agentName_, agentName) };
+
+
+          // agentType Field Functions 
+          bool hasAgentType() const { return this->agentType_ != nullptr;};
+          void deleteAgentType() { this->agentType_ = nullptr;};
+          inline int32_t getAgentType() const { DARABONBA_PTR_GET_DEFAULT(agentType_, 0) };
+          inline SellerAgent& setAgentType(int32_t agentType) { DARABONBA_PTR_SET_VALUE(agentType_, agentType) };
+
+
+        protected:
+          shared_ptr<string> agentName_ {};
+          shared_ptr<int32_t> agentType_ {};
         };
 
         class Region : public Darabonba::Model {
@@ -1918,7 +1960,7 @@ namespace Models
         virtual bool empty() const override { return this->bookingType_ == nullptr
         && this->buyRule_ == nullptr && this->costIncludeRemark_ == nullptr && this->deliverGuaranteeMinutes_ == nullptr && this->images_ == nullptr && this->invoiceIssuerType_ == nullptr
         && this->paymentLimitMinutes_ == nullptr && this->productId_ == nullptr && this->productName_ == nullptr && this->refundRule_ == nullptr && this->region_ == nullptr
-        && this->scenicId_ == nullptr && this->session_ == nullptr && this->settlePriceCalculateType_ == nullptr && this->spu_ == nullptr && this->supplierName_ == nullptr
+        && this->scenicId_ == nullptr && this->sellerAgent_ == nullptr && this->session_ == nullptr && this->settlePriceCalculateType_ == nullptr && this->spu_ == nullptr
         && this->ticketKind_ == nullptr && this->useRule_ == nullptr; };
         // bookingType Field Functions 
         bool hasBookingType() const { return this->bookingType_ != nullptr;};
@@ -2012,6 +2054,15 @@ namespace Models
         inline Products& setScenicId(int64_t scenicId) { DARABONBA_PTR_SET_VALUE(scenicId_, scenicId) };
 
 
+        // sellerAgent Field Functions 
+        bool hasSellerAgent() const { return this->sellerAgent_ != nullptr;};
+        void deleteSellerAgent() { this->sellerAgent_ = nullptr;};
+        inline const Products::SellerAgent & getSellerAgent() const { DARABONBA_PTR_GET_CONST(sellerAgent_, Products::SellerAgent) };
+        inline Products::SellerAgent getSellerAgent() { DARABONBA_PTR_GET(sellerAgent_, Products::SellerAgent) };
+        inline Products& setSellerAgent(const Products::SellerAgent & sellerAgent) { DARABONBA_PTR_SET_VALUE(sellerAgent_, sellerAgent) };
+        inline Products& setSellerAgent(Products::SellerAgent && sellerAgent) { DARABONBA_PTR_SET_RVALUE(sellerAgent_, sellerAgent) };
+
+
         // session Field Functions 
         bool hasSession() const { return this->session_ != nullptr;};
         void deleteSession() { this->session_ = nullptr;};
@@ -2035,13 +2086,6 @@ namespace Models
         inline Products::Spu getSpu() { DARABONBA_PTR_GET(spu_, Products::Spu) };
         inline Products& setSpu(const Products::Spu & spu) { DARABONBA_PTR_SET_VALUE(spu_, spu) };
         inline Products& setSpu(Products::Spu && spu) { DARABONBA_PTR_SET_RVALUE(spu_, spu) };
-
-
-        // supplierName Field Functions 
-        bool hasSupplierName() const { return this->supplierName_ != nullptr;};
-        void deleteSupplierName() { this->supplierName_ = nullptr;};
-        inline string getSupplierName() const { DARABONBA_PTR_GET_DEFAULT(supplierName_, "") };
-        inline Products& setSupplierName(string supplierName) { DARABONBA_PTR_SET_VALUE(supplierName_, supplierName) };
 
 
         // ticketKind Field Functions 
@@ -2075,10 +2119,10 @@ namespace Models
         shared_ptr<Products::RefundRule> refundRule_ {};
         shared_ptr<Products::Region> region_ {};
         shared_ptr<int64_t> scenicId_ {};
+        shared_ptr<Products::SellerAgent> sellerAgent_ {};
         shared_ptr<Products::Session> session_ {};
         shared_ptr<int32_t> settlePriceCalculateType_ {};
         shared_ptr<Products::Spu> spu_ {};
-        shared_ptr<string> supplierName_ {};
         shared_ptr<Products::TicketKind> ticketKind_ {};
         shared_ptr<Products::UseRule> useRule_ {};
       };
