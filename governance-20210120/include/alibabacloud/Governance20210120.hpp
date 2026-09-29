@@ -61,6 +61,23 @@ namespace Governance20210120
       Models::CreateAccountFactoryBaselineResponse createAccountFactoryBaseline(const Models::CreateAccountFactoryBaselineRequest &request);
 
       /**
+       * @summary Disables and unsubscribes from Cloud Governance Center.
+       *
+       * @param request DecommissionGovernanceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DecommissionGovernanceResponse
+       */
+      Models::DecommissionGovernanceResponse decommissionGovernanceWithOptions(const Models::DecommissionGovernanceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Disables and unsubscribes from Cloud Governance Center.
+       *
+       * @param request DecommissionGovernanceRequest
+       * @return DecommissionGovernanceResponse
+       */
+      Models::DecommissionGovernanceResponse decommissionGovernance(const Models::DecommissionGovernanceRequest &request);
+
+      /**
        * @summary Deletes an account factory baseline.
        *
        * @param request DeleteAccountFactoryBaselineRequest
@@ -277,6 +294,23 @@ namespace Governance20210120
        * @return ListEvaluationScoreHistoryResponse
        */
       Models::ListEvaluationScoreHistoryResponse listEvaluationScoreHistory(const Models::ListEvaluationScoreHistoryRequest &request);
+
+      /**
+       * @summary Activates Cloud Governance Center.
+       *
+       * @param request OpenGovernanceServiceRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return OpenGovernanceServiceResponse
+       */
+      Models::OpenGovernanceServiceResponse openGovernanceServiceWithOptions(const Models::OpenGovernanceServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Activates Cloud Governance Center.
+       *
+       * @param request OpenGovernanceServiceRequest
+       * @return OpenGovernanceServiceResponse
+       */
+      Models::OpenGovernanceServiceResponse openGovernanceService(const Models::OpenGovernanceServiceRequest &request);
 
       /**
        * @summary Runs a Cloud Governance Center governance check.

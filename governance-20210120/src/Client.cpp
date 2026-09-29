@@ -18,12 +18,6 @@ namespace Governance20210120
 
 AlibabaCloud::Governance20210120::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "regional";
-  this->_endpointMap = json({
-    {"eu-central-1" , "governance.eu-central-1.aliyuncs.com"},
-    {"cn-shanghai-finance-1" , "governance.cn-shanghai-finance-1.aliyuncs.com"},
-    {"cn-hangzhou" , "governance.cn-hangzhou.aliyuncs.com"},
-    {"ap-southeast-1" , "governance.ap-southeast-1.aliyuncs.com"}
-  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("governance", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -153,6 +147,48 @@ CreateAccountFactoryBaselineResponse Client::createAccountFactoryBaselineWithOpt
 CreateAccountFactoryBaselineResponse Client::createAccountFactoryBaseline(const CreateAccountFactoryBaselineRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return createAccountFactoryBaselineWithOptions(request, runtime);
+}
+
+/**
+ * @summary Disables and unsubscribes from Cloud Governance Center.
+ *
+ * @param request DecommissionGovernanceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DecommissionGovernanceResponse
+ */
+DecommissionGovernanceResponse Client::decommissionGovernanceWithOptions(const DecommissionGovernanceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DecommissionGovernance"},
+    {"version" , "2021-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DecommissionGovernanceResponse>();
+}
+
+/**
+ * @summary Disables and unsubscribes from Cloud Governance Center.
+ *
+ * @param request DecommissionGovernanceRequest
+ * @return DecommissionGovernanceResponse
+ */
+DecommissionGovernanceResponse Client::decommissionGovernance(const DecommissionGovernanceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return decommissionGovernanceWithOptions(request, runtime);
 }
 
 /**
@@ -875,6 +911,48 @@ ListEvaluationScoreHistoryResponse Client::listEvaluationScoreHistoryWithOptions
 ListEvaluationScoreHistoryResponse Client::listEvaluationScoreHistory(const ListEvaluationScoreHistoryRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listEvaluationScoreHistoryWithOptions(request, runtime);
+}
+
+/**
+ * @summary Activates Cloud Governance Center.
+ *
+ * @param request OpenGovernanceServiceRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return OpenGovernanceServiceResponse
+ */
+OpenGovernanceServiceResponse Client::openGovernanceServiceWithOptions(const OpenGovernanceServiceRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasRegionId()) {
+    query["RegionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "OpenGovernanceService"},
+    {"version" , "2021-01-20"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<OpenGovernanceServiceResponse>();
+}
+
+/**
+ * @summary Activates Cloud Governance Center.
+ *
+ * @param request OpenGovernanceServiceRequest
+ * @return OpenGovernanceServiceResponse
+ */
+OpenGovernanceServiceResponse Client::openGovernanceService(const OpenGovernanceServiceRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return openGovernanceServiceWithOptions(request, runtime);
 }
 
 /**

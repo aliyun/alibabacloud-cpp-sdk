@@ -8,6 +8,9 @@
 #include <alibabacloud/models/CreateAccountFactoryBaselineRequest.hpp>
 #include <alibabacloud/models/CreateAccountFactoryBaselineResponseBody.hpp>
 #include <alibabacloud/models/CreateAccountFactoryBaselineResponse.hpp>
+#include <alibabacloud/models/DecommissionGovernanceRequest.hpp>
+#include <alibabacloud/models/DecommissionGovernanceResponseBody.hpp>
+#include <alibabacloud/models/DecommissionGovernanceResponse.hpp>
 #include <alibabacloud/models/DeleteAccountFactoryBaselineRequest.hpp>
 #include <alibabacloud/models/DeleteAccountFactoryBaselineResponseBody.hpp>
 #include <alibabacloud/models/DeleteAccountFactoryBaselineResponse.hpp>
@@ -46,6 +49,9 @@
 #include <alibabacloud/models/ListEvaluationScoreHistoryRequest.hpp>
 #include <alibabacloud/models/ListEvaluationScoreHistoryResponseBody.hpp>
 #include <alibabacloud/models/ListEvaluationScoreHistoryResponse.hpp>
+#include <alibabacloud/models/OpenGovernanceServiceRequest.hpp>
+#include <alibabacloud/models/OpenGovernanceServiceResponseBody.hpp>
+#include <alibabacloud/models/OpenGovernanceServiceResponse.hpp>
 #include <alibabacloud/models/RunEvaluationRequest.hpp>
 #include <alibabacloud/models/RunEvaluationShrinkRequest.hpp>
 #include <alibabacloud/models/RunEvaluationResponseBody.hpp>
