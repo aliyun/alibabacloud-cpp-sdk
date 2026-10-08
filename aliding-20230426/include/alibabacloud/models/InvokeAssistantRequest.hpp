@@ -84,7 +84,10 @@ namespace Models
           DARABONBA_PTR_TO_JSON(cardCallback, cardCallback_);
           DARABONBA_PTR_TO_JSON(dingCard, dingCard_);
           DARABONBA_PTR_TO_JSON(dingNormalCard, dingNormalCard_);
+          DARABONBA_PTR_TO_JSON(extensions, extensions_);
           DARABONBA_PTR_TO_JSON(markdown, markdown_);
+          DARABONBA_ANY_TO_JSON(metadata, metadata_);
+          DARABONBA_PTR_TO_JSON(parts, parts_);
           DARABONBA_PTR_TO_JSON(structView, structView_);
           DARABONBA_PTR_TO_JSON(text, text_);
           DARABONBA_PTR_TO_JSON(type, type_);
@@ -93,7 +96,10 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(cardCallback, cardCallback_);
           DARABONBA_PTR_FROM_JSON(dingCard, dingCard_);
           DARABONBA_PTR_FROM_JSON(dingNormalCard, dingNormalCard_);
+          DARABONBA_PTR_FROM_JSON(extensions, extensions_);
           DARABONBA_PTR_FROM_JSON(markdown, markdown_);
+          DARABONBA_ANY_FROM_JSON(metadata, metadata_);
+          DARABONBA_PTR_FROM_JSON(parts, parts_);
           DARABONBA_PTR_FROM_JSON(structView, structView_);
           DARABONBA_PTR_FROM_JSON(text, text_);
           DARABONBA_PTR_FROM_JSON(type, type_);
@@ -613,6 +619,146 @@ namespace Models
           shared_ptr<vector<StructView::Parts>> parts_ {};
         };
 
+        class Parts : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const Parts& obj) { 
+            DARABONBA_ANY_TO_JSON(data, data_);
+            DARABONBA_PTR_TO_JSON(file, file_);
+            DARABONBA_PTR_TO_JSON(kind, kind_);
+            DARABONBA_ANY_TO_JSON(metadata, metadata_);
+            DARABONBA_PTR_TO_JSON(text, text_);
+          };
+          friend void from_json(const Darabonba::Json& j, Parts& obj) { 
+            DARABONBA_ANY_FROM_JSON(data, data_);
+            DARABONBA_PTR_FROM_JSON(file, file_);
+            DARABONBA_PTR_FROM_JSON(kind, kind_);
+            DARABONBA_ANY_FROM_JSON(metadata, metadata_);
+            DARABONBA_PTR_FROM_JSON(text, text_);
+          };
+          Parts() = default ;
+          Parts(const Parts &) = default ;
+          Parts(Parts &&) = default ;
+          Parts(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~Parts() = default ;
+          Parts& operator=(const Parts &) = default ;
+          Parts& operator=(Parts &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          class File : public Darabonba::Model {
+          public:
+            friend void to_json(Darabonba::Json& j, const File& obj) { 
+              DARABONBA_PTR_TO_JSON(bytes, bytes_);
+              DARABONBA_PTR_TO_JSON(mimeType, mimeType_);
+              DARABONBA_PTR_TO_JSON(name, name_);
+              DARABONBA_PTR_TO_JSON(uri, uri_);
+            };
+            friend void from_json(const Darabonba::Json& j, File& obj) { 
+              DARABONBA_PTR_FROM_JSON(bytes, bytes_);
+              DARABONBA_PTR_FROM_JSON(mimeType, mimeType_);
+              DARABONBA_PTR_FROM_JSON(name, name_);
+              DARABONBA_PTR_FROM_JSON(uri, uri_);
+            };
+            File() = default ;
+            File(const File &) = default ;
+            File(File &&) = default ;
+            File(const Darabonba::Json & obj) { from_json(obj, *this); };
+            virtual ~File() = default ;
+            File& operator=(const File &) = default ;
+            File& operator=(File &&) = default ;
+            virtual void validate() const override {
+            };
+            virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+            virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+            virtual bool empty() const override { return this->bytes_ == nullptr
+        && this->mimeType_ == nullptr && this->name_ == nullptr && this->uri_ == nullptr; };
+            // bytes Field Functions 
+            bool hasBytes() const { return this->bytes_ != nullptr;};
+            void deleteBytes() { this->bytes_ = nullptr;};
+            inline string getBytes() const { DARABONBA_PTR_GET_DEFAULT(bytes_, "") };
+            inline File& setBytes(string bytes) { DARABONBA_PTR_SET_VALUE(bytes_, bytes) };
+
+
+            // mimeType Field Functions 
+            bool hasMimeType() const { return this->mimeType_ != nullptr;};
+            void deleteMimeType() { this->mimeType_ = nullptr;};
+            inline string getMimeType() const { DARABONBA_PTR_GET_DEFAULT(mimeType_, "") };
+            inline File& setMimeType(string mimeType) { DARABONBA_PTR_SET_VALUE(mimeType_, mimeType) };
+
+
+            // name Field Functions 
+            bool hasName() const { return this->name_ != nullptr;};
+            void deleteName() { this->name_ = nullptr;};
+            inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+            inline File& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
+
+
+            // uri Field Functions 
+            bool hasUri() const { return this->uri_ != nullptr;};
+            void deleteUri() { this->uri_ = nullptr;};
+            inline string getUri() const { DARABONBA_PTR_GET_DEFAULT(uri_, "") };
+            inline File& setUri(string uri) { DARABONBA_PTR_SET_VALUE(uri_, uri) };
+
+
+          protected:
+            shared_ptr<string> bytes_ {};
+            shared_ptr<string> mimeType_ {};
+            shared_ptr<string> name_ {};
+            shared_ptr<string> uri_ {};
+          };
+
+          virtual bool empty() const override { return this->data_ == nullptr
+        && this->file_ == nullptr && this->kind_ == nullptr && this->metadata_ == nullptr && this->text_ == nullptr; };
+          // data Field Functions 
+          bool hasData() const { return this->data_ != nullptr;};
+          void deleteData() { this->data_ = nullptr;};
+          inline           const Darabonba::Json & getData() const { DARABONBA_GET(data_) };
+          Darabonba::Json & getData() { DARABONBA_GET(data_) };
+          inline Parts& setData(const Darabonba::Json & data) { DARABONBA_SET_VALUE(data_, data) };
+          inline Parts& setData(Darabonba::Json && data) { DARABONBA_SET_RVALUE(data_, data) };
+
+
+          // file Field Functions 
+          bool hasFile() const { return this->file_ != nullptr;};
+          void deleteFile() { this->file_ = nullptr;};
+          inline const Parts::File & getFile() const { DARABONBA_PTR_GET_CONST(file_, Parts::File) };
+          inline Parts::File getFile() { DARABONBA_PTR_GET(file_, Parts::File) };
+          inline Parts& setFile(const Parts::File & file) { DARABONBA_PTR_SET_VALUE(file_, file) };
+          inline Parts& setFile(Parts::File && file) { DARABONBA_PTR_SET_RVALUE(file_, file) };
+
+
+          // kind Field Functions 
+          bool hasKind() const { return this->kind_ != nullptr;};
+          void deleteKind() { this->kind_ = nullptr;};
+          inline string getKind() const { DARABONBA_PTR_GET_DEFAULT(kind_, "") };
+          inline Parts& setKind(string kind) { DARABONBA_PTR_SET_VALUE(kind_, kind) };
+
+
+          // metadata Field Functions 
+          bool hasMetadata() const { return this->metadata_ != nullptr;};
+          void deleteMetadata() { this->metadata_ = nullptr;};
+          inline           const Darabonba::Json & getMetadata() const { DARABONBA_GET(metadata_) };
+          Darabonba::Json & getMetadata() { DARABONBA_GET(metadata_) };
+          inline Parts& setMetadata(const Darabonba::Json & metadata) { DARABONBA_SET_VALUE(metadata_, metadata) };
+          inline Parts& setMetadata(Darabonba::Json && metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
+
+
+          // text Field Functions 
+          bool hasText() const { return this->text_ != nullptr;};
+          void deleteText() { this->text_ = nullptr;};
+          inline string getText() const { DARABONBA_PTR_GET_DEFAULT(text_, "") };
+          inline Parts& setText(string text) { DARABONBA_PTR_SET_VALUE(text_, text) };
+
+
+        protected:
+          Darabonba::Json data_ {};
+          shared_ptr<Parts::File> file_ {};
+          shared_ptr<string> kind_ {};
+          Darabonba::Json metadata_ {};
+          shared_ptr<string> text_ {};
+        };
+
         class Markdown : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const Markdown& obj) { 
@@ -1015,8 +1161,8 @@ namespace Models
         };
 
         virtual bool empty() const override { return this->cardCallback_ == nullptr
-        && this->dingCard_ == nullptr && this->dingNormalCard_ == nullptr && this->markdown_ == nullptr && this->structView_ == nullptr && this->text_ == nullptr
-        && this->type_ == nullptr; };
+        && this->dingCard_ == nullptr && this->dingNormalCard_ == nullptr && this->extensions_ == nullptr && this->markdown_ == nullptr && this->metadata_ == nullptr
+        && this->parts_ == nullptr && this->structView_ == nullptr && this->text_ == nullptr && this->type_ == nullptr; };
         // cardCallback Field Functions 
         bool hasCardCallback() const { return this->cardCallback_ != nullptr;};
         void deleteCardCallback() { this->cardCallback_ = nullptr;};
@@ -1044,6 +1190,15 @@ namespace Models
         inline Content& setDingNormalCard(Content::DingNormalCard && dingNormalCard) { DARABONBA_PTR_SET_RVALUE(dingNormalCard_, dingNormalCard) };
 
 
+        // extensions Field Functions 
+        bool hasExtensions() const { return this->extensions_ != nullptr;};
+        void deleteExtensions() { this->extensions_ = nullptr;};
+        inline const vector<string> & getExtensions() const { DARABONBA_PTR_GET_CONST(extensions_, vector<string>) };
+        inline vector<string> getExtensions() { DARABONBA_PTR_GET(extensions_, vector<string>) };
+        inline Content& setExtensions(const vector<string> & extensions) { DARABONBA_PTR_SET_VALUE(extensions_, extensions) };
+        inline Content& setExtensions(vector<string> && extensions) { DARABONBA_PTR_SET_RVALUE(extensions_, extensions) };
+
+
         // markdown Field Functions 
         bool hasMarkdown() const { return this->markdown_ != nullptr;};
         void deleteMarkdown() { this->markdown_ = nullptr;};
@@ -1051,6 +1206,24 @@ namespace Models
         inline Content::Markdown getMarkdown() { DARABONBA_PTR_GET(markdown_, Content::Markdown) };
         inline Content& setMarkdown(const Content::Markdown & markdown) { DARABONBA_PTR_SET_VALUE(markdown_, markdown) };
         inline Content& setMarkdown(Content::Markdown && markdown) { DARABONBA_PTR_SET_RVALUE(markdown_, markdown) };
+
+
+        // metadata Field Functions 
+        bool hasMetadata() const { return this->metadata_ != nullptr;};
+        void deleteMetadata() { this->metadata_ = nullptr;};
+        inline         const Darabonba::Json & getMetadata() const { DARABONBA_GET(metadata_) };
+        Darabonba::Json & getMetadata() { DARABONBA_GET(metadata_) };
+        inline Content& setMetadata(const Darabonba::Json & metadata) { DARABONBA_SET_VALUE(metadata_, metadata) };
+        inline Content& setMetadata(Darabonba::Json && metadata) { DARABONBA_SET_RVALUE(metadata_, metadata) };
+
+
+        // parts Field Functions 
+        bool hasParts() const { return this->parts_ != nullptr;};
+        void deleteParts() { this->parts_ = nullptr;};
+        inline const vector<Content::Parts> & getParts() const { DARABONBA_PTR_GET_CONST(parts_, vector<Content::Parts>) };
+        inline vector<Content::Parts> getParts() { DARABONBA_PTR_GET(parts_, vector<Content::Parts>) };
+        inline Content& setParts(const vector<Content::Parts> & parts) { DARABONBA_PTR_SET_VALUE(parts_, parts) };
+        inline Content& setParts(vector<Content::Parts> && parts) { DARABONBA_PTR_SET_RVALUE(parts_, parts) };
 
 
         // structView Field Functions 
@@ -1082,7 +1255,10 @@ namespace Models
         shared_ptr<Content::CardCallback> cardCallback_ {};
         shared_ptr<Content::DingCard> dingCard_ {};
         shared_ptr<Content::DingNormalCard> dingNormalCard_ {};
+        shared_ptr<vector<string>> extensions_ {};
         shared_ptr<Content::Markdown> markdown_ {};
+        Darabonba::Json metadata_ {};
+        shared_ptr<vector<Content::Parts>> parts_ {};
         shared_ptr<Content::StructView> structView_ {};
         shared_ptr<Content::Text> text_ {};
         // This parameter is required.

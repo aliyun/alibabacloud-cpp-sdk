@@ -14600,6 +14600,70 @@ InvokeContainerResponse Client::invokeContainer(const InvokeContainerRequest &re
 }
 
 /**
+ * @summary 调用页面操作
+ *
+ * @param request InvokePageRequest
+ * @param tmpHeader InvokePageHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return InvokePageResponse
+ */
+InvokePageResponse Client::invokePageWithOptions(const InvokePageRequest &request, const InvokePageHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  InvokePageShrinkHeaders headers = InvokePageShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "accountContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasOperationId()) {
+    body["operationId"] = request.getOperationId();
+  }
+
+  if (!!request.hasParams()) {
+    body["params"] = request.getParams();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["accountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "InvokePage"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/spi/ai/v1/page/invoke")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<InvokePageResponse>();
+}
+
+/**
+ * @summary 调用页面操作
+ *
+ * @param request InvokePageRequest
+ * @return InvokePageResponse
+ */
+InvokePageResponse Client::invokePage(const InvokePageRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  InvokePageHeaders headers = InvokePageHeaders();
+  return invokePageWithOptions(request, headers, runtime);
+}
+
+/**
  * @summary 调用AI技能
  *
  * @param tmpReq InvokeSkillRequest
@@ -16199,6 +16263,74 @@ ListTicketOperateRecordResponse Client::listTicketOperateRecord(const ListTicket
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   ListTicketOperateRecordHeaders headers = ListTicketOperateRecordHeaders();
   return listTicketOperateRecordWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary 查询当前登录用户在指定权限点、指定资源类型下已授权的资源列表
+ *
+ * @param request ListUserAuthorizedResourcesRequest
+ * @param tmpHeader ListUserAuthorizedResourcesHeaders
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListUserAuthorizedResourcesResponse
+ */
+ListUserAuthorizedResourcesResponse Client::listUserAuthorizedResourcesWithOptions(const ListUserAuthorizedResourcesRequest &request, const ListUserAuthorizedResourcesHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  ListUserAuthorizedResourcesShrinkHeaders headers = ListUserAuthorizedResourcesShrinkHeaders();
+  Utils::Utils::convert(tmpHeader, headers);
+  if (!!tmpHeader.hasAccountContext()) {
+    headers.setAccountContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpHeader.getAccountContext(), "AccountContext", "json"));
+  }
+
+  json body = {};
+  if (!!request.hasNextToken()) {
+    body["NextToken"] = request.getNextToken();
+  }
+
+  if (!!request.hasPermissionCode()) {
+    body["PermissionCode"] = request.getPermissionCode();
+  }
+
+  if (!!request.hasResourceType()) {
+    body["ResourceType"] = request.getResourceType();
+  }
+
+  map<string, string> realHeaders = {};
+  if (!!headers.hasCommonHeaders()) {
+    realHeaders = headers.getCommonHeaders();
+  }
+
+  if (!!headers.hasAccountContextShrink()) {
+    realHeaders["AccountContext"] = json(headers.getAccountContextShrink()).dump();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , realHeaders},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListUserAuthorizedResources"},
+    {"version" , "2023-04-26"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/ai/v1/skill/listUserAuthorizedResources")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListUserAuthorizedResourcesResponse>();
+}
+
+/**
+ * @summary 查询当前登录用户在指定权限点、指定资源类型下已授权的资源列表
+ *
+ * @param request ListUserAuthorizedResourcesRequest
+ * @return ListUserAuthorizedResourcesResponse
+ */
+ListUserAuthorizedResourcesResponse Client::listUserAuthorizedResources(const ListUserAuthorizedResourcesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  ListUserAuthorizedResourcesHeaders headers = ListUserAuthorizedResourcesHeaders();
+  return listUserAuthorizedResourcesWithOptions(request, headers, runtime);
 }
 
 /**

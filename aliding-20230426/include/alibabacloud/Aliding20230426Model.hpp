@@ -1015,6 +1015,11 @@
 #include <alibabacloud/models/InvokeContainerRequest.hpp>
 #include <alibabacloud/models/InvokeContainerResponseBody.hpp>
 #include <alibabacloud/models/InvokeContainerResponse.hpp>
+#include <alibabacloud/models/InvokePageHeaders.hpp>
+#include <alibabacloud/models/InvokePageShrinkHeaders.hpp>
+#include <alibabacloud/models/InvokePageRequest.hpp>
+#include <alibabacloud/models/InvokePageResponseBody.hpp>
+#include <alibabacloud/models/InvokePageResponse.hpp>
 #include <alibabacloud/models/InvokeSkillHeaders.hpp>
 #include <alibabacloud/models/InvokeSkillShrinkHeaders.hpp>
 #include <alibabacloud/models/InvokeSkillRequest.hpp>
@@ -1121,6 +1126,11 @@
 #include <alibabacloud/models/ListTicketOperateRecordShrinkRequest.hpp>
 #include <alibabacloud/models/ListTicketOperateRecordResponseBody.hpp>
 #include <alibabacloud/models/ListTicketOperateRecordResponse.hpp>
+#include <alibabacloud/models/ListUserAuthorizedResourcesHeaders.hpp>
+#include <alibabacloud/models/ListUserAuthorizedResourcesShrinkHeaders.hpp>
+#include <alibabacloud/models/ListUserAuthorizedResourcesRequest.hpp>
+#include <alibabacloud/models/ListUserAuthorizedResourcesResponseBody.hpp>
+#include <alibabacloud/models/ListUserAuthorizedResourcesResponse.hpp>
 #include <alibabacloud/models/ListWorkspacesHeaders.hpp>
 #include <alibabacloud/models/ListWorkspacesShrinkHeaders.hpp>
 #include <alibabacloud/models/ListWorkspacesRequest.hpp>

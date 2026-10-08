@@ -3181,6 +3181,24 @@ namespace Aliding20230426
       Models::InvokeContainerResponse invokeContainer(const Models::InvokeContainerRequest &request);
 
       /**
+       * @summary 调用页面操作
+       *
+       * @param request InvokePageRequest
+       * @param tmpHeader InvokePageHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return InvokePageResponse
+       */
+      Models::InvokePageResponse invokePageWithOptions(const Models::InvokePageRequest &request, const Models::InvokePageHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 调用页面操作
+       *
+       * @param request InvokePageRequest
+       * @return InvokePageResponse
+       */
+      Models::InvokePageResponse invokePage(const Models::InvokePageRequest &request);
+
+      /**
        * @summary 调用AI技能
        *
        * @param tmpReq InvokeSkillRequest
@@ -3531,6 +3549,24 @@ namespace Aliding20230426
        * @return ListTicketOperateRecordResponse
        */
       Models::ListTicketOperateRecordResponse listTicketOperateRecord(const Models::ListTicketOperateRecordRequest &request);
+
+      /**
+       * @summary 查询当前登录用户在指定权限点、指定资源类型下已授权的资源列表
+       *
+       * @param request ListUserAuthorizedResourcesRequest
+       * @param tmpHeader ListUserAuthorizedResourcesHeaders
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListUserAuthorizedResourcesResponse
+       */
+      Models::ListUserAuthorizedResourcesResponse listUserAuthorizedResourcesWithOptions(const Models::ListUserAuthorizedResourcesRequest &request, const Models::ListUserAuthorizedResourcesHeaders &tmpHeader, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询当前登录用户在指定权限点、指定资源类型下已授权的资源列表
+       *
+       * @param request ListUserAuthorizedResourcesRequest
+       * @return ListUserAuthorizedResourcesResponse
+       */
+      Models::ListUserAuthorizedResourcesResponse listUserAuthorizedResources(const Models::ListUserAuthorizedResourcesRequest &request);
 
       /**
        * @summary 获取知识库列表
