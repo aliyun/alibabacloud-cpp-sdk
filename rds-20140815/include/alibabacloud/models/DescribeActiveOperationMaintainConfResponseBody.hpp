@@ -117,25 +117,25 @@ namespace Models
 
 
     protected:
-      // Creation Time, formatted as YYYY-MM-DDTHH:mm:ssZ
+      // The creation time in the format of YYYY-MM-DDTHH:mm:ssZ.
       shared_ptr<string> createdTime_ {};
-      // Cycle time, with multiple values concatenated by English commas  
-      // * When cycleType is Week, values 1–7 represent Monday–Sunday  
-      // * When cycleType is Month, values 1–28 are allowed
+      // The cycle time. Multiple values are separated by commas (,).
+      // * If cycleType is set to Week, valid values are 1 to 7, which represent Monday to Sunday.
+      // * If cycleType is set to Month, valid values are 1 to 28.
       shared_ptr<string> cycleTime_ {};
-      // Cycle type, either Month or Week
+      // The cycle type. Valid values: Month and Week.
       shared_ptr<string> cycleType_ {};
-      // End time of the O&M time window, in UTC  
-      // Default: 20:00:00Z
+      // The end time of the O&M time window in UTC.
+      // Default value: 20:00:00Z.
       shared_ptr<string> maintainEndTime_ {};
-      // Start time of the O&M time window, in UTC  
-      // Default: 18:00:00Z
+      // The start time of the O&M time window in UTC.
+      // Default value: 18:00:00Z.
       shared_ptr<string> maintainStartTime_ {};
-      // Updated At, formatted as YYYY-MM-DDTHH:mm:ssZ, for example, 2018-05-30T14:30:00Z
+      // The modification time in the format of YYYY-MM-DDTHH:mm:ssZ, such as 2018-05-30T14:30:00Z.
       shared_ptr<string> modifiedTime_ {};
-      // Whether it is effective  
-      // * 1: Valid  
-      // * 2: Invalid
+      // Indicates whether the configuration is effective. Valid values: 
+      // * 1: Valid. 
+      // * 2: Invalid.
       shared_ptr<int32_t> status_ {};
     };
 
@@ -165,13 +165,13 @@ namespace Models
 
 
   protected:
-    // Configuration Information
+    // The configuration information.
     shared_ptr<DescribeActiveOperationMaintainConfResponseBody::Config> config_ {};
-    // Whether a configuration has been set; for the first access, hasConfig is 0  
-    // * 1: Yes  
-    // * 0: No
+    // Indicates whether the configuration has been set. The value is 0 for the first access. Valid values:
+    // * 1: Yes. 
+    // * 0: No.
     shared_ptr<int32_t> hasConfig_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -31,6 +31,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(EnableIncrementDataBackup, enableIncrementDataBackup_);
       DARABONBA_PTR_TO_JSON(EnablePitrProtection, enablePitrProtection_);
       DARABONBA_PTR_TO_JSON(HighSpaceUsageProtection, highSpaceUsageProtection_);
+      DARABONBA_PTR_TO_JSON(IncBackupInterval, incBackupInterval_);
       DARABONBA_PTR_TO_JSON(LocalLogRetentionHours, localLogRetentionHours_);
       DARABONBA_PTR_TO_JSON(LocalLogRetentionSpace, localLogRetentionSpace_);
       DARABONBA_PTR_TO_JSON(LogBackupFrequency, logBackupFrequency_);
@@ -65,6 +66,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(EnableIncrementDataBackup, enableIncrementDataBackup_);
       DARABONBA_PTR_FROM_JSON(EnablePitrProtection, enablePitrProtection_);
       DARABONBA_PTR_FROM_JSON(HighSpaceUsageProtection, highSpaceUsageProtection_);
+      DARABONBA_PTR_FROM_JSON(IncBackupInterval, incBackupInterval_);
       DARABONBA_PTR_FROM_JSON(LocalLogRetentionHours, localLogRetentionHours_);
       DARABONBA_PTR_FROM_JSON(LocalLogRetentionSpace, localLogRetentionSpace_);
       DARABONBA_PTR_FROM_JSON(LogBackupFrequency, logBackupFrequency_);
@@ -459,10 +461,10 @@ namespace Models
         && this->advancedDataPolicies_ == nullptr && this->advancedLogPolicies_ == nullptr && this->archiveBackupKeepCount_ == nullptr && this->archiveBackupKeepPolicy_ == nullptr && this->archiveBackupRetentionPeriod_ == nullptr
         && this->backupInterval_ == nullptr && this->backupLog_ == nullptr && this->backupMethod_ == nullptr && this->backupPriority_ == nullptr && this->backupRetentionPeriod_ == nullptr
         && this->category_ == nullptr && this->compressType_ == nullptr && this->enableBackupLog_ == nullptr && this->enableIncrementDataBackup_ == nullptr && this->enablePitrProtection_ == nullptr
-        && this->highSpaceUsageProtection_ == nullptr && this->localLogRetentionHours_ == nullptr && this->localLogRetentionSpace_ == nullptr && this->logBackupFrequency_ == nullptr && this->logBackupLocalRetentionNumber_ == nullptr
-        && this->logBackupRetentionPeriod_ == nullptr && this->pitrRetentionPeriod_ == nullptr && this->preferredBackupPeriod_ == nullptr && this->preferredBackupTime_ == nullptr && this->preferredNextBackupTime_ == nullptr
-        && this->releasedKeepPolicy_ == nullptr && this->requestId_ == nullptr && this->supportModifyBackupPriority_ == nullptr && this->supportReleasedKeep_ == nullptr && this->supportVolumeShadowCopy_ == nullptr
-        && this->supportsHighFrequencyBackup_ == nullptr; };
+        && this->highSpaceUsageProtection_ == nullptr && this->incBackupInterval_ == nullptr && this->localLogRetentionHours_ == nullptr && this->localLogRetentionSpace_ == nullptr && this->logBackupFrequency_ == nullptr
+        && this->logBackupLocalRetentionNumber_ == nullptr && this->logBackupRetentionPeriod_ == nullptr && this->pitrRetentionPeriod_ == nullptr && this->preferredBackupPeriod_ == nullptr && this->preferredBackupTime_ == nullptr
+        && this->preferredNextBackupTime_ == nullptr && this->releasedKeepPolicy_ == nullptr && this->requestId_ == nullptr && this->supportModifyBackupPriority_ == nullptr && this->supportReleasedKeep_ == nullptr
+        && this->supportVolumeShadowCopy_ == nullptr && this->supportsHighFrequencyBackup_ == nullptr; };
     // advancedBackupPolicyEnabled Field Functions 
     bool hasAdvancedBackupPolicyEnabled() const { return this->advancedBackupPolicyEnabled_ != nullptr;};
     void deleteAdvancedBackupPolicyEnabled() { this->advancedBackupPolicyEnabled_ = nullptr;};
@@ -586,6 +588,13 @@ namespace Models
     inline DescribeBackupPolicyResponseBody& setHighSpaceUsageProtection(string highSpaceUsageProtection) { DARABONBA_PTR_SET_VALUE(highSpaceUsageProtection_, highSpaceUsageProtection) };
 
 
+    // incBackupInterval Field Functions 
+    bool hasIncBackupInterval() const { return this->incBackupInterval_ != nullptr;};
+    void deleteIncBackupInterval() { this->incBackupInterval_ = nullptr;};
+    inline int32_t getIncBackupInterval() const { DARABONBA_PTR_GET_DEFAULT(incBackupInterval_, 0) };
+    inline DescribeBackupPolicyResponseBody& setIncBackupInterval(int32_t incBackupInterval) { DARABONBA_PTR_SET_VALUE(incBackupInterval_, incBackupInterval) };
+
+
     // localLogRetentionHours Field Functions 
     bool hasLocalLogRetentionHours() const { return this->localLogRetentionHours_ != nullptr;};
     void deleteLocalLogRetentionHours() { this->localLogRetentionHours_ = nullptr;};
@@ -695,132 +704,125 @@ namespace Models
     shared_ptr<bool> advancedBackupPolicyEnabled_ {};
     shared_ptr<DescribeBackupPolicyResponseBody::AdvancedDataPolicies> advancedDataPolicies_ {};
     shared_ptr<DescribeBackupPolicyResponseBody::AdvancedLogPolicies> advancedLogPolicies_ {};
-    // The number of archived backup files that are retained.
+    // The number of archived backups retained for the **MySQL** instance.
     shared_ptr<string> archiveBackupKeepCount_ {};
-    // The cycle based on which archived backup files are retained.
+    // The retention cycle of archived backups for the **MySQL** instance.
     shared_ptr<string> archiveBackupKeepPolicy_ {};
-    // The number of days for which archived backup files are retained.
+    // The number of days for which archived backups are retained for the **MySQL** instance.
     shared_ptr<string> archiveBackupRetentionPeriod_ {};
     // The backup interval. Unit: minutes.
-    // 
-    // *   If the instance runs MySQL, the interval is the same as the value of the Snapshot Backup Start Time parameter rather than the Snapshot Backup Period parameter in the ApsaraDB RDS console. For more information, see [Back up an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html).
-    // *   If the instance runs SQL Server, the interval is the same as the log backup frequency.
+    // * For MySQL instances: the [snapshot backup frequency](https://help.aliyun.com/document_detail/98818.html) (not the snapshot backup cycle).
+    // * For SQL Server instances: the log backup frequency.
     shared_ptr<string> backupInterval_ {};
-    // Indicates whether the log backup feature is enabled. Valid values:
+    // Indicates whether log backup is enabled. Valid values:
+    // * **Enable**: enabled
+    // * **Disabled**: disabled
     // 
-    // *   **Enable**
-    // *   **Disabled**
+    // **For SQL Server instances:**
+    // 
+    // - **Enable** is returned only when instance log backup frequency is **every 5 minutes**.
+    // - When instance log backup frequency is **every 30 minutes** or **consistent with the data backup cycle**, this parameter returns **Disabled**. **Use the value of BackupInterval as the reference**.
     shared_ptr<string> backupLog_ {};
-    // The backup method of the instance. Valid values:
-    // 
-    // *   **Physical**: physical backup
-    // *   **Snapshot**: snapshot backup
-    // 
-    // > This parameter is returned only when the instance runs SQL Server and uses cloud disks.
+    // The backup method of the **SQL Server instance with cloud disks**. Valid values:
+    // * **Physical**: physical backup
+    // * **Snapshot**: snapshot backup
     shared_ptr<string> backupMethod_ {};
-    // The backup settings of the secondary instance. Valid values:
+    // The backup settings for the secondary instance of an **SQL Server Enterprise Cluster Edition** instance. Valid values:
+    // - **1**: The secondary instance is preferred.
+    // - **2**: The primary instance is forced.
     // 
-    // *   **1**: Secondary instance preferred
-    // *   **2**: Primary instance preferred
-    // 
-    // >  This parameter is available only for instances that run SQL Server on RDS Cluster Edition. This parameter is returned only when SupportModifyBackupPriority is set to True.
+    // > This parameter is returned only when SupportModifyBackupPriority is True.
     shared_ptr<int32_t> backupPriority_ {};
-    // The number of days for which data backup files are retained.
+    // The number of days for which data backups are retained.
     shared_ptr<int32_t> backupRetentionPeriod_ {};
-    // Indicates whether to enable the single-digit second backup feature. This feature allows ApsaraDB RDS to complete a backup within single-digit seconds. Valid values:
+    // Indicates whether backup within seconds is enabled for the **MySQL** or **PostgreSQL** instance. Valid values:
     // 
-    // *   **Flash**: The single-digit second backup feature is enabled.
-    // *   **Standard**: The single-digit second backup feature is disabled.
+    // - **Flash**: enabled
+    // - **Standard**: disabled
     // 
-    // > This parameter takes effect only when you set the **BackupPolicyMode** parameter to **DataBackupPolicy**.
+    // > This parameter takes effect only when the **BackupPolicyMode** parameter is set to **DataBackupPolicy**.
     shared_ptr<string> category_ {};
-    // The method that is used to compress backup data. Valid values:
-    // 
-    // *   **0**: Backup data is not compressed.
-    // *   **1**: Backup data is compressed by using zlib.
-    // *   **2**: Backup data is compressed by using zlib that invokes more than one thread in parallel for each backup.
-    // *   **4**: Backup data is compressed by using QuickLZ and can be used to restore individual databases or tables.
-    // *   **8**: Backup data is compressed by using QuickLZ but cannot be used to restore individual databases or tables.
+    // The backup compression method. Valid values:
+    // * **0**: no compression
+    // * **1**: zlib compression
+    // * **2**: parallel zlib compression
+    // * **4**: QuickLZ compression with fast restoration for individual databases and tables enabled
+    // * **8**: QuickLZ compression without fast restoration for individual databases and tables supported
     shared_ptr<string> compressType_ {};
-    // Indicates whether the log backup feature is enabled. Valid values:
+    // Indicates whether log backup is enabled. Valid values:
+    // * **1**: enabled
+    // * **0**: disabled
     // 
-    // *   **1**: enabled
-    // *   **0**: disabled
+    // **For SQL Server instances:**
+    // - **1** is returned only when instance log backup frequency is **every 5 minutes**.
+    // - When instance log backup frequency is **every 30 minutes** or **consistent with the data backup cycle**, this parameter returns **0**. **Use the value of BackupInterval as the reference**.
     shared_ptr<string> enableBackupLog_ {};
-    // Indicates whether incremental backup is enabled. Valid values:
-    // 
-    // *   **True**: Incremental backup is enabled.
-    // *   **False**: Incremental backup is disabled.
+    // Indicates whether incremental backup is enabled for the **SQL Server** instance. Valid values:
+    // * **True**: enabled
+    // * **False**: disabled
     shared_ptr<bool> enableIncrementDataBackup_ {};
-    // Indicates whether the point-in-time restoration (PITR) feature is enabled. The PITR feature is an enhancement of the log backup feature. Valid values:
+    // Indicates whether point-in-time recovery (PITR) is enabled for the **MySQL** instance. PITR is an upgraded version of log backup. Valid values:
+    // - **True**: enabled
+    // - **False**: disabled
     // 
-    // *   **True**
-    // *   **False**
-    // 
-    // >  This parameter is returned only when the instance runs MySQL. For more information, see [Configure the PITR feature](https://help.aliyun.com/document_detail/2666046.html).
+    // > For more information, see [Configure a point-in-time recovery policy](https://help.aliyun.com/document_detail/2666046.html).
     shared_ptr<bool> enablePitrProtection_ {};
-    // Indicates whether the log backup deletion feature is enabled. If the disk usage exceeds 80% or the remaining disk space is less than 5 GB on the instance, this feature deletes binary log files. Valid values:
+    // Indicates whether binary logs are forcibly deleted when the storage usage of the **MySQL** instance exceeds 80% or the remaining storage is less than 5 GB. Valid values:
     // 
-    // *   **Disable**
-    // *   **Enable**
+    // * **Disable**: Binary logs are not deleted.
+    // * **Enable**: Binary logs are deleted.
     shared_ptr<string> highSpaceUsageProtection_ {};
-    // The number of hours for which log backup files are retained on the instance.
+    shared_ptr<int32_t> incBackupInterval_ {};
+    // The number of hours for which binary logs are retained on the **MySQL** instance.
     shared_ptr<int32_t> localLogRetentionHours_ {};
-    // The maximum storage usage that is allowed for log files on the instance.
+    // The maximum storage usage of binary logs on the **MySQL** instance, in percentage.
     shared_ptr<string> localLogRetentionSpace_ {};
-    // The backup frequency of logs. Valid values:
+    // The log backup frequency of the **SQL Server** instance. Valid values:
     // 
-    // *   **LogInterval**: Log backups are performed every 30 minutes.
-    // *   Default value: same as the value of the **PreferredBackupPeriod** parameter.
-    // 
-    // >  This parameter is returned only when the instance runs SQL Server.
+    // * **LogInterval**: every 30 minutes.
+    // * Default: consistent with the data backup cycle specified by **PreferredBackupPeriod**.
     shared_ptr<string> logBackupFrequency_ {};
-    // The number of binary log files that you want to retain on the instance.
+    // The number of binary logs retained on the **MySQL** instance.
     shared_ptr<int32_t> logBackupLocalRetentionNumber_ {};
-    // The number of days for which log backup files are retained.
+    // The number of days for which log backups are retained.
     shared_ptr<int32_t> logBackupRetentionPeriod_ {};
-    // The number of days during which you can restore data of the instance to any point in time.
+    // The number of days for which point-in-time recovery is supported for the **MySQL** instance.
     shared_ptr<int32_t> pitrRetentionPeriod_ {};
-    // The cycle based on which you want to perform a backup. Separate multiple values with commas (,). Valid values:
-    // 
-    // *   **Monday**
-    // *   **Tuesday**
-    // *   **Wednesday**
-    // *   **Thursday**
-    // *   **Friday**
-    // *   **Saturday**
-    // *   **Sunday**
+    // The data backup cycle. Multiple values are separated by commas (,). Valid values:
+    // * **Monday**
+    // * **Tuesday**
+    // * **Wednesday**
+    // * **Thursday**
+    // * **Friday**
+    // * **Saturday**
+    // * **Sunday**
     shared_ptr<string> preferredBackupPeriod_ {};
-    // The time when a data backup is performed. The time follows the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
+    // The data backup time. Format: <i>HH:mm</i>Z-<i>HH:mm</i>Z (UTC).
     shared_ptr<string> preferredBackupTime_ {};
-    // The time when the next backup is performed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+    // The next backup time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
     shared_ptr<string> preferredNextBackupTime_ {};
-    // The policy that is used to retain archived backup files if the instance is released. Valid values:
-    // 
-    // *   **None**: No archived backup files are retained.
-    // *   **Lastest**: Only the last archived backup file is retained.
-    // *   **All**: All archived backup files are retained.
+    // The archived backup data retention policy for deleted **MySQL** instances. Valid values:
+    // * **None**: No archived backups are retained.
+    // * **Lastest**: Only the last archived backup is retained.
+    // * **All**: All archived backups are retained.
     shared_ptr<string> releasedKeepPolicy_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the backup settings of a secondary instance can be modified. Valid values:
+    // Indicates whether the secondary instance backup option can be modified for the **SQL Server** instance. Valid values:
     // 
-    // *   **True**
-    // *   **False**
+    // - **True**: The option can be modified.
+    // - **False**: The option cannot be modified.
     shared_ptr<bool> supportModifyBackupPriority_ {};
     // A reserved parameter.
     shared_ptr<int32_t> supportReleasedKeep_ {};
-    // Indicates whether the instance supports snapshot backups. Valid values:
+    // Indicates whether snapshot backup is supported for the **SQL Server** instance. Valid values:
     // 
-    // *   **1**: The instance supports snapshot backups.
-    // *   **0**: The instance does not support snapshot backups.
-    // 
-    // >  This parameter is returned only when the instance runs SQL Server.
+    // - **1**: supported
+    // - **0**: not supported
     shared_ptr<int32_t> supportVolumeShadowCopy_ {};
-    // Indicates whether log backups for SQL Server are performed verery five minutes.
-    // 
-    // *   0: No
-    // *   1: Yes
+    // Indicates whether the [5-minute log backup feature](https://help.aliyun.com/document_detail/95717.html) is supported for the **SQL Server** instance. Valid values:
+    // - **0**: not supported
+    // - **1**: supported
     shared_ptr<int64_t> supportsHighFrequencyBackup_ {};
   };
 

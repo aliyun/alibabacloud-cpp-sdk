@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the full backup file.
+    // The user backup ID.
     shared_ptr<string> backupId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the full backup file is successfully imported into the instance. If the full backup file is successfully imported, **true** is returned. Otherwise, an error message is returned.
+    // Indicates whether the user backup is imported. The value **true** is returned if the import is successful. Otherwise, an error message is returned.
     shared_ptr<bool> status_ {};
   };
 

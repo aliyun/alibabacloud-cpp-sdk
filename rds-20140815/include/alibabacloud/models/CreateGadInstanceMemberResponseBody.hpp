@@ -69,7 +69,7 @@ namespace Models
 
 
     protected:
-      // The number of unit nodes that are created by calling this operation.
+      // The number of nodes created in this call.
       shared_ptr<string> createCount_ {};
       // The ID of the global active database cluster.
       shared_ptr<string> gadInstanceName_ {};
@@ -96,7 +96,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // An array that consists of the information returned.
+    // The array of returned information.
     shared_ptr<CreateGadInstanceMemberResponseBody::Result> result_ {};
   };
 

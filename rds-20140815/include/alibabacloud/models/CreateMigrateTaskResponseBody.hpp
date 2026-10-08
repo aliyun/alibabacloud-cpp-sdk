@@ -84,18 +84,17 @@ namespace Models
 
 
   protected:
-    // The type of the migration task. Valid values:
-    // 
-    // *   **FULL**: The migration task migrates full backup files.
-    // *   **UPDF**: The migration task migrates incremental or log backup files.
+    // The type of the cloud migration task. Valid values:
+    // * **FULL**: performs a restore operation by using a full backup file.
+    // * **UPDF**: restores incremental data by using an incremental backup file or log file.
     shared_ptr<string> backupMode_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> DBName_ {};
-    // The ID of the migration task.
+    // The migration task ID.
     shared_ptr<string> migrateTaskId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};

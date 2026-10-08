@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The IDs of the tasks that are canceled. Multiple task IDs are separated with commas (,).
+    // The IDs of the tasks that are canceled in batch. Multiple IDs are separated by commas (,).
     shared_ptr<string> ids_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

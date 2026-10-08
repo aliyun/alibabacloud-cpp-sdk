@@ -172,38 +172,38 @@ namespace Models
 
 
       protected:
-        // The basic protection threshold for the asset. Unit: Mbit/s.
+        // The basic DDoS Mitigation Threshold of the assets that are assigned public IP addresses. Unit: Mbit/s.
         shared_ptr<int32_t> blackholeThreshold_ {};
-        // The traffic scrubbing threshold for the asset measured in Mbit/s. Unit: Mbit/s.
+        // The traffic scrubbing threshold of the assets that are assigned public IP addresses. Unit: Mbit/s.
         shared_ptr<int32_t> defenseBpsThreshold_ {};
-        // The traffic scrubbing threshold for the asset measured in packets per second (PPS). Unit: packets per second (pps).
+        // The message rate scrubbing threshold of the assets that are assigned public IP addresses. Unit: pps.
         shared_ptr<int32_t> defensePpsThreshold_ {};
-        // The burstable protection threshold for the asset. Unit: Mbit/s.
+        // The DDoS burstable Mitigation Threshold of the assets that are assigned public IP addresses. Unit: Mbit/s.
         shared_ptr<int32_t> elasticThreshold_ {};
-        // The IP address of the asset.
+        // The IP address of the assets that are assigned public IP addresses.
         shared_ptr<string> instanceIp_ {};
-        // The DDoS mitigation status of the asset. Valid values:
+        // The DDoS mitigation status of the assets that are assigned public IP addresses. Valid values:
         // 
-        // *   **mitigating**
-        // *   **blackholed**
-        // *   **normal**
+        // - **mitigating**: Cleaning.
+        // - **blackholed**: Black Hole Activated.
+        // - **normal**: Normal.
         shared_ptr<string> ipStatus_ {};
-        // The IP version of the instance. Valid values:
+        // The IP protocol version of the instance. Valid values:
         // 
-        // *   **v4**
-        // *   **v6**
+        // - **v4**
+        // - **v6**
         shared_ptr<string> ipVersion_ {};
-        // Indicates whether the asset is added to the instance. Valid values:
+        // Indicates whether the assets that are assigned public IP addresses is attached to Anti-DDoS Origin. Valid values:
         // 
-        // *   **true**
-        // *   **false**
+        // - **true**: Attached.
+        // - **false**: Not attached.
         shared_ptr<bool> isBgppack_ {};
-        // Indicates whether best-effort protection is enabled for the asset. Valid values:
+        // Indicates whether best-effort protection is enabled for the assets that are assigned public IP addresses in Anti-DDoS Origin. Valid values:
         // 
-        // *   **0**: Best-effort protection is disabled.
-        // *   **1**: Best-effort protection is enabled.
+        // - **0**: Best-effort protection is not enabled.
+        // - **1**: Best-effort protection is enabled.
         shared_ptr<int32_t> isFullProtection_ {};
-        // The region code of the asset.
+        // The region encoding of the assets that are assigned public IP addresses.
         shared_ptr<string> regionId_ {};
       };
 
@@ -247,18 +247,18 @@ namespace Models
 
 
     protected:
-      // The ID of the RDS Custom instance.
+      // The Custom instance ID.
       shared_ptr<string> instanceId_ {};
-      // The instance name.
+      // The Custom instance name.
       shared_ptr<string> instanceName_ {};
       // The DDoS mitigation status of the instance. Valid values:
       // 
-      // *   **normal**
-      // *   **abnormal**
+      // - **normal**: Normal.
+      // - **abnormal**: Under attack.
       shared_ptr<string> instanceStatus_ {};
-      // The type of the asset. The value is fixed to **ecs**.
+      // The type of the assets that are assigned public IP addresses. The value is fixed as **ecs**.
       shared_ptr<string> instanceType_ {};
-      // An array that consists of the details of the asset.
+      // The details of the assets that are assigned public IP addresses.
       shared_ptr<vector<RCInstanceList::IpAddressConfig>> ipAddressConfig_ {};
     };
 
@@ -288,11 +288,11 @@ namespace Models
 
 
   protected:
-    // An array that consists of details of the instance.
+    // The details of instances to which the assets that are assigned public IP addresses belong.
     shared_ptr<vector<DescribeRCInstanceIpAddressResponseBody::RCInstanceList>> RCInstanceList_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of the assets.
+    // The total number of assets that are assigned public IP addresses returned.
     shared_ptr<string> total_ {};
   };
 

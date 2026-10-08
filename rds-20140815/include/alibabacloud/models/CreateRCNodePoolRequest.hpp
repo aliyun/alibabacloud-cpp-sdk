@@ -134,9 +134,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag. You can create N tag keys at a time. Valid values of N: **1 to 20**. This parameter cannot be an empty string.
+      // The tag key. You can create up to N tag keys at a time. Valid values of N: **1 to 20**. The tag key cannot be an empty string.
       shared_ptr<string> key_ {};
-      // The tag value. You can create N tag values at a time. Valid values of N: **1** to **20**. This parameter can be an empty string.
+      // The tag value that corresponds to the tag key. You can create up to N tag values at a time. Valid values of N: **1** to **20**. The tag value can be an empty string.
       shared_ptr<string> value_ {};
     };
 
@@ -187,16 +187,16 @@ namespace Models
 
 
     protected:
-      // The type of the system disk. Set the value to **cloud_essd**, which indicates ESSDs.
+      // The category of the system cloud disk. Only **cloud_essd** (Enterprise SSD) is supported.
       shared_ptr<string> category_ {};
-      // The performance level of the ESSD. Valid values:
+      // The performance level (PL) of the ESSD cloud disk. For standard SSDs and other cloud disk types, this parameter is not applicable. Valid values:
       // 
-      // *   **PL0**: A single ESSD delivers up to 10,000 random read/write IOPS.
-      // *   **PL1**: A single ESSD delivers up to 50,000 random read/write IOPS.
-      // *   **PL2**: A single ESSD delivers up to 100,000 random read/write IOPS.
-      // *   **PL3**: A single ESSD delivers up to 1,000,000 random read/write IOPS.
+      // - **PL0**: A single cloud disk can deliver up to 10,000 random read/write IOPS.
+      // - **PL1**: A single cloud disk can deliver up to 50,000 random read/write IOPS.
+      // - **PL2**: A single cloud disk can deliver up to 100,000 random read/write IOPS.
+      // - **PL3**: A single cloud disk can deliver up to 1,000,000 random read/write IOPS.
       shared_ptr<string> performanceLevel_ {};
-      // The size of the system disk. Unit: GiB. Valid values: 20 to 2048.
+      // The size of the system cloud disk. Unit: GiB. Valid values: 20 to 2048.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -265,23 +265,23 @@ namespace Models
 
 
     protected:
-      // The type of the data disk. Set the value to **cloud_essd**, which indicates Enterprise SSDs (ESSDs).
+      // The type of the data cloud disk. Only **cloud_essd** (ESSD cloud disk) is supported. For more information about standard SSDs and other cloud disk types, see the related documentation.
       shared_ptr<string> category_ {};
-      // The reserved parameter. This parameter is not supported.
+      // A reserved parameter. This parameter is not supported.
       shared_ptr<bool> deleteWithInstance_ {};
-      // Specifies whether to encrypt the data disk. Valid values:
+      // Specifies whether to encrypt the data cloud disk. Valid values:
       // 
-      // *   **true**
-      // *   **false** (default)
+      // - **true**
+      // - **false** (default)
       shared_ptr<string> encrypted_ {};
-      // The performance level of the ESSD. Valid values:
+      // The performance level (PL) of the ESSD cloud disk. For standard SSDs and other cloud disk types, this parameter is not applicable. Valid values:
       // 
-      // *   **PL0**: A single ESSD delivers up to 10,000 random read/write IOPS.
-      // *   **PL1**: A single ESSD delivers up to 50,000 random read/write IOPS.
-      // *   **PL2**: A single ESSD delivers up to 100,000 random read/write IOPS.
-      // *   **PL3**: A single ESSD delivers up to 1,000,000 random read/write IOPS.
+      // - **PL0**: A single cloud disk can deliver up to 10,000 random read/write IOPS.
+      // - **PL1**: A single cloud disk can deliver up to 50,000 random read/write IOPS.
+      // - **PL2**: A single cloud disk can deliver up to 100,000 random read/write IOPS.
+      // - **PL3**: A single cloud disk can deliver up to 1,000,000 random read/write IOPS.
       shared_ptr<string> performanceLevel_ {};
-      // The size of the data disk. Unit: GiB. Valid values: 20 to 65536.
+      // The size of the data cloud disk. Unit: GiB. Valid values: 20 to 65536.
       shared_ptr<int32_t> size_ {};
     };
 
@@ -538,113 +538,108 @@ namespace Models
 
 
   protected:
-    // The number of RDS Custom instances that you want to create. The parameter is available if you want to create multiple RDS Custom instances at a time.
+    // The number of RDS Custom instances to create. This parameter is applicable only to batch creation of RDS Custom instances.
     // 
     // Valid values: **1** to **5**. Default value: **1**.
     shared_ptr<int32_t> amount_ {};
-    // Specifies whether to enable automatic payment. Valid values:
+    // Specifies whether to enable automatic payment.
+    // Valid values:
     // 
-    // *   **true**: enables the feature. Make sure that your account balance is sufficient when you enable automatic payment.
-    // *   **false**: does not automatically complete the payment. An unpaid order is generated.
+    // - **true**: Automatic payment is enabled. Make sure that your account balance is sufficient.
+    // - **false**: Only an order is generated. No payment is made.
     // 
-    // >  Default value: true. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
+    // 
+    // > The default value is true. If your payment method has an insufficient balance, set AutoPay to false. In this case, an unpaid order is generated. You can log on to the ApsaraDB RDS console to complete the payment.
+    // >
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable auto-renewal for the instance. If you specify the subscription billing method for the instance, you must specify this parameter. Valid values:
+    // Specifies whether to enable auto-renewal. This parameter is valid only when you create subscription instances. Valid values:
+    // * **true**
+    // * **false**
     // 
-    // *   **true**
-    // *   **false**
-    // 
-    // > 
-    // 
-    // *   Monthly subscription: The auto-renewal period is one month.
-    // 
-    // *   Annually: The auto-renewal period is one year.
+    // > * If you purchase on a monthly basis, the auto-renewal epoch is 1 month.
+    // > * If you purchase on a yearly basis, the auto-renewal epoch is 1 year.
     shared_ptr<bool> autoRenew_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the ACK cluster to which the RDS Custom instance belongs.
+    // The ID of the RDS Custom container cluster.
     // 
     // This parameter is required.
     shared_ptr<string> clusterId_ {};
-    // Specifies whether to add the instance to the ACK cluster. If this parameter is set to **1**, the created instances can be added to the ACK cluster. This allows you to efficiently manage container applications. Valid values:
+    // Specifies whether to allow the instance to join an ACK cluster. If this parameter settings is set to **1**, the created instance can be added to an ACK cluster for efficient container application management.
     // 
-    // *   **1**: adds the instance to the ACK cluster.
-    // *   **0** (default): does not add the instance to the ACK cluster.
+    // - **1**: Yes.
+    // - **0** (default): No.
     shared_ptr<string> createMode_ {};
-    // The data disks.
+    // The list of data cloud disks.
     shared_ptr<vector<CreateRCNodePoolRequest::DataDisk>> dataDisk_ {};
-    // The ID of the deployment set.
+    // The deployment set ID.
     shared_ptr<string> deploymentSetId_ {};
-    // The instance description. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
+    // The instance description. The description must be 2 to 256 characters in length and can contain letters and Chinese characters. The description cannot start with http:// or https://.
     shared_ptr<string> description_ {};
-    // Specifies whether to perform a dry run. Default value: false. Valid values:
-    // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
-    // *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, the instance is directly created.
+    // Specifies whether to perform a dry run for this request. Valid values:
+    // * **true**: performs a dry run without creating the instance. The system checks the request parameters, request format, service limits, and available stock.
+    // * **false** (default): sends the request. If the request passes the check, the instance is created.
     shared_ptr<bool> dryRun_ {};
-    // The instance hostname.
+    // The hostname of the instance.
     shared_ptr<string> hostName_ {};
-    // The ID of the image used by the instance.
+    // The image ID used by the instance.
     shared_ptr<string> imageId_ {};
-    // The billing method of the instance. Valid values:
-    // 
-    // *   **Prepaid**: subscription.
-    // *   **Postpaid**: pay-as-you-go.
+    // The billing method. Valid values:
+    // * **Prepaid**: subscription.
+    // * **Postpaid**: pay-as-you-go.
     shared_ptr<string> instanceChargeType_ {};
     // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The instance type. For more information about the instance types that are supported by RDS Custom instances, see [Instance types for RDS Custom instances](https://help.aliyun.com/document_detail/2844823.html).
+    // The instance type. For the instance types supported by RDS Custom instances, see [RDS Custom instance types](https://help.aliyun.com/document_detail/2844823.html).
     // 
     // This parameter is required.
     shared_ptr<string> instanceType_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter. This parameter is not supported.
     shared_ptr<string> internetChargeType_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter. This parameter is not supported.
     shared_ptr<int32_t> internetMaxBandwidthOut_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter. This parameter is not supported.
     shared_ptr<string> ioOptimized_ {};
-    // The name of the AccessKey pair. You can specify only one name.
+    // The name of the key pair. Only a single name is supported.
     shared_ptr<string> keyPairName_ {};
     // The name of the node pool.
     shared_ptr<string> nodePoolName_ {};
-    // The password for the root account of the instance.
+    // The password of the root account of the instance.
     shared_ptr<string> password_ {};
-    // The subscription duration of the instance. Default value: **1**.
+    // The subscription duration of the resource. Default value: **1**.
     shared_ptr<int32_t> period_ {};
-    // The unit of the subscription duration. Valid values:
-    // 
-    // *   **Year**
-    // *   **Month** (default)
+    // The unit of the subscription duration for the subscription billable methods. Valid values:
+    // - **Year**
+    // - **Month** (default)
     shared_ptr<string> periodUnit_ {};
     // The region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter. This parameter is not supported.
     shared_ptr<string> securityEnhancementStrategy_ {};
-    // The ID of the security group. You can enter an existing security group ID. If no security groups exist, a security group is automatically created.
+    // The security group ID. You can specify an existing security group ID. If the security group does not exist, automatic creation of a security group is performed.
     shared_ptr<string> securityGroupId_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter. This parameter is not supported.
     shared_ptr<string> spotStrategy_ {};
-    // The supported scenario. If you set the **createMode** parameter to **1**, you must also specify the SupportCase parameter. Valid value: **edge**.
+    // The supported scenario. This parameter is required when **createMode** is set to **1**. Currently, only **edge** is supported.
     shared_ptr<string> supportCase_ {};
-    // The specification of the system disk.
+    // The system cloud disk specifications.
     shared_ptr<CreateRCNodePoolRequest::SystemDisk> systemDisk_ {};
-    // The tags.
+    // The list of tags.
     shared_ptr<vector<CreateRCNodePoolRequest::Tag>> tag_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter. This parameter is not supported.
     shared_ptr<string> userData_ {};
     // The vSwitch ID.
     // 
-    // >  The vSwitch must belong to the same zone as the instance.
+    // > The vSwitch must be in the same zone as the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};
     // The zone ID of the instance.
-    // 
-    // >  If you specify the VSwitchId parameter, the zone specified by the ZoneId parameter must be the same as the zone in which the specified vSwitch resides. You can leave the ZoneId parameter empty. In this case, the system uses the zone in which the specified vSwitch resides.
+    // > If you specify the VSwitchId parameter, the ZoneId parameter must match the zone of the specified vSwitch. You can also leave this parameter empty, and the system automatically selects the zone of the specified vSwitch.
     shared_ptr<string> zoneId_ {};
   };
 

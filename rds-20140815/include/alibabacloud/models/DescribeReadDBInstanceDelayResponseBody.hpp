@@ -383,7 +383,7 @@ namespace Models
   protected:
     // The primary instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The latency of data replication. Unit: seconds.
+    // The latency, in seconds.
     shared_ptr<int32_t> delayTime_ {};
     shared_ptr<DescribeReadDBInstanceDelayResponseBody::Items> items_ {};
     // The read-only instance ID.

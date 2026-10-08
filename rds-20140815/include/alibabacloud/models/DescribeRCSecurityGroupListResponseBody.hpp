@@ -116,24 +116,13 @@ namespace Models
 
 
     protected:
-      // The number of instances that can be added to the security group.
       shared_ptr<int32_t> availableInstanceAmount_ {};
-      // The time when the security group was created. The time follows the ISO 8601 standard and is in the `yyyy-MM-ddThh:mmZ` format. The time is displayed in UTC.
       shared_ptr<string> creationTime_ {};
-      // The description of the security group.
       shared_ptr<string> description_ {};
-      // The number of instances that are added to the security group.
-      // 
       // This parameter is required.
       shared_ptr<int32_t> instanceCount_ {};
-      // The ID of the security group.
       shared_ptr<string> securityGroupId_ {};
-      // The type of the security group. Valid values:
-      // 
-      // *   **normal**: a normal security group.
-      // *   **enterprise**: an advanced security group.
       shared_ptr<string> securityGroupType_ {};
-      // The ID of the VPC to which the security group belongs.
       shared_ptr<string> vpcId_ {};
     };
 
@@ -156,9 +145,7 @@ namespace Models
 
 
   protected:
-    // The basic information about the security groups.
     shared_ptr<vector<DescribeRCSecurityGroupListResponseBody::RCSecurityGroups>> RCSecurityGroups_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -241,67 +241,73 @@ namespace Models
 
 
     protected:
-      // A set of allowed actions that can be taken on the task. The system matches the current step name and status of the task to the available actions specified by ActionInfo. If no matching action is found, the current status of the task does not support any action. Example:
-      // 
-      //       "steps": [
-      //         {
-      //           "step_name": "exec_task", // The name of the step, which matches CurrentStepName.      "action_info": {    // The actions supported for this step.        "Waiting": [      // The status, which matches Status.          "modifySwitchTime" // The action. Multiple actions are supported.        ]
-      //           }
-      //         },
-      //         {
-      //           "step_name": "init_task", // The name of the step.      "action_info": {    // The actions supported for this step.        "Running": [      // The status.          "cancel",       // The action.          "pause"
-      //             ]
-      //           }
-      //         }
-      //       ]
+      // The allowed operation information. When used, the system matches the Action based on currentStepName and status in this information. If no Action is matched, the task does not support operations in its current state. Example:
+      // ```
+      //   "steps": [
+      //     {
+      //       "step_name": "exec_task", // Step name, matched with currentStepName
+      //       "action_info": {    // Operations supported by the step
+      //         "Waiting": [      // Status, matched with status
+      //           "modifySwitchTime" // Action. Multiple actions may be available.
+      //         ]
+      //       }
+      //     },
+      //     {
+      //       "step_name": "init_task", // Step name
+      //       "action_info": {    // Operations supported by the step
+      //         "Running": [      // Status
+      //           "cancel",       // Action
+      //           "pause"
+      //         ]
+      //       }
       //     }
+      //   ]
+      // }
+      // ```
       // 
-      // The system may support the following actions:
-      // 
-      // *   **retry**: retries the action.
-      // *   **cancel**: cancels the action.
-      // *   **modifySwitchTime**: changes the switching time or restoration time.
+      // Supported operations:
+      // - **retry**: Retry.
+      // - **cancel**: Cancel.
+      // - **modifySwitchTime**: Modify the switchover time or recovery time.
       shared_ptr<string> actionInfo_ {};
-      // The ID of the user who made the request. If CallerSource is set to User, CallerUid indicates the unique ID (UID) of the user.
+      // The request user ID. If callerSource is User, this value indicates the user UID.
       shared_ptr<string> callerSource_ {};
-      // The source of the request. Valid values:
-      // 
-      // *   **System**
-      // *   **User**
+      // The request source. Valid values:
+      // - **System**: System.
+      // - **User**: User.
       shared_ptr<string> callerUid_ {};
-      // The name of the current step. If this parameter is left empty, the task is not started.
+      // The name of the current step being executed. An empty value indicates that the task has not started.
       shared_ptr<string> currentStepName_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
-      // The end time of the task.
+      // The task end time.
       shared_ptr<string> endTime_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
       // The instance name.
       shared_ptr<string> instanceName_ {};
-      // The instance category.
+      // The instance type.
       shared_ptr<string> instanceType_ {};
-      // The service name.
+      // The product.
       shared_ptr<string> product_ {};
-      // Indicates the task progress.
+      // The current progress.
       shared_ptr<float> progress_ {};
       // The reason why the current task was initiated.
       shared_ptr<string> reasonCode_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The estimated amount of time remaining to complete the task. Unit: seconds.
+      // The estimated remaining execution time. Unit: seconds.
       shared_ptr<int32_t> remainTime_ {};
-      // The start time of the task.
+      // The task start time.
       shared_ptr<string> startTime_ {};
       // The task status. Valid values:
-      // 
-      // *   Scheduled
-      // *   Running
-      // *   Succeed
-      // *   Failed
-      // *   Cancelling
-      // *   Canceled
-      // *   Waiting
+      // - Scheduled: Waiting to be executed.
+      // - Running: Running.
+      // - Succeed: Succeeded.
+      // - Failed: Failed.
+      // - Cancelling: Being terminated.
+      // - Canceled: Terminated.
+      // - Waiting: Waiting for the scheduled time.
       shared_ptr<string> status_ {};
       // The task details.
       shared_ptr<string> taskDetail_ {};
@@ -309,7 +315,7 @@ namespace Models
       shared_ptr<string> taskId_ {};
       // The task type.
       shared_ptr<string> taskType_ {};
-      // The ID of the user to which the resources belong.
+      // The user ID of the resource owner.
       shared_ptr<string> uid_ {};
     };
 
@@ -353,15 +359,15 @@ namespace Models
 
 
   protected:
-    // The tasks.
+    // The task list.
     shared_ptr<vector<DescribeHistoryTasksResponseBody::Items>> items_ {};
-    // The page number.
+    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique ID of the request. If the request fails, provide this ID for technical support to troubleshoot the failure.
+    // The request ID. If you encounter an issue, provide this request ID for troubleshooting.
     shared_ptr<string> requestId_ {};
-    // The total number of tasks that meet these constraints without taking pagination into account.
+    // The total number of tasks that meet the filter conditions, regardless of pagination.
     shared_ptr<int32_t> totalCount_ {};
   };
 

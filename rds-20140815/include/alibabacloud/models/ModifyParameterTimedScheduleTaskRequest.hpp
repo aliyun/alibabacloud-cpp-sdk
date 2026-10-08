@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The instance name.
     shared_ptr<string> DBInstanceName_ {};
+    // The scheduled switchover time to set. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
     shared_ptr<string> switchTime_ {};
+    // The task ID.
     shared_ptr<int64_t> taskId_ {};
   };
 

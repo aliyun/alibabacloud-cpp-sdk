@@ -51,11 +51,11 @@ namespace Models
 
 
   protected:
-    // The ID of the Alibaba Cloud account that is used to confirm the notification. You can set this parameter to **0**, which indicates that the notification is confirmed by the system.
+    // The Alibaba Cloud account ID of the user who confirms the notification. You can also set this parameter to **0**, which indicates that the notification is automatically confirmed by the system.
     // 
     // This parameter is required.
     shared_ptr<int64_t> confirmor_ {};
-    // The notification IDs.
+    // The list of notification IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<int64_t>> notifyIdList_ {};

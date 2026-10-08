@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // Indicates whether backup encryption is supported. Valid values: true and false.
     shared_ptr<bool> supportBackupEncryption_ {};
   };
 

@@ -250,7 +250,7 @@ namespace Models
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total size of the log file.
+    // The total size of the log files.
     shared_ptr<int64_t> totalFileSize_ {};
     // The total number of log files.
     shared_ptr<int32_t> totalRecordCount_ {};

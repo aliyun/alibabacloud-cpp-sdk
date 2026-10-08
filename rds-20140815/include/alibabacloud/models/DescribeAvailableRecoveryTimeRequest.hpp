@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The ID of the cross-region data backup file. You can call the DescribeCrossRegionBackups operation to query the backup file ID.
+    // The ID of the cross-region backup file. You can call the DescribeCrossRegionBackups operation to query the backup set ID.
     // 
     // This parameter is required.
     shared_ptr<int32_t> crossBackupId_ {};

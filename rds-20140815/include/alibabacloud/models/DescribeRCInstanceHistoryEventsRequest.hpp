@@ -98,9 +98,7 @@ namespace Models
 
 
     protected:
-      // The key of the tag that is added to the resource.
       shared_ptr<string> key_ {};
-      // The value of tag N of the port list.
       shared_ptr<string> value_ {};
     };
 
@@ -142,9 +140,7 @@ namespace Models
 
 
     protected:
-      // The end time of the scheduled execution period for the system event. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
       shared_ptr<string> end_ {};
-      // The start time of the scheduled execution period for the system event. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
       shared_ptr<string> start_ {};
     };
 
@@ -186,9 +182,7 @@ namespace Models
 
 
     protected:
-      // The end of the time range in which to query published system events. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
       shared_ptr<string> end_ {};
-      // The beginning of the time range in which to query published system events. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
       shared_ptr<string> start_ {};
     };
 
@@ -325,56 +319,20 @@ namespace Models
   protected:
     shared_ptr<DescribeRCInstanceHistoryEventsRequest::EventPublishTime> eventPublishTime_ {};
     shared_ptr<DescribeRCInstanceHistoryEventsRequest::NotBefore> notBefore_ {};
-    // The lifecycle state of the system event. This parameter is valid only when the **InstanceEventCycleStatus.N** parameter is not specified. Valid values:
-    // 
-    // *   **Scheduled**
-    // *   **Avoided**
-    // *   **Executing**
-    // *   **Executed**
-    // *   **Canceled**
-    // *   **Failed**
-    // *   **Inquiring**
     shared_ptr<string> eventCycleStatus_ {};
-    // The IDs of one or more system events.
     shared_ptr<vector<string>> eventId_ {};
-    // The system event type. This parameter is valid only when the **InstanceEventType.N** parameter is not specified. Valid values:
-    // 
-    // *   **SystemMaintenance.Reboot**: The instance was restarted due to system maintenance.
-    // *   **SystemMaintenance.Redeploy**: The instance was redeployed due to system maintenance.
-    // *   **SystemFailure.Reboot**: The instance was restarted due to system failures.
-    // *   **SystemFailure.Redeploy**: The instance was redeployed due to system failures.
-    // *   **SystemFailure.Delete**: The instance was released due to an instance creation failure.
-    // *   **InstanceFailure.Reboot**: The instance was restarted due to an instance error.
-    // *   **InstanceExpiration.Stop**: The subscription instance was stopped due to expiration.
-    // *   **InstanceExpiration.Delete**: The subscription instance was released due to expiration.
-    // *   **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
-    // *   **AccountUnbalanced.Delete**: The pay-as-you-go instance was released due to an overdue payment.
-    // 
-    // >  The values of this parameter are applicable only to instance system events, but not to disk system events.
     shared_ptr<string> eventType_ {};
-    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> impactLevel_ {};
-    // The lifecycle states of system events.
     shared_ptr<vector<string>> instanceEventCycleStatus_ {};
-    // The type of system event N.
     shared_ptr<vector<string>> instanceEventType_ {};
-    // The instance ID. If you do not specify an instance ID, system events of all instances in the specified region are queried.
     shared_ptr<string> instanceId_ {};
-    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> maxResults_ {};
-    // The page number of the returned page.
     shared_ptr<string> pageNumber_ {};
-    // The maximum number of entries returned per page.
     shared_ptr<string> pageSize_ {};
-    // The ID of the region where the instance resides.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group that you want to query.
     shared_ptr<string> resourceGroupId_ {};
-    // The ID of resource N.
     shared_ptr<vector<string>> resourceId_ {};
-    // An array that consists of the tags that are supported by system events.
     shared_ptr<vector<DescribeRCInstanceHistoryEventsRequest::Tag>> tag_ {};
   };
 

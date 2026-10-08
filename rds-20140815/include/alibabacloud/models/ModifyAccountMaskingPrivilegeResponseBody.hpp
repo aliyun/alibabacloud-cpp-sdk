@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // Returned data
+    // The returned data.
     shared_ptr<map<string, string>> data_ {};
-    // Return message
+    // The returned message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the operation succeeded
+    // Indicates whether the operation was successful.
     shared_ptr<string> success_ {};
   };
 

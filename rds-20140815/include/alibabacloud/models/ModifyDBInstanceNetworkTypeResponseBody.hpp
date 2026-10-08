@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The endpoint that is used to connect to the instance.
+    // The endpoint of the instance.
     shared_ptr<string> connectionString_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

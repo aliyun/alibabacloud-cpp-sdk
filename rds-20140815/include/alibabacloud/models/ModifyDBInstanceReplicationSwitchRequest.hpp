@@ -79,18 +79,17 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to enable the native replication feature. Valid values:
-    // 
-    // *   **ON**
-    // *   **OFF**
+    // Specifies whether to enable or disable native replication mode. Valid values:
+    // - **ON**: Enable native replication.
+    // - **OFF**: Disable native replication.
     // 
     // This parameter is required.
     shared_ptr<string> externalReplication_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can leave this parameter empty.
+    // The resource group ID. This parameter can be left empty.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

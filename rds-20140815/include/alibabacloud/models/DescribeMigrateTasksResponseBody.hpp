@@ -228,11 +228,11 @@ namespace Models
     shared_ptr<DescribeMigrateTasksResponseBody::Items> items_ {};
     // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries that meet the specified conditions.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

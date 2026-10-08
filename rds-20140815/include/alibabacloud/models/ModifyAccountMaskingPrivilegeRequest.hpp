@@ -112,24 +112,24 @@ namespace Models
 
 
   protected:
-    // Instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // Database name
+    // The database name.
     shared_ptr<string> DBName_ {};
-    // Permission expiration time in UTC format. (Required only for fullAccess permission.)
+    // The permission expiration time in UTC format. This parameter is required only for the fullAccess privilege.
     shared_ptr<string> expireTime_ {};
     shared_ptr<string> ownerId_ {};
-    // Permission type (noneAccess, restrictedAccess, fullAccess)
+    // The privilege type. Valid values: noneAccess, restrictedAccess, and fullAccess.
     // 
     // This parameter is required.
     shared_ptr<string> privilege_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Account name. Multiple accounts are supported and must be separated by commas.
+    // The account name. You can specify multiple accounts separated by commas.
     // 
     // This parameter is required.
     shared_ptr<string> userName_ {};

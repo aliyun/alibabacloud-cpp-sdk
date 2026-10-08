@@ -93,6 +93,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(DeletionProtection, deletionProtection_);
           DARABONBA_PTR_TO_JSON(DisasterRecoveryInfo, disasterRecoveryInfo_);
           DARABONBA_PTR_TO_JSON(DisasterRecoveryInstances, disasterRecoveryInstances_);
+          DARABONBA_PTR_TO_JSON(DrReplicaInfo, drReplicaInfo_);
           DARABONBA_PTR_TO_JSON(Engine, engine_);
           DARABONBA_PTR_TO_JSON(EngineVersion, engineVersion_);
           DARABONBA_PTR_TO_JSON(ExpireTime, expireTime_);
@@ -117,6 +118,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(MaxIOMBPS, maxIOMBPS_);
           DARABONBA_PTR_TO_JSON(MaxIOPS, maxIOPS_);
           DARABONBA_PTR_TO_JSON(MultipleTempUpgrade, multipleTempUpgrade_);
+          DARABONBA_PTR_TO_JSON(NodePerformance, nodePerformance_);
           DARABONBA_PTR_TO_JSON(OptimizedWritesInfo, optimizedWritesInfo_);
           DARABONBA_PTR_TO_JSON(PGBouncerEnabled, PGBouncerEnabled_);
           DARABONBA_PTR_TO_JSON(PayType, payType_);
@@ -143,6 +145,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(VectorSupportStatus, vectorSupportStatus_);
           DARABONBA_PTR_TO_JSON(VpcCloudInstanceId, vpcCloudInstanceId_);
           DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
+          DARABONBA_PTR_TO_JSON(WarmStandbyInfo, warmStandbyInfo_);
           DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
           DARABONBA_PTR_TO_JSON(kindCode, kindCode_);
         };
@@ -186,6 +189,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(DeletionProtection, deletionProtection_);
           DARABONBA_PTR_FROM_JSON(DisasterRecoveryInfo, disasterRecoveryInfo_);
           DARABONBA_PTR_FROM_JSON(DisasterRecoveryInstances, disasterRecoveryInstances_);
+          DARABONBA_PTR_FROM_JSON(DrReplicaInfo, drReplicaInfo_);
           DARABONBA_PTR_FROM_JSON(Engine, engine_);
           DARABONBA_PTR_FROM_JSON(EngineVersion, engineVersion_);
           DARABONBA_PTR_FROM_JSON(ExpireTime, expireTime_);
@@ -210,6 +214,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(MaxIOMBPS, maxIOMBPS_);
           DARABONBA_PTR_FROM_JSON(MaxIOPS, maxIOPS_);
           DARABONBA_PTR_FROM_JSON(MultipleTempUpgrade, multipleTempUpgrade_);
+          DARABONBA_PTR_FROM_JSON(NodePerformance, nodePerformance_);
           DARABONBA_PTR_FROM_JSON(OptimizedWritesInfo, optimizedWritesInfo_);
           DARABONBA_PTR_FROM_JSON(PGBouncerEnabled, PGBouncerEnabled_);
           DARABONBA_PTR_FROM_JSON(PayType, payType_);
@@ -236,6 +241,7 @@ namespace Models
           DARABONBA_PTR_FROM_JSON(VectorSupportStatus, vectorSupportStatus_);
           DARABONBA_PTR_FROM_JSON(VpcCloudInstanceId, vpcCloudInstanceId_);
           DARABONBA_PTR_FROM_JSON(VpcId, vpcId_);
+          DARABONBA_PTR_FROM_JSON(WarmStandbyInfo, warmStandbyInfo_);
           DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
           DARABONBA_PTR_FROM_JSON(kindCode, kindCode_);
         };
@@ -250,6 +256,58 @@ namespace Models
         };
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        class WarmStandbyInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const WarmStandbyInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(InsName, insName_);
+            DARABONBA_PTR_TO_JSON(Region, region_);
+            DARABONBA_PTR_TO_JSON(UnitCode, unitCode_);
+          };
+          friend void from_json(const Darabonba::Json& j, WarmStandbyInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(InsName, insName_);
+            DARABONBA_PTR_FROM_JSON(Region, region_);
+            DARABONBA_PTR_FROM_JSON(UnitCode, unitCode_);
+          };
+          WarmStandbyInfo() = default ;
+          WarmStandbyInfo(const WarmStandbyInfo &) = default ;
+          WarmStandbyInfo(WarmStandbyInfo &&) = default ;
+          WarmStandbyInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~WarmStandbyInfo() = default ;
+          WarmStandbyInfo& operator=(const WarmStandbyInfo &) = default ;
+          WarmStandbyInfo& operator=(WarmStandbyInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->insName_ == nullptr
+        && this->region_ == nullptr && this->unitCode_ == nullptr; };
+          // insName Field Functions 
+          bool hasInsName() const { return this->insName_ != nullptr;};
+          void deleteInsName() { this->insName_ = nullptr;};
+          inline string getInsName() const { DARABONBA_PTR_GET_DEFAULT(insName_, "") };
+          inline WarmStandbyInfo& setInsName(string insName) { DARABONBA_PTR_SET_VALUE(insName_, insName) };
+
+
+          // region Field Functions 
+          bool hasRegion() const { return this->region_ != nullptr;};
+          void deleteRegion() { this->region_ = nullptr;};
+          inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+          inline WarmStandbyInfo& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
+          // unitCode Field Functions 
+          bool hasUnitCode() const { return this->unitCode_ != nullptr;};
+          void deleteUnitCode() { this->unitCode_ = nullptr;};
+          inline string getUnitCode() const { DARABONBA_PTR_GET_DEFAULT(unitCode_, "") };
+          inline WarmStandbyInfo& setUnitCode(string unitCode) { DARABONBA_PTR_SET_VALUE(unitCode_, unitCode) };
+
+
+        protected:
+          shared_ptr<string> insName_ {};
+          shared_ptr<string> region_ {};
+          shared_ptr<string> unitCode_ {};
+        };
+
         class SlaveZones : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const SlaveZones& obj) { 
@@ -527,6 +585,58 @@ namespace Models
           shared_ptr<string> recoveryModel_ {};
         };
 
+        class DrReplicaInfo : public Darabonba::Model {
+        public:
+          friend void to_json(Darabonba::Json& j, const DrReplicaInfo& obj) { 
+            DARABONBA_PTR_TO_JSON(InsName, insName_);
+            DARABONBA_PTR_TO_JSON(Region, region_);
+            DARABONBA_PTR_TO_JSON(UnitCode, unitCode_);
+          };
+          friend void from_json(const Darabonba::Json& j, DrReplicaInfo& obj) { 
+            DARABONBA_PTR_FROM_JSON(InsName, insName_);
+            DARABONBA_PTR_FROM_JSON(Region, region_);
+            DARABONBA_PTR_FROM_JSON(UnitCode, unitCode_);
+          };
+          DrReplicaInfo() = default ;
+          DrReplicaInfo(const DrReplicaInfo &) = default ;
+          DrReplicaInfo(DrReplicaInfo &&) = default ;
+          DrReplicaInfo(const Darabonba::Json & obj) { from_json(obj, *this); };
+          virtual ~DrReplicaInfo() = default ;
+          DrReplicaInfo& operator=(const DrReplicaInfo &) = default ;
+          DrReplicaInfo& operator=(DrReplicaInfo &&) = default ;
+          virtual void validate() const override {
+          };
+          virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+          virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+          virtual bool empty() const override { return this->insName_ == nullptr
+        && this->region_ == nullptr && this->unitCode_ == nullptr; };
+          // insName Field Functions 
+          bool hasInsName() const { return this->insName_ != nullptr;};
+          void deleteInsName() { this->insName_ = nullptr;};
+          inline string getInsName() const { DARABONBA_PTR_GET_DEFAULT(insName_, "") };
+          inline DrReplicaInfo& setInsName(string insName) { DARABONBA_PTR_SET_VALUE(insName_, insName) };
+
+
+          // region Field Functions 
+          bool hasRegion() const { return this->region_ != nullptr;};
+          void deleteRegion() { this->region_ = nullptr;};
+          inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+          inline DrReplicaInfo& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
+
+
+          // unitCode Field Functions 
+          bool hasUnitCode() const { return this->unitCode_ != nullptr;};
+          void deleteUnitCode() { this->unitCode_ = nullptr;};
+          inline string getUnitCode() const { DARABONBA_PTR_GET_DEFAULT(unitCode_, "") };
+          inline DrReplicaInfo& setUnitCode(string unitCode) { DARABONBA_PTR_SET_VALUE(unitCode_, unitCode) };
+
+
+        protected:
+          shared_ptr<string> insName_ {};
+          shared_ptr<string> region_ {};
+          shared_ptr<string> unitCode_ {};
+        };
+
         class DBClusterNodes : public Darabonba::Model {
         public:
           friend void to_json(Darabonba::Json& j, const DBClusterNodes& obj) { 
@@ -733,17 +843,18 @@ namespace Models
         && this->DBClusterNodes_ == nullptr && this->DBInstanceCPU_ == nullptr && this->DBInstanceClass_ == nullptr && this->DBInstanceClassType_ == nullptr && this->DBInstanceDescription_ == nullptr
         && this->DBInstanceDiskUsed_ == nullptr && this->DBInstanceId_ == nullptr && this->DBInstanceMemory_ == nullptr && this->DBInstanceNetType_ == nullptr && this->DBInstanceStatus_ == nullptr
         && this->DBInstanceStorage_ == nullptr && this->DBInstanceStorageType_ == nullptr && this->DBInstanceType_ == nullptr && this->DBMaxQuantity_ == nullptr && this->dedicatedHostGroupId_ == nullptr
-        && this->deletionProtection_ == nullptr && this->disasterRecoveryInfo_ == nullptr && this->disasterRecoveryInstances_ == nullptr && this->engine_ == nullptr && this->engineVersion_ == nullptr
-        && this->expireTime_ == nullptr && this->extra_ == nullptr && this->generalGroupName_ == nullptr && this->greenInstanceName_ == nullptr && this->guardDBInstanceId_ == nullptr
-        && this->IPType_ == nullptr && this->incrementSourceDBInstanceId_ == nullptr && this->instanceNetworkType_ == nullptr && this->instructionSetArch_ == nullptr && this->ioAccelerationEnabled_ == nullptr
-        && this->isAnalyticIns_ == nullptr && this->isAnalyticReadOnlyIns_ == nullptr && this->latestKernelVersion_ == nullptr && this->lockMode_ == nullptr && this->lockReason_ == nullptr
-        && this->maintainTime_ == nullptr && this->masterInstanceId_ == nullptr && this->masterZone_ == nullptr && this->maxConnections_ == nullptr && this->maxIOMBPS_ == nullptr
-        && this->maxIOPS_ == nullptr && this->multipleTempUpgrade_ == nullptr && this->optimizedWritesInfo_ == nullptr && this->PGBouncerEnabled_ == nullptr && this->payType_ == nullptr
-        && this->port_ == nullptr && this->proxyType_ == nullptr && this->readOnlyDBInstanceIds_ == nullptr && this->readOnlyStatus_ == nullptr && this->readonlyInstanceSQLDelayedTime_ == nullptr
-        && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityIPList_ == nullptr && this->securityIPMode_ == nullptr && this->serverlessConfig_ == nullptr
-        && this->slaveZones_ == nullptr && this->superPermissionMode_ == nullptr && this->supportCompression_ == nullptr && this->tempDBInstanceId_ == nullptr && this->tempUpgradeTimeEnd_ == nullptr
-        && this->tempUpgradeTimeStart_ == nullptr && this->timeZone_ == nullptr && this->tips_ == nullptr && this->tipsLevel_ == nullptr && this->vSwitchId_ == nullptr
-        && this->vectorSupportStatus_ == nullptr && this->vpcCloudInstanceId_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr && this->kindCode_ == nullptr; };
+        && this->deletionProtection_ == nullptr && this->disasterRecoveryInfo_ == nullptr && this->disasterRecoveryInstances_ == nullptr && this->drReplicaInfo_ == nullptr && this->engine_ == nullptr
+        && this->engineVersion_ == nullptr && this->expireTime_ == nullptr && this->extra_ == nullptr && this->generalGroupName_ == nullptr && this->greenInstanceName_ == nullptr
+        && this->guardDBInstanceId_ == nullptr && this->IPType_ == nullptr && this->incrementSourceDBInstanceId_ == nullptr && this->instanceNetworkType_ == nullptr && this->instructionSetArch_ == nullptr
+        && this->ioAccelerationEnabled_ == nullptr && this->isAnalyticIns_ == nullptr && this->isAnalyticReadOnlyIns_ == nullptr && this->latestKernelVersion_ == nullptr && this->lockMode_ == nullptr
+        && this->lockReason_ == nullptr && this->maintainTime_ == nullptr && this->masterInstanceId_ == nullptr && this->masterZone_ == nullptr && this->maxConnections_ == nullptr
+        && this->maxIOMBPS_ == nullptr && this->maxIOPS_ == nullptr && this->multipleTempUpgrade_ == nullptr && this->nodePerformance_ == nullptr && this->optimizedWritesInfo_ == nullptr
+        && this->PGBouncerEnabled_ == nullptr && this->payType_ == nullptr && this->port_ == nullptr && this->proxyType_ == nullptr && this->readOnlyDBInstanceIds_ == nullptr
+        && this->readOnlyStatus_ == nullptr && this->readonlyInstanceSQLDelayedTime_ == nullptr && this->regionId_ == nullptr && this->resourceGroupId_ == nullptr && this->securityIPList_ == nullptr
+        && this->securityIPMode_ == nullptr && this->serverlessConfig_ == nullptr && this->slaveZones_ == nullptr && this->superPermissionMode_ == nullptr && this->supportCompression_ == nullptr
+        && this->tempDBInstanceId_ == nullptr && this->tempUpgradeTimeEnd_ == nullptr && this->tempUpgradeTimeStart_ == nullptr && this->timeZone_ == nullptr && this->tips_ == nullptr
+        && this->tipsLevel_ == nullptr && this->vSwitchId_ == nullptr && this->vectorSupportStatus_ == nullptr && this->vpcCloudInstanceId_ == nullptr && this->vpcId_ == nullptr
+        && this->warmStandbyInfo_ == nullptr && this->zoneId_ == nullptr && this->kindCode_ == nullptr; };
         // accountMaxQuantity Field Functions 
         bool hasAccountMaxQuantity() const { return this->accountMaxQuantity_ != nullptr;};
         void deleteAccountMaxQuantity() { this->accountMaxQuantity_ = nullptr;};
@@ -1021,6 +1132,15 @@ namespace Models
         inline DBInstanceAttribute& setDisasterRecoveryInstances(string disasterRecoveryInstances) { DARABONBA_PTR_SET_VALUE(disasterRecoveryInstances_, disasterRecoveryInstances) };
 
 
+        // drReplicaInfo Field Functions 
+        bool hasDrReplicaInfo() const { return this->drReplicaInfo_ != nullptr;};
+        void deleteDrReplicaInfo() { this->drReplicaInfo_ = nullptr;};
+        inline const DBInstanceAttribute::DrReplicaInfo & getDrReplicaInfo() const { DARABONBA_PTR_GET_CONST(drReplicaInfo_, DBInstanceAttribute::DrReplicaInfo) };
+        inline DBInstanceAttribute::DrReplicaInfo getDrReplicaInfo() { DARABONBA_PTR_GET(drReplicaInfo_, DBInstanceAttribute::DrReplicaInfo) };
+        inline DBInstanceAttribute& setDrReplicaInfo(const DBInstanceAttribute::DrReplicaInfo & drReplicaInfo) { DARABONBA_PTR_SET_VALUE(drReplicaInfo_, drReplicaInfo) };
+        inline DBInstanceAttribute& setDrReplicaInfo(DBInstanceAttribute::DrReplicaInfo && drReplicaInfo) { DARABONBA_PTR_SET_RVALUE(drReplicaInfo_, drReplicaInfo) };
+
+
         // engine Field Functions 
         bool hasEngine() const { return this->engine_ != nullptr;};
         void deleteEngine() { this->engine_ = nullptr;};
@@ -1189,6 +1309,13 @@ namespace Models
         void deleteMultipleTempUpgrade() { this->multipleTempUpgrade_ = nullptr;};
         inline bool getMultipleTempUpgrade() const { DARABONBA_PTR_GET_DEFAULT(multipleTempUpgrade_, false) };
         inline DBInstanceAttribute& setMultipleTempUpgrade(bool multipleTempUpgrade) { DARABONBA_PTR_SET_VALUE(multipleTempUpgrade_, multipleTempUpgrade) };
+
+
+        // nodePerformance Field Functions 
+        bool hasNodePerformance() const { return this->nodePerformance_ != nullptr;};
+        void deleteNodePerformance() { this->nodePerformance_ = nullptr;};
+        inline string getNodePerformance() const { DARABONBA_PTR_GET_DEFAULT(nodePerformance_, "") };
+        inline DBInstanceAttribute& setNodePerformance(string nodePerformance) { DARABONBA_PTR_SET_VALUE(nodePerformance_, nodePerformance) };
 
 
         // optimizedWritesInfo Field Functions 
@@ -1379,6 +1506,15 @@ namespace Models
         inline DBInstanceAttribute& setVpcId(string vpcId) { DARABONBA_PTR_SET_VALUE(vpcId_, vpcId) };
 
 
+        // warmStandbyInfo Field Functions 
+        bool hasWarmStandbyInfo() const { return this->warmStandbyInfo_ != nullptr;};
+        void deleteWarmStandbyInfo() { this->warmStandbyInfo_ = nullptr;};
+        inline const DBInstanceAttribute::WarmStandbyInfo & getWarmStandbyInfo() const { DARABONBA_PTR_GET_CONST(warmStandbyInfo_, DBInstanceAttribute::WarmStandbyInfo) };
+        inline DBInstanceAttribute::WarmStandbyInfo getWarmStandbyInfo() { DARABONBA_PTR_GET(warmStandbyInfo_, DBInstanceAttribute::WarmStandbyInfo) };
+        inline DBInstanceAttribute& setWarmStandbyInfo(const DBInstanceAttribute::WarmStandbyInfo & warmStandbyInfo) { DARABONBA_PTR_SET_VALUE(warmStandbyInfo_, warmStandbyInfo) };
+        inline DBInstanceAttribute& setWarmStandbyInfo(DBInstanceAttribute::WarmStandbyInfo && warmStandbyInfo) { DARABONBA_PTR_SET_RVALUE(warmStandbyInfo_, warmStandbyInfo) };
+
+
         // zoneId Field Functions 
         bool hasZoneId() const { return this->zoneId_ != nullptr;};
         void deleteZoneId() { this->zoneId_ = nullptr;};
@@ -1433,6 +1569,7 @@ namespace Models
         shared_ptr<bool> deletionProtection_ {};
         shared_ptr<string> disasterRecoveryInfo_ {};
         shared_ptr<string> disasterRecoveryInstances_ {};
+        shared_ptr<DBInstanceAttribute::DrReplicaInfo> drReplicaInfo_ {};
         shared_ptr<string> engine_ {};
         shared_ptr<string> engineVersion_ {};
         shared_ptr<string> expireTime_ {};
@@ -1457,6 +1594,7 @@ namespace Models
         shared_ptr<int32_t> maxIOMBPS_ {};
         shared_ptr<int32_t> maxIOPS_ {};
         shared_ptr<bool> multipleTempUpgrade_ {};
+        shared_ptr<string> nodePerformance_ {};
         shared_ptr<string> optimizedWritesInfo_ {};
         shared_ptr<string> PGBouncerEnabled_ {};
         shared_ptr<string> payType_ {};
@@ -1483,6 +1621,7 @@ namespace Models
         shared_ptr<string> vectorSupportStatus_ {};
         shared_ptr<string> vpcCloudInstanceId_ {};
         shared_ptr<string> vpcId_ {};
+        shared_ptr<DBInstanceAttribute::WarmStandbyInfo> warmStandbyInfo_ {};
         shared_ptr<string> zoneId_ {};
         shared_ptr<string> kindCode_ {};
       };
@@ -1521,7 +1660,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBInstanceAttributeResponseBody::Items> items_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

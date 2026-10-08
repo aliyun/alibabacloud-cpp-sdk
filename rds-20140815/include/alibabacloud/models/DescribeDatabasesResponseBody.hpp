@@ -482,7 +482,7 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDatabasesResponseBody::Databases> databases_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

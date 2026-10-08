@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The number of associated analytic instances.
+    // The number of associated analytical instances.
     shared_ptr<int32_t> analyticDBCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

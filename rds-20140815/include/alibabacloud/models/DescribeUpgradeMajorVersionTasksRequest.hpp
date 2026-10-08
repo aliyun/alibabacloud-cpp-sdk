@@ -112,7 +112,7 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -120,7 +120,7 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     // The page number.
     // 
-    // Pages start from 1.
+    // Valid values: a value greater than 0 that does not exceed the maximum value of Integer.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -132,16 +132,15 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The major engine version of the new instance. Valid values:
-    // 
-    // *   **10.0**
-    // *   **11.0**
-    // *   **12.0**
-    // *   **13.0**
-    // *   **14.0**
-    // *   **15.0**
+    // The major engine version after the upgrade. Valid values:
+    // * **10.0**
+    // * **11.0**
+    // * **12.0**
+    // * **13.0**
+    // * **14.0**
+    // * **15.0**
     shared_ptr<string> targetMajorVersion_ {};
-    // A reserved parameter. You do not need to specify this parameter.
+    // A reserved parameter. You do not need to configure this parameter.
     shared_ptr<int32_t> taskId_ {};
   };
 

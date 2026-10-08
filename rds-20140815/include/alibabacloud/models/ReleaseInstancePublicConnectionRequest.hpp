@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The public endpoint. You can call the DescribeDBInstanceNetInfo operation to query the public endpoint.
+    // The public endpoint. You can call DescribeDBInstanceNetInfo to query the public endpoint.
     // 
     // This parameter is required.
     shared_ptr<string> currentConnectionString_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

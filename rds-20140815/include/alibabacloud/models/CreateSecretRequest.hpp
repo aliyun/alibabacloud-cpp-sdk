@@ -149,32 +149,32 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the instance. You can call the DescribeDBInstances operation to query the ID of the instance.
+    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The name of the database.
+    // The database name.
     shared_ptr<string> dbNames_ {};
     // The description of the credential.
     shared_ptr<string> description_ {};
-    // The engine of the database.
+    // The database engine type.
     // 
-    // > Only MySQL is supported.
+    // > This parameter currently supports only the value MySQL.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The password that is used to access the database.
+    // The password of the database account.
     // 
     // This parameter is required.
     shared_ptr<string> password_ {};
-    // The region ID of the instance. You can call the DescribeDBInstanceAttribute operation to query the region ID of the instance.
+    // The region ID. You can call the DescribeDBInstanceAttribute operation to query the region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the ID of the resource group.
+    // The ID of the resource group to which the instance belongs. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};
@@ -182,7 +182,7 @@ namespace Models
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The name of the credential.
     shared_ptr<string> secretName_ {};
-    // The username that is used to access the database.
+    // The username of the database account.
     // 
     // This parameter is required.
     shared_ptr<string> username_ {};

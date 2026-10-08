@@ -94,14 +94,14 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The HA mode of the instance.
+    // The High-availability Mode. Valid values:
     // 
-    // *   RPO: Data consistency is preferred. The instance ensures data reliability to minimize data losses. If you have high requirements on data consistency, select this mode.
-    // *   RTO: Service availability is preferred. The instance restores the database service at the earliest opportunity to ensure service availability. If you have high requirements for service availability, select this mode.
+    // - RPO: Data consistency is preferred. The instance ensures data reliability to the greatest extent, which minimizes the amount of data loss. Use RPO mode if you have high requirements for data consistency.
+    // - RTO: Instance availability is preferred. The instance recovers services as soon as possible, which maximizes the active time. Use RTO mode if you have high requirements for database uptime.
     // 
     // This parameter is required.
     shared_ptr<string> HAMode_ {};
@@ -109,14 +109,13 @@ namespace Models
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The data replication mode of the instance. For more information, see [Data replication mode](https://help.aliyun.com/document_detail/96055.html).
+    // The data replication method. Valid values:
     // 
-    // *   Semi-sync: the semi-synchronous mode.
-    // *   Sync: the synchronous mode.
-    // *   gAsyncg: the asynchronous mode.
-    // *   Mgr: the MySQL group replication (MGR) mode. This mode is available only for the China site (aliyun.com).
+    // - Semi-sync: semi-synchronous replication.
+    // - Sync: synchronous replication.
+    // - Async: asynchronous replication.
     // 
-    // > This parameter is not supported for instances that run SQL Server 2017 on RDS Cluster Edition.
+    // <props="china">- Mgr: MySQL Group Replication.
     // 
     // This parameter is required.
     shared_ptr<string> syncMode_ {};

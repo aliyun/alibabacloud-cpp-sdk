@@ -59,9 +59,9 @@ namespace Models
   protected:
     // The error code.
     shared_ptr<string> code_ {};
-    // The error message.
+    // The error details.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

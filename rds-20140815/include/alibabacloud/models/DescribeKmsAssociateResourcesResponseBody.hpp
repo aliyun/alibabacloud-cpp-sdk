@@ -93,26 +93,25 @@ namespace Models
       // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
       // The database engine. Valid values:
-      // 
-      // *   **MySQL**
-      // *   **SQLServer**
-      // *   **PostgreSQL**
+      // - **MySQL**
+      // - **SQLServer**
+      // - **PostgreSQL**
       shared_ptr<string> engine_ {};
       // The purpose of the key. Valid values:
       // 
-      // *   **DiskEncryption**: cloud disk encryption
-      // *   **TDE**: transparent data encryption
+      // - **DiskEncryption**: cloud disk data encryption.
+      // - **TDE**: transparent data encryption.
       shared_ptr<string> keyUsedBy_ {};
-      // The state of the instance. Valid values:
+      // The instance status. Valid values:
       // 
-      // *   **CREATING**: The instance is being created.
-      // *   **ACTIVATION**: The instance is running.
-      // *   **DELETING**: The instance is being deleted.
-      // *   **RESTARTING**: The instance is being restarted.
-      // *   **INS_MAINTAINING**: The configuration of the instance is being changed.
-      // *   **INS_MAINTAINING**: The instance is being maintained.
-      // *   **BACKUP_RECOVERING**: The instance is being restored.
-      // *   **NET_MODIFYING**: The network type of the instance is being changed.
+      // - **CREATING**: The instance is being created.
+      // - **ACTIVATION**: The instance is running.
+      // - **DELETING**: The instance is being deleted.
+      // - **RESTARTING**: The instance is being restarted.
+      // - **CLASS_CHANGING**: The instance specifications are being changed.
+      // - **INS_MAINTAINING**: The instance is being maintained.
+      // - **BACKUP_RECOVERING**: A backup is being restored.
+      // - **NET_MODIFYING**: The network is being changed.
       shared_ptr<string> status_ {};
     };
 
@@ -142,12 +141,12 @@ namespace Models
 
 
   protected:
-    // The information about the associated ApsaraDB RDS instances.
+    // The list of associated ApsaraDB RDS instances.
     shared_ptr<vector<DescribeKmsAssociateResourcesResponseBody::AssociateDBInstances>> associateDBInstances_ {};
-    // Indicates whether an associated RDS instance exists.
+    // Indicates whether associated ApsaraDB RDS instances exist.
     // 
-    // - **true**: Yes
-    // - **false**: No
+    // - **true**: Associated instances exist.
+    // - **false**: No associated instances exist.
     shared_ptr<bool> associateStatus_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

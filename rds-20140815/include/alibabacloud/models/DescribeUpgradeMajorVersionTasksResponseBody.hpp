@@ -223,65 +223,74 @@ namespace Models
 
 
     protected:
-      // The time when the system collects the statistics.
+      // The statistics information collection pattern.
       // 
       // Valid values:
-      // 
-      // *   **After**: The system collects the statistics after a switchover.
-      // *   **Before**: The system collects the statistics before a switchover.
+      // - **After**: Upgrade after the cutover.
+      // - **Before**: Upgrade before the cutover.
       shared_ptr<string> collectStatMode_ {};
-      // The details of the task.
+      // The detailed information about the task.
       shared_ptr<string> detail_ {};
-      // The end time of the task.
+      // The end time of the major engine version upgrade.
       // 
-      // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+      // The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> endTime_ {};
-      // The status of the task.
-      // 
-      // *   **Success**: The task is successful.
-      // *   **Failed**: The task failed.
-      // *   **Running**: The task is in the phase in which data is being migrated to a new instance.
+      // The final result of the task. Valid values:
+      // * **Success**: The task is successful.
+      // * **Failed**: The task failed.
+      // * **Running**: The migration is in progress.
       shared_ptr<string> result_ {};
-      // The ID of the original instance.
+      // The ID of the original instance before the upgrade.
       shared_ptr<string> sourceInsName_ {};
-      // The major engine version of the original instance.
+      // The version of the original instance before the upgrade.
       shared_ptr<string> sourceMajorVersion_ {};
-      // The start time of the task.
+      // The start time of the major engine version upgrade.
       // 
-      // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+      // The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> startTime_ {};
-      // The end time of the switching from the original instance to the new instance.
+      // The end time of the instance switchover from the original instance to the new instance.
       // 
-      // Expressed in Unix timestamp. Unit: milliseconds.
+      // The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> switchEndTime_ {};
-      // The time at which your workloads are switched over from the original instance to the new instance.
+      // The time of the instance switchover from the original instance to the new instance.
       // 
-      // This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC. Unit: milliseconds.
+      // The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> switchTime_ {};
-      // The ID of the new instance.
+      // The ID of the new instance after the upgrade.
       shared_ptr<string> targetInsName_ {};
-      // The major engine version of the new instance. Valid values:
-      // 
-      // *   **10.0**
-      // *   **11.0**
-      // *   **12.0**
-      // *   **13.0**
-      // *   **14.0**
-      // *   **15.0**
+      // The major engine version after the upgrade. Valid values:
+      // * **10.0**
+      // * **11.0**
+      // * **12.0**
+      // * **13.0**
+      // * **14.0**
+      // * **15.0**
       shared_ptr<string> targetMajorVersion_ {};
       // The task ID.
       shared_ptr<int32_t> taskId_ {};
       // The upgrade mode.
       // 
       // Valid values:
-      // 
-      // *   **clone**: The system does not migrate data to the new instance and does not switch your workloads over to the new instance.
-      // *   **switch**: The system migrates data to the new instance and switches your workloads over to the new instance.
+      // - **clone**: no cutover
+      // - **switch**: cutover
       shared_ptr<string> upgradeMode_ {};
+      // Indicates whether a cutover is performed.
+      // 
+      // - **true**: A cutover is performed.
+      // - **false**: No cutover is performed.
       shared_ptr<bool> cutOver_ {};
+      // The estimated synchronization time for the logical replication lag. Unit: seconds.
+      // > This parameter is used only for **zero-downtime** major engine version upgrades.
       shared_ptr<int32_t> totalLogicRepDelayTime_ {};
+      // The size of the logical replication lag. Unit: MB.
+      // 
+      // > This parameter is used only for **zero-downtime** major engine version upgrades.
       shared_ptr<int32_t> totalLogicRepLatencyMB_ {};
+      // The temporary internal endpoint of the higher-version instance for the zero-downtime major engine version upgrade. The format is `****.pg.rds.aliyuncs.com`.
+      // > This parameter is used only for **zero-downtime** major engine version upgrades.
       shared_ptr<string> zeroDownTimeConnectionString_ {};
+      // The port of the higher-version instance, which is the same as the port of the source instance.
+      // > This parameter is used only for **zero-downtime** major engine version upgrades.
       shared_ptr<int32_t> zeroDownTimePort_ {};
     };
 
@@ -325,7 +334,7 @@ namespace Models
 
 
   protected:
-    // The tasks for major engine version upgrades.
+    // The list of major engine version upgrade tasks.
     shared_ptr<vector<DescribeUpgradeMajorVersionTasksResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -333,7 +342,7 @@ namespace Models
     shared_ptr<int32_t> pageRecordCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

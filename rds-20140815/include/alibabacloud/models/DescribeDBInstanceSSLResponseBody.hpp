@@ -222,91 +222,96 @@ namespace Models
 
 
   protected:
-    // The method that is used to verify the instance. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
-    // 
-    // *   **cert**
-    // *   **prefer**
-    // *   **verify-ca**
-    // *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
+    // The authentication method of the ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // - **cert**
+    // - **prefer**
+    // - **verify-ca**
+    // - **verify-full** (supported by ApsaraDB RDS for PostgreSQL 12 and later)
     shared_ptr<string> ACL_ {};
-    // The type of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
-    // 
-    // *   **aliyun**: a cloud certificate
-    // *   **custom**: a custom certificate
+    // The server certificate type of the ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // - **aliyun**: The cloud certificate is used.
+    // - **custom**: A custom certificate is used.
     shared_ptr<string> CAType_ {};
-    // The public key of the CA that issues client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+    // The public key of the client certificate authority (CA) for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> clientCACert_ {};
-    // The time when the public key of the CA that issues client certificates expires. This parameter is supported only when the instance runs PostgreSQL with cloud disks. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
+    // The expiration time of the public key of the client certificate authorization authority (CA) for the ApsaraDB RDS for PostgreSQL instance with cloud disks. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     // 
-    // This parameter is not supported.
+    // This parameter is not supported. You can ignore this parameter.
     shared_ptr<string> clientCACertExpireTime_ {};
-    // The certificate revocation list (CRL) that contains revoked client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+    // The client certificate revocation certificate file of the ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> clientCertRevocationList_ {};
-    // The endpoint that is protected by SSL encryption.
+    // The endpoint that is protected by SSL.
     shared_ptr<string> connectionString_ {};
-    // Indicates whether the [forceful SSL encryption](https://help.aliyun.com/document_detail/95715.html) feature is enabled. This parameter is supported only for RDS for SQL Server instances.
+    // Indicates whether the [forced Secure Sockets Layer (SSL) encryption feature](https://help.aliyun.com/document_detail/95715.html) is enabled for the ApsaraDB RDS for SQL Server instance. Valid values:
     // 
-    // *   **1**: The feature is enabled.
-    // *   **0**: The feature is disabled.
+    // - **1**: Enabled.
+    // - **0**: Disabled.
     shared_ptr<string> forceEncryption_ {};
-    // The status of the SSL link. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+    // The current SSL link configuration status of the ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
     // 
-    // *   **success**: The SSL link is successfully configured.
-    // *   **setting**: The SSL link is being configured.
-    // *   **failed**: The SSL link failed to be configured.
+    // - **success**: Successful.
+    // - **setting**: Being configured.
+    // - **failed**: Failed.
     shared_ptr<string> lastModifyStatus_ {};
-    // The reason why the SSL link stays in the current state. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+    // The reason for the current SSL link configuration status of the ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> modifyStatusReason_ {};
-    // The method that is used to verify the replication permission. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
-    // 
-    // *   **cert**
-    // *   **prefer**
-    // *   **verify-ca**
-    // *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
+    // The authentication method for replication permissions of the ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // - **cert**
+    // - **prefer**
+    // - **verify-ca**
+    // - **verify-full** (supported by ApsaraDB RDS for PostgreSQL 12 and later)
     shared_ptr<string> replicationACL_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the SSL certificate needs to be updated. Valid values:
     // 
-    // >  An SSL certificate remains valid for one year. Before the used SSL certificate expires, you must update the validity period of the SSL certificate. If you do not update the validity period of the SSL certificate, your application or client that uses encrypted network connections cannot connect to your RDS instance.
+    // > The SSL certificate is valid for one year. If the certificate is not renewed after it expires, client programs that use encrypted connections cannot connect to the instance.
+    // <details>
+    // <summary>MySQL and SQL Server</summary>
     // 
-    // **RDS instances that run MySQL and SQL Server**
+    // - **No**: No update is required.
+    // - **Yes**: An update is required.
+    // </details>
     // 
-    // *   **No**: The SSL certificate does not need to be updated.
-    // *   **Yes**: The SSL certificate needs to be updated.
+    // <details>
+    // <summary>PostgreSQL</summary>
     // 
-    // **RDS instances that run PostgreSQL**
+    // - **0**: No update is required.
+    // - **1**: An update is required.
     // 
-    // *   **0**: The SSL certificate does not need to be updated.
-    // *   **1**: The SSL certificate needs to be updated.
+    // </details>
     shared_ptr<string> requireUpdate_ {};
-    // The server certificate that needs to be updated. This parameter is supported only when the instance runs PostgreSQL with cloud disk.
+    // The list of server certificates that need to be updated for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> requireUpdateItem_ {};
-    // The reason why the server certificate needs to be updated. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+    // The reason why the certificates need to be updated for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> requireUpdateReason_ {};
-    // The time when the server certificate was created. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is valid only when the CAType parameter value is aliyun.
+    // The creation time of the server certificate for the ApsaraDB RDS for PostgreSQL instance with cloud disks. This parameter is valid only when CAType is set to aliyun.
     shared_ptr<string> SSLCreateTime_ {};
-    // Indicates whether SSL encryption is enabled. Valid values:
+    // The SSL encryption status. Valid values:
+    // <details>
+    // <summary>MySQL and SQL Server</summary>
     // 
-    // **RDS instances that run MySQL and SQL Server**
+    // - **Yes**: Enabled.
+    // - **No**: Disabled.
+    // </details>
     // 
-    // *   **Yes**: SSL encryption is enabled.
-    // *   **No**: SSL encryption is disabled.
+    // <details>
+    // <summary>PostgreSQL</summary>
     // 
-    // **RDS instances that run PostgreSQL**
+    // - **on**: Enabled.
+    // - **off**: Disabled.
     // 
-    // *   **on**: SSL encryption is enabled.
-    // *   **off**: SSL encryption is disabled.
+    // </details>
     shared_ptr<string> SSLEnabled_ {};
-    // The time when the SSL certificate expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format and must be in UTC.
+    // The expiration time of the SSL certificate. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> SSLExpireTime_ {};
-    // The URL of the certificate that is used to issue the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disk.
+    // The URL of the CA certificate that is used to issue the server certificate for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> serverCAUrl_ {};
-    // The content of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+    // The content of the server certificate for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> serverCert_ {};
-    // The private key of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+    // The private key of the server certificate for the ApsaraDB RDS for PostgreSQL instance with cloud disks.
     shared_ptr<string> serverKey_ {};
-    // The [minimum Transport Layer Security (TLS) version](https://help.aliyun.com/document_detail/95715.html). Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances.
+    // The specified [minimum TLS version](https://help.aliyun.com/document_detail/95715.html) for the ApsaraDB RDS for SQL Server instance. Valid values: 1.0, 1.1, and 1.2.
     shared_ptr<string> tlsVersion_ {};
   };
 

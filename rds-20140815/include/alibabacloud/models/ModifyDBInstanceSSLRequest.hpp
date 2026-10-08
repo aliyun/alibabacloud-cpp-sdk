@@ -213,73 +213,82 @@ namespace Models
 
 
   protected:
-    // The method that is used to verify the identities of clients. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
+    // The authentication method for an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // - **cert**
+    // - **prefer**
+    // - **verify-ca**
+    // - **verify-full** (supported for ApsaraDB RDS for PostgreSQL 12 and later)
     // 
-    // *   **cert**
-    // *   **prefer**
-    // *   **verify-ca**
-    // *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
+    // > This parameter can be configured only when ClientCAEnabled is set to **1**.
     shared_ptr<string> ACL_ {};
-    // The type of the server certificate. This parameter is supported only when the instance runs MySQL or PostgreSQL with cloud disks. If you set SSLEnabled to **1**, the default value of this parameter is **aliyun**. Valid values:
-    // 
-    // *   **aliyun**: a cloud certificate
-    // *   **custom**: a custom certificate
+    // The type of certificate for ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances with cloud disks. Valid values:
+    // - **aliyun** (default): Alibaba Cloud certificate.
+    // - **custom**: Custom certificate.
+    // > This parameter is required when SSLEnabled is set to **1**.
     shared_ptr<string> CAType_ {};
-    // The custom certificate. The custom certificate is in the `PFX` format.
-    // 
-    // *   Public endpoint: `oss-<The ID of the region>.aliyuncs.com:<The name of the bucket>:<The name of the certificate file (The file name contains the extension.)>`
-    // *   Internal endpoint: `oss-<The ID of the region>-internal.aliyuncs.com:<The name of the bucket>:<The name of the certificate file (The file name contains the extension.)>`
+    // The custom certificate content for an ApsaraDB RDS for SQL Server instance. Only the `pfx` certificate format is supported.
+    // - Public endpoint: `oss-<RegionId>.aliyuncs.com:<BucketName>:<CertificateFileName (certificate file extension)>`
+    // - Internal endpoint: `oss-<RegionId>-internal.aliyuncs.com:<BucketName>:<CertificateFileName (certificate file extension)>`
     shared_ptr<string> certificate_ {};
-    // The public key of the CA that issues client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when ClientCAEbabled is set to **1**.
+    // The client certificate authorization authority public key for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
+    // 
+    // > This parameter is required when ClientCAEnabled is set to **1**.
     shared_ptr<string> clientCACert_ {};
-    // Specifies whether to enable the public key of the CA that issues client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
-    // 
-    // *   **1**: enables the public key.
-    // *   **0**: disables the public key.
+    // Specifies whether to enable the client certification authority (CA) public key for an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // - **1**: Enable.
+    // - **0**: Disable.
     shared_ptr<int32_t> clientCAEnabled_ {};
-    // The CRL that contains revoked client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when ClientCrlEnabled is set to **1**.
-    shared_ptr<string> clientCertRevocationList_ {};
-    // Specifies whether to enable a certificate revocation list (CRL) that contains revoked client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
+    // The client certificate revocation certificate file for an ApsaraDB RDS for PostgreSQL instance with cloud disks.
     // 
-    // *   **1**: enables the CRL.
-    // *   **0**: disables the CRL.
+    // > This parameter is required when ClientCrlEnabled is set to **1**.
+    shared_ptr<string> clientCertRevocationList_ {};
+    // Specifies whether to enable the client certificate revocation list (CRL) for an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // - **1**: Enable.
+    // - **0**: Disable.
+    // 
+    // > This parameter can be configured only when ClientCAEnabled is set to **1**.
     shared_ptr<int32_t> clientCrlEnabled_ {};
-    // The internal or public endpoint for which the server certificate needs to be created or updated.
+    // The internal or public endpoint for which you want to create or update the server certificate.
     // 
     // This parameter is required.
     shared_ptr<string> connectionString_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // Specifies whether to enable the forceful SSL encryption feature. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html). Valid values:
+    // The [SSL forced encryption switch](https://help.aliyun.com/document_detail/95715.html) for ApsaraDB RDS for MySQL and ApsaraDB RDS for SQL Server instances. Valid values:
     // 
-    // *   **1**: enables the feature.
-    // *   **0**: disables the feature.
+    // - **1**: Enabled.
+    // - **0**: Disabled.
     shared_ptr<string> forceEncryption_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The password of the certificate.
+    // The password of the custom certificate for an ApsaraDB RDS for SQL Server instance.
     shared_ptr<string> passWord_ {};
-    // The method that is used to verify the replication permission. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is available only when the public key of the CA that issues client certificates is enabled. Valid values:
-    // 
-    // *   **cert**
-    // *   **prefer**
-    // *   **verify-ca**
-    // *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
+    // The authentication method for replication permissions on an ApsaraDB RDS for PostgreSQL instance with cloud disks. Valid values:
+    // - **cert**
+    // - **prefer**
+    // - **verify-ca**
+    // - **verify-full** (supported for ApsaraDB RDS for PostgreSQL 12 and later)
+    // > This parameter can be configured only when ClientCAEnabled is set to **1**.
     shared_ptr<string> replicationACL_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies whether to enable or disable the SSL encryption feature. Valid values:
-    // 
-    // *   **1**: enables the feature.
-    // *   **0**: disables the feature.
+    // Specifies whether to enable or disable SSL. Valid values:
+    // * **1**: Enable.
+    // * **0**: Disable.
     shared_ptr<int32_t> SSLEnabled_ {};
-    // The content of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when CAType is set to **custom**.
+    // The custom certificate content of the server for ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances with cloud disks.
+    // 
+    // > This parameter is required when CAType is set to **custom**.
     shared_ptr<string> serverCert_ {};
-    // The private key of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. This parameter must be specified when CAType is set to **custom**.
+    // The private key of the server certificate for ApsaraDB RDS for MySQL and ApsaraDB RDS for PostgreSQL instances with cloud disks.
+    // 
+    // > This parameter is required when CAType is set to **custom**.
     shared_ptr<string> serverKey_ {};
-    // The minimum Transport Layer Security (TLS) version. Valid values: 1.0, 1.1, and 1.2. This parameter is supported only for ApsaraDB RDS for SQL Server instances. For more information, see [Configure the SSL encryption feature](https://help.aliyun.com/document_detail/95715.html).
+    // The [minimum TLS version](https://help.aliyun.com/document_detail/95715.html) for an ApsaraDB RDS for SQL Server instance. Connection requests from clients with a TLS version lower than the specified version are rejected. Valid values: 1.0, 1.1, and 1.2.
+    // 
+    // For example, if you set this parameter to 1.1, the server accepts only connection requests from clients that use TLS 1.1 or TLS 1.2. Connection requests from clients that use TLS 1.0 are rejected.
     shared_ptr<string> tlsVersion_ {};
   };
 

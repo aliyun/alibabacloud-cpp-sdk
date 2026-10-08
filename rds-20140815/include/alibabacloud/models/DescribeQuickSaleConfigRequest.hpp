@@ -57,19 +57,18 @@ namespace Models
 
 
   protected:
-    // The product code. Valid values:
+    // The commodity code. Valid values:
     // 
-    // *   rds: The instance is a subscription instance.
-    // *   bards: The instance is a pay-as-you-go instance.
+    // - rds: subscription
+    // - bards: pay-as-you-go
     shared_ptr<string> commodity_ {};
-    // The database engine of the instance. Valid values:
-    // 
-    // *   **MySQL**
-    // *   **SQLServer**
-    // *   **PostgreSQL**
-    // *   **MariaDB**
+    // The database engine. Valid values:
+    // * **MySQL**
+    // * **SQLServer**
+    // * **PostgreSQL**
+    // * **MariaDB**
     shared_ptr<string> engine_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the available regions.
     shared_ptr<string> regionId_ {};
   };
 

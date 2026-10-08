@@ -223,11 +223,16 @@ namespace Models
 
 
   protected:
+    // The instance name.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<DescribeDBInstanceSwitchLogResponseBody::Items> items_ {};
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageRecordCount_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries on the current page.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

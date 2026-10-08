@@ -75,11 +75,20 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // The number of entries per page. Valid values: **1 to 100**.
+    // 
+    // Default value: **30**.
+    // >If you specify this parameter, the **PageSize** and **PageNumber** parameters are not available.
     shared_ptr<int32_t> maxResults_ {};
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The region ID.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

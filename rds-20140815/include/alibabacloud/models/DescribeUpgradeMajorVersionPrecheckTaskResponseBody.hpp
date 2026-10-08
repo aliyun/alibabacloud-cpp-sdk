@@ -158,44 +158,44 @@ namespace Models
 
 
     protected:
-      // The time at which the upgrade check was performed.
+      // The check time.
       // 
-      // The value of this parameter is a timestamp that follows the UNIX time format. Unit: milliseconds.
+      // The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> checkTime_ {};
-      // The content of the upgrade check report.
+      // The content of the major engine version upgrade check report.
       shared_ptr<string> detail_ {};
-      // The expiration time of the upgrade check report.
+      // The expiration time of the check report.
       // 
-      // The value of this parameter is a timestamp that follows the UNIX time format. Unit: milliseconds.
+      // The value is a UNIX timestamp. Unit: milliseconds.
       shared_ptr<string> effectiveTime_ {};
-      // The minimum recommended disk capacity during the upgrade. Unit: GB.
+      // The recommended minimum disk capacity for the upgrade. Unit: GB.
       // 
-      // >  This parameter is returned only for RDS for PostgreSQL instances.
+      // > This parameter is returned only for ApsaraDB RDS for PostgreSQL instances.
       shared_ptr<int32_t> recommendDiskSize_ {};
-      // The minimum recommended memory size during the upgrade. Unit: GB.
+      // The recommended minimum memory for the upgrade. Unit: GB.
       // 
-      // >  This parameter is returned only for RDS for PostgreSQL instances.
+      // > This parameter is returned only for ApsaraDB RDS for PostgreSQL instances.
       shared_ptr<int32_t> recommendLeastMemSize_ {};
-      // The recommended memory size during the upgrade. Unit: GB.
+      // The recommended memory for the upgrade. Unit: GB.
       // 
-      // If the memory size of an RDS instance is greater than or equal to the recommended memory size, the RDS instance is immediately upgraded to reduce the read-only time of the instance.
+      // If the memory of the instance is greater than or equal to the recommended memory, the upgrade is performed at the fastest speed to minimize the read-only duration of the instance.
       // 
-      // >  This parameter is returned only for RDS for PostgreSQL instances.
+      // > This parameter is returned only for ApsaraDB RDS for PostgreSQL instances.
       shared_ptr<int32_t> recommendMemSize_ {};
-      // The result of the upgrade check.
+      // The result of major engine version upgrade check.
       // 
       // Valid values:
+      // - Success: The check is passed.
+      // - Fail: The check failed.
+      // - warning: The check returned warnings. Review the report to determine whether to proceed with the upgrade.
       // 
-      // *   Success
-      // *   Fail
-      // 
-      // >  If the check result is **Fail**, you must check the value of the **Detail** parameter to obtain the information about the errors that occurred, resolve the errors, and then try again. For more information about how to resolve common errors, see [Introduction to the check report for a major engine version upgrade to an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/218391.html).
+      // > If the check result is **Fail**, check the value of the **Detail** parameter, resolve the errors, and try again. For common errors and solutions, see [Understand major engine version upgrade check report for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/218391.html).
       shared_ptr<string> result_ {};
-      // The original major engine version of the instance.
+      // The current major engine version of the instance.
       shared_ptr<string> sourceMajorVersion_ {};
-      // The new major engine version of the instance.
+      // The target instance version.
       shared_ptr<string> targetMajorVersion_ {};
-      // The ID of the upgrade check task.
+      // The node ID of the major engine version upgrade pre-check task.
       shared_ptr<int32_t> taskId_ {};
       shared_ptr<string> upgradeMode_ {};
     };
@@ -240,13 +240,13 @@ namespace Models
 
 
   protected:
-    // The information about the upgrade check reports.
+    // The property list of the major engine version upgrade check report. Each attribute column contains the details of a check report entry.
     shared_ptr<vector<DescribeUpgradeMajorVersionPrecheckTaskResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries in the upgrade check report.
     shared_ptr<int32_t> totalRecordCount_ {};

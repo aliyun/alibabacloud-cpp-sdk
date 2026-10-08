@@ -84,15 +84,15 @@ namespace Models
 
 
   protected:
-    // The CPU utilization of the instance. Unit: percentage.
+    // The current CPU utilization of the instance. Unit: %.
     shared_ptr<int32_t> cpuShar_ {};
-    // The number of CPU cores used by the instance. Unit: cores.
+    // The CPU usage of the instance. Unit: cores.
     shared_ptr<int32_t> cpuZoom_ {};
     // The number of I/O requests.
     shared_ptr<int32_t> iopsZoom_ {};
-    // The maximum number of concurrent connections supported by the instance type.
+    // The maximum number of concurrent connections for the instance type.
     shared_ptr<int32_t> maxConnZoom_ {};
-    // The total memory size of the instance in the dedicated cluster. Unit: MB.
+    // The total memory of instances in the current dedicated cluster. Unit: MB.
     shared_ptr<int32_t> memoryZoom_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

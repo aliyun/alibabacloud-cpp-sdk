@@ -17,6 +17,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_TO_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_TO_JSON(CompressionMode, compressionMode_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_TO_JSON(Period, period_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
       DARABONBA_PTR_FROM_JSON(ClientToken, clientToken_);
+      DARABONBA_PTR_FROM_JSON(CompressionMode, compressionMode_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
       DARABONBA_PTR_FROM_JSON(Period, period_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->clientToken_ == nullptr && this->DBInstanceId_ == nullptr && this->ownerId_ == nullptr
-        && this->period_ == nullptr && this->promotionCode_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+        && this->autoRenew_ == nullptr && this->autoUseCoupon_ == nullptr && this->clientToken_ == nullptr && this->compressionMode_ == nullptr && this->DBInstanceId_ == nullptr
+        && this->ownerId_ == nullptr && this->period_ == nullptr && this->promotionCode_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -76,6 +78,13 @@ namespace Models
     void deleteClientToken() { this->clientToken_ = nullptr;};
     inline string getClientToken() const { DARABONBA_PTR_GET_DEFAULT(clientToken_, "") };
     inline RenewInstanceRequest& setClientToken(string clientToken) { DARABONBA_PTR_SET_VALUE(clientToken_, clientToken) };
+
+
+    // compressionMode Field Functions 
+    bool hasCompressionMode() const { return this->compressionMode_ != nullptr;};
+    void deleteCompressionMode() { this->compressionMode_ = nullptr;};
+    inline string getCompressionMode() const { DARABONBA_PTR_GET_DEFAULT(compressionMode_, "") };
+    inline RenewInstanceRequest& setCompressionMode(string compressionMode) { DARABONBA_PTR_SET_VALUE(compressionMode_, compressionMode) };
 
 
     // DBInstanceId Field Functions 
@@ -121,50 +130,47 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable automatic payment during the renewal. Valid values:
+    // Specifies whether to enable automatic payment for the renewal. Valid values:
+    // * **True**: Automatic payment is enabled. Make sure that your account has sufficient balance.
+    // * **False** (default): Automatic payment is disabled. You must manually pay for the renewal in the console.
     // 
-    // *   **True**: enables automatic payment. Make sure that your Alibaba Cloud account has adequate balance.
-    // *   **False** (default): disables automatic payment. You have to manually pay the order in the console.
-    // 
-    // >  For more information about how to renew the instance in the console, see the following topics:
-    // 
-    // *   [Manually renew an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96050.html)
-    // 
-    // *   [Manually renew an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96741.html)
-    // 
-    // *   [Manually renew an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95637.html)
-    // 
-    // *   [Manually renew an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97122.html)
+    // > To manually renew the instance in the console, refer to:
+    // > * [Manually renew an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96050.html)
+    // > * [Manually renew an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96741.html)
+    // > * [Manually renew an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95637.html)
+    // > * [Manually renew an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97122.html)
     shared_ptr<string> autoPay_ {};
     // Specifies whether to enable auto-renewal for the instance. Valid values:
     // 
-    // *   **true**.
-    // *   **false** (default)
+    // * **true**: Auto-renewal is enabled.
+    // * **false** (default): Auto-renewal is disabled.
     shared_ptr<string> autoRenew_ {};
-    // Specifies whether to use a coupon. Valid values:
-    // 
-    // *   **true**: uses a coupon.
-    // *   **false** (default): does not use a coupon.
+    // Specifies whether to use coupons. Valid values:
+    // * **true**: Coupons are used.
+    // * **false** (default): Coupons are not used.
     shared_ptr<bool> autoUseCoupon_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The idempotency token generated by the client. It is an ASCII string that can be up to 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID You can call the DescribeDBInstances operation to query the instance ID.
+    // Specifies whether to enable compression for the instance.
+    shared_ptr<string> compressionMode_ {};
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The duration of the subscription renewal. Unit: month. Valid values:
-    // 
-    // *   **1~9**
-    // *   **12**
-    // *   **24**
-    // *   **36**
-    // *   **48**
-    // *   **60**
+    // The renewal duration. Unit: months. Valid values:
+    // - **1 to 9** (consecutive integers)
+    // - **12**
+    // - **24**
+    // - **36**
+    // - **48**
+    // - **60**
     // 
     // This parameter is required.
     shared_ptr<int32_t> period_ {};
     // The coupon code.
+    // 
+    // > This parameter is required when the **AutoUseCoupon** parameter is set to **true**.
     shared_ptr<string> promotionCode_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

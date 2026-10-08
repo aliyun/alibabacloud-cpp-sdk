@@ -75,29 +75,29 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The network type of the proxy endpoint. Valid values:
+    // The network type of the database proxy endpoint to delete. Valid values:
+    // * **Public**: Internet
+    // * **VPC**: internal network (VPC)
+    // * **Classic**: internal network (classic network)
     // 
-    // *   **Public**: Internet
-    // *   **VPC**: virtual private cloud (VPC)
-    // *   **Classic**: classic network
+    // Default value: **Classic**.
     // 
-    // If the instance runs MySQL, the default value of this parameter is **Classic**.
-    // 
-    // > If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
+    // > - You cannot delete the internal endpoint that is created by default.
+    // > - ApsaraDB RDS for PostgreSQL supports only **Public** and **VPC**.
     // 
     // This parameter is required.
     shared_ptr<string> DBProxyConnectStringNetType_ {};
-    // The proxy endpoint ID. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
+    // The ID of the database proxy endpoint. You can call DescribeDBProxyEndpoint to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBProxyEndpointId_ {};
-    // A reserved parameter. You do not need to specify this parameter.
+    // A deprecated parameter. You do not need to configure this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call DescribeRegions to query the available regions.
     shared_ptr<string> regionId_ {};
   };
 

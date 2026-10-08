@@ -94,13 +94,13 @@ namespace Models
 
 
   protected:
-    // The HTTP status code returned.
+    // The status code.
     shared_ptr<string> code_ {};
-    // The monitoring data.
+    // The list of monitoring data.
     shared_ptr<string> datapoints_ {};
-    // The message that is returned for the request.
+    // The returned message.
     // 
-    // >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+    // > This parameter returns **Successful** if the request is successful. If the request fails, an error message such as an error code is returned.
     shared_ptr<string> message_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
@@ -110,8 +110,8 @@ namespace Models
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

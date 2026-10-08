@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether the event history feature is enabled.
+    // The status of the historical events feature.
     shared_ptr<string> enableEventLog_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

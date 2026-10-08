@@ -75,13 +75,24 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
+    // Valid values:
+    // 
+    // - RETRY_IMPORT: retries the import task.
+    // - CANCEL: cancels the task.
+    // 
     // This parameter is required.
     shared_ptr<string> operation_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The ID of the destination region. You can call DescribeRegions to query region IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The task ID.
+    // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};
   };

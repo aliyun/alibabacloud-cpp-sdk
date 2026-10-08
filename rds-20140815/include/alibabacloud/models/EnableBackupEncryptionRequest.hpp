@@ -57,8 +57,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
+    // The backup encryption key.
     shared_ptr<string> encryptionKey_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
   };

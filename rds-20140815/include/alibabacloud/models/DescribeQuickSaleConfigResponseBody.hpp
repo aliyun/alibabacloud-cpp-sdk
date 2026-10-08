@@ -59,14 +59,14 @@ namespace Models
 
 
   protected:
-    // The product code. Valid values:
+    // The commodity code. Valid values:
     // 
-    // *   rds: The instance is a subscription instance.
-    // *   bards: The instance is a pay-as-you-go instance.
+    // - rds: subscription
+    // - bards: pay-as-you-go
     shared_ptr<string> commodity_ {};
-    // The configuration details of the product.
+    // The commodity configuration details.
     Darabonba::Json items_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
   };
 

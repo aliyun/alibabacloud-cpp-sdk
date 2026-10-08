@@ -48,12 +48,8 @@ namespace Models
 
 
   protected:
-    // The ID of the system event.
-    // 
     // This parameter is required.
     shared_ptr<string> eventId_ {};
-    // The region ID of the system event.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

@@ -75,24 +75,23 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The private IP address of the instance. The private IP address must be within the CIDR block of the vSwitch that is specified by the **VSwitchId** parameter.
-    // 
-    // >  You can call the DescribeVSwitches operation to query the CIDR block of the vSwitch.
+    // The private IP address of the instance. The IP address must be within the CIDR block of the vSwitch specified by the **VSwitchId** parameter.
+    // > You can call DescribeVSwitches to query the CIDR block of the target vSwitch.
     shared_ptr<string> privateIpAddress_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The VPC ID.
     // 
-    // > The VPC must reside in the same region as the instance.
+    // > The VPC must be in the same region as the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> VPCId_ {};
-    // The vSwitch ID of the instance.
+    // The vSwitch ID.
     // 
-    // > The vSwitch must belong to the same zone as the instance.
+    // > The vSwitch must be in the same zone as the ApsaraDB RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> vSwitchId_ {};

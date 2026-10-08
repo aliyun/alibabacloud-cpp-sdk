@@ -167,43 +167,46 @@ namespace Models
 
 
   protected:
-    // The reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<bool> autoPay_ {};
-    // Specifies whether to enable the auto-renewal feature. Valid values:
-    // * **true**
-    // * **false**
-    // > *   This parameter is valid only when you change the billing method from pay-as-you-go to subscription.
-    // > *   All strings except **true** are considered **false**.
+    // Specifies whether to enable auto-renewal. Valid values:
+    // 
+    // * **true**: Enabled (default).
+    // * **false**: Disabled.
+    // 
+    // > * This parameter takes effect only when you switch from pay-as-you-go to subscription.
+    // > * All non-**true** strings are treated as **false**.
     shared_ptr<string> autoRenew_ {};
-    // Specifies whether to use a coupon. Valid values:
-    // * **true** (default)
-    // * **false**
+    // Specifies whether to use coupons. Valid values:
+    // * **true** (default): Coupons are used.
+    // * **false**: Coupons are not used.
     shared_ptr<bool> autoUseCoupon_ {};
-    // The additional business information about the instance.
+    // The business extension parameter.
     shared_ptr<string> businessInfo_ {};
-    // The custom client token that is used to ensure the idempotence of the request.
-    // > The value can contain ASCII characters and can be up to 64 characters in length.
+    // The custom token that is used to ensure the idempotence of the request. 
+    // > The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<bool> dryRun_ {};
-    // The reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<bool> includeDataDisks_ {};
-    // The reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<string> instanceChargeType_ {};
-    // The ID of the instance or disk.
+    // The instance ID or cloud disk ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The reserved parameter. This parameter is not supported.
+    // Reserved parameter. Not supported.
     shared_ptr<string> instanceIds_ {};
-    // The new billing method of the instance. Valid values:
+    // The billing method of the instance after the change. Valid values:
     // * **Prepaid**: subscription.
     // * **Postpaid**: pay-as-you-go.
     shared_ptr<string> payType_ {};
-    // The renewal cycle of the instance. Valid values:
-    // * **Year**
-    // * **Month**
-    // > This parameter must be specified if you set the PayType parameter to **Prepaid**.
+    // The unit of the subscription duration. Valid values:
+    // * **Year**: yearly subscription.
+    // * **Month**: monthly subscription.
+    // 
+    // > This parameter is required if **PayType** is set to **Prepaid**.
     shared_ptr<string> period_ {};
     // The coupon code.
     shared_ptr<string> promotionCode_ {};
@@ -211,11 +214,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The subscription duration of the instance.
-    // *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1** to **5**.
-    // *   If the **Period** parameter is set to **Month**, the value of the **UsedTime** parameter ranges from **1** to **11**.
+    // The subscription duration. Valid values:
+    // * If **Period** is set to **Year**, the valid values of UsedTime are **1 to 5**.
+    // * If **Period** is set to **Month**, the valid values of UsedTime are **1 to 11**.
     // 
-    // > If you set the **PayType** parameter to **Prepaid**, you must specify this parameter.
+    // > This parameter is required if PayType is set to **Prepaid**.
     shared_ptr<int32_t> usedTime_ {};
   };
 

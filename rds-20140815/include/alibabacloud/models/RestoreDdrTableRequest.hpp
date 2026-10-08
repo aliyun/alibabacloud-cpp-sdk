@@ -149,45 +149,42 @@ namespace Models
 
 
   protected:
-    // The cross-region backup set ID. You can call the DescribeCrossRegionBackups operation to query the IDs of the backup sets that are available to an instance.
-    // 
-    // >  If you set the **RestoreType** parameter to **0**, you must also specify the BackupId parameter.
+    // The cross-region backup set ID. You can call the DescribeCrossRegionBackups operation to query the backup set ID.
+    // >This parameter is required when **RestoreType** is set to **0**.
     shared_ptr<string> backupId_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The source instance ID.
+    // The instance ID of the existing instance to which you want to recover data.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID of the destination instance. You can call the DescribeRegions operation to query the most recent region list.
+    // The ID of the destination region. You can call the DescribeRegions operation to query region IDs.
     shared_ptr<string> regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The point in time to which you want to restore data. The point in time that you specify must be earlier than the current time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The point in time to which you want to restore data. The point in time must be earlier than the current time. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     // 
-    // > If **RestoreType** is set to **BackupTime**, you must specify this parameter.
+    // >This parameter is required when **RestoreType** is set to **1**.
     shared_ptr<string> restoreTime_ {};
-    // The method that is used to restore data. Valid values:
-    // 
-    // *   **0**: restores data from a backup set. If you set this parameter to 0, you must also specify the **BackupSetId** parameter.
-    // *   **1**: restores data to a point in time. If you set this parameter to 1, you must also specify the **RestoreTime**, **SourceRegion**, and **SourceDBInstanceName** parameters.
+    // The restoration method. Valid values:
+    // * **0**: restores data from a backup set. You must also specify the **BackupId** parameter.
+    // * **1**: restores data to a point in time. You must also specify the **RestoreTime**, **SourceRegion**, and **SourceDBInstanceName** parameters.
     // 
     // Default value: **0**.
     // 
     // This parameter is required.
     shared_ptr<string> restoreType_ {};
-    // The ID of the source instance whose data you want to restore to a point in time.
-    // 
-    // >  If you set the **RestoreType** parameter to **1**, you must also specify the SourceDBInstanceName parameter.
+    // The instance ID of the source instance from which you want to recover data to a point in time.
+    // >This parameter is required when **RestoreType** is set to **1**.
     shared_ptr<string> sourceDBInstanceName_ {};
-    // The region ID of the source instance if you want to restore data to a point in time.
-    // 
-    // > : If you set **RestoreType** to **1**, you must also specify this parameter.
+    // The region ID of the source instance for point-in-time restoration.
+    // >This parameter is required when **RestoreType** is set to **1**.
     shared_ptr<string> sourceRegion_ {};
-    // The names of the databases and tables that you want to restore. The value is in the following format: `[{"type":"db","name":"<The name of Database 1 on the source instance>","newname":"<The name of Database 1 on the destination instance>","tables":[{"type":"table","name":"<The name of Table 1 in Database 1 on the source instance>","newname":"<The name of Table 1 in Database 1 on the destination instance>"},{"type":"table","name":"<The name of Table 2 in Database 1 on the source instance>","newname":"<The name of Table 2 in Database 1 on the destination instance>"}]},{"type":"db","name":"<The name of Database 2 on the source instance>","newname":"<The name of Database 2 on the destination instance>","tables":[{"type":"table","name":"<The name of Table 3 in Database 2 on the source instance>","newname":"<The name of Table 3 in Database 2 on the destination instance>"},{"type":"table","name":"<The name of Table 4 in Database 2 on the source instance>","newname":"<The name of Table 4 in Database 2 on the destination instance>"}]}]`
+    // The databases and tables that you want to restore. Format:
+    // ```[{"type":"db","name":"<Database 1 name>","newname":"<New database 1 name>","tables":[{"type":"table","name":"<Table 1 name in database 1>","newname":"<New table 1 name>"},{"type":"table","name":"<Table 2 name in database 1>","newname":"<New table 2 name>"}]},{"type":"db","name":"<Database 2 name>","newname":"<New database 2 name>","tables":[{"type":"table","name":"<Table 3 name in database 2>","newname":"<New table 3 name>"},{"type":"table","name":"<Table 4 name in database 2>","newname":"<New table 4 name>"}]}]```
     // 
     // This parameter is required.
     shared_ptr<string> tableMeta_ {};

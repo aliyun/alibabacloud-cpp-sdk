@@ -193,9 +193,9 @@ namespace Models
 
 
   protected:
-    // The database engine of the instance.
+    // The database engine.
     shared_ptr<string> engine_ {};
-    // The version of the database engine.
+    // The database engine version.
     shared_ptr<string> engineVersion_ {};
     // The number of parameters.
     shared_ptr<string> parameterCount_ {};

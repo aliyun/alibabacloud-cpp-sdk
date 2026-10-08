@@ -121,36 +121,33 @@ namespace Models
 
 
   protected:
+    // Queries the monitoring data of specified resources in batches for Custom for SQL Server.
+    // Format: a collection of `key:value` pairs.
     shared_ptr<string> dimensions_ {};
-    // The end of the time range to query. The end time must be later than the start time. Example: `2024-08-06 10:15:00`.
+    // The end of the time range to query. Specify the time in the `2024-08-06 10:15:00` format. The end time must be later than the start time.
     shared_ptr<string> endTime_ {};
-    // The reserved parameter.
+    // A reserved parameter.
     shared_ptr<string> express_ {};
-    // The instance ID.
+    // The instance ID. This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // The number of entries per page.
+    // The number of records per page for paging query.
     // 
     // Default value: 1000.
-    // 
-    // >  The maximum value of the Length parameter in a request is 1440.
     shared_ptr<string> length_ {};
-    // The metric that you want to use. For more information, see [CloudMonitor metrics](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
+    // The [monitoring metric](https://cms.console.aliyun.com/metric-meta/acs_ecs_dashboard/ecs).
     // 
     // This parameter is required.
     shared_ptr<string> metricName_ {};
     // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The statistical period of the monitoring data.
+    // The statistical period of the monitoring data. Unit: seconds. Valid values:
     // 
-    // Set the value to 60 or an integer multiple of 60.
-    // 
-    // Unit: seconds.
-    // 
-    // Default value: 60.
+    // - 60 (default)
+    // - An integer multiple of 60
     shared_ptr<string> period_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The beginning of the time range to query. Example: `2024-08-06 10:05:00`.
+    // The beginning of the time range to query. Specify the time in the `2024-08-06 10:05:00` format.
     shared_ptr<string> startTime_ {};
   };
 

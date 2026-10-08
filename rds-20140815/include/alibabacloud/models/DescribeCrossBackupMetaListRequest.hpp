@@ -121,28 +121,25 @@ namespace Models
 
 
   protected:
-    // The ID of the cross-region backup file that you want to use. You can call the [DescribeCrossRegionBackups](https://help.aliyun.com/document_detail/121733.html) operation to query the ID of the cross-region backup file.
+    // The cross-region backup set ID. You can call the DescribeCrossRegionBackups operation to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> backupSetId_ {};
-    // The name of the database that you want to query. The system implements exact match based on the value of this parameter and returns the name of the matched database and the names of the tables in the matched database.
+    // The name of the database to query. Exact match is used. The specific database name and the table names within the database are returned.
     shared_ptr<string> getDbName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Valid values: any non-zero positive integer.
-    // 
-    // > This parameter only takes effect when you specify the **PageSize** parameter.
+    // The page number. Valid values: greater than 0 and up to the maximum value of Integer.
+    // >This parameter takes effect only when it is specified together with **PageSize**.
     shared_ptr<string> pageIndex_ {};
-    // The number of entries to return per page. Default value: **1**.
-    // 
-    // > This parameter only takes effect when you specify the **PageIndex** parameter.
+    // The number of entries per page. Default value: **1**.
+    // >This parameter takes effect only when it is specified together with **PageIndex**.
     shared_ptr<string> pageSize_ {};
-    // The name of the database that you want to query. The system implements fuzzy match based on the value of this parameter and returns only the name of the matched database.
-    // 
-    // > You can implement fuzzy match and then exact match. For example, you can set the Pattern parameter to test to query the testdb1 and testdb2 databases. Then, you can specify the **GetDbName** parameter to query only the matched database and the tables in the matched database.
+    // The name of the database to query. Fuzzy match is used. Only the matched database names are returned, and table names are not returned.
+    // >You can use fuzzy match first. For example, pass in test to match testdb1 and testdb2. After you determine the target database name, use exact match by passing in **GetDbName** to view the specific database name and table names.
     shared_ptr<string> pattern_ {};
-    // The region ID of the instance.
+    // The region in which the instance resides.
     shared_ptr<string> region_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

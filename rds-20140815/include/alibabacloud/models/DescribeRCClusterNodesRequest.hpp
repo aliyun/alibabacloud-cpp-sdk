@@ -86,17 +86,9 @@ namespace Models
   protected:
     shared_ptr<string> clusterId_ {};
     shared_ptr<string> nodePoolId_ {};
-    // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page. Valid values: **1 to 100**.
-    // 
-    // Default value: **30**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The virtual private cloud (VPC) ID.
-    // 
-    // >  This is a reserved parameter.
     shared_ptr<string> vpcId_ {};
   };
 

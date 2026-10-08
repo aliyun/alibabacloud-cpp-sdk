@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The endpoint of the instance. The endpoint is specified when you create the instance.
+    // The endpoint of the instance. This parameter is specified when the instance is created and is used to generate the connection string.
     // 
     // This parameter is required.
     shared_ptr<string> connectionString_ {};
@@ -85,7 +85,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the zone.
+    // The zone ID.
     // 
     // This parameter is required.
     shared_ptr<string> zoneId_ {};

@@ -16,7 +16,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(CompressType, compressType_);
       DARABONBA_PTR_TO_JSON(DBInstanceID, DBInstanceID_);
       DARABONBA_PTR_TO_JSON(EnableBackupLog, enableBackupLog_);
+      DARABONBA_PTR_TO_JSON(EnableIncrementDataBackup, enableIncrementDataBackup_);
+      DARABONBA_PTR_TO_JSON(EnablePitrProtection, enablePitrProtection_);
       DARABONBA_PTR_TO_JSON(HighSpaceUsageProtection, highSpaceUsageProtection_);
+      DARABONBA_PTR_TO_JSON(IncBackupInterval, incBackupInterval_);
       DARABONBA_PTR_TO_JSON(LocalLogRetentionHours, localLogRetentionHours_);
       DARABONBA_PTR_TO_JSON(LocalLogRetentionSpace, localLogRetentionSpace_);
       DARABONBA_PTR_TO_JSON(LogBackupLocalRetentionNumber, logBackupLocalRetentionNumber_);
@@ -26,7 +29,10 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(CompressType, compressType_);
       DARABONBA_PTR_FROM_JSON(DBInstanceID, DBInstanceID_);
       DARABONBA_PTR_FROM_JSON(EnableBackupLog, enableBackupLog_);
+      DARABONBA_PTR_FROM_JSON(EnableIncrementDataBackup, enableIncrementDataBackup_);
+      DARABONBA_PTR_FROM_JSON(EnablePitrProtection, enablePitrProtection_);
       DARABONBA_PTR_FROM_JSON(HighSpaceUsageProtection, highSpaceUsageProtection_);
+      DARABONBA_PTR_FROM_JSON(IncBackupInterval, incBackupInterval_);
       DARABONBA_PTR_FROM_JSON(LocalLogRetentionHours, localLogRetentionHours_);
       DARABONBA_PTR_FROM_JSON(LocalLogRetentionSpace, localLogRetentionSpace_);
       DARABONBA_PTR_FROM_JSON(LogBackupLocalRetentionNumber, logBackupLocalRetentionNumber_);
@@ -44,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->compressType_ == nullptr
-        && this->DBInstanceID_ == nullptr && this->enableBackupLog_ == nullptr && this->highSpaceUsageProtection_ == nullptr && this->localLogRetentionHours_ == nullptr && this->localLogRetentionSpace_ == nullptr
-        && this->logBackupLocalRetentionNumber_ == nullptr && this->requestId_ == nullptr; };
+        && this->DBInstanceID_ == nullptr && this->enableBackupLog_ == nullptr && this->enableIncrementDataBackup_ == nullptr && this->enablePitrProtection_ == nullptr && this->highSpaceUsageProtection_ == nullptr
+        && this->incBackupInterval_ == nullptr && this->localLogRetentionHours_ == nullptr && this->localLogRetentionSpace_ == nullptr && this->logBackupLocalRetentionNumber_ == nullptr && this->requestId_ == nullptr; };
     // compressType Field Functions 
     bool hasCompressType() const { return this->compressType_ != nullptr;};
     void deleteCompressType() { this->compressType_ = nullptr;};
@@ -67,11 +73,32 @@ namespace Models
     inline ModifyBackupPolicyResponseBody& setEnableBackupLog(string enableBackupLog) { DARABONBA_PTR_SET_VALUE(enableBackupLog_, enableBackupLog) };
 
 
+    // enableIncrementDataBackup Field Functions 
+    bool hasEnableIncrementDataBackup() const { return this->enableIncrementDataBackup_ != nullptr;};
+    void deleteEnableIncrementDataBackup() { this->enableIncrementDataBackup_ = nullptr;};
+    inline bool getEnableIncrementDataBackup() const { DARABONBA_PTR_GET_DEFAULT(enableIncrementDataBackup_, false) };
+    inline ModifyBackupPolicyResponseBody& setEnableIncrementDataBackup(bool enableIncrementDataBackup) { DARABONBA_PTR_SET_VALUE(enableIncrementDataBackup_, enableIncrementDataBackup) };
+
+
+    // enablePitrProtection Field Functions 
+    bool hasEnablePitrProtection() const { return this->enablePitrProtection_ != nullptr;};
+    void deleteEnablePitrProtection() { this->enablePitrProtection_ = nullptr;};
+    inline bool getEnablePitrProtection() const { DARABONBA_PTR_GET_DEFAULT(enablePitrProtection_, false) };
+    inline ModifyBackupPolicyResponseBody& setEnablePitrProtection(bool enablePitrProtection) { DARABONBA_PTR_SET_VALUE(enablePitrProtection_, enablePitrProtection) };
+
+
     // highSpaceUsageProtection Field Functions 
     bool hasHighSpaceUsageProtection() const { return this->highSpaceUsageProtection_ != nullptr;};
     void deleteHighSpaceUsageProtection() { this->highSpaceUsageProtection_ = nullptr;};
     inline string getHighSpaceUsageProtection() const { DARABONBA_PTR_GET_DEFAULT(highSpaceUsageProtection_, "") };
     inline ModifyBackupPolicyResponseBody& setHighSpaceUsageProtection(string highSpaceUsageProtection) { DARABONBA_PTR_SET_VALUE(highSpaceUsageProtection_, highSpaceUsageProtection) };
+
+
+    // incBackupInterval Field Functions 
+    bool hasIncBackupInterval() const { return this->incBackupInterval_ != nullptr;};
+    void deleteIncBackupInterval() { this->incBackupInterval_ = nullptr;};
+    inline int32_t getIncBackupInterval() const { DARABONBA_PTR_GET_DEFAULT(incBackupInterval_, 0) };
+    inline ModifyBackupPolicyResponseBody& setIncBackupInterval(int32_t incBackupInterval) { DARABONBA_PTR_SET_VALUE(incBackupInterval_, incBackupInterval) };
 
 
     // localLogRetentionHours Field Functions 
@@ -103,30 +130,34 @@ namespace Models
 
 
   protected:
-    // The method that is used to compress backups. Valid values:
-    // 
-    // *   **0:** Backups are not compressed.
-    // *   **1**: Backups are compressed by using the zlib tool.
-    // *   **2**: Backups are compressed in parallel by using the zlib tool.
-    // *   **4**: Backups are compressed by using the QuickLZ tool and can be used to restore individual databases and tables.
-    // *   **8**: Backups are compressed by using the QuickLZ tool but cannot be used to restore individual databases or tables. This value is supported only for instances that run MySQL 8.0.
+    // The backup compression method. Valid values:
+    // * **0**: not compressed.
+    // * **1**: zlib compression.
+    // * **2**: parallel zlib compression.
+    // * **4**: quicklz compression with database and table restoration enabled.
+    // * **8**: MySQL 8.0 quicklz compression without database and table restoration support.
     shared_ptr<string> compressType_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceID_ {};
-    // Indicates whether the log backup feature is enabled. Valid values:
+    // Indicates whether instance log backup is enabled. Valid values:
+    // * **1**: enabled.
+    // * **0**: disabled.
     // 
-    // *   **1**: The feature is enabled.
-    // *   **0**: The feature is disabled.
+    // 
+    // > Instance log backup for SQL Server instances is enabled by default and cannot be disabled.
     shared_ptr<string> enableBackupLog_ {};
-    // Specifies whether to forcefully delete log backup files from the instance when the storage usage of the instance exceeds 80% or the amount of remaining storage on the instance is less than 5 GB.
+    shared_ptr<bool> enableIncrementDataBackup_ {};
+    shared_ptr<bool> enablePitrProtection_ {};
+    // Indicates whether binary logs are unconditionally cleaned up when the storage usage of a **MySQL** instance exceeds 80% or the remaining storage is less than 5 GB.
     shared_ptr<string> highSpaceUsageProtection_ {};
-    // The number of hours for which log backup files are retained on the instance.
+    shared_ptr<int32_t> incBackupInterval_ {};
+    // The number of hours for which instance log backups are retained on the local storage of a **MySQL** instance.
     shared_ptr<int32_t> localLogRetentionHours_ {};
-    // The maximum storage usage that is allowed for log backup files on the instance.
+    // The maximum loop space usage of binary logs for a **MySQL** instance.
     shared_ptr<string> localLogRetentionSpace_ {};
-    // The number of binary log files on the instance.
+    // The number of binary logs retained locally for a **MySQL** instance.
     shared_ptr<int32_t> logBackupLocalRetentionNumber_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

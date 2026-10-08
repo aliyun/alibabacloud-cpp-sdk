@@ -127,28 +127,25 @@ namespace Models
     protected:
       // The name of the database in which the replication slot resides.
       shared_ptr<string> database_ {};
-      // The extension used by the replication slot.
+      // The plugin used by the replication slot.
       shared_ptr<string> plugin_ {};
-      // The replication slot name.
+      // The name of the replication slot.
       shared_ptr<string> slotName_ {};
-      // The replication slot status. Valid values:
-      // 
-      // *   ACTIVE
-      // *   INACTIVE
+      // The status of the replication slot. Valid values:
+      // - ACTIVE: Active.
+      // - INACTIVE: Inactive.
       shared_ptr<string> slotStatus_ {};
-      // The replication slot type. Valid values:
-      // 
-      // *   physical
-      // *   logical
+      // The type of the replication slot. Valid values:
+      // - physical: Physical.
+      // - logical: Logical.
       shared_ptr<string> slotType_ {};
-      // The latency of the logical subscription on the subscriber node that corresponds to the current replication slot. Unit: seconds.
+      // The specific latency of the logical subscription on the subscriber corresponding to the current replication slot. Unit: seconds.
       shared_ptr<string> subReplayLag_ {};
-      // Indicates whether the replication slot is a temporary replication slot. Valid values:
-      // 
-      // *   true
-      // *   false
+      // Indicates whether the replication slot is temporary. Valid values:
+      // - true: The replication slot is temporary.
+      // - false: The replication slot is not temporary.
       shared_ptr<string> temporary_ {};
-      // The number of logs accumulated in the replication slot.
+      // The amount of logs accumulated by the replication slot.
       shared_ptr<string> walDelay_ {};
     };
 
@@ -171,9 +168,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The information about the replication slot.
+    // The list of replication slots of the instance.
     shared_ptr<vector<DescribeSlotsResponseBody::Slots>> slots_ {};
   };
 

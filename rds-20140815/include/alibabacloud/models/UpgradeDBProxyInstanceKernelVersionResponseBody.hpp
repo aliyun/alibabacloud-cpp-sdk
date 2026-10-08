@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The ID of the database proxy of the instance.
+    // The proxy ID.
     shared_ptr<string> DBInstanceName_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};

@@ -62,6 +62,7 @@ namespace Models
       class DeploymentSet : public Darabonba::Model {
       public:
         friend void to_json(Darabonba::Json& j, const DeploymentSet& obj) { 
+          DARABONBA_PTR_TO_JSON(AccountId, accountId_);
           DARABONBA_PTR_TO_JSON(Capacities, capacities_);
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
           DARABONBA_PTR_TO_JSON(DeploymentSetDescription, deploymentSetDescription_);
@@ -77,6 +78,7 @@ namespace Models
           DARABONBA_PTR_TO_JSON(Tags, tags_);
         };
         friend void from_json(const Darabonba::Json& j, DeploymentSet& obj) { 
+          DARABONBA_PTR_FROM_JSON(AccountId, accountId_);
           DARABONBA_PTR_FROM_JSON(Capacities, capacities_);
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
           DARABONBA_PTR_FROM_JSON(DeploymentSetDescription, deploymentSetDescription_);
@@ -315,10 +317,17 @@ namespace Models
           shared_ptr<vector<Capacities::Capacity>> capacity_ {};
         };
 
-        virtual bool empty() const override { return this->capacities_ == nullptr
-        && this->createTime_ == nullptr && this->deploymentSetDescription_ == nullptr && this->deploymentSetId_ == nullptr && this->deploymentSetName_ == nullptr && this->deploymentStrategy_ == nullptr
-        && this->domain_ == nullptr && this->granularity_ == nullptr && this->groupCount_ == nullptr && this->instanceAmount_ == nullptr && this->instanceIds_ == nullptr
-        && this->strategy_ == nullptr && this->tags_ == nullptr; };
+        virtual bool empty() const override { return this->accountId_ == nullptr
+        && this->capacities_ == nullptr && this->createTime_ == nullptr && this->deploymentSetDescription_ == nullptr && this->deploymentSetId_ == nullptr && this->deploymentSetName_ == nullptr
+        && this->deploymentStrategy_ == nullptr && this->domain_ == nullptr && this->granularity_ == nullptr && this->groupCount_ == nullptr && this->instanceAmount_ == nullptr
+        && this->instanceIds_ == nullptr && this->strategy_ == nullptr && this->tags_ == nullptr; };
+        // accountId Field Functions 
+        bool hasAccountId() const { return this->accountId_ != nullptr;};
+        void deleteAccountId() { this->accountId_ = nullptr;};
+        inline string getAccountId() const { DARABONBA_PTR_GET_DEFAULT(accountId_, "") };
+        inline DeploymentSet& setAccountId(string accountId) { DARABONBA_PTR_SET_VALUE(accountId_, accountId) };
+
+
         // capacities Field Functions 
         bool hasCapacities() const { return this->capacities_ != nullptr;};
         void deleteCapacities() { this->capacities_ = nullptr;};
@@ -417,6 +426,7 @@ namespace Models
 
 
       protected:
+        shared_ptr<string> accountId_ {};
         shared_ptr<DeploymentSet::Capacities> capacities_ {};
         shared_ptr<string> createTime_ {};
         shared_ptr<string> deploymentSetDescription_ {};
@@ -494,15 +504,10 @@ namespace Models
 
   protected:
     shared_ptr<DescribeRCDeploymentSetsResponseBody::DeploymentSets> deploymentSets_ {};
-    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
   };
 

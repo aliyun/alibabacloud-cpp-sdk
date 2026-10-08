@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The character set collation of the instance.
+    // The system character set collation.
     shared_ptr<string> collation_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};

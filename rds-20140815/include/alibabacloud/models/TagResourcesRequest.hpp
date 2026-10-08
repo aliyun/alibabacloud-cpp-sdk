@@ -80,11 +80,13 @@ namespace Models
 
 
     protected:
-      // The key of the tag. You can create N tag keys at a time. Valid values of N: **1** to **20**. The value of this parameter cannot be an empty string.
+      // The tag key. Empty values and duplicate values are **not allowed**.
+      // 
+      // > An existing tag key is overwritten by a new tag key with the same name.
       // 
       // This parameter is required.
       shared_ptr<string> key_ {};
-      // The value of the tag. You can create N tag values at a time. Valid values of N: **1** to **20**. The value of this parameter can be an empty string.
+      // The tag value. Empty values are **allowed**.
       shared_ptr<string> value_ {};
     };
 
@@ -146,7 +148,7 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the most recent region list.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -156,7 +158,13 @@ namespace Models
     shared_ptr<vector<string>> resourceId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The type of the resource. Set the value to **INSTANCE**.
+    // The resource type. Valid values:
+    // 
+    // - **INSTANCE**: regular ApsaraDB RDS instance.
+    // - **CUSTOM**: RDS Custom instance.
+    // - **CUSTOMDEPLOYMENTSET**: RDS Custom deployment set.
+    // - **CUSTOMDISK**: RDS Custom cloud disk.
+    // - **CUSTOMSNAPSHOT**: RDS Custom snapshot.
     // 
     // This parameter is required.
     shared_ptr<string> resourceType_ {};

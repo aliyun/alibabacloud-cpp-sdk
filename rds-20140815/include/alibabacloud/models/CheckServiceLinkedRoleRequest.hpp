@@ -86,8 +86,7 @@ namespace Models
   protected:
     shared_ptr<int64_t> ownerId_ {};
     // The region ID.
-    // 
-    // >  You can specify any region for this parameter, which does not affect your query results. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+    // > This parameter does not affect the query result. You can specify any region ID. You can call the DescribeRegions operation to query available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -95,9 +94,8 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The SLR name.
-    // 
-    // >  For more information about the SLRs supported by ApsaraDB RDS, see [Service-linked roles](https://help.aliyun.com/document_detail/342840.html).
+    // The service-linked role.
+    // > For more information about the service-linked roles supported by ApsaraDB RDS, see [Service-linked roles](https://help.aliyun.com/document_detail/342840.html).
     // 
     // This parameter is required.
     shared_ptr<string> serviceLinkedRole_ {};

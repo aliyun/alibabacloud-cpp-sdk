@@ -204,49 +204,49 @@ namespace Models
 
 
     protected:
-      // The details about the migration task.
+      // The migration details.
       shared_ptr<string> detail_ {};
       // The time when the task was created.
       shared_ptr<string> gmtCreated_ {};
-      // The time when the task was modified.
+      // The time when the task was last modified.
       shared_ptr<string> gmtModified_ {};
-      // The migration phase of the migration task.
+      // The migration stage. Valid values:
       // 
-      // *   **precheck**: precheck
-      // *   **basebackup**: full data backup
-      // *   **startup**: link establishment
-      // *   **increment**: incremental data synchronization
-      // *   **switch**: cloud migration-triggered switchover
-      // *   **success**: cloud migration completed
+      // - **precheck**: Precheck.
+      // - **basebackup**: Full backup.
+      // - **startup**: Link setup.
+      // - **increment**: Incremental synchronization.
+      // - **switch**: Cloud switchover.
+      // - **success**: Migration completed.
       shared_ptr<string> migrateStage_ {};
-      // The information about the replication link.
+      // The replication task information.
       shared_ptr<string> replicationInfo_ {};
-      // The status of data replication.
+      // The replication status. Valid values:
       // 
-      // *   **unstarted**
-      // *   **catchup**
-      // *   **streaming**
-      // *   **disconnect**
-      // *   **finish**
+      // - **unstarted**: Not started.
+      // - **catchup**: Catching up.
+      // - **streaming**: Streaming.
+      // - **disconnect**: Disconnected.
+      // - **finish**: Completed.
       shared_ptr<string> replicationState_ {};
       // The username.
       shared_ptr<string> sourceAccount_ {};
-      // The environment in which the self-managed PostgreSQL instance runs.
+      // The type of the self-managed PostgreSQL database. Valid values:
       // 
-      // *   **idcOnVpc**: The self-managed PostgreSQL instance resides in a data center. The data center can communicate with the VPC to which the ApsaraDB RDS for PostgreSQL instance belongs.
-      // *   **ecsOnVpc**: The self-managed PostgreSQL instance resides on an ECS instance.
+      // - **idcOnVpc**: A self-managed PostgreSQL database in an IDC that is connected to a VPC.
+      // - **ecsOnVpc**: A self-managed PostgreSQL database on an Alibaba Cloud ECS instance.
       shared_ptr<string> sourceCategory_ {};
-      // The private IP address that is used to connect to the self-managed PostgreSQL instance.
+      // The internal IP address of the self-managed PostgreSQL database.
       shared_ptr<string> sourceIpAddress_ {};
       // The password.
       shared_ptr<string> sourcePassword_ {};
-      // The port number that is used to connect to the self-managed PostgreSQL instance.
+      // The port of the self-managed PostgreSQL database.
       shared_ptr<int64_t> sourcePort_ {};
-      // The time when the switchover was performed.
+      // The switchover time.
       shared_ptr<string> switchTime_ {};
-      // A reserved parameter. The return value of this parameter is empty.
+      // A reserved parameter. The query result is empty.
       shared_ptr<string> targetEip_ {};
-      // The ID of the destination instance.
+      // The instance ID of the target instance.
       shared_ptr<string> targetInstanceName_ {};
       // The task ID.
       shared_ptr<int64_t> taskId_ {};
@@ -294,13 +294,13 @@ namespace Models
 
 
   protected:
-    // The details about the cloud migration task.
+    // The list of cloud migration tasks.
     shared_ptr<vector<DescribeCloudMigrationResultResponseBody::Items>> items_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The maximum number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries returned.
     shared_ptr<int32_t> totalSize_ {};

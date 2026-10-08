@@ -136,8 +136,14 @@ namespace Models
 
 
       protected:
+        // The device information of the cloud disk, such as `/dev/xvdb`.
         shared_ptr<string> device_ {};
+        // The size of the cloud disk. Unit: GiB.
         shared_ptr<string> size_ {};
+        // The type of the cloud disk.
+        // 
+        // - **system**: System cloud disk.
+        // - **data**: Data cloud disk.
         shared_ptr<string> type_ {};
       };
 
@@ -260,15 +266,16 @@ namespace Models
 
 
     protected:
-      // The image architecture. Valid values:
+      // The system architecture of the image. Valid values:
       // 
-      // *   x86_64
-      // *   arm64
+      // - x86_64.
+      // - arm64.
       shared_ptr<string> architecture_ {};
       // The time when the image was created.
       shared_ptr<string> creationTime_ {};
       // The description of the image.
       shared_ptr<string> description_ {};
+      // The mapping between cloud disks and snapshots in the image.
       shared_ptr<vector<Images::DiskDeviceMappings>> diskDeviceMappings_ {};
       // The image ID.
       shared_ptr<string> imageId_ {};
@@ -276,35 +283,40 @@ namespace Models
       shared_ptr<string> imageName_ {};
       // The image version.
       shared_ptr<string> imageVersion_ {};
-      // Indicates whether the image is a public image. Public images include public images provided by Alibaba Cloud and custom images published as community images.
+      // Indicates whether the image is a public image. Public images include Alibaba Cloud-provided public images and custom images that you have published as community images.
       // 
-      // *   **true**: The image is a public image.
-      // *   **false**: The image is not a public image.
+      // - **true**: The image is a public image.
+      // - **false**: The image is not a public image.
       shared_ptr<bool> isPublic_ {};
+      // Indicates whether the image supports RDS Custom instances. Valid values:
+      // 
+      // - **true**: Supported.
+      // - **false**: Not supported.
       shared_ptr<bool> isSupportRdsCustom_ {};
-      // The display name of the operating system in Chinese.
+      // The Chinese display name of the operating system.
       shared_ptr<string> OSName_ {};
-      // The display name of the operating system in English.
+      // The English display name of the operating system.
       shared_ptr<string> OSNameEn_ {};
       // The type of the operating system. Valid values:
       // 
-      // *   **windows**
-      // *   **linux**
+      // - **windows**.
+      // - **linux**.
       shared_ptr<string> OSType_ {};
+      // The operating system platform.
       shared_ptr<string> platform_ {};
-      // The image size. Unit: GiB.
+      // The size of the image. Unit: GiB.
       shared_ptr<int64_t> size_ {};
-      // The image status. Valid values:
+      // The status of the image. Valid values:
       // 
-      // *   **Unavailable**
-      // *   **Available**
-      // *   **Creating**
-      // *   **CreateFailed**
+      // - **UnAvailable**: Unavailable.
+      // - **Available**: Available.
+      // - **Creating**: Being created.
+      // - **CreateFailed**: Creation failed.
       shared_ptr<string> status_ {};
-      // Indicates whether the image is used by the RDS Custom instance. Valid values:
+      // Indicates whether the image is used by RDS Custom instances. Valid values:
       // 
-      // *   **instance**: The image is used to create one or more RDS Custom instances.
-      // *   **none**: The image is not used to create RDS Custom instances.
+      // - **instance**: One or more RDS Custom instances have been created.
+      // - **none**: No RDS Custom instances have been created.
       shared_ptr<string> usage_ {};
     };
 
@@ -355,11 +367,11 @@ namespace Models
 
 
   protected:
-    // The information about the images.
+    // The image information.
     shared_ptr<vector<DescribeRCImageListResponseBody::Images>> images_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

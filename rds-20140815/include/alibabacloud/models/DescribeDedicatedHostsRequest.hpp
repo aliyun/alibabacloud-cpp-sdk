@@ -130,34 +130,31 @@ namespace Models
 
 
   protected:
-    // Specifies whether instances can be deployed on the host. Valid values:
-    // 
-    // *   **0**: Instances cannot be deployed on the host.
-    // *   **1**: Instances can be deployed on the host.
+    // Specifies whether the host allows instance allocation. Valid values:
+    // * **0**: Instance allocation is not allowed.
+    // * **1**: Instance allocation is allowed.
     shared_ptr<string> allocationStatus_ {};
     // The dedicated cluster ID. You can call the DescribeDedicatedHostGroups operation to query the dedicated cluster ID.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The ID of the host in the dedicated cluster.
+    // The host ID in the dedicated cluster.
     shared_ptr<string> dedicatedHostId_ {};
-    // The status of the host. Valid values:
-    // 
-    // *   **0**: creating
-    // *   **1**: running
-    // *   **2**: faulty
-    // *   **3**: being replaced
-    // *   **4**: deprecated
-    // *   **5**: deleting
-    // *   **6**: restarting
+    // The host status. Valid values:
+    //  * **0**: being created
+    //  * **1**: running
+    //  * **2**: down
+    //  * **3**: offline (host being replaced)
+    //  * **4**: offline
+    //  * **5**: deleted
+    //  * **6**: restarting
     shared_ptr<string> hostStatus_ {};
     // The storage type of the host. Valid values:
-    // 
-    // *   **dhg_cloud_ssd**: enhanced SSD (ESSD)
-    // *   **dhg_local_ssd**: local SSD
+    // * **dhg_cloud_ssd**: ESSD cloud disk.
+    // * **dhg_local_ssd**: local standard SSD.
     shared_ptr<string> hostType_ {};
     // The order ID.
     shared_ptr<int64_t> orderId_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

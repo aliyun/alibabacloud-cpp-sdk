@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The serial number of the task in the migration task queue. When the serial number becomes 0, the system starts the migration.
+    // The migration queue number. When the number is 0, the migration switchover is performed.
     shared_ptr<int32_t> migrationId_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

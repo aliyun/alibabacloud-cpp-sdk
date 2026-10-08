@@ -103,13 +103,16 @@ namespace Models
 
 
   protected:
-    // The image architecture. Valid values:
+    // The system architecture of the image. Valid values:
     // 
-    // *   x86_64
-    // *   arm64
+    // - x86_64.
+    // - arm64.
     shared_ptr<string> architecture_ {};
+    // The image ID.
     shared_ptr<string> imageId_ {};
+    // The image name.
     shared_ptr<string> imageName_ {};
+    // Queries available images for the specified instance type.
     shared_ptr<string> instanceType_ {};
     // The page number.
     shared_ptr<int32_t> pageNumber_ {};
@@ -119,7 +122,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The image type. Set the value to **self**.
+    // The image type. Currently, only **self** is supported.
     shared_ptr<string> type_ {};
   };
 

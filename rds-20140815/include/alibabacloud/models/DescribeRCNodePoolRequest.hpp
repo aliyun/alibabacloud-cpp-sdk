@@ -57,7 +57,7 @@ namespace Models
 
 
   protected:
-    // The ID of the ACK Edge cluster in which the RDS Custom instance resides.
+    // The ID of the RDS Custom container cluster.
     shared_ptr<string> clusterId_ {};
     // The node pool ID.
     shared_ptr<string> nodePoolId_ {};

@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The response code returned.
-    shared_ptr<string> code_ {};
-    // The response result set.
-    shared_ptr<string> data_ {};
     // The response code.
+    shared_ptr<string> code_ {};
+    // The response data.
+    shared_ptr<string> data_ {};
+    // The message returned for the response code.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

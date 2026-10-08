@@ -370,61 +370,66 @@ namespace Models
 
 
     protected:
+      // The time when the disk was attached.
       shared_ptr<string> attachedTime_ {};
-      shared_ptr<bool> burstingEnabled_ {};
-      // The category of the disk. Valid values:
+      // Indicates whether burst (performance bursting) is enabled. Valid values:
       // 
-      // *   **cloud_efficiency**: ultra disk.
-      // *   **cloud_ssd**: standard SSD.
-      // *   **cloud_essd**: ESSD.
-      // *   **cloud_auto**: Premium ESSD
+      // true: Enabled.
+      // false: Disabled.
+      // This parameter is supported only when DiskCategory is set to cloud_auto. For more information, see ESSD AutoPL cloud disks.
+      shared_ptr<bool> burstingEnabled_ {};
+      // The disk category. Valid values:
+      // 
+      // - **cloud_efficiency**: ultra cloud disk.
+      // - **cloud_ssd**: standard SSD.
+      // - **cloud_essd**: ESSD cloud disk.
+      // - **cloud_auto**: premium performance disk.
       shared_ptr<string> category_ {};
       // The creation time.
       shared_ptr<string> creationTime_ {};
-      // Indicates whether the automatic snapshots of the cloud disk are deleted after the disk is released. Valid values:
-      // 
-      // *   true
-      // *   false
+      // Indicates whether automatic snapshots are deleted when the cloud disk is deleted. Valid values:
+      // - true: Automatic snapshots are deleted when the cloud disk is deleted.
+      // - false: Automatic snapshots are retained when the cloud disk is deleted.
       shared_ptr<bool> deleteAutoSnapshot_ {};
-      // Indicates whether the cloud disk is released when its associated instance is released. Valid values:
+      // Indicates whether the disk is released when the instance is released. Valid values:
       // 
-      // *   true
-      // *   false
+      // - true: The disk is released when the instance is released.
+      // - false: The disk is retained when the instance is released.
       shared_ptr<bool> deleteWithInstance_ {};
       // The disk description.
       shared_ptr<string> description_ {};
       // The mount point of the disk.
       shared_ptr<string> device_ {};
-      // The billing method of the disk.
+      // Billable methods of the disk.
       // 
-      // Only **PostPaid** (pay-as-you-go) is supported.
+      // Only **PostPaid** is supported, which indicates the pay-as-you-go billing method.
       shared_ptr<string> diskChargeType_ {};
       // The disk ID.
       shared_ptr<string> diskId_ {};
       // The disk name.
       shared_ptr<string> diskName_ {};
-      // Indicates whether only encrypted cloud disks are queried. Valid values:
-      // 
-      // *   true
-      // *   false (default)
+      // Indicates whether only encrypted cloud disks are filtered. Valid values:
+      // - true: Only encrypted cloud disks are returned.
+      // - false (default): All cloud disks are returned.
       shared_ptr<bool> encrypted_ {};
       // A reserved parameter. You do not need to specify this parameter.
       shared_ptr<string> expiredTime_ {};
-      // The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × *Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × *Capacity, 50,000}
+      // The provisioned read/write IOPS of the ESSD AutoPL cloud disk. Valid values: 0 to min{50000, 1000 × Capacity - Baseline performance}. Baseline performance = min{1,800 + 50 × Capacity, 50,000}.
       // 
-      // This parameter is available only when the `Category` parameter is set to `cloud_auto`.
+      // This parameter is supported only when `Category` is set to `cloud_auto`.
       shared_ptr<int64_t> IOPS_ {};
-      // The ID of the image that is used to create the instance. This parameter is returned only if the cloud disk is created from an image. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
+      // The image ID used to create the RDS Custom instance. This parameter has a value only for cloud disks created from an image. Otherwise, the value is empty. This value remains unchanged throughout the lifecycle of the cloud disk.
       shared_ptr<string> imageId_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The performance level (PL) of the ESSD. Valid values:
+      // The performance level (PL) of the ESSD cloud disk. Valid values:
       // 
-      // *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-      // *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-      // *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-      // *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+      // - PL0: A single standard SSD can deliver up to 10,000 random read/write IOPS.
+      // - PL1: A single standard SSD can deliver up to 50,000 random read/write IOPS.
+      // - PL2: A single standard SSD can deliver up to 100,000 random read/write IOPS.
+      // - PL3: A single standard SSD can deliver up to 1,000,000 random read/write IOPS.
       shared_ptr<string> performanceLevel_ {};
+      // Indicates whether the disk is detachable.
       shared_ptr<bool> portable_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
@@ -432,31 +437,29 @@ namespace Models
       shared_ptr<string> resourceGroupId_ {};
       // The serial number of the disk.
       shared_ptr<string> serialNumber_ {};
-      // The size of the disk. Unit: GiB.
+      // The disk size. Unit: GiB.
       shared_ptr<int64_t> size_ {};
-      // The ID of the snapshot that was used to create the cloud disk.
+      // The snapshot ID used to create the cloud disk.
       // 
-      // This parameter is empty unless the cloud disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
+      // If no snapshot was specified when the cloud disk was created, this parameter is empty. This value remains unchanged throughout the lifecycle of the cloud disk.
       shared_ptr<string> sourceSnapshotId_ {};
-      // The status of the disk. Valid values:
-      // 
-      // *   In_use: The disk is in use.
-      // *   Available: The disk can be attached.
-      // *   Attaching: The disk is being attached.
-      // *   Detaching: The cloud disk is being detached.
-      // *   Creating: The disk is being created.
-      // *   ReIniting: The disk is being initialized.
+      // The disk status. Valid values:
+      // - In_use: in use.
+      // - Available: to be attached.
+      // - Attaching: being attached.
+      // - Detaching: being detached.
+      // - Creating: being created.
+      // - ReIniting: being initialized.
       shared_ptr<string> status_ {};
-      // The ID of the dedicated block storage cluster to which the cloud disk belongs. If your cloud disk belongs to the public block storage cluster, an empty value is returned.
+      // The ID of the dedicated block storage cluster to which the cloud disk belongs. If the cloud disk is in a public cloud block storage cluster, this parameter is empty.
       shared_ptr<string> storageClusterId_ {};
       // The storage set ID.
       shared_ptr<string> storageSetId_ {};
-      // The list of tags.
+      // The tags.
       shared_ptr<vector<Disks::Tag>> tag_ {};
       // The disk type. Valid values:
-      // 
-      // *   system: system disk
-      // *   data: data disk
+      // - system: system cloud disk.
+      // - data: data cloud disk.
       shared_ptr<string> type_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -502,15 +505,15 @@ namespace Models
 
 
   protected:
-    // The information about the disks.
+    // The list of disk information.
     shared_ptr<vector<DescribeRCDisksResponseBody::Disks>> disks_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};
   };
 

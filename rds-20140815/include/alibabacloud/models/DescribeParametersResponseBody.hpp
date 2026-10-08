@@ -201,13 +201,13 @@ namespace Models
 
 
     protected:
-      // The ID of the parameter template.
+      // The parameter template ID.
       shared_ptr<string> paramGroupId_ {};
-      // The description of the parameter template.
+      // The parameter template description.
       shared_ptr<string> parameterGroupDesc_ {};
-      // The name of the parameter template.
+      // The parameter template name.
       shared_ptr<string> parameterGroupName_ {};
-      // The type of the parameter template.
+      // The parameter templatetype.
       shared_ptr<string> parameterGroupType_ {};
     };
 
@@ -348,13 +348,13 @@ namespace Models
 
   protected:
     shared_ptr<DescribeParametersResponseBody::ConfigParameters> configParameters_ {};
-    // The type of the database engine.
+    // The database engine type.
     shared_ptr<string> engine_ {};
-    // The version of the database engine.
+    // The database engine version.
     shared_ptr<string> engineVersion_ {};
-    // The information about the parameter template.
+    // The parameter template information.
     shared_ptr<DescribeParametersResponseBody::ParamGroupInfo> paramGroupInfo_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeParametersResponseBody::RunningParameters> runningParameters_ {};
   };

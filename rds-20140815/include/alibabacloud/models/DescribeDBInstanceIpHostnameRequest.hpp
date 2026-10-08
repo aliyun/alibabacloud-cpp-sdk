@@ -94,13 +94,13 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the instance ID.
+    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/2628783.html) operation to query the region ID.
+    // The region ID. You can call [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/2628783.html) to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

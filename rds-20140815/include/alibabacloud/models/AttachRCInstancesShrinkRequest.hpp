@@ -75,19 +75,19 @@ namespace Models
 
 
   protected:
-    // The node IDs.
+    // The list of instance IDs.
     // 
     // This parameter is required.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The key pair of the node.
+    // The key pair of the RDS Custom instance.
     shared_ptr<string> keyPair_ {};
-    // The logon password of the node.
+    // The logon password of the RDS Custom instance.
     shared_ptr<string> password_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
-    // The virtual private cloud (VPC) ID.
+    // The ID of the virtual private cloud (VPC).
     // 
-    // > This is a reserved parameter.
+    // > Reserved parameter.
     shared_ptr<string> vpcId_ {};
   };
 

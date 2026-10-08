@@ -94,32 +94,12 @@ namespace Models
 
 
   protected:
-    // The IDs of the deployment sets. The value can be a JSON array that consists of deployment set IDs in the format of `["ds-xxxxxxxxx", "ds-yyyyyyyyy", ... "ds-zzzzzzzzz"]`. You can specify up to 100 deployment set IDs in each request. Separate the deployment set IDs with commas (,).
     shared_ptr<string> deploymentSetIds_ {};
-    // The deployment set name. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. The name can contain digits, letters, colons (:), underscores (_), and hyphens (-).
     shared_ptr<string> deploymentSetName_ {};
-    // The page number.
-    // 
-    // Pages start from page 1.
-    // 
-    // Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
-    // 
-    // Maximum value: 50.
-    // 
-    // Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The deployment strategy. Valid values:
-    // 
-    // *   **Availability**: high availability strategy
-    // *   **AvailabilityGroup**: high availability group strategy
-    // 
-    // Default value: Availability.
     shared_ptr<string> strategy_ {};
     shared_ptr<string> tag_ {};
   };

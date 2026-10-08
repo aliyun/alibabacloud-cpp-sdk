@@ -135,21 +135,21 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> availableIpAddressCount_ {};
-      // The CIDR block of the vSwitch.
+      // The vSwitch CIDR block.
       shared_ptr<string> cidrBlock_ {};
       // The description of the vSwitch.
       shared_ptr<string> description_ {};
-      // Indicates whether the vSwitch is the default vSwitch. Valid values:
+      // Indicates whether the vSwitch is the default vSwitch.
       // 
-      // *   **true**
-      // *   **false**
+      // * **true**: The vSwitch is the default vSwitch.
+      // * **false**: The vSwitch is not the default vSwitch.
       shared_ptr<bool> isDefault_ {};
       // The ID of the zone to which the vSwitch belongs.
       shared_ptr<string> izNo_ {};
       // The status of the vSwitch. Valid values:
       // 
-      // *   **Pending**: The vSwitch is being specified.
-      // *   **Available**: The vSwitch is available.
+      // * **Pending**: The vSwitch is being configured.
+      // * **Available**: The vSwitch is available.
       shared_ptr<string> status_ {};
       // The vSwitch ID.
       shared_ptr<string> vSwitchId_ {};
@@ -197,15 +197,15 @@ namespace Models
 
 
   protected:
-    // The page number of the returned page.
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned on each page. The value of this parameter is the same as the value of the **PageSize** parameter in the request parameters.
+    // The number of entries per page. This value corresponds to the value specified for the **PageSize** request parameter.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of returned entries.
+    // The total number of entries returned.
     shared_ptr<int32_t> totalCount_ {};
-    // Details of the vSwitches.
+    // The list of vSwitch information.
     shared_ptr<vector<DescribeVSwitchesResponseBody::VSwitchs>> vSwitchs_ {};
   };
 

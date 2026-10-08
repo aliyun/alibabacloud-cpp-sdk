@@ -68,8 +68,9 @@ namespace Models
   protected:
     // Specifies whether to forcefully stop the instance. Valid values:
     // 
-    // *   **true**
-    // *   **false** (default)
+    // -   **true**: Forcefully stops the instance.
+    // 
+    // -   **false** (default): Gracefully stops the instance.
     shared_ptr<bool> forceStop_ {};
     // The instance ID.
     // 
@@ -77,6 +78,14 @@ namespace Models
     shared_ptr<string> instanceId_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};
+    // The stop mode of the instance. Valid values:
+    // 
+    //   - StopCharging: economical mode. After economical mode is enabled:
+    //     - Billing for compute resources is suspended.
+    //     - Billing for system cloud disks and data cloud disks continues.
+    //     - Because compute resources are released, the instance may fail to start due to insufficient resources. Try again later or change the instance type. 
+    // 
+    //   - KeepCharging: standard mode. Billing continues after the instance is stopped.
     shared_ptr<string> stoppedMode_ {};
   };
 

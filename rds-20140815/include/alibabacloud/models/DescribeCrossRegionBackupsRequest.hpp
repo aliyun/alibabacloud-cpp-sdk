@@ -149,34 +149,35 @@ namespace Models
 
 
   protected:
-    // The ID of the backup file.
+    // The user backup ID.
     shared_ptr<int32_t> backupId_ {};
-    // The ID of the cross-region data backup file.
-    // 
-    // >  You must specify the **CrossBackupId** parameter. Alternatively, you must specify the **StartTime** and **EndTime** parameters.
+    // The cross-region backup file ID.
+    // >You must specify either **CrossBackupId** or the time range parameters (**StartTime** and **EndTime**).
     shared_ptr<int32_t> crossBackupId_ {};
-    // The ID of the region in which the cross-region data backup file is stored.
+    // The ID of the destination region for cross-region backup.
     shared_ptr<string> crossBackupRegion_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The end time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC).
+    // 
+    // > For non-UTC+0 time zones, subtract 8 hours from the actual time before passing the value.
     shared_ptr<string> endTime_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: any non-zero positive integer.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Valid values:
     // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // * **30**
+    // * **50**
+    // * **100**
     // 
     // Default value: 30.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID.
+    // The region ID of the instance.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -184,7 +185,9 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The start time of the query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC).
+    // 
+    // > For non-UTC+0 time zones, subtract 8 hours from the actual time before passing the value.
     shared_ptr<string> startTime_ {};
   };
 

@@ -84,11 +84,11 @@ namespace Models
 
 
   protected:
-    // The name of the account.
+    // The name of the database account that you want to delete.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

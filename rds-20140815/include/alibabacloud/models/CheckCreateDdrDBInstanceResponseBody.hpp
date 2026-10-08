@@ -48,10 +48,9 @@ namespace Models
 
 
   protected:
-    // Indicates whether the data of the source instance can be restored across regions. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether the disaster recovery instance can be created. Valid values:
+    // - **true**
+    // - **false**
     shared_ptr<string> isValid_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

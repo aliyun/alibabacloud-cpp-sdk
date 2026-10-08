@@ -57,25 +57,11 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The whitelist mode after the change, which is the enhanced whitelist mode.
-    // 
-    // Valid values:
-    // 
-    // *   safety
-    // 
-    //     <!-- -->
-    // 
-    //     :
-    // 
-    //     <!-- -->
-    // 
-    //     enhanced whitelist mode
-    // 
-    //     <!-- -->
+    // The whitelist mode after the switch, which is the enhanced whitelist mode.
     shared_ptr<string> securityIPMode_ {};
   };
 

@@ -48,9 +48,9 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The name of the replication slot.
+    // The replication slot name.
     shared_ptr<string> slotName_ {};
   };
 

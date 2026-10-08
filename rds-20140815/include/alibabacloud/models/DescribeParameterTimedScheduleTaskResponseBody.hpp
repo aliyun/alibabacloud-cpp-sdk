@@ -97,10 +97,19 @@ namespace Models
 
 
     protected:
+      // The instance name.
       shared_ptr<string> DBInstanceName_ {};
+      // The modified parameter settings.
       shared_ptr<string> parameters_ {};
+      // The status. Valid values:
+      // * **PENDING**: Pending.
+      // * **EXECUTING**: Executing.
+      // * **COMPLETED**: Completed.
+      // * **EXECUTING**: Failed.
       shared_ptr<string> status_ {};
+      // The effective period of the parameter modification.
       shared_ptr<string> switchTime_ {};
+      // The ID of the scheduled task for parameter modification.
       shared_ptr<string> taskId_ {};
     };
 
@@ -123,7 +132,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The list of scan tasks.
     shared_ptr<vector<DescribeParameterTimedScheduleTaskResponseBody::TaskList>> taskList_ {};
   };
 

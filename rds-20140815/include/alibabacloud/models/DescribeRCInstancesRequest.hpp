@@ -13,7 +13,9 @@ namespace Models
   class DescribeRCInstancesRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const DescribeRCInstancesRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_TO_JSON(Description, description_);
+      DARABONBA_PTR_TO_JSON(DescriptionForFuzzy, descriptionForFuzzy_);
       DARABONBA_PTR_TO_JSON(HostIp, hostIp_);
       DARABONBA_PTR_TO_JSON(ImageId, imageId_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -28,7 +30,9 @@ namespace Models
       DARABONBA_PTR_TO_JSON(VpcId, vpcId_);
     };
     friend void from_json(const Darabonba::Json& j, DescribeRCInstancesRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
       DARABONBA_PTR_FROM_JSON(Description, description_);
+      DARABONBA_PTR_FROM_JSON(DescriptionForFuzzy, descriptionForFuzzy_);
       DARABONBA_PTR_FROM_JSON(HostIp, hostIp_);
       DARABONBA_PTR_FROM_JSON(ImageId, imageId_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -53,15 +57,29 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->description_ == nullptr
-        && this->hostIp_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr && this->instanceIds_ == nullptr && this->instanceName_ == nullptr
-        && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->status_ == nullptr
-        && this->tag_ == nullptr && this->vpcId_ == nullptr; };
+    virtual bool empty() const override { return this->clusterId_ == nullptr
+        && this->description_ == nullptr && this->descriptionForFuzzy_ == nullptr && this->hostIp_ == nullptr && this->imageId_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceIds_ == nullptr && this->instanceName_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->publicIp_ == nullptr
+        && this->regionId_ == nullptr && this->status_ == nullptr && this->tag_ == nullptr && this->vpcId_ == nullptr; };
+    // clusterId Field Functions 
+    bool hasClusterId() const { return this->clusterId_ != nullptr;};
+    void deleteClusterId() { this->clusterId_ = nullptr;};
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline DescribeRCInstancesRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
+
+
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
     inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline DescribeRCInstancesRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
+
+
+    // descriptionForFuzzy Field Functions 
+    bool hasDescriptionForFuzzy() const { return this->descriptionForFuzzy_ != nullptr;};
+    void deleteDescriptionForFuzzy() { this->descriptionForFuzzy_ = nullptr;};
+    inline string getDescriptionForFuzzy() const { DARABONBA_PTR_GET_DEFAULT(descriptionForFuzzy_, "") };
+    inline DescribeRCInstancesRequest& setDescriptionForFuzzy(string descriptionForFuzzy) { DARABONBA_PTR_SET_VALUE(descriptionForFuzzy_, descriptionForFuzzy) };
 
 
     // hostIp Field Functions 
@@ -149,31 +167,47 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> clusterId_ {};
     shared_ptr<string> description_ {};
+    shared_ptr<string> descriptionForFuzzy_ {};
+    // Queries instances by host IP address.
     shared_ptr<string> hostIp_ {};
     shared_ptr<string> imageId_ {};
-    // The instance ID.
+    // The instance ID. This parameter is used to query a single instance.
+    // 
+    // > If no instance ID is specified (neither **InstanceId** nor **InstanceIds** is passed), the operation returns detailed information about all RDS Custom instances in the specified region.
     shared_ptr<string> instanceId_ {};
+    // The instance IDs.
+    // 
+    // This parameter is used to query multiple instances at a time. Separate multiple instance IDs with commas (,). A maximum of 100 IDs are supported. Input format: `["InstanceID1","InstanceID2"]`.
+    // 
+    // > If both **InstanceIds** and **InstanceId** are specified, the value of **InstanceIds** takes precedence.
     shared_ptr<string> instanceIds_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
-    // The page number.
+    // The page number of the instance status list.
     // 
-    // Page starts from page 1.
-    // 
-    // Default value: 1.
+    // Minimum value: 1. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
+    // The number of entries per page for a paged query.
     // 
-    // Maximum value: 100.
-    // 
-    // Default value: 10.
+    // Maximum value: 100. Default value: 10.
     shared_ptr<int32_t> pageSize_ {};
+    // Queries instances by public IP address.
     shared_ptr<string> publicIp_ {};
-    // The region ID.
+    // The region ID. This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The instance status. Valid values:
+    // 
+    // - **Pending**: Being created.
+    // - **Running**: Running.
+    // - **Starting**: Being started.
+    // - **Stopping**: Being stopped.
+    // - **Stopped**: Stopped.
     shared_ptr<string> status_ {};
+    // Queries instances by the specified tag. Input format: `{"TagKey":"TagValue"}`.
     shared_ptr<string> tag_ {};
-    // The virtual private cloud (VPC) ID.
+    // The ID of the virtual private cloud (VPC).
     shared_ptr<string> vpcId_ {};
   };
 

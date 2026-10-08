@@ -15,6 +15,7 @@ namespace Models
     friend void to_json(Darabonba::Json& j, const ModifyRCInstanceRequest& obj) { 
       DARABONBA_PTR_TO_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_TO_JSON(AutoUseCoupon, autoUseCoupon_);
+      DARABONBA_PTR_TO_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_TO_JSON(Direction, direction_);
       DARABONBA_PTR_TO_JSON(DryRun, dryRun_);
       DARABONBA_PTR_TO_JSON(InstanceId, instanceId_);
@@ -27,6 +28,7 @@ namespace Models
     friend void from_json(const Darabonba::Json& j, ModifyRCInstanceRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoPay, autoPay_);
       DARABONBA_PTR_FROM_JSON(AutoUseCoupon, autoUseCoupon_);
+      DARABONBA_PTR_FROM_JSON(BusinessInfo, businessInfo_);
       DARABONBA_PTR_FROM_JSON(Direction, direction_);
       DARABONBA_PTR_FROM_JSON(DryRun, dryRun_);
       DARABONBA_PTR_FROM_JSON(InstanceId, instanceId_);
@@ -48,8 +50,8 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoPay_ == nullptr
-        && this->autoUseCoupon_ == nullptr && this->direction_ == nullptr && this->dryRun_ == nullptr && this->instanceId_ == nullptr && this->instanceType_ == nullptr
-        && this->promotionCode_ == nullptr && this->rebootTime_ == nullptr && this->rebootWhenFinished_ == nullptr && this->regionId_ == nullptr; };
+        && this->autoUseCoupon_ == nullptr && this->businessInfo_ == nullptr && this->direction_ == nullptr && this->dryRun_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceType_ == nullptr && this->promotionCode_ == nullptr && this->rebootTime_ == nullptr && this->rebootWhenFinished_ == nullptr && this->regionId_ == nullptr; };
     // autoPay Field Functions 
     bool hasAutoPay() const { return this->autoPay_ != nullptr;};
     void deleteAutoPay() { this->autoPay_ = nullptr;};
@@ -62,6 +64,13 @@ namespace Models
     void deleteAutoUseCoupon() { this->autoUseCoupon_ = nullptr;};
     inline bool getAutoUseCoupon() const { DARABONBA_PTR_GET_DEFAULT(autoUseCoupon_, false) };
     inline ModifyRCInstanceRequest& setAutoUseCoupon(bool autoUseCoupon) { DARABONBA_PTR_SET_VALUE(autoUseCoupon_, autoUseCoupon) };
+
+
+    // businessInfo Field Functions 
+    bool hasBusinessInfo() const { return this->businessInfo_ != nullptr;};
+    void deleteBusinessInfo() { this->businessInfo_ = nullptr;};
+    inline string getBusinessInfo() const { DARABONBA_PTR_GET_DEFAULT(businessInfo_, "") };
+    inline ModifyRCInstanceRequest& setBusinessInfo(string businessInfo) { DARABONBA_PTR_SET_VALUE(businessInfo_, businessInfo) };
 
 
     // direction Field Functions 
@@ -121,32 +130,45 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the automatic payment feature. Valid values:
-    // 
-    // *   **true** (default): enables the feature. You must make sure that your account balance is sufficient.
-    // *   **false**: disables the feature. An unpaid order is generated.
-    // 
-    // >  If your account balance is insufficient, you can set AutoPay to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
+    // Specifies whether to enable automatic payment. Valid values:
+    // - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
+    // - **false**: An order is generated but payment is not automatically made.
+    // > If your payment method balance is insufficient, set the parameter AutoPay to false. An unpaid order is generated, and you can log on to the ApsaraDB RDS console to complete the payment.
+    // >
     shared_ptr<bool> autoPay_ {};
+    // Specifies whether to automatically use coupons. Valid values:
+    // * **true** (default): Coupons are automatically used.
+    // * **false**: Coupons are not used.
+    // 
+    // > If you use coupons and then perform a downgrade, the amount deducted by coupons is not refunded.
     shared_ptr<bool> autoUseCoupon_ {};
-    // The type of the change that you want to perform on the instance. Valid values:
-    // 
-    // >  This parameter is optional. The system can automatically determine whether the instance change is an upgrade or a downgrade. If you want to specify this parameter, take note of the following items:
-    // 
-    // *   **Upgrade** (default): upgrades the instance type. Make sure that your account balance is sufficient.
-    // *   **Down**: downgrades the instance type. If the new instance type specified by InstanceType has lower specifications than the current instance type, set Direction to Down.
+    shared_ptr<string> businessInfo_ {};
+    // The type of the Upgrade/Downgrade. Valid values:
+    // > This parameter does not need to be uploaded. The system can automatically determine whether the change is an upgrade or a downgrade. If you upload this parameter, follow the rules below.
+    // - **Up** (default): Upgrades the instance type. Make sure that your account payment method balance is sufficient.
+    // - **Down**: Downgrades the instance type. Set Direction to down when the instance type specified by InstanceType is lower than the current instance type.
     shared_ptr<string> direction_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-    // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and resource inventory.
-    // *   **false**: performs a dry run and performs the actual request. If the request passes the dry run, the operation is performed.
+    // Specifies whether to perform a dry run. Valid values:
+    // * **true**: Performs a dry run without creating the instance. The system checks items such as the request parameters, request format, service limits, and available resources.
+    // * **false** (default): Sends the request. If the request passes the check, the instance is created.
     shared_ptr<bool> dryRun_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The new instance type. For more information about the instance types that are supported by RDS Custom instances, see [Instance types of RDS Custom instances](https://help.aliyun.com/document_detail/2844823.html).
+    // The target instance type. For information about the instance types supported by RDS Custom instances, see [RDS Custom instance types](https://help.aliyun.com/document_detail/2844823.html).
     shared_ptr<string> instanceType_ {};
+    // The coupon code.
     shared_ptr<string> promotionCode_ {};
+    // The restart time of the instance.
+    // 
+    // - If **RebootWhenFinished** is set to **false** and the instance status is **Running**, you **must** set a restart time within 48 hours.
+    // - The time follows the ISO 8601 standard in UTC+0. Format: `yyyy-MM-ddTHH:mmZ`.
     shared_ptr<string> rebootTime_ {};
+    // Specifies whether to immediately restart the instance after the specification change is complete. Valid values:
+    // 
+    // - **true** (default): The instance is restarted immediately.
+    // - **false**: The instance is not restarted.
+    // 
+    // > If the instance is in the **Stopped** state, the instance remains in the Stopped state and is not restarted even if you set `RebootWhenFinished=true`.
     shared_ptr<bool> rebootWhenFinished_ {};
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};

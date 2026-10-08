@@ -63,8 +63,8 @@ namespace Models
     // resourceOwnerAccount Field Functions 
     bool hasResourceOwnerAccount() const { return this->resourceOwnerAccount_ != nullptr;};
     void deleteResourceOwnerAccount() { this->resourceOwnerAccount_ = nullptr;};
-    inline int64_t getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, 0L) };
-    inline ModifyTaskInfoRequest& setResourceOwnerAccount(int64_t resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
+    inline string getResourceOwnerAccount() const { DARABONBA_PTR_GET_DEFAULT(resourceOwnerAccount_, "") };
+    inline ModifyTaskInfoRequest& setResourceOwnerAccount(string resourceOwnerAccount) { DARABONBA_PTR_SET_VALUE(resourceOwnerAccount_, resourceOwnerAccount) };
 
 
     // resourceOwnerId Field Functions 
@@ -103,28 +103,26 @@ namespace Models
 
 
   protected:
-    // The action-related parameters. You can add action-related parameters based on your business requirements. If you set the TaskAction parameter to modifySwitchTime, you must set this parameter to `{"recoverMode": "xxx", "recoverTime": "xxx"}`.
+    // The action-related parameters, which can be extended as needed. When taskAction is set to modifySwitchTime, set ActionParams to `{"recoverMode": "xxx", "recoverTime": "xxx"}`.
     // 
-    // The recoverMode field specifies the task restoration mode. valid values:
+    // recoverMode specifies the task recovery pattern. Valid values:
+    // - **timePoint**: Execute at a specified point in time.
+    // - **immediate**: Execute immediately.
     // 
-    // *   **timePoint**: The task is executed at a specified point in time.
-    // *   **Immediate**: The task is executed immediately.
-    // *   **maintainTime**: The task is executed based on the O\\&M time.
-    // 
-    // The recoverTime field specifies restoration time. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If you set the recoverMode field to timePoint, you must also specify the recoverTime field.
+    // recoverTime specifies the recovery time in UTC+0. Format: yyyy-MM-ddTHH:mm:ssZ. This parameter is required when recoverMode is set to timePoint.
     shared_ptr<string> actionParams_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query available region IDs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    shared_ptr<int64_t> resourceOwnerAccount_ {};
+    shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
     // The name of the execution step.
     shared_ptr<string> stepName_ {};
-    // The task action. Set the value to modifySwitchTime. The value specifies that you want to change the switching time or restoration time.
+    // The task action. Set the value to modifySwitchTime, which indicates modifying the switchover time or recovery time.
     shared_ptr<string> taskAction_ {};
-    // The task ID. You can call the DescribeTasks operation to query task IDs.
+    // The task ID. You can call the DescribeTasks operation to obtain the task ID.
     // 
     // This parameter is required.
     shared_ptr<string> taskId_ {};

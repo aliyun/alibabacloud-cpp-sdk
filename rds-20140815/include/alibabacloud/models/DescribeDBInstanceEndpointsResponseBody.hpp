@@ -391,12 +391,12 @@ namespace Models
 
     protected:
       shared_ptr<Data::DBInstanceEndpoints> DBInstanceEndpoints_ {};
-      // The name of the instance.
+      // The instance name.
       shared_ptr<string> DBInstanceName_ {};
-      // The version of the IP protocol. Valid values:
+      // The IP address protocol version. Valid values:
       // 
-      // *   **ipv4**
-      // *   **ipv6**
+      // - **ipv4**
+      // - **ipv6**
       shared_ptr<string> ipVersion_ {};
     };
 
@@ -419,9 +419,9 @@ namespace Models
 
 
   protected:
-    // The data returned.
+    // The returned data.
     shared_ptr<DescribeDBInstanceEndpointsResponseBody::Data> data_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

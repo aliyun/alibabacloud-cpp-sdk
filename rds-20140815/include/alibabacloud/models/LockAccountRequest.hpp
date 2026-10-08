@@ -75,11 +75,11 @@ namespace Models
 
 
   protected:
-    // The account that you want to lock. You can lock only a single account at a time.
+    // The name of the account to lock. You can lock only one account at a time.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

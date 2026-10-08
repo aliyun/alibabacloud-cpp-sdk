@@ -57,8 +57,13 @@ namespace Models
 
 
   protected:
+    // Indicates whether the account is authorized. Valid values:
+    // * 0: Not authorized.
+    // * 1: Authorized.
     shared_ptr<string> authorizationState_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The Alibaba Resource Name (ARN) of the service-linked role associated with Cloud Hardware Security Module (CloudHSM) for backup encryption.
     shared_ptr<string> roleARN_ {};
   };
 

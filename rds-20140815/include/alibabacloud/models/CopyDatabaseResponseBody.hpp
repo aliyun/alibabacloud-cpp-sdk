@@ -66,17 +66,16 @@ namespace Models
 
 
   protected:
-    // The name of the database.
+    // The database name.
     shared_ptr<string> DBName_ {};
-    // The status of the database. Valid values:
-    // 
-    // *   **Creating**
-    // *   **Running**
-    // *   **Deleting**
+    // The database status. Valid values:
+    // * **Creating**: The database is being created.
+    // * **Running**: The database is running.
+    // * **Deleting**: The database is being deleted.
     shared_ptr<string> DBStatus_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the task.
+    // The task ID.
     shared_ptr<string> taskId_ {};
   };
 

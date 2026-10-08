@@ -75,16 +75,9 @@ namespace Models
 
 
   protected:
-    // The batch operation mode. Set the value to **AllTogether**. In this mode, if all instances are stopped, a success message is returned. If an instance fails the verification, none of the instances can be stopped and an error message is returned.
     shared_ptr<string> batchOptimization_ {};
-    // Specifies whether to forcefully stop the instance. Valid values:
-    // 
-    // *   **true**: forcefully stops the instance. If an instance fails to stop due to system or network issues, a forced stop can be triggered, **though it may result in data loss.**
-    // *   **false**: does not forcefully stop the instance. This is the default value.
     shared_ptr<bool> forceStop_ {};
-    // The node IDs.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> stoppedMode_ {};
   };

@@ -339,17 +339,23 @@ namespace Models
 
 
       protected:
-        // The cloud service type of the application group. Valid values: **web** and native. The value web indicates a web application. The value **native** indicates a local application.
+        // The cloud service type of the application group. Valid values:
+        // - **web**: web application.
+        // - **native**: on-premises application.
         shared_ptr<string> cmsProduct_ {};
-        // The database engine.
+        // The database type.
         shared_ptr<string> dbType_ {};
         // The pagination parameter.
         shared_ptr<string> detailImpact_ {};
-        // The details of the instance operation.
+        // The instance operation details.
         shared_ptr<string> detailReason_ {};
-        // The time when the alert was closed. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
+        // The alert end time.
         shared_ptr<string> endTime_ {};
-        // The system event category. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
+        // The system event categorization. Valid values:
+        // - **Exception**: abnormal event.
+        // - **Optimize**: optimization events.
+        // - **Notification**: notification event.
+        // - **Maintenance**: scheduled maintenance event.
         shared_ptr<string> eventCategory_ {};
         // The event code.
         shared_ptr<string> eventCode_ {};
@@ -357,27 +363,38 @@ namespace Models
         shared_ptr<string> eventDetail_ {};
         // The event ID.
         shared_ptr<string> eventId_ {};
-        // The event impact.
+        // The event impact overview.
         shared_ptr<string> eventImpact_ {};
-        // The event level. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
+        // The event level. Valid values:
+        // - **INFO**: notification.
+        // - **WARN**: warning.
+        // - **CRITICAL**: critical.
         shared_ptr<string> eventLevel_ {};
-        // The event source.
+        // The source of the event operation.
         shared_ptr<string> eventReason_ {};
-        // The status of the alert event. Valid values:
-        // 
-        // *   **1**: pending
-        // *   **2**: ignored
-        // *   **4**: confirmed
-        // *   **8**: marked as false positive
-        // *   **16**: handling
-        // *   **32**: handled
-        // *   **64**: expired
+        // The event status. Valid values:
+        // - **Inquiring**: inquiring.
+        // - **Scheduled**: scheduled.
+        // - **Running**: running.
+        // - **Succeed**: completed.
+        // - **Failed**: failed.
+        // - **Canceled**: canceled.
         shared_ptr<string> eventStatus_ {};
-        // The event type. Valid values:
+        // The system event type. Valid values: 
+        // - **SystemMaintenance.Reboot**: The instance is restarted due to system maintenance.
+        // - **SystemMaintenance.Redeploy**: The instance is redeployed due to system maintenance.
+        // - **SystemFailure.Reboot**: The instance is restarted due to a system error.
+        // - **SystemFailure.Redeploy**: The instance is redeployed due to a system error.
+        // - **SystemFailure.Delete**: The instance is released due to an instance creation failure.
+        // - **InstanceFailure.Reboot**: The instance is restarted due to an instance error.
+        // - **InstanceExpiration.Stop**: The instance is stopped due to subscription expiration.
+        // - **InstanceExpiration.Delete**: The instance is released due to subscription expiration.
+        // - **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
+        // - **AccountUnbalanced.Delete**: The pay-as-you-go instance is released due to an overdue payment.
         shared_ptr<string> eventType_ {};
-        // The creation time. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
+        // The time when the event was created.
         shared_ptr<string> gmtCreated_ {};
-        // The update time. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
+        // The time when the event was last updated.
         shared_ptr<string> gmtModified_ {};
         // The handling status.
         shared_ptr<string> handleStatus_ {};
@@ -387,19 +404,24 @@ namespace Models
         shared_ptr<string> instanceId_ {};
         // The instance name.
         shared_ptr<string> instanceName_ {};
-        // Indicates whether the alert is closed. Valid values: **0**: closed. **1**: not closed.
+        // Indicates whether the event is closed. Valid values:
+        // - **0**: closed.
+        // - **1**: open.
         shared_ptr<int32_t> isClosed_ {};
-        // The service name.
+        // The product name.
         shared_ptr<string> product_ {};
-        // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+        // The region ID.
         shared_ptr<string> regionId_ {};
-        // The resource type. The value is fixed as **INSTANCE**.
+        // The resource type. Valid values:
+        // - **Instance**: instance resource.
+        // - **Host**: host resource.
+        // - **User**: user resource.
         shared_ptr<string> resourceType_ {};
         // The type of the source data.
         shared_ptr<string> sourceType_ {};
-        // The start time. The time follows the ISO 8601 standard in the *yyyy-mm-dd*t*hh:mm*z format. The time is displayed in UTC.
+        // The start time.
         shared_ptr<string> startTime_ {};
-        // The ID of the resource owner.
+        // The ID of the user who owns the resource.
         shared_ptr<string> uid_ {};
       };
 
@@ -465,21 +487,21 @@ namespace Models
 
 
     protected:
-      // The details of the data.
+      // The data overview.
       shared_ptr<Items::Data> data_ {};
-      // The task ID
+      // The task ID.
       shared_ptr<string> id_ {};
-      // The region ID.
+      // The region.
       shared_ptr<string> region_ {};
       // The event source.
       shared_ptr<string> source_ {};
-      // The database engine version.
+      // The database version.
       shared_ptr<string> specversion_ {};
       // The name of the pending event.
       shared_ptr<string> subject_ {};
-      // The amount of time that has elapsed from the start time of the query. Unit: seconds.
+      // The elapsed time of the query task. Unit: seconds.
       shared_ptr<string> time_ {};
-      // The event type. For more information, see [View the event history of an ApsaraDB RDS instance](https://help.aliyun.com/document_detail/129759.html).
+      // The event type.
       shared_ptr<string> type_ {};
     };
 
@@ -523,11 +545,11 @@ namespace Models
 
 
   protected:
-    // The events.
+    // The event list.
     shared_ptr<vector<DescribeHistoryEventsResponseBody::Items>> items_ {};
-    // The page number. Valid values: any non-zero positive integer. Default value: **1**.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page. Default value: 30.
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -59,12 +59,12 @@ namespace Models
 
 
   protected:
-    // The detailed configurations of the assured serverless feature.
+    // The configuration details of the committed serverless feature.
     Darabonba::Json computeBurstConfig_ {};
-    // Indicates whether the assured serverless feature is enabled. Valid values:
+    // Indicates whether the committed serverless feature is enabled.
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> computeBurstEnabled_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

@@ -176,59 +176,56 @@ namespace Models
 
 
   protected:
-    // The filter condition that is used to return tasks based on the settings of task cancellation. Default value: -1. Valid values:
+    // Specifies whether the task can be canceled. Default value: -1. Valid values:
     // 
-    // *   **-1**: returns all tasks.
-    // *   **0**: returns only tasks that cannot be canceled.
-    // *   **1**: returns only tasks that can be canceled.
+    // - **-1**: all tasks.
+    // - **0**: Only tasks that cannot be canceled are returned.
+    // - **1**: Only tasks that can be canceled are returned.
     shared_ptr<int32_t> allowCancel_ {};
-    // The filter condition that is used to return tasks based on the settings of the switching time. Default value: -1. Valid values:
-    // 
-    // *   **-1**: returns all tasks.
-    // *   **0**: returns only tasks for which the switching time cannot be changed.
-    // *   **1**: returns only tasks for which the switching time can be changed.
+    // Specifies whether the task time can be modified. Default value: -1. Valid values:
+    // - **-1**: all tasks.
+    // - **0**: Only tasks whose time cannot be modified are returned.
+    // - **1**: Only tasks whose time can be modified are returned.
     shared_ptr<int32_t> allowChange_ {};
-    // The filter condition that is used to return tasks based on the task level. Default value: all. Valid values:
+    // The task level. Default value: all. Valid values:
     // 
-    // *   **all**: all types
-    // *   **S0**: returns the tasks of the exception fixing level.
-    // *   **S1**: returns the tasks of the system O\\&M level.
+    // - **all**: all levels.
+    // - **S0**: Only tasks at the exception recovery level are returned.
+    // - **S1**: Only tasks at the system O&M level are returned.
     shared_ptr<string> changeLevel_ {};
-    // The type of the database. Default value: all. Valid values: mysql, pgsql, and mssql.
+    // The database type. Default value: all. Valid values: mysql, pgsql, and mssql.
     shared_ptr<string> dbType_ {};
-    // The name of the instance. You can leave this parameter empty. If you configure this parameter, you can specify the name only of one instance.
+    // The instance name. This parameter is optional. You can specify at most one instance name.
     shared_ptr<string> insName_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from page 1. Default value: 1.
+    // The page number. The value must be greater than 0. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 25. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The name of the service. Valid values: RDS, POLARDB, MongoDB, and Redis. For RDS instances, set the value to RDS.
+    // The product name. Valid values: RDS, POLARDB, MongoDB, and Redis. For ApsaraDB RDS instances, set this parameter to RDS.
     shared_ptr<string> productId_ {};
     // The region ID of the pending event. You can call the DescribeRegions operation to query the most recent region list.
-    // 
-    // >  The value **all** indicates all regions.
+    // > Set this parameter to **all** to specify all region IDs.
     shared_ptr<string> region_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The status of the task, which is used as a filter condition to return tasks.
-    // 
-    // *   **-1**: all tasks
-    // *   **3**: pending
-    // *   **4**: being processed
-    // *   **5**: completed
-    // *   **6**: failed
-    // *   **7**: canceled
+    // The task status. This parameter is used to filter the returned tasks. Valid values:
+    // * **-1**: all tasks.
+    // * **3**: pending tasks.
+    // * **4**: in-progress tasks.
+    // * **5**: succeeded tasks.
+    // * **6**: failed tasks.
+    // * **7**: canceled tasks.
     shared_ptr<int32_t> status_ {};
-    // The type of the task. Valid values:
+    // The task type. Valid values:
     // 
-    // *   **rds_apsaradb_ha**: primary/secondary switchover
-    // *   **rds_apsaradb_transfer**: instance migration
-    // *   **rds_apsaradb_upgrade**: update of the minor engine version
-    // *   **rds_apsaradb_maxscale**: update of the minor version of the proxy
-    // *   **all**: all types
+    // * **rds_apsaradb_ha**: primary/secondary node switch.
+    // * **rds_apsaradb_transfer**: instance migration.
+    // * **rds_apsaradb_upgrade**: minor engine version update.
+    // * **rds_apsaradb_maxscale**: proxy minor version upgrade.
+    // * **all**: all task types.
     shared_ptr<string> taskType_ {};
   };
 

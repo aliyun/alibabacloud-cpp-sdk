@@ -66,16 +66,15 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ApsaraDB RDS instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The result of the IP address whitelist configuration. Valid values:
-    // 
-    // *   **Success**
-    // *   **Fail**
+    // The result of configuring the whitelist. Valid values:
+    // * **Success**: The configuration is successful.
+    // * **Fail**: The configuration failed.
     shared_ptr<string> DTCSetResult_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The task ID.
+    // The task ID of the configuration task.
     shared_ptr<string> taskId_ {};
   };
 

@@ -114,7 +114,7 @@ namespace Models
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     shared_ptr<string> securityToken_ {};
-    // The source IP address.
+    // The source IP address of the user.
     // 
     // This parameter is required.
     shared_ptr<string> sourceIpAddress_ {};

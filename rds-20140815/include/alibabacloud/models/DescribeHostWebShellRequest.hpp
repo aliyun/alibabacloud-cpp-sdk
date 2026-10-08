@@ -103,7 +103,7 @@ namespace Models
 
 
   protected:
-    // The username of the account that is used to log on to the host of the instance.
+    // The name of the account that is used to log on to the host of the RDS instance.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
@@ -115,7 +115,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The instance hostname. You can call the DescribeDBInstanceIpHostname operation to query the hostname.
+    // The hostname of the instance. You can call the DescribeDBInstanceIpHostname operation to query the hostname.
     // 
     // This parameter is required.
     shared_ptr<string> hostName_ {};

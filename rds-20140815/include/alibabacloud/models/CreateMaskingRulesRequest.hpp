@@ -101,11 +101,11 @@ namespace Models
 
 
     protected:
-      // List of columns
+      // The list of columns.
       shared_ptr<vector<string>> columns_ {};
-      // List of databases
+      // The list of databases.
       shared_ptr<vector<string>> databases_ {};
-      // List of tables
+      // The list of tables.
       shared_ptr<vector<string>> tables_ {};
     };
 
@@ -185,24 +185,24 @@ namespace Models
 
 
   protected:
-    // instance ID
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // Database name
+    // The database name.
     shared_ptr<string> DBName_ {};
-    // Name of the default encryption or masking algorithm
+    // The name of the default encryption or masking algorithm.
     shared_ptr<string> defaultAlgo_ {};
-    // Rule algorithm. Multiple algorithms can be selected. Masking Algorithm can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, number of encrypted characters}}
+    // The rule algorithms. You can specify multiple algorithms. Masking algorithms can include additional parameters. Format: {name: algorithm1}, {name: algorithm2, params: {encryption position, encryption length}}.
     shared_ptr<string> maskingAlgo_ {};
     shared_ptr<string> ownerId_ {};
-    // Region ID
+    // The region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Rule configuration, in JSON string format, containing matching rules for databases, tables, and columns
+    // The rule configuration in JSON string format, which contains matching rules for databases, tables, and columns.
     shared_ptr<CreateMaskingRulesRequest::RuleConfig> ruleConfig_ {};
-    // Rule Name (only one rule name is supported per request)
+    // The rule name. Only one rule name can be specified at a time.
     // 
     // This parameter is required.
     shared_ptr<string> ruleName_ {};

@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The number of instances for which blackhole filtering is triggered.
+      // The number of instances in blackhole filtering status.
       shared_ptr<string> blackholeCount_ {};
-      // The number of instances for which traffic scrubbing is triggered.
+      // The number of instances for which attack traffic scrubs traffic.
       shared_ptr<string> defenseCount_ {};
       // The total number of instances.
       shared_ptr<string> instacenCount_ {};
@@ -105,7 +105,7 @@ namespace Models
 
 
   protected:
-    // The number of instances that are under DDoS attacks.
+    // The details about the number of instances that are under DDoS attacks.
     shared_ptr<DescribeRCInstanceDdosCountResponseBody::DdosCount> ddosCount_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

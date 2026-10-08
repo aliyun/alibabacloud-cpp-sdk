@@ -66,16 +66,16 @@ namespace Models
 
 
   protected:
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account.
+    // The user credential of the created Data API account.
     shared_ptr<string> secretArn_ {};
-    // The name of the credential.
+    // The name of the user credential.
     shared_ptr<string> secretName_ {};
     // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**: The request was successful.
-    // *   **false**: The request failed.
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

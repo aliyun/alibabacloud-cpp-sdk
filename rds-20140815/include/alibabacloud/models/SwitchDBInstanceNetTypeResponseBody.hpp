@@ -57,9 +57,9 @@ namespace Models
 
 
   protected:
-    // The endpoint that is used to connect to the instance after the switch of endpoints.
+    // The database endpoint after the switch.
     shared_ptr<string> newConnectionString_ {};
-    // The endpoint that is used to connect to the instance before the switch of endpoints.
+    // The database endpoint before the switch.
     shared_ptr<string> oldConnectionString_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

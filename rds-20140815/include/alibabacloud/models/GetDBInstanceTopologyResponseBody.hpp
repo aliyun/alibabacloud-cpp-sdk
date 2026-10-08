@@ -133,26 +133,22 @@ namespace Models
 
 
       protected:
-        // The ID of the instance.
+        // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
-        // The ID of the dedicated cluster.
-        // 
-        // > : If the instance does not reside in the specified dedicated cluster, no value is returned.
+        // The dedicated cluster ID.
+        // >This parameter is empty for non-dedicated cluster instances.
         shared_ptr<string> dedicatedHostGroupId_ {};
-        // The host ID of the instance in the dedicated cluster.
-        // 
-        // > : If the instance does not reside in the specified dedicated cluster, no value is returned.
+        // The host ID in the dedicated cluster.
+        // >This parameter is empty for non-dedicated cluster instances.
         shared_ptr<string> dedicatedHostId_ {};
-        // The ID of the instance.
-        // 
-        // > : The value \\*\\*-1\\*\\* is returned for an instance that does not reside in a dedicated cluster.
+        // The unique identifier of the instance.
+        // >This parameter returns **-1** for non-dedicated cluster instances.
         shared_ptr<string> nodeId_ {};
-        // The type of the node. The following result is returned:
-        // 
-        // *   **Master**: a primary node
-        // *   **Slave**: a secondary node
+        // The node type. Valid values:
+        // * **Master**: primary node.
+        // * **Slave**: secondary node.
         shared_ptr<string> role_ {};
-        // The zone ID of the instance.
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -212,16 +208,16 @@ namespace Models
 
 
       protected:
-        // The endpoint that is used to connect to the database instance.
+        // The database endpoint.
         shared_ptr<string> connectionString_ {};
         // The instance ID.
         shared_ptr<string> DBInstanceName_ {};
-        // The network type of the endpoint. Valid values:
+        // The network endpoint type of the instance. Valid values:
         // 
-        // *   **vpc**
-        // *   **public**
+        // * **vpc**: internal endpoint.
+        // * **public**: public endpoint.
         shared_ptr<string> netType_ {};
-        // The zone ID of the instance.
+        // The zone ID.
         shared_ptr<string> zoneId_ {};
       };
 
@@ -253,11 +249,11 @@ namespace Models
 
 
     protected:
-      // The network connection information of the instance.
+      // The network connectivity information of the instance.
       shared_ptr<vector<Data::Connections>> connections_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceName_ {};
-      // The queried nodes.
+      // The node list.
       shared_ptr<vector<Data::Nodes>> nodes_ {};
     };
 
@@ -296,11 +292,11 @@ namespace Models
   protected:
     // An internal parameter. You can ignore this parameter.
     shared_ptr<string> code_ {};
-    // The details about the topology.
+    // The topology details.
     shared_ptr<GetDBInstanceTopologyResponseBody::Data> data_ {};
     // An internal parameter. You can ignore this parameter.
     shared_ptr<string> message_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

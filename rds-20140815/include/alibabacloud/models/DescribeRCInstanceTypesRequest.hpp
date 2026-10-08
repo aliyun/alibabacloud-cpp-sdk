@@ -78,15 +78,10 @@ namespace Models
 
 
   protected:
-    // The commodity code of the instance.
     shared_ptr<string> commodityCode_ {};
-    // The database engine. Set the value to MySQL.
     shared_ptr<string> engine_ {};
-    // The instance types.
     shared_ptr<vector<string>> instanceType_ {};
-    // The instance family. You can call the **DescribeRCInstanceTypeFamilies** operation to query the instance families of instances.
     shared_ptr<string> instanceTypeFamily_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
   };
 

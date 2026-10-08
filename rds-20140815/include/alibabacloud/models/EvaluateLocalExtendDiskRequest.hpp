@@ -99,7 +99,7 @@ namespace Models
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+    // The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) to query available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
@@ -107,7 +107,7 @@ namespace Models
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The new storage capacity. Unit: GB.
+    // The storage capacity after the expansion. Unit: GB.
     shared_ptr<int32_t> storage_ {};
   };
 

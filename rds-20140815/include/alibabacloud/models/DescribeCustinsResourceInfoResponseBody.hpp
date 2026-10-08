@@ -263,21 +263,21 @@ namespace Models
 
 
     protected:
-      // The deadline for the CPU adjustment.
+      // The deadline for CPU adjustment.
       shared_ptr<string> cpuAdjustDeadline_ {};
-      // The maximum percentage of the system CPU resources that the instance can use.
+      // The maximum adjustable CPU ratio.
       shared_ptr<string> cpuAdjustableMaxRatio_ {};
-      // The maximum CPU utilization.
+      // The maximum CPU usage.
       shared_ptr<string> cpuAdjustableMaxValue_ {};
-      // The CPU utilization.
+      // The CPU usage.
       shared_ptr<string> cpuIncreaseRatio_ {};
-      // The CPU utilization. Unit: percentage.
+      // The CPU usage. Unit: %.
       shared_ptr<string> cpuIncreaseRatioValue_ {};
       // The instance ID.
       shared_ptr<string> DBInstanceId_ {};
-      // The maximum IOPS.
+      // The maximum number of I/O requests per second.
       shared_ptr<string> iopsAdjustableMaxValue_ {};
-      // The deadline for the adjustment of the maximum number of connections.
+      // The deadline for maximum connection adjustment.
       shared_ptr<string> maxConnAdjustDeadline_ {};
       // The maximum number of concurrent connections.
       shared_ptr<string> maxConnAdjustableMaxValue_ {};
@@ -285,29 +285,29 @@ namespace Models
       shared_ptr<string> maxConnIncreaseRatio_ {};
       // The maximum number of concurrent connections.
       shared_ptr<string> maxConnIncreaseRatioValue_ {};
-      // The deadline for the adjustment of the maximum IOPS.
+      // The deadline for maximum IOPS adjustment.
       shared_ptr<string> maxIopsAdjustDeadline_ {};
-      // The maximum IOPS.
+      // The maximum number of I/O requests per second.
       shared_ptr<string> maxIopsIncreaseRatio_ {};
-      // The maximum IOPS that can be supported by the instance.
+      // The maximum number of I/O requests per second.
       shared_ptr<string> maxIopsIncreaseRatioValue_ {};
-      // The maximum percentage of the system memory that the instance can use.
+      // The maximum adjustable memory ratio.
       shared_ptr<string> memAdjustableMaxRatio_ {};
-      // The maximum value of the resources to be evaluated.
+      // The maximum value of the resource to be evaluated.
       shared_ptr<string> memAdjustableMaxValue_ {};
-      // The deadline for the memory adjustment.
+      // The deadline for memory adjustment.
       shared_ptr<string> memoryAdjustDeadline_ {};
-      // The memory increase percentage.
+      // The memory increase ratio.
       shared_ptr<string> memoryIncreaseRatio_ {};
       // The memory usage. Unit: MB.
       shared_ptr<string> memoryIncreaseRatioValue_ {};
-      // The number of CPUs of the instance.
+      // The number of CPU cores of the instance.
       shared_ptr<string> originCpu_ {};
       // The maximum number of concurrent connections.
       shared_ptr<string> originMaxConn_ {};
-      // The maximum IOPS.
+      // The maximum number of I/O requests per second.
       shared_ptr<string> originMaxIops_ {};
-      // The actual memory used. Unit: MB.
+      // The actual memory usage. Unit: MB.
       shared_ptr<string> originMemory_ {};
     };
 

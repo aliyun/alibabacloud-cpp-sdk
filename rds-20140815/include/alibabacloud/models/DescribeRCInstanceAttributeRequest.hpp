@@ -77,8 +77,14 @@ namespace Models
   protected:
     // The instance ID.
     shared_ptr<string> instanceId_ {};
+    // The instance name.
     shared_ptr<string> instanceName_ {};
+    // The maximum number of disks returned in the response. Valid values: 10 to 500.
+    // - If this parameter is not specified, the default value is 20.
+    // - If the specified value is less than 10, the value is set to 10.
+    // - If the specified value is from 10 to 500, the specified value is used.
     shared_ptr<int64_t> maxDisksResults_ {};
+    // The private IP address of the instance in the VPC.
     shared_ptr<string> privateIpAddress_ {};
     // The region ID.
     shared_ptr<string> regionId_ {};

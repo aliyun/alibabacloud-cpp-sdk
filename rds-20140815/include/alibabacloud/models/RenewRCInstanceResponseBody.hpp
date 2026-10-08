@@ -66,8 +66,9 @@ namespace Models
 
 
   protected:
-    // The ID of the RDS Custom instance.
+    // The instance ID of the RDS Custom instance.
     shared_ptr<string> DBInstanceId_ {};
+    // The order ID.
     shared_ptr<string> orderId_ {};
     // The order ID.
     shared_ptr<string> orderIds_ {};

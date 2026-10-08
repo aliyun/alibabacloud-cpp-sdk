@@ -202,56 +202,55 @@ namespace Models
 
 
     protected:
-      // The details of the task.
+      // The task details.
       shared_ptr<string> detail_ {};
-      // The creation time. The time is displayed in UTC.
+      // The creation time in UTC.
       shared_ptr<string> gmtCreated_ {};
-      // The modification time. The time is displayed in UTC.
+      // The modification time in UTC.
       shared_ptr<string> gmtModified_ {};
-      // The synchronization information. This parameter is a reserved parameter.
+      // The synchronization information. This is a reserved field.
       shared_ptr<string> replicationInfo_ {};
-      // The status of the synchronization. Valid values:
+      // The synchronization status. Valid values:
       // 
-      // *   **steaming**: The synchronization is in progress.
-      // *   **finish**: The synchronization is complete.
-      // *   **disconnect**: The synchronization is disconnected.
+      // - **steaming**: Synchronizing.
+      // - **finish**: Completed.
+      // - **disconnect**: Disconnected.
       shared_ptr<string> replicationState_ {};
-      // The account of the database that is used for data synchronization.
+      // The database account used for data synchronization.
       shared_ptr<string> replicatorAccount_ {};
-      // The password of the account.
+      // The password of the synchronization account.
       shared_ptr<string> replicatorPassword_ {};
-      // The endpoint of the source instance.
+      // The address of the source instance.
       shared_ptr<string> sourceAddress_ {};
-      // The type of the source instance. Valid values:
+      // The category of the source instance. Valid values:
       // 
-      // *   other: other instances
-      // *   aliyunRDS: an ApsaraDB RDS instance
+      // - other: Other.
+      // - aliyunRDS: ApsaraDB RDS instance.
       shared_ptr<string> sourceCategory_ {};
-      // The port number of the source instance.
+      // The port of the source instance.
       shared_ptr<int64_t> sourcePort_ {};
-      // The destination instance ID.
+      // The ID of the target instance.
       shared_ptr<string> targetInstanceId_ {};
-      // The ID of the task.
+      // The task ID.
       shared_ptr<int64_t> taskId_ {};
-      // The name of the task.
+      // The task name.
       shared_ptr<string> taskName_ {};
-      // The stage of the task. Valid values:
+      // The task stage. Valid values:
       // 
-      // *   **precheck**: the precheck stage.
-      // *   **basebackup**: the basic backup stage.
-      // *   **startup**: the startup stage.
-      // *   **increment**: the incremental synchronization stage.
+      // - **precheck**: Dry run.
+      // - **basebackup**: Basic backup.
+      // - **startup**: Startup.
+      // - **increment**: Incremental synchronization.
       shared_ptr<string> taskStage_ {};
-      // The status of the task. Valid values:
+      // The task status. Valid values:
       // 
-      // *   **success**
-      // *   **failure**
-      // *   **running**
+      // - **success**: Succeeded.
+      // - **failure**: Failed.
+      // - **running**: Running.
       shared_ptr<string> taskStatus_ {};
-      // The type of the task. Valid values:
-      // 
-      // *   **create**: creates a synchronization link.
-      // *   **create-dryrun**: performs a precheck before a synchronization link is created.
+      // The task type. Valid values:
+      // - **create**: Create a replication link.
+      // - **create-dryrun**: Dry run for creating a replication link.
       shared_ptr<string> taskType_ {};
     };
 
@@ -288,13 +287,13 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The items.
+    // The records.
     shared_ptr<vector<DescribeReplicationLinkLogsResponseBody::Items>> items_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<int32_t> totalSize_ {};
   };
 

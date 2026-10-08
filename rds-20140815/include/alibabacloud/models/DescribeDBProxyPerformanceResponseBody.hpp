@@ -279,9 +279,9 @@ namespace Models
 
 
   protected:
-    // The instance ID.
+    // The ID of the monitored instance.
     shared_ptr<string> DBInstanceId_ {};
-    // An internal parameter. You do not need to specify this parameter.
+    // An internal parameter. You can ignore this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
     // The end time of the query.
     shared_ptr<string> endTime_ {};

@@ -81,11 +81,8 @@ namespace Models
 
 
     protected:
-      // The page number.
       shared_ptr<int64_t> pageNumber_ {};
-      // The maximum number of entries returned per page.
       shared_ptr<int64_t> pageSize_ {};
-      // The total number of entries returned.
       shared_ptr<int64_t> totalCount_ {};
     };
 
@@ -230,47 +227,18 @@ namespace Models
 
 
     protected:
-      // The time when the node was created.
       shared_ptr<string> creationTime_ {};
-      // The container version.
       shared_ptr<string> dockerVersion_ {};
-      // The image ID of the node.
       shared_ptr<string> imageId_ {};
-      // The node ID.
       shared_ptr<string> instanceId_ {};
-      // The node role. Valid values:
-      // 
-      // *   **Master**: master node
-      // *   **Worker**: worker node
       shared_ptr<string> instanceRole_ {};
-      // The IP address.
       shared_ptr<vector<string>> ipAddresses_ {};
-      // Indicates whether the node is provided by Alibaba Cloud. Valid values:
-      // 
-      // *   **true**
-      // *   **false**
       shared_ptr<bool> isAliyunNode_ {};
-      // The node name, which is the identifier of the RDS Custom node in the cluster.
       shared_ptr<string> nodeName_ {};
-      // The node pool ID.
       shared_ptr<string> nodePoolId_ {};
-      // Indicates whether the node is ready. Valid values:
-      // 
-      // *   **Ready**: The node is ready.
-      // *   **NotReady**: The node is not ready.
-      // *   **Unknown**: The status of the node is unknown.
-      // *   **Offline**: The node is offline.
       shared_ptr<string> nodeStatus_ {};
       shared_ptr<int64_t> podCount_ {};
-      // The runtime of the ACK cluster.
       shared_ptr<string> runtimeVersion_ {};
-      // The node status. Valid values:
-      // 
-      // *   **pending**
-      // *   **running**
-      // *   **starting**
-      // *   **stopping**
-      // *   **stopped**
       shared_ptr<string> state_ {};
     };
 
@@ -302,11 +270,8 @@ namespace Models
 
 
   protected:
-    // The details of the nodes.
     shared_ptr<vector<DescribeRCClusterNodesResponseBody::Nodes>> nodes_ {};
-    // The pagination information.
     shared_ptr<DescribeRCClusterNodesResponseBody::Page> page_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

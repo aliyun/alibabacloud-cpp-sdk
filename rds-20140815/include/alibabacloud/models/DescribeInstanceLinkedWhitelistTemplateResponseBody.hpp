@@ -128,7 +128,7 @@ namespace Models
       protected:
         // The primary key of the data table.
         shared_ptr<int32_t> id_ {};
-        // The IP addresses.
+        // The IP address list.
         shared_ptr<string> ips_ {};
         // The whitelist template ID.
         shared_ptr<int32_t> templateId_ {};
@@ -159,7 +159,7 @@ namespace Models
     protected:
       // The instance name.
       shared_ptr<string> insName_ {};
-      // The information about whitelists that are returned by page.
+      // The whitelist template information returned in a paged manner.
       shared_ptr<vector<Data::Templates>> templates_ {};
     };
 
@@ -210,30 +210,28 @@ namespace Models
 
 
   protected:
-    // The response code returned. Valid values:
-    // 
-    // *   **200**: success
-    // *   **400**: client error
-    // *   **401**: identity authentication failed
-    // *   **404**: request page not found
-    // *   **500**: server error
+    // The response code. Valid values:
+    // - **200**: Normal.
+    // - **400**: Client fault.
+    // - **401**: Authentication failed.
+    // - **404**: Request page not found.
+    // - **500**: Server fault.
     shared_ptr<string> code_ {};
-    // The data returned.
+    // The returned data list.
     shared_ptr<DescribeInstanceLinkedWhitelistTemplateResponseBody::Data> data_ {};
-    // The HTTP status code returned. Valid values:
-    // 
-    // *   **200**: success
-    // *   **400**: client error
-    // *   **500**: server error
+    // The HTTP status code. Valid values:
+    // - **200**: Success.
+    // - **400**: Client error.
+    // - **500**: Server error.
     shared_ptr<int32_t> httpStatusCode_ {};
     // The returned message.
     shared_ptr<string> message_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful. Valid values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // *   **true**
-    // *   **false**
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<bool> success_ {};
   };
 

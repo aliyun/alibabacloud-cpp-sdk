@@ -140,24 +140,43 @@ namespace Models
 
 
   protected:
+    // The instance ID. You can call the DescribeDBInstances operation to obtain this parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
+    // The estimated instance size. Unit: GB.
     shared_ptr<int32_t> estimatedSize_ {};
+    // The address of the source MySQL instance.
+    // 
     // This parameter is required.
     shared_ptr<string> host_ {};
     shared_ptr<int64_t> ownerId_ {};
+    // The password of the source MySQL user, encoded in Base64.
+    // 
     // This parameter is required.
     shared_ptr<string> password_ {};
+    // The port number of the source MySQL instance.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> port_ {};
+    // The region ID. You can call DescribeRegions to obtain this parameter.
+    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
+    // The ID of the source cloud instance.
     shared_ptr<string> sourceInstanceId_ {};
+    // The type of the source instance. Valid values:
+    // - ECS
     shared_ptr<string> sourcePlatform_ {};
+    // The port number for backup transmission.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> streamPort_ {};
+    // The username of the source MySQL instance.
+    // 
     // This parameter is required.
     shared_ptr<string> user_ {};
+    // The path of the Xtrabackup tool on the source instance.
     shared_ptr<string> xtrabackupPath_ {};
   };
 

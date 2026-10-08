@@ -27,6 +27,8 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_TO_JSON(ScaleMaxCpus, scaleMaxCpus_);
       DARABONBA_PTR_TO_JSON(ScaleMaxMemory, scaleMaxMemory_);
+      DARABONBA_PTR_TO_JSON(ScaleMaxRcu, scaleMaxRcu_);
+      DARABONBA_PTR_TO_JSON(ScaleMinRcu, scaleMinRcu_);
       DARABONBA_PTR_TO_JSON(SwitchTime, switchTime_);
       DARABONBA_PTR_TO_JSON(SwitchTimeMode, switchTimeMode_);
       DARABONBA_PTR_TO_JSON(TaskId, taskId_);
@@ -46,6 +48,8 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ResourceOwnerAccount, resourceOwnerAccount_);
       DARABONBA_PTR_FROM_JSON(ScaleMaxCpus, scaleMaxCpus_);
       DARABONBA_PTR_FROM_JSON(ScaleMaxMemory, scaleMaxMemory_);
+      DARABONBA_PTR_FROM_JSON(ScaleMaxRcu, scaleMaxRcu_);
+      DARABONBA_PTR_FROM_JSON(ScaleMinRcu, scaleMinRcu_);
       DARABONBA_PTR_FROM_JSON(SwitchTime, switchTime_);
       DARABONBA_PTR_FROM_JSON(SwitchTimeMode, switchTimeMode_);
       DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
@@ -64,8 +68,8 @@ namespace Models
     virtual bool empty() const override { return this->burstStatus_ == nullptr
         && this->clientToken_ == nullptr && this->cpuEnlargeThreshold_ == nullptr && this->cpuShrinkThreshold_ == nullptr && this->crontabJobId_ == nullptr && this->DBInstanceId_ == nullptr
         && this->memoryEnlargeThreshold_ == nullptr && this->memoryShrinkThreshold_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceGroupId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->scaleMaxCpus_ == nullptr && this->scaleMaxMemory_ == nullptr && this->switchTime_ == nullptr && this->switchTimeMode_ == nullptr
-        && this->taskId_ == nullptr; };
+        && this->resourceOwnerAccount_ == nullptr && this->scaleMaxCpus_ == nullptr && this->scaleMaxMemory_ == nullptr && this->scaleMaxRcu_ == nullptr && this->scaleMinRcu_ == nullptr
+        && this->switchTime_ == nullptr && this->switchTimeMode_ == nullptr && this->taskId_ == nullptr; };
     // burstStatus Field Functions 
     bool hasBurstStatus() const { return this->burstStatus_ != nullptr;};
     void deleteBurstStatus() { this->burstStatus_ = nullptr;};
@@ -164,6 +168,20 @@ namespace Models
     inline ModifyComputeBurstConfigRequest& setScaleMaxMemory(string scaleMaxMemory) { DARABONBA_PTR_SET_VALUE(scaleMaxMemory_, scaleMaxMemory) };
 
 
+    // scaleMaxRcu Field Functions 
+    bool hasScaleMaxRcu() const { return this->scaleMaxRcu_ != nullptr;};
+    void deleteScaleMaxRcu() { this->scaleMaxRcu_ = nullptr;};
+    inline double getScaleMaxRcu() const { DARABONBA_PTR_GET_DEFAULT(scaleMaxRcu_, 0.0) };
+    inline ModifyComputeBurstConfigRequest& setScaleMaxRcu(double scaleMaxRcu) { DARABONBA_PTR_SET_VALUE(scaleMaxRcu_, scaleMaxRcu) };
+
+
+    // scaleMinRcu Field Functions 
+    bool hasScaleMinRcu() const { return this->scaleMinRcu_ != nullptr;};
+    void deleteScaleMinRcu() { this->scaleMinRcu_ = nullptr;};
+    inline double getScaleMinRcu() const { DARABONBA_PTR_GET_DEFAULT(scaleMinRcu_, 0.0) };
+    inline ModifyComputeBurstConfigRequest& setScaleMinRcu(double scaleMinRcu) { DARABONBA_PTR_SET_VALUE(scaleMinRcu_, scaleMinRcu) };
+
+
     // switchTime Field Functions 
     bool hasSwitchTime() const { return this->switchTime_ != nullptr;};
     void deleteSwitchTime() { this->switchTime_ = nullptr;};
@@ -186,44 +204,44 @@ namespace Models
 
 
   protected:
-    // This parameter is set to **disabled** if the assured serverless feature is disabled.
+    // Set this parameter to **disabled** to disable the committed serverless feature.
     shared_ptr<string> burstStatus_ {};
-    // The client token that is used to ensure the idempotence of requests and prevent repeated requests from being submitted. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The CPU utilization threshold for **scale-out**. Valid values: 60 to 90. Unit: %.
+    // The CPU utilization threshold for elastic **scale-out**. Valid values: 60 to 90. Unit: %.
     shared_ptr<string> cpuEnlargeThreshold_ {};
-    // The CPU utilization threshold for **scale-in**. Valid values: 30 to 55. Unit: %.
+    // The CPU utilization threshold for elastic **scale-in**. Valid values: 30 to 55. Unit: %.
     shared_ptr<string> cpuShrinkThreshold_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter. This parameter is not supported.
     shared_ptr<string> crontabJobId_ {};
     // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The memory usage threshold for **scale-out**. Valid values: 60 to 90. Unit: %.
+    // The memory utilization threshold for elastic **scale-out**. Valid values: 60 to 90. Unit: %.
     shared_ptr<string> memoryEnlargeThreshold_ {};
-    // The memory usage threshold for **scale-in**. Valid values: 30 to 55. Unit: %.
+    // The memory utilization threshold for elastic **scale-in**. Valid values: 30 to 55. Unit: %.
     shared_ptr<string> memoryShrinkThreshold_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
-    // The maximum number of CPU cores for elastic scaling. The maximum value cannot exceed twice the initial CPU configuration.
+    // The maximum number of CPUs for elastic scale-out. The value can be up to twice the initial CPU configuration of the instance.
     shared_ptr<string> scaleMaxCpus_ {};
-    // The maximum memory for elastic scaling. The value cannot exceed twice the instance\\"s initial memory size. Unit: GB. Step size: 2 GB.
+    // The maximum memory for elastic scale-out. The value can be up to twice the initial memory configuration of the instance. Unit: GB. The value is adjusted in increments of 2 GB.
     shared_ptr<string> scaleMaxMemory_ {};
-    // The time when the specified entry takes effect. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
-    // 
-    // >  This parameter is required only if **SwitchTimeMode** is set to **2**.
+    shared_ptr<double> scaleMaxRcu_ {};
+    shared_ptr<double> scaleMinRcu_ {};
+    // The specified time at which the modification takes effect. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC).
+    // > This parameter is required when **SwitchTimeMode** is set to **2**.
     shared_ptr<string> switchTime_ {};
     // The effective policy. Valid values:
-    // 
-    // *   **0**: Immediately takes effect.
-    // *   **1**: Takes effect within the maintenance window. You can call the **ModifyDBInstanceMaintainTime** operation to change the maintenance window of an instance.
-    // *   **2**: Takes effect at a specified point in time.
+    // - **0**: The modification takes effect immediately.
+    // - **1**: The modification takes effect during the maintenance window. You can call the **ModifyDBInstanceMaintainTime** operation to modify the maintenance window.
+    // - **2**: The modification takes effect at a specified point in time.
     shared_ptr<string> switchTimeMode_ {};
-    // The reserved parameter. This parameter is not supported.
+    // A reserved parameter. This parameter is not supported.
     shared_ptr<string> taskId_ {};
   };
 

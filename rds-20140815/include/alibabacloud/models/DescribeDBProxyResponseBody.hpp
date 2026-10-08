@@ -602,54 +602,50 @@ namespace Models
     shared_ptr<DescribeDBProxyResponseBody::DBProxyConnectStringItems> DBProxyConnectStringItems_ {};
     // An internal parameter. You can ignore this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
-    // The version of the proxy instance.
+    // The current minor version of the proxy instance.
     shared_ptr<string> DBProxyInstanceCurrentMinorVersion_ {};
-    // The latest version that is available for the proxy instance.
+    // The latest minor version of the proxy instance.
     shared_ptr<string> DBProxyInstanceLatestMinorVersion_ {};
     shared_ptr<DescribeDBProxyResponseBody::DBProxyInstanceMinorVersions> DBProxyInstanceMinorVersions_ {};
     // The name of the proxy instance.
     shared_ptr<string> DBProxyInstanceName_ {};
-    // The number of proxies that are enabled on the instance.
+    // The number of enabled proxy instances.
     shared_ptr<int32_t> DBProxyInstanceNum_ {};
-    // This parameter is available only for ApsaraDB RDS for PostgreSQL instances. The specifications of the proxy instance that is enabled.
+    // This parameter is supported only for ApsaraDB RDS for PostgreSQL. The actual specification size of the proxy instance.
     // 
-    // Format: `Number of cores/Memory capacity`.
+    // Format: `CPU/Memory`.
     // 
-    // For example, a value of 4/8 indicates that the proxy instance has 4 cores and 8 GB of memory.
+    // Example: 4/8 indicates 4 CPU cores and 8 GB of memory.
     shared_ptr<string> DBProxyInstanceSize_ {};
-    // The status of the proxy instance.
-    // 
-    // *   DBInstanceClassChanging: The specifications of the proxy instance are being changed.
-    // *   Creating: The proxy instance is being created.
-    // *   Running: The proxy instance is running.
-    // *   Deleting: The proxy instance is being deleted.
+    // The running status of the proxy instance. Valid values:
+    // - DBInstanceClassChanging: The specification is being changed.
+    // - Creating: The instance is being created.
+    // - Running: The instance is running.
+    // - Deleting: The instance is being deleted.
     shared_ptr<string> DBProxyInstanceStatus_ {};
-    // The type of the database proxy that is enabled on the instance. Valid values:
+    // The type of the proxy service. Valid values:
+    // - 1: shared database proxy
+    // - 2: dedicated database proxy
+    // - 3: general-purpose database proxy
     // 
-    // *   1: shared database proxy
-    // *   2: dedicated database proxy
-    // *   3: general-purpose database proxy
-    // 
-    // >  ApsaraDB RDS for PostgreSQL does not support shared database proxies.
+    // > ApsaraDB RDS for PostgreSQL does not support shared database proxies.
     shared_ptr<string> DBProxyInstanceType_ {};
-    // An internal parameter. You do not need to specify this parameter.
+    // An internal parameter. You can ignore this parameter.
     shared_ptr<string> DBProxyKindCode_ {};
     shared_ptr<DescribeDBProxyResponseBody::DBProxyNodes> DBProxyNodes_ {};
-    // The status of persistence connections. Valid values:
-    // 
-    // *   **Enabled**
-    // *   **Disabled**
-    // *   **Unsupported**
+    // The persistent connection status. Valid values:
+    // - **Enabled**: Persistent connections are enabled.
+    // - **Disabled**: Persistent connections are disabled.
+    // - **Unsupported**: The instance does not support persistent connections.
     shared_ptr<string> DBProxyPersistentConnectionStatus_ {};
-    // The status of the database proxy.
-    // 
-    // *   Shutdown: disabled
-    // *   Startup: enabled
+    // The status of the database proxy feature. Valid values:
+    // - Shutdown: disabled
+    // - Startup: enabled
     shared_ptr<string> DBProxyServiceStatus_ {};
     shared_ptr<DescribeDBProxyResponseBody::DbProxyEndpointItems> dbProxyEndpointItems_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
   };
 

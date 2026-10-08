@@ -151,15 +151,15 @@ namespace Models
   protected:
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the IDs of instances.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The end time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
-    // The database engine of the instance. Set the value to **MySQL**
+    // The database engine. Set the value to **MySQL**.
     // 
     // This parameter is required.
     shared_ptr<string> engine_ {};
@@ -167,23 +167,23 @@ namespace Models
     shared_ptr<int32_t> importId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Valid values: any non-zero positive integer.
+    // The page number. Valid values: any non-zero positive integer that does not exceed the maximum value of the Integer data type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values:
+    // The number of entries per page. Valid values:
     // 
-    // *   **30**
-    // *   **50**
-    // *   **100**
+    // * **30**
+    // * **50**
+    // * **100**
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the resource group. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
+    // The resource group ID. You can call DescribeDBInstanceAttribute to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+    // The start time of the query. Format: <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

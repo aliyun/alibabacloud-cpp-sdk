@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The region ID of the asset.
+    // The region ID of the assets that are assigned public IP addresses to query.
     shared_ptr<string> ddosRegionId_ {};
-    // The type of the asset that is assigned a public IP address. Fixed value: **ecs**.
+    // The instance type of the assets that are assigned public IP addresses to query. Set the value to **ecs**.
     shared_ptr<string> instanceType_ {};
-    // The ID of the region in which the RDS Custom instance resides.
+    // The region ID of the RDS Custom instance.
     shared_ptr<string> regionId_ {};
   };
 

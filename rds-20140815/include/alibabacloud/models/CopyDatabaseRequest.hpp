@@ -103,18 +103,18 @@ namespace Models
 
 
   protected:
-    // The instance name.
+    // The instance name. **This parameter is required**.
     shared_ptr<string> DBInstanceName_ {};
-    // The destination database name.
+    // The destination database name. **This parameter is required**.
     shared_ptr<string> dstDBName_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The reserved account.
     shared_ptr<int32_t> reserveAccount_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The source database name.
+    // The source database name. **This parameter is required**.
     shared_ptr<string> srcDBName_ {};
   };
 

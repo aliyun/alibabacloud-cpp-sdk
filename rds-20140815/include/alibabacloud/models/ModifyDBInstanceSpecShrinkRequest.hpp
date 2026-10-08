@@ -334,166 +334,127 @@ namespace Models
 
   protected:
     shared_ptr<string> allocateStrategy_ {};
-    // Specifies whether to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance. For more information, see [Upgrade the major engine version](https://help.aliyun.com/document_detail/127458.html). Valid values:
-    // 
-    // *   **true**
-    // *   **false** (default)
-    // 
-    // > *   When you upgrade the major engine version, you must also specify the required parameters such as DBInstanceId, EngineVersion, DBInstanceClass, Category, ZoneId, and VSwitchId.
-    // > *   If you want to upgrade the instance edition to RDS High-availability Edition or RDS Cluster Edition, you must specify ZoneIdSlave1.
+    // Specifies whether to enable [major engine version upgrade](https://help.aliyun.com/document_detail/127458.html) for the SQL Server instance. Valid values:
     shared_ptr<bool> allowMajorVersionUpgrade_ {};
-    // Specifies whether to use vouchers to offset fees. Valid values:
-    // 
-    // *   **true**
-    // *   **false** (default)
+    // Specifies whether to use coupons to offset fees. Valid values:
     shared_ptr<bool> autoUseCoupon_ {};
-    // An invalid parameter. You do not need to specify this parameter.
+    // Specifies whether to enable the [I/O performance burst feature for Premium ESSDs](https://help.aliyun.com/document_detail/2340501.html). Valid values:
+    // 
+    // - **true**: Enabled.
+    // - **false**: Disabled.
     shared_ptr<bool> burstingEnabled_ {};
-    // The RDS edition of the instance. Valid values:
+    // The [instance edition](https://help.aliyun.com/document_detail/53509.html). Valid values:
+    // > This parameter is required if **EngineVersion** is set to a SQL Server version number.
+    // <details>
+    // <summary>Regular ApsaraDB RDS instances</summary>
     // 
-    // >  If you set **EngineVersion** to an SQL Server version number, you must also specify this parameter.
+    // - **Basic**: Basic Edition
+    // - **HighAvailability**: High-availability Edition
+    // - **AlwaysOn**: SQL Server Cluster Edition
+    // - **Cluster**: MySQL Cluster Edition.
+    // - <props="china">**Finance**: Enterprise Edition
     // 
-    // **Regular RDS instances**
+    // </details>
     // 
-    // *   **Basic**: RDS Basic Edition.
-    // *   **HighAvailability**: RDS High-availability Edition.
-    // *   **AlwaysOn**: RDS Cluster Edition for ApsaraDB RDS for SQL Server.
-    // *   **Cluster**: RDS Cluster Edition for ApsaraDB RDS for MySQL.
+    // <details>
+    // <summary>Serverless ApsaraDB RDS instances (not supported for MariaDB)</summary>
     // 
-    // **Serverless instances. ApsaraDB RDS for MariaDB does not support serverless instances.**
+    // - **serverless_basic**: Serverless Basic Edition (applicable only to MySQL and PostgreSQL)
+    // - **serverless_standard**: Serverless High-availability Edition (applicable only to MySQL and PostgreSQL)
+    // - **serverless_ha**: Serverless High-availability Edition (applicable only to SQL Server)
     // 
-    // *   **serverless_basic**: RDS Basic Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
-    // *   **serverless_standard**: RDS High-availability Edition. This edition is available only for serverless instances that run MySQL and PostgreSQL.
-    // *   **serverless_ha**: RDS High-availability Edition for serverless instances. This edition is available only for instances that run SQL Server.
+    // </details>
     shared_ptr<string> category_ {};
-    // A reserved parameter.
+    // The [cold data archiving feature](https://help.aliyun.com/document_detail/2701832.html) for premium performance disks. Valid values:
     shared_ptr<bool> coldDataEnabled_ {};
-    // Specifies whether to enable the storage compression feature for the ApsaraDB RDS for MySQL instance. For more information, see [Use the storage compression feature](https://help.aliyun.com/document_detail/2861985.html). Valid values:
-    // 
-    // *   **on**
-    // *   **off**
+    // The MySQL [storage compression feature](https://help.aliyun.com/document_detail/2861985.html). Valid values:
     shared_ptr<string> compressionMode_ {};
-    // The instance type of the new instance. For more information, see [Specifications](https://help.aliyun.com/document_detail/26312.html). You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the instance types.
-    // 
-    // > *   You must specify at least one of DBInstanceClass and **DBInstanceStorage**.
-    // > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the current instance type of the instance.
+    // The [target instance type](https://help.aliyun.com/document_detail/26312.html). You can call [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) to query the instance types to which the instance can be changed.
     shared_ptr<string> DBInstanceClass_ {};
-    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the instance IDs.
+    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The storage capacity of the new instance. Unit: GB. For more information, see [Storage types](https://help.aliyun.com/document_detail/26312.html). You can call the [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) operation to query the storage capacity range that is supported by the new instance type.
-    // 
-    // > *   You must specify at least one of DBInstanceStorage and **DBInstanceClass**.
-    // > *   You can call the [DescribeDBInstanceAttribute](https://help.aliyun.com/document_detail/610394.html) operation to query the current storage capacity of the instance.
+    // The [target storage capacity](https://help.aliyun.com/document_detail/26312.html). Unit: GB. You can call [DescribeAvailableClasses](https://help.aliyun.com/document_detail/610393.html) to query the available storage capacity range for the target instance type.
     shared_ptr<int32_t> DBInstanceStorage_ {};
-    // The storage type of the new instance. Valid values:
-    // 
-    // *   **local_ssd**: local SSD.
-    // *   **cloud_ssd**: SSD cloud disks. This storage medium is not recommended and is unavailable in specific Alibaba Cloud regions.
-    // *   **cloud_essd**: performance level 1 (PL1) Enterprise SSD (ESSD).
-    // *   **cloud_essd2**: PL2 ESSD.
-    // *   **cloud_essd3**: PL3 ESSD.
-    // 
-    // To change the storage type, take note of the following items:
-    // 
-    // If the instance runs PostgreSQL, you can upgrade the storage type of the instance from standard SSDs to ESSDs. However, you cannot downgrade the storage type of the instance from ESSDs to standard SSDs. ESSDs provide the following PLs: ESSDs of PL1, ESSDs of PL2, and ESSDs of PL3. You can upgrade or downgrade the storage type between ESSD of PL1, ESSD of PL2, and ESSD of PL3. For more information, see [Configuration items](https://help.aliyun.com/document_detail/96750.html).
+    // The instance storage type. Valid values:
     shared_ptr<string> DBInstanceStorageType_ {};
-    // The ID of the dedicated cluster.
+    // The dedicated cluster ID.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The type of change that you want to perform on the instance. Valid values:
+    // The type of specification change. Valid values:
     // 
-    // *   **Up** (default): upgrades a subscription instance, or upgrades or downgrades a pay-as-you-go instance.
-    // *   **Down**: downgrades a subscription instance.
-    // *   **TempUpgrade**: performs auto scaling on a subscription instance that runs SQL Server. This value is required for auto scaling.
-    // *   **Serverless**: modifies the auto scaling settings of a serverless instance.
+    // - **Up** (default): upgrade of a subscription instance or upgrade/downgrade of a pay-as-you-go instance.
+    // - **Down**: downgrade of a subscription instance.
+    // - **TempUpgrade**: elastic specification change of a subscription ApsaraDB RDS for SQL Server instance. This value is required for elastic specification changes.
+    // - **Serverless**: configuration of elastic settings for a serverless instance.
     // 
-    // >  If you specify only **DBInstanceStorageType**, you can leave Direction empty. For example, if you want to change only the storage type of the instance from standard SSD to Enterprise SSD (ESSD), you do not need to specify Direction.
+    // > If you want to change only the **DBInstanceStorageType** parameter, for example, from standard SSD to ESSD, leave this parameter empty.
     shared_ptr<string> direction_ {};
-    // The time when the new specifications take effect. Valid values:
-    // 
-    // >  **Specific changes may affect the instance**. Read the [Impact](https://help.aliyun.com/document_detail/96061.html) section before you specify this parameter. We recommend that you specify this parameter during off-peak hours.
-    // 
-    // *   **Immediate** (default): The changes immediately take effect.
-    // *   **MaintainTime**: The changes take effect during the [maintenance window](https://help.aliyun.com/document_detail/610402.html) of the instance.
-    // *   **ScheduleTime**: The changes take effect at the point in time that you specify. This time must be at least 12 hours later than the current time. The actual effective time is calculated based on the following formula: EffectiveTime = ScheduleTime + SwitchTime.
+    // The time when the new configurations take effect. Valid values:
+    // > **Changing certain configurations may affect the instance**. Read the [impact section in the feature documentation](https://help.aliyun.com/document_detail/96061.html) before configuring this parameter. Perform this operation during off-peak hours.
+    // * **Immediate** (default): The new configurations take effect immediately.
+    // * **MaintainTime**: The new configurations take effect during the [maintenance window](https://help.aliyun.com/document_detail/610402.html).
+    // * **ScheduleTime**: The new configurations take effect at a specified time. The specified time must be at least 12 hours later than the current time. The actual switchover time follows the rule: EffectiveTime = ScheduleTime + SwitchTime.
     shared_ptr<string> effectiveTime_ {};
-    // The database engine version of the instance. Valid values:
+    // The database engine version. Valid values:
+    // <details>
+    // <summary>Regular ApsaraDB RDS instances</summary>
     // 
-    // **Regular RDS instances**
+    // - MySQL: 5.5, 5.6, 5.7, 8.0
+    // - SQL Server: 2008r2, 08r2_ent_ha, 2012, 2012_ent_ha, 2012_std_ha, 2012_web, 2014_std_ha, 2016_ent_ha, 2016_std_ha, 2016_web, 2017_std_ha, 2017_ent, 2019_std_ha, 2019_ent, 2022_web, 2022_std_ha, 2022_ent, 2025_std, 2025_ent
+    // - PostgreSQL: 10.0, 11.0, 12.0, 13.0, 14.0, 15.0
+    // - MariaDB: 10.3
     // 
-    // *   Valid values when Engine is set to MySQL: 5.5, 5.6, 5.7, and 8.0.
-    // *   Valid values when Engine is set to SQLServer: 2008r2, 08r2_ent_ha, 2012, 2012_ent_ha, 2012_std_ha, 2012_web, 2014_std_ha, 2016_ent_ha, 2016_std_ha, 2016_web, 2017_std_ha, 2017_ent, 2019_std_ha, and 2019_ent.
-    // *   Valid values when Engine is set to PostgreSQL: 10.0, 11.0, 12.0, 13.0, 14.0, and 15.0.
-    // *   Valid value when Engine is set to MariaDB: 10.3.
+    // </details>
     // 
-    // **Serverless instances. ApsaraDB RDS for MariaDB does not support serverless instances.**
+    // <details>
+    // <summary>Serverless ApsaraDB RDS instances (MariaDB is not supported)</summary>
     // 
-    // *   Valid values when Engine is set to MySQL: 5.7 and 8.0.
-    // *   Valid values when Engine is set to SQL Server: 2016_std_sl, 2017_std_sl, and 2019_std_sl.
-    // *   Valid values when Engine is set to PostgreSQL: 14.0, 15.0, and 16.0.
+    // - MySQL: 5.7, 8.0
+    // - SQL Server: 2016_std_sl, 2017_std_sl, 2019_std_sl
+    // - PostgreSQL: 14.0, 15.0, 16.0
+    // 
+    // </details>
     shared_ptr<string> engineVersion_ {};
-    // A reserved parameter.
-    shared_ptr<string> ioAccelerationEnabled_ {};
-    // Specifies whether to enable the write optimization feature for the ApsaraDB RDS for MySQL instance. For more information, see [Use the write optimization feature](https://help.aliyun.com/document_detail/2858761.html). Valid values:
+    // The [Buffer Pool Extension (BPE) feature](https://help.aliyun.com/document_detail/2527067.html) for premium performance disks. Valid values:
     // 
-    // *   **optimized**: enables the feature.
-    // *   **none**: disables the feature.
+    // -  **1**: Enabled.
+    // -  **0**: Not enabled.
+    shared_ptr<string> ioAccelerationEnabled_ {};
+    // Specifies whether to enable the MySQL [16KB atomic write feature](https://help.aliyun.com/document_detail/2858761.html). Valid values:
     shared_ptr<string> optimizedWrites_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     // The billing method of the instance. Valid values:
+    // - **Postpaid**: pay-as-you-go.
+    // - **Prepaid**: subscription.
+    // - **Serverless** (not supported for MariaDB instances): serverless billing method.
     // 
-    // *   **Postpaid**: pay-as-you-go.
-    // *   **Prepaid**: subscription.
-    // *   **Serverless**: serverless. This value is not supported for ApsaraDB RDS for MariaDB instances.
-    // 
-    // >  If you want to set this parameter to Serverless, **you must specify **AutoPause, MaxCapacity, MinCapacity, and SwitchForce. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/411291.html), [Overview of serverless ApsaraDB RDS for SQL Server instances](https://help.aliyun.com/document_detail/604344.html), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](https://help.aliyun.com/document_detail/607742.html).
+    // > To change the billing method to Serverless, you **must configure the following parameters**: automatic start and stop (AutoPause), scaling range (MaxCapacity and MinCapacity), and elastic policy (SwitchForce). For more information, see [Introduction to MySQL Serverless instances](https://help.aliyun.com/document_detail/411291.html), [Introduction to SQL Server Serverless instances](https://help.aliyun.com/document_detail/604344.html), and [Introduction to PostgreSQL Serverless instances](https://help.aliyun.com/document_detail/607742.html).
     shared_ptr<string> payType_ {};
     // The coupon code.
     shared_ptr<string> promotionCode_ {};
-    // The specification of the read-only instance when you change the storage type of the ApsaraDB RDS for MySQL instance that runs RDS High-availability Edition from cloud disk to local disk.
+    // The [target instance type of read-only instances](https://help.aliyun.com/document_detail/276980.html) when you perform an Upgrade/Downgrade to change a MySQL high availability (HA) instance with Premium Local SSDs to a cloud disk instance. This parameter is active only when the instance meets the requirements.
     shared_ptr<string> readOnlyDBInstanceClass_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The specifications that you want to change for a serverless instance.
+    // The serverless instance configuration for the specification change.
     shared_ptr<string> serverlessConfigurationShrink_ {};
-    // A deprecated parameter. You do not need to specify this parameter.
+    // A deprecated parameter. You do not need to configure this parameter.
     shared_ptr<string> sourceBiz_ {};
-    // The time at which you want to change the specifications. **We recommend that you perform the specification changes during off-peak hours.**
-    // 
-    // Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // > *   The time at which you want to change the specifications **must be later than the current time**. Otherwise, the specification change task fails. If the specification change task fails, you must wait for the order to be automatically canceled, and then call this operation again.
-    // > *   If you want to increase the storage capacity or change the ESSD storage type between different PLs, the specification change immediately takes effect and does not affect your workloads. You do not need to specify this parameter.
+    // The time at which the specification change is performed. **Perform the specification change during off-peak hours.**
     shared_ptr<string> switchTime_ {};
-    // The minor engine version number of the ApsaraDB RDS for PostgreSQL instance. For more information, see [Update the minor engine version](https://help.aliyun.com/document_detail/126002.html). If the minor engine version does not support changing the instance type, you must specify the minor engine version to **update the minor engine version when you change the instance type**.
-    // 
-    // Format: `rds_postgres_<Major engine version>00_<Minor engine version>`. For example, if the instance runs PostgreSQL 12, set this parameter to `rds_postgres_1200_20200830`.
+    // The [minor engine version](https://help.aliyun.com/document_detail/126002.html) of the PostgreSQL instance. If the specification change fails because the minor engine version is not supported, specify this parameter to **upgrade the minor engine version during the specification change**.
     shared_ptr<string> targetMinorVersion_ {};
-    // The validity period of the specification changes on an ApsaraDB RDS for SQL Server instance. At the end of the validity period, the specifications of the instance are restored to the specifications that are used before an [elastic upgrade](https://help.aliyun.com/document_detail/95665.html) is performed. Unit: days.
+    // The duration of the SQL Server [elastic upgrade](https://help.aliyun.com/document_detail/95665.html). Unit: days.
     shared_ptr<int64_t> usedTime_ {};
-    // The vSwitch ID. The vSwitch must belong to the zone that is specified by **ZoneId**.
-    // 
-    // *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
-    // *   If you specify ZoneSlaveId1, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
-    // 
-    // >  If you want to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance by specifying AllowMajorVersionUpgrade or change the vSwitch, you must specify this parameter.
+    // The vSwitch ID. The zone of the vSwitch must correspond to the zone ID specified in **ZoneId**.
     shared_ptr<string> vSwitchId_ {};
-    // The RDS edition of the instance. Valid values:
-    // 
-    // *   **Basic**: RDS Basic Edition.
-    // *   **HighAvailability**: RDS High-availability Edition.
-    // *   **AlwaysOn**: RDS Cluster Edition for SQL Server.
-    // *   **Finance**: RDS Enterprise Edition. This edition is available only on the China site (aliyun.com).
-    // 
-    // > If you set **EngineVersion** to an SQL Server version number, you must also specify this parameter.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
-    // The zone ID of the secondary instance. If you set this parameter to the same value as **ZoneId**, the single-zone deployment method is used. If you set this parameter to a different value from **ZoneId**, the multi-zone deployment method is used.
-    // 
-    // >  If you want to upgrade the major engine version of an ApsaraDB RDS for SQL Server instance by specifying AllowMajorVersionUpgrade or change the secondary zone, you must specify this parameter.
+    // The zone ID of the secondary node. If this value is the same as **ZoneId**, the instance uses single-zone deployment. If this value is different from **ZoneId**, the instance uses multi-zone deployment.
     shared_ptr<string> zoneIdSlave1_ {};
   };
 

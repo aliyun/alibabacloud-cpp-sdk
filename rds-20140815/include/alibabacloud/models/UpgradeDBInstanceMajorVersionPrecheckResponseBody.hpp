@@ -70,7 +70,7 @@ namespace Models
     shared_ptr<string> DBInstanceName_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The new major engine version of the instance.
+    // The major engine version of the target instance.
     shared_ptr<string> targetMajorVersion_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};

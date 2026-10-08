@@ -89,11 +89,11 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call the DescribeRegions operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute to obtain the resource group ID.
+    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};

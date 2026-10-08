@@ -66,23 +66,23 @@ namespace Models
 
 
   protected:
-    // The backup set ID. You can call the DescribeBackups operation to query the backup set ID. The backup set must meet the following requirements:
+    // The backup set ID. You can invoke DescribeBackups to query the backup set ID. The backup set must meet the following conditions:
     // 
-    // *   The Engine parameter is SQLServer
-    // *   The BackupMode parameter is set to Manual.
-    // *   The BackupMethod parameter is set to Physical.
-    // *   The BackupType parameter is set to FullBackup.
-    // *   The BackupStatus parameter is set to Success.
+    // - Engine (database type): SQLServer
+    // - BackupMode (backup pattern): Manual (manual backup)
+    // - BackupMethod: Physical (physical backup)
+    // - BackupType: FullBackup (full backup)
+    // - BackupStatus: Success (backup completed)
     // 
     // This parameter is required.
     shared_ptr<int64_t> backupId_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The point in time to which you want to extend the expiration time of the backup set. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+    // The time to which you want to extend the expiration time of the backup set. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
     // 
-    // The time cannot be earlier than the current expiration time. You can call the DescribeBackups operation to view the current expiration time of the backup set.
+    // The specified time cannot be earlier than the current expiration time. You can call DescribeBackups to query the current expiration time (ExpectExpireTime).
     // 
     // This parameter is required.
     shared_ptr<string> expectExpireTime_ {};

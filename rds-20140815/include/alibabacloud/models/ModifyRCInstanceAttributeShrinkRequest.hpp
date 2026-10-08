@@ -130,31 +130,15 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the release protection feature for the instance. Valid values:
-    // 
-    // - **true**: enables the release protection feature.
-    // - **false** (default): does not enable the release protection feature.
     shared_ptr<bool> deletionProtection_ {};
     shared_ptr<bool> enableJumboFrame_ {};
-    // The hostname of the instance.
     shared_ptr<string> hostName_ {};
-    // The instance ID.
     shared_ptr<string> instanceId_ {};
     shared_ptr<string> instanceIdsShrink_ {};
     shared_ptr<string> instanceName_ {};
-    // The new password of the instance.
-    // 
-    // *   The value must be 8 to 30 characters in length.
-    // *   The value must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `()` ~ ! @ # $ % ^ & \\* - _ + = \\`
     shared_ptr<string> password_ {};
-    // Specifies whether to restart the instance. Valid values:
-    // 
-    // *   **true**
-    // *   **false** (default)
     shared_ptr<bool> reboot_ {};
-    // The region ID of the instance. You can call the DescribeRegions operation to query the most recent region list.
     shared_ptr<string> regionId_ {};
-    // The ID of the security group to which the instance is added.
     shared_ptr<string> securityGroupId_ {};
     shared_ptr<string> securityGroupIdsShrink_ {};
   };

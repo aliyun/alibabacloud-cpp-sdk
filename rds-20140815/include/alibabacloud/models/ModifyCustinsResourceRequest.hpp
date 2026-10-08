@@ -94,20 +94,20 @@ namespace Models
 
 
   protected:
-    // The deadline for the modification.
+    // The adjustment time.
     shared_ptr<string> adjustDeadline_ {};
-    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the instance ID.
+    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The increase rate in percentage.
+    // The increase ratio. Unit: %.
     shared_ptr<string> increaseRatio_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
     // The resource type.
     shared_ptr<string> resourceType_ {};
-    // The original value. This parameter must be specified when the **ResourceType** parameter is set to **instance**.
+    // The original value. This parameter is required when **ResourceType** is set to **instance**.
     shared_ptr<string> restoreOriginalSpecification_ {};
-    // The target value. This parameter is available only if you set the ScalingRuleType parameter to TargetTrackingScalingRule or PredictiveScalingRule. The value must be greater than 0 and can contain up to three decimal places.
+    // The target value. This parameter is applicable to target tracking rules and predictive rules. The value of TargetValue can contain up to three decimal places and must be greater than 0.
     shared_ptr<int32_t> targetValue_ {};
   };
 

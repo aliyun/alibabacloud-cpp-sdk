@@ -84,7 +84,7 @@ namespace Models
 
 
     protected:
-      // The name of the security group.
+      // The security group name.
       shared_ptr<string> securityGroupName_ {};
     };
 
@@ -193,40 +193,39 @@ namespace Models
 
 
   protected:
-    // The storage that is occupied by data backup files, excluding archived backup files, on the instance. Unit: bytes.
+    // The storage space occupied by data backups, excluding archived backups. Unit: bytes.
     shared_ptr<int64_t> backupDataSize_ {};
-    // The size of the backup log. Unit: bytes.
+    // The size of backup logs. Unit: bytes.
     shared_ptr<int64_t> backupLogSize_ {};
-    // The size of the backup data. Unit: MB.
+    // The backup size. Unit: MB.
     shared_ptr<int64_t> backupSize_ {};
-    // The disk capacity of the instance.
+    // The disk capacity.
     shared_ptr<int64_t> dbInstanceStorage_ {};
-    // The name of the proxy instance.
+    // The name of the database proxy instance.
     shared_ptr<string> dbProxyInstanceName_ {};
-    // The total storage used. The value is the sum of the DataSize and LogSize values. Unit: bytes. The value -1 indicates that no data files or log files are stored.
+    // The used storage space, which consists of the space occupied by data files and log files. Unit: bytes. A value of -1 indicates that no data is available.
     shared_ptr<int64_t> diskUsed_ {};
-    // The storage type of the instance.
+    // The instance storage type.
     shared_ptr<string> instanceStorageType_ {};
-    // The rule for the IP address whitelist of the instance.
+    // The RDS whitelist group specifications.
     shared_ptr<vector<DescribeResourceDetailsResponseBody::RdsEcsSecurityGroupRel>> rdsEcsSecurityGroupRel_ {};
     // The region ID.
     shared_ptr<string> region_ {};
-    // The request ID.
+    // Id of the request
     shared_ptr<string> requestId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
-    // The IP address whitelist of the instance. For more information, see [Configure IP address whitelists](https://help.aliyun.com/document_detail/43185.html). If the returned IP address whitelist contains more than one entry, these entries are separated with commas (,). Each entry is unique and up to 1,000 entries are returned. The entries in the IP address whitelist must be in one of the following formats:
+    // The [IP whitelist](https://help.aliyun.com/document_detail/43185.html) of the instance. Separate multiple entries with commas (,). Each entry must be unique. A maximum of 1,000 entries are supported. The following two formats are supported:
+    // * IP address format, such as 10.10.XX.XX.
+    // * CIDR format, such as 10.10.XX.XX/24, where 24 indicates the length of the prefix in the IP address. The prefix length ranges from 1 to 32.
     // 
-    // *   IP addresses, such as 10.10.XX.XX.
-    // *   CIDR blocks, such as 10.10.XX.XX/24. In this example, 24 indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
-    // 
-    // If this parameter is not specified, the default IP address whitelist is used.
+    // If this parameter is not specified, the whitelist information of the default group of the original instance is used.
     shared_ptr<string> securityIPList_ {};
     // The vSwitch ID.
     // 
-    // >  The vSwitch must belong to the same zone as the instance.
+    // > The vSwitch must belong to the same zone as the ApsaraDB RDS instance.
     shared_ptr<string> vSwitchId_ {};
-    // The ID of the virtual private cloud (VPC).
+    // VPC ID。
     shared_ptr<string> vpcId_ {};
   };
 

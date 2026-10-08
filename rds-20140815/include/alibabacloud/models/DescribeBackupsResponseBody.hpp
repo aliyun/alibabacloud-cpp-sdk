@@ -484,15 +484,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeBackupsResponseBody::Items> items_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<string> pageNumber_ {};
     // The number of backup sets on the current page.
     shared_ptr<string> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The size of the snapshot chain of the instance. Unit: bytes.
     shared_ptr<int64_t> totalEcsSnapshotSize_ {};
-    // The total number of entries returned.
+    // The total number of records.
     shared_ptr<string> totalRecordCount_ {};
   };
 

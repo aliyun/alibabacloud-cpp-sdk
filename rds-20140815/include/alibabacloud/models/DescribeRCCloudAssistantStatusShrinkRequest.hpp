@@ -94,30 +94,12 @@ namespace Models
 
 
   protected:
-    // The list of instance IDs.
     shared_ptr<string> instanceIdsShrink_ {};
-    // The maximum number of entries per page. If you specify `InstanceId`, this parameter does not take effect.
-    // 
-    // Maximum value: 50.
-    // 
-    // Default value: 10.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that marks the end of the current returned page. If this parameter is empty, the data is queried from the first entry.
     shared_ptr<string> nextToken_ {};
-    // The operating system type of the instance. Only **Linux** is supported.
-    // 
-    // Valid values:
-    // 
-    // *   Windows
-    // *   Linux
-    // *   FreeBSD
     shared_ptr<string> OSType_ {};
-    // >  This parameter will be removed in the future. We recommend that you use `NextToken` and `MaxResults` for a paged query.
     shared_ptr<int32_t> pageNumber_ {};
-    // >  This parameter will be removed in the future. We recommend that you use `NextToken` and `MaxResults` for a paged query.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the region where the instance resides.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
   };

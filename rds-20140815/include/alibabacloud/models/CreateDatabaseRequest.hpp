@@ -13,7 +13,10 @@ namespace Models
   class CreateDatabaseRequest : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const CreateDatabaseRequest& obj) { 
+      DARABONBA_PTR_TO_JSON(AccountName, accountName_);
+      DARABONBA_PTR_TO_JSON(AccountPrivilege, accountPrivilege_);
       DARABONBA_PTR_TO_JSON(CharacterSetName, characterSetName_);
+      DARABONBA_PTR_TO_JSON(CollationName, collationName_);
       DARABONBA_PTR_TO_JSON(DBDescription, DBDescription_);
       DARABONBA_PTR_TO_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_TO_JSON(DBName, DBName_);
@@ -23,7 +26,10 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ResourceOwnerId, resourceOwnerId_);
     };
     friend void from_json(const Darabonba::Json& j, CreateDatabaseRequest& obj) { 
+      DARABONBA_PTR_FROM_JSON(AccountName, accountName_);
+      DARABONBA_PTR_FROM_JSON(AccountPrivilege, accountPrivilege_);
       DARABONBA_PTR_FROM_JSON(CharacterSetName, characterSetName_);
+      DARABONBA_PTR_FROM_JSON(CollationName, collationName_);
       DARABONBA_PTR_FROM_JSON(DBDescription, DBDescription_);
       DARABONBA_PTR_FROM_JSON(DBInstanceId, DBInstanceId_);
       DARABONBA_PTR_FROM_JSON(DBName, DBName_);
@@ -43,14 +49,35 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->characterSetName_ == nullptr
-        && this->DBDescription_ == nullptr && this->DBInstanceId_ == nullptr && this->DBName_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr
-        && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+    virtual bool empty() const override { return this->accountName_ == nullptr
+        && this->accountPrivilege_ == nullptr && this->characterSetName_ == nullptr && this->collationName_ == nullptr && this->DBDescription_ == nullptr && this->DBInstanceId_ == nullptr
+        && this->DBName_ == nullptr && this->ownerAccount_ == nullptr && this->ownerId_ == nullptr && this->resourceOwnerAccount_ == nullptr && this->resourceOwnerId_ == nullptr; };
+    // accountName Field Functions 
+    bool hasAccountName() const { return this->accountName_ != nullptr;};
+    void deleteAccountName() { this->accountName_ = nullptr;};
+    inline string getAccountName() const { DARABONBA_PTR_GET_DEFAULT(accountName_, "") };
+    inline CreateDatabaseRequest& setAccountName(string accountName) { DARABONBA_PTR_SET_VALUE(accountName_, accountName) };
+
+
+    // accountPrivilege Field Functions 
+    bool hasAccountPrivilege() const { return this->accountPrivilege_ != nullptr;};
+    void deleteAccountPrivilege() { this->accountPrivilege_ = nullptr;};
+    inline string getAccountPrivilege() const { DARABONBA_PTR_GET_DEFAULT(accountPrivilege_, "") };
+    inline CreateDatabaseRequest& setAccountPrivilege(string accountPrivilege) { DARABONBA_PTR_SET_VALUE(accountPrivilege_, accountPrivilege) };
+
+
     // characterSetName Field Functions 
     bool hasCharacterSetName() const { return this->characterSetName_ != nullptr;};
     void deleteCharacterSetName() { this->characterSetName_ = nullptr;};
     inline string getCharacterSetName() const { DARABONBA_PTR_GET_DEFAULT(characterSetName_, "") };
     inline CreateDatabaseRequest& setCharacterSetName(string characterSetName) { DARABONBA_PTR_SET_VALUE(characterSetName_, characterSetName) };
+
+
+    // collationName Field Functions 
+    bool hasCollationName() const { return this->collationName_ != nullptr;};
+    void deleteCollationName() { this->collationName_ = nullptr;};
+    inline string getCollationName() const { DARABONBA_PTR_GET_DEFAULT(collationName_, "") };
+    inline CreateDatabaseRequest& setCollationName(string collationName) { DARABONBA_PTR_SET_VALUE(collationName_, collationName) };
 
 
     // DBDescription Field Functions 
@@ -103,35 +130,34 @@ namespace Models
 
 
   protected:
-    // The character set.
-    // 
-    // *   Valid values for MySQL or MariaDB databases: **utf8, gbk, latin1, and utf8mb4**
-    // 
-    // *   Valid values for SQL Server databases: **Chinese_PRC_CI_AS, Chinese_PRC_CS_AS, SQL_Latin1_General_CP1_CI_AS, SQL_Latin1_General_CP1_CS_AS, and Chinese_PRC_BIN**
-    // 
-    // *   Valid values for PostgreSQL databases: a value in the `Character set,<Collate>,<Ctype>` format. Example: `UTF8,C,en_US.utf8`.
-    // 
-    //     *   Valid values for the character set: **KOI8U, UTF8, WIN866, WIN874, WIN1250, WIN1251, WIN1252, WIN1253, WIN1254, WIN1255, WIN1256, WIN1257, WIN1258, EUC_CN, EUC_KR, EUC_TW, EUC_JP, EUC_JIS_2004, KOI8R, MULE_INTERNAL, LATIN1, LATIN2, LATIN3, LATIN4, LATIN5, LATIN6, LATIN7, LATIN8, LATIN9, LATIN10, ISO_8859_5, ISO_8859_6, ISO_8859_7, ISO_8859_8, and SQL_ASCII**
-    //     *   Valid values for the **Collate** field: You can execute the `SELECT DISTINCT collname FROM pg_collation;` statement to obtain the field value. The default value is **C**.
-    //     *   Valid values for the **Ctype** field: You can execute the `SELECT DISTINCT collctype FROM pg_collation;` statement to obtain the field value. The default value is **en_US.utf8**.
+    shared_ptr<string> accountName_ {};
+    shared_ptr<string> accountPrivilege_ {};
+    // The character set. Valid values:
+    // * MySQL/MariaDB: **utf8, gbk, latin1, utf8mb4**
+    // * SQL Server: **Chinese_PRC_CI_AS, Chinese_PRC_CS_AS, SQL_Latin1_General_CP1_CI_AS, SQL_Latin1_General_CP1_CS_AS, Chinese_PRC_BIN**
+    // * PostgreSQL: You must specify the character set, Collate, and Ctype in the format of `Character set,<Collate>,<Ctype>`. Example: `UTF8,C,en_US.utf8`.
+    //     - Valid values for the character set: **KOI8U, UTF8, WIN866, WIN874, WIN1250, WIN1251, WIN1252, WIN1253, WIN1254, WIN1255, WIN1256, WIN1257, WIN1258, EUC_CN, EUC_KR, EUC_TW, EUC_JP, EUC_JIS_2004, KOI8R, MULE_INTERNAL, LATIN1, LATIN2, LATIN3, LATIN4, LATIN5, LATIN6, LATIN7, LATIN8, LATIN9, LATIN10, ISO_8859_5, ISO_8859_6, ISO_8859_7, ISO_8859_8, SQL_ASCII**.
+    //     - Valid values for **Collate**: You can run the `SELECT DISTINCT collname FROM pg_collation;` command to query the valid values. If this parameter is not specified, the default value **C** is used.
+    //     - Valid values for **Ctype**: You can run the `SELECT DISTINCT collctype FROM pg_collation;` command to query the valid values. If this parameter is not specified, the default value **en_US.utf8** is used.
     // 
     // This parameter is required.
     shared_ptr<string> characterSetName_ {};
-    // The description of the database. The description must be 2 to 256 characters in length and can contain letters, digits, underscores (_), and hyphens (-). The description must start with a letter.
-    // 
-    // > The value cannot start with `http://` or `https://`.
+    // The collation. This parameter is supported only for ApsaraDB RDS for MySQL instances. Specify a collation that matches the character set. For example, if the character set is utf8mb4, the collation must be utf8mb4_bin or utf8mb4_general_ci.
+    shared_ptr<string> collationName_ {};
+    // The database description. The description must be 2 to 256 characters in length and can contain letters, digits, Chinese characters, underscores (_), and hyphens (-). The description must start with a Chinese character or a letter.
+    // >The description cannot start with `http://` or `https://`.
     shared_ptr<string> DBDescription_ {};
-    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/610396.html) operation to query the ID of the instance.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database.
+    // The database name.
     // 
-    // > *   The name must be 2 to 64 characters in length.
-    // > *   The name must start with a lowercase letter and end with a lowercase letter or digit.
-    // > *   The name can contain lowercase letters, digits, underscores (_), and hyphens (-).
-    // > *   The name must be unique within the instance.
-    // > *   For more information about invalid characters, see [Forbidden keywords table](https://help.aliyun.com/document_detail/26317.html).
+    // > * The name must be 2 to 64 characters in length.
+    // > * The name must start with a letter and end with a letter or digit.
+    // > * The name can contain lowercase letters, digits, underscores (_), and hyphens (-).
+    // > * The database name must be unique within the instance.
+    // > * For more information about invalid characters, see [Reserved words](https://help.aliyun.com/document_detail/26317.html).
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};

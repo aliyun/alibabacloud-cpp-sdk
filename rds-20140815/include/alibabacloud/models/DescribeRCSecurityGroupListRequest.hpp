@@ -57,13 +57,9 @@ namespace Models
 
 
   protected:
-    // The region ID.
-    // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};
-    // The ID of the virtual private cloud (VPC) to which the security group belongs.
     shared_ptr<string> vpcId_ {};
   };
 

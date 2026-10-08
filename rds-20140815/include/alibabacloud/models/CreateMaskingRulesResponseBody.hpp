@@ -69,16 +69,16 @@ namespace Models
 
 
   protected:
-    // Returned data
+    // The returned data.
     shared_ptr<map<string, string>> data_ {};
-    // Return message
+    // The returned message.
     shared_ptr<string> message_ {};
-    // Request ID
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request succeeded. Return values:
+    // Indicates whether the request was successful. Valid values:
     // 
-    // - **true**: Succeeded
-    // - **false**: Failed
+    // - **true**: The request was successful.
+    // - **false**: The request failed.
     shared_ptr<string> success_ {};
   };
 

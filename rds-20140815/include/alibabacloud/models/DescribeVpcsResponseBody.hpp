@@ -170,13 +170,21 @@ namespace Models
 
 
       protected:
+        // The vSwitch CIDR block.
         shared_ptr<string> cidrBlock_ {};
+        // The time when the vSwitch was created.
         shared_ptr<string> gmtCreate_ {};
+        // The time when the vSwitch was last modified.
         shared_ptr<string> gmtModified_ {};
+        // Indicates whether the vSwitch is the default vSwitch.
         shared_ptr<bool> isDefault_ {};
+        // The zone ID.
         shared_ptr<string> izNo_ {};
+        // The vSwitch status.
         shared_ptr<string> status_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The vSwitch name.
         shared_ptr<string> vSwitchName_ {};
       };
 
@@ -263,16 +271,27 @@ namespace Models
 
 
     protected:
+      // The Alibaba Cloud account ID.
       shared_ptr<string> aliUid_ {};
+      // The business ID.
       shared_ptr<string> bid_ {};
+      // The CIDR block of the VPC.
       shared_ptr<string> cidrBlock_ {};
+      // The time when the VPC was created.
       shared_ptr<string> gmtCreate_ {};
+      // The time when the VPC was last modified.
       shared_ptr<string> gmtModified_ {};
+      // Indicates whether the VPC is the default VPC.
       shared_ptr<bool> isDefault_ {};
+      // The region ID.
       shared_ptr<string> regionNo_ {};
+      // The VPC status.
       shared_ptr<string> status_ {};
+      // The vSwitch information.
       shared_ptr<vector<Vpcs::VSwitchs>> vSwitchs_ {};
+      // The ID of the VPC.
       shared_ptr<string> vpcId_ {};
+      // The name of the VPC.
       shared_ptr<string> vpcName_ {};
     };
 
@@ -316,10 +335,15 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> pageNumber_ {};
+    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
+    // The list of VPCs.
     shared_ptr<vector<DescribeVpcsResponseBody::Vpcs>> vpcs_ {};
   };
 

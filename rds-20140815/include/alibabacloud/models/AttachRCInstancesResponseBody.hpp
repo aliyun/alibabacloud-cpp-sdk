@@ -81,13 +81,13 @@ namespace Models
 
 
     protected:
-      // The HTTP status code returned.
+      // The status code returned.
       shared_ptr<string> code_ {};
-      // The node ID.
+      // The RDS Custom instance ID.
       shared_ptr<string> instanceId_ {};
-      // The message returned.
+      // The message returned for the request.
       // 
-      // >  If the request is successful, **Successful** is returned. If the request fails, an error message that contains information such as an error code is returned.
+      // > If the request is successful, **Successful** is returned. If the request fails, exception information such as an error code is returned.
       shared_ptr<string> message_ {};
     };
 
@@ -119,7 +119,7 @@ namespace Models
   protected:
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The response parameters.
+    // The response results.
     shared_ptr<vector<AttachRCInstancesResponseBody::Responses>> responses_ {};
     // The task ID.
     shared_ptr<string> taskId_ {};

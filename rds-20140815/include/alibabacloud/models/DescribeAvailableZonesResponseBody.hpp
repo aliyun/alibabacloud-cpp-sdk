@@ -146,7 +146,7 @@ namespace Models
 
 
             protected:
-              // The storage type of the instance.
+              // The instance storage type.
               shared_ptr<string> storageType_ {};
             };
 
@@ -169,9 +169,9 @@ namespace Models
 
 
           protected:
-            // The RDS edition of the instance.
+            // The instance edition.
             shared_ptr<string> category_ {};
-            // The storage types that are available for purchase.
+            // The list of supported storage types available for sale.
             shared_ptr<vector<SupportedCategorys::SupportedStorageTypes>> supportedStorageTypes_ {};
           };
 
@@ -194,7 +194,7 @@ namespace Models
 
 
         protected:
-          // The RDS editions that are available that are available for purchase.
+          // The list of supported instance editions available for sale.
           shared_ptr<vector<SupportedEngineVersions::SupportedCategorys>> supportedCategorys_ {};
           // The database engine version.
           shared_ptr<string> version_ {};
@@ -219,9 +219,9 @@ namespace Models
 
 
       protected:
-        // The database engine of the instance.
+        // The database engine.
         shared_ptr<string> engine_ {};
-        // The database engine versions that are available for purchase.
+        // The list of supported database engine versions available for sale.
         shared_ptr<vector<SupportedEngines::SupportedEngineVersions>> supportedEngineVersions_ {};
       };
 
@@ -253,7 +253,7 @@ namespace Models
     protected:
       // The region ID.
       shared_ptr<string> regionId_ {};
-      // The database engines that are available for purchase.
+      // The list of supported database engines available for sale.
       shared_ptr<vector<AvailableZones::SupportedEngines>> supportedEngines_ {};
       // The zone ID.
       shared_ptr<string> zoneId_ {};
@@ -278,9 +278,9 @@ namespace Models
 
 
   protected:
-    // The available zones in the region.
+    // The list of available zone resources for ApsaraDB RDS.
     shared_ptr<vector<DescribeAvailableZonesResponseBody::AvailableZones>> availableZones_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

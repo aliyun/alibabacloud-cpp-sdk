@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The endpoint that is used to connect to the database instance.
+    // The database endpoint.
     shared_ptr<string> connectionString_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> dbInstanceName_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,10 +66,16 @@ namespace Models
 
 
   protected:
+    // The task details.
     shared_ptr<string> detail_ {};
     // Id of the request
     shared_ptr<string> requestId_ {};
+    // The task status. This parameter is invalid.
     shared_ptr<string> status_ {};
+    // Indicates whether the request is successful. Valid values:
+    // 
+    // - **true**: Successful.
+    // - **false**: Failed.
     shared_ptr<bool> success_ {};
   };
 

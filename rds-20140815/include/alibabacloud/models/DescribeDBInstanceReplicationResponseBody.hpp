@@ -264,15 +264,15 @@ namespace Models
     protected:
       shared_ptr<string> channelName_ {};
       shared_ptr<string> executedGtidSet_ {};
-      // 0表示无错误，其他值表示具体的错误代码
+      // A value of 0 indicates no error. Other values indicate specific error codes.
       shared_ptr<int32_t> lastErrno_ {};
-      // 0表示无错误，其他值表示IO线程的错误代码
+      // A value of 0 indicates no error. Other values indicate error codes of the I/O thread.
       shared_ptr<int32_t> lastIoErrno_ {};
-      // IO线程的错误信息描述
+      // The error message description of the I/O thread.
       shared_ptr<string> lastIoError_ {};
-      // 0表示无错误，其他值表示SQL线程的错误代码
+      // A value of 0 indicates no error. Other values indicate error codes of the SQL thread.
       shared_ptr<int32_t> lastSqlErrno_ {};
-      // SQL线程的错误信息描述
+      // The error message description of the SQL thread.
       shared_ptr<string> lastSqlError_ {};
       shared_ptr<string> masterHost_ {};
       shared_ptr<string> masterUser_ {};
@@ -284,10 +284,10 @@ namespace Models
       shared_ptr<string> replicateWildDoTable_ {};
       shared_ptr<string> replicateWildIgnoreTable_ {};
       shared_ptr<int32_t> secondsBehindMaster_ {};
-      // Yes: 运行中，No: 已停止
+      // Valid values: Yes (running) and No (stopped).
       shared_ptr<string> slaveIoRunning_ {};
       shared_ptr<string> slaveIoState_ {};
-      // Yes: 运行中，No: 已停止
+      // Valid values: Yes (running) and No (stopped).
       shared_ptr<string> slaveSqlRunning_ {};
       shared_ptr<string> slaveSqlRunningState_ {};
     };
@@ -375,28 +375,30 @@ namespace Models
 
 
   protected:
-    // Indicates whether the native replication mods is enabled. Valid values:
-    // 
-    // *   **ON**
-    // *   **OFF**
+    // Indicates whether native replication mode is enabled. Valid values:
+    // - **ON**: Enabled.
+    // - **OFF**: Disabled.
     shared_ptr<string> externalReplication_ {};
+    // The executed global transaction identifier.
     shared_ptr<string> gtidExecuted_ {};
-    // COMPLETED: 导入完成，INIT: 初始化，IMPORTING: 正在导入
+    // The import status, which indicates whether full data is successfully imported.
     shared_ptr<string> importStatus_ {};
-    // The replication latency. Unit: seconds.
+    // The current replication delay, in seconds.
     shared_ptr<string> replicationDelay_ {};
     // The replication error message.
     shared_ptr<string> replicationErrorMessage_ {};
+    // The IP address of the replication endpoint.
     shared_ptr<string> replicationIp_ {};
+    // The port of the replication endpoint.
     shared_ptr<string> replicationPort_ {};
-    // The source of the native replication.
+    // The replication source of native replication.
     shared_ptr<string> replicationSource_ {};
     // The current replication status. Valid values:
     // 
-    // *   **Running**
-    // *   **Connecting**
-    // *   **Stopped**
-    // *   **Error**
+    // - **Running**: Running.
+    // - **Connecting**: Connecting.
+    // - **Stopped**: Stopped.
+    // - **Error**: Error.
     shared_ptr<string> replicationState_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

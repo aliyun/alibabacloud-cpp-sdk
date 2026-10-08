@@ -66,9 +66,15 @@ namespace Models
 
 
   protected:
+    // The authorization status of the account. Valid values:
+    // * 0: Not authorized.
+    // * 1: Authorized.
     shared_ptr<int32_t> authorizationState_ {};
+    // The error message returned by the operation.
     shared_ptr<string> message_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The Alibaba Resource Name (ARN) of the service-linked role associated with backup encryption.
     shared_ptr<string> roleARN_ {};
   };
 

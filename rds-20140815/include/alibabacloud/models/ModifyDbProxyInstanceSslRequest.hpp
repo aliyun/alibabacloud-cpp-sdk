@@ -86,29 +86,28 @@ namespace Models
   protected:
     // A reserved parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> dbInstanceId_ {};
-    // The dedicated proxy endpoint of the instance.
+    // The endpoint for which you want to enable SSL encryption.
     // 
     // This parameter is required.
     shared_ptr<string> dbProxyConnectString_ {};
-    // The ID of the proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID of the proxy endpoint.
+    // The ID of the database proxy endpoint. You can call DescribeDBProxyEndpoint to query the ID.
     // 
     // This parameter is required.
     shared_ptr<string> dbProxyEndpointId_ {};
-    // The SSL configuration setting that you want to apply on the instance. Valid values:
+    // The operation that you want to perform on SSL encryption. Valid values:
+    // * 0: Disables SSL encryption.
+    // * 1: Enables SSL encryption or changes the endpoint for which SSL encryption is enabled.
+    // * 2: Updates the validity period of the SSL certificate.
     // 
-    // *   0: disables SSL encryption.
-    // *   1: enables SSL encryption or modifies the endpoint that requires SSL encryption.
-    // *   2: updates the validity period of the SSL certificate.
-    // 
-    // > This setting causes your instance to restart. Proceed with caution.
+    // >The preceding operations restart the instance. Proceed with caution.
     // 
     // This parameter is required.
     shared_ptr<string> dbProxySslEnabled_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call DescribeRegions to query the most recent region list.
     shared_ptr<string> regionId_ {};
   };
 

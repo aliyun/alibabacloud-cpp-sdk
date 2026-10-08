@@ -191,23 +191,10 @@ namespace Models
 
 
         protected:
-          // The time when the disk was created. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
           shared_ptr<string> creationTime_ {};
-          // The category of the cloud disk or local disk. Valid values:
-          // 
-          // *   **cloud_efficiency**: ultra disk
-          // *   **cloud_ssd**: standard SSD
-          // *   **cloud_essd**: ESSD
-          // *   **cloud_auto**: Premium ESSD
           shared_ptr<string> deviceCategory_ {};
-          // The size of the disk. Unit: GiB.
           shared_ptr<string> deviceSize_ {};
-          // The disk type. Valid values:
-          // 
-          // *   **system**: system disk.
-          // *   **data**: data disk.
           shared_ptr<string> deviceType_ {};
-          // The time when the disk was released. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
           shared_ptr<string> releaseTime_ {};
         };
 
@@ -318,39 +305,19 @@ namespace Models
 
 
       protected:
-        // Indicates whether the event can be handled.
         shared_ptr<string> canAccept_ {};
-        // The code of the security violation.
         shared_ptr<string> code_ {};
-        // The device name of the local disk.
         shared_ptr<string> device_ {};
-        // The ID of the local disk.
         shared_ptr<string> diskId_ {};
-        // The ID of the host.
         shared_ptr<string> hostId_ {};
-        // The type of the host. Valid values:
-        // 
-        // *   **ddh**: dedicated host
-        // *   **managehost**: physical machine in a smart hosting pool
         shared_ptr<string> hostType_ {};
-        // The inactive disks that have been released and whose data must be cleared.
         shared_ptr<vector<ExtendedAttribute::InactiveDisks>> inactiveDisks_ {};
-        // The migration solutions of the instance.
         shared_ptr<vector<string>> migrationOptions_ {};
-        // The online repair policy for the damaged disk. Valid value: IsolateOnly, which indicates that damaged disks are isolated but not repaired.
         shared_ptr<string> onlineRepairPolicy_ {};
-        // The illegal domain name.
         shared_ptr<string> punishDomain_ {};
-        // The type of the penalty.
         shared_ptr<string> punishType_ {};
-        // The illegal URL.
         shared_ptr<string> punishUrl_ {};
-        // The rack number of the cloud box.
         shared_ptr<string> rack_ {};
-        // The response result of the event. Valid values:
-        // 
-        // *   **true**: the event was handled.
-        // *   **false**: the event failed to be handled.
         shared_ptr<string> responseResult_ {};
       };
 
@@ -392,9 +359,7 @@ namespace Models
 
 
       protected:
-        // The code of the system event type.
         shared_ptr<string> code_ {};
-        // The name of the system event type.
         shared_ptr<string> name_ {};
       };
 
@@ -436,9 +401,7 @@ namespace Models
 
 
       protected:
-        // The state code of the system event.
         shared_ptr<string> code_ {};
-        // The state name of the system event.
         shared_ptr<string> name_ {};
       };
 
@@ -537,29 +500,17 @@ namespace Models
 
 
     protected:
-      // The lifecycle state of the system event.
       shared_ptr<InstanceSystemEventSet::EventCycleStatus> eventCycleStatus_ {};
-      // The time when the system event ended. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
       shared_ptr<string> eventFinishTime_ {};
-      // The ID of the system event.
       shared_ptr<string> eventId_ {};
-      // The time when the system event was published. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
       shared_ptr<string> eventPublishTime_ {};
-      // The type of the system event.
       shared_ptr<InstanceSystemEventSet::EventType> eventType_ {};
-      // The extended attribute of the system event.
       shared_ptr<InstanceSystemEventSet::ExtendedAttribute> extendedAttribute_ {};
-      // The impact level of the event.
       shared_ptr<string> impactLevel_ {};
-      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The start time of the scheduled execution of the system event. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
       shared_ptr<string> notBefore_ {};
-      // The reason why the system event occurred.
       shared_ptr<string> reason_ {};
-      // The reason code category for the system event.
       shared_ptr<string> reasonCode_ {};
-      // The resource type. The value is fixed to INSTANCE.
       shared_ptr<string> resourceType_ {};
     };
 
@@ -610,17 +561,11 @@ namespace Models
 
 
   protected:
-    // Details about the instance system event.
     shared_ptr<vector<DescribeRCInstanceHistoryEventsResponseBody::InstanceSystemEventSet>> instanceSystemEventSet_ {};
-    // The reserved parameter. This parameter is not supported.
     shared_ptr<string> nextToken_ {};
-    // The page number of the returned page.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of instance events.
     shared_ptr<int32_t> totalCount_ {};
   };
 

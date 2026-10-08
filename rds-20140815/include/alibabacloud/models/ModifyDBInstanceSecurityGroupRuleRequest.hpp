@@ -121,7 +121,7 @@ namespace Models
 
 
   protected:
-    // The ID of the instance. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) operation to query the IDs of instances.
+    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/2628785.html) to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
@@ -129,28 +129,28 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> description_ {};
-    // The type of the transport layer protocol. Valid values:
+    // The transport layer protocol type. Valid values:
     // 
-    // *   TCP
-    // *   UDP
+    // - TCP
+    // - UDP
     // 
     // This parameter is required.
     shared_ptr<string> ipProtocol_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<string> ownerId_ {};
-    // The range of destination ports over which TCP and UDP traffic is allowed in the security group rule.
+    // The range of destination ports for the transport layer protocol (TCP/UDP) that the security group opens.
     // 
-    // Valid values: 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+    // Valid values: 1 to 65535. Separate the start port and end port with a forward slash (/). Example: 1/200.
     // 
     // This parameter is required.
     shared_ptr<string> portRange_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the security group rule. You can call the [DescribeDBInstanceSecurityGroupRule](https://help.aliyun.com/document_detail/2834044.html) to obtain the ID of the security group rule.
+    // The security group rule ID. You can call [DescribeDBInstanceSecurityGroupRule](https://help.aliyun.com/document_detail/2834044.html) to obtain the security group rule ID.
     // 
     // This parameter is required.
     shared_ptr<string> securityGroupRuleId_ {};
-    // The range of source IP addresses. CIDR blocks and IPv4 addresses are supported.
+    // The source IP address range. CIDR format and IPv4 format are supported.
     // 
     // This parameter is required.
     shared_ptr<string> sourceCidrIp_ {};

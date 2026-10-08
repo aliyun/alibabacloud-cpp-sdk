@@ -42,6 +42,7 @@ namespace Models
     public:
       friend void to_json(Darabonba::Json& j, const RCInstances& obj) { 
         DARABONBA_PTR_TO_JSON(AutoRenew, autoRenew_);
+        DARABONBA_PTR_TO_JSON(ClusterId, clusterId_);
         DARABONBA_PTR_TO_JSON(ClusterName, clusterName_);
         DARABONBA_PTR_TO_JSON(Cpu, cpu_);
         DARABONBA_PTR_TO_JSON(CreateMode, createMode_);
@@ -78,6 +79,7 @@ namespace Models
       };
       friend void from_json(const Darabonba::Json& j, RCInstances& obj) { 
         DARABONBA_PTR_FROM_JSON(AutoRenew, autoRenew_);
+        DARABONBA_PTR_FROM_JSON(ClusterId, clusterId_);
         DARABONBA_PTR_FROM_JSON(ClusterName, clusterName_);
         DARABONBA_PTR_FROM_JSON(Cpu, cpu_);
         DARABONBA_PTR_FROM_JSON(CreateMode, createMode_);
@@ -181,9 +183,13 @@ namespace Models
 
 
       protected:
+        // A reserved parameter.
         shared_ptr<string> natIpAddress_ {};
+        // The private IP address.
         shared_ptr<vector<string>> privateIpAddress_ {};
+        // The vSwitch ID.
         shared_ptr<string> vSwitchId_ {};
+        // The VPC ID.
         shared_ptr<string> vpcId_ {};
       };
 
@@ -243,9 +249,16 @@ namespace Models
 
 
       protected:
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
+        // The resource type.
+        // 
+        // - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance.
+        // - `ALIYUN::RDS::CUSTOM`: RDS Custom instance.
         shared_ptr<string> resourceType_ {};
+        // The tag key.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
@@ -305,25 +318,39 @@ namespace Models
 
 
       protected:
+        // The resource ID.
         shared_ptr<string> resourceId_ {};
+        // The resource type.
+        // 
+        // - `ALIYUN::RDS::INSTANCE`: ApsaraDB RDS instance.
+        // - `ALIYUN::RDS::CUSTOM`: RDS Custom instance.
         shared_ptr<string> resourceType_ {};
+        // The tag key.
         shared_ptr<string> tagKey_ {};
+        // The tag value.
         shared_ptr<string> tagValue_ {};
       };
 
       virtual bool empty() const override { return this->autoRenew_ == nullptr
-        && this->clusterName_ == nullptr && this->cpu_ == nullptr && this->createMode_ == nullptr && this->dbType_ == nullptr && this->deploymentSetId_ == nullptr
-        && this->description_ == nullptr && this->ecsHostName_ == nullptr && this->expiredTime_ == nullptr && this->gmtCreated_ == nullptr && this->hostIp_ == nullptr
-        && this->hostName_ == nullptr && this->imageId_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr && this->instanceName_ == nullptr
-        && this->instanceType_ == nullptr && this->instanceTypeFamily_ == nullptr && this->memory_ == nullptr && this->nodeType_ == nullptr && this->OSName_ == nullptr
-        && this->OSType_ == nullptr && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr && this->spotStrategy_ == nullptr
-        && this->startTime_ == nullptr && this->status_ == nullptr && this->stoppedMode_ == nullptr && this->tagResources_ == nullptr && this->tags_ == nullptr
-        && this->vpcAttributes_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
+        && this->clusterId_ == nullptr && this->clusterName_ == nullptr && this->cpu_ == nullptr && this->createMode_ == nullptr && this->dbType_ == nullptr
+        && this->deploymentSetId_ == nullptr && this->description_ == nullptr && this->ecsHostName_ == nullptr && this->expiredTime_ == nullptr && this->gmtCreated_ == nullptr
+        && this->hostIp_ == nullptr && this->hostName_ == nullptr && this->imageId_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceId_ == nullptr
+        && this->instanceName_ == nullptr && this->instanceType_ == nullptr && this->instanceTypeFamily_ == nullptr && this->memory_ == nullptr && this->nodeType_ == nullptr
+        && this->OSName_ == nullptr && this->OSType_ == nullptr && this->publicIp_ == nullptr && this->regionId_ == nullptr && this->securityGroupId_ == nullptr
+        && this->spotStrategy_ == nullptr && this->startTime_ == nullptr && this->status_ == nullptr && this->stoppedMode_ == nullptr && this->tagResources_ == nullptr
+        && this->tags_ == nullptr && this->vpcAttributes_ == nullptr && this->vpcId_ == nullptr && this->zoneId_ == nullptr; };
       // autoRenew Field Functions 
       bool hasAutoRenew() const { return this->autoRenew_ != nullptr;};
       void deleteAutoRenew() { this->autoRenew_ = nullptr;};
       inline bool getAutoRenew() const { DARABONBA_PTR_GET_DEFAULT(autoRenew_, false) };
       inline RCInstances& setAutoRenew(bool autoRenew) { DARABONBA_PTR_SET_VALUE(autoRenew_, autoRenew) };
+
+
+      // clusterId Field Functions 
+      bool hasClusterId() const { return this->clusterId_ != nullptr;};
+      void deleteClusterId() { this->clusterId_ = nullptr;};
+      inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+      inline RCInstances& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
       // clusterName Field Functions 
@@ -565,56 +592,89 @@ namespace Models
 
     protected:
       shared_ptr<bool> autoRenew_ {};
+      shared_ptr<string> clusterId_ {};
       // The cluster name.
       shared_ptr<string> clusterName_ {};
+      // The number of vCPUs.
       shared_ptr<int32_t> cpu_ {};
+      // Indicates whether the instance can be added to an ACK cluster. If the parameter settings for this field is **1**, the created instance can be added to an ACK cluster by calling the **AttachRCInstances** API operation, which enables efficient management of container applications.
+      // 
+      // - **1**: Yes.
+      // - **0** (default): No.
       shared_ptr<string> createMode_ {};
       // The database type.
       shared_ptr<string> dbType_ {};
+      // The deployment set ID.
       shared_ptr<string> deploymentSetId_ {};
-      // The instance description.
+      // The description.
       shared_ptr<string> description_ {};
       shared_ptr<string> ecsHostName_ {};
+      // The time when the instance expires. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC+0.
+      // 
+      // > The expiration time displayed on the console is UTC+8.
       shared_ptr<string> expiredTime_ {};
-      // The time when the task was created. The time is displayed in GMT.
+      // The task creation time (GMT).
       shared_ptr<string> gmtCreated_ {};
       // The host IP address.
       shared_ptr<string> hostIp_ {};
       // The host name.
       shared_ptr<string> hostName_ {};
+      // The image ID.
       shared_ptr<string> imageId_ {};
+      // The billing method. Valid values:
+      // * **PrePaid**: subscription.
+      // * **PostPaid**: pay-as-you-go.
       shared_ptr<string> instanceChargeType_ {};
       // The instance ID.
       shared_ptr<string> instanceId_ {};
+      // The instance name.
       shared_ptr<string> instanceName_ {};
+      // The instance type.
+      // 
+      // For more information, see [RDS Custom instance type list](https://help.aliyun.com/document_detail/2844823.html).
       shared_ptr<string> instanceType_ {};
+      // The instance family.
+      // 
+      // For more information, see [RDS Custom instance type list](https://help.aliyun.com/document_detail/2844823.html).
       shared_ptr<string> instanceTypeFamily_ {};
+      // The memory size. Unit: MiB.
       shared_ptr<int32_t> memory_ {};
+      // The node type. If the value **rds_vnode** is returned, the node is a container node.
       shared_ptr<string> nodeType_ {};
       shared_ptr<string> OSName_ {};
       shared_ptr<string> OSType_ {};
+      // The public IP address of the instance.
       shared_ptr<string> publicIp_ {};
       // The region ID.
       shared_ptr<string> regionId_ {};
+      // The security group ID.
       shared_ptr<string> securityGroupId_ {};
+      // The bidding strategy for pay-as-you-go instances. Valid values:
+      // 
+      // - **NoSpot**: A regular pay-as-you-go instance.
+      // - **SpotAsPriceGo**: The system automatically bids, following the current market price.
       shared_ptr<string> spotStrategy_ {};
       shared_ptr<string> startTime_ {};
       // The instance status. Valid values:
       // 
-      // *   **Pending**
-      // *   **Running**
-      // *   **Starting**
-      // *   **Stopping**
-      // *   **Stopped**
+      // - **Pending**: Being created.
+      // - **Running**: Running.
+      // - **Starting**: Being started.
+      // - **Stopping**: Being stopped.
+      // - **Stopped**: Stopped.
       // 
-      // >  If the value returned for the DescribeRCInstances operation is different from the value that is returned for the **DescribeRCInstanceAttribute** operation, the value returned for the **DescribeRCInstanceAttribute** operation shall prevail.
+      // > The instance status returned by this operation may be delayed. If the value differs from the value returned by the **DescribeRCInstanceAttribute** operation, the value returned by **DescribeRCInstanceAttribute** prevails.
       shared_ptr<string> status_ {};
       shared_ptr<string> stoppedMode_ {};
+      // The details of the instances and tags.
       shared_ptr<vector<RCInstances::TagResources>> tagResources_ {};
+      // The tag details.
       shared_ptr<vector<RCInstances::Tags>> tags_ {};
+      // The VPC attributes.
       shared_ptr<RCInstances::VpcAttributes> vpcAttributes_ {};
-      // The VPC ID.
+      // The ID of the virtual private cloud (VPC).
       shared_ptr<string> vpcId_ {};
+      // The zone ID.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -662,11 +722,11 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The details of the instance.
+    // The instance information.
     shared_ptr<vector<DescribeRCInstancesResponseBody::RCInstances>> RCInstances_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries returned.
+    // The total number of entries.
     shared_ptr<int32_t> totalCount_ {};
   };
 

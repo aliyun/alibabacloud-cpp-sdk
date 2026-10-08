@@ -142,28 +142,14 @@ namespace Models
 
 
     protected:
-      // The number of tasks that Cloud Assistant was running on the instance.
       shared_ptr<int32_t> activeTaskCount_ {};
-      // Indicates whether Cloud Assistant is running on the instance. Valid values:
-      // 
-      // *   **true**: Heartbeats are detected in the last 2 minutes.
-      // *   **false**: No heartbeat is detected in the last 2 minutes.
       shared_ptr<string> cloudAssistantStatus_ {};
-      // The version number of Cloud Assistant Agent. This parameter is empty if Cloud Assistant Agent is not installed or is not running on the instance.
       shared_ptr<string> cloudAssistantVersion_ {};
-      // The instance ID.
       shared_ptr<string> instanceId_ {};
-      // The number of tasks that Cloud Assistant completed on the instance.
       shared_ptr<int32_t> invocationCount_ {};
-      // The last heartbeat time of Cloud Assistant. The value is updated every minute on average. The interval can be 55, 60, or 65 seconds.
       shared_ptr<string> lastHeartbeatTime_ {};
-      // The time when commands were last run.
       shared_ptr<string> lastInvokedTime_ {};
-      // The operating system type of the instance.
       shared_ptr<string> OSType_ {};
-      // Indicates whether Cloud Assistant supports Session Manager on the instance. If Session Manager is not supported, the version of Cloud Assistant Agent is outdated. Update Cloud Assistant Agent to the latest version.
-      // 
-      // To support Session Manager, the version of Cloud Assistant Agent cannot be earlier than 2.2.3.189.
       shared_ptr<bool> supportSessionManager_ {};
     };
 
@@ -214,19 +200,12 @@ namespace Models
 
 
   protected:
-    // Details about the installation status of Cloud Assistant on the instances.
     shared_ptr<vector<DescribeRCCloudAssistantStatusResponseBody::InstanceCloudAssistantStatusSet>> instanceCloudAssistantStatusSet_ {};
-    // The token that marks the end of the current returned page. If this parameter is empty, all data is retrieved.
-    // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
-    // The page number.
     shared_ptr<string> pageNumber_ {};
-    // The number of entries returned per page.
     shared_ptr<string> pageSize_ {};
-    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of instances.
     shared_ptr<int32_t> totalCount_ {};
   };
 

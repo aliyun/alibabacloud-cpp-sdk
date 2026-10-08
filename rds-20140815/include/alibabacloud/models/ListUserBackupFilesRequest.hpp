@@ -121,32 +121,30 @@ namespace Models
 
 
   protected:
-    // The ID of the full backup file.
+    // The user backup ID.
     shared_ptr<string> backupId_ {};
-    // The description of the full backup file.
-    // 
-    // > The system implements a fuzzy match based on the value of this parameter.
+    // The comment of the user backup to query.
+    // >You can enter part of the comment for fuzzy matching.
     shared_ptr<string> comment_ {};
-    // The URL from which you can download the full backup file that is stored as an object in an Object Storage Service (OSS) bucket. For more information about how to obtain the URL, see [Obtain the access URL after you upload objects](https://help.aliyun.com/document_detail/39607.html).
+    // The OSS download URL of the user backup file. For information about how to obtain the OSS download URL of a user backup file, see [How do I obtain the URL of an uploaded object?](https://help.aliyun.com/document_detail/39607.html).
     shared_ptr<string> ossUrl_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call DescribeRegions to query the available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can call the DescribeDBInstanceAttribute operation to obtain the ID of the resource group.
+    // The resource group ID. You can call DescribeDBInstanceAttribute to query the resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The status of the full backup file. Valid values:
-    // 
-    // *   **Importing**: The full backup file is being imported.
-    // *   **Failed**: The full backup file fails to be imported.
-    // *   **CheckSucccess**: The full backup file passes the check.
-    // *   **BackupSuccess**: The full backup file is imported.
-    // *   **Deleted**: The full backup file is deleted.
+    // The status of the user backup file. Valid values:
+    // * **Importing**: The backup is being imported.
+    // * **Failed**: The import failed.
+    // * **CheckSuccess**: The verification passed.
+    // * **BackupSuccess**: The import succeeded.
+    // * **Deleted**: The backup is deleted.
     shared_ptr<string> status_ {};
-    // The tag that is added to the full backup file.
+    // The tag information used to query the user backup.
     shared_ptr<string> tags_ {};
   };
 

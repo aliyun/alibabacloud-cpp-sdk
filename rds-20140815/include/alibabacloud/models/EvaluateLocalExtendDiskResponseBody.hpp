@@ -75,13 +75,17 @@ namespace Models
 
 
   protected:
-    // Indicates whether the instance is available. Valid values: true and false.
+    // Indicates whether the expansion is available. Valid values:
+    // 
+    // - **true**: Available.
+    // 
+    // - **false**: Not available.
     shared_ptr<string> available_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The data transfer type supported by the instance.
+    // The transfer type of the database instance.
     shared_ptr<string> DBInstanceTransType_ {};
-    // The maximum value of the local disk. Unit: GB.
+    // The maximum capacity of the local disk. Unit: GB.
     shared_ptr<int64_t> localUpgradeDiskLimit_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

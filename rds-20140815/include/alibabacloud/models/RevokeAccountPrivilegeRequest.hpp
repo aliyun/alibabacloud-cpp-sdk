@@ -94,15 +94,15 @@ namespace Models
 
 
   protected:
-    // The name of the account.
+    // The account name.
     // 
     // This parameter is required.
     shared_ptr<string> accountName_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The name of the database. You can revoke all permissions of the account on this database. Separate multiple databases with commas (,).
+    // The database name. All permissions of the account on this database are revoked. Separate multiple database names with commas (,).
     // 
     // This parameter is required.
     shared_ptr<string> DBName_ {};

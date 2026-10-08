@@ -84,27 +84,21 @@ namespace Models
 
 
   protected:
-    // The ID of the instance.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
-    // The number of entries per page.
+    // The maximum number of records per page.
     shared_ptr<int64_t> pageSize_ {};
-    // The task ID. You must set this parameter to the ID of the task that you create by calling the **CreateReplicationLink** operation for the disaster recovery instance.
+    // The task ID. The task ID returned when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
     shared_ptr<int64_t> taskId_ {};
-    // The task name. You must set this parameter to the name of the task that you create by calling the **CreateReplicationLink** operation for the disaster recovery instance.
+    // The task name. The task name returned when you call the **CreateReplicationLink** operation to create a disaster recovery instance.
     shared_ptr<string> taskName_ {};
-    // The type of the task. Valid values:
-    // 
-    // *   **create**: creates a synchronization link.
-    // *   **create-dryrun**: performs a precheck before a synchronization link is created.
-    // 
-    // Valid values:
-    // 
-    // *   create: creates a replication link.
-    // *   create-dryrun: performs a precheck before a replication link is created.
+    // The task type. Valid values:
+    // - **create**: Create a replication link.
+    // - **create-dryrun**: Dry run for creating a replication link.
     // 
     // This parameter is required.
     shared_ptr<string> taskType_ {};

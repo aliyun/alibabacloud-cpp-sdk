@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // The tag value.
       shared_ptr<string> key_ {};
+      // The tag key.
       shared_ptr<string> value_ {};
     };
 
@@ -139,19 +141,20 @@ namespace Models
 
 
   protected:
-    // The cloud disk ID.
+    // The ID of the cloud disk.
     shared_ptr<string> diskId_ {};
     shared_ptr<string> instanceId_ {};
     // The page number.
     shared_ptr<int64_t> pageNumber_ {};
     // The number of entries per page. Valid values: **30** to **100**. Default value: **30**.
     shared_ptr<int64_t> pageSize_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call DescribeRegions to query available regions.
     shared_ptr<string> regionId_ {};
-    // The snapshot IDs.
+    // The IDs of snapshots.
     // 
-    // You can specify a maximum of 100 IDs. Separate multiple IDs with commas (,).
+    // You can specify multiple snapshot IDs separated by commas (,). A maximum of 100 IDs can be specified.
     shared_ptr<string> snapshotIds_ {};
+    // The tag details.
     shared_ptr<vector<DescribeRCSnapshotsRequest::Tag>> tag_ {};
   };
 

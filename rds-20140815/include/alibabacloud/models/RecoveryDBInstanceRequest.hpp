@@ -176,75 +176,70 @@ namespace Models
 
 
   protected:
-    // The backup set ID. You can call the DescribeBackups operation to query the backup set ID.
+    // The backup set ID. You can call the DescribeBackups operation to query backup sets.
     // 
-    // If you specify this parameter, you do not need to specify **DBInstanceId**.
+    // If you specify this parameter, the **DBInstanceId** parameter is optional.
     // 
-    // >  You must specify at least one of the **BackupId** or **RestoreTime** parameters.
+    // > You must specify at least one of **BackupId** and **RestoreTime**.
     shared_ptr<string> backupId_ {};
     // The instance type of the new instance. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
     shared_ptr<string> DBInstanceClass_ {};
-    // The ID of the original instance.
+    // The instance ID of the original instance.
     // 
-    // > *   If you specify BackupId, you do not need to specify this parameter.
-    // > *   If you specify RestoreTime, you must also specify this parameter.
+    // > * If you want to recover data by backup set (by specifying the BackupId parameter), this parameter is optional.
+    // > * If you want to recover data to a point in time (by specifying the RestoreTime parameter), this parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The storage capacity of the new instance. Unit: GB. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
+    // The instance storage capacity of the new instance. Unit: GB. For details, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
     // 
-    // >  You must set this parameter to a value that is greater than or equal to the storage capacity of the original instance.
+    // > The disk space of the new instance cannot be smaller than that of the original instance.
     shared_ptr<int32_t> DBInstanceStorage_ {};
-    // The storage type of the new instance. Valid values:
-    // 
-    // *   **local_ssd/ephemeral_ssd**: local SSD
-    // *   **cloud_ssd**: standard SSD.
-    // *   **cloud_essd**: enhanced SSD (ESSD)
+    // The instance storage type of the new instance. Valid values:
+    // * **local_ssd/ephemeral_ssd**: local SSD.
+    // * **cloud_ssd**: standard SSD cloud disk.
+    // * **cloud_essd**: Enterprise SSD (ESSD) cloud disk.
     shared_ptr<string> DBInstanceStorageType_ {};
-    // The name of the database. When you restore data to a new instance, the format of the database name is `Original database name 1,New database name 2`.
+    // The database name. To restore data to a new instance, use the following format: `Original database name 1,New database name 2`.
     // 
-    // >  For more information about how to restore data to an existing instance, see [CopyDatabaseBetweenInstances](https://help.aliyun.com/document_detail/2628854.html).
+    // > To restore data to an existing instance, see [CopyDatabaseBetweenInstances](https://help.aliyun.com/document_detail/2628854.html).
     // 
     // This parameter is required.
     shared_ptr<string> dbNames_ {};
     // The network type of the new instance. Valid values:
+    // * **Classic**: classic network.
+    // * **VPC**: virtual private cloud (VPC).
     // 
-    // *   **Classic**
-    // *   **VPC**
-    // 
-    // By default, the new instance uses the same network type as the original instance.
+    // Default value: the network type of the original instance.
     shared_ptr<string> instanceNetworkType_ {};
     // The billing method of the new instance. Valid values:
-    // 
-    // *   **Postpaid**: pay-as-you-go.
-    // *   **Prepaid**: subscription.
+    // * **Postpaid**: pay-as-you-go.
+    // * **Prepaid**: subscription.
     shared_ptr<string> payType_ {};
-    // The unit that is used to calculate the billing cycle of the new instance. This parameter takes effect only when you select the subscription billing method for the new instance. Valid values:
+    // The unit of the subscription duration of the new instance. Valid values:
+    // * **Year**: year.
+    // * **Month**: month.
     // 
-    // *   **Year**
-    // *   **Month**
-    // 
-    // > This parameter must be specified when **PayType** is set to **Prepaid**.
+    // > This parameter is required if **PayType** is set to **Prepaid**.
     shared_ptr<string> period_ {};
-    // The internal IP address of the new instance. The internal IP address must be within the CIDR block that is supported by the specified vSwitch. The system automatically assigns an internal IP address based on the values of the **VPCId** and **VSwitchId** parameters.
+    // The internal IP address of the new instance. The IP address must be within the IP address range of the specified vSwitch. By default, the system automatically assigns an IP address based on the values of **VPCId** and **VSwitchId**.
     shared_ptr<string> privateIpAddress_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The point in time to which you want to restore data. The point in time must fall within the specified log backup retention period. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // Any point in time within the backup retention period. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     // 
-    // If you specify this parameter, you must also specify **DBInstanceId**.
+    // If you specify this parameter, the **DBInstanceId** parameter is required.
     // 
     // > You must specify at least one of **BackupId** and **RestoreTime**.
     shared_ptr<string> restoreTime_ {};
-    // The ID of the destination instance.
+    // The instance ID of the target instance.
     shared_ptr<string> targetDBInstanceId_ {};
-    // The subscription duration of the instance. Valid values:
+    // The subscription duration of the new instance. Valid values:
+    // * If **Period** is set to **Year**, the value of **UsedTime** ranges from **1 to 3**.
+    // * If **Period** is set to **Month**, the value of **UsedTime** ranges from **1 to 9**.
     // 
-    // *   Valid values when **Period** is set to **Year**: **1 to 3**.****
-    // *   Valid values when **Period** is set to **Month**: **1 to 9**.****
-    // 
-    // > This parameter must be specified when PayType is set to **Prepaid**.
+    // > This parameter is required if **PayType** is set to **Prepaid**.
     shared_ptr<string> usedTime_ {};
     // The VPC ID of the new instance.
     shared_ptr<string> VPCId_ {};
-    // The vSwitch ID of the new instance. If you specify more than one vSwitch ID, you must separate the IDs with commas (,).
+    // The vSwitch ID of the new instance. Separate multiple values with commas (,).
     shared_ptr<string> vSwitchId_ {};
   };
 

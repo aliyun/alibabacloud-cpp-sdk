@@ -8,6 +8,9 @@
 #include <alibabacloud/models/ActivateMigrationTargetInstanceRequest.hpp>
 #include <alibabacloud/models/ActivateMigrationTargetInstanceResponseBody.hpp>
 #include <alibabacloud/models/ActivateMigrationTargetInstanceResponse.hpp>
+#include <alibabacloud/models/AddRCInstancesToDeploymentSetRequest.hpp>
+#include <alibabacloud/models/AddRCInstancesToDeploymentSetResponseBody.hpp>
+#include <alibabacloud/models/AddRCInstancesToDeploymentSetResponse.hpp>
 #include <alibabacloud/models/AddTagsToResourceRequest.hpp>
 #include <alibabacloud/models/AddTagsToResourceResponseBody.hpp>
 #include <alibabacloud/models/AddTagsToResourceResponse.hpp>
@@ -1134,6 +1137,9 @@
 #include <alibabacloud/models/ReleaseReadWriteSplittingConnectionRequest.hpp>
 #include <alibabacloud/models/ReleaseReadWriteSplittingConnectionResponseBody.hpp>
 #include <alibabacloud/models/ReleaseReadWriteSplittingConnectionResponse.hpp>
+#include <alibabacloud/models/RemoveRCInstancesFromDeploymentSetRequest.hpp>
+#include <alibabacloud/models/RemoveRCInstancesFromDeploymentSetResponseBody.hpp>
+#include <alibabacloud/models/RemoveRCInstancesFromDeploymentSetResponse.hpp>
 #include <alibabacloud/models/RemoveTagsFromResourceRequest.hpp>
 #include <alibabacloud/models/RemoveTagsFromResourceResponseBody.hpp>
 #include <alibabacloud/models/RemoveTagsFromResourceResponse.hpp>
@@ -1182,6 +1188,9 @@
 #include <alibabacloud/models/RunRCInstancesShrinkRequest.hpp>
 #include <alibabacloud/models/RunRCInstancesResponseBody.hpp>
 #include <alibabacloud/models/RunRCInstancesResponse.hpp>
+#include <alibabacloud/models/ShareRCDeploymentSetRequest.hpp>
+#include <alibabacloud/models/ShareRCDeploymentSetResponseBody.hpp>
+#include <alibabacloud/models/ShareRCDeploymentSetResponse.hpp>
 #include <alibabacloud/models/StartDBInstanceRequest.hpp>
 #include <alibabacloud/models/StartDBInstanceResponseBody.hpp>
 #include <alibabacloud/models/StartDBInstanceResponse.hpp>

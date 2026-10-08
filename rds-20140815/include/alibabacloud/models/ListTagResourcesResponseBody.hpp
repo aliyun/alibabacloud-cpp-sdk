@@ -155,7 +155,7 @@ namespace Models
 
 
   protected:
-    // You must specify the token that is obtained from the previous query as the value of NextToken.
+    // The token used to return more results. If a query does not return all results, pass in the token returned from the previous query to continue the query.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

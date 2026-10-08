@@ -27,6 +27,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(Scope, scope_);
       DARABONBA_PTR_TO_JSON(SpotDuration, spotDuration_);
       DARABONBA_PTR_TO_JSON(SpotStrategy, spotStrategy_);
+      DARABONBA_PTR_TO_JSON(SupportCase, supportCase_);
       DARABONBA_PTR_TO_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_TO_JSON(ZoneId, zoneId_);
     };
@@ -45,6 +46,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(Scope, scope_);
       DARABONBA_PTR_FROM_JSON(SpotDuration, spotDuration_);
       DARABONBA_PTR_FROM_JSON(SpotStrategy, spotStrategy_);
+      DARABONBA_PTR_FROM_JSON(SupportCase, supportCase_);
       DARABONBA_PTR_FROM_JSON(SystemDiskCategory, systemDiskCategory_);
       DARABONBA_PTR_FROM_JSON(ZoneId, zoneId_);
     };
@@ -62,7 +64,8 @@ namespace Models
     virtual bool empty() const override { return this->cores_ == nullptr
         && this->dataDiskCategory_ == nullptr && this->dedicatedHostId_ == nullptr && this->destinationResource_ == nullptr && this->instanceChargeType_ == nullptr && this->instanceType_ == nullptr
         && this->ioOptimized_ == nullptr && this->memory_ == nullptr && this->networkCategory_ == nullptr && this->regionId_ == nullptr && this->resourceType_ == nullptr
-        && this->scope_ == nullptr && this->spotDuration_ == nullptr && this->spotStrategy_ == nullptr && this->systemDiskCategory_ == nullptr && this->zoneId_ == nullptr; };
+        && this->scope_ == nullptr && this->spotDuration_ == nullptr && this->spotStrategy_ == nullptr && this->supportCase_ == nullptr && this->systemDiskCategory_ == nullptr
+        && this->zoneId_ == nullptr; };
     // cores Field Functions 
     bool hasCores() const { return this->cores_ != nullptr;};
     void deleteCores() { this->cores_ = nullptr;};
@@ -161,6 +164,13 @@ namespace Models
     inline DescribeRCAvailableResourceRequest& setSpotStrategy(string spotStrategy) { DARABONBA_PTR_SET_VALUE(spotStrategy_, spotStrategy) };
 
 
+    // supportCase Field Functions 
+    bool hasSupportCase() const { return this->supportCase_ != nullptr;};
+    void deleteSupportCase() { this->supportCase_ = nullptr;};
+    inline string getSupportCase() const { DARABONBA_PTR_GET_DEFAULT(supportCase_, "") };
+    inline DescribeRCAvailableResourceRequest& setSupportCase(string supportCase) { DARABONBA_PTR_SET_VALUE(supportCase_, supportCase) };
+
+
     // systemDiskCategory Field Functions 
     bool hasSystemDiskCategory() const { return this->systemDiskCategory_ != nullptr;};
     void deleteSystemDiskCategory() { this->systemDiskCategory_ = nullptr;};
@@ -192,6 +202,7 @@ namespace Models
     shared_ptr<string> scope_ {};
     shared_ptr<int32_t> spotDuration_ {};
     shared_ptr<string> spotStrategy_ {};
+    shared_ptr<string> supportCase_ {};
     shared_ptr<string> systemDiskCategory_ {};
     shared_ptr<string> zoneId_ {};
   };

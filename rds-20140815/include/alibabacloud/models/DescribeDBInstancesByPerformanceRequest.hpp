@@ -96,9 +96,9 @@ namespace Models
 
 
     protected:
-      // The key of tag 1 that is added to the instances.
+      // Queries instances that are bound to the tag Tag.1.key.
       shared_ptr<string> key_ {};
-      // The value of tag 1 that is added to the instances.
+      // Queries instances that are bound to the tag Tag.1.value.
       shared_ptr<string> value_ {};
     };
 
@@ -215,31 +215,31 @@ namespace Models
 
   protected:
     shared_ptr<vector<DescribeDBInstancesByPerformanceRequest::Tag>> tag_ {};
-    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The number of the page to return. Valid values: any non-zero positive integer.
+    // The page number. The value must be a positive integer that does not exceed the maximum value of the Integer data type.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **5** to **100**.
+    // The number of entries per page. Valid values: **5** to **100**.
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/26243.html) operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/610399.html) operation to query the available regions.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The sorting basis.
+    // The sorting criterion.
     shared_ptr<string> sortKey_ {};
     // The sorting method.
     shared_ptr<string> sortMethod_ {};
-    // The tags that are added to the instances. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. Format: `{"key1":"value1"}`.
+    // The tags that are bound to the instances you want to query. The tags include TagKey and TagValue. Format: `{"key1":"value1"}`.
     shared_ptr<string> tags_ {};
     // The ID of the proxy mode.
     shared_ptr<string> proxyId_ {};

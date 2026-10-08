@@ -176,37 +176,41 @@ namespace Models
 
 
   protected:
-    // The storage that is occupied by archived backup files on the instance. Unit: bytes.
+    // The storage consumed by archived backups. Unit: bytes.
     shared_ptr<int64_t> archiveBackupSize_ {};
-    // The storage that is occupied by data backup files, excluding archived backup files, on the instance. Unit: bytes.
+    // The total storage consumed by data backups, excluding archived backups. Unit: bytes.
+    // 
+    // > For **SQL Server** instances, this value indicates the total size of physical backups and snapshot backups.
     shared_ptr<int64_t> backupDataSize_ {};
-    // The storage capacity that is used to store the snapshot backup files of the **RDS for SQL Server** instance. Unit: bytes. The value 0 indicates that no snapshot backup files are stored for the instance.
+    // The storage consumed by snapshot backups for **SQL Server instances**. Unit: bytes. A value of 0 indicates no data.
     shared_ptr<string> backupEcsSnapshotSize_ {};
-    // The storage that is occupied by log backup files, excluding archived backup files, on the instance. Unit: bytes.
+    // The total storage consumed by log backups, excluding archived backups. Unit: bytes.
     shared_ptr<int64_t> backupLogSize_ {};
-    // The size of data backup files that are stored in Object Storage Service (OSS) buckets. Unit: bytes. The value 0 indicates no data backup files are stored in OSS buckets.
+    // The size of data files in backup sets stored in OSS. Unit: bytes. A value of 0 indicates no data.
+    // 
+    // > For **SQL Server** instances, this value indicates the storage consumed by physical backups.
     shared_ptr<int64_t> backupOssDataSize_ {};
-    // The size of log backup files that are stored in OSS buckets. Unit: bytes. The value 0 indicates no log backup files are stored in OSS buckets.
+    // The size of log files in backup sets stored in OSS. Unit: bytes. A value of 0 indicates no data.
     shared_ptr<int64_t> backupOssLogSize_ {};
-    // The storage that is used to store backup files. Unit: bytes. The value -1 indicates that no backup files are stored.
+    // The storage consumed by backups (data backups + log backups). Unit: bytes. A value of -1 indicates no data.
     shared_ptr<int64_t> backupSize_ {};
-    // The storage that is used to store cold backup files. Unit: bytes. The value -1 indicates that no cold backup files are stored.
+    // The storage consumed by cold backups. Unit: bytes. A value of -1 indicates no data.
     shared_ptr<int64_t> coldBackupSize_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The storage that is used to store data files. Unit: bytes. The value -1 indicates that no data files are stored.
+    // The storage consumed by data files. Unit: bytes. A value of -1 indicates no data.
     shared_ptr<int64_t> dataSize_ {};
-    // The total storage that is occupied by data files and log files on the instance. Unit: bytes. The value -1 indicates that no data files or log files are stored on the instance.
+    // The used storage (DataSize + LogSize). Unit: bytes. A value of -1 indicates no data.
     shared_ptr<int64_t> diskUsed_ {};
-    // The database engine of the instance.
+    // The database engine type.
     shared_ptr<string> engine_ {};
-    // The storage that is used to store log files. Unit: bytes. The value -1 indicates that no log files are stored.
+    // The storage consumed by log files. Unit: bytes. A value of -1 indicates no data.
     shared_ptr<int64_t> logSize_ {};
-    // The backup storage for which you must pay. The system provides a free quota on backup storage. You must pay for the backup storage that exceeds the free quota. Unit: bytes.
+    // The billable storage consumed by backups after the free quota is deducted. Unit: bytes.
     shared_ptr<int64_t> paidBackupSize_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The storage that is occupied to execute SQL statements on the instance. Unit: bytes. The value -1 indicates that no SQL statements are executed.
+    // The storage consumed by SQL data. Unit: bytes. A value of -1 indicates no data.
     shared_ptr<int64_t> SQLSize_ {};
   };
 

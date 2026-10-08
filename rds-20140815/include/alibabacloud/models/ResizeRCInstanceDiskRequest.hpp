@@ -94,29 +94,27 @@ namespace Models
 
 
   protected:
-    // Specifies whether to enable the automatic payment feature for the instance. Valid values:
-    // 
-    // *   **true** (default): enables the feature. Make sure that your account balance is sufficient.
-    // *   **false**: disables the feature. An unpaid order is generated.
-    // 
-    // >  If your account balance is insufficient, you can set AutoPay to false. In this case, an unpaid order is generated. You can complete the payment in the Expenses and Costs console.
+    // Specifies whether to enable automatic payment. Valid values:
+    // - **true** (default): Automatic payment is enabled. Make sure that your account balance is sufficient.
+    // - **false**: Only an order is generated. No payment is made.
+    // > If your payment method has an insufficient balance, set AutoPay to false. An unpaid order is generated. You can log on to the ApsaraDB RDS console to complete the payment.
+    // >
     shared_ptr<bool> autoPay_ {};
+    // The cloud disk ID.
     shared_ptr<string> diskId_ {};
-    // Specifies whether to perform only a dry run, without performing the actual request. Valid values:
-    // 
-    // *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient inventory errors.
-    // *   **false**: performs a dry run and performs the actual request. If the request passes the dry run, the instance is created.
+    // Specifies whether to perform a dry run. Valid values:
+    // * **true**: performs a dry run without creating the instance. The system checks items such as the request parameters, request format, service limits, and available resources.
+    // * **false** (default): sends the request. If the request passes the check, the instance is created.
     shared_ptr<bool> dryRun_ {};
     // The instance ID.
     shared_ptr<string> instanceId_ {};
-    // The new disk size. Unit: GiB.
+    // The size of the disk after expansion. Unit: GiB.
     shared_ptr<int64_t> newSize_ {};
     // The region ID of the instance.
     shared_ptr<string> regionId_ {};
-    // The method that you want to use to resize the disk. Valid values:
-    // 
-    // *   **offline** (default): resizes disks offline. After you resize a disk offline, you must restart the instance for the resizing operation to take effect.
-    // *   **online**: resizes disks online. After you resize a disk online, the resizing operation takes effect immediately and you do not need to restart the instance.
+    // The method used to expand the disk. Valid values:
+    // - **offline** (default): Offline expansion. You must restart the instance for the expansion to take effect.
+    // - **online**: Online expansion. The expansion takes effect without restarting the instance.
     shared_ptr<string> type_ {};
   };
 

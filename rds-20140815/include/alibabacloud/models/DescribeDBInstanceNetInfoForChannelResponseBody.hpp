@@ -433,11 +433,10 @@ namespace Models
   protected:
     shared_ptr<DescribeDBInstanceNetInfoForChannelResponseBody::DBInstanceNetInfos> DBInstanceNetInfos_ {};
     // The network type of the instance. Valid values:
-    // 
-    // *   **VPC**: a virtual private cloud (VPC)
-    // *   **Classic**: classic network
+    // * **VPC**: virtual private cloud (VPC).
+    // * **Classic**: classic network.
     shared_ptr<string> instanceNetworkType_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -112,19 +112,19 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The end of the time range to query. The end time must be later than the start time.
+    // The end time of the query. The end time must be later than the start time.
     // 
-    // Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> endTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from 1.
+    // The page number. Valid values: any integer greater than 0 that does not exceed the maximum value of Integer.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
@@ -136,9 +136,9 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The beginning of the time range to query.
+    // The start time of the query.
     // 
-    // Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
     // 
     // This parameter is required.
     shared_ptr<string> startTime_ {};

@@ -187,58 +187,50 @@ namespace Models
 
 
       protected:
-        // The ID of the Alibaba Cloud account.
+        // The ID of the current Alibaba Cloud account.
         shared_ptr<int64_t> aliUid_ {};
-        // Indicates whether the notification has been confirmed. You can call the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed. Valid values:
-        // 
-        // *   **true**
-        // *   **false**
+        // Indicates whether the notification has been confirmed, that is, whether the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation has been called to mark the notification as confirmed. Valid values:
+        // * **true**: The notification has been confirmed.
+        // * **false**: The notification has not been confirmed.
         shared_ptr<bool> confirmFlag_ {};
-        // The UID of the contact who called the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed. The contact belongs to the current Alibaba Cloud account.
+        // The UID of the notification recipient under the current Alibaba Cloud account who called the [ConfirmNotify](https://help.aliyun.com/document_detail/610444.html) operation to mark the notification as confirmed.
         // 
-        // The value **0** indicates that the notification is automatically confirmed by the system.
+        // A return value of **0** indicates that the notification was automatically confirmed by the system.
         shared_ptr<int64_t> confirmor_ {};
         // The time when the notification was created.
         shared_ptr<string> gmtCreated_ {};
         // The time when the notification was modified.
         shared_ptr<string> gmtModified_ {};
-        // The ID of the notification.
+        // The notification ID.
         shared_ptr<int64_t> id_ {};
-        // The number of times that repeatedly sent notifications are blocked.
+        // The number of times that duplicate notifications were blocked.
         shared_ptr<string> idempotentCount_ {};
-        // This parameter ensures the idempotence of the notification and prevents the notification from being repeatedly sent.
+        // The idempotency identifier used to prevent duplicate notifications from being sent.
         shared_ptr<string> idempotentId_ {};
         // The level of the notification. Valid values:
-        // 
-        // *   **help**
-        // *   **success**
-        // *   **warning**
-        // *   **error**
-        // *   **loading**
-        // *   **notice**
+        // * **help**: help
+        // * **success**: execution succeeded
+        // * **warning**: warning
+        // * **error**: execution failed
+        // * **loading**: task in progress
+        // * **notice**: general
         shared_ptr<string> level_ {};
-        // The element in the notification template. This parameter is a JSON string. Fields in the JSON string vary based on the value of the **TemplateName** parameter.
-        // 
-        // *   If the **TemplateName** parameter is **RenewalRecommend**, the JSON string contains the following fields:
-        // 
-        //     *   **instanceName**: the ID of the instance that is about to expire
-        //     *   **reservedTime**: the remaining validity period of the instance in days
-        // 
-        // *   If the **TemplateName** parameter is **InstanceCreateFailed**, the JSON string contains the following fields:
-        // 
-        //     *   **orderId**: the ID of the order to purchase the instance
-        //     *   **reason**: the cause of the instance creation failure
+        // The elements in the notification template, which are represented as a JSON string. The parameters in the JSON string vary based on the value of **TemplateName**.
+        // * If **TemplateName** is set to **RenewalRecommend**:
+        //     * **instanceName**: the ID of the instance that is about to expire.
+        //     * **reservedTime**: the number of remaining days.
+        // * If **TemplateName** is set to **InstanceCreateFailed**:
+        //     * **orderId**: the order ID for the instance purchase.
+        //     * **reason**: the reason why the instance failed to be created.
         shared_ptr<string> notifyElement_ {};
-        // The template of the notification. Valid values:
-        // 
-        // *   **RenewalRecommend**: The template that is used to notify of renewal suggestions.
-        // *   **InstanceCreateFailed**: The template that is used to notify that an instance fails to be created and is refunded.
+        // The notification template. Valid values:
+        // * **RenewalRecommend**: renewal recommendation
+        // * **InstanceCreateFailed**: instance creation failed with refund
         shared_ptr<string> templateName_ {};
-        // The type of the notification. Valid values:
-        // 
-        // *   **Sell**: sales notification
-        // *   **Operation**: O\\&M notification
-        // *   **Promotion**: promotion notification
+        // The notification type. Valid values:
+        // * **Sell**: sale-related notification
+        // * **Operation**: O&M notification
+        // * **Promotion**: promotional notification
         shared_ptr<string> type_ {};
       };
 
@@ -275,13 +267,13 @@ namespace Models
 
 
     protected:
-      // The details of notifications.
+      // The list of notifications.
       shared_ptr<vector<Data::NotifyItemList>> notifyItemList_ {};
-      // The page number of the page returned.
+      // The page number.
       shared_ptr<int32_t> pageNumber_ {};
-      // The number of entries returned on each page.
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of records.
       shared_ptr<int32_t> totalRecordCount_ {};
     };
 
@@ -304,7 +296,7 @@ namespace Models
 
 
   protected:
-    // The response parameters.
+    // The returned data.
     shared_ptr<QueryNotifyResponseBody::Data> data_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

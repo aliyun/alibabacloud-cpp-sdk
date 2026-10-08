@@ -76,11 +76,11 @@ namespace Models
 
   protected:
     shared_ptr<int64_t> ownerId_ {};
-    // The parameter template ID. You can call the DescribeParameterGroups operation to query the parameter template ID.
+    // The parameter template ID. You can call the [DescribeParameterGroups](~~DescribeParameterGroups~~) operation to query the parameter template ID.
     // 
     // This parameter is required.
     shared_ptr<string> parameterGroupId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the region ID.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};

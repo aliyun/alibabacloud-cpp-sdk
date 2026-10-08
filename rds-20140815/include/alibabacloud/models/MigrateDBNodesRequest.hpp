@@ -88,7 +88,7 @@ namespace Models
     protected:
       // The node ID.
       shared_ptr<string> nodeId_ {};
-      // The ID of the zone in which the node resides.
+      // The zone ID of the node.
       shared_ptr<string> zoneId_ {};
     };
 
@@ -168,25 +168,26 @@ namespace Models
 
 
   protected:
-    // Specifies the client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) operation to query the IDs of instances.
+    // The instance ID. You can call [DescribeDBInstances](https://help.aliyun.com/document_detail/26232.html) to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The details of the nodes.
+    // The list of cluster nodes.
     shared_ptr<vector<MigrateDBNodesRequest::DBNode>> DBNode_ {};
-    // The time when you want the system to start the migration. Valid value:
+    // The migration time. Valid values:
+    // * **Immediately**: The migration is performed immediately. This is the default value.
+    // * **MaintainTime**: The migration is performed during the maintenance window.
+    // * **ScheduleTime**: The migration is performed at the specified time.
     // 
-    // *   **Immediately**: The system immediately starts the migration. This is the default value.
-    // *   **MaintainTime**: The system starts the migration during the specified maintenance window.
-    // *   **Specified**: The system starts the migration at the specified point in time.
+    // > If you set this parameter to **ScheduleTime**, you must also specify the SwitchTime parameter.
     shared_ptr<string> effectiveTime_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // Specifies the time when the modification is performed. We recommend that you apply the specification during off-peak hours. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+    // The scheduled time for the migration. Perform the migration during off-peak hours. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
     shared_ptr<string> switchTime_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};

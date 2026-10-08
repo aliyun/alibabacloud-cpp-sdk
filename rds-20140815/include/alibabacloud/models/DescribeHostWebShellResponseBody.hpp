@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The webshell URL.
+    // The WebShell logon URL.
     shared_ptr<string> loginUrl_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

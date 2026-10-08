@@ -232,108 +232,96 @@ namespace Models
 
 
   protected:
-    // The consistency read timeout period. Unit: milliseconds. Default value: **10** Unit: milliseconds. Valid values: **0 to 60000**
+    // The timeout period for read consistency. Unit: milliseconds. Default value: **10**. Valid values: **0 to 60000**.
     shared_ptr<string> causalConsistReadTimeout_ {};
-    // The capabilities that you want to enable for the proxy endpoint. If you specify more than one capability, separate the capabilities with semicolons (;). Format: `Capability 1:Status;Capability 2:Status;...`. Do not add a semicolon (;) at the end of the value.
+    // The proxy features that you want to enable for the proxy endpoint. Separate multiple features with semicolons (;). Format: `Feature 1:Status;Feature 2:Status;...`. Do not add a semicolon (;) at the end.
     // 
-    // Valid capability values:
+    // Valid values for features:
+    // * **ReadWriteSpliting**: Read/write splitting.
+    // * **ConnectionPersist**: Connection pool.
+    // * **TransactionReadSqlRouteOptimizeStatus**: Transaction splitting.
+    // * **AZProximityAccess**: Nearest access.
+    // * **CausalConsistRead**: Read consistency.
+    // * **HtapFilter**: HTAP automatic request distribution among row store and column store nodes.
     // 
-    // *   **ReadWriteSpliting**: read/write splitting
-    // *   **ConnectionPersist**: connection pooling
-    // *   **TransactionReadSqlRouteOptimizeStatus**: transaction splitting
-    // *   **AZProximityAccess**: nearest access
-    // *   **CausalConsistRead**: read consistency
+    // Valid values for status:
+    // * **1**: Enabled.
+    // * **0**: Disabled.
     // 
-    // Valid status values:
-    // 
-    // *   **1**: enabled
-    // *   **0**: disabled
-    // 
-    // > 
-    // 
-    // *   If the instance runs PostgreSQL, you can enable only read/write splitting, which is specified by **ReadWriteSpliting**.
-    // 
-    // *   Nearest access is supported only by dedicated database proxies for RDS instances that run MySQL.
+    // > - ApsaraDB RDS for PostgreSQL supports only **ReadWriteSpliting**.
+    // > - The nearest access feature is supported only by the dedicated database proxy for MySQL.
     shared_ptr<string> configDBProxyFeatures_ {};
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The ID of the proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the proxy endpoint ID.
+    // The ID of the proxy endpoint. You can call DescribeDBProxyEndpoint to query the ID.
     // 
-    // > *   If the instance runs MySQL and you set **DbEndpointOperator** to **Delete** or **Modify**, you must specify DBProxyEndpointId.
-    // > *   If the instance runs PostgreSQL and you set **DbEndpointOperator** to **Delete**, **Modify**, or **Create**, you must specify DBProxyEndpointId.
+    // > - MySQL: This parameter is required when **DbEndpointOperator** is set to **Delete** or **Modify**.
+    // > - PostgreSQL: This parameter is required when **DbEndpointOperator** is set to **Delete**, **Modify**, or **Create**.
     shared_ptr<string> DBProxyEndpointId_ {};
     // A deprecated parameter. You do not need to specify this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
-    // The description of the proxy terminal.
+    // The description of the proxy endpoint.
     shared_ptr<string> dbEndpointAliases_ {};
     shared_ptr<string> dbEndpointCostThresholdForDuckdb_ {};
     // The minimum number of reserved instances.
     shared_ptr<string> dbEndpointMinSlaveCount_ {};
-    // The type of operation that you want to perform. Valid values:
-    // 
-    // *   **Modify**: Modify a proxy terminal. This is the default value.
-    // *   **Create**: Create a proxy terminal.
-    // *   **Delete**: Delete a proxy terminal.
+    // The type of operation. Valid values:
+    // * **Modify**: The default value. Modifies the proxy endpoint.
+    // * **Create**: Creates a proxy endpoint.
+    // * **Delete**: Deletes a proxy endpoint.
     shared_ptr<string> dbEndpointOperator_ {};
-    // The read and write attributes of the proxy terminal. Valid values:
+    // The read/write mode. Valid values:
+    // * **ReadWrite**: Connects to the primary instance and can accept write requests.
+    // * **ReadOnly**: The default value. Does not connect to the primary instance and cannot accept write requests.
     // 
-    // *   **ReadWrite**: The proxy terminal connects to the primary instance and can receive both read and write requests.
-    // *   **ReadOnly**: The proxy terminal does not connect to the primary instance and can receive only read requests. This is the default value.
-    // 
-    // > *   If you set **DbEndpointOperator** to **Create**, you must also specify DbEndpointReadWriteMode.
-    // > *   If the instance runs MySQL and you change the value of this parameter from **ReadWrite** to **ReadOnly**, the transaction splitting feature is disabled.
+    // > * This parameter is required when **DbEndpointOperator** is set to **Create**.
+    // > * For ApsaraDB RDS for MySQL instances, if you change this parameter from **ReadWrite** to **ReadOnly**, the transaction splitting feature is disabled.
     shared_ptr<string> dbEndpointReadWriteMode_ {};
-    // The type of the proxy terminal. This is a reserved parameter. You do not need to specify this parameter.
+    // The type of the proxy endpoint. This is a reserved parameter. You do not need to specify this parameter.
     shared_ptr<string> dbEndpointType_ {};
-    // The point in time that you want to specify. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
-    // 
-    // >  If **EffectiveTime** is set to **SpecificTime**, you must specify this parameter.
+    // The specified time at which the change takes effect. Format: <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z (UTC).
+    // > This parameter is required when **EffectiveTime** is set to **SpecificTime**.
     shared_ptr<string> effectiveSpecificTime_ {};
-    // The effective time. Valid values:
+    // The effective period. Valid values:
     // 
-    // *   **Immediate**: The effective time is immediate.
-    // *   **MaintainTime**: The effective time is within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-    // *   **SpecificTime**: The effective time is a specified point in time.
+    // * **Immediate**: The change takes effect immediately.
+    // * **MaintainTime**: The change takes effect during the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+    // * **SpecificTime**: The change takes effect at a specified time.
     // 
     // Default value: **MaintainTime**.
     shared_ptr<string> effectiveTime_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The policy that is used to allocate read weights. Valid values:
+    // The mode used to allocate read weights. Valid values:
     // 
-    // *   **Standard** (default): The system automatically assigns read weights to the primary and read-only instances based on the specifications of these instances.
-    // *   **Custom**: You must manually allocate read weights to the primary and read-only instances.
+    // * **Standard**: The default value. Read weights are automatically allocated based on instance specifications.
+    // * **Custom**: Custom read weights.
     // 
-    // >  You must specify this parameter when read/write splitting is enabled. For more information about the permission allocation policy, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96076.html) and [Enable and configure the database proxy feature for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418272.html).
+    // > This parameter is required only when read/write splitting is enabled. For more information about read weight allocation, see [Read weight allocation](https://help.aliyun.com/document_detail/96076.html) for MySQL and [Enable and configure the database proxy service](https://help.aliyun.com/document_detail/418272.html) for PostgreSQL.
     shared_ptr<string> readOnlyInstanceDistributionType_ {};
-    // The maximum latency threshold that is allowed for read/write splitting. If the latency on a read-only instance exceeds the threshold that you specified, the system no longer forwards read requests to the read-only instance. If you do not specify this parameter, the original value of this parameter is retained. Valid values: **0** to **3600**.
+    // The maximum latency threshold for read-only instances in read/write splitting. If the latency of a read-only instance exceeds this value, read traffic is not routed to the instance. Unit: seconds. If you do not specify this parameter, the current value is retained. Valid values: **0** to **3600**.
     // 
-    // > 
-    // 
-    // *   You must specify this parameter only when read/write splitting is enabled.
-    // 
-    // *   If the database proxy endpoint has the read and write attributes, the default value of this parameter is **30** and read/write splitting is supported. If the database proxy endpoint has the read-only attribute, the default value of this parameter is **-1** and read/write splitting is not supported. Unit: seconds.
+    // >- This parameter is required only when read/write splitting is enabled.
+    // >- Default value: **30** seconds when the read/write mode is set to read/write (read/write splitting), and **-1** (disabled) when the read/write mode is set to read-only.
     shared_ptr<string> readOnlyInstanceMaxDelayTime_ {};
-    // The read weights of the instance and its read-only instances. A read weight must be a multiple of 100 and cannot exceed 10000. Formats:
+    // The custom read weights to allocate to the primary instance and read-only instances. The value must be in increments of 100. Maximum value: 10000. Format:
     // 
-    // *   Standard instance: `{"ID of the primary instance":"Weight","ID of the read-only instance":"Weight"...}`
+    // - Regular instance: `{"PrimaryInstanceID":"Weight","ReadOnlyInstanceID":"Weight"...}`
     // 
     //     Example: `{"rm-uf6wjk5****":"500","rr-tfhfgk5xxx":"200"...}`
-    // 
-    // *   Instance on RDS Cluster Edition: `{"ID of the read-only instance":"Weight","DBClusterNode":{"ID of the primary node":"Weight","ID of the secondary node":"Weight","ID of the secondary node":"Weight"...}}`
+    // - ApsaraDB RDS for MySQL cluster instance: `{"ReadOnlyInstanceID":"Weight","DBClusterNode":{"PrimaryNodeID":"Weight","SecondaryNodeID":"Weight","SecondaryNodeID":"Weight"...}}`
     // 
     //     Example: `{"rr-tfhfgk5****":"200","DBClusterNode":{"rn-2z****":"0","rn-2z****":"400","rn-2z****":"400"...}}`
-    // 
-    //     > **DBClusterNode** is required if the instance runs RDS Cluster Edition. The DBClusterNode parameter includes information about **IDs** and **weights** of the primary and secondary nodes..
+    //     > **DBClusterNode** is a request parameter specific to cluster instances. It contains the **NodeID** and **Weight** of the primary and secondary nodes.
     shared_ptr<string> readOnlyInstanceWeight_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call DescribeRegions to query the region ID.
     shared_ptr<string> regionId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the vSwitch in the zone in which the proxy endpoint is specified. The default value is the ID of the vSwitch that corresponds to the default terminal of the database proxy. You can call the DescribeVSwitches operation to query existing vSwitches.
+    // The vSwitch ID that corresponds to the zone of the proxy endpoint. Default value: the vSwitch ID of the default endpoint of the proxy instance. You can call DescribeVSwitches to query available vSwitches.
     shared_ptr<string> vSwitchId_ {};
-    // The VPC ID of the zone in which the proxy endpoint is specified. The default value is the VPC ID that corresponds to the default terminal of the database proxy. You can call the DescribeDBInstanceAttribute operation to query the default VPC of an instance.
+    // The VPC ID that corresponds to the zone of the proxy endpoint. Default value: the VPC ID of the default endpoint of the proxy instance. You can call DescribeDBInstanceAttribute to query the default VPC of the instance.
     shared_ptr<string> vpcId_ {};
   };
 

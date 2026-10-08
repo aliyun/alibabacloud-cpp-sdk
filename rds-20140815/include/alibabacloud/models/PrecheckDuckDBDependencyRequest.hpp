@@ -75,7 +75,7 @@ namespace Models
 
 
   protected:
-    // The primary instance ID.
+    // The instance ID of the primary instance.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};

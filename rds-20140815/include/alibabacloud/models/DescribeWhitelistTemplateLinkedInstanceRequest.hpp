@@ -75,13 +75,13 @@ namespace Models
 
 
   protected:
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call DescribeRegions to obtain the region ID.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can leave this parameter empty.
+    // The resource group ID. This parameter can be left empty.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to obtain the ID of the whitelist template.
+    // The whitelist template ID. You can call DescribeAllWhitelistTemplate to obtain the ID.
     // 
     // This parameter is required.
     shared_ptr<int32_t> templateId_ {};

@@ -68,11 +68,11 @@ namespace Models
   protected:
     // The name of the custom image.
     shared_ptr<string> imageName_ {};
-    // The ID of the RDS Custom instance.
+    // The instance ID of the RDS Custom instance.
     shared_ptr<string> instanceId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call DescribeRegions to query the available regions.
     shared_ptr<string> regionId_ {};
-    // The ID of the snapshot from which to create the custom image. You can call the DescribeRCSnapshots operation to query the snapshot ID.
+    // The snapshot ID used to create the custom image. You can call DescribeRCSnapshots to query snapshot IDs.
     shared_ptr<string> snapshotId_ {};
   };
 

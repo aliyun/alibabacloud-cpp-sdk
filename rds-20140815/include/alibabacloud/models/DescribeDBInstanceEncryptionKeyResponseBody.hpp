@@ -170,34 +170,32 @@ namespace Models
     protected:
       // The alias of the key.
       shared_ptr<string> aliasName_ {};
-      // The user who created the key.
+      // The creator of the key.
       shared_ptr<string> creator_ {};
-      // The scheduled time at which the key is deleted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The scheduled time when the key is to be deleted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> deleteDate_ {};
       // The description of the key.
       shared_ptr<string> description_ {};
-      // The ID of the key.
+      // The key ID.
       shared_ptr<string> encryptionKey_ {};
       // The status of the key. Valid values:
-      // 
-      // *   **Enabled**
-      // *   **Disabled**
+      // - **Enabled**: Enabled.
+      // - **Disabled**: Disabled.
       shared_ptr<string> encryptionKeyStatus_ {};
       // The type of the key. Valid values:
-      // 
-      // *   **CMK**
-      // *   **ServiceKey**
+      // - CMK: customer master key (CMK).
+      // - ServiceKey: service key.
       shared_ptr<string> keyType_ {};
       // The purpose of the key.
       shared_ptr<string> keyUsage_ {};
-      // The time at which the key expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+      // The expiration time of the key material. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
       shared_ptr<string> materialExpireTime_ {};
       // The source of the key.
       shared_ptr<string> origin_ {};
-      // The role of the instance. Valid values:
+      // The usage of the key. Valid values:
       // 
-      // *   **Master**: primary instance
-      // *   **slave**: read-only instance
+      // - **TDE**: transparent data encryption.
+      // - **DiskEncryption**: cloud disk encryption.
       shared_ptr<string> usedBy_ {};
     };
 
@@ -277,28 +275,27 @@ namespace Models
 
 
   protected:
-    // The user who created the key.
+    // The creator of the key.
     shared_ptr<string> creator_ {};
-    // The scheduled time at which the key is deleted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The scheduled time when the key is to be deleted. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> deleteDate_ {};
     // The description of the key.
     shared_ptr<string> description_ {};
-    // The ID of the key.
+    // The key ID.
     shared_ptr<string> encryptionKey_ {};
-    // The details about the key.
+    // The list of keys.
     shared_ptr<vector<DescribeDBInstanceEncryptionKeyResponseBody::EncryptionKeyList>> encryptionKeyList_ {};
     // The status of the key. Valid values:
-    // 
-    // *   **Enabled**
-    // *   **Disabled**
+    // - **Enabled**: Enabled.
+    // - **Disabled**: Disabled.
     shared_ptr<string> encryptionKeyStatus_ {};
     // The purpose of the key.
     shared_ptr<string> keyUsage_ {};
-    // The time at which the key expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+    // The expiration time of the key material. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
     shared_ptr<string> materialExpireTime_ {};
     // The source of the key.
     shared_ptr<string> origin_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

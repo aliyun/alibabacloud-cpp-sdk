@@ -66,18 +66,9 @@ namespace Models
 
 
   protected:
-    // The direction of the security group rules that you want to delete. Valid values:
-    // 
-    // *   **ingress**: inbound security group rules.
-    // *   **egress**: outbound security group rules.
-    // 
-    // >  You can specify security group rules only in the same direction in a request.
     shared_ptr<string> direction_ {};
-    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the security group.
     shared_ptr<string> securityGroupId_ {};
-    // The IDs of the security group rules that you want to delete.
     shared_ptr<string> securityGroupRuleIdListShrink_ {};
   };
 

@@ -93,9 +93,9 @@ namespace Models
 
 
   protected:
-    // The type of reserved keyword returned.
+    // The type of reserved keywords, which indicates whether the reserved keywords are for account names or database names.
     shared_ptr<string> key_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<DescribeInstanceKeywordsResponseBody::Words> words_ {};
   };

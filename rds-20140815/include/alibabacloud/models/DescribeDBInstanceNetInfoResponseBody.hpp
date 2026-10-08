@@ -461,17 +461,15 @@ namespace Models
 
   protected:
     shared_ptr<DescribeDBInstanceNetInfoResponseBody::DBInstanceNetInfos> DBInstanceNetInfos_ {};
-    // The network type of the instance. Valid values:
-    // 
-    // *   **Classic**: classic network
-    // *   **VPC**: virtual private cloud (VPC)
+    // The network type. Valid values:
+    // * **Classic**: classic network.
+    // * **VPC**: virtual private cloud (VPC).
     shared_ptr<string> instanceNetworkType_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The whitelist mode of the instance. Valid values:
-    // 
-    // *   **normal**: standard whitelist mode
-    // *   **safety**: enhanced whitelist mode
+    // The whitelist mode. Valid values:
+    // * **normal**: standard whitelist mode.
+    // * **safety**: enhanced whitelist.
     shared_ptr<string> securityIPMode_ {};
   };
 

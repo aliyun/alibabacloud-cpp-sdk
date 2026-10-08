@@ -66,21 +66,20 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to obtain the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceName_ {};
-    // The keys of the Enhanced Monitoring metrics that you want to display for the instance. You can enter a maximum of 30 metric keys. If you enter multiple metric keys, you must separate the metric keys with commas (,).
+    // The monitoring metrics to configure for the instance. You can specify multiple metric keys separated by commas (,). A maximum of 30 metric keys can be specified.
     // 
-    // You can call the DescribeAvailableMetrics operation to query the keys of metrics.
+    // You can call the DescribeAvailableMetrics operation to obtain the enhanced monitoring metric keys.
     // 
     // This parameter is required.
     shared_ptr<string> metricsConfig_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The application scope of this modification. Valid values:
-    // 
-    // *   **instance**: This modification is applied only to the current instance.
-    // *   **region**: This modification is applied to all ApsaraDB RDS for PostgreSQL instances that are equipped with the same type of storage media as the current instance in the region to which the current instance belongs. For example, if the current instance is equipped with cloud disks, this modification is applied to all ApsaraDB RDS for PostgreSQL instances that are equipped with cloud disks in the region to which the current instance belongs.
+    // The scope of the modification. Valid values:
+    // * **instance**: instance level. The modification is applied only to cloud disk instance.
+    // * **region**: region level. The modification is applied to all ApsaraDB RDS for PostgreSQL instances that use the same storage type as cloud disk instance in the current region. For example, if cloud disk instance uses cloud disks, the modification is applied to all ApsaraDB RDS for PostgreSQL instances with cloud disks in the current region.
     // 
     // This parameter is required.
     shared_ptr<string> scope_ {};

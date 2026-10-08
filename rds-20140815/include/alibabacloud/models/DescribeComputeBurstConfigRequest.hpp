@@ -94,7 +94,7 @@ namespace Models
 
 
   protected:
-    // The client token that is used to ensure the idempotence of requests and prevent repeated requests from being submitted. You can use the client to generate the value, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+    // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
     // The instance ID.
     // 
@@ -102,7 +102,7 @@ namespace Models
     shared_ptr<string> DBInstanceId_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The ID of the region in which the instance resides.
+    // The region ID of the instance.
     Darabonba::Bytes regionId_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};

@@ -182,18 +182,18 @@ namespace Models
 
 
   protected:
-    // The instance to which the cross-region backup file belongs.
+    // The instance to which the cross-region backup set belongs.
     shared_ptr<string> DBInstanceName_ {};
     shared_ptr<DescribeCrossBackupMetaListResponseBody::Items> items_ {};
-    // The page number of the returned page.
+    // The page number.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries returned per page.
+    // The number of entries on the current page.
     shared_ptr<int32_t> pageRecordCount_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPageCount_ {};
-    // The total number of returned entries.
+    // The total number of entries.
     shared_ptr<int32_t> totalRecordCount_ {};
   };
 

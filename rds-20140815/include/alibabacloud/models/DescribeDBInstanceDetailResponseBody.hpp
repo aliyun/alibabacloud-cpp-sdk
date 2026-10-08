@@ -75,15 +75,15 @@ namespace Models
 
 
   protected:
-    // Indicates whether the instance is in the active state.
+    // The activation state.
     shared_ptr<string> activationState_ {};
-    // The ID of the instance.
+    // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The type of the license.
+    // The license type.
     shared_ptr<string> licenseType_ {};
-    // The region ID of the instance.
+    // The region ID.
     shared_ptr<string> regionId_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

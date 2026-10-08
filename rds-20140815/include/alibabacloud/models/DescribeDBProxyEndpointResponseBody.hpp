@@ -388,16 +388,16 @@ namespace Models
 
 
   protected:
-    // The timeout period for consistency reads. Unit: milliseconds. Default value: **10**. Valid values: **0** to **60000**.
+    // The timeout period for consistency reads. Unit: milliseconds. Default value: **10**. Valid values: **0 to 60000**.
     shared_ptr<string> causalConsistReadTimeout_ {};
-    // The proxy endpoint queried.
+    // The proxy endpoint.
     shared_ptr<string> DBProxyConnectString_ {};
     // The network type of the proxy endpoint. Valid values:
     // 
-    // *   **InnerString**: internal network
-    // *   **OuterString**: Internet
+    // * **InnerString**: internal endpoint.
+    // * **OuterString**: public endpoint.
     shared_ptr<string> DBProxyConnectStringNetType_ {};
-    // The port number that is associated with the proxy endpoint.
+    // The port of the proxy endpoint.
     shared_ptr<string> DBProxyConnectStringPort_ {};
     shared_ptr<string> DBProxyEndpointCostThresholdForDuckdb_ {};
     // The ID of the proxy endpoint.
@@ -406,46 +406,44 @@ namespace Models
     shared_ptr<string> DBProxyEndpointMinSlaveCount_ {};
     // An internal parameter. You can ignore this parameter.
     shared_ptr<string> DBProxyEngineType_ {};
-    // The configuration of the proxy terminal. The value of this parameter is a JSON string that consists of the following parameters:
+    // The settings of the proxy endpoint in JSON format. The following parameters are included:
+    // * **TransactionReadSqlRouteOptimizeStatus**: the transaction splitting setting. The value is **0** (disabled) or **1** (enabled).
+    // * **ConnectionPersist**: the connection pool setting. The value is **0** (disabled), **1** (session-level connection pool), or **2** (transaction-level connection pooling).
+    // * **ReadWriteSpliting**: the read/write splitting setting. The value is **0** (disabled) or **1** (enabled).
+    // * **AZProximityAccess**: the nearest access feature. The value is **0** (disabled) or **1** (enabled).
+    // * **CausalConsistRead**: the read consistency setting. The value is **0** (eventual consistency), **1** (session consistency), or **2** (global consistency).
+    // * **HtapFilter**: the automatic request distribution among row store and column store nodes setting. The value is **0** (disabled) or **1** (enabled).
+    // * **PinPreparedStmt**: visible only for ApsaraDB RDS for PostgreSQL. This is an internal parameter.
     // 
-    // *   **TransactionReadSqlRouteOptimizeStatus**: the status of the transaction splitting feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
-    // *   **ConnectionPersist**: the status of the connection pooling feature. Valid values: **0**, **1**, and **2**. The value 0 indicates that the connection pooling feature is disabled. The value 1 indicates that the session-level connection pooling feature is enabled. The value 2 indicates that the transaction-level connection pooling feature is enabled.
-    // *   **ReadWriteSpliting**: the status of the read/write splitting feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
-    // *   **AZProximityAccess**: the status of the nearest access feature. Valid values: **0** and **1**. The value 0 indicates that the feature is disabled. The value 1 indicates that the feature is enabled.
-    // *   **CausalConsistRead**: the read consistency settings. Valid values: **0**, **1**, and **2**. The value 0 indicates eventual consistency. The value 1 indicates session consistency. The value 2 indicates global consistency.
-    // *   **PinPreparedStmt**: an internal parameter that is available only for ApsaraDB RDS for PostgrSQL instances.
-    // 
-    // >  If the instance runs PostgreSQL, you can change only the value of the **ReadWriteSpliting** field. The **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** fields are set to their default values 1.
+    // > ApsaraDB RDS for PostgreSQL supports modification of only **ReadWriteSpliting**. **TransactionReadSqlRouteOptimizeStatus** and **PinPreparedStmt** are set to 1 by default.
     shared_ptr<string> DBProxyFeatures_ {};
     shared_ptr<DescribeDBProxyEndpointResponseBody::DBProxyNodes> DBProxyNodes_ {};
-    // The description of the proxy terminal.
+    // The description of the proxy endpoint.
     shared_ptr<string> dbProxyEndpointAliases_ {};
-    // The read and write attributes of the proxy terminal. Valid values:
-    // 
-    // *   **ReadWrite**: The proxy terminal supports read and write requests.
-    // *   **ReadOnly**: The proxy terminal supports only read requests.
+    // The read/write type of the proxy endpoint. Valid values:
+    // * **ReadWrite**: read/write splitting mode.
+    // * **ReadOnly**: read-only mode.
     shared_ptr<string> dbProxyEndpointReadWriteMode_ {};
-    // The virtual private cloud (VPC) ID of the proxy.
+    // The VPC ID of the proxy endpoint.
     shared_ptr<string> dbProxyEndpointVpcId_ {};
-    // The vSwitch ID of the proxy terminal.
+    // The vSwitch ID of the proxy endpoint.
     shared_ptr<string> dbProxyEndpointVswitchId_ {};
-    // The zone ID of the proxy terminal.
+    // The zone information of the proxy endpoint.
     shared_ptr<string> dbProxyEndpointZoneId_ {};
     shared_ptr<DescribeDBProxyEndpointResponseBody::EndpointConnectItems> endpointConnectItems_ {};
-    // The method that is used to assign read weights. For more information, see [Modify the latency threshold and read weights of ApsaraDB RDS for MySQL instances](https://help.aliyun.com/document_detail/96076.html). Valid values:
+    // The read weight distribution mode. For more information, see [Read weight distribution](https://help.aliyun.com/document_detail/96076.html). Valid values:
     // 
-    // *   **Standard**: The system automatically assigns read weights to the instance and its read-only instances based on the specifications of these instances.
-    // *   **Custom**: You must manually assign read weights to the instance and its read-only instances.
+    // * **Standard**: automatically distributes weights based on instance specifications.
+    // * **Custom**: uses custom weight distribution.
     shared_ptr<string> readOnlyInstanceDistributionType_ {};
-    // The latency threshold that is allowed for read/write splitting. If the latency on a read-only instance exceeds the specified threshold, ApsaraDB RDS no longer forwards read requests to the read-only instance.
+    // The latency threshold for read/write splitting. When the latency of a read-only instance exceeds this threshold, read traffic is not routed to the instance. Unit: seconds.
     shared_ptr<string> readOnlyInstanceMaxDelayTime_ {};
-    // The read weights of the instance and its read-only instances. The value of this parameter is a JSON string that consists of the following parameters:
-    // 
-    // *   **DBInstanceId**: the ID of the instance.
-    // *   **DBInstanceType**: the role of the instance. Valid values: **Master** and **ReadOnly**.
-    // *   **NodeID**: The IDs of the primary and secondary nodes of the cluster. An instance that runs RDS Cluster Edition refers to a cluster.
-    // *   **NodeType**: The node type. Valid values: **Primary** and **Secondary**.
-    // *   **Weight**: the read weight of the instance. The read weight increases in increments of **100** and cannot exceed **10000**.
+    // The read weight distribution information, which specifies the read request weights of the primary instance and read-only instances. The value is in JSON format and includes the following parameters:
+    // * **DBInstanceId**: the instance ID.
+    // * **DBInstanceType**: the instance type. The value is **Master** (primary instance) or **ReadOnly** (read-only instance).
+    // * **NodeID**: the node ID of the primary node or secondary node of the primary instance in the Cluster Edition.
+    // * **NodeType**: the node type in the Cluster Edition. The value is **Primary** (primary node of the primary instance) or **Secondary** (secondary node of the primary instance).
+    // * **Weight**: the read request weight. The value increases in increments of **100**. Maximum value: **10000**.
     shared_ptr<string> readOnlyInstanceWeight_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

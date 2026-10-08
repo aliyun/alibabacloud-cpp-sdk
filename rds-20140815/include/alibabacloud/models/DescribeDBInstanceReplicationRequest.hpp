@@ -57,15 +57,15 @@ namespace Models
 
 
   protected:
-    // The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+    // The instance ID. You can call DescribeDBInstances to query the instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> DBInstanceId_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call DescribeRegions to query the available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The resource group ID. You can leave this parameter empty.
+    // The resource group ID. This parameter can be left empty.
     shared_ptr<string> resourceGroupId_ {};
   };
 

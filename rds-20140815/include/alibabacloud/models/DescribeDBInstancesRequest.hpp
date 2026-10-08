@@ -342,114 +342,106 @@ namespace Models
 
 
   protected:
-    // The RDS edition of the instance. Valid values:
-    // 
-    // *   **Basic**: RDS Basic Edition
-    // *   **HighAvailability**: RDS High-availability Edition
-    // *   **cluster**: RDS Cluster Edition
-    // *   **serverless_basic**: RDS Serverless Basic Edition
+    // The instance edition. Valid values:
+    // - **Basic**: Basic Edition
+    // - **HighAvailability**: High-availability Edition
+    // - **cluster**: Cluster Edition
+    // - **serverless_basic**: Serverless
     shared_ptr<string> category_ {};
     // The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
     shared_ptr<string> clientToken_ {};
-    // The connection mode of the instance. Valid values:
+    // The access mode of the instance. Valid values:
+    // * **Standard**: standard access mode
+    // * **Safe**: database proxy mode
     // 
-    // *   **Standard**: standard mode
-    // *   **Safe**: database proxy mode
-    // 
-    // By default, this operation queries the instances that use any of the supported connection modes.
+    // By default, instances in all access modes are returned.
     shared_ptr<string> connectionMode_ {};
-    // The endpoint of the instance. You must specify this parameter only when you want to query a single instance.
+    // The endpoint of the instance. Use this endpoint to query the corresponding instance.
     shared_ptr<string> connectionString_ {};
-    // The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](https://help.aliyun.com/document_detail/26312.html).
+    // The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/26312.html).
     shared_ptr<string> DBInstanceClass_ {};
     // The instance ID.
     shared_ptr<string> DBInstanceId_ {};
-    // The status of the instance. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
+    // The instance status. For more information, see [Instance states](https://help.aliyun.com/document_detail/26315.html).
     shared_ptr<string> DBInstanceStatus_ {};
-    // The role of the instance. Valid values:
+    // The instance type. Valid values:
+    // * **Primary**: primary instance
+    // * **Readonly**: read-only instance
+    // * **Guard**: disaster recovery instance
+    // * **Temp**: temporary instance
     // 
-    // *   **Primary**: primary instance
-    // *   **Readonly**: read-only instance
-    // *   **Guard**: disaster recovery instance
-    // *   **Temp**: temporary instance
-    // 
-    // By default, this operation returns the instances that assume any of the supported roles.
+    // By default, instances of all types are returned.
     shared_ptr<string> DBInstanceType_ {};
     // The dedicated cluster ID.
     shared_ptr<string> dedicatedHostGroupId_ {};
-    // The host ID of the instance in the dedicated cluster.
+    // The host ID in the dedicated cluster.
     shared_ptr<string> dedicatedHostId_ {};
-    // The database engine of the instance. Valid values:
+    // The database engine. Valid values:
+    // * **MySQL**
+    // * **SQLServer**
+    // * **PostgreSQL**
+    // * **MariaDB**
     // 
-    // *   **MySQL**
-    // *   **SQLServer**
-    // *   **PostgreSQL**
-    // *   **MariaDB**
-    // 
-    // By default, this operation returns the instances that run any of the supported database engines.
+    // By default, instances of all database engines are returned.
     shared_ptr<string> engine_ {};
     // The database engine version.
     shared_ptr<string> engineVersion_ {};
-    // Specifies whether the instances have expired. Valid values:
-    // 
-    // *   **True**
-    // *   **False**
+    // The expiration status of the instance. Valid values:
+    // * **True**: The instance has expired.
+    // * **False**: The instance has not expired.
     shared_ptr<string> expired_ {};
-    // The JSON string that consists of filter condition parameters and their values.
+    // The JSON string that contains the instance filter conditions and their values.
     shared_ptr<string> filter_ {};
-    // Specifies whether to return the RDS edition of the instance by using the Category parameter. Valid values:
-    // 
-    // *   **0**: returns the RDS edition of the instance.
-    // *   **1**: does not return the RDS edition of the instance.
+    // Specifies whether to return the instance edition (Category) information. Valid values:
+    // * **0**: does not return the information
+    // * **1**: returns the information
     shared_ptr<int32_t> instanceLevel_ {};
     // The network type of the instance. Valid values:
+    // * **VPC**: an instance in a virtual private cloud (VPC)
+    // * **Classic**: an instance in the classic network
     // 
-    // *   **VPC**
-    // *   **Classic**
-    // 
-    // By default, this operation returns the instances that reside in any of the supported network types.
+    // By default, instances of all network types are returned.
     shared_ptr<string> instanceNetworkType_ {};
-    // The number of entries to return per page. Valid values: **1 to 100**.
+    // The number of entries per page. Valid values: **1** to **100**.
     // 
     // Default value: **30**.
-    // 
-    // > If you specify this parameter, **PageSize** and **PageNumber** are unavailable.
+    // >If you specify this parameter, the **PageSize** and **PageNumber** parameters are unavailable.
     shared_ptr<int32_t> maxResults_ {};
-    // The token that is used to display the next page. You must set this parameter to the value that is returned from the most recent call of the **DescribeDBInstances** operation for **NextToken**. If the returned entries are displayed on multiple pages, the next page can be displayed when you call this operation again with this parameter specified.
+    // The pagination token. Set this parameter to the value of **NextToken** that is returned from the last call to the **DescribeDBInstances** operation. If the results span multiple pages, pass in this value to retrieve the next page.
     shared_ptr<string> nextToken_ {};
     shared_ptr<string> ownerAccount_ {};
     shared_ptr<int64_t> ownerId_ {};
-    // The page number. Pages start from 1.
+    // The page number. Valid values: any value greater than 0 that does not exceed the maximum value of Integer.
     // 
     // Default value: **1**.
     shared_ptr<int32_t> pageNumber_ {};
-    // The number of entries to return on each page. Valid values: **1** to **100**.
+    // The number of entries per page. Valid values: **1** to **100**.
     // 
     // Default value: **30**.
     shared_ptr<int32_t> pageSize_ {};
-    // The billing method of the instance. Valid values:
-    // 
-    // *   **Postpaid**: pay-as-you-go
-    // *   **Prepaid**: subscription
+    // The billing method. Valid values:
+    // * **Postpaid**: pay-as-you-go
+    // * **Prepaid**: subscription
     shared_ptr<string> payType_ {};
+    // A reserved parameter. You do not need to configure this parameter.
     shared_ptr<bool> queryAutoRenewal_ {};
-    // The region ID. You can call the DescribeRegions operation to query the most recent region list.
+    // The region ID. You can call DescribeRegions to query the available regions.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
-    // The ID of the resource group.
+    // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<string> resourceOwnerAccount_ {};
     shared_ptr<int64_t> resourceOwnerId_ {};
-    // The keyword that is used for fuzzy search. The keyword can be part of an instance ID or an instance description.
+    // The keyword for fuzzy search based on the instance ID or instance description.
     shared_ptr<string> searchKey_ {};
-    // The tag that is added to the instance. Each tag is a key-value pair that consists of two fields: TagKey and TagValue. You can specify a maximum of five tags in the following format for each request: {"key1":"value1","key2":"value2"...}.
+    // The tags that are bound to the instance, including TagKey and TagValue. You can specify up to five pairs of tags at a time. Format: {"key1":"value1","key2":"value2"...}. If the instance matches any of the specified tags, the instance information is returned.
     shared_ptr<string> tags_ {};
     // The vSwitch ID.
     shared_ptr<string> vSwitchId_ {};
-    // The VPC ID.
+    // VPC ID。
     shared_ptr<string> vpcId_ {};
-    // The zone ID of the instance.
+    // The zone ID.
     shared_ptr<string> zoneId_ {};
     // A deprecated parameter. You do not need to configure this parameter.
     shared_ptr<string> proxyId_ {};
