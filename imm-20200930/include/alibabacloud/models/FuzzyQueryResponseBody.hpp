@@ -70,19 +70,19 @@ namespace Models
 
 
   protected:
-    // The files.
+    // The list of file information.
     shared_ptr<vector<File>> files_ {};
-    // A pagination token.
+    // The token used for pagination when the total number of files exceeds the value of MaxResults.
     // 
-    // It can be used in the next request to retrieve a new page of results.
+    // When you list file information next time, set NextToken to this value to return the remaining results.
     // 
-    // If NextToken is empty, no next page exists.
+    // This parameter is returned only when not all files are returned.
     // 
     // This parameter is required.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The number of hits.
+    // The number of matched records.
     shared_ptr<int64_t> totalHits_ {};
   };
 

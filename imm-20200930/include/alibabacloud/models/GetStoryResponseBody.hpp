@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The information about the story.
+    // The detailed information about the story.
     shared_ptr<Story> story_ {};
   };
 

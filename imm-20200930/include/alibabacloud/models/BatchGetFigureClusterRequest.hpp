@@ -64,7 +64,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> datasetName_ {};
-    // The cluster IDs.
+    // The array of group object IDs.
     // 
     // This parameter is required.
     shared_ptr<vector<string>> objectIds_ {};

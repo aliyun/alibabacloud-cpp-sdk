@@ -68,6 +68,7 @@ namespace Models
   protected:
     // The content awareness configuration.
     shared_ptr<InsightsConfig> insights_ {};
+    // The reverse image search configuration.
     shared_ptr<ReverseImageConfig> reverseImage_ {};
     // The intelligent clustering configuration.
     shared_ptr<SmartClusterConfig> smartCluster_ {};

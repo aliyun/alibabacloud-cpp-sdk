@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The list of files retrieved. The document structure and content are contained in File.Elements.
+    // The list of retrieved files. The document-related structural content is included in File.Elements.
     shared_ptr<vector<File>> results_ {};
   };
 

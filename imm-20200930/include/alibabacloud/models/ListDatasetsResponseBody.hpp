@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The datasets.
+    // The list of dataset information.
     shared_ptr<vector<Dataset>> datasets_ {};
-    // The pagination token. If the total number of datasets is greater than the value of MaxResults, you must specify this parameter. This parameter has a value only if not all the datasets that meet the conditions are returned.
+    // The pagination token. If the total number of datasets exceeds the value of MaxResults, this token is used for pagination. This parameter is returned only when not all matching datasets are returned.
     // 
-    // Pass this value as the value of NextToken in the next call to query subsequent datasets.
+    // Pass this value as NextToken in the next request to return the remaining datasets.
     shared_ptr<string> nextToken_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

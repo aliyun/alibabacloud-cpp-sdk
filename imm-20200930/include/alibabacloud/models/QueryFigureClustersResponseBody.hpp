@@ -70,13 +70,13 @@ namespace Models
 
 
   protected:
-    // The face groups.
+    // The list of figure clusters.
     shared_ptr<vector<FigureCluster>> figureClusters_ {};
-    // A pagination token. It can be used in the next request to retrieve a new page of results.
+    // The pagination token.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The total number of face groups that matches the current query conditions.
+    // The total number of face clusters that meet the current query conditions.
     shared_ptr<int64_t> totalCount_ {};
   };
 

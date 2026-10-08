@@ -38,7 +38,7 @@ namespace Models
 
 
   protected:
-    // The summary of the document.
+    // The article reading guide.
     shared_ptr<bool> narrate_ {};
   };
 

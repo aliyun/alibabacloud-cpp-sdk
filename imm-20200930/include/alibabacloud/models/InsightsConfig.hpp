@@ -63,6 +63,7 @@ namespace Models
 
 
   protected:
+    // The image content-aware configuration.
     shared_ptr<ImageInsightsConfig> image_ {};
     // The language.
     shared_ptr<string> language_ {};

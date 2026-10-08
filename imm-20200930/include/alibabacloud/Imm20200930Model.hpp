@@ -84,6 +84,7 @@
 #include <alibabacloud/models/ImageScore.hpp>
 #include <alibabacloud/models/OCRContents.hpp>
 #include <alibabacloud/models/Image.hpp>
+#include <alibabacloud/models/MultilingualContentEntry.hpp>
 #include <alibabacloud/models/ImageInsight.hpp>
 #include <alibabacloud/models/VideoInsight.hpp>
 #include <alibabacloud/models/Insights.hpp>

@@ -61,9 +61,9 @@ namespace Models
 
 
   protected:
-    // The credential for querying subsequent pages when the total number of expected projects exceeds the specified MaxResults value. This parameter has a value only when not all projects are returned.
+    // The token used to query subsequent pages when the expected total number of returned projects is greater than the specified MaxResults value. This parameter has a value only when not all projects are returned.
     shared_ptr<string> nextToken_ {};
-    // The array of projects. Project information is returned.
+    // The array of projects, which contains the information about each project.
     shared_ptr<vector<Project>> projects_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

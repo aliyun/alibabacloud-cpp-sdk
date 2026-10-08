@@ -69,13 +69,13 @@ namespace Models
 
 
   protected:
-    // Whether to automatically group similar figures into clusters.
+    // Specifies whether to allow IMM to perform classification tasks on files in the dataset. Default value: False.
     shared_ptr<bool> autoClustering_ {};
-    // Whether to automatically generate metadata for each cluster, such as a representative cover image.
+    // Indicates whether IMM is allowed to perform automatic creation of new groups. Default value: False.
     shared_ptr<bool> autoGenerate_ {};
-    // An array of strings specifying the clustering strategies to use.
+    // The features supported by figure clustering.
     shared_ptr<vector<string>> enabledFeatures_ {};
-    // The minimum number of figures required to form a cluster.
+    // The minimum threshold for the number of entities when automatic generation of new groups is allowed. Default value: 3.
     shared_ptr<int64_t> minEntityCount_ {};
   };
 

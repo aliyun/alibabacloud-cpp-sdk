@@ -41,6 +41,7 @@ namespace Models
 
 
   protected:
+    // The figure clustering configuration.
     shared_ptr<FigureClusterConfig> figure_ {};
   };
 

@@ -61,11 +61,11 @@ namespace Models
 
 
   protected:
-    // The pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+    // The pagination token. An empty value indicates that all data has been read.
     shared_ptr<string> nextToken_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The stories.
+    // The list of queried stories.
     shared_ptr<vector<Story>> stories_ {};
   };
 

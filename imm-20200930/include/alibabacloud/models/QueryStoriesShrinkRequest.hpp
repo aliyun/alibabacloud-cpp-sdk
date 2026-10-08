@@ -176,57 +176,57 @@ namespace Models
 
 
   protected:
-    // The time range in which stories were created.
+    // The creation time range of the story.
     shared_ptr<string> createTimeRangeShrink_ {};
-    // The custom labels in key-value pairs.
+    // The custom label key-value pairs. Only stories that match the specified label pairs are returned.
     shared_ptr<string> customLabels_ {};
-    // The name of the dataset.[](~~478160~~)
+    // The name of the dataset. For more information about how to obtain the name, see [Create a dataset](https://help.aliyun.com/document_detail/478160.html).
     // 
     // This parameter is required.
     shared_ptr<string> datasetName_ {};
-    // The IDs of the face clusters.
+    // The IDs of the figure clusters.
     shared_ptr<string> figureClusterIdsShrink_ {};
-    // The maximum number of entries to return. Valid values: 1 to 100. Default value: 100.
+    // The maximum number of entries to return in a single call. Valid values: 1 to 100. Default value: 100.
     shared_ptr<int64_t> maxResults_ {};
-    // The pagination token that is used in the next request to retrieve a new page of results. If you do not specify this token in the next request, results are returned from the beginning.
+    // The pagination token. If this parameter is left empty, the query starts from the beginning. To query the next page, set this parameter to the NextToken value returned in the previous call.
     shared_ptr<string> nextToken_ {};
-    // The ID of the story.
+    // The ID of the story object.
     shared_ptr<string> objectId_ {};
-    // The sort order. Valid values:
+    // The sorting order. Valid values:
     // 
-    // - asc: in ascending order.
+    // - asc: Ascending order.
     // 
-    // - desc: in descending order.
+    // - desc: Descending order.
     shared_ptr<string> order_ {};
-    // The name of the project.[](~~478153~~)
+    // The name of the project. For more information about how to obtain the name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The sort field. Valid values:
+    // The field used for sorting. Valid values:
     // 
-    // - CreateTime: sorts by story creation time.
+    // - CreateTime: Sorts by story creation time.
     // 
-    // - StoryName: sorts by story name.
+    // - StoryName: Sorts by story name.
     // 
-    // - StoryStartTime: sorts by story start time.
+    // - StoryStartTime: Sorts by story start time.
     // 
-    // - StoryEndTime: sorts by story end time.
+    // - StoryEndTime: Sorts by story end time.
     shared_ptr<string> sort_ {};
-    // The time range for the creation time of the last photo or video in the story.
+    // The end time range of the photos or videos in the story.
     shared_ptr<string> storyEndTimeRangeShrink_ {};
     // The name of the story.
     shared_ptr<string> storyName_ {};
-    // The time range for the creation time of the first photo or video in the story.
+    // The start time range of the photos or videos in the story.
     shared_ptr<string> storyStartTimeRangeShrink_ {};
-    // The subtype of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+    // The subtype of the story. For valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
     shared_ptr<string> storySubType_ {};
-    // The type of the story. For a list of valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
+    // The type of the story. For valid values, see [Story types and subtypes](https://help.aliyun.com/document_detail/2743998.html).
     shared_ptr<string> storyType_ {};
     // Specifies whether to return empty stories. Valid values:
     // 
-    // - true (The default value)
+    // - true: Returns empty stories. This is the default value.
     // 
-    // - false
+    // - false: Does not return empty stories.
     shared_ptr<bool> withEmptyStories_ {};
   };
 

@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The information about the face cluster.
+    // The detailed information of the clustering group.
     shared_ptr<FigureCluster> figureCluster_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

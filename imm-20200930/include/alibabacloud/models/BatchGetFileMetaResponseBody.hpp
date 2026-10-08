@@ -52,7 +52,7 @@ namespace Models
 
 
   protected:
-    // The metadata returned.
+    // The file metadata.
     shared_ptr<vector<File>> files_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

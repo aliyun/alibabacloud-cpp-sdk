@@ -103,7 +103,7 @@ namespace Models
       // The video resolution.
       shared_ptr<string> resolution_ {};
       // The token generated for the video Media Playlist. You can use this parameter to construct the addresses of the generated TS files.
-      // > Based on the returned Token value, you can construct the addresses of the transcoded TS files. The format is: oss://${Bucket}/${Object}-${Token}-${Index}.ts, where oss://${Bucket}/${Object} is the Target URI specified in the input parameters, ${Token} is the returned parameter, and ${Index} is the sequence number of the TS file.
+      // > Based on the returned Token value, you can construct the addresses of the transcoded TS files. The format is: oss://${Bucket}/${Object}-${Token}-${Index}.ts, where oss://${Bucket}/${Object} is the Target URI from the input parameters, ${Token} is the returned parameter, and ${Index} is the sequence number of the TS file.
       shared_ptr<string> token_ {};
       // The OSS URI of the video Media Playlist.
       shared_ptr<string> URI_ {};
@@ -171,7 +171,7 @@ namespace Models
       // > The language is obtained from the subtitle stream information of the source video specified by SourceURI. If the source video does not contain language information, an empty value is returned.
       shared_ptr<string> language_ {};
       // The token generated for the subtitle Media Playlist. You can use this parameter to construct the addresses of the generated subtitle files.
-      // > Based on the returned Token value, you can construct the addresses of the transcoded subtitle files. The format is: oss://${Bucket}/${Object}-${Token}_${Index}.ts, where oss://${Bucket}/${Object} is the Subtitle URI specified in the input parameters, ${Token} is the returned parameter, and ${Index} is the sequence number of the subtitle file.
+      // > Based on the returned Token value, you can construct the addresses of the transcoded subtitle files. The format is: oss://${Bucket}/${Object}-${Token}_${Index}.ts, where oss://${Bucket}/${Object} is the Subtitle URI from the input parameters, ${Token} is the returned parameter, and ${Index} is the sequence number of the subtitle.
       shared_ptr<string> token_ {};
       // The OSS URI of the subtitle Media Playlist.
       shared_ptr<string> URI_ {};

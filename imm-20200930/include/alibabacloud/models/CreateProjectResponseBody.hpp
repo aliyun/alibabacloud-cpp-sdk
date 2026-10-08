@@ -51,9 +51,9 @@ namespace Models
 
 
   protected:
-    // The project information. Click Project to view details.
+    // The project information. For more information, see Project.
     shared_ptr<Project> project_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -182,31 +182,31 @@ namespace Models
 
 
     protected:
-      // Image format
+      // Format
       // 
       // This parameter is required.
       shared_ptr<string> format_ {};
-      // Time interval between sprites, in seconds
+      // Interval
       shared_ptr<double> interval_ {};
-      // Margin around the sprite grid, in pixels
+      // Margin
       shared_ptr<int32_t> margin_ {};
       shared_ptr<string> mode_ {};
-      // Total number of sprites to generate
+      // Number
       shared_ptr<int32_t> number_ {};
-      // Padding between sprite tiles, in pixels
+      // Pad
       shared_ptr<int32_t> pad_ {};
-      // Output height after scaling, in pixels
+      // ScaleHeight
       shared_ptr<float> scaleHeight_ {};
-      // Scaling method
+      // ScaleType
       shared_ptr<string> scaleType_ {};
-      // Output width after scaling, in pixels
+      // ScaleWidth
       shared_ptr<float> scaleWidth_ {};
       // StartTime
       shared_ptr<double> startTime_ {};
       shared_ptr<int32_t> threshold_ {};
-      // Height of each sprite tile, in pixels
+      // TileHeight
       shared_ptr<int32_t> tileHeight_ {};
-      // Width of each sprite tile, in pixels
+      // TileWidth
       shared_ptr<int32_t> tileWidth_ {};
       // URI
       // 
@@ -325,27 +325,27 @@ namespace Models
 
 
     protected:
-      // Image format
+      // Format
       // 
       // This parameter is required.
       shared_ptr<string> format_ {};
-      // Output height, in pixels
+      // Height
       shared_ptr<double> height_ {};
-      // Time interval between snapshots, in seconds
+      // Interval
       shared_ptr<double> interval_ {};
       shared_ptr<string> mode_ {};
-      // The sequence number of the snapshot.
+      // Number
       shared_ptr<int32_t> number_ {};
-      // Scaling method
+      // ScaleType
       shared_ptr<string> scaleType_ {};
-      // The start time of the snapshot.
+      // StartTime
       shared_ptr<double> startTime_ {};
       shared_ptr<int32_t> threshold_ {};
-      // OSS URI where snapshots are stored
+      // URI
       // 
       // This parameter is required.
       shared_ptr<string> URI_ {};
-      // The width of the snapshot.
+      // Width
       shared_ptr<double> width_ {};
     };
 
@@ -455,23 +455,23 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> format_ {};
-      // Animation frame rate, in frames per second
+      // FrameRate
       shared_ptr<double> frameRate_ {};
       // Height
       shared_ptr<double> height_ {};
-      // Time interval between animation frames, in seconds
+      // Interval
       shared_ptr<double> interval_ {};
-      // Total number of animation frames to generate
+      // Number
       shared_ptr<int32_t> number_ {};
-      // Scaling method
+      // ScaleType
       shared_ptr<string> scaleType_ {};
       // StartTime
       shared_ptr<double> startTime_ {};
-      // The URI of the animation.
+      // URI
       // 
       // This parameter is required.
       shared_ptr<string> URI_ {};
-      // Output width, in pixels
+      // Width
       shared_ptr<double> width_ {};
     };
 

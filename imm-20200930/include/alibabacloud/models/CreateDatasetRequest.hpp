@@ -131,24 +131,24 @@ namespace Models
     shared_ptr<int64_t> datasetMaxEntityCount_ {};
     // The maximum number of files per dataset. Valid values: 1 to 100000000. Default value: 100000000.
     shared_ptr<int64_t> datasetMaxFileCount_ {};
-    // The maximum number of metadata relationships per dataset. Default value: 100000000000.
+    // The maximum number of metadata relations per dataset. Default value: 100000000000.
     shared_ptr<int64_t> datasetMaxRelationCount_ {};
-    // The maximum total file size per dataset, in bytes. After this limit is exceeded, no more indexes can be added. Default value: 90000000000000000.
+    // The maximum total size of files per dataset. If the limit is exceeded, no more indexes can be added. Default value: 90000000000000000. Unit: bytes.
     shared_ptr<int64_t> datasetMaxTotalFileSize_ {};
-    // The dataset name. The name must be unique within the same project. The following naming rules apply:
+    // The name of the dataset. The name must be unique within a project. The name must meet the following requirements:
     // - The name must be 1 to 128 characters in length.
     // - The name can contain only letters, digits, hyphens (-), and underscores (_).
     // - The name must start with a letter or an underscore (_).
     // 
     // This parameter is required.
     shared_ptr<string> datasetName_ {};
-    // The description of the dataset. The description can be 1 to 256 characters in length. Default value: empty.
+    // The description of the dataset. The description must be 1 to 256 characters in length. Default value: empty.
     shared_ptr<string> description_ {};
-    // The project name. For information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
+    // The name of the project. For more information about how to obtain the project name, see [Create a project](https://help.aliyun.com/document_detail/478153.html).
     // 
     // This parameter is required.
     shared_ptr<string> projectName_ {};
-    // The workflow template ID. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html). Default value: empty.
+    // The ID of the workflow template. For more information, see [Workflow templates and operators](https://help.aliyun.com/document_detail/466304.html). Default value: empty.
     shared_ptr<string> templateId_ {};
     // Invalid parameter.
     shared_ptr<vector<WorkflowParameter>> workflowParameters_ {};

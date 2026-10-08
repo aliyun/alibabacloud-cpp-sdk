@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // The files.
+    // The list of files.
     shared_ptr<vector<File>> files_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 

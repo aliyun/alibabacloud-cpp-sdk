@@ -52,9 +52,9 @@ namespace Models
 
 
   protected:
-    // The clusters.
+    // The list of figure clusters.
     shared_ptr<vector<FigureCluster>> figureClusters_ {};
-    // The request ID.
+    // The ID of the request.
     shared_ptr<string> requestId_ {};
   };
 
