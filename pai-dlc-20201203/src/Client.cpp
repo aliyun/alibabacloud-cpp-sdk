@@ -82,10 +82,10 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
+ * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
  *
- * @description Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
- * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+ * @description Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request CreateJobRequest
  * @param headers map
@@ -218,10 +218,10 @@ CreateJobResponse Client::createJobWithOptions(const CreateJobRequest &request, 
 }
 
 /**
- * @summary Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
+ * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
  *
- * @description Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
- * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+ * @description Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+ * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
  *
  * @param request CreateJobRequest
  * @return CreateJobResponse
@@ -2680,7 +2680,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
+ * @summary Updates the configuration of a node, such as modifying the priority of a queued node.
  *
  * @param request UpdateJobRequest
  * @param headers map
@@ -2729,7 +2729,7 @@ UpdateJobResponse Client::updateJobWithOptions(const string &JobId, const Update
 }
 
 /**
- * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
+ * @summary Updates the configuration of a node, such as modifying the priority of a queued node.
  *
  * @param request UpdateJobRequest
  * @return UpdateJobResponse

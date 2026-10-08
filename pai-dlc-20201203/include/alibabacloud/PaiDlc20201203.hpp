@@ -21,10 +21,10 @@ namespace PaiDlc20201203
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
+       * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
        *
-       * @description Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-       * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+       * @description Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+       * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request CreateJobRequest
        * @param headers map
@@ -34,10 +34,10 @@ namespace PaiDlc20201203
       Models::CreateJobResponse createJobWithOptions(const Models::CreateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a job and runs it in a cluster. You can specify information such as the data source configuration, code source configuration, startup command, and compute resource configuration for each node of the job.
+       * @summary Creates a job and runs it in a cluster. You can specify the datasource config, code source configuration, startup command, and compute resource configuration for each node of the job.
        *
-       * @description Before using this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/171758.html) of PAI-DLC.
-       * >Notice: The total length of CreateJob operation parameters (including system-generated parameters) cannot exceed 65,536 bytes.
+       * @description Before you call this operation, make sure that you fully understand the billing of PAI-DLC and its [pricing](https://help.aliyun.com/document_detail/171758.html).
+       * >Notice: The total length of CreateJob request parameters, including system-generated parameters, cannot exceed 65,536 bytes.
        *
        * @param request CreateJobRequest
        * @return CreateJobResponse
@@ -827,7 +827,7 @@ namespace PaiDlc20201203
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
+       * @summary Updates the configuration of a node, such as modifying the priority of a queued node.
        *
        * @param request UpdateJobRequest
        * @param headers map
@@ -837,7 +837,7 @@ namespace PaiDlc20201203
       Models::UpdateJobResponse updateJobWithOptions(const string &JobId, const Models::UpdateJobRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the configuration of a job, such as modifying the priority of a queued job.
+       * @summary Updates the configuration of a node, such as modifying the priority of a queued node.
        *
        * @param request UpdateJobRequest
        * @return UpdateJobResponse

@@ -79,15 +79,15 @@ namespace Models
 
 
   protected:
-    // The visibility of the job. The visibility can only be expanded, not reduced. Valid values:
-    // - PUBLIC: visible to all users in the workspace.
+    // The visibility of the node can only be expanded, not reduced. Valid values:
+    // - PUBLIC: Visible to everyone in the workspace.
     shared_ptr<string> accessibility_ {};
     shared_ptr<string> description_ {};
-    // The job specification definition.
+    // The node specifications.
     shared_ptr<vector<JobSpec>> jobSpecs_ {};
-    // The priority of the job. Valid values: 1 to 9.
-    // - 1: the lowest priority.
-    // - 9: the highest priority.
+    // The priority of the node. Valid values: 1 to 9.
+    // - 1: lowest priority.
+    // - 9: highest priority.
     shared_ptr<int32_t> priority_ {};
     // The user command.
     shared_ptr<string> userCommand_ {};
