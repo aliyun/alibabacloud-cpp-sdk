@@ -450,6 +450,56 @@ FindGuestTicketRecordResponse Client::findGuestTicketRecord(const FindGuestTicke
 }
 
 /**
+ * @summary MOS活动签到
+ *
+ * @param request MosCheckInRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MosCheckInResponse
+ */
+MosCheckInResponse Client::mosCheckInWithOptions(const MosCheckInRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json body = {};
+  if (!!request.hasActivityId()) {
+    body["ActivityId"] = request.getActivityId();
+  }
+
+  if (!!request.hasExtParam()) {
+    body["ExtParam"] = request.getExtParam();
+  }
+
+  if (!!request.hasQrCode()) {
+    body["QrCode"] = request.getQrCode();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"body" , Utils::Utils::parseToMap(body)}
+  }).get<map<string, json>>());
+  Params params = Params(json({
+    {"action" , "MosCheckIn"},
+    {"version" , "2021-01-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MosCheckInResponse>();
+}
+
+/**
+ * @summary MOS活动签到
+ *
+ * @param request MosCheckInRequest
+ * @return MosCheckInResponse
+ */
+MosCheckInResponse Client::mosCheckIn(const MosCheckInRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return mosCheckInWithOptions(request, runtime);
+}
+
+/**
  * @param request QueryAllActivityInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryAllActivityInfoResponse

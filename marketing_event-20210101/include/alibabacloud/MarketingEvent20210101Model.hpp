@@ -23,6 +23,9 @@
 #include <alibabacloud/models/FindGuestTicketRecordRequest.hpp>
 #include <alibabacloud/models/FindGuestTicketRecordResponseBody.hpp>
 #include <alibabacloud/models/FindGuestTicketRecordResponse.hpp>
+#include <alibabacloud/models/MosCheckInRequest.hpp>
+#include <alibabacloud/models/MosCheckInResponseBody.hpp>
+#include <alibabacloud/models/MosCheckInResponse.hpp>
 #include <alibabacloud/models/QueryAllActivityInfoRequest.hpp>
 #include <alibabacloud/models/QueryAllActivityInfoResponseBody.hpp>
 #include <alibabacloud/models/QueryAllActivityInfoResponse.hpp>

@@ -124,6 +124,23 @@ namespace MarketingEvent20210101
       Models::FindGuestTicketRecordResponse findGuestTicketRecord(const Models::FindGuestTicketRecordRequest &request);
 
       /**
+       * @summary MOS活动签到
+       *
+       * @param request MosCheckInRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MosCheckInResponse
+       */
+      Models::MosCheckInResponse mosCheckInWithOptions(const Models::MosCheckInRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary MOS活动签到
+       *
+       * @param request MosCheckInRequest
+       * @return MosCheckInResponse
+       */
+      Models::MosCheckInResponse mosCheckIn(const Models::MosCheckInRequest &request);
+
+      /**
        * @param request QueryAllActivityInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryAllActivityInfoResponse
