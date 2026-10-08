@@ -81,8 +81,11 @@ namespace Models
 
 
     protected:
+      // Returned code.
       shared_ptr<string> code_ {};
+      // Email address that was successfully deleted.
       shared_ptr<string> email_ {};
+      // Message returned upon successful deletion of the email address.
       shared_ptr<string> message_ {};
     };
 
@@ -133,8 +136,11 @@ namespace Models
 
 
     protected:
+      // Returned code.
       shared_ptr<string> code_ {};
+      // Email address for which deletion failed.
       shared_ptr<string> email_ {};
+      // Message returned upon failure to delete the email address.
       shared_ptr<string> message_ {};
     };
 
@@ -166,8 +172,11 @@ namespace Models
 
 
   protected:
+    // List of email addresses for which deletion failed.
     shared_ptr<vector<DeleteEmailVerificationResponseBody::FailList>> failList_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // List of successfully deleted email addresses.
     shared_ptr<vector<DeleteEmailVerificationResponseBody::SuccessList>> successList_ {};
   };
 

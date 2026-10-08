@@ -103,13 +103,21 @@ namespace Models
 
 
   protected:
+    // Access ID.
     shared_ptr<string> accessid_ {};
+    // File path.
     shared_ptr<string> dir_ {};
+    // Expiration time.
     shared_ptr<string> expire_ {};
+    // OSS Endpoint.
     shared_ptr<string> host_ {};
+    // Encryption policy.
     shared_ptr<string> policy_ {};
+    // File prefix.
     shared_ptr<string> prefix_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Signature data.
     shared_ptr<string> signature_ {};
   };
 

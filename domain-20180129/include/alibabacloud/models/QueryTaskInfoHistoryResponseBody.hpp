@@ -142,14 +142,45 @@ namespace Models
 
 
     protected:
+      // User IP address when submitting the job.
       shared_ptr<string> clientip_ {};
+      // Job creation time.
       shared_ptr<string> createTime_ {};
+      // Job creation time.
       shared_ptr<int64_t> createTimeLong_ {};
+      // Task number.
       shared_ptr<string> taskNo_ {};
+      // Number of domain names included in the job.
       shared_ptr<int32_t> taskNum_ {};
+      // Task Status. Valid values:  
+      // - **WAITING_EXECUTE**: Waiting for execution;  
+      // - **EXECUTING**: Executing;  
+      // - **COMPLETE**: Execution completed.
       shared_ptr<string> taskStatus_ {};
+      // Task status code. Valid values:  
+      // - **1**: Waiting for execution;  
+      // - **2**: Executing;  
+      // - **3**: Execution completed.
       shared_ptr<int32_t> taskStatusCode_ {};
+      // Task Type. Valid values:  
+      // - **CHG_HOLDER**: Modify registrant information;  
+      // - **CHG_DNS**: Modify DNS;  
+      // - **SET_WHOIS_PROTECT**: Enable privacy protection;  
+      // - **UPDATE_ADMIN_CONTACT**: Update administrative contact;  
+      // - **UPDATE_BILLING_CONTACT**: Update billing contact;  
+      // - **UPDATE_TECH_CONTACT**: Update technical contact;  
+      // - **SET_UPDATE_PROHIBITED**: Enable domain name edit lock;  
+      // - **SET_TRANSFER_PROHIBITED**: Enable domain name transfer lock;  
+      // - **ORDER_ACTIVATE**: Create a registration order;  
+      // - **ORDER_RENEW**: Create a renewal order;  
+      // - **ORDER_REDEEM**: Create a redemption order;  
+      // - **CREATE_DNSHOST**: Create a DNS host;  
+      // - **UPDATE_DNSHOST**: Update a DNS host;  
+      // - **UPDATE_REGISTRANT_CONTACT**: Update registrant contact;  
+      // - **DELETE_DOMAIN**: Delete a domain name;  
+      // - **SYNC_DNSHOST**: Synchronize DNS host.
       shared_ptr<string> taskType_ {};
+      // Task type description.
       shared_ptr<string> taskTypeDescription_ {};
     };
 
@@ -255,14 +286,45 @@ namespace Models
 
 
     protected:
+      // User IP address when submitting the task.
       shared_ptr<string> clientip_ {};
+      // Task creation time.
       shared_ptr<string> createTime_ {};
+      // Task creation time.
       shared_ptr<int64_t> createTimeLong_ {};
+      // Job number.
       shared_ptr<string> taskNo_ {};
+      // Number of domain names included in the job.
       shared_ptr<int32_t> taskNum_ {};
+      // Task status. Valid values:
+      // - **WAITING_EXECUTE**: Waiting for execution;
+      // - **EXECUTING**: Executing;
+      // - **COMPLETE**: Execution completed.
       shared_ptr<string> taskStatus_ {};
+      // Task status code. Valid values:
+      // - **1**: Waiting for execution;
+      // - **2**: Executing;
+      // - **3**: Execution completed.
       shared_ptr<int32_t> taskStatusCode_ {};
+      // Task Type. Valid values:
+      // - **CHG_HOLDER**: Modify owner information;
+      // - **CHG_DNS**: Modify DNS;
+      // - **SET_WHOIS_PROTECT**: Enable privacy protection;
+      // - **UPDATE_ADMIN_CONTACT**: Modify administrative contact information;
+      // - **UPDATE_BILLING_CONTACT**: Modify billing contact information;
+      // - **UPDATE_TECH_CONTACT**: Modify technical contact information;
+      // - **SET_UPDATE_PROHIBITED**: Enable domain name edit lock;
+      // - **SET_TRANSFER_PROHIBITED**: Enable domain name transfer lock;
+      // - **ORDER_ACTIVATE**: Create a registration order;
+      // - **ORDER_RENEW**: Create a renewal order;
+      // - **ORDER_REDEEM**: Create a redemption order;
+      // - **CREATE_DNSHOST**: Create a DNS host;
+      // - **UPDATE_DNSHOST**: Update a DNS host;
+      // - **UPDATE_REGISTRANT_CONTACT**: Modify registrant contact information;
+      // - **DELETE_DOMAIN**: Delete a domain name;
+      // - **SYNC_DNSHOST**: Synchronize a DNS host.
       shared_ptr<string> taskType_ {};
+      // Task type description.
       shared_ptr<string> taskTypeDescription_ {};
     };
 
@@ -368,14 +430,45 @@ namespace Models
 
 
     protected:
+      // User IP address when the job was submitted.
       shared_ptr<string> clientip_ {};
+      // Creation Time of the job.
       shared_ptr<string> createTime_ {};
+      // Creation Time of the job.
       shared_ptr<int64_t> createTimeLong_ {};
+      // Job number.
       shared_ptr<string> taskNo_ {};
+      // Number of domain names included in the job.
       shared_ptr<int32_t> taskNum_ {};
+      // Task Status. Valid values:  
+      // - **WAITING_EXECUTE**: Waiting to execute;  
+      // - **EXECUTING**: Executing;  
+      // - **COMPLETE**: Execution completed.
       shared_ptr<string> taskStatus_ {};
+      // Job status code. Valid values:  
+      // - **1**: Waiting to execute;  
+      // - **2**: Executing;  
+      // - **3**: Execution completed.
       shared_ptr<int32_t> taskStatusCode_ {};
+      // Task Type. Valid values:  
+      // - **CHG_HOLDER**: Modify registrant information;  
+      // - **CHG_DNS**: Modify DNS;  
+      // - **SET_WHOIS_PROTECT**: Enable privacy protection;  
+      // - **UPDATE_ADMIN_CONTACT**: Modify administrative contact information;  
+      // - **UPDATE_BILLING_CONTACT**: Modify billing contact information;  
+      // - **UPDATE_TECH_CONTACT**: Modify technical contact information;  
+      // - **SET_UPDATE_PROHIBITED**: Enable domain name Edit Lock;  
+      // - **SET_TRANSFER_PROHIBITED**: Enable domain name transfer lock;  
+      // - **ORDER_ACTIVATE**: Create a registration order;  
+      // - **ORDER_RENEW**: Create a renewal order;  
+      // - **ORDER_REDEEM**: Create a redemption order;  
+      // - **CREATE_DNSHOST**: Create a DNS host;  
+      // - **UPDATE_DNSHOST**: Update a DNS host;  
+      // - **UPDATE_REGISTRANT_CONTACT**: Modify registrant contact information;  
+      // - **DELETE_DOMAIN**: Delete a domain name;  
+      // - **SYNC_DNSHOST**: Synchronize DNS host.
       shared_ptr<string> taskType_ {};
+      // Task type description.
       shared_ptr<string> taskTypeDescription_ {};
     };
 
@@ -481,14 +574,45 @@ namespace Models
 
 
     protected:
+      // User IP address when the job was submitted.
       shared_ptr<string> clientip_ {};
+      // Job creation time.
       shared_ptr<string> createTime_ {};
+      // Job creation UNIX timestamp.
       shared_ptr<int64_t> createTimeLong_ {};
+      // Job number.
       shared_ptr<string> taskNo_ {};
+      // Number of domain names included in the job.
       shared_ptr<int32_t> taskNum_ {};
+      // Task Status. Valid values:
+      // - **WAITING_EXECUTE**: Waiting for execution;
+      // - **EXECUTING**: Executing;
+      // - **COMPLETE**: Execution completed.
       shared_ptr<string> taskStatus_ {};
+      // Job status code. Valid values:  
+      // - **1**: Waiting for execution  
+      // - **2**: Executing  
+      // - **3**: Execution completed
       shared_ptr<int32_t> taskStatusCode_ {};
+      // Job type. Valid values:  
+      // - **CHG_HOLDER**: Modify registrant information  
+      // - **CHG_DNS**: Modify DNS  
+      // - **SET_WHOIS_PROTECT**: Enable privacy protection  
+      // - **UPDATE_ADMIN_CONTACT**: Modify administrator contact information  
+      // - **UPDATE_BILLING_CONTACT**: Modify billing contact information  
+      // - **UPDATE_TECH_CONTACT**: Modify technical contact information  
+      // - **SET_UPDATE_PROHIBITED**: Enable domain name edit lock  
+      // - **SET_TRANSFER_PROHIBITED**: Enable domain name transfer lock  
+      // - **ORDER_ACTIVATE**: Create registration order  
+      // - **ORDER_RENEW**: Create renewal order  
+      // - **ORDER_REDEEM**: Create redemption order  
+      // - **CREATE_DNSHOST**: Create DNS host  
+      // - **UPDATE_DNSHOST**: Update DNS host  
+      // - **UPDATE_REGISTRANT_CONTACT**: Modify registrant contact  
+      // - **DELETE_DOMAIN**: Delete domain name  
+      // - **SYNC_DNSHOST**: Synchronize DNS host
       shared_ptr<string> taskType_ {};
+      // Task Type description.
       shared_ptr<string> taskTypeDescription_ {};
     };
 
@@ -545,11 +669,17 @@ namespace Models
 
 
   protected:
+    // Cursor for the current page.
     shared_ptr<QueryTaskInfoHistoryResponseBody::CurrentPageCursor> currentPageCursor_ {};
+    // Cursor for the next page.
     shared_ptr<QueryTaskInfoHistoryResponseBody::NextPageCursor> nextPageCursor_ {};
+    // Job information.
     shared_ptr<vector<QueryTaskInfoHistoryResponseBody::Objects>> objects_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Cursor for the previous page.
     shared_ptr<QueryTaskInfoHistoryResponseBody::PrePageCursor> prePageCursor_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
   };
 

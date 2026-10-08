@@ -124,7 +124,9 @@ namespace Models
 
 
     protected:
+      // Tag key.
       shared_ptr<string> key_ {};
+      // Tag value of the instance.
       shared_ptr<string> value_ {};
     };
 
@@ -341,36 +343,105 @@ namespace Models
 
 
   protected:
+    // Domain group ID.
     shared_ptr<int64_t> domainGroupId_ {};
+    // Sorting field based on lexicographic order of domain names. Valid values:  
+    // - **false**: Descending order  
+    // - **true**: Ascending order
     shared_ptr<bool> domainNameSort_ {};
+    // Domain status. Valid values:
+    // - **0**: All.
+    // - **1**: Renewal required urgently.
+    // - **2**: Redemption required urgently.
+    // - **3**: Normal.
+    // - **4**: Transferring out from HiChina.
+    // - **5**: Registrant information being modified.
+    // - **6**: Identity verification not completed.
+    // - **7**: Review failed; re-initiate identity verification.
+    // - **8**: Under review.
     shared_ptr<int32_t> domainStatus_ {};
+    // End time for expiration date range query, represented as the number of milliseconds since 00:00:00 UTC on January 1, 1970.
     shared_ptr<int64_t> endExpirationDate_ {};
+    // End length for domain name length range query.
     shared_ptr<int32_t> endLength_ {};
+    // The end time of the registration date range query, expressed as the number of milliseconds since 00:00 on January 1, 1970, UTC.
     shared_ptr<int64_t> endRegistrationDate_ {};
+    // Excluded keyword.
     shared_ptr<string> excluded_ {};
+    // Keyword to exclude at the beginning.
     shared_ptr<bool> excludedPrefix_ {};
+    // Keyword to exclude at the end.
     shared_ptr<bool> excludedSuffix_ {};
+    // Sorting field based on expiration date. Valid values:
+    // - **false**: Descending order.
+    // - **true**: Ascending order.
     shared_ptr<bool> expirationDateSort_ {};
+    // Domain name composition information:  
+    // - **11**: Numeric-only domain name  
+    // - **12**: Letter-only domain name  
+    // - **13**: Mixed domain name (combination of letters and numbers)  
+    // - **14**: Chinese domain name
     shared_ptr<int32_t> form_ {};
+    // Indicates whether the domain is a premium domain. Valid values:  
+    // - **false**: No  
+    // - **true**: Yes  
+    // 
+    // Default value: false.
     shared_ptr<bool> isPremiumDomain_ {};
+    // Keyword.
     shared_ptr<string> keyWord_ {};
+    // Keyword at the beginning.
     shared_ptr<bool> keyWordPrefix_ {};
+    // Keyword at the end.
     shared_ptr<bool> keyWordSuffix_ {};
+    // The language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Page number for paging. The minimum value is **0**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
+    // Page size for paging. The minimum value is **1** and the maximum value is **200**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Domain name type. Valid values:
+    // - **New gTLD** (new top-level domain).
+    // - **gTLD** (generic top-level domain).
+    // - **ccTLD** (country code top-level domain).
+    // - **other** (other top-level domains not listed above).
     shared_ptr<string> productDomainType_ {};
+    // Sorting field, used to sort by domain name type. Valid values:
+    // - **false**: Descending order.
+    // - **true**: Ascending order.
     shared_ptr<bool> productDomainTypeSort_ {};
+    // Sorting field based on registration date. Valid values:
+    // - **false**: Descending order.
+    // - **true**: Ascending order.
     shared_ptr<bool> registrationDateSort_ {};
+    // Resource group ID.
     shared_ptr<string> resourceGroupId_ {};
+    // Start time for expiration date range query, represented as the number of milliseconds since 00:00:00 UTC on January 1, 1970.
     shared_ptr<int64_t> startExpirationDate_ {};
+    // The starting length for domain name length range queries.
     shared_ptr<int32_t> startLength_ {};
+    // The start time of the registration date range query, expressed as the number of milliseconds since 00:00 on January 1, 1970, UTC.
     shared_ptr<int64_t> startRegistrationDate_ {};
+    // List of suffixes to query, separated by commas (",").
     shared_ptr<string> suffixs_ {};
+    // List of tags.
     shared_ptr<vector<QueryAdvancedDomainListRequest::Tag>> tag_ {};
+    // Publishing status. Valid values:  
+    // - **2**: Fixed-price listing published  
+    // - **13**: Negotiable-price listing published  
+    // - **4**: Auction listing published  
+    // - **6**: Priced push listing published  
+    // - **-1**: Domain trading not published
     shared_ptr<int32_t> tradeType_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

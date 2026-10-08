@@ -57,9 +57,19 @@ namespace Models
 
 
   protected:
+    // Language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Token code included in the email verification link.
+    // 
+    // After the verification email is sent successfully, you can log on to the mailbox to be verified and view the token code.
+    // 
     // This parameter is required.
     shared_ptr<string> token_ {};
+    // User IP address. You can set it to 127.0.0.1.
     shared_ptr<string> userClientIp_ {};
   };
 

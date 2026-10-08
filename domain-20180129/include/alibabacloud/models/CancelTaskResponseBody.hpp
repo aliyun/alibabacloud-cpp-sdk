@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
   };
 

@@ -59,6 +59,9 @@
 #include <alibabacloud/models/DeleteRegistrantProfileRequest.hpp>
 #include <alibabacloud/models/DeleteRegistrantProfileResponseBody.hpp>
 #include <alibabacloud/models/DeleteRegistrantProfileResponse.hpp>
+#include <alibabacloud/models/DomainKnowledgeRetrieveRequest.hpp>
+#include <alibabacloud/models/DomainKnowledgeRetrieveResponseBody.hpp>
+#include <alibabacloud/models/DomainKnowledgeRetrieveResponse.hpp>
 #include <alibabacloud/models/DomainSpecialBizCancelRequest.hpp>
 #include <alibabacloud/models/DomainSpecialBizCancelResponseBody.hpp>
 #include <alibabacloud/models/DomainSpecialBizCancelResponse.hpp>

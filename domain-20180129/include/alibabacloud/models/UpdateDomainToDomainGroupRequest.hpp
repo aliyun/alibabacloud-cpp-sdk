@@ -97,15 +97,39 @@ namespace Models
 
 
   protected:
+    // The data source for the domain names. Valid values:
+    // 
+    // - **1**: custom input.
+    // 
+    // - **2**: file upload.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> dataSource_ {};
+    // The ID of the domain name group. Call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) API to get this ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> domainGroupId_ {};
+    // An array of domain names. This parameter is required when DataSource is set to 1 (custom input).
     shared_ptr<vector<string>> domainName_ {};
+    // The Base64-encoded content of a file. This parameter is required if you set DataSource to 2. The file must be in **.xls** or **.xlsx** format, contain one domain name per line, and not exceed 2 MB.
     shared_ptr<string> fileToUpload_ {};
+    // The language of API error messages. Valid values:
+    // 
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Specifies whether to replace the existing domain names in the group. Valid values:
+    // 
+    // - **false**: Adds the new domain names to the group.
+    // 
+    // - **true**: Replaces all existing domain names in the group with the new ones.
+    // 
     // This parameter is required.
     shared_ptr<bool> replace_ {};
+    // The user IP address. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -48,7 +48,13 @@ namespace Models
 
 
   protected:
+    // Language of the error message returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address. You can set it to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

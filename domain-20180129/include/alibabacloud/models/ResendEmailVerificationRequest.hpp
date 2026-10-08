@@ -57,9 +57,17 @@ namespace Models
 
 
   protected:
+    // Mailboxes for which to resend the verification email. Separate multiple mailboxes with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> email_ {};
+    // Language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address. You can set it to 127.0.0.1.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -75,13 +75,21 @@ namespace Models
 
 
   protected:
+    // The domain name to submit for real-name verification.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The ID of the domain name instance.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The language of the error message to return. Valid values: `zh` (Chinese) and `en` (English). Default value: `en`.
     shared_ptr<string> lang_ {};
+    // The ID of the registrant profile to use for real-name verification.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // The IP address of the client that makes the request.
     shared_ptr<string> userClientIp_ {};
   };
 

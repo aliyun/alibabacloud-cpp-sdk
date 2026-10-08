@@ -69,11 +69,27 @@ namespace Models
 
 
   protected:
+    // The domain names.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainName_ {};
+    // The language of the error message to be returned. Valid values:
+    // 
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Specifies whether to enable or disable the update prohibition lock. Valid values:
+    // 
+    // - **true**: enables the lock.
+    // 
+    // - **false**: disables the lock.
+    // 
     // This parameter is required.
     shared_ptr<bool> status_ {};
+    // The user IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -70,7 +70,9 @@ namespace Models
 
 
     protected:
+      // Review date.
       shared_ptr<string> date_ {};
+      // Reason for domain name qualification verification failure.
       shared_ptr<string> failReason_ {};
     };
 
@@ -93,7 +95,9 @@ namespace Models
 
 
   protected:
+    // List of domain name qualification verification failures.
     shared_ptr<vector<QueryFailingReasonListForQualificationResponseBody::Data>> data_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,10 +66,19 @@ namespace Models
 
 
   protected:
+    // Domain group ID. If this parameter is not provided, a new group is created. If it is provided, the domain group name is updated.
     shared_ptr<int64_t> domainGroupId_ {};
+    // Domain Name Group Name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainGroupName_ {};
+    // Language for error messages returned by the API. Valid values:  
+    // - **zh**: Chinese;  
+    // - **en**: English.  
+    // 
+    // Default value is **en**.
     shared_ptr<string> lang_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

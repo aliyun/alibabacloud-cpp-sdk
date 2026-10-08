@@ -170,17 +170,51 @@ namespace Models
 
 
     protected:
+      // Task creation time.
       shared_ptr<string> createTime_ {};
+      // Domain name.
       shared_ptr<string> domainName_ {};
+      // Result of task execution.
       shared_ptr<string> errorMsg_ {};
+      // Domain instance ID.
       shared_ptr<string> instanceId_ {};
+      // Task detail number.
       shared_ptr<string> taskDetailNo_ {};
+      // Task number.
       shared_ptr<string> taskNo_ {};
+      // Task Status. Valid values:
+      // - **WAITING_EXECUTE**: Waiting for execution.
+      // - **EXECUTING**: Executing.
+      // - **EXECUTE_SUCCESS**: Execution succeeded.
+      // - **EXECUTE_FAILURE**: Execution failed.
       shared_ptr<string> taskStatus_ {};
+      // Task status code. Valid values:  
+      // - **0**: Waiting for execution.  
+      // - **1**: Executing.  
+      // - **2**: Execution succeeded.  
+      // - **3**: Execution failed.
       shared_ptr<int32_t> taskStatusCode_ {};
+      // Task Type. Valid values:
+      // - **CHG_HOLDER**: Modify registrant information.
+      // - **CHG_DNS**: Modify DNS.
+      // - **SET_WHOIS_PROTECT**: Enable privacy protection.
+      // - **UPDATE_ADMIN_CONTACT**: Modify administrative contact information.
+      // - **UPDATE_BILLING_CONTACT**: Modify billing contact information.
+      // - **UPDATE_TECH_CONTACT**: Modify technical contact information.
+      // - **SET_UPDATE_PROHIBITED**: Enable domain name edit lock.
+      // - **SET_TRANSFER_PROHIBITED**: Enable domain name transfer lock.
+      // - **ORDER_ACTIVATE**: Create a registration order.
+      // - **ORDER_RENEW**: Create a renewal order.
+      // - **ORDER_REDEEM**: Create a redemption order.
+      // - **CREATE_DNSHOST**: Create a DNS host.
+      // - **UPDATE_DNSHOST**: Update a DNS host.
+      // - **SYNC_DNSHOST**: Synchronize a DNS host.
       shared_ptr<string> taskType_ {};
+      // Description of the task type.
       shared_ptr<string> taskTypeDescription_ {};
+      // Number of retries for the task detail.
       shared_ptr<int32_t> tryCount_ {};
+      // The most recent running time of the task details.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -314,17 +348,51 @@ namespace Models
 
 
     protected:
+      // The creation time of the job.
       shared_ptr<string> createTime_ {};
+      // The domain name.
       shared_ptr<string> domainName_ {};
+      // The result of the job execution.
       shared_ptr<string> errorMsg_ {};
+      // The instance ID of the domain name.
       shared_ptr<string> instanceId_ {};
+      // Task detail number.
       shared_ptr<string> taskDetailNo_ {};
+      // The job number.
       shared_ptr<string> taskNo_ {};
+      // Task Status. Valid values:  
+      // - **WAITING_EXECUTE**: Waiting for execution.  
+      // - **EXECUTING**: Executing.  
+      // - **EXECUTE_SUCCESS**: Execution succeeded.  
+      // - **EXECUTE_FAILURE**: Execution failed.
       shared_ptr<string> taskStatus_ {};
+      // The job status code. Valid values:
+      // - **0**: Waiting for execution.
+      // - **1**: Executing.
+      // - **2**: Succeeded.
+      // - **3**: Failed.
       shared_ptr<int32_t> taskStatusCode_ {};
+      // The task type. Valid values:
+      // - **CHG_HOLDER**: Modify registrant information.
+      // - **CHG_DNS**: Modify DNS settings.
+      // - **SET_WHOIS_PROTECT**: Enable privacy protection.
+      // - **UPDATE_ADMIN_CONTACT**: Update administrative contact information.
+      // - **UPDATE_BILLING_CONTACT**: Update billing contact information.
+      // - **UPDATE_TECH_CONTACT**: Update technical contact information.
+      // - **SET_UPDATE_PROHIBITED**: Enable the Edit Lock for the domain name.
+      // - **SET_TRANSFER_PROHIBITED**: Enable the transfer lock for the domain name.
+      // - **ORDER_ACTIVATE**: Create a registration order.
+      // - **ORDER_RENEW**: Create a renewal order.
+      // - **ORDER_REDEEM**: Create a redemption order.
+      // - **CREATE_DNSHOST**: Create a DNS host.
+      // - **UPDATE_DNSHOST**: Update a DNS host.
+      // - **SYNC_DNSHOST**: Synchronize a DNS host.
       shared_ptr<string> taskType_ {};
+      // Task Type description.
       shared_ptr<string> taskTypeDescription_ {};
+      // Number of retries for the task detail.
       shared_ptr<int32_t> tryCount_ {};
+      // The running time of the most recent job execution.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -458,17 +526,51 @@ namespace Models
 
 
     protected:
+      // Creation time of the job.
       shared_ptr<string> createTime_ {};
+      // Domain name.
       shared_ptr<string> domainName_ {};
+      // Result of task execution.
       shared_ptr<string> errorMsg_ {};
+      // Domain name instance ID.
       shared_ptr<string> instanceId_ {};
+      // Task detail number.
       shared_ptr<string> taskDetailNo_ {};
+      // Job number.
       shared_ptr<string> taskNo_ {};
+      // Task Status. Valid values:
+      // - **WAITING_EXECUTE**: Waiting for execution.
+      // - **EXECUTING**: Executing.
+      // - **EXECUTE_SUCCESS**: Succeeded.
+      // - **EXECUTE_FAILURE**: Failed.
       shared_ptr<string> taskStatus_ {};
+      // Task status code. Valid values:
+      // - **0**: Waiting for execution.
+      // - **1**: Executing.
+      // - **2**: Succeeded.
+      // - **3**: Failed.
       shared_ptr<int32_t> taskStatusCode_ {};
+      // Task Type. Valid values:
+      // - **CHG_HOLDER**: Modify registrant information.
+      // - **CHG_DNS**: Modify DNS.
+      // - **SET_WHOIS_PROTECT**: Enable privacy protection.
+      // - **UPDATE_ADMIN_CONTACT**: Modify administrator contact information.
+      // - **UPDATE_BILLING_CONTACT**: Modify billing contact information.
+      // - **UPDATE_TECH_CONTACT**: Modify technical contact information.
+      // - **SET_UPDATE_PROHIBITED**: Enable Edit Lock.
+      // - **SET_TRANSFER_PROHIBITED**: Enable transfer lock.
+      // - **ORDER_ACTIVATE**: Create a registration order.
+      // - **ORDER_RENEW**: Create a renewal order.
+      // - **ORDER_REDEEM**: Create a redemption order.
+      // - **CREATE_DNSHOST**: Create a DNS host.
+      // - **UPDATE_DNSHOST**: Update a DNS host.
+      // - **SYNC_DNSHOST**: Synchronize a DNS host.
       shared_ptr<string> taskType_ {};
+      // Task Type Description.
       shared_ptr<string> taskTypeDescription_ {};
+      // Number of retries for the task details.
       shared_ptr<int32_t> tryCount_ {};
+      // The most recent running time of the job details.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -602,17 +704,51 @@ namespace Models
 
 
     protected:
+      // Job Creation Time.
       shared_ptr<string> createTime_ {};
+      // Domain name.
       shared_ptr<string> domainName_ {};
+      // Result of task execution.
       shared_ptr<string> errorMsg_ {};
+      // Domain instance ID.
       shared_ptr<string> instanceId_ {};
+      // Task detail ID.
       shared_ptr<string> taskDetailNo_ {};
+      // Job number.
       shared_ptr<string> taskNo_ {};
+      // Task Status. Valid values:  
+      // - **WAITING_EXECUTE**: Waiting for execution.  
+      // - **EXECUTING**: Executing.  
+      // - **EXECUTE_SUCCESS**: Execution succeeded.  
+      // - **EXECUTE_FAILURE**: Execution failed.
       shared_ptr<string> taskStatus_ {};
+      // Job Status code. Valid values:  
+      // - **0**: Waiting to execute.  
+      // - **1**: Executing.  
+      // - **2**: Succeeded.  
+      // - **3**: Failed.
       shared_ptr<int32_t> taskStatusCode_ {};
+      // Task Type. Valid values:  
+      // - **CHG_HOLDER**: Modify registrant information.  
+      // - **CHG_DNS**: Modify DNS.  
+      // - **SET_WHOIS_PROTECT**: Enable privacy protection.  
+      // - **UPDATE_ADMIN_CONTACT**: Modify administrative contact information.  
+      // - **UPDATE_BILLING_CONTACT**: Modify billing contact information.  
+      // - **UPDATE_TECH_CONTACT**: Modify technical contact information.  
+      // - **SET_UPDATE_PROHIBITED**: Enable domain name edit lock.  
+      // - **SET_TRANSFER_PROHIBITED**: Enable domain name transfer lock.  
+      // - **ORDER_ACTIVATE**: Create a registration order.  
+      // - **ORDER_RENEW**: Create a renewal order.  
+      // - **ORDER_REDEEM**: Create a redemption order.  
+      // - **CREATE_DNSHOST**: Create a DNS host.  
+      // - **UPDATE_DNSHOST**: Update a DNS host.  
+      // - **SYNC_DNSHOST**: Synchronize a DNS host.
       shared_ptr<string> taskType_ {};
+      // Description of the task type.
       shared_ptr<string> taskTypeDescription_ {};
+      // Retry Count of job details.
       shared_ptr<int32_t> tryCount_ {};
+      // The most recent task execution time.
       shared_ptr<string> updateTime_ {};
     };
 
@@ -669,11 +805,17 @@ namespace Models
 
 
   protected:
+    // Current page cursor.
     shared_ptr<QueryTaskDetailHistoryResponseBody::CurrentPageCursor> currentPageCursor_ {};
+    // Cursor for the next page.
     shared_ptr<QueryTaskDetailHistoryResponseBody::NextPageCursor> nextPageCursor_ {};
+    // Task detail information.
     shared_ptr<vector<QueryTaskDetailHistoryResponseBody::Objects>> objects_ {};
+    // Paging size.
     shared_ptr<int32_t> pageSize_ {};
+    // Cursor for the previous page.
     shared_ptr<QueryTaskDetailHistoryResponseBody::PrePageCursor> prePageCursor_ {};
+    // Unique Request access token.
     shared_ptr<string> requestId_ {};
   };
 

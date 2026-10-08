@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The unique ID for the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the batch transfer-out task.
     shared_ptr<string> taskNo_ {};
   };
 

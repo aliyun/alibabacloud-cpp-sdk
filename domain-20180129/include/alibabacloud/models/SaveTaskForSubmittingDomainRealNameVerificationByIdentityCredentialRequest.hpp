@@ -87,15 +87,25 @@ namespace Models
 
 
   protected:
+    // The domain names to be verified in bulk.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainName_ {};
+    // The Base64-encoded content of the identity credential file.
+    // 
     // This parameter is required.
     shared_ptr<string> identityCredential_ {};
+    // The ID number of the identity credential.
+    // 
     // This parameter is required.
     shared_ptr<string> identityCredentialNo_ {};
+    // The type of the identity credential. Valid values: IDC, Passport, and OfficerAcademy.
+    // 
     // This parameter is required.
     shared_ptr<string> identityCredentialType_ {};
+    // The response language. Valid values: zh-CN and en-US. The default is en-US.
     shared_ptr<string> lang_ {};
+    // The client IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

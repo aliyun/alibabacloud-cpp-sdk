@@ -133,9 +133,14 @@ namespace Models
 
 
   protected:
+    // Indicates whether the domain name contains sensitive words. Valid values:  
+    // - **true**: The domain name contains sensitive words.  
+    // - **false**: The domain name does not contain sensitive words.
     shared_ptr<bool> exist_ {};
+    // The domain name keyword that was passed in.
     shared_ptr<string> keyword_ {};
     shared_ptr<FuzzyMatchDomainSensitiveWordResponseBody::MatchedSentiveWords> matchedSentiveWords_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -57,9 +57,19 @@ namespace Models
 
 
   protected:
+    // Language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Job number.
+    // 
+    // >You can query the job number by using the [QueryTaskList](https://help.aliyun.com/document_detail/67709.html) API.
+    // 
     // This parameter is required.
     shared_ptr<string> taskNo_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -48,8 +48,15 @@ namespace Models
 
 
   protected:
+    // Review record ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> auditRecordId_ {};
+    // Language for error messages in API responses. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
   };
 

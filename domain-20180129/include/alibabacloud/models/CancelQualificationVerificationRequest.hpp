@@ -66,11 +66,22 @@ namespace Models
 
 
   protected:
+    // Domain name instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Language of the error message returned by the API. Valid values:
+    // 
+    // - zh: Chinese
+    // - en: English
+    // 
+    // Default value: en.
     shared_ptr<string> lang_ {};
+    // Qualification verification API type. The value is fixed as **knet**.
+    // 
     // This parameter is required.
     shared_ptr<string> qualificationType_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

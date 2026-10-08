@@ -75,10 +75,22 @@ namespace Models
 
 
   protected:
+    // Review record ID.
     shared_ptr<int64_t> auditRecordId_ {};
+    // Review type. Valid value:  
+    // **1**: Offline domain name transfer.
     shared_ptr<int32_t> auditType_ {};
+    // Certificate materials pending review.
     shared_ptr<string> credentials_ {};
+    // Language of the error message returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Registrant type. Valid values:  
+    // - **1**: Individual.  
+    // - **2**: Enterprise.
     shared_ptr<int32_t> regType_ {};
   };
 

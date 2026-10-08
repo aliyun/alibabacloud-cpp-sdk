@@ -87,9 +87,13 @@ namespace Models
 
 
     protected:
+      // The domain name.
       shared_ptr<string> domain_ {};
+      // The order number.
       shared_ptr<string> orderNo_ {};
+      // The transaction price.
       shared_ptr<int64_t> payPrice_ {};
+      // The payment URL.
       shared_ptr<string> payUrl_ {};
     };
 
@@ -112,7 +116,9 @@ namespace Models
 
 
   protected:
+    // The returned object.
     shared_ptr<CreateIntlFixedPriceDomainOrderResponseBody::Module> module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

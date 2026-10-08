@@ -75,13 +75,26 @@ namespace Models
 
 
   protected:
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Language of error messages returned by the API. Valid values:
+    // 
+    // - zh: Chinese  
+    // - en: English  
+    // 
+    // Default value: en.
     shared_ptr<string> lang_ {};
+    // Number of records to query.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> limit_ {};
+    // Qualification verification API type. Fixed value: **knet**.
+    // 
     // This parameter is required.
     shared_ptr<string> qualificationType_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

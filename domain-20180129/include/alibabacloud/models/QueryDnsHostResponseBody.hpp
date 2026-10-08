@@ -72,7 +72,9 @@ namespace Models
 
 
     protected:
+      // The DNS name.
       shared_ptr<string> dnsName_ {};
+      // A list of IP addresses.
       shared_ptr<vector<string>> ipList_ {};
     };
 
@@ -95,7 +97,9 @@ namespace Models
 
 
   protected:
+    // A list of DNS hosts.
     shared_ptr<vector<QueryDnsHostResponseBody::DnsHostList>> dnsHostList_ {};
+    // A unique ID for the request.
     shared_ptr<string> requestId_ {};
   };
 

@@ -66,10 +66,19 @@ namespace Models
 
 
   protected:
+    // The domain name to be validated.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The transfer-in password for the domain name.
     shared_ptr<string> transferAuthorizationCode_ {};
+    // The user IP address. You can set it to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

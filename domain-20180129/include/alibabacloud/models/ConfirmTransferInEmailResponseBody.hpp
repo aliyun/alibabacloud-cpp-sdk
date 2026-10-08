@@ -129,6 +129,7 @@ namespace Models
 
   protected:
     shared_ptr<ConfirmTransferInEmailResponseBody::FailList> failList_ {};
+    // Unique request access token
     shared_ptr<string> requestId_ {};
     shared_ptr<ConfirmTransferInEmailResponseBody::SuccessList> successList_ {};
   };

@@ -75,12 +75,25 @@ namespace Models
 
 
   protected:
+    // The information to be reviewed. The displayed information varies by business type.
     shared_ptr<string> auditInfo_ {};
+    // The business type. Valid values:
+    // 
+    // **1**: Transfer a domain name offline, that is, transfer the domain name from the current Alibaba Cloud account to another Alibaba Cloud account.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> auditType_ {};
+    // The domain name. You can specify one or more domain names, separated by commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The review ID.
     shared_ptr<int64_t> id_ {};
+    // The language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
   };
 

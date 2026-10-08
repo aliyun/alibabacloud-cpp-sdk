@@ -57,9 +57,19 @@ namespace Models
 
 
   protected:
+    // The domain instance ID. Call the [QueryDomainList](https://help.aliyun.com/document_detail/67712.html) API to get this ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The language of API error messages. Valid values:
+    // 
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The user\\"s IP address. You can use **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

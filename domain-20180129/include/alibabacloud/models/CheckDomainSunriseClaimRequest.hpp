@@ -57,9 +57,17 @@ namespace Models
 
 
   protected:
+    // The domain name to query.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese;
+    // - **en**: English.
+    // 
+    // Default value is **en**.
     shared_ptr<string> lang_ {};
+    // User IP address. You can set it to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

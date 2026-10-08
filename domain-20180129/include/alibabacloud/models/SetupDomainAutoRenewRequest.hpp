@@ -48,8 +48,12 @@ namespace Models
 
 
   protected:
+    // The instance ID of the domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The operation type.
+    // 
     // This parameter is required.
     shared_ptr<string> operation_ {};
   };

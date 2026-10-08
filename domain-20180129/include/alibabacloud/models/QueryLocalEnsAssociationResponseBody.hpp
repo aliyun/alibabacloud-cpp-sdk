@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ENS address recorded in the Alibaba Cloud system.
     shared_ptr<string> address_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
   };
 

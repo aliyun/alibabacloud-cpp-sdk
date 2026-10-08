@@ -103,13 +103,26 @@ namespace Models
 
 
   protected:
+    // Indicates whether the group is being deleted.  
+    // > For groups containing more than 1,000 domain names, deletion is an asynchronous procedure that requires some time for the system to process. During this period, this field is **true**.
     shared_ptr<bool> beingDeleted_ {};
+    // Creation Time of the domain name group.
     shared_ptr<string> creationDate_ {};
+    // Domain group ID.
     shared_ptr<int64_t> domainGroupId_ {};
+    // Domain Name Group Name.
     shared_ptr<string> domainGroupName_ {};
+    // Status of the domain name group. Valid values:  
+    // - **PROCESSING**: Processing;  
+    // - **COMPLETE**: Complete.  
+    // 
+    // > In cases such as setting a group via a file or replacing a group with more than 1,000 domain names, the operation is asynchronous and requires waiting for system processing. During this time, this field is **PROCESSING**.
     shared_ptr<string> domainGroupStatus_ {};
+    // Updated At time of the domain name group.
     shared_ptr<string> modificationDate_ {};
+    // Unique request identity.
     shared_ptr<string> requestId_ {};
+    // Quantity of domain names.
     shared_ptr<int32_t> totalNumber_ {};
   };
 

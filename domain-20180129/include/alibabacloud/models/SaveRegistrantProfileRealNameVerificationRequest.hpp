@@ -250,29 +250,109 @@ namespace Models
 
 
   protected:
+    // Detailed address (in English).  
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> address_ {};
+    // City (in English).  
+    // 
+    // > This parameter is active and required only when the **RegistrantProfileId** parameter is not provided. If this parameter is not provided, domain name registration will fail.
     shared_ptr<string> city_ {};
+    // Country code, such as **CN**.
+    // 
+    // > This parameter is active and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> country_ {};
+    // Email address.  
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> email_ {};
+    // Base64-encoded image of the identity verification document. Image requirements:  
+    // - Format must be **jpg** or **bmp**.  
+    // - Original image size must be between **55 KB and 1 MB**.
     shared_ptr<string> identityCredential_ {};
+    // Certificate number for identity verification.
     shared_ptr<string> identityCredentialNo_ {};
+    // Type of certificate used for identity verification. Valid values:  
+    // - **SFZ**: Identity card.  
+    // - **HZ**: Passport.  
+    // - **YYZZ**: Business license.  
+    // - **ORG**: Organization code certificate.  
+    // - **XYDM**: Unified Social Credit Code certificate.  
+    // - **TXZ**: Mainland Travel Permits for Hong Kong and Macao Residents.  
+    // 
+    // > For more certificate types, see [Supported Certificate Types for Identity Verification](https://help.aliyun.com/document_detail/72209.html).
     shared_ptr<string> identityCredentialType_ {};
+    // Language of the error message returned by the API. Valid values:  
+    // - **zh**: Chinese  
+    // - **en**: English  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Postal code.  
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> postalCode_ {};
+    // Province (in English).  
+    // 
+    // > This parameter is active and required only when the **RegistrantProfileId** parameter is not provided. If this parameter is not provided, domain name registration will fail.
     shared_ptr<string> province_ {};
+    // Domain name contact (in English).  
+    // 
+    // > This parameter is active and required only when the **RegistrantProfileId** parameter is not provided. If this parameter is not provided, domain name registration will fail.
     shared_ptr<string> registrantName_ {};
+    // Registrant name (in English).
+    // 
+    // > This parameter is active and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> registrantOrganization_ {};
+    // ID of the registrant profile template to be saved.  
+    // 
+    // The system automatically generates this ID after a registrant profile is successfully created. You can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the registrant profile ID.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // Templatetype. Valid values:  
+    // - **common**: General template.  
+    // - **cnnic**: CNNIC template.  
+    // 
+    // > The CNNIC template is supported only on the Alibaba Cloud international site (alibabacloud.com). Domains under the CNNIC registry, such as ".cn" and ".中国", registered on the Alibaba Cloud international site must use the CNNIC template. Other domains must use the general template.
     shared_ptr<string> registrantProfileType_ {};
+    // Type of the registrant. Valid values:  
+    // - **1**: Individual.  
+    // - **2**: Enterprise or organization.  
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> registrantType_ {};
+    // Telephone country code.
+    // 
+    // > For example, the telephone country code for China is **86**.
     shared_ptr<string> telArea_ {};
+    // Extension number.
+    // 
+    // > This parameter is active and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> telExt_ {};
+    // Telephone number.  
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> telephone_ {};
+    // User IP address. You can set it to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
+    // Full address (in Chinese).
+    // 
+    // > This parameter applies only to the China site (aliyun.com). It is active and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> zhAddress_ {};
+    // City (in Chinese).  
+    // 
+    // > This parameter applies only to the China site (aliyun.com). It is active and required only when the **RegistrantProfileId** parameter is not provided. If this parameter is not provided, domain name registration will fail.
     shared_ptr<string> zhCity_ {};
+    // Province (in Chinese).  
+    // 
+    // > This parameter applies only to the China site (aliyun.com). It is available and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> zhProvince_ {};
+    // Domain name contact (in Chinese).  
+    // 
+    // > This parameter applies only to the China site (aliyun.com). It is active and required only when the **RegistrantProfileId** parameter is not provided. If this parameter is not provided, domain name registration will fail.
     shared_ptr<string> zhRegistrantName_ {};
+    // Registrant name (in Chinese).
+    // 
+    // > This parameter applies only to the China site (aliyun.com). It is active and required only when the **RegistrantProfileId** parameter is not provided. Failure to provide it will cause domain registration to fail.
     shared_ptr<string> zhRegistrantOrganization_ {};
   };
 

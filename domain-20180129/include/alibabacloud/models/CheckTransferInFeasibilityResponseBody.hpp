@@ -75,10 +75,17 @@ namespace Models
 
 
   protected:
+    // Indicates whether the domain name can be transferred in. Valid values:
+    // - **true**: The domain name can be transferred in.
+    // - **false**: The domain name cannot be transferred in.
     shared_ptr<bool> canTransfer_ {};
+    // The error code returned when the domain name cannot be transferred in.
     shared_ptr<string> code_ {};
+    // The error description returned when the domain name cannot be transferred in.
     shared_ptr<string> message_ {};
+    // The product ID of the domain name.
     shared_ptr<string> productId_ {};
+    // The unique request access token.
     shared_ptr<string> requestId_ {};
   };
 

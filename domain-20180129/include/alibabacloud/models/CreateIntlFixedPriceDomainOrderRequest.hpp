@@ -75,9 +75,17 @@ namespace Models
 
 
   protected:
+    // Specifies whether to enable automatic payment. Valid values:
+    // 
+    // - false (default): manual payment.
+    // 
+    //  - true: automatic payment.
     shared_ptr<bool> autoPay_ {};
+    // The contact ID.
     shared_ptr<int64_t> contactId_ {};
+    // The domain name.
     shared_ptr<string> domain_ {};
+    // The expected price.
     shared_ptr<int64_t> expectedPrice_ {};
     shared_ptr<int32_t> productType_ {};
   };

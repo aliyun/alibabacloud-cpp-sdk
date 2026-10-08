@@ -48,8 +48,13 @@ namespace Models
 
 
   protected:
+    // The IDs of the contact templates to delete. Separate multiple values with commas (,).
+    // 
+    // The system automatically generates an ID upon successful creation of a contact template. You can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the template IDs.
+    // 
     // This parameter is required.
     shared_ptr<string> registrantProfileIds_ {};
+    // User IP address. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

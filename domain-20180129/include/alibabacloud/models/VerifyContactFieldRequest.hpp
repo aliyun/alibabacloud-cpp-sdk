@@ -213,25 +213,61 @@ namespace Models
 
 
   protected:
+    // Street address (in English).
     shared_ptr<string> address_ {};
+    // City (in English).
     shared_ptr<string> city_ {};
+    // Country code, such as **CN** or **US**.
     shared_ptr<string> country_ {};
+    // Domain name.
     shared_ptr<string> domainName_ {};
+    // Email address.
     shared_ptr<string> email_ {};
+    // Language of the error message returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Postal code.
     shared_ptr<string> postalCode_ {};
+    // Province (in English).
     shared_ptr<string> province_ {};
+    // Contact name (in English).
     shared_ptr<string> registrantName_ {};
+    // Registrant name (in English).
     shared_ptr<string> registrantOrganization_ {};
+    // Registrant type. Valid values:  
+    // - **1**: Individual.  
+    // - **2**: Enterprise.
     shared_ptr<string> registrantType_ {};
+    // Telephone country code, for example, **86** for China.
     shared_ptr<string> telArea_ {};
+    // Extension number.
     shared_ptr<string> telExt_ {};
+    // Telephone number.
     shared_ptr<string> telephone_ {};
+    // User IP address, which can be set to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
+    // Detailed address (in Chinese).
+    // 
+    // > This parameter applies only to the China site (aliyun.com).
     shared_ptr<string> zhAddress_ {};
+    // City (in Chinese).  
+    // 
+    // > This parameter applies only to the China site (aliyun.com).
     shared_ptr<string> zhCity_ {};
+    // Province (in Chinese).  
+    // 
+    // > This parameter applies only to the China site (aliyun.com).
     shared_ptr<string> zhProvince_ {};
+    // Contact name (in Chinese).  
+    // 
+    // > This parameter applies only to the China site (aliyun.com).
     shared_ptr<string> zhRegistrantName_ {};
+    // Registrant name (in Chinese).
+    // 
+    // > This parameter applies only to the China site (aliyun.com).
     shared_ptr<string> zhRegistrantOrganization_ {};
   };
 

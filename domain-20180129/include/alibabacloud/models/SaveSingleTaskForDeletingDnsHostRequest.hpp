@@ -66,11 +66,21 @@ namespace Models
 
 
   protected:
+    // DNS name.
+    // 
     // This parameter is required.
     shared_ptr<string> dnsName_ {};
+    // Instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // Language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

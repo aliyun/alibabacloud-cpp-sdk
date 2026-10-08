@@ -235,30 +235,65 @@ namespace Models
 
 
   protected:
+    // Specific address.
     shared_ptr<string> address_ {};
+    // City.
     shared_ptr<string> city_ {};
+    // Contact type. Valid values:  
+    // - **registrant**: Registrant.  
+    // - **admin**: Administrator.  
+    // - **billing**: Billing contact.  
+    // - **tech**: Technical contact.
+    // 
     // This parameter is required.
     shared_ptr<string> contactType_ {};
+    // Country code, such as **CN** or **US**.
     shared_ptr<string> country_ {};
+    // Domain name list.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainName_ {};
+    // Mailbox.
     shared_ptr<string> email_ {};
+    // Language of error messages returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Postal code.
     shared_ptr<string> postalCode_ {};
+    // Province.
     shared_ptr<string> province_ {};
+    // Contact name.
     shared_ptr<string> registrantName_ {};
+    // Registrant organization name.
     shared_ptr<string> registrantOrganization_ {};
+    // Domain registrant type. Valid values:  
+    // - **1**: Individual.  
+    // - **2**: Enterprise.
+    // 
     // This parameter is required.
     shared_ptr<string> registrantType_ {};
+    // Telephone country code.
     shared_ptr<string> telArea_ {};
+    // Extension number.
     shared_ptr<string> telExt_ {};
+    // Telephone number.
     shared_ptr<string> telephone_ {};
+    // Whether to add a transfer-out prohibition restriction. This parameter only takes effect when **ContactType** is **registrant**, indicating whether the domain name is restricted from transfer-out for 60 days after the registrant is modified. The default value is **false**, which means transfer-out is not restricted.
     shared_ptr<bool> transferOutProhibited_ {};
+    // User IP.
     shared_ptr<string> userClientIp_ {};
+    // Chinese address.
     shared_ptr<string> zhAddress_ {};
+    // Chinese city.
     shared_ptr<string> zhCity_ {};
+    // Chinese province.
     shared_ptr<string> zhProvince_ {};
+    // Chinese contact name.
     shared_ptr<string> zhRegistrantName_ {};
+    // Chinese registrant organization name.
     shared_ptr<string> zhRegistrantOrganization_ {};
   };
 

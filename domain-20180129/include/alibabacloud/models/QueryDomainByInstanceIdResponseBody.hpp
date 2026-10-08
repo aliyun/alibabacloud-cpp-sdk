@@ -485,40 +485,146 @@ namespace Models
   protected:
     shared_ptr<string> cnnicPrivacyServiceStatus_ {};
     shared_ptr<QueryDomainByInstanceIdResponseBody::DnsList> dnsList_ {};
+    // The ID of the domain name group. You can call the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation to obtain the ID of the domain name group.
     shared_ptr<int64_t> domainGroupId_ {};
+    // The name of the domain name group.
     shared_ptr<string> domainGroupName_ {};
     shared_ptr<string> domainLifecycleStatus_ {};
+    // The domain name.
     shared_ptr<string> domainName_ {};
+    // Indicates whether the domain name privacy protection service is enabled.
     shared_ptr<bool> domainNameProxyService_ {};
+    // The status of the domain name review. Valid values:
+    // 
+    // - **NONAUDIT**: The domain name is not verified.
+    // 
+    // - **SUCCEED**: The domain name is verified.
+    // 
+    // - **FAILED**: The domain name fails to be verified.
+    // 
+    // - **AUDITING**: The domain name is being verified.
     shared_ptr<string> domainNameVerificationStatus_ {};
+    // The status of the domain name. Valid values:
+    // 
+    // - 1: The domain name needs to be renewed.
+    // 
+    // - 2: The domain name needs to be redeemed.
+    // 
+    // - 3: The domain name is normal.
     shared_ptr<string> domainStatus_ {};
+    // The type of the domain name. Valid values:
+    // 
+    // - New gTLD.
+    // 
+    // - gTLD.
+    // 
+    // - ccTLD.
     shared_ptr<string> domainType_ {};
+    // The email address of the domain name registrant.
     shared_ptr<string> email_ {};
+    // Indicates whether the DNS resolution for the domain name is suspended. Valid values:
+    // 
+    // - **false**: The DNS resolution for the domain name is not suspended.
+    // 
+    // - **true**: The DNS resolution for the domain name is suspended.
     shared_ptr<bool> emailVerificationClientHold_ {};
+    // Indicates whether the email address of the domain name registrant is verified. Valid values:
+    // 
+    // - **0**: The email address is not verified.
+    // 
+    // - **1**: The email address is verified.
     shared_ptr<int32_t> emailVerificationStatus_ {};
+    // The number of days from the expiration date to the current date.
     shared_ptr<int32_t> expirationCurrDateDiff_ {};
+    // The expiration date of the domain name.
     shared_ptr<string> expirationDate_ {};
+    // The expiration timestamp of the domain name.
     shared_ptr<int64_t> expirationDateLong_ {};
+    // The expiration status of the domain name. Valid values:
+    // 
+    // - **1**: The domain name has not expired.
+    // 
+    // - **2**: The domain name has expired.
     shared_ptr<string> expirationDateStatus_ {};
+    // The instance ID of the domain name.
     shared_ptr<string> instanceId_ {};
+    // Indicates whether the domain name is a premium domain name. Valid values:
+    // 
+    // - **true**: a premium domain name.
+    // 
+    // - **false**: not a premium domain name.
     shared_ptr<bool> premium_ {};
     shared_ptr<string> privacyServiceStatus_ {};
+    // The real-name verification status of the domain name. Valid values:
+    // 
+    // - **NONAUDIT**: The real-name verification is not performed.
+    // 
+    // - **SUCCEED**: The real-name verification is successful.
+    // 
+    // - **FAILED**: The real-name verification fails.
+    // 
+    // - **AUDITING**: The real-name verification is in progress.
+    // 
+    // > The real-name verification status of a domain name is a composite status of domain name review and real-name verification. The real-name verification of a domain name is successful only when both the domain name review and real-name verification are successful.
     shared_ptr<string> realNameStatus_ {};
+    // The name of the contact person.
     shared_ptr<string> registrantName_ {};
+    // The registrant of the domain name.
     shared_ptr<string> registrantOrganization_ {};
+    // The type of the domain name registrant. Valid values:
+    // 
+    // - **1**: an individual.
+    // 
+    // - **2**: an enterprise.
     shared_ptr<string> registrantType_ {};
+    // The status of the domain name registrant. Valid values:
+    // 
+    // - **PENDING**: The information about the domain name registrant is being modified.
+    // 
+    // - **NORMAL**: The information about the domain name registrant is not being modified.
     shared_ptr<string> registrantUpdatingStatus_ {};
+    // The registration date of the domain name.
     shared_ptr<string> registrationDate_ {};
+    // The registration timestamp of the domain name.
     shared_ptr<int64_t> registrationDateLong_ {};
+    // The remarks of the domain name.
     shared_ptr<string> remark_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
     shared_ptr<QueryDomainByInstanceIdResponseBody::Tag> tag_ {};
+    // The status of the domain name transfer. Valid values:
+    // 
+    // - **NORMAL**: The domain name is not being transferred out of Alibaba Cloud.
+    // 
+    // - **PENDING**: The domain name is being transferred out of Alibaba Cloud.
     shared_ptr<string> transferOutStatus_ {};
+    // The status of the domain name transfer lock. Valid values:
+    // 
+    // - **NONE_SETTING**: The domain name transfer lock is not enabled.
+    // 
+    // - **OPEN**: The domain name transfer lock is enabled.
+    // 
+    // - **CLOSE**: The domain name transfer lock is disabled.
     shared_ptr<string> transferProhibitionLock_ {};
+    // The status of the security lock for the domain name. Valid values:
+    // 
+    // - **NONE_SETTING**: The security lock is not enabled.
+    // 
+    // - **OPEN**: The security lock is enabled.
+    // 
+    // - **CLOSE**: The security lock is disabled.
     shared_ptr<string> updateProhibitionLock_ {};
+    // The user ID (UID) of the Alibaba Cloud account.
     shared_ptr<string> userId_ {};
+    // The contact person in Chinese.
+    // 
+    // > This parameter is applicable only to the China site.
     shared_ptr<string> zhRegistrantName_ {};
+    // The registrant of the domain name in Chinese.
+    // 
+    // > This parameter is applicable only to the China site.
     shared_ptr<string> zhRegistrantOrganization_ {};
   };
 

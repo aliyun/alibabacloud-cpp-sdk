@@ -48,8 +48,15 @@ namespace Models
 
 
   protected:
+    // The audit record ID. You can query the audit record ID by using the [QueryOperationAuditInfoList](https://help.aliyun.com/document_detail/172568.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> auditRecordId_ {};
+    // The language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
   };
 

@@ -103,15 +103,36 @@ namespace Models
 
 
   protected:
+    // The domain name, which supports prefix matching (fuzzy query).
     shared_ptr<string> domainName_ {};
+    // The language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The page number of the domain name list.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
+    // The page size for paging the domain name list.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Transfer status. Valid values:  
+    // - **INIT**: Submit transfer-in.  
+    // - **AUTHORIZATION**: Authorize transfer-in (email verification).  
+    // - **NAME_VERIFICATION**: Name review.  
+    // - **PASSWORD_VERIFICATION**: Transfer password verification.  
+    // - **PENDING**: Transfer-in in progress.  
+    // - **SUCCESS**: Transfer-in succeeded.  
+    // - **FAIL**: Transfer-in failed.
     shared_ptr<string> simpleTransferInStatus_ {};
+    // End time for submitting the domain name list for transfer-in.
     shared_ptr<int64_t> submissionEndDate_ {};
+    // The start time for submitting the domain name list for transfer-in.
     shared_ptr<int64_t> submissionStartDate_ {};
+    // The user IP address, which can be set to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

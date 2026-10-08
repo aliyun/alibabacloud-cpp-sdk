@@ -84,11 +84,27 @@ namespace Models
 
 
   protected:
+    // The user-defined domain group name.
     shared_ptr<string> domainGroupName_ {};
+    // The language of error messages in the response. Valid values:
+    // 
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
+    // 
+    // The default value is **en**.
     shared_ptr<string> lang_ {};
     shared_ptr<string> orderByType_ {};
     shared_ptr<string> orderKeyType_ {};
+    // Specifies whether to show domain groups that are being deleted. Valid values:
+    // 
+    // - **false**
+    // 
+    // - **true**
+    // 
+    // The default value is **false**.
     shared_ptr<bool> showDeletingGroup_ {};
+    // The client IP address. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -78,12 +78,24 @@ namespace Models
 
 
   protected:
+    // List of domain names, separated by commas (,).
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainName_ {};
+    // Language for error messages returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
     shared_ptr<string> serviceType_ {};
+    // Enabled or shutdown status. Valid values:
+    // - **true**: Enabled.
+    // - **false**: Shutdown.
+    // 
     // This parameter is required.
     shared_ptr<bool> status_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

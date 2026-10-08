@@ -98,9 +98,18 @@ namespace Models
 
 
     protected:
+      // Domain name transfer-in password. If multiple domain names are involved, pass the passwords as a list.
       shared_ptr<string> authorizationCode_ {};
+      // Domain name. If multiple domain names are involved, pass them as a list.
       shared_ptr<string> domainName_ {};
+      // Is transfer-in of premium domain names allowed? Valid values:
+      // 
+      // - **false**: Allowed.
+      // - **true**: Not allowed.
+      // 
+      // Default value: **false**.
       shared_ptr<bool> permitPremiumTransfer_ {};
+      // ID of an identity-verified domain name registrant profile. You can obtain this ID by invoking the [QueryRegistrantProfileRealNameVerificationInfo](https://help.aliyun.com/document_detail/69359.htm?spm=a2c4g.11186623.0.0.5096253c12PfdB) API.
       shared_ptr<int64_t> registrantProfileId_ {};
     };
 
@@ -159,13 +168,30 @@ namespace Models
 
 
   protected:
+    // Coupon number.
     shared_ptr<string> couponNo_ {};
+    // Language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value is **en**.
     shared_ptr<string> lang_ {};
+    // List of job details.
+    // 
     // This parameter is required.
     shared_ptr<vector<SaveBatchTaskForCreatingOrderTransferRequest::OrderTransferParam>> orderTransferParam_ {};
+    // Coupon number.
     shared_ptr<string> promotionNo_ {};
+    // Is a coupon used? Valid values:
+    // 
+    // - **false**: No.
+    // - **true**: Yes.
     shared_ptr<bool> useCoupon_ {};
+    // Whether to use a coupon. Valid values:
+    // - **false**: Do not use.
+    // - **true**: Use.
     shared_ptr<bool> usePromotion_ {};
+    // User IP address, which can be set to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

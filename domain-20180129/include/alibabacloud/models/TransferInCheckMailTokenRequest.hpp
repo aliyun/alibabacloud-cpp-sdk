@@ -57,9 +57,17 @@ namespace Models
 
 
   protected:
+    // The language of the error message returned by the operation. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The token received in the email.
+    // 
     // This parameter is required.
     shared_ptr<string> token_ {};
+    // The IP address of the user.
     shared_ptr<string> userClientIp_ {};
   };
 

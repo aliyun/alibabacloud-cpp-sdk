@@ -70,7 +70,11 @@ namespace Models
 
 
     protected:
+      // The Review Date.
       shared_ptr<string> date_ {};
+      // The reason why identity verification failed the Review.
+      // 
+      // For Solutions after identity verification fails the Review, see [Reasons for identity verification failure and Solutions](https://help.aliyun.com/document_detail/35885.html).
       shared_ptr<string> failReason_ {};
     };
 
@@ -93,7 +97,9 @@ namespace Models
 
 
   protected:
+    // The List of reasons why identity verification failed the Review.
     shared_ptr<vector<QueryFailReasonForRegistrantProfileRealNameVerificationResponseBody::Data>> data_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

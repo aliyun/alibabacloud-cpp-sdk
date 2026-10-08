@@ -57,9 +57,19 @@ namespace Models
 
 
   protected:
+    // The trademark claim key. Call the [CheckDomainSunriseClaim](https://help.aliyun.com/document_detail/97210.htm?spm=a2c4g.11186623.0.0.4aec615fTVPYjt) operation to obtain this key.
+    // 
     // This parameter is required.
     shared_ptr<string> claimKey_ {};
+    // The language of the error messages that are returned by the API. Valid values:
+    // 
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The user\\"s IP address. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The task ID. You can use this ID to query the task details.
     shared_ptr<string> taskNo_ {};
   };
 

@@ -38,6 +38,7 @@ namespace Models
 
 
   protected:
+    // The domain name.
     shared_ptr<string> domain_ {};
   };
 

@@ -121,18 +121,44 @@ namespace Models
 
 
   protected:
+    // The coupon number.
     shared_ptr<string> couponNo_ {};
+    // The current expiration date of the domain name. This value is a Unix timestamp in milliseconds, representing the time elapsed since 00:00:00 UTC on January 1, 1970.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentExpirationDate_ {};
+    // The domain name to renew.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The language of error messages returned by the API. Valid values:
+    // 
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
+    // 
+    // The default value is **en**.
     shared_ptr<string> lang_ {};
     shared_ptr<bool> permitPremiumRenew_ {};
+    // The promotion number.
     shared_ptr<string> promotionNo_ {};
+    // The renewal period, in years. The value must be an integer from **1** to **10**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> subscriptionDuration_ {};
+    // Specifies whether to use a coupon. Valid values:
+    // 
+    // - **false**: Do not use a coupon.
+    // 
+    // - **true**: Use a coupon.
     shared_ptr<bool> useCoupon_ {};
+    // Specifies whether to use a promotion. Valid values:
+    // 
+    // - **false**: Do not use a promotion.
+    // 
+    // - **true**: Use a promotion.
     shared_ptr<bool> usePromotion_ {};
+    // The user\\"s IP address. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

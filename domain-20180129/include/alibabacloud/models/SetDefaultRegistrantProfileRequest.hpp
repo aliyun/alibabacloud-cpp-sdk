@@ -48,8 +48,13 @@ namespace Models
 
 
   protected:
+    // The ID of the contact template to be set as default.
+    // 
+    // The system automatically generates this ID after the template is successfully created. You can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the template ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // The user IP address. The default value is **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

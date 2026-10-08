@@ -94,13 +94,19 @@ namespace Models
 
 
   protected:
+    // Access ID.
     shared_ptr<string> accessid_ {};
+    // Encrypted policy.
     shared_ptr<string> encodedPolicy_ {};
+    // Expiration time.
     shared_ptr<string> expireTime_ {};
+    // File directory.
     shared_ptr<string> fileDir_ {};
     // OSS Endpoint。
     shared_ptr<string> host_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Signature data.
     shared_ptr<string> signature_ {};
   };
 

@@ -18,6 +18,9 @@ namespace Domain20180129
 
 AlibabaCloud::Domain20180129::Client::Client(Config &config): OpenApiClient(config){
   this->_endpointRule = "central";
+  this->_endpointMap = json({
+    {"ap-southeast-1" , "domain-intl.aliyuncs.com"}
+  }).get<map<string, string>>();
   checkConfig(config);
   this->_endpoint = getEndpoint("domain", _regionId, _endpointRule, _network, _suffix, _endpointMap, _endpoint);
 }
@@ -36,7 +39,9 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary 确认任务结果
+ * @summary Invoke AcknowledgeTaskResult to confirm the task detail result.
+ *
+ * @description After the task detail result is confirmed, it can no longer be queried from the [PollTaskResult](https://help.aliyun.com/document_detail/69361.html) API.
  *
  * @param request AcknowledgeTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -75,7 +80,9 @@ AcknowledgeTaskResultResponse Client::acknowledgeTaskResultWithOptions(const Ack
 }
 
 /**
- * @summary 确认任务结果
+ * @summary Invoke AcknowledgeTaskResult to confirm the task detail result.
+ *
+ * @description After the task detail result is confirmed, it can no longer be queried from the [PollTaskResult](https://help.aliyun.com/document_detail/69361.html) API.
  *
  * @param request AcknowledgeTaskResultRequest
  * @return AcknowledgeTaskResultResponse
@@ -86,7 +93,7 @@ AcknowledgeTaskResultResponse Client::acknowledgeTaskResult(const AcknowledgeTas
 }
 
 /**
- * @summary 通过关键字进行批量模糊匹配
+ * @summary You can invoke BatchFuzzyMatchDomainSensitiveWord to batch check whether domain names contain sensitive words.
  *
  * @param request BatchFuzzyMatchDomainSensitiveWordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -125,7 +132,7 @@ BatchFuzzyMatchDomainSensitiveWordResponse Client::batchFuzzyMatchDomainSensitiv
 }
 
 /**
- * @summary 通过关键字进行批量模糊匹配
+ * @summary You can invoke BatchFuzzyMatchDomainSensitiveWord to batch check whether domain names contain sensitive words.
  *
  * @param request BatchFuzzyMatchDomainSensitiveWordRequest
  * @return BatchFuzzyMatchDomainSensitiveWordResponse
@@ -190,7 +197,7 @@ CancelDomainVerificationResponse Client::cancelDomainVerification(const CancelDo
 }
 
 /**
- * @summary 取消审核
+ * @summary Invoke the CancelOperationAudit API to cancel a self-service operation audit.
  *
  * @param request CancelOperationAuditRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -225,7 +232,7 @@ CancelOperationAuditResponse Client::cancelOperationAuditWithOptions(const Cance
 }
 
 /**
- * @summary 取消审核
+ * @summary Invoke the CancelOperationAudit API to cancel a self-service operation audit.
  *
  * @param request CancelOperationAuditRequest
  * @return CancelOperationAuditResponse
@@ -236,6 +243,8 @@ CancelOperationAuditResponse Client::cancelOperationAudit(const CancelOperationA
 }
 
 /**
+ * @summary Cancel the qualification verification for ".restaurant" and ".trademark" domain names.
+ *
  * @param request CancelQualificationVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CancelQualificationVerificationResponse
@@ -277,6 +286,8 @@ CancelQualificationVerificationResponse Client::cancelQualificationVerificationW
 }
 
 /**
+ * @summary Cancel the qualification verification for ".restaurant" and ".trademark" domain names.
+ *
  * @param request CancelQualificationVerificationRequest
  * @return CancelQualificationVerificationResponse
  */
@@ -286,6 +297,8 @@ CancelQualificationVerificationResponse Client::cancelQualificationVerification(
 }
 
 /**
+ * @summary Invoke CancelTask to cancel an ongoing job.
+ *
  * @param request CancelTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CancelTaskResponse
@@ -323,6 +336,8 @@ CancelTaskResponse Client::cancelTaskWithOptions(const CancelTaskRequest &reques
 }
 
 /**
+ * @summary Invoke CancelTask to cancel an ongoing job.
+ *
  * @param request CancelTaskRequest
  * @return CancelTaskResponse
  */
@@ -332,7 +347,7 @@ CancelTaskResponse Client::cancelTask(const CancelTaskRequest &request) {
 }
 
 /**
- * @summary ChangeResourceGroup
+ * @summary Modify the resource group to which a domain name belongs.
  *
  * @param request ChangeResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -379,7 +394,7 @@ ChangeResourceGroupResponse Client::changeResourceGroupWithOptions(const ChangeR
 }
 
 /**
- * @summary ChangeResourceGroup
+ * @summary Modify the resource group to which a domain name belongs.
  *
  * @param request ChangeResourceGroupRequest
  * @return ChangeResourceGroupResponse
@@ -390,7 +405,10 @@ ChangeResourceGroupResponse Client::changeResourceGroup(const ChangeResourceGrou
 }
 
 /**
- * @summary Checks whether a domain name can be registered.
+ * @summary Invoke the CheckDomain API to check whether a domain name can be registered.
+ *
+ * @description For the legitimacy requirements of domain names, see [Domain Name Legitimacy](https://help.aliyun.com/document_detail/67788.html).
+ * > The CheckDomain API has a frequency limit. The combined queries per second (QPS) limit for an Alibaba Cloud account and its RAM users is 10, and the total QPS limit for this API is 100.
  *
  * @param request CheckDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -437,7 +455,10 @@ CheckDomainResponse Client::checkDomainWithOptions(const CheckDomainRequest &req
 }
 
 /**
- * @summary Checks whether a domain name can be registered.
+ * @summary Invoke the CheckDomain API to check whether a domain name can be registered.
+ *
+ * @description For the legitimacy requirements of domain names, see [Domain Name Legitimacy](https://help.aliyun.com/document_detail/67788.html).
+ * > The CheckDomain API has a frequency limit. The combined queries per second (QPS) limit for an Alibaba Cloud account and its RAM users is 10, and the total QPS limit for this API is 100.
  *
  * @param request CheckDomainRequest
  * @return CheckDomainResponse
@@ -448,6 +469,8 @@ CheckDomainResponse Client::checkDomain(const CheckDomainRequest &request) {
 }
 
 /**
+ * @summary Query the trademark keyword key based on the provided domain name.
+ *
  * @param request CheckDomainSunriseClaimRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckDomainSunriseClaimResponse
@@ -485,6 +508,8 @@ CheckDomainSunriseClaimResponse Client::checkDomainSunriseClaimWithOptions(const
 }
 
 /**
+ * @summary Query the trademark keyword key based on the provided domain name.
+ *
  * @param request CheckDomainSunriseClaimRequest
  * @return CheckDomainSunriseClaimResponse
  */
@@ -494,7 +519,7 @@ CheckDomainSunriseClaimResponse Client::checkDomainSunriseClaim(const CheckDomai
 }
 
 /**
- * @summary Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
+ * @summary Calls CheckIntlFixPriceDomainStatus to check the status and price of an international fixed-price domain name that is on sale.
  *
  * @param request CheckIntlFixPriceDomainStatusRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -525,7 +550,7 @@ CheckIntlFixPriceDomainStatusResponse Client::checkIntlFixPriceDomainStatusWithO
 }
 
 /**
- * @summary Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
+ * @summary Calls CheckIntlFixPriceDomainStatus to check the status and price of an international fixed-price domain name that is on sale.
  *
  * @param request CheckIntlFixPriceDomainStatusRequest
  * @return CheckIntlFixPriceDomainStatusResponse
@@ -536,6 +561,8 @@ CheckIntlFixPriceDomainStatusResponse Client::checkIntlFixPriceDomainStatus(cons
 }
 
 /**
+ * @summary Detects the maximum number of years for which a domain name can be purchased or renewed.
+ *
  * @param request CheckMaxYearOfServerLockRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckMaxYearOfServerLockResponse
@@ -577,6 +604,8 @@ CheckMaxYearOfServerLockResponse Client::checkMaxYearOfServerLockWithOptions(con
 }
 
 /**
+ * @summary Detects the maximum number of years for which a domain name can be purchased or renewed.
+ *
  * @param request CheckMaxYearOfServerLockRequest
  * @return CheckMaxYearOfServerLockResponse
  */
@@ -586,6 +615,8 @@ CheckMaxYearOfServerLockResponse Client::checkMaxYearOfServerLock(const CheckMax
 }
 
 /**
+ * @summary Checks whether the domain name has a registry lock service request with the **Processing** status at the domain name registry.
+ *
  * @param request CheckProcessingServerLockApplyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckProcessingServerLockApplyResponse
@@ -627,6 +658,8 @@ CheckProcessingServerLockApplyResponse Client::checkProcessingServerLockApplyWit
 }
 
 /**
+ * @summary Checks whether the domain name has a registry lock service request with the **Processing** status at the domain name registry.
+ *
  * @param request CheckProcessingServerLockApplyRequest
  * @return CheckProcessingServerLockApplyResponse
  */
@@ -636,6 +669,8 @@ CheckProcessingServerLockApplyResponse Client::checkProcessingServerLockApply(co
 }
 
 /**
+ * @summary Invoke the CheckTransferInFeasibility API to validate whether a domain name can be transferred in.
+ *
  * @param request CheckTransferInFeasibilityRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return CheckTransferInFeasibilityResponse
@@ -677,6 +712,8 @@ CheckTransferInFeasibilityResponse Client::checkTransferInFeasibilityWithOptions
 }
 
 /**
+ * @summary Invoke the CheckTransferInFeasibility API to validate whether a domain name can be transferred in.
+ *
  * @param request CheckTransferInFeasibilityRequest
  * @return CheckTransferInFeasibilityResponse
  */
@@ -686,6 +723,10 @@ CheckTransferInFeasibilityResponse Client::checkTransferInFeasibility(const Chec
 }
 
 /**
+ * @summary Invoke ConfirmTransferInEmail to confirm the transfer-in mailbox.
+ *
+ * @description Directly confirm the transfer-in mailbox.
+ *
  * @param request ConfirmTransferInEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ConfirmTransferInEmailResponse
@@ -727,6 +768,10 @@ ConfirmTransferInEmailResponse Client::confirmTransferInEmailWithOptions(const C
 }
 
 /**
+ * @summary Invoke ConfirmTransferInEmail to confirm the transfer-in mailbox.
+ *
+ * @description Directly confirm the transfer-in mailbox.
+ *
  * @param request ConfirmTransferInEmailRequest
  * @return ConfirmTransferInEmailResponse
  */
@@ -736,7 +781,7 @@ ConfirmTransferInEmailResponse Client::confirmTransferInEmail(const ConfirmTrans
 }
 
 /**
- * @summary Creates a fixed-price order at the international site (alibabacloud.com).
+ * @summary Creates an international fixed-price domain name order by calling CreateIntlFixedPriceDomainOrder.
  *
  * @param request CreateIntlFixedPriceDomainOrderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -783,7 +828,7 @@ CreateIntlFixedPriceDomainOrderResponse Client::createIntlFixedPriceDomainOrderW
 }
 
 /**
- * @summary Creates a fixed-price order at the international site (alibabacloud.com).
+ * @summary Creates an international fixed-price domain name order by calling CreateIntlFixedPriceDomainOrder.
  *
  * @param request CreateIntlFixedPriceDomainOrderRequest
  * @return CreateIntlFixedPriceDomainOrderResponse
@@ -794,7 +839,7 @@ CreateIntlFixedPriceDomainOrderResponse Client::createIntlFixedPriceDomainOrder(
 }
 
 /**
- * @summary 批量删除联系人模板
+ * @summary Batch delete domain contact templates.
  *
  * @param request DeleteContactTemplatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -829,7 +874,7 @@ DeleteContactTemplatesResponse Client::deleteContactTemplatesWithOptions(const D
 }
 
 /**
- * @summary 批量删除联系人模板
+ * @summary Batch delete domain contact templates.
  *
  * @param request DeleteContactTemplatesRequest
  * @return DeleteContactTemplatesResponse
@@ -840,7 +885,7 @@ DeleteContactTemplatesResponse Client::deleteContactTemplates(const DeleteContac
 }
 
 /**
- * @summary 删除域名分组
+ * @summary Deleting a group containing more than 1,000 domain names is an asynchronous procedure. You must wait for the system to process the request.
  *
  * @param request DeleteDomainGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -879,7 +924,7 @@ DeleteDomainGroupResponse Client::deleteDomainGroupWithOptions(const DeleteDomai
 }
 
 /**
- * @summary 删除域名分组
+ * @summary Deleting a group containing more than 1,000 domain names is an asynchronous procedure. You must wait for the system to process the request.
  *
  * @param request DeleteDomainGroupRequest
  * @return DeleteDomainGroupResponse
@@ -890,7 +935,9 @@ DeleteDomainGroupResponse Client::deleteDomainGroup(const DeleteDomainGroupReque
 }
 
 /**
- * @summary 删除邮箱验证
+ * @summary Invoke the DeleteEmailVerification API to delete an email address that has passed verification.
+ *
+ * @description > If you want to use the email address again after deletion, you must complete email verification again.
  *
  * @param request DeleteEmailVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -929,7 +976,9 @@ DeleteEmailVerificationResponse Client::deleteEmailVerificationWithOptions(const
 }
 
 /**
- * @summary 删除邮箱验证
+ * @summary Invoke the DeleteEmailVerification API to delete an email address that has passed verification.
+ *
+ * @description > If you want to use the email address again after deletion, you must complete email verification again.
  *
  * @param request DeleteEmailVerificationRequest
  * @return DeleteEmailVerificationResponse
@@ -940,7 +989,9 @@ DeleteEmailVerificationResponse Client::deleteEmailVerification(const DeleteEmai
 }
 
 /**
- * @summary 删除联系人模板
+ * @summary Invoke the DeleteRegistrantProfile API to delete a specified domain name registrant profile.
+ *
+ * @description > If the API call succeeds, the System immediately deletes the corresponding domain name registrant profile.
  *
  * @param request DeleteRegistrantProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -979,7 +1030,9 @@ DeleteRegistrantProfileResponse Client::deleteRegistrantProfileWithOptions(const
 }
 
 /**
- * @summary 删除联系人模板
+ * @summary Invoke the DeleteRegistrantProfile API to delete a specified domain name registrant profile.
+ *
+ * @description > If the API call succeeds, the System immediately deletes the corresponding domain name registrant profile.
  *
  * @param request DeleteRegistrantProfileRequest
  * @return DeleteRegistrantProfileResponse
@@ -990,7 +1043,57 @@ DeleteRegistrantProfileResponse Client::deleteRegistrantProfile(const DeleteRegi
 }
 
 /**
- * @summary 取消域名特殊业务流程
+ * @summary Retrieves information from the domain name knowledge base.
+ *
+ * @param request DomainKnowledgeRetrieveRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return DomainKnowledgeRetrieveResponse
+ */
+DomainKnowledgeRetrieveResponse Client::domainKnowledgeRetrieveWithOptions(const DomainKnowledgeRetrieveRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasGlobalTopN()) {
+    query["GlobalTopN"] = request.getGlobalTopN();
+  }
+
+  if (!!request.hasKeyword()) {
+    query["Keyword"] = request.getKeyword();
+  }
+
+  if (!!request.hasSite()) {
+    query["Site"] = request.getSite();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "DomainKnowledgeRetrieve"},
+    {"version" , "2018-01-29"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<DomainKnowledgeRetrieveResponse>();
+}
+
+/**
+ * @summary Retrieves information from the domain name knowledge base.
+ *
+ * @param request DomainKnowledgeRetrieveRequest
+ * @return DomainKnowledgeRetrieveResponse
+ */
+DomainKnowledgeRetrieveResponse Client::domainKnowledgeRetrieve(const DomainKnowledgeRetrieveRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return domainKnowledgeRetrieveWithOptions(request, runtime);
+}
+
+/**
+ * @summary Cancel the special business process for a domain name
  *
  * @param request DomainSpecialBizCancelRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1027,7 +1130,7 @@ DomainSpecialBizCancelResponse Client::domainSpecialBizCancelWithOptions(const D
 }
 
 /**
- * @summary 取消域名特殊业务流程
+ * @summary Cancel the special business process for a domain name
  *
  * @param request DomainSpecialBizCancelRequest
  * @return DomainSpecialBizCancelResponse
@@ -1088,7 +1191,7 @@ EmailVerifiedResponse Client::emailVerified(const EmailVerifiedRequest &request)
 }
 
 /**
- * @summary 通过关键字进行模糊匹配
+ * @summary Invoke FuzzyMatchDomainSensitiveWord to check whether a domain name contains sensitive words.
  *
  * @param request FuzzyMatchDomainSensitiveWordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1127,7 +1230,7 @@ FuzzyMatchDomainSensitiveWordResponse Client::fuzzyMatchDomainSensitiveWordWithO
 }
 
 /**
- * @summary 通过关键字进行模糊匹配
+ * @summary Invoke FuzzyMatchDomainSensitiveWord to check whether a domain name contains sensitive words.
  *
  * @param request FuzzyMatchDomainSensitiveWordRequest
  * @return FuzzyMatchDomainSensitiveWordResponse
@@ -1180,6 +1283,8 @@ GetIntlFixPriceDomainListUrlResponse Client::getIntlFixPriceDomainListUrl(const 
 }
 
 /**
+ * @summary Invoke GetOperationOssUploadPolicy to obtain the storage information for review materials.
+ *
  * @param request GetOperationOssUploadPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetOperationOssUploadPolicyResponse
@@ -1213,6 +1318,8 @@ GetOperationOssUploadPolicyResponse Client::getOperationOssUploadPolicyWithOptio
 }
 
 /**
+ * @summary Invoke GetOperationOssUploadPolicy to obtain the storage information for review materials.
+ *
  * @param request GetOperationOssUploadPolicyRequest
  * @return GetOperationOssUploadPolicyResponse
  */
@@ -1222,6 +1329,8 @@ GetOperationOssUploadPolicyResponse Client::getOperationOssUploadPolicy(const Ge
 }
 
 /**
+ * @summary Obtain the authorization policy corresponding to the ".restaurant" and ".trademark" domain names.
+ *
  * @param request GetQualificationUploadPolicyRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetQualificationUploadPolicyResponse
@@ -1255,6 +1364,8 @@ GetQualificationUploadPolicyResponse Client::getQualificationUploadPolicyWithOpt
 }
 
 /**
+ * @summary Obtain the authorization policy corresponding to the ".restaurant" and ".trademark" domain names.
+ *
  * @param request GetQualificationUploadPolicyRequest
  * @return GetQualificationUploadPolicyResponse
  */
@@ -1264,6 +1375,8 @@ GetQualificationUploadPolicyResponse Client::getQualificationUploadPolicy(const 
 }
 
 /**
+ * @summary Invoke the ListEmailVerification API to query the email verification list.
+ *
  * @param request ListEmailVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListEmailVerificationResponse
@@ -1321,6 +1434,8 @@ ListEmailVerificationResponse Client::listEmailVerificationWithOptions(const Lis
 }
 
 /**
+ * @summary Invoke the ListEmailVerification API to query the email verification list.
+ *
  * @param request ListEmailVerificationRequest
  * @return ListEmailVerificationResponse
  */
@@ -1420,6 +1535,8 @@ ListServerLockResponse Client::listServerLock(const ListServerLockRequest &reque
 }
 
 /**
+ * @summary Call `LookupTmchNotice` to look up a trademark term from the TMCH by passing it as the `key`.
+ *
  * @param request LookupTmchNoticeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return LookupTmchNoticeResponse
@@ -1457,6 +1574,8 @@ LookupTmchNoticeResponse Client::lookupTmchNoticeWithOptions(const LookupTmchNot
 }
 
 /**
+ * @summary Call `LookupTmchNotice` to look up a trademark term from the TMCH by passing it as the `key`.
+ *
  * @param request LookupTmchNoticeRequest
  * @return LookupTmchNoticeResponse
  */
@@ -1466,6 +1585,10 @@ LookupTmchNoticeResponse Client::lookupTmchNotice(const LookupTmchNoticeRequest 
 }
 
 /**
+ * @summary Invoke PollTaskResult to obtain a list of domain name job details that have completed execution (including jobs that succeeded or failed and exceeded the retry count).
+ *
+ * @description This API must be used together with [AcknowledgeTaskResult](~~AcknowledgeTaskResult~~) to confirm job results. Once a job result is confirmed, the corresponding job record can no longer be queried through this API.
+ *
  * @param request PollTaskResultRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return PollTaskResultResponse
@@ -1523,6 +1646,10 @@ PollTaskResultResponse Client::pollTaskResultWithOptions(const PollTaskResultReq
 }
 
 /**
+ * @summary Invoke PollTaskResult to obtain a list of domain name job details that have completed execution (including jobs that succeeded or failed and exceeded the retry count).
+ *
+ * @description This API must be used together with [AcknowledgeTaskResult](~~AcknowledgeTaskResult~~) to confirm job results. Once a job result is confirmed, the corresponding job record can no longer be queried through this API.
+ *
  * @param request PollTaskResultRequest
  * @return PollTaskResultResponse
  */
@@ -1532,7 +1659,9 @@ PollTaskResultResponse Client::pollTaskResult(const PollTaskResultRequest &reque
 }
 
 /**
- * @summary Searches for domain names by using the advanced search feature.
+ * @summary Invoke QueryAdvancedDomainList to perform an advanced search of the domain name list.
+ *
+ * @description Search for domain names under your current Alibaba Cloud account that meet specific conditions. A maximum of **5000** entries are displayed. If the result reaches **5000** entries, narrow your search scope.
  *
  * @param request QueryAdvancedDomainListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1675,7 +1804,9 @@ QueryAdvancedDomainListResponse Client::queryAdvancedDomainListWithOptions(const
 }
 
 /**
- * @summary Searches for domain names by using the advanced search feature.
+ * @summary Invoke QueryAdvancedDomainList to perform an advanced search of the domain name list.
+ *
+ * @description Search for domain names under your current Alibaba Cloud account that meet specific conditions. A maximum of **5000** entries are displayed. If the result reaches **5000** entries, narrow your search scope.
  *
  * @param request QueryAdvancedDomainListRequest
  * @return QueryAdvancedDomainListResponse
@@ -1686,6 +1817,8 @@ QueryAdvancedDomainListResponse Client::queryAdvancedDomainList(const QueryAdvan
 }
 
 /**
+ * @summary Invoke the QueryArtExtension API to query Art extension information.
+ *
  * @param request QueryArtExtensionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryArtExtensionResponse
@@ -1723,6 +1856,8 @@ QueryArtExtensionResponse Client::queryArtExtensionWithOptions(const QueryArtExt
 }
 
 /**
+ * @summary Invoke the QueryArtExtension API to query Art extension information.
+ *
  * @param request QueryArtExtensionRequest
  * @return QueryArtExtensionResponse
  */
@@ -1732,7 +1867,7 @@ QueryArtExtensionResponse Client::queryArtExtension(const QueryArtExtensionReque
 }
 
 /**
- * @summary Queries the operations logs of a domain name.
+ * @summary Call QueryChangeLogList to get a paginated list of the operation logs.
  *
  * @param request QueryChangeLogListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1787,7 +1922,7 @@ QueryChangeLogListResponse Client::queryChangeLogListWithOptions(const QueryChan
 }
 
 /**
- * @summary Queries the operations logs of a domain name.
+ * @summary Call QueryChangeLogList to get a paginated list of the operation logs.
  *
  * @param request QueryChangeLogListRequest
  * @return QueryChangeLogListResponse
@@ -1798,6 +1933,8 @@ QueryChangeLogListResponse Client::queryChangeLogList(const QueryChangeLogListRe
 }
 
 /**
+ * @summary Invoke QueryContactInfo to query domain contact information.
+ *
  * @param request QueryContactInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryContactInfoResponse
@@ -1839,6 +1976,8 @@ QueryContactInfoResponse Client::queryContactInfoWithOptions(const QueryContactI
 }
 
 /**
+ * @summary Invoke QueryContactInfo to query domain contact information.
+ *
  * @param request QueryContactInfoRequest
  * @return QueryContactInfoResponse
  */
@@ -1848,6 +1987,8 @@ QueryContactInfoResponse Client::queryContactInfo(const QueryContactInfoRequest 
 }
 
 /**
+ * @summary Invoke QueryDSRecord to query the DS records of a domain name.
+ *
  * @param request QueryDSRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryDSRecordResponse
@@ -1885,6 +2026,8 @@ QueryDSRecordResponse Client::queryDSRecordWithOptions(const QueryDSRecordReques
 }
 
 /**
+ * @summary Invoke QueryDSRecord to query the DS records of a domain name.
+ *
  * @param request QueryDSRecordRequest
  * @return QueryDSRecordResponse
  */
@@ -1894,6 +2037,8 @@ QueryDSRecordResponse Client::queryDSRecord(const QueryDSRecordRequest &request)
 }
 
 /**
+ * @summary Queries the DNS host for a domain name.
+ *
  * @param request QueryDnsHostRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryDnsHostResponse
@@ -1931,6 +2076,8 @@ QueryDnsHostResponse Client::queryDnsHostWithOptions(const QueryDnsHostRequest &
 }
 
 /**
+ * @summary Queries the DNS host for a domain name.
+ *
  * @param request QueryDnsHostRequest
  * @return QueryDnsHostResponse
  */
@@ -1940,6 +2087,8 @@ QueryDnsHostResponse Client::queryDnsHost(const QueryDnsHostRequest &request) {
 }
 
 /**
+ * @summary Invoke the QueryDomainAdminDivision API to query Chinese administrative regions.
+ *
  * @param request QueryDomainAdminDivisionRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryDomainAdminDivisionResponse
@@ -1973,6 +2122,8 @@ QueryDomainAdminDivisionResponse Client::queryDomainAdminDivisionWithOptions(con
 }
 
 /**
+ * @summary Invoke the QueryDomainAdminDivision API to query Chinese administrative regions.
+ *
  * @param request QueryDomainAdminDivisionRequest
  * @return QueryDomainAdminDivisionResponse
  */
@@ -1982,7 +2133,7 @@ QueryDomainAdminDivisionResponse Client::queryDomainAdminDivision(const QueryDom
 }
 
 /**
- * @summary Queries the information about a domain name.
+ * @summary Call `QueryDomainByDomainName` to retrieve information about a domain name.
  *
  * @param request QueryDomainByDomainNameRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2021,7 +2172,7 @@ QueryDomainByDomainNameResponse Client::queryDomainByDomainNameWithOptions(const
 }
 
 /**
- * @summary Queries the information about a domain name.
+ * @summary Call `QueryDomainByDomainName` to retrieve information about a domain name.
  *
  * @param request QueryDomainByDomainNameRequest
  * @return QueryDomainByDomainNameResponse
@@ -2032,7 +2183,7 @@ QueryDomainByDomainNameResponse Client::queryDomainByDomainName(const QueryDomai
 }
 
 /**
- * @summary Queries the basic information about a domain name based on the instance ID.
+ * @summary Call `QueryDomainByInstanceId` to retrieve the basic information of a domain name by instance ID.
  *
  * @param request QueryDomainByInstanceIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2071,7 +2222,7 @@ QueryDomainByInstanceIdResponse Client::queryDomainByInstanceIdWithOptions(const
 }
 
 /**
- * @summary Queries the basic information about a domain name based on the instance ID.
+ * @summary Call `QueryDomainByInstanceId` to retrieve the basic information of a domain name by instance ID.
  *
  * @param request QueryDomainByInstanceIdRequest
  * @return QueryDomainByInstanceIdResponse
@@ -2082,7 +2233,7 @@ QueryDomainByInstanceIdResponse Client::queryDomainByInstanceId(const QueryDomai
 }
 
 /**
- * @summary Queries a list of domain name groups.
+ * @summary Queries a list of domain groups.
  *
  * @param request QueryDomainGroupListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2133,7 +2284,7 @@ QueryDomainGroupListResponse Client::queryDomainGroupListWithOptions(const Query
 }
 
 /**
- * @summary Queries a list of domain name groups.
+ * @summary Queries a list of domain groups.
  *
  * @param request QueryDomainGroupListRequest
  * @return QueryDomainGroupListResponse
@@ -2144,7 +2295,7 @@ QueryDomainGroupListResponse Client::queryDomainGroupList(const QueryDomainGroup
 }
 
 /**
- * @summary Queries a list of domain names within your Alibaba Cloud account by page.
+ * @summary Returns a paginated list of domain names in your account.
  *
  * @param request QueryDomainListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2251,7 +2402,7 @@ QueryDomainListResponse Client::queryDomainListWithOptions(const QueryDomainList
 }
 
 /**
- * @summary Queries a list of domain names within your Alibaba Cloud account by page.
+ * @summary Returns a paginated list of domain names in your account.
  *
  * @param request QueryDomainListRequest
  * @return QueryDomainListResponse
@@ -2262,6 +2413,8 @@ QueryDomainListResponse Client::queryDomainList(const QueryDomainListRequest &re
 }
 
 /**
+ * @summary Invoke QueryDomainRealNameVerificationInfo to query real-name verification information for a domain name.
+ *
  * @param request QueryDomainRealNameVerificationInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryDomainRealNameVerificationInfoResponse
@@ -2303,6 +2456,8 @@ QueryDomainRealNameVerificationInfoResponse Client::queryDomainRealNameVerificat
 }
 
 /**
+ * @summary Invoke QueryDomainRealNameVerificationInfo to query real-name verification information for a domain name.
+ *
  * @param request QueryDomainRealNameVerificationInfoRequest
  * @return QueryDomainRealNameVerificationInfoResponse
  */
@@ -2364,7 +2519,7 @@ QueryDomainRealTimePriceResponse Client::queryDomainRealTimePrice(const QueryDom
 }
 
 /**
- * @summary 查询域名特殊业务详情
+ * @summary Query domain name special business details
  *
  * @param request QueryDomainSpecialBizDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2401,7 +2556,7 @@ QueryDomainSpecialBizDetailResponse Client::queryDomainSpecialBizDetailWithOptio
 }
 
 /**
- * @summary 查询域名特殊业务详情
+ * @summary Query domain name special business details
  *
  * @param request QueryDomainSpecialBizDetailRequest
  * @return QueryDomainSpecialBizDetailResponse
@@ -2412,7 +2567,7 @@ QueryDomainSpecialBizDetailResponse Client::queryDomainSpecialBizDetail(const Qu
 }
 
 /**
- * @summary 通过域名查询域名特殊业务详情
+ * @summary Query domain special business details by domain name
  *
  * @param request QueryDomainSpecialBizInfoByDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2453,7 +2608,7 @@ QueryDomainSpecialBizInfoByDomainResponse Client::queryDomainSpecialBizInfoByDom
 }
 
 /**
- * @summary 通过域名查询域名特殊业务详情
+ * @summary Query domain special business details by domain name
  *
  * @param request QueryDomainSpecialBizInfoByDomainRequest
  * @return QueryDomainSpecialBizInfoByDomainResponse
@@ -2464,6 +2619,8 @@ QueryDomainSpecialBizInfoByDomainResponse Client::queryDomainSpecialBizInfoByDom
 }
 
 /**
+ * @summary Queries the available domain name suffixes.
+ *
  * @param request QueryDomainSuffixRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryDomainSuffixResponse
@@ -2497,6 +2654,8 @@ QueryDomainSuffixResponse Client::queryDomainSuffixWithOptions(const QueryDomain
 }
 
 /**
+ * @summary Queries the available domain name suffixes.
+ *
  * @param request QueryDomainSuffixRequest
  * @return QueryDomainSuffixResponse
  */
@@ -2506,7 +2665,7 @@ QueryDomainSuffixResponse Client::queryDomainSuffix(const QueryDomainSuffixReque
 }
 
 /**
- * @summary 查询邮箱验证状态
+ * @summary Invoke the QueryEmailVerification API to query the email verification result.
  *
  * @param request QueryEmailVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2545,7 +2704,7 @@ QueryEmailVerificationResponse Client::queryEmailVerificationWithOptions(const Q
 }
 
 /**
- * @summary 查询邮箱验证状态
+ * @summary Invoke the QueryEmailVerification API to query the email verification result.
  *
  * @param request QueryEmailVerificationRequest
  * @return QueryEmailVerificationResponse
@@ -2556,6 +2715,8 @@ QueryEmailVerificationResponse Client::queryEmailVerification(const QueryEmailVe
 }
 
 /**
+ * @summary Invoke the QueryEnsAssociation API to query the wallet address attached in the ENS system.
+ *
  * @param request QueryEnsAssociationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryEnsAssociationResponse
@@ -2593,6 +2754,8 @@ QueryEnsAssociationResponse Client::queryEnsAssociationWithOptions(const QueryEn
 }
 
 /**
+ * @summary Invoke the QueryEnsAssociation API to query the wallet address attached in the ENS system.
+ *
  * @param request QueryEnsAssociationRequest
  * @return QueryEnsAssociationResponse
  */
@@ -2602,6 +2765,8 @@ QueryEnsAssociationResponse Client::queryEnsAssociation(const QueryEnsAssociatio
 }
 
 /**
+ * @summary Query the reasons for real-name verification (including naming review) failure for a domain name.
+ *
  * @param request QueryFailReasonForDomainRealNameVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryFailReasonForDomainRealNameVerificationResponse
@@ -2643,6 +2808,8 @@ QueryFailReasonForDomainRealNameVerificationResponse Client::queryFailReasonForD
 }
 
 /**
+ * @summary Query the reasons for real-name verification (including naming review) failure for a domain name.
+ *
  * @param request QueryFailReasonForDomainRealNameVerificationRequest
  * @return QueryFailReasonForDomainRealNameVerificationResponse
  */
@@ -2652,6 +2819,8 @@ QueryFailReasonForDomainRealNameVerificationResponse Client::queryFailReasonForD
 }
 
 /**
+ * @summary Invoke the QueryFailReasonForRegistrantProfileRealNameVerification API to query the reasons why identity verification for an information template failed the Review.
+ *
  * @param request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
@@ -2689,6 +2858,8 @@ QueryFailReasonForRegistrantProfileRealNameVerificationResponse Client::queryFai
 }
 
 /**
+ * @summary Invoke the QueryFailReasonForRegistrantProfileRealNameVerification API to query the reasons why identity verification for an information template failed the Review.
+ *
  * @param request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
  * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
  */
@@ -2698,6 +2869,8 @@ QueryFailReasonForRegistrantProfileRealNameVerificationResponse Client::queryFai
 }
 
 /**
+ * @summary Query the reasons for qualification verification failure for ".restaurant" and ".trademark" domain names.
+ *
  * @param request QueryFailingReasonListForQualificationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryFailingReasonListForQualificationResponse
@@ -2743,6 +2916,8 @@ QueryFailingReasonListForQualificationResponse Client::queryFailingReasonListFor
 }
 
 /**
+ * @summary Query the reasons for qualification verification failure for ".restaurant" and ".trademark" domain names.
+ *
  * @param request QueryFailingReasonListForQualificationRequest
  * @return QueryFailingReasonListForQualificationResponse
  */
@@ -2752,7 +2927,7 @@ QueryFailingReasonListForQualificationResponse Client::queryFailingReasonListFor
 }
 
 /**
- * @summary Queries the list of fixed-price orders at the international site (alibabacloud.com).
+ * @summary Queries the list of international fixed-price orders by calling QueryIntlFixedPriceOrderList.
  *
  * @param request QueryIntlFixedPriceOrderListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2795,7 +2970,7 @@ QueryIntlFixedPriceOrderListResponse Client::queryIntlFixedPriceOrderListWithOpt
 }
 
 /**
- * @summary Queries the list of fixed-price orders at the international site (alibabacloud.com).
+ * @summary Queries the list of international fixed-price orders by calling QueryIntlFixedPriceOrderList.
  *
  * @param request QueryIntlFixedPriceOrderListRequest
  * @return QueryIntlFixedPriceOrderListResponse
@@ -2806,6 +2981,8 @@ QueryIntlFixedPriceOrderListResponse Client::queryIntlFixedPriceOrderList(const 
 }
 
 /**
+ * @summary Invoke QueryLocalEnsAssociation to query the ENS binding address recorded in the Alibaba Cloud system.
+ *
  * @param request QueryLocalEnsAssociationRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryLocalEnsAssociationResponse
@@ -2843,6 +3020,8 @@ QueryLocalEnsAssociationResponse Client::queryLocalEnsAssociationWithOptions(con
 }
 
 /**
+ * @summary Invoke QueryLocalEnsAssociation to query the ENS binding address recorded in the Alibaba Cloud system.
+ *
  * @param request QueryLocalEnsAssociationRequest
  * @return QueryLocalEnsAssociationResponse
  */
@@ -2852,6 +3031,8 @@ QueryLocalEnsAssociationResponse Client::queryLocalEnsAssociation(const QueryLoc
 }
 
 /**
+ * @summary Invoke the QueryOperationAuditInfoDetail API to query the details of a self-service operation review record.
+ *
  * @param request QueryOperationAuditInfoDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryOperationAuditInfoDetailResponse
@@ -2885,6 +3066,8 @@ QueryOperationAuditInfoDetailResponse Client::queryOperationAuditInfoDetailWithO
 }
 
 /**
+ * @summary Invoke the QueryOperationAuditInfoDetail API to query the details of a self-service operation review record.
+ *
  * @param request QueryOperationAuditInfoDetailRequest
  * @return QueryOperationAuditInfoDetailResponse
  */
@@ -2894,6 +3077,8 @@ QueryOperationAuditInfoDetailResponse Client::queryOperationAuditInfoDetail(cons
 }
 
 /**
+ * @summary You can invoke QueryOperationAuditInfoList to query the list of review records for self-service operations.
+ *
  * @param request QueryOperationAuditInfoListRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryOperationAuditInfoListResponse
@@ -2943,6 +3128,8 @@ QueryOperationAuditInfoListResponse Client::queryOperationAuditInfoListWithOptio
 }
 
 /**
+ * @summary You can invoke QueryOperationAuditInfoList to query the list of review records for self-service operations.
+ *
  * @param request QueryOperationAuditInfoListRequest
  * @return QueryOperationAuditInfoListResponse
  */
@@ -2952,6 +3139,8 @@ QueryOperationAuditInfoListResponse Client::queryOperationAuditInfoList(const Qu
 }
 
 /**
+ * @summary Query the qualification verification details of ".restaurant" and ".trademark" domain names.
+ *
  * @param request QueryQualificationDetailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryQualificationDetailResponse
@@ -2993,6 +3182,8 @@ QueryQualificationDetailResponse Client::queryQualificationDetailWithOptions(con
 }
 
 /**
+ * @summary Query the qualification verification details of ".restaurant" and ".trademark" domain names.
+ *
  * @param request QueryQualificationDetailRequest
  * @return QueryQualificationDetailResponse
  */
@@ -3002,6 +3193,8 @@ QueryQualificationDetailResponse Client::queryQualificationDetail(const QueryQua
 }
 
 /**
+ * @summary Invoke the QueryRegistrantProfileRealNameVerificationInfo API to query the identity verification documents of an information template.
+ *
  * @param request QueryRegistrantProfileRealNameVerificationInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryRegistrantProfileRealNameVerificationInfoResponse
@@ -3043,6 +3236,8 @@ QueryRegistrantProfileRealNameVerificationInfoResponse Client::queryRegistrantPr
 }
 
 /**
+ * @summary Invoke the QueryRegistrantProfileRealNameVerificationInfo API to query the identity verification documents of an information template.
+ *
  * @param request QueryRegistrantProfileRealNameVerificationInfoRequest
  * @return QueryRegistrantProfileRealNameVerificationInfoResponse
  */
@@ -3052,11 +3247,11 @@ QueryRegistrantProfileRealNameVerificationInfoResponse Client::queryRegistrantPr
 }
 
 /**
- * @summary Queries the registrant profiles that belong to your Alibaba Cloud account.
+ * @summary Queries the domain name registrant profiles under the current account.
  *
- * @description You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
- * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
- * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+ * @description You can pass in optional parameters to help you find registrant profiles more precisely. For example:
+ * - If you already know the ID of a registrant profile, you can pass in the registrant profile ID to query detailed profile information.
+ * - If you do not know the ID of a registrant profile, you can pass in parameters such as the domain name registrant name to query detailed profile information.
  *
  * @param request QueryRegistrantProfilesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3135,11 +3330,11 @@ QueryRegistrantProfilesResponse Client::queryRegistrantProfilesWithOptions(const
 }
 
 /**
- * @summary Queries the registrant profiles that belong to your Alibaba Cloud account.
+ * @summary Queries the domain name registrant profiles under the current account.
  *
- * @description You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
- * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
- * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+ * @description You can pass in optional parameters to help you find registrant profiles more precisely. For example:
+ * - If you already know the ID of a registrant profile, you can pass in the registrant profile ID to query detailed profile information.
+ * - If you do not know the ID of a registrant profile, you can pass in parameters such as the domain name registrant name to query detailed profile information.
  *
  * @param request QueryRegistrantProfilesRequest
  * @return QueryRegistrantProfilesResponse
@@ -3150,6 +3345,8 @@ QueryRegistrantProfilesResponse Client::queryRegistrantProfiles(const QueryRegis
 }
 
 /**
+ * @summary Query the registry lock details of a domain name.
+ *
  * @param request QueryServerLockRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryServerLockResponse
@@ -3187,6 +3384,8 @@ QueryServerLockResponse Client::queryServerLockWithOptions(const QueryServerLock
 }
 
 /**
+ * @summary Query the registry lock details of a domain name.
+ *
  * @param request QueryServerLockRequest
  * @return QueryServerLockResponse
  */
@@ -3196,6 +3395,8 @@ QueryServerLockResponse Client::queryServerLock(const QueryServerLockRequest &re
 }
 
 /**
+ * @summary You can invoke QueryTaskDetailHistory to perform a paged query on the detail history list of a specified domain name job.
+ *
  * @param request QueryTaskDetailHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryTaskDetailHistoryResponse
@@ -3253,6 +3454,8 @@ QueryTaskDetailHistoryResponse Client::queryTaskDetailHistoryWithOptions(const Q
 }
 
 /**
+ * @summary You can invoke QueryTaskDetailHistory to perform a paged query on the detail history list of a specified domain name job.
+ *
  * @param request QueryTaskDetailHistoryRequest
  * @return QueryTaskDetailHistoryResponse
  */
@@ -3262,7 +3465,7 @@ QueryTaskDetailHistoryResponse Client::queryTaskDetailHistory(const QueryTaskDet
 }
 
 /**
- * @summary Queries the details of a specific domain name task by page.
+ * @summary Queries the details list of a specified domain name task by paging.
  *
  * @param request QueryTaskDetailListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3321,7 +3524,7 @@ QueryTaskDetailListResponse Client::queryTaskDetailListWithOptions(const QueryTa
 }
 
 /**
- * @summary Queries the details of a specific domain name task by page.
+ * @summary Queries the details list of a specified domain name task by paging.
  *
  * @param request QueryTaskDetailListRequest
  * @return QueryTaskDetailListResponse
@@ -3332,6 +3535,8 @@ QueryTaskDetailListResponse Client::queryTaskDetailList(const QueryTaskDetailLis
 }
 
 /**
+ * @summary You can invoke QueryTaskInfoHistory to perform a paged query of the domain name job history list under your account.
+ *
  * @param request QueryTaskInfoHistoryRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryTaskInfoHistoryResponse
@@ -3385,6 +3590,8 @@ QueryTaskInfoHistoryResponse Client::queryTaskInfoHistoryWithOptions(const Query
 }
 
 /**
+ * @summary You can invoke QueryTaskInfoHistory to perform a paged query of the domain name job history list under your account.
+ *
  * @param request QueryTaskInfoHistoryRequest
  * @return QueryTaskInfoHistoryResponse
  */
@@ -3394,7 +3601,7 @@ QueryTaskInfoHistoryResponse Client::queryTaskInfoHistory(const QueryTaskInfoHis
 }
 
 /**
- * @summary Queries the domain name tasks under your account by page.
+ * @summary Invoke QueryTaskList to perform a paged query of the domain name job list under your account.
  *
  * @param request QueryTaskListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3445,7 +3652,7 @@ QueryTaskListResponse Client::queryTaskListWithOptions(const QueryTaskListReques
 }
 
 /**
- * @summary Queries the domain name tasks under your account by page.
+ * @summary Invoke QueryTaskList to perform a paged query of the domain name job list under your account.
  *
  * @param request QueryTaskListRequest
  * @return QueryTaskListResponse
@@ -3456,6 +3663,8 @@ QueryTaskListResponse Client::queryTaskList(const QueryTaskListRequest &request)
 }
 
 /**
+ * @summary Invoke QueryTransferInByInstanceId to query domain name transfer-in information by instance ID.
+ *
  * @param request QueryTransferInByInstanceIdRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryTransferInByInstanceIdResponse
@@ -3493,6 +3702,8 @@ QueryTransferInByInstanceIdResponse Client::queryTransferInByInstanceIdWithOptio
 }
 
 /**
+ * @summary Invoke QueryTransferInByInstanceId to query domain name transfer-in information by instance ID.
+ *
  * @param request QueryTransferInByInstanceIdRequest
  * @return QueryTransferInByInstanceIdResponse
  */
@@ -3502,7 +3713,7 @@ QueryTransferInByInstanceIdResponse Client::queryTransferInByInstanceId(const Qu
 }
 
 /**
- * @summary Queries the domain names that are transferred to Alibaba Cloud.
+ * @summary Invoke QueryTransferInList to query the domain name transfer-in list.
  *
  * @param request QueryTransferInListRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3561,7 +3772,7 @@ QueryTransferInListResponse Client::queryTransferInListWithOptions(const QueryTr
 }
 
 /**
- * @summary Queries the domain names that are transferred to Alibaba Cloud.
+ * @summary Invoke QueryTransferInList to query the domain name transfer-in list.
  *
  * @param request QueryTransferInListRequest
  * @return QueryTransferInListResponse
@@ -3572,6 +3783,8 @@ QueryTransferInListResponse Client::queryTransferInList(const QueryTransferInLis
 }
 
 /**
+ * @summary Invoke QueryTransferOutInfo to query domain name transfer-out information.
+ *
  * @param request QueryTransferOutInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return QueryTransferOutInfoResponse
@@ -3609,6 +3822,8 @@ QueryTransferOutInfoResponse Client::queryTransferOutInfoWithOptions(const Query
 }
 
 /**
+ * @summary Invoke QueryTransferOutInfo to query domain name transfer-out information.
+ *
  * @param request QueryTransferOutInfoRequest
  * @return QueryTransferOutInfoResponse
  */
@@ -3618,7 +3833,11 @@ QueryTransferOutInfoResponse Client::queryTransferOutInfo(const QueryTransferOut
 }
 
 /**
- * @summary 保存联系人模板实名资料
+ * @summary Invoke the RegistrantProfileRealNameVerification API to submit real-name verification for an information template.
+ *
+ * @description - Identity verification document review takes 3 to 5 business days. After the authority completes the review, you can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the identity verification result.  
+ * - If identity verification fails, refer to [Reasons for Identity Verification Failure and Solutions](https://help.aliyun.com/document_detail/35885.html) for troubleshooting and resolution.
+ * > You must invoke this API using the POST method; otherwise, the invocation will fail. When using a software development kit (SDK), set the **method** parameter of the request object to **POST**.
  *
  * @param request RegistrantProfileRealNameVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3671,7 +3890,11 @@ RegistrantProfileRealNameVerificationResponse Client::registrantProfileRealNameV
 }
 
 /**
- * @summary 保存联系人模板实名资料
+ * @summary Invoke the RegistrantProfileRealNameVerification API to submit real-name verification for an information template.
+ *
+ * @description - Identity verification document review takes 3 to 5 business days. After the authority completes the review, you can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the identity verification result.  
+ * - If identity verification fails, refer to [Reasons for Identity Verification Failure and Solutions](https://help.aliyun.com/document_detail/35885.html) for troubleshooting and resolution.
+ * > You must invoke this API using the POST method; otherwise, the invocation will fail. When using a software development kit (SDK), set the **method** parameter of the request object to **POST**.
  *
  * @param request RegistrantProfileRealNameVerificationRequest
  * @return RegistrantProfileRealNameVerificationResponse
@@ -3682,7 +3905,7 @@ RegistrantProfileRealNameVerificationResponse Client::registrantProfileRealNameV
 }
 
 /**
- * @summary 重新发送验证邮件
+ * @summary Invoke the ResendEmailVerification API to resend the verification email.
  *
  * @param request ResendEmailVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3721,7 +3944,7 @@ ResendEmailVerificationResponse Client::resendEmailVerificationWithOptions(const
 }
 
 /**
- * @summary 重新发送验证邮件
+ * @summary Invoke the ResendEmailVerification API to resend the verification email.
  *
  * @param request ResendEmailVerificationRequest
  * @return ResendEmailVerificationResponse
@@ -3732,7 +3955,7 @@ ResendEmailVerificationResponse Client::resendEmailVerification(const ResendEmai
 }
 
 /**
- * @summary 重置资质审核状态
+ * @summary Reset the qualification verification status for .restaurant and .trademark domain names.
  *
  * @param request ResetQualificationVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3771,7 +3994,7 @@ ResetQualificationVerificationResponse Client::resetQualificationVerificationWit
 }
 
 /**
- * @summary 重置资质审核状态
+ * @summary Reset the qualification verification status for .restaurant and .trademark domain names.
  *
  * @param request ResetQualificationVerificationRequest
  * @return ResetQualificationVerificationResponse
@@ -3782,7 +4005,7 @@ ResetQualificationVerificationResponse Client::resetQualificationVerification(co
 }
 
 /**
- * @summary 批量保存域名备注信息
+ * @summary Invoke SaveBatchDomainRemark to batch save domain name remarks.
  *
  * @param request SaveBatchDomainRemarkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3825,7 +4048,7 @@ SaveBatchDomainRemarkResponse Client::saveBatchDomainRemarkWithOptions(const Sav
 }
 
 /**
- * @summary 批量保存域名备注信息
+ * @summary Invoke SaveBatchDomainRemark to batch save domain name remarks.
  *
  * @param request SaveBatchDomainRemarkRequest
  * @return SaveBatchDomainRemarkResponse
@@ -3836,7 +4059,9 @@ SaveBatchDomainRemarkResponse Client::saveBatchDomainRemark(const SaveBatchDomai
 }
 
 /**
- * @summary 批量申请域名快速转出
+ * @summary Submits a batch task to quickly transfer out domain names.
+ *
+ * @description This is an asynchronous operation. To query the result of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
  *
  * @param request SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3875,7 +4100,9 @@ SaveBatchTaskForApplyQuickTransferOutOpenlyResponse Client::saveBatchTaskForAppl
 }
 
 /**
- * @summary 批量申请域名快速转出
+ * @summary Submits a batch task to quickly transfer out domain names.
+ *
+ * @description This is an asynchronous operation. To query the result of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
  *
  * @param request SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
  * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
@@ -3886,7 +4113,14 @@ SaveBatchTaskForApplyQuickTransferOutOpenlyResponse Client::saveBatchTaskForAppl
 }
 
 /**
- * @summary Submits a task to register multiple domain names at a time.
+ * @summary Submits a batch domain name registration task.
+ *
+ * @description Starting from March 1, 2022, domain names can only be registered by using real-name verified domain name registrant profiles. Passing registrant information directly to register domain names is no longer supported.
+ * To register a domain name, you must specify associated domain name to be registered, associated domain name registrant information, and the DNS servers. You must associate associated domain name registrant information by using the ID of a real-name verified domain name registrant profile. For DNS servers, you can use the default Alibaba Cloud DNS or specify custom DNS servers.
+ * > - The total number of domain names registered per week cannot exceed 100,000.
+ * > - Registration payments can only be made by using the account cash balance. Credit limits are not supported.
+ * - The request parameter format for the **SaveBatchTaskForCreatingOrderActivate** operation is OrderActivateParam.N.*, where N represents the sequence number of associated domain name.
+ * To query the task execution result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
  *
  * @param request SaveBatchTaskForCreatingOrderActivateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3941,7 +4175,14 @@ SaveBatchTaskForCreatingOrderActivateResponse Client::saveBatchTaskForCreatingOr
 }
 
 /**
- * @summary Submits a task to register multiple domain names at a time.
+ * @summary Submits a batch domain name registration task.
+ *
+ * @description Starting from March 1, 2022, domain names can only be registered by using real-name verified domain name registrant profiles. Passing registrant information directly to register domain names is no longer supported.
+ * To register a domain name, you must specify associated domain name to be registered, associated domain name registrant information, and the DNS servers. You must associate associated domain name registrant information by using the ID of a real-name verified domain name registrant profile. For DNS servers, you can use the default Alibaba Cloud DNS or specify custom DNS servers.
+ * > - The total number of domain names registered per week cannot exceed 100,000.
+ * > - Registration payments can only be made by using the account cash balance. Credit limits are not supported.
+ * - The request parameter format for the **SaveBatchTaskForCreatingOrderActivate** operation is OrderActivateParam.N.*, where N represents the sequence number of associated domain name.
+ * To query the task execution result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
  *
  * @param request SaveBatchTaskForCreatingOrderActivateRequest
  * @return SaveBatchTaskForCreatingOrderActivateResponse
@@ -3952,6 +4193,10 @@ SaveBatchTaskForCreatingOrderActivateResponse Client::saveBatchTaskForCreatingOr
 }
 
 /**
+ * @summary Invoke the SaveBatchTaskForCreatingOrderRedeem API to submit a batch domain redeem job.
+ *
+ * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
+ *
  * @param request SaveBatchTaskForCreatingOrderRedeemRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveBatchTaskForCreatingOrderRedeemResponse
@@ -4005,6 +4250,10 @@ SaveBatchTaskForCreatingOrderRedeemResponse Client::saveBatchTaskForCreatingOrde
 }
 
 /**
+ * @summary Invoke the SaveBatchTaskForCreatingOrderRedeem API to submit a batch domain redeem job.
+ *
+ * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
+ *
  * @param request SaveBatchTaskForCreatingOrderRedeemRequest
  * @return SaveBatchTaskForCreatingOrderRedeemResponse
  */
@@ -4014,7 +4263,9 @@ SaveBatchTaskForCreatingOrderRedeemResponse Client::saveBatchTaskForCreatingOrde
 }
 
 /**
- * @summary 保存批量任务-续费订单
+ * @summary Submits a batch domain name renewal task.
+ *
+ * @description To query the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
  *
  * @param request SaveBatchTaskForCreatingOrderRenewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4069,7 +4320,9 @@ SaveBatchTaskForCreatingOrderRenewResponse Client::saveBatchTaskForCreatingOrder
 }
 
 /**
- * @summary 保存批量任务-续费订单
+ * @summary Submits a batch domain name renewal task.
+ *
+ * @description To query the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
  *
  * @param request SaveBatchTaskForCreatingOrderRenewRequest
  * @return SaveBatchTaskForCreatingOrderRenewResponse
@@ -4080,6 +4333,10 @@ SaveBatchTaskForCreatingOrderRenewResponse Client::saveBatchTaskForCreatingOrder
 }
 
 /**
+ * @summary Invoke the SaveBatchTaskForCreatingOrderTransfer API to submit a batch domain name transfer-in job.
+ *
+ * @description You can query the job execution result by invoking the QueryTaskDetailList API. For more information, see [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.5096389cgV6sng).
+ *
  * @param request SaveBatchTaskForCreatingOrderTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveBatchTaskForCreatingOrderTransferResponse
@@ -4133,6 +4390,10 @@ SaveBatchTaskForCreatingOrderTransferResponse Client::saveBatchTaskForCreatingOr
 }
 
 /**
+ * @summary Invoke the SaveBatchTaskForCreatingOrderTransfer API to submit a batch domain name transfer-in job.
+ *
+ * @description You can query the job execution result by invoking the QueryTaskDetailList API. For more information, see [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.5096389cgV6sng).
+ *
  * @param request SaveBatchTaskForCreatingOrderTransferRequest
  * @return SaveBatchTaskForCreatingOrderTransferResponse
  */
@@ -4142,7 +4403,9 @@ SaveBatchTaskForCreatingOrderTransferResponse Client::saveBatchTaskForCreatingOr
 }
 
 /**
- * @summary 保存批量任务-开启/关闭whois隐私保护锁
+ * @summary Invoke the SaveBatchTaskForDomainNameProxyService API to submit a batch domain name proxy service job.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveBatchTaskForDomainNameProxyServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4189,7 +4452,9 @@ SaveBatchTaskForDomainNameProxyServiceResponse Client::saveBatchTaskForDomainNam
 }
 
 /**
- * @summary 保存批量任务-开启/关闭whois隐私保护锁
+ * @summary Invoke the SaveBatchTaskForDomainNameProxyService API to submit a batch domain name proxy service job.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveBatchTaskForDomainNameProxyServiceRequest
  * @return SaveBatchTaskForDomainNameProxyServiceResponse
@@ -4256,7 +4521,9 @@ SaveBatchTaskForGenerateDomainCertificateResponse Client::saveBatchTaskForGenera
 }
 
 /**
- * @summary 批量修改dns
+ * @summary Submits a batch task to modify the DNS servers for the specified domain names.
+ *
+ * @description To query the task result, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveBatchTaskForModifyingDomainDnsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4303,7 +4570,9 @@ SaveBatchTaskForModifyingDomainDnsResponse Client::saveBatchTaskForModifyingDoma
 }
 
 /**
- * @summary 批量修改dns
+ * @summary Submits a batch task to modify the DNS servers for the specified domain names.
+ *
+ * @description To query the task result, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveBatchTaskForModifyingDomainDnsRequest
  * @return SaveBatchTaskForModifyingDomainDnsResponse
@@ -4314,7 +4583,9 @@ SaveBatchTaskForModifyingDomainDnsResponse Client::saveBatchTaskForModifyingDoma
 }
 
 /**
- * @summary Submits a task to reserve multiple domain names that are provided by HiChina.
+ * @summary Call the SaveBatchTaskForReserveDropListDomain API to submit a batch task for domain reservation.
+ *
+ * @description To query task execution results, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveBatchTaskForReserveDropListDomainRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4349,7 +4620,9 @@ SaveBatchTaskForReserveDropListDomainResponse Client::saveBatchTaskForReserveDro
 }
 
 /**
- * @summary Submits a task to reserve multiple domain names that are provided by HiChina.
+ * @summary Call the SaveBatchTaskForReserveDropListDomain API to submit a batch task for domain reservation.
+ *
+ * @description To query task execution results, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveBatchTaskForReserveDropListDomainRequest
  * @return SaveBatchTaskForReserveDropListDomainResponse
@@ -4360,7 +4633,9 @@ SaveBatchTaskForReserveDropListDomainResponse Client::saveBatchTaskForReserveDro
 }
 
 /**
- * @summary Submits multiple transfer-out tasks based on the transfer keys of domain names.
+ * @summary Submits a batch transfer-out task for multiple domain names using their authorization codes.
+ *
+ * @description This is an asynchronous operation. After submitting the task, call `QueryTaskDetailList` to check its status.
  *
  * @param request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4391,7 +4666,9 @@ SaveBatchTaskForTransferOutByAuthorizationCodeResponse Client::saveBatchTaskForT
 }
 
 /**
- * @summary Submits multiple transfer-out tasks based on the transfer keys of domain names.
+ * @summary Submits a batch transfer-out task for multiple domain names using their authorization codes.
+ *
+ * @description This is an asynchronous operation. After submitting the task, call `QueryTaskDetailList` to check its status.
  *
  * @param request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
  * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse
@@ -4402,7 +4679,9 @@ SaveBatchTaskForTransferOutByAuthorizationCodeResponse Client::saveBatchTaskForT
 }
 
 /**
- * @summary 保存批量任务-开启/关闭禁止转移锁
+ * @summary Call SaveBatchTaskForTransferProhibitionLock to enable or disable the transfer prohibition lock for multiple domain names.
+ *
+ * @description To check the result of the task, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveBatchTaskForTransferProhibitionLockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4445,7 +4724,9 @@ SaveBatchTaskForTransferProhibitionLockResponse Client::saveBatchTaskForTransfer
 }
 
 /**
- * @summary 保存批量任务-开启/关闭禁止转移锁
+ * @summary Call SaveBatchTaskForTransferProhibitionLock to enable or disable the transfer prohibition lock for multiple domain names.
+ *
+ * @description To check the result of the task, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveBatchTaskForTransferProhibitionLockRequest
  * @return SaveBatchTaskForTransferProhibitionLockResponse
@@ -4456,6 +4737,10 @@ SaveBatchTaskForTransferProhibitionLockResponse Client::saveBatchTaskForTransfer
 }
 
 /**
+ * @summary Submits a batch task to enable or disable the update prohibition lock for one or more domain names.
+ *
+ * @description To check the status of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
+ *
  * @param request SaveBatchTaskForUpdateProhibitionLockRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveBatchTaskForUpdateProhibitionLockResponse
@@ -4497,6 +4782,10 @@ SaveBatchTaskForUpdateProhibitionLockResponse Client::saveBatchTaskForUpdateProh
 }
 
 /**
+ * @summary Submits a batch task to enable or disable the update prohibition lock for one or more domain names.
+ *
+ * @description To check the status of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
+ *
  * @param request SaveBatchTaskForUpdateProhibitionLockRequest
  * @return SaveBatchTaskForUpdateProhibitionLockResponse
  */
@@ -4506,7 +4795,9 @@ SaveBatchTaskForUpdateProhibitionLockResponse Client::saveBatchTaskForUpdateProh
 }
 
 /**
- * @summary 使用联系人信息修改联系人的批量任务
+ * @summary Submit a domain information modification job with new contact information.
+ *
+ * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4621,7 +4912,9 @@ SaveBatchTaskForUpdatingContactInfoByNewContactResponse Client::saveBatchTaskFor
 }
 
 /**
- * @summary 使用联系人信息修改联系人的批量任务
+ * @summary Submit a domain information modification job with new contact information.
+ *
+ * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
  * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse
@@ -4632,7 +4925,9 @@ SaveBatchTaskForUpdatingContactInfoByNewContactResponse Client::saveBatchTaskFor
 }
 
 /**
- * @summary 使用模板修改联系人的批量任务
+ * @summary Call SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId to update the contact information of one or more domain names by using a registrant profile.
+ *
+ * @description To check the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
  *
  * @param request SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4683,7 +4978,9 @@ SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse Client::saveBat
 }
 
 /**
- * @summary 使用模板修改联系人的批量任务
+ * @summary Call SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId to update the contact information of one or more domain names by using a registrant profile.
+ *
+ * @description To check the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
  *
  * @param request SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
  * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
@@ -4694,7 +4991,7 @@ SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse Client::saveBat
 }
 
 /**
- * @summary 创建/更新域名分组
+ * @summary Invoke the SaveDomainGroup API to create or update a domain name group.
  *
  * @param request SaveDomainGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4737,7 +5034,7 @@ SaveDomainGroupResponse Client::saveDomainGroupWithOptions(const SaveDomainGroup
 }
 
 /**
- * @summary 创建/更新域名分组
+ * @summary Invoke the SaveDomainGroup API to create or update a domain name group.
  *
  * @param request SaveDomainGroupRequest
  * @return SaveDomainGroupResponse
@@ -4748,7 +5045,9 @@ SaveDomainGroupResponse Client::saveDomainGroup(const SaveDomainGroupRequest &re
 }
 
 /**
- * @summary 保存联系人模板
+ * @summary Invoke the SaveRegistrantProfile API to create or update a domain name registrant profile.
+ *
+ * @description The domain name registrant profile contains registrant information. When you create or update a registrant profile, we recommend that you fill in all registrant information according to your actual situation and ensure consistency between the Chinese and English versions. To avoid faults during domain name registry review, we recommend entering all English registrant information in lowercase letters. For specific requirements, see the parameter descriptions below.
  *
  * @param request SaveRegistrantProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4863,7 +5162,9 @@ SaveRegistrantProfileResponse Client::saveRegistrantProfileWithOptions(const Sav
 }
 
 /**
- * @summary 保存联系人模板
+ * @summary Invoke the SaveRegistrantProfile API to create or update a domain name registrant profile.
+ *
+ * @description The domain name registrant profile contains registrant information. When you create or update a registrant profile, we recommend that you fill in all registrant information according to your actual situation and ensure consistency between the Chinese and English versions. To avoid faults during domain name registry review, we recommend entering all English registrant information in lowercase letters. For specific requirements, see the parameter descriptions below.
  *
  * @param request SaveRegistrantProfileRequest
  * @return SaveRegistrantProfileResponse
@@ -4874,7 +5175,7 @@ SaveRegistrantProfileResponse Client::saveRegistrantProfile(const SaveRegistrant
 }
 
 /**
- * @summary 保存联系人模板和凭据
+ * @summary Invoke the SaveRegistrantProfileRealNameVerification API to save domain contact and certificate information.
  *
  * @param request SaveRegistrantProfileRealNameVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4997,7 +5298,7 @@ SaveRegistrantProfileRealNameVerificationResponse Client::saveRegistrantProfileR
 }
 
 /**
- * @summary 保存联系人模板和凭据
+ * @summary Invoke the SaveRegistrantProfileRealNameVerification API to save domain contact and certificate information.
  *
  * @param request SaveRegistrantProfileRealNameVerificationRequest
  * @return SaveRegistrantProfileRealNameVerificationResponse
@@ -5008,7 +5309,9 @@ SaveRegistrantProfileRealNameVerificationResponse Client::saveRegistrantProfileR
 }
 
 /**
- * @summary 添加dnsSec记录
+ * @summary Invoke the SaveSingleTaskForAddingDSRecord API to submit a job for creating a DS record.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForAddingDSRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5063,7 +5366,9 @@ SaveSingleTaskForAddingDSRecordResponse Client::saveSingleTaskForAddingDSRecordW
 }
 
 /**
- * @summary 添加dnsSec记录
+ * @summary Invoke the SaveSingleTaskForAddingDSRecord API to submit a job for creating a DS record.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForAddingDSRecordRequest
  * @return SaveSingleTaskForAddingDSRecordResponse
@@ -5074,7 +5379,9 @@ SaveSingleTaskForAddingDSRecordResponse Client::saveSingleTaskForAddingDSRecord(
 }
 
 /**
- * @summary 申请域名快速转出
+ * @summary Submits a task for a quick transfer-out of a domain name.
+ *
+ * @description This is an asynchronous operation. To check the task\\"s status, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5113,7 +5420,9 @@ SaveSingleTaskForApplyQuickTransferOutOpenlyResponse Client::saveSingleTaskForAp
 }
 
 /**
- * @summary 申请域名快速转出
+ * @summary Submits a task for a quick transfer-out of a domain name.
+ *
+ * @description This is an asynchronous operation. To check the task\\"s status, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
  * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
@@ -5174,6 +5483,10 @@ SaveSingleTaskForApprovingTransferOutResponse Client::saveSingleTaskForApproving
 }
 
 /**
+ * @summary Submit a job to attach an ENS address.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+ *
  * @param request SaveSingleTaskForAssociatingEnsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveSingleTaskForAssociatingEnsResponse
@@ -5215,6 +5528,10 @@ SaveSingleTaskForAssociatingEnsResponse Client::saveSingleTaskForAssociatingEnsW
 }
 
 /**
+ * @summary Submit a job to attach an ENS address.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+ *
  * @param request SaveSingleTaskForAssociatingEnsRequest
  * @return SaveSingleTaskForAssociatingEnsResponse
  */
@@ -5224,6 +5541,10 @@ SaveSingleTaskForAssociatingEnsResponse Client::saveSingleTaskForAssociatingEns(
 }
 
 /**
+ * @summary Invoke the SaveSingleTaskForCancelingTransferIn API to submit a job to cancel a domain name transfer-in.
+ *
+ * @description You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
+ *
  * @param request SaveSingleTaskForCancelingTransferInRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveSingleTaskForCancelingTransferInResponse
@@ -5261,6 +5582,10 @@ SaveSingleTaskForCancelingTransferInResponse Client::saveSingleTaskForCancelingT
 }
 
 /**
+ * @summary Invoke the SaveSingleTaskForCancelingTransferIn API to submit a job to cancel a domain name transfer-in.
+ *
+ * @description You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
+ *
  * @param request SaveSingleTaskForCancelingTransferInRequest
  * @return SaveSingleTaskForCancelingTransferInResponse
  */
@@ -5270,7 +5595,9 @@ SaveSingleTaskForCancelingTransferInResponse Client::saveSingleTaskForCancelingT
 }
 
 /**
- * @summary 取消转出
+ * @summary Invoke the SaveSingleTaskForCancelingTransferOut API to submit a job to cancel a domain name transfer-out.
+ *
+ * @description You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
  *
  * @param request SaveSingleTaskForCancelingTransferOutRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5309,7 +5636,9 @@ SaveSingleTaskForCancelingTransferOutResponse Client::saveSingleTaskForCanceling
 }
 
 /**
- * @summary 取消转出
+ * @summary Invoke the SaveSingleTaskForCancelingTransferOut API to submit a job to cancel a domain name transfer-out.
+ *
+ * @description You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
  *
  * @param request SaveSingleTaskForCancelingTransferOutRequest
  * @return SaveSingleTaskForCancelingTransferOutResponse
@@ -5320,7 +5649,9 @@ SaveSingleTaskForCancelingTransferOutResponse Client::saveSingleTaskForCanceling
 }
 
 /**
- * @summary 保存创建dns服务器的任务请求
+ * @summary Invoke SaveSingleTaskForCreatingDnsHost to submit a single job for creating a DNS host.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForCreatingDnsHostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5367,7 +5698,9 @@ SaveSingleTaskForCreatingDnsHostResponse Client::saveSingleTaskForCreatingDnsHos
 }
 
 /**
- * @summary 保存创建dns服务器的任务请求
+ * @summary Invoke SaveSingleTaskForCreatingDnsHost to submit a single job for creating a DNS host.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForCreatingDnsHostRequest
  * @return SaveSingleTaskForCreatingDnsHostResponse
@@ -5378,7 +5711,11 @@ SaveSingleTaskForCreatingDnsHostResponse Client::saveSingleTaskForCreatingDnsHos
 }
 
 /**
- * @summary 保存单个任务-注册订单
+ * @summary Submits a domain name registration task.
+ *
+ * @description Starting from March 1, 2022, you can associated domain names only by using real-name verified domain name registrant profiles. Passing registrant information directly to associated domain names is no longer supported.
+ * To register a domain name, you must specify the domain name, registrant information, and DNS servers. You must associate the registrant information with a real-name verified domain name registrant profile by specifying the profile ID. You can use the default Alibaba Cloud DNS servers or specify custom DNS servers.
+ * You can call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation to query the task execution result.
  *
  * @param request SaveSingleTaskForCreatingOrderActivateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5425,6 +5762,10 @@ SaveSingleTaskForCreatingOrderActivateResponse Client::saveSingleTaskForCreating
 
   if (!!request.hasEnableDomainProxy()) {
     query["EnableDomainProxy"] = request.getEnableDomainProxy();
+  }
+
+  if (!!request.hasExpectedPunycode()) {
+    query["ExpectedPunycode"] = request.getExpectedPunycode();
   }
 
   if (!!request.hasLang()) {
@@ -5537,7 +5878,11 @@ SaveSingleTaskForCreatingOrderActivateResponse Client::saveSingleTaskForCreating
 }
 
 /**
- * @summary 保存单个任务-注册订单
+ * @summary Submits a domain name registration task.
+ *
+ * @description Starting from March 1, 2022, you can associated domain names only by using real-name verified domain name registrant profiles. Passing registrant information directly to associated domain names is no longer supported.
+ * To register a domain name, you must specify the domain name, registrant information, and DNS servers. You must associate the registrant information with a real-name verified domain name registrant profile by specifying the profile ID. You can use the default Alibaba Cloud DNS servers or specify custom DNS servers.
+ * You can call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation to query the task execution result.
  *
  * @param request SaveSingleTaskForCreatingOrderActivateRequest
  * @return SaveSingleTaskForCreatingOrderActivateResponse
@@ -5548,6 +5893,10 @@ SaveSingleTaskForCreatingOrderActivateResponse Client::saveSingleTaskForCreating
 }
 
 /**
+ * @summary Invoke SaveSingleTaskForCreatingOrderRedeem to submit a domain redeem job.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+ *
  * @param request SaveSingleTaskForCreatingOrderRedeemRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveSingleTaskForCreatingOrderRedeemResponse
@@ -5605,6 +5954,10 @@ SaveSingleTaskForCreatingOrderRedeemResponse Client::saveSingleTaskForCreatingOr
 }
 
 /**
+ * @summary Invoke SaveSingleTaskForCreatingOrderRedeem to submit a domain redeem job.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+ *
  * @param request SaveSingleTaskForCreatingOrderRedeemRequest
  * @return SaveSingleTaskForCreatingOrderRedeemResponse
  */
@@ -5614,7 +5967,9 @@ SaveSingleTaskForCreatingOrderRedeemResponse Client::saveSingleTaskForCreatingOr
 }
 
 /**
- * @summary 保存单个任务-续费订单
+ * @summary Use SaveSingleTaskForCreatingOrderRenew to submit a domain name renewal task.
+ *
+ * @description To check the execution results of the task, call [QueryTaskDetailList](~~QueryTaskDetailList~~).
  *
  * @param request SaveSingleTaskForCreatingOrderRenewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5681,7 +6036,9 @@ SaveSingleTaskForCreatingOrderRenewResponse Client::saveSingleTaskForCreatingOrd
 }
 
 /**
- * @summary 保存单个任务-续费订单
+ * @summary Use SaveSingleTaskForCreatingOrderRenew to submit a domain name renewal task.
+ *
+ * @description To check the execution results of the task, call [QueryTaskDetailList](~~QueryTaskDetailList~~).
  *
  * @param request SaveSingleTaskForCreatingOrderRenewRequest
  * @return SaveSingleTaskForCreatingOrderRenewResponse
@@ -5692,6 +6049,10 @@ SaveSingleTaskForCreatingOrderRenewResponse Client::saveSingleTaskForCreatingOrd
 }
 
 /**
+ * @summary Invoke the SaveSingleTaskForCreatingOrderTransfer API to submit a domain name transfer-in job.
+ *
+ * @description You can query the task execution result by calling the QueryTaskDetailList API (~~67710~~).
+ *
  * @param request SaveSingleTaskForCreatingOrderTransferRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveSingleTaskForCreatingOrderTransferResponse
@@ -5757,6 +6118,10 @@ SaveSingleTaskForCreatingOrderTransferResponse Client::saveSingleTaskForCreating
 }
 
 /**
+ * @summary Invoke the SaveSingleTaskForCreatingOrderTransfer API to submit a domain name transfer-in job.
+ *
+ * @description You can query the task execution result by calling the QueryTaskDetailList API (~~67710~~).
+ *
  * @param request SaveSingleTaskForCreatingOrderTransferRequest
  * @return SaveSingleTaskForCreatingOrderTransferResponse
  */
@@ -5766,7 +6131,9 @@ SaveSingleTaskForCreatingOrderTransferResponse Client::saveSingleTaskForCreating
 }
 
 /**
- * @summary 删除dnsSec记录
+ * @summary Invoke the SaveSingleTaskForDeletingDSRecord API to submit a job for deleting a DS record.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForDeletingDSRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5809,7 +6176,9 @@ SaveSingleTaskForDeletingDSRecordResponse Client::saveSingleTaskForDeletingDSRec
 }
 
 /**
- * @summary 删除dnsSec记录
+ * @summary Invoke the SaveSingleTaskForDeletingDSRecord API to submit a job for deleting a DS record.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForDeletingDSRecordRequest
  * @return SaveSingleTaskForDeletingDSRecordResponse
@@ -5820,7 +6189,9 @@ SaveSingleTaskForDeletingDSRecordResponse Client::saveSingleTaskForDeletingDSRec
 }
 
 /**
- * @summary 删除DNS HOST任务
+ * @summary Invoke the SaveSingleTaskForDeletingDnsHost API to submit a job for deleting a DNS host.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForDeletingDnsHostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5863,7 +6234,9 @@ SaveSingleTaskForDeletingDnsHostResponse Client::saveSingleTaskForDeletingDnsHos
 }
 
 /**
- * @summary 删除DNS HOST任务
+ * @summary Invoke the SaveSingleTaskForDeletingDnsHost API to submit a job for deleting a DNS host.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForDeletingDnsHostRequest
  * @return SaveSingleTaskForDeletingDnsHostResponse
@@ -5874,6 +6247,10 @@ SaveSingleTaskForDeletingDnsHostResponse Client::saveSingleTaskForDeletingDnsHos
 }
 
 /**
+ * @summary Invoke the SaveSingleTaskForDisassociatingEns API to submit a job for detaching an ENS address.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+ *
  * @param request SaveSingleTaskForDisassociatingEnsRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SaveSingleTaskForDisassociatingEnsResponse
@@ -5911,6 +6288,10 @@ SaveSingleTaskForDisassociatingEnsResponse Client::saveSingleTaskForDisassociati
 }
 
 /**
+ * @summary Invoke the SaveSingleTaskForDisassociatingEns API to submit a job for detaching an ENS address.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+ *
  * @param request SaveSingleTaskForDisassociatingEnsRequest
  * @return SaveSingleTaskForDisassociatingEnsResponse
  */
@@ -5920,7 +6301,9 @@ SaveSingleTaskForDisassociatingEnsResponse Client::saveSingleTaskForDisassociati
 }
 
 /**
- * @summary 保存单个任务-开启/关闭whois隐私保护锁
+ * @summary Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
+ *
+ * @description Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
  *
  * @param request SaveSingleTaskForDomainNameProxyServiceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5963,7 +6346,9 @@ SaveSingleTaskForDomainNameProxyServiceResponse Client::saveSingleTaskForDomainN
 }
 
 /**
- * @summary 保存单个任务-开启/关闭whois隐私保护锁
+ * @summary Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
+ *
+ * @description Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
  *
  * @param request SaveSingleTaskForDomainNameProxyServiceRequest
  * @return SaveSingleTaskForDomainNameProxyServiceResponse
@@ -6024,7 +6409,9 @@ SaveSingleTaskForGenerateDomainCertificateResponse Client::saveSingleTaskForGene
 }
 
 /**
- * @summary 修改DnsSec记录
+ * @summary Invoke SaveSingleTaskForModifyingDSRecord to submit a job for modifying a DS record.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForModifyingDSRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6079,7 +6466,9 @@ SaveSingleTaskForModifyingDSRecordResponse Client::saveSingleTaskForModifyingDSR
 }
 
 /**
- * @summary 修改DnsSec记录
+ * @summary Invoke SaveSingleTaskForModifyingDSRecord to submit a job for modifying a DS record.
+ *
+ * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForModifyingDSRecordRequest
  * @return SaveSingleTaskForModifyingDSRecordResponse
@@ -6090,7 +6479,9 @@ SaveSingleTaskForModifyingDSRecordResponse Client::saveSingleTaskForModifyingDSR
 }
 
 /**
- * @summary 保存修改dns服务器的任务请求
+ * @summary Invoke the SaveSingleTaskForModifyingDnsHost API to submit a job for modifying a DNS host.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForModifyingDnsHostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6137,7 +6528,9 @@ SaveSingleTaskForModifyingDnsHostResponse Client::saveSingleTaskForModifyingDnsH
 }
 
 /**
- * @summary 保存修改dns服务器的任务请求
+ * @summary Invoke the SaveSingleTaskForModifyingDnsHost API to submit a job for modifying a DNS host.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForModifyingDnsHostRequest
  * @return SaveSingleTaskForModifyingDnsHostResponse
@@ -6148,7 +6541,9 @@ SaveSingleTaskForModifyingDnsHostResponse Client::saveSingleTaskForModifyingDnsH
 }
 
 /**
- * @summary 发送转移码
+ * @summary Invoke the SaveSingleTaskForQueryingTransferAuthorizationCode API to submit a job for retrieving the domain name transfer password.
+ *
+ * @description You can query the job execution result by calling the QueryTaskDetailList API (~~67710~~). The transfer password is returned in the TaskResult field of the corresponding job.
  *
  * @param request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6187,7 +6582,9 @@ SaveSingleTaskForQueryingTransferAuthorizationCodeResponse Client::saveSingleTas
 }
 
 /**
- * @summary 发送转移码
+ * @summary Invoke the SaveSingleTaskForQueryingTransferAuthorizationCode API to submit a job for retrieving the domain name transfer password.
+ *
+ * @description You can query the job execution result by calling the QueryTaskDetailList API (~~67710~~). The transfer password is returned in the TaskResult field of the corresponding job.
  *
  * @param request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
  * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
@@ -6252,7 +6649,9 @@ SaveSingleTaskForReserveDropListDomainResponse Client::saveSingleTaskForReserveD
 }
 
 /**
- * @summary 保存art扩展信息任务
+ * @summary Invoke the SaveSingleTaskForSaveArtExtension API to submit a job for creating Art extension information.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForSaveArtExtensionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6327,7 +6726,9 @@ SaveSingleTaskForSaveArtExtensionResponse Client::saveSingleTaskForSaveArtExtens
 }
 
 /**
- * @summary 保存art扩展信息任务
+ * @summary Invoke the SaveSingleTaskForSaveArtExtension API to submit a job for creating Art extension information.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForSaveArtExtensionRequest
  * @return SaveSingleTaskForSaveArtExtensionResponse
@@ -6338,7 +6739,9 @@ SaveSingleTaskForSaveArtExtensionResponse Client::saveSingleTaskForSaveArtExtens
 }
 
 /**
- * @summary 同步DnsSec记录
+ * @summary Invoke the SaveSingleTaskForSynchronizingDSRecord API to submit a job for synchronizing a DS record.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForSynchronizingDSRecordRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6377,7 +6780,9 @@ SaveSingleTaskForSynchronizingDSRecordResponse Client::saveSingleTaskForSynchron
 }
 
 /**
- * @summary 同步DnsSec记录
+ * @summary Invoke the SaveSingleTaskForSynchronizingDSRecord API to submit a job for synchronizing a DS record.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForSynchronizingDSRecordRequest
  * @return SaveSingleTaskForSynchronizingDSRecordResponse
@@ -6388,7 +6793,9 @@ SaveSingleTaskForSynchronizingDSRecordResponse Client::saveSingleTaskForSynchron
 }
 
 /**
- * @summary 保存同步dns服务器的任务请求
+ * @summary Invoke the SaveSingleTaskForSynchronizingDnsHost API to submit a DNS host synchronization job. This is used to handle cases such as missing or inconsistent DNS hosts.
+ *
+ * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForSynchronizingDnsHostRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6427,7 +6834,9 @@ SaveSingleTaskForSynchronizingDnsHostResponse Client::saveSingleTaskForSynchroni
 }
 
 /**
- * @summary 保存同步dns服务器的任务请求
+ * @summary Invoke the SaveSingleTaskForSynchronizingDnsHost API to submit a DNS host synchronization job. This is used to handle cases such as missing or inconsistent DNS hosts.
+ *
+ * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForSynchronizingDnsHostRequest
  * @return SaveSingleTaskForSynchronizingDnsHostResponse
@@ -6488,7 +6897,9 @@ SaveSingleTaskForTransferOutByAuthorizationCodeResponse Client::saveSingleTaskFo
 }
 
 /**
- * @summary 保存单个任务-开启/关闭禁止转移锁
+ * @summary Invoke the SaveSingleTaskForTransferProhibitionLock API to submit a transfer prohibition lock job.
+ *
+ * @description You can query the task execution result by using the [List Task Details](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForTransferProhibitionLockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6531,7 +6942,9 @@ SaveSingleTaskForTransferProhibitionLockResponse Client::saveSingleTaskForTransf
 }
 
 /**
- * @summary 保存单个任务-开启/关闭禁止转移锁
+ * @summary Invoke the SaveSingleTaskForTransferProhibitionLock API to submit a transfer prohibition lock job.
+ *
+ * @description You can query the task execution result by using the [List Task Details](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForTransferProhibitionLockRequest
  * @return SaveSingleTaskForTransferProhibitionLockResponse
@@ -6542,7 +6955,9 @@ SaveSingleTaskForTransferProhibitionLockResponse Client::saveSingleTaskForTransf
 }
 
 /**
- * @summary 保存单个任务-开启/关闭信息安全锁
+ * @summary Invoke the SaveSingleTaskForUpdateProhibitionLock API to submit a task for the Update Prohibition Lock.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForUpdateProhibitionLockRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6585,7 +7000,9 @@ SaveSingleTaskForUpdateProhibitionLockResponse Client::saveSingleTaskForUpdatePr
 }
 
 /**
- * @summary 保存单个任务-开启/关闭信息安全锁
+ * @summary Invoke the SaveSingleTaskForUpdateProhibitionLock API to submit a task for the Update Prohibition Lock.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
  *
  * @param request SaveSingleTaskForUpdateProhibitionLockRequest
  * @return SaveSingleTaskForUpdateProhibitionLockResponse
@@ -6596,7 +7013,9 @@ SaveSingleTaskForUpdateProhibitionLockResponse Client::saveSingleTaskForUpdatePr
 }
 
 /**
- * @summary 保存修改联系人的任务
+ * @summary Invoke the SaveSingleTaskForUpdatingContactInfo API to submit a domain contact information update job.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForUpdatingContactInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6651,7 +7070,9 @@ SaveSingleTaskForUpdatingContactInfoResponse Client::saveSingleTaskForUpdatingCo
 }
 
 /**
- * @summary 保存修改联系人的任务
+ * @summary Invoke the SaveSingleTaskForUpdatingContactInfo API to submit a domain contact information update job.
+ *
+ * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveSingleTaskForUpdatingContactInfoRequest
  * @return SaveSingleTaskForUpdatingContactInfoResponse
@@ -6662,7 +7083,9 @@ SaveSingleTaskForUpdatingContactInfoResponse Client::saveSingleTaskForUpdatingCo
 }
 
 /**
- * @summary 保存删除域名的任务
+ * @summary Submit a domain deletion job. Only whitelist users can access this API.
+ *
+ * @description Invoke SaveTaskForSubmittingDomainDelete to submit a domain deletion job.
  *
  * @param request SaveTaskForSubmittingDomainDeleteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6701,7 +7124,9 @@ SaveTaskForSubmittingDomainDeleteResponse Client::saveTaskForSubmittingDomainDel
 }
 
 /**
- * @summary 保存删除域名的任务
+ * @summary Submit a domain deletion job. Only whitelist users can access this API.
+ *
+ * @description Invoke SaveTaskForSubmittingDomainDelete to submit a domain deletion job.
  *
  * @param request SaveTaskForSubmittingDomainDeleteRequest
  * @return SaveTaskForSubmittingDomainDeleteResponse
@@ -6712,7 +7137,7 @@ SaveTaskForSubmittingDomainDeleteResponse Client::saveTaskForSubmittingDomainDel
 }
 
 /**
- * @summary 批量提交域名资料
+ * @summary Submits real-name verification information for one or more domain names in bulk.
  *
  * @param request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6765,7 +7190,7 @@ SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse Clie
 }
 
 /**
- * @summary 批量提交域名资料
+ * @summary Submits real-name verification information for one or more domain names in bulk.
  *
  * @param request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
  * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
@@ -6776,7 +7201,7 @@ SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse Clie
 }
 
 /**
- * @summary 根据模板保存域名的实名认证信息
+ * @summary Creates a task to submit real-name verification information for a domain name by using a specified registrant profile.
  *
  * @param request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6823,7 +7248,7 @@ SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse Cli
 }
 
 /**
- * @summary 根据模板保存域名的实名认证信息
+ * @summary Creates a task to submit real-name verification information for a domain name by using a specified registrant profile.
  *
  * @param request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
  * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
@@ -6834,7 +7259,9 @@ SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse Cli
 }
 
 /**
- * @summary 根据联系人信息批量修改注册联系人信息
+ * @summary Invoke the SaveTaskForUpdatingRegistrantInfoByIdentityCredential API to submit a batch job for updating registrant contact information by providing contact details and required documentation. You must provide the corresponding documentation as required.
+ *
+ * @description Query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6959,7 +7386,9 @@ SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse Client::saveTaskFo
 }
 
 /**
- * @summary 根据联系人信息批量修改注册联系人信息
+ * @summary Invoke the SaveTaskForUpdatingRegistrantInfoByIdentityCredential API to submit a batch job for updating registrant contact information by providing contact details and required documentation. You must provide the corresponding documentation as required.
+ *
+ * @description Query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
  *
  * @param request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
  * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
@@ -6970,7 +7399,9 @@ SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse Client::saveTaskFo
 }
 
 /**
- * @summary 根据模板批量修改注册联系人
+ * @summary Submits a task to update registrant information using a registrant profile ID.
+ *
+ * @description Call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.33f47edeV0nkFx) API to check the task result. After a successful update, the registrant information for the domain name is updated to match the registrant profile. If the domain name requires real-name verification, it becomes verified.
  *
  * @param request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7017,7 +7448,9 @@ SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse Client::saveTaskF
 }
 
 /**
- * @summary 根据模板批量修改注册联系人
+ * @summary Submits a task to update registrant information using a registrant profile ID.
+ *
+ * @description Call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.33f47edeV0nkFx) API to check the task result. After a successful update, the registrant information for the domain name is updated to match the registrant profile. If the domain name requires real-name verification, it becomes verified.
  *
  * @param request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
  * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
@@ -7162,7 +7595,7 @@ ScrollDomainListResponse Client::scrollDomainList(const ScrollDomainListRequest 
 }
 
 /**
- * @summary 设置默认模板
+ * @summary Invoke the SetDefaultRegistrantProfile API to set the default contact template for a domain name.
  *
  * @param request SetDefaultRegistrantProfileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7197,7 +7630,7 @@ SetDefaultRegistrantProfileResponse Client::setDefaultRegistrantProfileWithOptio
 }
 
 /**
- * @summary 设置默认模板
+ * @summary Invoke the SetDefaultRegistrantProfile API to set the default contact template for a domain name.
  *
  * @param request SetDefaultRegistrantProfileRequest
  * @return SetDefaultRegistrantProfileResponse
@@ -7208,7 +7641,10 @@ SetDefaultRegistrantProfileResponse Client::setDefaultRegistrantProfile(const Se
 }
 
 /**
- * @summary 域名设置自动续费
+ * @summary Sets or cancels auto-renewal for a domain name.
+ *
+ * @description This operation currently supports only domain names registered on the China site (aliyun.com).
+ * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) of domain name services.**
  *
  * @param request SetupDomainAutoRenewRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7243,7 +7679,10 @@ SetupDomainAutoRenewResponse Client::setupDomainAutoRenewWithOptions(const Setup
 }
 
 /**
- * @summary 域名设置自动续费
+ * @summary Sets or cancels auto-renewal for a domain name.
+ *
+ * @description This operation currently supports only domain names registered on the China site (aliyun.com).
+ * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) of domain name services.**
  *
  * @param request SetupDomainAutoRenewRequest
  * @return SetupDomainAutoRenewResponse
@@ -7254,7 +7693,7 @@ SetupDomainAutoRenewResponse Client::setupDomainAutoRenew(const SetupDomainAutoR
 }
 
 /**
- * @summary 域名特殊业务提交资料
+ * @summary Submit documentation for special domain name services
  *
  * @param request SubmitDomainSpecialBizCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7299,7 +7738,7 @@ SubmitDomainSpecialBizCredentialsResponse Client::submitDomainSpecialBizCredenti
 }
 
 /**
- * @summary 域名特殊业务提交资料
+ * @summary Submit documentation for special domain name services
  *
  * @param request SubmitDomainSpecialBizCredentialsRequest
  * @return SubmitDomainSpecialBizCredentialsResponse
@@ -7310,7 +7749,9 @@ SubmitDomainSpecialBizCredentialsResponse Client::submitDomainSpecialBizCredenti
 }
 
 /**
- * @summary 提交邮箱验证
+ * @summary Invoke the SubmitEmailVerification API to send an email verification message.
+ *
+ * @description After receiving the verification email, you must log on to your mailbox and complete verification within 3 days. If the verification email has expired, you can invoke the [ResendEmailVerification](https://help.aliyun.com/document_detail/67734.html) API to resend the verification email.
  *
  * @param request SubmitEmailVerificationRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7353,7 +7794,9 @@ SubmitEmailVerificationResponse Client::submitEmailVerificationWithOptions(const
 }
 
 /**
- * @summary 提交邮箱验证
+ * @summary Invoke the SubmitEmailVerification API to send an email verification message.
+ *
+ * @description After receiving the verification email, you must log on to your mailbox and complete verification within 3 days. If the verification email has expired, you can invoke the [ResendEmailVerification](https://help.aliyun.com/document_detail/67734.html) API to resend the verification email.
  *
  * @param request SubmitEmailVerificationRequest
  * @return SubmitEmailVerificationResponse
@@ -7364,7 +7807,7 @@ SubmitEmailVerificationResponse Client::submitEmailVerification(const SubmitEmai
 }
 
 /**
- * @summary 提交申请信息
+ * @summary Invoke the SubmitOperationAuditInfo API to submit self-service business review information.
  *
  * @param request SubmitOperationAuditInfoRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7411,7 +7854,7 @@ SubmitOperationAuditInfoResponse Client::submitOperationAuditInfoWithOptions(con
 }
 
 /**
- * @summary 提交申请信息
+ * @summary Invoke the SubmitOperationAuditInfo API to submit self-service business review information.
  *
  * @param request SubmitOperationAuditInfoRequest
  * @return SubmitOperationAuditInfoResponse
@@ -7422,7 +7865,7 @@ SubmitOperationAuditInfoResponse Client::submitOperationAuditInfo(const SubmitOp
 }
 
 /**
- * @summary 提交证件资料
+ * @summary Invoke the SubmitOperationCredentials API to submit certificate materials for self-service operations pending review.
  *
  * @param request SubmitOperationCredentialsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7469,7 +7912,7 @@ SubmitOperationCredentialsResponse Client::submitOperationCredentialsWithOptions
 }
 
 /**
- * @summary 提交证件资料
+ * @summary Invoke the SubmitOperationCredentials API to submit certificate materials for self-service operations pending review.
  *
  * @param request SubmitOperationCredentialsRequest
  * @return SubmitOperationCredentialsResponse
@@ -7480,6 +7923,8 @@ SubmitOperationCredentialsResponse Client::submitOperationCredentials(const Subm
 }
 
 /**
+ * @summary Calls the TransferInCheckMailToken operation to verify the email token of a domain name registrant.
+ *
  * @param request TransferInCheckMailTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TransferInCheckMailTokenResponse
@@ -7517,6 +7962,8 @@ TransferInCheckMailTokenResponse Client::transferInCheckMailTokenWithOptions(con
 }
 
 /**
+ * @summary Calls the TransferInCheckMailToken operation to verify the email token of a domain name registrant.
+ *
  * @param request TransferInCheckMailTokenRequest
  * @return TransferInCheckMailTokenResponse
  */
@@ -7526,6 +7973,8 @@ TransferInCheckMailTokenResponse Client::transferInCheckMailToken(const Transfer
 }
 
 /**
+ * @summary Invoke the TransferInReenterTransferAuthorizationCode API to re-enter the transfer password for domain name transfer-in.
+ *
  * @param request TransferInReenterTransferAuthorizationCodeRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TransferInReenterTransferAuthorizationCodeResponse
@@ -7567,6 +8016,8 @@ TransferInReenterTransferAuthorizationCodeResponse Client::transferInReenterTran
 }
 
 /**
+ * @summary Invoke the TransferInReenterTransferAuthorizationCode API to re-enter the transfer password for domain name transfer-in.
+ *
  * @param request TransferInReenterTransferAuthorizationCodeRequest
  * @return TransferInReenterTransferAuthorizationCodeResponse
  */
@@ -7576,6 +8027,10 @@ TransferInReenterTransferAuthorizationCodeResponse Client::transferInReenterTran
 }
 
 /**
+ * @summary Invoke TransferInRefetchWhoisEmail to perform email verification for domain transfer-in.
+ *
+ * @description The system automatically retrieves the registrant\\"s email address from WHOIS. If the email address is incorrect or cannot be retrieved, the system will re-scrape the WHOIS email address.
+ *
  * @param request TransferInRefetchWhoisEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TransferInRefetchWhoisEmailResponse
@@ -7613,6 +8068,10 @@ TransferInRefetchWhoisEmailResponse Client::transferInRefetchWhoisEmailWithOptio
 }
 
 /**
+ * @summary Invoke TransferInRefetchWhoisEmail to perform email verification for domain transfer-in.
+ *
+ * @description The system automatically retrieves the registrant\\"s email address from WHOIS. If the email address is incorrect or cannot be retrieved, the system will re-scrape the WHOIS email address.
+ *
  * @param request TransferInRefetchWhoisEmailRequest
  * @return TransferInRefetchWhoisEmailResponse
  */
@@ -7622,6 +8081,8 @@ TransferInRefetchWhoisEmailResponse Client::transferInRefetchWhoisEmail(const Tr
 }
 
 /**
+ * @summary Invoke the TransferInResendMailToken API to resend the verification email for domain transfer-in.
+ *
  * @param request TransferInResendMailTokenRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return TransferInResendMailTokenResponse
@@ -7659,6 +8120,8 @@ TransferInResendMailTokenResponse Client::transferInResendMailTokenWithOptions(c
 }
 
 /**
+ * @summary Invoke the TransferInResendMailToken API to resend the verification email for domain transfer-in.
+ *
  * @param request TransferInResendMailTokenRequest
  * @return TransferInResendMailTokenResponse
  */
@@ -7668,7 +8131,7 @@ TransferInResendMailTokenResponse Client::transferInResendMailToken(const Transf
 }
 
 /**
- * @summary 向分组设置域名
+ * @summary If you use file upload to replace more than 1,000 domain names in a domain name group, the operation is asynchronous. The result is available only after the request is processed.
  *
  * @param request UpdateDomainToDomainGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7725,7 +8188,7 @@ UpdateDomainToDomainGroupResponse Client::updateDomainToDomainGroupWithOptions(c
 }
 
 /**
- * @summary 向分组设置域名
+ * @summary If you use file upload to replace more than 1,000 domain names in a domain name group, the operation is asynchronous. The result is available only after the request is processed.
  *
  * @param request UpdateDomainToDomainGroupRequest
  * @return UpdateDomainToDomainGroupResponse
@@ -7736,7 +8199,7 @@ UpdateDomainToDomainGroupResponse Client::updateDomainToDomainGroup(const Update
 }
 
 /**
- * @summary 校验联系人信息
+ * @summary Whether some parameters are required depends on the requirements of the domain name registry. This API validates the compliance and validity of the input parameters and does not perform validation against actual domain information.
  *
  * @param request VerifyContactFieldRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7843,7 +8306,7 @@ VerifyContactFieldResponse Client::verifyContactFieldWithOptions(const VerifyCon
 }
 
 /**
- * @summary 校验联系人信息
+ * @summary Whether some parameters are required depends on the requirements of the domain name registry. This API validates the compliance and validity of the input parameters and does not perform validation against actual domain information.
  *
  * @param request VerifyContactFieldRequest
  * @return VerifyContactFieldResponse
@@ -7854,7 +8317,7 @@ VerifyContactFieldResponse Client::verifyContactField(const VerifyContactFieldRe
 }
 
 /**
- * @summary 验证邮箱Token
+ * @summary Invoke the VerifyEmail API to submit email verification.
  *
  * @param request VerifyEmailRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7893,7 +8356,7 @@ VerifyEmailResponse Client::verifyEmailWithOptions(const VerifyEmailRequest &req
 }
 
 /**
- * @summary 验证邮箱Token
+ * @summary Invoke the VerifyEmail API to submit email verification.
  *
  * @param request VerifyEmailRequest
  * @return VerifyEmailResponse

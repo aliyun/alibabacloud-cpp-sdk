@@ -446,28 +446,26 @@ namespace Models
 
 
   protected:
-    // The page number returned.
+    // The current page number.
     shared_ptr<int32_t> currentPageNum_ {};
-    // Indicates whether the current page is followed by a page. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether there is a next page. Valid values:
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> nextPage_ {};
-    // The number of entries returned on each page. Default value: **0**. Maximum value: **5000**.
+    // The number of records per page. Default value: **0**. Maximum value: **5000**.
     shared_ptr<int32_t> pageSize_ {};
-    // Indicates whether the current page is preceded by a page. Valid values:
-    // 
-    // *   **true**
-    // *   **false**
+    // Indicates whether there is a previous page. Valid values:
+    // - **true**: Yes.
+    // - **false**: No.
     shared_ptr<bool> prePage_ {};
     shared_ptr<QueryRegistrantProfilesResponseBody::RegistrantProfiles> registrantProfiles_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of entries.
+    // The total number of records.
     // 
-    // >  This parameter indicates the total number of queried registrant profiles. If multiple registrant profiles are queried, the information about these profiles is returned in sequence by profile.
+    // > The total number of records refers to the number of registrant profiles returned by the query. When there are multiple registrant profiles, the next profile is displayed after the previous one.
     shared_ptr<int32_t> totalItemNum_ {};
-    // The total number of returned pages.
+    // The total number of pages.
     shared_ptr<int32_t> totalPageNum_ {};
   };
 

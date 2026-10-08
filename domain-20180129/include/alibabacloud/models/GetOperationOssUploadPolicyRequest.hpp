@@ -48,8 +48,17 @@ namespace Models
 
 
   protected:
+    // Review type. Valid value:  
+    // 
+    // **1**: Offline domain name transfer.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> auditType_ {};
+    // Language of error messages returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
   };
 

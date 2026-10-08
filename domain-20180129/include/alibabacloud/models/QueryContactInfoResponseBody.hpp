@@ -195,23 +195,41 @@ namespace Models
 
 
   protected:
+    // Mailing address (English).
     shared_ptr<string> address_ {};
+    // City (English).
     shared_ptr<string> city_ {};
+    // Country code. For example, **CN** represents China and **US** represents the United States.
     shared_ptr<string> country_ {};
+    // Domain registration date.
     shared_ptr<string> createDate_ {};
+    // Mailbox.
     shared_ptr<string> email_ {};
+    // Postal code.
     shared_ptr<string> postalCode_ {};
+    // Province (English).
     shared_ptr<string> province_ {};
+    // Contact name (English).
     shared_ptr<string> registrantName_ {};
+    // Registrant name (English).
     shared_ptr<string> registrantOrganization_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
+    // The country code for the telephone number. For example, the country code for China is **86**.
     shared_ptr<string> telArea_ {};
+    // Telephone extension number.
     shared_ptr<string> telExt_ {};
+    // Telephone number.
     shared_ptr<string> telephone_ {};
+    // Mailing address (in Chinese).
     shared_ptr<string> zhAddress_ {};
+    // City (Chinese).
     shared_ptr<string> zhCity_ {};
+    // Province (Chinese).
     shared_ptr<string> zhProvince_ {};
+    // Contact name (Chinese).
     shared_ptr<string> zhRegistrantName_ {};
+    // Registrant name (Chinese).
     shared_ptr<string> zhRegistrantOrganization_ {};
   };
 

@@ -98,9 +98,13 @@ namespace Models
 
 
     protected:
+      // The current expiration date of the domain name, expressed in milliseconds since 00:00:00 UTC on January 1, 1970.
       shared_ptr<int64_t> currentExpirationDate_ {};
+      // The domain name that you want to renew. You can obtain a list of your domain names by calling the [QueryDomainList](https://help.aliyun.com/document_detail/67712.html) operation.
       shared_ptr<string> domainName_ {};
+      // Specifies whether to allow the renewal of premium domain names. Default value: false.
       shared_ptr<bool> permitPremiumRenew_ {};
+      // The renewal duration, in years. Default value: **1**. Valid values: **1** to **10**.
       shared_ptr<int32_t> subscriptionDuration_ {};
     };
 
@@ -159,13 +163,35 @@ namespace Models
 
 
   protected:
+    // The coupon ID.
     shared_ptr<string> couponNo_ {};
+    // The language of the error messages. Valid values:
+    // 
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The parameters for each domain name to be renewed.
+    // 
     // This parameter is required.
     shared_ptr<vector<SaveBatchTaskForCreatingOrderRenewRequest::OrderRenewParam>> orderRenewParam_ {};
+    // The promotion ID.
     shared_ptr<string> promotionNo_ {};
+    // Specifies whether to use a coupon. Valid values:
+    // 
+    // - **false**: Do not use a coupon.
+    // 
+    // - **true**: Use a coupon.
     shared_ptr<bool> useCoupon_ {};
+    // Specifies whether to use a promotion. Valid values:
+    // 
+    // - **false**: Do not use a promotion.
+    // 
+    // - **true**: Use a promotion.
     shared_ptr<bool> usePromotion_ {};
+    // The user\\"s IP address. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -103,15 +103,29 @@ namespace Models
 
 
   protected:
+    // Coupon number.
     shared_ptr<string> couponNo_ {};
+    // Current expiration time of the domain name, represented as the number of milliseconds since 00:00:00 UTC on January 1, 1970.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> currentExpirationDate_ {};
+    // Domain name to be redeemed.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Coupon number.
     shared_ptr<string> promotionNo_ {};
+    // Is a coupon used.
     shared_ptr<bool> useCoupon_ {};
+    // Is a coupon used.
     shared_ptr<bool> usePromotion_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Maximum number of years that can be purchased.
     shared_ptr<int32_t> maxYear_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

@@ -69,11 +69,27 @@ namespace Models
 
 
   protected:
+    // The domain names for which you want to enable or disable the transfer prohibition lock.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainName_ {};
+    // The language of the error message that is returned if the request fails. Valid values:
+    // 
+    // - **zh**: Chinese
+    // 
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Specifies whether to enable or disable the transfer prohibition lock. Valid values:
+    // 
+    // - **true**: Enable the transfer prohibition lock.
+    // 
+    // - **false**: Disable the transfer prohibition lock.
+    // 
     // This parameter is required.
     shared_ptr<bool> status_ {};
+    // The client IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -103,13 +103,27 @@ namespace Models
 
 
   protected:
+    // The start time for querying email verification creation, represented as the number of milliseconds since 00:00 on January 1, 1970, UTC.
     shared_ptr<int64_t> beginCreateTime_ {};
+    // The email address to query. You can upload only one email address at a time.
     shared_ptr<string> email_ {};
+    // The end time for querying the creation of email verification, calculated as the number of milliseconds since 00:00 UTC on January 1, 1970.
     shared_ptr<int64_t> endCreateTime_ {};
+    // Language of error messages returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value is **en**.
     shared_ptr<string> lang_ {};
+    // The page number for paging through the domain list. Default value is **1**. You can set this parameter based on your needs.
     shared_ptr<int32_t> pageNum_ {};
+    // The page size for paging through the domain list. Default value is **500**, and the maximum value is **5000**. You can set this parameter based on your needs.
     shared_ptr<int32_t> pageSize_ {};
+    // User IP address. You can set it to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
+    // Email verification status. Valid values:  
+    // - **0**: Waiting for verification.  
+    // - **1**: Verification succeeded.
     shared_ptr<int32_t> verificationStatus_ {};
   };
 

@@ -507,13 +507,20 @@ namespace Models
 
 
   protected:
+    // Current page number.
     shared_ptr<int32_t> currentPageNum_ {};
     shared_ptr<QueryAdvancedDomainListResponseBody::Data> data_ {};
+    // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
+    // Paging size.
     shared_ptr<int32_t> pageSize_ {};
+    // Indicates whether a previous page exists.
     shared_ptr<bool> prePage_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
+    // Total number of records.
     shared_ptr<int32_t> totalItemNum_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPageNum_ {};
   };
 

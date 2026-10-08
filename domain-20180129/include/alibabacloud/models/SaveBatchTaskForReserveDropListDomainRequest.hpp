@@ -79,8 +79,20 @@ namespace Models
 
 
     protected:
+      // The first custom DNS server.
+      // 
+      // > - This parameter is required only if you set **AliyunDns** to **false**.
+      // 
+      // - Make sure that your custom DNS servers are valid. Otherwise, the domain reservation may fail.
       shared_ptr<string> dns1_ {};
+      // The second custom DNS server.
+      // 
+      // > - This parameter is required only if you set **AliyunDns** to **false**.
+      // 
+      // - Make sure that your custom DNS servers are valid. Otherwise, the domain reservation may fail.
       shared_ptr<string> dns2_ {};
+      // The domain name to reserve.
+      // 
       // This parameter is required.
       shared_ptr<string> domainName_ {};
     };
@@ -104,8 +116,12 @@ namespace Models
 
 
   protected:
+    // The contact template ID.
+    // 
     // This parameter is required.
     shared_ptr<string> contactTemplateId_ {};
+    // The domain list.
+    // 
     // This parameter is required.
     shared_ptr<vector<SaveBatchTaskForReserveDropListDomainRequest::Domains>> domains_ {};
   };

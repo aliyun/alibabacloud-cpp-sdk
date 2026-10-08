@@ -66,10 +66,21 @@ namespace Models
 
 
   protected:
+    // Domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Specifies whether to retrieve the real-name verification image. Valid values:  
+    // - **true**: Retrieve the image.  
+    // - **false**: Do not retrieve the image.
     shared_ptr<bool> fetchImage_ {};
+    // Language of error messages returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -94,15 +94,33 @@ namespace Models
 
 
   protected:
+    // Specifies whether to add a transfer-out restriction. This parameter takes effect only when **ContactType** is **registrant**. It indicates whether to restrict domain transfer-out for 60 days after the registrant is updated. Default value: **false**, which means no transfer-out restriction is applied.
     shared_ptr<bool> addTransferLock_ {};
+    // Contact type. Valid values:
+    // - **registrant**
+    // - **admin**
+    // - **billing**
+    // - **tech**
+    // 
     // This parameter is required.
     shared_ptr<string> contactType_ {};
+    // Domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Domain instance ID.
     shared_ptr<string> instanceId_ {};
+    // Language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Information template ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

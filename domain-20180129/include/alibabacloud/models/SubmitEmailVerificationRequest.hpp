@@ -66,10 +66,24 @@ namespace Models
 
 
   protected:
+    // The mailbox that requires verification. Separate multiple mailboxes with commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> email_ {};
+    // The language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default Value: **en**.
     shared_ptr<string> lang_ {};
+    // Specifies whether to resend the verification email if it already exists. Valid values:
+    // 
+    // - **true**: Resend the verification email.
+    // - **false**: Do not resend the verification email.
+    // 
+    // Default Value: **false**.
     shared_ptr<bool> sendIfExist_ {};
+    // The user IP address. You can set it to 127.0.0.1.
     shared_ptr<string> userClientIp_ {};
   };
 

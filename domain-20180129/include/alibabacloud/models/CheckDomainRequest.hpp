@@ -75,11 +75,25 @@ namespace Models
 
 
   protected:
+    // Domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Operation command. Valid values:  
+    // - **create**: Purchase.  
+    // - **renew**: Renewal.  
+    // - **transfer**: Transfer-in.  
+    // - **restore**: Redeem.
     shared_ptr<string> feeCommand_ {};
+    // Currency type. Valid value: **USD** (US Dollar).
     shared_ptr<string> feeCurrency_ {};
+    // Registration period in years. Unit: **year**. Valid range: **1** to **10** years.
     shared_ptr<int32_t> feePeriod_ {};
+    // Language of error messages returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
   };
 

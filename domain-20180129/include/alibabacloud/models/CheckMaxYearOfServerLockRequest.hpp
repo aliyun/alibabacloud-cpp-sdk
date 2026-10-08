@@ -66,11 +66,25 @@ namespace Models
 
 
   protected:
+    // Type of purchase operation. Valid values:
+    // 
+    // - activate: new registration
+    // - renew: renewal
+    // 
     // This parameter is required.
     shared_ptr<string> checkAction_ {};
+    // The domain name to be checked.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Language of error messages returned by the API. Valid values:
+    // 
+    // - zh: Chinese
+    // - en: English
+    // 
+    // Default value: en.
     shared_ptr<string> lang_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

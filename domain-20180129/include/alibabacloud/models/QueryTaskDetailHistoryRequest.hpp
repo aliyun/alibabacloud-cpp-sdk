@@ -103,15 +103,35 @@ namespace Models
 
 
   protected:
+    // Domain name.
     shared_ptr<string> domainName_ {};
+    // Domain name cursor.
     shared_ptr<string> domainNameCursor_ {};
+    // Language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Page size.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Task detail cursor.
     shared_ptr<string> taskDetailNoCursor_ {};
+    // Job number.
+    // 
+    // > You can obtain the job number by calling the [QueryTaskList](https://help.aliyun.com/document_detail/67709.html) API.
+    // 
     // This parameter is required.
     shared_ptr<string> taskNo_ {};
+    // Job status. Valid values:
+    // - **0**: Waiting to execute.
+    // - **1**: Executing.
+    // - **2**: Succeeded.
+    // - **3**: Failed.
     shared_ptr<int32_t> taskStatus_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

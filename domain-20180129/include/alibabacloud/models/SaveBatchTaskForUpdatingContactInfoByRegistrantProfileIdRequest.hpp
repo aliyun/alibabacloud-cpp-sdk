@@ -87,14 +87,43 @@ namespace Models
 
 
   protected:
+    // The contact type to modify. Valid values:
+    // 
+    // - **registrant**: The domain name\\"s registrant.
+    // 
+    // - **admin**: The administrative contact for the domain name.
+    // 
+    // - **billing**: The billing contact.
+    // 
+    // - **tech**: The technical contact.
+    // 
     // This parameter is required.
     shared_ptr<string> contactType_ {};
+    // An array of domain names to update.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainName_ {};
+    // The language of the error message that is returned if the request fails. Valid values:
+    // 
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The ID of the registrant profile. This ID is automatically generated when you create a registrant profile. You can find registrant profile IDs by calling the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) operation.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // Specifies whether to enable the transfer lock. This parameter is valid only when **ContactType** is set to **registrant**. If enabled, this feature prevents the domain name from being transferred for 60 days after the registrant information is modified.
+    // 
+    // - **true**: Enables the lock, which prevents the domain name from being transferred out.
+    // 
+    // - **false**: Disables the lock, which allows the domain name to be transferred out.
+    // 
+    // Default value: **false**.
     shared_ptr<bool> transferOutProhibited_ {};
+    // The IP address of the client. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -293,13 +293,20 @@ namespace Models
 
 
   protected:
+    // Current page number.
     shared_ptr<int32_t> currentPageNum_ {};
     shared_ptr<QueryTaskListResponseBody::Data> data_ {};
+    // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
+    // Page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Indicates whether there is a previous page.
     shared_ptr<bool> prePage_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
+    // Total number of entries.
     shared_ptr<int32_t> totalItemNum_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPageNum_ {};
   };
 

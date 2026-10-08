@@ -103,13 +103,27 @@ namespace Models
 
 
   protected:
+    // Mailbox to which the transfer password was sent.
     shared_ptr<string> email_ {};
+    // Expiration time of the obtained transfer password.
     shared_ptr<string> expirationDate_ {};
+    // Time when the transfer-out request was received from the domain name registry.
     shared_ptr<string> pendingRequestDate_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
+    // Encoding of the transfer-out failure reason.
     shared_ptr<string> resultCode_ {};
+    // Description of the transfer-out failure reason.
     shared_ptr<string> resultMsg_ {};
+    // Transfer-out status. Valid values:  
+    // - **1**: Phone authentication required;  
+    // - **2**: Mailbox authentication required;  
+    // - **3**: Transfer password already obtained;  
+    // - **4**: Transfer-out in progress (transfer request received from the domain name registry);  
+    // - **5**: Transfer-out succeeded;  
+    // - **8**: Transfer-out failed.
     shared_ptr<int32_t> status_ {};
+    // Time when the transfer password was obtained.
     shared_ptr<string> transferAuthorizationCodeSendDate_ {};
   };
 

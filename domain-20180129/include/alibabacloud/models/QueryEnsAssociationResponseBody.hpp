@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The wallet address in the ENS system.
     shared_ptr<string> address_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
   };
 

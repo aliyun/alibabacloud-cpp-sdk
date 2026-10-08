@@ -130,16 +130,31 @@ namespace Models
 
 
   protected:
+    // Domain instance ID.
     shared_ptr<string> domainInstanceId_ {};
+    // The queried domain name.
     shared_ptr<string> domainName_ {};
+    // Expiration Time.
     shared_ptr<string> expireDate_ {};
+    // Creation Time.
     shared_ptr<string> gmtCreate_ {};
+    // Updated At.
     shared_ptr<string> gmtModified_ {};
+    // Registry lock instance ID.
     shared_ptr<string> lockInstanceId_ {};
+    // Lock product ID.
     shared_ptr<string> lockProductId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Registry lock status. Valid values:
+    // 
+    // - 1: Disabled
+    // - 2: Enabled
+    // - 3: Shutdown
     shared_ptr<int32_t> serverLockStatus_ {};
+    // The time when the lock takes effect.
     shared_ptr<string> startDate_ {};
+    // User UID.
     shared_ptr<string> userId_ {};
   };
 

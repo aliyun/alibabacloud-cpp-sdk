@@ -66,9 +66,13 @@ namespace Models
 
 
   protected:
+    // The business ID.
     shared_ptr<string> bizId_ {};
+    // The page number.
     shared_ptr<int64_t> currentPage_ {};
+    // The number of entries per page.
     shared_ptr<int64_t> pageSize_ {};
+    // The order status.
     shared_ptr<int64_t> status_ {};
   };
 

@@ -232,27 +232,79 @@ namespace Models
 
 
   protected:
+    // Domain name.
     shared_ptr<string> domainName_ {};
+    // Mailbox to which the domain name transfer-in confirmation email was sent.
     shared_ptr<string> email_ {};
+    // The expiration time of the domain name transfer-in.
     shared_ptr<string> expirationDate_ {};
+    // The UNIX timestamp indicating when the transfer-in expires.
     shared_ptr<int64_t> expirationDateLong_ {};
+    // Instance ID.
     shared_ptr<string> instanceId_ {};
+    // The update time of the transfer-in information.
     shared_ptr<string> modificationDate_ {};
+    // The UNIX timestamp indicating when the transfer-in information was updated.
     shared_ptr<int64_t> modificationDateLong_ {};
+    // Indicates whether email verification is required.
     shared_ptr<bool> needMailCheck_ {};
+    // Progress bar chart type for the transfer procedure. Valid values:  
+    // - **0**: Both email verification and naming review are required;  
+    // - **1**: Email verification is required, but naming review is not;  
+    // - **2**: Naming review is required, but email verification is not;  
+    // - **3**: Neither email verification nor naming review is required.
     shared_ptr<int32_t> progressBarType_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
+    // The error code indicating the reason for transfer failure. Valid values:
+    // - **clientCancelled**: You canceled the domain transfer-in.
+    // - **clientRejected**: The original registrar rejected the domain transfer-in (or you performed a rejection operation through the original registrar).
+    // - **serverCancelled**: The domain name registry canceled the transfer.
+    // - **transferProhibited**: The domain is in a transfer-prohibited status.
+    // - **transferExpired**: You did not complete the required transfer confirmation within the validity period.
+    // - **nameVerificationFailed**: The domain naming review did not pass.
+    // - **transferSubmitted**: Another user has already submitted a transfer request for this domain.
     shared_ptr<string> resultCode_ {};
+    // The time when the transfer succeeded or failed.
     shared_ptr<string> resultDate_ {};
+    // The UNIX timestamp indicating when the transfer succeeded or failed.
     shared_ptr<int64_t> resultDateLong_ {};
+    // Description of the failure reason when the transfer failed.
     shared_ptr<string> resultMsg_ {};
+    // Transfer status. Valid values:  
+    // - **INIT**: Transfer-in submitted;  
+    // - **AUTHORIZATION**: Authorization for transfer-in (email verification);  
+    // - **NAME_VERIFICATION**: Naming review;  
+    // - **PASSWORD_VERIFICATION**: Transfer password verification;  
+    // - **PENDING**: Transfer-in in progress;  
+    // - **SUCCESS**: Transfer-in succeeded;  
+    // - **FAIL**: Transfer-in failed.
     shared_ptr<string> simpleTransferInStatus_ {};
+    // Detailed domain name transfer-in status. Valid values:  
+    // - **10**: Initial status;  
+    // - **11**: Email verification token link has been sent;  
+    // - **19**: Token link has been successfully verified;  
+    // - **20**: Naming review has been submitted;  
+    // - **21**: Naming review failed;  
+    // - **29**: Naming review succeeded;  
+    // - **31**: Transfer password is incorrect;  
+    // - **39**: Transfer-in submission succeeded;  
+    // - **50**: Customer canceled the transfer-in;  
+    // - **51**: Transfer-in failed;  
+    // - **52**: Transfer-in expired;  
+    // - **59**: Transfer-in succeeded.
     shared_ptr<int32_t> status_ {};
+    // Transfer request submission time.
     shared_ptr<string> submissionDate_ {};
+    // UNIX timestamp of the transfer request submission time.
     shared_ptr<int64_t> submissionDateLong_ {};
+    // Time when the transfer password was successfully submitted.
     shared_ptr<string> transferAuthorizationCodeSubmissionDate_ {};
+    // UNIX timestamp of the time when the transfer password was successfully submitted.
     shared_ptr<int64_t> transferAuthorizationCodeSubmissionDateLong_ {};
+    // User ID.
     shared_ptr<string> userId_ {};
+    // Indicates whether the registrant\\"s mailbox was scraped from WHOIS. When the domain transfer-in is in the authorization (email verification) phase and this field is **false**, it means the registrant\\"s mailbox was not obtained via WHOIS scraping, and manual processing is required.
     shared_ptr<bool> whoisMailStatus_ {};
   };
 

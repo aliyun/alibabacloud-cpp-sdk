@@ -94,13 +94,25 @@ namespace Models
 
 
   protected:
+    // Start time of the creation date range for the query, expressed as the number of milliseconds since 00:00 UTC on January 1, 1970. Currently supports queries by day only.
     shared_ptr<int64_t> beginCreateTime_ {};
+    // Cursor for creation date (technical parameter).
     shared_ptr<int64_t> createTimeCursor_ {};
+    // End time of the creation date range for the query, expressed as the number of milliseconds since 00:00 UTC on January 1, 1970. Currently supports queries by day only.
     shared_ptr<int64_t> endCreateTime_ {};
+    // Language for API error messages. Valid values:  
+    // - **zh**: Chinese  
+    // - **en**: English  
+    // 
+    // Default value is **en**.
     shared_ptr<string> lang_ {};
+    // Page size.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Job cursor; pass in the job number from the corresponding page cursor during pagination (technical parameter).
     shared_ptr<string> taskNoCursor_ {};
+    // User IP address, which can be set to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

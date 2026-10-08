@@ -241,14 +241,22 @@ namespace Models
 
 
   protected:
+    // The current page number.
     shared_ptr<int32_t> currentPageNum_ {};
     shared_ptr<QueryChangeLogListResponseBody::Data> data_ {};
+    // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
+    // The page size.
     shared_ptr<int32_t> pageSize_ {};
+    // Indicates whether a previous page exists.
     shared_ptr<bool> prePage_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
+    // The API returns a maximum of 1,000 recent records per query, regardless of the specified page size. If your query matches more than 1,000 records, **ResultLimit** is **true**. To retrieve all results, narrow the time range and query again. Otherwise, **ResultLimit** is **false**.
     shared_ptr<bool> resultLimit_ {};
+    // The total number of items.
     shared_ptr<int32_t> totalItemNum_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPageNum_ {};
   };
 

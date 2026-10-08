@@ -78,13 +78,25 @@ namespace Models
 
 
   protected:
+    // DNS name.
+    // 
     // This parameter is required.
     shared_ptr<string> dnsName_ {};
+    // Domain instance ID, which can be obtained by calling the [QueryDomainList](https://help.aliyun.com/document_detail/67712.html) API.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of IP addresses. You can specify up to 13 IP addresses. When specifying multiple IP addresses, pass them as a **list**.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> ip_ {};
+    // Language of the error message returned by the API. Valid values:  
+    // - **zh**: Chinese  
+    // - **en**: English  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address, which can be set to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

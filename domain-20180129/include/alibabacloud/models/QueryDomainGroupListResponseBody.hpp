@@ -178,6 +178,7 @@ namespace Models
 
   protected:
     shared_ptr<QueryDomainGroupListResponseBody::Data> data_ {};
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
   };
 

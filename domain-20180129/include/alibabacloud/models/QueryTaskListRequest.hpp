@@ -84,13 +84,25 @@ namespace Models
 
 
   protected:
+    // Start time of the creation date range for the query, expressed as the number of milliseconds since 00:00 on January 1, 1970, UTC. Currently, queries are supported only by day.
     shared_ptr<int64_t> beginCreateTime_ {};
+    // End time of the creation date range for the query, expressed as the number of milliseconds since 00:00 on January 1, 1970, UTC. Currently, queries are supported only by day.
     shared_ptr<int64_t> endCreateTime_ {};
+    // Language for API error messages. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Page number for paging.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
+    // Page size for paging.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

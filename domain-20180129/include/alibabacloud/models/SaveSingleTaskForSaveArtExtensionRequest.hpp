@@ -140,18 +140,35 @@ namespace Models
 
 
   protected:
+    // Creation time.
     shared_ptr<string> dateOrPeriod_ {};
+    // Dimensions.
     shared_ptr<string> dimensions_ {};
+    // Domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Artistic features.
     shared_ptr<string> features_ {};
+    // Inscriptions and markings.
     shared_ptr<string> inscriptionsAndMarkings_ {};
+    // Language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Artist or creator.
     shared_ptr<string> maker_ {};
+    // Materials and techniques.
     shared_ptr<string> materialsAndTechniques_ {};
+    // Artwork category.
     shared_ptr<string> objectType_ {};
+    // Reference.
     shared_ptr<string> reference_ {};
+    // Art subject.
     shared_ptr<string> subject_ {};
+    // Name.
     shared_ptr<string> title_ {};
   };
 

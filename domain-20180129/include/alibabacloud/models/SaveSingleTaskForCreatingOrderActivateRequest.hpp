@@ -23,6 +23,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(DomainName, domainName_);
       DARABONBA_PTR_TO_JSON(Email, email_);
       DARABONBA_PTR_TO_JSON(EnableDomainProxy, enableDomainProxy_);
+      DARABONBA_PTR_TO_JSON(ExpectedPunycode, expectedPunycode_);
       DARABONBA_PTR_TO_JSON(Lang, lang_);
       DARABONBA_PTR_TO_JSON(PermitPremiumActivation, permitPremiumActivation_);
       DARABONBA_PTR_TO_JSON(PostalCode, postalCode_);
@@ -58,6 +59,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(DomainName, domainName_);
       DARABONBA_PTR_FROM_JSON(Email, email_);
       DARABONBA_PTR_FROM_JSON(EnableDomainProxy, enableDomainProxy_);
+      DARABONBA_PTR_FROM_JSON(ExpectedPunycode, expectedPunycode_);
       DARABONBA_PTR_FROM_JSON(Lang, lang_);
       DARABONBA_PTR_FROM_JSON(PermitPremiumActivation, permitPremiumActivation_);
       DARABONBA_PTR_FROM_JSON(PostalCode, postalCode_);
@@ -95,12 +97,12 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->address_ == nullptr
         && this->aliyunDns_ == nullptr && this->city_ == nullptr && this->country_ == nullptr && this->couponNo_ == nullptr && this->dns1_ == nullptr
-        && this->dns2_ == nullptr && this->domainName_ == nullptr && this->email_ == nullptr && this->enableDomainProxy_ == nullptr && this->lang_ == nullptr
-        && this->permitPremiumActivation_ == nullptr && this->postalCode_ == nullptr && this->promotionNo_ == nullptr && this->province_ == nullptr && this->registrantName_ == nullptr
-        && this->registrantOrganization_ == nullptr && this->registrantProfileId_ == nullptr && this->registrantType_ == nullptr && this->resourceGroupId_ == nullptr && this->subscriptionDuration_ == nullptr
-        && this->telArea_ == nullptr && this->telExt_ == nullptr && this->telephone_ == nullptr && this->trademarkDomainActivation_ == nullptr && this->useCoupon_ == nullptr
-        && this->usePromotion_ == nullptr && this->userClientIp_ == nullptr && this->zhAddress_ == nullptr && this->zhCity_ == nullptr && this->zhProvince_ == nullptr
-        && this->zhRegistrantName_ == nullptr && this->zhRegistrantOrganization_ == nullptr; };
+        && this->dns2_ == nullptr && this->domainName_ == nullptr && this->email_ == nullptr && this->enableDomainProxy_ == nullptr && this->expectedPunycode_ == nullptr
+        && this->lang_ == nullptr && this->permitPremiumActivation_ == nullptr && this->postalCode_ == nullptr && this->promotionNo_ == nullptr && this->province_ == nullptr
+        && this->registrantName_ == nullptr && this->registrantOrganization_ == nullptr && this->registrantProfileId_ == nullptr && this->registrantType_ == nullptr && this->resourceGroupId_ == nullptr
+        && this->subscriptionDuration_ == nullptr && this->telArea_ == nullptr && this->telExt_ == nullptr && this->telephone_ == nullptr && this->trademarkDomainActivation_ == nullptr
+        && this->useCoupon_ == nullptr && this->usePromotion_ == nullptr && this->userClientIp_ == nullptr && this->zhAddress_ == nullptr && this->zhCity_ == nullptr
+        && this->zhProvince_ == nullptr && this->zhRegistrantName_ == nullptr && this->zhRegistrantOrganization_ == nullptr; };
     // address Field Functions 
     bool hasAddress() const { return this->address_ != nullptr;};
     void deleteAddress() { this->address_ = nullptr;};
@@ -169,6 +171,13 @@ namespace Models
     void deleteEnableDomainProxy() { this->enableDomainProxy_ = nullptr;};
     inline bool getEnableDomainProxy() const { DARABONBA_PTR_GET_DEFAULT(enableDomainProxy_, false) };
     inline SaveSingleTaskForCreatingOrderActivateRequest& setEnableDomainProxy(bool enableDomainProxy) { DARABONBA_PTR_SET_VALUE(enableDomainProxy_, enableDomainProxy) };
+
+
+    // expectedPunycode Field Functions 
+    bool hasExpectedPunycode() const { return this->expectedPunycode_ != nullptr;};
+    void deleteExpectedPunycode() { this->expectedPunycode_ = nullptr;};
+    inline string getExpectedPunycode() const { DARABONBA_PTR_GET_DEFAULT(expectedPunycode_, "") };
+    inline SaveSingleTaskForCreatingOrderActivateRequest& setExpectedPunycode(string expectedPunycode) { DARABONBA_PTR_SET_VALUE(expectedPunycode_, expectedPunycode) };
 
 
     // lang Field Functions 
@@ -333,39 +342,146 @@ namespace Models
 
 
   protected:
+    // The detailed address in English.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> address_ {};
+    // Specifies whether to use Alibaba Cloud DNS servers. Valid values: **true** and **false**. Default value: **true**.
+    // 
+    // > - If you set this parameter to **true**, you do not need to specify the **Dns1** and **Dns2** parameters. Otherwise, the specified **Dns1** and **Dns2** parameters do not take effect.
+    // - If you set this parameter to **false**, you must specify the **Dns1** and **Dns2** parameters.
     shared_ptr<bool> aliyunDns_ {};
+    // The city name in English.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> city_ {};
+    // The country code, such as **CN**.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> country_ {};
+    // The ID of the voucher. Default value: a string.
     shared_ptr<string> couponNo_ {};
+    // The first custom DNS server.
+    // 
+    // > - This parameter is available and required only when the **AliyunDns** parameter is set to **false**.
+    // - Make sure that the custom DNS server is correct. Otherwise, the registration may fail.
     shared_ptr<string> dns1_ {};
+    // The second custom DNS server.
+    // 
+    // > - This parameter is available and required only when the **AliyunDns** parameter is set to **false**.
+    // - Make sure that the custom DNS server is correct. Otherwise, the registration may fail.
     shared_ptr<string> dns2_ {};
+    // The domain name that you want to register.
+    // > When you register a domain name, you must specify the registrant information. If you do not specify the registrant information, the domain name registration fails. You can specify the RegistrantProfileId parameter to use a registrant profile that defines the registrant information.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The email address.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> email_ {};
+    // Specifies whether to enable the domain name privacy protection service. Valid values:
+    // - **true**: Enable.
+    // - **false**: Do not enable.
+    // 
+    // Default value: **true**.
     shared_ptr<bool> enableDomainProxy_ {};
+    // The domain name in Punycode format. This parameter can be left empty.
+    shared_ptr<string> expectedPunycode_ {};
+    // The language of the error message returned by the API operation. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Specifies whether to allow the registration of premium domain names. Valid values:
+    // - **false**: Not allowed.
+    // - **true**: Allowed.              
+    // 
+    // Default value: **false**.
     shared_ptr<bool> permitPremiumActivation_ {};
+    // The postal code.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> postalCode_ {};
+    // The ID of the coupon.
     shared_ptr<string> promotionNo_ {};
+    // The province name in English.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> province_ {};
+    // The name of the domain name contact in English.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> registrantName_ {};
+    // The name of the domain name registrant in English.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> registrantOrganization_ {};
+    // The ID of the domain name registrant profile. The profile contains information such as the registrant name, contact name, phone number, and email address. You can use only a real-name verified registrant profile to register a domain name. If you have created a registrant profile, you can call the [QueryRegistrantProfiles](~~QueryRegistrantProfiles~~) operation to query the profile ID.
+    // 
+    // > After you specify this parameter, you do not need to specify the **RegistrantType**, **ZhRegistrantOrganization**, **ZhRegistrantName**, **ZhProvince**, **ZhCity**, **ZhAddress**, **RegistrantOrganization**, **RegistrantName**, **Province**, **City**, **Address**, **PostalCode**, **Country**, **TelArea**, **Telephone**, **TelExt**, or **Email** parameter.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // The type of the domain name registrant. Valid values:
+    // - **1**: Individual.
+    // - **2**: Enterprise or organization.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> registrantType_ {};
+    // None.
     shared_ptr<string> resourceGroupId_ {};
+    // The subscription duration. Unit: **year**. Default value: **1 year**. Maximum value: **10 years**.
     shared_ptr<int32_t> subscriptionDuration_ {};
+    // The country code for the phone number, such as **86** for China.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> telArea_ {};
+    // The extension number.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> telExt_ {};
+    // The phone number.
+    // 
+    // > This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> telephone_ {};
+    // Specifies whether to allow the registration of trademark domain names. Valid values:
+    // - **false**: Not allowed.
+    // - **true**: Allowed.
     shared_ptr<bool> trademarkDomainActivation_ {};
+    // Specifies whether to use a voucher. Valid values:
+    // 
+    // - **true**: Use.
+    // - **false**: Do not use.
+    // 
+    // Default value: **false**.
     shared_ptr<bool> useCoupon_ {};
+    // Specifies whether to use a coupon. Valid values:
+    // - **false**: Not allowed.
+    // - **true**: Allowed.
+    // 
+    // Default value: **false**.
     shared_ptr<bool> usePromotion_ {};
+    // The IP address of the client. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
+    // The detailed address in Chinese.
+    // 
+    // > This parameter is applicable only to the China site. This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> zhAddress_ {};
+    // The city name in Chinese.
+    // 
+    // > This parameter is applicable only to the China site. This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> zhCity_ {};
+    // The province name in Chinese.
+    // 
+    // > This parameter is applicable only to the China site. This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> zhProvince_ {};
+    // The name of the domain name contact in Chinese.
+    // 
+    // > This parameter is applicable only to the China site. This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> zhRegistrantName_ {};
+    // The name of the domain name registrant in Chinese.
+    // 
+    // > This parameter is applicable only to the China site. This parameter is available and required only when the **RegistrantProfileId** parameter is not specified. If you do not specify this parameter, the domain name registration fails.
     shared_ptr<string> zhRegistrantOrganization_ {};
   };
 

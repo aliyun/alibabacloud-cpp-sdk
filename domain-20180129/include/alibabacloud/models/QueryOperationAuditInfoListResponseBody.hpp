@@ -146,14 +146,31 @@ namespace Models
 
 
     protected:
+      // Information pending review.
       shared_ptr<string> auditInfo_ {};
+      // Review status. Valid values:
+      // 
+      // - **0**: Information to be completed.
+      // - **1**, **2**, **3**, **4**: Under review.
+      // - **5**: Review failed.
+      // - **6**: Review succeeded.
+      // - **7**: Review canceled.
       shared_ptr<int32_t> auditStatus_ {};
+      // Review type. Valid value:
+      // 
+      // **1**: Offline domain name transfer.
       shared_ptr<int32_t> auditType_ {};
+      // Name of the reviewed business.
       shared_ptr<string> businessName_ {};
+      // Record creation time.
       shared_ptr<int64_t> createTime_ {};
+      // Domain name.
       shared_ptr<string> domainName_ {};
+      // Review record ID.
       shared_ptr<int64_t> id_ {};
+      // Review remark.
       shared_ptr<string> remark_ {};
+      // Record update time.
       shared_ptr<int64_t> updateTime_ {};
     };
 
@@ -219,13 +236,21 @@ namespace Models
 
 
   protected:
+    // Current page number.
     shared_ptr<int32_t> currentPageNum_ {};
+    // Review data.
     shared_ptr<vector<QueryOperationAuditInfoListResponseBody::Data>> data_ {};
+    // Indicates whether there is a next page.
     shared_ptr<bool> nextPage_ {};
+    // Number of records per page.
     shared_ptr<int32_t> pageSize_ {};
+    // Indicates whether a previous page exists.
     shared_ptr<bool> prePage_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Total number of records.
     shared_ptr<int32_t> totalItemNum_ {};
+    // Total number of pages.
     shared_ptr<int32_t> totalPageNum_ {};
   };
 

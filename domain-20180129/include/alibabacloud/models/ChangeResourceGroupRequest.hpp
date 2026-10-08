@@ -75,12 +75,25 @@ namespace Models
 
 
   protected:
+    // The language in which error messages are returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **zh**.
     shared_ptr<string> lang_ {};
+    // The ID of the resource group to which you want to shift the domain name.
+    // 
+    // You can view the resource group ID in the [Resource Management Console](https://resourcemanager.console.aliyun.com/resource-groups).
+    // 
     // This parameter is required.
     shared_ptr<string> newResourceGroupId_ {};
+    // The resource ID of the domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> resourceId_ {};
+    // The resource type of the domain name. This parameter is fixed to “Domain” and does not need to be specified.
     shared_ptr<string> resourceType_ {};
+    // The IP address of the user client.
     shared_ptr<string> userClientIp_ {};
   };
 

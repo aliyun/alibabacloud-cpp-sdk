@@ -115,12 +115,27 @@ namespace Models
 
 
     protected:
+      // The currency. Valid values:
+      // 
+      // - RMB: Chinese Yuan.
+      // 
+      // - USD: US Dollar.
       shared_ptr<string> currency_ {};
+      // The expiration date of the domain name. After this date, the domain name requires renewal.
       shared_ptr<int64_t> deadDate_ {};
+      // The domain name.
       shared_ptr<string> domain_ {};
+      // The sale deadline of the domain name. After this time, the domain name is no longer available for sale.
       shared_ptr<int64_t> endTime_ {};
+      // Indicates whether the domain name is a premium domain name. Valid values:
+      // 
+      // - true: The domain name is a premium domain name.
+      // 
+      // - false: The domain name is not a premium domain name.
       shared_ptr<bool> premium_ {};
+      // The price.
       shared_ptr<int64_t> price_ {};
+      // The registration date of the domain name.
       shared_ptr<int64_t> regDate_ {};
     };
 
@@ -143,7 +158,9 @@ namespace Models
 
 
   protected:
+    // The returned object.
     shared_ptr<CheckIntlFixPriceDomainStatusResponseBody::Module> module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

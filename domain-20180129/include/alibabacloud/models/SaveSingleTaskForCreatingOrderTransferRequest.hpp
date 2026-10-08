@@ -121,18 +121,35 @@ namespace Models
 
 
   protected:
+    // Domain name transfer-in password.
+    // 
     // This parameter is required.
     shared_ptr<string> authorizationCode_ {};
+    // Coupon number.
     shared_ptr<string> couponNo_ {};
+    // Domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Language for error messages returned by the API. Valid values:
+    // - **zh**: Chinese;
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Is transfer-in of premium domain names allowed. Default value: **false**.
     shared_ptr<bool> permitPremiumTransfer_ {};
+    // Coupon number.
     shared_ptr<string> promotionNo_ {};
+    // ID of the domain name registrant profile that has passed identity verification.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // Is a coupon used.
     shared_ptr<bool> useCoupon_ {};
+    // Is a coupon used.
     shared_ptr<bool> usePromotion_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

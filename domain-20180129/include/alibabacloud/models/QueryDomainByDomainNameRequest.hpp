@@ -61,14 +61,15 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
-    // The language of the error message to return if the request fails. Valid values:
+    // The language of the error message that is returned. Valid values:
     // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
     // 
     // Default value: **en**.
     shared_ptr<string> lang_ {};
-    // The IP address of the client.
+    // The IP address of the user.
     shared_ptr<string> userClientIp_ {};
   };
 

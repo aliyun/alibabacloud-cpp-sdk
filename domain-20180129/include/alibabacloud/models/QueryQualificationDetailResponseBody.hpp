@@ -154,9 +154,18 @@ namespace Models
 
 
   protected:
+    // Review Status. Valid values:  
+    // 
+    // - 0: Information pending completion.  
+    // - 1, 2, 3, 4: Under review.  
+    // - 5: Review failed.  
+    // - 6: Review succeeded.  
+    // - 7: Review canceled.
     shared_ptr<int32_t> auditStatus_ {};
     shared_ptr<QueryQualificationDetailResponseBody::Credentials> credentials_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Business trail ID for qualification verification.
     shared_ptr<string> trackId_ {};
   };
 

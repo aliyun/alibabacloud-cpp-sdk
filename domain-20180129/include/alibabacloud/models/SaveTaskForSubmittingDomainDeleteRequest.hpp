@@ -57,9 +57,18 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The language of the error message returned by the API. Valid values:
+    // 
+    // - zh: Chinese.
+    // - en: English.
+    // 
+    // Default value: en.
     shared_ptr<string> lang_ {};
+    // The user IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

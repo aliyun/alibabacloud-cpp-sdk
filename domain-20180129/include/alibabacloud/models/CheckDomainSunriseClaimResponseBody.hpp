@@ -57,8 +57,14 @@ namespace Models
 
 
   protected:
+    // The trademark keyword key provided by the TMDB database.
     shared_ptr<string> claimKey_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
+    // Result. Valid values:
+    // - **0**: Not a trademark keyword or not in the claim domain lifecycle.
+    // - **1**: In the sunrise domain lifecycle.
+    // - **2**: In the claim domain lifecycle.
     shared_ptr<int32_t> result_ {};
   };
 

@@ -66,10 +66,25 @@ namespace Models
 
 
   protected:
+    // Specifies whether to retrieve the identity verification image. Valid values:  
+    // - **true**: Retrieve the image.  
+    // - **false**: Do not retrieve the image.  
+    // 
+    // Default value: **false**.
     shared_ptr<bool> fetchImage_ {};
+    // The language of error messages returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The ID of the information template to be queried.  
+    // 
+    // The system automatically generates this ID after the information template is created. You can call the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the information template ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // The user IP address. You can set it to 127.0.0.1.
     shared_ptr<string> userClientIp_ {};
   };
 

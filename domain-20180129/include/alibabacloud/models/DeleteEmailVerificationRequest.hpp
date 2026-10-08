@@ -57,9 +57,17 @@ namespace Models
 
 
   protected:
+    // Email addresses to be deleted, separated by commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> email_ {};
+    // Language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address, which can be set to 127.0.0.1.
     shared_ptr<string> userClientIp_ {};
   };
 

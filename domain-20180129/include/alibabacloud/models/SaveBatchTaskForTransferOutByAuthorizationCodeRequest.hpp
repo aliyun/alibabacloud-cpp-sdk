@@ -68,7 +68,9 @@ namespace Models
 
 
     protected:
+      // The authorization code for the domain name.
       shared_ptr<string> authorizationCode_ {};
+      // The domain name to transfer out.
       shared_ptr<string> domainName_ {};
     };
 
@@ -83,6 +85,8 @@ namespace Models
 
 
   protected:
+    // A list of domain names to transfer out, each with its authorization code.
+    // 
     // This parameter is required.
     shared_ptr<vector<SaveBatchTaskForTransferOutByAuthorizationCodeRequest::TransferOutParamList>> transferOutParamList_ {};
   };

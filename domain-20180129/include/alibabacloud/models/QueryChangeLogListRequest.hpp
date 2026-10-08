@@ -94,14 +94,29 @@ namespace Models
 
 
   protected:
+    // The domain name for which to query change logs.
     shared_ptr<string> domainName_ {};
+    // The end of the time range to query, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> endDate_ {};
+    // The language for API error messages. Valid values:
+    // 
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
+    // 
+    // Defaults to **en**.
     shared_ptr<string> lang_ {};
+    // The page number. The minimum value is **1**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
+    // The number of entries to return per page. The value must be between **1** and **100**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // The start of the time range to query, specified as a Unix timestamp in milliseconds.
     shared_ptr<int64_t> startDate_ {};
+    // The user\\"s IP address. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

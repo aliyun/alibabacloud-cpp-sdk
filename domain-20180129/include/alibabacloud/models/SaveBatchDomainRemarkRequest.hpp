@@ -66,10 +66,19 @@ namespace Models
 
 
   protected:
+    // List of instance IDs. We recommend grouping them in sets of **10**, with a maximum of **50** per group, separated by commas (,).
+    // 
     // This parameter is required.
     shared_ptr<string> instanceIds_ {};
+    // Language of the error message returned by the API. Valid values:  
+    // - **zh**: Chinese;  
+    // - **en**: English.  
+    // 
+    // Default value: **en**. This parameter is Required.
     shared_ptr<string> lang_ {};
+    // Remark information.
     shared_ptr<string> remark_ {};
+    // User IP address, which can be set to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

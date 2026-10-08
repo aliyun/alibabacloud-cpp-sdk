@@ -84,11 +84,29 @@ namespace Models
 
 
   protected:
+    // Review status. Valid values:
+    // 
+    // - **0**: Information pending completion.
+    // - **1**, **2**, **3**, **4**: Under review.
+    // - **5**: Review failed.
+    // - **6**: Review succeeded.
+    // - **7**: Review canceled.
     shared_ptr<int32_t> auditStatus_ {};
+    // Review type. Valid value:
+    // 
+    // **1**: Offline domain name transfer.
     shared_ptr<int32_t> auditType_ {};
+    // Domain name to query.
     shared_ptr<string> domainName_ {};
+    // Language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Page number.
     shared_ptr<int32_t> pageNum_ {};
+    // Number of records per page.
     shared_ptr<int32_t> pageSize_ {};
   };
 

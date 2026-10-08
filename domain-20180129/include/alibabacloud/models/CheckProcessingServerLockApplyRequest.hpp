@@ -66,10 +66,20 @@ namespace Models
 
 
   protected:
+    // The domain name to be checked.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Registration period in years. Unit: **year(s)**. Valid range: **1 to 10** years.
     shared_ptr<int32_t> feePeriod_ {};
+    // Language of error messages returned by the API. Valid values:
+    // 
+    // - zh: Chinese
+    // - en: English
+    // 
+    // Default value: en.
     shared_ptr<string> lang_ {};
+    // User IP address. You can set it to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -517,20 +517,20 @@ namespace Models
 
 
   protected:
-    // The page number.
+    // The current page number.
     shared_ptr<int32_t> currentPageNum_ {};
     shared_ptr<QueryDomainListResponseBody::Data> data_ {};
-    // Indicates whether the current page is followed by a page.
+    // Indicates whether a next page is available.
     shared_ptr<bool> nextPage_ {};
-    // The number of entries per page.
+    // The number of domain names per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Indicates whether the current page is preceded by a page.
+    // Indicates whether a previous page is available.
     shared_ptr<bool> prePage_ {};
-    // The ID of the request.
+    // The unique request ID.
     shared_ptr<string> requestId_ {};
-    // The total number of domain names returned.
+    // The total number of domain names.
     shared_ptr<int32_t> totalItemNum_ {};
-    // The total number of pages returned.
+    // The total number of pages.
     shared_ptr<int32_t> totalPageNum_ {};
   };
 

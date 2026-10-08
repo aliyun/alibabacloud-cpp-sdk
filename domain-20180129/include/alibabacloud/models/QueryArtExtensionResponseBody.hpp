@@ -130,16 +130,27 @@ namespace Models
 
 
   protected:
+    // Creation time.
     shared_ptr<string> dateOrPeriod_ {};
+    // Dimensions.
     shared_ptr<string> dimensions_ {};
+    // Art features.
     shared_ptr<string> features_ {};
+    // Inscriptions and markings.
     shared_ptr<string> inscriptionsAndMarkings_ {};
+    // Artist or creator.
     shared_ptr<string> maker_ {};
+    // Materials and techniques.
     shared_ptr<string> materialsAndTechniques_ {};
+    // Art categorization.
     shared_ptr<string> objectType_ {};
+    // Reference.
     shared_ptr<string> reference_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
+    // Art subject.
     shared_ptr<string> subject_ {};
+    // Name.
     shared_ptr<string> title_ {};
   };
 

@@ -79,8 +79,15 @@ namespace Models
 
 
     protected:
+      // Date.
       shared_ptr<string> date_ {};
+      // Review Status. Valid values:  
+      // - **NONAUDIT**: Not authenticated.  
+      // - **SUCCEED**: Succeeded.  
+      // - **FAILED**: Review failed.  
+      // - **AUDITING**: Under review.
       shared_ptr<string> domainNameVerificationStatus_ {};
+      // Reason for real-name verification failure.
       shared_ptr<string> failReason_ {};
     };
 
@@ -103,7 +110,9 @@ namespace Models
 
 
   protected:
+    // List of reasons for identity verification failure.
     shared_ptr<vector<QueryFailReasonForDomainRealNameVerificationResponseBody::Data>> data_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
   };
 

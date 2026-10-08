@@ -60,8 +60,11 @@ namespace Models
 
 
   protected:
+    // The domain names to transfer out.
     shared_ptr<vector<string>> domainNames_ {};
+    // The language of returned error messages. Valid values: zh (Chinese) and en (English). Default value: en.
     shared_ptr<string> lang_ {};
+    // The IP address of the user\\"s client.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -303,14 +303,14 @@ namespace Models
 
 
   protected:
-    // The page number returned.
+    // The current page number.
     shared_ptr<int32_t> currentPageNum_ {};
     shared_ptr<QueryTaskDetailListResponseBody::Data> data_ {};
-    // Indicates whether the current page is followed by a page.
+    // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // Indicates whether the current page is preceded by a page.
+    // Indicates whether a previous page exists.
     shared_ptr<bool> prePage_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

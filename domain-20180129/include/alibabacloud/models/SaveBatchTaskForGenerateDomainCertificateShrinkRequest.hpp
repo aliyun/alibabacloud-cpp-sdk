@@ -57,18 +57,9 @@ namespace Models
 
 
   protected:
-    // The domain names.
-    // 
     // This parameter is required.
     shared_ptr<string> domainNamesShrink_ {};
-    // The language of the error message to return if the request fails. Valid values:
-    // 
-    // *   **zh**: Chinese.
-    // *   **en**: English.
-    // 
-    // Default value: **en**.
     shared_ptr<string> lang_ {};
-    // The IP address of the client.
     shared_ptr<string> userClientIp_ {};
   };
 

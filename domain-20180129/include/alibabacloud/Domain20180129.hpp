@@ -21,7 +21,9 @@ namespace Domain20180129
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary 确认任务结果
+       * @summary Invoke AcknowledgeTaskResult to confirm the task detail result.
+       *
+       * @description After the task detail result is confirmed, it can no longer be queried from the [PollTaskResult](https://help.aliyun.com/document_detail/69361.html) API.
        *
        * @param request AcknowledgeTaskResultRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -30,7 +32,9 @@ namespace Domain20180129
       Models::AcknowledgeTaskResultResponse acknowledgeTaskResultWithOptions(const Models::AcknowledgeTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 确认任务结果
+       * @summary Invoke AcknowledgeTaskResult to confirm the task detail result.
+       *
+       * @description After the task detail result is confirmed, it can no longer be queried from the [PollTaskResult](https://help.aliyun.com/document_detail/69361.html) API.
        *
        * @param request AcknowledgeTaskResultRequest
        * @return AcknowledgeTaskResultResponse
@@ -38,7 +42,7 @@ namespace Domain20180129
       Models::AcknowledgeTaskResultResponse acknowledgeTaskResult(const Models::AcknowledgeTaskResultRequest &request);
 
       /**
-       * @summary 通过关键字进行批量模糊匹配
+       * @summary You can invoke BatchFuzzyMatchDomainSensitiveWord to batch check whether domain names contain sensitive words.
        *
        * @param request BatchFuzzyMatchDomainSensitiveWordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -47,7 +51,7 @@ namespace Domain20180129
       Models::BatchFuzzyMatchDomainSensitiveWordResponse batchFuzzyMatchDomainSensitiveWordWithOptions(const Models::BatchFuzzyMatchDomainSensitiveWordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过关键字进行批量模糊匹配
+       * @summary You can invoke BatchFuzzyMatchDomainSensitiveWord to batch check whether domain names contain sensitive words.
        *
        * @param request BatchFuzzyMatchDomainSensitiveWordRequest
        * @return BatchFuzzyMatchDomainSensitiveWordResponse
@@ -72,7 +76,7 @@ namespace Domain20180129
       Models::CancelDomainVerificationResponse cancelDomainVerification(const Models::CancelDomainVerificationRequest &request);
 
       /**
-       * @summary 取消审核
+       * @summary Invoke the CancelOperationAudit API to cancel a self-service operation audit.
        *
        * @param request CancelOperationAuditRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -81,7 +85,7 @@ namespace Domain20180129
       Models::CancelOperationAuditResponse cancelOperationAuditWithOptions(const Models::CancelOperationAuditRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消审核
+       * @summary Invoke the CancelOperationAudit API to cancel a self-service operation audit.
        *
        * @param request CancelOperationAuditRequest
        * @return CancelOperationAuditResponse
@@ -89,6 +93,8 @@ namespace Domain20180129
       Models::CancelOperationAuditResponse cancelOperationAudit(const Models::CancelOperationAuditRequest &request);
 
       /**
+       * @summary Cancel the qualification verification for ".restaurant" and ".trademark" domain names.
+       *
        * @param request CancelQualificationVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CancelQualificationVerificationResponse
@@ -96,12 +102,16 @@ namespace Domain20180129
       Models::CancelQualificationVerificationResponse cancelQualificationVerificationWithOptions(const Models::CancelQualificationVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Cancel the qualification verification for ".restaurant" and ".trademark" domain names.
+       *
        * @param request CancelQualificationVerificationRequest
        * @return CancelQualificationVerificationResponse
        */
       Models::CancelQualificationVerificationResponse cancelQualificationVerification(const Models::CancelQualificationVerificationRequest &request);
 
       /**
+       * @summary Invoke CancelTask to cancel an ongoing job.
+       *
        * @param request CancelTaskRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CancelTaskResponse
@@ -109,13 +119,15 @@ namespace Domain20180129
       Models::CancelTaskResponse cancelTaskWithOptions(const Models::CancelTaskRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke CancelTask to cancel an ongoing job.
+       *
        * @param request CancelTaskRequest
        * @return CancelTaskResponse
        */
       Models::CancelTaskResponse cancelTask(const Models::CancelTaskRequest &request);
 
       /**
-       * @summary ChangeResourceGroup
+       * @summary Modify the resource group to which a domain name belongs.
        *
        * @param request ChangeResourceGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -124,7 +136,7 @@ namespace Domain20180129
       Models::ChangeResourceGroupResponse changeResourceGroupWithOptions(const Models::ChangeResourceGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary ChangeResourceGroup
+       * @summary Modify the resource group to which a domain name belongs.
        *
        * @param request ChangeResourceGroupRequest
        * @return ChangeResourceGroupResponse
@@ -132,7 +144,10 @@ namespace Domain20180129
       Models::ChangeResourceGroupResponse changeResourceGroup(const Models::ChangeResourceGroupRequest &request);
 
       /**
-       * @summary Checks whether a domain name can be registered.
+       * @summary Invoke the CheckDomain API to check whether a domain name can be registered.
+       *
+       * @description For the legitimacy requirements of domain names, see [Domain Name Legitimacy](https://help.aliyun.com/document_detail/67788.html).
+       * > The CheckDomain API has a frequency limit. The combined queries per second (QPS) limit for an Alibaba Cloud account and its RAM users is 10, and the total QPS limit for this API is 100.
        *
        * @param request CheckDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -141,7 +156,10 @@ namespace Domain20180129
       Models::CheckDomainResponse checkDomainWithOptions(const Models::CheckDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks whether a domain name can be registered.
+       * @summary Invoke the CheckDomain API to check whether a domain name can be registered.
+       *
+       * @description For the legitimacy requirements of domain names, see [Domain Name Legitimacy](https://help.aliyun.com/document_detail/67788.html).
+       * > The CheckDomain API has a frequency limit. The combined queries per second (QPS) limit for an Alibaba Cloud account and its RAM users is 10, and the total QPS limit for this API is 100.
        *
        * @param request CheckDomainRequest
        * @return CheckDomainResponse
@@ -149,6 +167,8 @@ namespace Domain20180129
       Models::CheckDomainResponse checkDomain(const Models::CheckDomainRequest &request);
 
       /**
+       * @summary Query the trademark keyword key based on the provided domain name.
+       *
        * @param request CheckDomainSunriseClaimRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckDomainSunriseClaimResponse
@@ -156,13 +176,15 @@ namespace Domain20180129
       Models::CheckDomainSunriseClaimResponse checkDomainSunriseClaimWithOptions(const Models::CheckDomainSunriseClaimRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query the trademark keyword key based on the provided domain name.
+       *
        * @param request CheckDomainSunriseClaimRequest
        * @return CheckDomainSunriseClaimResponse
        */
       Models::CheckDomainSunriseClaimResponse checkDomainSunriseClaim(const Models::CheckDomainSunriseClaimRequest &request);
 
       /**
-       * @summary Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
+       * @summary Calls CheckIntlFixPriceDomainStatus to check the status and price of an international fixed-price domain name that is on sale.
        *
        * @param request CheckIntlFixPriceDomainStatusRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -171,7 +193,7 @@ namespace Domain20180129
       Models::CheckIntlFixPriceDomainStatusResponse checkIntlFixPriceDomainStatusWithOptions(const Models::CheckIntlFixPriceDomainStatusRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Checks the domain name status and price inquiries of a fixed-price order at the international site (alibabacloud.com).
+       * @summary Calls CheckIntlFixPriceDomainStatus to check the status and price of an international fixed-price domain name that is on sale.
        *
        * @param request CheckIntlFixPriceDomainStatusRequest
        * @return CheckIntlFixPriceDomainStatusResponse
@@ -179,6 +201,8 @@ namespace Domain20180129
       Models::CheckIntlFixPriceDomainStatusResponse checkIntlFixPriceDomainStatus(const Models::CheckIntlFixPriceDomainStatusRequest &request);
 
       /**
+       * @summary Detects the maximum number of years for which a domain name can be purchased or renewed.
+       *
        * @param request CheckMaxYearOfServerLockRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckMaxYearOfServerLockResponse
@@ -186,12 +210,16 @@ namespace Domain20180129
       Models::CheckMaxYearOfServerLockResponse checkMaxYearOfServerLockWithOptions(const Models::CheckMaxYearOfServerLockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Detects the maximum number of years for which a domain name can be purchased or renewed.
+       *
        * @param request CheckMaxYearOfServerLockRequest
        * @return CheckMaxYearOfServerLockResponse
        */
       Models::CheckMaxYearOfServerLockResponse checkMaxYearOfServerLock(const Models::CheckMaxYearOfServerLockRequest &request);
 
       /**
+       * @summary Checks whether the domain name has a registry lock service request with the **Processing** status at the domain name registry.
+       *
        * @param request CheckProcessingServerLockApplyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckProcessingServerLockApplyResponse
@@ -199,12 +227,16 @@ namespace Domain20180129
       Models::CheckProcessingServerLockApplyResponse checkProcessingServerLockApplyWithOptions(const Models::CheckProcessingServerLockApplyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Checks whether the domain name has a registry lock service request with the **Processing** status at the domain name registry.
+       *
        * @param request CheckProcessingServerLockApplyRequest
        * @return CheckProcessingServerLockApplyResponse
        */
       Models::CheckProcessingServerLockApplyResponse checkProcessingServerLockApply(const Models::CheckProcessingServerLockApplyRequest &request);
 
       /**
+       * @summary Invoke the CheckTransferInFeasibility API to validate whether a domain name can be transferred in.
+       *
        * @param request CheckTransferInFeasibilityRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return CheckTransferInFeasibilityResponse
@@ -212,12 +244,18 @@ namespace Domain20180129
       Models::CheckTransferInFeasibilityResponse checkTransferInFeasibilityWithOptions(const Models::CheckTransferInFeasibilityRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the CheckTransferInFeasibility API to validate whether a domain name can be transferred in.
+       *
        * @param request CheckTransferInFeasibilityRequest
        * @return CheckTransferInFeasibilityResponse
        */
       Models::CheckTransferInFeasibilityResponse checkTransferInFeasibility(const Models::CheckTransferInFeasibilityRequest &request);
 
       /**
+       * @summary Invoke ConfirmTransferInEmail to confirm the transfer-in mailbox.
+       *
+       * @description Directly confirm the transfer-in mailbox.
+       *
        * @param request ConfirmTransferInEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ConfirmTransferInEmailResponse
@@ -225,13 +263,17 @@ namespace Domain20180129
       Models::ConfirmTransferInEmailResponse confirmTransferInEmailWithOptions(const Models::ConfirmTransferInEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke ConfirmTransferInEmail to confirm the transfer-in mailbox.
+       *
+       * @description Directly confirm the transfer-in mailbox.
+       *
        * @param request ConfirmTransferInEmailRequest
        * @return ConfirmTransferInEmailResponse
        */
       Models::ConfirmTransferInEmailResponse confirmTransferInEmail(const Models::ConfirmTransferInEmailRequest &request);
 
       /**
-       * @summary Creates a fixed-price order at the international site (alibabacloud.com).
+       * @summary Creates an international fixed-price domain name order by calling CreateIntlFixedPriceDomainOrder.
        *
        * @param request CreateIntlFixedPriceDomainOrderRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -240,7 +282,7 @@ namespace Domain20180129
       Models::CreateIntlFixedPriceDomainOrderResponse createIntlFixedPriceDomainOrderWithOptions(const Models::CreateIntlFixedPriceDomainOrderRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a fixed-price order at the international site (alibabacloud.com).
+       * @summary Creates an international fixed-price domain name order by calling CreateIntlFixedPriceDomainOrder.
        *
        * @param request CreateIntlFixedPriceDomainOrderRequest
        * @return CreateIntlFixedPriceDomainOrderResponse
@@ -248,7 +290,7 @@ namespace Domain20180129
       Models::CreateIntlFixedPriceDomainOrderResponse createIntlFixedPriceDomainOrder(const Models::CreateIntlFixedPriceDomainOrderRequest &request);
 
       /**
-       * @summary 批量删除联系人模板
+       * @summary Batch delete domain contact templates.
        *
        * @param request DeleteContactTemplatesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -257,7 +299,7 @@ namespace Domain20180129
       Models::DeleteContactTemplatesResponse deleteContactTemplatesWithOptions(const Models::DeleteContactTemplatesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量删除联系人模板
+       * @summary Batch delete domain contact templates.
        *
        * @param request DeleteContactTemplatesRequest
        * @return DeleteContactTemplatesResponse
@@ -265,7 +307,7 @@ namespace Domain20180129
       Models::DeleteContactTemplatesResponse deleteContactTemplates(const Models::DeleteContactTemplatesRequest &request);
 
       /**
-       * @summary 删除域名分组
+       * @summary Deleting a group containing more than 1,000 domain names is an asynchronous procedure. You must wait for the system to process the request.
        *
        * @param request DeleteDomainGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -274,7 +316,7 @@ namespace Domain20180129
       Models::DeleteDomainGroupResponse deleteDomainGroupWithOptions(const Models::DeleteDomainGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除域名分组
+       * @summary Deleting a group containing more than 1,000 domain names is an asynchronous procedure. You must wait for the system to process the request.
        *
        * @param request DeleteDomainGroupRequest
        * @return DeleteDomainGroupResponse
@@ -282,7 +324,9 @@ namespace Domain20180129
       Models::DeleteDomainGroupResponse deleteDomainGroup(const Models::DeleteDomainGroupRequest &request);
 
       /**
-       * @summary 删除邮箱验证
+       * @summary Invoke the DeleteEmailVerification API to delete an email address that has passed verification.
+       *
+       * @description > If you want to use the email address again after deletion, you must complete email verification again.
        *
        * @param request DeleteEmailVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -291,7 +335,9 @@ namespace Domain20180129
       Models::DeleteEmailVerificationResponse deleteEmailVerificationWithOptions(const Models::DeleteEmailVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除邮箱验证
+       * @summary Invoke the DeleteEmailVerification API to delete an email address that has passed verification.
+       *
+       * @description > If you want to use the email address again after deletion, you must complete email verification again.
        *
        * @param request DeleteEmailVerificationRequest
        * @return DeleteEmailVerificationResponse
@@ -299,7 +345,9 @@ namespace Domain20180129
       Models::DeleteEmailVerificationResponse deleteEmailVerification(const Models::DeleteEmailVerificationRequest &request);
 
       /**
-       * @summary 删除联系人模板
+       * @summary Invoke the DeleteRegistrantProfile API to delete a specified domain name registrant profile.
+       *
+       * @description > If the API call succeeds, the System immediately deletes the corresponding domain name registrant profile.
        *
        * @param request DeleteRegistrantProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -308,7 +356,9 @@ namespace Domain20180129
       Models::DeleteRegistrantProfileResponse deleteRegistrantProfileWithOptions(const Models::DeleteRegistrantProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除联系人模板
+       * @summary Invoke the DeleteRegistrantProfile API to delete a specified domain name registrant profile.
+       *
+       * @description > If the API call succeeds, the System immediately deletes the corresponding domain name registrant profile.
        *
        * @param request DeleteRegistrantProfileRequest
        * @return DeleteRegistrantProfileResponse
@@ -316,7 +366,24 @@ namespace Domain20180129
       Models::DeleteRegistrantProfileResponse deleteRegistrantProfile(const Models::DeleteRegistrantProfileRequest &request);
 
       /**
-       * @summary 取消域名特殊业务流程
+       * @summary Retrieves information from the domain name knowledge base.
+       *
+       * @param request DomainKnowledgeRetrieveRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return DomainKnowledgeRetrieveResponse
+       */
+      Models::DomainKnowledgeRetrieveResponse domainKnowledgeRetrieveWithOptions(const Models::DomainKnowledgeRetrieveRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Retrieves information from the domain name knowledge base.
+       *
+       * @param request DomainKnowledgeRetrieveRequest
+       * @return DomainKnowledgeRetrieveResponse
+       */
+      Models::DomainKnowledgeRetrieveResponse domainKnowledgeRetrieve(const Models::DomainKnowledgeRetrieveRequest &request);
+
+      /**
+       * @summary Cancel the special business process for a domain name
        *
        * @param request DomainSpecialBizCancelRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -325,7 +392,7 @@ namespace Domain20180129
       Models::DomainSpecialBizCancelResponse domainSpecialBizCancelWithOptions(const Models::DomainSpecialBizCancelRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消域名特殊业务流程
+       * @summary Cancel the special business process for a domain name
        *
        * @param request DomainSpecialBizCancelRequest
        * @return DomainSpecialBizCancelResponse
@@ -350,7 +417,7 @@ namespace Domain20180129
       Models::EmailVerifiedResponse emailVerified(const Models::EmailVerifiedRequest &request);
 
       /**
-       * @summary 通过关键字进行模糊匹配
+       * @summary Invoke FuzzyMatchDomainSensitiveWord to check whether a domain name contains sensitive words.
        *
        * @param request FuzzyMatchDomainSensitiveWordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -359,7 +426,7 @@ namespace Domain20180129
       Models::FuzzyMatchDomainSensitiveWordResponse fuzzyMatchDomainSensitiveWordWithOptions(const Models::FuzzyMatchDomainSensitiveWordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过关键字进行模糊匹配
+       * @summary Invoke FuzzyMatchDomainSensitiveWord to check whether a domain name contains sensitive words.
        *
        * @param request FuzzyMatchDomainSensitiveWordRequest
        * @return FuzzyMatchDomainSensitiveWordResponse
@@ -384,6 +451,8 @@ namespace Domain20180129
       Models::GetIntlFixPriceDomainListUrlResponse getIntlFixPriceDomainListUrl(const Models::GetIntlFixPriceDomainListUrlRequest &request);
 
       /**
+       * @summary Invoke GetOperationOssUploadPolicy to obtain the storage information for review materials.
+       *
        * @param request GetOperationOssUploadPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetOperationOssUploadPolicyResponse
@@ -391,12 +460,16 @@ namespace Domain20180129
       Models::GetOperationOssUploadPolicyResponse getOperationOssUploadPolicyWithOptions(const Models::GetOperationOssUploadPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke GetOperationOssUploadPolicy to obtain the storage information for review materials.
+       *
        * @param request GetOperationOssUploadPolicyRequest
        * @return GetOperationOssUploadPolicyResponse
        */
       Models::GetOperationOssUploadPolicyResponse getOperationOssUploadPolicy(const Models::GetOperationOssUploadPolicyRequest &request);
 
       /**
+       * @summary Obtain the authorization policy corresponding to the ".restaurant" and ".trademark" domain names.
+       *
        * @param request GetQualificationUploadPolicyRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return GetQualificationUploadPolicyResponse
@@ -404,12 +477,16 @@ namespace Domain20180129
       Models::GetQualificationUploadPolicyResponse getQualificationUploadPolicyWithOptions(const Models::GetQualificationUploadPolicyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Obtain the authorization policy corresponding to the ".restaurant" and ".trademark" domain names.
+       *
        * @param request GetQualificationUploadPolicyRequest
        * @return GetQualificationUploadPolicyResponse
        */
       Models::GetQualificationUploadPolicyResponse getQualificationUploadPolicy(const Models::GetQualificationUploadPolicyRequest &request);
 
       /**
+       * @summary Invoke the ListEmailVerification API to query the email verification list.
+       *
        * @param request ListEmailVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return ListEmailVerificationResponse
@@ -417,6 +494,8 @@ namespace Domain20180129
       Models::ListEmailVerificationResponse listEmailVerificationWithOptions(const Models::ListEmailVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the ListEmailVerification API to query the email verification list.
+       *
        * @param request ListEmailVerificationRequest
        * @return ListEmailVerificationResponse
        */
@@ -440,6 +519,8 @@ namespace Domain20180129
       Models::ListServerLockResponse listServerLock(const Models::ListServerLockRequest &request);
 
       /**
+       * @summary Call `LookupTmchNotice` to look up a trademark term from the TMCH by passing it as the `key`.
+       *
        * @param request LookupTmchNoticeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return LookupTmchNoticeResponse
@@ -447,12 +528,18 @@ namespace Domain20180129
       Models::LookupTmchNoticeResponse lookupTmchNoticeWithOptions(const Models::LookupTmchNoticeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Call `LookupTmchNotice` to look up a trademark term from the TMCH by passing it as the `key`.
+       *
        * @param request LookupTmchNoticeRequest
        * @return LookupTmchNoticeResponse
        */
       Models::LookupTmchNoticeResponse lookupTmchNotice(const Models::LookupTmchNoticeRequest &request);
 
       /**
+       * @summary Invoke PollTaskResult to obtain a list of domain name job details that have completed execution (including jobs that succeeded or failed and exceeded the retry count).
+       *
+       * @description This API must be used together with [AcknowledgeTaskResult](~~AcknowledgeTaskResult~~) to confirm job results. Once a job result is confirmed, the corresponding job record can no longer be queried through this API.
+       *
        * @param request PollTaskResultRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return PollTaskResultResponse
@@ -460,13 +547,19 @@ namespace Domain20180129
       Models::PollTaskResultResponse pollTaskResultWithOptions(const Models::PollTaskResultRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke PollTaskResult to obtain a list of domain name job details that have completed execution (including jobs that succeeded or failed and exceeded the retry count).
+       *
+       * @description This API must be used together with [AcknowledgeTaskResult](~~AcknowledgeTaskResult~~) to confirm job results. Once a job result is confirmed, the corresponding job record can no longer be queried through this API.
+       *
        * @param request PollTaskResultRequest
        * @return PollTaskResultResponse
        */
       Models::PollTaskResultResponse pollTaskResult(const Models::PollTaskResultRequest &request);
 
       /**
-       * @summary Searches for domain names by using the advanced search feature.
+       * @summary Invoke QueryAdvancedDomainList to perform an advanced search of the domain name list.
+       *
+       * @description Search for domain names under your current Alibaba Cloud account that meet specific conditions. A maximum of **5000** entries are displayed. If the result reaches **5000** entries, narrow your search scope.
        *
        * @param request QueryAdvancedDomainListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -475,7 +568,9 @@ namespace Domain20180129
       Models::QueryAdvancedDomainListResponse queryAdvancedDomainListWithOptions(const Models::QueryAdvancedDomainListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Searches for domain names by using the advanced search feature.
+       * @summary Invoke QueryAdvancedDomainList to perform an advanced search of the domain name list.
+       *
+       * @description Search for domain names under your current Alibaba Cloud account that meet specific conditions. A maximum of **5000** entries are displayed. If the result reaches **5000** entries, narrow your search scope.
        *
        * @param request QueryAdvancedDomainListRequest
        * @return QueryAdvancedDomainListResponse
@@ -483,6 +578,8 @@ namespace Domain20180129
       Models::QueryAdvancedDomainListResponse queryAdvancedDomainList(const Models::QueryAdvancedDomainListRequest &request);
 
       /**
+       * @summary Invoke the QueryArtExtension API to query Art extension information.
+       *
        * @param request QueryArtExtensionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryArtExtensionResponse
@@ -490,13 +587,15 @@ namespace Domain20180129
       Models::QueryArtExtensionResponse queryArtExtensionWithOptions(const Models::QueryArtExtensionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the QueryArtExtension API to query Art extension information.
+       *
        * @param request QueryArtExtensionRequest
        * @return QueryArtExtensionResponse
        */
       Models::QueryArtExtensionResponse queryArtExtension(const Models::QueryArtExtensionRequest &request);
 
       /**
-       * @summary Queries the operations logs of a domain name.
+       * @summary Call QueryChangeLogList to get a paginated list of the operation logs.
        *
        * @param request QueryChangeLogListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -505,7 +604,7 @@ namespace Domain20180129
       Models::QueryChangeLogListResponse queryChangeLogListWithOptions(const Models::QueryChangeLogListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the operations logs of a domain name.
+       * @summary Call QueryChangeLogList to get a paginated list of the operation logs.
        *
        * @param request QueryChangeLogListRequest
        * @return QueryChangeLogListResponse
@@ -513,6 +612,8 @@ namespace Domain20180129
       Models::QueryChangeLogListResponse queryChangeLogList(const Models::QueryChangeLogListRequest &request);
 
       /**
+       * @summary Invoke QueryContactInfo to query domain contact information.
+       *
        * @param request QueryContactInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryContactInfoResponse
@@ -520,12 +621,16 @@ namespace Domain20180129
       Models::QueryContactInfoResponse queryContactInfoWithOptions(const Models::QueryContactInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke QueryContactInfo to query domain contact information.
+       *
        * @param request QueryContactInfoRequest
        * @return QueryContactInfoResponse
        */
       Models::QueryContactInfoResponse queryContactInfo(const Models::QueryContactInfoRequest &request);
 
       /**
+       * @summary Invoke QueryDSRecord to query the DS records of a domain name.
+       *
        * @param request QueryDSRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryDSRecordResponse
@@ -533,12 +638,16 @@ namespace Domain20180129
       Models::QueryDSRecordResponse queryDSRecordWithOptions(const Models::QueryDSRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke QueryDSRecord to query the DS records of a domain name.
+       *
        * @param request QueryDSRecordRequest
        * @return QueryDSRecordResponse
        */
       Models::QueryDSRecordResponse queryDSRecord(const Models::QueryDSRecordRequest &request);
 
       /**
+       * @summary Queries the DNS host for a domain name.
+       *
        * @param request QueryDnsHostRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryDnsHostResponse
@@ -546,12 +655,16 @@ namespace Domain20180129
       Models::QueryDnsHostResponse queryDnsHostWithOptions(const Models::QueryDnsHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the DNS host for a domain name.
+       *
        * @param request QueryDnsHostRequest
        * @return QueryDnsHostResponse
        */
       Models::QueryDnsHostResponse queryDnsHost(const Models::QueryDnsHostRequest &request);
 
       /**
+       * @summary Invoke the QueryDomainAdminDivision API to query Chinese administrative regions.
+       *
        * @param request QueryDomainAdminDivisionRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryDomainAdminDivisionResponse
@@ -559,13 +672,15 @@ namespace Domain20180129
       Models::QueryDomainAdminDivisionResponse queryDomainAdminDivisionWithOptions(const Models::QueryDomainAdminDivisionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the QueryDomainAdminDivision API to query Chinese administrative regions.
+       *
        * @param request QueryDomainAdminDivisionRequest
        * @return QueryDomainAdminDivisionResponse
        */
       Models::QueryDomainAdminDivisionResponse queryDomainAdminDivision(const Models::QueryDomainAdminDivisionRequest &request);
 
       /**
-       * @summary Queries the information about a domain name.
+       * @summary Call `QueryDomainByDomainName` to retrieve information about a domain name.
        *
        * @param request QueryDomainByDomainNameRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -574,7 +689,7 @@ namespace Domain20180129
       Models::QueryDomainByDomainNameResponse queryDomainByDomainNameWithOptions(const Models::QueryDomainByDomainNameRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about a domain name.
+       * @summary Call `QueryDomainByDomainName` to retrieve information about a domain name.
        *
        * @param request QueryDomainByDomainNameRequest
        * @return QueryDomainByDomainNameResponse
@@ -582,7 +697,7 @@ namespace Domain20180129
       Models::QueryDomainByDomainNameResponse queryDomainByDomainName(const Models::QueryDomainByDomainNameRequest &request);
 
       /**
-       * @summary Queries the basic information about a domain name based on the instance ID.
+       * @summary Call `QueryDomainByInstanceId` to retrieve the basic information of a domain name by instance ID.
        *
        * @param request QueryDomainByInstanceIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -591,7 +706,7 @@ namespace Domain20180129
       Models::QueryDomainByInstanceIdResponse queryDomainByInstanceIdWithOptions(const Models::QueryDomainByInstanceIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the basic information about a domain name based on the instance ID.
+       * @summary Call `QueryDomainByInstanceId` to retrieve the basic information of a domain name by instance ID.
        *
        * @param request QueryDomainByInstanceIdRequest
        * @return QueryDomainByInstanceIdResponse
@@ -599,7 +714,7 @@ namespace Domain20180129
       Models::QueryDomainByInstanceIdResponse queryDomainByInstanceId(const Models::QueryDomainByInstanceIdRequest &request);
 
       /**
-       * @summary Queries a list of domain name groups.
+       * @summary Queries a list of domain groups.
        *
        * @param request QueryDomainGroupListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -608,7 +723,7 @@ namespace Domain20180129
       Models::QueryDomainGroupListResponse queryDomainGroupListWithOptions(const Models::QueryDomainGroupListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of domain name groups.
+       * @summary Queries a list of domain groups.
        *
        * @param request QueryDomainGroupListRequest
        * @return QueryDomainGroupListResponse
@@ -616,7 +731,7 @@ namespace Domain20180129
       Models::QueryDomainGroupListResponse queryDomainGroupList(const Models::QueryDomainGroupListRequest &request);
 
       /**
-       * @summary Queries a list of domain names within your Alibaba Cloud account by page.
+       * @summary Returns a paginated list of domain names in your account.
        *
        * @param request QueryDomainListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -625,7 +740,7 @@ namespace Domain20180129
       Models::QueryDomainListResponse queryDomainListWithOptions(const Models::QueryDomainListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of domain names within your Alibaba Cloud account by page.
+       * @summary Returns a paginated list of domain names in your account.
        *
        * @param request QueryDomainListRequest
        * @return QueryDomainListResponse
@@ -633,6 +748,8 @@ namespace Domain20180129
       Models::QueryDomainListResponse queryDomainList(const Models::QueryDomainListRequest &request);
 
       /**
+       * @summary Invoke QueryDomainRealNameVerificationInfo to query real-name verification information for a domain name.
+       *
        * @param request QueryDomainRealNameVerificationInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryDomainRealNameVerificationInfoResponse
@@ -640,6 +757,8 @@ namespace Domain20180129
       Models::QueryDomainRealNameVerificationInfoResponse queryDomainRealNameVerificationInfoWithOptions(const Models::QueryDomainRealNameVerificationInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke QueryDomainRealNameVerificationInfo to query real-name verification information for a domain name.
+       *
        * @param request QueryDomainRealNameVerificationInfoRequest
        * @return QueryDomainRealNameVerificationInfoResponse
        */
@@ -663,7 +782,7 @@ namespace Domain20180129
       Models::QueryDomainRealTimePriceResponse queryDomainRealTimePrice(const Models::QueryDomainRealTimePriceRequest &request);
 
       /**
-       * @summary 查询域名特殊业务详情
+       * @summary Query domain name special business details
        *
        * @param request QueryDomainSpecialBizDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -672,7 +791,7 @@ namespace Domain20180129
       Models::QueryDomainSpecialBizDetailResponse queryDomainSpecialBizDetailWithOptions(const Models::QueryDomainSpecialBizDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询域名特殊业务详情
+       * @summary Query domain name special business details
        *
        * @param request QueryDomainSpecialBizDetailRequest
        * @return QueryDomainSpecialBizDetailResponse
@@ -680,7 +799,7 @@ namespace Domain20180129
       Models::QueryDomainSpecialBizDetailResponse queryDomainSpecialBizDetail(const Models::QueryDomainSpecialBizDetailRequest &request);
 
       /**
-       * @summary 通过域名查询域名特殊业务详情
+       * @summary Query domain special business details by domain name
        *
        * @param request QueryDomainSpecialBizInfoByDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -689,7 +808,7 @@ namespace Domain20180129
       Models::QueryDomainSpecialBizInfoByDomainResponse queryDomainSpecialBizInfoByDomainWithOptions(const Models::QueryDomainSpecialBizInfoByDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 通过域名查询域名特殊业务详情
+       * @summary Query domain special business details by domain name
        *
        * @param request QueryDomainSpecialBizInfoByDomainRequest
        * @return QueryDomainSpecialBizInfoByDomainResponse
@@ -697,6 +816,8 @@ namespace Domain20180129
       Models::QueryDomainSpecialBizInfoByDomainResponse queryDomainSpecialBizInfoByDomain(const Models::QueryDomainSpecialBizInfoByDomainRequest &request);
 
       /**
+       * @summary Queries the available domain name suffixes.
+       *
        * @param request QueryDomainSuffixRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryDomainSuffixResponse
@@ -704,13 +825,15 @@ namespace Domain20180129
       Models::QueryDomainSuffixResponse queryDomainSuffixWithOptions(const Models::QueryDomainSuffixRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the available domain name suffixes.
+       *
        * @param request QueryDomainSuffixRequest
        * @return QueryDomainSuffixResponse
        */
       Models::QueryDomainSuffixResponse queryDomainSuffix(const Models::QueryDomainSuffixRequest &request);
 
       /**
-       * @summary 查询邮箱验证状态
+       * @summary Invoke the QueryEmailVerification API to query the email verification result.
        *
        * @param request QueryEmailVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -719,7 +842,7 @@ namespace Domain20180129
       Models::QueryEmailVerificationResponse queryEmailVerificationWithOptions(const Models::QueryEmailVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 查询邮箱验证状态
+       * @summary Invoke the QueryEmailVerification API to query the email verification result.
        *
        * @param request QueryEmailVerificationRequest
        * @return QueryEmailVerificationResponse
@@ -727,6 +850,8 @@ namespace Domain20180129
       Models::QueryEmailVerificationResponse queryEmailVerification(const Models::QueryEmailVerificationRequest &request);
 
       /**
+       * @summary Invoke the QueryEnsAssociation API to query the wallet address attached in the ENS system.
+       *
        * @param request QueryEnsAssociationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryEnsAssociationResponse
@@ -734,12 +859,16 @@ namespace Domain20180129
       Models::QueryEnsAssociationResponse queryEnsAssociationWithOptions(const Models::QueryEnsAssociationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the QueryEnsAssociation API to query the wallet address attached in the ENS system.
+       *
        * @param request QueryEnsAssociationRequest
        * @return QueryEnsAssociationResponse
        */
       Models::QueryEnsAssociationResponse queryEnsAssociation(const Models::QueryEnsAssociationRequest &request);
 
       /**
+       * @summary Query the reasons for real-name verification (including naming review) failure for a domain name.
+       *
        * @param request QueryFailReasonForDomainRealNameVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryFailReasonForDomainRealNameVerificationResponse
@@ -747,12 +876,16 @@ namespace Domain20180129
       Models::QueryFailReasonForDomainRealNameVerificationResponse queryFailReasonForDomainRealNameVerificationWithOptions(const Models::QueryFailReasonForDomainRealNameVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query the reasons for real-name verification (including naming review) failure for a domain name.
+       *
        * @param request QueryFailReasonForDomainRealNameVerificationRequest
        * @return QueryFailReasonForDomainRealNameVerificationResponse
        */
       Models::QueryFailReasonForDomainRealNameVerificationResponse queryFailReasonForDomainRealNameVerification(const Models::QueryFailReasonForDomainRealNameVerificationRequest &request);
 
       /**
+       * @summary Invoke the QueryFailReasonForRegistrantProfileRealNameVerification API to query the reasons why identity verification for an information template failed the Review.
+       *
        * @param request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
@@ -760,12 +893,16 @@ namespace Domain20180129
       Models::QueryFailReasonForRegistrantProfileRealNameVerificationResponse queryFailReasonForRegistrantProfileRealNameVerificationWithOptions(const Models::QueryFailReasonForRegistrantProfileRealNameVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the QueryFailReasonForRegistrantProfileRealNameVerification API to query the reasons why identity verification for an information template failed the Review.
+       *
        * @param request QueryFailReasonForRegistrantProfileRealNameVerificationRequest
        * @return QueryFailReasonForRegistrantProfileRealNameVerificationResponse
        */
       Models::QueryFailReasonForRegistrantProfileRealNameVerificationResponse queryFailReasonForRegistrantProfileRealNameVerification(const Models::QueryFailReasonForRegistrantProfileRealNameVerificationRequest &request);
 
       /**
+       * @summary Query the reasons for qualification verification failure for ".restaurant" and ".trademark" domain names.
+       *
        * @param request QueryFailingReasonListForQualificationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryFailingReasonListForQualificationResponse
@@ -773,13 +910,15 @@ namespace Domain20180129
       Models::QueryFailingReasonListForQualificationResponse queryFailingReasonListForQualificationWithOptions(const Models::QueryFailingReasonListForQualificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query the reasons for qualification verification failure for ".restaurant" and ".trademark" domain names.
+       *
        * @param request QueryFailingReasonListForQualificationRequest
        * @return QueryFailingReasonListForQualificationResponse
        */
       Models::QueryFailingReasonListForQualificationResponse queryFailingReasonListForQualification(const Models::QueryFailingReasonListForQualificationRequest &request);
 
       /**
-       * @summary Queries the list of fixed-price orders at the international site (alibabacloud.com).
+       * @summary Queries the list of international fixed-price orders by calling QueryIntlFixedPriceOrderList.
        *
        * @param request QueryIntlFixedPriceOrderListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -788,7 +927,7 @@ namespace Domain20180129
       Models::QueryIntlFixedPriceOrderListResponse queryIntlFixedPriceOrderListWithOptions(const Models::QueryIntlFixedPriceOrderListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the list of fixed-price orders at the international site (alibabacloud.com).
+       * @summary Queries the list of international fixed-price orders by calling QueryIntlFixedPriceOrderList.
        *
        * @param request QueryIntlFixedPriceOrderListRequest
        * @return QueryIntlFixedPriceOrderListResponse
@@ -796,6 +935,8 @@ namespace Domain20180129
       Models::QueryIntlFixedPriceOrderListResponse queryIntlFixedPriceOrderList(const Models::QueryIntlFixedPriceOrderListRequest &request);
 
       /**
+       * @summary Invoke QueryLocalEnsAssociation to query the ENS binding address recorded in the Alibaba Cloud system.
+       *
        * @param request QueryLocalEnsAssociationRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryLocalEnsAssociationResponse
@@ -803,12 +944,16 @@ namespace Domain20180129
       Models::QueryLocalEnsAssociationResponse queryLocalEnsAssociationWithOptions(const Models::QueryLocalEnsAssociationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke QueryLocalEnsAssociation to query the ENS binding address recorded in the Alibaba Cloud system.
+       *
        * @param request QueryLocalEnsAssociationRequest
        * @return QueryLocalEnsAssociationResponse
        */
       Models::QueryLocalEnsAssociationResponse queryLocalEnsAssociation(const Models::QueryLocalEnsAssociationRequest &request);
 
       /**
+       * @summary Invoke the QueryOperationAuditInfoDetail API to query the details of a self-service operation review record.
+       *
        * @param request QueryOperationAuditInfoDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryOperationAuditInfoDetailResponse
@@ -816,12 +961,16 @@ namespace Domain20180129
       Models::QueryOperationAuditInfoDetailResponse queryOperationAuditInfoDetailWithOptions(const Models::QueryOperationAuditInfoDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the QueryOperationAuditInfoDetail API to query the details of a self-service operation review record.
+       *
        * @param request QueryOperationAuditInfoDetailRequest
        * @return QueryOperationAuditInfoDetailResponse
        */
       Models::QueryOperationAuditInfoDetailResponse queryOperationAuditInfoDetail(const Models::QueryOperationAuditInfoDetailRequest &request);
 
       /**
+       * @summary You can invoke QueryOperationAuditInfoList to query the list of review records for self-service operations.
+       *
        * @param request QueryOperationAuditInfoListRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryOperationAuditInfoListResponse
@@ -829,12 +978,16 @@ namespace Domain20180129
       Models::QueryOperationAuditInfoListResponse queryOperationAuditInfoListWithOptions(const Models::QueryOperationAuditInfoListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can invoke QueryOperationAuditInfoList to query the list of review records for self-service operations.
+       *
        * @param request QueryOperationAuditInfoListRequest
        * @return QueryOperationAuditInfoListResponse
        */
       Models::QueryOperationAuditInfoListResponse queryOperationAuditInfoList(const Models::QueryOperationAuditInfoListRequest &request);
 
       /**
+       * @summary Query the qualification verification details of ".restaurant" and ".trademark" domain names.
+       *
        * @param request QueryQualificationDetailRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryQualificationDetailResponse
@@ -842,12 +995,16 @@ namespace Domain20180129
       Models::QueryQualificationDetailResponse queryQualificationDetailWithOptions(const Models::QueryQualificationDetailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query the qualification verification details of ".restaurant" and ".trademark" domain names.
+       *
        * @param request QueryQualificationDetailRequest
        * @return QueryQualificationDetailResponse
        */
       Models::QueryQualificationDetailResponse queryQualificationDetail(const Models::QueryQualificationDetailRequest &request);
 
       /**
+       * @summary Invoke the QueryRegistrantProfileRealNameVerificationInfo API to query the identity verification documents of an information template.
+       *
        * @param request QueryRegistrantProfileRealNameVerificationInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryRegistrantProfileRealNameVerificationInfoResponse
@@ -855,17 +1012,19 @@ namespace Domain20180129
       Models::QueryRegistrantProfileRealNameVerificationInfoResponse queryRegistrantProfileRealNameVerificationInfoWithOptions(const Models::QueryRegistrantProfileRealNameVerificationInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the QueryRegistrantProfileRealNameVerificationInfo API to query the identity verification documents of an information template.
+       *
        * @param request QueryRegistrantProfileRealNameVerificationInfoRequest
        * @return QueryRegistrantProfileRealNameVerificationInfoResponse
        */
       Models::QueryRegistrantProfileRealNameVerificationInfoResponse queryRegistrantProfileRealNameVerificationInfo(const Models::QueryRegistrantProfileRealNameVerificationInfoRequest &request);
 
       /**
-       * @summary Queries the registrant profiles that belong to your Alibaba Cloud account.
+       * @summary Queries the domain name registrant profiles under the current account.
        *
-       * @description You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
-       * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
-       * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+       * @description You can pass in optional parameters to help you find registrant profiles more precisely. For example:
+       * - If you already know the ID of a registrant profile, you can pass in the registrant profile ID to query detailed profile information.
+       * - If you do not know the ID of a registrant profile, you can pass in parameters such as the domain name registrant name to query detailed profile information.
        *
        * @param request QueryRegistrantProfilesRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -874,11 +1033,11 @@ namespace Domain20180129
       Models::QueryRegistrantProfilesResponse queryRegistrantProfilesWithOptions(const Models::QueryRegistrantProfilesRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the registrant profiles that belong to your Alibaba Cloud account.
+       * @summary Queries the domain name registrant profiles under the current account.
        *
-       * @description You can use optional request parameters to specify specific query criteria to query registrant profiles as required. For example:
-       * *   If you know the ID of the profile that you want to query, you can use the registrant profile ID parameter to query the detailed information about the profile.
-       * *   If you do not know the ID of the profile that you want to query, you can use parameters such as the registrant name parameter to query the detailed information about the profile.
+       * @description You can pass in optional parameters to help you find registrant profiles more precisely. For example:
+       * - If you already know the ID of a registrant profile, you can pass in the registrant profile ID to query detailed profile information.
+       * - If you do not know the ID of a registrant profile, you can pass in parameters such as the domain name registrant name to query detailed profile information.
        *
        * @param request QueryRegistrantProfilesRequest
        * @return QueryRegistrantProfilesResponse
@@ -886,6 +1045,8 @@ namespace Domain20180129
       Models::QueryRegistrantProfilesResponse queryRegistrantProfiles(const Models::QueryRegistrantProfilesRequest &request);
 
       /**
+       * @summary Query the registry lock details of a domain name.
+       *
        * @param request QueryServerLockRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryServerLockResponse
@@ -893,12 +1054,16 @@ namespace Domain20180129
       Models::QueryServerLockResponse queryServerLockWithOptions(const Models::QueryServerLockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Query the registry lock details of a domain name.
+       *
        * @param request QueryServerLockRequest
        * @return QueryServerLockResponse
        */
       Models::QueryServerLockResponse queryServerLock(const Models::QueryServerLockRequest &request);
 
       /**
+       * @summary You can invoke QueryTaskDetailHistory to perform a paged query on the detail history list of a specified domain name job.
+       *
        * @param request QueryTaskDetailHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryTaskDetailHistoryResponse
@@ -906,13 +1071,15 @@ namespace Domain20180129
       Models::QueryTaskDetailHistoryResponse queryTaskDetailHistoryWithOptions(const Models::QueryTaskDetailHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can invoke QueryTaskDetailHistory to perform a paged query on the detail history list of a specified domain name job.
+       *
        * @param request QueryTaskDetailHistoryRequest
        * @return QueryTaskDetailHistoryResponse
        */
       Models::QueryTaskDetailHistoryResponse queryTaskDetailHistory(const Models::QueryTaskDetailHistoryRequest &request);
 
       /**
-       * @summary Queries the details of a specific domain name task by page.
+       * @summary Queries the details list of a specified domain name task by paging.
        *
        * @param request QueryTaskDetailListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -921,7 +1088,7 @@ namespace Domain20180129
       Models::QueryTaskDetailListResponse queryTaskDetailListWithOptions(const Models::QueryTaskDetailListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details of a specific domain name task by page.
+       * @summary Queries the details list of a specified domain name task by paging.
        *
        * @param request QueryTaskDetailListRequest
        * @return QueryTaskDetailListResponse
@@ -929,6 +1096,8 @@ namespace Domain20180129
       Models::QueryTaskDetailListResponse queryTaskDetailList(const Models::QueryTaskDetailListRequest &request);
 
       /**
+       * @summary You can invoke QueryTaskInfoHistory to perform a paged query of the domain name job history list under your account.
+       *
        * @param request QueryTaskInfoHistoryRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryTaskInfoHistoryResponse
@@ -936,13 +1105,15 @@ namespace Domain20180129
       Models::QueryTaskInfoHistoryResponse queryTaskInfoHistoryWithOptions(const Models::QueryTaskInfoHistoryRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary You can invoke QueryTaskInfoHistory to perform a paged query of the domain name job history list under your account.
+       *
        * @param request QueryTaskInfoHistoryRequest
        * @return QueryTaskInfoHistoryResponse
        */
       Models::QueryTaskInfoHistoryResponse queryTaskInfoHistory(const Models::QueryTaskInfoHistoryRequest &request);
 
       /**
-       * @summary Queries the domain name tasks under your account by page.
+       * @summary Invoke QueryTaskList to perform a paged query of the domain name job list under your account.
        *
        * @param request QueryTaskListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -951,7 +1122,7 @@ namespace Domain20180129
       Models::QueryTaskListResponse queryTaskListWithOptions(const Models::QueryTaskListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the domain name tasks under your account by page.
+       * @summary Invoke QueryTaskList to perform a paged query of the domain name job list under your account.
        *
        * @param request QueryTaskListRequest
        * @return QueryTaskListResponse
@@ -959,6 +1130,8 @@ namespace Domain20180129
       Models::QueryTaskListResponse queryTaskList(const Models::QueryTaskListRequest &request);
 
       /**
+       * @summary Invoke QueryTransferInByInstanceId to query domain name transfer-in information by instance ID.
+       *
        * @param request QueryTransferInByInstanceIdRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryTransferInByInstanceIdResponse
@@ -966,13 +1139,15 @@ namespace Domain20180129
       Models::QueryTransferInByInstanceIdResponse queryTransferInByInstanceIdWithOptions(const Models::QueryTransferInByInstanceIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke QueryTransferInByInstanceId to query domain name transfer-in information by instance ID.
+       *
        * @param request QueryTransferInByInstanceIdRequest
        * @return QueryTransferInByInstanceIdResponse
        */
       Models::QueryTransferInByInstanceIdResponse queryTransferInByInstanceId(const Models::QueryTransferInByInstanceIdRequest &request);
 
       /**
-       * @summary Queries the domain names that are transferred to Alibaba Cloud.
+       * @summary Invoke QueryTransferInList to query the domain name transfer-in list.
        *
        * @param request QueryTransferInListRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -981,7 +1156,7 @@ namespace Domain20180129
       Models::QueryTransferInListResponse queryTransferInListWithOptions(const Models::QueryTransferInListRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the domain names that are transferred to Alibaba Cloud.
+       * @summary Invoke QueryTransferInList to query the domain name transfer-in list.
        *
        * @param request QueryTransferInListRequest
        * @return QueryTransferInListResponse
@@ -989,6 +1164,8 @@ namespace Domain20180129
       Models::QueryTransferInListResponse queryTransferInList(const Models::QueryTransferInListRequest &request);
 
       /**
+       * @summary Invoke QueryTransferOutInfo to query domain name transfer-out information.
+       *
        * @param request QueryTransferOutInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return QueryTransferOutInfoResponse
@@ -996,13 +1173,19 @@ namespace Domain20180129
       Models::QueryTransferOutInfoResponse queryTransferOutInfoWithOptions(const Models::QueryTransferOutInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke QueryTransferOutInfo to query domain name transfer-out information.
+       *
        * @param request QueryTransferOutInfoRequest
        * @return QueryTransferOutInfoResponse
        */
       Models::QueryTransferOutInfoResponse queryTransferOutInfo(const Models::QueryTransferOutInfoRequest &request);
 
       /**
-       * @summary 保存联系人模板实名资料
+       * @summary Invoke the RegistrantProfileRealNameVerification API to submit real-name verification for an information template.
+       *
+       * @description - Identity verification document review takes 3 to 5 business days. After the authority completes the review, you can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the identity verification result.  
+       * - If identity verification fails, refer to [Reasons for Identity Verification Failure and Solutions](https://help.aliyun.com/document_detail/35885.html) for troubleshooting and resolution.
+       * > You must invoke this API using the POST method; otherwise, the invocation will fail. When using a software development kit (SDK), set the **method** parameter of the request object to **POST**.
        *
        * @param request RegistrantProfileRealNameVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1011,7 +1194,11 @@ namespace Domain20180129
       Models::RegistrantProfileRealNameVerificationResponse registrantProfileRealNameVerificationWithOptions(const Models::RegistrantProfileRealNameVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存联系人模板实名资料
+       * @summary Invoke the RegistrantProfileRealNameVerification API to submit real-name verification for an information template.
+       *
+       * @description - Identity verification document review takes 3 to 5 business days. After the authority completes the review, you can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the identity verification result.  
+       * - If identity verification fails, refer to [Reasons for Identity Verification Failure and Solutions](https://help.aliyun.com/document_detail/35885.html) for troubleshooting and resolution.
+       * > You must invoke this API using the POST method; otherwise, the invocation will fail. When using a software development kit (SDK), set the **method** parameter of the request object to **POST**.
        *
        * @param request RegistrantProfileRealNameVerificationRequest
        * @return RegistrantProfileRealNameVerificationResponse
@@ -1019,7 +1206,7 @@ namespace Domain20180129
       Models::RegistrantProfileRealNameVerificationResponse registrantProfileRealNameVerification(const Models::RegistrantProfileRealNameVerificationRequest &request);
 
       /**
-       * @summary 重新发送验证邮件
+       * @summary Invoke the ResendEmailVerification API to resend the verification email.
        *
        * @param request ResendEmailVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1028,7 +1215,7 @@ namespace Domain20180129
       Models::ResendEmailVerificationResponse resendEmailVerificationWithOptions(const Models::ResendEmailVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重新发送验证邮件
+       * @summary Invoke the ResendEmailVerification API to resend the verification email.
        *
        * @param request ResendEmailVerificationRequest
        * @return ResendEmailVerificationResponse
@@ -1036,7 +1223,7 @@ namespace Domain20180129
       Models::ResendEmailVerificationResponse resendEmailVerification(const Models::ResendEmailVerificationRequest &request);
 
       /**
-       * @summary 重置资质审核状态
+       * @summary Reset the qualification verification status for .restaurant and .trademark domain names.
        *
        * @param request ResetQualificationVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1045,7 +1232,7 @@ namespace Domain20180129
       Models::ResetQualificationVerificationResponse resetQualificationVerificationWithOptions(const Models::ResetQualificationVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 重置资质审核状态
+       * @summary Reset the qualification verification status for .restaurant and .trademark domain names.
        *
        * @param request ResetQualificationVerificationRequest
        * @return ResetQualificationVerificationResponse
@@ -1053,7 +1240,7 @@ namespace Domain20180129
       Models::ResetQualificationVerificationResponse resetQualificationVerification(const Models::ResetQualificationVerificationRequest &request);
 
       /**
-       * @summary 批量保存域名备注信息
+       * @summary Invoke SaveBatchDomainRemark to batch save domain name remarks.
        *
        * @param request SaveBatchDomainRemarkRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1062,7 +1249,7 @@ namespace Domain20180129
       Models::SaveBatchDomainRemarkResponse saveBatchDomainRemarkWithOptions(const Models::SaveBatchDomainRemarkRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量保存域名备注信息
+       * @summary Invoke SaveBatchDomainRemark to batch save domain name remarks.
        *
        * @param request SaveBatchDomainRemarkRequest
        * @return SaveBatchDomainRemarkResponse
@@ -1070,7 +1257,9 @@ namespace Domain20180129
       Models::SaveBatchDomainRemarkResponse saveBatchDomainRemark(const Models::SaveBatchDomainRemarkRequest &request);
 
       /**
-       * @summary 批量申请域名快速转出
+       * @summary Submits a batch task to quickly transfer out domain names.
+       *
+       * @description This is an asynchronous operation. To query the result of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
        *
        * @param request SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1079,7 +1268,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForApplyQuickTransferOutOpenlyResponse saveBatchTaskForApplyQuickTransferOutOpenlyWithOptions(const Models::SaveBatchTaskForApplyQuickTransferOutOpenlyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量申请域名快速转出
+       * @summary Submits a batch task to quickly transfer out domain names.
+       *
+       * @description This is an asynchronous operation. To query the result of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
        *
        * @param request SaveBatchTaskForApplyQuickTransferOutOpenlyRequest
        * @return SaveBatchTaskForApplyQuickTransferOutOpenlyResponse
@@ -1087,7 +1278,14 @@ namespace Domain20180129
       Models::SaveBatchTaskForApplyQuickTransferOutOpenlyResponse saveBatchTaskForApplyQuickTransferOutOpenly(const Models::SaveBatchTaskForApplyQuickTransferOutOpenlyRequest &request);
 
       /**
-       * @summary Submits a task to register multiple domain names at a time.
+       * @summary Submits a batch domain name registration task.
+       *
+       * @description Starting from March 1, 2022, domain names can only be registered by using real-name verified domain name registrant profiles. Passing registrant information directly to register domain names is no longer supported.
+       * To register a domain name, you must specify associated domain name to be registered, associated domain name registrant information, and the DNS servers. You must associate associated domain name registrant information by using the ID of a real-name verified domain name registrant profile. For DNS servers, you can use the default Alibaba Cloud DNS or specify custom DNS servers.
+       * > - The total number of domain names registered per week cannot exceed 100,000.
+       * > - Registration payments can only be made by using the account cash balance. Credit limits are not supported.
+       * - The request parameter format for the **SaveBatchTaskForCreatingOrderActivate** operation is OrderActivateParam.N.*, where N represents the sequence number of associated domain name.
+       * To query the task execution result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
        *
        * @param request SaveBatchTaskForCreatingOrderActivateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1096,7 +1294,14 @@ namespace Domain20180129
       Models::SaveBatchTaskForCreatingOrderActivateResponse saveBatchTaskForCreatingOrderActivateWithOptions(const Models::SaveBatchTaskForCreatingOrderActivateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a task to register multiple domain names at a time.
+       * @summary Submits a batch domain name registration task.
+       *
+       * @description Starting from March 1, 2022, domain names can only be registered by using real-name verified domain name registrant profiles. Passing registrant information directly to register domain names is no longer supported.
+       * To register a domain name, you must specify associated domain name to be registered, associated domain name registrant information, and the DNS servers. You must associate associated domain name registrant information by using the ID of a real-name verified domain name registrant profile. For DNS servers, you can use the default Alibaba Cloud DNS or specify custom DNS servers.
+       * > - The total number of domain names registered per week cannot exceed 100,000.
+       * > - Registration payments can only be made by using the account cash balance. Credit limits are not supported.
+       * - The request parameter format for the **SaveBatchTaskForCreatingOrderActivate** operation is OrderActivateParam.N.*, where N represents the sequence number of associated domain name.
+       * To query the task execution result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
        *
        * @param request SaveBatchTaskForCreatingOrderActivateRequest
        * @return SaveBatchTaskForCreatingOrderActivateResponse
@@ -1104,6 +1309,10 @@ namespace Domain20180129
       Models::SaveBatchTaskForCreatingOrderActivateResponse saveBatchTaskForCreatingOrderActivate(const Models::SaveBatchTaskForCreatingOrderActivateRequest &request);
 
       /**
+       * @summary Invoke the SaveBatchTaskForCreatingOrderRedeem API to submit a batch domain redeem job.
+       *
+       * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
+       *
        * @param request SaveBatchTaskForCreatingOrderRedeemRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveBatchTaskForCreatingOrderRedeemResponse
@@ -1111,13 +1320,19 @@ namespace Domain20180129
       Models::SaveBatchTaskForCreatingOrderRedeemResponse saveBatchTaskForCreatingOrderRedeemWithOptions(const Models::SaveBatchTaskForCreatingOrderRedeemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the SaveBatchTaskForCreatingOrderRedeem API to submit a batch domain redeem job.
+       *
+       * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
+       *
        * @param request SaveBatchTaskForCreatingOrderRedeemRequest
        * @return SaveBatchTaskForCreatingOrderRedeemResponse
        */
       Models::SaveBatchTaskForCreatingOrderRedeemResponse saveBatchTaskForCreatingOrderRedeem(const Models::SaveBatchTaskForCreatingOrderRedeemRequest &request);
 
       /**
-       * @summary 保存批量任务-续费订单
+       * @summary Submits a batch domain name renewal task.
+       *
+       * @description To query the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
        *
        * @param request SaveBatchTaskForCreatingOrderRenewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1126,7 +1341,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForCreatingOrderRenewResponse saveBatchTaskForCreatingOrderRenewWithOptions(const Models::SaveBatchTaskForCreatingOrderRenewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存批量任务-续费订单
+       * @summary Submits a batch domain name renewal task.
+       *
+       * @description To query the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
        *
        * @param request SaveBatchTaskForCreatingOrderRenewRequest
        * @return SaveBatchTaskForCreatingOrderRenewResponse
@@ -1134,6 +1351,10 @@ namespace Domain20180129
       Models::SaveBatchTaskForCreatingOrderRenewResponse saveBatchTaskForCreatingOrderRenew(const Models::SaveBatchTaskForCreatingOrderRenewRequest &request);
 
       /**
+       * @summary Invoke the SaveBatchTaskForCreatingOrderTransfer API to submit a batch domain name transfer-in job.
+       *
+       * @description You can query the job execution result by invoking the QueryTaskDetailList API. For more information, see [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.5096389cgV6sng).
+       *
        * @param request SaveBatchTaskForCreatingOrderTransferRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveBatchTaskForCreatingOrderTransferResponse
@@ -1141,13 +1362,19 @@ namespace Domain20180129
       Models::SaveBatchTaskForCreatingOrderTransferResponse saveBatchTaskForCreatingOrderTransferWithOptions(const Models::SaveBatchTaskForCreatingOrderTransferRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the SaveBatchTaskForCreatingOrderTransfer API to submit a batch domain name transfer-in job.
+       *
+       * @description You can query the job execution result by invoking the QueryTaskDetailList API. For more information, see [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.5096389cgV6sng).
+       *
        * @param request SaveBatchTaskForCreatingOrderTransferRequest
        * @return SaveBatchTaskForCreatingOrderTransferResponse
        */
       Models::SaveBatchTaskForCreatingOrderTransferResponse saveBatchTaskForCreatingOrderTransfer(const Models::SaveBatchTaskForCreatingOrderTransferRequest &request);
 
       /**
-       * @summary 保存批量任务-开启/关闭whois隐私保护锁
+       * @summary Invoke the SaveBatchTaskForDomainNameProxyService API to submit a batch domain name proxy service job.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveBatchTaskForDomainNameProxyServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1156,7 +1383,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForDomainNameProxyServiceResponse saveBatchTaskForDomainNameProxyServiceWithOptions(const Models::SaveBatchTaskForDomainNameProxyServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存批量任务-开启/关闭whois隐私保护锁
+       * @summary Invoke the SaveBatchTaskForDomainNameProxyService API to submit a batch domain name proxy service job.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveBatchTaskForDomainNameProxyServiceRequest
        * @return SaveBatchTaskForDomainNameProxyServiceResponse
@@ -1181,7 +1410,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForGenerateDomainCertificateResponse saveBatchTaskForGenerateDomainCertificate(const Models::SaveBatchTaskForGenerateDomainCertificateRequest &request);
 
       /**
-       * @summary 批量修改dns
+       * @summary Submits a batch task to modify the DNS servers for the specified domain names.
+       *
+       * @description To query the task result, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveBatchTaskForModifyingDomainDnsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1190,7 +1421,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForModifyingDomainDnsResponse saveBatchTaskForModifyingDomainDnsWithOptions(const Models::SaveBatchTaskForModifyingDomainDnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量修改dns
+       * @summary Submits a batch task to modify the DNS servers for the specified domain names.
+       *
+       * @description To query the task result, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveBatchTaskForModifyingDomainDnsRequest
        * @return SaveBatchTaskForModifyingDomainDnsResponse
@@ -1198,7 +1431,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForModifyingDomainDnsResponse saveBatchTaskForModifyingDomainDns(const Models::SaveBatchTaskForModifyingDomainDnsRequest &request);
 
       /**
-       * @summary Submits a task to reserve multiple domain names that are provided by HiChina.
+       * @summary Call the SaveBatchTaskForReserveDropListDomain API to submit a batch task for domain reservation.
+       *
+       * @description To query task execution results, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveBatchTaskForReserveDropListDomainRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1207,7 +1442,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForReserveDropListDomainResponse saveBatchTaskForReserveDropListDomainWithOptions(const Models::SaveBatchTaskForReserveDropListDomainRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits a task to reserve multiple domain names that are provided by HiChina.
+       * @summary Call the SaveBatchTaskForReserveDropListDomain API to submit a batch task for domain reservation.
+       *
+       * @description To query task execution results, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveBatchTaskForReserveDropListDomainRequest
        * @return SaveBatchTaskForReserveDropListDomainResponse
@@ -1215,7 +1452,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForReserveDropListDomainResponse saveBatchTaskForReserveDropListDomain(const Models::SaveBatchTaskForReserveDropListDomainRequest &request);
 
       /**
-       * @summary Submits multiple transfer-out tasks based on the transfer keys of domain names.
+       * @summary Submits a batch transfer-out task for multiple domain names using their authorization codes.
+       *
+       * @description This is an asynchronous operation. After submitting the task, call `QueryTaskDetailList` to check its status.
        *
        * @param request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1224,7 +1463,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForTransferOutByAuthorizationCodeResponse saveBatchTaskForTransferOutByAuthorizationCodeWithOptions(const Models::SaveBatchTaskForTransferOutByAuthorizationCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Submits multiple transfer-out tasks based on the transfer keys of domain names.
+       * @summary Submits a batch transfer-out task for multiple domain names using their authorization codes.
+       *
+       * @description This is an asynchronous operation. After submitting the task, call `QueryTaskDetailList` to check its status.
        *
        * @param request SaveBatchTaskForTransferOutByAuthorizationCodeRequest
        * @return SaveBatchTaskForTransferOutByAuthorizationCodeResponse
@@ -1232,7 +1473,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForTransferOutByAuthorizationCodeResponse saveBatchTaskForTransferOutByAuthorizationCode(const Models::SaveBatchTaskForTransferOutByAuthorizationCodeRequest &request);
 
       /**
-       * @summary 保存批量任务-开启/关闭禁止转移锁
+       * @summary Call SaveBatchTaskForTransferProhibitionLock to enable or disable the transfer prohibition lock for multiple domain names.
+       *
+       * @description To check the result of the task, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveBatchTaskForTransferProhibitionLockRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1241,7 +1484,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForTransferProhibitionLockResponse saveBatchTaskForTransferProhibitionLockWithOptions(const Models::SaveBatchTaskForTransferProhibitionLockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存批量任务-开启/关闭禁止转移锁
+       * @summary Call SaveBatchTaskForTransferProhibitionLock to enable or disable the transfer prohibition lock for multiple domain names.
+       *
+       * @description To check the result of the task, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveBatchTaskForTransferProhibitionLockRequest
        * @return SaveBatchTaskForTransferProhibitionLockResponse
@@ -1249,6 +1494,10 @@ namespace Domain20180129
       Models::SaveBatchTaskForTransferProhibitionLockResponse saveBatchTaskForTransferProhibitionLock(const Models::SaveBatchTaskForTransferProhibitionLockRequest &request);
 
       /**
+       * @summary Submits a batch task to enable or disable the update prohibition lock for one or more domain names.
+       *
+       * @description To check the status of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
+       *
        * @param request SaveBatchTaskForUpdateProhibitionLockRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveBatchTaskForUpdateProhibitionLockResponse
@@ -1256,13 +1505,19 @@ namespace Domain20180129
       Models::SaveBatchTaskForUpdateProhibitionLockResponse saveBatchTaskForUpdateProhibitionLockWithOptions(const Models::SaveBatchTaskForUpdateProhibitionLockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Submits a batch task to enable or disable the update prohibition lock for one or more domain names.
+       *
+       * @description To check the status of the task, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) operation.
+       *
        * @param request SaveBatchTaskForUpdateProhibitionLockRequest
        * @return SaveBatchTaskForUpdateProhibitionLockResponse
        */
       Models::SaveBatchTaskForUpdateProhibitionLockResponse saveBatchTaskForUpdateProhibitionLock(const Models::SaveBatchTaskForUpdateProhibitionLockRequest &request);
 
       /**
-       * @summary 使用联系人信息修改联系人的批量任务
+       * @summary Submit a domain information modification job with new contact information.
+       *
+       * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1271,7 +1526,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForUpdatingContactInfoByNewContactResponse saveBatchTaskForUpdatingContactInfoByNewContactWithOptions(const Models::SaveBatchTaskForUpdatingContactInfoByNewContactRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 使用联系人信息修改联系人的批量任务
+       * @summary Submit a domain information modification job with new contact information.
+       *
+       * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveBatchTaskForUpdatingContactInfoByNewContactRequest
        * @return SaveBatchTaskForUpdatingContactInfoByNewContactResponse
@@ -1279,7 +1536,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForUpdatingContactInfoByNewContactResponse saveBatchTaskForUpdatingContactInfoByNewContact(const Models::SaveBatchTaskForUpdatingContactInfoByNewContactRequest &request);
 
       /**
-       * @summary 使用模板修改联系人的批量任务
+       * @summary Call SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId to update the contact information of one or more domain names by using a registrant profile.
+       *
+       * @description To check the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
        *
        * @param request SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1288,7 +1547,9 @@ namespace Domain20180129
       Models::SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse saveBatchTaskForUpdatingContactInfoByRegistrantProfileIdWithOptions(const Models::SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 使用模板修改联系人的批量任务
+       * @summary Call SaveBatchTaskForUpdatingContactInfoByRegistrantProfileId to update the contact information of one or more domain names by using a registrant profile.
+       *
+       * @description To check the task result, call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation.
        *
        * @param request SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest
        * @return SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse
@@ -1296,7 +1557,7 @@ namespace Domain20180129
       Models::SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdResponse saveBatchTaskForUpdatingContactInfoByRegistrantProfileId(const Models::SaveBatchTaskForUpdatingContactInfoByRegistrantProfileIdRequest &request);
 
       /**
-       * @summary 创建/更新域名分组
+       * @summary Invoke the SaveDomainGroup API to create or update a domain name group.
        *
        * @param request SaveDomainGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1305,7 +1566,7 @@ namespace Domain20180129
       Models::SaveDomainGroupResponse saveDomainGroupWithOptions(const Models::SaveDomainGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 创建/更新域名分组
+       * @summary Invoke the SaveDomainGroup API to create or update a domain name group.
        *
        * @param request SaveDomainGroupRequest
        * @return SaveDomainGroupResponse
@@ -1313,7 +1574,9 @@ namespace Domain20180129
       Models::SaveDomainGroupResponse saveDomainGroup(const Models::SaveDomainGroupRequest &request);
 
       /**
-       * @summary 保存联系人模板
+       * @summary Invoke the SaveRegistrantProfile API to create or update a domain name registrant profile.
+       *
+       * @description The domain name registrant profile contains registrant information. When you create or update a registrant profile, we recommend that you fill in all registrant information according to your actual situation and ensure consistency between the Chinese and English versions. To avoid faults during domain name registry review, we recommend entering all English registrant information in lowercase letters. For specific requirements, see the parameter descriptions below.
        *
        * @param request SaveRegistrantProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1322,7 +1585,9 @@ namespace Domain20180129
       Models::SaveRegistrantProfileResponse saveRegistrantProfileWithOptions(const Models::SaveRegistrantProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存联系人模板
+       * @summary Invoke the SaveRegistrantProfile API to create or update a domain name registrant profile.
+       *
+       * @description The domain name registrant profile contains registrant information. When you create or update a registrant profile, we recommend that you fill in all registrant information according to your actual situation and ensure consistency between the Chinese and English versions. To avoid faults during domain name registry review, we recommend entering all English registrant information in lowercase letters. For specific requirements, see the parameter descriptions below.
        *
        * @param request SaveRegistrantProfileRequest
        * @return SaveRegistrantProfileResponse
@@ -1330,7 +1595,7 @@ namespace Domain20180129
       Models::SaveRegistrantProfileResponse saveRegistrantProfile(const Models::SaveRegistrantProfileRequest &request);
 
       /**
-       * @summary 保存联系人模板和凭据
+       * @summary Invoke the SaveRegistrantProfileRealNameVerification API to save domain contact and certificate information.
        *
        * @param request SaveRegistrantProfileRealNameVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1339,7 +1604,7 @@ namespace Domain20180129
       Models::SaveRegistrantProfileRealNameVerificationResponse saveRegistrantProfileRealNameVerificationWithOptions(const Models::SaveRegistrantProfileRealNameVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存联系人模板和凭据
+       * @summary Invoke the SaveRegistrantProfileRealNameVerification API to save domain contact and certificate information.
        *
        * @param request SaveRegistrantProfileRealNameVerificationRequest
        * @return SaveRegistrantProfileRealNameVerificationResponse
@@ -1347,7 +1612,9 @@ namespace Domain20180129
       Models::SaveRegistrantProfileRealNameVerificationResponse saveRegistrantProfileRealNameVerification(const Models::SaveRegistrantProfileRealNameVerificationRequest &request);
 
       /**
-       * @summary 添加dnsSec记录
+       * @summary Invoke the SaveSingleTaskForAddingDSRecord API to submit a job for creating a DS record.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForAddingDSRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1356,7 +1623,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForAddingDSRecordResponse saveSingleTaskForAddingDSRecordWithOptions(const Models::SaveSingleTaskForAddingDSRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 添加dnsSec记录
+       * @summary Invoke the SaveSingleTaskForAddingDSRecord API to submit a job for creating a DS record.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForAddingDSRecordRequest
        * @return SaveSingleTaskForAddingDSRecordResponse
@@ -1364,7 +1633,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForAddingDSRecordResponse saveSingleTaskForAddingDSRecord(const Models::SaveSingleTaskForAddingDSRecordRequest &request);
 
       /**
-       * @summary 申请域名快速转出
+       * @summary Submits a task for a quick transfer-out of a domain name.
+       *
+       * @description This is an asynchronous operation. To check the task\\"s status, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1373,7 +1644,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForApplyQuickTransferOutOpenlyResponse saveSingleTaskForApplyQuickTransferOutOpenlyWithOptions(const Models::SaveSingleTaskForApplyQuickTransferOutOpenlyRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 申请域名快速转出
+       * @summary Submits a task for a quick transfer-out of a domain name.
+       *
+       * @description This is an asynchronous operation. To check the task\\"s status, call the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForApplyQuickTransferOutOpenlyRequest
        * @return SaveSingleTaskForApplyQuickTransferOutOpenlyResponse
@@ -1398,6 +1671,10 @@ namespace Domain20180129
       Models::SaveSingleTaskForApprovingTransferOutResponse saveSingleTaskForApprovingTransferOut(const Models::SaveSingleTaskForApprovingTransferOutRequest &request);
 
       /**
+       * @summary Submit a job to attach an ENS address.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+       *
        * @param request SaveSingleTaskForAssociatingEnsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveSingleTaskForAssociatingEnsResponse
@@ -1405,12 +1682,20 @@ namespace Domain20180129
       Models::SaveSingleTaskForAssociatingEnsResponse saveSingleTaskForAssociatingEnsWithOptions(const Models::SaveSingleTaskForAssociatingEnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Submit a job to attach an ENS address.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+       *
        * @param request SaveSingleTaskForAssociatingEnsRequest
        * @return SaveSingleTaskForAssociatingEnsResponse
        */
       Models::SaveSingleTaskForAssociatingEnsResponse saveSingleTaskForAssociatingEns(const Models::SaveSingleTaskForAssociatingEnsRequest &request);
 
       /**
+       * @summary Invoke the SaveSingleTaskForCancelingTransferIn API to submit a job to cancel a domain name transfer-in.
+       *
+       * @description You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
+       *
        * @param request SaveSingleTaskForCancelingTransferInRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveSingleTaskForCancelingTransferInResponse
@@ -1418,13 +1703,19 @@ namespace Domain20180129
       Models::SaveSingleTaskForCancelingTransferInResponse saveSingleTaskForCancelingTransferInWithOptions(const Models::SaveSingleTaskForCancelingTransferInRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the SaveSingleTaskForCancelingTransferIn API to submit a job to cancel a domain name transfer-in.
+       *
+       * @description You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
+       *
        * @param request SaveSingleTaskForCancelingTransferInRequest
        * @return SaveSingleTaskForCancelingTransferInResponse
        */
       Models::SaveSingleTaskForCancelingTransferInResponse saveSingleTaskForCancelingTransferIn(const Models::SaveSingleTaskForCancelingTransferInRequest &request);
 
       /**
-       * @summary 取消转出
+       * @summary Invoke the SaveSingleTaskForCancelingTransferOut API to submit a job to cancel a domain name transfer-out.
+       *
+       * @description You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
        *
        * @param request SaveSingleTaskForCancelingTransferOutRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1433,7 +1724,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForCancelingTransferOutResponse saveSingleTaskForCancelingTransferOutWithOptions(const Models::SaveSingleTaskForCancelingTransferOutRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 取消转出
+       * @summary Invoke the SaveSingleTaskForCancelingTransferOut API to submit a job to cancel a domain name transfer-out.
+       *
+       * @description You can query the job execution result by invoking the QueryTaskDetailList API (~~67710~~).
        *
        * @param request SaveSingleTaskForCancelingTransferOutRequest
        * @return SaveSingleTaskForCancelingTransferOutResponse
@@ -1441,7 +1734,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForCancelingTransferOutResponse saveSingleTaskForCancelingTransferOut(const Models::SaveSingleTaskForCancelingTransferOutRequest &request);
 
       /**
-       * @summary 保存创建dns服务器的任务请求
+       * @summary Invoke SaveSingleTaskForCreatingDnsHost to submit a single job for creating a DNS host.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForCreatingDnsHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1450,7 +1745,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForCreatingDnsHostResponse saveSingleTaskForCreatingDnsHostWithOptions(const Models::SaveSingleTaskForCreatingDnsHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存创建dns服务器的任务请求
+       * @summary Invoke SaveSingleTaskForCreatingDnsHost to submit a single job for creating a DNS host.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForCreatingDnsHostRequest
        * @return SaveSingleTaskForCreatingDnsHostResponse
@@ -1458,7 +1755,11 @@ namespace Domain20180129
       Models::SaveSingleTaskForCreatingDnsHostResponse saveSingleTaskForCreatingDnsHost(const Models::SaveSingleTaskForCreatingDnsHostRequest &request);
 
       /**
-       * @summary 保存单个任务-注册订单
+       * @summary Submits a domain name registration task.
+       *
+       * @description Starting from March 1, 2022, you can associated domain names only by using real-name verified domain name registrant profiles. Passing registrant information directly to associated domain names is no longer supported.
+       * To register a domain name, you must specify the domain name, registrant information, and DNS servers. You must associate the registrant information with a real-name verified domain name registrant profile by specifying the profile ID. You can use the default Alibaba Cloud DNS servers or specify custom DNS servers.
+       * You can call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation to query the task execution result.
        *
        * @param request SaveSingleTaskForCreatingOrderActivateRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1467,7 +1768,11 @@ namespace Domain20180129
       Models::SaveSingleTaskForCreatingOrderActivateResponse saveSingleTaskForCreatingOrderActivateWithOptions(const Models::SaveSingleTaskForCreatingOrderActivateRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存单个任务-注册订单
+       * @summary Submits a domain name registration task.
+       *
+       * @description Starting from March 1, 2022, you can associated domain names only by using real-name verified domain name registrant profiles. Passing registrant information directly to associated domain names is no longer supported.
+       * To register a domain name, you must specify the domain name, registrant information, and DNS servers. You must associate the registrant information with a real-name verified domain name registrant profile by specifying the profile ID. You can use the default Alibaba Cloud DNS servers or specify custom DNS servers.
+       * You can call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) operation to query the task execution result.
        *
        * @param request SaveSingleTaskForCreatingOrderActivateRequest
        * @return SaveSingleTaskForCreatingOrderActivateResponse
@@ -1475,6 +1780,10 @@ namespace Domain20180129
       Models::SaveSingleTaskForCreatingOrderActivateResponse saveSingleTaskForCreatingOrderActivate(const Models::SaveSingleTaskForCreatingOrderActivateRequest &request);
 
       /**
+       * @summary Invoke SaveSingleTaskForCreatingOrderRedeem to submit a domain redeem job.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+       *
        * @param request SaveSingleTaskForCreatingOrderRedeemRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveSingleTaskForCreatingOrderRedeemResponse
@@ -1482,13 +1791,19 @@ namespace Domain20180129
       Models::SaveSingleTaskForCreatingOrderRedeemResponse saveSingleTaskForCreatingOrderRedeemWithOptions(const Models::SaveSingleTaskForCreatingOrderRedeemRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke SaveSingleTaskForCreatingOrderRedeem to submit a domain redeem job.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+       *
        * @param request SaveSingleTaskForCreatingOrderRedeemRequest
        * @return SaveSingleTaskForCreatingOrderRedeemResponse
        */
       Models::SaveSingleTaskForCreatingOrderRedeemResponse saveSingleTaskForCreatingOrderRedeem(const Models::SaveSingleTaskForCreatingOrderRedeemRequest &request);
 
       /**
-       * @summary 保存单个任务-续费订单
+       * @summary Use SaveSingleTaskForCreatingOrderRenew to submit a domain name renewal task.
+       *
+       * @description To check the execution results of the task, call [QueryTaskDetailList](~~QueryTaskDetailList~~).
        *
        * @param request SaveSingleTaskForCreatingOrderRenewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1497,7 +1812,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForCreatingOrderRenewResponse saveSingleTaskForCreatingOrderRenewWithOptions(const Models::SaveSingleTaskForCreatingOrderRenewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存单个任务-续费订单
+       * @summary Use SaveSingleTaskForCreatingOrderRenew to submit a domain name renewal task.
+       *
+       * @description To check the execution results of the task, call [QueryTaskDetailList](~~QueryTaskDetailList~~).
        *
        * @param request SaveSingleTaskForCreatingOrderRenewRequest
        * @return SaveSingleTaskForCreatingOrderRenewResponse
@@ -1505,6 +1822,10 @@ namespace Domain20180129
       Models::SaveSingleTaskForCreatingOrderRenewResponse saveSingleTaskForCreatingOrderRenew(const Models::SaveSingleTaskForCreatingOrderRenewRequest &request);
 
       /**
+       * @summary Invoke the SaveSingleTaskForCreatingOrderTransfer API to submit a domain name transfer-in job.
+       *
+       * @description You can query the task execution result by calling the QueryTaskDetailList API (~~67710~~).
+       *
        * @param request SaveSingleTaskForCreatingOrderTransferRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveSingleTaskForCreatingOrderTransferResponse
@@ -1512,13 +1833,19 @@ namespace Domain20180129
       Models::SaveSingleTaskForCreatingOrderTransferResponse saveSingleTaskForCreatingOrderTransferWithOptions(const Models::SaveSingleTaskForCreatingOrderTransferRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the SaveSingleTaskForCreatingOrderTransfer API to submit a domain name transfer-in job.
+       *
+       * @description You can query the task execution result by calling the QueryTaskDetailList API (~~67710~~).
+       *
        * @param request SaveSingleTaskForCreatingOrderTransferRequest
        * @return SaveSingleTaskForCreatingOrderTransferResponse
        */
       Models::SaveSingleTaskForCreatingOrderTransferResponse saveSingleTaskForCreatingOrderTransfer(const Models::SaveSingleTaskForCreatingOrderTransferRequest &request);
 
       /**
-       * @summary 删除dnsSec记录
+       * @summary Invoke the SaveSingleTaskForDeletingDSRecord API to submit a job for deleting a DS record.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForDeletingDSRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1527,7 +1854,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForDeletingDSRecordResponse saveSingleTaskForDeletingDSRecordWithOptions(const Models::SaveSingleTaskForDeletingDSRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除dnsSec记录
+       * @summary Invoke the SaveSingleTaskForDeletingDSRecord API to submit a job for deleting a DS record.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForDeletingDSRecordRequest
        * @return SaveSingleTaskForDeletingDSRecordResponse
@@ -1535,7 +1864,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForDeletingDSRecordResponse saveSingleTaskForDeletingDSRecord(const Models::SaveSingleTaskForDeletingDSRecordRequest &request);
 
       /**
-       * @summary 删除DNS HOST任务
+       * @summary Invoke the SaveSingleTaskForDeletingDnsHost API to submit a job for deleting a DNS host.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForDeletingDnsHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1544,7 +1875,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForDeletingDnsHostResponse saveSingleTaskForDeletingDnsHostWithOptions(const Models::SaveSingleTaskForDeletingDnsHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 删除DNS HOST任务
+       * @summary Invoke the SaveSingleTaskForDeletingDnsHost API to submit a job for deleting a DNS host.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForDeletingDnsHostRequest
        * @return SaveSingleTaskForDeletingDnsHostResponse
@@ -1552,6 +1885,10 @@ namespace Domain20180129
       Models::SaveSingleTaskForDeletingDnsHostResponse saveSingleTaskForDeletingDnsHost(const Models::SaveSingleTaskForDeletingDnsHostRequest &request);
 
       /**
+       * @summary Invoke the SaveSingleTaskForDisassociatingEns API to submit a job for detaching an ENS address.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+       *
        * @param request SaveSingleTaskForDisassociatingEnsRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SaveSingleTaskForDisassociatingEnsResponse
@@ -1559,13 +1896,19 @@ namespace Domain20180129
       Models::SaveSingleTaskForDisassociatingEnsResponse saveSingleTaskForDisassociatingEnsWithOptions(const Models::SaveSingleTaskForDisassociatingEnsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the SaveSingleTaskForDisassociatingEns API to submit a job for detaching an ENS address.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
+       *
        * @param request SaveSingleTaskForDisassociatingEnsRequest
        * @return SaveSingleTaskForDisassociatingEnsResponse
        */
       Models::SaveSingleTaskForDisassociatingEnsResponse saveSingleTaskForDisassociatingEns(const Models::SaveSingleTaskForDisassociatingEnsRequest &request);
 
       /**
-       * @summary 保存单个任务-开启/关闭whois隐私保护锁
+       * @summary Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
+       *
+       * @description Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
        *
        * @param request SaveSingleTaskForDomainNameProxyServiceRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1574,7 +1917,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForDomainNameProxyServiceResponse saveSingleTaskForDomainNameProxyServiceWithOptions(const Models::SaveSingleTaskForDomainNameProxyServiceRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存单个任务-开启/关闭whois隐私保护锁
+       * @summary Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
+       *
+       * @description Invoke the SaveSingleTaskForDomainNameProxyService API to submit a domain name proxy service job.
        *
        * @param request SaveSingleTaskForDomainNameProxyServiceRequest
        * @return SaveSingleTaskForDomainNameProxyServiceResponse
@@ -1599,7 +1944,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForGenerateDomainCertificateResponse saveSingleTaskForGenerateDomainCertificate(const Models::SaveSingleTaskForGenerateDomainCertificateRequest &request);
 
       /**
-       * @summary 修改DnsSec记录
+       * @summary Invoke SaveSingleTaskForModifyingDSRecord to submit a job for modifying a DS record.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForModifyingDSRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1608,7 +1955,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForModifyingDSRecordResponse saveSingleTaskForModifyingDSRecordWithOptions(const Models::SaveSingleTaskForModifyingDSRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 修改DnsSec记录
+       * @summary Invoke SaveSingleTaskForModifyingDSRecord to submit a job for modifying a DS record.
+       *
+       * @description You can query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForModifyingDSRecordRequest
        * @return SaveSingleTaskForModifyingDSRecordResponse
@@ -1616,7 +1965,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForModifyingDSRecordResponse saveSingleTaskForModifyingDSRecord(const Models::SaveSingleTaskForModifyingDSRecordRequest &request);
 
       /**
-       * @summary 保存修改dns服务器的任务请求
+       * @summary Invoke the SaveSingleTaskForModifyingDnsHost API to submit a job for modifying a DNS host.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForModifyingDnsHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1625,7 +1976,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForModifyingDnsHostResponse saveSingleTaskForModifyingDnsHostWithOptions(const Models::SaveSingleTaskForModifyingDnsHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存修改dns服务器的任务请求
+       * @summary Invoke the SaveSingleTaskForModifyingDnsHost API to submit a job for modifying a DNS host.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForModifyingDnsHostRequest
        * @return SaveSingleTaskForModifyingDnsHostResponse
@@ -1633,7 +1986,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForModifyingDnsHostResponse saveSingleTaskForModifyingDnsHost(const Models::SaveSingleTaskForModifyingDnsHostRequest &request);
 
       /**
-       * @summary 发送转移码
+       * @summary Invoke the SaveSingleTaskForQueryingTransferAuthorizationCode API to submit a job for retrieving the domain name transfer password.
+       *
+       * @description You can query the job execution result by calling the QueryTaskDetailList API (~~67710~~). The transfer password is returned in the TaskResult field of the corresponding job.
        *
        * @param request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1642,7 +1997,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForQueryingTransferAuthorizationCodeResponse saveSingleTaskForQueryingTransferAuthorizationCodeWithOptions(const Models::SaveSingleTaskForQueryingTransferAuthorizationCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 发送转移码
+       * @summary Invoke the SaveSingleTaskForQueryingTransferAuthorizationCode API to submit a job for retrieving the domain name transfer password.
+       *
+       * @description You can query the job execution result by calling the QueryTaskDetailList API (~~67710~~). The transfer password is returned in the TaskResult field of the corresponding job.
        *
        * @param request SaveSingleTaskForQueryingTransferAuthorizationCodeRequest
        * @return SaveSingleTaskForQueryingTransferAuthorizationCodeResponse
@@ -1667,7 +2024,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForReserveDropListDomainResponse saveSingleTaskForReserveDropListDomain(const Models::SaveSingleTaskForReserveDropListDomainRequest &request);
 
       /**
-       * @summary 保存art扩展信息任务
+       * @summary Invoke the SaveSingleTaskForSaveArtExtension API to submit a job for creating Art extension information.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForSaveArtExtensionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1676,7 +2035,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForSaveArtExtensionResponse saveSingleTaskForSaveArtExtensionWithOptions(const Models::SaveSingleTaskForSaveArtExtensionRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存art扩展信息任务
+       * @summary Invoke the SaveSingleTaskForSaveArtExtension API to submit a job for creating Art extension information.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForSaveArtExtensionRequest
        * @return SaveSingleTaskForSaveArtExtensionResponse
@@ -1684,7 +2045,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForSaveArtExtensionResponse saveSingleTaskForSaveArtExtension(const Models::SaveSingleTaskForSaveArtExtensionRequest &request);
 
       /**
-       * @summary 同步DnsSec记录
+       * @summary Invoke the SaveSingleTaskForSynchronizingDSRecord API to submit a job for synchronizing a DS record.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForSynchronizingDSRecordRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1693,7 +2056,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForSynchronizingDSRecordResponse saveSingleTaskForSynchronizingDSRecordWithOptions(const Models::SaveSingleTaskForSynchronizingDSRecordRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 同步DnsSec记录
+       * @summary Invoke the SaveSingleTaskForSynchronizingDSRecord API to submit a job for synchronizing a DS record.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForSynchronizingDSRecordRequest
        * @return SaveSingleTaskForSynchronizingDSRecordResponse
@@ -1701,7 +2066,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForSynchronizingDSRecordResponse saveSingleTaskForSynchronizingDSRecord(const Models::SaveSingleTaskForSynchronizingDSRecordRequest &request);
 
       /**
-       * @summary 保存同步dns服务器的任务请求
+       * @summary Invoke the SaveSingleTaskForSynchronizingDnsHost API to submit a DNS host synchronization job. This is used to handle cases such as missing or inconsistent DNS hosts.
+       *
+       * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForSynchronizingDnsHostRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1710,7 +2077,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForSynchronizingDnsHostResponse saveSingleTaskForSynchronizingDnsHostWithOptions(const Models::SaveSingleTaskForSynchronizingDnsHostRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存同步dns服务器的任务请求
+       * @summary Invoke the SaveSingleTaskForSynchronizingDnsHost API to submit a DNS host synchronization job. This is used to handle cases such as missing or inconsistent DNS hosts.
+       *
+       * @description You can query the job execution result by using the [Query Task Detail List](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForSynchronizingDnsHostRequest
        * @return SaveSingleTaskForSynchronizingDnsHostResponse
@@ -1739,7 +2108,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForTransferOutByAuthorizationCodeResponse saveSingleTaskForTransferOutByAuthorizationCode(const Models::SaveSingleTaskForTransferOutByAuthorizationCodeRequest &request);
 
       /**
-       * @summary 保存单个任务-开启/关闭禁止转移锁
+       * @summary Invoke the SaveSingleTaskForTransferProhibitionLock API to submit a transfer prohibition lock job.
+       *
+       * @description You can query the task execution result by using the [List Task Details](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForTransferProhibitionLockRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1748,7 +2119,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForTransferProhibitionLockResponse saveSingleTaskForTransferProhibitionLockWithOptions(const Models::SaveSingleTaskForTransferProhibitionLockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存单个任务-开启/关闭禁止转移锁
+       * @summary Invoke the SaveSingleTaskForTransferProhibitionLock API to submit a transfer prohibition lock job.
+       *
+       * @description You can query the task execution result by using the [List Task Details](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForTransferProhibitionLockRequest
        * @return SaveSingleTaskForTransferProhibitionLockResponse
@@ -1756,7 +2129,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForTransferProhibitionLockResponse saveSingleTaskForTransferProhibitionLock(const Models::SaveSingleTaskForTransferProhibitionLockRequest &request);
 
       /**
-       * @summary 保存单个任务-开启/关闭信息安全锁
+       * @summary Invoke the SaveSingleTaskForUpdateProhibitionLock API to submit a task for the Update Prohibition Lock.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForUpdateProhibitionLockRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1765,7 +2140,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForUpdateProhibitionLockResponse saveSingleTaskForUpdateProhibitionLockWithOptions(const Models::SaveSingleTaskForUpdateProhibitionLockRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存单个任务-开启/关闭信息安全锁
+       * @summary Invoke the SaveSingleTaskForUpdateProhibitionLock API to submit a task for the Update Prohibition Lock.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](~~QueryTaskDetailList~~) API.
        *
        * @param request SaveSingleTaskForUpdateProhibitionLockRequest
        * @return SaveSingleTaskForUpdateProhibitionLockResponse
@@ -1773,7 +2150,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForUpdateProhibitionLockResponse saveSingleTaskForUpdateProhibitionLock(const Models::SaveSingleTaskForUpdateProhibitionLockRequest &request);
 
       /**
-       * @summary 保存修改联系人的任务
+       * @summary Invoke the SaveSingleTaskForUpdatingContactInfo API to submit a domain contact information update job.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForUpdatingContactInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1782,7 +2161,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForUpdatingContactInfoResponse saveSingleTaskForUpdatingContactInfoWithOptions(const Models::SaveSingleTaskForUpdatingContactInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存修改联系人的任务
+       * @summary Invoke the SaveSingleTaskForUpdatingContactInfo API to submit a domain contact information update job.
+       *
+       * @description You can query the job execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveSingleTaskForUpdatingContactInfoRequest
        * @return SaveSingleTaskForUpdatingContactInfoResponse
@@ -1790,7 +2171,9 @@ namespace Domain20180129
       Models::SaveSingleTaskForUpdatingContactInfoResponse saveSingleTaskForUpdatingContactInfo(const Models::SaveSingleTaskForUpdatingContactInfoRequest &request);
 
       /**
-       * @summary 保存删除域名的任务
+       * @summary Submit a domain deletion job. Only whitelist users can access this API.
+       *
+       * @description Invoke SaveTaskForSubmittingDomainDelete to submit a domain deletion job.
        *
        * @param request SaveTaskForSubmittingDomainDeleteRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1799,7 +2182,9 @@ namespace Domain20180129
       Models::SaveTaskForSubmittingDomainDeleteResponse saveTaskForSubmittingDomainDeleteWithOptions(const Models::SaveTaskForSubmittingDomainDeleteRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 保存删除域名的任务
+       * @summary Submit a domain deletion job. Only whitelist users can access this API.
+       *
+       * @description Invoke SaveTaskForSubmittingDomainDelete to submit a domain deletion job.
        *
        * @param request SaveTaskForSubmittingDomainDeleteRequest
        * @return SaveTaskForSubmittingDomainDeleteResponse
@@ -1807,7 +2192,7 @@ namespace Domain20180129
       Models::SaveTaskForSubmittingDomainDeleteResponse saveTaskForSubmittingDomainDelete(const Models::SaveTaskForSubmittingDomainDeleteRequest &request);
 
       /**
-       * @summary 批量提交域名资料
+       * @summary Submits real-name verification information for one or more domain names in bulk.
        *
        * @param request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1816,7 +2201,7 @@ namespace Domain20180129
       Models::SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse saveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialWithOptions(const Models::SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 批量提交域名资料
+       * @summary Submits real-name verification information for one or more domain names in bulk.
        *
        * @param request SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest
        * @return SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse
@@ -1824,7 +2209,7 @@ namespace Domain20180129
       Models::SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialResponse saveTaskForSubmittingDomainRealNameVerificationByIdentityCredential(const Models::SaveTaskForSubmittingDomainRealNameVerificationByIdentityCredentialRequest &request);
 
       /**
-       * @summary 根据模板保存域名的实名认证信息
+       * @summary Creates a task to submit real-name verification information for a domain name by using a specified registrant profile.
        *
        * @param request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1833,7 +2218,7 @@ namespace Domain20180129
       Models::SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDWithOptions(const Models::SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据模板保存域名的实名认证信息
+       * @summary Creates a task to submit real-name verification information for a domain name by using a specified registrant profile.
        *
        * @param request SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest
        * @return SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse
@@ -1841,7 +2226,9 @@ namespace Domain20180129
       Models::SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDResponse saveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileID(const Models::SaveTaskForSubmittingDomainRealNameVerificationByRegistrantProfileIDRequest &request);
 
       /**
-       * @summary 根据联系人信息批量修改注册联系人信息
+       * @summary Invoke the SaveTaskForUpdatingRegistrantInfoByIdentityCredential API to submit a batch job for updating registrant contact information by providing contact details and required documentation. You must provide the corresponding documentation as required.
+       *
+       * @description Query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1850,7 +2237,9 @@ namespace Domain20180129
       Models::SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse saveTaskForUpdatingRegistrantInfoByIdentityCredentialWithOptions(const Models::SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据联系人信息批量修改注册联系人信息
+       * @summary Invoke the SaveTaskForUpdatingRegistrantInfoByIdentityCredential API to submit a batch job for updating registrant contact information by providing contact details and required documentation. You must provide the corresponding documentation as required.
+       *
+       * @description Query the task execution result by using the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.html) API.
        *
        * @param request SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest
        * @return SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse
@@ -1858,7 +2247,9 @@ namespace Domain20180129
       Models::SaveTaskForUpdatingRegistrantInfoByIdentityCredentialResponse saveTaskForUpdatingRegistrantInfoByIdentityCredential(const Models::SaveTaskForUpdatingRegistrantInfoByIdentityCredentialRequest &request);
 
       /**
-       * @summary 根据模板批量修改注册联系人
+       * @summary Submits a task to update registrant information using a registrant profile ID.
+       *
+       * @description Call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.33f47edeV0nkFx) API to check the task result. After a successful update, the registrant information for the domain name is updated to match the registrant profile. If the domain name requires real-name verification, it becomes verified.
        *
        * @param request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1867,7 +2258,9 @@ namespace Domain20180129
       Models::SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse saveTaskForUpdatingRegistrantInfoByRegistrantProfileIDWithOptions(const Models::SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 根据模板批量修改注册联系人
+       * @summary Submits a task to update registrant information using a registrant profile ID.
+       *
+       * @description Call the [QueryTaskDetailList](https://help.aliyun.com/document_detail/67710.htm?spm=a2c4g.11186623.0.0.33f47edeV0nkFx) API to check the task result. After a successful update, the registrant information for the domain name is updated to match the registrant profile. If the domain name requires real-name verification, it becomes verified.
        *
        * @param request SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDRequest
        * @return SaveTaskForUpdatingRegistrantInfoByRegistrantProfileIDResponse
@@ -1896,7 +2289,7 @@ namespace Domain20180129
       Models::ScrollDomainListResponse scrollDomainList(const Models::ScrollDomainListRequest &request);
 
       /**
-       * @summary 设置默认模板
+       * @summary Invoke the SetDefaultRegistrantProfile API to set the default contact template for a domain name.
        *
        * @param request SetDefaultRegistrantProfileRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1905,7 +2298,7 @@ namespace Domain20180129
       Models::SetDefaultRegistrantProfileResponse setDefaultRegistrantProfileWithOptions(const Models::SetDefaultRegistrantProfileRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 设置默认模板
+       * @summary Invoke the SetDefaultRegistrantProfile API to set the default contact template for a domain name.
        *
        * @param request SetDefaultRegistrantProfileRequest
        * @return SetDefaultRegistrantProfileResponse
@@ -1913,7 +2306,10 @@ namespace Domain20180129
       Models::SetDefaultRegistrantProfileResponse setDefaultRegistrantProfile(const Models::SetDefaultRegistrantProfileRequest &request);
 
       /**
-       * @summary 域名设置自动续费
+       * @summary Sets or cancels auto-renewal for a domain name.
+       *
+       * @description This operation currently supports only domain names registered on the China site (aliyun.com).
+       * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) of domain name services.**
        *
        * @param request SetupDomainAutoRenewRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1922,7 +2318,10 @@ namespace Domain20180129
       Models::SetupDomainAutoRenewResponse setupDomainAutoRenewWithOptions(const Models::SetupDomainAutoRenewRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 域名设置自动续费
+       * @summary Sets or cancels auto-renewal for a domain name.
+       *
+       * @description This operation currently supports only domain names registered on the China site (aliyun.com).
+       * **Before using this operation, make sure that you fully understand the billing method and [pricing](https://wanwang.aliyun.com/help/price.html?spm=5176.22941859.J_9989412330.10.68a51838KnzTeD) of domain name services.**
        *
        * @param request SetupDomainAutoRenewRequest
        * @return SetupDomainAutoRenewResponse
@@ -1930,7 +2329,7 @@ namespace Domain20180129
       Models::SetupDomainAutoRenewResponse setupDomainAutoRenew(const Models::SetupDomainAutoRenewRequest &request);
 
       /**
-       * @summary 域名特殊业务提交资料
+       * @summary Submit documentation for special domain name services
        *
        * @param request SubmitDomainSpecialBizCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1939,7 +2338,7 @@ namespace Domain20180129
       Models::SubmitDomainSpecialBizCredentialsResponse submitDomainSpecialBizCredentialsWithOptions(const Models::SubmitDomainSpecialBizCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 域名特殊业务提交资料
+       * @summary Submit documentation for special domain name services
        *
        * @param request SubmitDomainSpecialBizCredentialsRequest
        * @return SubmitDomainSpecialBizCredentialsResponse
@@ -1947,7 +2346,9 @@ namespace Domain20180129
       Models::SubmitDomainSpecialBizCredentialsResponse submitDomainSpecialBizCredentials(const Models::SubmitDomainSpecialBizCredentialsRequest &request);
 
       /**
-       * @summary 提交邮箱验证
+       * @summary Invoke the SubmitEmailVerification API to send an email verification message.
+       *
+       * @description After receiving the verification email, you must log on to your mailbox and complete verification within 3 days. If the verification email has expired, you can invoke the [ResendEmailVerification](https://help.aliyun.com/document_detail/67734.html) API to resend the verification email.
        *
        * @param request SubmitEmailVerificationRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1956,7 +2357,9 @@ namespace Domain20180129
       Models::SubmitEmailVerificationResponse submitEmailVerificationWithOptions(const Models::SubmitEmailVerificationRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交邮箱验证
+       * @summary Invoke the SubmitEmailVerification API to send an email verification message.
+       *
+       * @description After receiving the verification email, you must log on to your mailbox and complete verification within 3 days. If the verification email has expired, you can invoke the [ResendEmailVerification](https://help.aliyun.com/document_detail/67734.html) API to resend the verification email.
        *
        * @param request SubmitEmailVerificationRequest
        * @return SubmitEmailVerificationResponse
@@ -1964,7 +2367,7 @@ namespace Domain20180129
       Models::SubmitEmailVerificationResponse submitEmailVerification(const Models::SubmitEmailVerificationRequest &request);
 
       /**
-       * @summary 提交申请信息
+       * @summary Invoke the SubmitOperationAuditInfo API to submit self-service business review information.
        *
        * @param request SubmitOperationAuditInfoRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1973,7 +2376,7 @@ namespace Domain20180129
       Models::SubmitOperationAuditInfoResponse submitOperationAuditInfoWithOptions(const Models::SubmitOperationAuditInfoRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交申请信息
+       * @summary Invoke the SubmitOperationAuditInfo API to submit self-service business review information.
        *
        * @param request SubmitOperationAuditInfoRequest
        * @return SubmitOperationAuditInfoResponse
@@ -1981,7 +2384,7 @@ namespace Domain20180129
       Models::SubmitOperationAuditInfoResponse submitOperationAuditInfo(const Models::SubmitOperationAuditInfoRequest &request);
 
       /**
-       * @summary 提交证件资料
+       * @summary Invoke the SubmitOperationCredentials API to submit certificate materials for self-service operations pending review.
        *
        * @param request SubmitOperationCredentialsRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -1990,7 +2393,7 @@ namespace Domain20180129
       Models::SubmitOperationCredentialsResponse submitOperationCredentialsWithOptions(const Models::SubmitOperationCredentialsRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 提交证件资料
+       * @summary Invoke the SubmitOperationCredentials API to submit certificate materials for self-service operations pending review.
        *
        * @param request SubmitOperationCredentialsRequest
        * @return SubmitOperationCredentialsResponse
@@ -1998,6 +2401,8 @@ namespace Domain20180129
       Models::SubmitOperationCredentialsResponse submitOperationCredentials(const Models::SubmitOperationCredentialsRequest &request);
 
       /**
+       * @summary Calls the TransferInCheckMailToken operation to verify the email token of a domain name registrant.
+       *
        * @param request TransferInCheckMailTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TransferInCheckMailTokenResponse
@@ -2005,12 +2410,16 @@ namespace Domain20180129
       Models::TransferInCheckMailTokenResponse transferInCheckMailTokenWithOptions(const Models::TransferInCheckMailTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Calls the TransferInCheckMailToken operation to verify the email token of a domain name registrant.
+       *
        * @param request TransferInCheckMailTokenRequest
        * @return TransferInCheckMailTokenResponse
        */
       Models::TransferInCheckMailTokenResponse transferInCheckMailToken(const Models::TransferInCheckMailTokenRequest &request);
 
       /**
+       * @summary Invoke the TransferInReenterTransferAuthorizationCode API to re-enter the transfer password for domain name transfer-in.
+       *
        * @param request TransferInReenterTransferAuthorizationCodeRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TransferInReenterTransferAuthorizationCodeResponse
@@ -2018,12 +2427,18 @@ namespace Domain20180129
       Models::TransferInReenterTransferAuthorizationCodeResponse transferInReenterTransferAuthorizationCodeWithOptions(const Models::TransferInReenterTransferAuthorizationCodeRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the TransferInReenterTransferAuthorizationCode API to re-enter the transfer password for domain name transfer-in.
+       *
        * @param request TransferInReenterTransferAuthorizationCodeRequest
        * @return TransferInReenterTransferAuthorizationCodeResponse
        */
       Models::TransferInReenterTransferAuthorizationCodeResponse transferInReenterTransferAuthorizationCode(const Models::TransferInReenterTransferAuthorizationCodeRequest &request);
 
       /**
+       * @summary Invoke TransferInRefetchWhoisEmail to perform email verification for domain transfer-in.
+       *
+       * @description The system automatically retrieves the registrant\\"s email address from WHOIS. If the email address is incorrect or cannot be retrieved, the system will re-scrape the WHOIS email address.
+       *
        * @param request TransferInRefetchWhoisEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TransferInRefetchWhoisEmailResponse
@@ -2031,12 +2446,18 @@ namespace Domain20180129
       Models::TransferInRefetchWhoisEmailResponse transferInRefetchWhoisEmailWithOptions(const Models::TransferInRefetchWhoisEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke TransferInRefetchWhoisEmail to perform email verification for domain transfer-in.
+       *
+       * @description The system automatically retrieves the registrant\\"s email address from WHOIS. If the email address is incorrect or cannot be retrieved, the system will re-scrape the WHOIS email address.
+       *
        * @param request TransferInRefetchWhoisEmailRequest
        * @return TransferInRefetchWhoisEmailResponse
        */
       Models::TransferInRefetchWhoisEmailResponse transferInRefetchWhoisEmail(const Models::TransferInRefetchWhoisEmailRequest &request);
 
       /**
+       * @summary Invoke the TransferInResendMailToken API to resend the verification email for domain transfer-in.
+       *
        * @param request TransferInResendMailTokenRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return TransferInResendMailTokenResponse
@@ -2044,13 +2465,15 @@ namespace Domain20180129
       Models::TransferInResendMailTokenResponse transferInResendMailTokenWithOptions(const Models::TransferInResendMailTokenRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Invoke the TransferInResendMailToken API to resend the verification email for domain transfer-in.
+       *
        * @param request TransferInResendMailTokenRequest
        * @return TransferInResendMailTokenResponse
        */
       Models::TransferInResendMailTokenResponse transferInResendMailToken(const Models::TransferInResendMailTokenRequest &request);
 
       /**
-       * @summary 向分组设置域名
+       * @summary If you use file upload to replace more than 1,000 domain names in a domain name group, the operation is asynchronous. The result is available only after the request is processed.
        *
        * @param request UpdateDomainToDomainGroupRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2059,7 +2482,7 @@ namespace Domain20180129
       Models::UpdateDomainToDomainGroupResponse updateDomainToDomainGroupWithOptions(const Models::UpdateDomainToDomainGroupRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 向分组设置域名
+       * @summary If you use file upload to replace more than 1,000 domain names in a domain name group, the operation is asynchronous. The result is available only after the request is processed.
        *
        * @param request UpdateDomainToDomainGroupRequest
        * @return UpdateDomainToDomainGroupResponse
@@ -2067,7 +2490,7 @@ namespace Domain20180129
       Models::UpdateDomainToDomainGroupResponse updateDomainToDomainGroup(const Models::UpdateDomainToDomainGroupRequest &request);
 
       /**
-       * @summary 校验联系人信息
+       * @summary Whether some parameters are required depends on the requirements of the domain name registry. This API validates the compliance and validity of the input parameters and does not perform validation against actual domain information.
        *
        * @param request VerifyContactFieldRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2076,7 +2499,7 @@ namespace Domain20180129
       Models::VerifyContactFieldResponse verifyContactFieldWithOptions(const Models::VerifyContactFieldRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 校验联系人信息
+       * @summary Whether some parameters are required depends on the requirements of the domain name registry. This API validates the compliance and validity of the input parameters and does not perform validation against actual domain information.
        *
        * @param request VerifyContactFieldRequest
        * @return VerifyContactFieldResponse
@@ -2084,7 +2507,7 @@ namespace Domain20180129
       Models::VerifyContactFieldResponse verifyContactField(const Models::VerifyContactFieldRequest &request);
 
       /**
-       * @summary 验证邮箱Token
+       * @summary Invoke the VerifyEmail API to submit email verification.
        *
        * @param request VerifyEmailRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -2093,7 +2516,7 @@ namespace Domain20180129
       Models::VerifyEmailResponse verifyEmailWithOptions(const Models::VerifyEmailRequest &request, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 验证邮箱Token
+       * @summary Invoke the VerifyEmail API to submit email verification.
        *
        * @param request VerifyEmailRequest
        * @return VerifyEmailResponse

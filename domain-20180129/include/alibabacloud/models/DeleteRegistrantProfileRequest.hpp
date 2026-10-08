@@ -57,9 +57,17 @@ namespace Models
 
 
   protected:
+    // The language of the error message returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The ID of the domain name registrant profile to delete. You can call the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the profile ID.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // The User IP address. You can set it to 127.0.0.1.
     shared_ptr<string> userClientIp_ {};
   };
 

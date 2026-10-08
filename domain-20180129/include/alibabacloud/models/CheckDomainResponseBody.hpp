@@ -191,12 +191,31 @@ namespace Models
 
 
   protected:
+    // Indicates whether the domain name can be registered. Valid values:  
+    // - **1**: Registrable.  
+    // - **3**: Pre-registration.  
+    // - **4**: Deletion reservation available.  
+    // - **0**: Not registrable.  
+    // - **-1**: Abnormal.  
+    // - **-2**: Registration paused.  
+    // - **-3**: Blacklisted.
     shared_ptr<string> avail_ {};
+    // The queried domain name.
     shared_ptr<string> domainName_ {};
+    // Indicates whether dynamic pricing is enabled. Valid values:  
+    // - **true**: Yes.  
+    // - **false**: No.
     shared_ptr<bool> dynamicCheck_ {};
+    // Indicates whether the domain name is a premium term. Valid values:  
+    // - **true**: Yes.  
+    // - **false**: No.
     shared_ptr<string> premium_ {};
+    // Registration price for premium domain names.
     shared_ptr<int64_t> price_ {};
+    // The reason for non-registrability returned by the domain name registry.  
+    // > The reason may vary depending on the domain name registry.
     shared_ptr<string> reason_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
     shared_ptr<CheckDomainResponseBody::StaticPriceInfo> staticPriceInfo_ {};
   };

@@ -80,12 +80,29 @@ namespace Models
 
 
   protected:
+    // Specifies whether to use Alibaba Cloud DNS servers. Valid values:
+    // 
+    // - **true**: Yes.
+    // 
+    // - **false**: No.
+    // 
     // This parameter is required.
     shared_ptr<bool> aliyunDns_ {};
+    // The domain names.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainName_ {};
+    // The new DNS servers. This parameter is required if **AliyunDns** is set to **false**.
     shared_ptr<vector<string>> domainNameServer_ {};
+    // The language of API error messages. Valid values:
+    // 
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The user IP address. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

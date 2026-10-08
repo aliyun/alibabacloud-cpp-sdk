@@ -83,8 +83,11 @@ namespace Models
 
 
     protected:
+      // Returned code.
       shared_ptr<string> code_ {};
+      // Email address for verification.
       shared_ptr<string> email_ {};
+      // Returned message.
       shared_ptr<string> message_ {};
     };
 
@@ -135,8 +138,11 @@ namespace Models
 
 
     protected:
+      // The returned code.
       shared_ptr<string> code_ {};
+      // Email address for verification.
       shared_ptr<string> email_ {};
+      // The returned message.
       shared_ptr<string> message_ {};
     };
 
@@ -187,8 +193,11 @@ namespace Models
 
 
     protected:
+      // Returned code.
       shared_ptr<string> code_ {};
+      // Email address for verification.
       shared_ptr<string> email_ {};
+      // Returned message.
       shared_ptr<string> message_ {};
     };
 
@@ -229,9 +238,13 @@ namespace Models
 
 
   protected:
+    // List of emails for which verification messages already exist.
     shared_ptr<vector<SubmitEmailVerificationResponseBody::ExistList>> existList_ {};
+    // List of emails for which verification messages failed to send.
     shared_ptr<vector<SubmitEmailVerificationResponseBody::FailList>> failList_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // List of emails for which verification messages were sent successfully.
     shared_ptr<vector<SubmitEmailVerificationResponseBody::SuccessList>> successList_ {};
   };
 

@@ -57,9 +57,19 @@ namespace Models
 
 
   protected:
+    // The ID of the domain name instance. Call the QueryDomainList API to obtain this ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The language for returned error messages. Valid values:
+    // 
+    // - **zh**: Chinese.
+    // 
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // The user\\"s IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

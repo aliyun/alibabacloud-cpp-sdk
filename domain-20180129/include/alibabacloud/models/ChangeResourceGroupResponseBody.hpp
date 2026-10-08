@@ -48,7 +48,11 @@ namespace Models
 
 
   protected:
+    // The unique ID of this request.
     shared_ptr<string> requestId_ {};
+    // Operation result. Valid values:
+    // - **true**: The operation succeeded.
+    // - **false**: The operation failed.
     shared_ptr<string> result_ {};
   };
 

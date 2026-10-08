@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // A unique ID for the request.
     shared_ptr<string> requestId_ {};
+    // The ID of the asynchronous task.
     shared_ptr<string> taskNo_ {};
   };
 

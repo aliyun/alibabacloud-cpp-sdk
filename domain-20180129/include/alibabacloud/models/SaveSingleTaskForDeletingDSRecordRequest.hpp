@@ -66,11 +66,21 @@ namespace Models
 
 
   protected:
+    // Domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Key tag, used to identify DNSSEC records. It is an integer value less than 65536.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> keyTag_ {};
+    // Language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

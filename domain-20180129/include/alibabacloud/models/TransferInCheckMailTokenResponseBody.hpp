@@ -129,6 +129,7 @@ namespace Models
 
   protected:
     shared_ptr<TransferInCheckMailTokenResponseBody::FailList> failList_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
     shared_ptr<TransferInCheckMailTokenResponseBody::SuccessList> successList_ {};
   };

@@ -374,13 +374,20 @@ namespace Models
 
 
   protected:
+    // The page number of the current domain name list.
     shared_ptr<int32_t> currentPageNum_ {};
     shared_ptr<QueryTransferInListResponseBody::Data> data_ {};
+    // Indicates whether a next page exists.
     shared_ptr<bool> nextPage_ {};
+    // The paging size of the domain name list.
     shared_ptr<int32_t> pageSize_ {};
+    // Indicates whether a previous page exists.
     shared_ptr<bool> prePage_ {};
+    // The unique request access token.
     shared_ptr<string> requestId_ {};
+    // Total number of entries.
     shared_ptr<int32_t> totalItemNum_ {};
+    // The total number of pages.
     shared_ptr<int32_t> totalPageNum_ {};
   };
 

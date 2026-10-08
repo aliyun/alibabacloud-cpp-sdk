@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // The ID of the retrieved information template.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

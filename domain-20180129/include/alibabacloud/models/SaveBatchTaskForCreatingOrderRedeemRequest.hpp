@@ -80,7 +80,9 @@ namespace Models
 
 
     protected:
+      // Current expiration date of the domain name, represented as the number of milliseconds from 00:00 UTC on January 1, 1970, to the domain’s current expiration date.
       shared_ptr<int64_t> currentExpirationDate_ {};
+      // Domain name. If multiple domain names are involved, pass a domain name list. You can obtain the domain name list by using the [QueryDomainList](https://help.aliyun.com/document_detail/67712.html) API.
       shared_ptr<string> domainName_ {};
     };
 
@@ -139,13 +141,31 @@ namespace Models
 
 
   protected:
+    // Coupon number.
     shared_ptr<string> couponNo_ {};
+    // Language of error messages returned by the API. Valid values:  
+    // - **zh**: Chinese;  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // List of job details.
+    // 
     // This parameter is required.
     shared_ptr<vector<SaveBatchTaskForCreatingOrderRedeemRequest::OrderRedeemParam>> orderRedeemParam_ {};
+    // Coupon number.
     shared_ptr<string> promotionNo_ {};
+    // Is coupon used? Valid values:  
+    // 
+    // - **false**: No.  
+    // - **true**: Yes.
     shared_ptr<bool> useCoupon_ {};
+    // Is coupon used? Valid values:  
+    // 
+    // - **false**: No.  
+    // - **true**: Yes.
     shared_ptr<bool> usePromotion_ {};
+    // User IP address. You can set it to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

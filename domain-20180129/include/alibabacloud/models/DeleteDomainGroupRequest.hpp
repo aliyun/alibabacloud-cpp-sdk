@@ -57,9 +57,17 @@ namespace Models
 
 
   protected:
+    // Domain name group ID. You can obtain it by using the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) API.
+    // 
     // This parameter is required.
     shared_ptr<int64_t> domainGroupId_ {};
+    // Language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address. You can set it to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

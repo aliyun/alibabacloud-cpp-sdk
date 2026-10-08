@@ -152,13 +152,26 @@ namespace Models
 
 
       protected:
+        // The business ID.
         shared_ptr<string> bizId_ {};
+        // The creation time.
         shared_ptr<int64_t> createTime_ {};
+        // The domain name.
         shared_ptr<string> domain_ {};
+        // The order type. Valid values:
+        // - 11: international fixed-price.
         shared_ptr<int32_t> orderType_ {};
+        // The price.
         shared_ptr<int64_t> price_ {};
+        // The order status. Valid values:
+        // - 5: Transaction closed.
+        // - 6: Paid.
+        // - 7: Pending production.
+        // - 9: Transaction completed.
         shared_ptr<int32_t> status_ {};
+        // The update time.
         shared_ptr<int64_t> updateTime_ {};
+        // The user ID.
         shared_ptr<string> userId_ {};
       };
 
@@ -202,10 +215,15 @@ namespace Models
 
 
     protected:
+      // The current page number.
       shared_ptr<int32_t> currentPageNum_ {};
+      // The order list data.
       shared_ptr<vector<Module::Data>> data_ {};
+      // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
+      // The total number of entries.
       shared_ptr<int32_t> totalItemNum_ {};
+      // The total number of pages.
       shared_ptr<int32_t> totalPageNum_ {};
     };
 
@@ -228,7 +246,9 @@ namespace Models
 
 
   protected:
+    // The response object.
     shared_ptr<QueryIntlFixedPriceOrderListResponseBody::Module> module_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

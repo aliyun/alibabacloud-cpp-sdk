@@ -103,13 +103,29 @@ namespace Models
 
 
   protected:
+    // The Base64-encoded image of the identity verification documents.
     shared_ptr<string> identityCredential_ {};
+    // The certificate number used for identity verification.
     shared_ptr<string> identityCredentialNo_ {};
+    // The type of certificate used for identity verification. Valid values:  
+    // - **SFZ**: Identity card.  
+    // - **HZ**: Passport.  
+    // - **YYZZ**: Business license.  
+    // - **ORG**: Organization code certificate.  
+    // - **XYDM**: Unified Social Credit Code certificate.  
+    // - **TXZ**: Mainland Travel Permits for Hong Kong and Macao Residents.  
+    // 
+    // > For more certificate types, see [Certificate Types Supported for Identity Verification](https://help.aliyun.com/document_detail/72209.html).
     shared_ptr<string> identityCredentialType_ {};
+    // The download URL of the identity verification image.
     shared_ptr<string> identityCredentialUrl_ {};
+    // The update time of the identity verification documents.
     shared_ptr<string> modificationDate_ {};
+    // The ID of the queried information template.
     shared_ptr<int64_t> registrantProfileId_ {};
+    // The request ID.
     shared_ptr<string> requestId_ {};
+    // The submission time of the identity verification documents.
     shared_ptr<string> submissionDate_ {};
   };
 

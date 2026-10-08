@@ -106,9 +106,9 @@ namespace Models
 
 
     protected:
-      // The key of the tag to add to the resource.
+      // The key of the tag.
       shared_ptr<string> key_ {};
-      // The value of the tag to add to the resource.
+      // The value of the tag.
       shared_ptr<string> value_ {};
     };
 
@@ -261,67 +261,74 @@ namespace Models
 
   protected:
     shared_ptr<bool> autoRenewEnabled_ {};
-    // The name of the domain name registrant.
+    // The name of the domain owner.
     shared_ptr<string> ccompany_ {};
     shared_ptr<string> dns_ {};
-    // The ID of the domain name group.
+    // <props="china">The ID of the domain group. You can obtain this ID by calling the [QueryDomainGroupList](https://help.aliyun.com/document_detail/69362.html) operation.
+    // <props="intl">The ID of the domain group.
     shared_ptr<string> domainGroupId_ {};
-    // The domain name. You can search for the domain name in the domain name list.
+    // The domain name to query.
     shared_ptr<string> domainName_ {};
-    // The end of the time range to query domain names based on expiration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed from January 1, 1970, 00:00:00 UTC to the time you perform the query. Only queries by day are supported.
+    // The end of the expiration date range. The value is a Unix timestamp in milliseconds. Currently, only queries by day are supported.
     shared_ptr<int64_t> endExpirationDate_ {};
-    // The end of the time range to query domain names based on registration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
+    // The end of the registration date range. The value is a Unix timestamp in milliseconds. Currently, only queries by day are supported.
     shared_ptr<int64_t> endRegistrationDate_ {};
-    // The language of the error message to return if the request fails. Valid values:
+    // The language for API error messages. Valid values:
     // 
-    // *   **zh**: Chinese
-    // *   **en**: English
+    // - **zh**: Chinese.
     // 
-    // Default value: **en**.
+    // - **en**: English.
+    // 
+    // The default value is **en**.
     shared_ptr<string> lang_ {};
-    // The order of the information based on which the domain names are sorted, such as the registration date and expiration date. Valid values:
+    // The sort order for the results. Valid values:
     // 
-    // *   **ASC**: ascending order
-    // *   **DESC**: descending order
+    // - **ASC**: Ascending.
     // 
-    // >  If this parameter is not specified, the default value **DESC** is used.
+    // - **DESC**: Descending.
+    // 
+    // > The default value is **DESC**.
     shared_ptr<string> orderByType_ {};
-    // The field that you use to sort the domain names. Valid values:
+    // The field to use for sorting. Valid values:
     // 
-    // *   **RegistrationDate**: registration date
-    // *   **ExpirationDate**: expiration date
+    // - **RegistrationDate**: Sorts by registration date.
     // 
-    // >  If this parameter is not specified, the domain names are sorted by the time when they were added to the database.
+    // - **ExpirationDate**: Sorts by expiration date.
+    // 
+    // > By default, the results are sorted by the time they were added to the system.
     shared_ptr<string> orderKeyType_ {};
-    // The page number.
+    // The page number for the paginated results.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
-    // The number of entries per page.
+    // The number of entries to return on each page.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // The type of the domain name. Valid values:
+    // The domain type. Valid values:
     // 
-    // *   **New gTLD**: new generic top-level domain names
-    // *   **gTLD**: generic top-level domain names
-    // *   **ccTLD**: country code top-level domain names
+    // - **New gTLD**: new generic top-level domain.
+    // 
+    // - **gTLD**: generic top-level domain.
+    // 
+    // - **ccTLD**: country-code top-level domain.
     shared_ptr<string> productDomainType_ {};
-    // The category of the domain names that you want to query. Valid values:
+    // The type of list to return. Valid values:
     // 
-    // *   **1**: the domain names that need to be renewed
-    // *   **2**: the domain names that need to be redeemed
+    // - **1**: Domain names that require urgent renewal.
+    // 
+    // - **2**: Domain names that require urgent redemption.
     shared_ptr<string> queryType_ {};
     shared_ptr<string> registrar_ {};
     // The ID of the resource group.
     shared_ptr<string> resourceGroupId_ {};
-    // The beginning of the time range to query domain names based on expiration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed from January 1, 1970, 00:00:00 UTC to the time you perform the query. Only queries by day are supported.
+    // The start of the expiration date range. The value is a Unix timestamp in milliseconds. Currently, only queries by day are supported.
     shared_ptr<int64_t> startExpirationDate_ {};
-    // The beginning of the time range to query domain names based on registration dates. Set the value to a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC. Only queries by day are supported.
+    // The start of the registration date range. The value is a Unix timestamp in milliseconds. Currently, only queries by day are supported.
     shared_ptr<int64_t> startRegistrationDate_ {};
-    // The tags to add to the resource.
+    // A list of tags.
     shared_ptr<vector<QueryDomainListRequest::Tag>> tag_ {};
-    // The IP address of the client. Set the value to **127.0.0.1**.
+    // The user\\"s client IP address. You can set this parameter to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

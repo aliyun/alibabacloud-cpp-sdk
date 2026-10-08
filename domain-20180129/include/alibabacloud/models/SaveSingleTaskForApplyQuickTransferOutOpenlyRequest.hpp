@@ -57,9 +57,13 @@ namespace Models
 
 
   protected:
+    // The domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // The language of the returned error message. Valid values: zh (Chinese) and en (English). The default is en.
     shared_ptr<string> lang_ {};
+    // The user\\"s client IP.
     shared_ptr<string> userClientIp_ {};
   };
 

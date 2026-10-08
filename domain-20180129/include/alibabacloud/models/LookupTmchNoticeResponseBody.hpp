@@ -757,10 +757,15 @@ namespace Models
 
   protected:
     shared_ptr<LookupTmchNoticeResponseBody::Claims> claims_ {};
+    // The TMCH notification ID.
     shared_ptr<int64_t> id_ {};
+    // The trademark label.
     shared_ptr<string> label_ {};
+    // The end time of the trademark notice.
     shared_ptr<string> notAfter_ {};
+    // The start time of the trademark notice.
     shared_ptr<string> notBefore_ {};
+    // A unique identifier for the request.
     shared_ptr<string> requestId_ {};
   };
 

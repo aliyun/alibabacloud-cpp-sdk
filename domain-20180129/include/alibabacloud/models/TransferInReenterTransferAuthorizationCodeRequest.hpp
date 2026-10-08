@@ -66,11 +66,21 @@ namespace Models
 
 
   protected:
+    // Domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Language of the error message returned by the API. Valid values:
+    // - **zh**: Chinese
+    // - **en**: English
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // Transfer password.
+    // 
     // This parameter is required.
     shared_ptr<string> transferAuthorizationCode_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

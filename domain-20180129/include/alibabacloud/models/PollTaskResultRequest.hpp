@@ -103,15 +103,33 @@ namespace Models
 
 
   protected:
+    // Domain name.
     shared_ptr<string> domainName_ {};
+    // Domain instance ID.
+    // 
+    // The system automatically generates this after the information template is created successfully. You can invoke the [QueryRegistrantProfiles](https://help.aliyun.com/document_detail/67701.html) API to query the information template ID.
     shared_ptr<string> instanceId_ {};
+    // Language of error messages returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value is **en**.
     shared_ptr<string> lang_ {};
+    // Page number.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageNum_ {};
+    // Page size. Maximum value is **1000**.
+    // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
+    // Job number.
     shared_ptr<string> taskNo_ {};
+    // Task result status. Valid values:
+    // - **2**: Succeeded.
+    // - **3**: Failed.
     shared_ptr<int32_t> taskResultStatus_ {};
+    // User IP address. It can be set to **127.0.0.1**.
     shared_ptr<string> userClientIp_ {};
   };
 

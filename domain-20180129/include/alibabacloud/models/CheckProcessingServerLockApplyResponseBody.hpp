@@ -48,7 +48,12 @@ namespace Models
 
 
   protected:
+    // Indicates whether the domain name has a registry lock service request with the **Processing** status at the domain name registry. Valid values:
+    // 
+    // - true: exists
+    // - false: does not exist
     shared_ptr<bool> exists_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
   };
 

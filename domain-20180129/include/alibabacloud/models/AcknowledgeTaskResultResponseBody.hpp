@@ -48,7 +48,9 @@ namespace Models
 
 
   protected:
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
+    // Quantity of successfully confirmed items.
     shared_ptr<int32_t> result_ {};
   };
 

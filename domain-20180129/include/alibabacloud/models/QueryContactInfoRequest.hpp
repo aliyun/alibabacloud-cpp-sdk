@@ -66,11 +66,25 @@ namespace Models
 
 
   protected:
+    // The contact type. Valid values:  
+    // - **registrant**: Domain name registrant.  
+    // - **tech**: Technical contact.  
+    // - **admin**: Administrative contact.  
+    // - **billing**: Billing contact.
+    // 
     // This parameter is required.
     shared_ptr<string> contactType_ {};
+    // Domain name.
+    // 
     // This parameter is required.
     shared_ptr<string> domainName_ {};
+    // Language of error messages returned by the API. Valid values:  
+    // - **zh**: Chinese.  
+    // - **en**: English.  
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

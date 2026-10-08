@@ -193,6 +193,7 @@ namespace Models
 
   protected:
     shared_ptr<QueryDomainAdminDivisionResponseBody::AdminDivisions> adminDivisions_ {};
+    // Unique request access token.
     shared_ptr<string> requestId_ {};
   };
 

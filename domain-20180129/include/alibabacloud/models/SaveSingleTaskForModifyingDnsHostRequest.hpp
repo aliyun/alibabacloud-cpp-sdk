@@ -78,13 +78,25 @@ namespace Models
 
 
   protected:
+    // DNS name.
+    // 
     // This parameter is required.
     shared_ptr<string> dnsName_ {};
+    // Domain instance ID, which can be obtained by invoking the QueryDomainList API.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // List of IP addresses.
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> ip_ {};
+    // Language for error messages returned by the API. Valid values:
+    // - **zh**: Chinese.
+    // - **en**: English.
+    // 
+    // Default value: **en**.
     shared_ptr<string> lang_ {};
+    // User IP address.
     shared_ptr<string> userClientIp_ {};
   };
 

@@ -69,11 +69,17 @@ namespace Models
 
 
   protected:
+    // Domain name list
+    // 
     // This parameter is required.
     shared_ptr<vector<string>> domainName_ {};
+    // Mailbox
+    // 
     // This parameter is required.
     shared_ptr<string> email_ {};
+    // Language of the error message returned by the API. Valid enumeration values: zh (Chinese); en (English). Default value is en.
     shared_ptr<string> lang_ {};
+    // User IP
     shared_ptr<string> userClientIp_ {};
   };
 

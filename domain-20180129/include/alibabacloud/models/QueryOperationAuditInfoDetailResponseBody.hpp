@@ -121,15 +121,32 @@ namespace Models
 
 
   protected:
+    // Review information.
     shared_ptr<string> auditInfo_ {};
+    // Review Status. Valid values:  
+    // - **0**: Pending supplementary information.  
+    // - **1**, **2**, **3**, **4**: Under review.  
+    // - **5**: Review failed.  
+    // - **6**: Review succeeded.  
+    // - **7**: Review canceled.
     shared_ptr<int32_t> auditStatus_ {};
+    // Review Type. Valid value:  
+    // 
+    // **1**: Offline domain name transfer.
     shared_ptr<int32_t> auditType_ {};
+    // Name of the reviewed business.
     shared_ptr<string> businessName_ {};
+    // Record creation time.
     shared_ptr<int64_t> createTime_ {};
+    // Domain name.
     shared_ptr<string> domainName_ {};
+    // Review record ID.
     shared_ptr<string> id_ {};
+    // Review remark.
     shared_ptr<string> remark_ {};
+    // Request ID.
     shared_ptr<string> requestId_ {};
+    // Record update time.
     shared_ptr<int64_t> updateTime_ {};
   };
 
