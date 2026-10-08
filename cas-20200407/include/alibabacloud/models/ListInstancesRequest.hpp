@@ -24,6 +24,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(ServerDeployFlag, serverDeployFlag_);
       DARABONBA_PTR_TO_JSON(ShowSize, showSize_);
       DARABONBA_PTR_TO_JSON(Status, status_);
+      DARABONBA_PTR_TO_JSON(VersionType, versionType_);
     };
     friend void from_json(const Darabonba::Json& j, ListInstancesRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(AutoReissueFlag, autoReissueFlag_);
@@ -37,6 +38,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(ServerDeployFlag, serverDeployFlag_);
       DARABONBA_PTR_FROM_JSON(ShowSize, showSize_);
       DARABONBA_PTR_FROM_JSON(Status, status_);
+      DARABONBA_PTR_FROM_JSON(VersionType, versionType_);
     };
     ListInstancesRequest() = default ;
     ListInstancesRequest(const ListInstancesRequest &) = default ;
@@ -51,7 +53,8 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->autoReissueFlag_ == nullptr
         && this->brand_ == nullptr && this->certificateStatus_ == nullptr && this->certificateType_ == nullptr && this->currentPage_ == nullptr && this->instanceType_ == nullptr
-        && this->keyword_ == nullptr && this->resourceGroupId_ == nullptr && this->serverDeployFlag_ == nullptr && this->showSize_ == nullptr && this->status_ == nullptr; };
+        && this->keyword_ == nullptr && this->resourceGroupId_ == nullptr && this->serverDeployFlag_ == nullptr && this->showSize_ == nullptr && this->status_ == nullptr
+        && this->versionType_ == nullptr; };
     // autoReissueFlag Field Functions 
     bool hasAutoReissueFlag() const { return this->autoReissueFlag_ != nullptr;};
     void deleteAutoReissueFlag() { this->autoReissueFlag_ = nullptr;};
@@ -129,10 +132,15 @@ namespace Models
     inline ListInstancesRequest& setStatus(string status) { DARABONBA_PTR_SET_VALUE(status_, status) };
 
 
+    // versionType Field Functions 
+    bool hasVersionType() const { return this->versionType_ != nullptr;};
+    void deleteVersionType() { this->versionType_ = nullptr;};
+    inline string getVersionType() const { DARABONBA_PTR_GET_DEFAULT(versionType_, "") };
+    inline ListInstancesRequest& setVersionType(string versionType) { DARABONBA_PTR_SET_VALUE(versionType_, versionType) };
+
+
   protected:
-    // Specifies whether the instance is managed. Valid values:
-    // - 1: Managed.
-    // - 0: Not managed.
+    // Specifies whether the instance is managed. Valid values: 1 (managed) and 0 (not managed).
     shared_ptr<int32_t> autoReissueFlag_ {};
     // The CA brand. Valid values: WoSign, CFCA, DigiCert, GeoTrust, GlobalSign, vTrus, and Alibaba.
     shared_ptr<string> brand_ {};
@@ -144,31 +152,31 @@ namespace Models
     shared_ptr<string> certificateStatus_ {};
     // The type of the certificate. Valid values: DV, OV, and EV.
     shared_ptr<string> certificateType_ {};
-    // The page number of the current page in a paged query. Default value: **1**.
+    // The page number of the current page in a paging query. Settings the current page number. Default value: **1**.
     shared_ptr<int32_t> currentPage_ {};
-    // The instance type. Valid values:
-    // - BUY: formal certificate.
-    // - TEST: test certificate.
+    // The instance type. Valid values: BUY (official certificate) and TEST (test certificate).
     shared_ptr<string> instanceType_ {};
     // The keyword for fuzzy search. Matches domain names, instance names, or corresponding resource IDs.
     shared_ptr<string> keyword_ {};
     // The resource group ID.
     shared_ptr<string> resourceGroupId_ {};
     // Specifies whether to return only instances that meet server deployment conditions. Valid values:
-    // - 1: Yes.
-    // - 0: No.
+    // - 1: is.
+    // - 0: no.
     shared_ptr<int32_t> serverDeployFlag_ {};
-    // The number of instances to display per page in a paged query. Default value: **10**. Maximum value: **100**.
+    // The number of instances to display per page in a paging query. Settings the number of instances displayed per page. Default value: **10**. Maximum value: **100**.
     shared_ptr<int32_t> showSize_ {};
     // The instance status. Valid values:
     // - **inactive**: Pending use.
-    // - **pending**: Under review. The latest certificate is being reviewed.
+    // - **pending**: Under review. The latest certificate is being submitted for review.
     // - **willExpire**: The instance is about to expire.
     // - **expired**: The instance has expired.
     // - **refund**: Refunded.
     // - **normal**: Normal.
-    // - **closed**: Closed. The instance is unavailable.
+    // - **closed**: Shutdown and unavailable.
     shared_ptr<string> status_ {};
+    // The version type. Valid values: basic (Basic Edition), standard (Standard Edition), professional (Professional Edition), and ultimate (Ultimate Edition).
+    shared_ptr<string> versionType_ {};
   };
 
   } // namespace Models

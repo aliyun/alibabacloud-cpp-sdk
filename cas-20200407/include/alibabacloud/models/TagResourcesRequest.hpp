@@ -74,7 +74,7 @@ namespace Models
 
 
     protected:
-      // The tag key. Valid values of n: 1 to 20. You can specify up to 20 tag keys. For example: tag.1.key, tag.2.key, ..., tag.20.key.
+      // The tag key. Valid values of n: 1 to 20, which specifies multiple tag keys. A maximum of 20 tag keys are supported. For example: tag.1.key, tag.2.key, ..., tag.20.key.
       shared_ptr<string> key_ {};
       // The tag value. Valid values of n: 1 to 20.
       shared_ptr<string> value_ {};
@@ -115,7 +115,7 @@ namespace Models
 
 
   protected:
-    // The region to which the organization of the certificate owner belongs.
+    // The region of the organization to which the certificate owner belongs.
     // 
     // This parameter is required.
     shared_ptr<string> regionId_ {};
