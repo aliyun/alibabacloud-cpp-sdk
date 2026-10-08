@@ -13,12 +13,14 @@ namespace Models
   class PolarFsMountConfig : public Darabonba::Model {
   public:
     friend void to_json(Darabonba::Json& j, const PolarFsMountConfig& obj) { 
+      DARABONBA_PTR_TO_JSON(extraOptions, extraOptions_);
       DARABONBA_PTR_TO_JSON(instanceId, instanceId_);
       DARABONBA_PTR_TO_JSON(mountDir, mountDir_);
       DARABONBA_PTR_TO_JSON(readOnly, readOnly_);
       DARABONBA_PTR_TO_JSON(remoteDir, remoteDir_);
     };
     friend void from_json(const Darabonba::Json& j, PolarFsMountConfig& obj) { 
+      DARABONBA_PTR_FROM_JSON(extraOptions, extraOptions_);
       DARABONBA_PTR_FROM_JSON(instanceId, instanceId_);
       DARABONBA_PTR_FROM_JSON(mountDir, mountDir_);
       DARABONBA_PTR_FROM_JSON(readOnly, readOnly_);
@@ -35,8 +37,15 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
-    virtual bool empty() const override { return this->instanceId_ == nullptr
-        && this->mountDir_ == nullptr && this->readOnly_ == nullptr && this->remoteDir_ == nullptr; };
+    virtual bool empty() const override { return this->extraOptions_ == nullptr
+        && this->instanceId_ == nullptr && this->mountDir_ == nullptr && this->readOnly_ == nullptr && this->remoteDir_ == nullptr; };
+    // extraOptions Field Functions 
+    bool hasExtraOptions() const { return this->extraOptions_ != nullptr;};
+    void deleteExtraOptions() { this->extraOptions_ = nullptr;};
+    inline string getExtraOptions() const { DARABONBA_PTR_GET_DEFAULT(extraOptions_, "") };
+    inline PolarFsMountConfig& setExtraOptions(string extraOptions) { DARABONBA_PTR_SET_VALUE(extraOptions_, extraOptions) };
+
+
     // instanceId Field Functions 
     bool hasInstanceId() const { return this->instanceId_ != nullptr;};
     void deleteInstanceId() { this->instanceId_ = nullptr;};
@@ -66,6 +75,7 @@ namespace Models
 
 
   protected:
+    shared_ptr<string> extraOptions_ {};
     // The ID of the PolarFS file system instance to mount.
     shared_ptr<string> instanceId_ {};
     // The local mount directory in the function\\"s runtime environment.

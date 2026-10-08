@@ -87,14 +87,17 @@ namespace Models
 
 
   protected:
-    // The ID of the ACR Enterprise Edition image repository instance. Used in pair with MicroSandbox images. This parameter is optional. If not provided, the server resolves it as needed.
+    // The instance ID of the Container Registry (ACR) Enterprise Edition image repository. This parameter is used together with MicroSandbox images. This parameter is optional. If not provided, the server resolves it as needed.
     shared_ptr<string> acrInstanceId_ {};
     // The image address.
     shared_ptr<string> image_ {};
+    // The operating system type.
     shared_ptr<string> osType_ {};
+    // The ready command.
     shared_ptr<string> readyCommand_ {};
     // The image repository configuration.
     shared_ptr<RegistryConfig> registryConfig_ {};
+    // The start command.
     shared_ptr<string> startCommand_ {};
   };
 
