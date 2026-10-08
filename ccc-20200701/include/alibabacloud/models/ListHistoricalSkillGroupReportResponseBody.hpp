@@ -202,11 +202,11 @@ namespace Models
 
 
           protected:
-            // Break type code.
+            // The break type code.
             shared_ptr<string> breakCode_ {};
-            // Number of occurrences of this break type.
+            // The number of occurrences of this break type.
             shared_ptr<int64_t> count_ {};
-            // Total duration of this break type, in seconds.
+            // The total duration of this break type in seconds.
             shared_ptr<int64_t> duration_ {};
           };
 
@@ -380,52 +380,52 @@ namespace Models
 
 
         protected:
-          // Average break duration, in seconds. Calculation Formula: TotalBreakTime / Break Count. Break Count is a non-API statistical field.
+          // The average break time in seconds. Formula: TotalBreakTime/Number of breaks. The number of breaks is not a statistical field returned by the API.
           shared_ptr<float> averageBreakTime_ {};
-          // Average call hold duration, in seconds. Calculation Formula: TotalHoldTime / (Inbound CallsHold + Outbound CallsHold).
+          // The average hold time in seconds. Formula: TotalHoldTime/(Inbound CallsHold + Outbound CallsHold).
           shared_ptr<float> averageHoldTime_ {};
-          // Average ready time, in seconds. Calculation Formula: TotalReadyTime / Count of ready events. The count of ready events is not an API statistics field.
+          // The average ready time in seconds. Formula: TotalReadyTime/Number of ready states. The number of ready states is not a statistical field returned by the API.
           shared_ptr<float> averageReadyTime_ {};
-          // Average talk time, in seconds. Calculation formula: TotalTalkTime / (CallsAnswered + CallsHandled).
+          // The average talk time in seconds. Formula: TotalTalkTime/(CallsAnswered + CallsHandled).
           shared_ptr<float> averageTalkTime_ {};
-          // Average post-processing time, in seconds. Calculation Formula: TotalWorkTime / TotalCalls.
+          // The average after-call work time in seconds. Formula: TotalWorkTime/TotalCalls.
           shared_ptr<float> averageWorkTime_ {};
-          // List of break details.
+          // The list of break details.
           shared_ptr<vector<Overall::BreakCodeDetailList>> breakCodeDetailList_ {};
-          // Maximum break duration, in seconds.
+          // The maximum break time in seconds.
           shared_ptr<int64_t> maxBreakTime_ {};
-          // Maximum call hold duration, in seconds.
+          // The maximum hold time, in seconds.
           shared_ptr<int64_t> maxHoldTime_ {};
-          // Maximum ready time, in seconds.
+          // The maximum ready time in seconds.
           shared_ptr<int64_t> maxReadyTime_ {};
-          // Maximum talk time, in seconds.
+          // The maximum talk time, in seconds.
           shared_ptr<int64_t> maxTalkTime_ {};
-          // Maximum post-processing duration, in seconds.
+          // The maximum after-call work time, in seconds.
           shared_ptr<int64_t> maxWorkTime_ {};
-          // Agent occupancy rate. Calculation formula: (TotalWorkTime + TotalTalkTime) / TotalLoggedInTime.
+          // The agent occupancy rate. Formula: (TotalWorkTime + TotalTalkTime) / TotalLoggedInTime.
           shared_ptr<float> occupancyRate_ {};
-          // Satisfaction index, which is the average value of the satisfaction keypress digits (single-digit numbers).
+          // The satisfaction index, which is the average value of the satisfaction rating digits.
           shared_ptr<float> satisfactionIndex_ {};
-          // Satisfaction rate. Calculation Formula: Number of responses marked as satisfied / Count of satisfaction survey responses.
+          // The satisfaction rate. Calculation formula: Number of satisfied ratings / Number of satisfaction survey responses.
           shared_ptr<float> satisfactionRate_ {};
-          // Sending Count of satisfaction surveys.
+          // The number of satisfaction surveys offered.
           shared_ptr<int64_t> satisfactionSurveysOffered_ {};
-          // Count of satisfaction survey responses.
+          // The number of satisfaction surveys responded to.
           shared_ptr<int64_t> satisfactionSurveysResponded_ {};
-          // Total break time, in seconds.
+          // The total break time in seconds.
           shared_ptr<int64_t> totalBreakTime_ {};
-          // Total call volume. Calculation Formula: CallsOffered + CallsDialed.
+          // The total number of calls. Formula: CallsOffered + CallsDialed.
           shared_ptr<int64_t> totalCalls_ {};
-          // Total hold duration, in seconds.
+          // The total hold time in seconds.
           shared_ptr<int64_t> totalHoldTime_ {};
-          // Total logon time, in seconds.  
-          // _Note: Excludes offline and short break durations._
+          // The total logged-in time in seconds.
+          // _Note: Excludes offline and break time._
           shared_ptr<int64_t> totalLoggedInTime_ {};
-          // Total ready time, in seconds.
+          // The total ready time in seconds.
           shared_ptr<int64_t> totalReadyTime_ {};
-          // Total talk time, in seconds.
+          // The total talk time, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
-          // Total post-processing duration, in seconds.
+          // The total after-call work time, in seconds.
           shared_ptr<int64_t> totalWorkTime_ {};
         };
 
@@ -706,61 +706,61 @@ namespace Models
 
 
         protected:
-          // Answer rate. Calculation Formula: CallsAnswered / CallsDialed. (Because the call answering event and the acknowledgement event may fall into different time ranges, the result may exceed 100% in certain cases.)
+          // The answer rate. Calculation formula: CallsAnswered/CallsDialed. The result may exceed 100% in some cases because answer events and response events may fall into different time ranges.
           shared_ptr<float> answerRate_ {};
-          // Average dial-up duration, in seconds. Calculation Formula: TotalDialingTime / CallsDialed.
+          // The average dialing time in seconds. Formula: TotalDialingTime/CallsDialed.
           shared_ptr<float> averageDialingTime_ {};
-          // Average call hold duration, in seconds. Calculation Formula: TotalHoldTime / CallsHold.
+          // The average hold time, in seconds. Calculation formula: TotalHoldTime/CallsHold.
           shared_ptr<float> averageHoldTime_ {};
-          // Average ring time, in seconds. Calculation Formula: TotalRingTime / CallsRinged.
+          // The average ring time, in seconds. Calculation formula: TotalRingTime/CallsRinged.
           shared_ptr<float> averageRingTime_ {};
-          // Average talk time, in seconds. Calculation Formula: TotalTalkTime / CallsAnswered.
+          // The average talk time in seconds. Formula: TotalTalkTime/CallsAnswered.
           shared_ptr<float> averageTalkTime_ {};
-          // Average post-processing duration per call, in seconds. Calculation Formula: TotalWorkTime / CallsDialed
+          // The average after-call work time in seconds. Formula: TotalWorkTime/CallsDialed.
           shared_ptr<float> averageWorkTime_ {};
-          // Number of answered calls.
+          // The number of answered calls.
           shared_ptr<int64_t> callsAnswered_ {};
-          // Transfer-in volume for consultation, which refers to the number of calls transferred to this skill group from other skill groups for consultation. Transfers between agents within the same skill group are not counted. If an agent joins multiple skill groups simultaneously, the call is attributed to the first skill group the agent signed into. If a single call is transferred multiple times from other skill groups to this skill group, each transfer is counted separately. The same rule applies below.
+          // The number of attended transfers in, which refers to the number of calls transferred to this skill group from other skill groups through attended transfers. Transfers between agents within the same skill group are not counted. If an agent is signed in to multiple skill groups at the same time, the call is attributed to the first skill group the agent signed in to. If a call is transferred to this skill group multiple times from other skill groups, each transfer is counted as one. The same rule applies to similar metrics below.
           shared_ptr<int64_t> callsAttendedTransferIn_ {};
-          // Quantity of attended transfer-out calls, which refers to the number of calls transferred from this skill group to another skill group for consultation. Transfers between agents within the same skill group are not counted.
+          // The number of attended transfers out, which refers to the number of calls transferred from this skill group to other skill groups through attended transfers. Transfers between agents within the same skill group are not counted.
           shared_ptr<int64_t> callsAttendedTransferOut_ {};
-          // Quantity of direct transfer-in calls, which refers to the number of calls directly transferred to this skill group from other skill groups. Transfers between agents within the same skill group are not counted. If an agent is signed into multiple skill groups simultaneously, the call is attributed to the first skill group the agent signed into. If a single call is transferred multiple times from other skill groups to this skill group, each transfer is counted separately. The same rule applies below.
+          // The number of blind transfers in, which refers to the number of calls transferred to this skill group from other skill groups through blind transfers. Transfers between agents within the same skill group are not counted. If an agent is signed in to multiple skill groups at the same time, the call is attributed to the first skill group the agent signed in to. If a call is transferred to this skill group multiple times from other skill groups, each transfer is counted as one. The same rule applies to similar metrics below.
           shared_ptr<int64_t> callsBlindTransferIn_ {};
-          // Quantity of direct transfer-out calls, which refers to the number of calls directly transferred from this skill group to other skill groups. Transfers between agents within the same skill group are not counted.
+          // The number of blind transfers out, which refers to the number of calls transferred from this skill group to other skill groups through blind transfers. Transfers between agents within the same skill group are not counted.
           shared_ptr<int64_t> callsBlindTransferOut_ {};
-          // Number of dialed calls.
+          // The number of dialed calls.
           shared_ptr<int64_t> callsDialed_ {};
-          // Number of calls placed on hold. If a call is placed on hold multiple times before being transfer-out from the current skill group, it counts as one occurrence.
+          // The number of calls placed on hold. If a call is placed on hold multiple times before being transferred out of the current skill group, it is counted as one.
           shared_ptr<int64_t> callsHold_ {};
-          // Number of calls that rang to agents. Each time a call enters the queue and is assigned to multiple agents, resulting in ringing, it counts as one occurrence.
+          // The number of ringing calls, which refers to the number of calls that trigger agent ringing. If a call is assigned to multiple agents and triggers ringing after entering the queue each time, it is counted as one.
           shared_ptr<int64_t> callsRinged_ {};
-          // Maximum dialing time, in seconds.
+          // The maximum dialing time in seconds.
           shared_ptr<int64_t> maxDialingTime_ {};
-          // Maximum hold time during calls, in seconds.
+          // The maximum hold time, in seconds.
           shared_ptr<int64_t> maxHoldTime_ {};
-          // Maximum ring duration, in seconds.
+          // The maximum ring time, in seconds.
           shared_ptr<int64_t> maxRingTime_ {};
-          // Maximum talk time, in seconds.
+          // The maximum talk time, in seconds.
           shared_ptr<int64_t> maxTalkTime_ {};
-          // Maximum post-processing duration per call, in seconds.
+          // The maximum after-call work time, in seconds.
           shared_ptr<int64_t> maxWorkTime_ {};
-          // Satisfaction index, which is the average value of the single-digit satisfaction key presses.
+          // The satisfaction index, which is the average value of the satisfaction rating digits.
           shared_ptr<float> satisfactionIndex_ {};
-          // Satisfaction rate. Calculation Formula: Quantity of evaluations marked as satisfied divided by the Count of satisfaction survey responses.
+          // The satisfaction rate. Calculation formula: Number of satisfied ratings / Number of satisfaction survey responses.
           shared_ptr<float> satisfactionRate_ {};
-          // Sending Count of satisfaction surveys.
+          // The number of satisfaction surveys offered.
           shared_ptr<int64_t> satisfactionSurveysOffered_ {};
-          // Response Count of satisfaction surveys.
+          // The number of satisfaction surveys responded to.
           shared_ptr<int64_t> satisfactionSurveysResponded_ {};
-          // Total dial-up duration, in seconds.
+          // The total dialing time in seconds.
           shared_ptr<int64_t> totalDialingTime_ {};
-          // Total call hold duration, in seconds.
+          // The total hold time, in seconds.
           shared_ptr<int64_t> totalHoldTime_ {};
-          // Total ring duration, in seconds.
+          // The total ring time, in seconds.
           shared_ptr<int64_t> totalRingTime_ {};
-          // Total talk time, in seconds.
+          // The total talk time, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
-          // Total post-processing duration, in seconds.
+          // The total after-call work time, in seconds.
           shared_ptr<int64_t> totalWorkTime_ {};
         };
 
@@ -931,9 +931,9 @@ namespace Models
 
 
           protected:
-            // Channel Type.
+            // The channel type.
             shared_ptr<string> accessChannelType_ {};
-            // Quantity of assigned sessions.
+            // The number of offered sessions.
             shared_ptr<int64_t> callsOffered_ {};
           };
 
@@ -1344,117 +1344,117 @@ namespace Models
 
 
         protected:
-          // Abandon rate. Calculation Formula: CallsAbandoned / CallsOffered (Because abandonment events and assignment events may fall into different time ranges, the result may exceed 100% in certain cases).
+          // The abandon rate. Calculation formula: CallsAbandoned/CallsOffered. The result may exceed 100% in some cases because abandon events and allocation events may fall into different time ranges.
           shared_ptr<float> abandonRate_ {};
-          // Statistics for each channel.
+          // The statistical data for each channel.
           shared_ptr<vector<Inbound::AccessChannelTypeDetails>> accessChannelTypeDetails_ {};
-          // Average abandonment duration, in seconds. Calculation Formula: TotalAbandonTime / CallsAbandoned.
+          // The average abandon time, in seconds. Calculation formula: TotalAbandonTime/CallsAbandoned.
           shared_ptr<float> averageAbandonTime_ {};
-          // Average queue abandonment duration, in seconds. Calculation Formula: TotalAbandonedInQueueTime / CallsAbandonedInQueue.
+          // The average abandon time in queue, in seconds. Calculation formula: TotalAbandonedInQueueTime/CallsAbandonedInQueue.
           shared_ptr<float> averageAbandonedInQueueTime_ {};
-          // Average ringing abandonment duration, in seconds. Calculation Formula: TotalAbandonedInRingTime / CallsAbandonedInRing.
+          // The average abandon time during ringing, in seconds. Calculation formula: TotalAbandonedInRingTime/CallsAbandonedInRing.
           shared_ptr<float> averageAbandonedInRingTime_ {};
-          // Average first response time for chat sessions, in seconds.
+          // The average first response time for chat sessions, in seconds.
           shared_ptr<float> averageFirstResponseTime_ {};
-          // Average call hold duration, in seconds. Calculation Formula: TotalHoldTime / CallsHold.
+          // The average hold time, in seconds. Calculation formula: TotalHoldTime/CallsHold.
           shared_ptr<float> averageHoldTime_ {};
-          // Average response time for chat sessions.
+          // The average response time for chat sessions.
           shared_ptr<float> averageResponseTime_ {};
-          // Average ring time, in seconds. Calculation Formula: TotalRingTime / CallsRinged.
+          // The average ring time, in seconds. Calculation formula: TotalRingTime/CallsRinged.
           shared_ptr<float> averageRingTime_ {};
-          // Average talk time, in seconds. Calculation Formula: TotalTalkTime / CallsHandled.
+          // The average talk time, in seconds. Calculation formula: TotalTalkTime/CallsHandled.
           shared_ptr<float> averageTalkTime_ {};
-          // Average wait time, which is the average duration a caller waits before an agent answers the call. Calculation Formula: TotalWaitTime / CallsHandled.
+          // The average wait time, which is the average time a caller waits before an agent answers the call. Calculation formula: TotalWaitTime/CallsHandled.
           shared_ptr<float> averageWaitTime_ {};
-          // Average post-processing duration, in seconds. Calculation Formula: TotalWorkTime / CallsHandled.
+          // The average after-call work time, in seconds. Calculation formula: TotalWorkTime/CallsHandled.
           shared_ptr<float> averageWorkTime_ {};
-          // Quantity of abandoned calls. Calculation Formula: CallsAbandonedInQueue + CallsAbandonedInRing.
+          // The number of abandoned calls. Calculation formula: CallsAbandonedInQueue + CallsAbandonedInRing.
           shared_ptr<int64_t> callsAbandoned_ {};
-          // Number of calls abandoned in queue, which refers to the number of calls where the customer hung up after entering the queue but before being answered.
+          // The number of calls abandoned in queue, which refers to the number of calls hung up by customers while waiting in the queue after entering it.
           shared_ptr<int64_t> callsAbandonedInQueue_ {};
-          // Ring abandonment count, which is the number of calls where the customer hung up while the agent\\"s phone was ringing.
+          // The number of calls abandoned during ringing, which refers to the number of calls hung up by customers while the agent is ringing.
           shared_ptr<int64_t> callsAbandonedInRing_ {};
-          // Transfer-in volume, which refers to the number of calls transferred to this skill group from other skill groups. Transfers between agents within the same skill group are not counted. If an agent is signed into multiple skill groups simultaneously, the call is attributed to the first skill group the agent signed into. If a single call is transferred multiple times from other skill groups to this skill group, each transfer is counted separately. The same rule applies below.
+          // The number of attended transfers in, which refers to the number of calls transferred to this skill group from other skill groups through attended transfers. Transfers between agents within the same skill group are not counted. If an agent is signed in to multiple skill groups at the same time, the call is attributed to the first skill group the agent signed in to. If a call is transferred to this skill group multiple times from other skill groups, each transfer is counted as one. The same rule applies to similar metrics below.
           shared_ptr<int64_t> callsAttendedTransferIn_ {};
-          // Quantity of attended transfer-out calls, which refers to the number of calls transferred from this skill group to another skill group via consultation. Transfers between agents within the same skill group are not counted.
+          // The number of attended transfers out, which refers to the number of calls transferred from this skill group to other skill groups through attended transfers. Transfers between agents within the same skill group are not counted.
           shared_ptr<int64_t> callsAttendedTransferOut_ {};
-          // Number of blind transfer-in calls, which refers to the number of calls directly transferred to this skill group from other skill groups. Transfers between agents within the same skill group are not counted. If an agent is signed into multiple skill groups simultaneously, the call is attributed to the first skill group the agent signed into. If a single call is transferred multiple times from other skill groups to this skill group, each transfer is counted separately. The same rule applies below.
+          // The number of blind transfers in, which refers to the number of calls transferred to this skill group from other skill groups through blind transfers. Transfers between agents within the same skill group are not counted. If an agent is signed in to multiple skill groups at the same time, the call is attributed to the first skill group the agent signed in to. If a call is transferred to this skill group multiple times from other skill groups, each transfer is counted as one. The same rule applies to similar metrics below.
           shared_ptr<int64_t> callsBlindTransferIn_ {};
-          // Number of blind transfer-out calls, which refers to the number of calls directly transferred from this skill group to another skill group. Transfers between agents within the same skill group are not counted.
+          // The number of blind transfers out, which refers to the number of calls transferred from this skill group to other skill groups through blind transfers. Transfers between agents within the same skill group are not counted.
           shared_ptr<int64_t> callsBlindTransferOut_ {};
-          // Acknowledgement count, which is the number of times agents answered calls. For a single call that enters a queue multiple times, if it is answered by multiple agents after one queue entry, it is counted as one.
+          // The number of handled calls, which refers to the number of times agents answer calls. If a call is answered by multiple agents after entering the queue each time, it is counted as one.
           shared_ptr<int64_t> callsHandled_ {};
-          // Hold count, which is the number of times calls were placed on hold. Each time a call enters the queue and experiences multiple holds, it counts as one.
+          // The number of held calls, which refers to the number of times calls are put on hold. If a call is put on hold multiple times after entering the queue each time, it is counted as one.
           shared_ptr<int64_t> callsHold_ {};
-          // Assigned call volume, which is the number of calls assigned to this skill group, including calls assigned through queues and calls assigned via transfers (consultation transfers and direct transfers). Calculation Formula: CallsQueued + CallsBlindTransferIn + CallsAttendedTransferIn.
+          // The number of offered calls, which refers to the number of calls assigned to this skill group, including calls assigned through queues and calls assigned through transfers (attended transfers and blind transfers). Calculation formula: CallsQueued + CallsBlindTransferIn + CallsAttendedTransferIn.
           shared_ptr<int64_t> callsOffered_ {};
-          // Overflow count, which is the number of calls that experienced queue (skill group) overflow. If a single call enters the same queue multiple times, each overflow is counted separately.
+          // The number of overflowed calls, which refers to the number of calls that overflow from the queue or skill group. If a call enters the same queue multiple times and overflows each time, each overflow is counted as one.
           shared_ptr<int64_t> callsOverflow_ {};
-          // Number of inbound calls entering a queue (skill group). If a single call enters the same queue multiple times, each entry is counted separately.
+          // The number of queued calls in inbound scenarios, which refers to the number of calls that enter the queue or skill group. If a call enters the same queue multiple times, each entry is counted as one.
           shared_ptr<int64_t> callsQueued_ {};
-          // Queue Failure Quantity, which is the number of calls where the customer hung up after entering the queue but before being answered.
+          // The number of failed queue calls, which refers to the number of calls hung up by customers while waiting in the queue after entering it.
           shared_ptr<int64_t> callsQueuingFailed_ {};
-          // Quantity of calls that overflowed from the queue. Queue overflow refers to calls that overflow while queuing in IVR.
+          // The number of calls that overflow from the queue, which refers to calls that overflow while waiting in the IVR queue.
           shared_ptr<int64_t> callsQueuingOverflow_ {};
-          // Number of calls that timed out during the queuing phase.
+          // The number of calls that time out during the queuing phase.
           shared_ptr<int64_t> callsQueuingTimeout_ {};
-          // Number of calls that rang to agents. Each time a call enters the queue and is assigned to multiple agents, resulting in ringing, it counts as one.
+          // The number of ringing calls, which refers to the number of calls that trigger agent ringing. If a call is assigned to multiple agents and triggers ringing after entering the queue each time, it is counted as one.
           shared_ptr<int64_t> callsRinged_ {};
-          // Timeout count, which is the number of calls that experienced queue (skill group) timeout. If a single call enters the same queue multiple times, each timeout is counted separately.
+          // The number of timed-out calls, which refers to the number of calls that time out in the queue or skill group. If a call enters the same queue multiple times and times out each time, each timeout is counted as one.
           shared_ptr<int64_t> callsTimeout_ {};
-          // Acknowledgement rate. Calculation Formula: CallsHandled / CallsOffered (because acknowledgement events and assign events may fall into different time ranges, the result may exceed 100% in certain cases).
+          // The handle rate. Calculation formula: CallsHandled/CallsOffered. The result may exceed 100% in some cases because handle events and offer events may fall into different time ranges.
           shared_ptr<float> handleRate_ {};
-          // Maximum abandonment duration, in seconds.
+          // The maximum abandon time, in seconds.
           shared_ptr<int64_t> maxAbandonTime_ {};
-          // Maximum queue abandonment duration, in seconds.
+          // The maximum abandon time in queue, in seconds.
           shared_ptr<int64_t> maxAbandonedInQueueTime_ {};
-          // Maximum ring abandonment duration, in seconds.
+          // The maximum abandon time during ringing, in seconds.
           shared_ptr<int64_t> maxAbandonedInRingTime_ {};
-          // Maximum call hold time, in seconds.
+          // The maximum hold time, in seconds.
           shared_ptr<int64_t> maxHoldTime_ {};
-          // Maximum ring duration, in seconds.
+          // The maximum ring time, in seconds.
           shared_ptr<int64_t> maxRingTime_ {};
-          // Maximum talk duration, in seconds.
+          // The maximum talk time, in seconds.
           shared_ptr<int64_t> maxTalkTime_ {};
-          // Maximum wait time, in seconds.
+          // The maximum wait time, in seconds.
           shared_ptr<int64_t> maxWaitTime_ {};
-          // Maximum post-processing duration, in seconds.
+          // The maximum after-call work time, in seconds.
           shared_ptr<int64_t> maxWorkTime_ {};
-          // Satisfaction index, which is the average of the satisfaction keypress digits (single-digit numbers).
+          // The satisfaction index, which is the average value of the satisfaction rating digits.
           shared_ptr<float> satisfactionIndex_ {};
-          // Satisfaction rate. Calculation Formula: Count of evaluations marked as satisfied / Count of satisfaction survey responses.
+          // The satisfaction rate. Calculation formula: Number of satisfied ratings / Number of satisfaction survey responses.
           shared_ptr<float> satisfactionRate_ {};
-          // Sending Count of satisfaction surveys.
+          // The number of satisfaction surveys offered.
           shared_ptr<int64_t> satisfactionSurveysOffered_ {};
-          // Count of satisfaction survey responses.
+          // The number of satisfaction surveys responded to.
           shared_ptr<int64_t> satisfactionSurveysResponded_ {};
-          // Service level within 15 seconds.
+          // The 15-second service level.
           shared_ptr<float> serviceLevel15_ {};
-          // Service level within 20 seconds: number of calls with wait time less than or equal to 20 seconds divided by CallsQueued.
+          // The 20-second service level. Calculation formula: Number of calls with a wait time of less than or equal to 20 seconds / CallsQueued.
           shared_ptr<float> serviceLevel20_ {};
-          // Service level within 30 seconds.
+          // The 30-second service level.
           shared_ptr<float> serviceLevel30_ {};
-          // Total abandonment duration, in seconds.
+          // The total abandon time, in seconds.
           shared_ptr<int64_t> totalAbandonTime_ {};
-          // Total queue abandonment duration, in seconds.
+          // The total abandon time in queue, in seconds.
           shared_ptr<int64_t> totalAbandonedInQueueTime_ {};
-          // Total ring abandonment duration, in seconds.
+          // The total abandon time during ringing, in seconds.
           shared_ptr<int64_t> totalAbandonedInRingTime_ {};
-          // Total call hold duration, in seconds.
+          // The total hold time, in seconds.
           shared_ptr<int64_t> totalHoldTime_ {};
-          // Total number of messages sent in chat sessions.
+          // The total number of messages sent in chat sessions.
           shared_ptr<int64_t> totalMessagesSent_ {};
-          // Total number of messages sent by agents in chat sessions.
+          // The total number of messages sent by agents in chat sessions.
           shared_ptr<int64_t> totalMessagesSentByAgent_ {};
-          // Total number of messages sent by the customer in chat sessions.
+          // The total number of messages sent by customers in chat sessions.
           shared_ptr<int64_t> totalMessagesSentByCustomer_ {};
-          // Total ringing duration, in seconds.
+          // The total ring time, in seconds.
           shared_ptr<int64_t> totalRingTime_ {};
-          // Total talk time, in seconds.
+          // The total talk time, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
-          // Total waiting duration, in seconds.
+          // The total wait time, in seconds.
           shared_ptr<int64_t> totalWaitTime_ {};
-          // Total post-processing time, in seconds.
+          // The total after-call work time, in seconds.
           shared_ptr<int64_t> totalWorkTime_ {};
         };
 
@@ -1615,35 +1615,35 @@ namespace Models
 
 
         protected:
-          // Agent acknowledgement rate.
+          // The agent answer rate.
           shared_ptr<float> agentHandleRate_ {};
-          // Answer rate. Calculation Formula: CallsAnswered / CallsDialed. (Because acknowledgement events and answer events may fall into different time ranges, the result may exceed 100% in certain cases.)
+          // The answer rate. Calculation formula: CallsAnswered/CallsDialed. The result may exceed 100% in some cases because answer events and response events may fall into different time ranges.
           shared_ptr<float> answerRate_ {};
-          // Average customer-side ring time, in seconds.
+          // The average ring time on the customer side, in seconds.
           shared_ptr<float> averageCustomerRingTime_ {};
-          // Average ring time, in seconds.
+          // The average ring time, in seconds.
           shared_ptr<float> averageRingTime_ {};
-          // Average talk time, in seconds.
+          // The average talk time, in seconds.
           shared_ptr<float> averageTalkTime_ {};
-          // Number of answered calls.
+          // The number of answered calls.
           shared_ptr<int64_t> callsAnswered_ {};
-          // Number of calls answered by the customer.
+          // The number of calls answered by customers.
           shared_ptr<int64_t> callsCustomerAnswered_ {};
-          // Number of dial-up calls.
+          // The number of dialed calls.
           shared_ptr<int64_t> callsDialed_ {};
-          // Customer answer rate.
+          // The customer answer rate.
           shared_ptr<float> customerAnswerRate_ {};
-          // Maximum Customer-side ring time, in seconds.
+          // The maximum ring time on the customer side, in seconds.
           shared_ptr<int64_t> maxCustomerRingTime_ {};
-          // Maximum ring time, in seconds.
+          // The maximum ring time, in seconds.
           shared_ptr<int64_t> maxRingTime_ {};
-          // Maximum talk time, in seconds.
+          // The maximum talk time, in seconds.
           shared_ptr<int64_t> maxTalkTime_ {};
-          // Total Customer-side ring time, in seconds.
+          // The total ring time on the customer side, in seconds.
           shared_ptr<int64_t> totalCustomerRingTime_ {};
-          // Total ring time, in seconds.
+          // The total ring time, in seconds.
           shared_ptr<int64_t> totalRingTime_ {};
-          // Total talk time, in seconds.
+          // The total talk time, in seconds.
           shared_ptr<int64_t> totalTalkTime_ {};
         };
 
@@ -1700,17 +1700,17 @@ namespace Models
 
 
       protected:
-        // Back-to-back metric.
+        // The back-to-back call metrics.
         shared_ptr<List::Back2Back> back2Back_ {};
-        // Inbound metrics.
+        // The inbound call metrics.
         shared_ptr<List::Inbound> inbound_ {};
-        // Outbound metrics.
+        // The outbound metrics.
         shared_ptr<List::Outbound> outbound_ {};
-        // Overall metrics.
+        // The overall metrics.
         shared_ptr<List::Overall> overall_ {};
-        // Skill group ID.
+        // The skill group ID.
         shared_ptr<string> skillGroupId_ {};
-        // Skill group name.
+        // The skill group name.
         shared_ptr<string> skillGroupName_ {};
       };
 
@@ -1747,13 +1747,13 @@ namespace Models
 
 
     protected:
-      // List of historical data for skill groups.
+      // The list of historical data for the skill group.
       shared_ptr<vector<Data::List>> list_ {};
-      // Page number, ranging from 1 to 100.
+      // The page number. Valid values: 1 to 100.
       shared_ptr<int32_t> pageNumber_ {};
-      // Page size, ranging from 1 to 100.
+      // The number of entries per page. Valid values: 1 to 100.
       shared_ptr<int32_t> pageSize_ {};
-      // Total count.
+      // The total count.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -1797,15 +1797,15 @@ namespace Models
 
 
   protected:
-    // Response code.
+    // The response code.
     shared_ptr<string> code_ {};
-    // Data.
+    // The data.
     shared_ptr<ListHistoricalSkillGroupReportResponseBody::Data> data_ {};
-    // HTTP status code.
+    // The HTTP status code.
     shared_ptr<int32_t> httpStatusCode_ {};
-    // Response message.
+    // The response message.
     shared_ptr<string> message_ {};
-    // Request ID.
+    // The request ID.
     shared_ptr<string> requestId_ {};
   };
 

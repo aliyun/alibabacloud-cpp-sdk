@@ -48,8 +48,11 @@ namespace Models
 
 
   protected:
+    // The instance ID.
+    // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
+    // The 13-digit timestamp. If this parameter is not specified, the current time is used by default.
     shared_ptr<int64_t> time_ {};
   };
 

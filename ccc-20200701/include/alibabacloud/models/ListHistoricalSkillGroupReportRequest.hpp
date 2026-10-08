@@ -20,6 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
       DARABONBA_PTR_TO_JSON(SkillGroupIdList, skillGroupIdList_);
       DARABONBA_PTR_TO_JSON(StartTime, startTime_);
+      DARABONBA_PTR_TO_JSON(SummarizeByInstanceId, summarizeByInstanceId_);
     };
     friend void from_json(const Darabonba::Json& j, ListHistoricalSkillGroupReportRequest& obj) { 
       DARABONBA_PTR_FROM_JSON(EndTime, endTime_);
@@ -29,6 +30,7 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
       DARABONBA_PTR_FROM_JSON(SkillGroupIdList, skillGroupIdList_);
       DARABONBA_PTR_FROM_JSON(StartTime, startTime_);
+      DARABONBA_PTR_FROM_JSON(SummarizeByInstanceId, summarizeByInstanceId_);
     };
     ListHistoricalSkillGroupReportRequest() = default ;
     ListHistoricalSkillGroupReportRequest(const ListHistoricalSkillGroupReportRequest &) = default ;
@@ -43,7 +45,7 @@ namespace Models
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->endTime_ == nullptr
         && this->instanceId_ == nullptr && this->mediaType_ == nullptr && this->pageNumber_ == nullptr && this->pageSize_ == nullptr && this->skillGroupIdList_ == nullptr
-        && this->startTime_ == nullptr; };
+        && this->startTime_ == nullptr && this->summarizeByInstanceId_ == nullptr; };
     // endTime Field Functions 
     bool hasEndTime() const { return this->endTime_ != nullptr;};
     void deleteEndTime() { this->endTime_ = nullptr;};
@@ -93,27 +95,36 @@ namespace Models
     inline ListHistoricalSkillGroupReportRequest& setStartTime(int64_t startTime) { DARABONBA_PTR_SET_VALUE(startTime_, startTime) };
 
 
+    // summarizeByInstanceId Field Functions 
+    bool hasSummarizeByInstanceId() const { return this->summarizeByInstanceId_ != nullptr;};
+    void deleteSummarizeByInstanceId() { this->summarizeByInstanceId_ = nullptr;};
+    inline bool getSummarizeByInstanceId() const { DARABONBA_PTR_GET_DEFAULT(summarizeByInstanceId_, false) };
+    inline ListHistoricalSkillGroupReportRequest& setSummarizeByInstanceId(bool summarizeByInstanceId) { DARABONBA_PTR_SET_VALUE(summarizeByInstanceId_, summarizeByInstanceId) };
+
+
   protected:
-    // End time of the historical data to retrieve, formatted as a UNIX timestamp in milliseconds. This parameter is optional. The default value is the current time. The time precision for statistics is hourly, rounded down to the previous hour, and uses an open interval. For example, if the start time is 11:12:20 and the end time is 11:45:50, the aligned input time range becomes [11:00:00, 12:00:00), meaning greater than or equal to 11:00:00 and less than 12:00:00.
+    // The end time of the historical data to retrieve. Specify a UNIX timestamp in milliseconds. This parameter is optional. Default value: the current time. The statistical time precision is in hours. The end time is rounded up to the nearest hour, and the interval is open. For example, if the start time is 11:12:20 and the end time is 11:45:50, the aligned time range is [11:00:00, 12:00:00), which means greater than or equal to 11:00:00 and less than 12:00:00.
     shared_ptr<int64_t> endTime_ {};
-    // Instance ID.
+    // The instance ID.
     // 
     // This parameter is required.
     shared_ptr<string> instanceId_ {};
-    // Media type. The default value is Audio. Other valid values include Chat and Video.
+    // The media type. Default value: Audio. Valid values: Audio, Chat, and Video.
     shared_ptr<string> mediaType_ {};
-    // Page number, ranging from 1 to 100.
+    // The page number. Valid values: 1 to 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageNumber_ {};
-    // Page size, ranging from 1 to 100.
+    // The number of entries per page. Valid values: 1 to 100.
     // 
     // This parameter is required.
     shared_ptr<int32_t> pageSize_ {};
-    // List of skill group IDs to query, provided as a JSON array string. Each array element is a skill group ID. This parameter is optional. The default value is empty, which means all skill groups in the current page are queried.
+    // The list of skill group IDs to query. The value is a character string in the JSON array format, where each array element is a skill group ID. This parameter is optional. Default value: empty. An empty value indicates that all skill groups in the current paging are queried.
     shared_ptr<string> skillGroupIdList_ {};
-    // Start time of the historical data to retrieve, formatted as a UNIX timestamp in milliseconds. This parameter is optional. The default value is 00:00:00 of the current day. The earliest allowed value is 180 days before the current time. The time precision for statistics is hourly, rounded down to the previous hour, and uses a closed interval.
+    // The start time of the historical data to retrieve. Specify a UNIX timestamp in milliseconds. This parameter is optional. Default value: 00:00:00 on the current day. The earliest allowed time is 180 days before the current time. The statistical time precision is in hours. The start time is rounded down to the nearest hour, and the interval is closed.
     shared_ptr<int64_t> startTime_ {};
+    // Specifies whether to aggregate data by instance ID.
+    shared_ptr<bool> summarizeByInstanceId_ {};
   };
 
   } // namespace Models
