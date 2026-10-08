@@ -318,10 +318,20 @@ namespace Models
 
         protected:
           // The mode for generating instances.
+          // 
+          // 
+          // 
+          // 
+          // Valid values: T+1 and Immediately.
           shared_ptr<string> instanceMode_ {};
           // The retry time interval, in milliseconds.
           shared_ptr<int32_t> rerunInterval_ {};
           // The mode that specifies whether reruns are allowed.
+          // 
+          // 
+          // 
+          // 
+          // Valid values: Allowed, Denied, and FailureAllowed.
           shared_ptr<string> rerunMode_ {};
           // The number of retries.
           shared_ptr<int32_t> rerunTimes_ {};
@@ -1213,29 +1223,44 @@ namespace Models
 
 
       protected:
-        // The timestamp when the data development node was created.
+        // The timestamp when the Data Studio node was created.
         shared_ptr<int64_t> createTime_ {};
         // The data source.
         shared_ptr<Nodes::DataSource> dataSource_ {};
         // The node description.
         shared_ptr<string> description_ {};
-        // The unique identifier of the data development node.
+        // The unique identifier of the Data Studio node.
         // 
-        // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you must manually correct the data type.
+        // 
+        // 
+        // 
+        // > &lt;notice&gt;This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage, and the parameter is still returned in the type defined in the SDK**. Only when upgrading across SDK version 8.0.0, the type change may cause project compilation failures, and you must manually correct the data type.&gt;&lt;/notice&gt;
         shared_ptr<string> id_ {};
         // The node inputs.
         shared_ptr<Nodes::Inputs> inputs_ {};
-        // The timestamp when the data development node was last modified.
+        // The timestamp when the Data Studio node was last modified.
         shared_ptr<int64_t> modifyTime_ {};
         // The node name.
         shared_ptr<string> name_ {};
         // The node outputs.
         shared_ptr<Nodes::Outputs> outputs_ {};
-        // The owner of the data development node.
+        // The owner of the Data Studio node.
         shared_ptr<string> owner_ {};
         // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to view the ID.
         shared_ptr<int64_t> projectId_ {};
         // The scheduling type.
+        // 
+        // 
+        // 
+        // 
+        // Valid values:
+        // 
+        // 
+        // 
+        // 
+        // - Normal: The task is executed normally.
+        // - Pause: The node is paused and blocks downstream nodes that depend on it.
+        // - Skip: The node performs a dry run. The system immediately returns success with a run duration of 0 seconds, does not block downstream nodes, and does not consume resources.
         shared_ptr<string> recurrence_ {};
         // The resource group information.
         shared_ptr<Nodes::RuntimeResource> runtimeResource_ {};
@@ -1284,7 +1309,7 @@ namespace Models
 
 
     protected:
-      // The list of data development nodes.
+      // The list of Data Studio nodes.
       shared_ptr<vector<PagingInfo::Nodes>> nodes_ {};
       // The page number for pagination.
       shared_ptr<string> pageNumber_ {};

@@ -556,7 +556,7 @@ namespace Models
       shared_ptr<int64_t> projectId_ {};
       // The resource group used during the running of the data quality monitor.
       shared_ptr<DataQualityScan::RuntimeResource> runtimeResource_ {};
-      // Spec code for the content of the data quality monitoring.
+      // Spec code for the content of the data quality monitoring. For more information, see [Data quality Spec configuration description](https://help.aliyun.com/document_detail/2963394.html).
       shared_ptr<string> spec_ {};
       // The trigger configurations of the data quality monitoring task.
       shared_ptr<DataQualityScan::Trigger> trigger_ {};

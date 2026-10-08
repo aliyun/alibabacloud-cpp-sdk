@@ -339,19 +339,27 @@ namespace Models
     // 
     // Currently, only EMR Spark Streaming and EMR Streaming SQL tasks support this parameter, and the parameter must be in JSON format.
     shared_ptr<string> advancedSettings_ {};
-    // Specifies whether to apply the scheduling configuration immediately after the file is published.
+    // Specifies whether to apply the scheduling configuration immediately after the file is deployed.
     shared_ptr<bool> applyScheduleImmediately_ {};
     // Specifies whether to enable automatic parsing for the file. Valid values:
     // 
-    // - true
     // 
+    // 
+    // 
+    // - true
     // - false
     // 
-    // This parameter corresponds to the Analyze Code setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Analyze Code setting in Properties &gt; Dependencies for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> autoParsing_ {};
     // The interval at which the node is automatically rerun after a failure. Unit: milliseconds. Maximum value: 1800000 milliseconds (30 minutes).
     // 
-    // This parameter corresponds to the Rerun interval parameter in Properties > Schedule > Auto Rerun upon Failure for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). In the console, the unit of the rerun interval is minutes. Convert the time unit when you call this operation.
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Rerun interval parameter in Properties &gt; Schedule &gt; Auto Rerun upon Failure for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). In the console, the unit of the rerun interval is minutes. Convert the time unit when you call this operation.
     shared_ptr<int32_t> autoRerunIntervalMillis_ {};
     // The number of automatic reruns after the file execution fails.
     shared_ptr<int32_t> autoRerunTimes_ {};
@@ -389,16 +397,19 @@ namespace Models
     shared_ptr<string> cycleType_ {};
     // The IDs of the nodes on which the current node depends. This parameter takes effect only when the DependentType parameter is set to USER_DEFINE. Separate multiple node IDs with commas (,).
     // 
-    // This parameter corresponds to the Other Nodes option in Properties > Dependencies > Cross-cycle Dependency (Original Previous-cycle Dependency) for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Other Nodes option in Properties &gt; Dependencies &gt; Cross-cycle Dependency (Original Previous-cycle Dependency) for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> dependentNodeIdList_ {};
     // The dependency mode on the previous cycle. Valid values:
     // 
+    // 
+    // 
+    // 
     // - SELF: Depends on the current node.
-    // 
-    // - CHILD: Depends on the child nodes.
-    // 
+    // - CHILD: Depends on the level-1 child nodes.
     // - USER_DEFINE: Depends on other nodes.
-    // 
     // - NONE: No dependencies. Does not depend on the previous cycle.
     shared_ptr<string> dependentType_ {};
     // The timestamp (in milliseconds) when automatic scheduling stops.
@@ -415,33 +426,51 @@ namespace Models
     shared_ptr<int64_t> fileId_ {};
     // The file name. You can modify the file name by setting a new value for FileName. For example, you can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to query the file ID in the target directory, and then call the [UpdateFile](https://help.aliyun.com/document_detail/173951.html) operation with the file ID specified in the FileId parameter and a new value specified in the FileName parameter to modify the file name.
     shared_ptr<string> fileName_ {};
-    // This parameter corresponds to the Skip The Dry-Run Property Of The Ancestor Node option in Properties > Dependencies > Cross-cycle Dependency (Original Previous-cycle Dependency) when Instances of Current Node or Level-1 Child Node is selected for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // This parameter corresponds to the Skip The Dry-Run Property Of The Ancestor Node option in Properties &gt; Dependencies &gt; Cross-cycle Dependency (Original Previous-cycle Dependency) when Instances of Current Node or Level-1 Child Node is selected for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> ignoreParentSkipRunningProperty_ {};
     // The custom image ID.
     shared_ptr<string> imageId_ {};
     // The output names of the ancestor nodes on which the current node depends. Separate multiple output names with commas (,).
     // 
-    // This parameter corresponds to the Output Name of Ancestor Node setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Output Name of Ancestor Node setting in Properties &gt; Dependencies for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // 
+    // 
     // 
     // > This parameter is required when you call the CreateDISyncTask or UpdateFile operation to create a batch synchronization node.
     shared_ptr<string> inputList_ {};
     // The input context parameters of the node. The value must be in the JSON format. For more information about the parameter structure, see the InputContextParameterList parameter in the response parameters of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
     // 
-    // This parameter corresponds to the Input Parameters setting in Properties > Input and Output Parameters for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Input Parameters setting in Properties &gt; Input and Output Parameters for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> inputParameters_ {};
     // The outputs of the node.
     // 
-    // This parameter corresponds to the Output Name setting in Properties > Dependencies for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Output Name setting in Properties &gt; Dependencies for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> outputList_ {};
     // The output context parameters of the node. The value must be in the JSON format. For more information about the parameter structure, see the OutputContextParameterList parameter in the response parameters of the [GetFile](https://help.aliyun.com/document_detail/173954.html) operation.
     // 
-    // This parameter corresponds to the Output Parameters setting in Properties > Input and Output Parameters for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Output Parameters setting in Properties &gt; Input and Output Parameters for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> outputParameters_ {};
     // The file owner ID.
     shared_ptr<string> owner_ {};
     // The scheduling parameters of the node.
     // 
-    // This parameter corresponds to the Scheduling Parameter setting in Properties for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Scheduling Parameter setting in Properties for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console). For more information, see [Scheduling parameters](https://help.aliyun.com/document_detail/137548.html).
     shared_ptr<string> paraValue_ {};
     // The DataWorks workspace ID. To obtain the ID, log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and navigate to the workspace management page.
     shared_ptr<int64_t> projectId_ {};
@@ -451,25 +480,19 @@ namespace Models
     shared_ptr<string> projectIdentifier_ {};
     // The rerun policy. Valid values:
     // 
+    // 
+    // 
+    // 
     // - ALL_ALLOWED: Reruns are allowed regardless of whether the task succeeds or fails.
-    // 
     // - FAILURE_ALLOWED: Reruns are allowed only when the task fails.
-    // 
     // - ALL_DENIED: Reruns are not allowed regardless of whether the task succeeds or fails.
     // 
-    // This parameter corresponds to the Support for Rerun setting in Scheduling > Scheduling Policies for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
     // 
-    // Valid values:
     // 
-    // - ALL_ALLOWD
     // 
-    // - FAILURE_ALLOWED
-    // 
-    // - ALL_DENIED
-    // 
-    // - ALL_ALLOWED
+    // This parameter corresponds to the Support for Rerun setting in Scheduling &gt; Scheduling Policies for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<string> rerunMode_ {};
-    // The resource group for the task published from the file. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
+    // The resource group for the task deployed from the file. You can call the [ListResourceGroups](https://help.aliyun.com/document_detail/173913.html) operation to query the available resource groups in the workspace.
     shared_ptr<string> resourceGroupIdentifier_ {};
     // The scheduling type. Valid values:
     // 
@@ -485,21 +508,31 @@ namespace Models
     // 
     // This parameter corresponds to the start time of Effective Period in Scheduling > Scheduling Time for Data Studio tasks in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<int64_t> startEffectDate_ {};
-    // Specifies whether to start the task immediately after it is published. Valid values:
+    // Specifies whether to start the task immediately after it is deployed. Valid values:
     // 
-    // - true: Start the task immediately after it is published.
     // 
-    // - false: Do not start the task immediately after it is published.
     // 
-    // This parameter corresponds to the Start Method setting in Configuration > Scheduling Policies in the right-side navigation pane on the editing page for EMR Spark Streaming and EMR Streaming SQL tasks in Data Studio in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // - true: Start the task immediately after it is deployed.
+    // - false: Do not start the task immediately after it is deployed.
+    // 
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Start Method setting in Configuration &gt; Scheduling Policies in the right-side navigation pane on the editing page for EMR Spark Streaming and EMR Streaming SQL tasks in Data Studio in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> startImmediately_ {};
-    // Specifies whether to skip execution. Valid values:
+    // Specifies whether to pause scheduling. Valid values:
     // 
-    // - true
     // 
-    // - false
     // 
-    // This parameter corresponds to the Skip Execution option in Properties > Schedule > Recurrence for data development nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
+    // 
+    // - true: Pause scheduling.
+    // - false: Do not pause scheduling.
+    // 
+    // 
+    // 
+    // 
+    // This parameter corresponds to the Pause Scheduling option in Properties &gt; Schedule &gt; Recurrence for Data Studio nodes in the [DataWorks console](https://workbench.data.aliyun.com/console).
     shared_ptr<bool> stop_ {};
     // The timeout settings for scheduling configuration.
     shared_ptr<int32_t> timeout_ {};

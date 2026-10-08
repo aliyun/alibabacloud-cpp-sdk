@@ -81,7 +81,7 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page.
     shared_ptr<int32_t> pageSize_ {};
-    // The unique identifier of the general quota.
+    // The unique identifier of the general-purpose resource group.
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};

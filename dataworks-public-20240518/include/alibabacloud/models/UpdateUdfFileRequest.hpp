@@ -158,19 +158,14 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> functionType_ {};
-    // The function parameter description, corresponding to the parameter description field in the Create Function form.
-    // 
-    // Valid values:
-    // 
-    // - ALL_ALLOWD
-    // 
-    // - FAILURE_ALLOWED
-    // 
-    // - ALL_DENIED
+    // The description of the function input parameters, corresponding to the Parameter Description field in the Create Function form.
     shared_ptr<string> parameterDescription_ {};
     // The DataWorks workspace ID. To find this, click the wrench icon in the upper-right corner and navigate to the workspace management page.
     shared_ptr<int64_t> projectId_ {};
-    // The unique identifier of the DataWorks workspace, which is the identifier at the top of the Data Studio page where you switch workspaces.
+    // The unique identifier of the DataWorks workspace, which is the English identifier at the top of the Data Studio page where you switch workspaces.
+    // 
+    // 
+    // 
     // 
     // Either this parameter or ProjectId must be specified to identify the target DataWorks workspace for this API call.
     shared_ptr<string> projectIdentifier_ {};

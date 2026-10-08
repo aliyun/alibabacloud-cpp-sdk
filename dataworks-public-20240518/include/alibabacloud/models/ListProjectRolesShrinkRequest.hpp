@@ -88,19 +88,19 @@ namespace Models
     shared_ptr<string> codesShrink_ {};
     // The list of workspace role names.
     shared_ptr<string> namesShrink_ {};
-    // The page number. Used for paging.
+    // The requested page number. Used for pagination.
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
     // 
-    // This parameter specifies the DataWorks workspace for this API invoke operation.
+    // This parameter specifies the DataWorks workspace to use for this API call.
     // 
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
-    // The type of the workspace role. Valid values:
-    // - UserCustom: user-defined role.
-    // - System: system role.
+    // The role type of the workspace. Valid values:
+    // - UserCustom: user-defined role
+    // - System: system role
     shared_ptr<string> type_ {};
   };
 

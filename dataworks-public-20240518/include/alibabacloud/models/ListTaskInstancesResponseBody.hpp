@@ -614,6 +614,10 @@ namespace Models
         // The value is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> startedTime_ {};
         // The run status of the instance. Valid values:
+        // 
+        // 
+        // 
+        // 
         // - NotRun: not run.
         // - Running: running.
         // - WaitTime: waiting for the TriggerTime to arrive.
@@ -621,7 +625,7 @@ namespace Models
         // - WaitResource: waiting for resources.
         // - Failure: execution failed.
         // - Success: execution succeeded.
-        // - Checking: submitted for qualityrule check.
+        // - Checking: submitted for data quality check.
         // - WaitTrigger: waiting for an external trigger. Trigger-based nodes enter this status after the waiting period.
         shared_ptr<string> status_ {};
         // The ID of the corresponding node.
@@ -632,7 +636,10 @@ namespace Models
         shared_ptr<string> taskType_ {};
         // The timeout period for node execution, in seconds.
         // 
-        // Note: The scheduling system rounds the configured value to the nearest hour.
+        // 
+        // 
+        // 
+        // Note: The scheduling system rounds the configured value to whole hours.
         shared_ptr<int32_t> timeout_ {};
         // The run mode at the time of triggering. This parameter takes effect when TriggerType is set to Scheduler. Valid values:
         // - Pause: paused.
@@ -660,12 +667,16 @@ namespace Models
         // The ID of the workflow instance to which the instance belongs.
         shared_ptr<int64_t> workflowInstanceId_ {};
         // The type of the workflow instance to which the instance belongs. Valid values:
+        // 
+        // 
+        // 
+        // 
         // - SmokeTest: smoke test.
         // - SupplementData: data backfill.
         // - Manual: manually triggered.
         // - ManualWorkflow: manual workflow.
         // - Normal: periodic scheduling.
-        // - ManualFlow: manually triggered workflow.
+        // - ManualFlow: manually executed business flow.
         shared_ptr<string> workflowInstanceType_ {};
         // The name of the workflow to which the instance belongs.
         shared_ptr<string> workflowName_ {};

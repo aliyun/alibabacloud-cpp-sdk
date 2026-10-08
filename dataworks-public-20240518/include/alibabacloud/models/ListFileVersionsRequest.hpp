@@ -83,9 +83,12 @@ namespace Models
     shared_ptr<int32_t> pageNumber_ {};
     // The number of entries per page. Default value: 10. Maximum value: 100.
     shared_ptr<int32_t> pageSize_ {};
-    // The ID of the DataWorks workspace. You can click the small wrench icon in the upper-right corner of the page to go to the storage management page and view the ID.
+    // The ID of the DataWorks workspace. You can click the small wrench icon in the upper-right corner of the page to go to the workspace management page and view the ID.
     shared_ptr<int64_t> projectId_ {};
-    // The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the DataStudio page.
+    // The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the Data Studio page.
+    // 
+    // 
+    // 
     // 
     // You must set either this parameter or ProjectId to determine the DataWorks workspace for this API call.
     shared_ptr<string> projectIdentifier_ {};

@@ -315,7 +315,7 @@ namespace Models
         shared_ptr<string> id_ {};
         // The name of the resource group.
         shared_ptr<string> name_ {};
-        // The ID of the order for the resource group.
+        // The order instance ID for the resource group.
         shared_ptr<string> orderInstanceId_ {};
         // The billing method of the resource group. `PrePaid` indicates subscription and `PostPaid` indicates pay-as-you-go.
         shared_ptr<string> paymentType_ {};

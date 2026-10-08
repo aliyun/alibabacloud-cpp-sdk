@@ -97,7 +97,7 @@ namespace Models
 
 
       protected:
-        // Required and cannot be empty when Outcome is set to selected. Set this parameter to the optionId of an actual option in the event options. To submit an answer, select the option with kind=allow_once. Omit this parameter when Outcome is set to cancelled.
+        // Required and cannot be empty when Outcome is set to selected. Set this parameter to the optionId of an actual option in the event options. To submit an answer, typically select the option with kind=allow_once. Omit this parameter when Outcome is set to cancelled.
         shared_ptr<string> optionId_ {};
         // The outcome type. Valid values:
         // - selected: An option is selected.

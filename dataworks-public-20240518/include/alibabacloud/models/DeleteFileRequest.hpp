@@ -57,15 +57,21 @@ namespace Models
 
 
   protected:
-    // The file ID. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the folder ID.
+    // The file ID. You can call the [ListFiles](https://help.aliyun.com/document_detail/173942.html) operation to obtain the file ID.
     // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
-    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to obtain the ID.
+    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the ID.
+    // 
+    // 
+    // 
     // 
     // You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace when you call this operation.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace page to query the name.
+    // The name of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to query the name.
+    // 
+    // 
+    // 
     // 
     // You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace when you call this operation.
     shared_ptr<string> projectIdentifier_ {};

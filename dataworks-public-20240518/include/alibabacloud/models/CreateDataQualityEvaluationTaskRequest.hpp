@@ -255,8 +255,22 @@ namespace Models
 
         protected:
           // The additional parameter settings for sending alerts. The value is in JSON format. The following keys are supported:
+          // 
+          // 
+          // 
+          // 
+          // - atAll: Specifies whether to mention all members in the group when sending DingTalk alerts. This setting takes effect when ReceiverType is DingdingUrl.
           shared_ptr<string> extension_ {};
           // The type of the alert recipient.
+          // 
+          // 
+          // 
+          // 
+          // - WebhookUrl: Custom webhook URL.
+          // - FeishuUrl: Lark alert URL.
+          // - DingdingUrl: DingTalk alert URL.
+          // - WeixinUrl: WeCom alert URL.
+          // - AliUid: Alibaba Cloud user ID.
           shared_ptr<string> receiverType_ {};
           // The alert recipients.
           shared_ptr<vector<string>> receiverValues_ {};
@@ -394,6 +408,11 @@ namespace Models
       // 2. Specify multiple combinations of rule severity type and rule check status, such as `(${severity} == "High" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Critical") OR (${severity} == "Normal" AND ${status} == "Error")`. This means that the condition is met if any executed rule with a severity of High has a check result of Critical, or any rule with a severity of Normal has a check result of Critical, or any rule with a severity of Normal has a check result of Error. The enumerated values of severity in the conditional expression are consistent with those of severity in DataQualityRule, and the enumerated values of status are consistent with those of status in DataQualityResult.
       shared_ptr<string> condition_ {};
       // The hook type. Currently, only one type is supported:
+      // 
+      // 
+      // 
+      // 
+      // - BlockTaskInstance: Blocks the scheduling task from continuing to run. If the data quality monitor is triggered by a scheduling task, Hook.Condition is evaluated after quality monitoring completes to determine whether the scheduling task is blocked from continuing.
       shared_ptr<string> type_ {};
     };
 
@@ -554,6 +573,11 @@ namespace Models
         // The SQL statement specified by the user to filter problematic data. This is required for custom SQL rules.
         shared_ptr<string> errorDataFilter_ {};
         // The handler type:
+        // 
+        // 
+        // 
+        // 
+        // - SaveErrorData: Retains problematic data.
         shared_ptr<string> type_ {};
       };
 
@@ -661,6 +685,16 @@ namespace Models
             // Rules of the fixed value type can also use expressions to configure thresholds. If both are configured, the expression takes precedence over Operator and Value.
             shared_ptr<string> expression_ {};
             // The comparison operator.
+            // 
+            // 
+            // 
+            // 
+            // - &gt;
+            // - &gt;=
+            // - &lt;
+            // - &lt;=
+            // - !=
+            // - =
             shared_ptr<string> operator_ {};
             // The threshold value.
             shared_ptr<string> value_ {};
@@ -724,6 +758,16 @@ namespace Models
             // Rules of the fixed value type can also use expressions to configure thresholds. If both are configured, the expression takes precedence over Operator and Value.
             shared_ptr<string> expression_ {};
             // The comparison operator.
+            // 
+            // 
+            // 
+            // 
+            // - &gt;
+            // - &gt;=
+            // - &lt;
+            // - &lt;=
+            // - !=
+            // - =
             shared_ptr<string> operator_ {};
             // The threshold value.
             shared_ptr<string> value_ {};
@@ -787,6 +831,16 @@ namespace Models
             // Rules of the fixed value type can also use expressions to configure thresholds. If both are configured, the expression takes precedence over Operator and Value.
             shared_ptr<string> expression_ {};
             // The comparison operator.
+            // 
+            // 
+            // 
+            // 
+            // - &gt;
+            // - &gt;=
+            // - &lt;
+            // - &lt;=
+            // - !=
+            // - =
             shared_ptr<string> operator_ {};
             // The threshold value.
             shared_ptr<string> value_ {};
@@ -861,6 +915,15 @@ namespace Models
         // The verification threshold settings.
         shared_ptr<CheckingConfig::Thresholds> thresholds_ {};
         // The threshold calculation method.
+        // 
+        // 
+        // 
+        // 
+        // - Fixed
+        // - Fluctation
+        // - FluctationDiscreate
+        // - Auto
+        // - Average
         shared_ptr<string> type_ {};
       };
 
@@ -952,6 +1015,12 @@ namespace Models
       // The parameters required for sample collection.
       shared_ptr<DataQualityRules::SamplingConfig> samplingConfig_ {};
       // The severity level of the rule for the business (corresponding to strong or weak rules on the page). Valid values:
+      // 
+      // 
+      // 
+      // 
+      // - Normal
+      // - High
       shared_ptr<string> severity_ {};
       // The unique identifier of the rule template referenced by the rule.
       shared_ptr<string> templateCode_ {};
@@ -1062,6 +1131,12 @@ namespace Models
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
     // The extended configuration. The value is a JSON-formatted string. This parameter takes effect only for EMR-type data quality monitors.
+    // 
+    // 
+    // 
+    // 
+    // - queue: The YARN queue used for EMR data quality checks. By default, the queue configured for the current project is used.
+    // - sqlEngine: The SQL engine used for EMR data quality checks. Valid values: HIVE_SQL and SPARK_SQL.
     shared_ptr<string> runtimeConf_ {};
     // The monitored object of the data quality monitor.
     // 

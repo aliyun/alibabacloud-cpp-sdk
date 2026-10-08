@@ -596,6 +596,9 @@ namespace Models
         shared_ptr<TriggerCondition::Target> target_ {};
         // The type of the alert trigger. Valid values:
         // 
+        // 
+        // 
+        // 
         // - Finished: instance completed.
         // - UnFinished: instance not completed.
         // - Error: instance failed.
@@ -607,8 +610,8 @@ namespace Models
         // - InstanceKeyword: failed instance contains keyword.
         // - InstanceErrorCount: number of failed instances.
         // - InstanceErrorPercentage: percentage of failed instances.
-        // - ResourceGroupPercentage: schedule resource utilization.
-        // - ResourceGroupWaitCount: number of instances waiting for schedule resources.
+        // - ResourceGroupPercentage: resource group utilization.
+        // - ResourceGroupWaitCount: number of instances waiting for resource group resources.
         shared_ptr<string> type_ {};
       };
 
@@ -694,6 +697,9 @@ namespace Models
           shared_ptr<string> extension_ {};
           // The type of the alert recipient. Valid values:
           // 
+          // 
+          // 
+          // 
           // - AliUid: Alibaba Cloud UID.
           // - ShiftSchedule: shift schedule.
           // - TaskOwner: node owner. Applicable to custom alerting and event alerting.
@@ -701,7 +707,7 @@ namespace Models
           // - WebhookUrl: custom webhook URL.
           // - DingdingUrl: DingTalk webhook URL.
           // - FeishuUrl: Lark webhook URL.
-          // - WeixinUrl: WeChat webhook URL.
+          // - WeixinUrl: WeCom webhook URL.
           shared_ptr<string> receiverType_ {};
           // The values of the alert recipient.
           shared_ptr<vector<string>> receiverValues_ {};

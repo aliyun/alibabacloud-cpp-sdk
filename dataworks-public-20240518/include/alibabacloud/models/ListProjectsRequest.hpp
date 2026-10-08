@@ -176,7 +176,7 @@ namespace Models
     // 
     // This parameter is used to query the information about workspaces that belong to a specific resource group.
     shared_ptr<string> aliyunResourceGroupId_ {};
-    // The tags.
+    // The list of tags. This parameter queries workspaces that have any of the specified tag key-value pairs.
     shared_ptr<vector<ListProjectsRequest::AliyunResourceTags>> aliyunResourceTags_ {};
     // Specifies whether the development environment is enabled. Valid values:
     // 
@@ -184,11 +184,7 @@ namespace Models
     // 
     // - false: The development environment is disabled. In this case, only the production environment is used in a workspace.
     shared_ptr<bool> devEnvironmentEnabled_ {};
-    // Specifies whether the Develop role is disabled. Valid values:
-    // 
-    // - false (default)
-    // 
-    // - true
+    // Specifies whether the developer role is disabled. Valid values: false (enabled, default) and true (disabled). This parameter filters workspaces by whether the developer role is enabled or disabled.
     shared_ptr<bool> devRoleDisabled_ {};
     // The IDs of the DataWorks workspaces.
     shared_ptr<vector<int64_t>> ids_ {};
@@ -204,25 +200,7 @@ namespace Models
     // 
     // - false: Scheduling of PAI tasks is disabled.
     shared_ptr<bool> paiTaskEnabled_ {};
-    // The status of the workspaces. Valid values:
-    // 
-    // - Available
-    // 
-    // - Initializing
-    // 
-    // - InitFailed
-    // 
-    // - Forbidden
-    // 
-    // - Deleting
-    // 
-    // - DeleteFailed
-    // 
-    // - Frozen
-    // 
-    // - Updating
-    // 
-    // - UpdateFailed
+    // The status of the workspaces. Valid values: Available (running normally), Initializing (initializing), InitFailed (initialization failed), Forbidden (manually disabled), Deleting (being deleted), DeleteFailed (deletion failed), Frozen (frozen due to overdue payments), Updating (being updated), and UpdateFailed (update failed). This parameter filters workspaces by the specified status.
     shared_ptr<string> status_ {};
   };
 

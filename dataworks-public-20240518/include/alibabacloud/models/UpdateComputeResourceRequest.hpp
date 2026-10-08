@@ -79,7 +79,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> connectionProperties_ {};
-    // The category of the computing resource to be added. Different types have different subtypes and corresponding parameter schema constraints. Examples: InstanceMode and UrlMode.
+    // The category of the computing resource to be added. Different types have different subtypes and corresponding parameter schema constraints. Examples: InstanceMode (instance mode) and UrlMode (connection string mode).
     shared_ptr<string> connectionPropertiesMode_ {};
     // The description of the computing resource. The maximum length is 3000 characters.
     shared_ptr<string> description_ {};

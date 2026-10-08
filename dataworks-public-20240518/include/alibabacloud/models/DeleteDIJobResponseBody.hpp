@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The request ID. You can troubleshoot issues based on the ID.
     shared_ptr<string> requestId_ {};
-    // true
+    // Indicates whether the call was successful. Valid values: true: successful; false: failed.
     shared_ptr<bool> success_ {};
   };
 

@@ -277,7 +277,7 @@ namespace Models
 
 
       protected:
-        // The SQL statement that is used to filter failed tasks. If the rule is defined by custom SQL statements, you must specify an SQL statement to filter failed tasks.
+        // For a custom SQL rule, you must specify an SQL statement to filter problematic data.
         shared_ptr<string> errorDataFilter_ {};
         // The type of the operation.
         shared_ptr<string> type_ {};
@@ -546,7 +546,7 @@ namespace Models
 
 
       protected:
-        // The method that is used to query the referenced samples. To obtain some types of thresholds, you need to query reference values. In this example, an expression is used to indicate the query method of referenced samples.
+        // Some types of thresholds require querying reference samples and aggregating their values to calculate the comparison threshold. An expression specifies how to query these reference samples.
         shared_ptr<string> referencedSamplesFilter_ {};
         // The threshold settings.
         shared_ptr<CheckingConfig::Thresholds> thresholds_ {};
@@ -668,7 +668,7 @@ namespace Models
       shared_ptr<vector<Rule::ErrorHandlers>> errorHandlers_ {};
       // The rule ID.
       shared_ptr<int64_t> id_ {};
-      // The name of the rule. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+      // The name of the rule. The name can be up to 255 characters in length and can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks.
       shared_ptr<string> name_ {};
       // The DataWorks workspace ID.
       shared_ptr<int64_t> projectId_ {};

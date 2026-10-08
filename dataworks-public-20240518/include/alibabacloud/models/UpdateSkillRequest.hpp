@@ -86,9 +86,9 @@ namespace Models
 
 
     protected:
-      // The list of visible project IDs.
+      // The IDs of the projects in which the Skill is visible.
       shared_ptr<vector<string>> projectIds_ {};
-      // The list of visible user IDs.
+      // The IDs of the users to whom the Skill is visible.
       shared_ptr<vector<string>> userIds_ {};
     };
 

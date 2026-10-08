@@ -132,11 +132,9 @@ namespace Models
   protected:
     // The business date used for matching manual workflow instances.
     shared_ptr<int64_t> bizdate_ {};
-    // The end trigger time of the manual workflow instance used for matching. This parameter must be used together with the StartTriggerTime.
+    // The end trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with the StartTriggerTime.
     shared_ptr<int64_t> endTriggerTime_ {};
-    // The environment of the workspace. Valid values:
-    // 
-    // Prod Dev
+    // The environment of the workspace. Valid values: Prod (production) and Dev (development).
     shared_ptr<string> envType_ {};
     // The match conditions for internal instances of manual workflow instances.
     shared_ptr<string> filterShrink_ {};
@@ -151,16 +149,8 @@ namespace Models
     // The start trigger time (creation time) of the manual workflow instance used for matching. This parameter must be used together with EndTriggerTime.
     shared_ptr<int64_t> startTriggerTime_ {};
     // The status used for matching manual workflow instances.
-    // 
-    // Valid values:
-    // 
-    // - Success
-    // 
-    // - Failure
     shared_ptr<string> status_ {};
-    // The type of the workflow instance. Valid values:
-    // 
-    // ManualWorkflow.
+    // The type of the workflow instance. Valid value: ManualWorkflow (manual workflow).
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

@@ -405,7 +405,7 @@ namespace Models
         shared_ptr<string> description_ {};
         // The input parameters.
         shared_ptr<vector<Components::Inputs>> inputs_ {};
-        // The timestamp when the publishing process was modified.
+        // The timestamp when the deployment process was modified.
         // 
         // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
         shared_ptr<string> modifyTime_ {};

@@ -171,13 +171,7 @@ namespace Models
           shared_ptr<string> cron_ {};
           // The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
           shared_ptr<string> endTime_ {};
-          // The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
-          // 
-          // - Pause
-          // 
-          // - Skip
-          // 
-          // - Normal
+          // The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
           shared_ptr<string> recurrence_ {};
           // The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
           shared_ptr<string> startTime_ {};
@@ -348,11 +342,7 @@ namespace Models
         shared_ptr<string> createUser_ {};
         // The description.
         shared_ptr<string> description_ {};
-        // The environment of the workspace. Valid values:
-        // 
-        // - Prod
-        // 
-        // - Dev
+        // The environment of the workspace. Valid values: Prod (production) and Dev (development).
         shared_ptr<string> envType_ {};
         // The workflow ID.
         shared_ptr<int64_t> id_ {};

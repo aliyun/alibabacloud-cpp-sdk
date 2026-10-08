@@ -219,13 +219,7 @@ namespace Models
             shared_ptr<string> cron_ {};
             // The end time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
             shared_ptr<string> endTime_ {};
-            // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
-            // 
-            // - Pause
-            // 
-            // - Skip
-            // 
-            // - Normal
+            // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
             shared_ptr<string> recurrence_ {};
             // The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
             shared_ptr<string> startTime_ {};
@@ -286,7 +280,7 @@ namespace Models
 
 
           protected:
-            // The default number of compute units (CUs) configured for task running.
+            // The number of compute units (CUs) configured for task running.
             shared_ptr<string> cu_ {};
             // The ID of the image configured for task running.
             shared_ptr<string> image_ {};
@@ -503,11 +497,7 @@ namespace Models
           shared_ptr<Task::DataSource> dataSource_ {};
           // The description of the task.
           shared_ptr<string> description_ {};
-          // The environment of the workspace. Valid values:
-          // 
-          // - Prod
-          // 
-          // - Dev
+          // The environment of the workspace. Valid values: Prod (production) and Dev (development).
           shared_ptr<string> envType_ {};
           // The task ID.
           shared_ptr<int64_t> id_ {};
@@ -796,7 +786,7 @@ namespace Models
 
 
         protected:
-          // The default number of compute units (CUs) configured for task running.
+          // The number of compute units (CUs) configured for task running.
           shared_ptr<string> cu_ {};
           // The ID of the image configured for task running.
           shared_ptr<string> image_ {};
@@ -1027,19 +1017,11 @@ namespace Models
         shared_ptr<Tasks::DataSource> dataSource_ {};
         // The description of the task.
         shared_ptr<string> description_ {};
-        // The environment of the workspace. Valid values:
-        // 
-        // - Prod
-        // 
-        // - Dev
+        // The environment of the workspace. Valid values: Prod (production) and Dev (development).
         shared_ptr<string> envType_ {};
         // The task ID.
         shared_ptr<int64_t> id_ {};
-        // The instance generation mode. Valid values:
-        // 
-        // - T+1
-        // 
-        // - Immediately
+        // The instance generation mode. Valid values: T+1 (generate the next day) and Immediately (generate immediately).
         shared_ptr<string> instanceMode_ {};
         // The modification time.
         shared_ptr<int64_t> modifyTime_ {};

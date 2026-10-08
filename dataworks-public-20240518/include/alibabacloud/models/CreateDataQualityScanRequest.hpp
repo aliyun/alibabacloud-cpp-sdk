@@ -149,7 +149,7 @@ namespace Models
 
 
     protected:
-      // The default number of CUs configured for task running.
+      // The number of CUs configured for task running.
       shared_ptr<float> cu_ {};
       // The resource group ID.
       shared_ptr<string> id_ {};
@@ -488,11 +488,11 @@ namespace Models
     shared_ptr<string> owner_ {};
     // The definition of execution parameters for the data quality monitoring.
     shared_ptr<vector<CreateDataQualityScanRequest::Parameters>> parameters_ {};
-    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the workspace configuration page to obtain the workspace ID. This parameter is required to specify the target DataWorks workspace for this API operation.
+    // The DataWorks workspace ID. You can log on to the [DataWorks console](https://dataworks.console.aliyun.com/overview) and go to the workspace configuration page to obtain the workspace ID. This parameter is required to specify the target DataWorks workspace for this API operation.
     shared_ptr<int64_t> projectId_ {};
     // The resource group used during execution of the data quality monitoring.
     shared_ptr<CreateDataQualityScanRequest::RuntimeResource> runtimeResource_ {};
-    // Spec code for the content of the data quality monitoring.
+    // Spec code for the content of the data quality monitoring. For more information, see [Data quality Spec configuration description](https://help.aliyun.com/document_detail/2963394.html).
     shared_ptr<string> spec_ {};
     // The trigger configurations of the data quality monitoring task.
     shared_ptr<CreateDataQualityScanRequest::Trigger> trigger_ {};

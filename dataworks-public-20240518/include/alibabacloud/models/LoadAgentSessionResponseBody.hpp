@@ -109,19 +109,19 @@ namespace Models
 
 
   protected:
-    // The error object of the SSE frame. This field is present when an error occurs.
+    // The error object of the SSE frame. This field is present when an error occurs. The returned content conforms to the Agent Client Protocol (ACP). For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
     Darabonba::Json error_ {};
     // The client-generated request ID, returned from the request.
     shared_ptr<string> id_ {};
     // The JSON-RPC version. The value is `2.0`.
     shared_ptr<string> jsonrpc_ {};
-    // The method of the SSE frame.
+    // The method of the SSE frame. The returned content conforms to the Agent Client Protocol (ACP). For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
     shared_ptr<string> method_ {};
-    // The parameters of the SSE frame.
+    // The parameters of the SSE frame. The returned content conforms to the Agent Client Protocol (ACP). For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
     Darabonba::Json params_ {};
     // The unique request ID generated for this request.
     shared_ptr<string> requestId_ {};
-    // The result object of the SSE frame. This field is present when the operation is successful.
+    // The result object of the SSE frame. This field is present when the operation is successful. The returned content conforms to the Agent Client Protocol (ACP). For more information, see https://agentclientprotocol.com/protocol/prompt-turn.
     Darabonba::Json result_ {};
     // The timestamp.
     shared_ptr<int64_t> timestamp_ {};

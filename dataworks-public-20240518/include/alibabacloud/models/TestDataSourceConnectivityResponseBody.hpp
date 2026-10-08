@@ -149,7 +149,7 @@ namespace Models
     protected:
       // The error message returned if the connectivity test fails. No such a message is returned if the connectivity test is successful.
       shared_ptr<string> connectMessage_ {};
-      // The result of the connectivity test. Valid values: Connectable: The network can be connected. ConfigError: The network can be connected, but the configurations are incorrect. Unreachable: The network cannot be connected. Unsupport: An error is reported due to other causes. For example, the desired resource group is being initialized.
+      // The result of the connectivity test. Valid values: Connectable: The network can be connected. ConfigError: The network can be connected, but the configurations are incorrect. Unreachable: The network cannot be connected. Unsupport: The scenario is not supported. For example, the desired resource group is being initialized.
       shared_ptr<string> connectState_ {};
       // The detailed logs of each step in the connectivity test.
       shared_ptr<vector<Connectivity::DetailLogs>> detailLogs_ {};

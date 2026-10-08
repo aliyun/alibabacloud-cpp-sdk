@@ -81,9 +81,9 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> fileId_ {};
-    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the Workspace page to query the ID. You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace when you call this operation.
+    // The DataWorks workspace ID. You can log on to the DataWorks console and go to the workspace configuration page to query the ID. You must specify either this parameter or the ProjectIdentifier parameter to identify the DataWorks workspace when you call this operation.
     shared_ptr<int64_t> projectId_ {};
-    // The name of the DataWorks workspace. You can log on to the DataWorks console and go to the Workspace page to query the workspace name. You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace when you call this operation.
+    // The name of the DataWorks workspace. You can log on to the DataWorks console and go to the workspace configuration page to query the workspace name. You must specify either this parameter or the ProjectId parameter to identify the DataWorks workspace when you call this operation.
     shared_ptr<string> projectIdentifier_ {};
     // Whether to skip the pre-deployment check after the file is submitted:
     // 

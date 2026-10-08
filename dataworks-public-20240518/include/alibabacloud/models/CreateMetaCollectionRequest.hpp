@@ -68,19 +68,19 @@ namespace Models
   protected:
     // The collection description.
     shared_ptr<string> description_ {};
-    // The ID of the collection.
+    // The name of the collection.
     // 
     // This parameter is required.
     shared_ptr<string> name_ {};
     // The parent collection ID.
     shared_ptr<string> parentId_ {};
-    // The collection name.
+    // The collection type. Valid values:
     // 
-    // - Category
     // 
-    // - Album
     // 
-    // - AlbumCategory: Album subcategory.
+    // - Category: category.
+    // - Album: data album.
+    // - AlbumCategory: album subcategory.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

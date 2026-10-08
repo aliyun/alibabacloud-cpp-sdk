@@ -161,7 +161,7 @@ namespace Models
       protected:
         // This parameter is deprecated. Use the `Id` parameter instead.
         shared_ptr<int64_t> DIJobId_ {};
-        // The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `LogHub`, `StarRocks`, `DataHub`, `AnalyticDB_For_MySQL`, `Kafka`, and `Hive`.
+        // The type of the destination data source. Valid values: `Hologres`, `OSS-HDFS`, `OSS`, `MaxCompute`, `Loghub`, `STARROCKS`, `DataHub`, `ANALYTICDB_FOR_MYSQL`, `Kafka`, and `Hive`.
         shared_ptr<string> destinationDataSourceType_ {};
         // The ID of the Data Integration job.
         shared_ptr<int64_t> id_ {};
@@ -196,7 +196,7 @@ namespace Models
         shared_ptr<string> owner_ {};
         // The ID of the DataWorks workspace that contains the job.
         shared_ptr<int64_t> projectId_ {};
-        // The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `LogHub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `RedShift`, `Hive`, `SQLServer`, `Doris`, and `ClickHouse`.
+        // The type of the source data source. Valid values: `PolarDB`, `MySQL`, `Kafka`, `Loghub`, `Hologres`, `Oracle`, `OceanBase`, `MongoDB`, `RedShift`, `Hive`, `SqlServer`, `Doris`, and `ClickHouse`.
         shared_ptr<string> sourceDataSourceType_ {};
       };
 

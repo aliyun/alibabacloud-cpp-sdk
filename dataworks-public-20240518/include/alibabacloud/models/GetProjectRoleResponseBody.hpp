@@ -193,7 +193,7 @@ namespace Models
   protected:
     // The details of the workspace role.
     shared_ptr<GetProjectRoleResponseBody::ProjectRole> projectRole_ {};
-    // The request ID.
+    // The request ID. You can use this ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

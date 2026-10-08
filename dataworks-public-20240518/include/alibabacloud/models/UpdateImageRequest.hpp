@@ -93,7 +93,11 @@ namespace Models
 
     protected:
       // The image sub-module. Valid values:
-      // - Scheduler: data development.
+      // 
+      // 
+      // 
+      // 
+      // - Scheduler: Data Studio.
       shared_ptr<string> module_ {};
       // The list of node types supported by the image.
       shared_ptr<vector<string>> taskTypes_ {};

@@ -231,7 +231,7 @@ namespace Models
         shared_ptr<int64_t> nodeId_ {};
         // The current status of the file version. Valid values: COMMITTING (committing), COMMITTED or CHECK_OK (committed), PACKAGED (ready for deployment), DEPLOYING (deploying), DEPLOYED (deployed), and CANCELLED (deployment canceled).
         shared_ptr<string> status_ {};
-        // The functional module to which the file belongs. Valid values: NORMAL (DataStudio), MANUAL (manual node), MANUAL_BIZ (manual workflow), SKIP (dry-run scheduling in DataStudio), ADHOCQUERY (ad hoc query), and COMPONENT (component management).
+        // The functional module to which the file belongs. Valid values: NORMAL (Data Studio), MANUAL (manual node), MANUAL_BIZ (manual workflow), SKIP (dry-run scheduling in Data Studio), ADHOCQUERY (ad hoc query), and COMPONENT (component management).
         shared_ptr<string> useType_ {};
       };
 

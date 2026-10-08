@@ -958,7 +958,10 @@ namespace Models
       shared_ptr<string> taskType_ {};
       // The timeout period for task execution. Unit: seconds.
       // 
-      // Note: The scheduling system rounds the configured value to the nearest hour.
+      // 
+      // 
+      // 
+      // Note: The scheduling system rounds the configured value to whole hours.
       shared_ptr<int32_t> timeout_ {};
       // The running mode when triggered. This parameter takes effect when TriggerType is set to Scheduler. Valid values:
       // 

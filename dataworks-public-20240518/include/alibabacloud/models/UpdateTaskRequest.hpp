@@ -142,7 +142,11 @@ namespace Models
     protected:
       // The cron expression. This parameter takes effect when Type is set to Scheduler.
       shared_ptr<string> cron_ {};
-      // The epoch type. This parameter takes effect when Type is set to Scheduler and the cron expression specifies timed scheduling at a specific hour. Default value: Daily. Valid values:
+      // The cycle type. This parameter takes effect when Type is set to Scheduler and the cron expression specifies timed scheduling at a specific hour. Default value: Daily. Valid values:
+      // 
+      // 
+      // 
+      // 
       // - Daily: daily scheduling.
       // - NotDaily: hourly scheduling.
       shared_ptr<string> cycleType_ {};
@@ -153,7 +157,7 @@ namespace Models
       // - Skip: dry run.
       // - Normal: normal run.
       shared_ptr<string> recurrence_ {};
-      // The effective period of the epoch trigger. This parameter takes effect when Type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
+      // The time when the periodic trigger takes effect. This parameter takes effect when Type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
       shared_ptr<string> startTime_ {};
       // The trigger type. Valid values:
       // - Scheduler: periodic scheduling trigger.
@@ -809,8 +813,12 @@ namespace Models
     // The input information.
     shared_ptr<UpdateTaskRequest::Inputs> inputs_ {};
     // The instance generation mode. Valid values:
+    // 
+    // 
+    // 
+    // 
     // - T+1: The instance is generated the next day.
-    // - Immediately: The instance is generated immediately. Note: Only periodic instances whose scheduled time is at least ten minutes after the node publish time are generated normally. During the full instance generation period (22:00 to 24:00), real-time instance generation is not available. You can submit and publish nodes, but new nodes do not automatically generate instances.
+    // - Immediately: The instance is generated immediately. Note: Only periodic instances whose scheduled time is at least ten minutes after the node deployment time are generated normally. During the full instance generation period (22:00 to 24:00), real-time instance generation is not available. You can submit and deploy nodes, but new nodes do not automatically generate instances.
     shared_ptr<string> instanceMode_ {};
     // The name.
     shared_ptr<string> name_ {};

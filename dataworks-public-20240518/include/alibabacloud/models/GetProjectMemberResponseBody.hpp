@@ -186,9 +186,11 @@ namespace Models
       shared_ptr<vector<ProjectMember::Roles>> roles_ {};
       // The status of the Workspace member.
       // 
-      // - Normal: The member is active.
       // 
-      // - Disabled: The member is disabled.
+      // 
+      // 
+      // - Normal: The member is active.
+      // - Forbidden: The member is disabled.
       shared_ptr<string> status_ {};
       // The ID of the user.
       shared_ptr<string> userId_ {};

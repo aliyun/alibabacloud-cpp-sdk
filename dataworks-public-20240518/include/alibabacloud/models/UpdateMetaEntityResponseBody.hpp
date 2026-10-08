@@ -105,7 +105,7 @@ namespace Models
   protected:
     // The ID of the request.
     shared_ptr<string> requestId_ {};
-    // The result of the update operation.
+    // The updated entity or the result of the write operation.
     shared_ptr<UpdateMetaEntityResponseBody::Result> result_ {};
     // Indicates whether the request was successful.
     shared_ptr<bool> success_ {};

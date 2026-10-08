@@ -147,7 +147,7 @@ namespace Models
 
 
     protected:
-      // The default number of CUs configured for task running.
+      // The CU consumption configured for task execution.
       shared_ptr<float> cu_ {};
       // The ID of the resource group.
       shared_ptr<string> id_ {};
@@ -321,17 +321,18 @@ namespace Models
 
 
       protected:
-        // The engine type. These settings are only supported for the EMR compute engine.This setting? Valid values:
+        // The engine type. These settings are only supported for the EMR compute engine. Valid values:
+        // 
+        // 
+        // 
         // 
         // - Hive: Hive SQL
-        // 
         // - Spark: Spark SQL
-        // 
         // - Kyuubi
         shared_ptr<string> engine_ {};
-        // Additional Hive engine parameters. Currently, only the mapreduce.job.queuename parameter is supported.
+        // Additional Hive engine parameters. Currently, only the mapreduce.job.queuename parameter is supported to configure the queue.
         Darabonba::Json hiveConf_ {};
-        // Additional Spark engine parameters. Currently, only the spark.yarn.queue parameter is supported.
+        // Additional Spark engine parameters. Currently, only the spark.yarn.queue parameter is supported to configure the queue.
         Darabonba::Json sparkConf_ {};
       };
 

@@ -108,9 +108,11 @@ namespace Models
   protected:
     // The environment type of the computing resource. Valid values:
     // 
-    // - Dev
     // 
-    // - Prod
+    // 
+    // 
+    // - Dev: development environment.
+    // - Prod: production environment.
     shared_ptr<string> envType_ {};
     // The name of the computing resource.
     shared_ptr<string> name_ {};

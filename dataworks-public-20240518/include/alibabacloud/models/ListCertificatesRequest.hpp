@@ -118,7 +118,7 @@ namespace Models
     shared_ptr<int64_t> endCreateTime_ {};
     // The name of the certificate file. Fuzzy match by file name is supported.
     shared_ptr<string> name_ {};
-    // The order in which you want to sort the certificate files. Valid values: Desc: descending order ASC: ascending order Default value: Asc
+    // The order in which you want to sort the certificate files. Valid values: Desc: descending order Asc: ascending order Default value: Asc
     shared_ptr<string> order_ {};
     // The page number. Default value: 1.
     shared_ptr<int32_t> pageNumber_ {};

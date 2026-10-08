@@ -94,11 +94,14 @@ namespace Models
     shared_ptr<string> owner_ {};
     // The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to view the ID.
     shared_ptr<int64_t> projectId_ {};
-    // The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the DataStudio page. You must specify either this parameter or ProjectId to determine the DataWorks workspace on which the API operation is performed.
+    // The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the Data Studio page. You must specify either this parameter or ProjectId to determine the DataWorks workspace on which the API operation is performed.
     shared_ptr<string> projectIdentifier_ {};
     // The functional module to which the business process belongs. Valid values:
     // 
-    // - NORMAL: DataStudio.
+    // 
+    // 
+    // 
+    // - NORMAL: Data Studio.
     // - MANUAL_BIZ: Manual business process.
     shared_ptr<string> useType_ {};
   };

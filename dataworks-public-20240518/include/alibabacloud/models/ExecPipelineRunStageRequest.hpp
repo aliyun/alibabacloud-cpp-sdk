@@ -57,11 +57,11 @@ namespace Models
 
 
   protected:
-    // The code of the publish flow stage. For the specific value, see the response of the GetPipelineRun operation.
+    // The code of the deployment process stage. For the specific value, see the response of the GetPipelineRun operation.
     // 
     // This parameter is required.
     shared_ptr<string> code_ {};
-    // The unique identifier of the publish flow.
+    // The unique identifier of the deployment process.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};

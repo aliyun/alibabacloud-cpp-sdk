@@ -69,7 +69,7 @@ namespace Models
 
 
   protected:
-    // The ID of the synchronization task.
+    // The instance ID.
     shared_ptr<int64_t> DIJobId_ {};
     // The end of the time range to query.
     // 

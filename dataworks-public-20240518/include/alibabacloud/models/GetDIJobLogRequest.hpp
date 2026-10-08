@@ -88,7 +88,7 @@ namespace Models
     shared_ptr<int64_t> DIJobId_ {};
     // The failover ID.
     shared_ptr<int64_t> failoverId_ {};
-    // The node ID.
+    // The task ID.
     shared_ptr<int64_t> id_ {};
     // The instance ID.
     shared_ptr<int64_t> instanceId_ {};

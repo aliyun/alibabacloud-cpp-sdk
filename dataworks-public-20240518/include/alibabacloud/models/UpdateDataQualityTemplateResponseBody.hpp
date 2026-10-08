@@ -50,7 +50,7 @@ namespace Models
   protected:
     // The API request ID, which is generated as a UUID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the rule template is updated.
+    // Indicates whether the rule template is updated successfully.
     shared_ptr<bool> success_ {};
   };
 

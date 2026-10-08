@@ -78,9 +78,9 @@ namespace Models
 
 
     protected:
-      // The list of project IDs that are visible. This parameter takes effect when Visibility is set to `PROJECT`.
+      // The IDs of the projects in which the MCP Server is visible. This parameter takes effect when Visibility is set to `PROJECT`.
       shared_ptr<vector<string>> projectIds_ {};
-      // The list of user IDs that are visible. This parameter takes effect when Visibility is set to `USER`.
+      // The IDs of the users to whom the MCP Server is visible. This parameter takes effect when Visibility is set to `USER`.
       shared_ptr<vector<string>> userIds_ {};
     };
 

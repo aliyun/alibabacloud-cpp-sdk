@@ -115,7 +115,7 @@ namespace Models
     shared_ptr<string> receiver_ {};
     // The IDs of the scheduling tasks.
     shared_ptr<vector<int64_t>> taskIds_ {};
-    // The alert triggering condition.
+    // The list of alert types.
     shared_ptr<vector<string>> types_ {};
   };
 

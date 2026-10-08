@@ -94,11 +94,11 @@ namespace Models
 
 
   protected:
-    // The new description for the custom attribute. It must be 256 characters or less.
+    // The new description for the custom attribute. It must be less than 256 characters.
     shared_ptr<string> comment_ {};
     // Whether to display the custom attribute in the UI.
     shared_ptr<bool> displayEnabled_ {};
-    // The new display name for the custom attribute. It must be 128 characters or less.
+    // The new display name for the custom attribute. It must be less than 128 characters.
     shared_ptr<string> displayName_ {};
     // The applicable entity types. This parameter supports specific types and wildcard formats, such as `*-table` and `*-column`. For example:
     // 

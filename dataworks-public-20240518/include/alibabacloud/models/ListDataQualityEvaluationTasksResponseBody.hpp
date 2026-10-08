@@ -401,7 +401,7 @@ namespace Models
 
 
         protected:
-          // The cause that triggers the notification.
+          // The condition that triggers the notification.
           shared_ptr<string> condition_ {};
           // The alert settings.
           shared_ptr<vector<Notifications::NotificationsItem>> notifications_ {};
@@ -445,7 +445,7 @@ namespace Models
 
 
         protected:
-          // The cause that triggers the hook.
+          // The condition that triggers the hook.
           shared_ptr<string> condition_ {};
           // The type of the follow-up action. Valid values:
           // - BlockTaskInstance: Blocks the execution of a DataWorks node instance.
@@ -537,11 +537,11 @@ namespace Models
         shared_ptr<int64_t> dataSourceId_ {};
         // The description of the data quality evaluation task. The description can be up to 65,535 characters in length.
         shared_ptr<string> description_ {};
-        // The callback settings during the epoch of data quality evaluation task instances. Currently, only one hook that blocks a scheduling node instance is supported.
+        // The callback settings during the lifecycle of data quality evaluation task instances. Currently, only one hook that blocks a scheduling node instance is supported.
         shared_ptr<vector<DataQualityEvaluationTasks::Hooks>> hooks_ {};
         // The ID of the data quality evaluation task.
         shared_ptr<int64_t> id_ {};
-        // The name of the data quality evaluation task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 255 characters in length.
+        // The name of the data quality evaluation task. The name can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks. The name can be up to 255 characters in length.
         shared_ptr<string> name_ {};
         // The alert configuration.
         shared_ptr<DataQualityEvaluationTasks::Notifications> notifications_ {};
@@ -617,7 +617,7 @@ namespace Models
 
 
   protected:
-    // The paged query result of quality evaluation nodes.
+    // The paged query result of quality evaluation tasks.
     shared_ptr<ListDataQualityEvaluationTasksResponseBody::PagingInfo> pagingInfo_ {};
     // The API request ID.
     shared_ptr<string> requestId_ {};

@@ -74,15 +74,18 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> resourceGroupId_ {};
-    // The fields used for sorting. Fields such as TriggerTime and StartedTime are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+    // The fields used for sorting. Fields such as scheduled time and start time are supported. The value of this parameter is in the Sort field + Sort by (Desc/Asc) format. By default, results are sorted in ascending order. Valid values:
+    // 
+    // 
+    // 
     // 
     // - Id (Desc/Asc): the network ID
-    // 
     // - Status (Desc/Asc): the network status
-    // 
     // - CreateUser (Desc/Asc): the user who created the network
-    // 
     // - CreateTime (Desc/Asc): the time when the network was created
+    // 
+    // 
+    // 
     // 
     // Default value: CreateTime Asc.
     shared_ptr<string> sortBy_ {};

@@ -196,9 +196,15 @@ namespace Models
           shared_ptr<string> timezone_ {};
           // The trigger type.
           // 
+          // 
+          // 
+          // 
           // Valid values:
           // 
-          // - Scheduler: Timed scheduling.
+          // 
+          // 
+          // 
+          // - Scheduler: Periodic scheduling.
           // - Manual: Manual scheduling.
           // - Streaming: Streaming scheduler.
           shared_ptr<string> type_ {};
@@ -1202,27 +1208,30 @@ namespace Models
 
 
       protected:
-        // The timestamp when the data development node was created.
+        // The timestamp when the Data Studio node was created.
         shared_ptr<int64_t> createTime_ {};
         // The data source.
         shared_ptr<Nodes::DataSource> dataSource_ {};
         // The description of the node.
         shared_ptr<string> description_ {};
-        // The unique identifier of the DataStudio node.
+        // The unique identifier of the Data Studio node.
         // 
-        // >Notice: This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK.** Only when you upgrade across SDK version 8.0.0, the type change may cause project compilation failures, and you must manually correct the data type.
+        // 
+        // 
+        // 
+        // > &lt;notice&gt;This field was of the Long type in SDK versions earlier than 8.0.0 and is of the String type in SDK 8.0.0 and later. **This change does not affect normal SDK usage. The parameter is still returned in the type defined in the SDK.** Only when you upgrade across SDK version 8.0.0, the type change may cause project compilation failures, and you must manually correct the data type.&gt;&lt;/notice&gt;
         shared_ptr<string> id_ {};
         // The node inputs.
         shared_ptr<Nodes::Inputs> inputs_ {};
-        // The timestamp when the data development node was last modified.
+        // The timestamp when the Data Studio node was last modified.
         shared_ptr<int64_t> modifyTime_ {};
-        // The name of the data development node.
+        // The name of the Data Studio node.
         shared_ptr<string> name_ {};
         // The node outputs.
         shared_ptr<Nodes::Outputs> outputs_ {};
-        // The owner of the data development node.
+        // The owner of the Data Studio node.
         shared_ptr<string> owner_ {};
-        // The ID of the workspace to which the data development node belongs.
+        // The ID of the workspace to which the Data Studio node belongs.
         shared_ptr<int64_t> projectId_ {};
         // The scheduling type.
         // 
@@ -1281,7 +1290,7 @@ namespace Models
 
 
     protected:
-      // The list of dependent nodes returned by the query.
+      // The list of dependency nodes returned by the query.
       shared_ptr<vector<PagingInfo::Nodes>> nodes_ {};
       // The page number of the requested data, used for pagination.
       shared_ptr<string> pageNumber_ {};

@@ -486,7 +486,7 @@ namespace Models
 
 
         protected:
-          // The Alibaba Cloud account ID of the principal that assumes the role.
+          // The Alibaba Cloud account ID of the principal that owns the role to be assumed.
           shared_ptr<string> assumeRoleFor_ {};
           // The policy used to further restrict the role permissions.
           shared_ptr<string> policy_ {};

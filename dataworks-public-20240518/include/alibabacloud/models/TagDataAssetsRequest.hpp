@@ -141,11 +141,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<string>> dataAssetIds_ {};
-    // The type of the data asset. Valid values:
-    // 
-    // - ACS::DataWorks::Table
-    // 
-    // - ACS::DataWorks::Task
+    // The type of the data asset. Valid values: ACS::DataWorks::Table (data table) and ACS::DataWorks::Task (scheduled task).
     // 
     // This parameter is required.
     shared_ptr<string> dataAssetType_ {};

@@ -115,7 +115,7 @@ namespace Models
 
 
       protected:
-        // The IDs of the auto triggered nodes of which the instances are successfully run. This parameter takes effect only if the Type parameter is set to ByScheduledTaskInstance.
+        // Specifies the scheduled nodes whose instances can trigger the quality evaluation task after running successfully. This setting takes effect when type is ByScheduledTaskInstance.
         shared_ptr<vector<int64_t>> taskIds_ {};
         // The trigger condition of the task. Valid values:
         // 
@@ -424,9 +424,7 @@ namespace Models
       protected:
         // The trigger configuration of the callback event.
         shared_ptr<string> condition_ {};
-        // The type of the callback event. Valid values:
-        // 
-        // *   BlockTaskInstance: An auto triggered node is blocked.
+        // The subsequent action type. BlockTaskInstance: blocks execution of a DataWorks task instance.
         shared_ptr<string> type_ {};
       };
 
@@ -514,17 +512,17 @@ namespace Models
     protected:
       // The ID of the data source that is used for task running.
       shared_ptr<int64_t> dataSourceId_ {};
-      // The callback configurations of the task during the instance lifecycle. Blocking an auto triggered node is a type of callback event. Only this type is supported.
+      // The callback settings during the lifecycle of the data quality evaluation task instance. Currently, only one hook that blocks a scheduled task is supported.
       shared_ptr<vector<Task::Hooks>> hooks_ {};
       // The ID of the data quality monitoring task.
       shared_ptr<int64_t> id_ {};
-      // The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, letters, and punctuation marks.
+      // The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks.
       shared_ptr<string> name_ {};
       // The subscription configurations for alert notifications.
       shared_ptr<vector<Task::Notifications>> notifications_ {};
       // The DataWorks workspace ID.
       shared_ptr<int64_t> projectId_ {};
-      // The configuration of the data source. The value of the queue field is default, and that of the sqlEngine field can be SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL to collect EMR data. The value default indicates the YARN queue for E-MapReduce (EMR) tasks.
+      // The settings used when accessing the data source. Currently, only the EMR YARN queue and the SQL engine used to collect EMR tables can be specified. Supported SQL engines: SPARK_SQL, KYUUBI, PRESTO_SQL, and HIVE_SQL.
       shared_ptr<string> runtimeConf_ {};
       // The monitored object of the data quality monitoring task.
       shared_ptr<Task::Target> target_ {};

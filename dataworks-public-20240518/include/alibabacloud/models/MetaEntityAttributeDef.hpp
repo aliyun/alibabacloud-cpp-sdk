@@ -110,7 +110,7 @@ namespace Models
     shared_ptr<vector<string>> allowedValues_ {};
     // Attribute description
     shared_ptr<string> description_ {};
-    // Indicates whether the attribute appears on the product page. Default is true.
+    // Indicates whether the attribute appears on the details page. Default is true.
     shared_ptr<bool> displayEnabled_ {};
     // Display name. It can be up to 32 characters long.
     shared_ptr<string> displayName_ {};

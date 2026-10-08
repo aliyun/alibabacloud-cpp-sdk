@@ -187,11 +187,17 @@ namespace Models
         shared_ptr<int32_t> step_ {};
         // The type of the deployment stage.
         // 
+        // 
+        // 
+        // 
         // Valid values:
+        // 
+        // 
+        // 
         // 
         // - Deploy: deploy operation
         // - Check: check operation
-        // - Offline: offline operation
+        // - Offline: undeploy operation
         // - Build: build operation
         // - Delete: delete operation
         shared_ptr<string> type_ {};

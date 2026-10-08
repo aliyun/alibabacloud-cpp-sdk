@@ -179,7 +179,7 @@ namespace Models
     shared_ptr<string> parameterDescription_ {};
     // The DataWorks workspace ID. To find this, click the wrench icon in the upper-right corner and navigate to the workspace management page.
     shared_ptr<int64_t> projectId_ {};
-    // The unique identifier of the DataWorks workspace, which is the identifier at the top of the Data Studio page where you switch workspaces.
+    // The unique identifier of the DataWorks workspace, which is the English identifier at the top of the Data Studio page where you switch workspaces.
     shared_ptr<string> projectIdentifier_ {};
     // A comma-separated list of resource names referenced by the function, corresponding to the resource list field in the Create Function form.
     // 

@@ -74,7 +74,7 @@ namespace Models
     // 
     // - If the system performs the forcible rerun operation, all steps start to rerun.
     shared_ptr<bool> forceToRerun_ {};
-    // The ID of the synchronization task.
+    // The instance ID.
     shared_ptr<int64_t> id_ {};
     // The settings for starting real-time synchronization.
     // 

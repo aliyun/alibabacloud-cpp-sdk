@@ -97,7 +97,11 @@ namespace Models
 
     protected:
       // The image sub-module. Valid values:
-      // - Scheduler: DataStudio.
+      // 
+      // 
+      // 
+      // 
+      // - Scheduler: Data Studio.
       shared_ptr<string> module_ {};
       // The list of supported node types.
       shared_ptr<vector<string>> taskTypes_ {};
@@ -330,7 +334,10 @@ namespace Models
     shared_ptr<string> namespace_ {};
     // The image ID from the image provider. This parameter is required when referencing a DataWorks official image.
     shared_ptr<string> providerImageId_ {};
-    // The image reference data type. Valid values:
+    // The image reference type. Valid values:
+    // 
+    // 
+    // 
     // 
     // - ACR: ACR image repository.
     // - DataWorks: DataWorks official image.

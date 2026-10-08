@@ -149,7 +149,7 @@ namespace Models
   protected:
     // The dataset version description.
     shared_ptr<string> comment_ {};
-    // Creation time (milliseconds)
+    // Creation time, represented by a timestamp in milliseconds
     shared_ptr<int64_t> createTime_ {};
     // The creator ID.
     shared_ptr<string> creatorId_ {};
@@ -157,23 +157,28 @@ namespace Models
     shared_ptr<string> datasetId_ {};
     // The dataset version ID.
     shared_ptr<string> id_ {};
-    // The storage import configuration for the dataset; required configuration varies by storage type.
+    // The storage import configuration for the dataset. The required configuration varies by storage type.
     // 
-    // **NAS**
     // 
-    // Refer to the return values from the file storage API DescribeFileSystems.
+    // <details>
+    // <summary>NAS</summary>
+    // For values, see the response of the File Storage NAS DescribeFileSystems API.
+    // 
     // 
     // ```JSON
     // {
-    // "fileSystemId": "3b6XXX89c9", // The file system ID.
-    // "fileSystemStorageType":  "Performance" // The file system storage type.
-    // "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount point.
+    //   "fileSystemId": "3b6XXX89c9", // The file system ID.
+    //   "fileSystemStorageType": "Performance", // The file system storage type.
+    //   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount point.
     // }
     // ```
+    // 
+    // 
+    // </details>
     shared_ptr<map<string, string>> importInfo_ {};
     // The PAI dataset label.
     shared_ptr<vector<DatasetLabel>> labels_ {};
-    // Modification time (milliseconds)
+    // Modification time, represented by a timestamp in milliseconds
     shared_ptr<int64_t> modifyTime_ {};
     // The mount path. Defaults to /mnt/data.
     shared_ptr<string> mountPath_ {};

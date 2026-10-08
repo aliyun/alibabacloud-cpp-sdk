@@ -291,10 +291,16 @@ namespace Models
         shared_ptr<string> absoluteFolderPath_ {};
         // Indicates whether the automatic parsing feature is enabled for the file. Valid values:
         // 
+        // 
+        // 
+        // 
         // - true: The file automatically parses code.
         // - false: The file does not automatically parse code.
         // 
-        // This parameter corresponds to the "Code Parsing" option when you select "Same Cycle" in "Scheduling Configuration > Scheduling Dependencies" for a DataStudio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
+        // 
+        // 
+        // 
+        // This parameter corresponds to the "Code Parsing" option when you select "Same Cycle" in "Scheduling Configuration &gt; Scheduling Dependencies" for a Data Studio task in the [DataWorks console](https://workbench.data.aliyun.com/console).
         shared_ptr<bool> autoParsing_ {};
         // **[Deprecated]** The ID of the workflow to which the file belongs. This field is deprecated. Use the BusinessId field instead.
         shared_ptr<int64_t> bizId_ {};
@@ -337,10 +343,14 @@ namespace Models
         // If the current file is an internal file of a combined node, this field indicates the ID of the corresponding combined node file.
         shared_ptr<int64_t> parentId_ {};
         // The functional module to which the file belongs. Valid values:
-        // - NORMAL: DataStudio.
+        // 
+        // 
+        // 
+        // 
+        // - NORMAL: Data Studio.
         // - MANUAL: manual node.
         // - MANUAL_BIZ: manual workflow.
-        // - SKIP: dry-run scheduling in DataStudio.
+        // - SKIP: dry-run scheduling in Data Studio.
         // - ADHOCQUERY: ad hoc query.
         // - COMPONENT: component management.
         shared_ptr<string> useType_ {};

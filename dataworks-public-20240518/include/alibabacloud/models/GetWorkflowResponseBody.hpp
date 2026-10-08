@@ -152,13 +152,7 @@ namespace Models
         shared_ptr<string> cron_ {};
         // The end time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
         shared_ptr<string> endTime_ {};
-        // The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
-        // 
-        // - Pause
-        // 
-        // - Skip
-        // 
-        // - Normal
+        // The running mode of the workflow after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
         shared_ptr<string> recurrence_ {};
         // The start time of the time range during which the workflow is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
         shared_ptr<string> startTime_ {};
@@ -278,7 +272,7 @@ namespace Models
 
 
         protected:
-          // The default number of compute units (CUs) configured for task running.
+          // The number of compute units (CUs) configured for task running.
           shared_ptr<string> cu_ {};
           // The ID of the image configured for task running.
           shared_ptr<string> image_ {};
@@ -495,11 +489,7 @@ namespace Models
         shared_ptr<Tasks::DataSource> dataSource_ {};
         // The description of the task.
         shared_ptr<string> description_ {};
-        // The environment of the workspace. Valid values:
-        // 
-        // - Prod
-        // 
-        // - Dev
+        // The environment of the workspace. Valid values: Prod (production) and Dev (development).
         shared_ptr<string> envType_ {};
         // The task ID.
         shared_ptr<int64_t> id_ {};
@@ -531,13 +521,7 @@ namespace Models
         shared_ptr<Tasks::RuntimeResource> runtimeResource_ {};
         // The timeout period of task running. Unit: seconds.
         shared_ptr<int32_t> timeout_ {};
-        // The running mode of the task after it is triggered. Valid values:
-        // 
-        // - Pause
-        // 
-        // - Skip
-        // 
-        // - Normal
+        // The running mode of the task after it is triggered. Valid values: Pause (paused), Skip (dry run), and Normal (normal execution).
         shared_ptr<string> triggerRecurrence_ {};
         // The type of the task.
         shared_ptr<string> type_ {};
@@ -714,7 +698,7 @@ namespace Models
         shared_ptr<string> type_ {};
         // The identifier of the output of the ancestor task. This parameter is returned only if `same-cycle scheduling dependencies` and the node input are configured.
         shared_ptr<string> upstreamOutput_ {};
-        // The ancestor task ID. This parameter is returned only if `cross-cycle scheduling dependencies` or `same-cycle scheduling dependencies` and the node input are not configured.
+        // The ID of the upstream task. This field is returned for cross-cycle dependencies on other nodes, or for same-cycle dependencies when input content is not specified. It is not returned in other cases.
         shared_ptr<int64_t> upstreamTaskId_ {};
       };
 

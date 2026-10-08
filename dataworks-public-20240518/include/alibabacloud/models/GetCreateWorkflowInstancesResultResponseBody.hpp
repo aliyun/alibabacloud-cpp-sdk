@@ -105,15 +105,9 @@ namespace Models
     protected:
       // The error message. This parameter is returned only if the creation fails.
       shared_ptr<string> failureMessage_ {};
-      // The creation status. Valid values:
-      // 
-      // - Creating
-      // 
-      // - Created
-      // 
-      // - CreateFailure
+      // The creation status. Valid values: Creating (creation in progress), Created (creation succeeded), and CreateFailure (creation failed).
       shared_ptr<string> status_ {};
-      // Unified workflow instance ID. For all task instances triggered under the same data timestamp in a single trigger, the value of this field is identical. This field is returned after successful creation.
+      // Unified workflow instance ID. For all task instances triggered under the same business date in a single trigger, the value of this field is identical. This field is returned after successful creation.
       shared_ptr<vector<int64_t>> unifiedWorkflowInstanceIds_ {};
       // The workflow instance IDs. This parameter is returned only if the creation is successful.
       shared_ptr<vector<int64_t>> workflowInstanceIds_ {};

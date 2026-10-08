@@ -149,7 +149,7 @@ namespace Models
         // - Skip: dry run
         // - Normal: normal execution
         shared_ptr<string> recurrence_ {};
-        // The effective period of the epoch trigger. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
+        // The time when the periodic trigger takes effect. This parameter takes effect only when type is set to Scheduler. Format: `yyyy-mm-dd hh:mm:ss`.
         shared_ptr<string> startTime_ {};
         // The trigger type. Valid values:
         // - Scheduler: triggered by scheduling cycle

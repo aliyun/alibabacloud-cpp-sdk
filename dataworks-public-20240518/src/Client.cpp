@@ -461,7 +461,7 @@ AssociateProjectToImageResponse Client::associateProjectToImage(const AssociateP
  *
  * @description 1. You must have purchased DataWorks Basic Edition or a higher edition to use this operation.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
+ * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
  *
  * @param request AssociateProjectToResourceGroupRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -500,7 +500,7 @@ AssociateProjectToResourceGroupResponse Client::associateProjectToResourceGroupW
  *
  * @description 1. You must have purchased DataWorks Basic Edition or a higher edition to use this operation.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
+ * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
  *
  * @param request AssociateProjectToResourceGroupRequest
  * @return AssociateProjectToResourceGroupResponse
@@ -915,7 +915,7 @@ CancelImageTestResponse Client::cancelImageTest(const CancelImageTestRequest &re
  *
  * @description 1. You must have purchased DataWorks Basic Edition or a higher edition.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
+ * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
  *
  * @param request CloneDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -954,7 +954,7 @@ CloneDataSourceResponse Client::cloneDataSourceWithOptions(const CloneDataSource
  *
  * @description 1. You must have purchased DataWorks Basic Edition or a higher edition.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M Engineer
+ * - Tenant Owner, Workspace Administrator, Project Owner, or O&amp;M Engineer
  *
  * @param request CloneDataSourceRequest
  * @return CloneDataSourceResponse
@@ -1229,7 +1229,7 @@ CreateAlertRuleResponse Client::createAlertRule(const CreateAlertRuleRequest &re
 }
 
 /**
- * @summary Creates a business process in DataStudio for data development.
+ * @summary Creates a business process in Data Studio for data development.
  *
  * @param request CreateBusinessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1280,7 +1280,7 @@ CreateBusinessResponse Client::createBusinessWithOptions(const CreateBusinessReq
 }
 
 /**
- * @summary Creates a business process in DataStudio for data development.
+ * @summary Creates a business process in Data Studio for data development.
  *
  * @param request CreateBusinessRequest
  * @return CreateBusinessResponse
@@ -1721,7 +1721,7 @@ CreateDIAlarmRuleResponse Client::createDIAlarmRule(const CreateDIAlarmRuleReque
 }
 
 /**
- * @summary Creates a data integration task.
+ * @summary Creates a task in the new version of Data Integration.
  *
  * @description - You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  * - This operation creates a data integration synchronization task. Parameters include the source configuration SourceDataSourceSettings and the destination configuration DestinationDataSourceSettings, the supported synchronization type MigrationType, transformation rules defined through TransformationRules for mapping operations such as adding columns and renaming tables, specific tables to synchronize and the mapping rules to apply defined in TableMappings, and task-level settings such as column mappings and scheduling configurations defined in JobSettings.
@@ -1843,7 +1843,7 @@ CreateDIJobResponse Client::createDIJobWithOptions(const CreateDIJobRequest &tmp
 }
 
 /**
- * @summary Creates a data integration task.
+ * @summary Creates a task in the new version of Data Integration.
  *
  * @description - You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  * - This operation creates a data integration synchronization task. Parameters include the source configuration SourceDataSourceSettings and the destination configuration DestinationDataSourceSettings, the supported synchronization type MigrationType, transformation rules defined through TransformationRules for mapping operations such as adding columns and renaming tables, specific tables to synchronize and the mapping rules to apply defined in TableMappings, and task-level settings such as column mappings and scheduling configurations defined in JobSettings.
@@ -2591,7 +2591,7 @@ CreateDataQualityTemplateResponse Client::createDataQualityTemplate(const Create
  *
  * @description 1. You must have purchased DataWorks Basic Edition or a higher edition.
  * 2. You must have at least one of the following roles in the DataWorks project workspace:
- * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M
+ * - Tenant Owner, workspace administrator, Project Owner, or O&amp;M
  *
  * @param request CreateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2646,7 +2646,7 @@ CreateDataSourceResponse Client::createDataSourceWithOptions(const CreateDataSou
  *
  * @description 1. You must have purchased DataWorks Basic Edition or a higher edition.
  * 2. You must have at least one of the following roles in the DataWorks project workspace:
- * - Tenant Owner, Storage Management Administrator, Project Owner, or O&M
+ * - Tenant Owner, workspace administrator, Project Owner, or O&amp;M
  *
  * @param request CreateDataSourceRequest
  * @return CreateDataSourceResponse
@@ -2659,7 +2659,7 @@ CreateDataSourceResponse Client::createDataSource(const CreateDataSourceRequest 
 /**
  * @summary Creates a sharing rule for a data source to share it with other workspaces or RAM users.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. To share a data source from Workspace A to Workspace B, you must have the data source sharing permissions in both workspaces. You must have one of the following roles in DataWorks:
  * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
  *
@@ -2706,7 +2706,7 @@ CreateDataSourceSharedRuleResponse Client::createDataSourceSharedRuleWithOptions
 /**
  * @summary Creates a sharing rule for a data source to share it with other workspaces or RAM users.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. To share a data source from Workspace A to Workspace B, you must have the data source sharing permissions in both workspaces. You must have one of the following roles in DataWorks:
  * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
  *
@@ -2855,7 +2855,7 @@ CreateDatasetVersionResponse Client::createDatasetVersion(const CreateDatasetVer
 }
 
 /**
- * @summary Creates a file in DataStudio. This operation does not support creating Data Integration nodes.
+ * @summary Creates a file in Data Studio. This operation does not support creating Data Integration nodes.
  *
  * @param request CreateFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3022,7 +3022,7 @@ CreateFileResponse Client::createFileWithOptions(const CreateFileRequest &reques
 }
 
 /**
- * @summary Creates a file in DataStudio. This operation does not support creating Data Integration nodes.
+ * @summary Creates a file in Data Studio. This operation does not support creating Data Integration nodes.
  *
  * @param request CreateFileRequest
  * @return CreateFileResponse
@@ -3083,7 +3083,7 @@ CreateFolderResponse Client::createFolder(const CreateFolderRequest &request) {
 }
 
 /**
- * @summary Creates a UDF function in DataStudio. The UDF function information is described in FlowSpec format.
+ * @summary Creates a UDF function in Data Studio. The UDF function information is described in FlowSpec format.
  *
  * @description >Notice: This operation does not support batch operations. If more than one UDF function is defined in the FlowSpec, all functions after the first one are ignored.
  *
@@ -3120,7 +3120,7 @@ CreateFunctionResponse Client::createFunctionWithOptions(const CreateFunctionReq
 }
 
 /**
- * @summary Creates a UDF function in DataStudio. The UDF function information is described in FlowSpec format.
+ * @summary Creates a UDF function in Data Studio. The UDF function information is described in FlowSpec format.
  *
  * @description >Notice: This operation does not support batch operations. If more than one UDF function is defined in the FlowSpec, all functions after the first one are ignored.
  *
@@ -3567,7 +3567,7 @@ CreateMetaEntityDefResponse Client::createMetaEntityDef(const CreateMetaEntityDe
 /**
  * @summary Creates a network and associates the network with a general resource group.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request CreateNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3612,7 +3612,7 @@ CreateNetworkResponse Client::createNetworkWithOptions(const CreateNetworkReques
 /**
  * @summary Creates a network and associates the network with a general resource group.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request CreateNetworkRequest
  * @return CreateNetworkResponse
@@ -3623,7 +3623,7 @@ CreateNetworkResponse Client::createNetwork(const CreateNetworkRequest &request)
 }
 
 /**
- * @summary Creates a data development node in the new version of DataStudio.
+ * @summary Creates a Data Studio node in the new version of Data Studio.
  *
  * @description >Notice: This operation does not support batch operations. If more than one node is defined in FlowSpec, all nodes after the first one are ignored.
  *
@@ -3668,7 +3668,7 @@ CreateNodeResponse Client::createNodeWithOptions(const CreateNodeRequest &reques
 }
 
 /**
- * @summary Creates a data development node in the new version of DataStudio.
+ * @summary Creates a Data Studio node in the new version of Data Studio.
  *
  * @description >Notice: This operation does not support batch operations. If more than one node is defined in FlowSpec, all nodes after the first one are ignored.
  *
@@ -3757,10 +3757,10 @@ CreateParameterResponse Client::createParameter(const CreateParameterRequest &re
 }
 
 /**
- * @summary Creates a publish process for an entity in the new-version DataStudio.
+ * @summary Creates a deployment process for an entity in the new-version Data Studio.
  *
- * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
- * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.
+ * @description > &lt;notice&gt;This operation does not support batch operations. If you specify multiple entities to deploy in the parameters, all entities except the first one are ignored.&gt;&lt;/notice&gt;
+ * > &lt;notice&gt;This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.&gt;&lt;/notice&gt;
  *
  * @param tmpReq CreatePipelineRunRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -3817,10 +3817,10 @@ CreatePipelineRunResponse Client::createPipelineRunWithOptions(const CreatePipel
 }
 
 /**
- * @summary Creates a publish process for an entity in the new-version DataStudio.
+ * @summary Creates a deployment process for an entity in the new-version Data Studio.
  *
- * @description >Notice: This operation does not support batch operations. If you specify multiple publish entities in the parameters, all entities except the first one are ignored.
- * >Notice: This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.
+ * @description > &lt;notice&gt;This operation does not support batch operations. If you specify multiple entities to deploy in the parameters, all entities except the first one are ignored.&gt;&lt;/notice&gt;
+ * > &lt;notice&gt;This operation may not be available in earlier versions of the SDK. In this case, use the CreateDeployment operation. The parameters are the same as those described in this topic.&gt;&lt;/notice&gt;
  *
  * @param request CreatePipelineRunRequest
  * @return CreatePipelineRunResponse
@@ -4137,7 +4137,7 @@ CreateProjectRoleResponse Client::createProjectRole(const CreateProjectRoleReque
 }
 
 /**
- * @summary Creates a file resource for data development. The file resource information is defined in FlowSpec format.
+ * @summary Creates a file resource for Data Studio. The file resource information is defined in FlowSpec format.
  *
  * @description >Notice: This operation does not support batch operations. If more than one resource file is defined in the FlowSpec, all resource files after the first one are ignored.
  *
@@ -4178,7 +4178,7 @@ CreateResourceResponse Client::createResourceWithOptions(const CreateResourceReq
 }
 
 /**
- * @summary Creates a file resource for data development. The file resource information is defined in FlowSpec format.
+ * @summary Creates a file resource for Data Studio. The file resource information is defined in FlowSpec format.
  *
  * @description >Notice: This operation does not support batch operations. If more than one resource file is defined in the FlowSpec, all resource files after the first one are ignored.
  *
@@ -4277,7 +4277,7 @@ CreateResourceResponse Client::createResourceAdvance(const CreateResourceAdvance
 }
 
 /**
- * @summary Supports users in specifying their own files (such as JAR, PY, archive, or file) to create Data Development resource files.
+ * @summary Supports users in specifying their own files (such as JAR, PY, archive, or file) to create Data Studio resource files.
  *
  * @param request CreateResourceFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4352,7 +4352,7 @@ CreateResourceFileResponse Client::createResourceFileWithOptions(const CreateRes
 }
 
 /**
- * @summary Supports users in specifying their own files (such as JAR, PY, archive, or file) to create Data Development resource files.
+ * @summary Supports users in specifying their own files (such as JAR, PY, archive, or file) to create Data Studio resource files.
  *
  * @param request CreateResourceFileRequest
  * @return CreateResourceFileResponse
@@ -4551,7 +4551,7 @@ CreateResourceGroupResponse Client::createResourceGroup(const CreateResourceGrou
 /**
  * @summary Creates a route for a network.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request CreateRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -4592,7 +4592,7 @@ CreateRouteResponse Client::createRouteWithOptions(const CreateRouteRequest &req
 /**
  * @summary Creates a route for a network.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request CreateRouteRequest
  * @return CreateRouteResponse
@@ -4991,7 +4991,7 @@ CreateSkillResponse Client::createSkill(const CreateSkillRequest &request) {
 }
 
 /**
- * @summary Creates a file for a function in DataStudio.
+ * @summary Creates a file for a function in Data Studio.
  *
  * @param request CreateUdfFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5070,7 +5070,7 @@ CreateUdfFileResponse Client::createUdfFileWithOptions(const CreateUdfFileReques
 }
 
 /**
- * @summary Creates a file for a function in DataStudio.
+ * @summary Creates a file for a function in Data Studio.
  *
  * @param request CreateUdfFileRequest
  * @return CreateUdfFileResponse
@@ -5081,7 +5081,7 @@ CreateUdfFileResponse Client::createUdfFile(const CreateUdfFileRequest &request)
 }
 
 /**
- * @summary Creates a workflow in a specified folder in DataStudio.
+ * @summary Creates a workflow in a specified folder in Data Studio.
  *
  * @description >Notice: This operation does not support batch operations. If more than one workflow is defined in FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also ignored. Call the CreateNode operation to create internal nodes one by one.
  *
@@ -5118,7 +5118,7 @@ CreateWorkflowDefinitionResponse Client::createWorkflowDefinitionWithOptions(con
 }
 
 /**
- * @summary Creates a workflow in a specified folder in DataStudio.
+ * @summary Creates a workflow in a specified folder in Data Studio.
  *
  * @description >Notice: This operation does not support batch operations. If more than one workflow is defined in FlowSpec, all workflows except the first one are ignored. In addition, nodes defined within the workflow are also ignored. Call the CreateNode operation to create internal nodes one by one.
  *
@@ -5382,7 +5382,7 @@ DeleteBusinessResponse Client::deleteBusiness(const DeleteBusinessRequest &reque
  * @summary Deletes a certificate file.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
- * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, storage management administrator, project owner, or O&M engineer.
+ * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, workspace administrator, project owner, or O&amp;M engineer.
  *
  * @param request DeleteCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5420,7 +5420,7 @@ DeleteCertificateResponse Client::deleteCertificateWithOptions(const DeleteCerti
  * @summary Deletes a certificate file.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
- * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, storage management administrator, project owner, or O&M engineer.
+ * 2. You must have at least one of the following roles in the DataWorks workspace: tenant owner, workspace administrator, project owner, or O&amp;M engineer.
  *
  * @param request DeleteCertificateRequest
  * @return DeleteCertificateResponse
@@ -5433,7 +5433,7 @@ DeleteCertificateResponse Client::deleteCertificate(const DeleteCertificateReque
 /**
  * @summary Deletes a component.
  *
- * @description >Notice: After a UDF function is published, it cannot be deleted. You must offline the function before deleting it.
+ * @description > &lt;notice&gt;After a UDF function is published, it cannot be deleted. You must undeploy the function before deleting it.&gt;&lt;/notice&gt;
  *
  * @param request DeleteComponentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5470,7 +5470,7 @@ DeleteComponentResponse Client::deleteComponentWithOptions(const DeleteComponent
 /**
  * @summary Deletes a component.
  *
- * @description >Notice: After a UDF function is published, it cannot be deleted. You must offline the function before deleting it.
+ * @description > &lt;notice&gt;After a UDF function is published, it cannot be deleted. You must undeploy the function before deleting it.&gt;&lt;/notice&gt;
  *
  * @param request DeleteComponentRequest
  * @return DeleteComponentResponse
@@ -5641,6 +5641,8 @@ DeleteCustomAttributeResponse Client::deleteCustomAttribute(const DeleteCustomAt
 /**
  * @summary Deletes an alert rule configured for a synchronization task.
  *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ *
  * @param request DeleteDIAlarmRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return DeleteDIAlarmRuleResponse
@@ -5668,6 +5670,8 @@ DeleteDIAlarmRuleResponse Client::deleteDIAlarmRuleWithOptions(const DeleteDIAla
 /**
  * @summary Deletes an alert rule configured for a synchronization task.
  *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ *
  * @param request DeleteDIAlarmRuleRequest
  * @return DeleteDIAlarmRuleResponse
  */
@@ -5679,7 +5683,7 @@ DeleteDIAlarmRuleResponse Client::deleteDIAlarmRule(const DeleteDIAlarmRuleReque
 /**
  * @summary Deletes a new-version synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request DeleteDIJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -5708,7 +5712,7 @@ DeleteDIJobResponse Client::deleteDIJobWithOptions(const DeleteDIJobRequest &req
 /**
  * @summary Deletes a new-version synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request DeleteDIJobRequest
  * @return DeleteDIJobResponse
@@ -6083,9 +6087,9 @@ DeleteDataQualityTemplateResponse Client::deleteDataQualityTemplate(const Delete
 /**
  * @summary Deletes a data source by data source ID.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. To call this operation, you must have one of the following roles in DataWorks:
- * - Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
+ * - Tenant Owner, Workspace Administrator, Workspace Owner, and O&amp;M
  *
  * @param request DeleteDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6114,9 +6118,9 @@ DeleteDataSourceResponse Client::deleteDataSourceWithOptions(const DeleteDataSou
 /**
  * @summary Deletes a data source by data source ID.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. To call this operation, you must have one of the following roles in DataWorks:
- * - Tenant Owner, Workspace Administrator, Workspace Owner, and O\\&M
+ * - Tenant Owner, Workspace Administrator, Workspace Owner, and O&amp;M
  *
  * @param request DeleteDataSourceRequest
  * @return DeleteDataSourceResponse
@@ -6129,7 +6133,7 @@ DeleteDataSourceResponse Client::deleteDataSource(const DeleteDataSourceRequest 
 /**
  * @summary Deletes a data source sharing rule by rule ID.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. To delete a sharing rule of a data source from Workspace A to Workspace B, you must have the data source sharing permissions in Workspace A or Workspace B. You must have one of the following roles in DataWorks:
  * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
  *
@@ -6164,7 +6168,7 @@ DeleteDataSourceSharedRuleResponse Client::deleteDataSourceSharedRuleWithOptions
 /**
  * @summary Deletes a data source sharing rule by rule ID.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. To delete a sharing rule of a data source from Workspace A to Workspace B, you must have the data source sharing permissions in Workspace A or Workspace B. You must have one of the following roles in DataWorks:
  * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
  *
@@ -6261,7 +6265,7 @@ DeleteDatasetVersionResponse Client::deleteDatasetVersion(const DeleteDatasetVer
 }
 
 /**
- * @summary Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+ * @summary Deletes a file from Data Studio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
  *
  * @param request DeleteFileRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6300,7 +6304,7 @@ DeleteFileResponse Client::deleteFileWithOptions(const DeleteFileRequest &reques
 }
 
 /**
- * @summary Deletes a file from DataStudio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
+ * @summary Deletes a file from Data Studio. If the file has been committed, an asynchronous process is triggered to delete the file in the scheduling system. The value of the DeploymentId parameter returned is used to call the GetDeployment operation to poll the status of the asynchronous process.
  *
  * @param request DeleteFileRequest
  * @return DeleteFileResponse
@@ -6311,7 +6315,7 @@ DeleteFileResponse Client::deleteFile(const DeleteFileRequest &request) {
 }
 
 /**
- * @summary Invoke DeleteFolder to delete a folder on the Data Development page.
+ * @summary Invoke DeleteFolder to delete a folder on the Data Studio page.
  *
  * @param request DeleteFolderRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6350,7 +6354,7 @@ DeleteFolderResponse Client::deleteFolderWithOptions(const DeleteFolderRequest &
 }
 
 /**
- * @summary Invoke DeleteFolder to delete a folder on the Data Development page.
+ * @summary Invoke DeleteFolder to delete a folder on the Data Studio page.
  *
  * @param request DeleteFolderRequest
  * @return DeleteFolderResponse
@@ -6361,7 +6365,7 @@ DeleteFolderResponse Client::deleteFolder(const DeleteFolderRequest &request) {
 }
 
 /**
- * @summary Deletes a user-defined function (UDF) in DataStudio.
+ * @summary Deletes a user-defined function (UDF) in Data Studio.
  *
  * @description >Notice: 
  * After a UDF is published, it cannot be deleted. You must unpublish the UDF before you can delete it.
@@ -6399,7 +6403,7 @@ DeleteFunctionResponse Client::deleteFunctionWithOptions(const DeleteFunctionReq
 }
 
 /**
- * @summary Deletes a user-defined function (UDF) in DataStudio.
+ * @summary Deletes a user-defined function (UDF) in Data Studio.
  *
  * @description >Notice: 
  * After a UDF is published, it cannot be deleted. You must unpublish the UDF before you can delete it.
@@ -6705,9 +6709,9 @@ DeleteNetworkResponse Client::deleteNetwork(const DeleteNetworkRequest &request)
 }
 
 /**
- * @summary Deletes a specified data development node.
+ * @summary Deletes a specified Data Studio node.
  *
- * @description >Notice: After a node is published, it cannot be deleted. You must offline the node before deleting it.
+ * @description > &lt;notice&gt;After a node is deployed, it cannot be deleted. You must undeploy the node before deleting it.&gt;&lt;/notice&gt;
  *
  * @param request DeleteNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6742,9 +6746,9 @@ DeleteNodeResponse Client::deleteNodeWithOptions(const DeleteNodeRequest &reques
 }
 
 /**
- * @summary Deletes a specified data development node.
+ * @summary Deletes a specified Data Studio node.
  *
- * @description >Notice: After a node is published, it cannot be deleted. You must offline the node before deleting it.
+ * @description > &lt;notice&gt;After a node is deployed, it cannot be deleted. You must undeploy the node before deleting it.&gt;&lt;/notice&gt;
  *
  * @param request DeleteNodeRequest
  * @return DeleteNodeResponse
@@ -6757,7 +6761,7 @@ DeleteNodeResponse Client::deleteNode(const DeleteNodeRequest &request) {
 /**
  * @summary Deletes a specified parameter.
  *
- * @description This operation is available only in DataWorks professional edition and later versions.
+ * @description This operation is available only in DataWorks Professional Edition and later versions.
  *
  * @param request DeleteParameterRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -6790,7 +6794,7 @@ DeleteParameterResponse Client::deleteParameterWithOptions(const DeleteParameter
 /**
  * @summary Deletes a specified parameter.
  *
- * @description This operation is available only in DataWorks professional edition and later versions.
+ * @description This operation is available only in DataWorks Professional Edition and later versions.
  *
  * @param request DeleteParameterRequest
  * @return DeleteParameterResponse
@@ -6997,7 +7001,7 @@ DeleteProjectRoleResponse Client::deleteProjectRole(const DeleteProjectRoleReque
 }
 
 /**
- * @summary Deletes a file resource from DataStudio.
+ * @summary Deletes a file resource from Data Studio.
  *
  * @description >Notice: 
  * After a file resource is published, it cannot be deleted. You must unpublish the file resource before you can delete it.
@@ -7035,7 +7039,7 @@ DeleteResourceResponse Client::deleteResourceWithOptions(const DeleteResourceReq
 }
 
 /**
- * @summary Deletes a file resource from DataStudio.
+ * @summary Deletes a file resource from Data Studio.
  *
  * @description >Notice: 
  * After a file resource is published, it cannot be deleted. You must unpublish the file resource before you can delete it.
@@ -7049,10 +7053,10 @@ DeleteResourceResponse Client::deleteResource(const DeleteResourceRequest &reque
 }
 
 /**
- * @summary Deletes a resource group.
+ * @summary Deletes a general-purpose resource group.
  *
  * @description 1. This operation requires DataWorks Basic Edition or a later version.
- * 2. **Before you use this operation, ensure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/2680173.html) for DataWorks resource groups.**
+ * 2. **Before you use this operation, ensure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/2680173.html) for DataWorks general-purpose resource groups.**
  * 3. **Before you use this operation, ensure you have created the Service-Linked Role AliyunServiceRoleForDataWorks.**
  *
  * @param request DeleteResourceGroupRequest
@@ -7084,10 +7088,10 @@ DeleteResourceGroupResponse Client::deleteResourceGroupWithOptions(const DeleteR
 }
 
 /**
- * @summary Deletes a resource group.
+ * @summary Deletes a general-purpose resource group.
  *
  * @description 1. This operation requires DataWorks Basic Edition or a later version.
- * 2. **Before you use this operation, ensure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/2680173.html) for DataWorks resource groups.**
+ * 2. **Before you use this operation, ensure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/2680173.html) for DataWorks general-purpose resource groups.**
  * 3. **Before you use this operation, ensure you have created the Service-Linked Role AliyunServiceRoleForDataWorks.**
  *
  * @param request DeleteResourceGroupRequest
@@ -7101,7 +7105,7 @@ DeleteResourceGroupResponse Client::deleteResourceGroup(const DeleteResourceGrou
 /**
  * @summary Deletes a route from a network resource.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request DeleteRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7134,7 +7138,7 @@ DeleteRouteResponse Client::deleteRouteWithOptions(const DeleteRouteRequest &req
 /**
  * @summary Deletes a route from a network resource.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request DeleteRouteRequest
  * @return DeleteRouteResponse
@@ -7357,7 +7361,7 @@ DeleteSkillResponse Client::deleteSkill(const DeleteSkillRequest &request) {
 /**
  * @summary Deletes a task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request DeleteTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7394,7 +7398,7 @@ DeleteTaskResponse Client::deleteTaskWithOptions(const DeleteTaskRequest &reques
 /**
  * @summary Deletes a task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request DeleteTaskRequest
  * @return DeleteTaskResponse
@@ -7461,9 +7465,9 @@ DeleteWorkflowResponse Client::deleteWorkflow(const DeleteWorkflowRequest &reque
 }
 
 /**
- * @summary Deletes a specified workflow in data development.
+ * @summary Deletes a specified workflow in Data Studio.
  *
- * @description >Notice: After a workflow is published, it cannot be deleted. You must offline the workflow before deleting it.
+ * @description > &lt;notice&gt;After a workflow is published, it cannot be deleted. You must undeploy the workflow before deleting it.&gt;&lt;/notice&gt;
  *
  * @param request DeleteWorkflowDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -7498,9 +7502,9 @@ DeleteWorkflowDefinitionResponse Client::deleteWorkflowDefinitionWithOptions(con
 }
 
 /**
- * @summary Deletes a specified workflow in data development.
+ * @summary Deletes a specified workflow in Data Studio.
  *
- * @description >Notice: After a workflow is published, it cannot be deleted. You must offline the workflow before deleting it.
+ * @description > &lt;notice&gt;After a workflow is published, it cannot be deleted. You must undeploy the workflow before deleting it.&gt;&lt;/notice&gt;
  *
  * @param request DeleteWorkflowDefinitionRequest
  * @return DeleteWorkflowDefinitionResponse
@@ -8007,7 +8011,7 @@ EnableProcessDefinitionResponse Client::enableProcessDefinition(const EnableProc
 }
 
 /**
- * @summary Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+ * @summary Imports a table to a workflow. Calling this operation is equivalent to right-clicking a workflow on the Data Studio page and selecting Import Table.
  *
  * @param request EstablishRelationTableToBusinessRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8054,7 +8058,7 @@ EstablishRelationTableToBusinessResponse Client::establishRelationTableToBusines
 }
 
 /**
- * @summary Imports a table to a workflow. The call to this API operation is equivalent to performing the following operations: Go to the DataStudio page, find the desired workflow, and then click the workflow name. Right-click Table under the desired folder and select Import Table.
+ * @summary Imports a table to a workflow. Calling this operation is equivalent to right-clicking a workflow on the Data Studio page and selecting Import Table.
  *
  * @param request EstablishRelationTableToBusinessRequest
  * @return EstablishRelationTableToBusinessResponse
@@ -8065,7 +8069,7 @@ EstablishRelationTableToBusinessResponse Client::establishRelationTableToBusines
 }
 
 /**
- * @summary Executes a cross-workspace publish flow.
+ * @summary Executes a cross-workspace deployment flow.
  *
  * @param request ExecCrossProjectPipelineRunRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8100,7 +8104,7 @@ ExecCrossProjectPipelineRunResponse Client::execCrossProjectPipelineRunWithOptio
 }
 
 /**
- * @summary Executes a cross-workspace publish flow.
+ * @summary Executes a cross-workspace deployment flow.
  *
  * @param request ExecCrossProjectPipelineRunRequest
  * @return ExecCrossProjectPipelineRunResponse
@@ -8111,11 +8115,11 @@ ExecCrossProjectPipelineRunResponse Client::execCrossProjectPipelineRun(const Ex
 }
 
 /**
- * @summary Executes a specified stage of a publish flow.
+ * @summary Executes a specified stage of a deployment process.
  *
- * @description >Notice: The stages of a publish flow are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.
- * >Notice: The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.
- * >Notice: This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.
+ * @description > &lt;notice&gt;The stages of a deployment process are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.&gt;&lt;/notice&gt;
+ * > &lt;notice&gt;The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.&gt;&lt;/notice&gt;
+ * > &lt;notice&gt;This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.&gt;&lt;/notice&gt;
  *
  * @param request ExecPipelineRunStageRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8156,11 +8160,11 @@ ExecPipelineRunStageResponse Client::execPipelineRunStageWithOptions(const ExecP
 }
 
 /**
- * @summary Executes a specified stage of a publish flow.
+ * @summary Executes a specified stage of a deployment process.
  *
- * @description >Notice: The stages of a publish flow are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.
- * >Notice: The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.
- * >Notice: This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.
+ * @description > &lt;notice&gt;The stages of a deployment process are sequential. For more information, see the response of GetPipelineRun. You cannot skip or repeat a stage.&gt;&lt;/notice&gt;
+ * > &lt;notice&gt;The execution is asynchronous. The response only indicates that the stage is triggered, not that the stage is executed. Check the response of GetPipelineRun for the execution result.&gt;&lt;/notice&gt;
+ * > &lt;notice&gt;This operation may not be available in earlier SDK versions. In this case, use the ExecDeploymentStage operation. The parameters are the same as those described in this document.&gt;&lt;/notice&gt;
  *
  * @param request ExecPipelineRunStageRequest
  * @return ExecPipelineRunStageResponse
@@ -8302,7 +8306,7 @@ FindBestMatchSecurityStrategyResponse Client::findBestMatchSecurityStrategy(cons
  * @summary Retrieves agent details by name.
  *
  * @description ## Request
- * This API uses an agent\\"s name, provided as a parameter, to retrieve its detailed configuration, including the model configuration, system prompt, and tool list.
+ * This API retrieves detailed configuration information for the specified agent name, including but not limited to the model configuration, system prompt, and tool list. You must provide the exact agent name as a request parameter.
  *
  * @param request GetAgentRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8336,7 +8340,7 @@ GetAgentResponse Client::getAgentWithOptions(const GetAgentRequest &request, con
  * @summary Retrieves agent details by name.
  *
  * @description ## Request
- * This API uses an agent\\"s name, provided as a parameter, to retrieve its detailed configuration, including the model configuration, system prompt, and tool list.
+ * This API retrieves detailed configuration information for the specified agent name, including but not limited to the model configuration, system prompt, and tool list. You must provide the exact agent name as a request parameter.
  *
  * @param request GetAgentRequest
  * @return GetAgentResponse
@@ -8701,8 +8705,8 @@ GetCatalogResponse Client::getCatalog(const GetCatalogRequest &request) {
 /**
  * @summary You can view authentication files.
  *
- * @description 1. This feature is available only in DataWorks Basic Edition and later versions.
- * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O\\&M.
+ * @description 1. This feature is available only in DataWorks Basic Edition or a higher edition.
+ * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O&amp;M.
  *
  * @param request GetCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8731,8 +8735,8 @@ GetCertificateResponse Client::getCertificateWithOptions(const GetCertificateReq
 /**
  * @summary You can view authentication files.
  *
- * @description 1. This feature is available only in DataWorks Basic Edition and later versions.
- * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O\\&M.
+ * @description 1. This feature is available only in DataWorks Basic Edition or a higher edition.
+ * 2. You must have at least one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O&amp;M.
  *
  * @param request GetCertificateRequest
  * @return GetCertificateResponse
@@ -8893,7 +8897,7 @@ GetComputeResourceResponse Client::getComputeResource(const GetComputeResourceRe
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+ * - Tenant Owner, Workspace Administrator, Deployment, Developer, Project Owner, or O&amp;M Engineer
  *
  * @param request GetComputeResourceAuthUserMappingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -8932,7 +8936,7 @@ GetComputeResourceAuthUserMappingsResponse Client::getComputeResourceAuthUserMap
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * - Tenant Owner, Storage Management Administrator, Deployment, Developer, Project Owner, or O&M Engineer
+ * - Tenant Owner, Workspace Administrator, Deployment, Developer, Project Owner, or O&amp;M Engineer
  *
  * @param request GetComputeResourceAuthUserMappingsRequest
  * @return GetComputeResourceAuthUserMappingsResponse
@@ -9234,7 +9238,7 @@ GetDIJobResponse Client::getDIJob(const GetDIJobRequest &request) {
 }
 
 /**
- * @summary Retrieves the task logs of a data integration node.
+ * @summary Retrieves the logs of a data integration task.
  *
  * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
@@ -9263,7 +9267,7 @@ GetDIJobLogResponse Client::getDIJobLogWithOptions(const GetDIJobLogRequest &req
 }
 
 /**
- * @summary Retrieves the task logs of a data integration node.
+ * @summary Retrieves the logs of a data integration task.
  *
  * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
@@ -9552,7 +9556,7 @@ GetDataQualityScanResponse Client::getDataQualityScan(const GetDataQualityScanRe
 }
 
 /**
- * @summary Creates a data quality monitoring run instance.
+ * @summary Queries the run details of a data quality scan task by its ID.
  *
  * @description DataWorks Basic Edition or a higher edition is required.
  *
@@ -9585,7 +9589,7 @@ GetDataQualityScanRunResponse Client::getDataQualityScanRunWithOptions(const Get
 }
 
 /**
- * @summary Creates a data quality monitoring run instance.
+ * @summary Queries the run details of a data quality scan task by its ID.
  *
  * @description DataWorks Basic Edition or a higher edition is required.
  *
@@ -10078,7 +10082,7 @@ GetFolderResponse Client::getFolder(const GetFolderRequest &request) {
 }
 
 /**
- * @summary Queries the information about a user-defined function (UDF) in DataStudio.
+ * @summary Queries the information about a user-defined function (UDF) in Data Studio.
  *
  * @param request GetFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10105,7 +10109,7 @@ GetFunctionResponse Client::getFunctionWithOptions(const GetFunctionRequest &req
 }
 
 /**
- * @summary Queries the information about a user-defined function (UDF) in DataStudio.
+ * @summary Queries the information about a user-defined function (UDF) in Data Studio.
  *
  * @param request GetFunctionRequest
  * @return GetFunctionResponse
@@ -10442,7 +10446,7 @@ GetMetaCollectionResponse Client::getMetaCollection(const GetMetaCollectionReque
 }
 
 /**
- * @summary Retrieves the details of a custom entity.
+ * @summary Retrieves metadata entity details. Currently, only pure custom entity types are supported.
  *
  * @param request GetMetaEntityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10473,7 +10477,7 @@ GetMetaEntityResponse Client::getMetaEntityWithOptions(const GetMetaEntityReques
 }
 
 /**
- * @summary Retrieves the details of a custom entity.
+ * @summary Retrieves metadata entity details. Currently, only pure custom entity types are supported.
  *
  * @param request GetMetaEntityRequest
  * @return GetMetaEntityResponse
@@ -10528,7 +10532,7 @@ GetMetaEntityDefResponse Client::getMetaEntityDef(const GetMetaEntityDefRequest 
 /**
  * @summary Queries the information about a network resource.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GetNetworkRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10557,7 +10561,7 @@ GetNetworkResponse Client::getNetworkWithOptions(const GetNetworkRequest &reques
 /**
  * @summary Queries the information about a network resource.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GetNetworkRequest
  * @return GetNetworkResponse
@@ -10568,7 +10572,7 @@ GetNetworkResponse Client::getNetwork(const GetNetworkRequest &request) {
 }
 
 /**
- * @summary Queries the information about a node in DataStudio.
+ * @summary Queries the information about a node in Data Studio.
  *
  * @param request GetNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -10595,7 +10599,7 @@ GetNodeResponse Client::getNodeWithOptions(const GetNodeRequest &request, const 
 }
 
 /**
- * @summary Queries the information about a node in DataStudio.
+ * @summary Queries the information about a node in Data Studio.
  *
  * @param request GetNodeRequest
  * @return GetNodeResponse
@@ -11106,7 +11110,7 @@ GetResourceGroupResponse Client::getResourceGroup(const GetResourceGroupRequest 
 /**
  * @summary Queries the information about a route based on its ID.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GetRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11135,7 +11139,7 @@ GetRouteResponse Client::getRouteWithOptions(const GetRouteRequest &request, con
 /**
  * @summary Queries the information about a route based on its ID.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GetRouteRequest
  * @return GetRouteResponse
@@ -11146,7 +11150,7 @@ GetRouteResponse Client::getRoute(const GetRouteRequest &request) {
 }
 
 /**
- * @summary Retrieves the schema details of a specified table in Data Map. Only MaxCompute and Hologres schemas are supported.
+ * @summary Retrieves the details of a specified schema in Data Map. Only MaxCompute and Hologres schemas are supported.
  *
  * @description 1. DataWorks Basic Edition or a higher edition is required.
  * 2. Only MaxCompute and Hologres types are supported.
@@ -11176,7 +11180,7 @@ GetSchemaResponse Client::getSchemaWithOptions(const GetSchemaRequest &request, 
 }
 
 /**
- * @summary Retrieves the schema details of a specified table in Data Map. Only MaxCompute and Hologres schemas are supported.
+ * @summary Retrieves the details of a specified schema in Data Map. Only MaxCompute and Hologres schemas are supported.
  *
  * @description 1. DataWorks Basic Edition or a higher edition is required.
  * 2. Only MaxCompute and Hologres types are supported.
@@ -11556,6 +11560,8 @@ GetTableResponse Client::getTable(const GetTableRequest &request) {
 /**
  * @summary Queries the information about a task.
  *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ *
  * @param request GetTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return GetTaskResponse
@@ -11582,6 +11588,8 @@ GetTaskResponse Client::getTaskWithOptions(const GetTaskRequest &request, const 
 
 /**
  * @summary Queries the information about a task.
+ *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GetTaskRequest
  * @return GetTaskResponse
@@ -11636,7 +11644,7 @@ GetTaskInstanceResponse Client::getTaskInstance(const GetTaskInstanceRequest &re
 /**
  * @summary Queries the run log generated during a specific run of an instance.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GetTaskInstanceLogRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11665,7 +11673,7 @@ GetTaskInstanceLogResponse Client::getTaskInstanceLogWithOptions(const GetTaskIn
 /**
  * @summary Queries the run log generated during a specific run of an instance.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GetTaskInstanceLogRequest
  * @return GetTaskInstanceLogResponse
@@ -11724,7 +11732,7 @@ GetUpdateTaskResultResponse Client::getUpdateTaskResult(const GetUpdateTaskResul
 /**
  * @summary Queries the information about a workflow.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GetWorkflowRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11753,7 +11761,7 @@ GetWorkflowResponse Client::getWorkflowWithOptions(const GetWorkflowRequest &req
 /**
  * @summary Queries the information about a workflow.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GetWorkflowRequest
  * @return GetWorkflowResponse
@@ -11846,7 +11854,7 @@ GetWorkflowInstanceResponse Client::getWorkflowInstance(const GetWorkflowInstanc
 /**
  * @summary Assigns roles to members in a workspace.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq GrantMemberProjectRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11893,7 +11901,7 @@ GrantMemberProjectRolesResponse Client::grantMemberProjectRolesWithOptions(const
 /**
  * @summary Assigns roles to members in a workspace.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request GrantMemberProjectRolesRequest
  * @return GrantMemberProjectRolesResponse
@@ -11906,8 +11914,8 @@ GrantMemberProjectRolesResponse Client::grantMemberProjectRoles(const GrantMembe
 /**
  * @summary Imports a certificate file.
  *
- * @description 1. This feature requires DataWorks Basic Edition or a later version.
- * 2. You must be assigned one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Project Owner, or O\\&M.
+ * @description 1. This feature requires DataWorks Basic Edition or a higher edition.
+ * 2. You must be assigned one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Project Owner, or O&amp;M.
  *
  * @param request ImportCertificateRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -11952,8 +11960,8 @@ ImportCertificateResponse Client::importCertificateWithOptions(const ImportCerti
 /**
  * @summary Imports a certificate file.
  *
- * @description 1. This feature requires DataWorks Basic Edition or a later version.
- * 2. You must be assigned one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Project Owner, or O\\&M.
+ * @description 1. This feature requires DataWorks Basic Edition or a higher edition.
+ * 2. You must be assigned one of the following roles in the DataWorks project: Tenant Owner, Space Administrator, Project Owner, or O&amp;M.
  *
  * @param request ImportCertificateRequest
  * @return ImportCertificateResponse
@@ -12050,7 +12058,7 @@ ImportCertificateResponse Client::importCertificateAdvance(const ImportCertifica
 }
 
 /**
- * @summary Imports a workflow node defined by FlowSpec and its internal child nodes into DataStudio.
+ * @summary Imports a workflow node defined by FlowSpec and its internal child nodes into Data Studio.
  *
  * @description >Notice: 
  * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows after the first one are ignored.
@@ -12093,7 +12101,7 @@ ImportWorkflowDefinitionResponse Client::importWorkflowDefinitionWithOptions(con
 }
 
 /**
- * @summary Imports a workflow node defined by FlowSpec and its internal child nodes into DataStudio.
+ * @summary Imports a workflow node defined by FlowSpec and its internal child nodes into Data Studio.
  *
  * @description >Notice: 
  * - This operation does not support importing multiple workflows. If more than one workflow is defined in the FlowSpec, all workflows after the first one are ignored.
@@ -12117,7 +12125,7 @@ ImportWorkflowDefinitionResponse Client::importWorkflowDefinition(const ImportWo
  * 2. Optionally specify `RetryTimes`.
  * 3. After the call, poll the final status by calling `GetSemanticJobDetail`. If necessary, call `GetSemanticJobLog` for diagnostics.
  * ## Precautions
- * A successful response indicates only that the stop request has been processed. It does not mean that the job has reached a desired state.
+ * A successful response indicates only that the stop request has been processed. It does not mean that the job has reached a terminal state.
  *
  * @param request KillSemanticJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12165,7 +12173,7 @@ KillSemanticJobResponse Client::killSemanticJobWithOptions(const KillSemanticJob
  * 2. Optionally specify `RetryTimes`.
  * 3. After the call, poll the final status by calling `GetSemanticJobDetail`. If necessary, call `GetSemanticJobLog` for diagnostics.
  * ## Precautions
- * A successful response indicates only that the stop request has been processed. It does not mean that the job has reached a desired state.
+ * A successful response indicates only that the stop request has been processed. It does not mean that the job has reached a terminal state.
  *
  * @param request KillSemanticJobRequest
  * @return KillSemanticJobResponse
@@ -12560,8 +12568,8 @@ ListCatalogsResponse Client::listCatalogs(const ListCatalogsRequest &request) {
 /**
  * @summary Retrieves a list of certificate files.
  *
- * @description 1. This API operation is available for all DataWorks editions.
- * 2. You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator.
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
+ * 2. You must have at least one of the following roles in the DataWorks workspace: Tenant Owner, Workspace Administrator, Deployer, Developer, Guest, Project Owner, Operator, Model Designer, Security Administrator, Data Analyst, Open Platform Administrator, or Data Governance Administrator.
  *
  * @param request ListCertificatesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12590,8 +12598,8 @@ ListCertificatesResponse Client::listCertificatesWithOptions(const ListCertifica
 /**
  * @summary Retrieves a list of certificate files.
  *
- * @description 1. This API operation is available for all DataWorks editions.
- * 2. You can call this operation only if you are assigned one of the following roles in DataWorks: Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator.
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
+ * 2. You must have at least one of the following roles in the DataWorks workspace: Tenant Owner, Workspace Administrator, Deployer, Developer, Guest, Project Owner, Operator, Model Designer, Security Administrator, Data Analyst, Open Platform Administrator, or Data Governance Administrator.
  *
  * @param request ListCertificatesRequest
  * @return ListCertificatesResponse
@@ -12704,9 +12712,8 @@ ListComponentsResponse Client::listComponents(const ListComponentsRequest &reque
 /**
  * @summary Queries the list of computing resources that meet the specified business information.
  *
- * @description 1. DataWorks Basic Edition or a more advanced edition is required.
- * 2. You must have at least one of the following roles in the DataWorks workspace:
- * 3. Tenant Owner, Workspace Administrator, Deploy, Developer, Visitor, Project Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, Development Platform Administrator, Data Governance Administrator
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
+ * 2. You must have at least one of the following roles in the DataWorks workspace: Tenant Owner, Workspace Administrator, Deployer, Developer, Guest, Project Owner, Operator, Model Designer, Security Administrator, Data Analyst, Open Platform Administrator, or Data Governance Administrator.
  *
  * @param tmpReq ListComputeResourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -12773,9 +12780,8 @@ ListComputeResourcesResponse Client::listComputeResourcesWithOptions(const ListC
 /**
  * @summary Queries the list of computing resources that meet the specified business information.
  *
- * @description 1. DataWorks Basic Edition or a more advanced edition is required.
- * 2. You must have at least one of the following roles in the DataWorks workspace:
- * 3. Tenant Owner, Workspace Administrator, Deploy, Developer, Visitor, Project Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, Development Platform Administrator, Data Governance Administrator
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
+ * 2. You must have at least one of the following roles in the DataWorks workspace: Tenant Owner, Workspace Administrator, Deployer, Developer, Guest, Project Owner, Operator, Model Designer, Security Administrator, Data Analyst, Open Platform Administrator, or Data Governance Administrator.
  *
  * @param request ListComputeResourcesRequest
  * @return ListComputeResourcesResponse
@@ -13410,6 +13416,8 @@ ListCustomAttributesResponse Client::listCustomAttributes(const ListCustomAttrib
 /**
  * @summary Views alert rules configured for a synchronization task.
  *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ *
  * @param request ListDIAlarmRulesRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDIAlarmRulesResponse
@@ -13437,6 +13445,8 @@ ListDIAlarmRulesResponse Client::listDIAlarmRulesWithOptions(const ListDIAlarmRu
 /**
  * @summary Views alert rules configured for a synchronization task.
  *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ *
  * @param request ListDIAlarmRulesRequest
  * @return ListDIAlarmRulesResponse
  */
@@ -13448,7 +13458,7 @@ ListDIAlarmRulesResponse Client::listDIAlarmRules(const ListDIAlarmRulesRequest 
 /**
  * @summary Queries events for a synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description DataWorks Basic Edition or a higher edition is required.
  *
  * @param request ListDIJobEventsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13477,7 +13487,7 @@ ListDIJobEventsResponse Client::listDIJobEventsWithOptions(const ListDIJobEvents
 /**
  * @summary Queries events for a synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description DataWorks Basic Edition or a higher edition is required.
  *
  * @param request ListDIJobEventsRequest
  * @return ListDIJobEventsResponse
@@ -13490,7 +13500,7 @@ ListDIJobEventsResponse Client::listDIJobEvents(const ListDIJobEventsRequest &re
 /**
  * @summary Queries metrics for a synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq ListDIJobMetricsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13525,7 +13535,7 @@ ListDIJobMetricsResponse Client::listDIJobMetricsWithOptions(const ListDIJobMetr
 /**
  * @summary Queries metrics for a synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListDIJobMetricsRequest
  * @return ListDIJobMetricsResponse
@@ -13538,7 +13548,7 @@ ListDIJobMetricsResponse Client::listDIJobMetrics(const ListDIJobMetricsRequest 
 /**
  * @summary Queries the running information about a synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListDIJobRunDetailsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -13567,7 +13577,7 @@ ListDIJobRunDetailsResponse Client::listDIJobRunDetailsWithOptions(const ListDIJ
 /**
  * @summary Queries the running information about a synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListDIJobRunDetailsRequest
  * @return ListDIJobRunDetailsResponse
@@ -13578,7 +13588,7 @@ ListDIJobRunDetailsResponse Client::listDIJobRunDetails(const ListDIJobRunDetail
 }
 
 /**
- * @summary Lists Data Integration jobs.
+ * @summary Lists new-version Data Integration tasks, including real-time database synchronization tasks, batch database synchronization tasks, and real-time single-table synchronization tasks.
  *
  * @description This operation requires DataWorks Basic Edition or a later edition.
  *
@@ -13607,7 +13617,7 @@ ListDIJobsResponse Client::listDIJobsWithOptions(const ListDIJobsRequest &reques
 }
 
 /**
- * @summary Lists Data Integration jobs.
+ * @summary Lists new-version Data Integration tasks, including real-time database synchronization tasks, batch database synchronization tasks, and real-time single-table synchronization tasks.
  *
  * @description This operation requires DataWorks Basic Edition or a later edition.
  *
@@ -13824,7 +13834,7 @@ ListDataQualityEvaluationTaskInstancesResponse Client::listDataQualityEvaluation
 /**
  * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
  *
- * @summary Queries a paged list of quality monitoring nodes by using paging.
+ * @summary Queries a paginated list of quality monitoring tasks.
  *
  * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
@@ -13855,7 +13865,7 @@ ListDataQualityEvaluationTasksResponse Client::listDataQualityEvaluationTasksWit
 /**
  * @deprecated OpenAPI ListDataQualityEvaluationTasks is deprecated, please use dataworks-public::2024-05-18::ListDataQualityScans instead.
  *
- * @summary Queries a paged list of quality monitoring nodes by using paging.
+ * @summary Queries a paginated list of quality monitoring tasks.
  *
  * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
  *
@@ -14220,7 +14230,7 @@ ListDataQualityTemplatesResponse Client::listDataQualityTemplates(const ListData
 /**
  * @summary Retrieves a list of sharing rules for a data source.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
  * 2. To query the sharing rules of a data source associated with a workspace, you must have the data source sharing permissions in that workspace. You must have one of the following roles in DataWorks:
  * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
  *
@@ -14251,7 +14261,7 @@ ListDataSourceSharedRulesResponse Client::listDataSourceSharedRulesWithOptions(c
 /**
  * @summary Retrieves a list of sharing rules for a data source.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. DataWorks Basic Edition or a higher edition is required.
  * 2. To query the sharing rules of a data source associated with a workspace, you must have the data source sharing permissions in that workspace. You must have one of the following roles in DataWorks:
  * - Tenant Owner, Tenant Administrator, Workspace Administrator, and Workspace Owner
  *
@@ -14266,9 +14276,9 @@ ListDataSourceSharedRulesResponse Client::listDataSourceSharedRules(const ListDa
 /**
  * @summary Retrieves a list of data sources that match the specified filter conditions.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. To call this operation, you must have one of the following roles in DataWorks:
- * - Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
+ * - Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O&amp;M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
  *
  * @param tmpReq ListDataSourcesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -14303,9 +14313,9 @@ ListDataSourcesResponse Client::listDataSourcesWithOptions(const ListDataSources
 /**
  * @summary Retrieves a list of data sources that match the specified filter conditions.
  *
- * @description 1. This operation is available for all DataWorks editions.
+ * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  * 2. To call this operation, you must have one of the following roles in DataWorks:
- * - Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O\\&M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
+ * - Tenant Owner, Workspace Administrator, Deploy, Develop, Visitor, Workspace Owner, O&amp;M, Model Designer, Security Administrator, Data Analyst, OpenPlatform Administrator, and Data Governance Administrator
  *
  * @param request ListDataSourcesRequest
  * @return ListDataSourcesResponse
@@ -14316,7 +14326,7 @@ ListDataSourcesResponse Client::listDataSources(const ListDataSourcesRequest &re
 }
 
 /**
- * @summary Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
+ * @summary Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases only in the Internal Catalog. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
  *
  * @description 1. DataWorks Basic Edition or a higher edition is required.
  * 2. For the StarRocks type, only the Internal catalog is supported.
@@ -14346,7 +14356,7 @@ ListDatabasesResponse Client::listDatabasesWithOptions(const ListDatabasesReques
 }
 
 /**
- * @summary Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases in internal catalogs. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
+ * @summary Queries a list of databases in an instance, cluster, or data catalog in Data Map. For DLF or StarRocks data sources, you can call this API operation to query databases in a data catalog. For StarRocks data sources, you can call this API operation to query databases only in the Internal Catalog. For other types of data sources, you can call this API operation to query databases in an instance or cluster.
  *
  * @description 1. DataWorks Basic Edition or a higher edition is required.
  * 2. For the StarRocks type, only the Internal catalog is supported.
@@ -14724,6 +14734,8 @@ ListDownstreamTaskInstancesResponse Client::listDownstreamTaskInstances(const Li
 /**
  * @summary Queries a list of descendant tasks of a task by page.
  *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ *
  * @param request ListDownstreamTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return ListDownstreamTasksResponse
@@ -14750,6 +14762,8 @@ ListDownstreamTasksResponse Client::listDownstreamTasksWithOptions(const ListDow
 
 /**
  * @summary Queries a list of descendant tasks of a task by page.
+ *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListDownstreamTasksRequest
  * @return ListDownstreamTasksResponse
@@ -15020,7 +15034,7 @@ ListFoldersResponse Client::listFolders(const ListFoldersRequest &request) {
 }
 
 /**
- * @summary Retrieves a paginated list of UDF functions in DataStudio. You can also use filter conditions to filter UDF functions.
+ * @summary Retrieves a paginated list of UDF functions in Data Studio. You can also use filter conditions to filter UDF functions.
  *
  * @param request ListFunctionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15047,7 +15061,7 @@ ListFunctionsResponse Client::listFunctionsWithOptions(const ListFunctionsReques
 }
 
 /**
- * @summary Retrieves a paginated list of UDF functions in DataStudio. You can also use filter conditions to filter UDF functions.
+ * @summary Retrieves a paginated list of UDF functions in Data Studio. You can also use filter conditions to filter UDF functions.
  *
  * @param request ListFunctionsRequest
  * @return ListFunctionsResponse
@@ -15431,7 +15445,7 @@ ListLineagesResponse Client::listLineages(const ListLineagesRequest &request) {
  * @description ## Request
  * This operation retrieves a paginated list of all MCP Servers within your account. You can filter the list by search keyword and visibility level, and control pagination by specifying the maximum number of results and a next page token.
  * - **Q**: Optional. The search keyword for a fuzzy search on MCP Server names.
- * - **Visibility**: Optional. The visibility level for filtering the results.
+ * - **Visibility**: Optional. The visibility levels for filtering the results. You can specify multiple levels, such as TENANT, PROJECT, or USER.
  * - **MaxResults**: Optional. The maximum number of results to return per page. By default, no limit is applied.
  * - **NextToken**: Optional. The next page token from a previous response. Use this parameter to retrieve the next page of results.
  *
@@ -15489,7 +15503,7 @@ ListMcpServersResponse Client::listMcpServersWithOptions(const ListMcpServersReq
  * @description ## Request
  * This operation retrieves a paginated list of all MCP Servers within your account. You can filter the list by search keyword and visibility level, and control pagination by specifying the maximum number of results and a next page token.
  * - **Q**: Optional. The search keyword for a fuzzy search on MCP Server names.
- * - **Visibility**: Optional. The visibility level for filtering the results.
+ * - **Visibility**: Optional. The visibility levels for filtering the results. You can specify multiple levels, such as TENANT, PROJECT, or USER.
  * - **MaxResults**: Optional. The maximum number of results to return per page. By default, no limit is applied.
  * - **NextToken**: Optional. The next page token from a previous response. Use this parameter to retrieve the next page of results.
  *
@@ -15910,7 +15924,7 @@ ListMyRelatedApprovalsResponse Client::listMyRelatedApprovals(const ListMyRelate
 /**
  * @summary Retrieves a list of network resources for a serverless resource group.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListNetworksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15939,7 +15953,7 @@ ListNetworksResponse Client::listNetworksWithOptions(const ListNetworksRequest &
 /**
  * @summary Retrieves a list of network resources for a serverless resource group.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListNetworksRequest
  * @return ListNetworksResponse
@@ -15950,7 +15964,7 @@ ListNetworksResponse Client::listNetworks(const ListNetworksRequest &request) {
 }
 
 /**
- * @summary Retrieves the dependency nodes of a specified DataStudio node with pagination.
+ * @summary Retrieves the dependency nodes of a specified Data Studio node with pagination.
  *
  * @param request ListNodeDependenciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -15977,7 +15991,7 @@ ListNodeDependenciesResponse Client::listNodeDependenciesWithOptions(const ListN
 }
 
 /**
- * @summary Retrieves the dependency nodes of a specified DataStudio node with pagination.
+ * @summary Retrieves the dependency nodes of a specified Data Studio node with pagination.
  *
  * @param request ListNodeDependenciesRequest
  * @return ListNodeDependenciesResponse
@@ -15988,7 +16002,7 @@ ListNodeDependenciesResponse Client::listNodeDependencies(const ListNodeDependen
 }
 
 /**
- * @summary Retrieves a list of data development nodes with paging, and supports filtered query by specified conditions.
+ * @summary Retrieves a list of Data Studio nodes with paging, and supports filtered query by specified conditions.
  *
  * @param request ListNodesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16015,7 +16029,7 @@ ListNodesResponse Client::listNodesWithOptions(const ListNodesRequest &request, 
 }
 
 /**
- * @summary Retrieves a list of data development nodes with paging, and supports filtered query by specified conditions.
+ * @summary Retrieves a list of Data Studio nodes with paging, and supports filtered query by specified conditions.
  *
  * @param request ListNodesRequest
  * @return ListNodesResponse
@@ -16558,9 +16572,9 @@ ListProjectMembersResponse Client::listProjectMembers(const ListProjectMembersRe
 }
 
 /**
- * @summary Queries the details of workspace roles by paging.
+ * @summary Queries the details of workspace roles with pagination.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq ListProjectRolesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16621,9 +16635,9 @@ ListProjectRolesResponse Client::listProjectRolesWithOptions(const ListProjectRo
 }
 
 /**
- * @summary Queries the details of workspace roles by paging.
+ * @summary Queries the details of workspace roles with pagination.
  *
- * @description You must purchase DataWorks Basic Edition or a higher edition to use this feature.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListProjectRolesRequest
  * @return ListProjectRolesResponse
@@ -16635,6 +16649,8 @@ ListProjectRolesResponse Client::listProjectRoles(const ListProjectRolesRequest 
 
 /**
  * @summary Queries a list of DataWorks workspaces of the tenant to which your account belongs.
+ *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq ListProjectsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -16716,6 +16732,8 @@ ListProjectsResponse Client::listProjectsWithOptions(const ListProjectsRequest &
 
 /**
  * @summary Queries a list of DataWorks workspaces of the tenant to which your account belongs.
+ *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListProjectsRequest
  * @return ListProjectsResponse
@@ -17360,7 +17378,7 @@ ListServerIdeImagesResponse Client::listServerIdeImages(const ListServerIdeImage
 /**
  * @summary Queries a paged query list of personal development environment instances with paging support.
  *
- * @description Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+ * @description Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance subtype.
  *
  * @param request ListServerIdeInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17425,7 +17443,7 @@ ListServerIdeInstancesResponse Client::listServerIdeInstancesWithOptions(const L
 /**
  * @summary Queries a paged query list of personal development environment instances with paging support.
  *
- * @description Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance child class.
+ * @description Queries a paged query list of personal development environment (ServerIDE) instances with paging. You can filter results by workspace, resource group, keyword, owner, and instance subtype.
  *
  * @param request ListServerIdeInstancesRequest
  * @return ListServerIdeInstancesResponse
@@ -17620,7 +17638,7 @@ ListTablesResponse Client::listTables(const ListTablesRequest &request) {
 /**
  * @summary Retrieves a paginated list of operation logs for a task instance.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description DataWorks Basic Edition or a higher edition is required.
  * Only operation logs generated within the previous 31 days can be queried.
  *
  * @param request ListTaskInstanceOperationLogsRequest
@@ -17650,7 +17668,7 @@ ListTaskInstanceOperationLogsResponse Client::listTaskInstanceOperationLogsWithO
 /**
  * @summary Retrieves a paginated list of operation logs for a task instance.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description DataWorks Basic Edition or a higher edition is required.
  * Only operation logs generated within the previous 31 days can be queried.
  *
  * @param request ListTaskInstanceOperationLogsRequest
@@ -17802,10 +17820,10 @@ ListTaskInstancesResponse Client::listTaskInstances(const ListTaskInstancesReque
 }
 
 /**
- * @summary Retrieves a paginated list of operation logs for a task.
+ * @summary Queries a paginated list of operation logs for a specified node.
  *
- * @description This API operation is available for all DataWorks editions.
- * Only operation logs generated within the previous 31 days can be queried.
+ * @description You must purchase DataWorks Basic Edition or later to use this API.
+ * You can only query operation logs from the past 31 days.
  *
  * @param request ListTaskOperationLogsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -17832,10 +17850,10 @@ ListTaskOperationLogsResponse Client::listTaskOperationLogsWithOptions(const Lis
 }
 
 /**
- * @summary Retrieves a paginated list of operation logs for a task.
+ * @summary Queries a paginated list of operation logs for a specified node.
  *
- * @description This API operation is available for all DataWorks editions.
- * Only operation logs generated within the previous 31 days can be queried.
+ * @description You must purchase DataWorks Basic Edition or later to use this API.
+ * You can only query operation logs from the past 31 days.
  *
  * @param request ListTaskOperationLogsRequest
  * @return ListTaskOperationLogsResponse
@@ -17990,7 +18008,7 @@ ListUpstreamTaskInstancesResponse Client::listUpstreamTaskInstances(const ListUp
 /**
  * @summary Queries a list of ancestor tasks of a task by page.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListUpstreamTasksRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18019,7 +18037,7 @@ ListUpstreamTasksResponse Client::listUpstreamTasksWithOptions(const ListUpstrea
 /**
  * @summary Queries a list of ancestor tasks of a task by page.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ListUpstreamTasksRequest
  * @return ListUpstreamTasksResponse
@@ -18030,7 +18048,7 @@ ListUpstreamTasksResponse Client::listUpstreamTasks(const ListUpstreamTasksReque
 }
 
 /**
- * @summary Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
+ * @summary Queries a list of workflows in Data Studio. You can also specify filter conditions to query specific workflows.
  *
  * @param request ListWorkflowDefinitionsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18057,7 +18075,7 @@ ListWorkflowDefinitionsResponse Client::listWorkflowDefinitionsWithOptions(const
 }
 
 /**
- * @summary Queries a list of workflows in DataStudio. You can also specify filter conditions to query specific workflows.
+ * @summary Queries a list of workflows in Data Studio. You can also specify filter conditions to query specific workflows.
  *
  * @param request ListWorkflowDefinitionsRequest
  * @return ListWorkflowDefinitionsResponse
@@ -18404,7 +18422,7 @@ LoadAgentSessionResponse Client::loadAgentSession(const LoadAgentSessionRequest 
 }
 
 /**
- * @summary Moves a user-defined function (UDF) to a path in DataStudio.
+ * @summary Moves a user-defined function (UDF) to a path in Data Studio.
  *
  * @param request MoveFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18443,7 +18461,7 @@ MoveFunctionResponse Client::moveFunctionWithOptions(const MoveFunctionRequest &
 }
 
 /**
- * @summary Moves a user-defined function (UDF) to a path in DataStudio.
+ * @summary Moves a user-defined function (UDF) to a path in Data Studio.
  *
  * @param request MoveFunctionRequest
  * @return MoveFunctionResponse
@@ -18454,7 +18472,7 @@ MoveFunctionResponse Client::moveFunction(const MoveFunctionRequest &request) {
 }
 
 /**
- * @summary Moves a node to a path in DataStudio.
+ * @summary Moves a node to a path in Data Studio.
  *
  * @param request MoveNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18493,7 +18511,7 @@ MoveNodeResponse Client::moveNodeWithOptions(const MoveNodeRequest &request, con
 }
 
 /**
- * @summary Moves a node to a path in DataStudio.
+ * @summary Moves a node to a path in Data Studio.
  *
  * @param request MoveNodeRequest
  * @return MoveNodeResponse
@@ -18504,7 +18522,7 @@ MoveNodeResponse Client::moveNode(const MoveNodeRequest &request) {
 }
 
 /**
- * @summary Moves a file resource to a path in DataStudio.
+ * @summary Moves a file resource to a path in Data Studio.
  *
  * @param request MoveResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18543,7 +18561,7 @@ MoveResourceResponse Client::moveResourceWithOptions(const MoveResourceRequest &
 }
 
 /**
- * @summary Moves a file resource to a path in DataStudio.
+ * @summary Moves a file resource to a path in Data Studio.
  *
  * @param request MoveResourceRequest
  * @return MoveResourceResponse
@@ -18554,7 +18572,7 @@ MoveResourceResponse Client::moveResource(const MoveResourceRequest &request) {
 }
 
 /**
- * @summary Moves a workflow to a path in DataStudio.
+ * @summary Moves a workflow to a path in Data Studio.
  *
  * @param request MoveWorkflowDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18593,7 +18611,7 @@ MoveWorkflowDefinitionResponse Client::moveWorkflowDefinitionWithOptions(const M
 }
 
 /**
- * @summary Moves a workflow to a path in DataStudio.
+ * @summary Moves a workflow to a path in Data Studio.
  *
  * @param request MoveWorkflowDefinitionRequest
  * @return MoveWorkflowDefinitionResponse
@@ -18897,7 +18915,7 @@ RemoveEntityFromMetaCollectionResponse Client::removeEntityFromMetaCollection(co
 /**
  * @summary Removes multiple upstream dependencies of an instance at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq RemoveTaskInstanceDependenciesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18946,7 +18964,7 @@ RemoveTaskInstanceDependenciesResponse Client::removeTaskInstanceDependenciesWit
 /**
  * @summary Removes multiple upstream dependencies of an instance at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request RemoveTaskInstanceDependenciesRequest
  * @return RemoveTaskInstanceDependenciesResponse
@@ -18957,7 +18975,7 @@ RemoveTaskInstanceDependenciesResponse Client::removeTaskInstanceDependencies(co
 }
 
 /**
- * @summary Renames a user-defined function (UDF) in DataStudio.
+ * @summary Renames a user-defined function (UDF) in Data Studio.
  *
  * @param request RenameFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -18996,7 +19014,7 @@ RenameFunctionResponse Client::renameFunctionWithOptions(const RenameFunctionReq
 }
 
 /**
- * @summary Renames a user-defined function (UDF) in DataStudio.
+ * @summary Renames a user-defined function (UDF) in Data Studio.
  *
  * @param request RenameFunctionRequest
  * @return RenameFunctionResponse
@@ -19007,7 +19025,7 @@ RenameFunctionResponse Client::renameFunction(const RenameFunctionRequest &reque
 }
 
 /**
- * @summary Renames a node in DataStudio.
+ * @summary Renames a node in Data Studio.
  *
  * @param request RenameNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19046,7 +19064,7 @@ RenameNodeResponse Client::renameNodeWithOptions(const RenameNodeRequest &reques
 }
 
 /**
- * @summary Renames a node in DataStudio.
+ * @summary Renames a node in Data Studio.
  *
  * @param request RenameNodeRequest
  * @return RenameNodeResponse
@@ -19057,7 +19075,7 @@ RenameNodeResponse Client::renameNode(const RenameNodeRequest &request) {
 }
 
 /**
- * @summary Renames a file resource in DataStudio.
+ * @summary Renames a file resource in Data Studio.
  *
  * @param request RenameResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19096,7 +19114,7 @@ RenameResourceResponse Client::renameResourceWithOptions(const RenameResourceReq
 }
 
 /**
- * @summary Renames a file resource in DataStudio.
+ * @summary Renames a file resource in Data Studio.
  *
  * @param request RenameResourceRequest
  * @return RenameResourceResponse
@@ -19107,7 +19125,7 @@ RenameResourceResponse Client::renameResource(const RenameResourceRequest &reque
 }
 
 /**
- * @summary Renames a workflow in DataStudio.
+ * @summary Renames a workflow in Data Studio.
  *
  * @param request RenameWorkflowDefinitionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19146,7 +19164,7 @@ RenameWorkflowDefinitionResponse Client::renameWorkflowDefinitionWithOptions(con
 }
 
 /**
- * @summary Renames a workflow in DataStudio.
+ * @summary Renames a workflow in Data Studio.
  *
  * @param request RenameWorkflowDefinitionRequest
  * @return RenameWorkflowDefinitionResponse
@@ -19371,7 +19389,7 @@ RerunWorkflowInstancesResponse Client::rerunWorkflowInstances(const RerunWorkflo
 /**
  * @summary Resumes multiple suspended instances at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq ResumeTaskInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19414,7 +19432,7 @@ ResumeTaskInstancesResponse Client::resumeTaskInstancesWithOptions(const ResumeT
 /**
  * @summary Resumes multiple suspended instances at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request ResumeTaskInstancesRequest
  * @return ResumeTaskInstancesResponse
@@ -19587,7 +19605,7 @@ RollbackParameterResponse Client::rollbackParameter(const RollbackParameterReque
 }
 
 /**
- * @summary Triggers a specified metadata crawler to run and returns the submit status and associated task instance information.
+ * @summary Triggers a specified metadata crawler to run and returns the acceptance status and associated task instance information.
  *
  * @description ## Scenarios
  * Submits a run request for a specified metadata crawler.
@@ -19632,7 +19650,7 @@ RunCrawlerResponse Client::runCrawlerWithOptions(const RunCrawlerRequest &reques
 }
 
 /**
- * @summary Triggers a specified metadata crawler to run and returns the submit status and associated task instance information.
+ * @summary Triggers a specified metadata crawler to run and returns the acceptance status and associated task instance information.
  *
  * @description ## Scenarios
  * Submits a run request for a specified metadata crawler.
@@ -19779,7 +19797,7 @@ RunSemanticJobResponse Client::runSemanticJob(const RunSemanticJobRequest &reque
 /**
  * @summary Sets the statuses of multiple instances to successful at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq SetSuccessTaskInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19822,7 +19840,7 @@ SetSuccessTaskInstancesResponse Client::setSuccessTaskInstancesWithOptions(const
 /**
  * @summary Sets the statuses of multiple instances to successful at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request SetSuccessTaskInstancesRequest
  * @return SetSuccessTaskInstancesResponse
@@ -19835,7 +19853,7 @@ SetSuccessTaskInstancesResponse Client::setSuccessTaskInstances(const SetSuccess
 /**
  * @summary Starts a new-version synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq StartDIJobRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -19870,7 +19888,7 @@ StartDIJobResponse Client::startDIJobWithOptions(const StartDIJobRequest &tmpReq
 /**
  * @summary Starts a new-version synchronization task.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request StartDIJobRequest
  * @return StartDIJobResponse
@@ -20249,7 +20267,7 @@ StopTaskInstancesResponse Client::stopTaskInstances(const StopTaskInstancesReque
 /**
  * @summary Stops multiple workflow instances at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq StopWorkflowInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20292,7 +20310,7 @@ StopWorkflowInstancesResponse Client::stopWorkflowInstancesWithOptions(const Sto
 /**
  * @summary Stops multiple workflow instances at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request StopWorkflowInstancesRequest
  * @return StopWorkflowInstancesResponse
@@ -20419,7 +20437,7 @@ SubmitFileResponse Client::submitFile(const SubmitFileRequest &request) {
 /**
  * @summary Suspends multiple instances at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param tmpReq SuspendTaskInstancesRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20462,7 +20480,7 @@ SuspendTaskInstancesResponse Client::suspendTaskInstancesWithOptions(const Suspe
 /**
  * @summary Suspends multiple instances at a time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request SuspendTaskInstancesRequest
  * @return SuspendTaskInstancesResponse
@@ -20552,8 +20570,8 @@ TagDataAssetsResponse Client::tagDataAssets(const TagDataAssetsRequest &request)
  * @summary Test the connectivity of a data source on a resource group.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
- * 2. You must have at least one of the following roles in the DataWorks project space:
- *    Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O\\&M.
+ * 2. You must have at least one of the following roles in the DataWorks project space:&lt;br&gt;
+ *     Tenant Owner, Workspace Administrator, Deployer, Developer, Project Owner, or Operator.
  *
  * @param request TestDataSourceConnectivityRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20595,8 +20613,8 @@ TestDataSourceConnectivityResponse Client::testDataSourceConnectivityWithOptions
  * @summary Test the connectivity of a data source on a resource group.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
- * 2. You must have at least one of the following roles in the DataWorks project space:
- *    Tenant Owner, Space Administrator, Deployment, Developer, Project Owner, or O\\&M.
+ * 2. You must have at least one of the following roles in the DataWorks project space:&lt;br&gt;
+ *     Tenant Owner, Workspace Administrator, Deployer, Developer, Project Owner, or Operator.
  *
  * @param request TestDataSourceConnectivityRequest
  * @return TestDataSourceConnectivityResponse
@@ -20609,7 +20627,7 @@ TestDataSourceConnectivityResponse Client::testDataSourceConnectivity(const Test
 /**
  * @summary Triggers a task to run by using an HTTP Trigger node at a specified time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request TriggerSchedulerTaskInstanceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -20652,7 +20670,7 @@ TriggerSchedulerTaskInstanceResponse Client::triggerSchedulerTaskInstanceWithOpt
 /**
  * @summary Triggers a task to run by using an HTTP Trigger node at a specified time.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request TriggerSchedulerTaskInstanceRequest
  * @return TriggerSchedulerTaskInstanceResponse
@@ -20990,8 +21008,8 @@ UpdateComponentResponse Client::updateComponent(const UpdateComponentRequest &re
  * @summary Modifies the specified computing resource based on the computing resource ID.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
- * 2. You must have at least one of the following roles in the DataWorks project space:
- * 3. Tenant Owner, tenant administrator, Space Administrator, Project Owner, or O\\&M
+ * 2. You must have at least one of the following roles in the DataWorks workspace:
+ * 3. Tenant Owner, tenant administrator, Workspace Administrator, Project Owner, or Operator
  *
  * @param request UpdateComputeResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21041,8 +21059,8 @@ UpdateComputeResourceResponse Client::updateComputeResourceWithOptions(const Upd
  * @summary Modifies the specified computing resource based on the computing resource ID.
  *
  * @description 1. You must purchase DataWorks Basic Edition or a higher edition to use this feature.
- * 2. You must have at least one of the following roles in the DataWorks project space:
- * 3. Tenant Owner, tenant administrator, Space Administrator, Project Owner, or O\\&M
+ * 2. You must have at least one of the following roles in the DataWorks workspace:
+ * 3. Tenant Owner, tenant administrator, Workspace Administrator, Project Owner, or Operator
  *
  * @param request UpdateComputeResourceRequest
  * @return UpdateComputeResourceResponse
@@ -21057,7 +21075,7 @@ UpdateComputeResourceResponse Client::updateComputeResource(const UpdateComputeR
  *
  * @description 1. DataWorks Basic Edition or a higher edition is required.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+ * 3. Tenant owner, tenant administrator, workspace administrator, project owner, or O&amp;M engineer.
  *
  * @param tmpReq UpdateComputeResourceAuthUserMappingsRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -21114,7 +21132,7 @@ UpdateComputeResourceAuthUserMappingsResponse Client::updateComputeResourceAuthU
  *
  * @description 1. DataWorks Basic Edition or a higher edition is required.
  * 2. You must have at least one of the following roles in the DataWorks workspace:
- * 3. Tenant owner, tenant administrator, storage management administrator, project owner, or O&M engineer.
+ * 3. Tenant owner, tenant administrator, workspace administrator, project owner, or O&amp;M engineer.
  *
  * @param request UpdateComputeResourceAuthUserMappingsRequest
  * @return UpdateComputeResourceAuthUserMappingsResponse
@@ -21301,6 +21319,8 @@ UpdateCustomAttributeResponse Client::updateCustomAttribute(const UpdateCustomAt
 /**
  * @summary Updates an alert rule configured for a synchronization task.
  *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ *
  * @param tmpReq UpdateDIAlarmRuleRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateDIAlarmRuleResponse
@@ -21337,6 +21357,8 @@ UpdateDIAlarmRuleResponse Client::updateDIAlarmRuleWithOptions(const UpdateDIAla
 
 /**
  * @summary Updates an alert rule configured for a synchronization task.
+ *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request UpdateDIAlarmRuleRequest
  * @return UpdateDIAlarmRuleResponse
@@ -22055,6 +22077,9 @@ UpdateDataQualityTemplateResponse Client::updateDataQualityTemplate(const Update
 /**
  * @summary Modifies a data source by ID.
  *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * You must have at least one of the following roles in the DataWorks workspace: tenant owner, tenant administrator, workspace administrator, project owner, or operator.
+ *
  * @param request UpdateDataSourceRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return UpdateDataSourceResponse
@@ -22101,6 +22126,9 @@ UpdateDataSourceResponse Client::updateDataSourceWithOptions(const UpdateDataSou
 
 /**
  * @summary Modifies a data source by ID.
+ *
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
+ * You must have at least one of the following roles in the DataWorks workspace: tenant owner, tenant administrator, workspace administrator, project owner, or operator.
  *
  * @param request UpdateDataSourceRequest
  * @return UpdateDataSourceResponse
@@ -22435,7 +22463,7 @@ UpdateFolderResponse Client::updateFolder(const UpdateFolderRequest &request) {
 }
 
 /**
- * @summary Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+ * @summary Updates the basic information about a user-defined function (UDF) in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
  *
  * @param request UpdateFunctionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22474,7 +22502,7 @@ UpdateFunctionResponse Client::updateFunctionWithOptions(const UpdateFunctionReq
 }
 
 /**
- * @summary Updates the basic information about a user-defined function (UDF) in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+ * @summary Updates the basic information about a user-defined function (UDF) in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
  *
  * @param request UpdateFunctionRequest
  * @return UpdateFunctionResponse
@@ -22485,7 +22513,7 @@ UpdateFunctionResponse Client::updateFunction(const UpdateFunctionRequest &reque
 }
 
 /**
- * @summary Returns the check result of an extension point event message.
+ * @summary Reports the check result of an extension point event message through a callback.
  *
  * @param request UpdateIDEEventResultRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22528,7 +22556,7 @@ UpdateIDEEventResultResponse Client::updateIDEEventResultWithOptions(const Updat
 }
 
 /**
- * @summary Returns the check result of an extension point event message.
+ * @summary Reports the check result of an extension point event message through a callback.
  *
  * @param request UpdateIDEEventResultRequest
  * @return UpdateIDEEventResultResponse
@@ -22929,7 +22957,7 @@ UpdateMetaEntityDefResponse Client::updateMetaEntityDef(const UpdateMetaEntityDe
 }
 
 /**
- * @summary Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+ * @summary Updates the basic information about a node in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
  *
  * @param request UpdateNodeRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -22968,7 +22996,7 @@ UpdateNodeResponse Client::updateNodeWithOptions(const UpdateNodeRequest &reques
 }
 
 /**
- * @summary Updates the basic information about a node in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+ * @summary Updates the basic information about a node in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
  *
  * @param request UpdateNodeRequest
  * @return UpdateNodeResponse
@@ -23267,7 +23295,7 @@ UpdateProjectRoleResponse Client::updateProjectRole(const UpdateProjectRoleReque
 }
 
 /**
- * @summary Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+ * @summary Updates the basic information about a file resource in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
  *
  * @param request UpdateResourceRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23310,7 +23338,7 @@ UpdateResourceResponse Client::updateResourceWithOptions(const UpdateResourceReq
 }
 
 /**
- * @summary Updates the basic information about a file resource in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+ * @summary Updates the basic information about a file resource in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
  *
  * @param request UpdateResourceRequest
  * @return UpdateResourceResponse
@@ -23467,7 +23495,7 @@ UpdateResourceGroupResponse Client::updateResourceGroup(const UpdateResourceGrou
 /**
  * @summary Updates the information about a route.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request UpdateRouteRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23504,7 +23532,7 @@ UpdateRouteResponse Client::updateRouteWithOptions(const UpdateRouteRequest &req
 /**
  * @summary Updates the information about a route.
  *
- * @description This API operation is available for all DataWorks editions.
+ * @description You must purchase DataWorks Basic Edition or a higher edition to use this operation.
  *
  * @param request UpdateRouteRequest
  * @return UpdateRouteResponse
@@ -23841,7 +23869,7 @@ UpdateTableBusinessMetadataResponse Client::updateTableBusinessMetadata(const Up
 }
 
 /**
- * @summary Updates a specified node. The modifications are synchronized to DataStudio, where a new saved version is created.
+ * @summary Updates a specified node. The modifications are synchronized to Data Studio, where a new saved version is created.
  *
  * @param tmpReq UpdateTaskRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -23978,7 +24006,7 @@ UpdateTaskResponse Client::updateTaskWithOptions(const UpdateTaskRequest &tmpReq
 }
 
 /**
- * @summary Updates a specified node. The modifications are synchronized to DataStudio, where a new saved version is created.
+ * @summary Updates a specified node. The modifications are synchronized to Data Studio, where a new saved version is created.
  *
  * @param request UpdateTaskRequest
  * @return UpdateTaskResponse
@@ -23989,12 +24017,13 @@ UpdateTaskResponse Client::updateTask(const UpdateTaskRequest &request) {
 }
 
 /**
- * @summary Updates a specified node and synchronizes the changes to DataStudio to create a new saved version.
+ * @summary Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
  *
  * @description ## Operation description
- * - This API operation updates the information of a specified node, including but not limited to the node name, description, and owner.
- * - The changes are synchronized to DataStudio, and DataStudio creates a new saved version.
- * - You can set detailed parameters such as the trigger method, runtime environment configuration, and dependencies of the node.
+ * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
+ * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
+ * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
+ * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
  *
  * @param tmpReq UpdateTaskAsyncRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -24131,12 +24160,13 @@ UpdateTaskAsyncResponse Client::updateTaskAsyncWithOptions(const UpdateTaskAsync
 }
 
 /**
- * @summary Updates a specified node and synchronizes the changes to DataStudio to create a new saved version.
+ * @summary Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
  *
  * @description ## Operation description
- * - This API operation updates the information of a specified node, including but not limited to the node name, description, and owner.
- * - The changes are synchronized to DataStudio, and DataStudio creates a new saved version.
- * - You can set detailed parameters such as the trigger method, runtime environment configuration, and dependencies of the node.
+ * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
+ * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
+ * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
+ * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
  *
  * @param request UpdateTaskAsyncRequest
  * @return UpdateTaskAsyncResponse
@@ -24289,7 +24319,7 @@ UpdateUdfFileResponse Client::updateUdfFile(const UpdateUdfFileRequest &request)
 }
 
 /**
- * @summary Updates a specified workflow by using the full update method. Fields that can be synchronously updated to DataStudio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
+ * @summary Updates a specified workflow by using the full update method. Fields that can be synchronously updated to Data Studio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
  *
  * @description DataWorks Basic Edition or a more advanced edition is required.
  *
@@ -24392,7 +24422,7 @@ UpdateWorkflowResponse Client::updateWorkflowWithOptions(const UpdateWorkflowReq
 }
 
 /**
- * @summary Updates a specified workflow by using the full update method. Fields that can be synchronously updated to DataStudio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
+ * @summary Updates a specified workflow by using the full update method. Fields that can be synchronously updated to Data Studio include: owner, data source, schedule resource group, description, and trigger run mode (Normal, Skip, or Pause).
  *
  * @description DataWorks Basic Edition or a more advanced edition is required.
  *
@@ -24405,7 +24435,7 @@ UpdateWorkflowResponse Client::updateWorkflow(const UpdateWorkflowRequest &reque
 }
 
 /**
- * @summary Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+ * @summary Updates the basic information about a workflow in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
  *
  * @description >Notice: 
  * This API does not support batch operations. If you define more than one workflow definition in the FlowSpec, all workflow definitions except the first one are ignored. In addition, nodes defined within the workflow definition are also ignored. Call the UpdateNode API to update internal nodes one by one.
@@ -24447,7 +24477,7 @@ UpdateWorkflowDefinitionResponse Client::updateWorkflowDefinitionWithOptions(con
 }
 
 /**
- * @summary Updates the basic information about a workflow in DataStudio. This API operation performs an incremental update. The update information is described by using FlowSpec.
+ * @summary Updates the basic information about a workflow in Data Studio. This API operation performs an incremental update. The update information is described by using FlowSpec.
  *
  * @description >Notice: 
  * This API does not support batch operations. If you define more than one workflow definition in the FlowSpec, all workflow definitions except the first one are ignored. In addition, nodes defined within the workflow definition are also ignored. Call the UpdateNode API to update internal nodes one by one.

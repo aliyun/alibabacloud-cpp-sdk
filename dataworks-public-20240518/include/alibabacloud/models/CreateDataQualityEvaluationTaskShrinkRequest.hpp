@@ -142,6 +142,12 @@ namespace Models
     // This parameter is required.
     shared_ptr<int64_t> projectId_ {};
     // The extended configuration. The value is a JSON-formatted string. This parameter takes effect only for EMR-type data quality monitors.
+    // 
+    // 
+    // 
+    // 
+    // - queue: The YARN queue used for EMR data quality checks. By default, the queue configured for the current project is used.
+    // - sqlEngine: The SQL engine used for EMR data quality checks. Valid values: HIVE_SQL and SPARK_SQL.
     shared_ptr<string> runtimeConf_ {};
     // The monitored object of the data quality monitor.
     // 

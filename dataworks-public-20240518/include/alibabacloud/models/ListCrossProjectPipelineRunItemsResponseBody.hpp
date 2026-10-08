@@ -238,7 +238,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The list of publish items for the root objects and their child objects that are included in the cross-workspace publish pipeline.
+      // The list of publish items for the root objects and their child objects that are fixed in the cross-workspace publish pipeline.
       shared_ptr<vector<Data::PipelineRunItems>> pipelineRunItems_ {};
       // The request ID.
       shared_ptr<string> requestId_ {};

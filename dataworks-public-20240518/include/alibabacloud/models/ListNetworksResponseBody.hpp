@@ -162,7 +162,7 @@ namespace Models
         shared_ptr<string> resourceGroupId_ {};
         // The security group ID.
         shared_ptr<string> securityGroupId_ {};
-        // The status of the network resource. Valid values: Pending, Creating, Running, Deleting, and Deleted.
+        // The status of the network resource. Valid values: Pending: waiting; Creating: being created; Running: running normally; Deleting: being deleted; Deleted: deleted.
         shared_ptr<string> status_ {};
         // The ID of the virtual private cloud (VPC).
         shared_ptr<string> vpcId_ {};
@@ -209,7 +209,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries that meet the conditions.
       shared_ptr<int32_t> totalCount_ {};
     };
 

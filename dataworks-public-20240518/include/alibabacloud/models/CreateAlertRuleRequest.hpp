@@ -735,7 +735,7 @@ namespace Models
       shared_ptr<vector<string>> channels_ {};
       // The alert interval, in minutes. Valid values: 5 to 10000.
       shared_ptr<int32_t> intervalInMinutes_ {};
-      // The maximum number of alerts within a calendar year. Valid values: 1 to 10000.
+      // The maximum number of alerts within a calendar day. Valid values: 1 to 10000.
       shared_ptr<int32_t> maximum_ {};
       // The alert recipients.
       // 

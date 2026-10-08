@@ -72,7 +72,7 @@ namespace Models
     shared_ptr<string> nextToken_ {};
     // The search keyword for a fuzzy search on MCP Server names.
     shared_ptr<string> q_ {};
-    // The visibility level for filtering the results.
+    // The visibility levels for filtering the results. You can specify multiple levels.
     shared_ptr<string> visibilityShrink_ {};
   };
 

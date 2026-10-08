@@ -52,7 +52,10 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The ID of the DataWorks workspace. You can logon to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the storage management page to obtain the ID.
+    // The ID of the DataWorks workspace. You can logon to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace management page to obtain the ID.
+    // 
+    // 
+    // 
     // 
     // This parameter specifies the DataWorks workspace for this API invoke operation.
     // 

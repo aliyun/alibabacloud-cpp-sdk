@@ -117,7 +117,7 @@ namespace Models
     protected:
       // This parameter is deprecated and replaced by the DdlTypes parameter.
       shared_ptr<vector<string>> ddlReportTags_ {};
-      // The types of DDL operations for which the alert rule takes effect.
+      // The types of DDL operations for which the alert rule takes effect. This setting takes effect only for DDL notifications.
       shared_ptr<vector<string>> ddlTypes_ {};
       // The time interval for alert calculation. Unit: minutes.
       shared_ptr<int64_t> duration_ {};
@@ -254,13 +254,13 @@ namespace Models
       protected:
         // The alert notification method. Valid values:
         // 
-        // - Mail
         // 
-        // - Phone
         // 
-        // - Sms
         // 
-        // - Ding
+        // - Mail: email
+        // - Phone: phone call
+        // - Sms: SMS
+        // - Ding: DingTalk
         shared_ptr<vector<string>> channels_ {};
         // The severity level. Valid values:
         // 
@@ -398,15 +398,14 @@ namespace Models
     shared_ptr<int64_t> id_ {};
     // The metric type in the alert rule. Valid values:
     // 
-    // - Heartbeat
     // 
-    // - FailoverCount
     // 
-    // - Delay
     // 
-    // - DdlReport
-    // 
-    // - ResourceUtilization
+    // - Heartbeat: task status alert
+    // - FailoverCount: failover count alert
+    // - Delay: task latency alert
+    // - DdlReport: DDL notification
+    // - ResourceUtilization: resource group utilization
     shared_ptr<string> metricType_ {};
     // The name of the alert rule.
     shared_ptr<string> name_ {};

@@ -145,13 +145,13 @@ namespace Models
       // 
       // Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
       shared_ptr<string> modifyTime_ {};
-      // Parameter
+      // The name.
       shared_ptr<string> name_ {};
       // The ID of the task owner.
       shared_ptr<string> owner_ {};
       // The DataWorks workspace ID.
       shared_ptr<int64_t> projectId_ {};
-      // The region ID, such as ap-southeast-1. The region ID is automatically parsed from your endpoint.
+      // The region information, usually the region where the service is located. For example, cn-shanghai specifies China (Shanghai), and cn-zhangjiakou specifies China (Zhangjiakou). You do not need to specify RegionId because it is automatically parsed from the endpoint that you call.
       shared_ptr<string> regionId_ {};
       // The FlowSpec information for this workflow. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow/).
       shared_ptr<string> spec_ {};

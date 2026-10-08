@@ -235,11 +235,7 @@ namespace Models
         // 
         // - false: The development environment is disabled. In this case, only the production environment is used in the workspace.
         shared_ptr<bool> devEnvironmentEnabled_ {};
-        // Indicates whether the Develop role is disabled. Valid values:
-        // 
-        // - false (default)
-        // 
-        // - true
+        // Indicates whether the developer role is disabled. Valid values: false (enabled) and true (disabled).
         shared_ptr<bool> devRoleDisabled_ {};
         // The display name of the workspace.
         shared_ptr<string> displayName_ {};
@@ -255,25 +251,7 @@ namespace Models
         // 
         // - false: Scheduling of PAI tasks is disabled.
         shared_ptr<bool> paiTaskEnabled_ {};
-        // The status of the workspace. Valid values:
-        // 
-        // - Available
-        // 
-        // - Initializing
-        // 
-        // - InitFailed
-        // 
-        // - Forbidden
-        // 
-        // - Deleting
-        // 
-        // - DeleteFailed
-        // 
-        // - Frozen
-        // 
-        // - Updating
-        // 
-        // - UpdateFailed
+        // The status of the workspace. Valid values: Available (running normally), Initializing (initializing), InitFailed (initialization failed), Forbidden (manually disabled), Deleting (being deleted), DeleteFailed (deletion failed), Frozen (frozen due to overdue payments), Updating (being updated), and UpdateFailed (update failed).
         shared_ptr<string> status_ {};
       };
 

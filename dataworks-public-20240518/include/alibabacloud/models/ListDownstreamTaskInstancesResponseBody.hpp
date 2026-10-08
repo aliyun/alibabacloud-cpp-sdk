@@ -531,8 +531,18 @@ namespace Models
         // The baseline ID.
         shared_ptr<int64_t> baselineId_ {};
         // The business date.
+        // 
+        // 
+        // 
+        // 
+        // The value is a 13-digit number, such as 1710239005403.
         shared_ptr<int64_t> bizdate_ {};
         // The creation time.
+        // 
+        // 
+        // 
+        // 
+        // The value is a 13-digit number, such as 1710239005403.
         shared_ptr<int64_t> createTime_ {};
         // The account ID of the user who created the instance.
         shared_ptr<string> createUser_ {};
@@ -541,12 +551,28 @@ namespace Models
         // The description.
         shared_ptr<string> description_ {};
         // The environment of the target data source. Valid values:
+        // 
+        // 
+        // 
+        // 
+        // - Dev: development environment.
+        // - Prod: production environment.
         shared_ptr<string> envType_ {};
         // The time when the instance finished running.
+        // 
+        // 
+        // 
+        // 
+        // The value is a 13-digit number, such as 1710239005403.
         shared_ptr<int64_t> finishedTime_ {};
         // The unique identifier of the task instance.
         shared_ptr<int64_t> id_ {};
         // The modification time.
+        // 
+        // 
+        // 
+        // 
+        // The value is a 13-digit number, such as 1710239005403.
         shared_ptr<int64_t> modifyTime_ {};
         // The account ID of the user who last modified the instance.
         shared_ptr<string> modifyUser_ {};
@@ -569,10 +595,34 @@ namespace Models
         // The resource group information associated with the instance.
         shared_ptr<TaskInstances::RuntimeResource> runtimeResource_ {};
         // The time when the instance started running.
+        // 
+        // 
+        // 
+        // 
+        // The value is a 13-digit number, such as 1710239005403.
         shared_ptr<int64_t> startedTime_ {};
-        // The run status of the instance.
+        // The run status of the instance. Valid values:
+        // 
+        // 
+        // 
+        // 
+        // - NotRun: not run.
+        // - Running: running.
+        // - WaitTime: waiting for TriggerTime to arrive.
+        // - CheckingCondition: checking branch conditions.
+        // - WaitResource: waiting for resources.
+        // - Failure: execution failed.
+        // - Success: execution succeeded.
+        // - Checking: submitted for data quality check.
+        // - WaitTrigger: waiting for an external trigger. Trigger-based nodes enter this status after the waiting time elapses.
         shared_ptr<string> status_ {};
-        // The dependency type.
+        // The dependency type. Valid values:
+        // 
+        // 
+        // 
+        // 
+        // - Normal: dependency within the same scheduling cycle.
+        // - CrossCycle: cross-cycle dependency.
         shared_ptr<string> stepType_ {};
         // The ID of the corresponding node.
         shared_ptr<int64_t> taskId_ {};
@@ -581,10 +631,20 @@ namespace Models
         // The type of the corresponding node.
         shared_ptr<string> taskType_ {};
         // The timeout period for node execution. Unit: seconds.
+        // 
+        // 
+        // 
+        // 
+        // Note: The scheduling system rounds the configured value to whole hours.
         shared_ptr<int32_t> timeout_ {};
         // The run mode at the time of triggering. This parameter takes effect when TriggerType is set to Scheduler.
         shared_ptr<string> triggerRecurrence_ {};
         // The scheduled trigger time.
+        // 
+        // 
+        // 
+        // 
+        // The value is a 13-digit number, such as 1710239005403.
         shared_ptr<int64_t> triggerTime_ {};
         // The trigger type.
         shared_ptr<string> triggerType_ {};
@@ -1073,8 +1133,18 @@ namespace Models
           // The baseline ID.
           shared_ptr<int64_t> baselineId_ {};
           // The business date.
+          // 
+          // 
+          // 
+          // 
+          // The value is a 13-digit number, such as 1710239005403.
           shared_ptr<int64_t> bizdate_ {};
           // The creation time.
+          // 
+          // 
+          // 
+          // 
+          // The value is a 13-digit number, such as 1710239005403.
           shared_ptr<int64_t> createTime_ {};
           // The account ID of the user who created the instance.
           shared_ptr<string> createUser_ {};
@@ -1083,12 +1153,28 @@ namespace Models
           // The description.
           shared_ptr<string> description_ {};
           // The environment of the target data source. Valid values:
+          // 
+          // 
+          // 
+          // 
+          // - Dev: development environment.
+          // - Prod: production environment.
           shared_ptr<string> envType_ {};
           // The time when the instance finished running.
+          // 
+          // 
+          // 
+          // 
+          // The value is a 13-digit number, such as 1710239005403.
           shared_ptr<int64_t> finishedTime_ {};
           // The unique identifier of the task instance.
           shared_ptr<int64_t> id_ {};
           // The modification time.
+          // 
+          // 
+          // 
+          // 
+          // The value is a 13-digit number, such as 1710239005403.
           shared_ptr<int64_t> modifyTime_ {};
           // The account ID of the user who last modified the instance.
           shared_ptr<string> modifyUser_ {};
@@ -1109,8 +1195,26 @@ namespace Models
           // The runtime environment configuration, such as resource group information.
           shared_ptr<TaskInstance::RuntimeResource> runtimeResource_ {};
           // The time when the instance started running.
+          // 
+          // 
+          // 
+          // 
+          // The value is a 13-digit number, such as 1710239005403.
           shared_ptr<int64_t> startedTime_ {};
-          // The run status of the instance.
+          // The run status of the instance. Valid values:
+          // 
+          // 
+          // 
+          // 
+          // - NotRun: not run.
+          // - Running: running.
+          // - WaitTime: waiting for TriggerTime to arrive.
+          // - CheckingCondition: checking branch conditions.
+          // - WaitResource: waiting for resources.
+          // - Failure: execution failed.
+          // - Success: execution succeeded.
+          // - Checking: submitted for data quality check.
+          // - WaitTrigger: waiting for an external trigger. Trigger-based nodes enter this status after the waiting time elapses.
           shared_ptr<string> status_ {};
           // The ID of the corresponding node.
           shared_ptr<int64_t> taskId_ {};
@@ -1119,6 +1223,11 @@ namespace Models
           // The type of the corresponding node.
           shared_ptr<string> taskType_ {};
           // The timeout period for node execution. Unit: seconds.
+          // 
+          // 
+          // 
+          // 
+          // Note: The scheduling system rounds the configured value to whole hours.
           shared_ptr<int32_t> timeout_ {};
           // The run mode when triggered. This parameter takes effect when TriggerType is set to Scheduler. Valid values:
           // - Pause: paused.
@@ -1126,14 +1235,34 @@ namespace Models
           // - Normal: normal execution.
           shared_ptr<string> triggerRecurrence_ {};
           // The scheduled trigger time.
+          // 
+          // 
+          // 
+          // 
+          // The value is a 13-digit number, such as 1710239005403.
           shared_ptr<int64_t> triggerTime_ {};
-          // The trigger type.
+          // The trigger type. Valid values:
+          // 
+          // 
+          // 
+          // 
+          // - Scheduler: triggered by a scheduling cycle.
+          // - Manual: manually triggered.
           shared_ptr<string> triggerType_ {};
           // The ID of the workflow to which the instance belongs.
           shared_ptr<int64_t> workflowId_ {};
           // The ID of the workflow instance to which the instance belongs.
           shared_ptr<int64_t> workflowInstanceId_ {};
-          // The type of the workflow instance to which the instance belongs.
+          // The type of the workflow instance to which the instance belongs. Valid values:
+          // 
+          // 
+          // 
+          // 
+          // - Normal: scheduled execution.
+          // - Manual: manual task.
+          // - SmokeTest: test.
+          // - SupplementData: data backfill.
+          // - ManualWorkflow: manual workflow.
           shared_ptr<string> workflowInstanceType_ {};
           // The name of the workflow to which the instance belongs.
           shared_ptr<string> workflowName_ {};
@@ -1158,7 +1287,13 @@ namespace Models
 
 
       protected:
-        // The dependency type.
+        // The dependency type. Valid values:
+        // 
+        // 
+        // 
+        // 
+        // - Normal: dependency within the same scheduling cycle.
+        // - CrossCycle: cross-cycle dependency.
         shared_ptr<string> dependencyType_ {};
         // The task instance.
         shared_ptr<DownstreamTaskInstances::TaskInstance> taskInstance_ {};

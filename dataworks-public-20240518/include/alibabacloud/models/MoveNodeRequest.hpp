@@ -57,13 +57,20 @@ namespace Models
 
 
   protected:
-    // The ID of the node.
+    // The unique identifier of the Data Studio node.
+    // 
+    // 
+    // 
+    // 
+    // > This field is of the Long type in SDK versions prior to 8.0.0, and of the String type in SDK versions 8.0.0 and later. This change does not affect normal SDK usage; the parameter will still be returned according to the type defined in the SDK. However, compilation failures may occur due to the type change only when upgrading the SDK across version 8.0.0. In this case, you must manually update the data type.
     // 
     // This parameter is required.
     shared_ptr<string> id_ {};
-    // The unique identifier of the Data Studio node.
+    // The destination path to which you want to move the node. Do not include the node name.
     // 
-    // > This field is of the Long type in SDK versions prior to 8.0.0, and of the String type in SDK versions 8.0.0 and later. This change does not affect normal SDK usage; the parameter will still be returned according to the type defined in the SDK. However, compilation failures may occur due to the type change only when upgrading the SDK across version 8.0.0. In this case, you must manually update the data type.
+    // 
+    // 
+    // For example, to move the test node to `root/demo/test`, set this parameter to `root/demo`.
     // 
     // This parameter is required.
     shared_ptr<string> path_ {};

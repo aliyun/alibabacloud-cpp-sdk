@@ -255,7 +255,7 @@ namespace Models
       shared_ptr<string> objectId_ {};
       // The name of the deployment object.
       shared_ptr<string> objectName_ {};
-      // The object type of the publish object.
+      // The type of the deployment object.
       shared_ptr<string> objectType_ {};
       // The version of the deployment object.
       shared_ptr<string> objectVersion_ {};

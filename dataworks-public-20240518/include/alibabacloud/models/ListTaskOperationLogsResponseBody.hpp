@@ -61,16 +61,20 @@ namespace Models
       public:
         friend void to_json(Darabonba::Json& j, const OperationLogs& obj) { 
           DARABONBA_PTR_TO_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_TO_JSON(ObjectType, objectType_);
           DARABONBA_PTR_TO_JSON(OperationContent, operationContent_);
           DARABONBA_PTR_TO_JSON(OperationSeq, operationSeq_);
           DARABONBA_PTR_TO_JSON(TaskId, taskId_);
+          DARABONBA_PTR_TO_JSON(TaskInstanceId, taskInstanceId_);
           DARABONBA_PTR_TO_JSON(User, user_);
         };
         friend void from_json(const Darabonba::Json& j, OperationLogs& obj) { 
           DARABONBA_PTR_FROM_JSON(CreateTime, createTime_);
+          DARABONBA_PTR_FROM_JSON(ObjectType, objectType_);
           DARABONBA_PTR_FROM_JSON(OperationContent, operationContent_);
           DARABONBA_PTR_FROM_JSON(OperationSeq, operationSeq_);
           DARABONBA_PTR_FROM_JSON(TaskId, taskId_);
+          DARABONBA_PTR_FROM_JSON(TaskInstanceId, taskInstanceId_);
           DARABONBA_PTR_FROM_JSON(User, user_);
         };
         OperationLogs() = default ;
@@ -85,12 +89,20 @@ namespace Models
         virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
         virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
         virtual bool empty() const override { return this->createTime_ == nullptr
-        && this->operationContent_ == nullptr && this->operationSeq_ == nullptr && this->taskId_ == nullptr && this->user_ == nullptr; };
+        && this->objectType_ == nullptr && this->operationContent_ == nullptr && this->operationSeq_ == nullptr && this->taskId_ == nullptr && this->taskInstanceId_ == nullptr
+        && this->user_ == nullptr; };
         // createTime Field Functions 
         bool hasCreateTime() const { return this->createTime_ != nullptr;};
         void deleteCreateTime() { this->createTime_ = nullptr;};
         inline int64_t getCreateTime() const { DARABONBA_PTR_GET_DEFAULT(createTime_, 0L) };
         inline OperationLogs& setCreateTime(int64_t createTime) { DARABONBA_PTR_SET_VALUE(createTime_, createTime) };
+
+
+        // objectType Field Functions 
+        bool hasObjectType() const { return this->objectType_ != nullptr;};
+        void deleteObjectType() { this->objectType_ = nullptr;};
+        inline string getObjectType() const { DARABONBA_PTR_GET_DEFAULT(objectType_, "") };
+        inline OperationLogs& setObjectType(string objectType) { DARABONBA_PTR_SET_VALUE(objectType_, objectType) };
 
 
         // operationContent Field Functions 
@@ -114,6 +126,13 @@ namespace Models
         inline OperationLogs& setTaskId(int64_t taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
+        // taskInstanceId Field Functions 
+        bool hasTaskInstanceId() const { return this->taskInstanceId_ != nullptr;};
+        void deleteTaskInstanceId() { this->taskInstanceId_ = nullptr;};
+        inline int64_t getTaskInstanceId() const { DARABONBA_PTR_GET_DEFAULT(taskInstanceId_, 0L) };
+        inline OperationLogs& setTaskInstanceId(int64_t taskInstanceId) { DARABONBA_PTR_SET_VALUE(taskInstanceId_, taskInstanceId) };
+
+
         // user Field Functions 
         bool hasUser() const { return this->user_ != nullptr;};
         void deleteUser() { this->user_ = nullptr;};
@@ -122,15 +141,23 @@ namespace Models
 
 
       protected:
-        // The time when the operation log was generated.
+        // The time when the operation logs are generated.
+        // 
+        // The format is a 13-digit number, such as `1710239005403`.
         shared_ptr<int64_t> createTime_ {};
+        // The object type. Valid values:
+        // - Task: node
+        // - TaskInstance: node instance
+        shared_ptr<string> objectType_ {};
         // The operation content.
         shared_ptr<string> operationContent_ {};
-        // The serial number of the operation.
+        // The operation sequence number.
         shared_ptr<int64_t> operationSeq_ {};
-        // The ID of the task on which the operation was performed.
+        // The ID of the node on which the operation was performed.
         shared_ptr<int64_t> taskId_ {};
-        // The account ID of the operator.
+        // The ID of the node instance on which the operation was performed.
+        shared_ptr<int64_t> taskInstanceId_ {};
+        // The account ID of the user who performed the operation.
         shared_ptr<string> user_ {};
       };
 
@@ -167,13 +194,13 @@ namespace Models
 
 
     protected:
-      // The operation logs.
+      // The list of operation logs.
       shared_ptr<vector<PagingInfo::OperationLogs>> operationLogs_ {};
       // The page number.
       shared_ptr<int32_t> pageNumber_ {};
       // The number of entries per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of entries returned.
+      // The total number of entries.
       shared_ptr<int32_t> totalCount_ {};
     };
 
@@ -198,7 +225,7 @@ namespace Models
   protected:
     // The pagination information.
     shared_ptr<ListTaskOperationLogsResponseBody::PagingInfo> pagingInfo_ {};
-    // The request ID.
+    // The request ID, which is used to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};
   };
 

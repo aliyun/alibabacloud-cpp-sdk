@@ -178,11 +178,12 @@ namespace Models
         shared_ptr<string> endTime_ {};
         // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
         // 
-        // - Pause
         // 
-        // - Skip
         // 
-        // - Normal
+        // 
+        // - Pause: paused
+        // - Skip: dry run
+        // - Normal: normal operation
         shared_ptr<string> recurrence_ {};
         // The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
         shared_ptr<string> startTime_ {};
@@ -391,11 +392,12 @@ namespace Models
             shared_ptr<string> endTime_ {};
             // The running mode of the task after it is triggered. This parameter takes effect only if the Type parameter is set to Scheduler. Valid values:
             // 
-            // - Pause
             // 
-            // - Skip
             // 
-            // - Normal
+            // 
+            // - Pause: paused
+            // - Skip: dry run
+            // - Normal: normal operation
             shared_ptr<string> recurrence_ {};
             // The start time of the time range during which the task is periodically scheduled. This parameter takes effect only if the Type parameter is set to Scheduler.
             shared_ptr<string> startTime_ {};
@@ -454,7 +456,7 @@ namespace Models
 
 
           protected:
-            // The default number of CUs configured for task running.
+            // The number of CUs configured for task running.
             shared_ptr<string> cu_ {};
             // The ID of the image configured for task running.
             shared_ptr<string> image_ {};
@@ -843,7 +845,7 @@ namespace Models
 
 
       protected:
-        // The default number of compute units (CUs) configured for task running.
+        // The number of compute units (CUs) configured for task running.
         shared_ptr<string> cu_ {};
         // The ID of the image configured for task running.
         shared_ptr<string> image_ {};
@@ -923,12 +925,12 @@ namespace Models
           shared_ptr<string> name_ {};
           // The type. Valid values:
           // 
+          // 
+          // 
+          // 
           // - Constant: constant
-          // 
-          // - PassThrough: node output
-          // 
+          // - PassThrough: parameter node output
           // - System: variable
-          // 
           // - NodeOutput: script output
           shared_ptr<string> type_ {};
           // The value of the variable.
@@ -1064,12 +1066,12 @@ namespace Models
           shared_ptr<string> name_ {};
           // The type. Valid values:
           // 
+          // 
+          // 
+          // 
           // - Constant: constant
-          // 
-          // - PassThrough: node output
-          // 
+          // - PassThrough: parameter node output
           // - System: variable
-          // 
           // - NodeOutput: script output
           shared_ptr<string> type_ {};
           // The value of the variable.
@@ -1150,7 +1152,7 @@ namespace Models
         shared_ptr<string> type_ {};
         // The identifier of the output of the ancestor task. This parameter is returned only if `same-cycle scheduling dependencies` and the node input are configured.
         shared_ptr<string> upstreamOutput_ {};
-        // The ancestor task ID. This parameter is returned only if `cross-cycle scheduling dependencies` or `same-cycle scheduling dependencies` and the node input are not configured.
+        // The ID of the upstream task. This field is returned for cross-cycle dependencies on other nodes, or for same-cycle dependencies when input content is not configured. It is not returned in other cases.
         shared_ptr<string> upstreamTaskId_ {};
       };
 
@@ -1433,15 +1435,17 @@ namespace Models
       // 
       // - Dev: development environment
       shared_ptr<string> envType_ {};
-      // The instance ID.
+      // The unique identifier of the task.
       shared_ptr<int64_t> id_ {};
       // The input information.
       shared_ptr<Task::Inputs> inputs_ {};
       // The instance generation mode. Valid values:
       // 
-      // - T+1
       // 
-      // - Immediately
+      // 
+      // 
+      // - T+1: generated the next day
+      // - Immediately: generated immediately
       shared_ptr<string> instanceMode_ {};
       // The modification time.
       shared_ptr<int64_t> modifyTime_ {};

@@ -71,9 +71,9 @@ namespace Models
 
 
     protected:
-      // The path of the artifact.
+      // The path of the artifact. Required.
       shared_ptr<string> artifactPath_ {};
-      // The ID of the session.
+      // The ID of the session. Required.
       shared_ptr<string> sessionId_ {};
     };
 

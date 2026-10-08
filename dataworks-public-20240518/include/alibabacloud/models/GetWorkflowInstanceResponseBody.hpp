@@ -272,7 +272,7 @@ namespace Models
 
 
     protected:
-      // The data timestamp.
+      // The business date.
       shared_ptr<int64_t> bizDate_ {};
       // The creation time.
       shared_ptr<int64_t> createTime_ {};
@@ -280,9 +280,11 @@ namespace Models
       shared_ptr<string> createUser_ {};
       // The environment of the workspace. Valid values:
       // 
-      // - Prod
       // 
-      // - Dev
+      // 
+      // 
+      // - Prod: production environment
+      // - Dev: development environment
       shared_ptr<string> envType_ {};
       // The time when the instance finished running.
       shared_ptr<int64_t> finishedTime_ {};
@@ -334,7 +336,7 @@ namespace Models
       // 
       // - TriggerWorkflow: Triggered Workflow
       shared_ptr<string> type_ {};
-      // The unified pipeline instance ID. For all pipeline instances triggered under the same data timestamp in a single trigger, this field value is identical.
+      // The unified workflow instance ID. This field has the same value for all workflow instances for the same business date within a single trigger.
       shared_ptr<int64_t> unifiedWorkflowInstanceId_ {};
       // The ID of the workflow to which the instance belongs.
       shared_ptr<int64_t> workflowId_ {};

@@ -126,12 +126,13 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The scope of the parameter. The default value is Project. Other values are not supported.
     shared_ptr<string> scope_ {};
-    // The field to sort the parameters by. Specify the value in the "FieldName SortOrder" format. The Asc sort order is optional. Supported values are:
+    // The list of fields to sort the parameters by. Specify the value in the "FieldName SortOrder" format. The Asc sort order is optional. Supported values are:
+    // 
+    // 
+    // 
     // 
     // - ModifyTime (Desc/Asc)
-    // 
     // - CreateTime (Desc/Asc)
-    // 
     // - Name (Desc/Asc)
     shared_ptr<string> sortBy_ {};
     // The type of the parameter. Valid values:

@@ -91,8 +91,11 @@ namespace Models
     shared_ptr<int64_t> projectId_ {};
     // The deployment type. Valid values:
     // 
-    // - Offline: Offline deployment.
-    // - Online: Online deployment.
+    // 
+    // 
+    // 
+    // - Offline: Deployment to take the object offline.
+    // - Online: Deployment to bring the object online.
     // 
     // This parameter is required.
     shared_ptr<string> type_ {};

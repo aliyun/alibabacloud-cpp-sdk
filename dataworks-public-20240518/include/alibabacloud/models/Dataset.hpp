@@ -156,7 +156,7 @@ namespace Models
 
 
   protected:
-    // The description of the dataset. The length cannot exceed 1024 characters.
+    // The description of the dataset. The length must be less than 1024 characters.
     shared_ptr<string> comment_ {};
     // The creation time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> createTime_ {};
@@ -164,13 +164,16 @@ namespace Models
     shared_ptr<string> creatorId_ {};
     // The data type. Valid values:
     // 
-    // *   COMMON
-    // *   PIC
-    // *   TEXT
-    // *   TABLE
-    // *   VIDEO
-    // *   AUDIO
-    // *   INDEX
+    // 
+    // 
+    // 
+    // - COMMON: general
+    // - PIC: image
+    // - TEXT: text
+    // - TABLE: table
+    // - VIDEO: video
+    // - AUDIO: audio
+    // - INDEX: index
     shared_ptr<string> dataType_ {};
     // The dataset ID.
     shared_ptr<string> id_ {};
@@ -180,7 +183,7 @@ namespace Models
     shared_ptr<DatasetVersion> latestVersion_ {};
     // The modification time. This value is a UNIX timestamp in milliseconds.
     shared_ptr<int64_t> modifyTime_ {};
-    // The dataset name. It must be a non-empty string and cannot exceed 128 characters.
+    // The dataset name. It must be a non-empty string and must be less than 128 characters.
     shared_ptr<string> name_ {};
     // The source of the dataset. Currently supported sources:
     // 

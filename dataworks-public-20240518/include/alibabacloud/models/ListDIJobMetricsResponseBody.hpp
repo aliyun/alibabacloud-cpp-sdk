@@ -137,7 +137,7 @@ namespace Models
       protected:
         // The name of the metric.
         shared_ptr<string> name_ {};
-        // The metric data.
+        // The metric series, consisting of sampling times and sampled values at different points in time.
         shared_ptr<vector<JobMetrics::SeriesList>> seriesList_ {};
       };
 

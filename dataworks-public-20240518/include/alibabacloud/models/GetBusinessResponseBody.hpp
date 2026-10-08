@@ -123,7 +123,7 @@ namespace Models
       shared_ptr<string> owner_ {};
       // The ID of the DataWorks workspace to which the business process belongs.
       shared_ptr<string> projectId_ {};
-      // The functional module to which the business process belongs. Valid values: NORMAL (DataStudio) and MANUAL_BIZ (manual business process).
+      // The functional module to which the business process belongs. Valid values: NORMAL (Data Studio) and MANUAL_BIZ (manual business process).
       shared_ptr<string> useType_ {};
     };
 

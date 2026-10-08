@@ -301,7 +301,10 @@ namespace Models
       shared_ptr<string> remark_ {};
       // The type of the resource group. Valid values:
       // 
-      // - CommonV2: new-version resource group.
+      // 
+      // 
+      // 
+      // - CommonV2: new-version general-purpose resource group.
       // - ExclusiveDataIntegration: exclusive data integration resource group.
       // - ExclusiveScheduler: exclusive scheduling resource group.
       // - ExclusiveDataService: exclusive data service resource group.

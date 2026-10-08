@@ -140,7 +140,7 @@ namespace Models
       shared_ptr<int64_t> projectId_ {};
       // The FlowSpec field information about this node. For more information, see [FlowSpec](https://github.com/aliyun/alibabacloud-dataworks-tool-dflow).
       shared_ptr<string> spec_ {};
-      // The ID of the corresponding scheduling task after the node is published.
+      // The ID of the corresponding scheduling task after the node is deployed.
       shared_ptr<int64_t> taskId_ {};
     };
 

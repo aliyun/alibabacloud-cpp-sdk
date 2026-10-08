@@ -425,7 +425,7 @@ namespace Models
 
 
       protected:
-        // The output identifier of the dependent task.
+        // The output identifier of the upstream task.
         shared_ptr<string> upstreamOutput_ {};
       };
 

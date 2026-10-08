@@ -99,7 +99,7 @@ namespace Models
       shared_ptr<int32_t> pageNumber_ {};
       // The number of records per page.
       shared_ptr<int32_t> pageSize_ {};
-      // The total number of records returned.
+      // The total number of records.
       shared_ptr<int64_t> totalCount_ {};
     };
 

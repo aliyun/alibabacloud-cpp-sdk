@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // The unique identifier of the publish process.
+    // The unique identifier of the deployment process.
     shared_ptr<string> id_ {};
     // The request ID. You can use the ID to locate logs and troubleshoot issues.
     shared_ptr<string> requestId_ {};

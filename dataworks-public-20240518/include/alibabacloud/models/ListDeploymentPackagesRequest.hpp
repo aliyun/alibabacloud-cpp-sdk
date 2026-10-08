@@ -137,7 +137,7 @@ namespace Models
     shared_ptr<int32_t> pageSize_ {};
     // The ID of the DataWorks workspace. You can log on to the DataWorks console and go to the workspace configuration page to obtain the workspace ID. You must specify either this parameter or the ProjectIdentifier parameter to determine the DataWorks workspace for this API call.
     shared_ptr<int64_t> projectId_ {};
-    // The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the DataStudio page. You must specify either this parameter or the ProjectId parameter to determine the DataWorks workspace for this API call.
+    // The unique identifier of the DataWorks workspace, which is the English identifier displayed in the workspace switcher at the top of the Data Studio page. You must specify either this parameter or the ProjectId parameter to determine the DataWorks workspace for this API call.
     shared_ptr<string> projectIdentifier_ {};
     // The current status of the deployment package. Valid values:
     // - 0: The deployment package is ready.

@@ -61,7 +61,7 @@ namespace Models
     shared_ptr<int64_t> DIAlarmRuleId_ {};
     // The ID of the synchronization task.
     shared_ptr<int64_t> DIJobId_ {};
-    // The ID of the synchronization task.
+    // The alert rule ID.
     shared_ptr<int64_t> id_ {};
   };
 
