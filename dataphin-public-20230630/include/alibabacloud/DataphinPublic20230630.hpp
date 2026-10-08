@@ -229,6 +229,23 @@ namespace DataphinPublic20230630
       Models::BatchCreateKgRelationResponse batchCreateKgRelation(const Models::BatchCreateKgRelationRequest &request);
 
       /**
+       * @summary 批量交接资产。
+       *
+       * @param tmpReq BatchHandoverAssetRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return BatchHandoverAssetResponse
+       */
+      Models::BatchHandoverAssetResponse batchHandoverAssetWithOptions(const Models::BatchHandoverAssetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量交接资产。
+       *
+       * @param request BatchHandoverAssetRequest
+       * @return BatchHandoverAssetResponse
+       */
+      Models::BatchHandoverAssetResponse batchHandoverAsset(const Models::BatchHandoverAssetRequest &request);
+
+      /**
        * @summary Checks the connectivity of a compute source.
        *
        * @param tmpReq CheckComputeSourceConnectivityRequest
@@ -295,6 +312,27 @@ namespace DataphinPublic20230630
        * @return CheckDataSourceConnectivityByIdResponse
        */
       Models::CheckDataSourceConnectivityByIdResponse checkDataSourceConnectivityById(const Models::CheckDataSourceConnectivityByIdRequest &request);
+
+      /**
+       * @summary 在指定调度资源组上检查数据源连通性
+       *
+       * @description 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+       *
+       * @param tmpReq CheckDataSourceConnectivityOnResourceGroupRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return CheckDataSourceConnectivityOnResourceGroupResponse
+       */
+      Models::CheckDataSourceConnectivityOnResourceGroupResponse checkDataSourceConnectivityOnResourceGroupWithOptions(const Models::CheckDataSourceConnectivityOnResourceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 在指定调度资源组上检查数据源连通性
+       *
+       * @description 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+       *
+       * @param request CheckDataSourceConnectivityOnResourceGroupRequest
+       * @return CheckDataSourceConnectivityOnResourceGroupResponse
+       */
+      Models::CheckDataSourceConnectivityOnResourceGroupResponse checkDataSourceConnectivityOnResourceGroup(const Models::CheckDataSourceConnectivityOnResourceGroupRequest &request);
 
       /**
        * @summary Checks whether a project has data dependencies such as tasks.
@@ -558,16 +596,16 @@ namespace DataphinPublic20230630
       Models::CreateDataSourceResponse createDataSource(const Models::CreateDataSourceRequest &request);
 
       /**
-       * @summary Creates a dataset in a specified project. Online version: v6.2.0.
+       * @summary Creates a new dataset in the specified project. Available since v6.2.0.
        *
-       * @description ## Operation description
-       * - This API operation creates a dataset in a specified project.
+       * @description ## Request description
+       * - This API creates a new dataset in the specified project.
        * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
        * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
        * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
        * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-       * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
-       * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+       * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
+       * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
        *
        * @param tmpReq CreateDatasetRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -576,16 +614,16 @@ namespace DataphinPublic20230630
       Models::CreateDatasetResponse createDatasetWithOptions(const Models::CreateDatasetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates a dataset in a specified project. Online version: v6.2.0.
+       * @summary Creates a new dataset in the specified project. Available since v6.2.0.
        *
-       * @description ## Operation description
-       * - This API operation creates a dataset in a specified project.
+       * @description ## Request description
+       * - This API creates a new dataset in the specified project.
        * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
        * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
        * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
        * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
-       * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
-       * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+       * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
+       * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
        *
        * @param request CreateDatasetRequest
        * @return CreateDatasetResponse
@@ -752,7 +790,7 @@ namespace DataphinPublic20230630
       /**
        * @summary Creates a row-level permission.
        *
-       * @description Queries the details of published APIs by appKey.
+       * @description Queries the details of published APIs based on the appKey.
        *
        * @param tmpReq CreateRowPermissionRequest
        * @param runtime runtime options for this request RuntimeOptions
@@ -763,7 +801,7 @@ namespace DataphinPublic20230630
       /**
        * @summary Creates a row-level permission.
        *
-       * @description Queries the details of published APIs by appKey.
+       * @description Queries the details of published APIs based on the appKey.
        *
        * @param request CreateRowPermissionRequest
        * @return CreateRowPermissionResponse
@@ -2145,6 +2183,27 @@ namespace DataphinPublic20230630
       Models::GetCatalogAssetDetailsResponse getCatalogAssetDetails(const Models::GetCatalogAssetDetailsRequest &request);
 
       /**
+       * @summary 按任务ID查询数据源连通性检查任务
+       *
+       * @description 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+       *
+       * @param request GetCheckConnectivityJobByJobIdRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetCheckConnectivityJobByJobIdResponse
+       */
+      Models::GetCheckConnectivityJobByJobIdResponse getCheckConnectivityJobByJobIdWithOptions(const Models::GetCheckConnectivityJobByJobIdRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 按任务ID查询数据源连通性检查任务
+       *
+       * @description 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+       *
+       * @param request GetCheckConnectivityJobByJobIdRequest
+       * @return GetCheckConnectivityJobByJobIdResponse
+       */
+      Models::GetCheckConnectivityJobByJobIdResponse getCheckConnectivityJobByJobId(const Models::GetCheckConnectivityJobByJobIdRequest &request);
+
+      /**
        * @summary Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
        * Release version: v5.5.0.
        *
@@ -3466,6 +3525,23 @@ namespace DataphinPublic20230630
       Models::GetServerVersionResponse getServerVersion(const Models::GetServerVersionRequest &request);
 
       /**
+       * @summary 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+       *
+       * @param tmpReq GetSourceTableMetaRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetSourceTableMetaResponse
+       */
+      Models::GetSourceTableMetaResponse getSourceTableMetaWithOptions(const Models::GetSourceTableMetaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+       *
+       * @param request GetSourceTableMetaRequest
+       * @return GetSourceTableMetaResponse
+       */
+      Models::GetSourceTableMetaResponse getSourceTableMeta(const Models::GetSourceTableMetaRequest &request);
+
+      /**
        * @summary Retrieves the Spark client information of the cluster associated with a compute source.
        *
        * @param request GetSparkLocalClientInfoRequest
@@ -3646,6 +3722,23 @@ namespace DataphinPublic20230630
        * @return GetSupplementDagrunInstanceResponse
        */
       Models::GetSupplementDagrunInstanceResponse getSupplementDagrunInstance(const Models::GetSupplementDagrunInstanceRequest &request);
+
+      /**
+       * @summary 查询表资产清单详情。
+       *
+       * @param request GetTableRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return GetTableResponse
+       */
+      Models::GetTableResponse getTableWithOptions(const Models::GetTableRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询表资产清单详情。
+       *
+       * @param request GetTableRequest
+       * @return GetTableResponse
+       */
+      Models::GetTableResponse getTable(const Models::GetTableRequest &request);
 
       /**
        * @summary Queries table column lineage information.
@@ -4066,6 +4159,23 @@ namespace DataphinPublic20230630
        * @return ListAuthorizedDataServiceApiDetailsResponse
        */
       Models::ListAuthorizedDataServiceApiDetailsResponse listAuthorizedDataServiceApiDetails(const Models::ListAuthorizedDataServiceApiDetailsRequest &request);
+
+      /**
+       * @summary 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+       *
+       * @param tmpReq ListBatchTasksRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListBatchTasksResponse
+       */
+      Models::ListBatchTasksResponse listBatchTasksWithOptions(const Models::ListBatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+       *
+       * @param request ListBatchTasksRequest
+       * @return ListBatchTasksResponse
+       */
+      Models::ListBatchTasksResponse listBatchTasks(const Models::ListBatchTasksRequest &request);
 
       /**
        * @summary Queries offline computing templates by paging. Online version: v6.2.0.
@@ -4545,6 +4655,33 @@ namespace DataphinPublic20230630
       Models::ListProjectMembersResponse listProjectMembers(const Models::ListProjectMembersRequest &request);
 
       /**
+       * @summary 获取项目角色列表
+       *
+       * @description 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
+       * - BUILD_IN：内置角色
+       * - CUSTOM：自定义角色
+       * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+       *
+       * @param request ListProjectRolesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListProjectRolesResponse
+       */
+      Models::ListProjectRolesResponse listProjectRolesWithOptions(const Models::ListProjectRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取项目角色列表
+       *
+       * @description 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
+       * - BUILD_IN：内置角色
+       * - CUSTOM：自定义角色
+       * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+       *
+       * @param request ListProjectRolesRequest
+       * @return ListProjectRolesResponse
+       */
+      Models::ListProjectRolesResponse listProjectRoles(const Models::ListProjectRolesRequest &request);
+
+      /**
        * @summary Retrieves a list of projects.
        *
        * @param tmpReq ListProjectsRequest
@@ -4759,6 +4896,23 @@ namespace DataphinPublic20230630
       Models::ListRowPermissionByUserIdResponse listRowPermissionByUserId(const Models::ListRowPermissionByUserIdRequest &request);
 
       /**
+       * @summary 查询租户下的调度模板列表
+       *
+       * @param tmpReq ListScheduleTemplatesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListScheduleTemplatesResponse
+       */
+      Models::ListScheduleTemplatesResponse listScheduleTemplatesWithOptions(const Models::ListScheduleTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 查询租户下的调度模板列表
+       *
+       * @param request ListScheduleTemplatesRequest
+       * @return ListScheduleTemplatesResponse
+       */
+      Models::ListScheduleTemplatesResponse listScheduleTemplates(const Models::ListScheduleTemplatesRequest &request);
+
+      /**
        * @summary Queries the data classification list by paging.
        *
        * @param tmpReq ListSecurityClassifyRequest
@@ -4884,6 +5038,33 @@ namespace DataphinPublic20230630
        * @return ListTenantMembersResponse
        */
       Models::ListTenantMembersResponse listTenantMembers(const Models::ListTenantMembersRequest &request);
+
+      /**
+       * @summary 获取租户角色列表
+       *
+       * @description 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
+       * - BUILD_IN：内置角色
+       * - CUSTOM：自定义角色（即租户自定义创建的角色）
+       * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+       *
+       * @param request ListTenantRolesRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return ListTenantRolesResponse
+       */
+      Models::ListTenantRolesResponse listTenantRolesWithOptions(const Models::ListTenantRolesRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 获取租户角色列表
+       *
+       * @description 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
+       * - BUILD_IN：内置角色
+       * - CUSTOM：自定义角色（即租户自定义创建的角色）
+       * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+       *
+       * @param request ListTenantRolesRequest
+       * @return ListTenantRolesResponse
+       */
+      Models::ListTenantRolesResponse listTenantRoles(const Models::ListTenantRolesRequest &request);
 
       /**
        * @summary Performs a paging query of user group members.
@@ -5355,6 +5536,23 @@ namespace DataphinPublic20230630
       Models::SearchKgBySemanticResponse searchKgBySemantic(const Models::SearchKgBySemanticRequest &request);
 
       /**
+       * @summary 启动增全量一体化实例。
+       *
+       * @param tmpReq StartPipelineIntegratedTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StartPipelineIntegratedTaskResponse
+       */
+      Models::StartPipelineIntegratedTaskResponse startPipelineIntegratedTaskWithOptions(const Models::StartPipelineIntegratedTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 启动增全量一体化实例。
+       *
+       * @param request StartPipelineIntegratedTaskRequest
+       * @return StartPipelineIntegratedTaskResponse
+       */
+      Models::StartPipelineIntegratedTaskResponse startPipelineIntegratedTask(const Models::StartPipelineIntegratedTaskRequest &request);
+
+      /**
        * @summary Stops an ad hoc query task.
        *
        * @param request StopAdHocTaskRequest
@@ -5370,6 +5568,23 @@ namespace DataphinPublic20230630
        * @return StopAdHocTaskResponse
        */
       Models::StopAdHocTaskResponse stopAdHocTask(const Models::StopAdHocTaskRequest &request);
+
+      /**
+       * @summary 批量停止增全量一体化实例。
+       *
+       * @param tmpReq StopPipelineIntegratedTaskRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return StopPipelineIntegratedTaskResponse
+       */
+      Models::StopPipelineIntegratedTaskResponse stopPipelineIntegratedTaskWithOptions(const Models::StopPipelineIntegratedTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 批量停止增全量一体化实例。
+       *
+       * @param request StopPipelineIntegratedTaskRequest
+       * @return StopPipelineIntegratedTaskResponse
+       */
+      Models::StopPipelineIntegratedTaskResponse stopPipelineIntegratedTask(const Models::StopPipelineIntegratedTaskRequest &request);
 
       /**
        * @summary Submits asset delisting. Online version: v6.3.0.
@@ -5501,6 +5716,12 @@ namespace DataphinPublic20230630
       /**
        * @summary Synchronizes department member information.
        *
+       * @description 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
+       * 使用说明：
+       * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
+       * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
+       * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
+       *
        * @param tmpReq SyncDepartmentUserRequest
        * @param runtime runtime options for this request RuntimeOptions
        * @return SyncDepartmentUserResponse
@@ -5509,6 +5730,12 @@ namespace DataphinPublic20230630
 
       /**
        * @summary Synchronizes department member information.
+       *
+       * @description 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
+       * 使用说明：
+       * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
+       * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
+       * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
        *
        * @param request SyncDepartmentUserRequest
        * @return SyncDepartmentUserResponse

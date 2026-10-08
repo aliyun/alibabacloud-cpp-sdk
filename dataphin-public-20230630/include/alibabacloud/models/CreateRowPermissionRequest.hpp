@@ -108,11 +108,11 @@ namespace Models
 
 
       protected:
-        // The field of the table.
+        // The table column.
         // 
         // This parameter is required.
         shared_ptr<string> columnName_ {};
-        // The name of the mapping field.
+        // The name of the mapping column.
         // 
         // This parameter is required.
         shared_ptr<string> mappingColumnName_ {};
@@ -304,7 +304,7 @@ namespace Models
 
 
         protected:
-          // The name of the mapping field.
+          // The name of the mapping column.
           // 
           // This parameter is required.
           shared_ptr<string> mappingColumnName_ {};
@@ -377,7 +377,7 @@ namespace Models
         // 
         // This parameter is required.
         shared_ptr<vector<Rules::Expressions>> expressions_ {};
-        // Specifies whether the rule is deleted.
+        // Specifies whether to delete the rule.
         shared_ptr<bool> isDelete_ {};
         // The name of the rule.
         // 
@@ -440,13 +440,13 @@ namespace Models
 
 
       protected:
-        // The description of the mapping field.
+        // The description of the mapping column.
         shared_ptr<string> columnDesc_ {};
-        // The name of the mapping field.
+        // The name of the mapping column.
         // 
         // This parameter is required.
         shared_ptr<string> columnName_ {};
-        // The type of the mapping field.
+        // The type of the mapping column.
         // 
         // This parameter is required.
         shared_ptr<string> columnType_ {};
@@ -496,7 +496,7 @@ namespace Models
 
 
     protected:
-      // The mapping fields.
+      // The mapping columns.
       // 
       // This parameter is required.
       shared_ptr<vector<CreateRowPermissionCommand::MappingColumns>> mappingColumns_ {};
@@ -546,6 +546,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator.
     shared_ptr<string> opUserId_ {};
   };
 

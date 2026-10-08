@@ -37,12 +37,19 @@ namespace Models
     class UpdateCommand : public Darabonba::Model {
     public:
       friend void to_json(Darabonba::Json& j, const UpdateCommand& obj) { 
+        DARABONBA_PTR_TO_JSON(BaseScheduleTemplateId, baseScheduleTemplateId_);
         DARABONBA_PTR_TO_JSON(Code, code_);
+        DARABONBA_PTR_TO_JSON(ConditionScheduleEnable, conditionScheduleEnable_);
+        DARABONBA_PTR_TO_JSON(ConditionScheduleParamList, conditionScheduleParamList_);
+        DARABONBA_PTR_TO_JSON(ConditionScheduleTemplateId, conditionScheduleTemplateId_);
+        DARABONBA_PTR_TO_JSON(ContextParamList, contextParamList_);
         DARABONBA_PTR_TO_JSON(CronExpression, cronExpression_);
         DARABONBA_PTR_TO_JSON(CustomScheduleConfig, customScheduleConfig_);
         DARABONBA_PTR_TO_JSON(DataSourceCatalog, dataSourceCatalog_);
         DARABONBA_PTR_TO_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_TO_JSON(DataSourceSchema, dataSourceSchema_);
+        DARABONBA_PTR_TO_JSON(DevHttpPath, devHttpPath_);
+        DARABONBA_PTR_TO_JSON(DevResourceGroupId, devResourceGroupId_);
         DARABONBA_PTR_TO_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_TO_JSON(Engine, engine_);
         DARABONBA_PTR_TO_JSON(FileId, fileId_);
@@ -50,22 +57,35 @@ namespace Models
         DARABONBA_PTR_TO_JSON(NodeDescription, nodeDescription_);
         DARABONBA_PTR_TO_JSON(NodeOutputNameList, nodeOutputNameList_);
         DARABONBA_PTR_TO_JSON(NodeStatus, nodeStatus_);
+        DARABONBA_PTR_TO_JSON(OpsOwnerIdList, opsOwnerIdList_);
         DARABONBA_PTR_TO_JSON(ParamList, paramList_);
         DARABONBA_PTR_TO_JSON(Priority, priority_);
+        DARABONBA_PTR_TO_JSON(ProdHttpPath, prodHttpPath_);
         DARABONBA_PTR_TO_JSON(ProjectId, projectId_);
         DARABONBA_PTR_TO_JSON(PythonModuleList, pythonModuleList_);
+        DARABONBA_PTR_TO_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_TO_JSON(SchedulePeriod, schedulePeriod_);
         DARABONBA_PTR_TO_JSON(SparkClientInfo, sparkClientInfo_);
+        DARABONBA_PTR_TO_JSON(TaskTagList, taskTagList_);
         DARABONBA_PTR_TO_JSON(TaskType, taskType_);
         DARABONBA_PTR_TO_JSON(UpStreamList, upStreamList_);
+        DARABONBA_PTR_TO_JSON(ValidEndDate, validEndDate_);
+        DARABONBA_PTR_TO_JSON(ValidStartDate, validStartDate_);
       };
       friend void from_json(const Darabonba::Json& j, UpdateCommand& obj) { 
+        DARABONBA_PTR_FROM_JSON(BaseScheduleTemplateId, baseScheduleTemplateId_);
         DARABONBA_PTR_FROM_JSON(Code, code_);
+        DARABONBA_PTR_FROM_JSON(ConditionScheduleEnable, conditionScheduleEnable_);
+        DARABONBA_PTR_FROM_JSON(ConditionScheduleParamList, conditionScheduleParamList_);
+        DARABONBA_PTR_FROM_JSON(ConditionScheduleTemplateId, conditionScheduleTemplateId_);
+        DARABONBA_PTR_FROM_JSON(ContextParamList, contextParamList_);
         DARABONBA_PTR_FROM_JSON(CronExpression, cronExpression_);
         DARABONBA_PTR_FROM_JSON(CustomScheduleConfig, customScheduleConfig_);
         DARABONBA_PTR_FROM_JSON(DataSourceCatalog, dataSourceCatalog_);
         DARABONBA_PTR_FROM_JSON(DataSourceId, dataSourceId_);
         DARABONBA_PTR_FROM_JSON(DataSourceSchema, dataSourceSchema_);
+        DARABONBA_PTR_FROM_JSON(DevHttpPath, devHttpPath_);
+        DARABONBA_PTR_FROM_JSON(DevResourceGroupId, devResourceGroupId_);
         DARABONBA_PTR_FROM_JSON(DevelopOwnerIdList, developOwnerIdList_);
         DARABONBA_PTR_FROM_JSON(Engine, engine_);
         DARABONBA_PTR_FROM_JSON(FileId, fileId_);
@@ -73,14 +93,20 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(NodeDescription, nodeDescription_);
         DARABONBA_PTR_FROM_JSON(NodeOutputNameList, nodeOutputNameList_);
         DARABONBA_PTR_FROM_JSON(NodeStatus, nodeStatus_);
+        DARABONBA_PTR_FROM_JSON(OpsOwnerIdList, opsOwnerIdList_);
         DARABONBA_PTR_FROM_JSON(ParamList, paramList_);
         DARABONBA_PTR_FROM_JSON(Priority, priority_);
+        DARABONBA_PTR_FROM_JSON(ProdHttpPath, prodHttpPath_);
         DARABONBA_PTR_FROM_JSON(ProjectId, projectId_);
         DARABONBA_PTR_FROM_JSON(PythonModuleList, pythonModuleList_);
+        DARABONBA_PTR_FROM_JSON(ResourceGroupId, resourceGroupId_);
         DARABONBA_PTR_FROM_JSON(SchedulePeriod, schedulePeriod_);
         DARABONBA_PTR_FROM_JSON(SparkClientInfo, sparkClientInfo_);
+        DARABONBA_PTR_FROM_JSON(TaskTagList, taskTagList_);
         DARABONBA_PTR_FROM_JSON(TaskType, taskType_);
         DARABONBA_PTR_FROM_JSON(UpStreamList, upStreamList_);
+        DARABONBA_PTR_FROM_JSON(ValidEndDate, validEndDate_);
+        DARABONBA_PTR_FROM_JSON(ValidStartDate, validStartDate_);
       };
       UpdateCommand() = default ;
       UpdateCommand(const UpdateCommand &) = default ;
@@ -456,16 +482,203 @@ namespace Models
         shared_ptr<string> startTime_ {};
       };
 
-      virtual bool empty() const override { return this->code_ == nullptr
+      class ContextParamList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ContextParamList& obj) { 
+          DARABONBA_PTR_TO_JSON(DefaultValue, defaultValue_);
+          DARABONBA_PTR_TO_JSON(Desc, desc_);
+          DARABONBA_PTR_TO_JSON(ParamKey, paramKey_);
+        };
+        friend void from_json(const Darabonba::Json& j, ContextParamList& obj) { 
+          DARABONBA_PTR_FROM_JSON(DefaultValue, defaultValue_);
+          DARABONBA_PTR_FROM_JSON(Desc, desc_);
+          DARABONBA_PTR_FROM_JSON(ParamKey, paramKey_);
+        };
+        ContextParamList() = default ;
+        ContextParamList(const ContextParamList &) = default ;
+        ContextParamList(ContextParamList &&) = default ;
+        ContextParamList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ContextParamList() = default ;
+        ContextParamList& operator=(const ContextParamList &) = default ;
+        ContextParamList& operator=(ContextParamList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->defaultValue_ == nullptr
+        && this->desc_ == nullptr && this->paramKey_ == nullptr; };
+        // defaultValue Field Functions 
+        bool hasDefaultValue() const { return this->defaultValue_ != nullptr;};
+        void deleteDefaultValue() { this->defaultValue_ = nullptr;};
+        inline string getDefaultValue() const { DARABONBA_PTR_GET_DEFAULT(defaultValue_, "") };
+        inline ContextParamList& setDefaultValue(string defaultValue) { DARABONBA_PTR_SET_VALUE(defaultValue_, defaultValue) };
+
+
+        // desc Field Functions 
+        bool hasDesc() const { return this->desc_ != nullptr;};
+        void deleteDesc() { this->desc_ = nullptr;};
+        inline string getDesc() const { DARABONBA_PTR_GET_DEFAULT(desc_, "") };
+        inline ContextParamList& setDesc(string desc) { DARABONBA_PTR_SET_VALUE(desc_, desc) };
+
+
+        // paramKey Field Functions 
+        bool hasParamKey() const { return this->paramKey_ != nullptr;};
+        void deleteParamKey() { this->paramKey_ = nullptr;};
+        inline string getParamKey() const { DARABONBA_PTR_GET_DEFAULT(paramKey_, "") };
+        inline ContextParamList& setParamKey(string paramKey) { DARABONBA_PTR_SET_VALUE(paramKey_, paramKey) };
+
+
+      protected:
+        shared_ptr<string> defaultValue_ {};
+        shared_ptr<string> desc_ {};
+        shared_ptr<string> paramKey_ {};
+      };
+
+      class ConditionScheduleParamList : public Darabonba::Model {
+      public:
+        friend void to_json(Darabonba::Json& j, const ConditionScheduleParamList& obj) { 
+          DARABONBA_PTR_TO_JSON(ConditionName, conditionName_);
+          DARABONBA_PTR_TO_JSON(CronExpression, cronExpression_);
+          DARABONBA_PTR_TO_JSON(Enable, enable_);
+          DARABONBA_PTR_TO_JSON(FollowScheduleParam, followScheduleParam_);
+          DARABONBA_PTR_TO_JSON(NodeStatus, nodeStatus_);
+          DARABONBA_PTR_TO_JSON(ScheduleConditionJson, scheduleConditionJson_);
+          DARABONBA_PTR_TO_JSON(ScheduleTime, scheduleTime_);
+        };
+        friend void from_json(const Darabonba::Json& j, ConditionScheduleParamList& obj) { 
+          DARABONBA_PTR_FROM_JSON(ConditionName, conditionName_);
+          DARABONBA_PTR_FROM_JSON(CronExpression, cronExpression_);
+          DARABONBA_PTR_FROM_JSON(Enable, enable_);
+          DARABONBA_PTR_FROM_JSON(FollowScheduleParam, followScheduleParam_);
+          DARABONBA_PTR_FROM_JSON(NodeStatus, nodeStatus_);
+          DARABONBA_PTR_FROM_JSON(ScheduleConditionJson, scheduleConditionJson_);
+          DARABONBA_PTR_FROM_JSON(ScheduleTime, scheduleTime_);
+        };
+        ConditionScheduleParamList() = default ;
+        ConditionScheduleParamList(const ConditionScheduleParamList &) = default ;
+        ConditionScheduleParamList(ConditionScheduleParamList &&) = default ;
+        ConditionScheduleParamList(const Darabonba::Json & obj) { from_json(obj, *this); };
+        virtual ~ConditionScheduleParamList() = default ;
+        ConditionScheduleParamList& operator=(const ConditionScheduleParamList &) = default ;
+        ConditionScheduleParamList& operator=(ConditionScheduleParamList &&) = default ;
+        virtual void validate() const override {
+        };
+        virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+        virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+        virtual bool empty() const override { return this->conditionName_ == nullptr
+        && this->cronExpression_ == nullptr && this->enable_ == nullptr && this->followScheduleParam_ == nullptr && this->nodeStatus_ == nullptr && this->scheduleConditionJson_ == nullptr
+        && this->scheduleTime_ == nullptr; };
+        // conditionName Field Functions 
+        bool hasConditionName() const { return this->conditionName_ != nullptr;};
+        void deleteConditionName() { this->conditionName_ = nullptr;};
+        inline string getConditionName() const { DARABONBA_PTR_GET_DEFAULT(conditionName_, "") };
+        inline ConditionScheduleParamList& setConditionName(string conditionName) { DARABONBA_PTR_SET_VALUE(conditionName_, conditionName) };
+
+
+        // cronExpression Field Functions 
+        bool hasCronExpression() const { return this->cronExpression_ != nullptr;};
+        void deleteCronExpression() { this->cronExpression_ = nullptr;};
+        inline string getCronExpression() const { DARABONBA_PTR_GET_DEFAULT(cronExpression_, "") };
+        inline ConditionScheduleParamList& setCronExpression(string cronExpression) { DARABONBA_PTR_SET_VALUE(cronExpression_, cronExpression) };
+
+
+        // enable Field Functions 
+        bool hasEnable() const { return this->enable_ != nullptr;};
+        void deleteEnable() { this->enable_ = nullptr;};
+        inline bool getEnable() const { DARABONBA_PTR_GET_DEFAULT(enable_, false) };
+        inline ConditionScheduleParamList& setEnable(bool enable) { DARABONBA_PTR_SET_VALUE(enable_, enable) };
+
+
+        // followScheduleParam Field Functions 
+        bool hasFollowScheduleParam() const { return this->followScheduleParam_ != nullptr;};
+        void deleteFollowScheduleParam() { this->followScheduleParam_ = nullptr;};
+        inline bool getFollowScheduleParam() const { DARABONBA_PTR_GET_DEFAULT(followScheduleParam_, false) };
+        inline ConditionScheduleParamList& setFollowScheduleParam(bool followScheduleParam) { DARABONBA_PTR_SET_VALUE(followScheduleParam_, followScheduleParam) };
+
+
+        // nodeStatus Field Functions 
+        bool hasNodeStatus() const { return this->nodeStatus_ != nullptr;};
+        void deleteNodeStatus() { this->nodeStatus_ = nullptr;};
+        inline int32_t getNodeStatus() const { DARABONBA_PTR_GET_DEFAULT(nodeStatus_, 0) };
+        inline ConditionScheduleParamList& setNodeStatus(int32_t nodeStatus) { DARABONBA_PTR_SET_VALUE(nodeStatus_, nodeStatus) };
+
+
+        // scheduleConditionJson Field Functions 
+        bool hasScheduleConditionJson() const { return this->scheduleConditionJson_ != nullptr;};
+        void deleteScheduleConditionJson() { this->scheduleConditionJson_ = nullptr;};
+        inline string getScheduleConditionJson() const { DARABONBA_PTR_GET_DEFAULT(scheduleConditionJson_, "") };
+        inline ConditionScheduleParamList& setScheduleConditionJson(string scheduleConditionJson) { DARABONBA_PTR_SET_VALUE(scheduleConditionJson_, scheduleConditionJson) };
+
+
+        // scheduleTime Field Functions 
+        bool hasScheduleTime() const { return this->scheduleTime_ != nullptr;};
+        void deleteScheduleTime() { this->scheduleTime_ = nullptr;};
+        inline string getScheduleTime() const { DARABONBA_PTR_GET_DEFAULT(scheduleTime_, "") };
+        inline ConditionScheduleParamList& setScheduleTime(string scheduleTime) { DARABONBA_PTR_SET_VALUE(scheduleTime_, scheduleTime) };
+
+
+      protected:
+        shared_ptr<string> conditionName_ {};
+        shared_ptr<string> cronExpression_ {};
+        shared_ptr<bool> enable_ {};
+        shared_ptr<bool> followScheduleParam_ {};
+        shared_ptr<int32_t> nodeStatus_ {};
+        shared_ptr<string> scheduleConditionJson_ {};
+        shared_ptr<string> scheduleTime_ {};
+      };
+
+      virtual bool empty() const override { return this->baseScheduleTemplateId_ == nullptr
+        && this->code_ == nullptr && this->conditionScheduleEnable_ == nullptr && this->conditionScheduleParamList_ == nullptr && this->conditionScheduleTemplateId_ == nullptr && this->contextParamList_ == nullptr
         && this->cronExpression_ == nullptr && this->customScheduleConfig_ == nullptr && this->dataSourceCatalog_ == nullptr && this->dataSourceId_ == nullptr && this->dataSourceSchema_ == nullptr
-        && this->developOwnerIdList_ == nullptr && this->engine_ == nullptr && this->fileId_ == nullptr && this->name_ == nullptr && this->nodeDescription_ == nullptr
-        && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr && this->paramList_ == nullptr && this->priority_ == nullptr && this->projectId_ == nullptr
-        && this->pythonModuleList_ == nullptr && this->schedulePeriod_ == nullptr && this->sparkClientInfo_ == nullptr && this->taskType_ == nullptr && this->upStreamList_ == nullptr; };
+        && this->devHttpPath_ == nullptr && this->devResourceGroupId_ == nullptr && this->developOwnerIdList_ == nullptr && this->engine_ == nullptr && this->fileId_ == nullptr
+        && this->name_ == nullptr && this->nodeDescription_ == nullptr && this->nodeOutputNameList_ == nullptr && this->nodeStatus_ == nullptr && this->opsOwnerIdList_ == nullptr
+        && this->paramList_ == nullptr && this->priority_ == nullptr && this->prodHttpPath_ == nullptr && this->projectId_ == nullptr && this->pythonModuleList_ == nullptr
+        && this->resourceGroupId_ == nullptr && this->schedulePeriod_ == nullptr && this->sparkClientInfo_ == nullptr && this->taskTagList_ == nullptr && this->taskType_ == nullptr
+        && this->upStreamList_ == nullptr && this->validEndDate_ == nullptr && this->validStartDate_ == nullptr; };
+      // baseScheduleTemplateId Field Functions 
+      bool hasBaseScheduleTemplateId() const { return this->baseScheduleTemplateId_ != nullptr;};
+      void deleteBaseScheduleTemplateId() { this->baseScheduleTemplateId_ = nullptr;};
+      inline int64_t getBaseScheduleTemplateId() const { DARABONBA_PTR_GET_DEFAULT(baseScheduleTemplateId_, 0L) };
+      inline UpdateCommand& setBaseScheduleTemplateId(int64_t baseScheduleTemplateId) { DARABONBA_PTR_SET_VALUE(baseScheduleTemplateId_, baseScheduleTemplateId) };
+
+
       // code Field Functions 
       bool hasCode() const { return this->code_ != nullptr;};
       void deleteCode() { this->code_ = nullptr;};
       inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
       inline UpdateCommand& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+
+
+      // conditionScheduleEnable Field Functions 
+      bool hasConditionScheduleEnable() const { return this->conditionScheduleEnable_ != nullptr;};
+      void deleteConditionScheduleEnable() { this->conditionScheduleEnable_ = nullptr;};
+      inline bool getConditionScheduleEnable() const { DARABONBA_PTR_GET_DEFAULT(conditionScheduleEnable_, false) };
+      inline UpdateCommand& setConditionScheduleEnable(bool conditionScheduleEnable) { DARABONBA_PTR_SET_VALUE(conditionScheduleEnable_, conditionScheduleEnable) };
+
+
+      // conditionScheduleParamList Field Functions 
+      bool hasConditionScheduleParamList() const { return this->conditionScheduleParamList_ != nullptr;};
+      void deleteConditionScheduleParamList() { this->conditionScheduleParamList_ = nullptr;};
+      inline const vector<UpdateCommand::ConditionScheduleParamList> & getConditionScheduleParamList() const { DARABONBA_PTR_GET_CONST(conditionScheduleParamList_, vector<UpdateCommand::ConditionScheduleParamList>) };
+      inline vector<UpdateCommand::ConditionScheduleParamList> getConditionScheduleParamList() { DARABONBA_PTR_GET(conditionScheduleParamList_, vector<UpdateCommand::ConditionScheduleParamList>) };
+      inline UpdateCommand& setConditionScheduleParamList(const vector<UpdateCommand::ConditionScheduleParamList> & conditionScheduleParamList) { DARABONBA_PTR_SET_VALUE(conditionScheduleParamList_, conditionScheduleParamList) };
+      inline UpdateCommand& setConditionScheduleParamList(vector<UpdateCommand::ConditionScheduleParamList> && conditionScheduleParamList) { DARABONBA_PTR_SET_RVALUE(conditionScheduleParamList_, conditionScheduleParamList) };
+
+
+      // conditionScheduleTemplateId Field Functions 
+      bool hasConditionScheduleTemplateId() const { return this->conditionScheduleTemplateId_ != nullptr;};
+      void deleteConditionScheduleTemplateId() { this->conditionScheduleTemplateId_ = nullptr;};
+      inline int64_t getConditionScheduleTemplateId() const { DARABONBA_PTR_GET_DEFAULT(conditionScheduleTemplateId_, 0L) };
+      inline UpdateCommand& setConditionScheduleTemplateId(int64_t conditionScheduleTemplateId) { DARABONBA_PTR_SET_VALUE(conditionScheduleTemplateId_, conditionScheduleTemplateId) };
+
+
+      // contextParamList Field Functions 
+      bool hasContextParamList() const { return this->contextParamList_ != nullptr;};
+      void deleteContextParamList() { this->contextParamList_ = nullptr;};
+      inline const vector<UpdateCommand::ContextParamList> & getContextParamList() const { DARABONBA_PTR_GET_CONST(contextParamList_, vector<UpdateCommand::ContextParamList>) };
+      inline vector<UpdateCommand::ContextParamList> getContextParamList() { DARABONBA_PTR_GET(contextParamList_, vector<UpdateCommand::ContextParamList>) };
+      inline UpdateCommand& setContextParamList(const vector<UpdateCommand::ContextParamList> & contextParamList) { DARABONBA_PTR_SET_VALUE(contextParamList_, contextParamList) };
+      inline UpdateCommand& setContextParamList(vector<UpdateCommand::ContextParamList> && contextParamList) { DARABONBA_PTR_SET_RVALUE(contextParamList_, contextParamList) };
 
 
       // cronExpression Field Functions 
@@ -503,6 +716,20 @@ namespace Models
       void deleteDataSourceSchema() { this->dataSourceSchema_ = nullptr;};
       inline string getDataSourceSchema() const { DARABONBA_PTR_GET_DEFAULT(dataSourceSchema_, "") };
       inline UpdateCommand& setDataSourceSchema(string dataSourceSchema) { DARABONBA_PTR_SET_VALUE(dataSourceSchema_, dataSourceSchema) };
+
+
+      // devHttpPath Field Functions 
+      bool hasDevHttpPath() const { return this->devHttpPath_ != nullptr;};
+      void deleteDevHttpPath() { this->devHttpPath_ = nullptr;};
+      inline string getDevHttpPath() const { DARABONBA_PTR_GET_DEFAULT(devHttpPath_, "") };
+      inline UpdateCommand& setDevHttpPath(string devHttpPath) { DARABONBA_PTR_SET_VALUE(devHttpPath_, devHttpPath) };
+
+
+      // devResourceGroupId Field Functions 
+      bool hasDevResourceGroupId() const { return this->devResourceGroupId_ != nullptr;};
+      void deleteDevResourceGroupId() { this->devResourceGroupId_ = nullptr;};
+      inline string getDevResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(devResourceGroupId_, "") };
+      inline UpdateCommand& setDevResourceGroupId(string devResourceGroupId) { DARABONBA_PTR_SET_VALUE(devResourceGroupId_, devResourceGroupId) };
 
 
       // developOwnerIdList Field Functions 
@@ -558,6 +785,15 @@ namespace Models
       inline UpdateCommand& setNodeStatus(int32_t nodeStatus) { DARABONBA_PTR_SET_VALUE(nodeStatus_, nodeStatus) };
 
 
+      // opsOwnerIdList Field Functions 
+      bool hasOpsOwnerIdList() const { return this->opsOwnerIdList_ != nullptr;};
+      void deleteOpsOwnerIdList() { this->opsOwnerIdList_ = nullptr;};
+      inline const vector<string> & getOpsOwnerIdList() const { DARABONBA_PTR_GET_CONST(opsOwnerIdList_, vector<string>) };
+      inline vector<string> getOpsOwnerIdList() { DARABONBA_PTR_GET(opsOwnerIdList_, vector<string>) };
+      inline UpdateCommand& setOpsOwnerIdList(const vector<string> & opsOwnerIdList) { DARABONBA_PTR_SET_VALUE(opsOwnerIdList_, opsOwnerIdList) };
+      inline UpdateCommand& setOpsOwnerIdList(vector<string> && opsOwnerIdList) { DARABONBA_PTR_SET_RVALUE(opsOwnerIdList_, opsOwnerIdList) };
+
+
       // paramList Field Functions 
       bool hasParamList() const { return this->paramList_ != nullptr;};
       void deleteParamList() { this->paramList_ = nullptr;};
@@ -572,6 +808,13 @@ namespace Models
       void deletePriority() { this->priority_ = nullptr;};
       inline int32_t getPriority() const { DARABONBA_PTR_GET_DEFAULT(priority_, 0) };
       inline UpdateCommand& setPriority(int32_t priority) { DARABONBA_PTR_SET_VALUE(priority_, priority) };
+
+
+      // prodHttpPath Field Functions 
+      bool hasProdHttpPath() const { return this->prodHttpPath_ != nullptr;};
+      void deleteProdHttpPath() { this->prodHttpPath_ = nullptr;};
+      inline string getProdHttpPath() const { DARABONBA_PTR_GET_DEFAULT(prodHttpPath_, "") };
+      inline UpdateCommand& setProdHttpPath(string prodHttpPath) { DARABONBA_PTR_SET_VALUE(prodHttpPath_, prodHttpPath) };
 
 
       // projectId Field Functions 
@@ -590,6 +833,13 @@ namespace Models
       inline UpdateCommand& setPythonModuleList(vector<string> && pythonModuleList) { DARABONBA_PTR_SET_RVALUE(pythonModuleList_, pythonModuleList) };
 
 
+      // resourceGroupId Field Functions 
+      bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
+      void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
+      inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+      inline UpdateCommand& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
+
+
       // schedulePeriod Field Functions 
       bool hasSchedulePeriod() const { return this->schedulePeriod_ != nullptr;};
       void deleteSchedulePeriod() { this->schedulePeriod_ = nullptr;};
@@ -604,6 +854,15 @@ namespace Models
       inline UpdateCommand::SparkClientInfo getSparkClientInfo() { DARABONBA_PTR_GET(sparkClientInfo_, UpdateCommand::SparkClientInfo) };
       inline UpdateCommand& setSparkClientInfo(const UpdateCommand::SparkClientInfo & sparkClientInfo) { DARABONBA_PTR_SET_VALUE(sparkClientInfo_, sparkClientInfo) };
       inline UpdateCommand& setSparkClientInfo(UpdateCommand::SparkClientInfo && sparkClientInfo) { DARABONBA_PTR_SET_RVALUE(sparkClientInfo_, sparkClientInfo) };
+
+
+      // taskTagList Field Functions 
+      bool hasTaskTagList() const { return this->taskTagList_ != nullptr;};
+      void deleteTaskTagList() { this->taskTagList_ = nullptr;};
+      inline const vector<string> & getTaskTagList() const { DARABONBA_PTR_GET_CONST(taskTagList_, vector<string>) };
+      inline vector<string> getTaskTagList() { DARABONBA_PTR_GET(taskTagList_, vector<string>) };
+      inline UpdateCommand& setTaskTagList(const vector<string> & taskTagList) { DARABONBA_PTR_SET_VALUE(taskTagList_, taskTagList) };
+      inline UpdateCommand& setTaskTagList(vector<string> && taskTagList) { DARABONBA_PTR_SET_RVALUE(taskTagList_, taskTagList) };
 
 
       // taskType Field Functions 
@@ -622,11 +881,30 @@ namespace Models
       inline UpdateCommand& setUpStreamList(vector<UpdateCommand::UpStreamList> && upStreamList) { DARABONBA_PTR_SET_RVALUE(upStreamList_, upStreamList) };
 
 
+      // validEndDate Field Functions 
+      bool hasValidEndDate() const { return this->validEndDate_ != nullptr;};
+      void deleteValidEndDate() { this->validEndDate_ = nullptr;};
+      inline string getValidEndDate() const { DARABONBA_PTR_GET_DEFAULT(validEndDate_, "") };
+      inline UpdateCommand& setValidEndDate(string validEndDate) { DARABONBA_PTR_SET_VALUE(validEndDate_, validEndDate) };
+
+
+      // validStartDate Field Functions 
+      bool hasValidStartDate() const { return this->validStartDate_ != nullptr;};
+      void deleteValidStartDate() { this->validStartDate_ = nullptr;};
+      inline string getValidStartDate() const { DARABONBA_PTR_GET_DEFAULT(validStartDate_, "") };
+      inline UpdateCommand& setValidStartDate(string validStartDate) { DARABONBA_PTR_SET_VALUE(validStartDate_, validStartDate) };
+
+
     protected:
+      shared_ptr<int64_t> baseScheduleTemplateId_ {};
       // The code of the node.
       // 
       // This parameter is required.
       shared_ptr<string> code_ {};
+      shared_ptr<bool> conditionScheduleEnable_ {};
+      shared_ptr<vector<UpdateCommand::ConditionScheduleParamList>> conditionScheduleParamList_ {};
+      shared_ptr<int64_t> conditionScheduleTemplateId_ {};
+      shared_ptr<vector<UpdateCommand::ContextParamList>> contextParamList_ {};
       // The cron expression for automatic scheduling. Refer to Linux cron expressions.
       shared_ptr<string> cronExpression_ {};
       // The custom schedule interval configuration.
@@ -637,6 +915,8 @@ namespace Models
       shared_ptr<string> dataSourceId_ {};
       // The schema for database SQL nodes. This parameter applies only to datasource types that require a schema, such as Oracle.
       shared_ptr<string> dataSourceSchema_ {};
+      shared_ptr<string> devHttpPath_ {};
+      shared_ptr<string> devResourceGroupId_ {};
       // The list of development owner IDs.
       shared_ptr<vector<string>> developOwnerIdList_ {};
       // The execution engine for the node, such as for Python nodes. Valid values:
@@ -661,16 +941,19 @@ namespace Models
       // - 2: Paused.
       // - 3: Dry run.
       shared_ptr<int32_t> nodeStatus_ {};
+      shared_ptr<vector<string>> opsOwnerIdList_ {};
       // The list of custom parameters.
       shared_ptr<vector<UpdateCommand::ParamList>> paramList_ {};
       // The scheduling priority of the node. Valid values: 1 to 9. A larger value indicates a lower priority.
       shared_ptr<int32_t> priority_ {};
+      shared_ptr<string> prodHttpPath_ {};
       // The ID of the project to which the node belongs.
       // 
       // This parameter is required.
       shared_ptr<int64_t> projectId_ {};
       // The third-party Python packages required by the node.
       shared_ptr<vector<string>> pythonModuleList_ {};
+      shared_ptr<string> resourceGroupId_ {};
       // The schedule period. Valid values:
       // - YEARLY
       // - MONTHLY
@@ -681,6 +964,7 @@ namespace Models
       shared_ptr<string> schedulePeriod_ {};
       // The Spark client information.
       shared_ptr<UpdateCommand::SparkClientInfo> sparkClientInfo_ {};
+      shared_ptr<vector<string>> taskTagList_ {};
       // The node type. Valid values:
       // - 1: Hive_SQL.
       // - 5: MaxCompute_SQL.
@@ -691,6 +975,8 @@ namespace Models
       shared_ptr<int32_t> taskType_ {};
       // The upstream dependencies.
       shared_ptr<vector<UpdateCommand::UpStreamList>> upStreamList_ {};
+      shared_ptr<string> validEndDate_ {};
+      shared_ptr<string> validStartDate_ {};
     };
 
     virtual bool empty() const override { return this->opTenantId_ == nullptr

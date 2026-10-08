@@ -102,10 +102,11 @@ namespace Models
 
 
       protected:
-        // The list of department IDs to which the user belongs. If this parameter is left empty, the user-department affiliation is deleted.
+        // The list of department IDs to which the user belongs. If this parameter is left empty, the user affiliation is deleted.
         shared_ptr<vector<string>> departmentIdList_ {};
+        // The user source type.
         shared_ptr<string> sourceType_ {};
-        // The user ID in the user system. This value is the unique identifier of the user.
+        // The user ID in the user system. This is the unique identifier of the user.
         // 
         // This parameter is required.
         shared_ptr<string> sourceUserId_ {};
@@ -158,6 +159,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<int64_t> opTenantId_ {};
+    // The ID of the operator user.
     shared_ptr<string> opUserId_ {};
     // The request command.
     // 

@@ -2,6 +2,7 @@
 #ifndef ALIBABACLOUD_MODELS_LISTTABLESREQUEST_HPP_
 #define ALIBABACLOUD_MODELS_LISTTABLESREQUEST_HPP_
 #include <darabonba/Core.hpp>
+#include <vector>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -38,14 +39,18 @@ namespace Models
       friend void to_json(Darabonba::Json& j, const ListQuery& obj) { 
         DARABONBA_PTR_TO_JSON(Catalog, catalog_);
         DARABONBA_PTR_TO_JSON(Keyword, keyword_);
+        DARABONBA_PTR_TO_JSON(OwnerId, ownerId_);
         DARABONBA_PTR_TO_JSON(PageNo, pageNo_);
         DARABONBA_PTR_TO_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_TO_JSON(SubTypes, subTypes_);
       };
       friend void from_json(const Darabonba::Json& j, ListQuery& obj) { 
         DARABONBA_PTR_FROM_JSON(Catalog, catalog_);
         DARABONBA_PTR_FROM_JSON(Keyword, keyword_);
+        DARABONBA_PTR_FROM_JSON(OwnerId, ownerId_);
         DARABONBA_PTR_FROM_JSON(PageNo, pageNo_);
         DARABONBA_PTR_FROM_JSON(PageSize, pageSize_);
+        DARABONBA_PTR_FROM_JSON(SubTypes, subTypes_);
       };
       ListQuery() = default ;
       ListQuery(const ListQuery &) = default ;
@@ -59,7 +64,7 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->catalog_ == nullptr
-        && this->keyword_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr; };
+        && this->keyword_ == nullptr && this->ownerId_ == nullptr && this->pageNo_ == nullptr && this->pageSize_ == nullptr && this->subTypes_ == nullptr; };
       // catalog Field Functions 
       bool hasCatalog() const { return this->catalog_ != nullptr;};
       void deleteCatalog() { this->catalog_ = nullptr;};
@@ -72,6 +77,13 @@ namespace Models
       void deleteKeyword() { this->keyword_ = nullptr;};
       inline string getKeyword() const { DARABONBA_PTR_GET_DEFAULT(keyword_, "") };
       inline ListQuery& setKeyword(string keyword) { DARABONBA_PTR_SET_VALUE(keyword_, keyword) };
+
+
+      // ownerId Field Functions 
+      bool hasOwnerId() const { return this->ownerId_ != nullptr;};
+      void deleteOwnerId() { this->ownerId_ = nullptr;};
+      inline string getOwnerId() const { DARABONBA_PTR_GET_DEFAULT(ownerId_, "") };
+      inline ListQuery& setOwnerId(string ownerId) { DARABONBA_PTR_SET_VALUE(ownerId_, ownerId) };
 
 
       // pageNo Field Functions 
@@ -88,17 +100,26 @@ namespace Models
       inline ListQuery& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
+      // subTypes Field Functions 
+      bool hasSubTypes() const { return this->subTypes_ != nullptr;};
+      void deleteSubTypes() { this->subTypes_ = nullptr;};
+      inline const vector<string> & getSubTypes() const { DARABONBA_PTR_GET_CONST(subTypes_, vector<string>) };
+      inline vector<string> getSubTypes() { DARABONBA_PTR_GET(subTypes_, vector<string>) };
+      inline ListQuery& setSubTypes(const vector<string> & subTypes) { DARABONBA_PTR_SET_VALUE(subTypes_, subTypes) };
+      inline ListQuery& setSubTypes(vector<string> && subTypes) { DARABONBA_PTR_SET_RVALUE(subTypes_, subTypes) };
+
+
     protected:
       // The asset catalog, such as the project name or business unit name.
-      // 
-      // This parameter is required.
       shared_ptr<string> catalog_ {};
       // The keyword for searching. Table names are supported.
       shared_ptr<string> keyword_ {};
+      shared_ptr<string> ownerId_ {};
       // The page number. Default value: 1.
       shared_ptr<int32_t> pageNo_ {};
       // The number of records per page. Default value: 20.
       shared_ptr<int32_t> pageSize_ {};
+      shared_ptr<vector<string>> subTypes_ {};
     };
 
     virtual bool empty() const override { return this->listQuery_ == nullptr

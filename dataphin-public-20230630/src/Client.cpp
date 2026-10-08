@@ -756,6 +756,64 @@ BatchCreateKgRelationResponse Client::batchCreateKgRelation(const BatchCreateKgR
 }
 
 /**
+ * @summary 批量交接资产。
+ *
+ * @param tmpReq BatchHandoverAssetRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return BatchHandoverAssetResponse
+ */
+BatchHandoverAssetResponse Client::batchHandoverAssetWithOptions(const BatchHandoverAssetRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  BatchHandoverAssetShrinkRequest request = BatchHandoverAssetShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasHandoverCommand()) {
+    request.setHandoverCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getHandoverCommand(), "HandoverCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasHandoverCommandShrink()) {
+    body["HandoverCommand"] = request.getHandoverCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "BatchHandoverAsset"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<BatchHandoverAssetResponse>();
+}
+
+/**
+ * @summary 批量交接资产。
+ *
+ * @param request BatchHandoverAssetRequest
+ * @return BatchHandoverAssetResponse
+ */
+BatchHandoverAssetResponse Client::batchHandoverAsset(const BatchHandoverAssetRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return batchHandoverAssetWithOptions(request, runtime);
+}
+
+/**
  * @summary Checks the connectivity of a compute source.
  *
  * @param tmpReq CheckComputeSourceConnectivityRequest
@@ -969,6 +1027,68 @@ CheckDataSourceConnectivityByIdResponse Client::checkDataSourceConnectivityByIdW
 CheckDataSourceConnectivityByIdResponse Client::checkDataSourceConnectivityById(const CheckDataSourceConnectivityByIdRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return checkDataSourceConnectivityByIdWithOptions(request, runtime);
+}
+
+/**
+ * @summary 在指定调度资源组上检查数据源连通性
+ *
+ * @description 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+ *
+ * @param tmpReq CheckDataSourceConnectivityOnResourceGroupRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return CheckDataSourceConnectivityOnResourceGroupResponse
+ */
+CheckDataSourceConnectivityOnResourceGroupResponse Client::checkDataSourceConnectivityOnResourceGroupWithOptions(const CheckDataSourceConnectivityOnResourceGroupRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  CheckDataSourceConnectivityOnResourceGroupShrinkRequest request = CheckDataSourceConnectivityOnResourceGroupShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasCheckCommand()) {
+    request.setCheckCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getCheckCommand(), "CheckCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasCheckCommandShrink()) {
+    body["CheckCommand"] = request.getCheckCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "CheckDataSourceConnectivityOnResourceGroup"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<CheckDataSourceConnectivityOnResourceGroupResponse>();
+}
+
+/**
+ * @summary 在指定调度资源组上检查数据源连通性
+ *
+ * @description 在指定调度资源组上异步发起数据源连通性检查，立即返回检查任务ID（Data）；任务结果通过 GetCheckConnectivityJobByJobId 轮询。与 CheckDataSourceConnectivity 的区别：本接口的检查任务在客户指定的调度资源组上执行，适用于 Dataphin 服务端与目标数据源网络不通的场景。
+ *
+ * @param request CheckDataSourceConnectivityOnResourceGroupRequest
+ * @return CheckDataSourceConnectivityOnResourceGroupResponse
+ */
+CheckDataSourceConnectivityOnResourceGroupResponse Client::checkDataSourceConnectivityOnResourceGroup(const CheckDataSourceConnectivityOnResourceGroupRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return checkDataSourceConnectivityOnResourceGroupWithOptions(request, runtime);
 }
 
 /**
@@ -1832,16 +1952,16 @@ CreateDataSourceResponse Client::createDataSource(const CreateDataSourceRequest 
 }
 
 /**
- * @summary Creates a dataset in a specified project. Online version: v6.2.0.
+ * @summary Creates a new dataset in the specified project. Available since v6.2.0.
  *
- * @description ## Operation description
- * - This API operation creates a dataset in a specified project.
+ * @description ## Request description
+ * - This API creates a new dataset in the specified project.
  * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
  * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
  * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
  * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
- * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
- * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+ * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
+ * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
  *
  * @param tmpReq CreateDatasetRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -1892,16 +2012,16 @@ CreateDatasetResponse Client::createDatasetWithOptions(const CreateDatasetReques
 }
 
 /**
- * @summary Creates a dataset in a specified project. Online version: v6.2.0.
+ * @summary Creates a new dataset in the specified project. Available since v6.2.0.
  *
- * @description ## Operation description
- * - This API operation creates a dataset in a specified project.
+ * @description ## Request description
+ * - This API creates a new dataset in the specified project.
  * - `ProjectId` is a required parameter that specifies the ID of the project in which to create the dataset.
  * - `CreateCommand` is a complex object that contains the configuration information required to create the dataset.
  * - `Name`, `Type`, `ContentType`, and `Scenario` are required fields that specify the dataset name, type, content type, and scenarios.
  * - `FileStorageConfig` and `MetadataStorageConfig` in `VersionConfig` can be configured as needed.
- * - If you need a real-time meta table configuration, provide the `RealtimeMetaTableConfig` information.
- * - Ensure that all required fields are correctly specified. Otherwise, the request failed.
+ * - If you need real-time meta-table configuration, provide the `RealtimeMetaTableConfig` information.
+ * - Make sure all required fields are correctly filled in. Otherwise, the request failed.
  *
  * @param request CreateDatasetRequest
  * @return CreateDatasetResponse
@@ -2468,7 +2588,7 @@ CreateResourceResponse Client::createResource(const CreateResourceRequest &reque
 /**
  * @summary Creates a row-level permission.
  *
- * @description Queries the details of published APIs by appKey.
+ * @description Queries the details of published APIs based on the appKey.
  *
  * @param tmpReq CreateRowPermissionRequest
  * @param runtime runtime options for this request RuntimeOptions
@@ -2517,7 +2637,7 @@ CreateRowPermissionResponse Client::createRowPermissionWithOptions(const CreateR
 /**
  * @summary Creates a row-level permission.
  *
- * @description Queries the details of published APIs by appKey.
+ * @description Queries the details of published APIs based on the appKey.
  *
  * @param request CreateRowPermissionRequest
  * @return CreateRowPermissionResponse
@@ -7008,6 +7128,60 @@ GetCatalogAssetDetailsResponse Client::getCatalogAssetDetails(const GetCatalogAs
 }
 
 /**
+ * @summary 按任务ID查询数据源连通性检查任务
+ *
+ * @description 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+ *
+ * @param request GetCheckConnectivityJobByJobIdRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetCheckConnectivityJobByJobIdResponse
+ */
+GetCheckConnectivityJobByJobIdResponse Client::getCheckConnectivityJobByJobIdWithOptions(const GetCheckConnectivityJobByJobIdRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasJobId()) {
+    query["JobId"] = request.getJobId();
+  }
+
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetCheckConnectivityJobByJobId"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetCheckConnectivityJobByJobIdResponse>();
+}
+
+/**
+ * @summary 按任务ID查询数据源连通性检查任务
+ *
+ * @description 按任务ID查询数据源连通性检查任务的最新状态与错误信息，用于轮询 CheckDataSourceConnectivityOnResourceGroup 返回的异步任务。任务不存在时 Data 为空。
+ *
+ * @param request GetCheckConnectivityJobByJobIdRequest
+ * @return GetCheckConnectivityJobByJobIdResponse
+ */
+GetCheckConnectivityJobByJobIdResponse Client::getCheckConnectivityJobByJobId(const GetCheckConnectivityJobByJobIdRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getCheckConnectivityJobByJobIdWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the list of connectivity check tasks for a specified data source ID. This operation includes null value validation and tenant permission verification to prevent cross-tenant access.
  * Release version: v5.5.0.
  *
@@ -11124,6 +11298,72 @@ GetServerVersionResponse Client::getServerVersion(const GetServerVersionRequest 
 }
 
 /**
+ * @summary 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+ *
+ * @param tmpReq GetSourceTableMetaRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetSourceTableMetaResponse
+ */
+GetSourceTableMetaResponse Client::getSourceTableMetaWithOptions(const GetSourceTableMetaRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  GetSourceTableMetaShrinkRequest request = GetSourceTableMetaShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasQuery()) {
+    request.setQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getQuery(), "Query", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.getContextShrink();
+  }
+
+  if (!!request.hasQueryShrink()) {
+    body["Query"] = request.getQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "GetSourceTableMeta"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetSourceTableMetaResponse>();
+}
+
+/**
+ * @summary 获取集成源表的描述与元数据信息（表描述+字段列表）。支持项目/计算源表、数据源直查表、外部采集数据源三种来源；结果为实时查询；外部数据源需先完成元数据采集。
+ *
+ * @param request GetSourceTableMetaRequest
+ * @return GetSourceTableMetaResponse
+ */
+GetSourceTableMetaResponse Client::getSourceTableMeta(const GetSourceTableMetaRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getSourceTableMetaWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves the Spark client information of the cluster associated with a compute source.
  *
  * @param request GetSparkLocalClientInfoRequest
@@ -11693,6 +11933,56 @@ GetSupplementDagrunInstanceResponse Client::getSupplementDagrunInstanceWithOptio
 GetSupplementDagrunInstanceResponse Client::getSupplementDagrunInstance(const GetSupplementDagrunInstanceRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return getSupplementDagrunInstanceWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询表资产清单详情。
+ *
+ * @param request GetTableRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return GetTableResponse
+ */
+GetTableResponse Client::getTableWithOptions(const GetTableRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  if (!!request.hasTableGuid()) {
+    query["TableGuid"] = request.getTableGuid();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "GetTable"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<GetTableResponse>();
+}
+
+/**
+ * @summary 查询表资产清单详情。
+ *
+ * @param request GetTableRequest
+ * @return GetTableResponse
+ */
+GetTableResponse Client::getTable(const GetTableRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return getTableWithOptions(request, runtime);
 }
 
 /**
@@ -13061,6 +13351,64 @@ ListAuthorizedDataServiceApiDetailsResponse Client::listAuthorizedDataServiceApi
 ListAuthorizedDataServiceApiDetailsResponse Client::listAuthorizedDataServiceApiDetails(const ListAuthorizedDataServiceApiDetailsRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listAuthorizedDataServiceApiDetailsWithOptions(request, runtime);
+}
+
+/**
+ * @summary 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+ *
+ * @param tmpReq ListBatchTasksRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListBatchTasksResponse
+ */
+ListBatchTasksResponse Client::listBatchTasksWithOptions(const ListBatchTasksRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListBatchTasksShrinkRequest request = ListBatchTasksShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasBatchTaskQuery()) {
+    request.setBatchTaskQueryShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getBatchTaskQuery(), "BatchTaskQuery", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasBatchTaskQueryShrink()) {
+    body["BatchTaskQuery"] = request.getBatchTaskQueryShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListBatchTasks"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListBatchTasksResponse>();
+}
+
+/**
+ * @summary 查询离线计算任务列表，支持按任务名称模糊检索、按产出表名精确定位构建该表的任务并获取其文件ID
+ *
+ * @param request ListBatchTasksRequest
+ * @return ListBatchTasksResponse
+ */
+ListBatchTasksResponse Client::listBatchTasks(const ListBatchTasksRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listBatchTasksWithOptions(request, runtime);
 }
 
 /**
@@ -14720,6 +15068,66 @@ ListProjectMembersResponse Client::listProjectMembers(const ListProjectMembersRe
 }
 
 /**
+ * @summary 获取项目角色列表
+ *
+ * @description 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
+ * - BUILD_IN：内置角色
+ * - CUSTOM：自定义角色
+ * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+ *
+ * @param request ListProjectRolesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListProjectRolesResponse
+ */
+ListProjectRolesResponse Client::listProjectRolesWithOptions(const ListProjectRolesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  if (!!request.hasProjectType()) {
+    query["ProjectType"] = request.getProjectType();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListProjectRoles"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListProjectRolesResponse>();
+}
+
+/**
+ * @summary 获取项目角色列表
+ *
+ * @description 获取租户指定项目类型下的项目角色列表。返回角色列表中 roleType 字段标识角色类型：
+ * - BUILD_IN：内置角色
+ * - CUSTOM：自定义角色
+ * 请求参数 ProjectType 必填，可选值为：BASIC（基础模式项目）、DEV（开发环境项目）、PROD（生产环境项目）、TAG（标签平台项目）。
+ *
+ * @param request ListProjectRolesRequest
+ * @return ListProjectRolesResponse
+ */
+ListProjectRolesResponse Client::listProjectRoles(const ListProjectRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listProjectRolesWithOptions(request, runtime);
+}
+
+/**
  * @summary Retrieves a list of projects.
  *
  * @param tmpReq ListProjectsRequest
@@ -15418,6 +15826,64 @@ ListRowPermissionByUserIdResponse Client::listRowPermissionByUserId(const ListRo
 }
 
 /**
+ * @summary 查询租户下的调度模板列表
+ *
+ * @param tmpReq ListScheduleTemplatesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListScheduleTemplatesResponse
+ */
+ListScheduleTemplatesResponse Client::listScheduleTemplatesWithOptions(const ListScheduleTemplatesRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  ListScheduleTemplatesShrinkRequest request = ListScheduleTemplatesShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasListScheduleTemplatesCommand()) {
+    request.setListScheduleTemplatesCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getListScheduleTemplatesCommand(), "ListScheduleTemplatesCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasListScheduleTemplatesCommandShrink()) {
+    body["ListScheduleTemplatesCommand"] = request.getListScheduleTemplatesCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "ListScheduleTemplates"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListScheduleTemplatesResponse>();
+}
+
+/**
+ * @summary 查询租户下的调度模板列表
+ *
+ * @param request ListScheduleTemplatesRequest
+ * @return ListScheduleTemplatesResponse
+ */
+ListScheduleTemplatesResponse Client::listScheduleTemplates(const ListScheduleTemplatesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listScheduleTemplatesWithOptions(request, runtime);
+}
+
+/**
  * @summary Queries the data classification list by paging.
  *
  * @param tmpReq ListSecurityClassifyRequest
@@ -15825,6 +16291,62 @@ ListTenantMembersResponse Client::listTenantMembersWithOptions(const ListTenantM
 ListTenantMembersResponse Client::listTenantMembers(const ListTenantMembersRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return listTenantMembersWithOptions(request, runtime);
+}
+
+/**
+ * @summary 获取租户角色列表
+ *
+ * @description 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
+ * - BUILD_IN：内置角色
+ * - CUSTOM：自定义角色（即租户自定义创建的角色）
+ * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+ *
+ * @param request ListTenantRolesRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return ListTenantRolesResponse
+ */
+ListTenantRolesResponse Client::listTenantRolesWithOptions(const ListTenantRolesRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "ListTenantRoles"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<ListTenantRolesResponse>();
+}
+
+/**
+ * @summary 获取租户角色列表
+ *
+ * @description 获取租户角色列表。返回角色列表中 roleType 字段标识角色类型：
+ * - BUILD_IN：内置角色
+ * - CUSTOM：自定义角色（即租户自定义创建的角色）
+ * 本接口无需额外业务入参，tenantId 由 POP 网关上下文自动注入。
+ *
+ * @param request ListTenantRolesRequest
+ * @return ListTenantRolesResponse
+ */
+ListTenantRolesResponse Client::listTenantRoles(const ListTenantRolesRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return listTenantRolesWithOptions(request, runtime);
 }
 
 /**
@@ -17448,6 +17970,72 @@ SearchKgBySemanticResponse Client::searchKgBySemantic(const SearchKgBySemanticRe
 }
 
 /**
+ * @summary 启动增全量一体化实例。
+ *
+ * @param tmpReq StartPipelineIntegratedTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StartPipelineIntegratedTaskResponse
+ */
+StartPipelineIntegratedTaskResponse Client::startPipelineIntegratedTaskWithOptions(const StartPipelineIntegratedTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  StartPipelineIntegratedTaskShrinkRequest request = StartPipelineIntegratedTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasStartCommand()) {
+    request.setStartCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStartCommand(), "StartCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.getContextShrink();
+  }
+
+  if (!!request.hasStartCommandShrink()) {
+    body["StartCommand"] = request.getStartCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "StartPipelineIntegratedTask"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StartPipelineIntegratedTaskResponse>();
+}
+
+/**
+ * @summary 启动增全量一体化实例。
+ *
+ * @param request StartPipelineIntegratedTaskRequest
+ * @return StartPipelineIntegratedTaskResponse
+ */
+StartPipelineIntegratedTaskResponse Client::startPipelineIntegratedTask(const StartPipelineIntegratedTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return startPipelineIntegratedTaskWithOptions(request, runtime);
+}
+
+/**
  * @summary Stops an ad hoc query task.
  *
  * @param request StopAdHocTaskRequest
@@ -17499,6 +18087,72 @@ StopAdHocTaskResponse Client::stopAdHocTaskWithOptions(const StopAdHocTaskReques
 StopAdHocTaskResponse Client::stopAdHocTask(const StopAdHocTaskRequest &request) {
   Darabonba::RuntimeOptions runtime = RuntimeOptions();
   return stopAdHocTaskWithOptions(request, runtime);
+}
+
+/**
+ * @summary 批量停止增全量一体化实例。
+ *
+ * @param tmpReq StopPipelineIntegratedTaskRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return StopPipelineIntegratedTaskResponse
+ */
+StopPipelineIntegratedTaskResponse Client::stopPipelineIntegratedTaskWithOptions(const StopPipelineIntegratedTaskRequest &tmpReq, const Darabonba::RuntimeOptions &runtime) {
+  tmpReq.validate();
+  StopPipelineIntegratedTaskShrinkRequest request = StopPipelineIntegratedTaskShrinkRequest();
+  Utils::Utils::convert(tmpReq, request);
+  if (!!tmpReq.hasContext()) {
+    request.setContextShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getContext(), "Context", "json"));
+  }
+
+  if (!!tmpReq.hasStopCommand()) {
+    request.setStopCommandShrink(Utils::Utils::arrayToStringWithSpecifiedStyle(tmpReq.getStopCommand(), "StopCommand", "json"));
+  }
+
+  json query = {};
+  if (!!request.hasOpTenantId()) {
+    query["OpTenantId"] = request.getOpTenantId();
+  }
+
+  if (!!request.hasOpUserId()) {
+    query["OpUserId"] = request.getOpUserId();
+  }
+
+  json body = {};
+  if (!!request.hasContextShrink()) {
+    body["Context"] = request.getContextShrink();
+  }
+
+  if (!!request.hasStopCommandShrink()) {
+    body["StopCommand"] = request.getStopCommandShrink();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)},
+    {"body" , Utils::Utils::parseToMap(body)}
+  }));
+  Params params = Params(json({
+    {"action" , "StopPipelineIntegratedTask"},
+    {"version" , "2023-06-30"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<StopPipelineIntegratedTaskResponse>();
+}
+
+/**
+ * @summary 批量停止增全量一体化实例。
+ *
+ * @param request StopPipelineIntegratedTaskRequest
+ * @return StopPipelineIntegratedTaskResponse
+ */
+StopPipelineIntegratedTaskResponse Client::stopPipelineIntegratedTask(const StopPipelineIntegratedTaskRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return stopPipelineIntegratedTaskWithOptions(request, runtime);
 }
 
 /**
@@ -17922,6 +18576,12 @@ SyncDepartmentResponse Client::syncDepartment(const SyncDepartmentRequest &reque
 /**
  * @summary Synchronizes department member information.
  *
+ * @description 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
+ * 使用说明：
+ * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
+ * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
+ * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
+ *
  * @param tmpReq SyncDepartmentUserRequest
  * @param runtime runtime options for this request RuntimeOptions
  * @return SyncDepartmentUserResponse
@@ -17968,6 +18628,12 @@ SyncDepartmentUserResponse Client::syncDepartmentUserWithOptions(const SyncDepar
 
 /**
  * @summary Synchronizes department member information.
+ *
+ * @description 同步用户的部门映射关系。支持为指定用户设置部门，或通过传入空列表 departmentIdList 清除该用户已设置的全部部门。
+ * 使用说明：
+ * - departmentIdList 为 null（未传）：直接报错，防止调用方误清空；
+ * - departmentIdList 为空列表 []：显式清除该 sourceUserId 对应的全部部门映射；
+ * - departmentIdList 为非空列表：全量覆盖，先删除该用户全部旧部门映射，再插入新列表中的部门。
  *
  * @param request SyncDepartmentUserRequest
  * @return SyncDepartmentUserResponse

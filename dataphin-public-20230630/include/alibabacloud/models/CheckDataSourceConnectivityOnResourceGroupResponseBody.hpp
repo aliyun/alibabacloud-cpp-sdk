@@ -1,6 +1,6 @@
 // This file is auto-generated, don't edit it. Thanks.
-#ifndef ALIBABACLOUD_MODELS_CREATEROWPERMISSIONRESPONSEBODY_HPP_
-#define ALIBABACLOUD_MODELS_CREATEROWPERMISSIONRESPONSEBODY_HPP_
+#ifndef ALIBABACLOUD_MODELS_CHECKDATASOURCECONNECTIVITYONRESOURCEGROUPRESPONSEBODY_HPP_
+#define ALIBABACLOUD_MODELS_CHECKDATASOURCECONNECTIVITYONRESOURCEGROUPRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
 using namespace std;
 using json = nlohmann::json;
@@ -10,9 +10,9 @@ namespace DataphinPublic20230630
 {
 namespace Models
 {
-  class CreateRowPermissionResponseBody : public Darabonba::Model {
+  class CheckDataSourceConnectivityOnResourceGroupResponseBody : public Darabonba::Model {
   public:
-    friend void to_json(Darabonba::Json& j, const CreateRowPermissionResponseBody& obj) { 
+    friend void to_json(Darabonba::Json& j, const CheckDataSourceConnectivityOnResourceGroupResponseBody& obj) { 
       DARABONBA_PTR_TO_JSON(Code, code_);
       DARABONBA_PTR_TO_JSON(Data, data_);
       DARABONBA_PTR_TO_JSON(HttpStatusCode, httpStatusCode_);
@@ -20,7 +20,7 @@ namespace Models
       DARABONBA_PTR_TO_JSON(RequestId, requestId_);
       DARABONBA_PTR_TO_JSON(Success, success_);
     };
-    friend void from_json(const Darabonba::Json& j, CreateRowPermissionResponseBody& obj) { 
+    friend void from_json(const Darabonba::Json& j, CheckDataSourceConnectivityOnResourceGroupResponseBody& obj) { 
       DARABONBA_PTR_FROM_JSON(Code, code_);
       DARABONBA_PTR_FROM_JSON(Data, data_);
       DARABONBA_PTR_FROM_JSON(HttpStatusCode, httpStatusCode_);
@@ -28,13 +28,13 @@ namespace Models
       DARABONBA_PTR_FROM_JSON(RequestId, requestId_);
       DARABONBA_PTR_FROM_JSON(Success, success_);
     };
-    CreateRowPermissionResponseBody() = default ;
-    CreateRowPermissionResponseBody(const CreateRowPermissionResponseBody &) = default ;
-    CreateRowPermissionResponseBody(CreateRowPermissionResponseBody &&) = default ;
-    CreateRowPermissionResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
-    virtual ~CreateRowPermissionResponseBody() = default ;
-    CreateRowPermissionResponseBody& operator=(const CreateRowPermissionResponseBody &) = default ;
-    CreateRowPermissionResponseBody& operator=(CreateRowPermissionResponseBody &&) = default ;
+    CheckDataSourceConnectivityOnResourceGroupResponseBody() = default ;
+    CheckDataSourceConnectivityOnResourceGroupResponseBody(const CheckDataSourceConnectivityOnResourceGroupResponseBody &) = default ;
+    CheckDataSourceConnectivityOnResourceGroupResponseBody(CheckDataSourceConnectivityOnResourceGroupResponseBody &&) = default ;
+    CheckDataSourceConnectivityOnResourceGroupResponseBody(const Darabonba::Json & obj) { from_json(obj, *this); };
+    virtual ~CheckDataSourceConnectivityOnResourceGroupResponseBody() = default ;
+    CheckDataSourceConnectivityOnResourceGroupResponseBody& operator=(const CheckDataSourceConnectivityOnResourceGroupResponseBody &) = default ;
+    CheckDataSourceConnectivityOnResourceGroupResponseBody& operator=(CheckDataSourceConnectivityOnResourceGroupResponseBody &&) = default ;
     virtual void validate() const override {
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
@@ -45,56 +45,50 @@ namespace Models
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
     inline string getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, "") };
-    inline CreateRowPermissionResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
+    inline CheckDataSourceConnectivityOnResourceGroupResponseBody& setCode(string code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline int64_t getData() const { DARABONBA_PTR_GET_DEFAULT(data_, 0L) };
-    inline CreateRowPermissionResponseBody& setData(int64_t data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline string getData() const { DARABONBA_PTR_GET_DEFAULT(data_, "") };
+    inline CheckDataSourceConnectivityOnResourceGroupResponseBody& setData(string data) { DARABONBA_PTR_SET_VALUE(data_, data) };
 
 
     // httpStatusCode Field Functions 
     bool hasHttpStatusCode() const { return this->httpStatusCode_ != nullptr;};
     void deleteHttpStatusCode() { this->httpStatusCode_ = nullptr;};
     inline int32_t getHttpStatusCode() const { DARABONBA_PTR_GET_DEFAULT(httpStatusCode_, 0) };
-    inline CreateRowPermissionResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
+    inline CheckDataSourceConnectivityOnResourceGroupResponseBody& setHttpStatusCode(int32_t httpStatusCode) { DARABONBA_PTR_SET_VALUE(httpStatusCode_, httpStatusCode) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
     inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
-    inline CreateRowPermissionResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
+    inline CheckDataSourceConnectivityOnResourceGroupResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
     inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
-    inline CreateRowPermissionResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
+    inline CheckDataSourceConnectivityOnResourceGroupResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
     // success Field Functions 
     bool hasSuccess() const { return this->success_ != nullptr;};
     void deleteSuccess() { this->success_ = nullptr;};
     inline bool getSuccess() const { DARABONBA_PTR_GET_DEFAULT(success_, false) };
-    inline CreateRowPermissionResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
+    inline CheckDataSourceConnectivityOnResourceGroupResponseBody& setSuccess(bool success) { DARABONBA_PTR_SET_VALUE(success_, success) };
 
 
   protected:
-    // The error code. OK indicates that the request is successful.
     shared_ptr<string> code_ {};
-    // The creation result.
-    shared_ptr<int64_t> data_ {};
-    // The HTTP status code returned by the backend.
+    shared_ptr<string> data_ {};
     shared_ptr<int32_t> httpStatusCode_ {};
-    // The error message.
     shared_ptr<string> message_ {};
-    // The request ID.
     shared_ptr<string> requestId_ {};
-    // Indicates whether the request is successful.
     shared_ptr<bool> success_ {};
   };
 
