@@ -40,73 +40,74 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->listenerPort_ == nullptr && return this->slbId_ == nullptr && return this->slbIp_ == nullptr && return this->type_ == nullptr && return this->VServerGroupId_ == nullptr; };
+        && this->listenerPort_ == nullptr && this->slbId_ == nullptr && this->slbIp_ == nullptr && this->type_ == nullptr && this->VServerGroupId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline BindSlbRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // listenerPort Field Functions 
     bool hasListenerPort() const { return this->listenerPort_ != nullptr;};
     void deleteListenerPort() { this->listenerPort_ = nullptr;};
-    inline int32_t listenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
+    inline int32_t getListenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
     inline BindSlbRequest& setListenerPort(int32_t listenerPort) { DARABONBA_PTR_SET_VALUE(listenerPort_, listenerPort) };
 
 
     // slbId Field Functions 
     bool hasSlbId() const { return this->slbId_ != nullptr;};
     void deleteSlbId() { this->slbId_ = nullptr;};
-    inline string slbId() const { DARABONBA_PTR_GET_DEFAULT(slbId_, "") };
+    inline string getSlbId() const { DARABONBA_PTR_GET_DEFAULT(slbId_, "") };
     inline BindSlbRequest& setSlbId(string slbId) { DARABONBA_PTR_SET_VALUE(slbId_, slbId) };
 
 
     // slbIp Field Functions 
     bool hasSlbIp() const { return this->slbIp_ != nullptr;};
     void deleteSlbIp() { this->slbIp_ = nullptr;};
-    inline string slbIp() const { DARABONBA_PTR_GET_DEFAULT(slbIp_, "") };
+    inline string getSlbIp() const { DARABONBA_PTR_GET_DEFAULT(slbIp_, "") };
     inline BindSlbRequest& setSlbIp(string slbIp) { DARABONBA_PTR_SET_VALUE(slbIp_, slbIp) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline BindSlbRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
     // VServerGroupId Field Functions 
     bool hasVServerGroupId() const { return this->VServerGroupId_ != nullptr;};
     void deleteVServerGroupId() { this->VServerGroupId_ = nullptr;};
-    inline string VServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupId_, "") };
+    inline string getVServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupId_, "") };
     inline BindSlbRequest& setVServerGroupId(string VServerGroupId) { DARABONBA_PTR_SET_VALUE(VServerGroupId_, VServerGroupId) };
 
 
   protected:
-    // The ID of the EDAS application.
+    // The ID of the Enterprise Distributed Application Service (EDAS) application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    // The listener port for the SLB instance.
-    std::shared_ptr<int32_t> listenerPort_ = nullptr;
+    shared_ptr<string> appId_ {};
+    // The listener port.
+    shared_ptr<int32_t> listenerPort_ {};
     // The ID of the SLB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> slbId_ = nullptr;
+    shared_ptr<string> slbId_ {};
     // The IP address of the SLB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> slbIp_ = nullptr;
-    // The type of the SLB instance. Valid values:
+    shared_ptr<string> slbIp_ {};
+    // The network type of the SLB instance. Valid values:
     // 
-    // *   internet: Internet-facing SLB instance
-    // *   intranet: internal-facing SLB instance
+    // - internet: an Internet-facing instance.
+    // 
+    // - intranet: an internal-facing instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
     // The ID of the vServer group for the internal-facing SLB instance.
-    std::shared_ptr<string> VServerGroupId_ = nullptr;
+    shared_ptr<string> VServerGroupId_ {};
   };
 
   } // namespace Models

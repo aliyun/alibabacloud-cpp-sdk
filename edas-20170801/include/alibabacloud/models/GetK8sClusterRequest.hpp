@@ -38,61 +38,63 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterType_ == nullptr
-        && return this->currentPage_ == nullptr && return this->pageSize_ == nullptr && return this->regionTag_ == nullptr && return this->subClusterType_ == nullptr; };
+        && this->currentPage_ == nullptr && this->pageSize_ == nullptr && this->regionTag_ == nullptr && this->subClusterType_ == nullptr; };
     // clusterType Field Functions 
     bool hasClusterType() const { return this->clusterType_ != nullptr;};
     void deleteClusterType() { this->clusterType_ = nullptr;};
-    inline int32_t clusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, 0) };
+    inline int32_t getClusterType() const { DARABONBA_PTR_GET_DEFAULT(clusterType_, 0) };
     inline GetK8sClusterRequest& setClusterType(int32_t clusterType) { DARABONBA_PTR_SET_VALUE(clusterType_, clusterType) };
 
 
     // currentPage Field Functions 
     bool hasCurrentPage() const { return this->currentPage_ != nullptr;};
     void deleteCurrentPage() { this->currentPage_ = nullptr;};
-    inline int32_t currentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
+    inline int32_t getCurrentPage() const { DARABONBA_PTR_GET_DEFAULT(currentPage_, 0) };
     inline GetK8sClusterRequest& setCurrentPage(int32_t currentPage) { DARABONBA_PTR_SET_VALUE(currentPage_, currentPage) };
 
 
     // pageSize Field Functions 
     bool hasPageSize() const { return this->pageSize_ != nullptr;};
     void deletePageSize() { this->pageSize_ = nullptr;};
-    inline int32_t pageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
+    inline int32_t getPageSize() const { DARABONBA_PTR_GET_DEFAULT(pageSize_, 0) };
     inline GetK8sClusterRequest& setPageSize(int32_t pageSize) { DARABONBA_PTR_SET_VALUE(pageSize_, pageSize) };
 
 
     // regionTag Field Functions 
     bool hasRegionTag() const { return this->regionTag_ != nullptr;};
     void deleteRegionTag() { this->regionTag_ = nullptr;};
-    inline string regionTag() const { DARABONBA_PTR_GET_DEFAULT(regionTag_, "") };
+    inline string getRegionTag() const { DARABONBA_PTR_GET_DEFAULT(regionTag_, "") };
     inline GetK8sClusterRequest& setRegionTag(string regionTag) { DARABONBA_PTR_SET_VALUE(regionTag_, regionTag) };
 
 
     // subClusterType Field Functions 
     bool hasSubClusterType() const { return this->subClusterType_ != nullptr;};
     void deleteSubClusterType() { this->subClusterType_ = nullptr;};
-    inline string subClusterType() const { DARABONBA_PTR_GET_DEFAULT(subClusterType_, "") };
+    inline string getSubClusterType() const { DARABONBA_PTR_GET_DEFAULT(subClusterType_, "") };
     inline GetK8sClusterRequest& setSubClusterType(string subClusterType) { DARABONBA_PTR_SET_VALUE(subClusterType_, subClusterType) };
 
 
   protected:
-    // The type of the Kubernetes cluster. Valid values:
+    // The type of the Kubernetes cluster:
     // 
-    // *   5: ACK cluster
-    // *   7: self-managed Kubernetes cluster
-    std::shared_ptr<int32_t> clusterType_ = nullptr;
-    // The number of the page to return. Default value: 1.
-    std::shared_ptr<int32_t> currentPage_ = nullptr;
-    // The number of entries to return on each page. Default value: 1000.
-    std::shared_ptr<int32_t> pageSize_ = nullptr;
-    // The ID of the region.
+    // - 5: an ACK cluster.
+    // 
+    // - 7: a self-managed Kubernetes cluster.
+    shared_ptr<int32_t> clusterType_ {};
+    // The number of the page to return for a paged query. The default value is 1.
+    shared_ptr<int32_t> currentPage_ {};
+    // The number of entries to return on each page for a paged query. The default value is 1000.
+    shared_ptr<int32_t> pageSize_ {};
+    // The region.
     // 
     // This parameter is required.
-    std::shared_ptr<string> regionTag_ = nullptr;
-    // The subtype of the cluster. Valid values:
+    shared_ptr<string> regionTag_ {};
+    // The subtype of the cluster:
     // 
-    // *   Ask: Serverless Kubernetes cluster
-    // *   ManagedKubernetes: ACK cluster
-    std::shared_ptr<string> subClusterType_ = nullptr;
+    // - Ask: an ASK cluster.
+    // 
+    // - ManagedKubernetes: an ACK cluster.
+    shared_ptr<string> subClusterType_ {};
   };
 
   } // namespace Models

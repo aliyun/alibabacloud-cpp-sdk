@@ -33,7 +33,7 @@ namespace Models
     // laneId Field Functions 
     bool hasLaneId() const { return this->laneId_ != nullptr;};
     void deleteLaneId() { this->laneId_ = nullptr;};
-    inline int64_t laneId() const { DARABONBA_PTR_GET_DEFAULT(laneId_, 0L) };
+    inline int64_t getLaneId() const { DARABONBA_PTR_GET_DEFAULT(laneId_, 0L) };
     inline DeleteSwimmingLaneRequest& setLaneId(int64_t laneId) { DARABONBA_PTR_SET_VALUE(laneId_, laneId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the lane.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> laneId_ = nullptr;
+    shared_ptr<int64_t> laneId_ {};
   };
 
   } // namespace Models

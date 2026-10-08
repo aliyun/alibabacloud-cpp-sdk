@@ -32,32 +32,34 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->logicalRegionId_ == nullptr
-        && return this->resourceGroupId_ == nullptr; };
+        && this->resourceGroupId_ == nullptr; };
     // logicalRegionId Field Functions 
     bool hasLogicalRegionId() const { return this->logicalRegionId_ != nullptr;};
     void deleteLogicalRegionId() { this->logicalRegionId_ = nullptr;};
-    inline string logicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
+    inline string getLogicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
     inline ListClusterRequest& setLogicalRegionId(string logicalRegionId) { DARABONBA_PTR_SET_VALUE(logicalRegionId_, logicalRegionId) };
 
 
     // resourceGroupId Field Functions 
     bool hasResourceGroupId() const { return this->resourceGroupId_ != nullptr;};
     void deleteResourceGroupId() { this->resourceGroupId_ = nullptr;};
-    inline string resourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
+    inline string getResourceGroupId() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupId_, "") };
     inline ListClusterRequest& setResourceGroupId(string resourceGroupId) { DARABONBA_PTR_SET_VALUE(resourceGroupId_, resourceGroupId) };
 
 
   protected:
     // The ID of the namespace. You can call the ListUserDefineRegion operation to query the namespace ID. For more information, see [ListUserDefineRegion](https://help.aliyun.com/document_detail/149377.html).
     // 
-    // *   If this parameter is left empty, the clusters in the default namespace are queried.
-    // *   If this parameter is specified, the clusters in the specified namespace are queried.
-    std::shared_ptr<string> logicalRegionId_ = nullptr;
+    // - If this parameter is left empty, the clusters in the default namespace are queried.
+    // 
+    // - If this parameter is specified, the clusters in the specified namespace are queried.
+    shared_ptr<string> logicalRegionId_ {};
     // The ID of the resource group. You can call the ListResourceGroup operation to query the resource group ID. For more information, see [ListResourceGroup](https://help.aliyun.com/document_detail/62055.html).
     // 
-    // *   If this parameter is left empty, the clusters in the default resource group are queried.
-    // *   If this parameter is specified, the clusters in the specified resource group are queried.
-    std::shared_ptr<string> resourceGroupId_ = nullptr;
+    // - If this parameter is left empty, the clusters in the default resource group are queried.
+    // 
+    // - If this parameter is specified, the clusters in the specified resource group are queried.
+    shared_ptr<string> resourceGroupId_ {};
   };
 
   } // namespace Models

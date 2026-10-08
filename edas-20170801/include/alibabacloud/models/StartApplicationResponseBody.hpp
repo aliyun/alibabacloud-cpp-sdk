@@ -36,44 +36,44 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->changeOrderId_ == nullptr
-        && return this->code_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr; };
+        && this->code_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
     // changeOrderId Field Functions 
     bool hasChangeOrderId() const { return this->changeOrderId_ != nullptr;};
     void deleteChangeOrderId() { this->changeOrderId_ = nullptr;};
-    inline string changeOrderId() const { DARABONBA_PTR_GET_DEFAULT(changeOrderId_, "") };
+    inline string getChangeOrderId() const { DARABONBA_PTR_GET_DEFAULT(changeOrderId_, "") };
     inline StartApplicationResponseBody& setChangeOrderId(string changeOrderId) { DARABONBA_PTR_SET_VALUE(changeOrderId_, changeOrderId) };
 
 
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline StartApplicationResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline StartApplicationResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline StartApplicationResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
     // The ID of the change process for this operation. You can call the GetChangeOrderInfo operation to query the progress of this startup. For more information, see [GetChangeOrderInfo](https://help.aliyun.com/document_detail/62072.html).
-    std::shared_ptr<string> changeOrderId_ = nullptr;
+    shared_ptr<string> changeOrderId_ {};
     // The HTTP status code that is returned.
-    std::shared_ptr<int32_t> code_ = nullptr;
+    shared_ptr<int32_t> code_ {};
     // The additional information that is returned.
-    std::shared_ptr<string> message_ = nullptr;
+    shared_ptr<string> message_ {};
     // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

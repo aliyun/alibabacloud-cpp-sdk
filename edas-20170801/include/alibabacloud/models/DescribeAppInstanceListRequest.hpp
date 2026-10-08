@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->withNodeInfo_ == nullptr; };
+        && this->withNodeInfo_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline DescribeAppInstanceListRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // withNodeInfo Field Functions 
     bool hasWithNodeInfo() const { return this->withNodeInfo_ != nullptr;};
     void deleteWithNodeInfo() { this->withNodeInfo_ = nullptr;};
-    inline bool withNodeInfo() const { DARABONBA_PTR_GET_DEFAULT(withNodeInfo_, false) };
+    inline bool getWithNodeInfo() const { DARABONBA_PTR_GET_DEFAULT(withNodeInfo_, false) };
     inline DescribeAppInstanceListRequest& setWithNodeInfo(bool withNodeInfo) { DARABONBA_PTR_SET_VALUE(withNodeInfo_, withNodeInfo) };
 
 
@@ -51,12 +51,13 @@ namespace Models
     // The ID of the application. You can call the ListApplication operation to query the ID of the application. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // Specifies whether to return the information about the node in which the pod resides.
     // 
-    // *   `true`: returns the information about the node in which the pod resides
-    // *   `false`: does not return the information about the node in which the pod resides
-    std::shared_ptr<bool> withNodeInfo_ = nullptr;
+    // - `true`: returns the information about the node in which the pod resides
+    // 
+    // - `false`: does not return the information about the node in which the pod resides
+    shared_ptr<bool> withNodeInfo_ {};
   };
 
   } // namespace Models

@@ -36,49 +36,49 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->condition_ == nullptr && return this->namespace_ == nullptr && return this->regionId_ == nullptr; };
+        && this->condition_ == nullptr && this->namespace_ == nullptr && this->regionId_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline ListK8sIngressRulesRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // condition Field Functions 
     bool hasCondition() const { return this->condition_ != nullptr;};
     void deleteCondition() { this->condition_ = nullptr;};
-    inline string condition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
+    inline string getCondition() const { DARABONBA_PTR_GET_DEFAULT(condition_, "") };
     inline ListK8sIngressRulesRequest& setCondition(string condition) { DARABONBA_PTR_SET_VALUE(condition_, condition) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline ListK8sIngressRulesRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
     // regionId Field Functions 
     bool hasRegionId() const { return this->regionId_ != nullptr;};
     void deleteRegionId() { this->regionId_ = nullptr;};
-    inline string regionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
+    inline string getRegionId() const { DARABONBA_PTR_GET_DEFAULT(regionId_, "") };
     inline ListK8sIngressRulesRequest& setRegionId(string regionId) { DARABONBA_PTR_SET_VALUE(regionId_, regionId) };
 
 
   protected:
     // The cluster ID.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The filter conditions. Set the value to a JSON string in the format of {"field":"Name", "pattern":"my-"}, where:
     // 
     // *   field: the parameter to be matched. Valid values: Name and ClusterName.
     // *   pattern: the content to be matched.
     // 
     // For example, a value of {"field":"Name", "pattern":"my-"} indicates that the specified filter conditions match the routing rules whose names start with my-.
-    std::shared_ptr<string> condition_ = nullptr;
+    shared_ptr<string> condition_ {};
     // The namespace of the Kubernetes cluster.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
     // The ID of the region where the cluster resides.
-    std::shared_ptr<string> regionId_ = nullptr;
+    shared_ptr<string> regionId_ {};
   };
 
   } // namespace Models

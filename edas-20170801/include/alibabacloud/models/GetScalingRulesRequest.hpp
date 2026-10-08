@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->groupId_ == nullptr && return this->mode_ == nullptr; };
+        && this->groupId_ == nullptr && this->mode_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline GetScalingRulesRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline GetScalingRulesRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // mode Field Functions 
     bool hasMode() const { return this->mode_ != nullptr;};
     void deleteMode() { this->mode_ = nullptr;};
-    inline string mode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
+    inline string getMode() const { DARABONBA_PTR_GET_DEFAULT(mode_, "") };
     inline GetScalingRulesRequest& setMode(string mode) { DARABONBA_PTR_SET_VALUE(mode_, mode) };
 
 
@@ -60,16 +60,17 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the instance group to which the application is deployed.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupId_ = nullptr;
+    shared_ptr<string> groupId_ {};
     // The type of the scaling rule. You can leave this parameter empty. Valid values:
     // 
-    // *   SCALE_IN: scale-in rules
-    // *   SCALE_OUT: scale-out rules
-    std::shared_ptr<string> mode_ = nullptr;
+    // - SCALE_IN: scale-in rules
+    // 
+    // - SCALE_OUT: scale-out rules
+    shared_ptr<string> mode_ {};
   };
 
   } // namespace Models

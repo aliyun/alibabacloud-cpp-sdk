@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->groupName_ == nullptr && return this->initPackageVersionId_ == nullptr; };
+        && this->groupName_ == nullptr && this->initPackageVersionId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline InsertDeployGroupRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline InsertDeployGroupRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
     // initPackageVersionId Field Functions 
     bool hasInitPackageVersionId() const { return this->initPackageVersionId_ != nullptr;};
     void deleteInitPackageVersionId() { this->initPackageVersionId_ = nullptr;};
-    inline string initPackageVersionId() const { DARABONBA_PTR_GET_DEFAULT(initPackageVersionId_, "") };
+    inline string getInitPackageVersionId() const { DARABONBA_PTR_GET_DEFAULT(initPackageVersionId_, "") };
     inline InsertDeployGroupRequest& setInitPackageVersionId(string initPackageVersionId) { DARABONBA_PTR_SET_VALUE(initPackageVersionId_, initPackageVersionId) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The name of the instance group. The name can be up to 64 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> groupName_ {};
     // The version of the initial deployment package associated with the instance group. You can call the ListHistoryDeployVersion operation to query the version. For more information, see [ListHistoryDeployVersion](https://help.aliyun.com/document_detail/149392.html).
-    std::shared_ptr<string> initPackageVersionId_ = nullptr;
+    shared_ptr<string> initPackageVersionId_ {};
   };
 
   } // namespace Models

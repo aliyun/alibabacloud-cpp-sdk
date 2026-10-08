@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIds_ == nullptr
-        && return this->entryApp_ == nullptr && return this->logicalRegionId_ == nullptr && return this->name_ == nullptr; };
+        && this->entryApp_ == nullptr && this->logicalRegionId_ == nullptr && this->name_ == nullptr; };
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline string appIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
+    inline string getAppIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
     inline InsertSwimmingLaneGroupRequest& setAppIds(string appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
 
 
     // entryApp Field Functions 
     bool hasEntryApp() const { return this->entryApp_ != nullptr;};
     void deleteEntryApp() { this->entryApp_ = nullptr;};
-    inline string entryApp() const { DARABONBA_PTR_GET_DEFAULT(entryApp_, "") };
+    inline string getEntryApp() const { DARABONBA_PTR_GET_DEFAULT(entryApp_, "") };
     inline InsertSwimmingLaneGroupRequest& setEntryApp(string entryApp) { DARABONBA_PTR_SET_VALUE(entryApp_, entryApp) };
 
 
     // logicalRegionId Field Functions 
     bool hasLogicalRegionId() const { return this->logicalRegionId_ != nullptr;};
     void deleteLogicalRegionId() { this->logicalRegionId_ = nullptr;};
-    inline string logicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
+    inline string getLogicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
     inline InsertSwimmingLaneGroupRequest& setLogicalRegionId(string logicalRegionId) { DARABONBA_PTR_SET_VALUE(logicalRegionId_, logicalRegionId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline InsertSwimmingLaneGroupRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
@@ -69,19 +69,19 @@ namespace Models
     // IDs of all applications that are related to the lane group. Separate multiple applications with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appIds_ = nullptr;
+    shared_ptr<string> appIds_ {};
     // The ingress application. The application is in the EDAS:{application ID} format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> entryApp_ = nullptr;
+    shared_ptr<string> entryApp_ {};
     // The ID of the custom namespace. The ID is in the physical region ID:custom namespace identifier format. Example: cn-hangzhou:test.
     // 
     // This parameter is required.
-    std::shared_ptr<string> logicalRegionId_ = nullptr;
+    shared_ptr<string> logicalRegionId_ {};
     // The name of the lane group.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

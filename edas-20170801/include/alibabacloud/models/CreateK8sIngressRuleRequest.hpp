@@ -40,58 +40,58 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->annotations_ == nullptr
-        && return this->clusterId_ == nullptr && return this->ingressConf_ == nullptr && return this->labels_ == nullptr && return this->name_ == nullptr && return this->namespace_ == nullptr; };
+        && this->clusterId_ == nullptr && this->ingressConf_ == nullptr && this->labels_ == nullptr && this->name_ == nullptr && this->namespace_ == nullptr; };
     // annotations Field Functions 
     bool hasAnnotations() const { return this->annotations_ != nullptr;};
     void deleteAnnotations() { this->annotations_ = nullptr;};
-    inline string annotations() const { DARABONBA_PTR_GET_DEFAULT(annotations_, "") };
+    inline string getAnnotations() const { DARABONBA_PTR_GET_DEFAULT(annotations_, "") };
     inline CreateK8sIngressRuleRequest& setAnnotations(string annotations) { DARABONBA_PTR_SET_VALUE(annotations_, annotations) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline CreateK8sIngressRuleRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // ingressConf Field Functions 
     bool hasIngressConf() const { return this->ingressConf_ != nullptr;};
     void deleteIngressConf() { this->ingressConf_ = nullptr;};
-    inline     const Darabonba::Json & ingressConf() const { DARABONBA_GET(ingressConf_) };
-    Darabonba::Json & ingressConf() { DARABONBA_GET(ingressConf_) };
+    inline     const Darabonba::Json & getIngressConf() const { DARABONBA_GET(ingressConf_) };
+    Darabonba::Json & getIngressConf() { DARABONBA_GET(ingressConf_) };
     inline CreateK8sIngressRuleRequest& setIngressConf(const Darabonba::Json & ingressConf) { DARABONBA_SET_VALUE(ingressConf_, ingressConf) };
-    inline CreateK8sIngressRuleRequest& setIngressConf(Darabonba::Json & ingressConf) { DARABONBA_SET_RVALUE(ingressConf_, ingressConf) };
+    inline CreateK8sIngressRuleRequest& setIngressConf(Darabonba::Json && ingressConf) { DARABONBA_SET_RVALUE(ingressConf_, ingressConf) };
 
 
     // labels Field Functions 
     bool hasLabels() const { return this->labels_ != nullptr;};
     void deleteLabels() { this->labels_ = nullptr;};
-    inline string labels() const { DARABONBA_PTR_GET_DEFAULT(labels_, "") };
+    inline string getLabels() const { DARABONBA_PTR_GET_DEFAULT(labels_, "") };
     inline CreateK8sIngressRuleRequest& setLabels(string labels) { DARABONBA_PTR_SET_VALUE(labels_, labels) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline CreateK8sIngressRuleRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // namespace Field Functions 
     bool hasNamespace() const { return this->namespace_ != nullptr;};
     void deleteNamespace() { this->namespace_ = nullptr;};
-    inline string _namespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
+    inline string getNamespace() const { DARABONBA_PTR_GET_DEFAULT(namespace_, "") };
     inline CreateK8sIngressRuleRequest& setNamespace(string _namespace) { DARABONBA_PTR_SET_VALUE(namespace_, _namespace) };
 
 
   protected:
     // The annotations.
-    std::shared_ptr<string> annotations_ = nullptr;
+    shared_ptr<string> annotations_ {};
     // The ID of the Kubernetes cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The routing rules of the Ingress. Set this parameter to a JSON string in the following format:
     // 
     //     {
@@ -122,17 +122,17 @@ namespace Models
     // *   backend: the configuration of the backend service. You can specify a service that is created in the Enterprise Distributed Application Service (EDAS) console.
     // *   serviceName: the name of the backend service.
     // *   servicePort: the port of the backend service.
-    Darabonba::Json ingressConf_ = nullptr;
+    Darabonba::Json ingressConf_ {};
     // The labels.
-    std::shared_ptr<string> labels_ = nullptr;
+    shared_ptr<string> labels_ {};
     // The name of the Ingress. The name can contain lowercase letters, digits, and hyphens (-). It must start with a lowercase letter but cannot end with a hyphen (-). The name can be up to 63 characters in length.
     // 
     // This parameter is required.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The namespace of the Kubernetes cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> namespace_ = nullptr;
+    shared_ptr<string> namespace_ {};
   };
 
   } // namespace Models

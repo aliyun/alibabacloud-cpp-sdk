@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->configs_ == nullptr; };
+        && this->configs_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateSlsLogStoreRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // configs Field Functions 
     bool hasConfigs() const { return this->configs_ != nullptr;};
     void deleteConfigs() { this->configs_ = nullptr;};
-    inline string configs() const { DARABONBA_PTR_GET_DEFAULT(configs_, "") };
+    inline string getConfigs() const { DARABONBA_PTR_GET_DEFAULT(configs_, "") };
     inline UpdateSlsLogStoreRequest& setConfigs(string configs) { DARABONBA_PTR_SET_VALUE(configs_, configs) };
 
 
@@ -51,7 +51,7 @@ namespace Models
     // The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The configurations of the Logstore.
     // 
     // *   The following parameters are included in the configurations:****
@@ -71,7 +71,7 @@ namespace Models
     //     *   **LogDir**: If the standard output type is used, the collection path is stdout.log. If the file type is used, the collection path is the path of the collected file. Wildcards (\\*) are supported. The collection path must match the following regular expression: `^/(.+)/(.*)^/$`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> configs_ = nullptr;
+    shared_ptr<string> configs_ {};
   };
 
   } // namespace Models

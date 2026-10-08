@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->actionData_ == nullptr
-        && return this->roleName_ == nullptr; };
+        && this->roleName_ == nullptr; };
     // actionData Field Functions 
     bool hasActionData() const { return this->actionData_ != nullptr;};
     void deleteActionData() { this->actionData_ = nullptr;};
-    inline string actionData() const { DARABONBA_PTR_GET_DEFAULT(actionData_, "") };
+    inline string getActionData() const { DARABONBA_PTR_GET_DEFAULT(actionData_, "") };
     inline InsertRoleRequest& setActionData(string actionData) { DARABONBA_PTR_SET_VALUE(actionData_, actionData) };
 
 
     // roleName Field Functions 
     bool hasRoleName() const { return this->roleName_ != nullptr;};
     void deleteRoleName() { this->roleName_ = nullptr;};
-    inline string roleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
+    inline string getRoleName() const { DARABONBA_PTR_GET_DEFAULT(roleName_, "") };
     inline InsertRoleRequest& setRoleName(string roleName) { DARABONBA_PTR_SET_VALUE(roleName_, roleName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The set of permissions to be granted to the role. The value is in the format of `Permission group ID 1:Permission serial number 1;...;Permission group ID n:Permission serial number n`. Example: `1:1;1:2;2:1;2:2`. For more information about permission groups and permission serial numbers, see [ListAuthority](https://help.aliyun.com/document_detail/149409.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> actionData_ = nullptr;
+    shared_ptr<string> actionData_ {};
     // The name of the role.
     // 
     // This parameter is required.
-    std::shared_ptr<string> roleName_ = nullptr;
+    shared_ptr<string> roleName_ {};
   };
 
   } // namespace Models

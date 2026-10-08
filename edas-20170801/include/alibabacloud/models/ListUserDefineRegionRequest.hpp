@@ -33,13 +33,13 @@ namespace Models
     // debugEnable Field Functions 
     bool hasDebugEnable() const { return this->debugEnable_ != nullptr;};
     void deleteDebugEnable() { this->debugEnable_ = nullptr;};
-    inline bool debugEnable() const { DARABONBA_PTR_GET_DEFAULT(debugEnable_, false) };
+    inline bool getDebugEnable() const { DARABONBA_PTR_GET_DEFAULT(debugEnable_, false) };
     inline ListUserDefineRegionRequest& setDebugEnable(bool debugEnable) { DARABONBA_PTR_SET_VALUE(debugEnable_, debugEnable) };
 
 
   protected:
-    // Specifies whether remote debugging is allowed.
-    std::shared_ptr<bool> debugEnable_ = nullptr;
+    // Indicates whether remote debugging is allowed.
+    shared_ptr<bool> debugEnable_ {};
   };
 
   } // namespace Models

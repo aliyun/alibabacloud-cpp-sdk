@@ -2,7 +2,6 @@
 #ifndef ALIBABACLOUD_MODELS_BINDSLBRESPONSEBODY_HPP_
 #define ALIBABACLOUD_MODELS_BINDSLBRESPONSEBODY_HPP_
 #include <darabonba/Core.hpp>
-#include <alibabacloud/models/BindSlbResponseBodyData.hpp>
 using namespace std;
 using json = nlohmann::json;
 namespace AlibabaCloud
@@ -36,47 +35,169 @@ namespace Models
     };
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+    class Data : public Darabonba::Model {
+    public:
+      friend void to_json(Darabonba::Json& j, const Data& obj) { 
+        DARABONBA_PTR_TO_JSON(ExtSlbId, extSlbId_);
+        DARABONBA_PTR_TO_JSON(ExtSlbIp, extSlbIp_);
+        DARABONBA_PTR_TO_JSON(ExtSlbName, extSlbName_);
+        DARABONBA_PTR_TO_JSON(ExtVServerGroupId, extVServerGroupId_);
+        DARABONBA_PTR_TO_JSON(SlbId, slbId_);
+        DARABONBA_PTR_TO_JSON(SlbIp, slbIp_);
+        DARABONBA_PTR_TO_JSON(SlbName, slbName_);
+        DARABONBA_PTR_TO_JSON(SlbPort, slbPort_);
+        DARABONBA_PTR_TO_JSON(VServerGroupId, VServerGroupId_);
+      };
+      friend void from_json(const Darabonba::Json& j, Data& obj) { 
+        DARABONBA_PTR_FROM_JSON(ExtSlbId, extSlbId_);
+        DARABONBA_PTR_FROM_JSON(ExtSlbIp, extSlbIp_);
+        DARABONBA_PTR_FROM_JSON(ExtSlbName, extSlbName_);
+        DARABONBA_PTR_FROM_JSON(ExtVServerGroupId, extVServerGroupId_);
+        DARABONBA_PTR_FROM_JSON(SlbId, slbId_);
+        DARABONBA_PTR_FROM_JSON(SlbIp, slbIp_);
+        DARABONBA_PTR_FROM_JSON(SlbName, slbName_);
+        DARABONBA_PTR_FROM_JSON(SlbPort, slbPort_);
+        DARABONBA_PTR_FROM_JSON(VServerGroupId, VServerGroupId_);
+      };
+      Data() = default ;
+      Data(const Data &) = default ;
+      Data(Data &&) = default ;
+      Data(const Darabonba::Json & obj) { from_json(obj, *this); };
+      virtual ~Data() = default ;
+      Data& operator=(const Data &) = default ;
+      Data& operator=(Data &&) = default ;
+      virtual void validate() const override {
+      };
+      virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
+      virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
+      virtual bool empty() const override { return this->extSlbId_ == nullptr
+        && this->extSlbIp_ == nullptr && this->extSlbName_ == nullptr && this->extVServerGroupId_ == nullptr && this->slbId_ == nullptr && this->slbIp_ == nullptr
+        && this->slbName_ == nullptr && this->slbPort_ == nullptr && this->VServerGroupId_ == nullptr; };
+      // extSlbId Field Functions 
+      bool hasExtSlbId() const { return this->extSlbId_ != nullptr;};
+      void deleteExtSlbId() { this->extSlbId_ = nullptr;};
+      inline string getExtSlbId() const { DARABONBA_PTR_GET_DEFAULT(extSlbId_, "") };
+      inline Data& setExtSlbId(string extSlbId) { DARABONBA_PTR_SET_VALUE(extSlbId_, extSlbId) };
+
+
+      // extSlbIp Field Functions 
+      bool hasExtSlbIp() const { return this->extSlbIp_ != nullptr;};
+      void deleteExtSlbIp() { this->extSlbIp_ = nullptr;};
+      inline string getExtSlbIp() const { DARABONBA_PTR_GET_DEFAULT(extSlbIp_, "") };
+      inline Data& setExtSlbIp(string extSlbIp) { DARABONBA_PTR_SET_VALUE(extSlbIp_, extSlbIp) };
+
+
+      // extSlbName Field Functions 
+      bool hasExtSlbName() const { return this->extSlbName_ != nullptr;};
+      void deleteExtSlbName() { this->extSlbName_ = nullptr;};
+      inline string getExtSlbName() const { DARABONBA_PTR_GET_DEFAULT(extSlbName_, "") };
+      inline Data& setExtSlbName(string extSlbName) { DARABONBA_PTR_SET_VALUE(extSlbName_, extSlbName) };
+
+
+      // extVServerGroupId Field Functions 
+      bool hasExtVServerGroupId() const { return this->extVServerGroupId_ != nullptr;};
+      void deleteExtVServerGroupId() { this->extVServerGroupId_ = nullptr;};
+      inline string getExtVServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(extVServerGroupId_, "") };
+      inline Data& setExtVServerGroupId(string extVServerGroupId) { DARABONBA_PTR_SET_VALUE(extVServerGroupId_, extVServerGroupId) };
+
+
+      // slbId Field Functions 
+      bool hasSlbId() const { return this->slbId_ != nullptr;};
+      void deleteSlbId() { this->slbId_ = nullptr;};
+      inline string getSlbId() const { DARABONBA_PTR_GET_DEFAULT(slbId_, "") };
+      inline Data& setSlbId(string slbId) { DARABONBA_PTR_SET_VALUE(slbId_, slbId) };
+
+
+      // slbIp Field Functions 
+      bool hasSlbIp() const { return this->slbIp_ != nullptr;};
+      void deleteSlbIp() { this->slbIp_ = nullptr;};
+      inline string getSlbIp() const { DARABONBA_PTR_GET_DEFAULT(slbIp_, "") };
+      inline Data& setSlbIp(string slbIp) { DARABONBA_PTR_SET_VALUE(slbIp_, slbIp) };
+
+
+      // slbName Field Functions 
+      bool hasSlbName() const { return this->slbName_ != nullptr;};
+      void deleteSlbName() { this->slbName_ = nullptr;};
+      inline string getSlbName() const { DARABONBA_PTR_GET_DEFAULT(slbName_, "") };
+      inline Data& setSlbName(string slbName) { DARABONBA_PTR_SET_VALUE(slbName_, slbName) };
+
+
+      // slbPort Field Functions 
+      bool hasSlbPort() const { return this->slbPort_ != nullptr;};
+      void deleteSlbPort() { this->slbPort_ = nullptr;};
+      inline int32_t getSlbPort() const { DARABONBA_PTR_GET_DEFAULT(slbPort_, 0) };
+      inline Data& setSlbPort(int32_t slbPort) { DARABONBA_PTR_SET_VALUE(slbPort_, slbPort) };
+
+
+      // VServerGroupId Field Functions 
+      bool hasVServerGroupId() const { return this->VServerGroupId_ != nullptr;};
+      void deleteVServerGroupId() { this->VServerGroupId_ = nullptr;};
+      inline string getVServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupId_, "") };
+      inline Data& setVServerGroupId(string VServerGroupId) { DARABONBA_PTR_SET_VALUE(VServerGroupId_, VServerGroupId) };
+
+
+    protected:
+      // The ID of the Internet-facing SLB instance.
+      shared_ptr<string> extSlbId_ {};
+      // The IP address of the Internet-facing SLB instance.
+      shared_ptr<string> extSlbIp_ {};
+      // The name of the Internet-facing SLB instance.
+      shared_ptr<string> extSlbName_ {};
+      // The ID of the vServer group for the Internet-facing SLB instance.
+      shared_ptr<string> extVServerGroupId_ {};
+      // The ID of the internal SLB instance.
+      shared_ptr<string> slbId_ {};
+      // The IP address of the internal SLB instance.
+      shared_ptr<string> slbIp_ {};
+      // The name of the internal SLB instance.
+      shared_ptr<string> slbName_ {};
+      // The listener port of the SLB instance.
+      shared_ptr<int32_t> slbPort_ {};
+      // The ID of the internal vServer group.
+      shared_ptr<string> VServerGroupId_ {};
+    };
+
     virtual bool empty() const override { return this->code_ == nullptr
-        && return this->data_ == nullptr && return this->message_ == nullptr && return this->requestId_ == nullptr; };
+        && this->data_ == nullptr && this->message_ == nullptr && this->requestId_ == nullptr; };
     // code Field Functions 
     bool hasCode() const { return this->code_ != nullptr;};
     void deleteCode() { this->code_ = nullptr;};
-    inline int32_t code() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
+    inline int32_t getCode() const { DARABONBA_PTR_GET_DEFAULT(code_, 0) };
     inline BindSlbResponseBody& setCode(int32_t code) { DARABONBA_PTR_SET_VALUE(code_, code) };
 
 
     // data Field Functions 
     bool hasData() const { return this->data_ != nullptr;};
     void deleteData() { this->data_ = nullptr;};
-    inline const BindSlbResponseBodyData & data() const { DARABONBA_PTR_GET_CONST(data_, BindSlbResponseBodyData) };
-    inline BindSlbResponseBodyData data() { DARABONBA_PTR_GET(data_, BindSlbResponseBodyData) };
-    inline BindSlbResponseBody& setData(const BindSlbResponseBodyData & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
-    inline BindSlbResponseBody& setData(BindSlbResponseBodyData && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
+    inline const BindSlbResponseBody::Data & getData() const { DARABONBA_PTR_GET_CONST(data_, BindSlbResponseBody::Data) };
+    inline BindSlbResponseBody::Data getData() { DARABONBA_PTR_GET(data_, BindSlbResponseBody::Data) };
+    inline BindSlbResponseBody& setData(const BindSlbResponseBody::Data & data) { DARABONBA_PTR_SET_VALUE(data_, data) };
+    inline BindSlbResponseBody& setData(BindSlbResponseBody::Data && data) { DARABONBA_PTR_SET_RVALUE(data_, data) };
 
 
     // message Field Functions 
     bool hasMessage() const { return this->message_ != nullptr;};
     void deleteMessage() { this->message_ = nullptr;};
-    inline string message() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
+    inline string getMessage() const { DARABONBA_PTR_GET_DEFAULT(message_, "") };
     inline BindSlbResponseBody& setMessage(string message) { DARABONBA_PTR_SET_VALUE(message_, message) };
 
 
     // requestId Field Functions 
     bool hasRequestId() const { return this->requestId_ != nullptr;};
     void deleteRequestId() { this->requestId_ = nullptr;};
-    inline string requestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
+    inline string getRequestId() const { DARABONBA_PTR_GET_DEFAULT(requestId_, "") };
     inline BindSlbResponseBody& setRequestId(string requestId) { DARABONBA_PTR_SET_VALUE(requestId_, requestId) };
 
 
   protected:
-    // The HTTP status code that is returned.
-    std::shared_ptr<int32_t> code_ = nullptr;
-    // The data that is returned.
-    std::shared_ptr<BindSlbResponseBodyData> data_ = nullptr;
-    // The additional information that is returned.
-    std::shared_ptr<string> message_ = nullptr;
-    // The ID of the request.
-    std::shared_ptr<string> requestId_ = nullptr;
+    // The response code.
+    shared_ptr<int32_t> code_ {};
+    // The returned data.
+    shared_ptr<BindSlbResponseBody::Data> data_ {};
+    // Additional information.
+    shared_ptr<string> message_ {};
+    // The request ID.
+    shared_ptr<string> requestId_ {};
   };
 
   } // namespace Models

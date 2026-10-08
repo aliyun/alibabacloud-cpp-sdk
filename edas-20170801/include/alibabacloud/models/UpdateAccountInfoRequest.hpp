@@ -34,35 +34,35 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->email_ == nullptr
-        && return this->name_ == nullptr && return this->telephone_ == nullptr; };
+        && this->name_ == nullptr && this->telephone_ == nullptr; };
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline UpdateAccountInfoRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateAccountInfoRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
     // telephone Field Functions 
     bool hasTelephone() const { return this->telephone_ != nullptr;};
     void deleteTelephone() { this->telephone_ = nullptr;};
-    inline string telephone() const { DARABONBA_PTR_GET_DEFAULT(telephone_, "") };
+    inline string getTelephone() const { DARABONBA_PTR_GET_DEFAULT(telephone_, "") };
     inline UpdateAccountInfoRequest& setTelephone(string telephone) { DARABONBA_PTR_SET_VALUE(telephone_, telephone) };
 
 
   protected:
     // The email address of the account.
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<string> email_ {};
     // The name of the account.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<string> name_ {};
     // The contact information of the account.
-    std::shared_ptr<string> telephone_ = nullptr;
+    shared_ptr<string> telephone_ {};
   };
 
   } // namespace Models

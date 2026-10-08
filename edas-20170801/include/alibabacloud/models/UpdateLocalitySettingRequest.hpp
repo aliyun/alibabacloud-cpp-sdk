@@ -38,52 +38,65 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->enabled_ == nullptr && return this->namespaceId_ == nullptr && return this->region_ == nullptr && return this->threshold_ == nullptr; };
+        && this->enabled_ == nullptr && this->namespaceId_ == nullptr && this->region_ == nullptr && this->threshold_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateLocalitySettingRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // enabled Field Functions 
     bool hasEnabled() const { return this->enabled_ != nullptr;};
     void deleteEnabled() { this->enabled_ = nullptr;};
-    inline bool enabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
+    inline bool getEnabled() const { DARABONBA_PTR_GET_DEFAULT(enabled_, false) };
     inline UpdateLocalitySettingRequest& setEnabled(bool enabled) { DARABONBA_PTR_SET_VALUE(enabled_, enabled) };
 
 
     // namespaceId Field Functions 
     bool hasNamespaceId() const { return this->namespaceId_ != nullptr;};
     void deleteNamespaceId() { this->namespaceId_ = nullptr;};
-    inline string namespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
+    inline string getNamespaceId() const { DARABONBA_PTR_GET_DEFAULT(namespaceId_, "") };
     inline UpdateLocalitySettingRequest& setNamespaceId(string namespaceId) { DARABONBA_PTR_SET_VALUE(namespaceId_, namespaceId) };
 
 
     // region Field Functions 
     bool hasRegion() const { return this->region_ != nullptr;};
     void deleteRegion() { this->region_ = nullptr;};
-    inline string region() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
+    inline string getRegion() const { DARABONBA_PTR_GET_DEFAULT(region_, "") };
     inline UpdateLocalitySettingRequest& setRegion(string region) { DARABONBA_PTR_SET_VALUE(region_, region) };
 
 
     // threshold Field Functions 
     bool hasThreshold() const { return this->threshold_ != nullptr;};
     void deleteThreshold() { this->threshold_ = nullptr;};
-    inline float threshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0.0) };
+    inline float getThreshold() const { DARABONBA_PTR_GET_DEFAULT(threshold_, 0.0) };
     inline UpdateLocalitySettingRequest& setThreshold(float threshold) { DARABONBA_PTR_SET_VALUE(threshold_, threshold) };
 
 
   protected:
+    // The ID of the application. You can call the [ListApplication](https://help.aliyun.com/document_detail/149390.html) operation to obtain this ID.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
+    // Specifies whether the setting is active:
+    // 
+    // - true: The setting is active.
+    // 
+    // - false: The setting is not active.
+    // 
     // This parameter is required.
-    std::shared_ptr<bool> enabled_ = nullptr;
+    shared_ptr<bool> enabled_ {};
+    // The ID of the namespace. This ID cannot be changed after the namespace is created. The format is [unk]physical space identifier[unk].
+    // 
     // This parameter is required.
-    std::shared_ptr<string> namespaceId_ = nullptr;
+    shared_ptr<string> namespaceId_ {};
+    // The ID of the region where the elastic compute unit (ECU) is located.
+    // 
     // This parameter is required.
-    std::shared_ptr<string> region_ = nullptr;
-    std::shared_ptr<float> threshold_ = nullptr;
+    shared_ptr<string> region_ {};
+    // The total number of items that satisfy the threshold expression.
+    shared_ptr<float> threshold_ {};
   };
 
   } // namespace Models

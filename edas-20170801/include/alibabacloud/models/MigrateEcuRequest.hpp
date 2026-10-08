@@ -32,31 +32,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIds_ == nullptr
-        && return this->logicalRegionId_ == nullptr; };
+        && this->logicalRegionId_ == nullptr; };
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline MigrateEcuRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // logicalRegionId Field Functions 
     bool hasLogicalRegionId() const { return this->logicalRegionId_ != nullptr;};
     void deleteLogicalRegionId() { this->logicalRegionId_ = nullptr;};
-    inline string logicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
+    inline string getLogicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
     inline MigrateEcuRequest& setLogicalRegionId(string logicalRegionId) { DARABONBA_PTR_SET_VALUE(logicalRegionId_, logicalRegionId) };
 
 
   protected:
-    // The ID of the ECS instance. Separate multiple IDs with commas (,).
+    // The IDs of the instances. To specify multiple instances, separate the IDs with commas (,).
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIds_ = nullptr;
-    // The ID of the custom namespace.
+    shared_ptr<string> instanceIds_ {};
+    // The ID of the namespace.
     // 
-    // *   The ID of a custom namespace is in the `region ID:custom namespace ID` format. Example: cn-beijing:tdy218.
-    // *   The ID of the default namespace is in the `region ID` format. Example: cn-beijing.
-    std::shared_ptr<string> logicalRegionId_ = nullptr;
+    // - A custom namespace ID is in the format `Region ID:Namespace identifier`. Example: cn-beijing:tdy218.
+    // 
+    // - A default namespace ID is the same as its region ID. Example: cn-beijing.
+    shared_ptr<string> logicalRegionId_ {};
   };
 
   } // namespace Models

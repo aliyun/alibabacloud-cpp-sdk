@@ -38,57 +38,57 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appInfos_ == nullptr
-        && return this->enableRules_ == nullptr && return this->entryRules_ == nullptr && return this->laneId_ == nullptr && return this->name_ == nullptr; };
+        && this->enableRules_ == nullptr && this->entryRules_ == nullptr && this->laneId_ == nullptr && this->name_ == nullptr; };
     // appInfos Field Functions 
     bool hasAppInfos() const { return this->appInfos_ != nullptr;};
     void deleteAppInfos() { this->appInfos_ = nullptr;};
-    inline string appInfos() const { DARABONBA_PTR_GET_DEFAULT(appInfos_, "") };
+    inline string getAppInfos() const { DARABONBA_PTR_GET_DEFAULT(appInfos_, "") };
     inline UpdateSwimmingLaneRequest& setAppInfos(string appInfos) { DARABONBA_PTR_SET_VALUE(appInfos_, appInfos) };
 
 
     // enableRules Field Functions 
     bool hasEnableRules() const { return this->enableRules_ != nullptr;};
     void deleteEnableRules() { this->enableRules_ = nullptr;};
-    inline bool enableRules() const { DARABONBA_PTR_GET_DEFAULT(enableRules_, false) };
+    inline bool getEnableRules() const { DARABONBA_PTR_GET_DEFAULT(enableRules_, false) };
     inline UpdateSwimmingLaneRequest& setEnableRules(bool enableRules) { DARABONBA_PTR_SET_VALUE(enableRules_, enableRules) };
 
 
     // entryRules Field Functions 
     bool hasEntryRules() const { return this->entryRules_ != nullptr;};
     void deleteEntryRules() { this->entryRules_ = nullptr;};
-    inline string entryRules() const { DARABONBA_PTR_GET_DEFAULT(entryRules_, "") };
+    inline string getEntryRules() const { DARABONBA_PTR_GET_DEFAULT(entryRules_, "") };
     inline UpdateSwimmingLaneRequest& setEntryRules(string entryRules) { DARABONBA_PTR_SET_VALUE(entryRules_, entryRules) };
 
 
     // laneId Field Functions 
     bool hasLaneId() const { return this->laneId_ != nullptr;};
     void deleteLaneId() { this->laneId_ = nullptr;};
-    inline int64_t laneId() const { DARABONBA_PTR_GET_DEFAULT(laneId_, 0L) };
+    inline int64_t getLaneId() const { DARABONBA_PTR_GET_DEFAULT(laneId_, 0L) };
     inline UpdateSwimmingLaneRequest& setLaneId(int64_t laneId) { DARABONBA_PTR_SET_VALUE(laneId_, laneId) };
 
 
     // name Field Functions 
     bool hasName() const { return this->name_ != nullptr;};
     void deleteName() { this->name_ = nullptr;};
-    inline string name() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
+    inline string getName() const { DARABONBA_PTR_GET_DEFAULT(name_, "") };
     inline UpdateSwimmingLaneRequest& setName(string name) { DARABONBA_PTR_SET_VALUE(name_, name) };
 
 
   protected:
-    // The list of applications that are related to the lane.
-    std::shared_ptr<string> appInfos_ = nullptr;
-    // Specifies whether to enable the throttling rule.
+    // A list of applications associated with the swimming lane.
+    shared_ptr<string> appInfos_ {};
+    // Specifies whether the throttling rule is enabled.
     // 
     // This parameter is required.
-    std::shared_ptr<bool> enableRules_ = nullptr;
+    shared_ptr<bool> enableRules_ {};
     // The configuration of the throttling rule.
-    std::shared_ptr<string> entryRules_ = nullptr;
-    // The ID of the lane.
+    shared_ptr<string> entryRules_ {};
+    // The ID of the swimming lane.
     // 
     // This parameter is required.
-    std::shared_ptr<int64_t> laneId_ = nullptr;
-    // The name of the lane.
-    std::shared_ptr<string> name_ = nullptr;
+    shared_ptr<int64_t> laneId_ {};
+    // The name of the swimming lane.
+    shared_ptr<string> name_ {};
   };
 
   } // namespace Models

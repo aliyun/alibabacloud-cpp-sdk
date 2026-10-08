@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->act_ == nullptr
-        && return this->logicalRegionId_ == nullptr; };
+        && this->logicalRegionId_ == nullptr; };
     // act Field Functions 
     bool hasAct() const { return this->act_ != nullptr;};
     void deleteAct() { this->act_ = nullptr;};
-    inline string act() const { DARABONBA_PTR_GET_DEFAULT(act_, "") };
+    inline string getAct() const { DARABONBA_PTR_GET_DEFAULT(act_, "") };
     inline ListEcuByRegionRequest& setAct(string act) { DARABONBA_PTR_SET_VALUE(act_, act) };
 
 
     // logicalRegionId Field Functions 
     bool hasLogicalRegionId() const { return this->logicalRegionId_ != nullptr;};
     void deleteLogicalRegionId() { this->logicalRegionId_ = nullptr;};
-    inline string logicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
+    inline string getLogicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
     inline ListEcuByRegionRequest& setLogicalRegionId(string logicalRegionId) { DARABONBA_PTR_SET_VALUE(logicalRegionId_, logicalRegionId) };
 
 
@@ -51,12 +51,13 @@ namespace Models
     // Set the value to `pop-query`.
     // 
     // This parameter is required.
-    std::shared_ptr<string> act_ = nullptr;
+    shared_ptr<string> act_ {};
     // The ID of the namespace.
     // 
-    // *   The ID of a custom namespace is in the `region ID:namespace identifier` format. Example: cn-beijing:tdy218.
-    // *   The ID of the default namespace is in the `region ID` format. Example: cn-beijing.
-    std::shared_ptr<string> logicalRegionId_ = nullptr;
+    // - The ID of a custom namespace is in the `region ID:namespace identifier` format. Example: cn-beijing:tdy218.
+    // 
+    // - The ID of the default namespace is in the `region ID` format. Example: cn-beijing.
+    shared_ptr<string> logicalRegionId_ {};
   };
 
   } // namespace Models

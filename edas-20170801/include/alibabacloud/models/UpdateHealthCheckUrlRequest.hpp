@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->hcURL_ == nullptr; };
+        && this->hcURL_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateHealthCheckUrlRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // hcURL Field Functions 
     bool hasHcURL() const { return this->hcURL_ != nullptr;};
     void deleteHcURL() { this->hcURL_ = nullptr;};
-    inline string hcURL() const { DARABONBA_PTR_GET_DEFAULT(hcURL_, "") };
+    inline string getHcURL() const { DARABONBA_PTR_GET_DEFAULT(hcURL_, "") };
     inline UpdateHealthCheckUrlRequest& setHcURL(string hcURL) { DARABONBA_PTR_SET_VALUE(hcURL_, hcURL) };
 
 
@@ -51,9 +51,9 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The health check URL of the application. The URL must start with `http://`, and can be up to 255 characters in length. Example: `http://127.0.0.1:8080/_ehc.html`. If this parameter is not specified, the health check URL of the application is not changed.
-    std::shared_ptr<string> hcURL_ = nullptr;
+    shared_ptr<string> hcURL_ {};
   };
 
   } // namespace Models

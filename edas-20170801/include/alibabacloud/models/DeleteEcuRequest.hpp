@@ -33,7 +33,7 @@ namespace Models
     // ecuId Field Functions 
     bool hasEcuId() const { return this->ecuId_ != nullptr;};
     void deleteEcuId() { this->ecuId_ = nullptr;};
-    inline string ecuId() const { DARABONBA_PTR_GET_DEFAULT(ecuId_, "") };
+    inline string getEcuId() const { DARABONBA_PTR_GET_DEFAULT(ecuId_, "") };
     inline DeleteEcuRequest& setEcuId(string ecuId) { DARABONBA_PTR_SET_VALUE(ecuId_, ecuId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The unique ID of the ECU to be deleted.
     // 
     // This parameter is required.
-    std::shared_ptr<string> ecuId_ = nullptr;
+    shared_ptr<string> ecuId_ {};
   };
 
   } // namespace Models

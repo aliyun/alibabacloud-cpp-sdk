@@ -33,7 +33,7 @@ namespace Models
     // eccId Field Functions 
     bool hasEccId() const { return this->eccId_ != nullptr;};
     void deleteEccId() { this->eccId_ = nullptr;};
-    inline string eccId() const { DARABONBA_PTR_GET_DEFAULT(eccId_, "") };
+    inline string getEccId() const { DARABONBA_PTR_GET_DEFAULT(eccId_, "") };
     inline QueryEccInfoRequest& setEccId(string eccId) { DARABONBA_PTR_SET_VALUE(eccId_, eccId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the ECC.
     // 
     // This parameter is required.
-    std::shared_ptr<string> eccId_ = nullptr;
+    shared_ptr<string> eccId_ {};
   };
 
   } // namespace Models

@@ -44,86 +44,87 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->scalingBehaviour_ == nullptr && return this->scalingRuleEnable_ == nullptr && return this->scalingRuleMetric_ == nullptr && return this->scalingRuleName_ == nullptr && return this->scalingRuleTimer_ == nullptr
-        && return this->scalingRuleTrigger_ == nullptr && return this->scalingRuleType_ == nullptr; };
+        && this->scalingBehaviour_ == nullptr && this->scalingRuleEnable_ == nullptr && this->scalingRuleMetric_ == nullptr && this->scalingRuleName_ == nullptr && this->scalingRuleTimer_ == nullptr
+        && this->scalingRuleTrigger_ == nullptr && this->scalingRuleType_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateApplicationScalingRuleRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // scalingBehaviour Field Functions 
     bool hasScalingBehaviour() const { return this->scalingBehaviour_ != nullptr;};
     void deleteScalingBehaviour() { this->scalingBehaviour_ = nullptr;};
-    inline string scalingBehaviour() const { DARABONBA_PTR_GET_DEFAULT(scalingBehaviour_, "") };
+    inline string getScalingBehaviour() const { DARABONBA_PTR_GET_DEFAULT(scalingBehaviour_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingBehaviour(string scalingBehaviour) { DARABONBA_PTR_SET_VALUE(scalingBehaviour_, scalingBehaviour) };
 
 
     // scalingRuleEnable Field Functions 
     bool hasScalingRuleEnable() const { return this->scalingRuleEnable_ != nullptr;};
     void deleteScalingRuleEnable() { this->scalingRuleEnable_ = nullptr;};
-    inline bool scalingRuleEnable() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleEnable_, false) };
+    inline bool getScalingRuleEnable() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleEnable_, false) };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleEnable(bool scalingRuleEnable) { DARABONBA_PTR_SET_VALUE(scalingRuleEnable_, scalingRuleEnable) };
 
 
     // scalingRuleMetric Field Functions 
     bool hasScalingRuleMetric() const { return this->scalingRuleMetric_ != nullptr;};
     void deleteScalingRuleMetric() { this->scalingRuleMetric_ = nullptr;};
-    inline string scalingRuleMetric() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleMetric_, "") };
+    inline string getScalingRuleMetric() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleMetric_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleMetric(string scalingRuleMetric) { DARABONBA_PTR_SET_VALUE(scalingRuleMetric_, scalingRuleMetric) };
 
 
     // scalingRuleName Field Functions 
     bool hasScalingRuleName() const { return this->scalingRuleName_ != nullptr;};
     void deleteScalingRuleName() { this->scalingRuleName_ = nullptr;};
-    inline string scalingRuleName() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleName_, "") };
+    inline string getScalingRuleName() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleName_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleName(string scalingRuleName) { DARABONBA_PTR_SET_VALUE(scalingRuleName_, scalingRuleName) };
 
 
     // scalingRuleTimer Field Functions 
     bool hasScalingRuleTimer() const { return this->scalingRuleTimer_ != nullptr;};
     void deleteScalingRuleTimer() { this->scalingRuleTimer_ = nullptr;};
-    inline string scalingRuleTimer() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleTimer_, "") };
+    inline string getScalingRuleTimer() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleTimer_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleTimer(string scalingRuleTimer) { DARABONBA_PTR_SET_VALUE(scalingRuleTimer_, scalingRuleTimer) };
 
 
     // scalingRuleTrigger Field Functions 
     bool hasScalingRuleTrigger() const { return this->scalingRuleTrigger_ != nullptr;};
     void deleteScalingRuleTrigger() { this->scalingRuleTrigger_ = nullptr;};
-    inline string scalingRuleTrigger() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleTrigger_, "") };
+    inline string getScalingRuleTrigger() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleTrigger_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleTrigger(string scalingRuleTrigger) { DARABONBA_PTR_SET_VALUE(scalingRuleTrigger_, scalingRuleTrigger) };
 
 
     // scalingRuleType Field Functions 
     bool hasScalingRuleType() const { return this->scalingRuleType_ != nullptr;};
     void deleteScalingRuleType() { this->scalingRuleType_ = nullptr;};
-    inline string scalingRuleType() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleType_, "") };
+    inline string getScalingRuleType() const { DARABONBA_PTR_GET_DEFAULT(scalingRuleType_, "") };
     inline UpdateApplicationScalingRuleRequest& setScalingRuleType(string scalingRuleType) { DARABONBA_PTR_SET_VALUE(scalingRuleType_, scalingRuleType) };
 
 
   protected:
-    // The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
-    std::shared_ptr<string> appId_ = nullptr;
-    // The behavior of the auto scaling. See the example for the data structure.
-    std::shared_ptr<string> scalingBehaviour_ = nullptr;
-    // Specifies whether to enable the auto scaling policy. Valid values:
+    // The ID of the application. Call the [ListApplication](https://help.aliyun.com/document_detail/149390.html) operation to obtain this ID.
+    shared_ptr<string> appId_ {};
+    // The configuration of custom scaling behaviors. For more information about the data structure, see the example.
+    shared_ptr<string> scalingBehaviour_ {};
+    // The status of the Auto Scaling policy.
     // 
-    // *   **true**: enables the auto scaling policy.
-    // *   **false**: disables the auto scaling policy.
-    std::shared_ptr<bool> scalingRuleEnable_ = nullptr;
-    // This parameter is deprecated.
-    std::shared_ptr<string> scalingRuleMetric_ = nullptr;
-    // The name of the auto scaling policy.
-    std::shared_ptr<string> scalingRuleName_ = nullptr;
-    // This parameter is deprecated.
-    std::shared_ptr<string> scalingRuleTimer_ = nullptr;
-    // The trigger policy for the auto scaling policy. Set this parameter in the JSON format by using the ScalingRuleTriggerDTO class. For more information, see Additional description of request parameters.
-    std::shared_ptr<string> scalingRuleTrigger_ = nullptr;
-    // The type of the auto scaling policy.
+    // - **true**: enabled
     // 
-    // *   Set the value to trigger.
-    std::shared_ptr<string> scalingRuleType_ = nullptr;
+    // - **false**: disabled
+    shared_ptr<bool> scalingRuleEnable_ {};
+    // This parameter is deprecated.
+    shared_ptr<string> scalingRuleMetric_ {};
+    // The name of the Auto Scaling policy.
+    shared_ptr<string> scalingRuleName_ {};
+    // This parameter is deprecated.
+    shared_ptr<string> scalingRuleTimer_ {};
+    // The trigger policy, which is a JSON string of a ScalingRuleTriggerDTO object. For more information about the format, see the Additional information about request parameters section.
+    shared_ptr<string> scalingRuleTrigger_ {};
+    // The type of the Auto Scaling policy. Only the following type is supported:
+    // 
+    // - trigger: a trigger-based policy.
+    shared_ptr<string> scalingRuleType_ {};
   };
 
   } // namespace Models

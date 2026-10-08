@@ -40,46 +40,46 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->groupId_ == nullptr && return this->maxHeapSize_ == nullptr && return this->maxPermSize_ == nullptr && return this->minHeapSize_ == nullptr && return this->options_ == nullptr; };
+        && this->groupId_ == nullptr && this->maxHeapSize_ == nullptr && this->maxPermSize_ == nullptr && this->minHeapSize_ == nullptr && this->options_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateJvmConfigurationRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // groupId Field Functions 
     bool hasGroupId() const { return this->groupId_ != nullptr;};
     void deleteGroupId() { this->groupId_ = nullptr;};
-    inline string groupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
+    inline string getGroupId() const { DARABONBA_PTR_GET_DEFAULT(groupId_, "") };
     inline UpdateJvmConfigurationRequest& setGroupId(string groupId) { DARABONBA_PTR_SET_VALUE(groupId_, groupId) };
 
 
     // maxHeapSize Field Functions 
     bool hasMaxHeapSize() const { return this->maxHeapSize_ != nullptr;};
     void deleteMaxHeapSize() { this->maxHeapSize_ = nullptr;};
-    inline int32_t maxHeapSize() const { DARABONBA_PTR_GET_DEFAULT(maxHeapSize_, 0) };
+    inline int32_t getMaxHeapSize() const { DARABONBA_PTR_GET_DEFAULT(maxHeapSize_, 0) };
     inline UpdateJvmConfigurationRequest& setMaxHeapSize(int32_t maxHeapSize) { DARABONBA_PTR_SET_VALUE(maxHeapSize_, maxHeapSize) };
 
 
     // maxPermSize Field Functions 
     bool hasMaxPermSize() const { return this->maxPermSize_ != nullptr;};
     void deleteMaxPermSize() { this->maxPermSize_ = nullptr;};
-    inline int32_t maxPermSize() const { DARABONBA_PTR_GET_DEFAULT(maxPermSize_, 0) };
+    inline int32_t getMaxPermSize() const { DARABONBA_PTR_GET_DEFAULT(maxPermSize_, 0) };
     inline UpdateJvmConfigurationRequest& setMaxPermSize(int32_t maxPermSize) { DARABONBA_PTR_SET_VALUE(maxPermSize_, maxPermSize) };
 
 
     // minHeapSize Field Functions 
     bool hasMinHeapSize() const { return this->minHeapSize_ != nullptr;};
     void deleteMinHeapSize() { this->minHeapSize_ = nullptr;};
-    inline int32_t minHeapSize() const { DARABONBA_PTR_GET_DEFAULT(minHeapSize_, 0) };
+    inline int32_t getMinHeapSize() const { DARABONBA_PTR_GET_DEFAULT(minHeapSize_, 0) };
     inline UpdateJvmConfigurationRequest& setMinHeapSize(int32_t minHeapSize) { DARABONBA_PTR_SET_VALUE(minHeapSize_, minHeapSize) };
 
 
     // options Field Functions 
     bool hasOptions() const { return this->options_ != nullptr;};
     void deleteOptions() { this->options_ = nullptr;};
-    inline string options() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
+    inline string getOptions() const { DARABONBA_PTR_GET_DEFAULT(options_, "") };
     inline UpdateJvmConfigurationRequest& setOptions(string options) { DARABONBA_PTR_SET_VALUE(options_, options) };
 
 
@@ -87,47 +87,47 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the instance group where the application is deployed. You can call the ListDeployGroup operation to query the group ID. For more information, see [ListDeployGroup](https://help.aliyun.com/document_detail/62077.html).
     // 
-    // > 
+    // >
     // 
-    // *   To configure the JVM parameters for an instance group, set this parameter to a specific ID.
+    // - To configure the JVM parameters for an instance group, set this parameter to a specific ID.
     // 
-    // *   To configure the JVM parameters for an application, leave this parameter empty.
-    std::shared_ptr<string> groupId_ = nullptr;
+    // - To configure the JVM parameters for an application, leave this parameter empty.
+    shared_ptr<string> groupId_ {};
     // The maximum size of the heap memory. Unit: MB.
     // 
-    // > 
+    // >
     // 
-    // *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+    // - If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
     // 
-    // *   If this parameter is not specified in the application configuration, the default value is used.
-    std::shared_ptr<int32_t> maxHeapSize_ = nullptr;
+    // - If this parameter is not specified in the application configuration, the default value is used.
+    shared_ptr<int32_t> maxHeapSize_ {};
     // The size of the permanent generation heap memory. Unit: MB.
     // 
-    // > 
+    // >
     // 
-    // *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+    // - If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
     // 
-    // *   If this parameter is not specified in the application configuration, the default value is used.
-    std::shared_ptr<int32_t> maxPermSize_ = nullptr;
+    // - If this parameter is not specified in the application configuration, the default value is used.
+    shared_ptr<int32_t> maxPermSize_ {};
     // The initial size of the heap memory. Unit: MB.
     // 
-    // > 
+    // >
     // 
-    // *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+    // - If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
     // 
-    // *   If this parameter is not specified in the application configuration, the default value is used.
-    std::shared_ptr<int32_t> minHeapSize_ = nullptr;
+    // - If this parameter is not specified in the application configuration, the default value is used.
+    shared_ptr<int32_t> minHeapSize_ {};
     // The custom JVM parameters.
     // 
-    // > 
+    // >
     // 
-    // *   If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
+    // - If this parameter is not specified in the group configuration, the value specified in the application configuration is used.
     // 
-    // *   If this parameter is not specified in the application configuration, the default value is used.
-    std::shared_ptr<string> options_ = nullptr;
+    // - If this parameter is not specified in the application configuration, the default value is used.
+    shared_ptr<string> options_ {};
   };
 
   } // namespace Models

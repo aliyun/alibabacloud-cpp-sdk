@@ -79,7 +79,7 @@ string Client::getEndpoint(const string &productId, const string &regionId, cons
 }
 
 /**
- * @summary Terminates a change process and rolls back the application. This operation is applicable to applications that are deployed in Container Service for Kubernetes (ACK) clusters.
+ * @summary You can call the AbortAndRollbackChangeOrder operation to stop and roll back a change order for applications in Container Service for Kubernetes (ACK) clusters.
  *
  * @param request AbortAndRollbackChangeOrderRequest
  * @param headers map
@@ -90,7 +90,7 @@ AbortAndRollbackChangeOrderResponse Client::abortAndRollbackChangeOrderWithOptio
   request.validate();
   json query = {};
   if (!!request.hasChangeOrderId()) {
-    query["ChangeOrderId"] = request.changeOrderId();
+    query["ChangeOrderId"] = request.getChangeOrderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -112,7 +112,7 @@ AbortAndRollbackChangeOrderResponse Client::abortAndRollbackChangeOrderWithOptio
 }
 
 /**
- * @summary Terminates a change process and rolls back the application. This operation is applicable to applications that are deployed in Container Service for Kubernetes (ACK) clusters.
+ * @summary You can call the AbortAndRollbackChangeOrder operation to stop and roll back a change order for applications in Container Service for Kubernetes (ACK) clusters.
  *
  * @param request AbortAndRollbackChangeOrderRequest
  * @return AbortAndRollbackChangeOrderResponse
@@ -135,7 +135,7 @@ AbortChangeOrderResponse Client::abortChangeOrderWithOptions(const AbortChangeOr
   request.validate();
   json query = {};
   if (!!request.hasChangeOrderId()) {
-    query["ChangeOrderId"] = request.changeOrderId();
+    query["ChangeOrderId"] = request.getChangeOrderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -180,11 +180,11 @@ AddLogPathResponse Client::addLogPathWithOptions(const AddLogPathRequest &reques
   request.validate();
   json body = {};
   if (!!request.hasAppId()) {
-    body["AppId"] = request.appId();
+    body["AppId"] = request.getAppId();
   }
 
   if (!!request.hasPath()) {
-    body["Path"] = request.path();
+    body["Path"] = request.getPath();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -229,11 +229,11 @@ AuthorizeApplicationResponse Client::authorizeApplicationWithOptions(const Autho
   request.validate();
   json query = {};
   if (!!request.hasAppIds()) {
-    query["AppIds"] = request.appIds();
+    query["AppIds"] = request.getAppIds();
   }
 
   if (!!request.hasTargetUserId()) {
-    query["TargetUserId"] = request.targetUserId();
+    query["TargetUserId"] = request.getTargetUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -278,11 +278,11 @@ AuthorizeResourceGroupResponse Client::authorizeResourceGroupWithOptions(const A
   request.validate();
   json query = {};
   if (!!request.hasResourceGroupIds()) {
-    query["ResourceGroupIds"] = request.resourceGroupIds();
+    query["ResourceGroupIds"] = request.getResourceGroupIds();
   }
 
   if (!!request.hasTargetUserId()) {
-    query["TargetUserId"] = request.targetUserId();
+    query["TargetUserId"] = request.getTargetUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -316,7 +316,7 @@ AuthorizeResourceGroupResponse Client::authorizeResourceGroup(const AuthorizeRes
 }
 
 /**
- * @summary Assigns one or more roles to a RAM user.
+ * @summary Grant permissions to RAM roles.
  *
  * @param request AuthorizeRoleRequest
  * @param headers map
@@ -327,11 +327,11 @@ AuthorizeRoleResponse Client::authorizeRoleWithOptions(const AuthorizeRoleReques
   request.validate();
   json query = {};
   if (!!request.hasRoleIds()) {
-    query["RoleIds"] = request.roleIds();
+    query["RoleIds"] = request.getRoleIds();
   }
 
   if (!!request.hasTargetUserId()) {
-    query["TargetUserId"] = request.targetUserId();
+    query["TargetUserId"] = request.getTargetUserId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -353,7 +353,7 @@ AuthorizeRoleResponse Client::authorizeRoleWithOptions(const AuthorizeRoleReques
 }
 
 /**
- * @summary Assigns one or more roles to a RAM user.
+ * @summary Grant permissions to RAM roles.
  *
  * @param request AuthorizeRoleRequest
  * @return AuthorizeRoleResponse
@@ -376,39 +376,39 @@ BindEcsSlbResponse Client::bindEcsSlbWithOptions(const BindEcsSlbRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasDeployGroupId()) {
-    query["DeployGroupId"] = request.deployGroupId();
+    query["DeployGroupId"] = request.getDeployGroupId();
   }
 
   if (!!request.hasListenerHealthCheckUrl()) {
-    query["ListenerHealthCheckUrl"] = request.listenerHealthCheckUrl();
+    query["ListenerHealthCheckUrl"] = request.getListenerHealthCheckUrl();
   }
 
   if (!!request.hasListenerPort()) {
-    query["ListenerPort"] = request.listenerPort();
+    query["ListenerPort"] = request.getListenerPort();
   }
 
   if (!!request.hasListenerProtocol()) {
-    query["ListenerProtocol"] = request.listenerProtocol();
+    query["ListenerProtocol"] = request.getListenerProtocol();
   }
 
   if (!!request.hasSlbId()) {
-    query["SlbId"] = request.slbId();
+    query["SlbId"] = request.getSlbId();
   }
 
   if (!!request.hasVForwardingUrlRule()) {
-    query["VForwardingUrlRule"] = request.VForwardingUrlRule();
+    query["VForwardingUrlRule"] = request.getVForwardingUrlRule();
   }
 
   if (!!request.hasVServerGroupId()) {
-    query["VServerGroupId"] = request.VServerGroupId();
+    query["VServerGroupId"] = request.getVServerGroupId();
   }
 
   if (!!request.hasVServerGroupName()) {
-    query["VServerGroupName"] = request.VServerGroupName();
+    query["VServerGroupName"] = request.getVServerGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -442,7 +442,7 @@ BindEcsSlbResponse Client::bindEcsSlb(const BindEcsSlbRequest &request) {
 }
 
 /**
- * @summary Binds a Server Load Balancer (SLB) instance to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+ * @summary Attaches a Server Load Balancer (SLB) instance to an application in a Container Service for Kubernetes cluster.
  *
  * @param request BindK8sSlbRequest
  * @param headers map
@@ -453,43 +453,43 @@ BindK8sSlbResponse Client::bindK8sSlbWithOptions(const BindK8sSlbRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasPort()) {
-    query["Port"] = request.port();
+    query["Port"] = request.getPort();
   }
 
   if (!!request.hasScheduler()) {
-    query["Scheduler"] = request.scheduler();
+    query["Scheduler"] = request.getScheduler();
   }
 
   if (!!request.hasServicePortInfos()) {
-    query["ServicePortInfos"] = request.servicePortInfos();
+    query["ServicePortInfos"] = request.getServicePortInfos();
   }
 
   if (!!request.hasSlbId()) {
-    query["SlbId"] = request.slbId();
+    query["SlbId"] = request.getSlbId();
   }
 
   if (!!request.hasSlbProtocol()) {
-    query["SlbProtocol"] = request.slbProtocol();
+    query["SlbProtocol"] = request.getSlbProtocol();
   }
 
   if (!!request.hasSpecification()) {
-    query["Specification"] = request.specification();
+    query["Specification"] = request.getSpecification();
   }
 
   if (!!request.hasTargetPort()) {
-    query["TargetPort"] = request.targetPort();
+    query["TargetPort"] = request.getTargetPort();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -511,7 +511,7 @@ BindK8sSlbResponse Client::bindK8sSlbWithOptions(const BindK8sSlbRequest &reques
 }
 
 /**
- * @summary Binds a Server Load Balancer (SLB) instance to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+ * @summary Attaches a Server Load Balancer (SLB) instance to an application in a Container Service for Kubernetes cluster.
  *
  * @param request BindK8sSlbRequest
  * @return BindK8sSlbResponse
@@ -523,7 +523,7 @@ BindK8sSlbResponse Client::bindK8sSlb(const BindK8sSlbRequest &request) {
 }
 
 /**
- * @summary Binds a Server Load Balancer (SLB) instance to an application in Enterprise Distributed Application Service (EDAS).
+ * @summary Calls the BindSlb operation to attach a Server Load Balancer (SLB) instance to a specified application.
  *
  * @param request BindSlbRequest
  * @param headers map
@@ -534,27 +534,27 @@ BindSlbResponse Client::bindSlbWithOptions(const BindSlbRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasListenerPort()) {
-    query["ListenerPort"] = request.listenerPort();
+    query["ListenerPort"] = request.getListenerPort();
   }
 
   if (!!request.hasSlbId()) {
-    query["SlbId"] = request.slbId();
+    query["SlbId"] = request.getSlbId();
   }
 
   if (!!request.hasSlbIp()) {
-    query["SlbIp"] = request.slbIp();
+    query["SlbIp"] = request.getSlbIp();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   if (!!request.hasVServerGroupId()) {
-    query["VServerGroupId"] = request.VServerGroupId();
+    query["VServerGroupId"] = request.getVServerGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -576,7 +576,7 @@ BindSlbResponse Client::bindSlbWithOptions(const BindSlbRequest &request, const 
 }
 
 /**
- * @summary Binds a Server Load Balancer (SLB) instance to an application in Enterprise Distributed Application Service (EDAS).
+ * @summary Calls the BindSlb operation to attach a Server Load Balancer (SLB) instance to a specified application.
  *
  * @param request BindSlbRequest
  * @return BindSlbResponse
@@ -588,7 +588,7 @@ BindSlbResponse Client::bindSlb(const BindSlbRequest &request) {
 }
 
 /**
- * @summary Changes the application instance group for an Elastic Compute Service (ECS) instance in an ECS cluster.
+ * @summary Call the ChangeDeployGroup operation to change the group of an ECS instance in an application deployed in an ECS cluster.
  *
  * @param request ChangeDeployGroupRequest
  * @param headers map
@@ -599,19 +599,19 @@ ChangeDeployGroupResponse Client::changeDeployGroupWithOptions(const ChangeDeplo
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEccInfo()) {
-    query["EccInfo"] = request.eccInfo();
+    query["EccInfo"] = request.getEccInfo();
   }
 
   if (!!request.hasForceStatus()) {
-    query["ForceStatus"] = request.forceStatus();
+    query["ForceStatus"] = request.getForceStatus();
   }
 
   if (!!request.hasGroupName()) {
-    query["GroupName"] = request.groupName();
+    query["GroupName"] = request.getGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -633,7 +633,7 @@ ChangeDeployGroupResponse Client::changeDeployGroupWithOptions(const ChangeDeplo
 }
 
 /**
- * @summary Changes the application instance group for an Elastic Compute Service (ECS) instance in an ECS cluster.
+ * @summary Call the ChangeDeployGroup operation to change the group of an ECS instance in an application deployed in an ECS cluster.
  *
  * @param request ChangeDeployGroupRequest
  * @return ChangeDeployGroupResponse
@@ -656,11 +656,11 @@ ContinuePipelineResponse Client::continuePipelineWithOptions(const ContinuePipel
   request.validate();
   json query = {};
   if (!!request.hasConfirm()) {
-    query["Confirm"] = request.confirm();
+    query["Confirm"] = request.getConfirm();
   }
 
   if (!!request.hasPipelineId()) {
-    query["PipelineId"] = request.pipelineId();
+    query["PipelineId"] = request.getPipelineId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -694,7 +694,7 @@ ContinuePipelineResponse Client::continuePipeline(const ContinuePipelineRequest 
 }
 
 /**
- * @summary Converts a Deployment into an application.
+ * @summary Converts a Deployment resource into an application.
  *
  * @param request ConvertK8sResourceRequest
  * @param headers map
@@ -705,19 +705,19 @@ ConvertK8sResourceResponse Client::convertK8sResourceWithOptions(const ConvertK8
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasResourceName()) {
-    query["ResourceName"] = request.resourceName();
+    query["ResourceName"] = request.getResourceName();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -739,7 +739,7 @@ ConvertK8sResourceResponse Client::convertK8sResourceWithOptions(const ConvertK8
 }
 
 /**
- * @summary Converts a Deployment into an application.
+ * @summary Converts a Deployment resource into an application.
  *
  * @param request ConvertK8sResourceRequest
  * @return ConvertK8sResourceResponse
@@ -751,7 +751,7 @@ ConvertK8sResourceResponse Client::convertK8sResource(const ConvertK8sResourceRe
 }
 
 /**
- * @summary Creates an auto scaling policy for an application.
+ * @summary Call the CreateApplicationScalingRule operation to create an Auto Scaling rule for an application.
  *
  * @param request CreateApplicationScalingRuleRequest
  * @param headers map
@@ -762,35 +762,35 @@ CreateApplicationScalingRuleResponse Client::createApplicationScalingRuleWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasScalingBehaviour()) {
-    query["ScalingBehaviour"] = request.scalingBehaviour();
+    query["ScalingBehaviour"] = request.getScalingBehaviour();
   }
 
   if (!!request.hasScalingRuleEnable()) {
-    query["ScalingRuleEnable"] = request.scalingRuleEnable();
+    query["ScalingRuleEnable"] = request.getScalingRuleEnable();
   }
 
   if (!!request.hasScalingRuleMetric()) {
-    query["ScalingRuleMetric"] = request.scalingRuleMetric();
+    query["ScalingRuleMetric"] = request.getScalingRuleMetric();
   }
 
   if (!!request.hasScalingRuleName()) {
-    query["ScalingRuleName"] = request.scalingRuleName();
+    query["ScalingRuleName"] = request.getScalingRuleName();
   }
 
   if (!!request.hasScalingRuleTimer()) {
-    query["ScalingRuleTimer"] = request.scalingRuleTimer();
+    query["ScalingRuleTimer"] = request.getScalingRuleTimer();
   }
 
   if (!!request.hasScalingRuleTrigger()) {
-    query["ScalingRuleTrigger"] = request.scalingRuleTrigger();
+    query["ScalingRuleTrigger"] = request.getScalingRuleTrigger();
   }
 
   if (!!request.hasScalingRuleType()) {
-    query["ScalingRuleType"] = request.scalingRuleType();
+    query["ScalingRuleType"] = request.getScalingRuleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -812,7 +812,7 @@ CreateApplicationScalingRuleResponse Client::createApplicationScalingRuleWithOpt
 }
 
 /**
- * @summary Creates an auto scaling policy for an application.
+ * @summary Call the CreateApplicationScalingRule operation to create an Auto Scaling rule for an application.
  *
  * @param request CreateApplicationScalingRuleRequest
  * @return CreateApplicationScalingRuleResponse
@@ -835,19 +835,19 @@ CreateConfigTemplateResponse Client::createConfigTemplateWithOptions(const Creat
   request.validate();
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFormat()) {
-    body["Format"] = request.format();
+    body["Format"] = request.getFormat();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -895,7 +895,7 @@ CreateIDCImportCommandResponse Client::createIDCImportCommandWithOptions(const C
   request.validate();
   json body = {};
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -943,19 +943,19 @@ CreateK8sConfigMapResponse Client::createK8sConfigMapWithOptions(const CreateK8s
   request.validate();
   json body = {};
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasData()) {
-    body["Data"] = request.data();
+    body["Data"] = request.getData();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    body["Namespace"] = request._namespace();
+    body["Namespace"] = request.getNamespace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1000,27 +1000,27 @@ CreateK8sIngressRuleResponse Client::createK8sIngressRuleWithOptions(const Creat
   request.validate();
   json query = {};
   if (!!request.hasAnnotations()) {
-    query["Annotations"] = request.annotations();
+    query["Annotations"] = request.getAnnotations();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasIngressConf()) {
-    query["IngressConf"] = request.ingressConf();
+    query["IngressConf"] = request.getIngressConf();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1065,35 +1065,35 @@ CreateK8sSecretResponse Client::createK8sSecretWithOptions(const CreateK8sSecret
   request.validate();
   json body = {};
   if (!!request.hasBase64Encoded()) {
-    body["Base64Encoded"] = request.base64Encoded();
+    body["Base64Encoded"] = request.getBase64Encoded();
   }
 
   if (!!request.hasCertId()) {
-    body["CertId"] = request.certId();
+    body["CertId"] = request.getCertId();
   }
 
   if (!!request.hasCertRegionId()) {
-    body["CertRegionId"] = request.certRegionId();
+    body["CertRegionId"] = request.getCertRegionId();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasData()) {
-    body["Data"] = request.data();
+    body["Data"] = request.getData();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    body["Namespace"] = request._namespace();
+    body["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1138,23 +1138,23 @@ CreateK8sServiceResponse Client::createK8sServiceWithOptions(const CreateK8sServ
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasExternalTrafficPolicy()) {
-    query["ExternalTrafficPolicy"] = request.externalTrafficPolicy();
+    query["ExternalTrafficPolicy"] = request.getExternalTrafficPolicy();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasServicePorts()) {
-    query["ServicePorts"] = request.servicePorts();
+    query["ServicePorts"] = request.getServicePorts();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1188,7 +1188,7 @@ CreateK8sServiceResponse Client::createK8sService(const CreateK8sServiceRequest 
 }
 
 /**
- * @summary Deletes an application.
+ * @summary Call the DeleteApplication operation to delete an application instance.
  *
  * @param request DeleteApplicationRequest
  * @param headers map
@@ -1199,7 +1199,7 @@ DeleteApplicationResponse Client::deleteApplicationWithOptions(const DeleteAppli
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1221,7 +1221,7 @@ DeleteApplicationResponse Client::deleteApplicationWithOptions(const DeleteAppli
 }
 
 /**
- * @summary Deletes an application.
+ * @summary Call the DeleteApplication operation to delete an application instance.
  *
  * @param request DeleteApplicationRequest
  * @return DeleteApplicationResponse
@@ -1233,7 +1233,7 @@ DeleteApplicationResponse Client::deleteApplication(const DeleteApplicationReque
 }
 
 /**
- * @summary Deletes an auto scaling policy for an application.
+ * @summary Deletes an Auto Scaling rule for an application.
  *
  * @param request DeleteApplicationScalingRuleRequest
  * @param headers map
@@ -1244,11 +1244,11 @@ DeleteApplicationScalingRuleResponse Client::deleteApplicationScalingRuleWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasScalingRuleName()) {
-    query["ScalingRuleName"] = request.scalingRuleName();
+    query["ScalingRuleName"] = request.getScalingRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1270,7 +1270,7 @@ DeleteApplicationScalingRuleResponse Client::deleteApplicationScalingRuleWithOpt
 }
 
 /**
- * @summary Deletes an auto scaling policy for an application.
+ * @summary Deletes an Auto Scaling rule for an application.
  *
  * @param request DeleteApplicationScalingRuleRequest
  * @return DeleteApplicationScalingRuleResponse
@@ -1293,11 +1293,11 @@ DeleteClusterResponse Client::deleteClusterWithOptions(const DeleteClusterReques
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasMode()) {
-    query["Mode"] = request.mode();
+    query["Mode"] = request.getMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1342,11 +1342,11 @@ DeleteClusterMemberResponse Client::deleteClusterMemberWithOptions(const DeleteC
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasClusterMemberId()) {
-    query["ClusterMemberId"] = request.clusterMemberId();
+    query["ClusterMemberId"] = request.getClusterMemberId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1391,7 +1391,7 @@ DeleteConfigTemplateResponse Client::deleteConfigTemplateWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1436,11 +1436,11 @@ DeleteDeployGroupResponse Client::deleteDeployGroupWithOptions(const DeleteDeplo
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasGroupName()) {
-    query["GroupName"] = request.groupName();
+    query["GroupName"] = request.getGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1485,7 +1485,7 @@ DeleteEcuResponse Client::deleteEcuWithOptions(const DeleteEcuRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasEcuId()) {
-    query["EcuId"] = request.ecuId();
+    query["EcuId"] = request.getEcuId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1530,11 +1530,11 @@ DeleteK8sApplicationResponse Client::deleteK8sApplicationWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasForce()) {
-    query["Force"] = request.force();
+    query["Force"] = request.getForce();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1579,15 +1579,15 @@ DeleteK8sConfigMapResponse Client::deleteK8sConfigMapWithOptions(const DeleteK8s
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1632,15 +1632,15 @@ DeleteK8sIngressRuleResponse Client::deleteK8sIngressRuleWithOptions(const Delet
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1685,15 +1685,15 @@ DeleteK8sSecretResponse Client::deleteK8sSecretWithOptions(const DeleteK8sSecret
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1738,11 +1738,11 @@ DeleteK8sServiceResponse Client::deleteK8sServiceWithOptions(const DeleteK8sServ
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1776,7 +1776,7 @@ DeleteK8sServiceResponse Client::deleteK8sService(const DeleteK8sServiceRequest 
 }
 
 /**
- * @summary Removes a log directory from an application. This operation is applicable to applications that are deployed in Alibaba Cloud Elastic Compute Service (ECS) clusters and hybrid cloud ECS clusters.
+ * @summary Deletes resources associated with a log directory. This operation is suitable for applications deployed on Alibaba Cloud Elastic Compute Service (ECS) instances or container orchestration clusters from other cloud providers.
  *
  * @param request DeleteLogPathRequest
  * @param headers map
@@ -1787,11 +1787,11 @@ DeleteLogPathResponse Client::deleteLogPathWithOptions(const DeleteLogPathReques
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasPath()) {
-    query["Path"] = request.path();
+    query["Path"] = request.getPath();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1813,7 +1813,7 @@ DeleteLogPathResponse Client::deleteLogPathWithOptions(const DeleteLogPathReques
 }
 
 /**
- * @summary Removes a log directory from an application. This operation is applicable to applications that are deployed in Alibaba Cloud Elastic Compute Service (ECS) clusters and hybrid cloud ECS clusters.
+ * @summary Deletes resources associated with a log directory. This operation is suitable for applications deployed on Alibaba Cloud Elastic Compute Service (ECS) instances or container orchestration clusters from other cloud providers.
  *
  * @param request DeleteLogPathRequest
  * @return DeleteLogPathResponse
@@ -1836,7 +1836,7 @@ DeleteRoleResponse Client::deleteRoleWithOptions(const DeleteRoleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasRoleId()) {
-    query["RoleId"] = request.roleId();
+    query["RoleId"] = request.getRoleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1881,7 +1881,7 @@ DeleteServiceGroupResponse Client::deleteServiceGroupWithOptions(const DeleteSer
   request.validate();
   json query = {};
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1926,7 +1926,7 @@ DeleteSwimmingLaneResponse Client::deleteSwimmingLaneWithOptions(const DeleteSwi
   request.validate();
   json query = {};
   if (!!request.hasLaneId()) {
-    query["LaneId"] = request.laneId();
+    query["LaneId"] = request.getLaneId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -1971,11 +1971,11 @@ DeleteUserDefineRegionResponse Client::deleteUserDefineRegionWithOptions(const D
   request.validate();
   json query = {};
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasRegionTag()) {
-    query["RegionTag"] = request.regionTag();
+    query["RegionTag"] = request.getRegionTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2022,63 +2022,63 @@ DeployApplicationResponse Client::deployApplicationWithOptions(const DeployAppli
   request.validate();
   json query = {};
   if (!!request.hasAppEnv()) {
-    query["AppEnv"] = request.appEnv();
+    query["AppEnv"] = request.getAppEnv();
   }
 
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBatch()) {
-    query["Batch"] = request.batch();
+    query["Batch"] = request.getBatch();
   }
 
   if (!!request.hasBatchWaitTime()) {
-    query["BatchWaitTime"] = request.batchWaitTime();
+    query["BatchWaitTime"] = request.getBatchWaitTime();
   }
 
   if (!!request.hasBuildPackId()) {
-    query["BuildPackId"] = request.buildPackId();
+    query["BuildPackId"] = request.getBuildPackId();
   }
 
   if (!!request.hasComponentIds()) {
-    query["ComponentIds"] = request.componentIds();
+    query["ComponentIds"] = request.getComponentIds();
   }
 
   if (!!request.hasDeployType()) {
-    query["DeployType"] = request.deployType();
+    query["DeployType"] = request.getDeployType();
   }
 
   if (!!request.hasDesc()) {
-    query["Desc"] = request.desc();
+    query["Desc"] = request.getDesc();
   }
 
   if (!!request.hasGray()) {
-    query["Gray"] = request.gray();
+    query["Gray"] = request.getGray();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasImageUrl()) {
-    query["ImageUrl"] = request.imageUrl();
+    query["ImageUrl"] = request.getImageUrl();
   }
 
   if (!!request.hasPackageVersion()) {
-    query["PackageVersion"] = request.packageVersion();
+    query["PackageVersion"] = request.getPackageVersion();
   }
 
   if (!!request.hasReleaseType()) {
-    query["ReleaseType"] = request.releaseType();
+    query["ReleaseType"] = request.getReleaseType();
   }
 
   if (!!request.hasTrafficControlStrategy()) {
-    query["TrafficControlStrategy"] = request.trafficControlStrategy();
+    query["TrafficControlStrategy"] = request.getTrafficControlStrategy();
   }
 
   if (!!request.hasWarUrl()) {
-    query["WarUrl"] = request.warUrl();
+    query["WarUrl"] = request.getWarUrl();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2114,7 +2114,7 @@ DeployApplicationResponse Client::deployApplication(const DeployApplicationReque
 }
 
 /**
- * @summary Deploys an application in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+ * @summary Deploys an application in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
  *
  * @param request DeployK8sApplicationRequest
  * @param headers map
@@ -2125,279 +2125,279 @@ DeployK8sApplicationResponse Client::deployK8sApplicationWithOptions(const Deplo
   request.validate();
   json query = {};
   if (!!request.hasAnnotations()) {
-    query["Annotations"] = request.annotations();
+    query["Annotations"] = request.getAnnotations();
   }
 
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasArgs()) {
-    query["Args"] = request.args();
+    query["Args"] = request.getArgs();
   }
 
   if (!!request.hasBatchTimeout()) {
-    query["BatchTimeout"] = request.batchTimeout();
+    query["BatchTimeout"] = request.getBatchTimeout();
   }
 
   if (!!request.hasBatchWaitTime()) {
-    query["BatchWaitTime"] = request.batchWaitTime();
+    query["BatchWaitTime"] = request.getBatchWaitTime();
   }
 
   if (!!request.hasBuildPackId()) {
-    query["BuildPackId"] = request.buildPackId();
+    query["BuildPackId"] = request.getBuildPackId();
   }
 
   if (!!request.hasCanaryRuleId()) {
-    query["CanaryRuleId"] = request.canaryRuleId();
+    query["CanaryRuleId"] = request.getCanaryRuleId();
   }
 
   if (!!request.hasChangeOrderDesc()) {
-    query["ChangeOrderDesc"] = request.changeOrderDesc();
+    query["ChangeOrderDesc"] = request.getChangeOrderDesc();
   }
 
   if (!!request.hasCommand()) {
-    query["Command"] = request.command();
+    query["Command"] = request.getCommand();
   }
 
   if (!!request.hasConfigMountDescs()) {
-    query["ConfigMountDescs"] = request.configMountDescs();
+    query["ConfigMountDescs"] = request.getConfigMountDescs();
   }
 
   if (!!request.hasCpuLimit()) {
-    query["CpuLimit"] = request.cpuLimit();
+    query["CpuLimit"] = request.getCpuLimit();
   }
 
   if (!!request.hasCpuRequest()) {
-    query["CpuRequest"] = request.cpuRequest();
+    query["CpuRequest"] = request.getCpuRequest();
   }
 
   if (!!request.hasCustomAffinity()) {
-    query["CustomAffinity"] = request.customAffinity();
+    query["CustomAffinity"] = request.getCustomAffinity();
   }
 
   if (!!request.hasCustomAgentVersion()) {
-    query["CustomAgentVersion"] = request.customAgentVersion();
+    query["CustomAgentVersion"] = request.getCustomAgentVersion();
   }
 
   if (!!request.hasCustomTolerations()) {
-    query["CustomTolerations"] = request.customTolerations();
+    query["CustomTolerations"] = request.getCustomTolerations();
   }
 
   if (!!request.hasDeployAcrossNodes()) {
-    query["DeployAcrossNodes"] = request.deployAcrossNodes();
+    query["DeployAcrossNodes"] = request.getDeployAcrossNodes();
   }
 
   if (!!request.hasDeployAcrossZones()) {
-    query["DeployAcrossZones"] = request.deployAcrossZones();
+    query["DeployAcrossZones"] = request.getDeployAcrossZones();
   }
 
   if (!!request.hasEdasContainerVersion()) {
-    query["EdasContainerVersion"] = request.edasContainerVersion();
+    query["EdasContainerVersion"] = request.getEdasContainerVersion();
   }
 
   if (!!request.hasEmptyDirs()) {
-    query["EmptyDirs"] = request.emptyDirs();
+    query["EmptyDirs"] = request.getEmptyDirs();
   }
 
   if (!!request.hasEnableAhas()) {
-    query["EnableAhas"] = request.enableAhas();
+    query["EnableAhas"] = request.getEnableAhas();
   }
 
   if (!!request.hasEnableEmptyPushReject()) {
-    query["EnableEmptyPushReject"] = request.enableEmptyPushReject();
+    query["EnableEmptyPushReject"] = request.getEnableEmptyPushReject();
   }
 
   if (!!request.hasEnableLosslessRule()) {
-    query["EnableLosslessRule"] = request.enableLosslessRule();
+    query["EnableLosslessRule"] = request.getEnableLosslessRule();
   }
 
   if (!!request.hasEnvFroms()) {
-    query["EnvFroms"] = request.envFroms();
+    query["EnvFroms"] = request.getEnvFroms();
   }
 
   if (!!request.hasEnvs()) {
-    query["Envs"] = request.envs();
+    query["Envs"] = request.getEnvs();
   }
 
   if (!!request.hasImage()) {
-    query["Image"] = request.image();
+    query["Image"] = request.getImage();
   }
 
   if (!!request.hasImagePlatforms()) {
-    query["ImagePlatforms"] = request.imagePlatforms();
+    query["ImagePlatforms"] = request.getImagePlatforms();
   }
 
   if (!!request.hasImageTag()) {
-    query["ImageTag"] = request.imageTag();
+    query["ImageTag"] = request.getImageTag();
   }
 
   if (!!request.hasInitContainers()) {
-    query["InitContainers"] = request.initContainers();
+    query["InitContainers"] = request.getInitContainers();
   }
 
   if (!!request.hasJDK()) {
-    query["JDK"] = request.JDK();
+    query["JDK"] = request.getJDK();
   }
 
   if (!!request.hasJavaStartUpConfig()) {
-    query["JavaStartUpConfig"] = request.javaStartUpConfig();
+    query["JavaStartUpConfig"] = request.getJavaStartUpConfig();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasLimitEphemeralStorage()) {
-    query["LimitEphemeralStorage"] = request.limitEphemeralStorage();
+    query["LimitEphemeralStorage"] = request.getLimitEphemeralStorage();
   }
 
   if (!!request.hasLiveness()) {
-    query["Liveness"] = request.liveness();
+    query["Liveness"] = request.getLiveness();
   }
 
   if (!!request.hasLocalVolume()) {
-    query["LocalVolume"] = request.localVolume();
+    query["LocalVolume"] = request.getLocalVolume();
   }
 
   if (!!request.hasLosslessRuleAligned()) {
-    query["LosslessRuleAligned"] = request.losslessRuleAligned();
+    query["LosslessRuleAligned"] = request.getLosslessRuleAligned();
   }
 
   if (!!request.hasLosslessRuleDelayTime()) {
-    query["LosslessRuleDelayTime"] = request.losslessRuleDelayTime();
+    query["LosslessRuleDelayTime"] = request.getLosslessRuleDelayTime();
   }
 
   if (!!request.hasLosslessRuleFuncType()) {
-    query["LosslessRuleFuncType"] = request.losslessRuleFuncType();
+    query["LosslessRuleFuncType"] = request.getLosslessRuleFuncType();
   }
 
   if (!!request.hasLosslessRuleRelated()) {
-    query["LosslessRuleRelated"] = request.losslessRuleRelated();
+    query["LosslessRuleRelated"] = request.getLosslessRuleRelated();
   }
 
   if (!!request.hasLosslessRuleWarmupTime()) {
-    query["LosslessRuleWarmupTime"] = request.losslessRuleWarmupTime();
+    query["LosslessRuleWarmupTime"] = request.getLosslessRuleWarmupTime();
   }
 
   if (!!request.hasMcpuLimit()) {
-    query["McpuLimit"] = request.mcpuLimit();
+    query["McpuLimit"] = request.getMcpuLimit();
   }
 
   if (!!request.hasMcpuRequest()) {
-    query["McpuRequest"] = request.mcpuRequest();
+    query["McpuRequest"] = request.getMcpuRequest();
   }
 
   if (!!request.hasMemoryLimit()) {
-    query["MemoryLimit"] = request.memoryLimit();
+    query["MemoryLimit"] = request.getMemoryLimit();
   }
 
   if (!!request.hasMemoryRequest()) {
-    query["MemoryRequest"] = request.memoryRequest();
+    query["MemoryRequest"] = request.getMemoryRequest();
   }
 
   if (!!request.hasMountDescs()) {
-    query["MountDescs"] = request.mountDescs();
+    query["MountDescs"] = request.getMountDescs();
   }
 
   if (!!request.hasNasId()) {
-    query["NasId"] = request.nasId();
+    query["NasId"] = request.getNasId();
   }
 
   if (!!request.hasPackageUrl()) {
-    query["PackageUrl"] = request.packageUrl();
+    query["PackageUrl"] = request.getPackageUrl();
   }
 
   if (!!request.hasPackageVersion()) {
-    query["PackageVersion"] = request.packageVersion();
+    query["PackageVersion"] = request.getPackageVersion();
   }
 
   if (!!request.hasPackageVersionId()) {
-    query["PackageVersionId"] = request.packageVersionId();
+    query["PackageVersionId"] = request.getPackageVersionId();
   }
 
   if (!!request.hasPostStart()) {
-    query["PostStart"] = request.postStart();
+    query["PostStart"] = request.getPostStart();
   }
 
   if (!!request.hasPreStop()) {
-    query["PreStop"] = request.preStop();
+    query["PreStop"] = request.getPreStop();
   }
 
   if (!!request.hasPvcMountDescs()) {
-    query["PvcMountDescs"] = request.pvcMountDescs();
+    query["PvcMountDescs"] = request.getPvcMountDescs();
   }
 
   if (!!request.hasReadiness()) {
-    query["Readiness"] = request.readiness();
+    query["Readiness"] = request.getReadiness();
   }
 
   if (!!request.hasReplicas()) {
-    query["Replicas"] = request.replicas();
+    query["Replicas"] = request.getReplicas();
   }
 
   if (!!request.hasRequestsEphemeralStorage()) {
-    query["RequestsEphemeralStorage"] = request.requestsEphemeralStorage();
+    query["RequestsEphemeralStorage"] = request.getRequestsEphemeralStorage();
   }
 
   if (!!request.hasRuntimeClassName()) {
-    query["RuntimeClassName"] = request.runtimeClassName();
+    query["RuntimeClassName"] = request.getRuntimeClassName();
   }
 
   if (!!request.hasSecurityContext()) {
-    query["SecurityContext"] = request.securityContext();
+    query["SecurityContext"] = request.getSecurityContext();
   }
 
   if (!!request.hasSidecars()) {
-    query["Sidecars"] = request.sidecars();
+    query["Sidecars"] = request.getSidecars();
   }
 
   if (!!request.hasSlsConfigs()) {
-    query["SlsConfigs"] = request.slsConfigs();
+    query["SlsConfigs"] = request.getSlsConfigs();
   }
 
   if (!!request.hasStartup()) {
-    query["Startup"] = request.startup();
+    query["Startup"] = request.getStartup();
   }
 
   if (!!request.hasStorageType()) {
-    query["StorageType"] = request.storageType();
+    query["StorageType"] = request.getStorageType();
   }
 
   if (!!request.hasTerminateGracePeriod()) {
-    query["TerminateGracePeriod"] = request.terminateGracePeriod();
+    query["TerminateGracePeriod"] = request.getTerminateGracePeriod();
   }
 
   if (!!request.hasTrafficControlStrategy()) {
-    query["TrafficControlStrategy"] = request.trafficControlStrategy();
+    query["TrafficControlStrategy"] = request.getTrafficControlStrategy();
   }
 
   if (!!request.hasUpdateStrategy()) {
-    query["UpdateStrategy"] = request.updateStrategy();
+    query["UpdateStrategy"] = request.getUpdateStrategy();
   }
 
   if (!!request.hasUriEncoding()) {
-    query["UriEncoding"] = request.uriEncoding();
+    query["UriEncoding"] = request.getUriEncoding();
   }
 
   if (!!request.hasUseBodyEncoding()) {
-    query["UseBodyEncoding"] = request.useBodyEncoding();
+    query["UseBodyEncoding"] = request.getUseBodyEncoding();
   }
 
   if (!!request.hasUserBaseImageUrl()) {
-    query["UserBaseImageUrl"] = request.userBaseImageUrl();
+    query["UserBaseImageUrl"] = request.getUserBaseImageUrl();
   }
 
   if (!!request.hasVolumesStr()) {
-    query["VolumesStr"] = request.volumesStr();
+    query["VolumesStr"] = request.getVolumesStr();
   }
 
   if (!!request.hasWebContainer()) {
-    query["WebContainer"] = request.webContainer();
+    query["WebContainer"] = request.getWebContainer();
   }
 
   if (!!request.hasWebContainerConfig()) {
-    query["WebContainerConfig"] = request.webContainerConfig();
+    query["WebContainerConfig"] = request.getWebContainerConfig();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2419,7 +2419,7 @@ DeployK8sApplicationResponse Client::deployK8sApplicationWithOptions(const Deplo
 }
 
 /**
- * @summary Deploys an application in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+ * @summary Deploys an application in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
  *
  * @param request DeployK8sApplicationRequest
  * @return DeployK8sApplicationResponse
@@ -2442,11 +2442,11 @@ DescribeAppInstanceListResponse Client::describeAppInstanceListWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasWithNodeInfo()) {
-    query["WithNodeInfo"] = request.withNodeInfo();
+    query["WithNodeInfo"] = request.getWithNodeInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2480,7 +2480,7 @@ DescribeAppInstanceListResponse Client::describeAppInstanceList(const DescribeAp
 }
 
 /**
- * @summary Queries the auto scaling policies of an application.
+ * @summary Call the DescribeApplicationScalingRules operation to query the scaling rules for an application.
  *
  * @param request DescribeApplicationScalingRulesRequest
  * @param headers map
@@ -2491,7 +2491,7 @@ DescribeApplicationScalingRulesResponse Client::describeApplicationScalingRulesW
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2513,7 +2513,7 @@ DescribeApplicationScalingRulesResponse Client::describeApplicationScalingRulesW
 }
 
 /**
- * @summary Queries the auto scaling policies of an application.
+ * @summary Call the DescribeApplicationScalingRules operation to query the scaling rules for an application.
  *
  * @param request DescribeApplicationScalingRulesRequest
  * @return DescribeApplicationScalingRulesResponse
@@ -2525,6 +2525,10 @@ DescribeApplicationScalingRulesResponse Client::describeApplicationScalingRules(
 }
 
 /**
+ * @summary Queries the locality configuration.
+ *
+ * @description > Currently, only deployment resources can be modified.
+ *
  * @param request DescribeLocalitySettingRequest
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -2534,15 +2538,15 @@ DescribeLocalitySettingResponse Client::describeLocalitySettingWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasNamespaceId()) {
-    query["NamespaceId"] = request.namespaceId();
+    query["NamespaceId"] = request.getNamespaceId();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2564,6 +2568,10 @@ DescribeLocalitySettingResponse Client::describeLocalitySettingWithOptions(const
 }
 
 /**
+ * @summary Queries the locality configuration.
+ *
+ * @description > Currently, only deployment resources can be modified.
+ *
  * @param request DescribeLocalitySettingRequest
  * @return DescribeLocalitySettingResponse
  */
@@ -2585,11 +2593,11 @@ DisableApplicationScalingRuleResponse Client::disableApplicationScalingRuleWithO
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasScalingRuleName()) {
-    query["ScalingRuleName"] = request.scalingRuleName();
+    query["ScalingRuleName"] = request.getScalingRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2634,11 +2642,11 @@ EnableApplicationScalingRuleResponse Client::enableApplicationScalingRuleWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasScalingRuleName()) {
-    query["ScalingRuleName"] = request.scalingRuleName();
+    query["ScalingRuleName"] = request.getScalingRuleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2683,7 +2691,7 @@ GetAppDeploymentResponse Client::getAppDeploymentWithOptions(const GetAppDeploym
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2717,7 +2725,7 @@ GetAppDeploymentResponse Client::getAppDeployment(const GetAppDeploymentRequest 
 }
 
 /**
- * @summary Queries the details about a specified application in an Elastic Compute Service (ECS) cluster.
+ * @summary Retrieves information about a specified application in an ECS cluster.
  *
  * @param request GetApplicationRequest
  * @param headers map
@@ -2728,7 +2736,7 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2750,7 +2758,7 @@ GetApplicationResponse Client::getApplicationWithOptions(const GetApplicationReq
 }
 
 /**
- * @summary Queries the details about a specified application in an Elastic Compute Service (ECS) cluster.
+ * @summary Retrieves information about a specified application in an ECS cluster.
  *
  * @param request GetApplicationRequest
  * @return GetApplicationResponse
@@ -2762,7 +2770,7 @@ GetApplicationResponse Client::getApplication(const GetApplicationRequest &reque
 }
 
 /**
- * @summary Queries the details about a change process.
+ * @summary You can call the GetChangeOrderInfo operation to view the details of a change process.
  *
  * @param request GetChangeOrderInfoRequest
  * @param headers map
@@ -2773,7 +2781,7 @@ GetChangeOrderInfoResponse Client::getChangeOrderInfoWithOptions(const GetChange
   request.validate();
   json query = {};
   if (!!request.hasChangeOrderId()) {
-    query["ChangeOrderId"] = request.changeOrderId();
+    query["ChangeOrderId"] = request.getChangeOrderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2795,7 +2803,7 @@ GetChangeOrderInfoResponse Client::getChangeOrderInfoWithOptions(const GetChange
 }
 
 /**
- * @summary Queries the details about a change process.
+ * @summary You can call the GetChangeOrderInfo operation to view the details of a change process.
  *
  * @param request GetChangeOrderInfoRequest
  * @return GetChangeOrderInfoResponse
@@ -2818,7 +2826,7 @@ GetClusterResponse Client::getClusterWithOptions(const GetClusterRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2863,11 +2871,11 @@ GetContainerConfigurationResponse Client::getContainerConfigurationWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2912,7 +2920,7 @@ GetJavaStartUpConfigResponse Client::getJavaStartUpConfigWithOptions(const GetJa
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -2957,11 +2965,11 @@ GetJvmConfigurationResponse Client::getJvmConfigurationWithOptions(const GetJvmC
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3006,15 +3014,15 @@ GetK8sAppPrecheckResultResponse Client::getK8sAppPrecheckResultWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3048,7 +3056,7 @@ GetK8sAppPrecheckResultResponse Client::getK8sAppPrecheckResult(const GetK8sAppP
 }
 
 /**
- * @summary Queries the information about applications deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+ * @summary Retrieves information about an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
  *
  * @param request GetK8sApplicationRequest
  * @param headers map
@@ -3059,11 +3067,11 @@ GetK8sApplicationResponse Client::getK8sApplicationWithOptions(const GetK8sAppli
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasFrom()) {
-    query["From"] = request.from();
+    query["From"] = request.getFrom();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3085,7 +3093,7 @@ GetK8sApplicationResponse Client::getK8sApplicationWithOptions(const GetK8sAppli
 }
 
 /**
- * @summary Queries the information about applications deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+ * @summary Retrieves information about an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
  *
  * @param request GetK8sApplicationRequest
  * @return GetK8sApplicationResponse
@@ -3097,7 +3105,7 @@ GetK8sApplicationResponse Client::getK8sApplication(const GetK8sApplicationReque
 }
 
 /**
- * @summary Queries Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes clusters in a specified region.
+ * @summary Gets a list of Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes (ASK) clusters.
  *
  * @param request GetK8sClusterRequest
  * @param headers map
@@ -3108,23 +3116,23 @@ GetK8sClusterResponse Client::getK8sClusterWithOptions(const GetK8sClusterReques
   request.validate();
   json query = {};
   if (!!request.hasClusterType()) {
-    query["ClusterType"] = request.clusterType();
+    query["ClusterType"] = request.getClusterType();
   }
 
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionTag()) {
-    query["RegionTag"] = request.regionTag();
+    query["RegionTag"] = request.getRegionTag();
   }
 
   if (!!request.hasSubClusterType()) {
-    query["SubClusterType"] = request.subClusterType();
+    query["SubClusterType"] = request.getSubClusterType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3146,7 +3154,7 @@ GetK8sClusterResponse Client::getK8sClusterWithOptions(const GetK8sClusterReques
 }
 
 /**
- * @summary Queries Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes clusters in a specified region.
+ * @summary Gets a list of Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes (ASK) clusters.
  *
  * @param request GetK8sClusterRequest
  * @return GetK8sClusterResponse
@@ -3158,7 +3166,7 @@ GetK8sClusterResponse Client::getK8sCluster(const GetK8sClusterRequest &request)
 }
 
 /**
- * @summary Queries application services that are deployed in a Kubernetes cluster.
+ * @summary Gets a list of Services for an application in a Kubernetes cluster.
  *
  * @param request GetK8sServicesRequest
  * @param headers map
@@ -3169,7 +3177,7 @@ GetK8sServicesResponse Client::getK8sServicesWithOptions(const GetK8sServicesReq
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3191,7 +3199,7 @@ GetK8sServicesResponse Client::getK8sServicesWithOptions(const GetK8sServicesReq
 }
 
 /**
- * @summary Queries application services that are deployed in a Kubernetes cluster.
+ * @summary Gets a list of Services for an application in a Kubernetes cluster.
  *
  * @param request GetK8sServicesRequest
  * @return GetK8sServicesResponse
@@ -3250,15 +3258,15 @@ GetScalingRulesResponse Client::getScalingRulesWithOptions(const GetScalingRules
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasMode()) {
-    query["Mode"] = request.mode();
+    query["Mode"] = request.getMode();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3303,7 +3311,7 @@ GetSecureTokenResponse Client::getSecureTokenWithOptions(const GetSecureTokenReq
   request.validate();
   json query = {};
   if (!!request.hasNamespaceId()) {
-    query["NamespaceId"] = request.namespaceId();
+    query["NamespaceId"] = request.getNamespaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3348,59 +3356,59 @@ GetServiceConsumersPageResponse Client::getServiceConsumersPageWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["appId"] = request.appId();
+    query["appId"] = request.getAppId();
   }
 
   if (!!request.hasGroup()) {
-    query["group"] = request.group();
+    query["group"] = request.getGroup();
   }
 
   if (!!request.hasIp()) {
-    query["ip"] = request.ip();
+    query["ip"] = request.getIp();
   }
 
   if (!!request.hasNamespace()) {
-    query["namespace"] = request._namespace();
+    query["namespace"] = request.getNamespace();
   }
 
   if (!!request.hasOrigin()) {
-    query["origin"] = request.origin();
+    query["origin"] = request.getOrigin();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasRegistryType()) {
-    query["registryType"] = request.registryType();
+    query["registryType"] = request.getRegistryType();
   }
 
   if (!!request.hasServiceId()) {
-    query["serviceId"] = request.serviceId();
+    query["serviceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceName()) {
-    query["serviceName"] = request.serviceName();
+    query["serviceName"] = request.getServiceName();
   }
 
   if (!!request.hasServiceType()) {
-    query["serviceType"] = request.serviceType();
+    query["serviceType"] = request.getServiceType();
   }
 
   if (!!request.hasServiceVersion()) {
-    query["serviceVersion"] = request.serviceVersion();
+    query["serviceVersion"] = request.getServiceVersion();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasSource()) {
-    query["source"] = request.source();
+    query["source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3445,51 +3453,51 @@ GetServiceDetailResponse Client::getServiceDetailWithOptions(const GetServiceDet
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["appId"] = request.appId();
+    query["appId"] = request.getAppId();
   }
 
   if (!!request.hasGroup()) {
-    query["group"] = request.group();
+    query["group"] = request.getGroup();
   }
 
   if (!!request.hasIp()) {
-    query["ip"] = request.ip();
+    query["ip"] = request.getIp();
   }
 
   if (!!request.hasNamespace()) {
-    query["namespace"] = request._namespace();
+    query["namespace"] = request.getNamespace();
   }
 
   if (!!request.hasOrigin()) {
-    query["origin"] = request.origin();
+    query["origin"] = request.getOrigin();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasRegistryType()) {
-    query["registryType"] = request.registryType();
+    query["registryType"] = request.getRegistryType();
   }
 
   if (!!request.hasServiceId()) {
-    query["serviceId"] = request.serviceId();
+    query["serviceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceName()) {
-    query["serviceName"] = request.serviceName();
+    query["serviceName"] = request.getServiceName();
   }
 
   if (!!request.hasServiceType()) {
-    query["serviceType"] = request.serviceType();
+    query["serviceType"] = request.getServiceType();
   }
 
   if (!!request.hasServiceVersion()) {
-    query["serviceVersion"] = request.serviceVersion();
+    query["serviceVersion"] = request.getServiceVersion();
   }
 
   if (!!request.hasSource()) {
-    query["source"] = request.source();
+    query["source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3534,39 +3542,39 @@ GetServiceListPageResponse Client::getServiceListPageWithOptions(const GetServic
   request.validate();
   json query = {};
   if (!!request.hasNamespace()) {
-    query["namespace"] = request._namespace();
+    query["namespace"] = request.getNamespace();
   }
 
   if (!!request.hasOrigin()) {
-    query["origin"] = request.origin();
+    query["origin"] = request.getOrigin();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasSearchType()) {
-    query["searchType"] = request.searchType();
+    query["searchType"] = request.getSearchType();
   }
 
   if (!!request.hasSearchValue()) {
-    query["searchValue"] = request.searchValue();
+    query["searchValue"] = request.getSearchValue();
   }
 
   if (!!request.hasServiceType()) {
-    query["serviceType"] = request.serviceType();
+    query["serviceType"] = request.getServiceType();
   }
 
   if (!!request.hasSide()) {
-    query["side"] = request.side();
+    query["side"] = request.getSide();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3611,71 +3619,71 @@ GetServiceMethodPageResponse Client::getServiceMethodPageWithOptions(const GetSe
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["appId"] = request.appId();
+    query["appId"] = request.getAppId();
   }
 
   if (!!request.hasGroup()) {
-    query["group"] = request.group();
+    query["group"] = request.getGroup();
   }
 
   if (!!request.hasIp()) {
-    query["ip"] = request.ip();
+    query["ip"] = request.getIp();
   }
 
   if (!!request.hasMethodController()) {
-    query["methodController"] = request.methodController();
+    query["methodController"] = request.getMethodController();
   }
 
   if (!!request.hasName()) {
-    query["name"] = request.name();
+    query["name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    query["namespace"] = request._namespace();
+    query["namespace"] = request.getNamespace();
   }
 
   if (!!request.hasOrigin()) {
-    query["origin"] = request.origin();
+    query["origin"] = request.getOrigin();
   }
 
   if (!!request.hasPageNumber()) {
-    query["pageNumber"] = request.pageNumber();
+    query["pageNumber"] = request.getPageNumber();
   }
 
   if (!!request.hasPageSize()) {
-    query["pageSize"] = request.pageSize();
+    query["pageSize"] = request.getPageSize();
   }
 
   if (!!request.hasPath()) {
-    query["path"] = request.path();
+    query["path"] = request.getPath();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasRegistryType()) {
-    query["registryType"] = request.registryType();
+    query["registryType"] = request.getRegistryType();
   }
 
   if (!!request.hasServiceId()) {
-    query["serviceId"] = request.serviceId();
+    query["serviceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceName()) {
-    query["serviceName"] = request.serviceName();
+    query["serviceName"] = request.getServiceName();
   }
 
   if (!!request.hasServiceType()) {
-    query["serviceType"] = request.serviceType();
+    query["serviceType"] = request.getServiceType();
   }
 
   if (!!request.hasServiceVersion()) {
-    query["serviceVersion"] = request.serviceVersion();
+    query["serviceVersion"] = request.getServiceVersion();
   }
 
   if (!!request.hasSource()) {
-    query["source"] = request.source();
+    query["source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3720,59 +3728,59 @@ GetServiceProvidersPageResponse Client::getServiceProvidersPageWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["appId"] = request.appId();
+    query["appId"] = request.getAppId();
   }
 
   if (!!request.hasGroup()) {
-    query["group"] = request.group();
+    query["group"] = request.getGroup();
   }
 
   if (!!request.hasIp()) {
-    query["ip"] = request.ip();
+    query["ip"] = request.getIp();
   }
 
   if (!!request.hasNamespace()) {
-    query["namespace"] = request._namespace();
+    query["namespace"] = request.getNamespace();
   }
 
   if (!!request.hasOrigin()) {
-    query["origin"] = request.origin();
+    query["origin"] = request.getOrigin();
   }
 
   if (!!request.hasPage()) {
-    query["page"] = request.page();
+    query["page"] = request.getPage();
   }
 
   if (!!request.hasRegion()) {
-    query["region"] = request.region();
+    query["region"] = request.getRegion();
   }
 
   if (!!request.hasRegistryType()) {
-    query["registryType"] = request.registryType();
+    query["registryType"] = request.getRegistryType();
   }
 
   if (!!request.hasServiceId()) {
-    query["serviceId"] = request.serviceId();
+    query["serviceId"] = request.getServiceId();
   }
 
   if (!!request.hasServiceName()) {
-    query["serviceName"] = request.serviceName();
+    query["serviceName"] = request.getServiceName();
   }
 
   if (!!request.hasServiceType()) {
-    query["serviceType"] = request.serviceType();
+    query["serviceType"] = request.getServiceType();
   }
 
   if (!!request.hasServiceVersion()) {
-    query["serviceVersion"] = request.serviceVersion();
+    query["serviceVersion"] = request.getServiceVersion();
   }
 
   if (!!request.hasSize()) {
-    query["size"] = request.size();
+    query["size"] = request.getSize();
   }
 
   if (!!request.hasSource()) {
-    query["source"] = request.source();
+    query["source"] = request.getSource();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3819,7 +3827,7 @@ GetWebContainerConfigResponse Client::getWebContainerConfigWithOptions(const Get
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3866,19 +3874,19 @@ ImportK8sClusterResponse Client::importK8sClusterWithOptions(const ImportK8sClus
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasEnableAsm()) {
-    query["EnableAsm"] = request.enableAsm();
+    query["EnableAsm"] = request.getEnableAsm();
   }
 
   if (!!request.hasMode()) {
-    query["Mode"] = request.mode();
+    query["Mode"] = request.getMode();
   }
 
   if (!!request.hasNamespaceId()) {
-    query["NamespaceId"] = request.namespaceId();
+    query["NamespaceId"] = request.getNamespaceId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -3912,9 +3920,9 @@ ImportK8sClusterResponse Client::importK8sCluster(const ImportK8sClusterRequest 
 }
 
 /**
- * @summary Creates an application in an Elastic Compute Service (ECS) cluster.
+ * @summary Creates an application in an ECS cluster.
  *
- * @description > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+ * @description > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation.
  *
  * @param request InsertApplicationRequest
  * @param headers map
@@ -3925,91 +3933,91 @@ InsertApplicationResponse Client::insertApplicationWithOptions(const InsertAppli
   request.validate();
   json query = {};
   if (!!request.hasApplicationName()) {
-    query["ApplicationName"] = request.applicationName();
+    query["ApplicationName"] = request.getApplicationName();
   }
 
   if (!!request.hasBuildPackId()) {
-    query["BuildPackId"] = request.buildPackId();
+    query["BuildPackId"] = request.getBuildPackId();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasComponentIds()) {
-    query["ComponentIds"] = request.componentIds();
+    query["ComponentIds"] = request.getComponentIds();
   }
 
   if (!!request.hasCpu()) {
-    query["Cpu"] = request.cpu();
+    query["Cpu"] = request.getCpu();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEcuInfo()) {
-    query["EcuInfo"] = request.ecuInfo();
+    query["EcuInfo"] = request.getEcuInfo();
   }
 
   if (!!request.hasEnablePortCheck()) {
-    query["EnablePortCheck"] = request.enablePortCheck();
+    query["EnablePortCheck"] = request.getEnablePortCheck();
   }
 
   if (!!request.hasEnableUrlCheck()) {
-    query["EnableUrlCheck"] = request.enableUrlCheck();
+    query["EnableUrlCheck"] = request.getEnableUrlCheck();
   }
 
   if (!!request.hasHealthCheckUrl()) {
-    query["HealthCheckUrl"] = request.healthCheckUrl();
+    query["HealthCheckUrl"] = request.getHealthCheckUrl();
   }
 
   if (!!request.hasHooks()) {
-    query["Hooks"] = request.hooks();
+    query["Hooks"] = request.getHooks();
   }
 
   if (!!request.hasJdk()) {
-    query["Jdk"] = request.jdk();
+    query["Jdk"] = request.getJdk();
   }
 
   if (!!request.hasJvmOptions()) {
-    query["JvmOptions"] = request.jvmOptions();
+    query["JvmOptions"] = request.getJvmOptions();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   if (!!request.hasMaxHeapSize()) {
-    query["MaxHeapSize"] = request.maxHeapSize();
+    query["MaxHeapSize"] = request.getMaxHeapSize();
   }
 
   if (!!request.hasMaxPermSize()) {
-    query["MaxPermSize"] = request.maxPermSize();
+    query["MaxPermSize"] = request.getMaxPermSize();
   }
 
   if (!!request.hasMem()) {
-    query["Mem"] = request.mem();
+    query["Mem"] = request.getMem();
   }
 
   if (!!request.hasMinHeapSize()) {
-    query["MinHeapSize"] = request.minHeapSize();
+    query["MinHeapSize"] = request.getMinHeapSize();
   }
 
   if (!!request.hasPackageType()) {
-    query["PackageType"] = request.packageType();
+    query["PackageType"] = request.getPackageType();
   }
 
   if (!!request.hasReservedPortStr()) {
-    query["ReservedPortStr"] = request.reservedPortStr();
+    query["ReservedPortStr"] = request.getReservedPortStr();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasWebContainer()) {
-    query["WebContainer"] = request.webContainer();
+    query["WebContainer"] = request.getWebContainer();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4031,9 +4039,9 @@ InsertApplicationResponse Client::insertApplicationWithOptions(const InsertAppli
 }
 
 /**
- * @summary Creates an application in an Elastic Compute Service (ECS) cluster.
+ * @summary Creates an application in an ECS cluster.
  *
- * @description > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+ * @description > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation.
  *
  * @param request InsertApplicationRequest
  * @return InsertApplicationResponse
@@ -4056,31 +4064,31 @@ InsertClusterResponse Client::insertClusterWithOptions(const InsertClusterReques
   request.validate();
   json query = {};
   if (!!request.hasClusterName()) {
-    query["ClusterName"] = request.clusterName();
+    query["ClusterName"] = request.getClusterName();
   }
 
   if (!!request.hasClusterType()) {
-    query["ClusterType"] = request.clusterType();
+    query["ClusterType"] = request.getClusterType();
   }
 
   if (!!request.hasIaasProvider()) {
-    query["IaasProvider"] = request.iaasProvider();
+    query["IaasProvider"] = request.getIaasProvider();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   if (!!request.hasNetworkMode()) {
-    query["NetworkMode"] = request.networkMode();
+    query["NetworkMode"] = request.getNetworkMode();
   }
 
   if (!!request.hasOversoldFactor()) {
-    query["OversoldFactor"] = request.oversoldFactor();
+    query["OversoldFactor"] = request.getOversoldFactor();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4129,15 +4137,15 @@ InsertClusterMemberResponse Client::insertClusterMemberWithOptions(const InsertC
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["clusterId"] = request.clusterId();
+    query["clusterId"] = request.getClusterId();
   }
 
   if (!!request.hasInstanceIds()) {
-    query["instanceIds"] = request.instanceIds();
+    query["instanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasPassword()) {
-    query["password"] = request.password();
+    query["password"] = request.getPassword();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4186,15 +4194,15 @@ InsertDeployGroupResponse Client::insertDeployGroupWithOptions(const InsertDeplo
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasGroupName()) {
-    query["GroupName"] = request.groupName();
+    query["GroupName"] = request.getGroupName();
   }
 
   if (!!request.hasInitPackageVersionId()) {
-    query["InitPackageVersionId"] = request.initPackageVersionId();
+    query["InitPackageVersionId"] = request.getInitPackageVersionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4228,7 +4236,7 @@ InsertDeployGroupResponse Client::insertDeployGroup(const InsertDeployGroupReque
 }
 
 /**
- * @summary Creates an application in a Container Service for Kubernetes (ACK) cluster or serverless Kubernetes cluster.
+ * @summary Creates an application in a Kubernetes cluster or a Serverless Kubernetes cluster.
  *
  * @param request InsertK8sApplicationRequest
  * @param headers map
@@ -4239,347 +4247,347 @@ InsertK8sApplicationResponse Client::insertK8sApplicationWithOptions(const Inser
   request.validate();
   json query = {};
   if (!!request.hasAnnotations()) {
-    query["Annotations"] = request.annotations();
+    query["Annotations"] = request.getAnnotations();
   }
 
   if (!!request.hasAppConfig()) {
-    query["AppConfig"] = request.appConfig();
+    query["AppConfig"] = request.getAppConfig();
   }
 
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasAppTemplateName()) {
-    query["AppTemplateName"] = request.appTemplateName();
+    query["AppTemplateName"] = request.getAppTemplateName();
   }
 
   if (!!request.hasApplicationDescription()) {
-    query["ApplicationDescription"] = request.applicationDescription();
+    query["ApplicationDescription"] = request.getApplicationDescription();
   }
 
   if (!!request.hasBuildPackId()) {
-    query["BuildPackId"] = request.buildPackId();
+    query["BuildPackId"] = request.getBuildPackId();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasCommand()) {
-    query["Command"] = request.command();
+    query["Command"] = request.getCommand();
   }
 
   if (!!request.hasCommandArgs()) {
-    query["CommandArgs"] = request.commandArgs();
+    query["CommandArgs"] = request.getCommandArgs();
   }
 
   if (!!request.hasConfigMountDescs()) {
-    query["ConfigMountDescs"] = request.configMountDescs();
+    query["ConfigMountDescs"] = request.getConfigMountDescs();
   }
 
   if (!!request.hasContainerRegistryId()) {
-    query["ContainerRegistryId"] = request.containerRegistryId();
+    query["ContainerRegistryId"] = request.getContainerRegistryId();
   }
 
   if (!!request.hasCsClusterId()) {
-    query["CsClusterId"] = request.csClusterId();
+    query["CsClusterId"] = request.getCsClusterId();
   }
 
   if (!!request.hasCustomAffinity()) {
-    query["CustomAffinity"] = request.customAffinity();
+    query["CustomAffinity"] = request.getCustomAffinity();
   }
 
   if (!!request.hasCustomAgentVersion()) {
-    query["CustomAgentVersion"] = request.customAgentVersion();
+    query["CustomAgentVersion"] = request.getCustomAgentVersion();
   }
 
   if (!!request.hasCustomTolerations()) {
-    query["CustomTolerations"] = request.customTolerations();
+    query["CustomTolerations"] = request.getCustomTolerations();
   }
 
   if (!!request.hasDeployAcrossNodes()) {
-    query["DeployAcrossNodes"] = request.deployAcrossNodes();
+    query["DeployAcrossNodes"] = request.getDeployAcrossNodes();
   }
 
   if (!!request.hasDeployAcrossZones()) {
-    query["DeployAcrossZones"] = request.deployAcrossZones();
+    query["DeployAcrossZones"] = request.getDeployAcrossZones();
   }
 
   if (!!request.hasEdasContainerVersion()) {
-    query["EdasContainerVersion"] = request.edasContainerVersion();
+    query["EdasContainerVersion"] = request.getEdasContainerVersion();
   }
 
   if (!!request.hasEmptyDirs()) {
-    query["EmptyDirs"] = request.emptyDirs();
+    query["EmptyDirs"] = request.getEmptyDirs();
   }
 
   if (!!request.hasEnableAhas()) {
-    query["EnableAhas"] = request.enableAhas();
+    query["EnableAhas"] = request.getEnableAhas();
   }
 
   if (!!request.hasEnableAsm()) {
-    query["EnableAsm"] = request.enableAsm();
+    query["EnableAsm"] = request.getEnableAsm();
   }
 
   if (!!request.hasEnableEmptyPushReject()) {
-    query["EnableEmptyPushReject"] = request.enableEmptyPushReject();
+    query["EnableEmptyPushReject"] = request.getEnableEmptyPushReject();
   }
 
   if (!!request.hasEnableLosslessRule()) {
-    query["EnableLosslessRule"] = request.enableLosslessRule();
+    query["EnableLosslessRule"] = request.getEnableLosslessRule();
   }
 
   if (!!request.hasEnvFroms()) {
-    query["EnvFroms"] = request.envFroms();
+    query["EnvFroms"] = request.getEnvFroms();
   }
 
   if (!!request.hasEnvs()) {
-    query["Envs"] = request.envs();
+    query["Envs"] = request.getEnvs();
   }
 
   if (!!request.hasFeatureConfig()) {
-    query["FeatureConfig"] = request.featureConfig();
+    query["FeatureConfig"] = request.getFeatureConfig();
   }
 
   if (!!request.hasImagePlatforms()) {
-    query["ImagePlatforms"] = request.imagePlatforms();
+    query["ImagePlatforms"] = request.getImagePlatforms();
   }
 
   if (!!request.hasImageUrl()) {
-    query["ImageUrl"] = request.imageUrl();
+    query["ImageUrl"] = request.getImageUrl();
   }
 
   if (!!request.hasInitContainers()) {
-    query["InitContainers"] = request.initContainers();
+    query["InitContainers"] = request.getInitContainers();
   }
 
   if (!!request.hasInternetSlbId()) {
-    query["InternetSlbId"] = request.internetSlbId();
+    query["InternetSlbId"] = request.getInternetSlbId();
   }
 
   if (!!request.hasInternetSlbPort()) {
-    query["InternetSlbPort"] = request.internetSlbPort();
+    query["InternetSlbPort"] = request.getInternetSlbPort();
   }
 
   if (!!request.hasInternetSlbProtocol()) {
-    query["InternetSlbProtocol"] = request.internetSlbProtocol();
+    query["InternetSlbProtocol"] = request.getInternetSlbProtocol();
   }
 
   if (!!request.hasInternetTargetPort()) {
-    query["InternetTargetPort"] = request.internetTargetPort();
+    query["InternetTargetPort"] = request.getInternetTargetPort();
   }
 
   if (!!request.hasIntranetSlbId()) {
-    query["IntranetSlbId"] = request.intranetSlbId();
+    query["IntranetSlbId"] = request.getIntranetSlbId();
   }
 
   if (!!request.hasIntranetSlbPort()) {
-    query["IntranetSlbPort"] = request.intranetSlbPort();
+    query["IntranetSlbPort"] = request.getIntranetSlbPort();
   }
 
   if (!!request.hasIntranetSlbProtocol()) {
-    query["IntranetSlbProtocol"] = request.intranetSlbProtocol();
+    query["IntranetSlbProtocol"] = request.getIntranetSlbProtocol();
   }
 
   if (!!request.hasIntranetTargetPort()) {
-    query["IntranetTargetPort"] = request.intranetTargetPort();
+    query["IntranetTargetPort"] = request.getIntranetTargetPort();
   }
 
   if (!!request.hasIsMultilingualApp()) {
-    query["IsMultilingualApp"] = request.isMultilingualApp();
+    query["IsMultilingualApp"] = request.getIsMultilingualApp();
   }
 
   if (!!request.hasJDK()) {
-    query["JDK"] = request.JDK();
+    query["JDK"] = request.getJDK();
   }
 
   if (!!request.hasJavaStartUpConfig()) {
-    query["JavaStartUpConfig"] = request.javaStartUpConfig();
+    query["JavaStartUpConfig"] = request.getJavaStartUpConfig();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasLimitCpu()) {
-    query["LimitCpu"] = request.limitCpu();
+    query["LimitCpu"] = request.getLimitCpu();
   }
 
   if (!!request.hasLimitEphemeralStorage()) {
-    query["LimitEphemeralStorage"] = request.limitEphemeralStorage();
+    query["LimitEphemeralStorage"] = request.getLimitEphemeralStorage();
   }
 
   if (!!request.hasLimitMem()) {
-    query["LimitMem"] = request.limitMem();
+    query["LimitMem"] = request.getLimitMem();
   }
 
   if (!!request.hasLimitmCpu()) {
-    query["LimitmCpu"] = request.limitmCpu();
+    query["LimitmCpu"] = request.getLimitmCpu();
   }
 
   if (!!request.hasLiveness()) {
-    query["Liveness"] = request.liveness();
+    query["Liveness"] = request.getLiveness();
   }
 
   if (!!request.hasLocalVolume()) {
-    query["LocalVolume"] = request.localVolume();
+    query["LocalVolume"] = request.getLocalVolume();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   if (!!request.hasLosslessRuleAligned()) {
-    query["LosslessRuleAligned"] = request.losslessRuleAligned();
+    query["LosslessRuleAligned"] = request.getLosslessRuleAligned();
   }
 
   if (!!request.hasLosslessRuleDelayTime()) {
-    query["LosslessRuleDelayTime"] = request.losslessRuleDelayTime();
+    query["LosslessRuleDelayTime"] = request.getLosslessRuleDelayTime();
   }
 
   if (!!request.hasLosslessRuleFuncType()) {
-    query["LosslessRuleFuncType"] = request.losslessRuleFuncType();
+    query["LosslessRuleFuncType"] = request.getLosslessRuleFuncType();
   }
 
   if (!!request.hasLosslessRuleRelated()) {
-    query["LosslessRuleRelated"] = request.losslessRuleRelated();
+    query["LosslessRuleRelated"] = request.getLosslessRuleRelated();
   }
 
   if (!!request.hasLosslessRuleWarmupTime()) {
-    query["LosslessRuleWarmupTime"] = request.losslessRuleWarmupTime();
+    query["LosslessRuleWarmupTime"] = request.getLosslessRuleWarmupTime();
   }
 
   if (!!request.hasMountDescs()) {
-    query["MountDescs"] = request.mountDescs();
+    query["MountDescs"] = request.getMountDescs();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasNasId()) {
-    query["NasId"] = request.nasId();
+    query["NasId"] = request.getNasId();
   }
 
   if (!!request.hasPackageType()) {
-    query["PackageType"] = request.packageType();
+    query["PackageType"] = request.getPackageType();
   }
 
   if (!!request.hasPackageUrl()) {
-    query["PackageUrl"] = request.packageUrl();
+    query["PackageUrl"] = request.getPackageUrl();
   }
 
   if (!!request.hasPackageVersion()) {
-    query["PackageVersion"] = request.packageVersion();
+    query["PackageVersion"] = request.getPackageVersion();
   }
 
   if (!!request.hasPostStart()) {
-    query["PostStart"] = request.postStart();
+    query["PostStart"] = request.getPostStart();
   }
 
   if (!!request.hasPreStop()) {
-    query["PreStop"] = request.preStop();
+    query["PreStop"] = request.getPreStop();
   }
 
   if (!!request.hasPvcMountDescs()) {
-    query["PvcMountDescs"] = request.pvcMountDescs();
+    query["PvcMountDescs"] = request.getPvcMountDescs();
   }
 
   if (!!request.hasReadiness()) {
-    query["Readiness"] = request.readiness();
+    query["Readiness"] = request.getReadiness();
   }
 
   if (!!request.hasReplicas()) {
-    query["Replicas"] = request.replicas();
+    query["Replicas"] = request.getReplicas();
   }
 
   if (!!request.hasRepoId()) {
-    query["RepoId"] = request.repoId();
+    query["RepoId"] = request.getRepoId();
   }
 
   if (!!request.hasRequestsCpu()) {
-    query["RequestsCpu"] = request.requestsCpu();
+    query["RequestsCpu"] = request.getRequestsCpu();
   }
 
   if (!!request.hasRequestsEphemeralStorage()) {
-    query["RequestsEphemeralStorage"] = request.requestsEphemeralStorage();
+    query["RequestsEphemeralStorage"] = request.getRequestsEphemeralStorage();
   }
 
   if (!!request.hasRequestsMem()) {
-    query["RequestsMem"] = request.requestsMem();
+    query["RequestsMem"] = request.getRequestsMem();
   }
 
   if (!!request.hasRequestsmCpu()) {
-    query["RequestsmCpu"] = request.requestsmCpu();
+    query["RequestsmCpu"] = request.getRequestsmCpu();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   if (!!request.hasRuntimeClassName()) {
-    query["RuntimeClassName"] = request.runtimeClassName();
+    query["RuntimeClassName"] = request.getRuntimeClassName();
   }
 
   if (!!request.hasSecretName()) {
-    query["SecretName"] = request.secretName();
+    query["SecretName"] = request.getSecretName();
   }
 
   if (!!request.hasSecurityContext()) {
-    query["SecurityContext"] = request.securityContext();
+    query["SecurityContext"] = request.getSecurityContext();
   }
 
   if (!!request.hasServiceConfigs()) {
-    query["ServiceConfigs"] = request.serviceConfigs();
+    query["ServiceConfigs"] = request.getServiceConfigs();
   }
 
   if (!!request.hasSidecars()) {
-    query["Sidecars"] = request.sidecars();
+    query["Sidecars"] = request.getSidecars();
   }
 
   if (!!request.hasSlsConfigs()) {
-    query["SlsConfigs"] = request.slsConfigs();
+    query["SlsConfigs"] = request.getSlsConfigs();
   }
 
   if (!!request.hasStartup()) {
-    query["Startup"] = request.startup();
+    query["Startup"] = request.getStartup();
   }
 
   if (!!request.hasStorageType()) {
-    query["StorageType"] = request.storageType();
+    query["StorageType"] = request.getStorageType();
   }
 
   if (!!request.hasTerminateGracePeriod()) {
-    query["TerminateGracePeriod"] = request.terminateGracePeriod();
+    query["TerminateGracePeriod"] = request.getTerminateGracePeriod();
   }
 
   if (!!request.hasTimeout()) {
-    query["Timeout"] = request.timeout();
+    query["Timeout"] = request.getTimeout();
   }
 
   if (!!request.hasUriEncoding()) {
-    query["UriEncoding"] = request.uriEncoding();
+    query["UriEncoding"] = request.getUriEncoding();
   }
 
   if (!!request.hasUseBodyEncoding()) {
-    query["UseBodyEncoding"] = request.useBodyEncoding();
+    query["UseBodyEncoding"] = request.getUseBodyEncoding();
   }
 
   if (!!request.hasUserBaseImageUrl()) {
-    query["UserBaseImageUrl"] = request.userBaseImageUrl();
+    query["UserBaseImageUrl"] = request.getUserBaseImageUrl();
   }
 
   if (!!request.hasWebContainer()) {
-    query["WebContainer"] = request.webContainer();
+    query["WebContainer"] = request.getWebContainer();
   }
 
   if (!!request.hasWebContainerConfig()) {
-    query["WebContainerConfig"] = request.webContainerConfig();
+    query["WebContainerConfig"] = request.getWebContainerConfig();
   }
 
   if (!!request.hasWorkloadType()) {
-    query["WorkloadType"] = request.workloadType();
+    query["WorkloadType"] = request.getWorkloadType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4601,7 +4609,7 @@ InsertK8sApplicationResponse Client::insertK8sApplicationWithOptions(const Inser
 }
 
 /**
- * @summary Creates an application in a Container Service for Kubernetes (ACK) cluster or serverless Kubernetes cluster.
+ * @summary Creates an application in a Kubernetes cluster or a Serverless Kubernetes cluster.
  *
  * @param request InsertK8sApplicationRequest
  * @return InsertK8sApplicationResponse
@@ -4624,31 +4632,31 @@ InsertOrUpdateRegionResponse Client::insertOrUpdateRegionWithOptions(const Inser
   request.validate();
   json query = {};
   if (!!request.hasDebugEnable()) {
-    query["DebugEnable"] = request.debugEnable();
+    query["DebugEnable"] = request.getDebugEnable();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasMseInstanceId()) {
-    query["MseInstanceId"] = request.mseInstanceId();
+    query["MseInstanceId"] = request.getMseInstanceId();
   }
 
   if (!!request.hasRegionName()) {
-    query["RegionName"] = request.regionName();
+    query["RegionName"] = request.getRegionName();
   }
 
   if (!!request.hasRegionTag()) {
-    query["RegionTag"] = request.regionTag();
+    query["RegionTag"] = request.getRegionTag();
   }
 
   if (!!request.hasRegistryType()) {
-    query["RegistryType"] = request.registryType();
+    query["RegistryType"] = request.getRegistryType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4693,11 +4701,11 @@ InsertRoleResponse Client::insertRoleWithOptions(const InsertRoleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasActionData()) {
-    query["ActionData"] = request.actionData();
+    query["ActionData"] = request.getActionData();
   }
 
   if (!!request.hasRoleName()) {
-    query["RoleName"] = request.roleName();
+    query["RoleName"] = request.getRoleName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4742,7 +4750,7 @@ InsertServiceGroupResponse Client::insertServiceGroupWithOptions(const InsertSer
   request.validate();
   json query = {};
   if (!!request.hasGroupName()) {
-    query["GroupName"] = request.groupName();
+    query["GroupName"] = request.getGroupName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4787,31 +4795,31 @@ InsertSwimmingLaneResponse Client::insertSwimmingLaneWithOptions(const InsertSwi
   request.validate();
   json query = {};
   if (!!request.hasAppInfos()) {
-    query["AppInfos"] = request.appInfos();
+    query["AppInfos"] = request.getAppInfos();
   }
 
   if (!!request.hasEnableRules()) {
-    query["EnableRules"] = request.enableRules();
+    query["EnableRules"] = request.getEnableRules();
   }
 
   if (!!request.hasEntryRules()) {
-    query["EntryRules"] = request.entryRules();
+    query["EntryRules"] = request.getEntryRules();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasTag()) {
-    query["Tag"] = request.tag();
+    query["Tag"] = request.getTag();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4856,19 +4864,19 @@ InsertSwimmingLaneGroupResponse Client::insertSwimmingLaneGroupWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppIds()) {
-    query["AppIds"] = request.appIds();
+    query["AppIds"] = request.getAppIds();
   }
 
   if (!!request.hasEntryApp()) {
-    query["EntryApp"] = request.entryApp();
+    query["EntryApp"] = request.getEntryApp();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4915,15 +4923,15 @@ InstallAgentResponse Client::installAgentWithOptions(const InstallAgentRequest &
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDoAsync()) {
-    query["DoAsync"] = request.doAsync();
+    query["DoAsync"] = request.getDoAsync();
   }
 
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -4995,7 +5003,7 @@ ListAliyunRegionResponse Client::listAliyunRegion() {
 }
 
 /**
- * @summary Queries a list of applications.
+ * @summary Retrieves the list of applications.
  *
  * @param request ListApplicationRequest
  * @param headers map
@@ -5006,35 +5014,35 @@ ListApplicationResponse Client::listApplicationWithOptions(const ListApplication
   request.validate();
   json query = {};
   if (!!request.hasAppIds()) {
-    query["AppIds"] = request.appIds();
+    query["AppIds"] = request.getAppIds();
   }
 
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   if (!!request.hasLogicalRegionIdFilter()) {
-    query["LogicalRegionIdFilter"] = request.logicalRegionIdFilter();
+    query["LogicalRegionIdFilter"] = request.getLogicalRegionIdFilter();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5056,7 +5064,7 @@ ListApplicationResponse Client::listApplicationWithOptions(const ListApplication
 }
 
 /**
- * @summary Queries a list of applications.
+ * @summary Retrieves the list of applications.
  *
  * @param request ListApplicationRequest
  * @return ListApplicationResponse
@@ -5079,11 +5087,11 @@ ListApplicationEcuResponse Client::listApplicationEcuWithOptions(const ListAppli
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5153,7 +5161,7 @@ ListAuthorityResponse Client::listAuthority() {
 }
 
 /**
- * @summary Queries Enterprise Distributed Application Service (EDAS) Container versions.
+ * @summary Calls the ListBuildPack operation to retrieve the list of container versions.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -5178,7 +5186,7 @@ ListBuildPackResponse Client::listBuildPackWithOptions(const map<string, string>
 }
 
 /**
- * @summary Queries Enterprise Distributed Application Service (EDAS) Container versions.
+ * @summary Calls the ListBuildPack operation to retrieve the list of container versions.
  *
  * @return ListBuildPackResponse
  */
@@ -5200,11 +5208,11 @@ ListClusterResponse Client::listClusterWithOptions(const ListClusterRequest &req
   request.validate();
   json query = {};
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   if (!!request.hasResourceGroupId()) {
-    query["ResourceGroupId"] = request.resourceGroupId();
+    query["ResourceGroupId"] = request.getResourceGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5249,19 +5257,19 @@ ListClusterMembersResponse Client::listClusterMembersWithOptions(const ListClust
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasEcsList()) {
-    query["EcsList"] = request.ecsList();
+    query["EcsList"] = request.getEcsList();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5342,19 +5350,19 @@ ListConfigTemplatesResponse Client::listConfigTemplatesWithOptions(const ListCon
   request.validate();
   json query = {};
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasId()) {
-    query["Id"] = request.id();
+    query["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5388,7 +5396,7 @@ ListConfigTemplatesResponse Client::listConfigTemplates(const ListConfigTemplate
 }
 
 /**
- * @summary Queries the services that are consumed by an application.
+ * @summary Queries consumed services.
  *
  * @param request ListConsumedServicesRequest
  * @param headers map
@@ -5399,7 +5407,7 @@ ListConsumedServicesResponse Client::listConsumedServicesWithOptions(const ListC
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5421,7 +5429,7 @@ ListConsumedServicesResponse Client::listConsumedServicesWithOptions(const ListC
 }
 
 /**
- * @summary Queries the services that are consumed by an application.
+ * @summary Queries consumed services.
  *
  * @param request ListConsumedServicesRequest
  * @return ListConsumedServicesResponse
@@ -5444,7 +5452,7 @@ ListConvertableEcuResponse Client::listConvertableEcuWithOptions(const ListConve
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["clusterId"] = request.clusterId();
+    query["clusterId"] = request.getClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5478,7 +5486,7 @@ ListConvertableEcuResponse Client::listConvertableEcu(const ListConvertableEcuRe
 }
 
 /**
- * @summary Queries the instance groups to which an application is deployed.
+ * @summary Call the ListDeployGroup operation to obtain a list of deployment groups.
  *
  * @param request ListDeployGroupRequest
  * @param headers map
@@ -5489,7 +5497,7 @@ ListDeployGroupResponse Client::listDeployGroupWithOptions(const ListDeployGroup
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5511,7 +5519,7 @@ ListDeployGroupResponse Client::listDeployGroupWithOptions(const ListDeployGroup
 }
 
 /**
- * @summary Queries the instance groups to which an application is deployed.
+ * @summary Call the ListDeployGroup operation to obtain a list of deployment groups.
  *
  * @param request ListDeployGroupRequest
  * @return ListDeployGroupResponse
@@ -5534,11 +5542,11 @@ ListEcsNotInClusterResponse Client::listEcsNotInClusterWithOptions(const ListEcs
   request.validate();
   json query = {};
   if (!!request.hasNetworkMode()) {
-    query["NetworkMode"] = request.networkMode();
+    query["NetworkMode"] = request.getNetworkMode();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5575,9 +5583,9 @@ ListEcsNotInClusterResponse Client::listEcsNotInCluster(const ListEcsNotInCluste
  * @summary Queries the available elastic compute units (ECUs) in a specified namespace.
  *
  * @description ## Terms
- * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
- * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
- * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+ * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+ * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+ * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
  *
  * @param request ListEcuByRegionRequest
  * @param headers map
@@ -5588,11 +5596,11 @@ ListEcuByRegionResponse Client::listEcuByRegionWithOptions(const ListEcuByRegion
   request.validate();
   json query = {};
   if (!!request.hasAct()) {
-    query["Act"] = request.act();
+    query["Act"] = request.getAct();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5617,9 +5625,9 @@ ListEcuByRegionResponse Client::listEcuByRegionWithOptions(const ListEcuByRegion
  * @summary Queries the available elastic compute units (ECUs) in a specified namespace.
  *
  * @description ## Terms
- * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
- * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
- * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+ * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+ * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+ * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
  *
  * @param request ListEcuByRegionRequest
  * @return ListEcuByRegionResponse
@@ -5642,7 +5650,7 @@ ListHistoryDeployVersionResponse Client::listHistoryDeployVersionWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5687,31 +5695,31 @@ ListK8sConfigMapsResponse Client::listK8sConfigMapsWithOptions(const ListK8sConf
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasCondition()) {
-    query["Condition"] = request.condition();
+    query["Condition"] = request.getCondition();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasShowRelatedApps()) {
-    query["ShowRelatedApps"] = request.showRelatedApps();
+    query["ShowRelatedApps"] = request.getShowRelatedApps();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5756,19 +5764,19 @@ ListK8sIngressRulesResponse Client::listK8sIngressRulesWithOptions(const ListK8s
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasCondition()) {
-    query["Condition"] = request.condition();
+    query["Condition"] = request.getCondition();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5813,7 +5821,7 @@ ListK8sNamespacesResponse Client::listK8sNamespacesWithOptions(const ListK8sName
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5858,31 +5866,31 @@ ListK8sSecretsResponse Client::listK8sSecretsWithOptions(const ListK8sSecretsReq
   request.validate();
   json query = {};
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasCondition()) {
-    query["Condition"] = request.condition();
+    query["Condition"] = request.getCondition();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasPageNo()) {
-    query["PageNo"] = request.pageNo();
+    query["PageNo"] = request.getPageNo();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasShowRelatedApps()) {
-    query["ShowRelatedApps"] = request.showRelatedApps();
+    query["ShowRelatedApps"] = request.getShowRelatedApps();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5916,7 +5924,7 @@ ListK8sSecretsResponse Client::listK8sSecrets(const ListK8sSecretsRequest &reque
 }
 
 /**
- * @summary Queries service methods.
+ * @summary You can call the ListMethods operation to query a list of service methods.
  *
  * @param request ListMethodsRequest
  * @param headers map
@@ -5927,11 +5935,11 @@ ListMethodsResponse Client::listMethodsWithOptions(const ListMethodsRequest &req
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasServiceName()) {
-    query["ServiceName"] = request.serviceName();
+    query["ServiceName"] = request.getServiceName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5953,7 +5961,7 @@ ListMethodsResponse Client::listMethodsWithOptions(const ListMethodsRequest &req
 }
 
 /**
- * @summary Queries service methods.
+ * @summary You can call the ListMethods operation to query a list of service methods.
  *
  * @param request ListMethodsRequest
  * @return ListMethodsResponse
@@ -5965,7 +5973,7 @@ ListMethodsResponse Client::listMethods(const ListMethodsRequest &request) {
 }
 
 /**
- * @summary Queries the services that are published by an application.
+ * @summary Queries published services.
  *
  * @param request ListPublishedServicesRequest
  * @param headers map
@@ -5976,7 +5984,7 @@ ListPublishedServicesResponse Client::listPublishedServicesWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -5998,7 +6006,7 @@ ListPublishedServicesResponse Client::listPublishedServicesWithOptions(const Lis
 }
 
 /**
- * @summary Queries the services that are published by an application.
+ * @summary Queries published services.
  *
  * @param request ListPublishedServicesRequest
  * @return ListPublishedServicesResponse
@@ -6021,7 +6029,7 @@ ListRecentChangeOrderResponse Client::listRecentChangeOrderWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6091,7 +6099,7 @@ ListResourceGroupResponse Client::listResourceGroup() {
 }
 
 /**
- * @summary Queries roles.
+ * @summary Queries a list of roles.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6116,7 +6124,7 @@ ListRoleResponse Client::listRoleWithOptions(const map<string, string> &headers,
 }
 
 /**
- * @summary Queries roles.
+ * @summary Queries a list of roles.
  *
  * @return ListRoleResponse
  */
@@ -6130,9 +6138,9 @@ ListRoleResponse Client::listRole() {
  * @summary Queries elastic compute units (ECUs) available for scaling out an application in a specified cluster or the cluster where the application is deployed. This operation is applicable to Elastic Compute Service (ECS) clusters.
  *
  * @description ## Terms
- * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
- * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
- * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+ * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+ * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+ * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
  *
  * @param request ListScaleOutEcuRequest
  * @param headers map
@@ -6143,31 +6151,31 @@ ListScaleOutEcuResponse Client::listScaleOutEcuWithOptions(const ListScaleOutEcu
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasCpu()) {
-    query["Cpu"] = request.cpu();
+    query["Cpu"] = request.getCpu();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasInstanceNum()) {
-    query["InstanceNum"] = request.instanceNum();
+    query["InstanceNum"] = request.getInstanceNum();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   if (!!request.hasMem()) {
-    query["Mem"] = request.mem();
+    query["Mem"] = request.getMem();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6192,9 +6200,9 @@ ListScaleOutEcuResponse Client::listScaleOutEcuWithOptions(const ListScaleOutEcu
  * @summary Queries elastic compute units (ECUs) available for scaling out an application in a specified cluster or the cluster where the application is deployed. This operation is applicable to Elastic Compute Service (ECS) clusters.
  *
  * @description ## Terms
- * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
- * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
- * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+ * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+ * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+ * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
  *
  * @param request ListScaleOutEcuRequest
  * @return ListScaleOutEcuResponse
@@ -6242,7 +6250,7 @@ ListServiceGroupsResponse Client::listServiceGroups() {
 }
 
 /**
- * @summary Queries Server Load Balancer (SLB) instances.
+ * @summary Retrieves a list of SLB instances.
  *
  * @param request ListSlbRequest
  * @param headers map
@@ -6253,15 +6261,15 @@ ListSlbResponse Client::listSlbWithOptions(const ListSlbRequest &request, const 
   request.validate();
   json query = {};
   if (!!request.hasAddressType()) {
-    query["AddressType"] = request.addressType();
+    query["AddressType"] = request.getAddressType();
   }
 
   if (!!request.hasSlbType()) {
-    query["SlbType"] = request.slbType();
+    query["SlbType"] = request.getSlbType();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6283,7 +6291,7 @@ ListSlbResponse Client::listSlbWithOptions(const ListSlbRequest &request, const 
 }
 
 /**
- * @summary Queries Server Load Balancer (SLB) instances.
+ * @summary Retrieves a list of SLB instances.
  *
  * @param request ListSlbRequest
  * @return ListSlbResponse
@@ -6295,7 +6303,7 @@ ListSlbResponse Client::listSlb(const ListSlbRequest &request) {
 }
 
 /**
- * @summary Queries the Resource Access Management (RAM) users.
+ * @summary Queries a list of Resource Access Management (RAM) users.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6320,7 +6328,7 @@ ListSubAccountResponse Client::listSubAccountWithOptions(const map<string, strin
 }
 
 /**
- * @summary Queries the Resource Access Management (RAM) users.
+ * @summary Queries a list of Resource Access Management (RAM) users.
  *
  * @return ListSubAccountResponse
  */
@@ -6342,7 +6350,7 @@ ListSwimmingLaneResponse Client::listSwimmingLaneWithOptions(const ListSwimmingL
   request.validate();
   json query = {};
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6387,11 +6395,11 @@ ListSwimmingLaneGroupResponse Client::listSwimmingLaneGroupWithOptions(const Lis
   request.validate();
   json query = {};
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6436,19 +6444,19 @@ ListTagResourcesResponse Client::listTagResourcesWithOptions(const ListTagResour
   request.validate();
   json query = {};
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6482,7 +6490,7 @@ ListTagResourcesResponse Client::listTagResources(const ListTagResourcesRequest 
 }
 
 /**
- * @summary Queries custom namespaces.
+ * @summary Queries a list of user-defined namespaces.
  *
  * @param request ListUserDefineRegionRequest
  * @param headers map
@@ -6493,7 +6501,7 @@ ListUserDefineRegionResponse Client::listUserDefineRegionWithOptions(const ListU
   request.validate();
   json query = {};
   if (!!request.hasDebugEnable()) {
-    query["DebugEnable"] = request.debugEnable();
+    query["DebugEnable"] = request.getDebugEnable();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6515,7 +6523,7 @@ ListUserDefineRegionResponse Client::listUserDefineRegionWithOptions(const ListU
 }
 
 /**
- * @summary Queries custom namespaces.
+ * @summary Queries a list of user-defined namespaces.
  *
  * @param request ListUserDefineRegionRequest
  * @return ListUserDefineRegionResponse
@@ -6527,7 +6535,7 @@ ListUserDefineRegionResponse Client::listUserDefineRegion(const ListUserDefineRe
 }
 
 /**
- * @summary The HTTP status code returned.
+ * @summary Queries virtual private clouds (VPCs). This operation is applicable to Elastic Compute Service (ECS) clusters and Kubernetes clusters.
  *
  * @param headers map
  * @param runtime runtime options for this request RuntimeOptions
@@ -6552,7 +6560,7 @@ ListVpcResponse Client::listVpcWithOptions(const map<string, string> &headers, c
 }
 
 /**
- * @summary The HTTP status code returned.
+ * @summary Queries virtual private clouds (VPCs). This operation is applicable to Elastic Compute Service (ECS) clusters and Kubernetes clusters.
  *
  * @return ListVpcResponse
  */
@@ -6563,15 +6571,80 @@ ListVpcResponse Client::listVpc() {
 }
 
 /**
- * @summary Migrates an elastic compute unit (ECU) to the default cluster in a specified namespace.
+ * @summary Migrates an application.
  *
- * @description ## Limits
- * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
- * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+ * @description > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
+ *
+ * @param request MigrateApplicationRequest
+ * @param headers map
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return MigrateApplicationResponse
+ */
+MigrateApplicationResponse Client::migrateApplicationWithOptions(const MigrateApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasAppIds()) {
+    query["appIds"] = request.getAppIds();
+  }
+
+  if (!!request.hasCmd()) {
+    query["cmd"] = request.getCmd();
+  }
+
+  if (!!request.hasConfig()) {
+    query["config"] = request.getConfig();
+  }
+
+  if (!!request.hasRawData()) {
+    query["rawData"] = request.getRawData();
+  }
+
+  if (!!request.hasRegionId()) {
+    query["regionId"] = request.getRegionId();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"headers" , headers},
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "MigrateApplication"},
+    {"version" , "2017-08-01"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , DARA_STRING_TEMPLATE("/pop/v5/k8s/migrateK8sApp")},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "ROA"},
+    {"reqBodyType" , "json"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<MigrateApplicationResponse>();
+}
+
+/**
+ * @summary Migrates an application.
+ *
+ * @description > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
+ *
+ * @param request MigrateApplicationRequest
+ * @return MigrateApplicationResponse
+ */
+MigrateApplicationResponse Client::migrateApplication(const MigrateApplicationRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  map<string, string> headers = {};
+  return migrateApplicationWithOptions(request, headers, runtime);
+}
+
+/**
+ * @summary Transfers an ECU to the default cluster in a specified namespace.
+ *
+ * @description ## Usage notes
+ * This API operation is deprecated. Use the TransformClusterMember operation instead. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
+ * This operation imports an Elastic Compute Service (ECS) instance and reinstalls its operating system. This process deletes all data on the instance. You must also reset the logon password. Before you import an instance, back up its data or make sure it contains no important data.
  * ## Terms
- * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
- * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
- * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+ * - **Namespace**: A logical concept in Enterprise Distributed Application Service (EDAS) used to isolate resources and microservices. Resources include clusters, ECS instances, and applications. Namespaces can be default or custom. Each region has one default namespace and can have multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+ * - **ECU**: An ECS instance becomes an Elastic Compute Unit (ECU) after it is imported into a cluster.
+ * - **ECC**: An ECU in a cluster becomes an Elastic Compute Container (ECC) after it is deployed in an application.
  *
  * @param request MigrateEcuRequest
  * @param headers map
@@ -6582,11 +6655,11 @@ MigrateEcuResponse Client::migrateEcuWithOptions(const MigrateEcuRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6608,15 +6681,15 @@ MigrateEcuResponse Client::migrateEcuWithOptions(const MigrateEcuRequest &reques
 }
 
 /**
- * @summary Migrates an elastic compute unit (ECU) to the default cluster in a specified namespace.
+ * @summary Transfers an ECU to the default cluster in a specified namespace.
  *
- * @description ## Limits
- * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
- * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+ * @description ## Usage notes
+ * This API operation is deprecated. Use the TransformClusterMember operation instead. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
+ * This operation imports an Elastic Compute Service (ECS) instance and reinstalls its operating system. This process deletes all data on the instance. You must also reset the logon password. Before you import an instance, back up its data or make sure it contains no important data.
  * ## Terms
- * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
- * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
- * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+ * - **Namespace**: A logical concept in Enterprise Distributed Application Service (EDAS) used to isolate resources and microservices. Resources include clusters, ECS instances, and applications. Namespaces can be default or custom. Each region has one default namespace and can have multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+ * - **ECU**: An ECS instance becomes an Elastic Compute Unit (ECU) after it is imported into a cluster.
+ * - **ECC**: An ECU in a cluster becomes an Elastic Compute Container (ECC) after it is deployed in an application.
  *
  * @param request MigrateEcuRequest
  * @return MigrateEcuResponse
@@ -6639,123 +6712,123 @@ ModifyScalingRuleResponse Client::modifyScalingRuleWithOptions(const ModifyScali
   request.validate();
   json query = {};
   if (!!request.hasAcceptEULA()) {
-    query["AcceptEULA"] = request.acceptEULA();
+    query["AcceptEULA"] = request.getAcceptEULA();
   }
 
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasInCondition()) {
-    query["InCondition"] = request.inCondition();
+    query["InCondition"] = request.getInCondition();
   }
 
   if (!!request.hasInCpu()) {
-    query["InCpu"] = request.inCpu();
+    query["InCpu"] = request.getInCpu();
   }
 
   if (!!request.hasInDuration()) {
-    query["InDuration"] = request.inDuration();
+    query["InDuration"] = request.getInDuration();
   }
 
   if (!!request.hasInEnable()) {
-    query["InEnable"] = request.inEnable();
+    query["InEnable"] = request.getInEnable();
   }
 
   if (!!request.hasInInstanceNum()) {
-    query["InInstanceNum"] = request.inInstanceNum();
+    query["InInstanceNum"] = request.getInInstanceNum();
   }
 
   if (!!request.hasInLoad()) {
-    query["InLoad"] = request.inLoad();
+    query["InLoad"] = request.getInLoad();
   }
 
   if (!!request.hasInRT()) {
-    query["InRT"] = request.inRT();
+    query["InRT"] = request.getInRT();
   }
 
   if (!!request.hasInStep()) {
-    query["InStep"] = request.inStep();
+    query["InStep"] = request.getInStep();
   }
 
   if (!!request.hasKeyPairName()) {
-    query["KeyPairName"] = request.keyPairName();
+    query["KeyPairName"] = request.getKeyPairName();
   }
 
   if (!!request.hasMultiAzPolicy()) {
-    query["MultiAzPolicy"] = request.multiAzPolicy();
+    query["MultiAzPolicy"] = request.getMultiAzPolicy();
   }
 
   if (!!request.hasOutCPU()) {
-    query["OutCPU"] = request.outCPU();
+    query["OutCPU"] = request.getOutCPU();
   }
 
   if (!!request.hasOutCondition()) {
-    query["OutCondition"] = request.outCondition();
+    query["OutCondition"] = request.getOutCondition();
   }
 
   if (!!request.hasOutDuration()) {
-    query["OutDuration"] = request.outDuration();
+    query["OutDuration"] = request.getOutDuration();
   }
 
   if (!!request.hasOutEnable()) {
-    query["OutEnable"] = request.outEnable();
+    query["OutEnable"] = request.getOutEnable();
   }
 
   if (!!request.hasOutInstanceNum()) {
-    query["OutInstanceNum"] = request.outInstanceNum();
+    query["OutInstanceNum"] = request.getOutInstanceNum();
   }
 
   if (!!request.hasOutLoad()) {
-    query["OutLoad"] = request.outLoad();
+    query["OutLoad"] = request.getOutLoad();
   }
 
   if (!!request.hasOutRT()) {
-    query["OutRT"] = request.outRT();
+    query["OutRT"] = request.getOutRT();
   }
 
   if (!!request.hasOutStep()) {
-    query["OutStep"] = request.outStep();
+    query["OutStep"] = request.getOutStep();
   }
 
   if (!!request.hasPassword()) {
-    query["Password"] = request.password();
+    query["Password"] = request.getPassword();
   }
 
   if (!!request.hasResourceFrom()) {
-    query["ResourceFrom"] = request.resourceFrom();
+    query["ResourceFrom"] = request.getResourceFrom();
   }
 
   if (!!request.hasScalingPolicy()) {
-    query["ScalingPolicy"] = request.scalingPolicy();
+    query["ScalingPolicy"] = request.getScalingPolicy();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTemplateInstanceId()) {
-    query["TemplateInstanceId"] = request.templateInstanceId();
+    query["TemplateInstanceId"] = request.getTemplateInstanceId();
   }
 
   if (!!request.hasTemplateInstanceName()) {
-    query["TemplateInstanceName"] = request.templateInstanceName();
+    query["TemplateInstanceName"] = request.getTemplateInstanceName();
   }
 
   if (!!request.hasTemplateVersion()) {
-    query["TemplateVersion"] = request.templateVersion();
+    query["TemplateVersion"] = request.getTemplateVersion();
   }
 
   if (!!request.hasVSwitchIds()) {
-    query["VSwitchIds"] = request.vSwitchIds();
+    query["VSwitchIds"] = request.getVSwitchIds();
   }
 
   if (!!request.hasVpcId()) {
-    query["VpcId"] = request.vpcId();
+    query["VpcId"] = request.getVpcId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6800,7 +6873,7 @@ QueryApplicationStatusResponse Client::queryApplicationStatusWithOptions(const Q
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6845,7 +6918,7 @@ QueryEccInfoResponse Client::queryEccInfoWithOptions(const QueryEccInfoRequest &
   request.validate();
   json query = {};
   if (!!request.hasEccId()) {
-    query["EccId"] = request.eccId();
+    query["EccId"] = request.getEccId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6890,7 +6963,7 @@ QueryMigrateEcuListResponse Client::queryMigrateEcuListWithOptions(const QueryMi
   request.validate();
   json query = {};
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -6935,7 +7008,7 @@ QueryMigrateRegionListResponse Client::queryMigrateRegionListWithOptions(const Q
   request.validate();
   json query = {};
   if (!!request.hasLogicalRegionId()) {
-    query["LogicalRegionId"] = request.logicalRegionId();
+    query["LogicalRegionId"] = request.getLogicalRegionId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7016,19 +7089,19 @@ QuerySlsLogStoreListResponse Client::querySlsLogStoreListWithOptions(const Query
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasCurrentPage()) {
-    query["CurrentPage"] = request.currentPage();
+    query["CurrentPage"] = request.getCurrentPage();
   }
 
   if (!!request.hasPageSize()) {
-    query["PageSize"] = request.pageSize();
+    query["PageSize"] = request.getPageSize();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7073,11 +7146,11 @@ ResetApplicationResponse Client::resetApplicationWithOptions(const ResetApplicat
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEccInfo()) {
-    query["EccInfo"] = request.eccInfo();
+    query["EccInfo"] = request.getEccInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7111,7 +7184,7 @@ ResetApplicationResponse Client::resetApplication(const ResetApplicationRequest 
 }
 
 /**
- * @summary Restarts an application. This operation is applicable to applications that are deployed in Elastic Compute Service (ECS) clusters.
+ * @summary Restarts an application. This operation is suitable for applications that are deployed on Elastic Compute Service (ECS) instances.
  *
  * @param request RestartApplicationRequest
  * @param headers map
@@ -7122,11 +7195,11 @@ RestartApplicationResponse Client::restartApplicationWithOptions(const RestartAp
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEccInfo()) {
-    query["EccInfo"] = request.eccInfo();
+    query["EccInfo"] = request.getEccInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7148,7 +7221,7 @@ RestartApplicationResponse Client::restartApplicationWithOptions(const RestartAp
 }
 
 /**
- * @summary Restarts an application. This operation is applicable to applications that are deployed in Elastic Compute Service (ECS) clusters.
+ * @summary Restarts an application. This operation is suitable for applications that are deployed on Elastic Compute Service (ECS) instances.
  *
  * @param request RestartApplicationRequest
  * @return RestartApplicationResponse
@@ -7160,7 +7233,7 @@ RestartApplicationResponse Client::restartApplication(const RestartApplicationRe
 }
 
 /**
- * @summary Restarts an application that is deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+ * @summary Call the RestartK8sApplication operation to restart an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
  *
  * @param request RestartK8sApplicationRequest
  * @param headers map
@@ -7171,11 +7244,11 @@ RestartK8sApplicationResponse Client::restartK8sApplicationWithOptions(const Res
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasTimeout()) {
-    query["Timeout"] = request.timeout();
+    query["Timeout"] = request.getTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7197,7 +7270,7 @@ RestartK8sApplicationResponse Client::restartK8sApplicationWithOptions(const Res
 }
 
 /**
- * @summary Restarts an application that is deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+ * @summary Call the RestartK8sApplication operation to restart an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
  *
  * @param request RestartK8sApplicationRequest
  * @return RestartK8sApplicationResponse
@@ -7209,7 +7282,7 @@ RestartK8sApplicationResponse Client::restartK8sApplication(const RestartK8sAppl
 }
 
 /**
- * @summary Retries a failed process.
+ * @summary Call the RetryChangeOrderTask operation to retry a failed change order task.
  *
  * @param request RetryChangeOrderTaskRequest
  * @param headers map
@@ -7220,11 +7293,11 @@ RetryChangeOrderTaskResponse Client::retryChangeOrderTaskWithOptions(const Retry
   request.validate();
   json query = {};
   if (!!request.hasRetryStatus()) {
-    query["RetryStatus"] = request.retryStatus();
+    query["RetryStatus"] = request.getRetryStatus();
   }
 
   if (!!request.hasTaskId()) {
-    query["TaskId"] = request.taskId();
+    query["TaskId"] = request.getTaskId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7246,7 +7319,7 @@ RetryChangeOrderTaskResponse Client::retryChangeOrderTaskWithOptions(const Retry
 }
 
 /**
- * @summary Retries a failed process.
+ * @summary Call the RetryChangeOrderTask operation to retry a failed change order task.
  *
  * @param request RetryChangeOrderTaskRequest
  * @return RetryChangeOrderTaskResponse
@@ -7269,23 +7342,23 @@ RollbackApplicationResponse Client::rollbackApplicationWithOptions(const Rollbac
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBatch()) {
-    query["Batch"] = request.batch();
+    query["Batch"] = request.getBatch();
   }
 
   if (!!request.hasBatchWaitTime()) {
-    query["BatchWaitTime"] = request.batchWaitTime();
+    query["BatchWaitTime"] = request.getBatchWaitTime();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasHistoryVersion()) {
-    query["HistoryVersion"] = request.historyVersion();
+    query["HistoryVersion"] = request.getHistoryVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7330,7 +7403,7 @@ RollbackChangeOrderResponse Client::rollbackChangeOrderWithOptions(const Rollbac
   request.validate();
   json query = {};
   if (!!request.hasChangeOrderId()) {
-    query["ChangeOrderId"] = request.changeOrderId();
+    query["ChangeOrderId"] = request.getChangeOrderId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7364,7 +7437,7 @@ RollbackChangeOrderResponse Client::rollbackChangeOrder(const RollbackChangeOrde
 }
 
 /**
- * @summary Scales in an application.
+ * @summary Scales in the instances of an application.
  *
  * @param request ScaleInApplicationRequest
  * @param headers map
@@ -7375,15 +7448,15 @@ ScaleInApplicationResponse Client::scaleInApplicationWithOptions(const ScaleInAp
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEccInfo()) {
-    query["EccInfo"] = request.eccInfo();
+    query["EccInfo"] = request.getEccInfo();
   }
 
   if (!!request.hasForceStatus()) {
-    query["ForceStatus"] = request.forceStatus();
+    query["ForceStatus"] = request.getForceStatus();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7405,7 +7478,7 @@ ScaleInApplicationResponse Client::scaleInApplicationWithOptions(const ScaleInAp
 }
 
 /**
- * @summary Scales in an application.
+ * @summary Scales in the instances of an application.
  *
  * @param request ScaleInApplicationRequest
  * @return ScaleInApplicationResponse
@@ -7417,7 +7490,7 @@ ScaleInApplicationResponse Client::scaleInApplication(const ScaleInApplicationRe
 }
 
 /**
- * @summary Scales out or in an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+ * @summary Scales out or scales down application instances in a Container Service for Kubernetes (K8s) cluster.
  *
  * @param request ScaleK8sApplicationRequest
  * @param headers map
@@ -7428,15 +7501,15 @@ ScaleK8sApplicationResponse Client::scaleK8sApplicationWithOptions(const ScaleK8
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasReplicas()) {
-    query["Replicas"] = request.replicas();
+    query["Replicas"] = request.getReplicas();
   }
 
   if (!!request.hasTimeout()) {
-    query["Timeout"] = request.timeout();
+    query["Timeout"] = request.getTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7458,7 +7531,7 @@ ScaleK8sApplicationResponse Client::scaleK8sApplicationWithOptions(const ScaleK8
 }
 
 /**
- * @summary Scales out or in an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+ * @summary Scales out or scales down application instances in a Container Service for Kubernetes (K8s) cluster.
  *
  * @param request ScaleK8sApplicationRequest
  * @return ScaleK8sApplicationResponse
@@ -7481,15 +7554,15 @@ ScaleOutApplicationResponse Client::scaleOutApplicationWithOptions(const ScaleOu
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasDeployGroup()) {
-    query["DeployGroup"] = request.deployGroup();
+    query["DeployGroup"] = request.getDeployGroup();
   }
 
   if (!!request.hasEcuInfo()) {
-    query["EcuInfo"] = request.ecuInfo();
+    query["EcuInfo"] = request.getEcuInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7537,55 +7610,55 @@ ScaleoutApplicationWithNewInstancesResponse Client::scaleoutApplicationWithNewIn
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAutoRenew()) {
-    query["AutoRenew"] = request.autoRenew();
+    query["AutoRenew"] = request.getAutoRenew();
   }
 
   if (!!request.hasAutoRenewPeriod()) {
-    query["AutoRenewPeriod"] = request.autoRenewPeriod();
+    query["AutoRenewPeriod"] = request.getAutoRenewPeriod();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasInstanceChargePeriod()) {
-    query["InstanceChargePeriod"] = request.instanceChargePeriod();
+    query["InstanceChargePeriod"] = request.getInstanceChargePeriod();
   }
 
   if (!!request.hasInstanceChargePeriodUnit()) {
-    query["InstanceChargePeriodUnit"] = request.instanceChargePeriodUnit();
+    query["InstanceChargePeriodUnit"] = request.getInstanceChargePeriodUnit();
   }
 
   if (!!request.hasInstanceChargeType()) {
-    query["InstanceChargeType"] = request.instanceChargeType();
+    query["InstanceChargeType"] = request.getInstanceChargeType();
   }
 
   if (!!request.hasScalingNum()) {
-    query["ScalingNum"] = request.scalingNum();
+    query["ScalingNum"] = request.getScalingNum();
   }
 
   if (!!request.hasScalingPolicy()) {
-    query["ScalingPolicy"] = request.scalingPolicy();
+    query["ScalingPolicy"] = request.getScalingPolicy();
   }
 
   if (!!request.hasTemplateId()) {
-    query["TemplateId"] = request.templateId();
+    query["TemplateId"] = request.getTemplateId();
   }
 
   if (!!request.hasTemplateInstanceId()) {
-    query["TemplateInstanceId"] = request.templateInstanceId();
+    query["TemplateInstanceId"] = request.getTemplateInstanceId();
   }
 
   if (!!request.hasTemplateVersion()) {
-    query["TemplateVersion"] = request.templateVersion();
+    query["TemplateVersion"] = request.getTemplateVersion();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7633,11 +7706,11 @@ StartApplicationResponse Client::startApplicationWithOptions(const StartApplicat
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEccInfo()) {
-    query["EccInfo"] = request.eccInfo();
+    query["EccInfo"] = request.getEccInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7682,99 +7755,99 @@ StartK8sAppPrecheckResponse Client::startK8sAppPrecheckWithOptions(const StartK8
   request.validate();
   json query = {};
   if (!!request.hasAnnotations()) {
-    query["Annotations"] = request.annotations();
+    query["Annotations"] = request.getAnnotations();
   }
 
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasComponentIds()) {
-    query["ComponentIds"] = request.componentIds();
+    query["ComponentIds"] = request.getComponentIds();
   }
 
   if (!!request.hasConfigMountDescs()) {
-    query["ConfigMountDescs"] = request.configMountDescs();
+    query["ConfigMountDescs"] = request.getConfigMountDescs();
   }
 
   if (!!request.hasEmptyDirs()) {
-    query["EmptyDirs"] = request.emptyDirs();
+    query["EmptyDirs"] = request.getEmptyDirs();
   }
 
   if (!!request.hasEnvFroms()) {
-    query["EnvFroms"] = request.envFroms();
+    query["EnvFroms"] = request.getEnvFroms();
   }
 
   if (!!request.hasEnvs()) {
-    query["Envs"] = request.envs();
+    query["Envs"] = request.getEnvs();
   }
 
   if (!!request.hasImageUrl()) {
-    query["ImageUrl"] = request.imageUrl();
+    query["ImageUrl"] = request.getImageUrl();
   }
 
   if (!!request.hasJavaStartUpConfig()) {
-    query["JavaStartUpConfig"] = request.javaStartUpConfig();
+    query["JavaStartUpConfig"] = request.getJavaStartUpConfig();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasLimitEphemeralStorage()) {
-    query["LimitEphemeralStorage"] = request.limitEphemeralStorage();
+    query["LimitEphemeralStorage"] = request.getLimitEphemeralStorage();
   }
 
   if (!!request.hasLimitMem()) {
-    query["LimitMem"] = request.limitMem();
+    query["LimitMem"] = request.getLimitMem();
   }
 
   if (!!request.hasLimitmCpu()) {
-    query["LimitmCpu"] = request.limitmCpu();
+    query["LimitmCpu"] = request.getLimitmCpu();
   }
 
   if (!!request.hasLocalVolume()) {
-    query["LocalVolume"] = request.localVolume();
+    query["LocalVolume"] = request.getLocalVolume();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasPackageUrl()) {
-    query["PackageUrl"] = request.packageUrl();
+    query["PackageUrl"] = request.getPackageUrl();
   }
 
   if (!!request.hasPvcMountDescs()) {
-    query["PvcMountDescs"] = request.pvcMountDescs();
+    query["PvcMountDescs"] = request.getPvcMountDescs();
   }
 
   if (!!request.hasRegionId()) {
-    query["RegionId"] = request.regionId();
+    query["RegionId"] = request.getRegionId();
   }
 
   if (!!request.hasReplicas()) {
-    query["Replicas"] = request.replicas();
+    query["Replicas"] = request.getReplicas();
   }
 
   if (!!request.hasRequestsEphemeralStorage()) {
-    query["RequestsEphemeralStorage"] = request.requestsEphemeralStorage();
+    query["RequestsEphemeralStorage"] = request.getRequestsEphemeralStorage();
   }
 
   if (!!request.hasRequestsMem()) {
-    query["RequestsMem"] = request.requestsMem();
+    query["RequestsMem"] = request.getRequestsMem();
   }
 
   if (!!request.hasRequestsmCpu()) {
-    query["RequestsmCpu"] = request.requestsmCpu();
+    query["RequestsmCpu"] = request.getRequestsmCpu();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7808,7 +7881,7 @@ StartK8sAppPrecheckResponse Client::startK8sAppPrecheck(const StartK8sAppPrechec
 }
 
 /**
- * @summary Starts an application in a Container Service for Kubernetes (ACK) cluster or Serverless Kubernetes cluster.
+ * @summary Starts an application in a Container Service for Kubernetes (ACK) or Serverless Kubernetes (ASK) cluster.
  *
  * @param request StartK8sApplicationRequest
  * @param headers map
@@ -7819,15 +7892,15 @@ StartK8sApplicationResponse Client::startK8sApplicationWithOptions(const StartK8
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasReplicas()) {
-    query["Replicas"] = request.replicas();
+    query["Replicas"] = request.getReplicas();
   }
 
   if (!!request.hasTimeout()) {
-    query["Timeout"] = request.timeout();
+    query["Timeout"] = request.getTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7849,7 +7922,7 @@ StartK8sApplicationResponse Client::startK8sApplicationWithOptions(const StartK8
 }
 
 /**
- * @summary Starts an application in a Container Service for Kubernetes (ACK) cluster or Serverless Kubernetes cluster.
+ * @summary Starts an application in a Container Service for Kubernetes (ACK) or Serverless Kubernetes (ASK) cluster.
  *
  * @param request StartK8sApplicationRequest
  * @return StartK8sApplicationResponse
@@ -7872,11 +7945,11 @@ StopApplicationResponse Client::stopApplicationWithOptions(const StopApplication
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEccInfo()) {
-    query["EccInfo"] = request.eccInfo();
+    query["EccInfo"] = request.getEccInfo();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7921,11 +7994,11 @@ StopK8sApplicationResponse Client::stopK8sApplicationWithOptions(const StopK8sAp
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasTimeout()) {
-    query["Timeout"] = request.timeout();
+    query["Timeout"] = request.getTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -7972,11 +8045,11 @@ SwitchAdvancedMonitoringResponse Client::switchAdvancedMonitoringWithOptions(con
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEnableAdvancedMonitoring()) {
-    query["EnableAdvancedMonitoring"] = request.enableAdvancedMonitoring();
+    query["EnableAdvancedMonitoring"] = request.getEnableAdvancedMonitoring();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8025,11 +8098,11 @@ SynchronizeResourceResponse Client::synchronizeResourceWithOptions(const Synchro
   request.validate();
   json query = {};
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8076,19 +8149,19 @@ TagResourcesResponse Client::tagResourcesWithOptions(const TagResourcesRequest &
   request.validate();
   json query = {};
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTags()) {
-    query["Tags"] = request.tags();
+    query["Tags"] = request.getTags();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8122,10 +8195,10 @@ TagResourcesResponse Client::tagResources(const TagResourcesRequest &request) {
 }
 
 /**
- * @summary Imports or migrates one or more Elastic Compute Service (ECS) instances to a cluster.
+ * @summary Imports or transfers ECS instances.
  *
- * @description ## Limits
- * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+ * @description ## Limitations
+ * Calling this API to import an ECS instance reinstalls its operating system. This process deletes all data on the instance and requires you to reset the logon password. Before you import the instance, back up any important data.
  *
  * @param request TransformClusterMemberRequest
  * @param headers map
@@ -8136,15 +8209,15 @@ TransformClusterMemberResponse Client::transformClusterMemberWithOptions(const T
   request.validate();
   json query = {};
   if (!!request.hasInstanceIds()) {
-    query["InstanceIds"] = request.instanceIds();
+    query["InstanceIds"] = request.getInstanceIds();
   }
 
   if (!!request.hasPassword()) {
-    query["Password"] = request.password();
+    query["Password"] = request.getPassword();
   }
 
   if (!!request.hasTargetClusterId()) {
-    query["TargetClusterId"] = request.targetClusterId();
+    query["TargetClusterId"] = request.getTargetClusterId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8166,10 +8239,10 @@ TransformClusterMemberResponse Client::transformClusterMemberWithOptions(const T
 }
 
 /**
- * @summary Imports or migrates one or more Elastic Compute Service (ECS) instances to a cluster.
+ * @summary Imports or transfers ECS instances.
  *
- * @description ## Limits
- * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+ * @description ## Limitations
+ * Calling this API to import an ECS instance reinstalls its operating system. This process deletes all data on the instance and requires you to reset the logon password. Before you import the instance, back up any important data.
  *
  * @param request TransformClusterMemberRequest
  * @return TransformClusterMemberResponse
@@ -8192,19 +8265,19 @@ UnbindK8sSlbResponse Client::unbindK8sSlbWithOptions(const UnbindK8sSlbRequest &
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasSlbName()) {
-    query["SlbName"] = request.slbName();
+    query["SlbName"] = request.getSlbName();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8238,7 +8311,7 @@ UnbindK8sSlbResponse Client::unbindK8sSlb(const UnbindK8sSlbRequest &request) {
 }
 
 /**
- * @summary Unbinds a Server Load Balancer (SLB) instance from an application.
+ * @summary Call the UnbindSlb operation to detach a Server Load Balancer (SLB) instance.
  *
  * @param request UnbindSlbRequest
  * @param headers map
@@ -8249,19 +8322,19 @@ UnbindSlbResponse Client::unbindSlbWithOptions(const UnbindSlbRequest &request, 
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasDeleteListener()) {
-    query["DeleteListener"] = request.deleteListener();
+    query["DeleteListener"] = request.getDeleteListener();
   }
 
   if (!!request.hasSlbId()) {
-    query["SlbId"] = request.slbId();
+    query["SlbId"] = request.getSlbId();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8283,7 +8356,7 @@ UnbindSlbResponse Client::unbindSlbWithOptions(const UnbindSlbRequest &request, 
 }
 
 /**
- * @summary Unbinds a Server Load Balancer (SLB) instance from an application.
+ * @summary Call the UnbindSlb operation to detach a Server Load Balancer (SLB) instance.
  *
  * @param request UnbindSlbRequest
  * @return UnbindSlbResponse
@@ -8306,23 +8379,23 @@ UntagResourcesResponse Client::untagResourcesWithOptions(const UntagResourcesReq
   request.validate();
   json query = {};
   if (!!request.hasDeleteAll()) {
-    query["DeleteAll"] = request.deleteAll();
+    query["DeleteAll"] = request.getDeleteAll();
   }
 
   if (!!request.hasResourceIds()) {
-    query["ResourceIds"] = request.resourceIds();
+    query["ResourceIds"] = request.getResourceIds();
   }
 
   if (!!request.hasResourceRegionId()) {
-    query["ResourceRegionId"] = request.resourceRegionId();
+    query["ResourceRegionId"] = request.getResourceRegionId();
   }
 
   if (!!request.hasResourceType()) {
-    query["ResourceType"] = request.resourceType();
+    query["ResourceType"] = request.getResourceType();
   }
 
   if (!!request.hasTagKeys()) {
-    query["TagKeys"] = request.tagKeys();
+    query["TagKeys"] = request.getTagKeys();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8356,7 +8429,7 @@ UntagResourcesResponse Client::untagResources(const UntagResourcesRequest &reque
 }
 
 /**
- * @summary Modifies the information about an account.
+ * @summary Modifies information about an account.
  *
  * @param request UpdateAccountInfoRequest
  * @param headers map
@@ -8367,15 +8440,15 @@ UpdateAccountInfoResponse Client::updateAccountInfoWithOptions(const UpdateAccou
   request.validate();
   json query = {};
   if (!!request.hasEmail()) {
-    query["Email"] = request.email();
+    query["Email"] = request.getEmail();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasTelephone()) {
-    query["Telephone"] = request.telephone();
+    query["Telephone"] = request.getTelephone();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8397,7 +8470,7 @@ UpdateAccountInfoResponse Client::updateAccountInfoWithOptions(const UpdateAccou
 }
 
 /**
- * @summary Modifies the information about an account.
+ * @summary Modifies information about an account.
  *
  * @param request UpdateAccountInfoRequest
  * @return UpdateAccountInfoResponse
@@ -8409,7 +8482,7 @@ UpdateAccountInfoResponse Client::updateAccountInfo(const UpdateAccountInfoReque
 }
 
 /**
- * @summary Modifies the name, description, and owner of an application.
+ * @summary Updates the basic information such as the description and owner of an application.
  *
  * @param request UpdateApplicationBaseInfoRequest
  * @param headers map
@@ -8420,19 +8493,19 @@ UpdateApplicationBaseInfoResponse Client::updateApplicationBaseInfoWithOptions(c
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasAppName()) {
-    query["AppName"] = request.appName();
+    query["AppName"] = request.getAppName();
   }
 
   if (!!request.hasDesc()) {
-    query["Desc"] = request.desc();
+    query["Desc"] = request.getDesc();
   }
 
   if (!!request.hasOwner()) {
-    query["Owner"] = request.owner();
+    query["Owner"] = request.getOwner();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8454,7 +8527,7 @@ UpdateApplicationBaseInfoResponse Client::updateApplicationBaseInfoWithOptions(c
 }
 
 /**
- * @summary Modifies the name, description, and owner of an application.
+ * @summary Updates the basic information such as the description and owner of an application.
  *
  * @param request UpdateApplicationBaseInfoRequest
  * @return UpdateApplicationBaseInfoResponse
@@ -8466,7 +8539,7 @@ UpdateApplicationBaseInfoResponse Client::updateApplicationBaseInfo(const Update
 }
 
 /**
- * @summary Modifies an auto scaling policy for an application.
+ * @summary Calls the UpdateApplicationScalingRule operation to update the Auto Scaling rule for an application.
  *
  * @param request UpdateApplicationScalingRuleRequest
  * @param headers map
@@ -8477,35 +8550,35 @@ UpdateApplicationScalingRuleResponse Client::updateApplicationScalingRuleWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasScalingBehaviour()) {
-    query["ScalingBehaviour"] = request.scalingBehaviour();
+    query["ScalingBehaviour"] = request.getScalingBehaviour();
   }
 
   if (!!request.hasScalingRuleEnable()) {
-    query["ScalingRuleEnable"] = request.scalingRuleEnable();
+    query["ScalingRuleEnable"] = request.getScalingRuleEnable();
   }
 
   if (!!request.hasScalingRuleMetric()) {
-    query["ScalingRuleMetric"] = request.scalingRuleMetric();
+    query["ScalingRuleMetric"] = request.getScalingRuleMetric();
   }
 
   if (!!request.hasScalingRuleName()) {
-    query["ScalingRuleName"] = request.scalingRuleName();
+    query["ScalingRuleName"] = request.getScalingRuleName();
   }
 
   if (!!request.hasScalingRuleTimer()) {
-    query["ScalingRuleTimer"] = request.scalingRuleTimer();
+    query["ScalingRuleTimer"] = request.getScalingRuleTimer();
   }
 
   if (!!request.hasScalingRuleTrigger()) {
-    query["ScalingRuleTrigger"] = request.scalingRuleTrigger();
+    query["ScalingRuleTrigger"] = request.getScalingRuleTrigger();
   }
 
   if (!!request.hasScalingRuleType()) {
-    query["ScalingRuleType"] = request.scalingRuleType();
+    query["ScalingRuleType"] = request.getScalingRuleType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8527,7 +8600,7 @@ UpdateApplicationScalingRuleResponse Client::updateApplicationScalingRuleWithOpt
 }
 
 /**
- * @summary Modifies an auto scaling policy for an application.
+ * @summary Calls the UpdateApplicationScalingRule operation to update the Auto Scaling rule for an application.
  *
  * @param request UpdateApplicationScalingRuleRequest
  * @return UpdateApplicationScalingRuleResponse
@@ -8550,23 +8623,23 @@ UpdateConfigTemplateResponse Client::updateConfigTemplateWithOptions(const Updat
   request.validate();
   json body = {};
   if (!!request.hasContent()) {
-    body["Content"] = request.content();
+    body["Content"] = request.getContent();
   }
 
   if (!!request.hasDescription()) {
-    body["Description"] = request.description();
+    body["Description"] = request.getDescription();
   }
 
   if (!!request.hasFormat()) {
-    body["Format"] = request.format();
+    body["Format"] = request.getFormat();
   }
 
   if (!!request.hasId()) {
-    body["Id"] = request.id();
+    body["Id"] = request.getId();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8611,11 +8684,11 @@ UpdateContainerResponse Client::updateContainerWithOptions(const UpdateContainer
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasBuildPackId()) {
-    query["BuildPackId"] = request.buildPackId();
+    query["BuildPackId"] = request.getBuildPackId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8660,31 +8733,31 @@ UpdateContainerConfigurationResponse Client::updateContainerConfigurationWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasContextPath()) {
-    query["ContextPath"] = request.contextPath();
+    query["ContextPath"] = request.getContextPath();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasHttpPort()) {
-    query["HttpPort"] = request.httpPort();
+    query["HttpPort"] = request.getHttpPort();
   }
 
   if (!!request.hasMaxThreads()) {
-    query["MaxThreads"] = request.maxThreads();
+    query["MaxThreads"] = request.getMaxThreads();
   }
 
   if (!!request.hasURIEncoding()) {
-    query["URIEncoding"] = request.URIEncoding();
+    query["URIEncoding"] = request.getURIEncoding();
   }
 
   if (!!request.hasUseBodyEncoding()) {
-    query["UseBodyEncoding"] = request.useBodyEncoding();
+    query["UseBodyEncoding"] = request.getUseBodyEncoding();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8729,11 +8802,11 @@ UpdateHealthCheckUrlResponse Client::updateHealthCheckUrlWithOptions(const Updat
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasHcURL()) {
-    query["hcURL"] = request.hcURL();
+    query["hcURL"] = request.getHcURL();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8778,15 +8851,15 @@ UpdateHookConfigurationResponse Client::updateHookConfigurationWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasHooks()) {
-    query["Hooks"] = request.hooks();
+    query["Hooks"] = request.getHooks();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8831,27 +8904,27 @@ UpdateJvmConfigurationResponse Client::updateJvmConfigurationWithOptions(const U
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasMaxHeapSize()) {
-    query["MaxHeapSize"] = request.maxHeapSize();
+    query["MaxHeapSize"] = request.getMaxHeapSize();
   }
 
   if (!!request.hasMaxPermSize()) {
-    query["MaxPermSize"] = request.maxPermSize();
+    query["MaxPermSize"] = request.getMaxPermSize();
   }
 
   if (!!request.hasMinHeapSize()) {
-    query["MinHeapSize"] = request.minHeapSize();
+    query["MinHeapSize"] = request.getMinHeapSize();
   }
 
   if (!!request.hasOptions()) {
-    query["Options"] = request.options();
+    query["Options"] = request.getOptions();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8896,23 +8969,23 @@ UpdateK8sApplicationBaseInfoResponse Client::updateK8sApplicationBaseInfoWithOpt
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasDescription()) {
-    query["Description"] = request.description();
+    query["Description"] = request.getDescription();
   }
 
   if (!!request.hasEmail()) {
-    query["Email"] = request.email();
+    query["Email"] = request.getEmail();
   }
 
   if (!!request.hasOwner()) {
-    query["Owner"] = request.owner();
+    query["Owner"] = request.getOwner();
   }
 
   if (!!request.hasPhoneNumber()) {
-    query["PhoneNumber"] = request.phoneNumber();
+    query["PhoneNumber"] = request.getPhoneNumber();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -8957,47 +9030,47 @@ UpdateK8sApplicationConfigResponse Client::updateK8sApplicationConfigWithOptions
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasCpuLimit()) {
-    query["CpuLimit"] = request.cpuLimit();
+    query["CpuLimit"] = request.getCpuLimit();
   }
 
   if (!!request.hasCpuRequest()) {
-    query["CpuRequest"] = request.cpuRequest();
+    query["CpuRequest"] = request.getCpuRequest();
   }
 
   if (!!request.hasEphemeralStorageLimit()) {
-    query["EphemeralStorageLimit"] = request.ephemeralStorageLimit();
+    query["EphemeralStorageLimit"] = request.getEphemeralStorageLimit();
   }
 
   if (!!request.hasEphemeralStorageRequest()) {
-    query["EphemeralStorageRequest"] = request.ephemeralStorageRequest();
+    query["EphemeralStorageRequest"] = request.getEphemeralStorageRequest();
   }
 
   if (!!request.hasMcpuLimit()) {
-    query["McpuLimit"] = request.mcpuLimit();
+    query["McpuLimit"] = request.getMcpuLimit();
   }
 
   if (!!request.hasMcpuRequest()) {
-    query["McpuRequest"] = request.mcpuRequest();
+    query["McpuRequest"] = request.getMcpuRequest();
   }
 
   if (!!request.hasMemoryLimit()) {
-    query["MemoryLimit"] = request.memoryLimit();
+    query["MemoryLimit"] = request.getMemoryLimit();
   }
 
   if (!!request.hasMemoryRequest()) {
-    query["MemoryRequest"] = request.memoryRequest();
+    query["MemoryRequest"] = request.getMemoryRequest();
   }
 
   if (!!request.hasTimeout()) {
-    query["Timeout"] = request.timeout();
+    query["Timeout"] = request.getTimeout();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9042,19 +9115,19 @@ UpdateK8sConfigMapResponse Client::updateK8sConfigMapWithOptions(const UpdateK8s
   request.validate();
   json body = {};
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasData()) {
-    body["Data"] = request.data();
+    body["Data"] = request.getData();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    body["Namespace"] = request._namespace();
+    body["Namespace"] = request.getNamespace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9099,27 +9172,27 @@ UpdateK8sIngressRuleResponse Client::updateK8sIngressRuleWithOptions(const Updat
   request.validate();
   json query = {};
   if (!!request.hasAnnotations()) {
-    query["Annotations"] = request.annotations();
+    query["Annotations"] = request.getAnnotations();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasIngressConf()) {
-    query["IngressConf"] = request.ingressConf();
+    query["IngressConf"] = request.getIngressConf();
   }
 
   if (!!request.hasLabels()) {
-    query["Labels"] = request.labels();
+    query["Labels"] = request.getLabels();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    query["Namespace"] = request._namespace();
+    query["Namespace"] = request.getNamespace();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9153,7 +9226,7 @@ UpdateK8sIngressRuleResponse Client::updateK8sIngressRule(const UpdateK8sIngress
 }
 
 /**
- * @summary Updates a specified resource in a Kubernetes cluster.
+ * @summary Update Kubernetes resources.
  *
  * @description > You can update only Deployments.
  *
@@ -9166,15 +9239,15 @@ UpdateK8sResourceResponse Client::updateK8sResourceWithOptions(const UpdateK8sRe
   request.validate();
   json body = {};
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasNamespace()) {
-    body["Namespace"] = request._namespace();
+    body["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasResourceContent()) {
-    body["ResourceContent"] = request.resourceContent();
+    body["ResourceContent"] = request.getResourceContent();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9196,7 +9269,7 @@ UpdateK8sResourceResponse Client::updateK8sResourceWithOptions(const UpdateK8sRe
 }
 
 /**
- * @summary Updates a specified resource in a Kubernetes cluster.
+ * @summary Update Kubernetes resources.
  *
  * @description > You can update only Deployments.
  *
@@ -9221,35 +9294,35 @@ UpdateK8sSecretResponse Client::updateK8sSecretWithOptions(const UpdateK8sSecret
   request.validate();
   json body = {};
   if (!!request.hasBase64Encoded()) {
-    body["Base64Encoded"] = request.base64Encoded();
+    body["Base64Encoded"] = request.getBase64Encoded();
   }
 
   if (!!request.hasCertId()) {
-    body["CertId"] = request.certId();
+    body["CertId"] = request.getCertId();
   }
 
   if (!!request.hasCertRegionId()) {
-    body["CertRegionId"] = request.certRegionId();
+    body["CertRegionId"] = request.getCertRegionId();
   }
 
   if (!!request.hasClusterId()) {
-    body["ClusterId"] = request.clusterId();
+    body["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasData()) {
-    body["Data"] = request.data();
+    body["Data"] = request.getData();
   }
 
   if (!!request.hasName()) {
-    body["Name"] = request.name();
+    body["Name"] = request.getName();
   }
 
   if (!!request.hasNamespace()) {
-    body["Namespace"] = request._namespace();
+    body["Namespace"] = request.getNamespace();
   }
 
   if (!!request.hasType()) {
-    body["Type"] = request.type();
+    body["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9294,23 +9367,23 @@ UpdateK8sServiceResponse Client::updateK8sServiceWithOptions(const UpdateK8sServ
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasExternalTrafficPolicy()) {
-    query["ExternalTrafficPolicy"] = request.externalTrafficPolicy();
+    query["ExternalTrafficPolicy"] = request.getExternalTrafficPolicy();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   if (!!request.hasServicePorts()) {
-    query["ServicePorts"] = request.servicePorts();
+    query["ServicePorts"] = request.getServicePorts();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9344,7 +9417,7 @@ UpdateK8sServiceResponse Client::updateK8sService(const UpdateK8sServiceRequest 
 }
 
 /**
- * @summary Updates the Server Load Balancer (SLB) instance bound to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+ * @summary Call UpdateK8sSlb to update the Server Load Balancer (SLB) instance attached to a Container Service for Kubernetes application.
  *
  * @param request UpdateK8sSlbRequest
  * @param headers map
@@ -9355,47 +9428,47 @@ UpdateK8sSlbResponse Client::updateK8sSlbWithOptions(const UpdateK8sSlbRequest &
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasClusterId()) {
-    query["ClusterId"] = request.clusterId();
+    query["ClusterId"] = request.getClusterId();
   }
 
   if (!!request.hasDisableForceOverride()) {
-    query["DisableForceOverride"] = request.disableForceOverride();
+    query["DisableForceOverride"] = request.getDisableForceOverride();
   }
 
   if (!!request.hasPort()) {
-    query["Port"] = request.port();
+    query["Port"] = request.getPort();
   }
 
   if (!!request.hasScheduler()) {
-    query["Scheduler"] = request.scheduler();
+    query["Scheduler"] = request.getScheduler();
   }
 
   if (!!request.hasServicePortInfos()) {
-    query["ServicePortInfos"] = request.servicePortInfos();
+    query["ServicePortInfos"] = request.getServicePortInfos();
   }
 
   if (!!request.hasSlbName()) {
-    query["SlbName"] = request.slbName();
+    query["SlbName"] = request.getSlbName();
   }
 
   if (!!request.hasSlbProtocol()) {
-    query["SlbProtocol"] = request.slbProtocol();
+    query["SlbProtocol"] = request.getSlbProtocol();
   }
 
   if (!!request.hasSpecification()) {
-    query["Specification"] = request.specification();
+    query["Specification"] = request.getSpecification();
   }
 
   if (!!request.hasTargetPort()) {
-    query["TargetPort"] = request.targetPort();
+    query["TargetPort"] = request.getTargetPort();
   }
 
   if (!!request.hasType()) {
-    query["Type"] = request.type();
+    query["Type"] = request.getType();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9417,7 +9490,7 @@ UpdateK8sSlbResponse Client::updateK8sSlbWithOptions(const UpdateK8sSlbRequest &
 }
 
 /**
- * @summary Updates the Server Load Balancer (SLB) instance bound to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+ * @summary Call UpdateK8sSlb to update the Server Load Balancer (SLB) instance attached to a Container Service for Kubernetes application.
  *
  * @param request UpdateK8sSlbRequest
  * @return UpdateK8sSlbResponse
@@ -9429,7 +9502,9 @@ UpdateK8sSlbResponse Client::updateK8sSlb(const UpdateK8sSlbRequest &request) {
 }
 
 /**
- * @summary 更新本地设置
+ * @summary Updates a localization configuration.
+ *
+ * @description > This operation modifies only Deployment resources.
  *
  * @param request UpdateLocalitySettingRequest
  * @param headers map
@@ -9440,23 +9515,23 @@ UpdateLocalitySettingResponse Client::updateLocalitySettingWithOptions(const Upd
   request.validate();
   json query = {};
   if (!!request.hasAppId()) {
-    query["AppId"] = request.appId();
+    query["AppId"] = request.getAppId();
   }
 
   if (!!request.hasEnabled()) {
-    query["Enabled"] = request.enabled();
+    query["Enabled"] = request.getEnabled();
   }
 
   if (!!request.hasNamespaceId()) {
-    query["NamespaceId"] = request.namespaceId();
+    query["NamespaceId"] = request.getNamespaceId();
   }
 
   if (!!request.hasRegion()) {
-    query["Region"] = request.region();
+    query["Region"] = request.getRegion();
   }
 
   if (!!request.hasThreshold()) {
-    query["Threshold"] = request.threshold();
+    query["Threshold"] = request.getThreshold();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9478,7 +9553,9 @@ UpdateLocalitySettingResponse Client::updateLocalitySettingWithOptions(const Upd
 }
 
 /**
- * @summary 更新本地设置
+ * @summary Updates a localization configuration.
+ *
+ * @description > This operation modifies only Deployment resources.
  *
  * @param request UpdateLocalitySettingRequest
  * @return UpdateLocalitySettingResponse
@@ -9501,11 +9578,11 @@ UpdateRoleResponse Client::updateRoleWithOptions(const UpdateRoleRequest &reques
   request.validate();
   json query = {};
   if (!!request.hasActionData()) {
-    query["ActionData"] = request.actionData();
+    query["ActionData"] = request.getActionData();
   }
 
   if (!!request.hasRoleId()) {
-    query["RoleId"] = request.roleId();
+    query["RoleId"] = request.getRoleId();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9550,11 +9627,11 @@ UpdateSlsLogStoreResponse Client::updateSlsLogStoreWithOptions(const UpdateSlsLo
   request.validate();
   json body = {};
   if (!!request.hasAppId()) {
-    body["AppId"] = request.appId();
+    body["AppId"] = request.getAppId();
   }
 
   if (!!request.hasConfigs()) {
-    body["Configs"] = request.configs();
+    body["Configs"] = request.getConfigs();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9588,7 +9665,7 @@ UpdateSlsLogStoreResponse Client::updateSlsLogStore(const UpdateSlsLogStoreReque
 }
 
 /**
- * @summary 更新泳道
+ * @summary Updates a swimming lane.
  *
  * @param request UpdateSwimmingLaneRequest
  * @param headers map
@@ -9599,23 +9676,23 @@ UpdateSwimmingLaneResponse Client::updateSwimmingLaneWithOptions(const UpdateSwi
   request.validate();
   json query = {};
   if (!!request.hasAppInfos()) {
-    query["AppInfos"] = request.appInfos();
+    query["AppInfos"] = request.getAppInfos();
   }
 
   if (!!request.hasEnableRules()) {
-    query["EnableRules"] = request.enableRules();
+    query["EnableRules"] = request.getEnableRules();
   }
 
   if (!!request.hasEntryRules()) {
-    query["EntryRules"] = request.entryRules();
+    query["EntryRules"] = request.getEntryRules();
   }
 
   if (!!request.hasLaneId()) {
-    query["LaneId"] = request.laneId();
+    query["LaneId"] = request.getLaneId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({
@@ -9637,7 +9714,7 @@ UpdateSwimmingLaneResponse Client::updateSwimmingLaneWithOptions(const UpdateSwi
 }
 
 /**
- * @summary 更新泳道
+ * @summary Updates a swimming lane.
  *
  * @param request UpdateSwimmingLaneRequest
  * @return UpdateSwimmingLaneResponse
@@ -9660,19 +9737,19 @@ UpdateSwimmingLaneGroupResponse Client::updateSwimmingLaneGroupWithOptions(const
   request.validate();
   json query = {};
   if (!!request.hasAppIds()) {
-    query["AppIds"] = request.appIds();
+    query["AppIds"] = request.getAppIds();
   }
 
   if (!!request.hasEntryApp()) {
-    query["EntryApp"] = request.entryApp();
+    query["EntryApp"] = request.getEntryApp();
   }
 
   if (!!request.hasGroupId()) {
-    query["GroupId"] = request.groupId();
+    query["GroupId"] = request.getGroupId();
   }
 
   if (!!request.hasName()) {
-    query["Name"] = request.name();
+    query["Name"] = request.getName();
   }
 
   OpenApiRequest req = OpenApiRequest(json({

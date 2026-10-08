@@ -46,68 +46,68 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->deployGroupId_ == nullptr && return this->listenerHealthCheckUrl_ == nullptr && return this->listenerPort_ == nullptr && return this->listenerProtocol_ == nullptr && return this->slbId_ == nullptr
-        && return this->VForwardingUrlRule_ == nullptr && return this->VServerGroupId_ == nullptr && return this->VServerGroupName_ == nullptr; };
+        && this->deployGroupId_ == nullptr && this->listenerHealthCheckUrl_ == nullptr && this->listenerPort_ == nullptr && this->listenerProtocol_ == nullptr && this->slbId_ == nullptr
+        && this->VForwardingUrlRule_ == nullptr && this->VServerGroupId_ == nullptr && this->VServerGroupName_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline BindEcsSlbRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // deployGroupId Field Functions 
     bool hasDeployGroupId() const { return this->deployGroupId_ != nullptr;};
     void deleteDeployGroupId() { this->deployGroupId_ = nullptr;};
-    inline string deployGroupId() const { DARABONBA_PTR_GET_DEFAULT(deployGroupId_, "") };
+    inline string getDeployGroupId() const { DARABONBA_PTR_GET_DEFAULT(deployGroupId_, "") };
     inline BindEcsSlbRequest& setDeployGroupId(string deployGroupId) { DARABONBA_PTR_SET_VALUE(deployGroupId_, deployGroupId) };
 
 
     // listenerHealthCheckUrl Field Functions 
     bool hasListenerHealthCheckUrl() const { return this->listenerHealthCheckUrl_ != nullptr;};
     void deleteListenerHealthCheckUrl() { this->listenerHealthCheckUrl_ = nullptr;};
-    inline string listenerHealthCheckUrl() const { DARABONBA_PTR_GET_DEFAULT(listenerHealthCheckUrl_, "") };
+    inline string getListenerHealthCheckUrl() const { DARABONBA_PTR_GET_DEFAULT(listenerHealthCheckUrl_, "") };
     inline BindEcsSlbRequest& setListenerHealthCheckUrl(string listenerHealthCheckUrl) { DARABONBA_PTR_SET_VALUE(listenerHealthCheckUrl_, listenerHealthCheckUrl) };
 
 
     // listenerPort Field Functions 
     bool hasListenerPort() const { return this->listenerPort_ != nullptr;};
     void deleteListenerPort() { this->listenerPort_ = nullptr;};
-    inline int32_t listenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
+    inline int32_t getListenerPort() const { DARABONBA_PTR_GET_DEFAULT(listenerPort_, 0) };
     inline BindEcsSlbRequest& setListenerPort(int32_t listenerPort) { DARABONBA_PTR_SET_VALUE(listenerPort_, listenerPort) };
 
 
     // listenerProtocol Field Functions 
     bool hasListenerProtocol() const { return this->listenerProtocol_ != nullptr;};
     void deleteListenerProtocol() { this->listenerProtocol_ = nullptr;};
-    inline string listenerProtocol() const { DARABONBA_PTR_GET_DEFAULT(listenerProtocol_, "") };
+    inline string getListenerProtocol() const { DARABONBA_PTR_GET_DEFAULT(listenerProtocol_, "") };
     inline BindEcsSlbRequest& setListenerProtocol(string listenerProtocol) { DARABONBA_PTR_SET_VALUE(listenerProtocol_, listenerProtocol) };
 
 
     // slbId Field Functions 
     bool hasSlbId() const { return this->slbId_ != nullptr;};
     void deleteSlbId() { this->slbId_ = nullptr;};
-    inline string slbId() const { DARABONBA_PTR_GET_DEFAULT(slbId_, "") };
+    inline string getSlbId() const { DARABONBA_PTR_GET_DEFAULT(slbId_, "") };
     inline BindEcsSlbRequest& setSlbId(string slbId) { DARABONBA_PTR_SET_VALUE(slbId_, slbId) };
 
 
     // VForwardingUrlRule Field Functions 
     bool hasVForwardingUrlRule() const { return this->VForwardingUrlRule_ != nullptr;};
     void deleteVForwardingUrlRule() { this->VForwardingUrlRule_ = nullptr;};
-    inline string VForwardingUrlRule() const { DARABONBA_PTR_GET_DEFAULT(VForwardingUrlRule_, "") };
+    inline string getVForwardingUrlRule() const { DARABONBA_PTR_GET_DEFAULT(VForwardingUrlRule_, "") };
     inline BindEcsSlbRequest& setVForwardingUrlRule(string VForwardingUrlRule) { DARABONBA_PTR_SET_VALUE(VForwardingUrlRule_, VForwardingUrlRule) };
 
 
     // VServerGroupId Field Functions 
     bool hasVServerGroupId() const { return this->VServerGroupId_ != nullptr;};
     void deleteVServerGroupId() { this->VServerGroupId_ = nullptr;};
-    inline string VServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupId_, "") };
+    inline string getVServerGroupId() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupId_, "") };
     inline BindEcsSlbRequest& setVServerGroupId(string VServerGroupId) { DARABONBA_PTR_SET_VALUE(VServerGroupId_, VServerGroupId) };
 
 
     // VServerGroupName Field Functions 
     bool hasVServerGroupName() const { return this->VServerGroupName_ != nullptr;};
     void deleteVServerGroupName() { this->VServerGroupName_ = nullptr;};
-    inline string VServerGroupName() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupName_, "") };
+    inline string getVServerGroupName() const { DARABONBA_PTR_GET_DEFAULT(VServerGroupName_, "") };
     inline BindEcsSlbRequest& setVServerGroupName(string VServerGroupName) { DARABONBA_PTR_SET_VALUE(VServerGroupName_, VServerGroupName) };
 
 
@@ -115,29 +115,29 @@ namespace Models
     // The ID of the application. You can query the application ID by calling the ListApplication operation. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the instance group whose application you want to bind. You can call the ListDeployGroup operation to query the group ID. For more information, see [ListDeployGroup](https://help.aliyun.com/document_detail/62077.html).
-    std::shared_ptr<string> deployGroupId_ = nullptr;
+    shared_ptr<string> deployGroupId_ {};
     // The health check URL.
-    std::shared_ptr<string> listenerHealthCheckUrl_ = nullptr;
+    shared_ptr<string> listenerHealthCheckUrl_ {};
     // The listener port for the SLB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> listenerPort_ = nullptr;
+    shared_ptr<int32_t> listenerPort_ {};
     // The listener protocol for the SLB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> listenerProtocol_ = nullptr;
+    shared_ptr<string> listenerProtocol_ {};
     // The ID of the SLB instance.
     // 
     // This parameter is required.
-    std::shared_ptr<string> slbId_ = nullptr;
+    shared_ptr<string> slbId_ {};
     // The forwarding rule of the SLB listener.
-    std::shared_ptr<string> VForwardingUrlRule_ = nullptr;
+    shared_ptr<string> VForwardingUrlRule_ {};
     // The ID of the vServer group for the SLB instance.
-    std::shared_ptr<string> VServerGroupId_ = nullptr;
+    shared_ptr<string> VServerGroupId_ {};
     // The name of the vServer group.
-    std::shared_ptr<string> VServerGroupName_ = nullptr;
+    shared_ptr<string> VServerGroupName_ {};
   };
 
   } // namespace Models

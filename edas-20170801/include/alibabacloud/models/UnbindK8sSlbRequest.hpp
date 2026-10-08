@@ -36,32 +36,32 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->clusterId_ == nullptr && return this->slbName_ == nullptr && return this->type_ == nullptr; };
+        && this->clusterId_ == nullptr && this->slbName_ == nullptr && this->type_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UnbindK8sSlbRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline UnbindK8sSlbRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // slbName Field Functions 
     bool hasSlbName() const { return this->slbName_ != nullptr;};
     void deleteSlbName() { this->slbName_ = nullptr;};
-    inline string slbName() const { DARABONBA_PTR_GET_DEFAULT(slbName_, "") };
+    inline string getSlbName() const { DARABONBA_PTR_GET_DEFAULT(slbName_, "") };
     inline UnbindK8sSlbRequest& setSlbName(string slbName) { DARABONBA_PTR_SET_VALUE(slbName_, slbName) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline UnbindK8sSlbRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
@@ -69,18 +69,19 @@ namespace Models
     // The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The ID of the cluster. You can call the GetK8sCluster operation to query the cluster ID. For more information, see [GetK8sCluster](https://help.aliyun.com/document_detail/181437.html).
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // The name of the SLB instance.
-    std::shared_ptr<string> slbName_ = nullptr;
+    shared_ptr<string> slbName_ {};
     // The type of the SLB instance. Valid values:
     // 
-    // *   **internet**: Internet-facing SLB instance
-    // *   **intranet**: internal-facing SLB instance
+    // - **internet**: Internet-facing SLB instance
+    // 
+    // - **intranet**: internal-facing SLB instance
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

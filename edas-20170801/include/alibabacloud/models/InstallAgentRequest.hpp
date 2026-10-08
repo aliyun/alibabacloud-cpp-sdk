@@ -34,25 +34,25 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->clusterId_ == nullptr
-        && return this->doAsync_ == nullptr && return this->instanceIds_ == nullptr; };
+        && this->doAsync_ == nullptr && this->instanceIds_ == nullptr; };
     // clusterId Field Functions 
     bool hasClusterId() const { return this->clusterId_ != nullptr;};
     void deleteClusterId() { this->clusterId_ = nullptr;};
-    inline string clusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
+    inline string getClusterId() const { DARABONBA_PTR_GET_DEFAULT(clusterId_, "") };
     inline InstallAgentRequest& setClusterId(string clusterId) { DARABONBA_PTR_SET_VALUE(clusterId_, clusterId) };
 
 
     // doAsync Field Functions 
     bool hasDoAsync() const { return this->doAsync_ != nullptr;};
     void deleteDoAsync() { this->doAsync_ = nullptr;};
-    inline bool doAsync() const { DARABONBA_PTR_GET_DEFAULT(doAsync_, false) };
+    inline bool getDoAsync() const { DARABONBA_PTR_GET_DEFAULT(doAsync_, false) };
     inline InstallAgentRequest& setDoAsync(bool doAsync) { DARABONBA_PTR_SET_VALUE(doAsync_, doAsync) };
 
 
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline InstallAgentRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
@@ -60,13 +60,13 @@ namespace Models
     // The ID of the cluster.
     // 
     // This parameter is required.
-    std::shared_ptr<string> clusterId_ = nullptr;
+    shared_ptr<string> clusterId_ {};
     // This parameter is discontinued.
-    std::shared_ptr<bool> doAsync_ = nullptr;
+    shared_ptr<bool> doAsync_ {};
     // The ID of the ECS instance. Separate multiple IDs with commas (,). Example: instanceId1,instanceId2.
     // 
     // This parameter is required.
-    std::shared_ptr<string> instanceIds_ = nullptr;
+    shared_ptr<string> instanceIds_ {};
   };
 
   } // namespace Models

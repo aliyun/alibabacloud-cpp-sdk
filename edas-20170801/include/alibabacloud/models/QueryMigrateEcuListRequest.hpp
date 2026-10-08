@@ -33,16 +33,17 @@ namespace Models
     // logicalRegionId Field Functions 
     bool hasLogicalRegionId() const { return this->logicalRegionId_ != nullptr;};
     void deleteLogicalRegionId() { this->logicalRegionId_ = nullptr;};
-    inline string logicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
+    inline string getLogicalRegionId() const { DARABONBA_PTR_GET_DEFAULT(logicalRegionId_, "") };
     inline QueryMigrateEcuListRequest& setLogicalRegionId(string logicalRegionId) { DARABONBA_PTR_SET_VALUE(logicalRegionId_, logicalRegionId) };
 
 
   protected:
     // The ID of the namespace.
     // 
-    // *   The ID of a custom namespace is in the `region ID:namespace identifier` format. Example: `cn-beijing:test`.
-    // *   The ID of the default namespace is in the `region ID` format. Example: `cn-beijing`.
-    std::shared_ptr<string> logicalRegionId_ = nullptr;
+    // - The ID of a custom namespace is in the `region ID:namespace identifier` format. Example: `cn-beijing:test`.
+    // 
+    // - The ID of the default namespace is in the `region ID` format. Example: `cn-beijing`.
+    shared_ptr<string> logicalRegionId_ {};
   };
 
   } // namespace Models

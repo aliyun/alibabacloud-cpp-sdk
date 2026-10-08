@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appIds_ == nullptr
-        && return this->targetUserId_ == nullptr; };
+        && this->targetUserId_ == nullptr; };
     // appIds Field Functions 
     bool hasAppIds() const { return this->appIds_ != nullptr;};
     void deleteAppIds() { this->appIds_ = nullptr;};
-    inline string appIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
+    inline string getAppIds() const { DARABONBA_PTR_GET_DEFAULT(appIds_, "") };
     inline AuthorizeApplicationRequest& setAppIds(string appIds) { DARABONBA_PTR_SET_VALUE(appIds_, appIds) };
 
 
     // targetUserId Field Functions 
     bool hasTargetUserId() const { return this->targetUserId_ != nullptr;};
     void deleteTargetUserId() { this->targetUserId_ = nullptr;};
-    inline string targetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
+    inline string getTargetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
     inline AuthorizeApplicationRequest& setTargetUserId(string targetUserId) { DARABONBA_PTR_SET_VALUE(targetUserId_, targetUserId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the application. You can specify multiple IDs. Separate multiple IDs with semicolons (;). If you leave this parameter empty, the permissions on the application are revoked.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appIds_ = nullptr;
+    shared_ptr<string> appIds_ {};
     // The ID of the RAM user to be authorized. The value of the parameter is in the `sub-account name@primary account UID` format.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetUserId_ = nullptr;
+    shared_ptr<string> targetUserId_ {};
   };
 
   } // namespace Models

@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->enableAdvancedMonitoring_ == nullptr; };
+        && this->enableAdvancedMonitoring_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline SwitchAdvancedMonitoringRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // enableAdvancedMonitoring Field Functions 
     bool hasEnableAdvancedMonitoring() const { return this->enableAdvancedMonitoring_ != nullptr;};
     void deleteEnableAdvancedMonitoring() { this->enableAdvancedMonitoring_ = nullptr;};
-    inline bool enableAdvancedMonitoring() const { DARABONBA_PTR_GET_DEFAULT(enableAdvancedMonitoring_, false) };
+    inline bool getEnableAdvancedMonitoring() const { DARABONBA_PTR_GET_DEFAULT(enableAdvancedMonitoring_, false) };
     inline SwitchAdvancedMonitoringRequest& setEnableAdvancedMonitoring(bool enableAdvancedMonitoring) { DARABONBA_PTR_SET_VALUE(enableAdvancedMonitoring_, enableAdvancedMonitoring) };
 
 
@@ -51,14 +51,14 @@ namespace Models
     // The ID of the application for which you want to query or configure the advanced application monitoring feature.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // Specifies whether to enable the advanced application monitoring feature. Valid values:
     // 
     // *   true: enables the advanced application monitoring feature.
     // *   false: disables the advanced application monitoring feature.
     // 
     // If you call this operation to query the status of the advanced application monitoring feature, you do not need to specify this parameter.
-    std::shared_ptr<bool> enableAdvancedMonitoring_ = nullptr;
+    shared_ptr<bool> enableAdvancedMonitoring_ {};
   };
 
   } // namespace Models

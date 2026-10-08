@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->buildPackId_ == nullptr; };
+        && this->buildPackId_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateContainerRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // buildPackId Field Functions 
     bool hasBuildPackId() const { return this->buildPackId_ != nullptr;};
     void deleteBuildPackId() { this->buildPackId_ = nullptr;};
-    inline int32_t buildPackId() const { DARABONBA_PTR_GET_DEFAULT(buildPackId_, 0) };
+    inline int32_t getBuildPackId() const { DARABONBA_PTR_GET_DEFAULT(buildPackId_, 0) };
     inline UpdateContainerRequest& setBuildPackId(int32_t buildPackId) { DARABONBA_PTR_SET_VALUE(buildPackId_, buildPackId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The build package number of EDAS Container. You can obtain the build package number in the Build package number column in the EDAS Container release notes table. For more information, see [Release notes for EDAS Container](https://help.aliyun.com/document_detail/92614.html).
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> buildPackId_ = nullptr;
+    shared_ptr<int32_t> buildPackId_ {};
   };
 
   } // namespace Models

@@ -33,7 +33,7 @@ namespace Models
     // roleId Field Functions 
     bool hasRoleId() const { return this->roleId_ != nullptr;};
     void deleteRoleId() { this->roleId_ = nullptr;};
-    inline int32_t roleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0) };
+    inline int32_t getRoleId() const { DARABONBA_PTR_GET_DEFAULT(roleId_, 0) };
     inline DeleteRoleRequest& setRoleId(int32_t roleId) { DARABONBA_PTR_SET_VALUE(roleId_, roleId) };
 
 
@@ -41,7 +41,7 @@ namespace Models
     // The ID of the RAM role.
     // 
     // This parameter is required.
-    std::shared_ptr<int32_t> roleId_ = nullptr;
+    shared_ptr<int32_t> roleId_ {};
   };
 
   } // namespace Models

@@ -34,44 +34,45 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->instanceIds_ == nullptr
-        && return this->password_ == nullptr && return this->targetClusterId_ == nullptr; };
+        && this->password_ == nullptr && this->targetClusterId_ == nullptr; };
     // instanceIds Field Functions 
     bool hasInstanceIds() const { return this->instanceIds_ != nullptr;};
     void deleteInstanceIds() { this->instanceIds_ = nullptr;};
-    inline string instanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
+    inline string getInstanceIds() const { DARABONBA_PTR_GET_DEFAULT(instanceIds_, "") };
     inline TransformClusterMemberRequest& setInstanceIds(string instanceIds) { DARABONBA_PTR_SET_VALUE(instanceIds_, instanceIds) };
 
 
     // password Field Functions 
     bool hasPassword() const { return this->password_ != nullptr;};
     void deletePassword() { this->password_ = nullptr;};
-    inline string password() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
+    inline string getPassword() const { DARABONBA_PTR_GET_DEFAULT(password_, "") };
     inline TransformClusterMemberRequest& setPassword(string password) { DARABONBA_PTR_SET_VALUE(password_, password) };
 
 
     // targetClusterId Field Functions 
     bool hasTargetClusterId() const { return this->targetClusterId_ != nullptr;};
     void deleteTargetClusterId() { this->targetClusterId_ = nullptr;};
-    inline string targetClusterId() const { DARABONBA_PTR_GET_DEFAULT(targetClusterId_, "") };
+    inline string getTargetClusterId() const { DARABONBA_PTR_GET_DEFAULT(targetClusterId_, "") };
     inline TransformClusterMemberRequest& setTargetClusterId(string targetClusterId) { DARABONBA_PTR_SET_VALUE(targetClusterId_, targetClusterId) };
 
 
   protected:
-    // The ID of the instance that you want to import or migrate. Separate multiple IDs with commas (,).
+    // The IDs of the ECS instances. Separate multiple IDs with a comma (,).
     // 
-    // *   An instance may not belong to a cluster, but an instance can belong to only one cluster at most.
-    // *   The ECS instances and the destination cluster must be in the same virtual private cloud (VPC).
+    // - The instances must be in the same VPC as the target cluster.
     // 
-    // This parameter is required.
-    std::shared_ptr<string> instanceIds_ = nullptr;
-    // The logon password of the ECS instance that you want to import or migrate to the cluster.
+    // - An instance can belong to only one cluster at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<string> password_ = nullptr;
-    // The ID of the destination cluster.
+    shared_ptr<string> instanceIds_ {};
+    // The logon password to set for the instances.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetClusterId_ = nullptr;
+    shared_ptr<string> password_ {};
+    // The ID of the target cluster.
+    // 
+    // This parameter is required.
+    shared_ptr<string> targetClusterId_ {};
   };
 
   } // namespace Models

@@ -21,7 +21,7 @@ namespace Edas20170801
       string getEndpoint(const string &productId, const string &regionId, const string &endpointRule, const string &network, const string &suffix, const map<string, string> &endpointMap, const string &endpoint);
 
       /**
-       * @summary Terminates a change process and rolls back the application. This operation is applicable to applications that are deployed in Container Service for Kubernetes (ACK) clusters.
+       * @summary You can call the AbortAndRollbackChangeOrder operation to stop and roll back a change order for applications in Container Service for Kubernetes (ACK) clusters.
        *
        * @param request AbortAndRollbackChangeOrderRequest
        * @param headers map
@@ -31,7 +31,7 @@ namespace Edas20170801
       Models::AbortAndRollbackChangeOrderResponse abortAndRollbackChangeOrderWithOptions(const Models::AbortAndRollbackChangeOrderRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Terminates a change process and rolls back the application. This operation is applicable to applications that are deployed in Container Service for Kubernetes (ACK) clusters.
+       * @summary You can call the AbortAndRollbackChangeOrder operation to stop and roll back a change order for applications in Container Service for Kubernetes (ACK) clusters.
        *
        * @param request AbortAndRollbackChangeOrderRequest
        * @return AbortAndRollbackChangeOrderResponse
@@ -111,7 +111,7 @@ namespace Edas20170801
       Models::AuthorizeResourceGroupResponse authorizeResourceGroup(const Models::AuthorizeResourceGroupRequest &request);
 
       /**
-       * @summary Assigns one or more roles to a RAM user.
+       * @summary Grant permissions to RAM roles.
        *
        * @param request AuthorizeRoleRequest
        * @param headers map
@@ -121,7 +121,7 @@ namespace Edas20170801
       Models::AuthorizeRoleResponse authorizeRoleWithOptions(const Models::AuthorizeRoleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Assigns one or more roles to a RAM user.
+       * @summary Grant permissions to RAM roles.
        *
        * @param request AuthorizeRoleRequest
        * @return AuthorizeRoleResponse
@@ -147,7 +147,7 @@ namespace Edas20170801
       Models::BindEcsSlbResponse bindEcsSlb(const Models::BindEcsSlbRequest &request);
 
       /**
-       * @summary Binds a Server Load Balancer (SLB) instance to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+       * @summary Attaches a Server Load Balancer (SLB) instance to an application in a Container Service for Kubernetes cluster.
        *
        * @param request BindK8sSlbRequest
        * @param headers map
@@ -157,7 +157,7 @@ namespace Edas20170801
       Models::BindK8sSlbResponse bindK8sSlbWithOptions(const Models::BindK8sSlbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a Server Load Balancer (SLB) instance to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+       * @summary Attaches a Server Load Balancer (SLB) instance to an application in a Container Service for Kubernetes cluster.
        *
        * @param request BindK8sSlbRequest
        * @return BindK8sSlbResponse
@@ -165,7 +165,7 @@ namespace Edas20170801
       Models::BindK8sSlbResponse bindK8sSlb(const Models::BindK8sSlbRequest &request);
 
       /**
-       * @summary Binds a Server Load Balancer (SLB) instance to an application in Enterprise Distributed Application Service (EDAS).
+       * @summary Calls the BindSlb operation to attach a Server Load Balancer (SLB) instance to a specified application.
        *
        * @param request BindSlbRequest
        * @param headers map
@@ -175,7 +175,7 @@ namespace Edas20170801
       Models::BindSlbResponse bindSlbWithOptions(const Models::BindSlbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Binds a Server Load Balancer (SLB) instance to an application in Enterprise Distributed Application Service (EDAS).
+       * @summary Calls the BindSlb operation to attach a Server Load Balancer (SLB) instance to a specified application.
        *
        * @param request BindSlbRequest
        * @return BindSlbResponse
@@ -183,7 +183,7 @@ namespace Edas20170801
       Models::BindSlbResponse bindSlb(const Models::BindSlbRequest &request);
 
       /**
-       * @summary Changes the application instance group for an Elastic Compute Service (ECS) instance in an ECS cluster.
+       * @summary Call the ChangeDeployGroup operation to change the group of an ECS instance in an application deployed in an ECS cluster.
        *
        * @param request ChangeDeployGroupRequest
        * @param headers map
@@ -193,7 +193,7 @@ namespace Edas20170801
       Models::ChangeDeployGroupResponse changeDeployGroupWithOptions(const Models::ChangeDeployGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Changes the application instance group for an Elastic Compute Service (ECS) instance in an ECS cluster.
+       * @summary Call the ChangeDeployGroup operation to change the group of an ECS instance in an application deployed in an ECS cluster.
        *
        * @param request ChangeDeployGroupRequest
        * @return ChangeDeployGroupResponse
@@ -219,7 +219,7 @@ namespace Edas20170801
       Models::ContinuePipelineResponse continuePipeline(const Models::ContinuePipelineRequest &request);
 
       /**
-       * @summary Converts a Deployment into an application.
+       * @summary Converts a Deployment resource into an application.
        *
        * @param request ConvertK8sResourceRequest
        * @param headers map
@@ -229,7 +229,7 @@ namespace Edas20170801
       Models::ConvertK8sResourceResponse convertK8sResourceWithOptions(const Models::ConvertK8sResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Converts a Deployment into an application.
+       * @summary Converts a Deployment resource into an application.
        *
        * @param request ConvertK8sResourceRequest
        * @return ConvertK8sResourceResponse
@@ -237,7 +237,7 @@ namespace Edas20170801
       Models::ConvertK8sResourceResponse convertK8sResource(const Models::ConvertK8sResourceRequest &request);
 
       /**
-       * @summary Creates an auto scaling policy for an application.
+       * @summary Call the CreateApplicationScalingRule operation to create an Auto Scaling rule for an application.
        *
        * @param request CreateApplicationScalingRuleRequest
        * @param headers map
@@ -247,7 +247,7 @@ namespace Edas20170801
       Models::CreateApplicationScalingRuleResponse createApplicationScalingRuleWithOptions(const Models::CreateApplicationScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an auto scaling policy for an application.
+       * @summary Call the CreateApplicationScalingRule operation to create an Auto Scaling rule for an application.
        *
        * @param request CreateApplicationScalingRuleRequest
        * @return CreateApplicationScalingRuleResponse
@@ -369,7 +369,7 @@ namespace Edas20170801
       Models::CreateK8sServiceResponse createK8sService(const Models::CreateK8sServiceRequest &request);
 
       /**
-       * @summary Deletes an application.
+       * @summary Call the DeleteApplication operation to delete an application instance.
        *
        * @param request DeleteApplicationRequest
        * @param headers map
@@ -379,7 +379,7 @@ namespace Edas20170801
       Models::DeleteApplicationResponse deleteApplicationWithOptions(const Models::DeleteApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an application.
+       * @summary Call the DeleteApplication operation to delete an application instance.
        *
        * @param request DeleteApplicationRequest
        * @return DeleteApplicationResponse
@@ -387,7 +387,7 @@ namespace Edas20170801
       Models::DeleteApplicationResponse deleteApplication(const Models::DeleteApplicationRequest &request);
 
       /**
-       * @summary Deletes an auto scaling policy for an application.
+       * @summary Deletes an Auto Scaling rule for an application.
        *
        * @param request DeleteApplicationScalingRuleRequest
        * @param headers map
@@ -397,7 +397,7 @@ namespace Edas20170801
       Models::DeleteApplicationScalingRuleResponse deleteApplicationScalingRuleWithOptions(const Models::DeleteApplicationScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deletes an auto scaling policy for an application.
+       * @summary Deletes an Auto Scaling rule for an application.
        *
        * @param request DeleteApplicationScalingRuleRequest
        * @return DeleteApplicationScalingRuleResponse
@@ -585,7 +585,7 @@ namespace Edas20170801
       Models::DeleteK8sServiceResponse deleteK8sService(const Models::DeleteK8sServiceRequest &request);
 
       /**
-       * @summary Removes a log directory from an application. This operation is applicable to applications that are deployed in Alibaba Cloud Elastic Compute Service (ECS) clusters and hybrid cloud ECS clusters.
+       * @summary Deletes resources associated with a log directory. This operation is suitable for applications deployed on Alibaba Cloud Elastic Compute Service (ECS) instances or container orchestration clusters from other cloud providers.
        *
        * @param request DeleteLogPathRequest
        * @param headers map
@@ -595,7 +595,7 @@ namespace Edas20170801
       Models::DeleteLogPathResponse deleteLogPathWithOptions(const Models::DeleteLogPathRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Removes a log directory from an application. This operation is applicable to applications that are deployed in Alibaba Cloud Elastic Compute Service (ECS) clusters and hybrid cloud ECS clusters.
+       * @summary Deletes resources associated with a log directory. This operation is suitable for applications deployed on Alibaba Cloud Elastic Compute Service (ECS) instances or container orchestration clusters from other cloud providers.
        *
        * @param request DeleteLogPathRequest
        * @return DeleteLogPathResponse
@@ -697,7 +697,7 @@ namespace Edas20170801
       Models::DeployApplicationResponse deployApplication(const Models::DeployApplicationRequest &request);
 
       /**
-       * @summary Deploys an application in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+       * @summary Deploys an application in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
        *
        * @param request DeployK8sApplicationRequest
        * @param headers map
@@ -707,7 +707,7 @@ namespace Edas20170801
       Models::DeployK8sApplicationResponse deployK8sApplicationWithOptions(const Models::DeployK8sApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Deploys an application in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+       * @summary Deploys an application in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
        *
        * @param request DeployK8sApplicationRequest
        * @return DeployK8sApplicationResponse
@@ -733,7 +733,7 @@ namespace Edas20170801
       Models::DescribeAppInstanceListResponse describeAppInstanceList(const Models::DescribeAppInstanceListRequest &request);
 
       /**
-       * @summary Queries the auto scaling policies of an application.
+       * @summary Call the DescribeApplicationScalingRules operation to query the scaling rules for an application.
        *
        * @param request DescribeApplicationScalingRulesRequest
        * @param headers map
@@ -743,7 +743,7 @@ namespace Edas20170801
       Models::DescribeApplicationScalingRulesResponse describeApplicationScalingRulesWithOptions(const Models::DescribeApplicationScalingRulesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the auto scaling policies of an application.
+       * @summary Call the DescribeApplicationScalingRules operation to query the scaling rules for an application.
        *
        * @param request DescribeApplicationScalingRulesRequest
        * @return DescribeApplicationScalingRulesResponse
@@ -751,6 +751,10 @@ namespace Edas20170801
       Models::DescribeApplicationScalingRulesResponse describeApplicationScalingRules(const Models::DescribeApplicationScalingRulesRequest &request);
 
       /**
+       * @summary Queries the locality configuration.
+       *
+       * @description > Currently, only deployment resources can be modified.
+       *
        * @param request DescribeLocalitySettingRequest
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -759,6 +763,10 @@ namespace Edas20170801
       Models::DescribeLocalitySettingResponse describeLocalitySettingWithOptions(const Models::DescribeLocalitySettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
+       * @summary Queries the locality configuration.
+       *
+       * @description > Currently, only deployment resources can be modified.
+       *
        * @param request DescribeLocalitySettingRequest
        * @return DescribeLocalitySettingResponse
        */
@@ -819,7 +827,7 @@ namespace Edas20170801
       Models::GetAppDeploymentResponse getAppDeployment(const Models::GetAppDeploymentRequest &request);
 
       /**
-       * @summary Queries the details about a specified application in an Elastic Compute Service (ECS) cluster.
+       * @summary Retrieves information about a specified application in an ECS cluster.
        *
        * @param request GetApplicationRequest
        * @param headers map
@@ -829,7 +837,7 @@ namespace Edas20170801
       Models::GetApplicationResponse getApplicationWithOptions(const Models::GetApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details about a specified application in an Elastic Compute Service (ECS) cluster.
+       * @summary Retrieves information about a specified application in an ECS cluster.
        *
        * @param request GetApplicationRequest
        * @return GetApplicationResponse
@@ -837,7 +845,7 @@ namespace Edas20170801
       Models::GetApplicationResponse getApplication(const Models::GetApplicationRequest &request);
 
       /**
-       * @summary Queries the details about a change process.
+       * @summary You can call the GetChangeOrderInfo operation to view the details of a change process.
        *
        * @param request GetChangeOrderInfoRequest
        * @param headers map
@@ -847,7 +855,7 @@ namespace Edas20170801
       Models::GetChangeOrderInfoResponse getChangeOrderInfoWithOptions(const Models::GetChangeOrderInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the details about a change process.
+       * @summary You can call the GetChangeOrderInfo operation to view the details of a change process.
        *
        * @param request GetChangeOrderInfoRequest
        * @return GetChangeOrderInfoResponse
@@ -945,7 +953,7 @@ namespace Edas20170801
       Models::GetK8sAppPrecheckResultResponse getK8sAppPrecheckResult(const Models::GetK8sAppPrecheckResultRequest &request);
 
       /**
-       * @summary Queries the information about applications deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+       * @summary Retrieves information about an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
        *
        * @param request GetK8sApplicationRequest
        * @param headers map
@@ -955,7 +963,7 @@ namespace Edas20170801
       Models::GetK8sApplicationResponse getK8sApplicationWithOptions(const Models::GetK8sApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the information about applications deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+       * @summary Retrieves information about an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
        *
        * @param request GetK8sApplicationRequest
        * @return GetK8sApplicationResponse
@@ -963,7 +971,7 @@ namespace Edas20170801
       Models::GetK8sApplicationResponse getK8sApplication(const Models::GetK8sApplicationRequest &request);
 
       /**
-       * @summary Queries Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes clusters in a specified region.
+       * @summary Gets a list of Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes (ASK) clusters.
        *
        * @param request GetK8sClusterRequest
        * @param headers map
@@ -973,7 +981,7 @@ namespace Edas20170801
       Models::GetK8sClusterResponse getK8sClusterWithOptions(const Models::GetK8sClusterRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes clusters in a specified region.
+       * @summary Gets a list of Container Service for Kubernetes (ACK) clusters or Serverless Kubernetes (ASK) clusters.
        *
        * @param request GetK8sClusterRequest
        * @return GetK8sClusterResponse
@@ -981,7 +989,7 @@ namespace Edas20170801
       Models::GetK8sClusterResponse getK8sCluster(const Models::GetK8sClusterRequest &request);
 
       /**
-       * @summary Queries application services that are deployed in a Kubernetes cluster.
+       * @summary Gets a list of Services for an application in a Kubernetes cluster.
        *
        * @param request GetK8sServicesRequest
        * @param headers map
@@ -991,7 +999,7 @@ namespace Edas20170801
       Models::GetK8sServicesResponse getK8sServicesWithOptions(const Models::GetK8sServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries application services that are deployed in a Kubernetes cluster.
+       * @summary Gets a list of Services for an application in a Kubernetes cluster.
        *
        * @param request GetK8sServicesRequest
        * @return GetK8sServicesResponse
@@ -1181,9 +1189,9 @@ namespace Edas20170801
       Models::ImportK8sClusterResponse importK8sCluster(const Models::ImportK8sClusterRequest &request);
 
       /**
-       * @summary Creates an application in an Elastic Compute Service (ECS) cluster.
+       * @summary Creates an application in an ECS cluster.
        *
-       * @description > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+       * @description > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation.
        *
        * @param request InsertApplicationRequest
        * @param headers map
@@ -1193,9 +1201,9 @@ namespace Edas20170801
       Models::InsertApplicationResponse insertApplicationWithOptions(const Models::InsertApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application in an Elastic Compute Service (ECS) cluster.
+       * @summary Creates an application in an ECS cluster.
        *
-       * @description > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation provided by Enterprise Distributed Application Service (EDAS).
+       * @description > To create an application in a Kubernetes cluster, call the InsertK8sApplication operation.
        *
        * @param request InsertApplicationRequest
        * @return InsertApplicationResponse
@@ -1265,7 +1273,7 @@ namespace Edas20170801
       Models::InsertDeployGroupResponse insertDeployGroup(const Models::InsertDeployGroupRequest &request);
 
       /**
-       * @summary Creates an application in a Container Service for Kubernetes (ACK) cluster or serverless Kubernetes cluster.
+       * @summary Creates an application in a Kubernetes cluster or a Serverless Kubernetes cluster.
        *
        * @param request InsertK8sApplicationRequest
        * @param headers map
@@ -1275,7 +1283,7 @@ namespace Edas20170801
       Models::InsertK8sApplicationResponse insertK8sApplicationWithOptions(const Models::InsertK8sApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Creates an application in a Container Service for Kubernetes (ACK) cluster or serverless Kubernetes cluster.
+       * @summary Creates an application in a Kubernetes cluster or a Serverless Kubernetes cluster.
        *
        * @param request InsertK8sApplicationRequest
        * @return InsertK8sApplicationResponse
@@ -1411,7 +1419,7 @@ namespace Edas20170801
       Models::ListAliyunRegionResponse listAliyunRegion();
 
       /**
-       * @summary Queries a list of applications.
+       * @summary Retrieves the list of applications.
        *
        * @param request ListApplicationRequest
        * @param headers map
@@ -1421,7 +1429,7 @@ namespace Edas20170801
       Models::ListApplicationResponse listApplicationWithOptions(const Models::ListApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries a list of applications.
+       * @summary Retrieves the list of applications.
        *
        * @param request ListApplicationRequest
        * @return ListApplicationResponse
@@ -1463,7 +1471,7 @@ namespace Edas20170801
       Models::ListAuthorityResponse listAuthority();
 
       /**
-       * @summary Queries Enterprise Distributed Application Service (EDAS) Container versions.
+       * @summary Calls the ListBuildPack operation to retrieve the list of container versions.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1472,7 +1480,7 @@ namespace Edas20170801
       Models::ListBuildPackResponse listBuildPackWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Enterprise Distributed Application Service (EDAS) Container versions.
+       * @summary Calls the ListBuildPack operation to retrieve the list of container versions.
        *
        * @return ListBuildPackResponse
        */
@@ -1549,7 +1557,7 @@ namespace Edas20170801
       Models::ListConfigTemplatesResponse listConfigTemplates(const Models::ListConfigTemplatesRequest &request);
 
       /**
-       * @summary Queries the services that are consumed by an application.
+       * @summary Queries consumed services.
        *
        * @param request ListConsumedServicesRequest
        * @param headers map
@@ -1559,7 +1567,7 @@ namespace Edas20170801
       Models::ListConsumedServicesResponse listConsumedServicesWithOptions(const Models::ListConsumedServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the services that are consumed by an application.
+       * @summary Queries consumed services.
        *
        * @param request ListConsumedServicesRequest
        * @return ListConsumedServicesResponse
@@ -1585,7 +1593,7 @@ namespace Edas20170801
       Models::ListConvertableEcuResponse listConvertableEcu(const Models::ListConvertableEcuRequest &request);
 
       /**
-       * @summary Queries the instance groups to which an application is deployed.
+       * @summary Call the ListDeployGroup operation to obtain a list of deployment groups.
        *
        * @param request ListDeployGroupRequest
        * @param headers map
@@ -1595,7 +1603,7 @@ namespace Edas20170801
       Models::ListDeployGroupResponse listDeployGroupWithOptions(const Models::ListDeployGroupRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the instance groups to which an application is deployed.
+       * @summary Call the ListDeployGroup operation to obtain a list of deployment groups.
        *
        * @param request ListDeployGroupRequest
        * @return ListDeployGroupResponse
@@ -1624,9 +1632,9 @@ namespace Edas20170801
        * @summary Queries the available elastic compute units (ECUs) in a specified namespace.
        *
        * @description ## Terms
-       * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
-       * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-       * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+       * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+       * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+       * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
        *
        * @param request ListEcuByRegionRequest
        * @param headers map
@@ -1639,9 +1647,9 @@ namespace Edas20170801
        * @summary Queries the available elastic compute units (ECUs) in a specified namespace.
        *
        * @description ## Terms
-       * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
-       * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-       * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+       * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+       * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+       * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
        *
        * @param request ListEcuByRegionRequest
        * @return ListEcuByRegionResponse
@@ -1739,7 +1747,7 @@ namespace Edas20170801
       Models::ListK8sSecretsResponse listK8sSecrets(const Models::ListK8sSecretsRequest &request);
 
       /**
-       * @summary Queries service methods.
+       * @summary You can call the ListMethods operation to query a list of service methods.
        *
        * @param request ListMethodsRequest
        * @param headers map
@@ -1749,7 +1757,7 @@ namespace Edas20170801
       Models::ListMethodsResponse listMethodsWithOptions(const Models::ListMethodsRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries service methods.
+       * @summary You can call the ListMethods operation to query a list of service methods.
        *
        * @param request ListMethodsRequest
        * @return ListMethodsResponse
@@ -1757,7 +1765,7 @@ namespace Edas20170801
       Models::ListMethodsResponse listMethods(const Models::ListMethodsRequest &request);
 
       /**
-       * @summary Queries the services that are published by an application.
+       * @summary Queries published services.
        *
        * @param request ListPublishedServicesRequest
        * @param headers map
@@ -1767,7 +1775,7 @@ namespace Edas20170801
       Models::ListPublishedServicesResponse listPublishedServicesWithOptions(const Models::ListPublishedServicesRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the services that are published by an application.
+       * @summary Queries published services.
        *
        * @param request ListPublishedServicesRequest
        * @return ListPublishedServicesResponse
@@ -1809,7 +1817,7 @@ namespace Edas20170801
       Models::ListResourceGroupResponse listResourceGroup();
 
       /**
-       * @summary Queries roles.
+       * @summary Queries a list of roles.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1818,7 +1826,7 @@ namespace Edas20170801
       Models::ListRoleResponse listRoleWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries roles.
+       * @summary Queries a list of roles.
        *
        * @return ListRoleResponse
        */
@@ -1828,9 +1836,9 @@ namespace Edas20170801
        * @summary Queries elastic compute units (ECUs) available for scaling out an application in a specified cluster or the cluster where the application is deployed. This operation is applicable to Elastic Compute Service (ECS) clusters.
        *
        * @description ## Terms
-       * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
-       * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-       * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+       * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+       * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+       * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
        *
        * @param request ListScaleOutEcuRequest
        * @param headers map
@@ -1843,9 +1851,9 @@ namespace Edas20170801
        * @summary Queries elastic compute units (ECUs) available for scaling out an application in a specified cluster or the cluster where the application is deployed. This operation is applicable to Elastic Compute Service (ECS) clusters.
        *
        * @description ## Terms
-       * *   **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
-       * *   **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-       * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+       * - **Namespace**: the logical concept that is used to isolate resources such as clusters, ECS instances, and applications, and microservices published in EDAS. This concept involves the default namespace and custom namespaces. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+       * - **Elastic compute unit (ECU)**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
+       * - **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
        *
        * @param request ListScaleOutEcuRequest
        * @return ListScaleOutEcuResponse
@@ -1869,7 +1877,7 @@ namespace Edas20170801
       Models::ListServiceGroupsResponse listServiceGroups();
 
       /**
-       * @summary Queries Server Load Balancer (SLB) instances.
+       * @summary Retrieves a list of SLB instances.
        *
        * @param request ListSlbRequest
        * @param headers map
@@ -1879,7 +1887,7 @@ namespace Edas20170801
       Models::ListSlbResponse listSlbWithOptions(const Models::ListSlbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries Server Load Balancer (SLB) instances.
+       * @summary Retrieves a list of SLB instances.
        *
        * @param request ListSlbRequest
        * @return ListSlbResponse
@@ -1887,7 +1895,7 @@ namespace Edas20170801
       Models::ListSlbResponse listSlb(const Models::ListSlbRequest &request);
 
       /**
-       * @summary Queries the Resource Access Management (RAM) users.
+       * @summary Queries a list of Resource Access Management (RAM) users.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1896,7 +1904,7 @@ namespace Edas20170801
       Models::ListSubAccountResponse listSubAccountWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries the Resource Access Management (RAM) users.
+       * @summary Queries a list of Resource Access Management (RAM) users.
        *
        * @return ListSubAccountResponse
        */
@@ -1957,7 +1965,7 @@ namespace Edas20170801
       Models::ListTagResourcesResponse listTagResources(const Models::ListTagResourcesRequest &request);
 
       /**
-       * @summary Queries custom namespaces.
+       * @summary Queries a list of user-defined namespaces.
        *
        * @param request ListUserDefineRegionRequest
        * @param headers map
@@ -1967,7 +1975,7 @@ namespace Edas20170801
       Models::ListUserDefineRegionResponse listUserDefineRegionWithOptions(const Models::ListUserDefineRegionRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Queries custom namespaces.
+       * @summary Queries a list of user-defined namespaces.
        *
        * @param request ListUserDefineRegionRequest
        * @return ListUserDefineRegionResponse
@@ -1975,7 +1983,7 @@ namespace Edas20170801
       Models::ListUserDefineRegionResponse listUserDefineRegion(const Models::ListUserDefineRegionRequest &request);
 
       /**
-       * @summary The HTTP status code returned.
+       * @summary Queries virtual private clouds (VPCs). This operation is applicable to Elastic Compute Service (ECS) clusters and Kubernetes clusters.
        *
        * @param headers map
        * @param runtime runtime options for this request RuntimeOptions
@@ -1984,22 +1992,44 @@ namespace Edas20170801
       Models::ListVpcResponse listVpcWithOptions(const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary The HTTP status code returned.
+       * @summary Queries virtual private clouds (VPCs). This operation is applicable to Elastic Compute Service (ECS) clusters and Kubernetes clusters.
        *
        * @return ListVpcResponse
        */
       Models::ListVpcResponse listVpc();
 
       /**
-       * @summary Migrates an elastic compute unit (ECU) to the default cluster in a specified namespace.
+       * @summary Migrates an application.
        *
-       * @description ## Limits
-       * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
-       * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+       * @description > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
+       *
+       * @param request MigrateApplicationRequest
+       * @param headers map
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return MigrateApplicationResponse
+       */
+      Models::MigrateApplicationResponse migrateApplicationWithOptions(const Models::MigrateApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary Migrates an application.
+       *
+       * @description > For application deployment in a container service Kubernetes cluster imported to Enterprise Distributed Application Service (EDAS), use the DeployK8sApplication operation provided by EDAS. For more information, see [DeployK8sApplication](https://help.aliyun.com/document_detail/149420.html).
+       *
+       * @param request MigrateApplicationRequest
+       * @return MigrateApplicationResponse
+       */
+      Models::MigrateApplicationResponse migrateApplication(const Models::MigrateApplicationRequest &request);
+
+      /**
+       * @summary Transfers an ECU to the default cluster in a specified namespace.
+       *
+       * @description ## Usage notes
+       * This API operation is deprecated. Use the TransformClusterMember operation instead. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
+       * This operation imports an Elastic Compute Service (ECS) instance and reinstalls its operating system. This process deletes all data on the instance. You must also reset the logon password. Before you import an instance, back up its data or make sure it contains no important data.
        * ## Terms
-       * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
-       * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-       * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+       * - **Namespace**: A logical concept in Enterprise Distributed Application Service (EDAS) used to isolate resources and microservices. Resources include clusters, ECS instances, and applications. Namespaces can be default or custom. Each region has one default namespace and can have multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+       * - **ECU**: An ECS instance becomes an Elastic Compute Unit (ECU) after it is imported into a cluster.
+       * - **ECC**: An ECU in a cluster becomes an Elastic Compute Container (ECC) after it is deployed in an application.
        *
        * @param request MigrateEcuRequest
        * @param headers map
@@ -2009,15 +2039,15 @@ namespace Edas20170801
       Models::MigrateEcuResponse migrateEcuWithOptions(const Models::MigrateEcuRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Migrates an elastic compute unit (ECU) to the default cluster in a specified namespace.
+       * @summary Transfers an ECU to the default cluster in a specified namespace.
        *
-       * @description ## Limits
-       * We recommend that you do not call this operation. Instead, we recommend that you call the TransformClusterMember operation. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
-       * When you call this operation to import an Elastic Compute Service (ECS) instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+       * @description ## Usage notes
+       * This API operation is deprecated. Use the TransformClusterMember operation instead. For more information, see [TransformClusterMember](https://help.aliyun.com/document_detail/71514.html).
+       * This operation imports an Elastic Compute Service (ECS) instance and reinstalls its operating system. This process deletes all data on the instance. You must also reset the logon password. Before you import an instance, back up its data or make sure it contains no important data.
        * ## Terms
-       * *   **Namespace**: the logical concept that is used to isolate resources and microservices in Enterprise Distributed Application Service (EDAS). The resources include clusters, ECS instances, and applications. You can use a default or custom namespace. Each region has a default namespace and supports multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources or microservices.
-       * *   **ECU**: After an ECS instance is imported to a cluster, the instance becomes an ECU.
-       * *   **Elastic compute container (ECC)**: After you deploy an application to an ECU in a cluster, the ECU becomes an ECC.
+       * - **Namespace**: A logical concept in Enterprise Distributed Application Service (EDAS) used to isolate resources and microservices. Resources include clusters, ECS instances, and applications. Namespaces can be default or custom. Each region has one default namespace and can have multiple custom namespaces. By default, only the default namespace is available. You do not need to create a custom namespace if you do not want to isolate resources and microservices.
+       * - **ECU**: An ECS instance becomes an Elastic Compute Unit (ECU) after it is imported into a cluster.
+       * - **ECC**: An ECU in a cluster becomes an Elastic Compute Container (ECC) after it is deployed in an application.
        *
        * @param request MigrateEcuRequest
        * @return MigrateEcuResponse
@@ -2167,7 +2197,7 @@ namespace Edas20170801
       Models::ResetApplicationResponse resetApplication(const Models::ResetApplicationRequest &request);
 
       /**
-       * @summary Restarts an application. This operation is applicable to applications that are deployed in Elastic Compute Service (ECS) clusters.
+       * @summary Restarts an application. This operation is suitable for applications that are deployed on Elastic Compute Service (ECS) instances.
        *
        * @param request RestartApplicationRequest
        * @param headers map
@@ -2177,7 +2207,7 @@ namespace Edas20170801
       Models::RestartApplicationResponse restartApplicationWithOptions(const Models::RestartApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts an application. This operation is applicable to applications that are deployed in Elastic Compute Service (ECS) clusters.
+       * @summary Restarts an application. This operation is suitable for applications that are deployed on Elastic Compute Service (ECS) instances.
        *
        * @param request RestartApplicationRequest
        * @return RestartApplicationResponse
@@ -2185,7 +2215,7 @@ namespace Edas20170801
       Models::RestartApplicationResponse restartApplication(const Models::RestartApplicationRequest &request);
 
       /**
-       * @summary Restarts an application that is deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+       * @summary Call the RestartK8sApplication operation to restart an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
        *
        * @param request RestartK8sApplicationRequest
        * @param headers map
@@ -2195,7 +2225,7 @@ namespace Edas20170801
       Models::RestartK8sApplicationResponse restartK8sApplicationWithOptions(const Models::RestartK8sApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Restarts an application that is deployed in a Container Service for Kubernetes (ACK) cluster or a serverless Kubernetes cluster.
+       * @summary Call the RestartK8sApplication operation to restart an application deployed in a Container Service for Kubernetes (ACK) cluster or a Serverless Kubernetes (ASK) cluster.
        *
        * @param request RestartK8sApplicationRequest
        * @return RestartK8sApplicationResponse
@@ -2203,7 +2233,7 @@ namespace Edas20170801
       Models::RestartK8sApplicationResponse restartK8sApplication(const Models::RestartK8sApplicationRequest &request);
 
       /**
-       * @summary Retries a failed process.
+       * @summary Call the RetryChangeOrderTask operation to retry a failed change order task.
        *
        * @param request RetryChangeOrderTaskRequest
        * @param headers map
@@ -2213,7 +2243,7 @@ namespace Edas20170801
       Models::RetryChangeOrderTaskResponse retryChangeOrderTaskWithOptions(const Models::RetryChangeOrderTaskRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Retries a failed process.
+       * @summary Call the RetryChangeOrderTask operation to retry a failed change order task.
        *
        * @param request RetryChangeOrderTaskRequest
        * @return RetryChangeOrderTaskResponse
@@ -2257,7 +2287,7 @@ namespace Edas20170801
       Models::RollbackChangeOrderResponse rollbackChangeOrder(const Models::RollbackChangeOrderRequest &request);
 
       /**
-       * @summary Scales in an application.
+       * @summary Scales in the instances of an application.
        *
        * @param request ScaleInApplicationRequest
        * @param headers map
@@ -2267,7 +2297,7 @@ namespace Edas20170801
       Models::ScaleInApplicationResponse scaleInApplicationWithOptions(const Models::ScaleInApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Scales in an application.
+       * @summary Scales in the instances of an application.
        *
        * @param request ScaleInApplicationRequest
        * @return ScaleInApplicationResponse
@@ -2275,7 +2305,7 @@ namespace Edas20170801
       Models::ScaleInApplicationResponse scaleInApplication(const Models::ScaleInApplicationRequest &request);
 
       /**
-       * @summary Scales out or in an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+       * @summary Scales out or scales down application instances in a Container Service for Kubernetes (K8s) cluster.
        *
        * @param request ScaleK8sApplicationRequest
        * @param headers map
@@ -2285,7 +2315,7 @@ namespace Edas20170801
       Models::ScaleK8sApplicationResponse scaleK8sApplicationWithOptions(const Models::ScaleK8sApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Scales out or in an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+       * @summary Scales out or scales down application instances in a Container Service for Kubernetes (K8s) cluster.
        *
        * @param request ScaleK8sApplicationRequest
        * @return ScaleK8sApplicationResponse
@@ -2371,7 +2401,7 @@ namespace Edas20170801
       Models::StartK8sAppPrecheckResponse startK8sAppPrecheck(const Models::StartK8sAppPrecheckRequest &request);
 
       /**
-       * @summary Starts an application in a Container Service for Kubernetes (ACK) cluster or Serverless Kubernetes cluster.
+       * @summary Starts an application in a Container Service for Kubernetes (ACK) or Serverless Kubernetes (ASK) cluster.
        *
        * @param request StartK8sApplicationRequest
        * @param headers map
@@ -2381,7 +2411,7 @@ namespace Edas20170801
       Models::StartK8sApplicationResponse startK8sApplicationWithOptions(const Models::StartK8sApplicationRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Starts an application in a Container Service for Kubernetes (ACK) cluster or Serverless Kubernetes cluster.
+       * @summary Starts an application in a Container Service for Kubernetes (ACK) or Serverless Kubernetes (ASK) cluster.
        *
        * @param request StartK8sApplicationRequest
        * @return StartK8sApplicationResponse
@@ -2487,10 +2517,10 @@ namespace Edas20170801
       Models::TagResourcesResponse tagResources(const Models::TagResourcesRequest &request);
 
       /**
-       * @summary Imports or migrates one or more Elastic Compute Service (ECS) instances to a cluster.
+       * @summary Imports or transfers ECS instances.
        *
-       * @description ## Limits
-       * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+       * @description ## Limitations
+       * Calling this API to import an ECS instance reinstalls its operating system. This process deletes all data on the instance and requires you to reset the logon password. Before you import the instance, back up any important data.
        *
        * @param request TransformClusterMemberRequest
        * @param headers map
@@ -2500,10 +2530,10 @@ namespace Edas20170801
       Models::TransformClusterMemberResponse transformClusterMemberWithOptions(const Models::TransformClusterMemberRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Imports or migrates one or more Elastic Compute Service (ECS) instances to a cluster.
+       * @summary Imports or transfers ECS instances.
        *
-       * @description ## Limits
-       * When you call this operation to import an ECS instance, the operating system of the ECS instance is reinstalled. After the operating system is reinstalled, all data of the ECS instance is deleted. You must set a logon password for the ECS instance. Make sure that no important data exists on or data has been backed up for the ECS instance that you want to import.
+       * @description ## Limitations
+       * Calling this API to import an ECS instance reinstalls its operating system. This process deletes all data on the instance and requires you to reset the logon password. Before you import the instance, back up any important data.
        *
        * @param request TransformClusterMemberRequest
        * @return TransformClusterMemberResponse
@@ -2529,7 +2559,7 @@ namespace Edas20170801
       Models::UnbindK8sSlbResponse unbindK8sSlb(const Models::UnbindK8sSlbRequest &request);
 
       /**
-       * @summary Unbinds a Server Load Balancer (SLB) instance from an application.
+       * @summary Call the UnbindSlb operation to detach a Server Load Balancer (SLB) instance.
        *
        * @param request UnbindSlbRequest
        * @param headers map
@@ -2539,7 +2569,7 @@ namespace Edas20170801
       Models::UnbindSlbResponse unbindSlbWithOptions(const Models::UnbindSlbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Unbinds a Server Load Balancer (SLB) instance from an application.
+       * @summary Call the UnbindSlb operation to detach a Server Load Balancer (SLB) instance.
        *
        * @param request UnbindSlbRequest
        * @return UnbindSlbResponse
@@ -2565,7 +2595,7 @@ namespace Edas20170801
       Models::UntagResourcesResponse untagResources(const Models::UntagResourcesRequest &request);
 
       /**
-       * @summary Modifies the information about an account.
+       * @summary Modifies information about an account.
        *
        * @param request UpdateAccountInfoRequest
        * @param headers map
@@ -2575,7 +2605,7 @@ namespace Edas20170801
       Models::UpdateAccountInfoResponse updateAccountInfoWithOptions(const Models::UpdateAccountInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the information about an account.
+       * @summary Modifies information about an account.
        *
        * @param request UpdateAccountInfoRequest
        * @return UpdateAccountInfoResponse
@@ -2583,7 +2613,7 @@ namespace Edas20170801
       Models::UpdateAccountInfoResponse updateAccountInfo(const Models::UpdateAccountInfoRequest &request);
 
       /**
-       * @summary Modifies the name, description, and owner of an application.
+       * @summary Updates the basic information such as the description and owner of an application.
        *
        * @param request UpdateApplicationBaseInfoRequest
        * @param headers map
@@ -2593,7 +2623,7 @@ namespace Edas20170801
       Models::UpdateApplicationBaseInfoResponse updateApplicationBaseInfoWithOptions(const Models::UpdateApplicationBaseInfoRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies the name, description, and owner of an application.
+       * @summary Updates the basic information such as the description and owner of an application.
        *
        * @param request UpdateApplicationBaseInfoRequest
        * @return UpdateApplicationBaseInfoResponse
@@ -2601,7 +2631,7 @@ namespace Edas20170801
       Models::UpdateApplicationBaseInfoResponse updateApplicationBaseInfo(const Models::UpdateApplicationBaseInfoRequest &request);
 
       /**
-       * @summary Modifies an auto scaling policy for an application.
+       * @summary Calls the UpdateApplicationScalingRule operation to update the Auto Scaling rule for an application.
        *
        * @param request UpdateApplicationScalingRuleRequest
        * @param headers map
@@ -2611,7 +2641,7 @@ namespace Edas20170801
       Models::UpdateApplicationScalingRuleResponse updateApplicationScalingRuleWithOptions(const Models::UpdateApplicationScalingRuleRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Modifies an auto scaling policy for an application.
+       * @summary Calls the UpdateApplicationScalingRule operation to update the Auto Scaling rule for an application.
        *
        * @param request UpdateApplicationScalingRuleRequest
        * @return UpdateApplicationScalingRuleResponse
@@ -2799,7 +2829,7 @@ namespace Edas20170801
       Models::UpdateK8sIngressRuleResponse updateK8sIngressRule(const Models::UpdateK8sIngressRuleRequest &request);
 
       /**
-       * @summary Updates a specified resource in a Kubernetes cluster.
+       * @summary Update Kubernetes resources.
        *
        * @description > You can update only Deployments.
        *
@@ -2811,7 +2841,7 @@ namespace Edas20170801
       Models::UpdateK8sResourceResponse updateK8sResourceWithOptions(const Models::UpdateK8sResourceRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates a specified resource in a Kubernetes cluster.
+       * @summary Update Kubernetes resources.
        *
        * @description > You can update only Deployments.
        *
@@ -2857,7 +2887,7 @@ namespace Edas20170801
       Models::UpdateK8sServiceResponse updateK8sService(const Models::UpdateK8sServiceRequest &request);
 
       /**
-       * @summary Updates the Server Load Balancer (SLB) instance bound to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+       * @summary Call UpdateK8sSlb to update the Server Load Balancer (SLB) instance attached to a Container Service for Kubernetes application.
        *
        * @param request UpdateK8sSlbRequest
        * @param headers map
@@ -2867,7 +2897,7 @@ namespace Edas20170801
       Models::UpdateK8sSlbResponse updateK8sSlbWithOptions(const Models::UpdateK8sSlbRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary Updates the Server Load Balancer (SLB) instance bound to an application that is deployed in a Container Service for Kubernetes (ACK) cluster.
+       * @summary Call UpdateK8sSlb to update the Server Load Balancer (SLB) instance attached to a Container Service for Kubernetes application.
        *
        * @param request UpdateK8sSlbRequest
        * @return UpdateK8sSlbResponse
@@ -2875,7 +2905,9 @@ namespace Edas20170801
       Models::UpdateK8sSlbResponse updateK8sSlb(const Models::UpdateK8sSlbRequest &request);
 
       /**
-       * @summary 更新本地设置
+       * @summary Updates a localization configuration.
+       *
+       * @description > This operation modifies only Deployment resources.
        *
        * @param request UpdateLocalitySettingRequest
        * @param headers map
@@ -2885,7 +2917,9 @@ namespace Edas20170801
       Models::UpdateLocalitySettingResponse updateLocalitySettingWithOptions(const Models::UpdateLocalitySettingRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新本地设置
+       * @summary Updates a localization configuration.
+       *
+       * @description > This operation modifies only Deployment resources.
        *
        * @param request UpdateLocalitySettingRequest
        * @return UpdateLocalitySettingResponse
@@ -2929,7 +2963,7 @@ namespace Edas20170801
       Models::UpdateSlsLogStoreResponse updateSlsLogStore(const Models::UpdateSlsLogStoreRequest &request);
 
       /**
-       * @summary 更新泳道
+       * @summary Updates a swimming lane.
        *
        * @param request UpdateSwimmingLaneRequest
        * @param headers map
@@ -2939,7 +2973,7 @@ namespace Edas20170801
       Models::UpdateSwimmingLaneResponse updateSwimmingLaneWithOptions(const Models::UpdateSwimmingLaneRequest &request, const map<string, string> &headers, const Darabonba::RuntimeOptions &runtime);
 
       /**
-       * @summary 更新泳道
+       * @summary Updates a swimming lane.
        *
        * @param request UpdateSwimmingLaneRequest
        * @return UpdateSwimmingLaneResponse

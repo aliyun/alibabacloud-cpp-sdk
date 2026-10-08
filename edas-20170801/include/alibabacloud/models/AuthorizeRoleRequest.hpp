@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->roleIds_ == nullptr
-        && return this->targetUserId_ == nullptr; };
+        && this->targetUserId_ == nullptr; };
     // roleIds Field Functions 
     bool hasRoleIds() const { return this->roleIds_ != nullptr;};
     void deleteRoleIds() { this->roleIds_ = nullptr;};
-    inline string roleIds() const { DARABONBA_PTR_GET_DEFAULT(roleIds_, "") };
+    inline string getRoleIds() const { DARABONBA_PTR_GET_DEFAULT(roleIds_, "") };
     inline AuthorizeRoleRequest& setRoleIds(string roleIds) { DARABONBA_PTR_SET_VALUE(roleIds_, roleIds) };
 
 
     // targetUserId Field Functions 
     bool hasTargetUserId() const { return this->targetUserId_ != nullptr;};
     void deleteTargetUserId() { this->targetUserId_ = nullptr;};
-    inline string targetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
+    inline string getTargetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
     inline AuthorizeRoleRequest& setTargetUserId(string targetUserId) { DARABONBA_PTR_SET_VALUE(targetUserId_, targetUserId) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the role to be assigned. If you want to assign multiple roles to the specified RAM user, separate the IDs of the roles with semicolons (;). If you leave this parameter empty, the roles assigned to the specified RAM user are revoked.
     // 
     // This parameter is required.
-    std::shared_ptr<string> roleIds_ = nullptr;
+    shared_ptr<string> roleIds_ {};
     // The ID of the RAM user to which you want to assign the roles.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetUserId_ = nullptr;
+    shared_ptr<string> targetUserId_ {};
   };
 
   } // namespace Models

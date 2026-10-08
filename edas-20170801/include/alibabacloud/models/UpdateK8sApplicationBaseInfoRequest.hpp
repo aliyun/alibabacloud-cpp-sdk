@@ -38,39 +38,39 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->description_ == nullptr && return this->email_ == nullptr && return this->owner_ == nullptr && return this->phoneNumber_ == nullptr; };
+        && this->description_ == nullptr && this->email_ == nullptr && this->owner_ == nullptr && this->phoneNumber_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline UpdateK8sApplicationBaseInfoRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // description Field Functions 
     bool hasDescription() const { return this->description_ != nullptr;};
     void deleteDescription() { this->description_ = nullptr;};
-    inline string description() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
+    inline string getDescription() const { DARABONBA_PTR_GET_DEFAULT(description_, "") };
     inline UpdateK8sApplicationBaseInfoRequest& setDescription(string description) { DARABONBA_PTR_SET_VALUE(description_, description) };
 
 
     // email Field Functions 
     bool hasEmail() const { return this->email_ != nullptr;};
     void deleteEmail() { this->email_ = nullptr;};
-    inline string email() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
+    inline string getEmail() const { DARABONBA_PTR_GET_DEFAULT(email_, "") };
     inline UpdateK8sApplicationBaseInfoRequest& setEmail(string email) { DARABONBA_PTR_SET_VALUE(email_, email) };
 
 
     // owner Field Functions 
     bool hasOwner() const { return this->owner_ != nullptr;};
     void deleteOwner() { this->owner_ = nullptr;};
-    inline string owner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
+    inline string getOwner() const { DARABONBA_PTR_GET_DEFAULT(owner_, "") };
     inline UpdateK8sApplicationBaseInfoRequest& setOwner(string owner) { DARABONBA_PTR_SET_VALUE(owner_, owner) };
 
 
     // phoneNumber Field Functions 
     bool hasPhoneNumber() const { return this->phoneNumber_ != nullptr;};
     void deletePhoneNumber() { this->phoneNumber_ = nullptr;};
-    inline string phoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
+    inline string getPhoneNumber() const { DARABONBA_PTR_GET_DEFAULT(phoneNumber_, "") };
     inline UpdateK8sApplicationBaseInfoRequest& setPhoneNumber(string phoneNumber) { DARABONBA_PTR_SET_VALUE(phoneNumber_, phoneNumber) };
 
 
@@ -78,15 +78,15 @@ namespace Models
     // The ID of the application that you want to modify.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The description of the application. The description can be up to 256 characters in length.
-    std::shared_ptr<string> description_ = nullptr;
+    shared_ptr<string> description_ {};
     // The email address of the application owner.
-    std::shared_ptr<string> email_ = nullptr;
+    shared_ptr<string> email_ {};
     // The owner of the application. The value can be up to 128 characters in length.
-    std::shared_ptr<string> owner_ = nullptr;
+    shared_ptr<string> owner_ {};
     // The phone number of the application owner.
-    std::shared_ptr<string> phoneNumber_ = nullptr;
+    shared_ptr<string> phoneNumber_ {};
   };
 
   } // namespace Models

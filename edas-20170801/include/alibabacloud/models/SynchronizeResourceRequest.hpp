@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceIds_ == nullptr
-        && return this->type_ == nullptr; };
+        && this->type_ == nullptr; };
     // resourceIds Field Functions 
     bool hasResourceIds() const { return this->resourceIds_ != nullptr;};
     void deleteResourceIds() { this->resourceIds_ = nullptr;};
-    inline string resourceIds() const { DARABONBA_PTR_GET_DEFAULT(resourceIds_, "") };
+    inline string getResourceIds() const { DARABONBA_PTR_GET_DEFAULT(resourceIds_, "") };
     inline SynchronizeResourceRequest& setResourceIds(string resourceIds) { DARABONBA_PTR_SET_VALUE(resourceIds_, resourceIds) };
 
 
     // type Field Functions 
     bool hasType() const { return this->type_ != nullptr;};
     void deleteType() { this->type_ = nullptr;};
-    inline string type() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
+    inline string getType() const { DARABONBA_PTR_GET_DEFAULT(type_, "") };
     inline SynchronizeResourceRequest& setType(string type) { DARABONBA_PTR_SET_VALUE(type_, type) };
 
 
   protected:
     // The ID of the resource. This parameter is required only when you set the Type parameter to `ecs`. If you specify multiple IDs, separate them with commas (,). You can synchronize up to 50 resources at a time.
-    std::shared_ptr<string> resourceIds_ = nullptr;
+    shared_ptr<string> resourceIds_ {};
     // The type of the resource to be synchronized. Valid values: `ecs, slb, vpc, and all`. These values are case-sensitive.
     // 
     // This parameter is required.
-    std::shared_ptr<string> type_ = nullptr;
+    shared_ptr<string> type_ {};
   };
 
   } // namespace Models

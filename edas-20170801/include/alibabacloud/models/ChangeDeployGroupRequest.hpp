@@ -36,52 +36,52 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->eccInfo_ == nullptr && return this->forceStatus_ == nullptr && return this->groupName_ == nullptr; };
+        && this->eccInfo_ == nullptr && this->forceStatus_ == nullptr && this->groupName_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ChangeDeployGroupRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // eccInfo Field Functions 
     bool hasEccInfo() const { return this->eccInfo_ != nullptr;};
     void deleteEccInfo() { this->eccInfo_ = nullptr;};
-    inline string eccInfo() const { DARABONBA_PTR_GET_DEFAULT(eccInfo_, "") };
+    inline string getEccInfo() const { DARABONBA_PTR_GET_DEFAULT(eccInfo_, "") };
     inline ChangeDeployGroupRequest& setEccInfo(string eccInfo) { DARABONBA_PTR_SET_VALUE(eccInfo_, eccInfo) };
 
 
     // forceStatus Field Functions 
     bool hasForceStatus() const { return this->forceStatus_ != nullptr;};
     void deleteForceStatus() { this->forceStatus_ = nullptr;};
-    inline bool forceStatus() const { DARABONBA_PTR_GET_DEFAULT(forceStatus_, false) };
+    inline bool getForceStatus() const { DARABONBA_PTR_GET_DEFAULT(forceStatus_, false) };
     inline ChangeDeployGroupRequest& setForceStatus(bool forceStatus) { DARABONBA_PTR_SET_VALUE(forceStatus_, forceStatus) };
 
 
     // groupName Field Functions 
     bool hasGroupName() const { return this->groupName_ != nullptr;};
     void deleteGroupName() { this->groupName_ = nullptr;};
-    inline string groupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
+    inline string getGroupName() const { DARABONBA_PTR_GET_DEFAULT(groupName_, "") };
     inline ChangeDeployGroupRequest& setGroupName(string groupName) { DARABONBA_PTR_SET_VALUE(groupName_, groupName) };
 
 
   protected:
-    // The ID of the application.
+    // The application ID.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
-    // The ID of the elastic compute component (ECC) that corresponds to the ECS instance for which you want to change the application instance group. You can call the ListApplicationEcc operation to query the ECC ID. For more information, see [ListApplicationEcc](https://help.aliyun.com/document_detail/199277.html).
+    shared_ptr<string> appId_ {};
+    // The Elastic Compute Container (ECC) ID of the ECS instance whose group you want to change. Call the ListApplicationEcc operation to query the ECC ID of an application. For more information, see [ListApplicationEcc](https://help.aliyun.com/document_detail/199277.html).
     // 
-    // > You can change the application instance group for only one ECS instance at a time.
-    // 
-    // This parameter is required.
-    std::shared_ptr<string> eccInfo_ = nullptr;
-    // Specifies whether to forcibly change the application instance group if the deployment package version of the ECC is different from that of the application instance group.
-    std::shared_ptr<bool> forceStatus_ = nullptr;
-    // The name of the application instance group. Examples: group_a and group_b. The parameter value for the default application instance group is `_DEFAULT_GROUP`. The name can be up to 64 characters in length.
+    // > You can change the group for only one ECS instance at a time.
     // 
     // This parameter is required.
-    std::shared_ptr<string> groupName_ = nullptr;
+    shared_ptr<string> eccInfo_ {};
+    // Specifies whether to force the change when the deployment package version of the ECC is different from the deployment package version of the application group.
+    shared_ptr<bool> forceStatus_ {};
+    // The name of the application group, such as \\`group_a\\` and \\`group_b\\`. The GroupName for the default group is `_DEFAULT_GROUP`. The name can be up to 64 characters long.
+    // 
+    // This parameter is required.
+    shared_ptr<string> groupName_ {};
   };
 
   } // namespace Models

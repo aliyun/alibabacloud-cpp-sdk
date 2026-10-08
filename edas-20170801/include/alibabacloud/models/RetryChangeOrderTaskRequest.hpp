@@ -32,28 +32,28 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->retryStatus_ == nullptr
-        && return this->taskId_ == nullptr; };
+        && this->taskId_ == nullptr; };
     // retryStatus Field Functions 
     bool hasRetryStatus() const { return this->retryStatus_ != nullptr;};
     void deleteRetryStatus() { this->retryStatus_ = nullptr;};
-    inline bool retryStatus() const { DARABONBA_PTR_GET_DEFAULT(retryStatus_, false) };
+    inline bool getRetryStatus() const { DARABONBA_PTR_GET_DEFAULT(retryStatus_, false) };
     inline RetryChangeOrderTaskRequest& setRetryStatus(bool retryStatus) { DARABONBA_PTR_SET_VALUE(retryStatus_, retryStatus) };
 
 
     // taskId Field Functions 
     bool hasTaskId() const { return this->taskId_ != nullptr;};
     void deleteTaskId() { this->taskId_ = nullptr;};
-    inline string taskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
+    inline string getTaskId() const { DARABONBA_PTR_GET_DEFAULT(taskId_, "") };
     inline RetryChangeOrderTaskRequest& setTaskId(string taskId) { DARABONBA_PTR_SET_VALUE(taskId_, taskId) };
 
 
   protected:
     // The retry status.
-    std::shared_ptr<bool> retryStatus_ = nullptr;
-    // The ID of the process.
+    shared_ptr<bool> retryStatus_ {};
+    // The ID of the change order task.
     // 
     // This parameter is required.
-    std::shared_ptr<string> taskId_ = nullptr;
+    shared_ptr<string> taskId_ {};
   };
 
   } // namespace Models

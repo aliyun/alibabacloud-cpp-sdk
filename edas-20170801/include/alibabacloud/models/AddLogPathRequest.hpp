@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->path_ == nullptr; };
+        && this->path_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline AddLogPathRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // path Field Functions 
     bool hasPath() const { return this->path_ != nullptr;};
     void deletePath() { this->path_ = nullptr;};
-    inline string path() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
+    inline string getPath() const { DARABONBA_PTR_GET_DEFAULT(path_, "") };
     inline AddLogPathRequest& setPath(string path) { DARABONBA_PTR_SET_VALUE(path_, path) };
 
 
@@ -51,17 +51,21 @@ namespace Models
     // The ID of the application. You can call the ListApplication operation to query the application ID. For more information, see [ListApplication](https://help.aliyun.com/document_detail/149390.html).
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The absolute path of the log directory that you want to add. The value must start and end with a forward slash (`/`) and must contain `/log` or `/logs`. The following directories are the default log directories in Enterprise Distributed Application Service (EDAS):
     // 
-    // *   /home/admin/edas-container/logs/
-    // *   /home/admin/taobao-tomcat-7.0.59/logs/
-    // *   /home/admin/taobao-tomcat-production-7.0.59.3/logs/
-    // *   /home/admin/taobao-tomcat-production-7.0.70/logs/
-    // *   /home/admin/edas-agent/logs/
+    // - /home/admin/edas-container/logs/
+    // 
+    // - /home/admin/taobao-tomcat-7.0.59/logs/
+    // 
+    // - /home/admin/taobao-tomcat-production-7.0.59.3/logs/
+    // 
+    // - /home/admin/taobao-tomcat-production-7.0.70/logs/
+    // 
+    // - /home/admin/edas-agent/logs/
     // 
     // This parameter is required.
-    std::shared_ptr<string> path_ = nullptr;
+    shared_ptr<string> path_ {};
   };
 
   } // namespace Models

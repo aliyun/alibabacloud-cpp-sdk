@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->resourceGroupIds_ == nullptr
-        && return this->targetUserId_ == nullptr; };
+        && this->targetUserId_ == nullptr; };
     // resourceGroupIds Field Functions 
     bool hasResourceGroupIds() const { return this->resourceGroupIds_ != nullptr;};
     void deleteResourceGroupIds() { this->resourceGroupIds_ = nullptr;};
-    inline string resourceGroupIds() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupIds_, "") };
+    inline string getResourceGroupIds() const { DARABONBA_PTR_GET_DEFAULT(resourceGroupIds_, "") };
     inline AuthorizeResourceGroupRequest& setResourceGroupIds(string resourceGroupIds) { DARABONBA_PTR_SET_VALUE(resourceGroupIds_, resourceGroupIds) };
 
 
     // targetUserId Field Functions 
     bool hasTargetUserId() const { return this->targetUserId_ != nullptr;};
     void deleteTargetUserId() { this->targetUserId_ = nullptr;};
-    inline string targetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
+    inline string getTargetUserId() const { DARABONBA_PTR_GET_DEFAULT(targetUserId_, "") };
     inline AuthorizeResourceGroupRequest& setTargetUserId(string targetUserId) { DARABONBA_PTR_SET_VALUE(targetUserId_, targetUserId) };
 
 
@@ -53,11 +53,11 @@ namespace Models
     // You can specify multiple resource group IDs. Separate multiple resource group IDs with semicolons (;).
     // 
     // This parameter is required.
-    std::shared_ptr<string> resourceGroupIds_ = nullptr;
+    shared_ptr<string> resourceGroupIds_ {};
     // The ID of the RAM user to be authorized.
     // 
     // This parameter is required.
-    std::shared_ptr<string> targetUserId_ = nullptr;
+    shared_ptr<string> targetUserId_ {};
   };
 
   } // namespace Models

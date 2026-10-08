@@ -32,18 +32,18 @@ namespace Models
     virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
     virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
     virtual bool empty() const override { return this->appId_ == nullptr
-        && return this->serviceName_ == nullptr; };
+        && this->serviceName_ == nullptr; };
     // appId Field Functions 
     bool hasAppId() const { return this->appId_ != nullptr;};
     void deleteAppId() { this->appId_ = nullptr;};
-    inline string appId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
+    inline string getAppId() const { DARABONBA_PTR_GET_DEFAULT(appId_, "") };
     inline ListMethodsRequest& setAppId(string appId) { DARABONBA_PTR_SET_VALUE(appId_, appId) };
 
 
     // serviceName Field Functions 
     bool hasServiceName() const { return this->serviceName_ != nullptr;};
     void deleteServiceName() { this->serviceName_ = nullptr;};
-    inline string serviceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
+    inline string getServiceName() const { DARABONBA_PTR_GET_DEFAULT(serviceName_, "") };
     inline ListMethodsRequest& setServiceName(string serviceName) { DARABONBA_PTR_SET_VALUE(serviceName_, serviceName) };
 
 
@@ -51,11 +51,11 @@ namespace Models
     // The ID of the application.
     // 
     // This parameter is required.
-    std::shared_ptr<string> appId_ = nullptr;
+    shared_ptr<string> appId_ {};
     // The name of the service.
     // 
     // This parameter is required.
-    std::shared_ptr<string> serviceName_ = nullptr;
+    shared_ptr<string> serviceName_ {};
   };
 
   } // namespace Models
