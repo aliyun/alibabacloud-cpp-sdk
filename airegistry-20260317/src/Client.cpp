@@ -1208,6 +1208,56 @@ PublishSkillVersionResponse Client::publishSkillVersion(const PublishSkillVersio
 }
 
 /**
+ * @summary 重新编辑版本
+ *
+ * @param request RedraftSkillVersionRequest
+ * @param runtime runtime options for this request RuntimeOptions
+ * @return RedraftSkillVersionResponse
+ */
+RedraftSkillVersionResponse Client::redraftSkillVersionWithOptions(const RedraftSkillVersionRequest &request, const Darabonba::RuntimeOptions &runtime) {
+  request.validate();
+  json query = {};
+  if (!!request.hasNamespaceId()) {
+    query["NamespaceId"] = request.getNamespaceId();
+  }
+
+  if (!!request.hasSkillName()) {
+    query["SkillName"] = request.getSkillName();
+  }
+
+  if (!!request.hasSkillVersion()) {
+    query["SkillVersion"] = request.getSkillVersion();
+  }
+
+  OpenApiRequest req = OpenApiRequest(json({
+    {"query" , Utils::Utils::query(query)}
+  }).get<map<string, map<string, string>>>());
+  Params params = Params(json({
+    {"action" , "RedraftSkillVersion"},
+    {"version" , "2026-03-17"},
+    {"protocol" , "HTTPS"},
+    {"pathname" , "/"},
+    {"method" , "POST"},
+    {"authType" , "AK"},
+    {"style" , "RPC"},
+    {"reqBodyType" , "formData"},
+    {"bodyType" , "json"}
+  }).get<map<string, string>>());
+  return json(callApi(params, req, runtime)).get<RedraftSkillVersionResponse>();
+}
+
+/**
+ * @summary 重新编辑版本
+ *
+ * @param request RedraftSkillVersionRequest
+ * @return RedraftSkillVersionResponse
+ */
+RedraftSkillVersionResponse Client::redraftSkillVersion(const RedraftSkillVersionRequest &request) {
+  Darabonba::RuntimeOptions runtime = RuntimeOptions();
+  return redraftSkillVersionWithOptions(request, runtime);
+}
+
+/**
  * @summary Publishes a draft version of a prompt as an official version. The specified version must be a draft version.
  *
  * @param request SubmitPromptVersionRequest

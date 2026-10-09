@@ -395,6 +395,23 @@ namespace AIRegistry20260317
       Models::PublishSkillVersionResponse publishSkillVersion(const Models::PublishSkillVersionRequest &request);
 
       /**
+       * @summary 重新编辑版本
+       *
+       * @param request RedraftSkillVersionRequest
+       * @param runtime runtime options for this request RuntimeOptions
+       * @return RedraftSkillVersionResponse
+       */
+      Models::RedraftSkillVersionResponse redraftSkillVersionWithOptions(const Models::RedraftSkillVersionRequest &request, const Darabonba::RuntimeOptions &runtime);
+
+      /**
+       * @summary 重新编辑版本
+       *
+       * @param request RedraftSkillVersionRequest
+       * @return RedraftSkillVersionResponse
+       */
+      Models::RedraftSkillVersionResponse redraftSkillVersion(const Models::RedraftSkillVersionRequest &request);
+
+      /**
        * @summary Publishes a draft version of a prompt as an official version. The specified version must be a draft version.
        *
        * @param request SubmitPromptVersionRequest

@@ -69,6 +69,9 @@
 #include <alibabacloud/models/PublishSkillVersionRequest.hpp>
 #include <alibabacloud/models/PublishSkillVersionResponseBody.hpp>
 #include <alibabacloud/models/PublishSkillVersionResponse.hpp>
+#include <alibabacloud/models/RedraftSkillVersionRequest.hpp>
+#include <alibabacloud/models/RedraftSkillVersionResponseBody.hpp>
+#include <alibabacloud/models/RedraftSkillVersionResponse.hpp>
 #include <alibabacloud/models/SubmitPromptVersionRequest.hpp>
 #include <alibabacloud/models/SubmitPromptVersionResponseBody.hpp>
 #include <alibabacloud/models/SubmitPromptVersionResponse.hpp>
