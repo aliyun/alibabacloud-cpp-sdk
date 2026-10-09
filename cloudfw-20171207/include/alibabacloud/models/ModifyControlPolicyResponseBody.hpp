@@ -48,7 +48,7 @@ namespace Models
 
 
   protected:
-    // Indicates whether this is a successful dry run response. A value of true indicates that only the dry run was completed and no actual modification was performed.
+    // Indicates whether the request is a dry run. A value of true indicates that only a dry run was performed and no actual modification was made.
     shared_ptr<bool> dryRun_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

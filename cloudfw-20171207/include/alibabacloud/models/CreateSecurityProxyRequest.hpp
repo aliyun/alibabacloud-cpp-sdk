@@ -116,15 +116,15 @@ namespace Models
       // 
       // This parameter is required.
       shared_ptr<string> destinationCidr_ {};
-      // The next hop address of the original NAT gateway.
+      // The next hop of the original NAT gateway.
       // 
       // This parameter is required.
       shared_ptr<string> nextHopId_ {};
-      // The network type of the next hop. Valid values: NatGateway.
+      // The network type of the next hop. Valid value: NatGateway.
       // 
       // This parameter is required.
       shared_ptr<string> nextHopType_ {};
-      // The route table that contains the default route of the NAT gateway.
+      // The ID of the route table to which the default route of the NAT gateway belongs.
       // 
       // This parameter is required.
       shared_ptr<string> routeTableId_ {};
@@ -239,21 +239,22 @@ namespace Models
   protected:
     // The deployment mode of the firewall service. Valid values:
     // 
-    // - PrimaryStandby: active/standby mode
-    // - MultiPrimary: active-active mode
+    // - **PrimaryStandby**: primary/standby mode.
+    // - **MultiPrimary**: active-active mode.
     shared_ptr<string> firewallServiceMode_ {};
     // The list of zone IDs used by the firewall service.
     shared_ptr<vector<string>> firewallServiceZones_ {};
     // The security protection switch. Valid values:
-    // - **open**: enabled
-    // - **close**: disabled
+    // 
+    // - **open**: Enabled.
+    // - **close**: Disabled.
     shared_ptr<string> firewallSwitch_ {};
     // The zone of the firewall vSwitch.
     shared_ptr<string> fwVswitchZoneId_ {};
-    // The language of the response. Valid values:
+    // The language of the response message. Valid values:
     // 
-    // - **zh** (default): Chinese
-    // - **en**: English
+    // - **zh** (default): Chinese.
+    // - **en**: English.
     shared_ptr<string> lang_ {};
     // The ID of the NAT gateway.
     // 
@@ -263,7 +264,7 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<vector<CreateSecurityProxyRequest::NatRouteEntryList>> natRouteEntryList_ {};
-    // The name of the NAT firewall. The name can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). The name must be 4 to 50 characters in length and cannot start with an underscore.
+    // The name of the NAT firewall. The name must be 4 to 50 characters in length and can contain uppercase and lowercase letters, Chinese characters, digits, and underscores (_). It cannot start with an underscore.
     // 
     // This parameter is required.
     shared_ptr<string> proxyName_ {};
@@ -273,23 +274,25 @@ namespace Models
     // 
     // This parameter is required.
     shared_ptr<string> regionNo_ {};
-    // Specifies whether to enable strict mode.
+    // Specifies whether to enable strict mode. Valid values:
     // 
     // - 1: Enable strict mode.
     // - 0: Disable strict mode.
     shared_ptr<int32_t> strictMode_ {};
-    // The VPC-connected instance ID.
+    // The ID of the VPC.
     // 
     // This parameter is required.
     shared_ptr<string> vpcId_ {};
-    // Specifies whether to use the automatic vSwitch mode. Valid values:
-    // - **true**: automatic mode
-    // - **false**: manual mode
-    // > The default value of VswitchAuto is true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
+    // Specifies whether to use the automatic mode for the vSwitch. Valid values:
+    // 
+    // - **true**: automatic mode.
+    // - **false**: manual mode.
+    // 
+    // > Default value: true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
     shared_ptr<string> vswitchAuto_ {};
-    // The CIDR block of the vSwitch. This parameter is required when the vSwitch is in automatic mode.
+    // The CIDR block of the vSwitch. This parameter is required when the automatic mode is used for the vSwitch.
     shared_ptr<string> vswitchCidr_ {};
-    // The vSwitch ID. This parameter is required when the vSwitch is in manual mode.
+    // The ID of the vSwitch. This parameter is required when the manual mode is used for the vSwitch.
     shared_ptr<string> vswitchId_ {};
   };
 

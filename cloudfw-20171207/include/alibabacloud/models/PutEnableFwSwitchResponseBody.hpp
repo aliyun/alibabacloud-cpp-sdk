@@ -82,12 +82,12 @@ namespace Models
 
     protected:
       // The message when the asset is not synchronized. Valid values:
-      // - cloudfirewall do not sync this ip address: Cloud Firewall has not synchronized this asset IP address.
+      // - cloudfirewall do not sync this ip address: Cloud Firewall did not synchronize this asset IP address.
       shared_ptr<string> msg_ {};
       // The asset IP address.
       shared_ptr<string> resource_ {};
-      // The status of the asset that is not synchronized. Valid values:
-      // - ip_not_sync: The asset is not synchronized.
+      // The status when the asset is not synchronized. Valid values:
+      // - ip_not_sync: the asset is not synchronized.
       shared_ptr<string> status_ {};
     };
 
@@ -117,9 +117,9 @@ namespace Models
 
 
   protected:
-    // The status information list of assets that are not synchronized.
+    // The status information list for assets that are not synchronized.
     shared_ptr<vector<PutEnableFwSwitchResponseBody::AbnormalResourceStatusList>> abnormalResourceStatusList_ {};
-    // Indicates that this is a successful dry run response. A value of true indicates that only the dry run was completed and no real changes were made. This field is not returned or is set to false for real calls.
+    // Indicates whether this response is a dry run success response. A value of true indicates that only the dry run was completed and no actual changes were made. This field is not returned or is set to false for actual calls.
     shared_ptr<bool> dryRun_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};

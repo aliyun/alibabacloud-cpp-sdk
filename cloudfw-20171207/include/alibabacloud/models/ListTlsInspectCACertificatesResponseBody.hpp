@@ -41,6 +41,7 @@ namespace Models
         DARABONBA_PTR_TO_JSON(AliasName, aliasName_);
         DARABONBA_PTR_TO_JSON(CaCertId, caCertId_);
         DARABONBA_PTR_TO_JSON(CaCertType, caCertType_);
+        DARABONBA_PTR_TO_JSON(CertChainExpirationTime, certChainExpirationTime_);
         DARABONBA_PTR_TO_JSON(ExpirationTime, expirationTime_);
         DARABONBA_PTR_TO_JSON(KeySize, keySize_);
         DARABONBA_PTR_TO_JSON(ParentCaCertId, parentCaCertId_);
@@ -52,6 +53,7 @@ namespace Models
         DARABONBA_PTR_FROM_JSON(AliasName, aliasName_);
         DARABONBA_PTR_FROM_JSON(CaCertId, caCertId_);
         DARABONBA_PTR_FROM_JSON(CaCertType, caCertType_);
+        DARABONBA_PTR_FROM_JSON(CertChainExpirationTime, certChainExpirationTime_);
         DARABONBA_PTR_FROM_JSON(ExpirationTime, expirationTime_);
         DARABONBA_PTR_FROM_JSON(KeySize, keySize_);
         DARABONBA_PTR_FROM_JSON(ParentCaCertId, parentCaCertId_);
@@ -70,8 +72,8 @@ namespace Models
       virtual void fromMap(const Darabonba::Json &obj) override { from_json(obj, *this); validate(); };
       virtual Darabonba::Json toMap() const override { Darabonba::Json obj; to_json(obj, *this); return obj; };
       virtual bool empty() const override { return this->algorithm_ == nullptr
-        && this->aliasName_ == nullptr && this->caCertId_ == nullptr && this->caCertType_ == nullptr && this->expirationTime_ == nullptr && this->keySize_ == nullptr
-        && this->parentCaCertId_ == nullptr && this->signAlgorithm_ == nullptr && this->status_ == nullptr; };
+        && this->aliasName_ == nullptr && this->caCertId_ == nullptr && this->caCertType_ == nullptr && this->certChainExpirationTime_ == nullptr && this->expirationTime_ == nullptr
+        && this->keySize_ == nullptr && this->parentCaCertId_ == nullptr && this->signAlgorithm_ == nullptr && this->status_ == nullptr; };
       // algorithm Field Functions 
       bool hasAlgorithm() const { return this->algorithm_ != nullptr;};
       void deleteAlgorithm() { this->algorithm_ = nullptr;};
@@ -98,6 +100,13 @@ namespace Models
       void deleteCaCertType() { this->caCertType_ = nullptr;};
       inline string getCaCertType() const { DARABONBA_PTR_GET_DEFAULT(caCertType_, "") };
       inline Certificates& setCaCertType(string caCertType) { DARABONBA_PTR_SET_VALUE(caCertType_, caCertType) };
+
+
+      // certChainExpirationTime Field Functions 
+      bool hasCertChainExpirationTime() const { return this->certChainExpirationTime_ != nullptr;};
+      void deleteCertChainExpirationTime() { this->certChainExpirationTime_ = nullptr;};
+      inline int64_t getCertChainExpirationTime() const { DARABONBA_PTR_GET_DEFAULT(certChainExpirationTime_, 0L) };
+      inline Certificates& setCertChainExpirationTime(int64_t certChainExpirationTime) { DARABONBA_PTR_SET_VALUE(certChainExpirationTime_, certChainExpirationTime) };
 
 
       // expirationTime Field Functions 
@@ -136,37 +145,33 @@ namespace Models
 
 
     protected:
-      // The encryption algorithm of the CA certificate. Valid values:
-      // 
-      // - **RSA**: the RSA algorithm.
-      // 
-      // - **ECC**: the ECC algorithm.
-      // 
-      // - **SM2**: the SM2 algorithm.
+      // The encryption algorithm type of the CA certificate. Valid values:
+      // - **RSA**: RSA algorithm.
+      // - **ECC**: ECC algorithm.
+      // - **SM2**: SM2 (Chinese national cryptographic) algorithm.
       shared_ptr<string> algorithm_ {};
-      // The alias of the certificate.
+      // The certificate alias.
       shared_ptr<string> aliasName_ {};
-      // The ID of the CA certificate.
+      // The CA certificate ID.
       shared_ptr<string> caCertId_ {};
       // The type of the CA certificate. Valid values:
       // 
-      // - **ROOT**: a root CA certificate.
-      // 
-      // - **SUB_ROOT**: a subordinate CA certificate.
+      // - **ROOT**: Root CA certificate.
+      // - **SUB_ROOT**: Subordinate CA certificate.
       shared_ptr<string> caCertType_ {};
+      // The certificate chain expiration timestamp.
+      shared_ptr<int64_t> certChainExpirationTime_ {};
       // The expiration timestamp.
       shared_ptr<int64_t> expirationTime_ {};
       // The key length of the CA certificate.
       shared_ptr<int32_t> keySize_ {};
-      // The ID of the parent CA certificate.
+      // The parent CA certificate ID.
       shared_ptr<string> parentCaCertId_ {};
       // The signature algorithm of the CA certificate.
       shared_ptr<string> signAlgorithm_ {};
-      // The status of the certificate. Valid values:
-      // 
-      // - **ISSUE**: enabled.
-      // 
-      // - **REVOKE**: revoked.
+      // The certificate status. Valid values:
+      // - **ISSUE**: Enabled.
+      // - **REVOKE**: Revoked.
       shared_ptr<string> status_ {};
     };
 
@@ -198,7 +203,7 @@ namespace Models
   protected:
     // The list of certificates.
     shared_ptr<vector<ListTlsInspectCACertificatesResponseBody::Certificates>> certificates_ {};
-    // The ID of the request.
+    // The request ID.
     shared_ptr<string> requestId_ {};
     // The total number of entries.
     shared_ptr<int64_t> totalCount_ {};

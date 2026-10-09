@@ -68,9 +68,9 @@ namespace Models
   protected:
     // The status of the virtual private cloud (VPC) firewall. Valid values:
     // 
-    // - **open**: enabled.
+    // - **open**: Enable.
     // 
-    // - **close**: disabled.
+    // - **close**: Disable.
     // 
     // This parameter is required.
     shared_ptr<string> firewallSwitch_ {};

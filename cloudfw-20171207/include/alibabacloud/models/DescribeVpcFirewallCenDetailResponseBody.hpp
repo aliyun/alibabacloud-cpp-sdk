@@ -239,13 +239,13 @@ namespace Models
 
 
       protected:
-        // The instance ID of the elastic network interface (ENI) that serves as the network interface controller (NIC) in the VPC.
+        // The instance ID of the elastic network interface (ENI) in the VPC.
         shared_ptr<string> eniId_ {};
-        // The private IP of the elastic network interface (ENI) that serves as the network interface controller (NIC) in the VPC.
+        // The private IP address of the elastic network interface (ENI) in the VPC.
         shared_ptr<string> eniPrivateIpAddress_ {};
-        // The vSwitch ID of the elastic network interface (ENI) that serves as the network interface controller (NIC) in the VPC.
+        // The vSwitch ID of the elastic network interface (ENI) in the VPC.
         shared_ptr<string> eniVSwitchId_ {};
-        // The zone ID where the elastic network interface (ENI) that serves as the network interface controller (NIC) is active.
+        // The zone ID of the elastic network interface (ENI).
         shared_ptr<string> eniZoneId_ {};
       };
 
@@ -384,13 +384,13 @@ namespace Models
       shared_ptr<string> attachmentId_ {};
       // The connection name of the network instance.
       shared_ptr<string> attachmentName_ {};
-      // The CIDR blocks protected by the virtual private cloud (VPC) firewall.
+      // The list of CIDR blocks protected by the virtual private cloud (VPC) firewall.
       shared_ptr<vector<string>> defendCidrList_ {};
-      // The network interface controller (NIC) list.
+      // The list of elastic network interfaces (ENIs).
       shared_ptr<vector<LocalVpc::EniList>> eniList_ {};
-      // The ID of the vSwitch specified when the routing mode is manual.
+      // The ID of the vSwitch specified when the routing mode is set to manual.
       shared_ptr<string> manualVSwitchId_ {};
-      // The VPC instance ID used to create a VPC firewall.
+      // The ID of the VPC for which the virtual private cloud (VPC) firewall is created.
       shared_ptr<string> networkInstanceId_ {};
       // The name of the network instance.
       shared_ptr<string> networkInstanceName_ {};
@@ -406,14 +406,14 @@ namespace Models
       // 
       // - manual: manual mode.
       shared_ptr<string> routeMode_ {};
-      // Indicates whether the routing mode supports manual mode. Valid values:
+      // Indicates whether manual routing mode is supported. Valid values:
       // 
       // - **1**: Supported.
       // - **0**: Not supported.
       shared_ptr<string> supportManualMode_ {};
-      // The instance ID of the CEN-TR.
+      // The instance ID of the CEN transit router (CEN-TR).
       shared_ptr<string> transitRouterId_ {};
-      // The version of the CEN transit router (CEN-TR). Valid values:
+      // The edition of the CEN transit router (CEN-TR). Valid values:
       // 
       // - **Basic**: Basic Edition.
       // 
@@ -544,9 +544,9 @@ namespace Models
       // - **1**: Allowed.
       // - **0**: Not allowed.
       shared_ptr<int32_t> allowConfiguration_ {};
-      // The deployment mode of the VPC firewall service. Valid values: **PrimaryStandby** (active/standby mode) and **MultiPrimary** (active-active mode).
+      // The deployment mode of the VPC firewall service. Valid values: **PrimaryStandby** (primary/standby mode) and **MultiPrimary** (active-active mode).
       shared_ptr<string> firewallServiceMode_ {};
-      // The zone IDs used by the VPC firewall service.
+      // The list of zone IDs used by the VPC firewall service.
       shared_ptr<vector<string>> firewallServiceZones_ {};
       // The secondary zone ID of the firewall.
       shared_ptr<string> standbyZoneId_ {};
@@ -621,19 +621,19 @@ namespace Models
 
 
   protected:
-    // The connectivity type of the virtual private cloud (VPC) firewall. Valid values: **cen**, which indicates Cloud Enterprise Network.
+    // The connection type of the virtual private cloud (VPC) firewall. Valid values: **cen**, which indicates CEN.
     shared_ptr<string> connectType_ {};
-    // The switch status of the virtual private cloud (VPC) firewall. Valid values:
+    // The status of the virtual private cloud (VPC) firewall. Valid values:
     // 
-    // - **opened**: Enabled.
+    // - **opened**: enabled.
     // 
-    // - **closed**: Shutdown.
+    // - **closed**: shutdown.
     // 
-    // - **notconfigured**: Not configured.
+    // - **notconfigured**: not configured.
     shared_ptr<string> firewallSwitchStatus_ {};
     // The VPC used by the firewall.
     shared_ptr<DescribeVpcFirewallCenDetailResponseBody::FirewallVpc> firewallVpc_ {};
-    // The VPC details.
+    // The details of the VPC.
     shared_ptr<DescribeVpcFirewallCenDetailResponseBody::LocalVpc> localVpc_ {};
     // The request ID.
     shared_ptr<string> requestId_ {};
